@@ -162,7 +162,7 @@
     <ClCompile Include="proc.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CDotaBaseAbility.h" />
+    <ClInclude Include="AutoUseMagicWand.h" />
     <ClInclude Include="CGameEntitySystem.h" />
     <ClInclude Include="ConVar.h" />
     <ClInclude Include="CUtlVector.h" />

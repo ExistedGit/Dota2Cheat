@@ -40,7 +40,7 @@ public:
 	//}
 };
 
-class DotaPlayer  {
+class DotaPlayer {
 public:
 	virtual void func0();
 
@@ -108,7 +108,7 @@ public:
 
 class BaseEntity {
 public:
-	
+
 	template<typename T>
 	T Member(int offset/*, T defaultValue = T{}*/) {
 		//if (!offset)
@@ -133,11 +133,11 @@ public:
 		return Member<ENT_HANDLE>(Schema::Netvars["C_BaseEntity"]["m_hOwnerEntity"]);
 	}
 	inline Fvector GetPos() {
-		u64 addr = Schema::Netvars["C_BaseEntity"]["m_pGameSceneNode"];
-		if(!addr)
+		u64 offset = Schema::Netvars["C_BaseEntity"]["m_pGameSceneNode"];
+		if (!offset)
 			return Fvector::Zero;
 
-		return *(Fvector*)(addr + 0x10);
+		return *(Fvector*)(*(uintptr_t*)( (uintptr_t)this + offset ) + 0x10);
 	}
 	inline int GetMaxHealth() {
 		return Member<int>(Schema::Netvars["C_BaseEntity"]["m_iMaxHealth"]);
@@ -149,9 +149,9 @@ public:
 		return Member<DOTATeam_t>(Schema::Netvars["C_BaseEntity"]["m_iTeamNum"]);
 	}
 
-	
+
 };
-class BaseNpc : public BaseEntity{
+class BaseNpc : public BaseEntity {
 public:
 	struct ItemOrAbility {
 		const char* name;
@@ -210,7 +210,15 @@ public:
 	//	return ptr + offset;
 	//}
 
-
+	inline ItemOrAbility FindItemBySubstring(const char* str) {
+		if (str == nullptr)
+			return ItemOrAbility{ nullptr, 0xFFFFFFFF };
+		for (const auto& item : GetItems())
+			if (strstr(item.name, str)) 
+				return item;
+			
+		return ItemOrAbility{ nullptr, 0xFFFFFFFF };
+	}
 	inline std::vector<ItemOrAbility> GetItems() {
 		static int offset = Schema::Netvars["C_DOTA_BaseNPC"]["m_Inventory"];
 		if (!offset)
@@ -236,14 +244,17 @@ public:
 	inline float GetMaxMana() {
 		return Member<float>(Schema::Netvars["C_DOTA_BaseNPC"]["m_flMaxMana"]);
 	}
-	inline BYTE GetLifeState() {
-		return Member<BYTE>(Schema::Netvars["C_DOTA_BaseNPC"]["m_lifeState"]);
+	inline INT8 GetLifeState() {
+		return Member<INT8>(Schema::Netvars["C_BaseEntity"]["m_lifeState"]);
 	}
 };
-class BaseAbility:public BaseEntity {
+class BaseAbility :public BaseEntity {
 public:
 	float GetCooldown() {
 		return Member<float>(0x5b0);
+	}
+	int GetCharges() {
+		return Member<int>(0x610);
 	}
 	int GetManaCost() {
 		return Member<int>(0x5b8);

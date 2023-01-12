@@ -7,24 +7,24 @@
 #include "ConVar.h"
 
 namespace Interfaces {
-	CVarSystem* CVar;
-	void* Engine;
-	VClass* Panorama;
-	void* Panorama2;
-	CSource2Client* Client;
-	CGameEntitySystem* Entity;
-	uintptr_t Schema;
+	inline CVarSystem* CVar;
+	inline void* Engine;
+	inline VClass* Panorama;
+	inline void* Panorama2;
+	inline CSource2Client* Client;
+	inline CGameEntitySystem* Entity;
+	inline uintptr_t Schema;
 
 	typedef void* (__cdecl* tCreateInterface)(const char* name, int* returnCode);
 	template<typename T>
-	T GetInterface(const char* dllName, const char* interfaceName) {
+	inline  T GetInterface(const char* dllName, const char* interfaceName) {
 		tCreateInterface CreateInterface = (tCreateInterface)GetProcAddress(GetModuleHandleA(dllName), "CreateInterface");
 		int retCode = 0;
 		void* retInterface = CreateInterface(interfaceName, &retCode);
 		return reinterpret_cast<T>(retInterface);
 	}
 	
-	void LogInterfaces() {
+	inline  void LogInterfaces() {
 		std::cout << std::hex;
 		std::cout << "Schema: " << Interfaces::Schema << "\n";
 		std::cout << "EntitySystem: " << Interfaces::Entity << "\n";
@@ -35,7 +35,7 @@ namespace Interfaces {
 		std::cout << "Panorama2: " << Interfaces::Panorama2 << "\n";
 		//std::cout << std::dec;
 	}
-	void InitInterfaces() {
+	inline void InitInterfaces() {
 		Engine = GetInterface<void*>("engine2.dll", "Source2EngineToClient001");
 		Client = GetInterface<CSource2Client*>("client.dll", "Source2Client002");
 		CVar = GetInterface<CVarSystem*>("tier0.dll", "VEngineCvar007");
