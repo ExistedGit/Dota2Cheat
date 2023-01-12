@@ -28,6 +28,7 @@ namespace Signatures {
 	}
 
 	void LogSignatures() {
+		std::cout << "[SIGNATURES]\n";
 		std::cout << "PrepareUnitOrders: " << PrepareUnitOrders << std::endl;
 		std::cout << "OnColorChanged: " << OnColorChanged << std::endl;
 	}

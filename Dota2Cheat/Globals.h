@@ -4,6 +4,7 @@
 namespace Globals {
 	class CDOTAGameRules {
 	public:
+
 	};
 
 	CDOTAGameRules* GameRules;
@@ -15,6 +16,10 @@ namespace Globals {
 		DWORD id = GetCurrentProcessId();
 		HANDLE handle = OpenProcess(PROCESS_ALL_ACCESS, TRUE, id);
 		uintptr_t addr = (uintptr_t)PatternScanExModule(handle, id, L"client.dll", funcAddr, funcAddrMask);
-		GameRules = GetAbsoluteAddress(addr, 3, 7);
+		GameRules = (CDOTAGameRules*)GetAbsoluteAddress(addr, 3, 7);
+	}
+	void LogGlobals() {
+		std::cout << "[GLOBALS]\n";
+		std::cout << std::hex << "GameRules: " << GameRules;
 	}
 }

@@ -25,7 +25,7 @@ namespace Interfaces {
 	}
 	
 	inline  void LogInterfaces() {
-		std::cout << std::hex;
+		std::cout << "[INTERFACES]" << std::hex;
 		std::cout << "Schema: " << Interfaces::Schema << "\n";
 		std::cout << "EntitySystem: " << Interfaces::Entity << "\n";
 		std::cout << "IEngineClient: " << Interfaces::Engine << "\n";

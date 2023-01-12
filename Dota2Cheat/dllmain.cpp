@@ -79,10 +79,11 @@ void gotoxy(int x, int y)
 	coord.Y = y;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
+
 DotaPlayer* localPlayer;
 BaseNpc* assignedHero;
-void LogInvAndAbilities() {
 
+void LogInvAndAbilities() {
 	std::cout << "abilities: " << '\n';
 	for (const auto& ability : assignedHero->GetAbilities())
 		std::cout << '\t' << ability.name << " " << ENTID_FROM_HANDLE(ability.handle) << "Mana Cost: " << getvfunc(Interfaces::Entity->GetBaseEntity(ENTID_FROM_HANDLE(ability.handle)), 0xc4).ptr << '\n';
@@ -196,21 +197,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		std::cout << std::hex << "assignedHero: " << assignedHero << '\n';
 		std::cout << "Local hero: " << assignedHero->GetUnitName() << '\n';
 	}
-	bool cvarstate = false;
-	ConVar* dota_camera_distance;
-	ConVar* fog_enable;
-	ConVar* farZ;
-	ConVar* fow;
-	ConVar* svCheats;
-	{
-		auto camDistNode = Interfaces::CVar->GetCVarNodeList()[3437];
-		dota_camera_distance = camDistNode.var;
-		fog_enable = Interfaces::CVar->GetCVarNodeList()[17].var;
-		farZ = Interfaces::CVar->GetCVarNodeList()[3763].var;
-		fow = Interfaces::CVar->GetCVarNodeList()[3098].var;
-		svCheats = Interfaces::CVar->GetCVarNodeList()[307].var;
-		//std::cout << std::dec << dota_camera_distance->value.flt << " " << dota_camera_distance->CALLBACK_INDEX << std::hex << '\n';
-	}
+	
 	Log("CVars found!");
 	bool spamBuy = false;
 	while (!GetAsyncKeyState(VK_INSERT)) {
@@ -220,16 +207,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 
 		//std::cout << std::dec << (uintptr_t)getvfunc(Interfaces::Engine, 24)(Interfaces::Engine) << std::hex << '\n';
-		if (GetAsyncKeyState(VK_HOME)) {
-			svCheats->value.boolean = true;
-			farZ->value.flt = 5000.0f;
-			fog_enable->value.boolean = cvarstate;
-			dota_camera_distance->value.flt = 1400.0f + (cvarstate ? -1 : 1) * 200.0f;
-			Interfaces::CVar->TriggerCallback(dota_camera_distance);
-			fow->value.boolean = cvarstate;
-
-			cvarstate = !cvarstate;
-		}
+		
 		if (inGameStuff) {
 			if (assignedHero->GetLifeState() == 0) { // if alive
 				AutoUseWandCheck(localPlayer, assignedHero);
@@ -245,14 +223,14 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 				
 				ENT_HANDLE canUseMidas = 0xFFFfFFFF;
 				auto item = assignedHero->FindItemBySubstring("midas");
-				
-				
 				if (item.handle != -1 && reinterpret_cast<BaseAbility*>(item.GetEntity())->GetCooldown() == 0)
 					canUseMidas = item.handle;
 				
 				EntityIteration(canUseMidas);
 			}
-
+			if (GetAsyncKeyState(VK_HOME)) {
+				Interfaces::CVar->SetConvars();
+			}
 
 			if (spamBuy)
 				localPlayer->BuyItem(0x101);
