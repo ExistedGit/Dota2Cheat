@@ -2,6 +2,14 @@
 #include <cstdint>
 #include <iostream>
 #include <Windows.h>
+
+inline void PAUSE() {
+	std::cout << "PAUSE" << '\n';
+	while (!GetAsyncKeyState(VK_NUMPAD3)) {
+	}
+}
+
+
 #define ENT_HANDLE uint32_t
 #define ENT_HANDLE_MASK 0x7fff
 #define ENTID_FROM_HANDLE(H) (H & ENT_HANDLE_MASK)

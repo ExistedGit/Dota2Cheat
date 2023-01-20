@@ -9,7 +9,9 @@
 #include "AutoUseMagicWand.h"
 #include "Globals.h"
 #include "AutoUseMidas.h"
+#include "MatchStateHandling.h"
 
+bool IsInMatch = false;
 Fvector Fvector::Zero = Fvector(0, 0, 0);
 std::map<ConVar*, int> CVarSystem::CVar = {};
 
@@ -169,6 +171,7 @@ void EntityIteration(ENT_HANDLE midas) {
 	//std::cout << "Illusions: " << illusionCount;
 }
 
+
 uintptr_t WINAPI HackThread(HMODULE hModule) {
 	AllocConsole();
 	FILE* f;
@@ -215,31 +218,20 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		if (!isInGame)
 			continue;
 		//EntityIteration();
-
-		Globals::GameRules = *Globals::GameRulesPtr;
+		CheckMatchState();
 		//uintptr_t vtable = *((uintptr_t*)(Interfaces::Engine));
 		//uintptr_t entry = vtable + sizeof(uintptr_t) * 25;
 
 		//unsigned char IsInGameResult = ((unsigned char(__fastcall*)(void*)) * (uintptr_t*)entry)(Interfaces::Engine);
 
 
-		if (inGameStuff) {
-			if (!playerEntFound && 
-				(Globals::GameRules->GetGameState()== GameState::DOTA_GAMERULES_PREGAME ||
-					Globals::GameRules->GetGameState() == GameState::DOTA_GAMERULES_GAME_IN_PROGRESS)) {
-
-				localPlayer = (DotaPlayer*)Interfaces::Entity->GetBaseEntity(Interfaces::Engine->GetLocalPlayerSlot() + 1);
-				assignedHero = (BaseNpc*)Interfaces::Entity->GetBaseEntity(localPlayer->GetAssignedHeroHandle() & 0x7fff);
-				std::cout << std::hex << "assignedHero: " << assignedHero << '\n';
-				std::cout << "Local hero: " << assignedHero->GetUnitName() << '\n';
-				playerEntFound = true;
-				
-			}
+		if (inGameStuff && IsInMatch) {
 			if (assignedHero->GetLifeState() == 0) { // if alive
 				AutoUseWandCheck(localPlayer, assignedHero);
 				AutoUseFaerieFireCheck(localPlayer, assignedHero);
 				EntityIteration(AutoUseMidasCheck(assignedHero));
 			}
+
 
 			if (GetAsyncKeyState(VK_NUMPAD7)) {
 				//LogInvAndAbilities();

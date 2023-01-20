@@ -98,7 +98,7 @@
     <ClInclude Include="CGameEntitySystem.h">
       <Filter>Файлы заголовков\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="InGameStatusHandling.h">
+    <ClInclude Include="MatchStateHandling.h">
       <Filter>Файлы заголовков\Event</Filter>
     </ClInclude>
     <ClInclude Include="IEngineClient.h">

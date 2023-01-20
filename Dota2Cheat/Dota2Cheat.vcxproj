@@ -172,6 +172,7 @@
     <ClInclude Include="Globals.h" />
     <ClInclude Include="IEngineClient.h" />
     <ClInclude Include="include.h" />
+    <ClInclude Include="MatchStateHandling.h" />
     <ClInclude Include="Interfaces.h" />
     <ClInclude Include="Schema.h" />
     <ClInclude Include="patternscan.h" />

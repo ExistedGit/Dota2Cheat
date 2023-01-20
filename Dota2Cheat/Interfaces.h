@@ -11,7 +11,7 @@ namespace Interfaces {
 	inline CVarSystem* CVar;
 	inline IEngineClient* Engine;
 	inline VClass* Panorama;
-	inline void* Panorama2;
+	inline VClass* Panorama2;
 	inline CSource2Client* Client;
 	inline CGameEntitySystem* Entity;
 	inline uintptr_t Schema;
@@ -46,7 +46,7 @@ namespace Interfaces {
 
 
 		Panorama = GetInterface<VClass*>("panorama.dll", "PanoramaUIEngine001");
-		Panorama2 = Panorama->Member<void*>(0x28);
+		Panorama2 = Panorama->Member<VClass*>(0x28);
 
 		Schema = GetInterface<uintptr_t>("schemasystem.dll", "SchemaSystem_001");
 	}
