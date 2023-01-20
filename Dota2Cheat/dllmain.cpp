@@ -11,41 +11,24 @@
 #include "AutoUseMidas.h"
 #include "MatchStateHandling.h"
 
+#pragma region Global variables
+
+
 bool IsInMatch = false;
 Fvector Fvector::Zero = Fvector(0, 0, 0);
 std::map<ConVar*, int> CVarSystem::CVar = {};
 
+DotaPlayer* localPlayer;
+BaseNpc* assignedHero;
+
 HANDLE CurProcHandle;
 int CurProcId;
+#pragma endregion
 
 namespace VMTs {
+	std::unique_ptr<VMT> Panorama2;
 	std::unique_ptr<VMT> Engine;
 	std::unique_ptr<VMT> Entity;
-}
-
-namespace Hooks {
-	typedef BaseEntity* (*OnAddEntityFn)(CEntitySystem*, BaseEntity*, ENT_HANDLE);
-
-	BaseEntity* OnAddEntity(CEntitySystem* thisptr, BaseEntity* ent, ENT_HANDLE handle) {
-		bool fit = true;
-		const char* name = ent->SchemaBinding()->binaryName;
-		if (fit) {
-			int entId = ((uint16_t)(handle) & 0xfff);
-			//CDotaBaseNPC* npc = (CDotaBaseNPC*)ent;
-			//if (name != nullptr)
-			//	std::cout << name << " // " << ent << " || " << std::dec << entId << std::hex << std::endl;
-			if (strstr(ent->SchemaBinding()->binaryName, "DOTA_Unit_Hero") != nullptr) {
-				std::cout << ent->SchemaBinding()->binaryName << " // " << ent << '\n';
-			}
-			else if (strstr(ent->SchemaBinding()->binaryName, "C_DOTAPlayer") != nullptr) {
-				auto* player = (DotaPlayer*)ent;
-				std::cout << "Player // " << player << " || " << entId << std::endl;
-			}
-
-		}
-
-		return VMTs::Entity->GetOriginalMethod<OnAddEntityFn>(14)(thisptr, ent, handle);
-	};
 }
 
 void LogEntities() {
@@ -62,25 +45,6 @@ void LogEntities() {
 		}
 	}
 }
-
-
-int GetLocalPlayerSlot() {
-	int idx = 0;
-	getvfunc(Interfaces::Engine, 20)(Interfaces::Engine, &idx, 0, 0);
-	return idx;
-}
-
-void gotoxy(int x, int y)
-{
-	COORD coord;
-	coord.X = x;
-	coord.Y = y;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-}
-
-DotaPlayer* localPlayer;
-BaseNpc* assignedHero;
-
 void LogInvAndAbilities() {
 	std::cout << "abilities: " << '\n';
 	for (const auto& ability : assignedHero->GetAbilities())
@@ -99,16 +63,6 @@ bool TestStringFilters(const char* str, std::vector<const char*> filters) {
 	}
 	return result;
 }
-//std::vector<Color> rainbow = {
-//	Color(255,0,0),//red
-//	Color(255,255,0),
-//	Color(0,255,0),//green
-//	Color(0,255,255),
-//	Color(0,0,255),//blue
-//	Color(255,0,255)
-//};
-//int rainbowIndex = 0;
-
 void EntityIteration(ENT_HANDLE midas) {
 	int illusionCount = 0;
 	bool midasUsed = false;
@@ -171,6 +125,106 @@ void EntityIteration(ENT_HANDLE midas) {
 	//std::cout << "Illusions: " << illusionCount;
 }
 
+namespace Hooks {
+	typedef BaseEntity* (*OnAddEntityFn)(CEntitySystem*, BaseEntity*, ENT_HANDLE);
+	typedef void (*RunFrameFn)(u64, u64);
+
+	void RunFrame(u64 a, u64 b) {
+		const bool inGameStuff = true;
+		bool isInGame = Interfaces::Engine->IsInGame();
+		if (isInGame) {
+
+		//EntityIteration();
+		CheckMatchState();
+		//uintptr_t vtable = *((uintptr_t*)(Interfaces::Engine));
+		//uintptr_t entry = vtable + sizeof(uintptr_t) * 25;
+
+		//unsigned char IsInGameResult = ((unsigned char(__fastcall*)(void*)) * (uintptr_t*)entry)(Interfaces::Engine);
+
+
+		if (inGameStuff && IsInMatch) {
+			if (assignedHero->GetLifeState() == 0) { // if alive
+				AutoUseWandCheck(localPlayer, assignedHero);
+				AutoUseFaerieFireCheck(localPlayer, assignedHero);
+				EntityIteration(AutoUseMidasCheck(assignedHero));
+			}
+
+
+			if (GetAsyncKeyState(VK_NUMPAD7)) {
+				//LogInvAndAbilities();
+				LogEntities();
+			}
+
+			if (GetAsyncKeyState(VK_HOME)) {
+				Interfaces::CVar->SetConvars();
+			}
+
+			//if (spamBuy)
+			//	localPlayer->BuyItem(0x101);
+		}
+
+		//if (GetAsyncKeyState(VK_F5)) {
+			//for (const auto& item : assignedHero.BaseNPC_GetItems()) {
+			//	if (strstr(item.name, "tome") != nullptr)
+			//		localPlayer.CastNoTarget(item.handle);
+			//}
+		//}
+
+
+		}
+		VMTs::Panorama2->GetOriginalMethod<RunFrameFn>(6)(a, b);
+	}
+
+	BaseEntity* OnAddEntity(CEntitySystem* thisptr, BaseEntity* ent, ENT_HANDLE handle) {
+		bool fit = true;
+		const char* name = ent->SchemaBinding()->binaryName;
+		if (fit) {
+			int entId = ((uint16_t)(handle) & 0xfff);
+			//CDotaBaseNPC* npc = (CDotaBaseNPC*)ent;
+			//if (name != nullptr)
+			//	std::cout << name << " // " << ent << " || " << std::dec << entId << std::hex << std::endl;
+			if (strstr(ent->SchemaBinding()->binaryName, "DOTA_Unit_Hero") != nullptr) {
+				std::cout << ent->SchemaBinding()->binaryName << " // " << ent << '\n';
+			}
+			else if (strstr(ent->SchemaBinding()->binaryName, "C_DOTAPlayer") != nullptr) {
+				auto* player = (DotaPlayer*)ent;
+				std::cout << "Player // " << player << " || " << entId << std::endl;
+			}
+
+		}
+
+		return VMTs::Entity->GetOriginalMethod<OnAddEntityFn>(14)(thisptr, ent, handle);
+	};
+}
+
+
+
+//int GetLocalPlayerSlot() {
+//	int idx = 0;
+//	getvfunc(Interfaces::Engine, 20)(Interfaces::Engine, &idx, 0, 0);
+//	return idx;
+//}
+
+void gotoxy(int x, int y)
+{
+	COORD coord;
+	coord.X = x;
+	coord.Y = y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
+
+
+//std::vector<Color> rainbow = {
+//	Color(255,0,0),//red
+//	Color(255,255,0),
+//	Color(0,255,0),//green
+//	Color(0,255,255),
+//	Color(0,0,255),//blue
+//	Color(255,0,255)
+//};
+//int rainbowIndex = 0;
+
+
 
 uintptr_t WINAPI HackThread(HMODULE hModule) {
 	AllocConsole();
@@ -198,7 +252,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Globals::InitGlobals();
 	//Globals::LogGlobals();
 	const bool logEntities = false;
-	const bool inGameStuff = true;
 	bool playerEntFound = false;
 
 	if (logEntities) {
@@ -208,53 +261,17 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		VMTs::Entity->HookVM(Hooks::OnAddEntity, 14);
 		VMTs::Entity->ApplyVMT();
 	}
-
+	VMTs::Panorama2 = std::unique_ptr<VMT>(new VMT(Interfaces::Panorama2));
+	VMTs::Panorama2->HookVM(Hooks::RunFrame, 6);
+	VMTs::Panorama2->ApplyVMT();
 
 	Log("CVars found!");
 	bool spamBuy = false;
 	while (!GetAsyncKeyState(VK_INSERT)) {
-		Sleep(100);
-		bool isInGame = Interfaces::Engine->IsInGame();
-		if (!isInGame)
-			continue;
-		//EntityIteration();
-		CheckMatchState();
-		//uintptr_t vtable = *((uintptr_t*)(Interfaces::Engine));
-		//uintptr_t entry = vtable + sizeof(uintptr_t) * 25;
-
-		//unsigned char IsInGameResult = ((unsigned char(__fastcall*)(void*)) * (uintptr_t*)entry)(Interfaces::Engine);
-
-
-		if (inGameStuff && IsInMatch) {
-			if (assignedHero->GetLifeState() == 0) { // if alive
-				AutoUseWandCheck(localPlayer, assignedHero);
-				AutoUseFaerieFireCheck(localPlayer, assignedHero);
-				EntityIteration(AutoUseMidasCheck(assignedHero));
-			}
-
-
-			if (GetAsyncKeyState(VK_NUMPAD7)) {
-				//LogInvAndAbilities();
-				LogEntities();
-			}
-
-			if (GetAsyncKeyState(VK_HOME)) {
-				Interfaces::CVar->SetConvars();
-			}
-
-			if (spamBuy)
-				localPlayer->BuyItem(0x101);
-		}
-
-		//if (GetAsyncKeyState(VK_F5)) {
-			//for (const auto& item : assignedHero.BaseNPC_GetItems()) {
-			//	if (strstr(item.name, "tome") != nullptr)
-			//		localPlayer.CastNoTarget(item.handle);
-			//}
-		//}
-
-
+		//Sleep(100);
 	}
+	VMTs::Entity->ReleaseVMT();
+	VMTs::Panorama2->ReleaseVMT();
 	//VMTs::Entity = nullptr;
 	Schema::Netvars.clear();
 	if (f) fclose(f);

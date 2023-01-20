@@ -18,6 +18,7 @@ inline void EnteredMatch() {
 		assignedHero = (BaseNpc*)Interfaces::Entity->GetBaseEntity(ENTID_FROM_HANDLE(localPlayer->GetAssignedHeroHandle()));
 		std::cout << std::hex << "Assigned Hero: " << assignedHero << " " << assignedHero->GetUnitName() << '\n';
 		IsInMatch = true;
+		std::cout << "ENTERED MATCH\n";
 	}
 }
 inline void LeftMatch() {
@@ -25,6 +26,7 @@ inline void LeftMatch() {
 	localPlayer = nullptr;
 	assignedHero = nullptr;
 	IsInMatch = false;
+	std::cout << "LEFT MATCH\n";
 }
 inline void CheckMatchState() {
 	if (Interfaces::Engine->IsInGame()) {
