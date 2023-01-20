@@ -8,6 +8,7 @@
 #include "SDK/color.h"
 #include "AutoUseMagicWand.h"
 #include "Globals.h"
+#include "AutoUseMidas.h"
 
 Fvector Fvector::Zero = Fvector(0, 0, 0);
 std::map<ConVar*, int> CVarSystem::CVar = {};
@@ -66,15 +67,6 @@ int GetLocalPlayerSlot() {
 	getvfunc(Interfaces::Engine, 20)(Interfaces::Engine, &idx, 0, 0);
 	return idx;
 }
-//std::vector<Color> rainbow = {
-//	Color(255,0,0),//red
-//	Color(255,255,0),
-//	Color(0,255,0),//green
-//	Color(0,255,255),
-//	Color(0,0,255),//blue
-//	Color(255,0,255)
-//};
-//int rainbowIndex = 0;
 
 void gotoxy(int x, int y)
 {
@@ -105,6 +97,15 @@ bool TestStringFilters(const char* str, std::vector<const char*> filters) {
 	}
 	return result;
 }
+//std::vector<Color> rainbow = {
+//	Color(255,0,0),//red
+//	Color(255,255,0),
+//	Color(0,255,0),//green
+//	Color(0,255,255),
+//	Color(0,0,255),//blue
+//	Color(255,0,255)
+//};
+//int rainbowIndex = 0;
 
 void EntityIteration(ENT_HANDLE midas) {
 	int illusionCount = 0;
@@ -116,7 +117,9 @@ void EntityIteration(ENT_HANDLE midas) {
 		if (ent == nullptr)
 			continue;
 		const char* className = ent->SchemaBinding()->binaryName;
-		if (!midasUsed && midas != -1 && className != nullptr && strstr(className, "Creep")) {
+		if (!midasUsed && midas != -1
+			&& className != nullptr
+			&& strstr(className, "Creep")) {
 			auto creep = (BaseNpc*)ent;
 			Fvector posHero = assignedHero->GetPos(), posCreep = creep->GetPos();
 			static std::vector<const char*> filters = {
@@ -129,6 +132,7 @@ void EntityIteration(ENT_HANDLE midas) {
 					"ursa_warrior",
 					"ogre_magi"
 			};
+			// If the creep is not one of ours, is alive, is within 600 hammer units and its name matches one of the filters
 			if (creep->GetTeam() != assignedHero->GetTeam() &&
 				creep->GetHealth() > 0 &&
 				sqrtf(
@@ -136,6 +140,7 @@ void EntityIteration(ENT_HANDLE midas) {
 					pow(posHero.y - posCreep.y, 2)
 				) <= 600.0f &&
 				TestStringFilters(creep->GetUnitName(), filters)) {
+
 				midasUsed = true;
 				localPlayer->PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_TARGET, i, &Fvector::Zero, ENTID_FROM_HANDLE(midas), PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY);
 				break;
@@ -188,9 +193,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Signatures::LogSignatures();
 
 	Globals::InitGlobals();
-	Globals::LogGlobals();
+	//Globals::LogGlobals();
 	const bool logEntities = false;
 	const bool inGameStuff = true;
+	bool playerEntFound = false;
 
 	if (logEntities) {
 		LogEntities();
@@ -200,47 +206,46 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		VMTs::Entity->ApplyVMT();
 	}
 
-	//std::cout << getvfunc(Interfaces::Engine, 20).ptr << " press INSERT\n";
-	//while (!GetAsyncKeyState(VK_INSERT)) {
-
-	//}
-	if (inGameStuff) {
-		localPlayer = (DotaPlayer*)Interfaces::Entity->GetBaseEntity(GetLocalPlayerSlot() + 1);
-		assignedHero = (BaseNpc*)Interfaces::Entity->GetBaseEntity(localPlayer->GetAssignedHeroHandle() & 0x7fff);
-		std::cout << std::hex << "assignedHero: " << assignedHero << '\n';
-		std::cout << "Local hero: " << assignedHero->GetUnitName() << '\n';
-	}
 
 	Log("CVars found!");
 	bool spamBuy = false;
 	while (!GetAsyncKeyState(VK_INSERT)) {
 		Sleep(100);
-
+		bool isInGame = Interfaces::Engine->IsInGame();
+		if (!isInGame)
+			continue;
 		//EntityIteration();
 
+		Globals::GameRules = *Globals::GameRulesPtr;
+		//uintptr_t vtable = *((uintptr_t*)(Interfaces::Engine));
+		//uintptr_t entry = vtable + sizeof(uintptr_t) * 25;
 
-		//std::cout << std::dec << (uintptr_t)getvfunc(Interfaces::Engine, 24)(Interfaces::Engine) << std::hex << '\n';
+		//unsigned char IsInGameResult = ((unsigned char(__fastcall*)(void*)) * (uintptr_t*)entry)(Interfaces::Engine);
+
 
 		if (inGameStuff) {
+			if (!playerEntFound && 
+				(Globals::GameRules->GetGameState()== GameState::DOTA_GAMERULES_PREGAME ||
+					Globals::GameRules->GetGameState() == GameState::DOTA_GAMERULES_GAME_IN_PROGRESS)) {
+
+				localPlayer = (DotaPlayer*)Interfaces::Entity->GetBaseEntity(Interfaces::Engine->GetLocalPlayerSlot() + 1);
+				assignedHero = (BaseNpc*)Interfaces::Entity->GetBaseEntity(localPlayer->GetAssignedHeroHandle() & 0x7fff);
+				std::cout << std::hex << "assignedHero: " << assignedHero << '\n';
+				std::cout << "Local hero: " << assignedHero->GetUnitName() << '\n';
+				playerEntFound = true;
+				
+			}
 			if (assignedHero->GetLifeState() == 0) { // if alive
 				AutoUseWandCheck(localPlayer, assignedHero);
 				AutoUseFaerieFireCheck(localPlayer, assignedHero);
+				EntityIteration(AutoUseMidasCheck(assignedHero));
 			}
 
 			if (GetAsyncKeyState(VK_NUMPAD7)) {
 				//LogInvAndAbilities();
 				LogEntities();
 			}
-			if (/*GetAsyncKeyState(VK_END) &&*/ assignedHero->GetLifeState() == 0) {
-				//	std::cout << canUseMidas << '\n';
 
-				ENT_HANDLE canUseMidas = 0xFFFfFFFF;
-				auto item = assignedHero->FindItemBySubstring("midas");
-				if (item.handle != -1 && reinterpret_cast<BaseAbility*>(item.GetEntity())->GetCooldown() == 0)
-					canUseMidas = item.handle;
-
-				EntityIteration(canUseMidas);
-			}
 			if (GetAsyncKeyState(VK_HOME)) {
 				Interfaces::CVar->SetConvars();
 			}

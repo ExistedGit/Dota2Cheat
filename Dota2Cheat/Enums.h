@@ -1,5 +1,5 @@
 #pragma once
-enum DOTATeam_t : int {
+enum class DOTATeam_t : int {
     DOTA_TEAM_INVALID = -1,
     DOTA_TEAM_FIRST = 2,
     DOTA_TEAM_GOODGUYS = 2, //Radiant team.
@@ -20,7 +20,7 @@ enum DOTATeam_t : int {
     DOTA_TEAM_COUNT = 14
 };
 
-enum DotaUnitOrder_t : int {
+enum class DotaUnitOrder_t : int {
     DOTA_UNIT_ORDER_NONE = 0,
     DOTA_UNIT_ORDER_MOVE_TO_POSITION = 1,
     DOTA_UNIT_ORDER_MOVE_TO_TARGET = 2,
@@ -59,14 +59,32 @@ enum DotaUnitOrder_t : int {
     DOTA_UNIT_ORDER_CAST_RIVER_PAINT = 35,
     DOTA_UNIT_ORDER_PREGAME_ADJUST_ITEM_ASSIGNMENT = 36,
 };
-enum PlayerOrderIssuer_t : int {
+//what units will receive the PrepareUnitOrders() command
+enum class PlayerOrderIssuer_t : int {
     DOTA_ORDER_ISSUER_SELECTED_UNITS = 0,
     DOTA_ORDER_ISSUER_CURRENT_UNIT_ONLY = 1,
     DOTA_ORDER_ISSUER_HERO_ONLY = 2,
     DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY = 3
 };
-enum OrderQueueBehavior_t : int {
+
+//unused since somewhen in 2022
+enum class OrderQueueBehavior_t : int {
     DOTA_ORDER_QUEUE_DEFAULT = 0,
     DOTA_ORDER_QUEUE_NEVER = 1,
     DOTA_ORDER_QUEUE_ALWAYS = 2,
+};
+
+enum class GameState : int
+{
+    DOTA_GAMERULES_STATE_INIT = 0,
+    DOTA_GAMERULES_WAIT_FOR_PLAYERS_TO_LOAD,
+    DOTA_GAMERULES_HERO_SELECTION,
+    DOTA_GAMERULES_STRATEGY_TIME,
+    DOTA_GAMERULES_PREGAME,
+    DOTA_GAMERULES_GAME_IN_PROGRESS,
+    DOTA_GAMERULES_POSTGAME,
+    DOTA_GAMERULES_DISCONNECT,
+    DOTA_GAMERULES_TEAM_SHOWCASE,
+    DOTA_GAMERULES_CUSTOM_GAME_SETUP,
+    DOTA_GAMERULES_WAIT_FOR_MAP_TO_LOAD
 };

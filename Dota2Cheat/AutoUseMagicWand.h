@@ -10,7 +10,7 @@ inline void AutoUseWandCheck(DotaPlayer* player, BaseNpc* hero = nullptr, int hp
 			return;
 
 		//player is for ordering the cast
-		auto wandEnt = (BaseAbility*)wand.GetEntity();
+		auto wandEnt = wand.GetAs<BaseAbility>();
 		if (wandEnt->GetCooldown() != 0 || wandEnt->GetCharges() < 5)
 			return;
 		player->CastNoTarget(wand.handle, hero);
@@ -23,7 +23,7 @@ inline void AutoUseFaerieFireCheck(DotaPlayer* player, BaseNpc* hero = nullptr, 
 			return;
 
 		//player is for ordering the cast
-		auto itemEnt = (BaseAbility*)faerieFire.GetEntity();
+		auto itemEnt = faerieFire.GetAs<BaseAbility>();
 		if (itemEnt->GetCooldown() != 0)
 			return;
 		player->CastNoTarget(faerieFire.handle, hero);

@@ -40,16 +40,8 @@ public:
 	//}
 };
 
-class DotaPlayer {
+class DotaPlayer :public VClass {
 public:
-	virtual void func0();
-
-	template<typename T>
-	T Member(int offset/*, T defaultValue = T{}*/) {
-		//if (!offset)
-		//	return defaultValue;
-		return *(T*)((uintptr_t)this + offset);
-	}
 	inline uint32_t GetAssignedHeroHandle() {
 		return Member< uint32_t>(Schema::Netvars["C_DOTAPlayerController"]["m_hAssignedHero"]);
 	}
@@ -71,7 +63,7 @@ public:
 	}
 	inline void BuyItem(int itemId) {
 
-		PrepareOrder(DOTA_UNIT_ORDER_PURCHASE_ITEM,
+		PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_PURCHASE_ITEM,
 			1,
 			&Fvector::Zero,
 			itemId,
@@ -106,16 +98,13 @@ public:
 	}
 };
 
-class BaseEntity {
+class BaseEntity : public VClass {
 public:
 
-	template<typename T>
-	T Member(int offset/*, T defaultValue = T{}*/) {
-		//if (!offset)
-		//	return defaultValue;
-		return *(T*)((uintptr_t)this + offset);
-	}
-	virtual CSchemaClassBinding* SchemaBinding();
+	
+	CSchemaClassBinding* SchemaBinding() {
+		return (CSchemaClassBinding*)GetVFunc(0)();
+	};
 	inline void SetColor(Color clr)
 	{
 		static int offset = Schema::Netvars["C_BaseModelEntity"]["m_clrRender"];
@@ -161,6 +150,10 @@ public:
 		}
 		BaseEntity* GetEntity() const {
 			return Interfaces::Entity->GetBaseEntity(ENTID_FROM_HANDLE(handle));
+		}
+		template<typename T>
+		T* GetAs() const {
+			return reinterpret_cast<T*>(Interfaces::Entity->GetBaseEntity(ENTID_FROM_HANDLE(handle)));
 		}
 	};
 	inline const char* GetUnitName() {

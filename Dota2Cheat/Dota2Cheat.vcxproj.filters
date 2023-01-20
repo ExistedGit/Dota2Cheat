@@ -16,6 +16,15 @@
     <Filter Include="Файлы заголовков\SigScan">
       <UniqueIdentifier>{6ee30ea1-c9ed-4aa0-ad23-0bcd6d4a198d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Hacks">
+      <UniqueIdentifier>{96a775f0-2891-487e-af6c-4c6572e4232a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Interfaces">
+      <UniqueIdentifier>{fb364672-1a12-43f7-8145-9d1ee7b3f4f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Event">
+      <UniqueIdentifier>{c5887a9e-46bb-400f-8eeb-d5dae5a74f61}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -68,9 +77,6 @@
     <ClInclude Include="ConVar.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="CDotaBaseAbility.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="dllmain.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
@@ -80,11 +86,23 @@
     <ClInclude Include="Enums.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="CGameEntitySystem.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="CUtlVector.h">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoUseMagicWand.h">
+      <Filter>Файлы заголовков\Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoUseMidas.h">
+      <Filter>Файлы заголовков\Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="CGameEntitySystem.h">
+      <Filter>Файлы заголовков\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameStatusHandling.h">
+      <Filter>Файлы заголовков\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="IEngineClient.h">
+      <Filter>Файлы заголовков\Interfaces</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

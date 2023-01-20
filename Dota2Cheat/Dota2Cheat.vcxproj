@@ -163,12 +163,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AutoUseMagicWand.h" />
+    <ClInclude Include="AutoUseMidas.h" />
     <ClInclude Include="CGameEntitySystem.h" />
     <ClInclude Include="ConVar.h" />
     <ClInclude Include="CUtlVector.h" />
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="Enums.h" />
     <ClInclude Include="Globals.h" />
+    <ClInclude Include="IEngineClient.h" />
     <ClInclude Include="include.h" />
     <ClInclude Include="Interfaces.h" />
     <ClInclude Include="Schema.h" />

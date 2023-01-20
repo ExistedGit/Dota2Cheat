@@ -5,10 +5,11 @@
 #include "sdk.h"
 #include "CGameEntitySystem.h"
 #include "ConVar.h"
+#include "IEngineClient.h"
 
 namespace Interfaces {
 	inline CVarSystem* CVar;
-	inline void* Engine;
+	inline IEngineClient* Engine;
 	inline VClass* Panorama;
 	inline void* Panorama2;
 	inline CSource2Client* Client;
@@ -36,7 +37,7 @@ namespace Interfaces {
 		//std::cout << std::dec;
 	}
 	inline void InitInterfaces() {
-		Engine = GetInterface<void*>("engine2.dll", "Source2EngineToClient001");
+		Engine = GetInterface<IEngineClient*>("engine2.dll", "Source2EngineToClient001");
 		Client = GetInterface<CSource2Client*>("client.dll", "Source2Client002");
 		CVar = GetInterface<CVarSystem*>("tier0.dll", "VEngineCvar007");
 		uintptr_t* vmt_slot = *(uintptr_t**)Interfaces::Client + 25;								//25th function in Source2Client vtable

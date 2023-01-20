@@ -32,12 +32,17 @@ public:
 	void* __fastcall operator()(T... t) {
 		return (void*)((u64(__fastcall*)(T...))ptr)(t...);
 	}
+	template<typename V, typename ...T>
+	V __fastcall Execute(T... t) {
+		return (V)((u64(__fastcall*)(T...))ptr)(t...);
+	}
+
 };
 inline u64 GetAbsoluteAddress(u64 instruction_ptr, int offset, int size)
 {
 	return instruction_ptr + *(int*)(instruction_ptr + offset) + size;
 }
-inline inline Function getvfunc(void* instance, int index)
+inline Function getvfunc(void* instance, int index)
 {
 	uintptr_t vtable = *((uintptr_t*)(instance));
 	uintptr_t entry = vtable + sizeof(uintptr_t) * index;
@@ -56,10 +61,17 @@ inline void Log(const char* str) {
 };
 class VClass {
 public:
+	virtual void dummy_fn() = 0;
 	template<typename T>
-	T Member(int offset/*, T defaultValue = T{}*/) {
+	inline T Member(int offset/*, T defaultValue = T{}*/) {
 		//if (!offset)
 		//	return defaultValue;
 		return *(T*)((uintptr_t)this + offset); 
+	}
+	inline Function GetVFunc(int index)
+	{
+		uintptr_t vtable = *((uintptr_t*)(this));
+		uintptr_t entry = vtable + sizeof(uintptr_t) * index;
+		return Function(*(uintptr_t*)entry);
 	}
 };
