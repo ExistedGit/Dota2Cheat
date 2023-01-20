@@ -1,10 +1,8 @@
 #pragma once
 #include <unordered_map>
-#include <Windows.h>
 #include <Psapi.h>
 #include <cstdint>
 #include "Interfaces.h"
-#include <Windows.h>
 #include <iostream>
 #include <string>
 #include <unordered_map>

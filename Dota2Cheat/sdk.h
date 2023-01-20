@@ -1,6 +1,7 @@
 #pragma once
 #include <cstdint>
 #include <iostream>
+#include <Windows.h>
 #define ENT_HANDLE uint32_t
 #define ENT_HANDLE_MASK 0x7fff
 #define ENTID_FROM_HANDLE(H) (H & ENT_HANDLE_MASK)
@@ -8,6 +9,10 @@
 
 #define u64 unsigned long long
 #define cc const char*
+
+extern HANDLE CurProcHandle;
+extern int CurProcId;
+
 class Fvector {
 public:
 	static Fvector Zero;

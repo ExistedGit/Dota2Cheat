@@ -7,9 +7,13 @@
 #include "Wrappers.h"
 #include "SDK/color.h"
 #include "AutoUseMagicWand.h"
+#include "Globals.h"
 
 Fvector Fvector::Zero = Fvector(0, 0, 0);
 std::map<ConVar*, int> CVarSystem::CVar = {};
+
+HANDLE CurProcHandle;
+int CurProcId;
 
 namespace VMTs {
 	std::unique_ptr<VMT> Engine;
@@ -105,14 +109,14 @@ bool TestStringFilters(const char* str, std::vector<const char*> filters) {
 void EntityIteration(ENT_HANDLE midas) {
 	int illusionCount = 0;
 	bool midasUsed = false;
-	
+
 	for (int i = 0; i < Interfaces::Entity->GetHighestEntityIndex(); i++) {
 		auto* ent = Interfaces::Entity->GetBaseEntity(i);
 
 		if (ent == nullptr)
 			continue;
 		const char* className = ent->SchemaBinding()->binaryName;
-		if (!midasUsed && midas != -1  && className != nullptr && strstr(className, "Creep")) {
+		if (!midasUsed && midas != -1 && className != nullptr && strstr(className, "Creep")) {
 			auto creep = (BaseNpc*)ent;
 			Fvector posHero = assignedHero->GetPos(), posCreep = creep->GetPos();
 			static std::vector<const char*> filters = {
@@ -164,18 +168,27 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	AllocConsole();
 	FILE* f;
 	freopen_s(&f, "CONOUT$", "w", stdout);
+	{
+		CurProcId = GetCurrentProcessId();
+		CurProcHandle = OpenProcess(PROCESS_ALL_ACCESS, TRUE, CurProcId);
+	}
+
 
 	std::cout << "works!" << std::endl;
 	Interfaces::InitInterfaces();
 	Interfaces::LogInterfaces();
 	//Interfaces::CVar->DumpConVarsToFile("H:\\SchemaDump\\convars.txt");
 	Interfaces::CVar->DumpConVarsToMap();
+
 	Schema::SchemaDumpToMap("client.dll", "C_DOTA_BaseNPC_Hero");
 	Schema::SchemaDumpToMap("client.dll", "C_DOTAPlayerController");
 	Schema::SchemaDumpToMap("client.dll", "C_DOTA_UnitInventory");
+
 	Signatures::InitSignatures();
 	Signatures::LogSignatures();
 
+	Globals::InitGlobals();
+	Globals::LogGlobals();
 	const bool logEntities = false;
 	const bool inGameStuff = true;
 
@@ -197,7 +210,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		std::cout << std::hex << "assignedHero: " << assignedHero << '\n';
 		std::cout << "Local hero: " << assignedHero->GetUnitName() << '\n';
 	}
-	
+
 	Log("CVars found!");
 	bool spamBuy = false;
 	while (!GetAsyncKeyState(VK_INSERT)) {
@@ -207,7 +220,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 
 		//std::cout << std::dec << (uintptr_t)getvfunc(Interfaces::Engine, 24)(Interfaces::Engine) << std::hex << '\n';
-		
+
 		if (inGameStuff) {
 			if (assignedHero->GetLifeState() == 0) { // if alive
 				AutoUseWandCheck(localPlayer, assignedHero);
@@ -220,12 +233,12 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			}
 			if (/*GetAsyncKeyState(VK_END) &&*/ assignedHero->GetLifeState() == 0) {
 				//	std::cout << canUseMidas << '\n';
-				
+
 				ENT_HANDLE canUseMidas = 0xFFFfFFFF;
 				auto item = assignedHero->FindItemBySubstring("midas");
 				if (item.handle != -1 && reinterpret_cast<BaseAbility*>(item.GetEntity())->GetCooldown() == 0)
 					canUseMidas = item.handle;
-				
+
 				EntityIteration(canUseMidas);
 			}
 			if (GetAsyncKeyState(VK_HOME)) {
