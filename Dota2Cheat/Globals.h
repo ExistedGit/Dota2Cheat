@@ -3,15 +3,12 @@
 #include "patternscan.h"
 #include "Enums.h"
 #include "Wrappers.h"
-
+#include "ValveClasses.h"
 namespace Globals {
-	class CDOTAGameRules : VClass {
-	public:
-		inline GameState GetGameState() {
-			return Member<GameState>(0x60);
-		}
-	};
-	CDOTAGameRules** GameRulesPtr = nullptr;
+
+	//GameRules is nullptr while not in a game
+	//So we need to dereference it when we enter a match and reset to nullptr on leave
+	CDOTAGameRules** GameRulesPtr = nullptr; 
 	CDOTAGameRules* GameRules = nullptr;
 
 

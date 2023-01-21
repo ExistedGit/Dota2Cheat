@@ -104,5 +104,11 @@
     <ClInclude Include="IEngineClient.h">
       <Filter>Файлы заголовков\Interfaces</Filter>
     </ClInclude>
+    <ClInclude Include="AutoBuyTome.h">
+      <Filter>Файлы заголовков\Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="ValveClasses.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

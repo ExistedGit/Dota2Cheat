@@ -7,12 +7,12 @@
 #include "Wrappers.h"
 #include "SDK/color.h"
 #include "AutoUseMagicWand.h"
-#include "Globals.h"
 #include "AutoUseMidas.h"
+#include "AutoBuyTome.h"
+#include "Globals.h"
 #include "MatchStateHandling.h"
 
 #pragma region Global variables
-
 
 bool IsInMatch = false;
 Fvector Fvector::Zero = Fvector(0, 0, 0);
@@ -78,15 +78,20 @@ void EntityIteration(ENT_HANDLE midas) {
 			&& strstr(className, "Creep")) {
 			auto creep = (BaseNpc*)ent;
 			Fvector posHero = assignedHero->GetPos(), posCreep = creep->GetPos();
+
+			//neutral prefixes because Wildwing Ripper and Dark Troll Warlord spawn a tornado and skeletons respectively
+			//they have their summoner's name in them but not the word "neutral"
 			static std::vector<const char*> filters = {
 					"ranged",
 					"flagbearer",
 					"siege",
 					"alpha_wolf",
 					"centaur_khan",
-					"dark_troll_warlord",
+					"neutral_dark_troll_warlord",
 					"ursa_warrior",
-					"ogre_magi"
+					"ogre_magi",
+					"satyr_hellcaller",
+					"neutral_enraged_wildkin"
 			};
 			// If the creep is not one of ours, is alive, is within 600 hammer units and its name matches one of the filters
 			if (creep->GetTeam() != assignedHero->GetTeam() &&
@@ -106,7 +111,7 @@ void EntityIteration(ENT_HANDLE midas) {
 		else if (strstr(className, "DOTA_Unit_Hero") != nullptr) {
 			auto hero = (BaseNpc*)ent;
 
-			std::cout << std::hex;
+			//std::cout << std::hex;
 
 			if (hero->BaseNPCHero_IsIllusion() &&
 				strstr(className, "CDOTA_Unit_Hero_ArcWarden") == nullptr) {
@@ -134,41 +139,42 @@ namespace Hooks {
 		bool isInGame = Interfaces::Engine->IsInGame();
 		if (isInGame) {
 
-		//EntityIteration();
-		CheckMatchState();
-		//uintptr_t vtable = *((uintptr_t*)(Interfaces::Engine));
-		//uintptr_t entry = vtable + sizeof(uintptr_t) * 25;
+			//EntityIteration();
 
-		//unsigned char IsInGameResult = ((unsigned char(__fastcall*)(void*)) * (uintptr_t*)entry)(Interfaces::Engine);
+			//uintptr_t vtable = *((uintptr_t*)(Interfaces::Engine));
+			//uintptr_t entry = vtable + sizeof(uintptr_t) * 25;
+
+			//unsigned char IsInGameResult = ((unsigned char(__fastcall*)(void*)) * (uintptr_t*)entry)(Interfaces::Engine);
+
+			if (inGameStuff && IsInMatch) {
+				if (assignedHero->GetLifeState() == 0) { // if alive
+					AutoUseWandCheck(assignedHero);
+					AutoUseFaerieFireCheck(assignedHero);
+					Hacks::AutoBuyTomeCheck();
+					EntityIteration(AutoUseMidasCheck(assignedHero));
+
+				}
 
 
-		if (inGameStuff && IsInMatch) {
-			if (assignedHero->GetLifeState() == 0) { // if alive
-				AutoUseWandCheck(localPlayer, assignedHero);
-				AutoUseFaerieFireCheck(localPlayer, assignedHero);
-				EntityIteration(AutoUseMidasCheck(assignedHero));
+				if (GetAsyncKeyState(VK_NUMPAD7)) {
+					//LogInvAndAbilities();
+					LogEntities();
+				}
+
+				if (GetAsyncKeyState(VK_HOME)) {
+					Interfaces::CVar->SetConvars();
+				}
+
+				//if (spamBuy)
+				//	localPlayer->BuyItem(0x101);
 			}
 
-
-			if (GetAsyncKeyState(VK_NUMPAD7)) {
-				//LogInvAndAbilities();
-				LogEntities();
-			}
-
-			if (GetAsyncKeyState(VK_HOME)) {
-				Interfaces::CVar->SetConvars();
-			}
-
-			//if (spamBuy)
-			//	localPlayer->BuyItem(0x101);
-		}
-
-		//if (GetAsyncKeyState(VK_F5)) {
-			//for (const auto& item : assignedHero.BaseNPC_GetItems()) {
-			//	if (strstr(item.name, "tome") != nullptr)
-			//		localPlayer.CastNoTarget(item.handle);
+			//if (GetAsyncKeyState(VK_F5)) {
+				//for (const auto& item : assignedHero.BaseNPC_GetItems()) {
+				//	if (strstr(item.name, "tome") != nullptr)
+				//		localPlayer.CastNoTarget(item.handle);
+				//}
 			//}
-		//}
 
 
 		}
@@ -266,12 +272,13 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	VMTs::Panorama2->ApplyVMT();
 
 	Log("CVars found!");
-	bool spamBuy = false;
+	//bool spamBuy = false;
 	while (!GetAsyncKeyState(VK_INSERT)) {
-		//Sleep(100);
+		Sleep(10);
+		CheckMatchState();
 	}
-	VMTs::Entity->ReleaseVMT();
-	VMTs::Panorama2->ReleaseVMT();
+	//VMTs::Entity->ReleaseVMT();
+	//VMTs::Panorama2->ReleaseVMT();
 	//VMTs::Entity = nullptr;
 	Schema::Netvars.clear();
 	if (f) fclose(f);

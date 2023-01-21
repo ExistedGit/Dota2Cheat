@@ -254,3 +254,5 @@ public:
 	}
 
 };
+extern DotaPlayer* localPlayer;
+extern BaseNpc* assignedHero;

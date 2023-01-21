@@ -33,15 +33,15 @@ public:
 class Function {
 public:
 	void* ptr;
-	Function(uintptr_t ptr) : ptr((void*)ptr) {
+	inline Function(uintptr_t ptr) : ptr((void*)ptr) {
 
 	}
 	template<typename ...T>
-	void* __fastcall operator()(T... t) {
+	inline void* __fastcall operator()(T... t) {
 		return (void*)((u64(__fastcall*)(T...))ptr)(t...);
 	}
 	template<typename V, typename ...T>
-	V __fastcall Execute(T... t) {
+	inline V __fastcall Execute(T... t) {
 		return (V)((u64(__fastcall*)(T...))ptr)(t...);
 	}
 
@@ -69,7 +69,7 @@ inline void Log(const char* str) {
 };
 class VClass {
 public:
-	virtual void dummy_fn() = 0;
+	virtual void dummy_fn() = 0; // so that the classes have a vtable
 	template<typename T>
 	inline T Member(int offset/*, T defaultValue = T{}*/) {
 		//if (!offset)
