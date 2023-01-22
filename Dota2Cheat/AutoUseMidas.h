@@ -7,6 +7,7 @@
 inline ENT_HANDLE AutoUseMidasCheck(BaseNpc* hero) {
 	ENT_HANDLE canUseMidas = 0xFFFFFFFF;
 	auto item = hero->FindItemBySubstring("midas");
+	//std::cout << item.GetAs<BaseAbility>()->GetCooldown() << '\n';
 	if (item.handle != -1 && item.GetAs<BaseAbility>()->GetCooldown() == 0)
 		canUseMidas = item.handle;
 	return canUseMidas;

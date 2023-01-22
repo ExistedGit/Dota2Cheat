@@ -20,6 +20,12 @@ enum class DOTATeam_t : int {
     DOTA_TEAM_COUNT = 14
 };
 
+enum class RuneType : int {
+    HASTE = 1,
+    BOUNTY = 5,
+    WATER = 7
+};
+
 enum class DotaUnitOrder_t : int {
     DOTA_UNIT_ORDER_NONE = 0,
     DOTA_UNIT_ORDER_MOVE_TO_POSITION = 1,

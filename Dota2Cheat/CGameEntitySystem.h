@@ -14,18 +14,28 @@ public:
 	int unk2; // always seems to be -1
 	const char* internalName; // these two strings are optional!
 	const char* entityName; // ex: item_tpscroll
-	void* unkptr2;
+	//void* unkptr2;
+private:
 	void* unkptr3;
+public:
+	char flags[4];
+private:
+	char pad[4];
 	void* unkptr4;
 	void* unkptr5;
+public:
 	CEntityIdentity* prevValid;
 	CEntityIdentity* nextValid;
+private:
 	void* unkptr6;
 	void* unkptr7;
 	void* unkptr8;
-
+public:
 	const char* GetName() const {
 		return internalName != nullptr ? internalName : entityName;
+	}
+	const bool IsDormant() const {
+		return (flags[0] & 0x80);
 	}
 };
 

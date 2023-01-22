@@ -34,38 +34,35 @@ namespace VMTs {
 void LogEntities() {
 	for (int i = 0; i < Interfaces::Entity->GetHighestEntityIndex(); i++) {
 		auto* ent = Interfaces::Entity->GetBaseEntity(i);
-		if (ent != nullptr) {
-			BaseEntity* wrapper = (BaseEntity*)ent;
-			//std::cout << ent->SchemaBinding() << '\n';
-			const char* className = ent->SchemaBinding()->binaryName;
-			if (className != nullptr) {
-				std::cout << className << " // ";
-				std::cout << ent << '\n';
-			}
-		}
+		if (ent == nullptr)
+			continue;
+		//std::cout << ent->SchemaBinding() << '\n';
+		const char* className = ent->SchemaBinding()->binaryName;
+		if (className != nullptr && strstr(className, "Rune"))
+			std::cout << className
+			<< " // " << ent->GetPos2D().x << ' ' << ent->GetPos2D().y
+			<< " // " << ent << '\n';
 	}
 }
 void LogInvAndAbilities() {
 	std::cout << "abilities: " << '\n';
 	for (const auto& ability : assignedHero->GetAbilities())
-		std::cout << '\t' << ability.name << " " << ENTID_FROM_HANDLE(ability.handle) << "Mana Cost: " << getvfunc(Interfaces::Entity->GetBaseEntity(ENTID_FROM_HANDLE(ability.handle)), 0xc4).ptr << '\n';
+		std::cout << '\t' << ability.name << " " << ENTID_FROM_HANDLE(ability.handle) << '\n';
 	std::cout << "inventory: " << '\n';
 	for (const auto& item : assignedHero->GetItems())
 		std::cout << '\t' << item.name << " " << ENTID_FROM_HANDLE(item.handle) << '\n';
 }
 bool TestStringFilters(const char* str, std::vector<const char*> filters) {
-	bool result = false;
-	for (auto& filter : filters) {
-		if (strstr(str, filter)) {
-			result = true;
-			break;
-		}
-	}
-	return result;
+	for (auto& filter : filters)
+		if (strstr(str, filter))
+			return true;
+	
+	return false;
 }
 void EntityIteration(ENT_HANDLE midas) {
 	int illusionCount = 0;
 	bool midasUsed = false;
+	bool runePickUp = false;
 
 	for (int i = 0; i < Interfaces::Entity->GetHighestEntityIndex(); i++) {
 		auto* ent = Interfaces::Entity->GetBaseEntity(i);
@@ -73,11 +70,14 @@ void EntityIteration(ENT_HANDLE midas) {
 		if (ent == nullptr)
 			continue;
 		const char* className = ent->SchemaBinding()->binaryName;
+
+		if (className == nullptr)
+			continue;
+
 		if (!midasUsed && midas != -1
-			&& className != nullptr
 			&& strstr(className, "Creep")) {
 			auto creep = (BaseNpc*)ent;
-			Fvector posHero = assignedHero->GetPos(), posCreep = creep->GetPos();
+			//Fvector posHero = assignedHero->GetPos(), posCreep = creep->GetPos();
 
 			//neutral prefixes because Wildwing Ripper and Dark Troll Warlord spawn a tornado and skeletons respectively
 			//they have their summoner's name in them but not the word "neutral"
@@ -93,19 +93,28 @@ void EntityIteration(ENT_HANDLE midas) {
 					"satyr_hellcaller",
 					"neutral_enraged_wildkin"
 			};
-			// If the creep is not one of ours, is alive, is within 600 hammer units and its name matches one of the filters
-			if (creep->GetTeam() != assignedHero->GetTeam() &&
+
+			// If the creep is visible, not one of ours, is alive, is within 600 hammer units and its name matches one of the filters
+			if (!creep->GetIdentity()->IsDormant() &&
+				creep->GetTeam() != assignedHero->GetTeam() &&
 				creep->GetHealth() > 0 &&
-				sqrtf(
-					pow(posHero.x - posCreep.x, 2) +
-					pow(posHero.y - posCreep.y, 2)
-				) <= 600.0f &&
+				IsWithinRadius(creep->GetPos2D(), assignedHero->GetPos2D(), 600) &&
 				TestStringFilters(creep->GetUnitName(), filters)) {
 
 				midasUsed = true;
 				localPlayer->PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_TARGET, i, &Fvector::Zero, ENTID_FROM_HANDLE(midas), PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY);
-				break;
-
+			}
+		}
+		else if (!runePickUp && strstr(className, "C_DOTA_Item_Rune")) {
+			auto* rune = (ItemRune*)ent;
+			//std::cout << "RUNE " << (int)rune->GetRuneType() << ' ' << rune->GetPos2D().x << ' ' << rune->GetPos2D().y
+			//	<< ' ' << IsWithinRadius(rune->GetPos2D(), assignedHero->GetPos2D(), 150.0f)
+			//	<< '\n';
+			if (rune->GetRuneType() == RuneType::BOUNTY &&
+				IsWithinRadius(rune->GetPos2D(), assignedHero->GetPos2D(), 150.0f)
+				) {
+				runePickUp = true;
+				localPlayer->PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_PICKUP_RUNE, i, &Fvector::Zero, 0, PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, nullptr, false, false);
 			}
 		}
 		else if (strstr(className, "DOTA_Unit_Hero") != nullptr) {
@@ -135,6 +144,7 @@ namespace Hooks {
 	typedef void (*RunFrameFn)(u64, u64);
 
 	void RunFrame(u64 a, u64 b) {
+		const bool buyTome = false;
 		const bool inGameStuff = true;
 		bool isInGame = Interfaces::Engine->IsInGame();
 		if (isInGame) {
@@ -150,12 +160,18 @@ namespace Hooks {
 				if (assignedHero->GetLifeState() == 0) { // if alive
 					AutoUseWandCheck(assignedHero);
 					AutoUseFaerieFireCheck(assignedHero);
-					Hacks::AutoBuyTomeCheck();
+					if (buyTome)
+						Hacks::AutoBuyTomeCheck();
 					EntityIteration(AutoUseMidasCheck(assignedHero));
 
 				}
 
 
+				if (GetAsyncKeyState(VK_NUMPAD8)) {
+					//LogInvAndAbilities();
+					auto pos = assignedHero->GetPos();
+					std::cout << "HERO POS " << pos.x << ' ' << pos.y << ' ' << pos.z << '\n';
+				}
 				if (GetAsyncKeyState(VK_NUMPAD7)) {
 					//LogInvAndAbilities();
 					LogEntities();

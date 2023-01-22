@@ -62,7 +62,6 @@ public:
 		);
 	}
 	inline void BuyItem(int itemId) {
-
 		PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_PURCHASE_ITEM,
 			1,
 			&Fvector::Zero,
@@ -100,11 +99,14 @@ public:
 
 class BaseEntity : public VClass {
 public:
-
-	
-	CSchemaClassBinding* SchemaBinding() {
+	inline CSchemaClassBinding* SchemaBinding() {
 		return (CSchemaClassBinding*)GetVFunc(0)();
 	};
+
+	inline CEntityIdentity* GetIdentity() {
+		return Member<CEntityIdentity*>(0x10);
+	}
+
 	inline void SetColor(Color clr)
 	{
 		static int offset = Schema::Netvars["C_BaseModelEntity"]["m_clrRender"];
@@ -127,6 +129,11 @@ public:
 			return Fvector::Zero;
 
 		return *(Fvector*)(*(uintptr_t*)( (uintptr_t)this + offset ) + 0x10);
+	}
+	// 
+	inline Coord GetPos2D() {
+		auto vec = GetPos();
+		return Coord(vec.x, vec.y);
 	}
 	inline int GetMaxHealth() {
 		return Member<int>(Schema::Netvars["C_BaseEntity"]["m_iMaxHealth"]);
@@ -169,13 +176,6 @@ public:
 		uintptr_t handle = *(uintptr_t*)((uintptr_t)this + offset);
 		return ENT_HANDLE_VALID(handle);
 	}
-	//inline CUtlVector<SharedCooldownInfo> BaseNPC_GetCooldowns() {
-	//	static int offset = Schema::Netvars["C_DOTA_BaseNPC"]["m_Inventory"];
-	//	if (!offset)
-	//		return CUtlVector<SharedCooldownInfo>();
-	//	CUnitInventory* inv = (CUnitInventory*)((uintptr_t)this + offset);
-	//	return inv->GetCooldowns();
-	//}
 	inline std::vector<ItemOrAbility> GetAbilities() {
 		static int offset = Schema::Netvars["C_DOTA_BaseNPC"]["m_hAbilities"];
 		if (!offset)
@@ -192,16 +192,6 @@ public:
 		}
 		return result;
 	}
-	//inline uintptr_t GetInventory() {
-	//	if (!ptr)
-	//		return 0;
-
-	//	static int offset = Schema::Netvars["C_DOTA_BaseNPC"]["m_Inventory"];
-	//	if (!offset)
-	//		return 0;
-	//	
-	//	return ptr + offset;
-	//}
 
 	inline ItemOrAbility FindItemBySubstring(const char* str) {
 		if (str == nullptr)
@@ -212,6 +202,7 @@ public:
 			
 		return ItemOrAbility{ nullptr, 0xFFFFFFFF };
 	}
+	
 	inline std::vector<ItemOrAbility> GetItems() {
 		static int offset = Schema::Netvars["C_DOTA_BaseNPC"]["m_Inventory"];
 		if (!offset)
@@ -244,15 +235,21 @@ public:
 class BaseAbility :public BaseEntity {
 public:
 	float GetCooldown() {
-		return Member<float>(0x5b0);
+		return Member<float>(0x5a8);
 	}
 	int GetCharges() {
 		return Member<int>(0x610);
 	}
 	int GetManaCost() {
-		return Member<int>(0x5b8);
+		return Member<int>(0x5b0);
 	}
+};
 
+class ItemRune : public BaseEntity {
+public:
+	RuneType GetRuneType() {
+		return Member<RuneType>(0x990);
+	}
 };
 extern DotaPlayer* localPlayer;
 extern BaseNpc* assignedHero;

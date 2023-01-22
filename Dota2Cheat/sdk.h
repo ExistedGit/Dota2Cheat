@@ -21,14 +21,27 @@ inline void PAUSE() {
 extern HANDLE CurProcHandle;
 extern int CurProcId;
 
-class Fvector {
-public:
+struct Coord {
+	float x, y;
+	Coord(float x, float y) : x(x), y(y) {
+
+	}
+};
+
+struct Fvector {
 	static Fvector Zero;
 	float x, y, z;
 	Fvector(float x, float y, float z) :x(x), y(y), z(z) {
 
 	}
 };
+
+//mathematicians hate this one trick!
+//yeah, to check for radius, you can actually omit the sqrt and just square the radius
+inline float IsWithinRadius(Coord p1, Coord p2, float radius) {
+	return pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2) <= radius * radius;
+}
+
 
 class Function {
 public:
