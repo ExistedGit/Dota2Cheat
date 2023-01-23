@@ -20,9 +20,15 @@ enum class DOTATeam_t : int {
     DOTA_TEAM_COUNT = 14
 };
 
-enum class RuneType : int {
+enum class DotaRunes : int {
+    INVALID = -1,
+    DOUBLEDAMAGE = 0,
     HASTE = 1,
+    ILLUSION = 2,
+    INVISIBILITY = 3,
+    REGENERATION = 4,
     BOUNTY = 5,
+    COUNT = 6, //???
     WATER = 7
 };
 

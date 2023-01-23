@@ -28,10 +28,10 @@ struct Coord {
 	}
 };
 
-struct Fvector {
-	static Fvector Zero;
+struct Vector3 {
+	static Vector3 Zero;
 	float x, y, z;
-	Fvector(float x, float y, float z) :x(x), y(y), z(z) {
+	Vector3(float x, float y, float z) :x(x), y(y), z(z) {
 
 	}
 };

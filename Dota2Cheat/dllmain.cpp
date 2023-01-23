@@ -15,7 +15,7 @@
 #pragma region Global variables
 
 bool IsInMatch = false;
-Fvector Fvector::Zero = Fvector(0, 0, 0);
+Vector3 Vector3::Zero = Vector3(0, 0, 0);
 std::map<ConVar*, int> CVarSystem::CVar = {};
 
 DotaPlayer* localPlayer;
@@ -44,19 +44,27 @@ void LogEntities() {
 			<< " // " << ent << '\n';
 	}
 }
-void LogInvAndAbilities() {
+void LogInvAndAbilities(BaseNpc* npc = nullptr) {
+	if (npc == nullptr)
+		npc = assignedHero;
+
+	std::cout << std::dec;
 	std::cout << "abilities: " << '\n';
-	for (const auto& ability : assignedHero->GetAbilities())
-		std::cout << '\t' << ability.name << " " << ENTID_FROM_HANDLE(ability.handle) << '\n';
+	for (const auto& ability : npc->GetAbilities()) {
+		if (ability.name != nullptr)
+			std::cout << '\t' << ability.name << " " << ENTID_FROM_HANDLE(ability.handle) << " CD: " << ability.GetAs<BaseAbility>()->GetCooldown() << '\n';
+	}
 	std::cout << "inventory: " << '\n';
-	for (const auto& item : assignedHero->GetItems())
-		std::cout << '\t' << item.name << " " << ENTID_FROM_HANDLE(item.handle) << '\n';
+	for (const auto& item : npc->GetItems()) {
+		if (item.name != nullptr)
+			std::cout << '\t' << item.name << " " << ENTID_FROM_HANDLE(item.handle) << '\n';
+	}
 }
 bool TestStringFilters(const char* str, std::vector<const char*> filters) {
 	for (auto& filter : filters)
 		if (strstr(str, filter))
 			return true;
-	
+
 	return false;
 }
 void EntityIteration(ENT_HANDLE midas) {
@@ -102,7 +110,7 @@ void EntityIteration(ENT_HANDLE midas) {
 				TestStringFilters(creep->GetUnitName(), filters)) {
 
 				midasUsed = true;
-				localPlayer->PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_TARGET, i, &Fvector::Zero, ENTID_FROM_HANDLE(midas), PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY);
+				localPlayer->PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_TARGET, i, &Vector3::Zero, ENTID_FROM_HANDLE(midas), PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY);
 			}
 		}
 		else if (!runePickUp && strstr(className, "C_DOTA_Item_Rune")) {
@@ -110,11 +118,11 @@ void EntityIteration(ENT_HANDLE midas) {
 			//std::cout << "RUNE " << (int)rune->GetRuneType() << ' ' << rune->GetPos2D().x << ' ' << rune->GetPos2D().y
 			//	<< ' ' << IsWithinRadius(rune->GetPos2D(), assignedHero->GetPos2D(), 150.0f)
 			//	<< '\n';
-			if (rune->GetRuneType() == RuneType::BOUNTY &&
+			if (rune->GetRuneType() == DotaRunes::BOUNTY &&
 				IsWithinRadius(rune->GetPos2D(), assignedHero->GetPos2D(), 150.0f)
 				) {
 				runePickUp = true;
-				localPlayer->PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_PICKUP_RUNE, i, &Fvector::Zero, 0, PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, nullptr, false, false);
+				localPlayer->PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_PICKUP_RUNE, i, &Vector3::Zero, 0, PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, nullptr, false, false);
 			}
 		}
 		else if (strstr(className, "DOTA_Unit_Hero") != nullptr) {
@@ -146,7 +154,7 @@ namespace Hooks {
 	void RunFrame(u64 a, u64 b) {
 		const bool buyTome = false;
 		const bool inGameStuff = true;
-		bool isInGame = Interfaces::Engine->IsInGame();
+		static bool isInGame = Interfaces::Engine->IsInGame();
 		if (isInGame) {
 
 			//EntityIteration();
@@ -157,6 +165,9 @@ namespace Hooks {
 			//unsigned char IsInGameResult = ((unsigned char(__fastcall*)(void*)) * (uintptr_t*)entry)(Interfaces::Engine);
 
 			if (inGameStuff && IsInMatch) {
+				//int x, y;
+				//Signatures::WorldToScreen(Vector3::Zero,&x, &y, nullptr);
+				//std::cout << std::dec << x << ' ' << y << '\n';
 				if (assignedHero->GetLifeState() == 0) { // if alive
 					AutoUseWandCheck(assignedHero);
 					AutoUseFaerieFireCheck(assignedHero);
@@ -169,12 +180,16 @@ namespace Hooks {
 
 				if (GetAsyncKeyState(VK_NUMPAD8)) {
 					//LogInvAndAbilities();
-					auto pos = assignedHero->GetPos();
-					std::cout << "HERO POS " << pos.x << ' ' << pos.y << ' ' << pos.z << '\n';
+					//auto pos = assignedHero->GetPos();
+					//std::cout << "HERO POS " << pos.x << ' ' << pos.y << ' ' << pos.z << '\n';
 				}
 				if (GetAsyncKeyState(VK_NUMPAD7)) {
-					//LogInvAndAbilities();
-					LogEntities();
+					auto selected = localPlayer->GetSelectedUnits();
+					auto ent = (BaseNpc*)Interfaces::Entity->GetBaseEntity(selected[0]);
+					//auto ab = ent->GetAbilities()[2];
+					//std::cout << std::dec << selected[0] << " " << std::dec<< ab.name << " " << ab.GetAs<BaseAbility>()->GetCooldown() << '\n';
+					LogInvAndAbilities(ent);
+					//LogEntities();
 				}
 
 				if (GetAsyncKeyState(VK_HOME)) {

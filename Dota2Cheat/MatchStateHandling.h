@@ -20,6 +20,7 @@ inline void EnteredMatch() {
 		if (assignedHero == nullptr)
 			return;
 		Hacks::AutoBuyTomeInit();
+		std::cout << std::hex << "Local Player: " << localPlayer << '\n';
 		std::cout << std::hex << "Assigned Hero: " << assignedHero << " " << assignedHero->GetUnitName() << '\n';
 		IsInMatch = true;
 		std::cout << "ENTERED MATCH\n";

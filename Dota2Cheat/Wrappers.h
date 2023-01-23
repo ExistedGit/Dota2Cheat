@@ -45,6 +45,9 @@ public:
 	inline uint32_t GetAssignedHeroHandle() {
 		return Member< uint32_t>(Schema::Netvars["C_DOTAPlayerController"]["m_hAssignedHero"]);
 	}
+	inline CUtlVector<uint32_t> GetSelectedUnits() {
+		return Member<CUtlVector<uint32_t>>(Schema::Netvars["C_DOTAPlayerController"]["m_nSelectedUnits"]);
+	}
 	inline BaseEntity* GetAssignedHero() {
 		return Interfaces::Entity->GetBaseEntity(ENTID_FROM_HANDLE(GetAssignedHeroHandle()));
 	}
@@ -53,7 +56,7 @@ public:
 			issuer = GetAssignedHero();
 		PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_NO_TARGET,
 			0,
-			&Fvector::Zero,
+			&Vector3::Zero,
 			ENTID_FROM_HANDLE(handle),
 			PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
 			issuer,
@@ -64,7 +67,7 @@ public:
 	inline void BuyItem(int itemId) {
 		PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_PURCHASE_ITEM,
 			1,
-			&Fvector::Zero,
+			&Vector3::Zero,
 			itemId,
 			PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
 			GetAssignedHero(),
@@ -72,7 +75,7 @@ public:
 			true
 		);
 	}
-	inline void OrderMoveTo(Fvector* pos, bool directMovement = false, BaseEntity* issuer = nullptr) {
+	inline void OrderMoveTo(Vector3* pos, bool directMovement = false, BaseEntity* issuer = nullptr) {
 		if (issuer == nullptr)
 			issuer = GetAssignedHero();
 
@@ -86,7 +89,7 @@ public:
 			true
 		);
 	}
-	inline void PrepareOrder(DotaUnitOrder_t orderType, UINT32 targetIndex, Fvector* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, BaseEntity* issuer = nullptr, bool queue = false, bool showEffects = true) {
+	inline void PrepareOrder(DotaUnitOrder_t orderType, UINT32 targetIndex, Vector3* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, BaseEntity* issuer = nullptr, bool queue = false, bool showEffects = true) {
 		if (issuer == nullptr)
 			issuer = GetAssignedHero();
 
@@ -123,12 +126,12 @@ public:
 	inline ENT_HANDLE GetOwnerEntity() {
 		return Member<ENT_HANDLE>(Schema::Netvars["C_BaseEntity"]["m_hOwnerEntity"]);
 	}
-	inline Fvector GetPos() {
+	inline Vector3 GetPos() {
 		u64 offset = Schema::Netvars["C_BaseEntity"]["m_pGameSceneNode"];
 		if (!offset)
-			return Fvector::Zero;
+			return Vector3::Zero;
 
-		return *(Fvector*)(*(uintptr_t*)( (uintptr_t)this + offset ) + 0x10);
+		return *(Vector3*)(*(uintptr_t*)( (uintptr_t)this + offset ) + 0x10);
 	}
 	// 
 	inline Coord GetPos2D() {
@@ -247,8 +250,8 @@ public:
 
 class ItemRune : public BaseEntity {
 public:
-	RuneType GetRuneType() {
-		return Member<RuneType>(0x990);
+	DotaRunes GetRuneType() {
+		return Member<DotaRunes>(0x990);
 	}
 };
 extern DotaPlayer* localPlayer;

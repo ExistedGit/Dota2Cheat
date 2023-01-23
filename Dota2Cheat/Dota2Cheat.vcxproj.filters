@@ -22,7 +22,7 @@
     <Filter Include="Файлы заголовков\Interfaces">
       <UniqueIdentifier>{fb364672-1a12-43f7-8145-9d1ee7b3f4f9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Event">
+    <Filter Include="Файлы заголовков\Events">
       <UniqueIdentifier>{c5887a9e-46bb-400f-8eeb-d5dae5a74f61}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -99,7 +99,7 @@
       <Filter>Файлы заголовков\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="MatchStateHandling.h">
-      <Filter>Файлы заголовков\Event</Filter>
+      <Filter>Файлы заголовков\Events</Filter>
     </ClInclude>
     <ClInclude Include="IEngineClient.h">
       <Filter>Файлы заголовков\Interfaces</Filter>
