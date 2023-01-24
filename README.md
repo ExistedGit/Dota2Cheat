@@ -8,9 +8,12 @@ I recommend using [Extreme Injector v3.7.2](https://www.unknowncheats.me/forum/d
 # Features
 This list is subject to frequent change as I'm testing new features
 * Illusion coloring(red for enemy's, green for friendly)
-* Automatic Magic Wand and Faerie Fire usage(with potential of customizing the health treshold)
-* Automatic Hand of Midas usage on nearby big neutrals, ranged & flagbearer lane creeps and catapults
-* Automatic bounty rune pickup
+* Automation:
+  * Magic Wand and Faerie Fire usage(with potential of customizing the health treshold)
+  * Hand of Midas usage on nearby big neutrals, ranged & flagbearer lane creeps and catapults
+  * Bounty rune pickup
+  * Tome of Knowledge purchase
+
 * Convars:
   * `sv_cheats` spoofing
   * `dota_camera_distance` with proper `r_farz` and `fog_enable`(no clipping or blue fog)
