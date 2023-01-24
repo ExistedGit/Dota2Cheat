@@ -110,5 +110,11 @@
     <ClInclude Include="ValveClasses.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="AbilityCooldownTracking.h">
+      <Filter>Файлы заголовков\Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -38,3 +38,18 @@ public:
 		return result;
 	}
 };
+
+
+class PlayerResourcePlayerData_t :public VClass {
+	char pad[0xd0 - 0x8];
+public:
+	uint32_t GetPlayerSlot() {
+		return Member<uint32_t>(0xc8);
+	}
+};
+class CDOTAPlayerResource : public VClass {
+public:
+	CUtlVector<PlayerResourcePlayerData_t> GetVecTeamPlayerData() {
+		return Member< CUtlVector<PlayerResourcePlayerData_t>>(0x5d0);
+	}
+};

@@ -40,65 +40,6 @@ public:
 	//}
 };
 
-class DotaPlayer :public VClass {
-public:
-	inline uint32_t GetAssignedHeroHandle() {
-		return Member< uint32_t>(Schema::Netvars["C_DOTAPlayerController"]["m_hAssignedHero"]);
-	}
-	inline CUtlVector<uint32_t> GetSelectedUnits() {
-		return Member<CUtlVector<uint32_t>>(Schema::Netvars["C_DOTAPlayerController"]["m_nSelectedUnits"]);
-	}
-	inline BaseEntity* GetAssignedHero() {
-		return Interfaces::Entity->GetBaseEntity(ENTID_FROM_HANDLE(GetAssignedHeroHandle()));
-	}
-	inline void CastNoTarget(ENT_HANDLE handle, BaseEntity* issuer = nullptr) {
-		if (issuer == nullptr)
-			issuer = GetAssignedHero();
-		PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_NO_TARGET,
-			0,
-			&Vector3::Zero,
-			ENTID_FROM_HANDLE(handle),
-			PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
-			issuer,
-			false,
-			true
-		);
-	}
-	inline void BuyItem(int itemId) {
-		PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_PURCHASE_ITEM,
-			1,
-			&Vector3::Zero,
-			itemId,
-			PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
-			GetAssignedHero(),
-			false,
-			true
-		);
-	}
-	inline void OrderMoveTo(Vector3* pos, bool directMovement = false, BaseEntity* issuer = nullptr) {
-		if (issuer == nullptr)
-			issuer = GetAssignedHero();
-
-		PrepareOrder(directMovement ? DotaUnitOrder_t::DOTA_UNIT_ORDER_MOVE_TO_DIRECTION : DotaUnitOrder_t::DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-			0,
-			pos,
-			0,
-			PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
-			issuer,
-			false,
-			true
-		);
-	}
-	inline void PrepareOrder(DotaUnitOrder_t orderType, UINT32 targetIndex, Vector3* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, BaseEntity* issuer = nullptr, bool queue = false, bool showEffects = true) {
-		if (issuer == nullptr)
-			issuer = GetAssignedHero();
-
-		if (Signatures::PrepareUnitOrders == nullptr)
-			return;
-
-		Signatures::PrepareUnitOrders(this, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
-	}
-};
 
 class BaseEntity : public VClass {
 public:
@@ -166,6 +107,10 @@ public:
 			return reinterpret_cast<T*>(Interfaces::Entity->GetBaseEntity(ENTID_FROM_HANDLE(handle)));
 		}
 	};
+
+	inline bool IsWaitingToSpawn() {
+		return Member<bool>(Schema::Netvars["C_DOTA_BaseNPC"]["m_bIsWaitingToSpawn"]);
+	}
 	inline const char* GetUnitName() {
 		//return *(const char**)((uintptr_t)this + Schema::Netvars["C_DOTA_BaseNPC"]["m_iszUnitName"]);
 		//std::cout << std::hex << Schema::Netvars["C_DOTA_BaseNPC"]["m_iszUnitName"] << '\n';
@@ -254,5 +199,68 @@ public:
 		return Member<DotaRunes>(0x990);
 	}
 };
+
+class DotaPlayer :public BaseEntity {
+public:
+	inline uint32_t GetAssignedHeroHandle() {
+		return Member< uint32_t>(Schema::Netvars["C_DOTAPlayerController"]["m_hAssignedHero"]);
+	}
+	inline CUtlVector<uint32_t> GetSelectedUnits() {
+		return Member<CUtlVector<uint32_t>>(Schema::Netvars["C_DOTAPlayerController"]["m_nSelectedUnits"]);
+	}
+	inline BaseEntity* GetAssignedHero() {
+		return Interfaces::Entity->GetBaseEntity(ENTID_FROM_HANDLE(GetAssignedHeroHandle()));
+	}
+	inline void CastNoTarget(ENT_HANDLE handle, BaseEntity* issuer = nullptr) {
+		if (issuer == nullptr)
+			issuer = GetAssignedHero();
+		PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_NO_TARGET,
+			0,
+			&Vector3::Zero,
+			ENTID_FROM_HANDLE(handle),
+			PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
+			issuer,
+			false,
+			true
+		);
+	}
+	inline void BuyItem(int itemId) {
+		PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_PURCHASE_ITEM,
+			1,
+			&Vector3::Zero,
+			itemId,
+			PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
+			GetAssignedHero(),
+			false,
+			true
+		);
+	}
+	inline void OrderMoveTo(Vector3* pos, bool directMovement = false, BaseEntity* issuer = nullptr) {
+		if (issuer == nullptr)
+			issuer = GetAssignedHero();
+
+		PrepareOrder(directMovement ? DotaUnitOrder_t::DOTA_UNIT_ORDER_MOVE_TO_DIRECTION : DotaUnitOrder_t::DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+			0,
+			pos,
+			0,
+			PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
+			issuer,
+			false,
+			true
+		);
+	}
+	inline void PrepareOrder(DotaUnitOrder_t orderType, UINT32 targetIndex, Vector3* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, BaseEntity* issuer, bool queue = false, bool showEffects = true) {
+		//if (issuer == nullptr)
+		//	issuer = GetAssignedHero();
+
+		if (Signatures::PrepareUnitOrders == nullptr)
+			return;
+
+		Signatures::PrepareUnitOrders(this, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
+	}
+};
+
+
 extern DotaPlayer* localPlayer;
 extern BaseNpc* assignedHero;
+extern std::vector<DotaPlayer*> players;
