@@ -28,6 +28,12 @@
     <Filter Include="Файлы заголовков\Utils">
       <UniqueIdentifier>{3a9abafc-4f87-4c4e-9b06-903ef0087f3c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\imgui">
+      <UniqueIdentifier>{a7bcb7cb-3760-42c2-9260-76329d21199e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\UI">
+      <UniqueIdentifier>{b431f54f-3531-4beb-a3ff-d2b837c371dd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -42,11 +48,26 @@
     <ClCompile Include="proc.cpp">
       <Filter>Файлы заголовков\SigScan</Filter>
     </ClCompile>
-    <ClCompile Include="CGameEntitySystem.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="include\imgui\imgui.cpp">
+      <Filter>Исходные файлы\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="CUtlVector.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="include\imgui\imgui_demo.cpp">
+      <Filter>Исходные файлы\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="include\imgui\imgui_draw.cpp">
+      <Filter>Исходные файлы\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="include\imgui\imgui_impl_glfw.cpp">
+      <Filter>Исходные файлы\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="include\imgui\imgui_impl_opengl3.cpp">
+      <Filter>Исходные файлы\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="include\imgui\imgui_tables.cpp">
+      <Filter>Исходные файлы\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="include\imgui\imgui_widgets.cpp">
+      <Filter>Исходные файлы\imgui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +142,12 @@
     </ClInclude>
     <ClInclude Include="Input.h">
       <Filter>Файлы заголовков\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="UIState.h">
+      <Filter>Файлы заголовков\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Файлы заголовков\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

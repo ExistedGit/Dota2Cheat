@@ -120,12 +120,14 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <OutputFile>H:\Shtreeba DLL Injector\Release\$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalDependencies>$(ProjectDir)lib\glew32s.lib;$(ProjectDir)lib\glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -149,9 +151,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CGameEntitySystem.cpp" />
-    <ClCompile Include="CUtlVector.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="include\imgui\imgui.cpp" />
+    <ClCompile Include="include\imgui\imgui_demo.cpp" />
+    <ClCompile Include="include\imgui\imgui_draw.cpp" />
+    <ClCompile Include="include\imgui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="include\imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="include\imgui\imgui_tables.cpp" />
+    <ClCompile Include="include\imgui\imgui_widgets.cpp" />
     <ClCompile Include="patterscan.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -167,8 +174,10 @@
     <ClInclude Include="AutoUseMagicWand.h" />
     <ClInclude Include="AutoUseMidas.h" />
     <ClInclude Include="CGameEntitySystem.h" />
+    <ClInclude Include="Config.h" />
     <ClInclude Include="Hooks.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="UIState.h" />
     <ClInclude Include="ValveClasses.h" />
     <ClInclude Include="ConVar.h" />
     <ClInclude Include="CUtlVector.h" />

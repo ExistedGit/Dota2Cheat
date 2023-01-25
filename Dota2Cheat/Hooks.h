@@ -4,6 +4,7 @@
 #include "AutoUseMidas.h"
 #include "AutoUseMagicWand.h"
 #include "Wrappers.h"
+#include "UIState.h"
 #include "Input.h"
 
 extern bool IsInMatch;
@@ -148,7 +149,6 @@ namespace Hooks {
 	inline bool visible = false;
 
 	inline void RunFrame(u64 a, u64 b) {
-		const bool buyTome = false;
 		const bool inGameStuff = true;
 		static bool isInGame = Interfaces::Engine->IsInGame();
 		if (isInGame) {
@@ -162,17 +162,16 @@ namespace Hooks {
 					sscSum += assignedHero->GetSSC();
 					sscCount++;
 					if (sscCount == 3) {
-						if (visible != (sscSum == 0))
-							std::cout << (visible ? "HIDDEN" : "DETECTED") << '\n';
+						//if (visible != (sscSum == 0))
+						//	std::cout << (visible ? "HIDDEN" : "DETECTED") << '\n';
 						
-						visible = sscSum == 0;
+						UIState::HeroVisibleToEnemy = visible = sscSum == 0;
 						sscCount = sscSum = 0;
 					}
 
 					AutoUseWandCheck(assignedHero);
 					AutoUseFaerieFireCheck(assignedHero);
-					if (buyTome)
-						Hacks::AutoBuyTomeCheck();
+					Hacks::AutoBuyTomeCheck();
 					EntityIteration();
 				}
 
