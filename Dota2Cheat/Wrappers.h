@@ -21,10 +21,10 @@ public:
 	float cooldown;
 };
 
-// Инвентарь героя
 class CUnitInventory {
 public:
-	// Возвращает массив хэндлов на сущности предметов(19 максимум)
+	// Returns an array of 19 handles
+	// Valid handles of items are ordered by slots, i. e. moving an item to backpack will change its index inside this array
 	ENT_HANDLE* GetItems() {
 		static int offset = Schema::Netvars["C_DOTA_UnitInventory"]["m_hItems"];
 		if (!offset)
@@ -111,18 +111,23 @@ public:
 	inline bool IsWaitingToSpawn() {
 		return Member<bool>(Schema::Netvars["C_DOTA_BaseNPC"]["m_bIsWaitingToSpawn"]);
 	}
+	inline bool IsAncient() {
+		return Member<bool>(Schema::Netvars["C_DOTA_BaseNPC"]["m_bIsAncient"]);
+	}
+	inline float GetSSC() {
+		return Member<float>(Schema::Netvars["C_DOTA_BaseNPC"]["m_flStartSequenceCycle"]);
+	}
+	inline ENT_HANDLE GoalEntity() {
+		return Member<ENT_HANDLE>(Schema::Netvars["C_DOTA_BaseNPC"]["m_hGoalEntity"]);
+	}
 	inline const char* GetUnitName() {
 		//return *(const char**)((uintptr_t)this + Schema::Netvars["C_DOTA_BaseNPC"]["m_iszUnitName"]);
 		//std::cout << std::hex << Schema::Netvars["C_DOTA_BaseNPC"]["m_iszUnitName"] << '\n';
 		//std::cout << "this: " << this << '\n';
 		return Member<const char*>(Schema::Netvars["C_DOTA_BaseNPC"]["m_iszUnitName"]);
 	}
-	inline bool BaseNPCHero_IsIllusion() {
-		uint32_t offset = Schema::Netvars["C_DOTA_BaseNPC_Hero"]["m_hReplicatingOtherHeroModel"]; //credits to hollow @UC
-		if (!offset)
-			return false;
-		uintptr_t handle = *(uintptr_t*)((uintptr_t)this + offset);
-		return ENT_HANDLE_VALID(handle);
+	inline bool Hero_IsIllusion() {
+		return Member<ENT_HANDLE>(Schema::Netvars["C_DOTA_BaseNPC_Hero"]["m_hReplicatingOtherHeroModel"]) != 0xFFFFFFFF;
 	}
 	inline std::vector<ItemOrAbility> GetAbilities() {
 		static int offset = Schema::Netvars["C_DOTA_BaseNPC"]["m_hAbilities"];
@@ -210,6 +215,9 @@ public:
 	}
 	inline BaseEntity* GetAssignedHero() {
 		return Interfaces::Entity->GetBaseEntity(ENTID_FROM_HANDLE(GetAssignedHeroHandle()));
+	}
+	inline uint64_t GetSteamID() {
+		return Member<uint64_t>(0x6b8);
 	}
 	inline void CastNoTarget(ENT_HANDLE handle, BaseEntity* issuer = nullptr) {
 		if (issuer == nullptr)

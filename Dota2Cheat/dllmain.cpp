@@ -6,12 +6,10 @@
 #include "vtabler.h"
 #include "Wrappers.h"
 #include "SDK/color.h"
-#include "AutoUseMagicWand.h"
-#include "AutoUseMidas.h"
-#include "AutoBuyTome.h"
 #include "Globals.h"
 #include "MatchStateHandling.h"
 #include "Hooks.h"
+#include "Input.h"
 #pragma region Global variables
 
 bool IsInMatch = false;
@@ -25,15 +23,6 @@ std::vector<DotaPlayer*> players{};
 HANDLE CurProcHandle;
 int CurProcId;
 #pragma endregion
-
-
-
-
-//int GetLocalPlayerSlot() {
-//	int idx = 0;
-//	getvfunc(Interfaces::Engine, 20)(Interfaces::Engine, &idx, 0, 0);
-//	return idx;
-//}
 
 void gotoxy(int x, int y)
 {
@@ -94,7 +83,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	Log("CVars found!");
 	//bool spamBuy = false;
-	while (!GetAsyncKeyState(VK_INSERT)) {
+	while (!IsKeyPressed(VK_INSERT)) {
 		Sleep(10);
 		CheckMatchState();
 	}

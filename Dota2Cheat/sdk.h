@@ -2,10 +2,10 @@
 #include <cstdint>
 #include <iostream>
 #include <Windows.h>
-
+#include "Input.h"
 inline void PAUSE() {
 	std::cout << "PAUSE" << '\n';
-	while (!GetAsyncKeyState(VK_NUMPAD3)) {
+	while (!IsKeyPressed(VK_NUMPAD3)) {
 	}
 }
 

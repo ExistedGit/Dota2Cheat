@@ -1,6 +1,10 @@
 #pragma once
 #include "MatchStateHandling.h"
+#include "AutoBuyTome.h"
+#include "AutoUseMidas.h"
+#include "AutoUseMagicWand.h"
 #include "Wrappers.h"
+#include "Input.h"
 
 extern bool IsInMatch;
 
@@ -61,7 +65,7 @@ namespace Hooks {
 		for (int i = 0; i < Interfaces::Entity->GetHighestEntityIndex(); i++) {
 			auto* ent = Interfaces::Entity->GetBaseEntity(i);
 
-			if (ent == nullptr)
+			if (ent == nullptr || ent->GetIdentity()->IsDormant())
 				continue;
 			const char* className = ent->SchemaBinding()->binaryName;
 
@@ -89,8 +93,7 @@ namespace Hooks {
 				};
 
 				// If the creep is visible, not one of ours, is alive, is within 600 hammer units and its name matches one of the filters
-				if (!creep->GetIdentity()->IsDormant() &&
-					creep->GetTeam() != assignedHero->GetTeam() &&
+				if (creep->GetTeam() != assignedHero->GetTeam() &&
 					creep->GetHealth() > 0 &&
 					!creep->IsWaitingToSpawn() &&
 					IsWithinRadius(creep->GetPos2D(), assignedHero->GetPos2D(), 600) &&
@@ -123,7 +126,7 @@ namespace Hooks {
 
 				//std::cout << std::hex;
 
-				if (hero->BaseNPCHero_IsIllusion() &&
+				if (hero->Hero_IsIllusion() &&
 					strstr(className, "CDOTA_Unit_Hero_ArcWarden") == nullptr) {
 					illusionCount++;
 					if (assignedHero->GetTeam() == hero->GetTeam())
@@ -140,6 +143,9 @@ namespace Hooks {
 		//std::cout << "Illusions: " << illusionCount;
 	}
 
+	inline float sscCount = 0;
+	inline float sscSum = 0;
+	inline bool visible = false;
 
 	inline void RunFrame(u64 a, u64 b) {
 		const bool buyTome = false;
@@ -152,6 +158,17 @@ namespace Hooks {
 				//Signatures::WorldToScreen(Vector3::Zero,&x, &y, nullptr);
 				//std::cout << std::dec << x << ' ' << y << '\n';
 				if (assignedHero->GetLifeState() == 0) { // if alive
+					//visible = prevSSC == prevSSC2 && assignedHero->GetSSC() == prevSSC;
+					sscSum += assignedHero->GetSSC();
+					sscCount++;
+					if (sscCount == 3) {
+						if (visible != (sscSum == 0))
+							std::cout << (visible ? "HIDDEN" : "DETECTED") << '\n';
+						
+						visible = sscSum == 0;
+						sscCount = sscSum = 0;
+					}
+
 					AutoUseWandCheck(assignedHero);
 					AutoUseFaerieFireCheck(assignedHero);
 					if (buyTome)
@@ -159,16 +176,17 @@ namespace Hooks {
 					EntityIteration();
 				}
 
-				if (GetAsyncKeyState(VK_NUMPAD8)) {
+				if (IsKeyPressed(VK_NUMPAD8)) {
 					auto selected = localPlayer->GetSelectedUnits();
 					auto ent = (BaseNpc*)Interfaces::Entity->GetBaseEntity(selected[0]);
 					auto pos = ent->GetPos();
 					std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
 						<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
-						<< "\n\t" << "IsAncient: " << (int)Signatures::Scripts::IsAncient(nullptr, selected[0])
+						<< "\n\t" << "IsAncient: " << ent->IsAncient()
+						//<< "\n\t" << "GetCastRangeBonus: " << std::dec << Function(0x00007FFAEE5C0B00).Execute<int>(nullptr, ent->GetIdentity()->entHandle)
 						<< '\n';
 				}
-				if (GetAsyncKeyState(VK_NUMPAD7)) {
+				if (IsKeyPressed(VK_NUMPAD7)) {
 					auto selected = localPlayer->GetSelectedUnits();
 					auto ent = (BaseNpc*)Interfaces::Entity->GetBaseEntity(selected[0]);
 					LogInvAndAbilities(ent);
@@ -177,7 +195,7 @@ namespace Hooks {
 					//LogEntities();
 				}
 
-				if (GetAsyncKeyState(VK_HOME)) {
+				if (IsKeyPressed(VK_HOME)) {
 					Interfaces::CVar->SetConvars();
 				}
 			}

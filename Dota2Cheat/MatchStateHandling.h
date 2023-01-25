@@ -45,7 +45,9 @@ inline void EnteredMatch() {
 		if (assignedHero == nullptr)
 			return;
 		Hacks::AutoBuyTomeInit();
-		std::cout << std::hex << "Local Player: " << localPlayer << '\n';
+		std::cout << std::hex << "Local Player: " << localPlayer 
+			<< "\n\t" << std::dec << "STEAM ID: " << localPlayer->GetSteamID() 
+			<< '\n';
 		std::cout << std::hex << "Assigned Hero: " << assignedHero << " " << assignedHero->GetUnitName() << '\n';
 		IsInMatch = true;
 		//FillPlayerList();

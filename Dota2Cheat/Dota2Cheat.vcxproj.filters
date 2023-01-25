@@ -25,6 +25,9 @@
     <Filter Include="Файлы заголовков\Events">
       <UniqueIdentifier>{c5887a9e-46bb-400f-8eeb-d5dae5a74f61}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Utils">
+      <UniqueIdentifier>{3a9abafc-4f87-4c4e-9b06-903ef0087f3c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -115,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="Hooks.h">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Файлы заголовков\Utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
