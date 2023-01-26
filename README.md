@@ -13,14 +13,14 @@ To open the cheat menu, press Insert
 This list is subject to frequent change as I'm testing new features
 * Illusion coloring(red for enemy's, green for friendly)
 * Automation:
-  * Magic Wand and Faerie Fire usage(with potential of customizing the health treshold)
+  * Magic Wand and Faerie Fire usage with customizable health tresholds
   * Hand of Midas usage on nearby big neutrals, ranged & flagbearer lane creeps and catapults
   * Bounty rune pickup
   * Tome of Knowledge purchase
 
 * Convars:
   * `sv_cheats` spoofing
-  * `dota_camera_distance` with proper `r_farz` and `fog_enable`(no clipping or blue fog)
+  * custom `dota_camera_distance` with proper `r_farz` and `fog_enable`(no clipping or blue fog)
   * `dota_use_particle_fow` — shows more particles in FoW, including the teleportation effects
   
 I intend to implement most of the usual cheat functionality
