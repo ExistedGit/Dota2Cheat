@@ -207,6 +207,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	//ImGui::PushFont(font);
 	bool menuVisible = false;
+	bool featuresMenuVisible = false;
+	bool featuresMenuOpen = false;
 	// Main loop
 	while (!glfwWindowShouldClose(window))
 	{
@@ -234,20 +236,32 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 				ImGui::Text(n2hexstr(0x7ffC0000).c_str());
 				ImGui::Separator();
 			}
-			if (ImGui::CollapsingHeader("Features"))
-			{
-
-				ImGui::Checkbox("Auto-use Hand of Midas", &Config::AutoMidasEnabled);
-				ImGui::Checkbox("Automatically pick up Bounty runes", &Config::AutoRunePickupEnabled);
-				ImGui::Checkbox("Auto-use Faerie Fire and Magic Stick", &Config::AutoWandEnabled);
-				ImGui::Checkbox("Auto-buy Tome of Knowledge", &Config::AutoBuyTome);
-			}
-
+			
+			if (ImGui::Button("Features"))
+				featuresMenuVisible = !featuresMenuVisible;
+			
 
 			if (ImGui::Button("EXIT", ImVec2(0, 50)))
 				glfwSetWindowShouldClose(window, 1);
 
 			ImGui::End();
+			
+			if (featuresMenuVisible) {
+				ImGui::Begin("Features", &featuresMenuOpen, ImGuiWindowFlags_::ImGuiWindowFlags_AlwaysAutoResize);
+				ImGui::Checkbox("Auto-use Hand of Midas", &Config::AutoMidasEnabled);
+				ImGui::Checkbox("Automatically pick up Bounty runes", &Config::AutoRunePickupEnabled);
+				if (ImGui::CollapsingHeader("AutoWand")) {
+					ImGui::Checkbox("Auto-use Faerie Fire and Magic Stick", &Config::AutoWandEnabled);
+					ImGui::SliderFloat("Faerie Fire HP Treshold", &Config::AutoHealFaerieFireHPTreshold, 0, 100, "%.1f");
+					
+					ImGui::Separator();
+
+					ImGui::SliderFloat("Magic Stick/Wand/Holy Locket Fire HP Treshold", &Config::AutoHealWandHPTreshold, 0, 100, "%.1f");
+					ImGui::SliderInt("Minimum charges", &Config::AutoHealWandMinCharges, 1, 20);
+				}
+				ImGui::Checkbox("Auto-buy Tome of Knowledge", &Config::AutoBuyTome);
+				ImGui::End();
+			}
 		}
 		_DrawText(window, font, UIState::HeroVisibleToEnemy ? "DETECTED" : "HIDDEN", ImVec2(1920 / 2, 1080 * 3 / 4), 80.0f, Color(200, 200, 200, 255), true);
 

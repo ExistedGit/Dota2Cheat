@@ -164,13 +164,13 @@ namespace Hooks {
 					if (sscCount == 3) {
 						//if (visible != (sscSum == 0))
 						//	std::cout << (visible ? "HIDDEN" : "DETECTED") << '\n';
-						
+
 						UIState::HeroVisibleToEnemy = visible = sscSum == 0;
 						sscCount = sscSum = 0;
 					}
 
-					AutoUseWandCheck(assignedHero);
-					AutoUseFaerieFireCheck(assignedHero);
+					AutoUseWandCheck(assignedHero, Config::AutoHealWandHPTreshold, Config::AutoHealWandMinCharges);
+					AutoUseFaerieFireCheck(assignedHero, Config::AutoHealFaerieFireHPTreshold);
 					Hacks::AutoBuyTomeCheck();
 					EntityIteration();
 				}

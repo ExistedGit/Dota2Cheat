@@ -76,6 +76,7 @@ struct ConVarID
 class CVarSystem {
 public:
 	static std::map<ConVar*, int> CVar;
+	//static std::map<const char*,>
 	using t_CvarCallback = void(*)(const ConVarID& id, int unk1, const ConVarValue* val, const ConVarValue* old_val);
 
 
@@ -129,6 +130,7 @@ public:
 					dota_camera_distance = cvar;
 					dota_camera_distance->value.flt = 1800.0f;
 					TriggerCallback(dota_camera_distance, i);
+					
 				}
 				else if (strcmp(cvar->name, "r_farz") == 0)
 					r_farz = cvar;

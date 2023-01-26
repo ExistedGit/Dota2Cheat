@@ -54,6 +54,7 @@ inline void EnteredMatch() {
 		VMTs::Panorama2 = std::unique_ptr<VMT>(new VMT(Interfaces::Panorama2));
 		VMTs::Panorama2->HookVM(Hooks::RunFrame, 6);
 		VMTs::Panorama2->ApplyVMT();
+		Interfaces::CVar->SetConvars();
 		std::cout << "ENTERED MATCH\n";
 	}
 }
