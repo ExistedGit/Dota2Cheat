@@ -104,7 +104,7 @@ namespace Hooks {
 					localPlayer->PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_TARGET, i, &Vector3::Zero, ENTID_FROM_HANDLE(midas), PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, assignedHero);
 				}
 			}
-			else if (!runePickUp && strstr(className, "C_DOTA_Item_Rune")) {
+			else if (Config::AutoRunePickupEnabled && !runePickUp && strstr(className, "C_DOTA_Item_Rune")) {
 				auto* rune = (ItemRune*)ent;
 				//std::cout << "RUNE " << (int)rune->GetRuneType() << ' ' << rune->GetPos2D().x << ' ' << rune->GetPos2D().y
 				//	<< ' ' << IsWithinRadius(rune->GetPos2D(), assignedHero->GetPos2D(), 150.0f)
@@ -164,11 +164,7 @@ namespace Hooks {
 		if (isInGame) {
 			if (inGameStuff && IsInMatch) {
 				UpdateCameraDistance();
-				//int x, y;
-				//Signatures::WorldToScreen(Vector3::Zero,&x, &y, nullptr);
-				//std::cout << std::dec << x << ' ' << y << '\n';
 				if (assignedHero->GetLifeState() == 0) { // if alive
-					//visible = prevSSC == prevSSC2 && assignedHero->GetSSC() == prevSSC;
 					sscSum += assignedHero->GetSSC();
 					sscCount++;
 					if (sscCount == 3) {

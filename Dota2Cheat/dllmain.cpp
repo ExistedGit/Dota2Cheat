@@ -61,9 +61,10 @@ static void glfw_error_callback(int error, const char* description)
 //int rainbowIndex = 0;
 
 
-float _DrawText(GLFWwindow* wnd, ImFont* pFont, const std::string& text, const ImVec2& pos, float size, Color color, bool center)
+//credits to SMBB from UnknownCheats
+//https://www.unknowncheats.me/forum/direct3d/244074-imgui-d3d11-text-drawing.html
+float DrawTextForeground(GLFWwindow* wnd, ImFont* pFont, const std::string& text, const ImVec2& pos, float size, Color color, bool center)
 {
-
 	float r = color.RGBA[0];
 	float g = color.RGBA[1];
 	float b = color.RGBA[2];
@@ -81,12 +82,10 @@ float _DrawText(GLFWwindow* wnd, ImFont* pFont, const std::string& text, const I
 
 		if (center)
 		{
-
 			DrawList->AddText(pFont, size, ImVec2((pos.x - textSize.x / 2.0f) + 1, (pos.y + textSize.y * i) + 1), ImGui::GetColorU32(ImVec4(0, 0, 0, a / 255)), line.c_str());
 			DrawList->AddText(pFont, size, ImVec2((pos.x - textSize.x / 2.0f) - 1, (pos.y + textSize.y * i) - 1), ImGui::GetColorU32(ImVec4(0, 0, 0, a / 255)), line.c_str());
 			DrawList->AddText(pFont, size, ImVec2((pos.x - textSize.x / 2.0f) + 1, (pos.y + textSize.y * i) - 1), ImGui::GetColorU32(ImVec4(0, 0, 0, a / 255)), line.c_str());
 			DrawList->AddText(pFont, size, ImVec2((pos.x - textSize.x / 2.0f) - 1, (pos.y + textSize.y * i) + 1), ImGui::GetColorU32(ImVec4(0, 0, 0, a / 255)), line.c_str());
-
 			DrawList->AddText(pFont, size, ImVec2(pos.x - textSize.x / 2.0f, pos.y + textSize.y * i), ImGui::GetColorU32(ImVec4(r / 255, g / 255, b / 255, a / 255)), line.c_str());
 		}
 		else
@@ -144,10 +143,9 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Log("CVars found!");
 	//bool spamBuy = false;
 
-	while (!IsKeyPressed(VK_INSERT)) {
-		Sleep(10);
-		CheckMatchState();
-	}
+	VMTs::Panorama2 = std::unique_ptr<VMT>(new VMT(Interfaces::Panorama2));
+	VMTs::Panorama2->HookVM(Hooks::RunFrame, 6);
+	VMTs::Panorama2->ApplyVMT();
 
 	glfwSetErrorCallback(glfw_error_callback);
 	if (!glfwInit())
@@ -264,7 +262,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 				ImGui::End();
 			}
 		}
-		_DrawText(window, font, UIState::HeroVisibleToEnemy ? "DETECTED" : "HIDDEN", ImVec2(1920 / 2, 1080 * 3 / 4), 80.0f, Color(200, 200, 200, 255), true);
+		DrawTextForeground(window, font, UIState::HeroVisibleToEnemy ? "DETECTED" : "HIDDEN", ImVec2(1920 / 2, 1080 * 3 / 4), 80.0f, Color(200, 200, 200, 255), true);
 
 		//if (ImGui::IsKeyPressed(ImGuiKey::ImGuiKey_Insert, false)) {
 		if (IsKeyPressed(VK_INSERT)) {
@@ -278,11 +276,12 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		int display_w, display_h;
 		glfwGetFramebufferSize(window, &display_w, &display_h);
 		glViewport(0, 0, display_w, display_h);
-		//glClearColor(clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, clear_color.w);
 		glClear(GL_COLOR_BUFFER_BIT);
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 		glfwSwapBuffers(window);
+
+		CheckMatchState(); // checking every frame
 	}
 
 	// Cleanup

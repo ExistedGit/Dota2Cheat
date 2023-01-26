@@ -42,7 +42,8 @@ inline float IsWithinRadius(Coord p1, Coord p2, float radius) {
 	return pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2) <= radius * radius;
 }
 
-
+//credits to Liberalist from YouGame
+//very handy classes
 class Function {
 public:
 	void* ptr;

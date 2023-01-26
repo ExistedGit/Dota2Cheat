@@ -56,7 +56,7 @@ public:
 		static int offset = Schema::Netvars["C_BaseModelEntity"]["m_clrRender"];
 		if (!offset)
 			return;
-		uintptr_t clrAddr = (uintptr_t)+offset;
+		uintptr_t clrAddr = (uintptr_t)this +offset;
 		*(BYTE*)(clrAddr + 0) = static_cast<BYTE>(clr.RGBA[0]);
 		*(BYTE*)(clrAddr + 1) = static_cast<BYTE>(clr.RGBA[1]);
 		*(BYTE*)(clrAddr + 2) = static_cast<BYTE>(clr.RGBA[2]);
@@ -150,7 +150,8 @@ public:
 		if (str == nullptr)
 			return ItemOrAbility{ nullptr, 0xFFFFFFFF };
 		for (const auto& item : GetItems())
-			if (strstr(item.name, str)) 
+			if (item.name != nullptr &&
+				strstr(item.name, str))
 				return item;
 			
 		return ItemOrAbility{ nullptr, 0xFFFFFFFF };
