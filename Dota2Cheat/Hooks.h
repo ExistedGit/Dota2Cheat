@@ -148,12 +148,22 @@ namespace Hooks {
 	inline float sscSum = 0;
 	inline bool visible = false;
 
+	inline void UpdateCameraDistance() {
+		static auto varInfo = CVarSystem::CVar["dota_camera_distance"];
+		if (Config::CameraDistance != varInfo.var->value.flt) {
+			varInfo.var->value.flt = Config::CameraDistance;
+			Interfaces::CVar->TriggerCallback(varInfo);
+		}
+
+	}
+
 	inline void RunFrame(u64 a, u64 b) {
 		const bool inGameStuff = true;
 		static bool isInGame = Interfaces::Engine->IsInGame();
-		if (isInGame) {
 
+		if (isInGame) {
 			if (inGameStuff && IsInMatch) {
+				UpdateCameraDistance();
 				//int x, y;
 				//Signatures::WorldToScreen(Vector3::Zero,&x, &y, nullptr);
 				//std::cout << std::dec << x << ' ' << y << '\n';

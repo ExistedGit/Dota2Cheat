@@ -26,7 +26,7 @@
 
 bool IsInMatch = false;
 Vector3 Vector3::Zero = Vector3(0, 0, 0);
-std::map<ConVar*, int> CVarSystem::CVar = {};
+std::map<std::string, CVarSystem::CVarInfo> CVarSystem::CVar{};
 
 DotaPlayer* localPlayer;
 BaseNpc* assignedHero;
@@ -260,6 +260,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 					ImGui::SliderInt("Minimum charges", &Config::AutoHealWandMinCharges, 1, 20);
 				}
 				ImGui::Checkbox("Auto-buy Tome of Knowledge", &Config::AutoBuyTome);
+				ImGui::SliderFloat("Camera distance", &Config::CameraDistance, 1000, 2200, "%.1f");
 				ImGui::End();
 			}
 		}
