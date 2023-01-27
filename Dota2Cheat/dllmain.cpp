@@ -60,6 +60,7 @@ static void glfw_error_callback(int error, const char* description)
 //};
 //int rainbowIndex = 0;
 
+std::vector<BaseNpc*> enemyHeroes{};
 
 //credits to SMBB from UnknownCheats
 //https://www.unknowncheats.me/forum/direct3d/244074-imgui-d3d11-text-drawing.html
@@ -75,11 +76,29 @@ float DrawTextForeground(GLFWwindow* wnd, ImFont* pFont, const std::string& text
 
 	float y = 0.0f;
 	int i = 0;
-	auto DrawList = ImGui::GetForegroundDrawList();;
+	auto DrawList = ImGui::GetForegroundDrawList();
+	
+	//for (const auto& ent : enemyHeroes) {
+	//	int healthbarOffset = ent->Member<int>(0xc6c);
+	//	auto entPos = ent->GetPos();
+	//	float manaPercent = ent->GetMana() / ent->GetMaxMana();
+	//	entPos.x += Config::OffsetX;
+	//	entPos.y += Config::OffsetY;
+	//	entPos.z += healthbarOffset + Config::OffsetZ;
+	//	int x = 0, y = 0;
+	//	Signatures::Scripts::WorldToScreen(entPos, &x, &y, nullptr);
+	//	DrawList->AddRectFilledMultiColor(
+	//		ImVec2(x - 25, y - 3), 
+	//		ImVec2(x + 25 * manaPercent, y + 3),
+	//		// yes, same thing 4 times over, such is ImGui :)
+	//		ImGui::GetColorU32(ImVec4(0, 0, 1, 1)),
+	//		ImGui::GetColorU32(ImVec4(0, 0, 1, 1)),
+	//		ImGui::GetColorU32(ImVec4(0, 0, 1, 1)),
+	//		ImGui::GetColorU32(ImVec4(0, 0, 1, 1)));
+	//}
 	while (std::getline(stream, line))
 	{
 		ImVec2 textSize = pFont->CalcTextSizeA(size, FLT_MAX, 0.0f, line.c_str());
-
 		if (center)
 		{
 			DrawList->AddText(pFont, size, ImVec2((pos.x - textSize.x / 2.0f) + 1, (pos.y + textSize.y * i) + 1), ImGui::GetColorU32(ImVec4(0, 0, 0, a / 255)), line.c_str());
@@ -128,7 +147,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Signatures::LogSignatures();
 
 	Globals::InitGlobals();
-	//Globals::LogGlobals();
 	const bool logEntities = false;
 	bool playerEntFound = false;
 
@@ -141,7 +159,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	}
 
 	Log("CVars found!");
-	//bool spamBuy = false;
 
 	VMTs::Panorama2 = std::unique_ptr<VMT>(new VMT(Interfaces::Panorama2));
 	VMTs::Panorama2->HookVM(Hooks::RunFrame, 6);
@@ -159,10 +176,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	const bool debug = true;
 
 	glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, 1);
-	if (debug) {
+	if (!debug) {
 		glfwWindowHint(GLFW_DECORATED, 0);
 		glfwWindowHint(GLFW_FLOATING, 1);
-		glfwWindowHint(GLFW_RESIZABLE, 0);		
+		glfwWindowHint(GLFW_RESIZABLE, 0);
 		glfwWindowHint(GLFW_MAXIMIZED, 1);
 		glfwWindowHint(GLFW_MOUSE_PASSTHROUGH, 1);
 	}
@@ -189,7 +206,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
 
 	// Setup Dear ImGui style
-	ImGui::StyleColorsDark();
+	ImGui::StyleColorsClassic();
 	//ImGui::StyleColorsLight();
 
 	// Setup Platform/Renderer backends
@@ -234,16 +251,28 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 				ImGui::Text(n2hexstr(0x7ffC0000).c_str());
 				ImGui::Separator();
 			}
-			
+
 			if (ImGui::Button("Features"))
 				featuresMenuVisible = !featuresMenuVisible;
-			
+			if (ImGui::Button("Create Particle")) {
+				CDOTAParticleManager::ParticleInfo info{};
+				info.attachmentType = CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW;
+				info.particleName = "particles/ui_mouseactions/select_hero_active.vpcf";
+				info.ent = (BaseEntity*)assignedHero;
+
+				Vector3 color{ 255, 255, 255 };
+				Vector3 radius{ 130, 0, 0 };
+				auto particle = Globals::ParticleManager->CreateParticle(info);
+				particle
+					->SetControlPoint(1, &color)
+					->SetControlPoint(2, &radius);
+			}
 
 			if (ImGui::Button("EXIT", ImVec2(0, 50)))
 				glfwSetWindowShouldClose(window, 1);
 
 			ImGui::End();
-			
+
 			if (featuresMenuVisible) {
 				ImGui::Begin("Features", &featuresMenuOpen, ImGuiWindowFlags_::ImGuiWindowFlags_AlwaysAutoResize);
 				ImGui::Checkbox("Auto-use Hand of Midas", &Config::AutoMidasEnabled);
@@ -251,7 +280,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 				if (ImGui::CollapsingHeader("AutoWand")) {
 					ImGui::Checkbox("Auto-use Faerie Fire and Magic Stick", &Config::AutoWandEnabled);
 					ImGui::SliderFloat("Faerie Fire HP Treshold", &Config::AutoHealFaerieFireHPTreshold, 0, 100, "%.1f");
-					
+
 					ImGui::Separator();
 
 					ImGui::SliderFloat("Magic Stick/Wand/Holy Locket Fire HP Treshold", &Config::AutoHealWandHPTreshold, 0, 100, "%.1f");
@@ -262,6 +291,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 				ImGui::End();
 			}
 		}
+		if(IsInMatch)
 		DrawTextForeground(window, font, UIState::HeroVisibleToEnemy ? "DETECTED" : "HIDDEN", ImVec2(1920 / 2, 1080 * 3 / 4), 80.0f, Color(200, 200, 200, 255), true);
 
 		//if (ImGui::IsKeyPressed(ImGuiKey::ImGuiKey_Insert, false)) {

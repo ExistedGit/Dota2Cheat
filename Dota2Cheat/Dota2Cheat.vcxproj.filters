@@ -83,9 +83,6 @@
     <ClInclude Include="proc.h">
       <Filter>Файлы заголовков\SigScan</Filter>
     </ClInclude>
-    <ClInclude Include="include.h">
-      <Filter>Файлы заголовков\SigScan</Filter>
-    </ClInclude>
     <ClInclude Include="Interfaces.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
@@ -148,6 +145,15 @@
     </ClInclude>
     <ClInclude Include="Config.h">
       <Filter>Файлы заголовков\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="IScriptVM.h">
+      <Filter>Файлы заголовков\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="CDOTAParticleManager.h">
+      <Filter>Файлы заголовков\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="include.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

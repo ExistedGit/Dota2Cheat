@@ -33,6 +33,8 @@ inline void FillPlayerList() {
 inline void EnteredMatch() {
 	Globals::GameRules = *Globals::GameRulesPtr;
 	Globals::PlayerResource = *Globals::PlayerResourcePtr;
+	Globals::ScriptVM = *Globals::ScriptVMPtr;
+	Globals::ParticleManager = *Globals::ParticleManagerPtr;
 
 	GameState gameState = Globals::GameRules->GetGameState();
 	if (gameState == GameState::DOTA_GAMERULES_PREGAME ||
@@ -51,6 +53,7 @@ inline void EnteredMatch() {
 		IsInMatch = true;
 		Interfaces::CVar->SetConvars();
 		//FillPlayerList();
+		Globals::LogGlobals();
 		std::cout << "ENTERED MATCH\n";
 	}
 }
@@ -60,6 +63,7 @@ inline void LeftMatch() {
 	Globals::GameRules = nullptr;
 	localPlayer = nullptr;
 	assignedHero = nullptr;
+	Globals::ScriptVM = nullptr;
 	players.clear();
 	std::cout << "LEFT MATCH\n";
 }

@@ -8,6 +8,7 @@
 #include "Input.h"
 
 extern bool IsInMatch;
+extern std::vector<BaseNpc*> enemyHeroes;
 
 namespace VMTs {
 	std::unique_ptr<VMT> Panorama2;
@@ -56,6 +57,7 @@ namespace Hooks {
 
 		return false;
 	}
+	inline bool test = false;
 	inline void EntityIteration() {
 		int illusionCount = 0;
 		bool midasUsed = false;
@@ -124,6 +126,10 @@ namespace Hooks {
 			}
 			else if (strstr(className, "DOTA_Unit_Hero") != nullptr) {
 				auto hero = (BaseNpc*)ent;
+				if (!test) {
+					enemyHeroes.push_back(hero);
+					test = true;
+				}
 
 				//std::cout << std::hex;
 
@@ -187,7 +193,7 @@ namespace Hooks {
 					auto pos = ent->GetPos();
 					std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
 						<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
-						<< "\n\t" << "IsAncient: " << ent->IsAncient()
+						//<< "\n\t" << "IsAncient: " << ent->IsAncient()
 						//<< "\n\t" << "GetCastRangeBonus: " << std::dec << Function(0x00007FFAEE5C0B00).Execute<int>(nullptr, ent->GetIdentity()->entHandle)
 						<< '\n';
 				}

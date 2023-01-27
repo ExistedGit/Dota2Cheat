@@ -14,6 +14,7 @@ namespace Interfaces {
 	inline VClass* Panorama2 = nullptr;
 	inline CSource2Client* Client = nullptr;
 	inline CGameEntitySystem* Entity = nullptr;
+	
 	inline void* GCClient = nullptr;
 	inline uintptr_t Schema = NULL;
 
@@ -26,6 +27,7 @@ namespace Interfaces {
 		return reinterpret_cast<T>(retInterface);
 	}
 	
+	
 	inline void InitInterfaces() {
 		Engine = GetInterface<IEngineClient*>("engine2.dll", "Source2EngineToClient001");
 		Client = GetInterface<CSource2Client*>("client.dll", "Source2Client002");
@@ -34,7 +36,7 @@ namespace Interfaces {
 		uintptr_t addr_start = *vmt_slot + 3;														//stores the relative address portion of the mov rax, [rip + 0x2512059] instruction
 		Entity = *(CGameEntitySystem**)(addr_start + *(uint32_t*)(addr_start)+4);
 
-
+		
 		Panorama = GetInterface<VClass*>("panorama.dll", "PanoramaUIEngine001");
 		Panorama2 = Panorama->Member<VClass*>(0x28);
 		GCClient = GetInterface<void*>("client.dll", "DOTA_CLIENT_GCCLIENT");

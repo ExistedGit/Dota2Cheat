@@ -14,4 +14,8 @@ namespace Config {
 
 	inline float CameraDistance = 1200.0f;
 	
+
+	inline int OffsetX = 0; 
+	inline int OffsetY = 0;
+	inline int OffsetZ = 0;
 }
