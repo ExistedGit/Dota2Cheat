@@ -77,7 +77,7 @@ float DrawTextForeground(GLFWwindow* wnd, ImFont* pFont, const std::string& text
 	float y = 0.0f;
 	int i = 0;
 	auto DrawList = ImGui::GetForegroundDrawList();
-	
+
 	//for (const auto& ent : enemyHeroes) {
 	//	int healthbarOffset = ent->Member<int>(0xc6c);
 	//	auto entPos = ent->GetPos();
@@ -123,6 +123,7 @@ float DrawTextForeground(GLFWwindow* wnd, ImFont* pFont, const std::string& text
 	return y;
 }
 
+CDOTAParticleManager::ParticleWrapper particleWrap{};
 uintptr_t WINAPI HackThread(HMODULE hModule) {
 	AllocConsole();
 	FILE* f;
@@ -159,10 +160,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	}
 
 	Log("CVars found!");
-
-	VMTs::Panorama2 = std::unique_ptr<VMT>(new VMT(Interfaces::Panorama2));
-	VMTs::Panorama2->HookVM(Hooks::RunFrame, 6);
-	VMTs::Panorama2->ApplyVMT();
 
 	glfwSetErrorCallback(glfw_error_callback);
 	if (!glfwInit())
@@ -243,33 +240,53 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		if (menuVisible) {
 			ImGui::Begin("Main");
 
-			if (ImGui::CollapsingHeader("Debug Info"))
-			{
-				ImGui::Text("Interfaces:");
-				ImGui::BulletText("Entity System: ");
-				ImGui::SameLine();
-				ImGui::Text(n2hexstr(0x7ffC0000).c_str());
-				ImGui::Separator();
-			}
+			//if (ImGui::CollapsingHeader("Debug Info"))
+			//{
+			//	ImGui::Text("Interfaces:");
+			//	ImGui::BulletText("Entity System: ");
+			//	ImGui::SameLine();
+			//	ImGui::Text(n2hexstr(0x7ffC0000).c_str());
+			//	ImGui::Separator();
+			//}
 
 			if (ImGui::Button("Features"))
 				featuresMenuVisible = !featuresMenuVisible;
+			if (ImGui::Button("Destroy Particle") && particleWrap.particle)
+					Signatures::DestroyParticle(Globals::ParticleManager, particleWrap.handle, 1);
+			
 			if (ImGui::Button("Create Particle")) {
-				CDOTAParticleManager::ParticleInfo info{};
-				info.attachmentType = CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW;
-				info.particleName = "particles/ui_mouseactions/select_hero_active.vpcf";
-				info.ent = (BaseEntity*)assignedHero;
-
-				Vector3 color{ 255, 255, 255 };
-				Vector3 radius{ 130, 0, 0 };
-				auto particle = Globals::ParticleManager->CreateParticle(info);
-				particle
-					->SetControlPoint(1, &color)
-					->SetControlPoint(2, &radius);
+				//{
+				//	Vector3 color{ 0, 255, 128 };
+				//	Vector3 radius{ 100, 0, 0 };
+				//	Globals::ParticleManager->CreateParticle(
+				//		"particles/ui_mouseactions/select_hero_active.vpcf",
+				//		CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
+				//		(BaseEntity*)assignedHero
+				//	)
+				//		->SetControlPoint(1, &color)
+				//		->SetControlPoint(2, &radius);
+				//}
+				{
+					Vector3 color{ 0, 255, 255 };
+					Vector3 radius{ 150, 0, 0 };
+					Vector3 targetVisibility{ false, 0, 0 };
+					particleWrap = Globals::ParticleManager->CreateParticle(
+						"particles/ui_mouseactions/range_finder_tower_aoe.vpcf",
+						CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
+						(BaseEntity*)assignedHero
+					);
+					particleWrap.particle
+						->SetControlPoint(3, &radius)
+						->SetControlPoint(4, &color)
+						->SetControlPoint(6, &targetVisibility)
+						;
+				}
 			}
-
 			if (ImGui::Button("EXIT", ImVec2(0, 50)))
 				glfwSetWindowShouldClose(window, 1);
+			ImGui::SliderInt("Offset X", &Config::OffsetX, -50, 50);
+			ImGui::SliderInt("Offset Y", &Config::OffsetY, -50, 50);
+			ImGui::SliderInt("Offset Z", &Config::OffsetZ, -50, 50);
 
 			ImGui::End();
 
@@ -291,8 +308,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 				ImGui::End();
 			}
 		}
-		if(IsInMatch)
-		DrawTextForeground(window, font, UIState::HeroVisibleToEnemy ? "DETECTED" : "HIDDEN", ImVec2(1920 / 2, 1080 * 3 / 4), 80.0f, Color(200, 200, 200, 255), true);
+		if (IsInMatch)
+			DrawTextForeground(window, font, UIState::HeroVisibleToEnemy ? "DETECTED" : "HIDDEN", ImVec2(1920 / 2, 1080 * 3 / 4), 80.0f, Color(200, 200, 200, 255), true);
 
 		//if (ImGui::IsKeyPressed(ImGuiKey::ImGuiKey_Insert, false)) {
 		if (IsKeyPressed(VK_INSERT)) {

@@ -89,6 +89,15 @@ std::string n2hexstr(I w, size_t hex_len = sizeof(I) << 1) {
 inline void Log(const char* str) {
 	std::cout << "[LOG] " << str << '\n';
 };
+class NormalClass {
+public:
+	template<typename T>
+	inline T Member(int offset/*, T defaultValue = T{}*/) {
+		//if (!offset)
+		//	return defaultValue;
+		return *(T*)((uintptr_t)this + offset);
+	}
+};
 class VClass {
 public:
 	virtual void dummy_fn() = 0; // so that the classes have a vtable
@@ -96,12 +105,16 @@ public:
 	inline T Member(int offset/*, T defaultValue = T{}*/) {
 		//if (!offset)
 		//	return defaultValue;
-		return *(T*)((uintptr_t)this + offset); 
+		return *(T*)((uintptr_t)this + offset);
 	}
 	inline Function GetVFunc(int index)
 	{
 		uintptr_t vtable = *((uintptr_t*)(this));
 		uintptr_t entry = vtable + sizeof(uintptr_t) * index;
 		return Function(*(uintptr_t*)entry);
+	}
+	template<typename ...T, typename RET = void*>
+	inline RET CallVFunc(int index, T... t) {
+		return GetVFunc(index).Execute<RET>(t);
 	}
 };

@@ -6,9 +6,11 @@
 #include "Wrappers.h"
 #include "UIState.h"
 #include "Input.h"
+#include "CDOTAParticleManager.h"
 
 extern bool IsInMatch;
 extern std::vector<BaseNpc*> enemyHeroes;
+	extern CDOTAParticleManager::ParticleWrapper particleWrap;
 
 namespace VMTs {
 	std::unique_ptr<VMT> Panorama2;
@@ -74,7 +76,6 @@ namespace Hooks {
 
 			if (className == nullptr)
 				continue;
-
 			if (!midasUsed && midas != -1
 				&& strstr(className, "Creep")) {
 				auto creep = (BaseNpc*)ent;
@@ -168,7 +169,12 @@ namespace Hooks {
 		static bool isInGame = Interfaces::Engine->IsInGame();
 
 		if (isInGame) {
+			//std::cout << "frame\n";
 			if (inGameStuff && IsInMatch) {
+				if (particleWrap.particle != nullptr) {
+					auto pos = assignedHero->GetPos();
+					particleWrap.particle->SetControlPoint(2, &pos);
+				}
 				UpdateCameraDistance();
 				if (assignedHero->GetLifeState() == 0) { // if alive
 					sscSum += assignedHero->GetSSC();

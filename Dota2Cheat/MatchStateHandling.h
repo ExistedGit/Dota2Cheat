@@ -53,18 +53,27 @@ inline void EnteredMatch() {
 		IsInMatch = true;
 		Interfaces::CVar->SetConvars();
 		//FillPlayerList();
+
+		VMTs::Panorama2 = std::unique_ptr<VMT>(new VMT(Interfaces::Panorama2));
+		VMTs::Panorama2->HookVM(Hooks::RunFrame, 6);
+		VMTs::Panorama2->ApplyVMT();
+
 		Globals::LogGlobals();
 		std::cout << "ENTERED MATCH\n";
 	}
 }
 inline void LeftMatch() {
 	IsInMatch = false;
+	
 	Globals::PlayerResource = nullptr;
 	Globals::GameRules = nullptr;
-	localPlayer = nullptr;
-	assignedHero = nullptr;
 	Globals::ScriptVM = nullptr;
+	VMTs::Panorama2 = nullptr;
+	localPlayer = nullptr;
+	
+	assignedHero = nullptr;
 	players.clear();
+	
 	std::cout << "LEFT MATCH\n";
 }
 inline void CheckMatchState() {

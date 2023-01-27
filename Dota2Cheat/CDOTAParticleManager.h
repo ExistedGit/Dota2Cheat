@@ -1,9 +1,21 @@
 #pragma once
 #include "sdk.h"
 #include "Wrappers.h"
-class CDOTAParticleManager :public VClass {
 
+// Found via x64dbg
+// Xref "CreateParticle" to a lea rax instruction
+// You must see "pParticleName" below it
+// Right above "pParticleName" is lea rcx, [XXXXXXXXX], Right click -> Follow in Disassembler -> Constant
+// The second call instruction is GetParticleManager, has only mov rax, [XXXXXXXX] then ret
+// Now the only remaining step is to get the absolute address of the call, then of the CDOTAParticleManager**(yes, it's a pointer to a pointer, must be dereferenced as seen in Globals.h)
+
+// In the next, third call, we see:
+// mov rax, [rcx]       <- Puts the Particle vtable pointer into rax
+// call [rax + 38h]     <- Calls the vfunc on index 0x38 / 8 = 16
+#define Particle_SetControlPoint_VTABLE_INDEX 16
+class CDOTAParticleManager :public VClass {
 public:
+	// Enum from animationsystem.dll, dumped by Liberalist
 	enum class ParticleAttachment_t : int {
 		PATTACH_INVALID = -1,
 		PATTACH_ABSORIGIN = 0,
@@ -24,10 +36,12 @@ public:
 		PATTACH_HEALTHBAR = 15,
 		MAX_PATTACH_TYPES = 16,
 	};
+
+	// Struct used when creating a particle
 	struct ParticleInfo {
 		const char* particleName;
-		ParticleAttachment_t attachmentType;
-		BaseEntity* ent;
+		ParticleAttachment_t attachtType;
+		BaseEntity* attachEntity;
 	private:
 		void* unk0 = nullptr;
 		void* unk1 = nullptr;
@@ -43,16 +57,16 @@ public:
 		}
 		Particle* SetControlPoint(int idx, Vector3* pos) {
 			auto coll = GetParticleCollection();
-			coll->GetVFunc(0x80 / 8)(coll, idx, pos);
+			coll->GetVFunc(Particle_SetControlPoint_VTABLE_INDEX)(coll, idx, pos);
 			return this;
 		}
 	};
-	struct ParticleContainer {
+	struct ParticleContainer : NormalClass {
 		Particle* GetParticle() {
-			return *(Particle**)((uintptr_t)this + 0x10);
+			return Member<Particle*>(0x10);
 		}
 	};
-	
+
 	int GetParticleCount() {
 		return Member<uint32_t>(0x80);
 	}
@@ -67,9 +81,26 @@ public:
 		*(uint32_t*)((uintptr_t)this + 0x98) = GetHandle() + 1;
 	}
 
-	Particle* CreateParticle(ParticleInfo info) {
-		GetVFunc(7)(this, GetHandle(), info);
+	struct ParticleWrapper {
+		ParticleInfo info;
+		Particle* particle;
+		ENT_HANDLE handle;
+	};
+
+	ParticleWrapper CreateParticle(const char* name, ParticleAttachment_t attachType, BaseEntity* ent = nullptr) {
+		CDOTAParticleManager::ParticleInfo info{};
+		info.attachtType = attachType;
+		info.attachEntity = ent;
+		info.particleName = name;
+
 		IncHandle();
-		return GetParticleArray()[GetParticleCount() - 1]->GetParticle();
+		GetVFunc(7)(this, GetHandle(), info);
+
+		ParticleWrapper result{};
+		result.info = info;
+		result.particle = GetParticleArray()[GetParticleCount() - 1]->GetParticle();
+		result.handle = GetHandle();
+
+		return result;
 	}
 };
