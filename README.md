@@ -3,7 +3,7 @@ SDK folder code is from another github repo, McDota by LWSS. It's a very helpful
 
 Also using GLFW, GLEW and ImGui for the interface, cheers to their wonderful creators!
 ## Building
-The only requirement is to compile as 64-bit
+Open the project in Visual Studio and build as **Release x64**
 ## Injecting
 I recommend using [Extreme Injector v3.7.2](https://www.unknowncheats.me/forum/downloads.php?do=file&id=21570) with either Thread Hijacking or the default option
 
