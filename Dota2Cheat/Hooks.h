@@ -4,9 +4,13 @@
 #include "AutoUseMidas.h"
 #include "AutoUseMagicWand.h"
 #include "Wrappers.h"
+#include "UIState.h"
 #include "Input.h"
+#include "CDOTAParticleManager.h"
 
 extern bool IsInMatch;
+extern std::vector<BaseNpc*> enemyHeroes;
+	extern CDOTAParticleManager::ParticleWrapper particleWrap;
 
 namespace VMTs {
 	std::unique_ptr<VMT> Panorama2;
@@ -55,6 +59,7 @@ namespace Hooks {
 
 		return false;
 	}
+	inline bool test = false;
 	inline void EntityIteration() {
 		int illusionCount = 0;
 		bool midasUsed = false;
@@ -71,7 +76,6 @@ namespace Hooks {
 
 			if (className == nullptr)
 				continue;
-
 			if (!midasUsed && midas != -1
 				&& strstr(className, "Creep")) {
 				auto creep = (BaseNpc*)ent;
@@ -103,7 +107,7 @@ namespace Hooks {
 					localPlayer->PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_TARGET, i, &Vector3::Zero, ENTID_FROM_HANDLE(midas), PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, assignedHero);
 				}
 			}
-			else if (!runePickUp && strstr(className, "C_DOTA_Item_Rune")) {
+			else if (Config::AutoRunePickupEnabled && !runePickUp && strstr(className, "C_DOTA_Item_Rune")) {
 				auto* rune = (ItemRune*)ent;
 				//std::cout << "RUNE " << (int)rune->GetRuneType() << ' ' << rune->GetPos2D().x << ' ' << rune->GetPos2D().y
 				//	<< ' ' << IsWithinRadius(rune->GetPos2D(), assignedHero->GetPos2D(), 150.0f)
@@ -123,6 +127,10 @@ namespace Hooks {
 			}
 			else if (strstr(className, "DOTA_Unit_Hero") != nullptr) {
 				auto hero = (BaseNpc*)ent;
+				if (!test) {
+					enemyHeroes.push_back(hero);
+					test = true;
+				}
 
 				//std::cout << std::hex;
 
@@ -147,32 +155,65 @@ namespace Hooks {
 	inline float sscSum = 0;
 	inline bool visible = false;
 
+	inline void UpdateCameraDistance() {
+		static auto varInfo = CVarSystem::CVar["dota_camera_distance"];
+		if (Config::CameraDistance != varInfo.var->value.flt) {
+			varInfo.var->value.flt = Config::CameraDistance;
+			Interfaces::CVar->TriggerCallback(varInfo);
+		}
+
+	}
+
 	inline void RunFrame(u64 a, u64 b) {
-		const bool buyTome = false;
 		const bool inGameStuff = true;
 		static bool isInGame = Interfaces::Engine->IsInGame();
-		if (isInGame) {
 
+		if (isInGame) {
+			//std::cout << "frame\n";
 			if (inGameStuff && IsInMatch) {
-				//int x, y;
-				//Signatures::WorldToScreen(Vector3::Zero,&x, &y, nullptr);
-				//std::cout << std::dec << x << ' ' << y << '\n';
+				//if (particleWrap.particle != nullptr) {
+				//}
+				UpdateCameraDistance();
 				if (assignedHero->GetLifeState() == 0) { // if alive
-					//visible = prevSSC == prevSSC2 && assignedHero->GetSSC() == prevSSC;
 					sscSum += assignedHero->GetSSC();
 					sscCount++;
 					if (sscCount == 3) {
-						if (visible != (sscSum == 0))
-							std::cout << (visible ? "HIDDEN" : "DETECTED") << '\n';
+						//if (visible != (sscSum == 0))
+						//	std::cout << (visible ? "HIDDEN" : "DETECTED") << '\n';
+
+						UIState::HeroVisibleToEnemy = visible = sscSum == 0;
+						if (visible) {
+							if (particleWrap.particle == nullptr) {
+								//Vector3 color{ 0, 255, 255 };
+								//Vector3 radius{ 150, 0, 0 };
+								//Vector3 targetVisibility{ false, 0, 0 };
+								particleWrap = Globals::ParticleManager->CreateParticle(
+									"particles/items5_fx/revenant_brooch.vpcf",
+									CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
+									(BaseEntity*)assignedHero
+								);
+								//auto pos = assignedHero->GetPos();
+								//particleWrap.particle
+								//	->SetControlPoint(3, &radius)
+								//	->SetControlPoint(4, &color)
+								//	->SetControlPoint(6, &targetVisibility)
+								//	->SetControlPoint(2, &pos);
+							}
+							//else {
+							//	auto pos = assignedHero->GetPos();
+							//	particleWrap.particle->SetControlPoint(2, &pos);
+							//}
+						}
+						else if (particleWrap.particle) {
+							Globals::ParticleManager->DestroyParticle(particleWrap);
+						}
 						
-						visible = sscSum == 0;
 						sscCount = sscSum = 0;
 					}
 
-					AutoUseWandCheck(assignedHero);
-					AutoUseFaerieFireCheck(assignedHero);
-					if (buyTome)
-						Hacks::AutoBuyTomeCheck();
+					AutoUseWandCheck(assignedHero, Config::AutoHealWandHPTreshold, Config::AutoHealWandMinCharges);
+					AutoUseFaerieFireCheck(assignedHero, Config::AutoHealFaerieFireHPTreshold);
+					Hacks::AutoBuyTomeCheck();
 					EntityIteration();
 				}
 
@@ -182,7 +223,7 @@ namespace Hooks {
 					auto pos = ent->GetPos();
 					std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
 						<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
-						<< "\n\t" << "IsAncient: " << ent->IsAncient()
+						//<< "\n\t" << "IsAncient: " << ent->IsAncient()
 						//<< "\n\t" << "GetCastRangeBonus: " << std::dec << Function(0x00007FFAEE5C0B00).Execute<int>(nullptr, ent->GetIdentity()->entHandle)
 						<< '\n';
 				}

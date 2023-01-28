@@ -42,7 +42,8 @@ inline float IsWithinRadius(Coord p1, Coord p2, float radius) {
 	return pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2) <= radius * radius;
 }
 
-
+//credits to Liberalist from YouGame
+//very handy classes
 class Function {
 public:
 	void* ptr;
@@ -77,8 +78,25 @@ template<typename T, typename Z>
 inline void MemCopy(T dst, Z src, size_t size) {
 	memcpy((void*)dst, (const void*)src, size);
 }
+template <typename I>
+std::string n2hexstr(I w, size_t hex_len = sizeof(I) << 1) {
+	static const char* digits = "0123456789ABCDEF";
+	std::string rc(hex_len, '0');
+	for (size_t i = 0, j = (hex_len - 1) * 4; i < hex_len; ++i, j -= 4)
+		rc[i] = digits[((u64)w >> j) & 0x0f];
+	return rc;
+}
 inline void Log(const char* str) {
 	std::cout << "[LOG] " << str << '\n';
+};
+class NormalClass {
+public:
+	template<typename T>
+	inline T Member(int offset/*, T defaultValue = T{}*/) {
+		//if (!offset)
+		//	return defaultValue;
+		return *(T*)((uintptr_t)this + offset);
+	}
 };
 class VClass {
 public:
@@ -87,12 +105,16 @@ public:
 	inline T Member(int offset/*, T defaultValue = T{}*/) {
 		//if (!offset)
 		//	return defaultValue;
-		return *(T*)((uintptr_t)this + offset); 
+		return *(T*)((uintptr_t)this + offset);
 	}
 	inline Function GetVFunc(int index)
 	{
 		uintptr_t vtable = *((uintptr_t*)(this));
 		uintptr_t entry = vtable + sizeof(uintptr_t) * index;
 		return Function(*(uintptr_t*)entry);
+	}
+	template<uint32_t index, typename RET = void*, typename ...T>
+	inline RET CallVFunc(T... t) {
+		return GetVFunc(index).Execute<RET>(this, t...);
 	}
 };

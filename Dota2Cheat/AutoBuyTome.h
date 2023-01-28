@@ -1,12 +1,12 @@
 #pragma once
 #include "Globals.h"
+#include "Config.h"
 
 //extern BaseNpc* assignedHero;
 //extern DotaPlayer* localPlayer;
 namespace Hacks {
 
 	inline ItemStockInfo* tomeStockInfo;
-	inline bool tomeBuyRequested = false;
 
 	inline void AutoBuyTomeInit() {
 		if (Globals::GameRules == nullptr ||
@@ -24,7 +24,7 @@ namespace Hacks {
 		}
 	}
 	inline void AutoBuyTomeCheck() {
-		if (tomeBuyRequested ||
+		if (!Config::AutoBuyTome ||
 			tomeStockInfo->ItemID != 0x101) // maybe the tome stock info was not found
 			return;
 

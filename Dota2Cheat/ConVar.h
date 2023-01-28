@@ -75,20 +75,25 @@ struct ConVarID
 };
 class CVarSystem {
 public:
-	static std::map<ConVar*, int> CVar;
+	struct CVarInfo {
+		ConVar* var{};
+		int index{};
+	};
+
+	//static std::map<ConVar*, int> CVar;
+	static std::map<std::string, CVarInfo> CVar;
 	using t_CvarCallback = void(*)(const ConVarID& id, int unk1, const ConVarValue* val, const ConVarValue* old_val);
 
 
 	t_CvarCallback GetCallback(int id) {
 		return *(t_CvarCallback*)(*(uintptr_t*)((uintptr_t)this + 0x80) + 24 * id);
 	}
-	void TriggerCallback(ConVar* conVar, int idx) {
-		int index = CVar[conVar];
-		const auto old_val = conVar->value;
+	void TriggerCallback(CVarInfo info) {
+		const auto old_val = info.var->value;
 		ConVarID cvid;
-		cvid.impl = static_cast<uint64_t>(idx);
-		cvid.var_ptr = conVar;
-		GetCallback(conVar->CALLBACK_INDEX)(cvid, 0, &conVar->value, &old_val);
+		cvid.impl = static_cast<uint64_t>(info.index);
+		cvid.var_ptr = info.var;
+		GetCallback(info.var->CALLBACK_INDEX)(cvid, 0, &info.var->value, &old_val);
 	}
 	CVarNode* GetCVarNodeList() {
 		//return std::span<const CVarNode>{ (const CVarNode*)((uintptr_t)this + 0x40), *(uint16_t*)((uintptr_t)this + 0x5A) };
@@ -97,9 +102,15 @@ public:
 	void DumpConVarsToMap() {
 		auto list = GetCVarNodeList();
 		for (int i = 0; i < 4200; i++) {
-			if (list[i].var != nullptr &&
-				list[i].var->name != nullptr)
-				CVar[list[i].var] = i;
+			auto var = list[i].var;
+			if (var != nullptr &&
+				var->name != nullptr) {
+				CVarInfo info;
+				info.var = list[i].var;
+				info.index = i;
+
+				CVar[var->name] = info;
+			}
 		}
 	}
 	void DumpConVarsToFile(const char* path) {
@@ -116,41 +127,10 @@ public:
 		}
 	}
 	void SetConvars() {
-		ConVar* dota_camera_distance,
-			*r_farz = nullptr,
-			*dota_use_particle_fow = nullptr,
-			*sv_cheats = nullptr,
-			*fog_enable = nullptr;
-		{
-			auto list = GetCVarNodeList();
-			for (int i = 0; i < CVAR_MAX_INDEX; i++) {
-				auto cvar = list[i].var;
-				if (strcmp(cvar->name, "dota_camera_distance") == 0) {
-					dota_camera_distance = cvar;
-					dota_camera_distance->value.flt = 1800.0f;
-					TriggerCallback(dota_camera_distance, i);
-				}
-				else if (strcmp(cvar->name, "r_farz") == 0)
-					r_farz = cvar;
-				else if (strcmp(cvar->name, "dota_use_particle_fow") == 0)
-					dota_use_particle_fow = cvar;
-				else if (strcmp(cvar->name, "sv_cheats") == 0)
-					sv_cheats = cvar;
-				else if (strcmp(cvar->name, "fog_enable") == 0)
-					fog_enable = cvar;
-			}
-			//auto camDistNode = Interfaces::CVar->GetCVarNodeList()[3437];
-			//dota_camera_distance = camDistNode.;
-			//fog_enable = Interfaces::CVar->GetCVarNodeList()[17].var;
-			//farZ = Interfaces::CVar->GetCVarNodeList()[3763].var;
-			//fow = Interfaces::CVar->GetCVarNodeList()[3098].var;
-			//svCheats = Interfaces::CVar->GetCVarNodeList()[307].var;*/
-			//std::cout << std::dec << dota_camera_distance->value.flt << " " << dota_camera_distance->CALLBACK_INDEX << std::hex << '\n';
-		}
-		sv_cheats->value.boolean = true;
-		r_farz->value.flt = 5000.0f;
-		dota_use_particle_fow->value.boolean = false;
-		fog_enable->value.boolean = false;
+		CVar["sv_cheats"].var->value.boolean = true;
+		CVar["r_farz"].var->value.flt = 5000.0f;
+		CVar["dota_use_particle_fow"].var->value.boolean = false;
+		CVar["fog_enable"].var->value.boolean = false;
 	}
 
 };

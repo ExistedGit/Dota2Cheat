@@ -4,6 +4,7 @@
 #include "Signatures.h"
 #include "CUtlVector.h"
 #include "SDK/color.h"
+
 struct SchemaClassBinding {
 	SchemaClassBinding* parent;
 	const char* binaryName; // ex: C_World
@@ -15,15 +16,9 @@ struct SchemaClassBinding {
 	void* pSchemaType;
 };
 
-class SharedCooldownInfo {
-public:
-	const char* itemName;
-	float cooldown;
-};
-
 class CUnitInventory {
 public:
-	// Returns an array of 19 handles
+	// Returns an array of 19 entity handles representing slots, if the slot is empty, the handle is invalid(0XFFFFFFFF)
 	// Valid handles of items are ordered by slots, i. e. moving an item to backpack will change its index inside this array
 	ENT_HANDLE* GetItems() {
 		static int offset = Schema::Netvars["C_DOTA_UnitInventory"]["m_hItems"];
@@ -31,13 +26,6 @@ public:
 			return nullptr;
 		return reinterpret_cast<ENT_HANDLE*>((uintptr_t)this + offset);
 	}
-
-	//CUtlVector<SharedCooldownInfo> GetCooldowns() {
-	//	static int offset = Schema::Netvars["C_DOTA_UnitInventory"]["m_SharedCooldownList"];
-	//	if (!offset)
-	//		return CUtlVector<SharedCooldownInfo>();
-	//	return *reinterpret_cast<CUtlVector<SharedCooldownInfo>*>((uintptr_t)this + offset);
-	//}
 };
 
 
@@ -56,7 +44,7 @@ public:
 		static int offset = Schema::Netvars["C_BaseModelEntity"]["m_clrRender"];
 		if (!offset)
 			return;
-		uintptr_t clrAddr = (uintptr_t)+offset;
+		uintptr_t clrAddr = (uintptr_t)this +offset;
 		*(BYTE*)(clrAddr + 0) = static_cast<BYTE>(clr.RGBA[0]);
 		*(BYTE*)(clrAddr + 1) = static_cast<BYTE>(clr.RGBA[1]);
 		*(BYTE*)(clrAddr + 2) = static_cast<BYTE>(clr.RGBA[2]);
@@ -150,7 +138,8 @@ public:
 		if (str == nullptr)
 			return ItemOrAbility{ nullptr, 0xFFFFFFFF };
 		for (const auto& item : GetItems())
-			if (strstr(item.name, str)) 
+			if (item.name != nullptr &&
+				strstr(item.name, str))
 				return item;
 			
 		return ItemOrAbility{ nullptr, 0xFFFFFFFF };

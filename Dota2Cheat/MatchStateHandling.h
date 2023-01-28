@@ -33,11 +33,12 @@ inline void FillPlayerList() {
 inline void EnteredMatch() {
 	Globals::GameRules = *Globals::GameRulesPtr;
 	Globals::PlayerResource = *Globals::PlayerResourcePtr;
+	Globals::ScriptVM = *Globals::ScriptVMPtr;
+	Globals::ParticleManager = *Globals::ParticleManagerPtr;
 
 	GameState gameState = Globals::GameRules->GetGameState();
-	if (Globals::GameRules->GetGameTime() >= 2.0f &&
-		(gameState == GameState::DOTA_GAMERULES_PREGAME ||
-			gameState == GameState::DOTA_GAMERULES_GAME_IN_PROGRESS)) {
+	if (gameState == GameState::DOTA_GAMERULES_PREGAME ||
+		gameState == GameState::DOTA_GAMERULES_GAME_IN_PROGRESS) {
 		localPlayer = (DotaPlayer*)Interfaces::Entity->GetBaseEntity(Interfaces::Engine->GetLocalPlayerSlot() + 1);
 		if (localPlayer == nullptr)
 			return;
@@ -45,29 +46,37 @@ inline void EnteredMatch() {
 		if (assignedHero == nullptr)
 			return;
 		Hacks::AutoBuyTomeInit();
-		std::cout << std::hex << "Local Player: " << localPlayer 
-			<< "\n\t" << std::dec << "STEAM ID: " << localPlayer->GetSteamID() 
+		std::cout << std::hex << "Local Player: " << localPlayer
+			<< "\n\t" << std::dec << "STEAM ID: " << localPlayer->GetSteamID()
 			<< '\n';
 		std::cout << std::hex << "Assigned Hero: " << assignedHero << " " << assignedHero->GetUnitName() << '\n';
 		IsInMatch = true;
+		Interfaces::CVar->SetConvars();
 		//FillPlayerList();
+
 		VMTs::Panorama2 = std::unique_ptr<VMT>(new VMT(Interfaces::Panorama2));
 		VMTs::Panorama2->HookVM(Hooks::RunFrame, 6);
 		VMTs::Panorama2->ApplyVMT();
+
+		Globals::LogGlobals();
 		std::cout << "ENTERED MATCH\n";
 	}
 }
 inline void LeftMatch() {
+	IsInMatch = false;
+	
 	Globals::PlayerResource = nullptr;
 	Globals::GameRules = nullptr;
+	Globals::ScriptVM = nullptr;
+	VMTs::Panorama2 = nullptr;
 	localPlayer = nullptr;
+	
 	assignedHero = nullptr;
-	IsInMatch = false;
 	players.clear();
+	
 	std::cout << "LEFT MATCH\n";
 }
 inline void CheckMatchState() {
-	//std::cout << Interfaces::Engine->IsInGame() << " " << IsInMatch << '\n';
 	if (Interfaces::Engine->IsInGame()) {
 		if (!IsInMatch)
 			EnteredMatch();
