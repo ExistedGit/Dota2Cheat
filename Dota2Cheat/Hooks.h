@@ -172,8 +172,6 @@ namespace Hooks {
 			//std::cout << "frame\n";
 			if (inGameStuff && IsInMatch) {
 				//if (particleWrap.particle != nullptr) {
-				//	auto pos = assignedHero->GetPos();
-				//	particleWrap.particle->SetControlPoint(2, &pos);
 				//}
 				UpdateCameraDistance();
 				if (assignedHero->GetLifeState() == 0) { // if alive
@@ -184,6 +182,32 @@ namespace Hooks {
 						//	std::cout << (visible ? "HIDDEN" : "DETECTED") << '\n';
 
 						UIState::HeroVisibleToEnemy = visible = sscSum == 0;
+						if (visible) {
+							if (particleWrap.particle == nullptr) {
+								//Vector3 color{ 0, 255, 255 };
+								//Vector3 radius{ 150, 0, 0 };
+								//Vector3 targetVisibility{ false, 0, 0 };
+								particleWrap = Globals::ParticleManager->CreateParticle(
+									"particles/items5_fx/revenant_brooch.vpcf",
+									CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
+									(BaseEntity*)assignedHero
+								);
+								//auto pos = assignedHero->GetPos();
+								//particleWrap.particle
+								//	->SetControlPoint(3, &radius)
+								//	->SetControlPoint(4, &color)
+								//	->SetControlPoint(6, &targetVisibility)
+								//	->SetControlPoint(2, &pos);
+							}
+							//else {
+							//	auto pos = assignedHero->GetPos();
+							//	particleWrap.particle->SetControlPoint(2, &pos);
+							//}
+						}
+						else if (particleWrap.particle) {
+							Globals::ParticleManager->DestroyParticle(particleWrap);
+						}
+						
 						sscCount = sscSum = 0;
 					}
 

@@ -170,16 +170,15 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
-	const bool debug = true;
-
-	glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, 1);
-	if (!debug) {
+#ifndef _DEBUG
+		glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, 1);
 		glfwWindowHint(GLFW_DECORATED, 0);
 		glfwWindowHint(GLFW_FLOATING, 1);
 		glfwWindowHint(GLFW_RESIZABLE, 0);
 		glfwWindowHint(GLFW_MAXIMIZED, 1);
 		glfwWindowHint(GLFW_MOUSE_PASSTHROUGH, 1);
-	}
+#endif // DEBUG
+	
 	//glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // 3.2+ only
 	//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);            // 3.0+ only
 
@@ -251,44 +250,32 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 			if (ImGui::Button("Features"))
 				featuresMenuVisible = !featuresMenuVisible;
-			if (ImGui::Button("Destroy Particle") && particleWrap.particle) {
+			//if (ImGui::Button("Destroy Particle") && particleWrap.particle) {
 
 
-			}
-			
-			if (ImGui::Button("Create Particle")) {
-				//{
-				//	Vector3 color{ 0, 255, 128 };
-				//	Vector3 radius{ 100, 0, 0 };
-				//	Globals::ParticleManager->CreateParticle(
-				//		"particles/ui_mouseactions/select_hero_active.vpcf",
-				//		CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
-				//		(BaseEntity*)assignedHero
-				//	)
-				//		->SetControlPoint(1, &color)
-				//		->SetControlPoint(2, &radius);
-				//}
-				{
-					Vector3 color{ 0, 255, 255 };
-					Vector3 radius{ 150, 0, 0 };
-					Vector3 targetVisibility{ false, 0, 0 };
-					particleWrap = Globals::ParticleManager->CreateParticle(
-						"particles/ui_mouseactions/range_finder_tower_aoe.vpcf",
-						CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
-						(BaseEntity*)assignedHero
-					);
-					particleWrap.particle
-						->SetControlPoint(3, &radius)
-						->SetControlPoint(4, &color)
-						->SetControlPoint(6, &targetVisibility)
-						;
-				}
-			}
+			//}
+			//
+			//if (ImGui::Button("Create Particle")) {
+			//	//{
+			//	//	Vector3 color{ 0, 255, 128 };
+			//	//	Vector3 radius{ 100, 0, 0 };
+			//	//	Globals::ParticleManager->CreateParticle(
+			//	//		"particles/ui_mouseactions/select_hero_active.vpcf",
+			//	//		CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
+			//	//		(BaseEntity*)assignedHero
+			//	//	)
+			//	//		->SetControlPoint(1, &color)
+			//	//		->SetControlPoint(2, &radius);
+			//	//}
+			//	{
+			//		
+			//	}
+			//}
 			if (ImGui::Button("EXIT", ImVec2(0, 50)))
 				glfwSetWindowShouldClose(window, 1);
-			ImGui::SliderInt("Offset X", &Config::OffsetX, -50, 50);
-			ImGui::SliderInt("Offset Y", &Config::OffsetY, -50, 50);
-			ImGui::SliderInt("Offset Z", &Config::OffsetZ, -50, 50);
+//			ImGui::SliderInt("Offset X", &Config::OffsetX, -50, 50);
+//			ImGui::SliderInt("Offset Y", &Config::OffsetY, -50, 50);
+//			ImGui::SliderInt("Offset Z", &Config::OffsetZ, -50, 50);
 
 			ImGui::End();
 
