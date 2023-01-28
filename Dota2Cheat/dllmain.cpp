@@ -251,8 +251,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 			if (ImGui::Button("Features"))
 				featuresMenuVisible = !featuresMenuVisible;
-			if (ImGui::Button("Destroy Particle") && particleWrap.particle)
-					Signatures::DestroyParticle(Globals::ParticleManager, particleWrap.handle, 1);
+			if (ImGui::Button("Destroy Particle") && particleWrap.particle) {
+
+
+			}
 			
 			if (ImGui::Button("Create Particle")) {
 				//{

@@ -113,8 +113,8 @@ public:
 		uintptr_t entry = vtable + sizeof(uintptr_t) * index;
 		return Function(*(uintptr_t*)entry);
 	}
-	template<typename ...T, typename RET = void*>
-	inline RET CallVFunc(int index, T... t) {
-		return GetVFunc(index).Execute<RET>(t);
+	template<uint32_t index, typename RET = void*, typename ...T>
+	inline RET CallVFunc(T... t) {
+		return GetVFunc(index).Execute<RET>(this, t...);
 	}
 };

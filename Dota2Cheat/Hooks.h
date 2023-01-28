@@ -171,10 +171,10 @@ namespace Hooks {
 		if (isInGame) {
 			//std::cout << "frame\n";
 			if (inGameStuff && IsInMatch) {
-				if (particleWrap.particle != nullptr) {
-					auto pos = assignedHero->GetPos();
-					particleWrap.particle->SetControlPoint(2, &pos);
-				}
+				//if (particleWrap.particle != nullptr) {
+				//	auto pos = assignedHero->GetPos();
+				//	particleWrap.particle->SetControlPoint(2, &pos);
+				//}
 				UpdateCameraDistance();
 				if (assignedHero->GetLifeState() == 0) { // if alive
 					sscSum += assignedHero->GetSSC();

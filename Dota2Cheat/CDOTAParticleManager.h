@@ -103,4 +103,13 @@ public:
 
 		return result;
 	}
+	void DestroyParticle(uint32_t handle) {
+		Signatures::DestroyParticle(this, handle, 1);
+	}
+	void DestroyParticle(ParticleWrapper info) {
+		Signatures::DestroyParticle(this, info.handle, 1);
+		info.particle = nullptr;
+		info.handle = 0XFFFFFFFF;
+		info.info = CDOTAParticleManager::ParticleInfo{};
+	}
 };
