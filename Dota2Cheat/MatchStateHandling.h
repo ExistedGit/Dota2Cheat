@@ -15,7 +15,7 @@ inline void FillPlayerList() {
 		auto idx = vec[i].GetPlayerSlot() + 1;
 		if (idx < 1)
 			continue;
-		auto player = (DotaPlayer*)Interfaces::Entity->GetBaseEntity(idx);
+		auto player = (DotaPlayer*)Interfaces::Entity->GetEntity(idx);
 		if (player == nullptr)
 			continue;
 		auto hero = (BaseNpc*)player->GetAssignedHero();
@@ -39,10 +39,10 @@ inline void EnteredMatch() {
 	GameState gameState = Globals::GameRules->GetGameState();
 	if (gameState == GameState::DOTA_GAMERULES_PREGAME ||
 		gameState == GameState::DOTA_GAMERULES_GAME_IN_PROGRESS) {
-		localPlayer = (DotaPlayer*)Interfaces::Entity->GetBaseEntity(Interfaces::Engine->GetLocalPlayerSlot() + 1);
+		localPlayer = (DotaPlayer*)Interfaces::Entity->GetEntity(Interfaces::Engine->GetLocalPlayerSlot() + 1);
 		if (localPlayer == nullptr)
 			return;
-		assignedHero = (BaseNpc*)Interfaces::Entity->GetBaseEntity(ENTID_FROM_HANDLE(localPlayer->GetAssignedHeroHandle()));
+		assignedHero = (BaseNpc*)Interfaces::Entity->GetEntity(ENTID_FROM_HANDLE(localPlayer->GetAssignedHeroHandle()));
 		if (assignedHero == nullptr)
 			return;
 		Hacks::AutoBuyTomeInit();

@@ -52,7 +52,7 @@ public:
 
 		Signatures::OnColorChanged(this);
 	}
-	inline ENT_HANDLE GetOwnerEntity() {
+	inline ENT_HANDLE GetOwnerEntityHandle() {
 		return Member<ENT_HANDLE>(Schema::Netvars["C_BaseEntity"]["m_hOwnerEntity"]);
 	}
 	inline Vector3 GetPos() {
@@ -88,11 +88,11 @@ public:
 
 		}
 		BaseEntity* GetEntity() const {
-			return Interfaces::Entity->GetBaseEntity(ENTID_FROM_HANDLE(handle));
+			return Interfaces::Entity->GetEntity(ENTID_FROM_HANDLE(handle));
 		}
 		template<typename T>
 		T* GetAs() const {
-			return reinterpret_cast<T*>(Interfaces::Entity->GetBaseEntity(ENTID_FROM_HANDLE(handle)));
+			return reinterpret_cast<T*>(Interfaces::Entity->GetEntity(ENTID_FROM_HANDLE(handle)));
 		}
 	};
 
@@ -203,7 +203,7 @@ public:
 		return Member<CUtlVector<uint32_t>>(Schema::Netvars["C_DOTAPlayerController"]["m_nSelectedUnits"]);
 	}
 	inline BaseEntity* GetAssignedHero() {
-		return Interfaces::Entity->GetBaseEntity(ENTID_FROM_HANDLE(GetAssignedHeroHandle()));
+		return Interfaces::Entity->GetEntity(ENTID_FROM_HANDLE(GetAssignedHeroHandle()));
 	}
 	inline uint64_t GetSteamID() {
 		return Member<uint64_t>(0x6b8);

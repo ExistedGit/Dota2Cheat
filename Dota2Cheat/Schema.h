@@ -48,7 +48,7 @@ namespace Schema {
 		int idk;
 		uintptr_t idk2;
 	};
-	void SchemaDumpToMap(const char* _module, const char* _class) {
+	inline void SchemaDumpToMap(const char* _module, const char* _class) {
 		typedef uintptr_t(__fastcall* GetScopeFn)(uintptr_t schemasys, const char* _mod);
 		uintptr_t Scope = ((GetScopeFn)
 			(*(uintptr_t*)(*(uintptr_t*)(Interfaces::Schema)+0x68)))(Interfaces::Schema, _module);

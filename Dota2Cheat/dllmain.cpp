@@ -13,6 +13,7 @@
 #include "UIState.h"
 
 
+
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_glfw.h"
 #include "imgui/imgui_impl_opengl3.h"
@@ -125,14 +126,18 @@ float DrawTextForeground(GLFWwindow* wnd, ImFont* pFont, const std::string& text
 
 CDOTAParticleManager::ParticleWrapper particleWrap{};
 uintptr_t WINAPI HackThread(HMODULE hModule) {
+	// Initialize MinHook.
+	if (MH_Initialize() != MH_OK)
+	{
+		return 1;
+	}
+
 	AllocConsole();
 	FILE* f;
 	freopen_s(&f, "CONOUT$", "w", stdout);
-	{
-		CurProcId = GetCurrentProcessId();
-		CurProcHandle = OpenProcess(PROCESS_ALL_ACCESS, TRUE, CurProcId);
-	}
-
+	
+	CurProcId = GetCurrentProcessId();
+	CurProcHandle = OpenProcess(PROCESS_ALL_ACCESS, TRUE, CurProcId);
 
 	std::cout << "works!" << std::endl;
 	Interfaces::InitInterfaces();
@@ -148,6 +153,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Signatures::LogSignatures();
 
 	Globals::InitGlobals();
+	Hooks::SetUpByteHooks();
+
 	const bool logEntities = false;
 	bool playerEntFound = false;
 
@@ -170,15 +177,15 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
-#ifndef _DEBUG
-		glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, 1);
-		glfwWindowHint(GLFW_DECORATED, 0);
-		glfwWindowHint(GLFW_FLOATING, 1);
-		glfwWindowHint(GLFW_RESIZABLE, 0);
-		glfwWindowHint(GLFW_MAXIMIZED, 1);
-		glfwWindowHint(GLFW_MOUSE_PASSTHROUGH, 1);
+#ifndef _DEBUG // wouldn't want the window to obscure the screen on a breakpoint
+	glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, 1);
+	glfwWindowHint(GLFW_DECORATED, 0);
+	glfwWindowHint(GLFW_FLOATING, 1);
+	glfwWindowHint(GLFW_RESIZABLE, 0);
+	glfwWindowHint(GLFW_MAXIMIZED, 1);
+	glfwWindowHint(GLFW_MOUSE_PASSTHROUGH, 1);
 #endif // DEBUG
-	
+
 	//glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // 3.2+ only
 	//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);            // 3.0+ only
 
@@ -214,20 +221,12 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	io.Fonts->AddFontFromFileTTF(R"(E:\Visual Studio Projects\glfw_test\glfw_test\consolas.ttf)", 16.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
 	auto font = io.Fonts->AddFontFromFileTTF(R"(E:\Visual Studio Projects\glfw_test\glfw_test\primary_font.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
 
-	//std::cout << font->IsLoaded() << '\n';
-
-	//ImGui::PushFont(font);
 	bool menuVisible = false;
 	bool featuresMenuVisible = false;
 	bool featuresMenuOpen = false;
 	// Main loop
 	while (!glfwWindowShouldClose(window))
 	{
-		// Poll and handle events (inputs, window resize, etc.)
-		// You can read the io.WantCaptureMouse, io.WantCaptureKeyboard flags to tell if dear imgui wants to use your inputs.
-		// - When io.WantCaptureMouse is true, do not dispatch mouse input data to your main application, or clear/overwrite your copy of the mouse data.
-		// - When io.WantCaptureKeyboard is true, do not dispatch keyboard input data to your main application, or clear/overwrite your copy of the keyboard data.
-		// Generally you may always pass all inputs to dear imgui, and hide them from your application based on those two flags.
 		glfwPollEvents();
 
 		// Start the Dear ImGui frame
@@ -255,27 +254,23 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 			//}
 			//
-			//if (ImGui::Button("Create Particle")) {
-			//	//{
-			//	//	Vector3 color{ 0, 255, 128 };
-			//	//	Vector3 radius{ 100, 0, 0 };
-			//	//	Globals::ParticleManager->CreateParticle(
-			//	//		"particles/ui_mouseactions/select_hero_active.vpcf",
-			//	//		CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
-			//	//		(BaseEntity*)assignedHero
-			//	//	)
-			//	//		->SetControlPoint(1, &color)
-			//	//		->SetControlPoint(2, &radius);
-			//	//}
+			if (ImGui::Button("Create Particle")) {
+				//Vector3 color{ 0, 255, 255 };
+				//Vector3 radius{ 300, 255, 0 };
+				particleWrap = Globals::ParticleManager->CreateParticle(
+					"particles/items5_fx/revenant_brooch.vpcf",
+					CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
+					(BaseEntity*)assignedHero
+				);
+				//	->SetControlPoint(1, &color)
+				//	->SetControlPoint(2, &radius);
+			}
 			//	{
 			//		
 			//	}
 			//}
 			if (ImGui::Button("EXIT", ImVec2(0, 50)))
 				glfwSetWindowShouldClose(window, 1);
-//			ImGui::SliderInt("Offset X", &Config::OffsetX, -50, 50);
-//			ImGui::SliderInt("Offset Y", &Config::OffsetY, -50, 50);
-//			ImGui::SliderInt("Offset Z", &Config::OffsetZ, -50, 50);
 
 			ImGui::End();
 
@@ -333,6 +328,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	//VMTs::Panorama2->ReleaseVMT();
 	//VMTs::Entity = nullptr;
 	Schema::Netvars.clear();
+	MH_Uninitialize();
 	if (f) fclose(f);
 	FreeConsole();
 	FreeLibraryAndExitThread(hModule, 0);

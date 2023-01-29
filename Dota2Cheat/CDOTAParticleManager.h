@@ -16,7 +16,7 @@
 class CDOTAParticleManager :public VClass {
 public:
 	// Enum from animationsystem.dll, dumped by Liberalist
-	enum class ParticleAttachment_t : int {
+	enum class ParticleAttachment_t : int64_t {
 		PATTACH_INVALID = -1,
 		PATTACH_ABSORIGIN = 0,
 		PATTACH_ABSORIGIN_FOLLOW = 1,
@@ -40,9 +40,8 @@ public:
 	// Struct used when creating a particle
 	struct ParticleInfo {
 		const char* particleName;
-		ParticleAttachment_t attachtType;
+		ParticleAttachment_t attachType;
 		BaseEntity* attachEntity;
-	private:
 		void* unk0 = nullptr;
 		void* unk1 = nullptr;
 		void* unk2 = nullptr;
@@ -52,34 +51,15 @@ public:
 
 	class Particle : public VClass {
 	public:
-		VClass* GetParticleCollection() {
+		inline VClass* GetParticleCollection() {
 			return Member<VClass*>(0x20);
 		}
-		Particle* SetControlPoint(int idx, Vector3* pos) {
+		inline Particle* SetControlPoint(int idx, Vector3* pos) {
 			auto coll = GetParticleCollection();
 			coll->GetVFunc(Particle_SetControlPoint_VTABLE_INDEX)(coll, idx, pos);
 			return this;
 		}
 	};
-	struct ParticleContainer : NormalClass {
-		Particle* GetParticle() {
-			return Member<Particle*>(0x10);
-		}
-	};
-
-	int GetParticleCount() {
-		return Member<uint32_t>(0x80);
-	}
-	ParticleContainer** GetParticleArray() {
-		return Member<ParticleContainer**>(0x88);
-	}
-
-	uint32_t GetHandle() {
-		return Member<uint32_t>(0x98);
-	}
-	void IncHandle() {
-		*(uint32_t*)((uintptr_t)this + 0x98) = GetHandle() + 1;
-	}
 
 	struct ParticleWrapper {
 		ParticleInfo info;
@@ -87,29 +67,19 @@ public:
 		ENT_HANDLE handle;
 	};
 
-	ParticleWrapper CreateParticle(const char* name, ParticleAttachment_t attachType, BaseEntity* ent = nullptr) {
-		CDOTAParticleManager::ParticleInfo info{};
-		info.attachtType = attachType;
-		info.attachEntity = ent;
-		info.particleName = name;
+	struct ParticleContainer : NormalClass {
+		inline Particle* GetParticle() {
+			return Member<Particle*>(0x10);
+		}
+	};
 
-		IncHandle();
-		GetVFunc(7)(this, GetHandle(), info);
+	int GetParticleCount();
+	ParticleContainer** GetParticleArray();
 
-		ParticleWrapper result{};
-		result.info = info;
-		result.particle = GetParticleArray()[GetParticleCount() - 1]->GetParticle();
-		result.handle = GetHandle();
+	uint32_t GetHandle();
+	void IncHandle();
 
-		return result;
-	}
-	void DestroyParticle(uint32_t handle) {
-		Signatures::DestroyParticle(this, handle, 1);
-	}
-	void DestroyParticle(ParticleWrapper& info) {
-		Signatures::DestroyParticle(this, info.handle, 1);
-		info.particle = nullptr;
-		info.handle = 0XFFFFFFFF;
-		info.info = CDOTAParticleManager::ParticleInfo{};
-	}
+	ParticleWrapper CreateParticle(const char* name, ParticleAttachment_t attachType, BaseEntity* ent = nullptr);
+	void DestroyParticle(uint32_t handle);
+	void DestroyParticle(ParticleWrapper& info);
 };

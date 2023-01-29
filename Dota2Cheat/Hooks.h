@@ -25,7 +25,7 @@ namespace Hooks {
 
 	inline void LogEntities() {
 		for (int i = 0; i < Interfaces::Entity->GetHighestEntityIndex(); i++) {
-			auto* ent = Interfaces::Entity->GetBaseEntity(i);
+			auto* ent = Interfaces::Entity->GetEntity(i);
 			if (ent == nullptr)
 				continue;
 			//std::cout << ent->SchemaBinding() << '\n';
@@ -68,7 +68,7 @@ namespace Hooks {
 		ENT_HANDLE midas = AutoUseMidasCheck(assignedHero);
 
 		for (int i = 0; i < Interfaces::Entity->GetHighestEntityIndex(); i++) {
-			auto* ent = Interfaces::Entity->GetBaseEntity(i);
+			auto* ent = Interfaces::Entity->GetEntity(i);
 
 			if (ent == nullptr || ent->GetIdentity()->IsDormant())
 				continue;
@@ -118,7 +118,7 @@ namespace Hooks {
 					//std::cout << "Rune pickup!\n";
 					//runePickUp = true;
 					if (
-						Interfaces::Entity->GetBaseEntity(
+						Interfaces::Entity->GetEntity(
 							localPlayer->GetSelectedUnits()[0]
 						) == assignedHero
 						)
@@ -171,46 +171,30 @@ namespace Hooks {
 		if (isInGame) {
 			//std::cout << "frame\n";
 			if (inGameStuff && IsInMatch) {
-				//if (particleWrap.particle != nullptr) {
-				//}
 				UpdateCameraDistance();
 				if (assignedHero->GetLifeState() == 0) { // if alive
-					sscSum += assignedHero->GetSSC();
+					// VBE: m_flStartSequenceCycle updates 30 times a second
+					// It doesn't update when you are seen(AFAIK is set to zero)
+					sscSum += assignedHero->GetSSC(); 
 					sscCount++;
 					if (sscCount == 3) {
-						//if (visible != (sscSum == 0))
-						//	std::cout << (visible ? "HIDDEN" : "DETECTED") << '\n';
-
 						UIState::HeroVisibleToEnemy = visible = sscSum == 0;
-						if (visible) {
-							if (particleWrap.particle == nullptr) {
-								//Vector3 color{ 0, 255, 255 };
-								//Vector3 radius{ 150, 0, 0 };
-								//Vector3 targetVisibility{ false, 0, 0 };
-								particleWrap = Globals::ParticleManager->CreateParticle(
-									"particles/items5_fx/revenant_brooch.vpcf",
-									CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
-									(BaseEntity*)assignedHero
-								);
-								//auto pos = assignedHero->GetPos();
-								//particleWrap.particle
-								//	->SetControlPoint(3, &radius)
-								//	->SetControlPoint(4, &color)
-								//	->SetControlPoint(6, &targetVisibility)
-								//	->SetControlPoint(2, &pos);
-							}
-							//else {
-							//	auto pos = assignedHero->GetPos();
-							//	particleWrap.particle->SetControlPoint(2, &pos);
-							//}
-						}
-						else if (particleWrap.particle) {
-							Globals::ParticleManager->DestroyParticle(particleWrap);
-						}
-						
 						sscCount = sscSum = 0;
 					}
 
+
+					if (visible) {
+						if (particleWrap.particle == nullptr) {
+							//particleWrap = Globals::ParticleManager->CreateParticle(
+							//	"particles/items5_fx/revenant_brooch.vpcf",
+							//	CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
+							//	(BaseEntity*)assignedHero
+							//);
+						}
+					}
+					else if (particleWrap.particle)
+						Globals::ParticleManager->DestroyParticle(particleWrap);
+					
 					AutoUseWandCheck(assignedHero, Config::AutoHealWandHPTreshold, Config::AutoHealWandMinCharges);
 					AutoUseFaerieFireCheck(assignedHero, Config::AutoHealFaerieFireHPTreshold);
 					Hacks::AutoBuyTomeCheck();
@@ -219,7 +203,7 @@ namespace Hooks {
 
 				if (IsKeyPressed(VK_NUMPAD8)) {
 					auto selected = localPlayer->GetSelectedUnits();
-					auto ent = (BaseNpc*)Interfaces::Entity->GetBaseEntity(selected[0]);
+					auto ent = (BaseNpc*)Interfaces::Entity->GetEntity(selected[0]);
 					auto pos = ent->GetPos();
 					std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
 						<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
@@ -229,7 +213,7 @@ namespace Hooks {
 				}
 				if (IsKeyPressed(VK_NUMPAD7)) {
 					auto selected = localPlayer->GetSelectedUnits();
-					auto ent = (BaseNpc*)Interfaces::Entity->GetBaseEntity(selected[0]);
+					auto ent = (BaseNpc*)Interfaces::Entity->GetEntity(selected[0]);
 					LogInvAndAbilities(ent);
 					//auto ab = ent->GetAbilities()[2];
 					//std::cout << std::dec << selected[0] << " " << std::dec<< ab.name << " " << ab.GetAs<BaseAbility>()->GetCooldown() << '\n';
@@ -244,7 +228,7 @@ namespace Hooks {
 		VMTs::Panorama2->GetOriginalMethod<RunFrameFn>(6)(a, b);
 	}
 
-	BaseEntity* OnAddEntity(CEntitySystem* thisptr, BaseEntity* ent, ENT_HANDLE handle) {
+	inline BaseEntity* OnAddEntity(CEntitySystem* thisptr, BaseEntity* ent, ENT_HANDLE handle) {
 		bool fit = true;
 		const char* name = ent->SchemaBinding()->binaryName;
 		if (fit) {
@@ -264,4 +248,46 @@ namespace Hooks {
 
 		return VMTs::Entity->GetOriginalMethod<OnAddEntityFn>(14)(thisptr, ent, handle);
 	};
+	inline Signatures::prepareUnitOrdersFn PrepareUnitOrdersOriginal = nullptr;
+
+	inline void PrepareUnitOrdersHook(DotaPlayer* player, DotaUnitOrder_t orderType, UINT32 targetIndex, Vector3* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, BaseEntity* issuer, bool queue, bool showEffects) {
+		//std::cout << "[ORDER] " << player << '\n';
+		bool giveOrder = true; // whether or not the function will continue
+		switch (orderType) {
+		case DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_TARGET:
+		{
+			auto npc = Interfaces::Entity->GetEntity<BaseNpc>(targetIndex);
+			
+			if (strstr(npc->SchemaBinding()->binaryName, "C_DOTA_Unit_Hero") &&
+				npc->Hero_IsIllusion()) {
+				for (int i = 0; i < Interfaces::Entity->GetHighestEntityIndex(); i++) {
+					auto ent = Interfaces::Entity->GetEntity(i);
+					if (ent == nullptr || ent->GetIdentity()->IsDormant() || 
+						ent->SchemaBinding()->binaryName == nullptr)
+						continue;
+					auto className = ent->SchemaBinding()->binaryName;
+					if (!strcmp(npc->SchemaBinding()->binaryName, className) &&
+						!reinterpret_cast<BaseNpc*>(ent)->Hero_IsIllusion()) {
+						targetIndex = i;
+						showEffects = false;
+					}
+				}
+				//targetIndex = ENTID_FROM_HANDLE(npc->GetOwnerEntityHandle());
+			}
+		}
+		break;
+		}
+		if (giveOrder)
+			PrepareUnitOrdersOriginal(player, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
+	}
+
+	inline void SetUpByteHooks() {
+		// Create a hook for MessageBoxW, in disabled state.
+		if (MH_CreateHook(Signatures::PrepareUnitOrders, &PrepareUnitOrdersHook,
+			(LPVOID*)&PrepareUnitOrdersOriginal) != MH_OK ||
+			MH_EnableHook(Signatures::PrepareUnitOrders) != MH_OK)
+			std::cout << "Could not hook PrepareUnitOrders!\n";
+
+	}
+
 }
