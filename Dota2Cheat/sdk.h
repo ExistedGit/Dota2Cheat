@@ -12,8 +12,8 @@ inline void PAUSE() {
 
 #define ENT_HANDLE uint32_t
 #define ENT_HANDLE_MASK 0x7fff
-#define ENTID_FROM_HANDLE(H) (H & ENT_HANDLE_MASK)
-#define ENT_HANDLE_VALID(H) (H != 0xFFFFFFFF)
+#define H2IDX(H) (H & ENT_HANDLE_MASK) // Entity handle to entity index
+#define HVALID(H) (H != 0xFFFFFFFF)
 
 #define u64 unsigned long long
 #define cc const char*

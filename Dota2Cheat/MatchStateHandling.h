@@ -42,7 +42,7 @@ inline void EnteredMatch() {
 		localPlayer = (DotaPlayer*)Interfaces::Entity->GetEntity(Interfaces::Engine->GetLocalPlayerSlot() + 1);
 		if (localPlayer == nullptr)
 			return;
-		assignedHero = (BaseNpc*)Interfaces::Entity->GetEntity(ENTID_FROM_HANDLE(localPlayer->GetAssignedHeroHandle()));
+		assignedHero = (BaseNpc*)Interfaces::Entity->GetEntity(H2IDX(localPlayer->GetAssignedHeroHandle()));
 		if (assignedHero == nullptr)
 			return;
 		Hacks::AutoBuyTomeInit();

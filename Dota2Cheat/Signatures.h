@@ -12,9 +12,9 @@ namespace Signatures {
 	typedef void(__fastcall* prepareUnitOrdersFn)(DotaPlayer* player, DotaUnitOrder_t orderType, UINT32 targetIndex, Vector3* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, BaseEntity* issuer, bool queue, bool showEffects);
 	typedef void(__fastcall* EntityCallback)(void* thisptr);
 	typedef void(__fastcall* WorldToScreenFn)(Vector3 coord, int* outX, int* outY, void* offset);
-	typedef unsigned char(__fastcall* EntCheckFn)(void* thisptr, uint32_t entId);
+	typedef unsigned char(__fastcall* EntCheckFn)(void* thisptr, uint32_t entIdx);
 	typedef void(__fastcall* DestroyParticleFn)(void* thisptr, ENT_HANDLE handle, bool unk);
-	
+	typedef uintptr_t(__fastcall* EntGetter)(void* thisptr, uint32_t entIdx);
 	// for MinHook
 	
 	inline prepareUnitOrdersFn PrepareUnitOrders = nullptr;
@@ -26,11 +26,12 @@ namespace Signatures {
 	namespace Scripts {
 		inline WorldToScreenFn WorldToScreen = nullptr;
 		inline EntCheckFn IsRoshan = nullptr;
+		inline EntGetter GetCastRange = nullptr;
 	}
 
 	inline void InitSignatures() {
-		char funcAddr[500];
-		char funcAddrMask[500];
+		char funcAddr[256];
+		char funcAddrMask[256];
 		
 		//prepareUnitOrders
 		ParseCombo("4C 89 4C 24 20 44 89 44 24 18 89 54 24 10 55 53 57 41 55 41 57 48 8D 6C 24 C0", funcAddr, funcAddrMask);
@@ -50,6 +51,11 @@ namespace Signatures {
 		DestroyParticle = (DestroyParticleFn)
 			((uintptr_t)PatternScanExModule(CurProcHandle, CurProcId, L"client.dll", funcAddr, funcAddrMask)
 				- 0x9);
+
+		ParseCombo("4C 8B 08 48 8D ? ? ? ? ? 45 33 C0 48 8B C8 48 83 C4 38 49 FF A1 98 07 00 00", funcAddr, funcAddrMask);
+		Scripts::GetCastRange = (EntGetter)
+			((uintptr_t)PatternScanExModule(CurProcHandle, CurProcId, L"client.dll", funcAddr, funcAddrMask)
+				- 0x75);
 
 		//ParseCombo("48 83 EC 28 48 8B ? ? ? ? ? 48 85 C0 74 34 48 63 48 68 44 8B 80 CC 00 00 00 83 F9 0B 77 0F 48 8B C1 48 8D ? ? ? ? ? 8B 0C 81 EB 02 33 C9 3B ? ? ? ? ? 7E 0B 41 8D 40 F1 A9 FB FF FF FF 75 21 8B CA E8 ? ? ? ? 48 85 C0 74 15 80 B8 50 05 00 00 03 75 0C 0F B6 80 18 0C 00 00 48 83 C4 28 C3 32 C0 48 83 C4 28 C3", funcAddr, funcAddrMask);
 		//Scripts::IsAncient = (EntCheckFn)PatternScanExModule(CurProcHandle, CurProcId, L"client.dll", funcAddr, funcAddrMask);

@@ -44,12 +44,17 @@ namespace Hooks {
 		std::cout << "abilities: " << '\n';
 		for (const auto& ability : npc->GetAbilities()) {
 			if (ability.name != nullptr)
-				std::cout << '\t' << ability.name << " " << ENTID_FROM_HANDLE(ability.handle) << " CD: " << ability.GetAs<BaseAbility>()->GetCooldown() << '\n';
+				std::cout << '\t' << ability.name << " " << H2IDX(ability.handle)
+				//<< " CD: " << ability.GetAs<BaseAbility>()->GetCooldown() 
+				<< ' ' << ability.GetEntity()
+				<< '\n';
 		}
 		std::cout << "inventory: " << '\n';
 		for (const auto& item : npc->GetItems()) {
 			if (item.name != nullptr)
-				std::cout << '\t' << item.name << " " << ENTID_FROM_HANDLE(item.handle) << '\n';
+				std::cout << '\t' << item.name << " " << H2IDX(item.handle)
+				<< ' ' << item.GetEntity()
+				<< '\n';
 		}
 	}
 	inline bool TestStringFilters(const char* str, std::vector<const char*> filters) {
@@ -78,6 +83,7 @@ namespace Hooks {
 				continue;
 			if (!midasUsed && midas != -1
 				&& strstr(className, "Creep")) {
+				
 				auto creep = (BaseNpc*)ent;
 				//Fvector posHero = assignedHero->GetPos(), posCreep = creep->GetPos();
 
@@ -104,7 +110,7 @@ namespace Hooks {
 					TestStringFilters(creep->GetUnitName(), filters)) {
 					//std::cout << creep->GetUnitName() << '\n';
 					midasUsed = true;
-					localPlayer->PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_TARGET, i, &Vector3::Zero, ENTID_FROM_HANDLE(midas), PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, assignedHero);
+					localPlayer->PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_TARGET, i, &Vector3::Zero, H2IDX(midas), PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, assignedHero);
 				}
 			}
 			else if (Config::AutoRunePickupEnabled && !runePickUp && strstr(className, "C_DOTA_Item_Rune")) {
@@ -203,7 +209,7 @@ namespace Hooks {
 
 				if (IsKeyPressed(VK_NUMPAD8)) {
 					auto selected = localPlayer->GetSelectedUnits();
-					auto ent = (BaseNpc*)Interfaces::Entity->GetEntity(selected[0]);
+					auto ent = Interfaces::Entity->GetEntity<BaseNpc>(selected[0]);
 					auto pos = ent->GetPos();
 					std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
 						<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
@@ -221,7 +227,13 @@ namespace Hooks {
 				}
 
 				if (IsKeyPressed(VK_HOME)) {
-					Interfaces::CVar->SetConvars();
+					auto midas = assignedHero->FindItemBySubstring("midas");
+					if (HVALID(midas.handle)) {
+						std::cout << std::dec << midas.GetAs<BaseAbility>()->GetCastRange() << '\n';
+						//std::cout << std::dec << Function(0x00007FFE04BF0A80).Execute<uintptr_t>(nullptr, midas.handle) << '\n';
+
+						//Interfaces::CVar->SetConvars();
+					}
 				}
 			}
 		}
@@ -261,16 +273,15 @@ namespace Hooks {
 
 			if (strstr(npc->SchemaBinding()->binaryName, "C_DOTA_Unit_Hero") &&
 				npc->Hero_IsIllusion()) {
-
 				auto assignedHero = Interfaces::Entity->GetEntity<DotaPlayer>(
-					ENTID_FROM_HANDLE(
+					H2IDX(
 						npc->GetOwnerEntityHandle()
 					)
 					)
 					->GetAssignedHero();
 				if (assignedHero->IsTargetable()) {
 					targetIndex =
-						ENTID_FROM_HANDLE(
+						H2IDX(
 							assignedHero
 							->GetIdentity()
 							->entHandle
@@ -278,6 +289,10 @@ namespace Hooks {
 					showEffects = false;
 				}
 			}
+		}
+		case DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_POSITION: {
+			// Blink overshoot bypass
+			
 		}
 		break;
 		}
@@ -287,7 +302,6 @@ namespace Hooks {
 	}
 
 	inline void SetUpByteHooks() {
-		// Create a hook for MessageBoxW, in disabled state.
 		if (MH_CreateHook(Signatures::PrepareUnitOrders, &PrepareUnitOrdersHook,
 			(LPVOID*)&PrepareUnitOrdersOriginal) != MH_OK ||
 			MH_EnableHook(Signatures::PrepareUnitOrders) != MH_OK)
