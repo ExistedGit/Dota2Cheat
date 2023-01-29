@@ -12,8 +12,6 @@
 #include "Input.h"
 #include "UIState.h"
 
-
-
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_glfw.h"
 #include "imgui/imgui_impl_opengl3.h"
@@ -218,8 +216,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
-	io.Fonts->AddFontFromFileTTF(R"(E:\Visual Studio Projects\glfw_test\glfw_test\consolas.ttf)", 16.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
-	auto font = io.Fonts->AddFontFromFileTTF(R"(E:\Visual Studio Projects\glfw_test\glfw_test\primary_font.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
+	io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\consola.ttf)", 16.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
+	auto font = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
 
 	bool menuVisible = false;
 	bool featuresMenuVisible = false;
@@ -249,11 +247,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 			if (ImGui::Button("Features"))
 				featuresMenuVisible = !featuresMenuVisible;
-			//if (ImGui::Button("Destroy Particle") && particleWrap.particle) {
-
-
-			//}
-			//
+			//if (ImGui::Button("Destroy Particle") && particleWrap.particle) { }
 			if (ImGui::Button("Create Particle")) {
 				//Vector3 color{ 0, 255, 255 };
 				//Vector3 radius{ 300, 255, 0 };
@@ -265,10 +259,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 				//	->SetControlPoint(1, &color)
 				//	->SetControlPoint(2, &radius);
 			}
-			//	{
-			//		
-			//	}
-			//}
 			if (ImGui::Button("EXIT", ImVec2(0, 50)))
 				glfwSetWindowShouldClose(window, 1);
 

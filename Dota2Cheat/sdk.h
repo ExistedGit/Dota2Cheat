@@ -21,9 +21,9 @@ inline void PAUSE() {
 extern HANDLE CurProcHandle;
 extern int CurProcId;
 
-struct Coord {
+struct Vector2 {
 	float x, y;
-	Coord(float x, float y) : x(x), y(y) {
+	Vector2(float x, float y) : x(x), y(y) {
 
 	}
 };
@@ -38,7 +38,7 @@ struct Vector3 {
 
 //mathematicians hate this one trick!
 //yeah, to check for radius, you can actually omit the sqrt and just square the radius
-inline float IsWithinRadius(Coord p1, Coord p2, float radius) {
+inline float IsWithinRadius(Vector2 p1, Vector2 p2, float radius) {
 	return pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2) <= radius * radius;
 }
 

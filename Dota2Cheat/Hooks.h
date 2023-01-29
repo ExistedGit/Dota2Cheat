@@ -254,28 +254,34 @@ namespace Hooks {
 		//std::cout << "[ORDER] " << player << '\n';
 		bool giveOrder = true; // whether or not the function will continue
 		switch (orderType) {
-		case DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_TARGET:
+		case DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_TARGET: 
 		{
+			//Redirects spell casts from illusions to the real hero
 			auto npc = Interfaces::Entity->GetEntity<BaseNpc>(targetIndex);
 
 			if (strstr(npc->SchemaBinding()->binaryName, "C_DOTA_Unit_Hero") &&
 				npc->Hero_IsIllusion()) {
-				targetIndex =
+
+				auto assignedHero = Interfaces::Entity->GetEntity<DotaPlayer>(
 					ENTID_FROM_HANDLE(
-						Interfaces::Entity->GetEntity<DotaPlayer>(
-							ENTID_FROM_HANDLE(
-								npc->GetOwnerEntityHandle()
-							)
-						)
-						->GetAssignedHero()
-						->GetIdentity()
-						->entHandle
-					);
-				showEffects = false;
+						npc->GetOwnerEntityHandle()
+					)
+					)
+					->GetAssignedHero();
+				if (assignedHero->IsTargetable()) {
+					targetIndex =
+						ENTID_FROM_HANDLE(
+							assignedHero
+							->GetIdentity()
+							->entHandle
+						);
+					showEffects = false;
+				}
 			}
 		}
 		break;
 		}
+
 		if (giveOrder)
 			PrepareUnitOrdersOriginal(player, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
 	}

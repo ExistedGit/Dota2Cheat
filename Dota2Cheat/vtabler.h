@@ -3,6 +3,8 @@
 #include <cstdint>
 #include <vector>
 
+// Made by LWSS
+
 class VMT;
 std::vector<VMT*> createdVMTs;
 
@@ -17,7 +19,7 @@ inline uint32_t CountVMs(void* interface)
 
 	return methodCount;
 }
-#include <cstdint>
+
 class VMT
 {
 public:
