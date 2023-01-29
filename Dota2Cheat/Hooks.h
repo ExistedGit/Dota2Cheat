@@ -10,7 +10,7 @@
 
 extern bool IsInMatch;
 extern std::vector<BaseNpc*> enemyHeroes;
-	extern CDOTAParticleManager::ParticleWrapper particleWrap;
+extern CDOTAParticleManager::ParticleWrapper particleWrap;
 
 namespace VMTs {
 	std::unique_ptr<VMT> Panorama2;
@@ -175,7 +175,7 @@ namespace Hooks {
 				if (assignedHero->GetLifeState() == 0) { // if alive
 					// VBE: m_flStartSequenceCycle updates 30 times a second
 					// It doesn't update when you are seen(AFAIK is set to zero)
-					sscSum += assignedHero->GetSSC(); 
+					sscSum += assignedHero->GetSSC();
 					sscCount++;
 					if (sscCount == 3) {
 						UIState::HeroVisibleToEnemy = visible = sscSum == 0;
@@ -194,7 +194,7 @@ namespace Hooks {
 					}
 					else if (particleWrap.particle)
 						Globals::ParticleManager->DestroyParticle(particleWrap);
-					
+
 					AutoUseWandCheck(assignedHero, Config::AutoHealWandHPTreshold, Config::AutoHealWandMinCharges);
 					AutoUseFaerieFireCheck(assignedHero, Config::AutoHealFaerieFireHPTreshold);
 					Hacks::AutoBuyTomeCheck();
@@ -257,22 +257,21 @@ namespace Hooks {
 		case DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_TARGET:
 		{
 			auto npc = Interfaces::Entity->GetEntity<BaseNpc>(targetIndex);
-			
+
 			if (strstr(npc->SchemaBinding()->binaryName, "C_DOTA_Unit_Hero") &&
 				npc->Hero_IsIllusion()) {
-				for (int i = 0; i < Interfaces::Entity->GetHighestEntityIndex(); i++) {
-					auto ent = Interfaces::Entity->GetEntity(i);
-					if (ent == nullptr || ent->GetIdentity()->IsDormant() || 
-						ent->SchemaBinding()->binaryName == nullptr)
-						continue;
-					auto className = ent->SchemaBinding()->binaryName;
-					if (!strcmp(npc->SchemaBinding()->binaryName, className) &&
-						!reinterpret_cast<BaseNpc*>(ent)->Hero_IsIllusion()) {
-						targetIndex = i;
-						showEffects = false;
-					}
-				}
-				//targetIndex = ENTID_FROM_HANDLE(npc->GetOwnerEntityHandle());
+				targetIndex =
+					ENTID_FROM_HANDLE(
+						Interfaces::Entity->GetEntity<DotaPlayer>(
+							ENTID_FROM_HANDLE(
+								npc->GetOwnerEntityHandle()
+							)
+						)
+						->GetAssignedHero()
+						->GetIdentity()
+						->entHandle
+					);
+				showEffects = false;
 			}
 		}
 		break;
