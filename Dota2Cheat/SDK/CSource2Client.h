@@ -6,8 +6,6 @@
 #include "Schema.h"
 #include "CViewSetup.h"
 
-#include "../Utils/Util.h"
-
 class ClientClass
 {
 public:

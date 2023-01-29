@@ -71,10 +71,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>H:\Shtreeba DLL Injector\Release</OutDir>
+    <OutDir>$(SolutionDir)Build</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>H:\Shtreeba DLL Injector\Release</OutDir>
+    <OutDir>$(SolutionDir)Build</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -129,8 +129,8 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <OutputFile>$(SolutionDir)Build\Debug\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>$(ProjectDir)lib\glew32s.lib;$(ProjectDir)lib\glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)Debug\$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalDependencies>$(ProjectDir)lib\glew32s.lib;$(ProjectDir)lib\glfw3.lib;$(ProjectDir)lib\libMinHook-x64-v141-mtd.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -153,11 +153,12 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <OutputFile>$(SolutionDir)Build\Release\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>$(ProjectDir)lib\glew32s.lib;$(ProjectDir)lib\glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)Release\$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalDependencies>$(ProjectDir)lib\glew32s.lib;$(ProjectDir)lib\glfw3.lib;$(ProjectDir)lib\libMinHook-x64-v141-mtd.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CDOTAParticleManager.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="include\imgui\imgui.cpp" />
     <ClCompile Include="include\imgui\imgui_demo.cpp" />

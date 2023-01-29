@@ -2,7 +2,10 @@
 #include "patternscan.h"
 #include "Enums.h"
 #include "sdk.h"
+#include "Wrappers.h"
 #include <map>
+#include "Interfaces.h"
+#include "MinHook.h"
 
 namespace Signatures {
 
@@ -11,8 +14,12 @@ namespace Signatures {
 	typedef void(__fastcall* WorldToScreenFn)(Vector3 coord, int* outX, int* outY, void* offset);
 	typedef unsigned char(__fastcall* EntCheckFn)(void* thisptr, uint32_t entId);
 	typedef void(__fastcall* DestroyParticleFn)(void* thisptr, ENT_HANDLE handle, bool unk);
-
+	
+	// for MinHook
+	
 	inline prepareUnitOrdersFn PrepareUnitOrders = nullptr;
+	
+
 	inline EntityCallback OnColorChanged = nullptr;
 	inline DestroyParticleFn DestroyParticle = nullptr;
 
@@ -21,14 +28,14 @@ namespace Signatures {
 		inline EntCheckFn IsRoshan = nullptr;
 	}
 
-	void InitSignatures() {
+	inline void InitSignatures() {
 		char funcAddr[500];
 		char funcAddrMask[500];
 		
 		//prepareUnitOrders
 		ParseCombo("4C 89 4C 24 20 44 89 44 24 18 89 54 24 10 55 53 57 41 55 41 57 48 8D 6C 24 C0", funcAddr, funcAddrMask);
 		PrepareUnitOrders = (prepareUnitOrdersFn)PatternScanExModule(CurProcHandle, CurProcId, L"client.dll", funcAddr, funcAddrMask);
-		
+
 		// 
 		ParseCombo("48 89 5C 24 08 56 57 41 56 48 83 EC 60 49 8B F0 4C 8B F2 48 8B F9 4D 85 C9", funcAddr, funcAddrMask);
 		Scripts::WorldToScreen = (WorldToScreenFn)PatternScanExModule(CurProcHandle, CurProcId, L"client.dll", funcAddr, funcAddrMask);
@@ -54,7 +61,7 @@ namespace Signatures {
 
 	}
 
-	void LogSignatures() {
+	inline  void LogSignatures() {
 		std::cout << "[SIGNATURES]\n";
 		std::cout << "PrepareUnitOrders: " << PrepareUnitOrders << std::endl;
 		std::cout << "OnColorChanged: " << OnColorChanged << std::endl;

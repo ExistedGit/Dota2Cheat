@@ -16,7 +16,7 @@ namespace Interfaces {
 	inline CGameEntitySystem* Entity = nullptr;
 	
 	inline void* GCClient = nullptr;
-	inline uintptr_t Schema = NULL;
+	inline VClass* Schema = NULL;
 
 	typedef void* (__cdecl* tCreateInterface)(const char* name, int* returnCode);
 	template<typename T>
@@ -40,7 +40,7 @@ namespace Interfaces {
 		Panorama = GetInterface<VClass*>("panorama.dll", "PanoramaUIEngine001");
 		Panorama2 = Panorama->Member<VClass*>(0x28);
 		GCClient = GetInterface<void*>("client.dll", "DOTA_CLIENT_GCCLIENT");
-		Schema = GetInterface<uintptr_t>("schemasystem.dll", "SchemaSystem_001");
+		Schema = GetInterface<VClass*>("schemasystem.dll", "SchemaSystem_001");
 	}
 	inline  void LogInterfaces() {
 		std::cout << "[INTERFACES]\n" << std::hex;

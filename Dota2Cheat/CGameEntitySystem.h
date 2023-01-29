@@ -82,7 +82,7 @@ public:
 	//void* unk3;, remove because of vtable
 
 	CEntityIdentities* m_pEntityList[MAX_ENTITY_LISTS];
-	CEntityIdentity* GetIdentity(int index)
+	inline CEntityIdentity* GetIdentity(int index)
 	{
 		if (index <= -1 || index >= (MAX_TOTAL_ENTITIES - 1))
 			return nullptr;
@@ -104,7 +104,8 @@ public:
 
 		return identity;
 	}
-	BaseEntity* GetBaseEntity(int index)
+	template<typename T = BaseEntity>
+	inline T* GetEntity(int index)
 	{
 		if (index <= -1 || index >= (MAX_TOTAL_ENTITIES - 1))
 			return nullptr;
@@ -124,9 +125,9 @@ public:
 		//    return identity->entity;
 		//}
 		//std::cout << "identity: " << identity << " " << identity->entity << '\n';
-		return identity->entity;
+		return (T*)identity->entity;
 	}
-	int GetHighestEntityIndex()
+	inline int GetHighestEntityIndex()
 	{
 		return *(int*)((uintptr_t)this + 0x1e90);
 	}

@@ -44,7 +44,7 @@ public:
 		static int offset = Schema::Netvars["C_BaseModelEntity"]["m_clrRender"];
 		if (!offset)
 			return;
-		uintptr_t clrAddr = (uintptr_t)this +offset;
+		uintptr_t clrAddr = (uintptr_t)this + offset;
 		*(BYTE*)(clrAddr + 0) = static_cast<BYTE>(clr.RGBA[0]);
 		*(BYTE*)(clrAddr + 1) = static_cast<BYTE>(clr.RGBA[1]);
 		*(BYTE*)(clrAddr + 2) = static_cast<BYTE>(clr.RGBA[2]);
@@ -52,20 +52,22 @@ public:
 
 		Signatures::OnColorChanged(this);
 	}
-	inline ENT_HANDLE GetOwnerEntity() {
+	inline ENT_HANDLE GetOwnerEntityHandle() {
 		return Member<ENT_HANDLE>(Schema::Netvars["C_BaseEntity"]["m_hOwnerEntity"]);
 	}
+
 	inline Vector3 GetPos() {
 		u64 offset = Schema::Netvars["C_BaseEntity"]["m_pGameSceneNode"];
 		if (!offset)
 			return Vector3::Zero;
-
-		return *(Vector3*)(*(uintptr_t*)( (uintptr_t)this + offset ) + 0x10);
+		// The m_vecAbsOrigin netvar is actually inside a CGameSceneNode
+		return Member<VClass*>(offset) // getting the node
+			 ->Member<Vector3>(0x10); // getting the absOrigin
 	}
-	// 
-	inline Coord GetPos2D() {
+	 
+	inline Vector2 GetPos2D() {
 		auto vec = GetPos();
-		return Coord(vec.x, vec.y);
+		return Vector2(vec.x, vec.y);
 	}
 	inline int GetMaxHealth() {
 		return Member<int>(Schema::Netvars["C_BaseEntity"]["m_iMaxHealth"]);
@@ -76,8 +78,6 @@ public:
 	inline DOTATeam_t GetTeam() {
 		return Member<DOTATeam_t>(Schema::Netvars["C_BaseEntity"]["m_iTeamNum"]);
 	}
-
-
 };
 class BaseNpc : public BaseEntity {
 public:
@@ -88,14 +88,20 @@ public:
 
 		}
 		BaseEntity* GetEntity() const {
-			return Interfaces::Entity->GetBaseEntity(ENTID_FROM_HANDLE(handle));
+			return Interfaces::Entity->GetEntity(ENTID_FROM_HANDLE(handle));
 		}
 		template<typename T>
 		T* GetAs() const {
-			return reinterpret_cast<T*>(Interfaces::Entity->GetBaseEntity(ENTID_FROM_HANDLE(handle)));
+			return reinterpret_cast<T*>(Interfaces::Entity->GetEntity(ENTID_FROM_HANDLE(handle)));
 		}
 	};
-
+	// Wrapper function combining the following conditions: 
+	// Is not dormant
+	// Is alive
+	// Is not waiting to spawn
+	inline bool IsTargetable() {
+		return !GetIdentity()->IsDormant() && GetLifeState() == 0 && !IsWaitingToSpawn();
+	}
 	inline bool IsWaitingToSpawn() {
 		return Member<bool>(Schema::Netvars["C_DOTA_BaseNPC"]["m_bIsWaitingToSpawn"]);
 	}
@@ -141,10 +147,10 @@ public:
 			if (item.name != nullptr &&
 				strstr(item.name, str))
 				return item;
-			
+
 		return ItemOrAbility{ nullptr, 0xFFFFFFFF };
 	}
-	
+
 	inline std::vector<ItemOrAbility> GetItems() {
 		static int offset = Schema::Netvars["C_DOTA_BaseNPC"]["m_Inventory"];
 		if (!offset)
@@ -202,8 +208,8 @@ public:
 	inline CUtlVector<uint32_t> GetSelectedUnits() {
 		return Member<CUtlVector<uint32_t>>(Schema::Netvars["C_DOTAPlayerController"]["m_nSelectedUnits"]);
 	}
-	inline BaseEntity* GetAssignedHero() {
-		return Interfaces::Entity->GetBaseEntity(ENTID_FROM_HANDLE(GetAssignedHeroHandle()));
+	inline BaseNpc* GetAssignedHero() {
+		return Interfaces::Entity->GetEntity<BaseNpc>(ENTID_FROM_HANDLE(GetAssignedHeroHandle()));
 	}
 	inline uint64_t GetSteamID() {
 		return Member<uint64_t>(0x6b8);
