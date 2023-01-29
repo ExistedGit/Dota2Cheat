@@ -17,6 +17,10 @@ This list is subject to frequent change as I'm testing new features
   * Hand of Midas usage on nearby big neutrals, ranged & flagbearer lane creeps and catapults
   * Bounty rune pickup
   * Tome of Knowledge purchase
+  * Redirects spell casts from illusions to the real hero
+  
+* Information:
+  * Visible by Enemy — currently shows a Skyrim inspired HIDDEN/DETECTED text on screen
 
 * Convars:
   * `sv_cheats` spoofing
