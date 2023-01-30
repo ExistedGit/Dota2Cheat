@@ -23,15 +23,18 @@ extern int CurProcId;
 
 struct Vector2 {
 	float x, y;
-	Vector2(float x, float y) : x(x), y(y) {
+	inline Vector2(float x, float y) : x(x), y(y) {
 
+	}
+	inline float DistanceTo(const Vector2& v) {
+		return sqrtf(pow(v.x - x, 2) + pow(v.y - y, 2));
 	}
 };
 
 struct Vector3 {
 	static Vector3 Zero;
 	float x, y, z;
-	Vector3(float x, float y, float z) :x(x), y(y), z(z) {
+	inline Vector3(float x, float y, float z) :x(x), y(y), z(z) {
 
 	}
 };

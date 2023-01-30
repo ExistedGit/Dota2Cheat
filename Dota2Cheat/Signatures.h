@@ -26,7 +26,7 @@ namespace Signatures {
 	namespace Scripts {
 		inline WorldToScreenFn WorldToScreen = nullptr;
 		inline EntCheckFn IsRoshan = nullptr;
-		inline EntGetter GetCastRange = nullptr;
+//		inline EntGetter GetCastRange = nullptr;
 	}
 
 	inline void InitSignatures() {
@@ -41,7 +41,7 @@ namespace Signatures {
 		ParseCombo("48 89 5C 24 08 56 57 41 56 48 83 EC 60 49 8B F0 4C 8B F2 48 8B F9 4D 85 C9", funcAddr, funcAddrMask);
 		Scripts::WorldToScreen = (WorldToScreenFn)PatternScanExModule(CurProcHandle, CurProcId, L"client.dll", funcAddr, funcAddrMask);
 
-		// I'm sorry, there is no other way since the function template is identical with only offsets changing
+		// I think there's a netvar for that
 		//ParseCombo("48 83 EC 28 48 8B ? ? ? ? ? 48 85 C0 74 34 48 63 48 68 44 8B 80 CC 00 00 00 83 F9 0B 77 0F 48 8B C1 48 8D ? ? ? ? ? 8B 0C 81 EB 02 33 C9 3B ? ? ? ? ? 7E 0B 41 8D 40 F1 A9 FB FF FF FF 75 2A 8B CA E8 ? ? ? ? 48 85 C0 74 1E 80 B8 50 05 00 00 03 75 15 48 8D 88 E8 0B 00 00 48 8B 01 48 83 C4 28 48 FF A0 C8 01 00 00 32 C0 48 83 C4 28 C3", funcAddr, funcAddrMask);
 		//Scripts::IsRoshan = (EntCheckFn)PatternScanExModule(CurProcHandle, CurProcId, L"client.dll", funcAddr, funcAddrMask);
 		
@@ -52,13 +52,10 @@ namespace Signatures {
 			((uintptr_t)PatternScanExModule(CurProcHandle, CurProcId, L"client.dll", funcAddr, funcAddrMask)
 				- 0x9);
 
-		ParseCombo("4C 8B 08 48 8D ? ? ? ? ? 45 33 C0 48 8B C8 48 83 C4 38 49 FF A1 98 07 00 00", funcAddr, funcAddrMask);
-		Scripts::GetCastRange = (EntGetter)
-			((uintptr_t)PatternScanExModule(CurProcHandle, CurProcId, L"client.dll", funcAddr, funcAddrMask)
-				- 0x75);
-
-		//ParseCombo("48 83 EC 28 48 8B ? ? ? ? ? 48 85 C0 74 34 48 63 48 68 44 8B 80 CC 00 00 00 83 F9 0B 77 0F 48 8B C1 48 8D ? ? ? ? ? 8B 0C 81 EB 02 33 C9 3B ? ? ? ? ? 7E 0B 41 8D 40 F1 A9 FB FF FF FF 75 21 8B CA E8 ? ? ? ? 48 85 C0 74 15 80 B8 50 05 00 00 03 75 0C 0F B6 80 18 0C 00 00 48 83 C4 28 C3 32 C0 48 83 C4 28 C3", funcAddr, funcAddrMask);
-		//Scripts::IsAncient = (EntCheckFn)PatternScanExModule(CurProcHandle, CurProcId, L"client.dll", funcAddr, funcAddrMask);
+		//ParseCombo("4C 8B 08 48 8D ? ? ? ? ? 45 33 C0 48 8B C8 48 83 C4 38 49 FF A1 98 07 00 00", funcAddr, funcAddrMask);
+		//Scripts::GetCastRange = (EntGetter)
+		//	((uintptr_t)PatternScanExModule(CurProcHandle, CurProcId, L"client.dll", funcAddr, funcAddrMask)
+		//		- 0x75);
 
 
 		const char* _funcAddr = "\x40\x53\x48\x83\xEC\x20\x48\x8B\xD9\x48\x8B\x89\x00\x00\x00\x00\x48\x8B\x01\x0F\xB6\x93";

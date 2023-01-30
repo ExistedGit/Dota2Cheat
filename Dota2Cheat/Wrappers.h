@@ -191,6 +191,23 @@ public:
 	inline int GetManaCost() {
 		return Member<int>(0x5b0);
 	}
+	
+	//inline int GetCastRange() {
+	//	auto pos = GetPos();
+	//	return CallVFunc<0x798/8, int>(&pos, nullptr, *(uintptr_t*)this);
+	//}
+	
+	// Xref "Script_GetCastRangeBonus" in x64dbg to either of the two lea rax
+	// Below there will be "vTarget" or something, above that will be a lea rax, [XXX] with a function
+	// At the end there are two calls to [rdi + 0x798] and [rdi + 0x7a0], first it gets the range, then the bonus
+	// I currently could not get GetCastRange to work as a standalone vfunc
+	// found via dynamical analysis
+	inline int GetCastRangeBonus() { 
+		return CallVFunc<0x7A0/8, int>(nullptr, nullptr, nullptr);
+	}
+	inline int GetEffectiveCastRange() {
+		return GetCastRange() + GetCastRangeBonus();
+	}
 
 	// A bit tricky to reverse, done via x64dbg
 	// Xref GetCastRange to a lea, rcx instruction, before it is a lea r9, [XXX] <- Follow in Disassembler > Constant: XXX
