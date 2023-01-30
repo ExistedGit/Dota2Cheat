@@ -24,7 +24,10 @@ This list is subject to frequent change as I'm testing new features
 
 * Convars:
   * `sv_cheats` spoofing
-  * custom `dota_camera_distance` with proper `r_farz` and `fog_enable`(no clipping or blue fog)
-  * `dota_use_particle_fow` — shows more particles in FoW, including the teleportation effects
-  
+  * customizable `dota_camera_distance` with proper `r_farz` and `fog_enable`(no clipping or blue fog)
+  * `dota_use_particle_fow` — shows more particles in FoW, including teleportation effects
+
+* Utility:
+  * Bypasses Blink Dagger's overshoot which normally makes you only blink for 1000 units if clicked out of its casting range
+
 I intend to implement most of the usual cheat functionality
