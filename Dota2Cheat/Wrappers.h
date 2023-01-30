@@ -88,11 +88,11 @@ public:
 
 		}
 		BaseEntity* GetEntity() const {
-			return Interfaces::Entity->GetEntity(ENTID_FROM_HANDLE(handle));
+			return Interfaces::Entity->GetEntity(H2IDX(handle));
 		}
 		template<typename T>
 		T* GetAs() const {
-			return reinterpret_cast<T*>(Interfaces::Entity->GetEntity(ENTID_FROM_HANDLE(handle)));
+			return reinterpret_cast<T*>(Interfaces::Entity->GetEntity(H2IDX(handle)));
 		}
 	};
 	// Wrapper function combining the following conditions: 
@@ -132,8 +132,8 @@ public:
 		ENT_HANDLE* hAbilities = (ENT_HANDLE*)((uintptr_t)this + offset);
 		for (int j = 0; j < 35; j++) {
 			ENT_HANDLE handle = hAbilities[j];
-			if (ENT_HANDLE_VALID(handle)) {
-				auto* identity = Interfaces::Entity->GetIdentity(ENTID_FROM_HANDLE(handle));
+			if (HVALID(handle)) {
+				auto* identity = Interfaces::Entity->GetIdentity(H2IDX(handle));
 				result.push_back(ItemOrAbility((identity->entityName != nullptr ? identity->entityName : identity->internalName), identity->entHandle));
 			}
 		}
@@ -161,8 +161,8 @@ public:
 		if (inv) {
 			ENT_HANDLE* itemsHandle = inv->GetItems();
 			for (int i = 0; i < 19; i++) {
-				if (ENT_HANDLE_VALID(itemsHandle[i])) {
-					auto* identity = Interfaces::Entity->GetIdentity(ENTID_FROM_HANDLE(itemsHandle[i]));
+				if (HVALID(itemsHandle[i])) {
+					auto* identity = Interfaces::Entity->GetIdentity(H2IDX(itemsHandle[i]));
 					result.push_back(ItemOrAbility((identity->entityName != nullptr ? identity->entityName : identity->internalName), identity->entHandle));
 				}
 			}
@@ -182,14 +182,45 @@ public:
 };
 class BaseAbility :public BaseEntity {
 public:
-	float GetCooldown() {
+	inline float GetCooldown() {
 		return Member<float>(0x5a8);
 	}
-	int GetCharges() {
+	inline int GetCharges() {
 		return Member<int>(0x610);
 	}
-	int GetManaCost() {
+	inline int GetManaCost() {
 		return Member<int>(0x5b0);
+	}
+	
+	//inline int GetCastRange() {
+	//	auto pos = GetPos();
+	//	return CallVFunc<0x798/8, int>(&pos, nullptr, *(uintptr_t*)this);
+	//}
+	
+	// Xref "Script_GetCastRangeBonus" in x64dbg to either of the two lea rax
+	// Below there will be "vTarget" or something, above that will be a lea rax, [XXX] with a function
+	// At the end there are two calls to [rdi + 0x798] and [rdi + 0x7a0], first it gets the range, then the bonus
+	// I currently could not get GetCastRange to work as a standalone vfunc
+	// found via dynamical analysis
+	inline int GetCastRangeBonus() { 
+		return CallVFunc<0x7A0/8, int>(nullptr, nullptr, nullptr);
+	}
+	inline int GetEffectiveCastRange() {
+		return GetCastRange() + GetCastRangeBonus();
+	}
+
+	// A bit tricky to reverse, done via x64dbg
+	// Xref GetCastRange to a lea, rcx instruction, before it is a lea r9, [XXX] <- Follow in Disassembler > Constant: XXX
+	// The return register for x64 fastcall is RAX, so breakpoint it and call with nullptr and entity index of your item
+	// Step over until you see RAX change to the hex representation of the item's range(in my case Hand of Midas has 600 dec 0x258 hex)
+	// There will be a call instruction that will change RAX to the radius, double-click it
+	// At the end of the call are:
+	// mov rbx, [rcx + 0x568]     <- I forgot the actual registers used here
+	// mov rax, [rbx + 0x100]
+	// Which means "dereference a pointer to an object on offset 0x568, then dereference a pointer to an int on 0x100 offset of that object"
+	inline int GetCastRange() {
+		auto infoObj = Member<VClass*>(0x568);
+		return *infoObj->Member<int*>(0x100); // Weird structure
 	}
 };
 
@@ -209,7 +240,7 @@ public:
 		return Member<CUtlVector<uint32_t>>(Schema::Netvars["C_DOTAPlayerController"]["m_nSelectedUnits"]);
 	}
 	inline BaseNpc* GetAssignedHero() {
-		return Interfaces::Entity->GetEntity<BaseNpc>(ENTID_FROM_HANDLE(GetAssignedHeroHandle()));
+		return Interfaces::Entity->GetEntity<BaseNpc>(H2IDX(GetAssignedHeroHandle()));
 	}
 	inline uint64_t GetSteamID() {
 		return Member<uint64_t>(0x6b8);
@@ -220,7 +251,7 @@ public:
 		PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_NO_TARGET,
 			0,
 			&Vector3::Zero,
-			ENTID_FROM_HANDLE(handle),
+			H2IDX(handle),
 			PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
 			issuer,
 			false,

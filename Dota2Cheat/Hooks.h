@@ -44,12 +44,18 @@ namespace Hooks {
 		std::cout << "abilities: " << '\n';
 		for (const auto& ability : npc->GetAbilities()) {
 			if (ability.name != nullptr)
-				std::cout << '\t' << ability.name << " " << ENTID_FROM_HANDLE(ability.handle) << " CD: " << ability.GetAs<BaseAbility>()->GetCooldown() << '\n';
+				std::cout << '\t' << ability.name << " " << H2IDX(ability.handle)
+				//<< " CD: " << ability.GetAs<BaseAbility>()->GetCooldown() 
+				//<< ' ' << std::dec << ability.GetAs<BaseAbility>()->GetEffectiveCastRange()
+				<< ' ' << ability.GetEntity()
+				<< '\n';
 		}
 		std::cout << "inventory: " << '\n';
 		for (const auto& item : npc->GetItems()) {
 			if (item.name != nullptr)
-				std::cout << '\t' << item.name << " " << ENTID_FROM_HANDLE(item.handle) << '\n';
+				std::cout << '\t' << item.name << " " << H2IDX(item.handle)
+				<< ' ' << item.GetEntity()
+				<< '\n';
 		}
 	}
 	inline bool TestStringFilters(const char* str, std::vector<const char*> filters) {
@@ -78,6 +84,7 @@ namespace Hooks {
 				continue;
 			if (!midasUsed && midas != -1
 				&& strstr(className, "Creep")) {
+
 				auto creep = (BaseNpc*)ent;
 				//Fvector posHero = assignedHero->GetPos(), posCreep = creep->GetPos();
 
@@ -95,16 +102,17 @@ namespace Hooks {
 						"satyr_hellcaller",
 						"neutral_enraged_wildkin"
 				};
+				auto midasEnt = Interfaces::Entity->GetEntity < BaseAbility>(H2IDX(midas));
 
 				// If the creep is visible, not one of ours, is alive, is within 600 hammer units and its name matches one of the filters
 				if (creep->GetTeam() != assignedHero->GetTeam() &&
 					creep->GetHealth() > 0 &&
 					!creep->IsWaitingToSpawn() &&
-					IsWithinRadius(creep->GetPos2D(), assignedHero->GetPos2D(), 600) &&
+					IsWithinRadius(creep->GetPos2D(), assignedHero->GetPos2D(), midasEnt->GetEffectiveCastRange()) &&
 					TestStringFilters(creep->GetUnitName(), filters)) {
 					//std::cout << creep->GetUnitName() << '\n';
 					midasUsed = true;
-					localPlayer->PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_TARGET, i, &Vector3::Zero, ENTID_FROM_HANDLE(midas), PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, assignedHero);
+					localPlayer->PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_TARGET, i, &Vector3::Zero, H2IDX(midas), PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, assignedHero);
 				}
 			}
 			else if (Config::AutoRunePickupEnabled && !runePickUp && strstr(className, "C_DOTA_Item_Rune")) {
@@ -200,10 +208,10 @@ namespace Hooks {
 					Hacks::AutoBuyTomeCheck();
 					EntityIteration();
 				}
-
+#ifdef _DEBUG
 				if (IsKeyPressed(VK_NUMPAD8)) {
 					auto selected = localPlayer->GetSelectedUnits();
-					auto ent = (BaseNpc*)Interfaces::Entity->GetEntity(selected[0]);
+					auto ent = Interfaces::Entity->GetEntity<BaseNpc>(selected[0]);
 					auto pos = ent->GetPos();
 					std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
 						<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
@@ -219,10 +227,26 @@ namespace Hooks {
 					//std::cout << std::dec << selected[0] << " " << std::dec<< ab.name << " " << ab.GetAs<BaseAbility>()->GetCooldown() << '\n';
 					//LogEntities();
 				}
+				if (IsKeyPressed(VK_NUMPAD3)) {
+					auto midas = assignedHero->FindItemBySubstring("blink");
+					if (HVALID(midas.handle))
+						std::cout << std::dec << midas.GetAs<BaseAbility>()->GetVFunc(0xf4).ptr << '\n';
 
-				if (IsKeyPressed(VK_HOME)) {
-					Interfaces::CVar->SetConvars();
 				}
+				if (IsKeyPressed(VK_HOME)) {
+					auto blink = assignedHero->FindItemBySubstring("blink");
+					if (HVALID(blink.handle)) {
+						auto ent = blink.GetAs<BaseAbility>();
+						auto pos = ent->GetPos();
+						//std::cout << std::dec << Function(0x00007FFB53AB6AD0).Execute<int>(ent, &pos) << '\n';
+						//std::cout << std::dec << ent->GetEffectiveCastRange() << '\n';
+
+						//std::cout << std::dec << Function(0x00007FFE04BF0A80).Execute<uintptr_t>(nullptr, midas.handle) << '\n';
+
+						//Interfaces::CVar->SetConvars();
+					}
+				}
+#endif
 			}
 		}
 		VMTs::Panorama2->GetOriginalMethod<RunFrameFn>(6)(a, b);
@@ -254,23 +278,22 @@ namespace Hooks {
 		//std::cout << "[ORDER] " << player << '\n';
 		bool giveOrder = true; // whether or not the function will continue
 		switch (orderType) {
-		case DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_TARGET: 
+		case DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_TARGET:
 		{
 			//Redirects spell casts from illusions to the real hero
 			auto npc = Interfaces::Entity->GetEntity<BaseNpc>(targetIndex);
 
 			if (strstr(npc->SchemaBinding()->binaryName, "C_DOTA_Unit_Hero") &&
 				npc->Hero_IsIllusion()) {
-
 				auto assignedHero = Interfaces::Entity->GetEntity<DotaPlayer>(
-					ENTID_FROM_HANDLE(
+					H2IDX(
 						npc->GetOwnerEntityHandle()
 					)
 					)
 					->GetAssignedHero();
 				if (assignedHero->IsTargetable()) {
 					targetIndex =
-						ENTID_FROM_HANDLE(
+						H2IDX(
 							assignedHero
 							->GetIdentity()
 							->entHandle
@@ -278,8 +301,31 @@ namespace Hooks {
 					showEffects = false;
 				}
 			}
+			break;
 		}
-		break;
+		case DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_POSITION: {
+			// Blink overshoot bypass
+			auto item = Interfaces::Entity->GetEntity<BaseAbility>(abilityIndex);
+			if (strstr(item->GetIdentity()->GetName(), "blink")) {
+				auto maxDist = item->GetEffectiveCastRange();
+				auto pos2D = *(Vector2*)position;
+				if (!IsWithinRadius(issuer->GetPos2D(), pos2D, maxDist)) {
+					auto dist = issuer->GetPos2D().DistanceTo(pos2D);
+					// Relative vector from the hero to the click point
+					auto vec = Vector2(pos2D.x - issuer->GetPos2D().x, pos2D.y - issuer->GetPos2D().y);
+					// -1% to make it 100% be inside the radius
+					vec.x *= maxDist / dist * 0.99;
+					vec.x += issuer->GetPos2D().x;
+					vec.y *= maxDist / dist * 0.99;
+					vec.y += issuer->GetPos2D().y;
+
+					position->x = vec.x;
+					position->y = vec.y;
+					showEffects = false;
+				}
+			}
+			break;
+		}
 		}
 
 		if (giveOrder)
@@ -287,7 +333,6 @@ namespace Hooks {
 	}
 
 	inline void SetUpByteHooks() {
-		// Create a hook for MessageBoxW, in disabled state.
 		if (MH_CreateHook(Signatures::PrepareUnitOrders, &PrepareUnitOrdersHook,
 			(LPVOID*)&PrepareUnitOrdersOriginal) != MH_OK ||
 			MH_EnableHook(Signatures::PrepareUnitOrders) != MH_OK)
