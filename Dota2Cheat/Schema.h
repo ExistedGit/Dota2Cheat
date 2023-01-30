@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <unordered_map>
 #include <Psapi.h>
 #include <cstdint>
@@ -11,7 +11,8 @@ namespace Schema {
 
 	inline std::unordered_map<std::string, std::unordered_map<std::string, uintptr_t>> Netvars;
 
-	//структуры получены путем наблюдения глазиками в реклассе/дебагере той фигни которую вернула функция FindDeclaredClass, если интересно сделайте у себя там просто CMSG с возвратом этой функции и посмотрите в реклассе/дебагере
+	//СЃС‚СЂСѓРєС‚СѓСЂС‹ РїРѕР»СѓС‡РµРЅС‹ РїСѓС‚РµРј РЅР°Р±Р»СЋРґРµРЅРёСЏ РіР»Р°Р·РёРєР°РјРё РІ СЂРµРєР»Р°СЃСЃРµ/РґРµР±Р°РіРµСЂРµ С‚РѕР№ С„РёРіРЅРё РєРѕС‚РѕСЂСѓСЋ РІРµСЂРЅСѓР»Р° С„СѓРЅРєС†РёСЏ FindDeclaredClass, РµСЃР»Рё РёРЅС‚РµСЂРµСЃРЅРѕ СЃРґРµР»Р°Р№С‚Рµ Сѓ СЃРµР±СЏ С‚Р°Рј РїСЂРѕСЃС‚Рѕ CMSG СЃ РІРѕР·РІСЂР°С‚РѕРј СЌС‚РѕР№ С„СѓРЅРєС†РёРё Рё РїРѕСЃРјРѕС‚СЂРёС‚Рµ РІ СЂРµРєР»Р°СЃСЃРµ/РґРµР±Р°РіРµСЂРµ
+	//EN: structures are reversed by watching the object FindDeclaredClass returns in ReClass/x64dbg, if you're interested make a CMSG with what it returns and look into it in ReClass/x64dbg
 	struct ClassDescription;
 
 	struct SchemaParentInfo {
