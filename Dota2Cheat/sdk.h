@@ -3,6 +3,9 @@
 #include <iostream>
 #include <Windows.h>
 #include "Input.h"
+
+#define PI 3.1415926
+
 inline void PAUSE() {
 	std::cout << "PAUSE" << '\n';
 	while (!IsKeyPressed(VK_NUMPAD3)) {

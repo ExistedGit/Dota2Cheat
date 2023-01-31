@@ -6,6 +6,7 @@
 #include "CGameEntitySystem.h"
 #include "ConVar.h"
 #include "IEngineClient.h"
+#include "CGameEventManager.h"
 
 namespace Interfaces {
 	inline CVarSystem* CVar = nullptr;
@@ -16,7 +17,6 @@ namespace Interfaces {
 	inline CGameEntitySystem* EntitySystem = nullptr;
 	inline void* GCClient = nullptr;
 	inline VClass* Schema = nullptr;
-	inline VClass* GameEventManager;
 
 	typedef void* (__cdecl* tCreateInterface)(const char* name, int* returnCode);
 	template<typename T>
@@ -32,15 +32,10 @@ namespace Interfaces {
 		Engine = GetInterface<IEngineClient*>("engine2.dll", "Source2EngineToClient001");
 		Client = GetInterface<CSource2Client*>("client.dll", "Source2Client002");
 		CVar = GetInterface<CVarSystem*>("tier0.dll", "VEngineCvar007");
+
 		uintptr_t* vmt_slot = *(uintptr_t**)Interfaces::Client + 25;								//25th function in Source2Client vtable
 		uintptr_t addr_start = *vmt_slot + 3;														//stores the relative address portion of the mov rax, [rip + 0x2512059] instruction
 		EntitySystem = *(CGameEntitySystem**)(addr_start + *(uint32_t*)(addr_start)+4);
-		
-		// On offset 0x117 in Source2Client::Init(), right after "g_GameEventManager.Init()"
-		GameEventManager = (VClass*)GetAbsoluteAddress(
-			(uintptr_t)getvfunc(Interfaces::Client, 3).ptr + 0x117, 
-			3, 
-			7);
 
 		Panorama = GetInterface<VClass*>("panorama.dll", "PanoramaUIEngine001");
 		Panorama2 = Panorama->Member<VClass*>(0x28);

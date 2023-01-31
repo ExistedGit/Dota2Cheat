@@ -19,7 +19,7 @@
 #include <GLFW/glfw3.h> // Will drag system OpenGL headers
 #include <sstream>
 #include "Config.h"
-#include "CGameEventManager.h"
+
 
 
 #pragma region Global variables
@@ -27,7 +27,7 @@
 bool IsInMatch = false;
 Vector3 Vector3::Zero = Vector3(0, 0, 0);
 std::map<std::string, CVarSystem::CVarInfo> CVarSystem::CVar{};
-std::vector<CGameEventListener2*> CGameEventManager::EventListeners{};
+std::vector<IGameEventListener2*> CGameEventManager::EventListeners{};
 
 DotaPlayer* localPlayer;
 BaseNpc* assignedHero;
@@ -300,6 +300,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		}
 
 
+
 		// Rendering
 		ImGui::Render();
 		int display_w, display_h;
@@ -325,6 +326,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	//VMTs::Entity->ReleaseVMT();
 	//VMTs::Panorama2->ReleaseVMT();
 	//VMTs::Entity = nullptr;
+	
 	Schema::Netvars.clear();
 	MH_Uninitialize();
 	if (f) fclose(f);

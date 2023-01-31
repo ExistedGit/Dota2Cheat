@@ -35,6 +35,7 @@ inline void EnteredMatch() {
 	Globals::PlayerResource = *Globals::PlayerResourcePtr;
 	Globals::ScriptVM = *Globals::ScriptVMPtr;
 	Globals::ParticleManager = *Globals::ParticleManagerPtr;
+	Globals::GameEventManager = *Globals::GameEventManagerPtr;
 
 	GameState gameState = Globals::GameRules->GetGameState();
 	if (gameState == GameState::DOTA_GAMERULES_PREGAME ||
@@ -68,6 +69,12 @@ inline void LeftMatch() {
 	Globals::PlayerResource = nullptr;
 	Globals::GameRules = nullptr;
 	Globals::ScriptVM = nullptr;
+
+	for (auto& listener : CGameEventManager::EventListeners) {
+		Globals::GameEventManager->RemoveListener(listener);
+	}
+	Globals::GameEventManager = nullptr;
+
 	VMTs::Panorama2 = nullptr;
 	localPlayer = nullptr;
 	

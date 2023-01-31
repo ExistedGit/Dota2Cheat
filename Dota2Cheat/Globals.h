@@ -12,14 +12,25 @@ namespace Globals {
 	//So we need to dereference it when we enter a match and reset to nullptr on leave
 	inline CDOTAGameRules** GameRulesPtr = nullptr;
 	inline CDOTAGameRules* GameRules = nullptr;
+	
 	inline CDOTAPlayerResource** PlayerResourcePtr = nullptr;
 	inline CDOTAPlayerResource* PlayerResource = nullptr;
+	
 	inline CDOTAParticleManager** ParticleManagerPtr = nullptr;
 	inline CDOTAParticleManager* ParticleManager = nullptr;
-	
+
+	inline CGameEventManager** GameEventManagerPtr = nullptr;
+	inline CGameEventManager* GameEventManager = nullptr;
+
 	inline IScriptVM** ScriptVMPtr = nullptr;
 	inline IScriptVM* ScriptVM = nullptr;
+
 	inline void InitGlobals() {
+		// On offset 0x117 in Source2Client::Init(), right after "g_GameEventManager.Init()"
+		GameEventManagerPtr = (CGameEventManager**)GetAbsoluteAddress(
+			(uintptr_t)getvfunc(Interfaces::Client, 3).ptr + 0x117,
+			3,
+			7);
 
 		char funcAddr[60];
 		char funcAddrMask[60];
@@ -36,6 +47,7 @@ namespace Globals {
 			PlayerResourcePtr = (CDOTAPlayerResource**)GetAbsoluteAddress(addr, 3, 7);
 			std::cout << "PlayerResourcePtr: " << std::hex << PlayerResourcePtr << '\n';
 		}
+
 
 		ParseCombo("48 8B ? ? ? ? ? 33 C9 48 89 5C 24 30 48 8B 18 E8 ? ? ? ? 48 8B ? ? ? ? ? 4C 8B C0 48 8B D7", funcAddr, funcAddrMask);
 		ScriptVMPtr = (IScriptVM**)GetAbsoluteAddress((uintptr_t)PatternScanExModule(CurProcHandle, CurProcId, L"client.dll", funcAddr, funcAddrMask), 3, 7);

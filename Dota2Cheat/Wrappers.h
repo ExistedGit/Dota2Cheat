@@ -77,9 +77,9 @@ public:
 	// Gets the point in front of the entity at the specified distance
 	inline Vector3 GetForwardVector(int dist) {
 		auto pos = GetPos();
-		float rotation = GetRotation();
+		float rotation = GetRotation() * PI / 180;
 
-		int sine = sin(rotation), cosine = cos(rotation);
+		float sine = sinf(rotation), cosine = cosf(rotation);
 		auto forwardVec = Vector3(dist, 0, 0);
 		forwardVec.x = cosine * forwardVec.x - sine * forwardVec.y;
 		forwardVec.y = sine * forwardVec.x + cosine * forwardVec.y;

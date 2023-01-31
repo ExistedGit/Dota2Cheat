@@ -228,9 +228,13 @@ namespace Hooks {
 					//LogEntities();
 				}
 				if (IsKeyPressed(VK_NUMPAD3)) {
-					auto midas = assignedHero->FindItemBySubstring("blink");
-					if (HVALID(midas.handle))
-						std::cout << std::dec << midas.GetAs<BaseAbility>()->GetVFunc(0xf4).ptr << '\n';
+					std::cout << assignedHero->GetForwardVector(10) << '\n';
+					auto ptr = new RoshanListener();
+					CGameEventManager::EventListeners.push_back(ptr);
+					Globals::GameEventManager->AddListener(ptr, "dota_roshan_kill", false);
+					//auto midas = assignedHero->FindItemBySubstring("blink");
+					//if (HVALID(midas.handle))
+					//	std::cout << std::dec << midas.GetAs<BaseAbility>()->GetVFunc(0xf4).ptr << '\n';
 
 				}
 				if (IsKeyPressed(VK_HOME)) {
@@ -238,7 +242,7 @@ namespace Hooks {
 					if (HVALID(forceStaff.handle)) {
 						auto ent = forceStaff.GetAs<BaseAbility>();
 						//auto pos = ent->GetPos();
-						std::cout << std::dec << Function(0x7FF9FEAB1130)(nullptr, H2IDX(forceStaff.handle), "bonus_intellect", -1) << '\n';
+						//std::cout << std::dec << Function(0x7FF9FEAB1130)(nullptr, H2IDX(forceStaff.handle), "bonus_intellect", -1) << '\n';
 						
 						//std::cout << std::dec << Function(0x00007FF9FEA78000)(forceStaff.GetEntity(), "bonus_intellect", -1, 3) << '\n';
 						//std::cout << std::dec << Function(0x00007FFB53AB6AD0).Execute<int>(ent, &pos) << '\n';
