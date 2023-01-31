@@ -4,6 +4,7 @@
 #include "Wrappers.h"
 #include "Hooks.h"
 #include "AutoBuyTome.h"
+#include "EventListeners.h"
 
 extern bool IsInMatch;
 
@@ -55,6 +56,11 @@ inline void EnteredMatch() {
 		Interfaces::CVar->SetConvars();
 		//FillPlayerList();
 
+
+		auto ptr = new RoshanListener();
+		CGameEventManager::EventListeners.push_back(std::unique_ptr<RoshanListener>(ptr));
+		Globals::GameEventManager->AddListener(ptr, "dota_roshan_kill", false);
+
 		VMTs::Panorama2 = std::unique_ptr<VMT>(new VMT(Interfaces::Panorama2));
 		VMTs::Panorama2->HookVM(Hooks::RunFrame, 6);
 		VMTs::Panorama2->ApplyVMT();
@@ -70,9 +76,12 @@ inline void LeftMatch() {
 	Globals::GameRules = nullptr;
 	Globals::ScriptVM = nullptr;
 
-	for (auto& listener : CGameEventManager::EventListeners) {
-		Globals::GameEventManager->RemoveListener(listener);
-	}
+	for (auto& listener : CGameEventManager::EventListeners)
+		Globals::GameEventManager->RemoveListener(listener.get());
+	CGameEventManager::EventListeners.clear();
+
+
+
 	Globals::GameEventManager = nullptr;
 
 	VMTs::Panorama2 = nullptr;

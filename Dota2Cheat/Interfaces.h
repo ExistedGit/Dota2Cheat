@@ -6,7 +6,6 @@
 #include "CGameEntitySystem.h"
 #include "ConVar.h"
 #include "IEngineClient.h"
-#include "CGameEventManager.h"
 
 namespace Interfaces {
 	inline CVarSystem* CVar = nullptr;

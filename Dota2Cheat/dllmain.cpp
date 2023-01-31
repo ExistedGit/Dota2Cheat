@@ -27,7 +27,7 @@
 bool IsInMatch = false;
 Vector3 Vector3::Zero = Vector3(0, 0, 0);
 std::map<std::string, CVarSystem::CVarInfo> CVarSystem::CVar{};
-std::vector<IGameEventListener2*> CGameEventManager::EventListeners{};
+std::vector<std::unique_ptr<IGameEventListener2>> CGameEventManager::EventListeners{};
 
 DotaPlayer* localPlayer;
 BaseNpc* assignedHero;
@@ -326,7 +326,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	//VMTs::Entity->ReleaseVMT();
 	//VMTs::Panorama2->ReleaseVMT();
 	//VMTs::Entity = nullptr;
-	
+	CGameEventManager::EventListeners.clear();
 	Schema::Netvars.clear();
 	MH_Uninitialize();
 	if (f) fclose(f);

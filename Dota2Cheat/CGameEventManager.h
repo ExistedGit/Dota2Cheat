@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <iostream>
+
 class IGameEventListener2
 {
 	virtual void DESTROY() = 0;
@@ -9,20 +10,10 @@ class IGameEventListener2
 	virtual void FireGameEvent(void* event) = 0;
 };
 
-class RoshanListener : public IGameEventListener2 {
-public:
-	void DESTROY() override {
-
-	}
-	void FireGameEvent(void* event) override {
-		std::cout << "Roshan died\n";
-	}
-};
-
 class CGameEventManager
 {
 public:
-	static std::vector<IGameEventListener2*> EventListeners;
+	static std::vector<std::unique_ptr<IGameEventListener2>> EventListeners;
 	virtual void DESTROY() = 0;
 	//virtual void DESTROY2() = 0; AddListener is at 3, maybe something got removed?
 	virtual int LoadEventsFromFile(const char* filename) = 0;

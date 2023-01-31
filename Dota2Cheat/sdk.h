@@ -45,11 +45,11 @@ struct Vector3 {
 		return Vector3(v1.x + v2.x, v1.y + v2.y, v2.z + v1.z);
 	}
 	friend std::ostream& operator<<(std::ostream& os, const Vector3& vec) {
-		os << "{ "
-			<< "X:" << vec.x
-			<< "Y:" << vec.y
-			<< "Z:" << vec.z
-			<< " }";
+		os << "{" << ' '
+			<< "X: " << vec.x << ' '
+			<< "Y: " << vec.y << ' '
+			<< "Z: " << vec.z << ' '
+			<< "}";
 		return os;
 	}
 };

@@ -6,6 +6,7 @@
 #include "ValveClasses.h"
 #include "IScriptVM.h"
 #include "CDOTAParticleManager.h"
+#include "CGameEventManager.h"
 namespace Globals {
 
 	//GameRules is nullptr while not in a game
@@ -18,6 +19,7 @@ namespace Globals {
 	
 	inline CDOTAParticleManager** ParticleManagerPtr = nullptr;
 	inline CDOTAParticleManager* ParticleManager = nullptr;
+
 
 	inline CGameEventManager** GameEventManagerPtr = nullptr;
 	inline CGameEventManager* GameEventManager = nullptr;

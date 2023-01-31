@@ -229,9 +229,6 @@ namespace Hooks {
 				}
 				if (IsKeyPressed(VK_NUMPAD3)) {
 					std::cout << assignedHero->GetForwardVector(10) << '\n';
-					auto ptr = new RoshanListener();
-					CGameEventManager::EventListeners.push_back(ptr);
-					Globals::GameEventManager->AddListener(ptr, "dota_roshan_kill", false);
 					//auto midas = assignedHero->FindItemBySubstring("blink");
 					//if (HVALID(midas.handle))
 					//	std::cout << std::dec << midas.GetAs<BaseAbility>()->GetVFunc(0xf4).ptr << '\n';
