@@ -69,7 +69,7 @@ namespace Signatures {
 		std::cout << "PrepareUnitOrders: " << PrepareUnitOrders << std::endl;
 		std::cout << "OnColorChanged: " << OnColorChanged << std::endl;
 		std::cout << "WorldToScreen: " << Scripts::WorldToScreen << std::endl;
-		std::cout << "IsRoshan: " << Scripts::IsRoshan << std::endl;
+		//std::cout << "IsRoshan: " << Scripts::IsRoshan << std::endl;
 		std::cout << "DestroyParticle: " << DestroyParticle << std::endl;
 	}
 }

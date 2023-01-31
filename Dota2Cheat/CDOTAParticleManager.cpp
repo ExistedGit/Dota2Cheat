@@ -16,22 +16,22 @@ void CDOTAParticleManager::IncHandle() {
 	*(uint32_t*)((uintptr_t)this + 0x98) = GetHandle() + 1;
 }
 
-CDOTAParticleManager::ParticleWrapper CDOTAParticleManager::CreateParticle(const char* name, ParticleAttachment_t attachType, BaseEntity* ent) {
+CDOTAParticleManager::Particle* CDOTAParticleManager::CreateParticle(const char* name, ParticleAttachment_t attachType, BaseEntity* ent) {
 	CDOTAParticleManager::ParticleInfo info{};
+	info.particleName = name;
 	info.attachType = attachType;
 	info.attachEntity = ent;
-	info.particleName = name;
-	info.unk1 = ent;
 
+	auto h = GetHandle();
 	IncHandle();
-	CallVFunc<7>(GetHandle(), &info, Interfaces::Entity->m_pEntityList);
+	CallVFunc<7>(h, &info);
 
-	ParticleWrapper result{};
-	result.info = info;
-	result.particle = GetParticleArray()[GetParticleCount() - 1]->GetParticle();
-	result.handle = GetHandle();
+	//ParticleWrapper result{};
+	//result.info = info;
+	//result.particle = GetParticleArray()[GetParticleCount() - 1]->GetParticle();
+	//result.handle = GetHandle();
 
-	return result;
+	return GetParticleArray()[GetParticleCount() - 1]->GetParticle();
 }
 
 void CDOTAParticleManager::DestroyParticle(uint32_t handle) {

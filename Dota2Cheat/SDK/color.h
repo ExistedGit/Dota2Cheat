@@ -128,7 +128,7 @@ struct Color
         RGBA[3] = Alpha;
     }
 
-    unsigned char RGBA[4];
+	unsigned char RGBA[4];
 };
 
 struct ColorRGBA

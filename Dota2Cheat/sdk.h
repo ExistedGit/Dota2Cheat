@@ -37,7 +37,26 @@ struct Vector3 {
 	inline Vector3(float x, float y, float z) :x(x), y(y), z(z) {
 
 	}
+
+	friend Vector3 operator+(const Vector3& v1, const Vector3& v2) {
+		return Vector3(v1.x + v2.x, v1.y + v2.y, v2.z + v1.z);
+	}
+	friend std::ostream& operator<<(std::ostream& os, const Vector3& vec) {
+		os << "{ "
+			<< "X:" << vec.x
+			<< "Y:" << vec.y
+			<< "Z:" << vec.z
+			<< " }";
+		return os;
+	}
 };
+
+//struct Color4f {
+//	float RGBA[4] = { 0,0,0,0 };
+//	inline Color4f(float r, float g, float b, float a) : RGBA{r,g,b,a} {
+//
+//	}
+//};
 
 //mathematicians hate this one trick!
 //yeah, to check for radius, you can actually omit the sqrt and just square the radius

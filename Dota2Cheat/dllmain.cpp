@@ -19,6 +19,7 @@
 #include <GLFW/glfw3.h> // Will drag system OpenGL headers
 #include <sstream>
 #include "Config.h"
+#include "CGameEventManager.h"
 
 
 #pragma region Global variables
@@ -26,6 +27,7 @@
 bool IsInMatch = false;
 Vector3 Vector3::Zero = Vector3(0, 0, 0);
 std::map<std::string, CVarSystem::CVarInfo> CVarSystem::CVar{};
+std::vector<CGameEventListener2*> CGameEventManager::EventListeners{};
 
 DotaPlayer* localPlayer;
 BaseNpc* assignedHero;
@@ -133,7 +135,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	AllocConsole();
 	FILE* f;
 	freopen_s(&f, "CONOUT$", "w", stdout);
-	
+
 	CurProcId = GetCurrentProcessId();
 	CurProcHandle = OpenProcess(PROCESS_ALL_ACCESS, TRUE, CurProcId);
 
@@ -159,7 +161,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	if (logEntities) {
 		//LogEntities();
 
-		VMTs::Entity = std::unique_ptr<VMT>(new VMT(Interfaces::Entity));
+		VMTs::Entity = std::unique_ptr<VMT>(new VMT(Interfaces::EntitySystem));
 		VMTs::Entity->HookVM(Hooks::OnAddEntity, 14);
 		VMTs::Entity->ApplyVMT();
 	}
@@ -248,16 +250,22 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			if (ImGui::Button("Features"))
 				featuresMenuVisible = !featuresMenuVisible;
 			//if (ImGui::Button("Destroy Particle") && particleWrap.particle) { }
-			if (ImGui::Button("Create Particle")) {
-				//Vector3 color{ 0, 255, 255 };
-				//Vector3 radius{ 300, 255, 0 };
-				particleWrap = Globals::ParticleManager->CreateParticle(
-					"particles/items5_fx/revenant_brooch.vpcf",
+
+			ImGui::InputInt("Circle radius", &UIState::CircleRadius, 1, 10);
+			ImGui::ColorEdit3("Circle RGB", &UIState::CircleRGB.x);
+
+			if (ImGui::Button("Draw circle")) {
+				Vector3 color{ 255, 0, 255 };
+				Vector3 radius{ 256, 255, 0};
+				auto particle = Globals::ParticleManager->CreateParticle(
+					"particles/ui_mouseactions/selected_ring.vpcf",
 					CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
 					(BaseEntity*)assignedHero
 				);
-				//	->SetControlPoint(1, &color)
-				//	->SetControlPoint(2, &radius);
+				particle
+					->SetControlPoint(1, &color)
+					->SetControlPoint(2, &radius)
+					->SetControlPoint(3, &Vector3::Zero);
 			}
 			if (ImGui::Button("EXIT", ImVec2(0, 50)))
 				glfwSetWindowShouldClose(window, 1);

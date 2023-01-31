@@ -16,7 +16,7 @@
 class CDOTAParticleManager :public VClass {
 public:
 	// Enum from animationsystem.dll, dumped by Liberalist
-	enum class ParticleAttachment_t : int64_t {
+	enum class ParticleAttachment_t : int32_t {
 		PATTACH_INVALID = -1,
 		PATTACH_ABSORIGIN = 0,
 		PATTACH_ABSORIGIN_FOLLOW = 1,
@@ -41,7 +41,11 @@ public:
 	struct ParticleInfo {
 		const char* particleName;
 		ParticleAttachment_t attachType;
+	private:
+		char pad0[4] = { 0,0,0,0 };
+	public:
 		BaseEntity* attachEntity;
+	private:
 		void* unk0 = nullptr;
 		void* unk1 = nullptr;
 		void* unk2 = nullptr;
@@ -79,7 +83,7 @@ public:
 	uint32_t GetHandle();
 	void IncHandle();
 
-	ParticleWrapper CreateParticle(const char* name, ParticleAttachment_t attachType, BaseEntity* ent = nullptr);
+	Particle* CreateParticle(const char* name, ParticleAttachment_t attachType, BaseEntity* ent = nullptr);
 	void DestroyParticle(uint32_t handle);
 	void DestroyParticle(ParticleWrapper& info);
 };

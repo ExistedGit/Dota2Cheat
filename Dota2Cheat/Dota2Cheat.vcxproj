@@ -183,6 +183,7 @@
     <ClInclude Include="AutoUseMidas.h" />
     <ClInclude Include="CDOTAParticleManager.h" />
     <ClInclude Include="CGameEntitySystem.h" />
+    <ClInclude Include="CGameEventManager.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="Hooks.h" />
     <ClInclude Include="Input.h" />
