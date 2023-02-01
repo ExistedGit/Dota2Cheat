@@ -44,6 +44,11 @@ struct Vector3 {
 	friend Vector3 operator+(const Vector3& v1, const Vector3& v2) {
 		return Vector3(v1.x + v2.x, v1.y + v2.y, v2.z + v1.z);
 	}
+	friend Vector3 operator*(const Vector3& v1, float n) {
+		return Vector3(v1.x * n, v1.y * n, v1.z * n);
+	}
+
+
 	friend std::ostream& operator<<(std::ostream& os, const Vector3& vec) {
 		os << "{" << ' '
 			<< "X: " << vec.x << ' '

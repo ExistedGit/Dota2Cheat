@@ -244,9 +244,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			ImGui::ColorEdit3("Circle RGB", &UIState::CircleRGB.x);
 			
 			if (ImGui::Button("Draw circle")) {
-				Vector3 color = UIState::CircleRGB;
-				Vector3 radius{ 0, 255, 0 };
-				radius.x = static_cast<float>(UIState::CircleRadius);
+				Vector3 color = UIState::CircleRGB * 255;
+				Vector3 radius{ static_cast<float>(UIState::CircleRadius), 255, 0 };
 
 				auto particle = Globals::ParticleManager->CreateParticle(
 					"particles/ui_mouseactions/selected_ring.vpcf",
