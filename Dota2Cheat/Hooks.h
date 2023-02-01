@@ -24,8 +24,8 @@ namespace Hooks {
 
 
 	inline void LogEntities() {
-		for (int i = 0; i < Interfaces::Entity->GetHighestEntityIndex(); i++) {
-			auto* ent = Interfaces::Entity->GetEntity(i);
+		for (int i = 0; i < Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
+			auto* ent = Interfaces::EntitySystem->GetEntity(i);
 			if (ent == nullptr)
 				continue;
 			//std::cout << ent->SchemaBinding() << '\n';
@@ -73,8 +73,8 @@ namespace Hooks {
 
 		ENT_HANDLE midas = AutoUseMidasCheck(assignedHero);
 
-		for (int i = 0; i < Interfaces::Entity->GetHighestEntityIndex(); i++) {
-			auto* ent = Interfaces::Entity->GetEntity(i);
+		for (int i = 0; i < Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
+			auto* ent = Interfaces::EntitySystem->GetEntity(i);
 
 			if (ent == nullptr || ent->GetIdentity()->IsDormant())
 				continue;
@@ -102,7 +102,7 @@ namespace Hooks {
 						"satyr_hellcaller",
 						"neutral_enraged_wildkin"
 				};
-				auto midasEnt = Interfaces::Entity->GetEntity < BaseAbility>(H2IDX(midas));
+				auto midasEnt = Interfaces::EntitySystem->GetEntity < BaseAbility>(H2IDX(midas));
 
 				// If the creep is visible, not one of ours, is alive, is within 600 hammer units and its name matches one of the filters
 				if (creep->GetTeam() != assignedHero->GetTeam() &&
@@ -126,7 +126,7 @@ namespace Hooks {
 					//std::cout << "Rune pickup!\n";
 					//runePickUp = true;
 					if (
-						Interfaces::Entity->GetEntity(
+						Interfaces::EntitySystem->GetEntity(
 							localPlayer->GetSelectedUnits()[0]
 						) == assignedHero
 						)
@@ -190,18 +190,27 @@ namespace Hooks {
 						sscCount = sscSum = 0;
 					}
 
-
-					if (visible) {
-						if (particleWrap.particle == nullptr) {
-							//particleWrap = Globals::ParticleManager->CreateParticle(
-							//	"particles/items5_fx/revenant_brooch.vpcf",
-							//	CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
-							//	(BaseEntity*)assignedHero
-							//);
+					{
+						bool vbeParticleActive = CDOTAParticleManager::TrackedParticles[TRACKED_PARTICLE_VBE].particle != nullptr;
+						if (visible) {
+							if (!vbeParticleActive && Config::VBEShowParticle) {
+								Globals::ParticleManager->CreateParticle(
+									"particles/items5_fx/revenant_brooch_ring_glow.vpcf",
+									CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
+									(BaseEntity*)assignedHero,
+									TRACKED_PARTICLE_VBE
+								).particle
+									->SetControlPoint(0, &Vector3::Zero);
+							}
 						}
+						if ((!visible && vbeParticleActive) || // if not visible and there's a particle
+							(!Config::VBEShowParticle && CDOTAParticleManager::TrackedParticles[ // if the particle was disabled via config
+								TRACKED_PARTICLE_VBE
+							].particle))
+							Globals::ParticleManager->DestroyTrackedParticle(TRACKED_PARTICLE_VBE);
+
+
 					}
-					else if (particleWrap.particle)
-						Globals::ParticleManager->DestroyParticle(particleWrap);
 
 					AutoUseWandCheck(assignedHero, Config::AutoHealWandHPTreshold, Config::AutoHealWandMinCharges);
 					AutoUseFaerieFireCheck(assignedHero, Config::AutoHealFaerieFireHPTreshold);
@@ -211,7 +220,7 @@ namespace Hooks {
 #ifdef _DEBUG
 				if (IsKeyPressed(VK_NUMPAD8)) {
 					auto selected = localPlayer->GetSelectedUnits();
-					auto ent = Interfaces::Entity->GetEntity<BaseNpc>(selected[0]);
+					auto ent = Interfaces::EntitySystem->GetEntity<BaseNpc>(selected[0]);
 					auto pos = ent->GetPos();
 					std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
 						<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
@@ -221,29 +230,25 @@ namespace Hooks {
 				}
 				if (IsKeyPressed(VK_NUMPAD7)) {
 					auto selected = localPlayer->GetSelectedUnits();
-					auto ent = (BaseNpc*)Interfaces::Entity->GetEntity(selected[0]);
+					auto ent = (BaseNpc*)Interfaces::EntitySystem->GetEntity(selected[0]);
 					LogInvAndAbilities(ent);
 					//auto ab = ent->GetAbilities()[2];
 					//std::cout << std::dec << selected[0] << " " << std::dec<< ab.name << " " << ab.GetAs<BaseAbility>()->GetCooldown() << '\n';
 					//LogEntities();
 				}
 				if (IsKeyPressed(VK_NUMPAD3)) {
-					auto midas = assignedHero->FindItemBySubstring("blink");
-					if (HVALID(midas.handle))
-						std::cout << std::dec << midas.GetAs<BaseAbility>()->GetVFunc(0xf4).ptr << '\n';
+					std::cout << assignedHero->GetForwardVector(10) << '\n';
+					//auto midas = assignedHero->FindItemBySubstring("blink");
+					//if (HVALID(midas.handle))
+					//	std::cout << std::dec << midas.GetAs<BaseAbility>()->GetVFunc(0xf4).ptr << '\n';
 
 				}
 				if (IsKeyPressed(VK_HOME)) {
-					auto blink = assignedHero->FindItemBySubstring("blink");
-					if (HVALID(blink.handle)) {
-						auto ent = blink.GetAs<BaseAbility>();
-						auto pos = ent->GetPos();
-						//std::cout << std::dec << Function(0x00007FFB53AB6AD0).Execute<int>(ent, &pos) << '\n';
-						//std::cout << std::dec << ent->GetEffectiveCastRange() << '\n';
-
-						//std::cout << std::dec << Function(0x00007FFE04BF0A80).Execute<uintptr_t>(nullptr, midas.handle) << '\n';
-
-						//Interfaces::CVar->SetConvars();
+					auto item = assignedHero->FindItemBySubstring("orb");
+					if (HVALID(item.handle)) {
+						auto ent = item.GetAs<BaseAbility>();
+						//auto pos = ent->GetPos();
+						std::cout << std::dec << Function(0x00007FFB224F1130).Execute<double>(nullptr, H2IDX(item.handle), "bonus_all_stats", 1) << '\n';
 					}
 				}
 #endif
@@ -281,11 +286,11 @@ namespace Hooks {
 		case DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_TARGET:
 		{
 			//Redirects spell casts from illusions to the real hero
-			auto npc = Interfaces::Entity->GetEntity<BaseNpc>(targetIndex);
+			auto npc = Interfaces::EntitySystem->GetEntity<BaseNpc>(targetIndex);
 
 			if (strstr(npc->SchemaBinding()->binaryName, "C_DOTA_Unit_Hero") &&
 				npc->Hero_IsIllusion()) {
-				auto assignedHero = Interfaces::Entity->GetEntity<DotaPlayer>(
+				auto assignedHero = Interfaces::EntitySystem->GetEntity<DotaPlayer>(
 					H2IDX(
 						npc->GetOwnerEntityHandle()
 					)
@@ -305,7 +310,7 @@ namespace Hooks {
 		}
 		case DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_POSITION: {
 			// Blink overshoot bypass
-			auto item = Interfaces::Entity->GetEntity<BaseAbility>(abilityIndex);
+			auto item = Interfaces::EntitySystem->GetEntity<BaseAbility>(abilityIndex);
 			if (strstr(item->GetIdentity()->GetName(), "blink")) {
 				auto maxDist = item->GetEffectiveCastRange();
 				auto pos2D = *(Vector2*)position;
@@ -324,6 +329,14 @@ namespace Hooks {
 					showEffects = false;
 				}
 			}
+			break;
+		}
+		case DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_NO_TARGET: {
+			//Automatic mana & HP abuse with items like Arcane Boots or Faerie Fire
+			double bonusInt = Signatures::Scripts::GetLevelSpecialValueFor(nullptr, abilityIndex, "bonus_int", -1);
+			if (bonusInt > 0)
+				std::cout << abilityIndex << bonusInt << '\n';
+
 			break;
 		}
 		}

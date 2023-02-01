@@ -3,6 +3,9 @@
 #include <iostream>
 #include <Windows.h>
 #include "Input.h"
+
+#define PI 3.1415926
+
 inline void PAUSE() {
 	std::cout << "PAUSE" << '\n';
 	while (!IsKeyPressed(VK_NUMPAD3)) {
@@ -27,7 +30,7 @@ struct Vector2 {
 
 	}
 	inline float DistanceTo(const Vector2& v) {
-		return sqrtf(pow(v.x - x, 2) + pow(v.y - y, 2));
+		return sqrtf(powf(v.x - x, 2) + powf(v.y - y, 2));
 	}
 };
 
@@ -37,7 +40,31 @@ struct Vector3 {
 	inline Vector3(float x, float y, float z) :x(x), y(y), z(z) {
 
 	}
+
+	friend Vector3 operator+(const Vector3& v1, const Vector3& v2) {
+		return Vector3(v1.x + v2.x, v1.y + v2.y, v2.z + v1.z);
+	}
+	friend Vector3 operator*(const Vector3& v1, float n) {
+		return Vector3(v1.x * n, v1.y * n, v1.z * n);
+	}
+
+
+	friend std::ostream& operator<<(std::ostream& os, const Vector3& vec) {
+		os << "{" << ' '
+			<< "X: " << vec.x << ' '
+			<< "Y: " << vec.y << ' '
+			<< "Z: " << vec.z << ' '
+			<< "}";
+		return os;
+	}
 };
+
+//struct Color4f {
+//	float RGBA[4] = { 0,0,0,0 };
+//	inline Color4f(float r, float g, float b, float a) : RGBA{r,g,b,a} {
+//
+//	}
+//};
 
 //mathematicians hate this one trick!
 //yeah, to check for radius, you can actually omit the sqrt and just square the radius
@@ -59,7 +86,7 @@ public:
 	}
 	template<typename V, typename ...T>
 	inline V __fastcall Execute(T... t) {
-		return (V)((u64(__fastcall*)(T...))ptr)(t...);
+		return ((V(__fastcall*)(T...))ptr)(t...);
 	}
 
 };

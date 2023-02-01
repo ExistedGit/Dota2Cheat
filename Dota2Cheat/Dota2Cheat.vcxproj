@@ -71,10 +71,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)Build</OutDir>
+    <OutDir>$(SolutionDir)Build\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)Build</OutDir>
+    <OutDir>$(SolutionDir)Build\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -183,7 +183,9 @@
     <ClInclude Include="AutoUseMidas.h" />
     <ClInclude Include="CDOTAParticleManager.h" />
     <ClInclude Include="CGameEntitySystem.h" />
+    <ClInclude Include="CGameEventManager.h" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="EventListeners.h" />
     <ClInclude Include="Hooks.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="IScriptVM.h" />

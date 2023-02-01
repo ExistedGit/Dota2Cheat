@@ -4,6 +4,7 @@
 #include "Wrappers.h"
 #include "Hooks.h"
 #include "AutoBuyTome.h"
+#include "EventListeners.h"
 
 extern bool IsInMatch;
 
@@ -15,7 +16,7 @@ inline void FillPlayerList() {
 		auto idx = vec[i].GetPlayerSlot() + 1;
 		if (idx < 1)
 			continue;
-		auto player = (DotaPlayer*)Interfaces::Entity->GetEntity(idx);
+		auto player = (DotaPlayer*)Interfaces::EntitySystem->GetEntity(idx);
 		if (player == nullptr)
 			continue;
 		auto hero = (BaseNpc*)player->GetAssignedHero();
@@ -35,14 +36,15 @@ inline void EnteredMatch() {
 	Globals::PlayerResource = *Globals::PlayerResourcePtr;
 	Globals::ScriptVM = *Globals::ScriptVMPtr;
 	Globals::ParticleManager = *Globals::ParticleManagerPtr;
+	Globals::GameEventManager = *Globals::GameEventManagerPtr;
 
 	GameState gameState = Globals::GameRules->GetGameState();
 	if (gameState == GameState::DOTA_GAMERULES_PREGAME ||
 		gameState == GameState::DOTA_GAMERULES_GAME_IN_PROGRESS) {
-		localPlayer = (DotaPlayer*)Interfaces::Entity->GetEntity(Interfaces::Engine->GetLocalPlayerSlot() + 1);
+		localPlayer = (DotaPlayer*)Interfaces::EntitySystem->GetEntity(Interfaces::Engine->GetLocalPlayerSlot() + 1);
 		if (localPlayer == nullptr)
 			return;
-		assignedHero = (BaseNpc*)Interfaces::Entity->GetEntity(H2IDX(localPlayer->GetAssignedHeroHandle()));
+		assignedHero = (BaseNpc*)Interfaces::EntitySystem->GetEntity(H2IDX(localPlayer->GetAssignedHeroHandle()));
 		if (assignedHero == nullptr)
 			return;
 		Hacks::AutoBuyTomeInit();
@@ -53,6 +55,11 @@ inline void EnteredMatch() {
 		IsInMatch = true;
 		Interfaces::CVar->SetConvars();
 		//FillPlayerList();
+
+
+		auto ptr = new RoshanListener();
+		CGameEventManager::EventListeners.push_back(std::unique_ptr<RoshanListener>(ptr));
+		Globals::GameEventManager->AddListener(ptr, "dota_roshan_kill", false);
 
 		VMTs::Panorama2 = std::unique_ptr<VMT>(new VMT(Interfaces::Panorama2));
 		VMTs::Panorama2->HookVM(Hooks::RunFrame, 6);
@@ -68,10 +75,19 @@ inline void LeftMatch() {
 	Globals::PlayerResource = nullptr;
 	Globals::GameRules = nullptr;
 	Globals::ScriptVM = nullptr;
+	Globals::ParticleManager = nullptr;
+
+	for (auto& listener : CGameEventManager::EventListeners)
+		Globals::GameEventManager->RemoveListener(listener.get());
+	CGameEventManager::EventListeners.clear();
+	Globals::GameEventManager = nullptr;
+
 	VMTs::Panorama2 = nullptr;
+
 	localPlayer = nullptr;
-	
 	assignedHero = nullptr;
+
+	CDOTAParticleManager::TrackedParticles.clear();	
 	players.clear();
 	
 	std::cout << "LEFT MATCH\n";

@@ -21,11 +21,13 @@
 #include "Config.h"
 
 
+
 #pragma region Global variables
 
 bool IsInMatch = false;
 Vector3 Vector3::Zero = Vector3(0, 0, 0);
 std::map<std::string, CVarSystem::CVarInfo> CVarSystem::CVar{};
+std::vector<std::unique_ptr<IGameEventListener2>> CGameEventManager::EventListeners{};
 
 DotaPlayer* localPlayer;
 BaseNpc* assignedHero;
@@ -133,7 +135,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	AllocConsole();
 	FILE* f;
 	freopen_s(&f, "CONOUT$", "w", stdout);
-	
+
 	CurProcId = GetCurrentProcessId();
 	CurProcHandle = OpenProcess(PROCESS_ALL_ACCESS, TRUE, CurProcId);
 
@@ -159,7 +161,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	if (logEntities) {
 		//LogEntities();
 
-		VMTs::Entity = std::unique_ptr<VMT>(new VMT(Interfaces::Entity));
+		VMTs::Entity = std::unique_ptr<VMT>(new VMT(Interfaces::EntitySystem));
 		VMTs::Entity->HookVM(Hooks::OnAddEntity, 14);
 		VMTs::Entity->ApplyVMT();
 	}
@@ -221,7 +223,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	bool menuVisible = false;
 	bool featuresMenuVisible = false;
-	bool featuresMenuOpen = false;
+	//bool featuresMenuOpen = false;
 	// Main loop
 	while (!glfwWindowShouldClose(window))
 	{
@@ -235,46 +237,49 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 		if (menuVisible) {
 			ImGui::Begin("Main");
-
-			//if (ImGui::CollapsingHeader("Debug Info"))
-			//{
-			//	ImGui::Text("Interfaces:");
-			//	ImGui::BulletText("Entity System: ");
-			//	ImGui::SameLine();
-			//	ImGui::Text(n2hexstr(0x7ffC0000).c_str());
-			//	ImGui::Separator();
-			//}
-
 			if (ImGui::Button("Features"))
 				featuresMenuVisible = !featuresMenuVisible;
-			//if (ImGui::Button("Destroy Particle") && particleWrap.particle) { }
-			if (ImGui::Button("Create Particle")) {
-				//Vector3 color{ 0, 255, 255 };
-				//Vector3 radius{ 300, 255, 0 };
-				particleWrap = Globals::ParticleManager->CreateParticle(
-					"particles/items5_fx/revenant_brooch.vpcf",
+
+			ImGui::InputInt("Circle radius", &UIState::CircleRadius, 1, 10);
+			ImGui::ColorEdit3("Circle RGB", &UIState::CircleRGB.x);
+			
+			if (ImGui::Button("Draw circle")) {
+				Vector3 color = UIState::CircleRGB * 255;
+				Vector3 radius{ static_cast<float>(UIState::CircleRadius), 255, 0 };
+
+				auto particle = Globals::ParticleManager->CreateParticle(
+					"particles/ui_mouseactions/selected_ring.vpcf",
 					CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
 					(BaseEntity*)assignedHero
-				);
-				//	->SetControlPoint(1, &color)
-				//	->SetControlPoint(2, &radius);
+				).particle
+				//	->SetControlPoint(0, &Vector3::Zero);
+					->SetControlPoint(1, &color)
+					->SetControlPoint(2, &radius)
+					->SetControlPoint(3, &Vector3::Zero);
 			}
+
 			if (ImGui::Button("EXIT", ImVec2(0, 50)))
 				glfwSetWindowShouldClose(window, 1);
 
 			ImGui::End();
 
 			if (featuresMenuVisible) {
-				ImGui::Begin("Features", &featuresMenuOpen, ImGuiWindowFlags_::ImGuiWindowFlags_AlwaysAutoResize);
+				ImGui::Begin("Features", &featuresMenuVisible, ImGuiWindowFlags_::ImGuiWindowFlags_AlwaysAutoResize);
 				ImGui::Checkbox("Auto-use Hand of Midas", &Config::AutoMidasEnabled);
 				ImGui::Checkbox("Automatically pick up Bounty runes", &Config::AutoRunePickupEnabled);
+				
+				if(ImGui::CollapsingHeader("Visible by Enemy")) {
+
+					ImGui::Checkbox("Show HIDDEN/DETECTED text", &Config::VBEShowText); 
+					ImGui::Checkbox("Show a circle under the hero when visible", &Config::VBEShowParticle);
+				}
 				if (ImGui::CollapsingHeader("AutoWand")) {
 					ImGui::Checkbox("Auto-use Faerie Fire and Magic Stick", &Config::AutoWandEnabled);
 					ImGui::SliderFloat("Faerie Fire HP Treshold", &Config::AutoHealFaerieFireHPTreshold, 0, 100, "%.1f");
 
 					ImGui::Separator();
 
-					ImGui::SliderFloat("Magic Stick/Wand/Holy Locket Fire HP Treshold", &Config::AutoHealWandHPTreshold, 0, 100, "%.1f");
+					ImGui::SliderFloat("Magic Stick/Wand/Holy Locket HP Treshold", &Config::AutoHealWandHPTreshold, 0, 100, "%.1f");
 					ImGui::SliderInt("Minimum charges", &Config::AutoHealWandMinCharges, 1, 20);
 				}
 				ImGui::Checkbox("Auto-buy Tome of Knowledge", &Config::AutoBuyTome);
@@ -282,7 +287,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 				ImGui::End();
 			}
 		}
-		if (IsInMatch)
+		if (IsInMatch && Config::VBEShowText)
 			DrawTextForeground(window, font, UIState::HeroVisibleToEnemy ? "DETECTED" : "HIDDEN", ImVec2(1920 / 2, 1080 * 3 / 4), 80.0f, Color(200, 200, 200, 255), true);
 
 		//if (ImGui::IsKeyPressed(ImGuiKey::ImGuiKey_Insert, false)) {
@@ -290,6 +295,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			glfwSetWindowAttrib(window, GLFW_MOUSE_PASSTHROUGH, menuVisible);
 			menuVisible = !menuVisible;
 		}
+
 
 
 		// Rendering
@@ -313,10 +319,15 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwDestroyWindow(window);
 	glfwTerminate();
 
-
+	for (auto& pair : CDOTAParticleManager::TrackedParticles) {
+		if (Globals::ParticleManager)
+			Globals::ParticleManager->DestroyParticle(pair.second);
+	}
+	CDOTAParticleManager::TrackedParticles.clear();
 	//VMTs::Entity->ReleaseVMT();
 	//VMTs::Panorama2->ReleaseVMT();
 	//VMTs::Entity = nullptr;
+	CGameEventManager::EventListeners.clear();
 	Schema::Netvars.clear();
 	MH_Uninitialize();
 	if (f) fclose(f);

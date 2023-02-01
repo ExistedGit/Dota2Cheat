@@ -64,7 +64,29 @@ public:
 		return Member<VClass*>(offset) // getting the node
 			 ->Member<Vector3>(0x10); // getting the absOrigin
 	}
-	 
+
+	// In degrees from 180 to -180(on 0 it looks right)
+	inline float GetRotation() {
+		u64 offset = Schema::Netvars["C_BaseEntity"]["m_pGameSceneNode"];
+		if (!offset)
+			return 0;
+		return Member<VClass*>(offset) 
+			->Member<float>(0x28) * 180; 
+	}
+
+	// Gets the point in front of the entity at the specified distance
+	inline Vector3 GetForwardVector(int dist) {
+		auto pos = GetPos();
+		float rotation = GetRotation() * PI / 180;
+
+		float sine = sinf(rotation), cosine = cosf(rotation);
+		auto forwardVec = Vector3(dist, 0, 0);
+		forwardVec.x = cosine * forwardVec.x - sine * forwardVec.y;
+		forwardVec.y = sine * forwardVec.x + cosine * forwardVec.y;
+
+		return pos + forwardVec;
+	}
+
 	inline Vector2 GetPos2D() {
 		auto vec = GetPos();
 		return Vector2(vec.x, vec.y);
@@ -88,11 +110,11 @@ public:
 
 		}
 		BaseEntity* GetEntity() const {
-			return Interfaces::Entity->GetEntity(H2IDX(handle));
+			return Interfaces::EntitySystem->GetEntity(H2IDX(handle));
 		}
 		template<typename T>
 		T* GetAs() const {
-			return reinterpret_cast<T*>(Interfaces::Entity->GetEntity(H2IDX(handle)));
+			return reinterpret_cast<T*>(Interfaces::EntitySystem->GetEntity(H2IDX(handle)));
 		}
 	};
 	// Wrapper function combining the following conditions: 
@@ -133,7 +155,7 @@ public:
 		for (int j = 0; j < 35; j++) {
 			ENT_HANDLE handle = hAbilities[j];
 			if (HVALID(handle)) {
-				auto* identity = Interfaces::Entity->GetIdentity(H2IDX(handle));
+				auto* identity = Interfaces::EntitySystem->GetIdentity(H2IDX(handle));
 				result.push_back(ItemOrAbility((identity->entityName != nullptr ? identity->entityName : identity->internalName), identity->entHandle));
 			}
 		}
@@ -162,7 +184,7 @@ public:
 			ENT_HANDLE* itemsHandle = inv->GetItems();
 			for (int i = 0; i < 19; i++) {
 				if (HVALID(itemsHandle[i])) {
-					auto* identity = Interfaces::Entity->GetIdentity(H2IDX(itemsHandle[i]));
+					auto* identity = Interfaces::EntitySystem->GetIdentity(H2IDX(itemsHandle[i]));
 					result.push_back(ItemOrAbility((identity->entityName != nullptr ? identity->entityName : identity->internalName), identity->entHandle));
 				}
 			}
@@ -197,8 +219,8 @@ public:
 	//	return CallVFunc<0x798/8, int>(&pos, nullptr, *(uintptr_t*)this);
 	//}
 	
-	// Xref "Script_GetCastRangeBonus" in x64dbg to either of the two lea rax
-	// Below there will be "vTarget" or something, above that will be a lea rax, [XXX] with a function
+	// Xref "Script_GetCastRangeBonus" in x64dbg to a lea rax
+	// Below there will be "hTarget" or something, above that will be a lea rcx, [XXX] with a function
 	// At the end there are two calls to [rdi + 0x798] and [rdi + 0x7a0], first it gets the range, then the bonus
 	// I currently could not get GetCastRange to work as a standalone vfunc
 	// found via dynamical analysis
@@ -240,7 +262,7 @@ public:
 		return Member<CUtlVector<uint32_t>>(Schema::Netvars["C_DOTAPlayerController"]["m_nSelectedUnits"]);
 	}
 	inline BaseNpc* GetAssignedHero() {
-		return Interfaces::Entity->GetEntity<BaseNpc>(H2IDX(GetAssignedHeroHandle()));
+		return Interfaces::EntitySystem->GetEntity<BaseNpc>(H2IDX(GetAssignedHeroHandle()));
 	}
 	inline uint64_t GetSteamID() {
 		return Member<uint64_t>(0x6b8);
