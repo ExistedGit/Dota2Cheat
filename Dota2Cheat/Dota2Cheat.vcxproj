@@ -159,6 +159,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CDOTAParticleManager.cpp" />
+    <ClCompile Include="CGameEntitySystem.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="include\imgui\imgui.cpp" />
     <ClCompile Include="include\imgui\imgui_demo.cpp" />

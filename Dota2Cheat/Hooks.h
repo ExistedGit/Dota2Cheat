@@ -23,6 +23,22 @@ namespace Hooks {
 
 
 
+
+	template<typename T = BaseEntity>
+	inline std::vector<T*> GetEntitiesByFilter(const std::vector<const char*>& filters) {
+		std::vector<T*> vec{};
+		for (int i = 0; i < Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
+			auto* ent = Interfaces::EntitySystem->GetEntity(i);
+			if (ent == nullptr || ent->GetIdentity()->IsDormant())
+				continue;
+			//std::cout << ent->SchemaBinding() << '\n';
+			const char* className = ent->SchemaBinding()->binaryName;
+			if (className != nullptr && TestStringFilters(className, filters))
+				vec.push_back((T*)ent);
+		}
+		return vec;
+	};
+
 	inline void LogEntities() {
 		for (int i = 0; i < Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
 			auto* ent = Interfaces::EntitySystem->GetEntity(i);
@@ -31,9 +47,9 @@ namespace Hooks {
 			//std::cout << ent->SchemaBinding() << '\n';
 			const char* className = ent->SchemaBinding()->binaryName;
 			if (className != nullptr && strstr(className, "Rune"))
-				std::cout << className
-				<< " // " << ent->GetPos2D().x << ' ' << ent->GetPos2D().y
-				<< " // " << ent << '\n';
+				std::cout << className << ' ' << i
+				//<< " // " << ent->GetPos2D().x << ' ' << ent->GetPos2D().y
+				<< " -> " << ent << '\n';
 		}
 	}
 	inline void LogInvAndAbilities(BaseNpc* npc = nullptr) {
@@ -58,14 +74,8 @@ namespace Hooks {
 				<< '\n';
 		}
 	}
-	inline bool TestStringFilters(const char* str, std::vector<const char*> filters) {
-		for (auto& filter : filters)
-			if (strstr(str, filter))
-				return true;
 
-		return false;
-	}
-	inline bool test = false;
+	//inline bool test = false;
 	inline void EntityIteration() {
 		int illusionCount = 0;
 		bool midasUsed = false;
@@ -135,10 +145,10 @@ namespace Hooks {
 			}
 			else if (strstr(className, "DOTA_Unit_Hero") != nullptr) {
 				auto hero = (BaseNpc*)ent;
-				if (!test) {
-					enemyHeroes.push_back(hero);
-					test = true;
-				}
+				//if (!test) {
+				//	enemyHeroes.push_back(hero);
+				//	test = true;
+				//}
 
 				//std::cout << std::hex;
 
@@ -237,7 +247,16 @@ namespace Hooks {
 					//LogEntities();
 				}
 				if (IsKeyPressed(VK_NUMPAD3)) {
-					std::cout << assignedHero->GetForwardVector(10) << '\n';
+					//std::cout << assignedHero->GetForwardVector(10) << '\n';
+					//LogEntities();
+					auto vec = GetEntitiesByFilter({
+						"Item"
+						});
+					for (auto& ent : vec) {
+						const char* className = ent->SchemaBinding()->binaryName;
+						std::cout << className << ' ' << std::dec << H2IDX(ent->GetIdentity()->entHandle)
+							<< std::hex << " -> " << ent << '\n';
+					}
 					//auto midas = assignedHero->FindItemBySubstring("blink");
 					//if (HVALID(midas.handle))
 					//	std::cout << std::dec << midas.GetAs<BaseAbility>()->GetVFunc(0xf4).ptr << '\n';
@@ -248,7 +267,7 @@ namespace Hooks {
 					if (HVALID(item.handle)) {
 						auto ent = item.GetAs<BaseAbility>();
 						//auto pos = ent->GetPos();
-						std::cout << std::dec << Function(0x00007FFB224F1130).Execute<double>(nullptr, H2IDX(item.handle), "bonus_all_stats", 1) << '\n';
+						std::cout << std::dec << Signatures::Scripts::GetLevelSpecialValueFor(nullptr, H2IDX(item.handle), "bonus_all_stats", 1) << '\n';
 					}
 				}
 #endif
@@ -258,23 +277,10 @@ namespace Hooks {
 	}
 
 	inline BaseEntity* OnAddEntity(CEntitySystem* thisptr, BaseEntity* ent, ENT_HANDLE handle) {
-		bool fit = true;
-		const char* name = ent->SchemaBinding()->binaryName;
-		if (fit) {
-			int entId = ((uint16_t)(handle) & 0xfff);
-			//CDotaBaseNPC* npc = (CDotaBaseNPC*)ent;
-			//if (name != nullptr)
-			//	std::cout << name << " // " << ent << " || " << std::dec << entId << std::hex << std::endl;
-			if (strstr(ent->SchemaBinding()->binaryName, "DOTA_Unit_Hero") != nullptr) {
-				std::cout << ent->SchemaBinding()->binaryName << " // " << ent << '\n';
-			}
-			else if (strstr(ent->SchemaBinding()->binaryName, "C_DOTAPlayer") != nullptr) {
-				auto* player = (DotaPlayer*)ent;
-				std::cout << "Player // " << player << " || " << entId << std::endl;
-			}
-
-		}
-
+		auto className = ent->SchemaBinding()->binaryName;
+		if (className && TestStringFilters(className, { "Item" }))
+			std::cout << className << ' ' << std::dec << H2IDX(ent->GetIdentity()->entHandle) << ' ' << ent;
+		
 		return VMTs::Entity->GetOriginalMethod<OnAddEntityFn>(14)(thisptr, ent, handle);
 	};
 	inline Signatures::prepareUnitOrdersFn PrepareUnitOrdersOriginal = nullptr;

@@ -5,7 +5,6 @@
 #include "Wrappers.h"
 #include <map>
 #include "SDK/color.h"
-#include "Interfaces.h"
 #include "MinHook.h"
 
 namespace Signatures {

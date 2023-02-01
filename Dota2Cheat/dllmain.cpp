@@ -155,16 +155,14 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Globals::InitGlobals();
 	Hooks::SetUpByteHooks();
 
-	const bool logEntities = false;
+	//const bool logEntities = false;
 	bool playerEntFound = false;
 
-	if (logEntities) {
-		//LogEntities();
 
-		VMTs::Entity = std::unique_ptr<VMT>(new VMT(Interfaces::EntitySystem));
-		VMTs::Entity->HookVM(Hooks::OnAddEntity, 14);
-		VMTs::Entity->ApplyVMT();
-	}
+	VMTs::Entity = std::unique_ptr<VMT>(new VMT(Interfaces::EntitySystem));
+	VMTs::Entity->HookVM(Hooks::OnAddEntity, 14);
+	VMTs::Entity->ApplyVMT();
+
 
 	Log("CVars found!");
 
@@ -242,7 +240,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 			ImGui::InputInt("Circle radius", &UIState::CircleRadius, 1, 10);
 			ImGui::ColorEdit3("Circle RGB", &UIState::CircleRGB.x);
-			
+
 			if (ImGui::Button("Draw circle")) {
 				Vector3 color = UIState::CircleRGB * 255;
 				Vector3 radius{ static_cast<float>(UIState::CircleRadius), 255, 0 };
@@ -252,7 +250,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 					CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
 					(BaseEntity*)assignedHero
 				).particle
-				//	->SetControlPoint(0, &Vector3::Zero);
+					//	->SetControlPoint(0, &Vector3::Zero);
 					->SetControlPoint(1, &color)
 					->SetControlPoint(2, &radius)
 					->SetControlPoint(3, &Vector3::Zero);
@@ -267,10 +265,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 				ImGui::Begin("Features", &featuresMenuVisible, ImGuiWindowFlags_::ImGuiWindowFlags_AlwaysAutoResize);
 				ImGui::Checkbox("Auto-use Hand of Midas", &Config::AutoMidasEnabled);
 				ImGui::Checkbox("Automatically pick up Bounty runes", &Config::AutoRunePickupEnabled);
-				
-				if(ImGui::CollapsingHeader("Visible by Enemy")) {
 
-					ImGui::Checkbox("Show HIDDEN/DETECTED text", &Config::VBEShowText); 
+				if (ImGui::CollapsingHeader("Visible by Enemy")) {
+
+					ImGui::Checkbox("Show HIDDEN/DETECTED text", &Config::VBEShowText);
 					ImGui::Checkbox("Show a circle under the hero when visible", &Config::VBEShowParticle);
 				}
 				if (ImGui::CollapsingHeader("AutoWand")) {

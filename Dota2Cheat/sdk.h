@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <iostream>
 #include <Windows.h>
+#include <vector>
 #include "Input.h"
 
 #define PI 3.1415926
@@ -148,3 +149,11 @@ public:
 		return GetVFunc(index).Execute<RET>(this, t...);
 	}
 };
+
+inline bool TestStringFilters(const char* str, const std::vector<const char*>& filters) {
+	for (auto& filter : filters)
+		if (strstr(str, filter))
+			return true;
+
+	return false;
+}
