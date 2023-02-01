@@ -2,6 +2,11 @@
 #include "sdk.h"
 #include "Wrappers.h"
 
+enum TrackedParticles_t {
+	TRACKED_PARTICLE_NOT_TRACKED = 0,
+	TRACKED_PARTICLE_VBE
+};
+
 // Found via x64dbg
 // Xref "CreateParticle" to a lea rax instruction
 // You must see "pParticleName" below it
@@ -39,12 +44,12 @@ public:
 
 	// Struct used when creating a particle
 	struct ParticleInfo {
-		const char* particleName;
-		ParticleAttachment_t attachType;
+		const char* particleName = nullptr;
+		ParticleAttachment_t attachType = ParticleAttachment_t::PATTACH_INVALID;
 	private:
 		char pad0[4] = { 0,0,0,0 };
 	public:
-		BaseEntity* attachEntity;
+		BaseEntity* attachEntity = nullptr;
 	private:
 		void* unk0 = nullptr;
 		void* unk1 = nullptr;
@@ -66,11 +71,17 @@ public:
 	};
 
 	struct ParticleWrapper {
-		ParticleInfo info;
-		Particle* particle;
-		ENT_HANDLE handle;
-	};
+		ParticleInfo info{};
+		Particle* particle = nullptr;
+		ENT_HANDLE handle = 0XFFFFFFFF;
 
+		void Invalidate() {
+			particle = nullptr;
+			handle = 0XFFFFFFFF;
+			info = CDOTAParticleManager::ParticleInfo{};
+		}
+	};
+	static std::map<TrackedParticles_t, CDOTAParticleManager::ParticleWrapper> TrackedParticles;
 	struct ParticleContainer : NormalClass {
 		inline Particle* GetParticle() {
 			return Member<Particle*>(0x10);
@@ -83,7 +94,9 @@ public:
 	uint32_t GetHandle();
 	void IncHandle();
 
-	Particle* CreateParticle(const char* name, ParticleAttachment_t attachType, BaseEntity* ent = nullptr);
+	ParticleWrapper CreateParticle(const char* name, ParticleAttachment_t attachType, BaseEntity* ent, TrackedParticles_t trackType = TRACKED_PARTICLE_NOT_TRACKED);
 	void DestroyParticle(uint32_t handle);
 	void DestroyParticle(ParticleWrapper& info);
+	void DestroyTrackedParticle(TrackedParticles_t trackType);
 };
+

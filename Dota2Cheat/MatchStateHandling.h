@@ -75,19 +75,19 @@ inline void LeftMatch() {
 	Globals::PlayerResource = nullptr;
 	Globals::GameRules = nullptr;
 	Globals::ScriptVM = nullptr;
+	Globals::ParticleManager = nullptr;
 
 	for (auto& listener : CGameEventManager::EventListeners)
 		Globals::GameEventManager->RemoveListener(listener.get());
 	CGameEventManager::EventListeners.clear();
-
-
-
 	Globals::GameEventManager = nullptr;
 
 	VMTs::Panorama2 = nullptr;
+
 	localPlayer = nullptr;
-	
 	assignedHero = nullptr;
+
+	CDOTAParticleManager::TrackedParticles.clear();	
 	players.clear();
 	
 	std::cout << "LEFT MATCH\n";

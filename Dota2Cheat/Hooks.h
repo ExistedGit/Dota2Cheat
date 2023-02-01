@@ -190,18 +190,27 @@ namespace Hooks {
 						sscCount = sscSum = 0;
 					}
 
-
-					if (visible) {
-						if (particleWrap.particle == nullptr) {
-							//particleWrap = Globals::ParticleManager->CreateParticle(
-							//	"particles/items5_fx/revenant_brooch.vpcf",
-							//	CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
-							//	(BaseEntity*)assignedHero
-							//);
+					{
+						bool vbeParticleActive = CDOTAParticleManager::TrackedParticles[TRACKED_PARTICLE_VBE].particle != nullptr;
+						if (visible) {
+							if (!vbeParticleActive && Config::VBEShowParticle) {
+								Globals::ParticleManager->CreateParticle(
+									"particles/items5_fx/revenant_brooch_ring_glow.vpcf",
+									CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
+									(BaseEntity*)assignedHero,
+									TRACKED_PARTICLE_VBE
+								).particle
+									->SetControlPoint(0, &Vector3::Zero);
+							}
 						}
+						if ((!visible && vbeParticleActive) || // if not visible and there's a particle
+							(!Config::VBEShowParticle && CDOTAParticleManager::TrackedParticles[ // if the particle was disabled via config
+								TRACKED_PARTICLE_VBE
+							].particle))
+							Globals::ParticleManager->DestroyTrackedParticle(TRACKED_PARTICLE_VBE);
+
+
 					}
-					else if (particleWrap.particle)
-						Globals::ParticleManager->DestroyParticle(particleWrap);
 
 					AutoUseWandCheck(assignedHero, Config::AutoHealWandHPTreshold, Config::AutoHealWandMinCharges);
 					AutoUseFaerieFireCheck(assignedHero, Config::AutoHealFaerieFireHPTreshold);
