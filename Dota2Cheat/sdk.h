@@ -30,7 +30,7 @@ struct Vector2 {
 
 	}
 	inline float DistanceTo(const Vector2& v) {
-		return sqrtf(pow(v.x - x, 2) + pow(v.y - y, 2));
+		return sqrtf(powf(v.x - x, 2) + powf(v.y - y, 2));
 	}
 };
 
@@ -81,7 +81,7 @@ public:
 	}
 	template<typename V, typename ...T>
 	inline V __fastcall Execute(T... t) {
-		return (V)((u64(__fastcall*)(T...))ptr)(t...);
+		return ((V(__fastcall*)(T...))ptr)(t...);
 	}
 
 };

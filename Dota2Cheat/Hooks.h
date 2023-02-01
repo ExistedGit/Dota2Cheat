@@ -235,19 +235,11 @@ namespace Hooks {
 
 				}
 				if (IsKeyPressed(VK_HOME)) {
-					auto forceStaff = assignedHero->FindItemBySubstring("force");
-					if (HVALID(forceStaff.handle)) {
-						auto ent = forceStaff.GetAs<BaseAbility>();
+					auto item = assignedHero->FindItemBySubstring("orb");
+					if (HVALID(item.handle)) {
+						auto ent = item.GetAs<BaseAbility>();
 						//auto pos = ent->GetPos();
-						//std::cout << std::dec << Function(0x7FF9FEAB1130)(nullptr, H2IDX(forceStaff.handle), "bonus_intellect", -1) << '\n';
-						
-						//std::cout << std::dec << Function(0x00007FF9FEA78000)(forceStaff.GetEntity(), "bonus_intellect", -1, 3) << '\n';
-						//std::cout << std::dec << Function(0x00007FFB53AB6AD0).Execute<int>(ent, &pos) << '\n';
-						//std::cout << std::dec << ent->GetEffectiveCastRange() << '\n';
-
-						//std::cout << std::dec << Function(0x00007FFE04BF0A80).Execute<uint ptr_t>(nullptr, midas.handle) << '\n';
-
-						//Interfaces::CVar->SetConvars();
+						std::cout << std::dec << Function(0x00007FFB224F1130).Execute<double>(nullptr, H2IDX(item.handle), "bonus_all_stats", 1) << '\n';
 					}
 				}
 #endif
@@ -332,7 +324,9 @@ namespace Hooks {
 		}
 		case DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_NO_TARGET: {
 			//Automatic mana & HP abuse with items like Arcane Boots or Faerie Fire
-			std::cout << issuer->GetForwardVector(10) << '\n';
+			double bonusInt = Signatures::Scripts::GetLevelSpecialValueFor(nullptr, abilityIndex, "bonus_int", -1);
+			if (bonusInt > 0)
+				std::cout << abilityIndex << bonusInt << '\n';
 
 			break;
 		}

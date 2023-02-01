@@ -7,8 +7,10 @@ public:
 
 	}
 	void FireGameEvent(void* event) override {
+		int minutes = ((int)Globals::GameRules->GetGameTime() - 90) / 60,
+			seconds = ((int)Globals::GameRules->GetGameTime() - 90) % 60;
 		std::cout << "Roshan died: " 
-			<< (int)Globals::GameRules->GetGameTime() / 60 << ':' 
-			<< (Globals::GameRules->GetGameTime() - (int)Globals::GameRules->GetGameTime()) * 60 << "\n";
+			<< (minutes < 10 ? "0" : "") << minutes << ':'
+			<< (seconds < 10 ? "0" : "") << seconds << "\n";
 	}
 };
