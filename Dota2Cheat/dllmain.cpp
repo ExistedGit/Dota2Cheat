@@ -32,6 +32,7 @@ std::vector<std::unique_ptr<IGameEventListener2>> CGameEventManager::EventListen
 DotaPlayer* localPlayer;
 BaseNpc* assignedHero;
 std::vector<DotaPlayer*> players{};
+std::set<BaseEntity*> physicalItems{};
 
 HANDLE CurProcHandle;
 int CurProcId;
@@ -159,9 +160,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	bool playerEntFound = false;
 
 
-	VMTs::Entity = std::unique_ptr<VMT>(new VMT(Interfaces::EntitySystem));
-	VMTs::Entity->HookVM(Hooks::OnAddEntity, 14);
-	VMTs::Entity->ApplyVMT();
+	//VMTs::Entity = std::unique_ptr<VMT>(new VMT(Interfaces::EntitySystem));
+	//VMTs::Entity->HookVM(Hooks::OnAddEntity, 14);
+	//VMTs::Entity->HookVM(Hooks::OnAddEntity, 15);
+	//VMTs::Entity->ApplyVMT();
 
 
 	Log("CVars found!");
@@ -321,12 +323,15 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		if (Globals::ParticleManager)
 			Globals::ParticleManager->DestroyParticle(pair.second);
 	}
+
 	CDOTAParticleManager::TrackedParticles.clear();
-	//VMTs::Entity->ReleaseVMT();
-	//VMTs::Panorama2->ReleaseVMT();
-	//VMTs::Entity = nullptr;
+	if (Globals::GameEventManager)
+		for (auto& listener : CGameEventManager::EventListeners)
+			Globals::GameEventManager->RemoveListener(listener.get());
 	CGameEventManager::EventListeners.clear();
+	CVarSystem::CVar.clear();
 	Schema::Netvars.clear();
+
 	MH_Uninitialize();
 	if (f) fclose(f);
 	FreeConsole();

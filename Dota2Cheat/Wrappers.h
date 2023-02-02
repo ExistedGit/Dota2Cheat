@@ -3,6 +3,7 @@
 #include "Schema.h"
 #include "Signatures.h"
 #include "CUtlVector.h"
+#include <set>
 #include "SDK/color.h"
 
 struct SchemaClassBinding {
@@ -316,7 +317,7 @@ public:
 	}
 };
 
-
 extern DotaPlayer* localPlayer;
 extern BaseNpc* assignedHero;
 extern std::vector<DotaPlayer*> players;
+extern std::set<BaseEntity*> physicalItems;

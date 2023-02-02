@@ -6,6 +6,7 @@
 #include "CGameEntitySystem.h"
 #include "ConVar.h"
 #include "IEngineClient.h"
+#include "CInputService.h"
 
 namespace Interfaces {
 	inline CVarSystem* CVar = nullptr;
@@ -15,6 +16,7 @@ namespace Interfaces {
 	inline CSource2Client* Client = nullptr;
 	inline CGameEntitySystem* EntitySystem = nullptr;
 	inline void* GCClient = nullptr;
+	inline CInputService* InputService = nullptr;
 	inline VClass* Schema = nullptr;
 
 	typedef void* (__cdecl* tCreateInterface)(const char* name, int* returnCode);
@@ -40,6 +42,7 @@ namespace Interfaces {
 		Panorama2 = Panorama->Member<VClass*>(0x28);
 		GCClient = GetInterface<void*>("client.dll", "DOTA_CLIENT_GCCLIENT");
 		Schema = GetInterface<VClass*>("schemasystem.dll", "SchemaSystem_001");
+		InputService = GetInterface<CInputService*>("engine2.dll", "InputService_001");
 	}
 	inline  void LogInterfaces() {
 		std::cout << "[INTERFACES]\n" << std::hex;

@@ -58,6 +58,7 @@ inline void EnteredMatch() {
 
 
 		auto ptr = new RoshanListener();
+		ptr->gameStartTime = Globals::GameRules->GetGameTime();
 		CGameEventManager::EventListeners.push_back(std::unique_ptr<RoshanListener>(ptr));
 		Globals::GameEventManager->AddListener(ptr, "dota_roshan_kill", false);
 

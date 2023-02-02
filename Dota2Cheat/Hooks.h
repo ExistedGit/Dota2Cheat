@@ -250,7 +250,7 @@ namespace Hooks {
 					//std::cout << assignedHero->GetForwardVector(10) << '\n';
 					//LogEntities();
 					auto vec = GetEntitiesByFilter({
-						"Item"
+						"Tower"
 						});
 					for (auto& ent : vec) {
 						const char* className = ent->SchemaBinding()->binaryName;
@@ -263,12 +263,13 @@ namespace Hooks {
 
 				}
 				if (IsKeyPressed(VK_HOME)) {
-					auto item = assignedHero->FindItemBySubstring("orb");
-					if (HVALID(item.handle)) {
-						auto ent = item.GetAs<BaseAbility>();
-						//auto pos = ent->GetPos();
-						std::cout << std::dec << Signatures::Scripts::GetLevelSpecialValueFor(nullptr, H2IDX(item.handle), "bonus_all_stats", 1) << '\n';
-					}
+					Interfaces::InputService->CmdCommand("say_team I suck cocks!\n");
+					//auto item = assignedHero->FindItemBySubstring("orb");
+					//if (HVALID(item.handle)) {
+					//	auto ent = item.GetAs<BaseAbility>();
+					//	//auto pos = ent->GetPos();
+					//	std::cout << std::dec << Signatures::Scripts::GetLevelSpecialValueFor(nullptr, H2IDX(item.handle), "bonus_all_stats", 1) << '\n';
+					//}
 				}
 #endif
 			}
@@ -278,11 +279,17 @@ namespace Hooks {
 
 	inline BaseEntity* OnAddEntity(CEntitySystem* thisptr, BaseEntity* ent, ENT_HANDLE handle) {
 		auto className = ent->SchemaBinding()->binaryName;
-		if (className && TestStringFilters(className, { "Item" }))
-			std::cout << className << ' ' << std::dec << H2IDX(ent->GetIdentity()->entHandle) << ' ' << ent;
-		
+		if (className != nullptr && TestStringFilters(className, { "Item_Physical" })) {
+			std::cout << className << ' ' << std::dec << H2IDX(ent->GetIdentity()->entHandle) << ' ' << ent << '\n';
+			physicalItems.insert(ent);
+		}
+
 		return VMTs::Entity->GetOriginalMethod<OnAddEntityFn>(14)(thisptr, ent, handle);
 	};
+	inline BaseEntity* OnRemoveEntity(CEntitySystem* thisptr, BaseEntity* ent, ENT_HANDLE handle) {
+		physicalItems.erase(ent);
+		return VMTs::Entity->GetOriginalMethod<OnAddEntityFn>(15)(thisptr, ent, handle);
+	}
 	inline Signatures::prepareUnitOrdersFn PrepareUnitOrdersOriginal = nullptr;
 
 	inline void PrepareUnitOrdersHook(DotaPlayer* player, DotaUnitOrder_t orderType, UINT32 targetIndex, Vector3* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, BaseEntity* issuer, bool queue, bool showEffects) {
@@ -339,6 +346,11 @@ namespace Hooks {
 		}
 		case DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_NO_TARGET: {
 			//Automatic mana & HP abuse with items like Arcane Boots or Faerie Fire
+			static std::vector<const char*> filters = {
+				"item_arcane_boots", "item_enchanted_mango", "item_guardian_greaves", "item_magic_stick", "item_magic_wand", "item_holy_locket", "item_soul_ring", "item_cheese", "item_arcane_ring", "item_faerie_fire", "item_greater_faerie_fire"
+			};
+
+
 			double bonusInt = Signatures::Scripts::GetLevelSpecialValueFor(nullptr, abilityIndex, "bonus_int", -1);
 			if (bonusInt > 0)
 				std::cout << abilityIndex << bonusInt << '\n';
