@@ -185,6 +185,7 @@
     <ClInclude Include="CGameEntitySystem.h" />
     <ClInclude Include="CGameEventManager.h" />
     <ClInclude Include="CInputService.h" />
+    <ClInclude Include="INetChannel.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="EventListeners.h" />
     <ClInclude Include="Hooks.h" />

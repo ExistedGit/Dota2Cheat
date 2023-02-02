@@ -156,10 +156,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Globals::InitGlobals();
 	Hooks::SetUpByteHooks();
 
-	//const bool logEntities = false;
-	bool playerEntFound = false;
-
-
 	//VMTs::Entity = std::unique_ptr<VMT>(new VMT(Interfaces::EntitySystem));
 	//VMTs::Entity->HookVM(Hooks::OnAddEntity, 14);
 	//VMTs::Entity->HookVM(Hooks::OnAddEntity, 15);
@@ -324,12 +320,15 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			Globals::ParticleManager->DestroyParticle(pair.second);
 	}
 
-	CDOTAParticleManager::TrackedParticles.clear();
-	if (Globals::GameEventManager)
-		for (auto& listener : CGameEventManager::EventListeners)
-			Globals::GameEventManager->RemoveListener(listener.get());
-	CGameEventManager::EventListeners.clear();
-	CVarSystem::CVar.clear();
+	if (IsInMatch) {
+
+		CDOTAParticleManager::TrackedParticles.clear();
+		if (Globals::GameEventManager)
+			for (auto& listener : CGameEventManager::EventListeners)
+				Globals::GameEventManager->RemoveListener(listener.get());
+		CGameEventManager::EventListeners.clear();
+		CVarSystem::CVar.clear();
+	}
 	Schema::Netvars.clear();
 
 	MH_Uninitialize();

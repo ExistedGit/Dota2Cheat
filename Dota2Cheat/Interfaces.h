@@ -18,6 +18,7 @@ namespace Interfaces {
 	inline void* GCClient = nullptr;
 	inline CInputService* InputService = nullptr;
 	inline VClass* Schema = nullptr;
+	inline void* NetworkSystem;
 
 	typedef void* (__cdecl* tCreateInterface)(const char* name, int* returnCode);
 	template<typename T>
@@ -43,6 +44,8 @@ namespace Interfaces {
 		GCClient = GetInterface<void*>("client.dll", "DOTA_CLIENT_GCCLIENT");
 		Schema = GetInterface<VClass*>("schemasystem.dll", "SchemaSystem_001");
 		InputService = GetInterface<CInputService*>("engine2.dll", "InputService_001");
+		NetworkSystem = GetInterface<void*>("networksystem.dll", "NetworkSystemVersion001");
+
 	}
 	inline  void LogInterfaces() {
 		std::cout << "[INTERFACES]\n" << std::hex;

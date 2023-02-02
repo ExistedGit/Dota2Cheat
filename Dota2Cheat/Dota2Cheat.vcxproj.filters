@@ -167,5 +167,8 @@
     <ClInclude Include="CInputService.h">
       <Filter>Файлы заголовков\Interfaces</Filter>
     </ClInclude>
+    <ClInclude Include="INetChannel.h">
+      <Filter>Файлы заголовков\Interfaces</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

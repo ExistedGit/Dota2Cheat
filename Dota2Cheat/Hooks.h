@@ -13,10 +13,14 @@ extern std::vector<BaseNpc*> enemyHeroes;
 extern CDOTAParticleManager::ParticleWrapper particleWrap;
 
 namespace VMTs {
-	std::unique_ptr<VMT> Panorama2;
-	std::unique_ptr<VMT> Engine;
-	std::unique_ptr<VMT> Entity;
+	inline std::unique_ptr<VMT> Panorama2 = nullptr;
+	inline std::unique_ptr<VMT> Engine = nullptr;
+	inline std::unique_ptr<VMT> Entity = nullptr;
+	inline std::unique_ptr<VMT> NetworkSystem = nullptr;
+	inline std::unique_ptr<VMT> NetChannel = nullptr;
 }
+
+
 namespace Hooks {
 	typedef BaseEntity* (*OnAddEntityFn)(CEntitySystem*, BaseEntity*, ENT_HANDLE);
 	typedef void (*RunFrameFn)(u64, u64);
@@ -362,6 +366,57 @@ namespace Hooks {
 		if (giveOrder)
 			PrepareUnitOrdersOriginal(player, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
 	}
+	//typedef void (*PostReceivedNetMessageFn)(INetChannel*, NetMessageHandle_t*, google::protobuf::Message*, NetChannelBufType_t const*, int);
+	//inline void PostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, NetChannelBufType_t const* type, int bits) {
+
+	//	NetMessageInfo_t* info;
+	//	const char* name;
+
+	//	if (mc_log_recvnetmsg->GetBool()) {
+	//		info = networkMessages->GetNetMessageInfo(messageHandle);
+	//		name = info->pProtobufBinding->GetName();
+
+	//		if (mc_log_recvnetmsg_filter_commons->GetBool()) {
+	//			if (strstr(name, "CNETMsg_Tick") ||
+	//				strstr(name, "CSVCMsg_PacketEntities")) {
+	//				goto end;
+	//			}
+	//		}
+	//		MC_LOGF("Recv Msg: (%s)\n", name);
+
+	//		if (mc_log_recvnetmsg_to_string->GetBool()) {
+	//			CUtlString string;
+	//			string.m_Memory.m_pMemory = new uint8_t[4096];
+	//			string.m_Memory.m_nAllocationCount = 4096;
+	//			string.m_Memory.m_nGrowSize = 4096;
+	//			MC_LOGF("Net Msg[%d] Received: (%s)\n", messageHandle->messageID, info->pProtobufBinding->ToString(msg, &string));
+	//			delete[] string.m_Memory.m_pMemory;
+	//		}
+	//	}
+
+	//	if (mc_hide_tips->GetBool()) {
+	//		if (messageHandle->messageID == 577) { // CDOTAUserMsg_TipAlert
+	//			MC_LOGF("Suppressing a tipalert\n");
+	//			return;
+	//		}
+	//	}
+
+
+	//	return netChannelVMT->GetOriginalMethod<PostReceivedNetMessageFn>(88)(thisptr, messageHandle, msg, type, bits);
+	//}
+
+	//typedef void* (*CreateNetChannelFn)(void*, int, void*, const char*, unsigned int, unsigned int);
+	//inline void* CreateNetChannel(void* thisptr, int unk, void* ns_addr, const char* str, unsigned int uUnk, unsigned int uUnk2) {
+	//	VMTs::NetChannel.reset();
+	//	void* ret = VMTs::NetChannel->GetOriginalMethod<CreateNetChannelFn>(26)(thisptr, unk, ns_addr, str, uUnk, uUnk2);
+
+	//	VMTs::NetChannel = std::unique_ptr<VMT>(new VMT(ret));
+	//	//VMTs::NetChannel->HookVM(SendNetMessage, 70);
+	//	VMTs::NetChannel->HookVM(PostReceivedNetMessage, 88);
+	//	VMTs::NetChannel->ApplyVMT();
+
+	//	return ret;
+	//}
 
 	inline void SetUpByteHooks() {
 		if (MH_CreateHook(Signatures::PrepareUnitOrders, &PrepareUnitOrdersHook,
@@ -369,6 +424,11 @@ namespace Hooks {
 			MH_EnableHook(Signatures::PrepareUnitOrders) != MH_OK)
 			std::cout << "Could not hook PrepareUnitOrders!\n";
 
+	}
+
+	inline void InitVirtualHooks() {
+		//VMTs::NetworkSystem = std::unique_ptr<VMT>(new VMT(Interfaces::NetworkSystem));
+		//VMTs::NetworkSystem->HookVM();
 	}
 
 }
