@@ -6,7 +6,11 @@
 #include "Wrappers.h"
 #include "UIState.h"
 #include "Input.h"
+#include "include/google/protobuf/message.h"
+#include "SDK/INetChannel.h"
 #include "CDOTAParticleManager.h"
+#include <future>
+#include <algorithm>
 
 extern bool IsInMatch;
 extern std::vector<BaseNpc*> enemyHeroes;
@@ -20,13 +24,12 @@ namespace VMTs {
 	inline std::unique_ptr<VMT> NetChannel = nullptr;
 }
 
-
+#ifndef u64
+#define u64 unsigned long long
+#endif
 namespace Hooks {
 	typedef BaseEntity* (*OnAddEntityFn)(CEntitySystem*, BaseEntity*, ENT_HANDLE);
 	typedef void (*RunFrameFn)(u64, u64);
-
-
-
 
 	template<typename T = BaseEntity>
 	inline std::vector<T*> GetEntitiesByFilter(const std::vector<const char*>& filters) {
@@ -148,7 +151,7 @@ namespace Hooks {
 				}
 			}
 			else if (strstr(className, "DOTA_Unit_Hero") != nullptr) {
-				auto hero = (BaseNpc*)ent;
+				auto hero = (BaseNpcHero*)ent;
 				//if (!test) {
 				//	enemyHeroes.push_back(hero);
 				//	test = true;
@@ -156,7 +159,7 @@ namespace Hooks {
 
 				//std::cout << std::hex;
 
-				if (hero->Hero_IsIllusion() &&
+				if (hero->IsIllusion() &&
 					strstr(className, "CDOTA_Unit_Hero_ArcWarden") == nullptr) {
 					illusionCount++;
 					if (assignedHero->GetTeam() == hero->GetTeam())
@@ -183,7 +186,12 @@ namespace Hooks {
 			varInfo.var->value.flt = Config::CameraDistance;
 			Interfaces::CVar->TriggerCallback(varInfo);
 		}
-
+	}
+	inline void UpdateWeather() {
+		static auto varInfo = CVarSystem::CVar["cl_weather"];
+		if (Config::WeatherListIdx != varInfo.var->value.i32) {
+			varInfo.var->value.i32 = Config::WeatherListIdx;
+		}
 	}
 
 	inline void RunFrame(u64 a, u64 b) {
@@ -193,10 +201,13 @@ namespace Hooks {
 		if (isInGame) {
 			//std::cout << "frame\n";
 			if (inGameStuff && IsInMatch) {
+
 				UpdateCameraDistance();
+				UpdateWeather();
+
 				if (assignedHero->GetLifeState() == 0) { // if alive
 					// VBE: m_flStartSequenceCycle updates 30 times a second
-					// It doesn't update when you are seen(AFAIK is set to zero)
+					// It doesn't update when you are seen(stays at zero)
 					sscSum += assignedHero->GetSSC();
 					sscCount++;
 					if (sscCount == 3) {
@@ -222,8 +233,6 @@ namespace Hooks {
 								TRACKED_PARTICLE_VBE
 							].particle))
 							Globals::ParticleManager->DestroyTrackedParticle(TRACKED_PARTICLE_VBE);
-
-
 					}
 
 					AutoUseWandCheck(assignedHero, Config::AutoHealWandHPTreshold, Config::AutoHealWandMinCharges);
@@ -236,8 +245,14 @@ namespace Hooks {
 					auto selected = localPlayer->GetSelectedUnits();
 					auto ent = Interfaces::EntitySystem->GetEntity<BaseNpc>(selected[0]);
 					auto pos = ent->GetPos();
+
 					std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
 						<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
+						<< "\n\t" << clamp(ent->GetBaseAttackTime() / ent->GetAttackSpeed(), 0.24, 2) //Signatures::Scripts::GetAttackSpeed(ent, 4)
+						//<< "\n\t" << 
+						//static_cast<int>(
+						//Function(0x00007FF834CC6E80).Execute<float>(nullptr, H2IDX(ent->GetIdentity()->entHandle))
+						//* 100)
 						//<< "\n\t" << "IsAncient: " << ent->IsAncient()
 						//<< "\n\t" << "GetCastRangeBonus: " << std::dec << Function(0x00007FFAEE5C0B00).Execute<int>(nullptr, ent->GetIdentity()->entHandle)
 						<< '\n';
@@ -267,7 +282,6 @@ namespace Hooks {
 
 				}
 				if (IsKeyPressed(VK_HOME)) {
-					Interfaces::InputService->CmdCommand("say_team I suck cocks!\n");
 					//auto item = assignedHero->FindItemBySubstring("orb");
 					//if (HVALID(item.handle)) {
 					//	auto ent = item.GetAs<BaseAbility>();
@@ -284,7 +298,7 @@ namespace Hooks {
 	inline BaseEntity* OnAddEntity(CEntitySystem* thisptr, BaseEntity* ent, ENT_HANDLE handle) {
 		auto className = ent->SchemaBinding()->binaryName;
 		if (className != nullptr && TestStringFilters(className, { "Item_Physical" })) {
-			std::cout << className << ' ' << std::dec << H2IDX(ent->GetIdentity()->entHandle) << ' ' << ent << '\n';
+			//std::cout << className << ' ' << std::dec << H2IDX(ent->GetIdentity()->entHandle) << ' ' << ent << '\n';
 			physicalItems.insert(ent);
 		}
 
@@ -296,6 +310,8 @@ namespace Hooks {
 	}
 	inline Signatures::prepareUnitOrdersFn PrepareUnitOrdersOriginal = nullptr;
 
+
+	inline std::future<void> manaAbusePickup;
 	inline void PrepareUnitOrdersHook(DotaPlayer* player, DotaUnitOrder_t orderType, UINT32 targetIndex, Vector3* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, BaseEntity* issuer, bool queue, bool showEffects) {
 		//std::cout << "[ORDER] " << player << '\n';
 		bool giveOrder = true; // whether or not the function will continue
@@ -306,7 +322,7 @@ namespace Hooks {
 			auto npc = Interfaces::EntitySystem->GetEntity<BaseNpc>(targetIndex);
 
 			if (strstr(npc->SchemaBinding()->binaryName, "C_DOTA_Unit_Hero") &&
-				npc->Hero_IsIllusion()) {
+				reinterpret_cast<BaseNpcHero*>(npc)->IsIllusion()) {
 				auto assignedHero = Interfaces::EntitySystem->GetEntity<DotaPlayer>(
 					H2IDX(
 						npc->GetOwnerEntityHandle()
@@ -348,26 +364,77 @@ namespace Hooks {
 			}
 			break;
 		}
+		case DotaUnitOrder_t::DOTA_UNIT_ORDER_DROP_ITEM:
+		{
+			//if (manaAbuseInProgress) {
+			//	manaAbuseItemCount++;
+			//	if (manaAbuseItemCount == manaAbuseItemTotal)
+			//	{
+			//		for (auto& item : physicalItems)
+			//			PrepareUnitOrdersOriginal(player, DotaUnitOrder_t::DOTA_UNIT_ORDER_PICKUP_ITEM, H2IDX(item->GetIdentity()->entHandle), &Vector3::Zero, 0, PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
+			//		
+			//	}
+			//}
+			break;
+		}
 		case DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_NO_TARGET: {
 			//Automatic mana & HP abuse with items like Arcane Boots or Faerie Fire
 			static std::vector<const char*> filters = {
 				"item_arcane_boots", "item_enchanted_mango", "item_guardian_greaves", "item_magic_stick", "item_magic_wand", "item_holy_locket", "item_soul_ring", "item_cheese", "item_arcane_ring", "item_faerie_fire", "item_greater_faerie_fire"
 			};
+			if (issuer == nullptr)
+				issuer = player->GetAssignedHero();
 
+			if (!TestStringFilters(
+				Interfaces::EntitySystem
+				->GetEntity<BaseAbility>(abilityIndex)
+				->GetIdentity()
+				->GetName(),
+				filters))
+				break;
 
-			double bonusInt = Signatures::Scripts::GetLevelSpecialValueFor(nullptr, abilityIndex, "bonus_int", -1);
-			if (bonusInt > 0)
-				std::cout << abilityIndex << bonusInt << '\n';
+			BaseNpc* npc = (BaseNpc*)issuer;
+			bool callPickup = false;
+			uint32_t stashSlot = 6;
+			for (auto& item : npc->GetItems()) {
+				if (H2IDX(item.handle) != abilityIndex &&  npc->GetInventory()->GetItemSlot(item.handle) > 5)
+					break;
 
+				double bonusInt = Signatures::Scripts::GetLevelSpecialValueFor(nullptr, H2IDX(item.handle), "bonus_intellect", -1)
+					+ Signatures::Scripts::GetLevelSpecialValueFor(nullptr, H2IDX(item.handle), "bonus_int", -1);
+
+				auto fVec = npc->GetForwardVector(5);
+				if (bonusInt > 0) {
+					//std::cout << abilityIndex << bonusInt << '\n';
+					queue = true;
+					PrepareUnitOrdersOriginal(player, DotaUnitOrder_t::DOTA_UNIT_ORDER_DROP_ITEM, 0, &fVec, H2IDX(item.handle), PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
+					callPickup = true;
+					//manaAbuseItemTotal++;
+				}
+				//manaAbuseInProgress = manaAbuseItemTotal != 0;
+				//dist++;
+			}
+			if (callPickup)
+				manaAbusePickup = std::async(std::launch::async, [&, player, issuer]() mutable {
+				Sleep(300);
+			for (auto iter = physicalItems.rbegin(); iter != physicalItems.rend(); iter++) {
+				auto ent = *iter;
+				if (IsWithinRadius(ent->GetPos2D(), assignedHero->GetPos2D(), 50))
+					PrepareUnitOrdersOriginal(player, DotaUnitOrder_t::DOTA_UNIT_ORDER_PICKUP_ITEM, H2IDX(ent->GetIdentity()->entHandle), &Vector3::Zero, 0, PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
+			}
+			physicalItems.clear();
+					});
 			break;
 		}
 		}
 
 		if (giveOrder)
 			PrepareUnitOrdersOriginal(player, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
+
+
 	}
-	//typedef void (*PostReceivedNetMessageFn)(INetChannel*, NetMessageHandle_t*, google::protobuf::Message*, NetChannelBufType_t const*, int);
-	//inline void PostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, NetChannelBufType_t const* type, int bits) {
+	//typedef void (*PostReceivedNetMessageFn)(INetChannel*, void*, google::protobuf::Message*, void const*, int);
+	//inline void PostReceivedNetMessage(INetChannel* thisptr, void* messageHandle, google::protobuf::Message* msg, void const* type, int bits) {
 
 	//	NetMessageInfo_t* info;
 	//	const char* name;
@@ -400,9 +467,9 @@ namespace Hooks {
 	//			return;
 	//		}
 	//	}
+	//
 
-
-	//	return netChannelVMT->GetOriginalMethod<PostReceivedNetMessageFn>(88)(thisptr, messageHandle, msg, type, bits);
+	//	return VMTs::NetChannel->GetOriginalMethod<PostReceivedNetMessageFn>(88)(thisptr, messageHandle, msg, type, bits);
 	//}
 
 	//typedef void* (*CreateNetChannelFn)(void*, int, void*, const char*, unsigned int, unsigned int);
@@ -423,12 +490,11 @@ namespace Hooks {
 			(LPVOID*)&PrepareUnitOrdersOriginal) != MH_OK ||
 			MH_EnableHook(Signatures::PrepareUnitOrders) != MH_OK)
 			std::cout << "Could not hook PrepareUnitOrders!\n";
-
 	}
 
-	inline void InitVirtualHooks() {
-		//VMTs::NetworkSystem = std::unique_ptr<VMT>(new VMT(Interfaces::NetworkSystem));
-		//VMTs::NetworkSystem->HookVM();
-	}
+	//inline void InitVirtualHooks() {
+	//	VMTs::NetworkSystem = std::unique_ptr<VMT>(new VMT(Interfaces::NetworkSystem));
+	//	VMTs::NetworkSystem->HookVM();
+	//}
 
 }

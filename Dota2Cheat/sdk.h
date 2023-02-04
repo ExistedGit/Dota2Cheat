@@ -25,6 +25,10 @@ inline void PAUSE() {
 extern HANDLE CurProcHandle;
 extern int CurProcId;
 
+inline float clamp(float n, float min, float max) {
+	return n < min ? min : (n > max ? max : n);
+}
+
 struct Vector2 {
 	float x, y;
 	inline Vector2(float x, float y) : x(x), y(y) {

@@ -7,6 +7,7 @@
 #include "ConVar.h"
 #include "IEngineClient.h"
 #include "CInputService.h"
+#include "CBaseFileSystem.h"
 
 namespace Interfaces {
 	inline CVarSystem* CVar = nullptr;
@@ -18,6 +19,7 @@ namespace Interfaces {
 	inline void* GCClient = nullptr;
 	inline CInputService* InputService = nullptr;
 	inline VClass* Schema = nullptr;
+	inline CBaseFileSystem* FileSystem = nullptr;
 	inline void* NetworkSystem;
 
 	typedef void* (__cdecl* tCreateInterface)(const char* name, int* returnCode);
@@ -38,6 +40,12 @@ namespace Interfaces {
 		uintptr_t* vmt_slot = *(uintptr_t**)Interfaces::Client + 25;								//25th function in Source2Client vtable
 		uintptr_t addr_start = *vmt_slot + 3;														//stores the relative address portion of the mov rax, [rip + 0x2512059] instruction
 		EntitySystem = *(CGameEntitySystem**)(addr_start + *(uint32_t*)(addr_start)+4);
+
+		FileSystem = GetInterface<CBaseFileSystem*>("filesystem_stdio.dll", "VFileSystem017");
+		//auto file = FileSystem->OpenFile("scripts/npc/npc_heroes.txt", "r");
+		//char buffer[256];
+		//FileSystem->ReadLine(buffer, 256, file);
+
 
 		Panorama = GetInterface<VClass*>("panorama.dll", "PanoramaUIEngine001");
 		Panorama2 = Panorama->Member<VClass*>(0x28);

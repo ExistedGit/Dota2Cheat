@@ -130,7 +130,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <OutputFile>$(OutDir)Debug\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>$(ProjectDir)lib\glew32s.lib;$(ProjectDir)lib\glfw3.lib;$(ProjectDir)lib\libMinHook-x64-v141-mtd.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;libprotobufd.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -154,7 +155,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <OutputFile>$(OutDir)Release\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>$(ProjectDir)lib\glew32s.lib;$(ProjectDir)lib\glfw3.lib;$(ProjectDir)lib\libMinHook-x64-v141-mtd.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;libprotobuf.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -181,11 +183,11 @@
     <ClInclude Include="AutoBuyTome.h" />
     <ClInclude Include="AutoUseMagicWand.h" />
     <ClInclude Include="AutoUseMidas.h" />
+    <ClInclude Include="CBaseFileSystem.h" />
     <ClInclude Include="CDOTAParticleManager.h" />
     <ClInclude Include="CGameEntitySystem.h" />
     <ClInclude Include="CGameEventManager.h" />
     <ClInclude Include="CInputService.h" />
-    <ClInclude Include="INetChannel.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="EventListeners.h" />
     <ClInclude Include="Hooks.h" />
