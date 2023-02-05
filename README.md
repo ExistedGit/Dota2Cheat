@@ -18,11 +18,12 @@ This list is subject to frequent change as I'm testing new features
   * Bounty rune pickup
   * Tome of Knowledge purchase
   * Redirects spell casts from illusions to the real hero
-  
+  * Mana & HP abuse with items like Arcane Boots
 * Information:
   * Visible by Enemy — shows a Skyrim-inspired HIDDEN/DETECTED text and/or a particle under your hero
   * Roshan — saves his death time and approximates when he will spawn [WIP]
   * Draw circles of custom radius(e. g. to see XP receiving range)
+  * Highlights enemy sun strikes as if they were yours
 
 * Convars:
   * `sv_cheats` spoofing
