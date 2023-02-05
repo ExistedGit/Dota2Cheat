@@ -164,5 +164,14 @@
     <ClInclude Include="EventListeners.h">
       <Filter>Файлы заголовков\Interfaces</Filter>
     </ClInclude>
+    <ClInclude Include="CInputService.h">
+      <Filter>Файлы заголовков\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="CBaseFileSystem.h">
+      <Filter>Файлы заголовков\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="SunStrikeHighlighter.h">
+      <Filter>Файлы заголовков\Hacks</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

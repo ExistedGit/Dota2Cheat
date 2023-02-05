@@ -5,7 +5,6 @@
 #include "Wrappers.h"
 #include <map>
 #include "SDK/color.h"
-#include "Interfaces.h"
 #include "MinHook.h"
 
 namespace Signatures {
@@ -36,7 +35,7 @@ namespace Signatures {
 
 	inline void InitSignatures() {
 		CMsg = reinterpret_cast<CMsgFn>(GetProcAddress(GetModuleHandleA("tier0.dll"), "Msg"));
-		ColorMsgFn CMsgColor = reinterpret_cast<ColorMsgFn>(GetProcAddress(GetModuleHandleA("tier0.dll"), "?ConColorMsg@@YAXAEBVColor@@PEBDZZ"));
+		CMsgColor = reinterpret_cast<ColorMsgFn>(GetProcAddress(GetModuleHandleA("tier0.dll"), "?ConColorMsg@@YAXAEBVColor@@PEBDZZ"));
 		
 		char funcAddr[256];
 		char funcAddrMask[256];
@@ -69,8 +68,6 @@ namespace Signatures {
 			(uintptr_t)PatternScanExModule(CurProcHandle, CurProcId, L"client.dll", funcAddr, funcAddrMask)
 				- 5 // Skipping function for shortening the sig
 			);
-
-
 		//ParseCombo("4C 8B 08 48 8D ? ? ? ? ? 45 33 C0 48 8B C8 48 83 C4 38 49 FF A1 98 07 00 00", funcAddr, funcAddrMask);
 		//Scripts::GetCastRange = (EntGetter)
 		//	((uintptr_t)PatternScanExModule(CurProcHandle, CurProcId, L"client.dll", funcAddr, funcAddrMask)

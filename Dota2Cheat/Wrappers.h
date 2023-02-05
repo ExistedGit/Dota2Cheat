@@ -3,7 +3,11 @@
 #include "Schema.h"
 #include "Signatures.h"
 #include "CUtlVector.h"
+#include <set>
+//#include <span>
 #include "SDK/color.h"
+
+#define u64 unsigned long long
 
 struct SchemaClassBinding {
 	SchemaClassBinding* parent;
@@ -25,6 +29,19 @@ public:
 		if (!offset)
 			return nullptr;
 		return reinterpret_cast<ENT_HANDLE*>((uintptr_t)this + offset);
+	}
+	bool IsItemInSlot(ENT_HANDLE item, uint32_t slot) {
+		if (slot > 18)
+			return false;
+
+		return GetItems()[slot] == item;
+	}
+	int GetItemSlot(ENT_HANDLE item) {
+		for (int i = 0; i < 19; i++) {
+			if (GetItems()[i] == item)
+				return i;
+		}
+		return -1;
 	}
 };
 
@@ -62,7 +79,7 @@ public:
 			return Vector3::Zero;
 		// The m_vecAbsOrigin netvar is actually inside a CGameSceneNode
 		return Member<VClass*>(offset) // getting the node
-			 ->Member<Vector3>(0x10); // getting the absOrigin
+			->Member<Vector3>(0x10); // getting the absOrigin
 	}
 
 	// In degrees from 180 to -180(on 0 it looks right)
@@ -70,8 +87,8 @@ public:
 		u64 offset = Schema::Netvars["C_BaseEntity"]["m_pGameSceneNode"];
 		if (!offset)
 			return 0;
-		return Member<VClass*>(offset) 
-			->Member<float>(0x28) * 180; 
+		return Member<VClass*>(offset)
+			->Member<float>(0x28) * 180;
 	}
 
 	// Gets the point in front of the entity at the specified distance
@@ -99,6 +116,9 @@ public:
 	}
 	inline DOTATeam_t GetTeam() {
 		return Member<DOTATeam_t>(Schema::Netvars["C_BaseEntity"]["m_iTeamNum"]);
+	}
+	inline INT8 GetLifeState() {
+		return Member<INT8>(Schema::Netvars["C_BaseEntity"]["m_lifeState"]);
 	}
 };
 class BaseNpc : public BaseEntity {
@@ -142,9 +162,6 @@ public:
 		//std::cout << "this: " << this << '\n';
 		return Member<const char*>(Schema::Netvars["C_DOTA_BaseNPC"]["m_iszUnitName"]);
 	}
-	inline bool Hero_IsIllusion() {
-		return Member<ENT_HANDLE>(Schema::Netvars["C_DOTA_BaseNPC_Hero"]["m_hReplicatingOtherHeroModel"]) != 0xFFFFFFFF;
-	}
 	inline std::vector<ItemOrAbility> GetAbilities() {
 		static int offset = Schema::Netvars["C_DOTA_BaseNPC"]["m_hAbilities"];
 		if (!offset)
@@ -173,6 +190,12 @@ public:
 		return ItemOrAbility{ nullptr, 0xFFFFFFFF };
 	}
 
+	inline CUnitInventory* GetInventory() {
+		static int offset = Schema::Netvars["C_DOTA_BaseNPC"]["m_Inventory"];
+		if (!offset)
+			return nullptr;
+		return (CUnitInventory*)((uintptr_t)this + offset);
+	}
 	inline std::vector<ItemOrAbility> GetItems() {
 		static int offset = Schema::Netvars["C_DOTA_BaseNPC"]["m_Inventory"];
 		if (!offset)
@@ -198,10 +221,30 @@ public:
 	inline float GetMaxMana() {
 		return Member<float>(Schema::Netvars["C_DOTA_BaseNPC"]["m_flMaxMana"]);
 	}
-	inline INT8 GetLifeState() {
-		return Member<INT8>(Schema::Netvars["C_BaseEntity"]["m_lifeState"]);
+
+	inline float GetBaseAttackTime() {
+		return Member<float>(Schema::Netvars["C_DOTA_BaseNPC"]["m_flBaseAttackTime"]);
+	}
+	inline float GetAttackSpeed() {
+		return 1 + CallVFunc<295, float>();
 	}
 };
+
+class BaseNpcHero : public BaseNpc {
+public:
+	struct HeroAttributes {
+		float strength, agility, intellect;
+	};
+
+	inline HeroAttributes GetAttributes() {
+		return Member<HeroAttributes>(Schema::Netvars["C_DOTA_BaseNPC_Hero"]["m_flStrengthTotal"]);
+	}
+
+	inline bool IsIllusion() {
+		return Member<ENT_HANDLE>(Schema::Netvars["C_DOTA_BaseNPC_Hero"]["m_hReplicatingOtherHeroModel"]) != 0xFFFFFFFF;
+	}
+};
+
 class BaseAbility :public BaseEntity {
 public:
 	inline float GetCooldown() {
@@ -213,19 +256,19 @@ public:
 	inline int GetManaCost() {
 		return Member<int>(0x5b0);
 	}
-	
+
 	//inline int GetCastRange() {
 	//	auto pos = GetPos();
 	//	return CallVFunc<0x798/8, int>(&pos, nullptr, *(uintptr_t*)this);
 	//}
-	
+
 	// Xref "Script_GetCastRangeBonus" in x64dbg to a lea rax
 	// Below there will be "hTarget" or something, above that will be a lea rcx, [XXX] with a function
 	// At the end there are two calls to [rdi + 0x798] and [rdi + 0x7a0], first it gets the range, then the bonus
 	// I currently could not get GetCastRange to work as a standalone vfunc
 	// found via dynamical analysis
-	inline int GetCastRangeBonus() { 
-		return CallVFunc<0x7A0/8, int>(nullptr, nullptr, nullptr);
+	inline int GetCastRangeBonus() {
+		return CallVFunc<0x7A0 / 8, int>(nullptr, nullptr, nullptr);
 	}
 	inline int GetEffectiveCastRange() {
 		return GetCastRange() + GetCastRangeBonus();
@@ -316,7 +359,7 @@ public:
 	}
 };
 
-
 extern DotaPlayer* localPlayer;
 extern BaseNpc* assignedHero;
 extern std::vector<DotaPlayer*> players;
+extern std::vector<BaseEntity*> physicalItems; // items dropped onto the floor

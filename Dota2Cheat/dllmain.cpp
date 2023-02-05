@@ -32,6 +32,7 @@ std::vector<std::unique_ptr<IGameEventListener2>> CGameEventManager::EventListen
 DotaPlayer* localPlayer;
 BaseNpc* assignedHero;
 std::vector<DotaPlayer*> players{};
+std::vector<BaseEntity*> physicalItems{};
 
 HANDLE CurProcHandle;
 int CurProcId;
@@ -155,18 +156,11 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Globals::InitGlobals();
 	Hooks::SetUpByteHooks();
 
-	const bool logEntities = false;
-	bool playerEntFound = false;
-
-	if (logEntities) {
-		//LogEntities();
-
-		VMTs::Entity = std::unique_ptr<VMT>(new VMT(Interfaces::EntitySystem));
-		VMTs::Entity->HookVM(Hooks::OnAddEntity, 14);
-		VMTs::Entity->ApplyVMT();
-	}
-
-	Log("CVars found!");
+	VMTs::Entity = std::unique_ptr<VMT>(new VMT(Interfaces::EntitySystem));
+	VMTs::Entity->HookVM(Hooks::OnAddEntity, 14);
+	VMTs::Entity->HookVM(Hooks::OnRemoveEntity, 15);
+	VMTs::Entity->ApplyVMT();
+	Hooks::InitVirtualHooks();
 
 	glfwSetErrorCallback(glfw_error_callback);
 	if (!glfwInit())
@@ -223,7 +217,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	bool menuVisible = false;
 	bool featuresMenuVisible = false;
-	//bool featuresMenuOpen = false;
+	bool circleMenuVisible = false;
+
 	// Main loop
 	while (!glfwWindowShouldClose(window))
 	{
@@ -240,23 +235,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			if (ImGui::Button("Features"))
 				featuresMenuVisible = !featuresMenuVisible;
 
-			ImGui::InputInt("Circle radius", &UIState::CircleRadius, 1, 10);
-			ImGui::ColorEdit3("Circle RGB", &UIState::CircleRGB.x);
-			
-			if (ImGui::Button("Draw circle")) {
-				Vector3 color = UIState::CircleRGB * 255;
-				Vector3 radius{ static_cast<float>(UIState::CircleRadius), 255, 0 };
-
-				auto particle = Globals::ParticleManager->CreateParticle(
-					"particles/ui_mouseactions/selected_ring.vpcf",
-					CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
-					(BaseEntity*)assignedHero
-				).particle
-				//	->SetControlPoint(0, &Vector3::Zero);
-					->SetControlPoint(1, &color)
-					->SetControlPoint(2, &radius)
-					->SetControlPoint(3, &Vector3::Zero);
-			}
 
 			if (ImGui::Button("EXIT", ImVec2(0, 50)))
 				glfwSetWindowShouldClose(window, 1);
@@ -265,12 +243,23 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 			if (featuresMenuVisible) {
 				ImGui::Begin("Features", &featuresMenuVisible, ImGuiWindowFlags_::ImGuiWindowFlags_AlwaysAutoResize);
+				if (ImGui::Button("Draw circle around hero"))
+					circleMenuVisible = !circleMenuVisible;
+
+				// https://github.com/SK68-ph/Shadow-Dance-Menu
+				ImGui::ListBox(
+					"Change weather",
+					&Config::WeatherListIdx,
+					UIState::WeatherList,
+					IM_ARRAYSIZE(UIState::WeatherList),
+					3);
+				
 				ImGui::Checkbox("Auto-use Hand of Midas", &Config::AutoMidasEnabled);
 				ImGui::Checkbox("Automatically pick up Bounty runes", &Config::AutoRunePickupEnabled);
-				
-				if(ImGui::CollapsingHeader("Visible by Enemy")) {
 
-					ImGui::Checkbox("Show HIDDEN/DETECTED text", &Config::VBEShowText); 
+
+				if (ImGui::CollapsingHeader("Visible by Enemy")) {
+					ImGui::Checkbox("Show HIDDEN/DETECTED text", &Config::VBEShowText);
 					ImGui::Checkbox("Show a circle under the hero when visible", &Config::VBEShowParticle);
 				}
 				if (ImGui::CollapsingHeader("AutoWand")) {
@@ -284,7 +273,30 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 				}
 				ImGui::Checkbox("Auto-buy Tome of Knowledge", &Config::AutoBuyTome);
 				ImGui::SliderFloat("Camera distance", &Config::CameraDistance, 1000, 2200, "%.1f");
+
 				ImGui::End();
+
+				if (circleMenuVisible) {
+					ImGui::Begin("C I R C L E S", &circleMenuVisible, ImGuiWindowFlags_AlwaysAutoResize);
+					ImGui::InputInt("Circle radius", &Config::CircleRadius, 1, 10);
+					ImGui::ColorEdit3("Circle RGB", &Config::CircleRGB.x);
+
+					if (ImGui::Button("Draw circle")) {
+						Vector3 color = Config::CircleRGB * 255;
+						Vector3 radius{ static_cast<float>(Config::CircleRadius), 255, 0 };
+
+						auto particle = Globals::ParticleManager->CreateParticle(
+							"particles/ui_mouseactions/selected_ring.vpcf",
+							CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
+							(BaseEntity*)assignedHero
+						).particle
+							->SetControlPoint(1, &color)
+							->SetControlPoint(2, &radius)
+							->SetControlPoint(3, &Vector3::Zero);
+					}
+					ImGui::End();
+				}
+
 			}
 		}
 		if (IsInMatch && Config::VBEShowText)
@@ -323,12 +335,18 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		if (Globals::ParticleManager)
 			Globals::ParticleManager->DestroyParticle(pair.second);
 	}
-	CDOTAParticleManager::TrackedParticles.clear();
-	//VMTs::Entity->ReleaseVMT();
-	//VMTs::Panorama2->ReleaseVMT();
-	//VMTs::Entity = nullptr;
-	CGameEventManager::EventListeners.clear();
+
+	if (IsInMatch) {
+
+		CDOTAParticleManager::TrackedParticles.clear();
+		if (Globals::GameEventManager)
+			for (auto& listener : CGameEventManager::EventListeners)
+				Globals::GameEventManager->RemoveListener(listener.get());
+		CGameEventManager::EventListeners.clear();
+		CVarSystem::CVar.clear();
+	}
 	Schema::Netvars.clear();
+
 	MH_Uninitialize();
 	if (f) fclose(f);
 	FreeConsole();

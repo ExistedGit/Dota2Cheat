@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <iostream>
 #include <Windows.h>
+#include <vector>
 #include "Input.h"
 
 #define PI 3.1415926
@@ -24,6 +25,10 @@ inline void PAUSE() {
 extern HANDLE CurProcHandle;
 extern int CurProcId;
 
+inline float clamp(float n, float min, float max) {
+	return n < min ? min : (n > max ? max : n);
+}
+
 struct Vector2 {
 	float x, y;
 	inline Vector2(float x, float y) : x(x), y(y) {
@@ -40,7 +45,12 @@ struct Vector3 {
 	inline Vector3(float x, float y, float z) :x(x), y(y), z(z) {
 
 	}
-
+	friend bool operator==(const Vector3& v1, const Vector3& v2) {
+		return v1.x == v2.x && v1.y == v2.y && v1.z == v2.z;
+	}
+	friend bool operator!=(const Vector3& v1, const Vector3& v2) {
+		return !(v1 == v2);
+	}
 	friend Vector3 operator+(const Vector3& v1, const Vector3& v2) {
 		return Vector3(v1.x + v2.x, v1.y + v2.y, v2.z + v1.z);
 	}
@@ -148,3 +158,11 @@ public:
 		return GetVFunc(index).Execute<RET>(this, t...);
 	}
 };
+
+inline bool TestStringFilters(const char* str, const std::vector<const char*>& filters) {
+	for (auto& filter : filters)
+		if (strstr(str, filter))
+			return true;
+
+	return false;
+}

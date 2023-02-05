@@ -2,20 +2,28 @@
 //#include "SDK/IEngineClient.h"
 //#include "SDK/CGameEntitySystem.h"
 #include "SDK/CSource2Client.h"
+#include "SDK/CNetworkMessages.h"
 #include "sdk.h"
 #include "CGameEntitySystem.h"
 #include "ConVar.h"
 #include "IEngineClient.h"
+#include "CInputService.h"
+#include "CBaseFileSystem.h"
+
 
 namespace Interfaces {
 	inline CVarSystem* CVar = nullptr;
 	inline IEngineClient* Engine = nullptr;
 	inline VClass* Panorama = nullptr;
-	inline VClass* Panorama2 = nullptr;
+	inline VClass* UIEngine = nullptr;
 	inline CSource2Client* Client = nullptr;
 	inline CGameEntitySystem* EntitySystem = nullptr;
 	inline void* GCClient = nullptr;
+	inline CInputService* InputService = nullptr;
 	inline VClass* Schema = nullptr;
+	inline CBaseFileSystem* FileSystem = nullptr;
+	inline void* NetworkSystem;
+	inline CNetworkMessages* NetworkMessages = nullptr;
 
 	typedef void* (__cdecl* tCreateInterface)(const char* name, int* returnCode);
 	template<typename T>
@@ -36,10 +44,19 @@ namespace Interfaces {
 		uintptr_t addr_start = *vmt_slot + 3;														//stores the relative address portion of the mov rax, [rip + 0x2512059] instruction
 		EntitySystem = *(CGameEntitySystem**)(addr_start + *(uint32_t*)(addr_start)+4);
 
+		FileSystem = GetInterface<CBaseFileSystem*>("filesystem_stdio.dll", "VFileSystem017");
+		//auto file = FileSystem->OpenFile("scripts/npc/npc_heroes.txt", "r");
+		//char buffer[256];
+		//FileSystem->ReadLine(buffer, 256, file);
+
+
 		Panorama = GetInterface<VClass*>("panorama.dll", "PanoramaUIEngine001");
-		Panorama2 = Panorama->Member<VClass*>(0x28);
+		UIEngine = Panorama->Member<VClass*>(0x28);
 		GCClient = GetInterface<void*>("client.dll", "DOTA_CLIENT_GCCLIENT");
 		Schema = GetInterface<VClass*>("schemasystem.dll", "SchemaSystem_001");
+		InputService = GetInterface<CInputService*>("engine2.dll", "InputService_001");
+		NetworkSystem = GetInterface<void*>("networksystem.dll", "NetworkSystemVersion001");
+		NetworkMessages = GetInterface<CNetworkMessages*>("networksystem.dll", "NetworkMessagesVersion001");
 	}
 	inline  void LogInterfaces() {
 		std::cout << "[INTERFACES]\n" << std::hex;
@@ -49,7 +66,7 @@ namespace Interfaces {
 		std::cout << "Source2Client: " << Interfaces::Client << "\n";
 		std::cout << "CVarSystem: " << Interfaces::CVar << "\n";
 		std::cout << "Panorama: " << Interfaces::Panorama << "\n";
-		std::cout << "Panorama2: " << Interfaces::Panorama2 << "\n";
+		std::cout << "Panorama2: " << Interfaces::UIEngine << "\n";
 		std::cout << "GCClient: " << Interfaces::GCClient << "\n";
 	}
 }

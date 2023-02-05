@@ -58,12 +58,13 @@ inline void EnteredMatch() {
 
 
 		auto ptr = new RoshanListener();
+		ptr->gameStartTime = Globals::GameRules->GetGameTime();
 		CGameEventManager::EventListeners.push_back(std::unique_ptr<RoshanListener>(ptr));
 		Globals::GameEventManager->AddListener(ptr, "dota_roshan_kill", false);
 
-		VMTs::Panorama2 = std::unique_ptr<VMT>(new VMT(Interfaces::Panorama2));
-		VMTs::Panorama2->HookVM(Hooks::RunFrame, 6);
-		VMTs::Panorama2->ApplyVMT();
+		VMTs::UIEngine = std::unique_ptr<VMT>(new VMT(Interfaces::UIEngine));
+		VMTs::UIEngine->HookVM(Hooks::RunFrame, 6);
+		VMTs::UIEngine->ApplyVMT();
 
 		Globals::LogGlobals();
 		std::cout << "ENTERED MATCH\n";
@@ -76,13 +77,15 @@ inline void LeftMatch() {
 	Globals::GameRules = nullptr;
 	Globals::ScriptVM = nullptr;
 	Globals::ParticleManager = nullptr;
+	
+	VMTs::NetChannel.reset();
+	VMTs::UIEngine.reset();
 
 	for (auto& listener : CGameEventManager::EventListeners)
 		Globals::GameEventManager->RemoveListener(listener.get());
 	CGameEventManager::EventListeners.clear();
 	Globals::GameEventManager = nullptr;
 
-	VMTs::Panorama2 = nullptr;
 
 	localPlayer = nullptr;
 	assignedHero = nullptr;

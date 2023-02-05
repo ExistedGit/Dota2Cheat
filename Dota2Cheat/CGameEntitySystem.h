@@ -47,7 +47,7 @@ public:
 
 
 
-class CEntitySystem {
+class CEntitySystem{
 public:
 	virtual void n_0();
 	virtual void BuildResourceManifest(void); // 01
@@ -76,7 +76,6 @@ public:
 class CGameEntitySystem : public CEntitySystem
 {
 public:
-
 	void* unk;
 	//void* unk2; 
 	//void* unk3;, remove because of vtable
