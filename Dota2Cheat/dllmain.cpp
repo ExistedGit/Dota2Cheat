@@ -32,7 +32,7 @@ std::vector<std::unique_ptr<IGameEventListener2>> CGameEventManager::EventListen
 DotaPlayer* localPlayer;
 BaseNpc* assignedHero;
 std::vector<DotaPlayer*> players{};
-std::set<BaseEntity*> physicalItems{};
+std::vector<BaseEntity*> physicalItems{};
 
 HANDLE CurProcHandle;
 int CurProcId;
@@ -160,6 +160,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	VMTs::Entity->HookVM(Hooks::OnAddEntity, 14);
 	VMTs::Entity->HookVM(Hooks::OnRemoveEntity, 15);
 	VMTs::Entity->ApplyVMT();
+	Hooks::InitVirtualHooks();
 
 	glfwSetErrorCallback(glfw_error_callback);
 	if (!glfwInit())
@@ -289,7 +290,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 							CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
 							(BaseEntity*)assignedHero
 						).particle
-							//	->SetControlPoint(0, &Vector3::Zero);
 							->SetControlPoint(1, &color)
 							->SetControlPoint(2, &radius)
 							->SetControlPoint(3, &Vector3::Zero);

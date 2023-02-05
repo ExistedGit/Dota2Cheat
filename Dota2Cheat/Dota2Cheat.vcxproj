@@ -193,6 +193,7 @@
     <ClInclude Include="Hooks.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="IScriptVM.h" />
+    <ClInclude Include="SunStrikeHighlighter.h" />
     <ClInclude Include="UIState.h" />
     <ClInclude Include="ValveClasses.h" />
     <ClInclude Include="ConVar.h" />

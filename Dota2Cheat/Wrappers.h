@@ -7,6 +7,8 @@
 //#include <span>
 #include "SDK/color.h"
 
+#define u64 unsigned long long
+
 struct SchemaClassBinding {
 	SchemaClassBinding* parent;
 	const char* binaryName; // ex: C_World
@@ -360,4 +362,4 @@ public:
 extern DotaPlayer* localPlayer;
 extern BaseNpc* assignedHero;
 extern std::vector<DotaPlayer*> players;
-extern std::set<BaseEntity*> physicalItems; // items dropped onto the floor
+extern std::vector<BaseEntity*> physicalItems; // items dropped onto the floor
