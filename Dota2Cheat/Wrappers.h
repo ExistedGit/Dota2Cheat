@@ -106,7 +106,7 @@ public:
 
 	inline Vector2 GetPos2D() {
 		auto vec = GetPos();
-		return Vector2(vec.x, vec.y);
+		return *(Vector2*)&vec;
 	}
 	inline int GetMaxHealth() {
 		return Member<int>(Schema::Netvars["C_BaseEntity"]["m_iMaxHealth"]);

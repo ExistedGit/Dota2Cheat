@@ -392,7 +392,21 @@ namespace Hooks {
 		case DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_NO_TARGET: {
 			//Automatic mana & HP abuse with items like Arcane Boots or Faerie Fire
 			static std::vector<const char*> filters = {
-				"item_arcane_boots", "item_enchanted_mango", "item_guardian_greaves", "item_magic_stick", "item_magic_wand", "item_holy_locket", "item_soul_ring", "item_cheese", "item_arcane_ring", "item_faerie_fire", "item_greater_faerie_fire"
+				"item_arcane_boots", "item_enchanted_mango",
+				"item_guardian_greaves",
+				"item_magic_stick",
+				"item_magic_wand",
+				"item_holy_locket",
+				"item_soul_ring", "item_cheese", "item_arcane_ring", "item_faerie_fire", "item_greater_faerie_fire"
+			};
+			static std::vector<const char*> bonusTypes = {
+				"bonus_int",
+				"bonus_intellect",
+				"bonus_strength",
+				"bonus_str",
+				"bonus_all_stats",
+				"bonus_mana",
+				"bonus_health"
 			};
 			if (issuer == nullptr)
 				issuer = player->GetAssignedHero();
@@ -409,16 +423,19 @@ namespace Hooks {
 			bool callPickup = false;
 			uint32_t stashSlot = 6;
 			for (auto& item : npc->GetItems()) {
-				if (H2IDX(item.handle) != abilityIndex
-					&& npc->GetInventory()->GetItemSlot(item.handle) > 5 // not in backpack
+				if (H2IDX(item.handle) == abilityIndex                   // must not be the item we're using
+					|| npc->GetInventory()->GetItemSlot(item.handle) > 5 // must not bew in the backpack
 					)
-					break;
+					continue;
 
-				double bonusInt = Signatures::Scripts::GetLevelSpecialValueFor(nullptr, H2IDX(item.handle), "bonus_intellect", -1)
-					+ Signatures::Scripts::GetLevelSpecialValueFor(nullptr, H2IDX(item.handle), "bonus_int", -1);
-
+				double anyBonus = 0;
+				for (auto& bonus : bonusTypes) {
+					anyBonus += Signatures::Scripts::GetLevelSpecialValueFor(nullptr, H2IDX(item.handle), bonus, -1);
+					if (anyBonus > 0)
+						break;
+				}
 				auto fVec = npc->GetForwardVector(5);
-				if (bonusInt > 0) {
+				if (anyBonus > 0) {
 					//std::cout << abilityIndex << bonusInt << '\n';
 					queue = true;
 					PrepareUnitOrdersOriginal(player, DotaUnitOrder_t::DOTA_UNIT_ORDER_DROP_ITEM, 0, &fVec, H2IDX(item.handle), PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
@@ -457,7 +474,9 @@ namespace Hooks {
 					->Member<ENT_HANDLE>(0x18);
 
 				auto invoker = Interfaces::EntitySystem->GetEntity(H2IDX(handle));
-				if (invoker->GetTeam() != assignedHero->GetTeam())
+				if (invoker != nullptr &&
+					TestStringFilters(invoker->SchemaBinding()->binaryName, { "Hero" }) &&
+					invoker->GetTeam() != assignedHero->GetTeam())
 					Hacks::SunStrikeHighlighter::SunStrikeIncoming = true;
 
 			}
