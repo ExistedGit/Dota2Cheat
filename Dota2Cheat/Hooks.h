@@ -311,8 +311,6 @@ namespace Hooks {
 			if (TestStringFilters(className, { "Item_Physical" }))
 				physicalItems.push_back(ent);
 			else if (TestStringFilters(className, { "BaseNPC" })) {
-
-
 				const char* idName = ent->GetIdentity()->GetName();
 				if (Hacks::SunStrikeHighlighter::SunStrikeIncoming && idName == nullptr) {
 					Hacks::SunStrikeHighlighter::SunStrikeIncoming = false;

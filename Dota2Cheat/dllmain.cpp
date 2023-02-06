@@ -229,7 +229,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
 
-
 		if (menuVisible) {
 			ImGui::Begin("Main");
 			if (ImGui::Button("Features"))
@@ -308,8 +307,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			menuVisible = !menuVisible;
 		}
 
-
-
 		// Rendering
 		ImGui::Render();
 		int display_w, display_h;
@@ -337,7 +334,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	}
 
 	if (IsInMatch) {
-
 		CDOTAParticleManager::TrackedParticles.clear();
 		if (Globals::GameEventManager)
 			for (auto& listener : CGameEventManager::EventListeners)
@@ -345,6 +341,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		CGameEventManager::EventListeners.clear();
 		CVarSystem::CVar.clear();
 	}
+
 	Schema::Netvars.clear();
 
 	MH_Uninitialize();
