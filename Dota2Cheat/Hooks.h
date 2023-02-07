@@ -471,9 +471,8 @@ namespace Hooks {
 					->Member<VClass*>(0x18)
 					->Member<ENT_HANDLE>(0x18);
 
-				auto invoker = Interfaces::EntitySystem->GetEntity(H2IDX(handle));
+				auto invoker = Interfaces::EntitySystem->GetEntity(handle & 0x7ff); // weird smaller mask
 				if (invoker != nullptr &&
-					TestStringFilters(invoker->SchemaBinding()->binaryName, { "Hero" }) &&
 					invoker->GetTeam() != assignedHero->GetTeam())
 					Hacks::SunStrikeHighlighter::SunStrikeIncoming = true;
 
