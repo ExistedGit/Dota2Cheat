@@ -16,11 +16,24 @@ public:
 		int minutes = (gameTime - gameStartTime) / 60,
 			seconds = (gameTime - gameStartTime) % 60;
 
-		Interfaces::InputService->CmdCommand(std::format("say_team Roshan died: {}{}:{}{}",
-			(minutes < 10 ? "0" : ""),
-			minutes,
+		//Interfaces::InputService->CmdCommand(std::format("say_team Roshan died: {}{}:{}{}",
+		//	(minutes < 10 ? "0" : ""),
+		//	minutes,
+		//	(seconds < 10 ? "0" : ""),
+		//	seconds).c_str());
+		Interfaces::InputService->CmdCommand(std::format("say_team Roshan respawn: {}{}:{}{}-{}{}:{}{}",
+
+			(minutes + 8 < 10 ? "0" : ""),
+			minutes + 8,
 			(seconds < 10 ? "0" : ""),
-			seconds).c_str());
+			seconds,
+
+			(minutes + 11 < 10 ? "0" : ""),
+			minutes + 11,
+			(seconds < 10 ? "0" : ""),
+			seconds
+
+		).c_str());
 		std::cout << std::dec << "Roshan died: "
 			<< (minutes < 10 ? "0" : "") << minutes << ':'
 			<< (seconds < 10 ? "0" : "") << seconds << "\n";

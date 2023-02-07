@@ -13,10 +13,10 @@ namespace Globals {
 	//So we need to dereference it when we enter a match and reset to nullptr on leave
 	inline CDOTAGameRules** GameRulesPtr = nullptr;
 	inline CDOTAGameRules* GameRules = nullptr;
-	
+
 	inline CDOTAPlayerResource** PlayerResourcePtr = nullptr;
 	inline CDOTAPlayerResource* PlayerResource = nullptr;
-	
+
 	inline CDOTAParticleManager** ParticleManagerPtr = nullptr;
 	inline CDOTAParticleManager* ParticleManager = nullptr;
 
@@ -56,16 +56,16 @@ namespace Globals {
 		std::cout << "SVMPtr: " << ScriptVMPtr << '\n';
 		ParseCombo("7E 0B 41 8D 42 F1 A9 FB FF FF FF 75 0B 41 8B C9 E8 ? ? ? ? 48 8B D8 E8", funcAddr, funcAddrMask);
 		addr = GetAbsoluteAddress(
-			(uintptr_t)PatternScanExModule(CurProcHandle, 
-				CurProcId, 
-				L"client.dll", 
-				funcAddr, 
-				funcAddrMask) + 0x18, 
-			1, 
+			(uintptr_t)PatternScanExModule(CurProcHandle,
+				CurProcId,
+				L"client.dll",
+				funcAddr,
+				funcAddrMask) + 0x18,
+			1,
 			5
 		);
 		ParticleManagerPtr = (CDOTAParticleManager**)GetAbsoluteAddress(addr, 3, 7);
-		std::cout << "DPMP: " << ParticleManagerPtr<< '\n';
+		std::cout << "DPMP: " << ParticleManagerPtr << '\n';
 	}
 	inline void LogGlobals() {
 		std::cout << "[GLOBALS]\n";

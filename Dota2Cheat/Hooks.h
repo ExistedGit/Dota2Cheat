@@ -14,10 +14,16 @@
 #include <algorithm>
 #include <optional>
 #include "SunStrikeHighlighter.h"
+#include "SpiritBreakerChargeHighlighter.h"
 
 extern bool IsInMatch;
 extern std::vector<BaseNpc*> enemyHeroes;
 extern CDOTAParticleManager::ParticleWrapper particleWrap;
+
+namespace Modules {
+	inline Hacks::SunStrikeHighlighter SunStrikeHighlighter{};
+	inline Hacks::SBChargeHighlighter SBChargeHighlighter{};
+}
 
 namespace VMTs {
 	inline std::unique_ptr<VMT> UIEngine = nullptr;
@@ -61,6 +67,12 @@ namespace Hooks {
 				//<< " // " << ent->GetPos2D().x << ' ' << ent->GetPos2D().y
 				<< " -> " << ent << '\n';
 		}
+	}
+	inline void LogModifiers(BaseNpc* npc) {
+		std::cout << "modifiers:\n";
+		for (const auto& modifier : npc->GetModifierManager()->GetModifierList())
+			std::cout << "\t" << modifier->GetName() << '\n';
+		
 	}
 	inline void LogInvAndAbilities(BaseNpc* npc = nullptr) {
 		if (npc == nullptr)
@@ -207,11 +219,13 @@ namespace Hooks {
 
 				UpdateCameraDistance();
 				UpdateWeather();
-				if (Hacks::SunStrikeHighlighter::SunStrikeThinker != nullptr &&
-					Hacks::SunStrikeHighlighter::SunStrikeThinker->GetPos() != Vector3::Zero) {
-					Hacks::SunStrikeHighlighter::DrawEnemySunstrike(Hacks::SunStrikeHighlighter::SunStrikeThinker->GetPos());
+				if (Modules::SunStrikeHighlighter.SunStrikeThinker != nullptr &&
+					Modules::SunStrikeHighlighter.SunStrikeThinker->GetPos() != Vector3::Zero) {
+					Modules::SunStrikeHighlighter.DrawEnemySunstrike(
+						Modules::SunStrikeHighlighter.SunStrikeThinker->GetPos()
+					);
 
-					Hacks::SunStrikeHighlighter::SunStrikeThinker = nullptr;
+					Modules::SunStrikeHighlighter.SunStrikeThinker = nullptr;
 				}
 				if (assignedHero->GetLifeState() == 0) { // if alive
 					// VBE: m_flStartSequenceCycle updates 30 times a second
@@ -268,7 +282,8 @@ namespace Hooks {
 				if (IsKeyPressed(VK_NUMPAD7)) {
 					auto selected = localPlayer->GetSelectedUnits();
 					auto ent = (BaseNpc*)Interfaces::EntitySystem->GetEntity(selected[0]);
-					LogInvAndAbilities(ent);
+					LogModifiers(ent);
+					//LogInvAndAbilities(ent);
 					//auto ab = ent->GetAbilities()[2];
 					//std::cout << std::dec << selected[0] << " " << std::dec<< ab.name << " " << ab.GetAs<BaseAbility>()->GetCooldown() << '\n';
 					//LogEntities();
@@ -312,9 +327,9 @@ namespace Hooks {
 				physicalItems.push_back(ent);
 			else if (TestStringFilters(className, { "BaseNPC" })) {
 				const char* idName = ent->GetIdentity()->GetName();
-				if (Hacks::SunStrikeHighlighter::SunStrikeIncoming && idName == nullptr) {
-					Hacks::SunStrikeHighlighter::SunStrikeIncoming = false;
-					Hacks::SunStrikeHighlighter::SunStrikeThinker = ent;
+				if (Modules::SunStrikeHighlighter.SunStrikeIncoming && idName == nullptr) {
+					Modules::SunStrikeHighlighter.SunStrikeIncoming = false;
+					Modules::SunStrikeHighlighter.SunStrikeThinker = ent;
 				}
 			}
 		}
@@ -474,7 +489,7 @@ namespace Hooks {
 				auto invoker = Interfaces::EntitySystem->GetEntity(handle & 0x7ff); // weird smaller mask
 				if (invoker != nullptr &&
 					invoker->GetTeam() != assignedHero->GetTeam())
-					Hacks::SunStrikeHighlighter::SunStrikeIncoming = true;
+					Modules::SunStrikeHighlighter.SunStrikeIncoming = true;
 
 			}
 		}

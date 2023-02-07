@@ -1,177 +1,180 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Исходные файлы">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Файлы заголовков">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Файлы ресурсов">
+    <Filter Include="Resource files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Файлы заголовков\SigScan">
-      <UniqueIdentifier>{6ee30ea1-c9ed-4aa0-ad23-0bcd6d4a198d}</UniqueIdentifier>
+    <Filter Include="Source files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Файлы заголовков\Hacks">
-      <UniqueIdentifier>{96a775f0-2891-487e-af6c-4c6572e4232a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Interfaces">
-      <UniqueIdentifier>{fb364672-1a12-43f7-8145-9d1ee7b3f4f9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Events">
-      <UniqueIdentifier>{c5887a9e-46bb-400f-8eeb-d5dae5a74f61}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Utils">
-      <UniqueIdentifier>{3a9abafc-4f87-4c4e-9b06-903ef0087f3c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\imgui">
+    <Filter Include="Source files\imgui">
       <UniqueIdentifier>{a7bcb7cb-3760-42c2-9260-76329d21199e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\UI">
+    <Filter Include="Header files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header files\SigScan">
+      <UniqueIdentifier>{6ee30ea1-c9ed-4aa0-ad23-0bcd6d4a198d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\Hacks">
+      <UniqueIdentifier>{96a775f0-2891-487e-af6c-4c6572e4232a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\Interfaces">
+      <UniqueIdentifier>{fb364672-1a12-43f7-8145-9d1ee7b3f4f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\Events">
+      <UniqueIdentifier>{c5887a9e-46bb-400f-8eeb-d5dae5a74f61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\Utils">
+      <UniqueIdentifier>{3a9abafc-4f87-4c4e-9b06-903ef0087f3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\UI">
       <UniqueIdentifier>{b431f54f-3531-4beb-a3ff-d2b837c371dd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Source files</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Header files</Filter>
     </ClCompile>
     <ClCompile Include="patterscan.cpp">
-      <Filter>Файлы заголовков\SigScan</Filter>
+      <Filter>Header files\SigScan</Filter>
     </ClCompile>
     <ClCompile Include="proc.cpp">
-      <Filter>Файлы заголовков\SigScan</Filter>
+      <Filter>Header files\SigScan</Filter>
     </ClCompile>
     <ClCompile Include="include\imgui\imgui.cpp">
-      <Filter>Исходные файлы\imgui</Filter>
+      <Filter>Source files\imgui</Filter>
     </ClCompile>
     <ClCompile Include="include\imgui\imgui_demo.cpp">
-      <Filter>Исходные файлы\imgui</Filter>
+      <Filter>Source files\imgui</Filter>
     </ClCompile>
     <ClCompile Include="include\imgui\imgui_draw.cpp">
-      <Filter>Исходные файлы\imgui</Filter>
+      <Filter>Source files\imgui</Filter>
     </ClCompile>
     <ClCompile Include="include\imgui\imgui_impl_glfw.cpp">
-      <Filter>Исходные файлы\imgui</Filter>
+      <Filter>Source files\imgui</Filter>
     </ClCompile>
     <ClCompile Include="include\imgui\imgui_impl_opengl3.cpp">
-      <Filter>Исходные файлы\imgui</Filter>
+      <Filter>Source files\imgui</Filter>
     </ClCompile>
     <ClCompile Include="include\imgui\imgui_tables.cpp">
-      <Filter>Исходные файлы\imgui</Filter>
+      <Filter>Source files\imgui</Filter>
     </ClCompile>
     <ClCompile Include="include\imgui\imgui_widgets.cpp">
-      <Filter>Исходные файлы\imgui</Filter>
+      <Filter>Source files\imgui</Filter>
     </ClCompile>
     <ClCompile Include="CDOTAParticleManager.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Source files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="vtabler.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="Schema.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="patternscan.h">
-      <Filter>Файлы заголовков\SigScan</Filter>
+      <Filter>Header files\SigScan</Filter>
     </ClInclude>
     <ClInclude Include="proc.h">
-      <Filter>Файлы заголовков\SigScan</Filter>
+      <Filter>Header files\SigScan</Filter>
     </ClInclude>
     <ClInclude Include="Interfaces.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="sdk.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="Signatures.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="Wrappers.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="ConVar.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="dllmain.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="Globals.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="Enums.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="CUtlVector.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="AutoUseMagicWand.h">
-      <Filter>Файлы заголовков\Hacks</Filter>
+      <Filter>Header files\Hacks</Filter>
     </ClInclude>
     <ClInclude Include="AutoUseMidas.h">
-      <Filter>Файлы заголовков\Hacks</Filter>
+      <Filter>Header files\Hacks</Filter>
     </ClInclude>
     <ClInclude Include="CGameEntitySystem.h">
-      <Filter>Файлы заголовков\Interfaces</Filter>
+      <Filter>Header files\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="MatchStateHandling.h">
-      <Filter>Файлы заголовков\Events</Filter>
+      <Filter>Header files\Events</Filter>
     </ClInclude>
     <ClInclude Include="IEngineClient.h">
-      <Filter>Файлы заголовков\Interfaces</Filter>
+      <Filter>Header files\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="AutoBuyTome.h">
-      <Filter>Файлы заголовков\Hacks</Filter>
+      <Filter>Header files\Hacks</Filter>
     </ClInclude>
     <ClInclude Include="ValveClasses.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="AbilityCooldownTracking.h">
-      <Filter>Файлы заголовков\Hacks</Filter>
+      <Filter>Header files\Hacks</Filter>
     </ClInclude>
     <ClInclude Include="Hooks.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="Input.h">
-      <Filter>Файлы заголовков\Utils</Filter>
+      <Filter>Header files\Utils</Filter>
     </ClInclude>
     <ClInclude Include="UIState.h">
-      <Filter>Файлы заголовков\UI</Filter>
+      <Filter>Header files\UI</Filter>
     </ClInclude>
     <ClInclude Include="Config.h">
-      <Filter>Файлы заголовков\UI</Filter>
+      <Filter>Header files\UI</Filter>
     </ClInclude>
     <ClInclude Include="IScriptVM.h">
-      <Filter>Файлы заголовков\Interfaces</Filter>
+      <Filter>Header files\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="CDOTAParticleManager.h">
-      <Filter>Файлы заголовков\Interfaces</Filter>
+      <Filter>Header files\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="include.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="CGameEventManager.h">
-      <Filter>Файлы заголовков\Interfaces</Filter>
+      <Filter>Header files\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="EventListeners.h">
-      <Filter>Файлы заголовков\Interfaces</Filter>
+      <Filter>Header files\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="CInputService.h">
-      <Filter>Файлы заголовков\Interfaces</Filter>
+      <Filter>Header files\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="CBaseFileSystem.h">
-      <Filter>Файлы заголовков\Interfaces</Filter>
+      <Filter>Header files\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="SunStrikeHighlighter.h">
-      <Filter>Файлы заголовков\Hacks</Filter>
+      <Filter>Header files\Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="SpiritBreakerChargeHighlighter.h">
+      <Filter>Header files\Hacks</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

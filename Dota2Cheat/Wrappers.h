@@ -121,6 +121,41 @@ public:
 		return Member<INT8>(Schema::Netvars["C_BaseEntity"]["m_lifeState"]);
 	}
 };
+
+
+class ItemRune : public BaseEntity {
+public:
+	DotaRunes GetRuneType() {
+		return Member<DotaRunes>(0x990);
+	}
+};
+
+class DotaModifier : public VClass {
+public:
+	inline const char* GetName() {
+		return Member<const char*>(0x28);
+	}
+};
+
+class DotaModifierManager : public VClass {
+public:
+	// Returns the original CUtlVector that stores the list
+	inline CUtlVector<DotaModifier*>* GetModifierListRaw() {
+		return (CUtlVector<DotaModifier*>*)((uintptr_t)this + 0x10);
+	}
+	inline std::vector<DotaModifier*> GetModifierList() {
+		auto result = std::vector<DotaModifier*>{};
+
+		auto vecModifiers = (CUtlVector<DotaModifier*>*)((uintptr_t)this + 0x10);
+		for (int i = 0; i < vecModifiers->m_Size; i++)
+			result.push_back(vecModifiers->at(i));
+
+		return result;
+	}
+};
+
+
+
 class BaseNpc : public BaseEntity {
 public:
 	struct ItemOrAbility {
@@ -137,6 +172,12 @@ public:
 			return reinterpret_cast<T*>(Interfaces::EntitySystem->GetEntity(H2IDX(handle)));
 		}
 	};
+
+	inline DotaModifierManager* GetModifierManager() {
+		// Inlined into the object instead of a pointer
+		return (DotaModifierManager*)((uintptr_t)this + Schema::Netvars["C_DOTA_BaseNPC"]["m_ModifierManager"]);
+	}
+
 	// Wrapper function combining the following conditions: 
 	// Is not dormant
 	// Is alive
@@ -289,12 +330,7 @@ public:
 	}
 };
 
-class ItemRune : public BaseEntity {
-public:
-	DotaRunes GetRuneType() {
-		return Member<DotaRunes>(0x990);
-	}
-};
+
 
 class DotaPlayer :public BaseEntity {
 public:

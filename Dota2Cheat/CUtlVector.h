@@ -9,12 +9,22 @@ public:
 	T* m_pElements;
 	uintptr_t m_Capacity;
 
-	T& operator[](int i)
+	inline T& operator[](int i)
 	{
 		return m_pElements[i];
 	}
+	inline T& at(int i) {
+		return m_pElements[i];
+	}
+	inline T& first() {
+		return m_pElements[0];
+	}
+	inline T& last() {
+		return m_pElements[m_Size - 1];
+	}
 
-	[[nodiscard]] int Count() const
+
+	inline [[nodiscard]] int Count() const
 	{
 		return m_Size;
 	}
