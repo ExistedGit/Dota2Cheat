@@ -263,7 +263,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 					ImGui::Checkbox("Show a circle under the hero when visible", &Config::VBEShowParticle);
 				}
 				if (ImGui::CollapsingHeader("Illusion coloring")) {
-					ImGui::ColorEdit3("Circle RGB", &Config::IllusionColor.x);
+					ImGui::ColorEdit3("Color", &Config::IllusionColor.x);
 				}
 				if (ImGui::CollapsingHeader("AutoWand")) {
 					ImGui::Checkbox("Auto-use Faerie Fire and Magic Stick", &Config::AutoWandEnabled);
@@ -275,7 +275,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 					ImGui::SliderInt("Minimum charges", &Config::AutoHealWandMinCharges, 1, 20);
 				}
 				ImGui::Checkbox("Auto-buy Tome of Knowledge", &Config::AutoBuyTome);
-				ImGui::SliderFloat("Camera distance", &Config::CameraDistance, 1000, 2200, "%.1f");
+				ImGui::SliderFloat("Camera distance", &Config::CameraDistance, 1200, 3000, "%.1f");
 
 				ImGui::End();
 

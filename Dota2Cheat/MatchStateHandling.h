@@ -77,6 +77,10 @@ inline void EnteredMatch() {
 }
 inline void LeftMatch() {
 	IsInMatch = false;
+
+	Modules::AutoBuyTome.Reset();
+	Modules::SBChargeHighlighter.Reset();
+	Modules::VBE.Reset();
 	
 	Globals::PlayerResource = nullptr;
 	Globals::GameRules = nullptr;
@@ -94,10 +98,6 @@ inline void LeftMatch() {
 
 	localPlayer = nullptr;
 	assignedHero = nullptr;
-
-	Modules::AutoBuyTome.Reset();
-	Modules::SBChargeHighlighter.Reset();
-	Modules::VBE.Reset();
 
 	players.clear();
 	
