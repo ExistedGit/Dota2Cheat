@@ -1,4 +1,7 @@
 # Dota2Cheat: now with ImGui!
+
+![Screenshot](https://user-images.githubusercontent.com/66470490/217580749-87723f6b-6fa4-4b0d-998a-1c9400c06302.png)
+
 SDK folder code is from another github repo, McDota by LWSS. It's a very helpful source regarding memory structures
 
 Using GLFW, GLEW and ImGui for the interface, cheers to their wonderful creators!
@@ -20,7 +23,7 @@ This list is subject to frequent change as I'm testing new features
   * Tome of Knowledge purchase
   * Redirects spell casts from illusions to the real hero
   * Mana & HP abuse with items like Arcane Boots
-  
+
 * Information:
   * Visible by Enemy — shows a Skyrim-inspired HIDDEN/DETECTED text and/or a particle under your hero
   * Roshan — saves his death time and approximates when he will spawn [WIP]
