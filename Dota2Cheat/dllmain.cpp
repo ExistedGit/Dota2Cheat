@@ -19,6 +19,7 @@
 #include <GLFW/glfw3.h> // Will drag system OpenGL headers
 #include <sstream>
 #include "Config.h"
+#include "DebugFunctions.h"
 
 
 
@@ -241,9 +242,29 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 			ImGui::End();
 
+#ifdef _DEBUG
+			ImGui::Begin("Debug functions", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+			
+			if (ImGui::Button("Log Inventory")) {
+				auto selected = localPlayer->GetSelectedUnits();
+				auto ent = (BaseNpc*)Interfaces::EntitySystem->GetEntity(selected[0]);
+				LogInvAndAbilities(ent);
+			}
+
+			if (ImGui::Button("Log Modifiers")) {
+				auto selected = localPlayer->GetSelectedUnits();
+				auto ent = (BaseNpc*)Interfaces::EntitySystem->GetEntity(selected[0]);
+				LogModifiers(ent);
+			}
+
+			ImGui::End();
+#endif // _DEBUG
+
+
 			if (featuresMenuVisible) {
 				ImGui::Begin("Features", &featuresMenuVisible, ImGuiWindowFlags_::ImGuiWindowFlags_AlwaysAutoResize);
-				if (ImGui::Button("Draw circle around hero"))
+				
+				if (ImGui::Button("Circle drawing"))
 					circleMenuVisible = !circleMenuVisible;
 
 				// https://github.com/SK68-ph/Shadow-Dance-Menu

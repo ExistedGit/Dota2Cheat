@@ -54,47 +54,7 @@ namespace Hooks {
 		return vec;
 	};
 
-	inline void LogEntities() {
-		for (int i = 0; i < Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
-			auto* ent = Interfaces::EntitySystem->GetEntity(i);
-			if (ent == nullptr)
-				continue;
-			//std::cout << ent->SchemaBinding() << '\n';
-			const char* className = ent->SchemaBinding()->binaryName;
-			if (className != nullptr && strstr(className, "Rune"))
-				std::cout << className << ' ' << i
-				//<< " // " << ent->GetPos2D().x << ' ' << ent->GetPos2D().y
-				<< " -> " << ent << '\n';
-		}
-	}
-	inline void LogModifiers(BaseNpc* npc) {
-		std::cout << "modifiers:\n";
-		for (const auto& modifier : npc->GetModifierManager()->GetModifierList())
-			std::cout << "\t" << modifier->GetName() << '\n';
-		
-	}
-	inline void LogInvAndAbilities(BaseNpc* npc = nullptr) {
-		if (npc == nullptr)
-			npc = assignedHero;
-
-		std::cout << std::dec;
-		std::cout << "abilities: " << '\n';
-		for (const auto& ability : npc->GetAbilities()) {
-			if (ability.name != nullptr)
-				std::cout << '\t' << ability.name << " " << H2IDX(ability.handle)
-				//<< " CD: " << ability.GetAs<BaseAbility>()->GetCooldown() 
-				//<< ' ' << std::dec << ability.GetAs<BaseAbility>()->GetEffectiveCastRange()
-				<< ' ' << ability.GetEntity()
-				<< '\n';
-		}
-		std::cout << "inventory: " << '\n';
-		for (const auto& item : npc->GetItems()) {
-			if (item.name != nullptr)
-				std::cout << '\t' << item.name << " " << H2IDX(item.handle)
-				<< ' ' << item.GetEntity()
-				<< '\n';
-		}
-	}
+	
 
 	//inline bool test = false;
 	inline void EntityIteration() {
@@ -220,19 +180,12 @@ namespace Hooks {
 
 					std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
 						<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
-						<< "\n\t" << clamp(ent->GetBaseAttackTime() / ent->GetAttackSpeed(), 0.24, 2) //Signatures::Scripts::GetAttackSpeed(ent, 4)
-						//<< "\n\t" << 
-						//static_cast<int>(
-						//Function(0x00007FF834CC6E80).Execute<float>(nullptr, H2IDX(ent->GetIdentity()->entHandle))
-						//* 100)
-						//<< "\n\t" << "IsAncient: " << ent->IsAncient()
+						<< "\n\tAttack Time: " << clamp(ent->GetBaseAttackTime() / ent->GetAttackSpeed(), 0.24, 2) 
+						<< "\n\t" << "IsRoshan: " << ent->IsRoshan()
 						//<< "\n\t" << "GetCastRangeBonus: " << std::dec << Function(0x00007FFAEE5C0B00).Execute<int>(nullptr, ent->GetIdentity()->entHandle)
 						<< '\n';
 				}
 				if (IsKeyPressed(VK_NUMPAD7)) {
-					auto selected = localPlayer->GetSelectedUnits();
-					auto ent = (BaseNpc*)Interfaces::EntitySystem->GetEntity(selected[0]);
-					LogModifiers(ent);
 					//LogInvAndAbilities(ent);
 					//auto ab = ent->GetAbilities()[2];
 					//std::cout << std::dec << selected[0] << " " << std::dec<< ab.name << " " << ab.GetAs<BaseAbility>()->GetCooldown() << '\n';

@@ -154,8 +154,6 @@ public:
 	}
 };
 
-
-
 class BaseNpc : public BaseEntity {
 public:
 	struct ItemOrAbility {
@@ -191,6 +189,12 @@ public:
 	inline bool IsAncient() {
 		return Member<bool>(Schema::Netvars["C_DOTA_BaseNPC"]["m_bIsAncient"]);
 	}
+
+	//Implemented as a method returning a bool rather than a field
+	inline bool IsRoshan() {
+		return CallVFunc<57, bool>();
+	}
+
 	inline float GetSSC() {
 		return Member<float>(Schema::Netvars["C_DOTA_BaseNPC"]["m_flStartSequenceCycle"]);
 	}
@@ -286,7 +290,14 @@ public:
 	}
 };
 
-class BaseAbility :public BaseEntity {
+// Current stat of Power Treads/Vambrace
+enum class ItemStat_t {
+	STRENGTH,
+	INTELLIGENCE,
+	AGILITY
+};
+
+class BaseAbility : public BaseEntity {
 public:
 	inline float GetCooldown() {
 		return Member<float>(0x5a8);
@@ -296,6 +307,10 @@ public:
 	}
 	inline int GetManaCost() {
 		return Member<int>(0x5b0);
+	}
+
+	inline ItemStat_t GetItemStat() {
+		return Member<ItemStat_t>(0x670);
 	}
 
 	//inline int GetCastRange() {

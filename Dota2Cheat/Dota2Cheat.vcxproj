@@ -189,6 +189,7 @@
     <ClInclude Include="CGameEventManager.h" />
     <ClInclude Include="CInputService.h" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="DebugFunctions.h" />
     <ClInclude Include="EventListeners.h" />
     <ClInclude Include="Hooks.h" />
     <ClInclude Include="IllusionColoring.h" />
