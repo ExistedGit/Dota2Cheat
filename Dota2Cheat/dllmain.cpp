@@ -38,13 +38,14 @@ HANDLE CurProcHandle;
 int CurProcId;
 #pragma endregion
 
-void gotoxy(int x, int y)
-{
-	COORD coord;
-	coord.X = x;
-	coord.Y = y;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-}
+
+//void gotoxy(int x, int y)
+//{
+//	COORD coord;
+//	coord.X = x;
+//	coord.Y = y;
+//	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+//}
 
 
 static void glfw_error_callback(int error, const char* description)
@@ -261,6 +262,9 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 					ImGui::Checkbox("Show HIDDEN/DETECTED text", &Config::VBEShowText);
 					ImGui::Checkbox("Show a circle under the hero when visible", &Config::VBEShowParticle);
 				}
+				if (ImGui::CollapsingHeader("Illusion coloring")) {
+					ImGui::ColorEdit3("Circle RGB", &Config::IllusionColor.x);
+				}
 				if (ImGui::CollapsingHeader("AutoWand")) {
 					ImGui::Checkbox("Auto-use Faerie Fire and Magic Stick", &Config::AutoWandEnabled);
 					ImGui::SliderFloat("Faerie Fire HP Treshold", &Config::AutoHealFaerieFireHPTreshold, 0, 100, "%.1f");
@@ -328,13 +332,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwDestroyWindow(window);
 	glfwTerminate();
 
-	for (auto& pair : CDOTAParticleManager::TrackedParticles) {
-		if (Globals::ParticleManager)
-			Globals::ParticleManager->DestroyParticle(pair.second);
-	}
-
 	if (IsInMatch) {
-		CDOTAParticleManager::TrackedParticles.clear();
+		Modules::VBE.Reset();
 		if (Globals::GameEventManager)
 			for (auto& listener : CGameEventManager::EventListeners)
 				Globals::GameEventManager->RemoveListener(listener.get());

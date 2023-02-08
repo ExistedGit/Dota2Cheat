@@ -4,10 +4,24 @@
 
 namespace Hacks {
 	class SunStrikeHighlighter {
-	public:
-
+	private:
 		BaseEntity* SunStrikeThinker = nullptr;
+	public:
 		bool SunStrikeIncoming = false;
+
+		// Also sets SunStrikeIncoming to false
+		inline void QueueThinker(BaseEntity* thinker) {
+			SunStrikeThinker = thinker;
+			SunStrikeIncoming = false;
+		}
+
+		inline void FrameBasedLogic() {
+			if (SunStrikeThinker != nullptr
+				&& SunStrikeThinker->GetPos() != Vector3::Zero) {
+				DrawEnemySunstrike(SunStrikeThinker->GetPos());
+				SunStrikeThinker = nullptr;
+			}
+		}
 
 		inline void DrawEnemySunstrike(Vector3 pos) {
 			Globals::ParticleManager->CreateParticle(
@@ -18,4 +32,7 @@ namespace Hacks {
 				->SetControlPoint(1, &Vector3::Zero);
 		}
 	};
+}
+namespace Modules {
+	inline Hacks::SunStrikeHighlighter SunStrikeHighlighter{};
 }

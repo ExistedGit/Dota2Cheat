@@ -5,6 +5,7 @@
 #include "Hooks.h"
 #include "AutoBuyTome.h"
 #include "EventListeners.h"
+#include "SpiritBreakerChargeHighlighter.h"
 
 extern bool IsInMatch;
 
@@ -41,13 +42,17 @@ inline void EnteredMatch() {
 	GameState gameState = Globals::GameRules->GetGameState();
 	if (gameState == GameState::DOTA_GAMERULES_PREGAME ||
 		gameState == GameState::DOTA_GAMERULES_GAME_IN_PROGRESS) {
+
 		localPlayer = (DotaPlayer*)Interfaces::EntitySystem->GetEntity(Interfaces::Engine->GetLocalPlayerSlot() + 1);
 		if (localPlayer == nullptr)
 			return;
 		assignedHero = (BaseNpc*)Interfaces::EntitySystem->GetEntity(H2IDX(localPlayer->GetAssignedHeroHandle()));
 		if (assignedHero == nullptr)
 			return;
-		Hacks::AutoBuyTomeInit();
+
+		Modules::SBChargeHighlighter.SubscribeEntity(assignedHero);
+
+		Modules::AutoBuyTome.Init();
 		std::cout << std::hex << "Local Player: " << localPlayer
 			<< "\n\t" << std::dec << "STEAM ID: " << localPlayer->GetSteamID()
 			<< '\n';
@@ -90,7 +95,10 @@ inline void LeftMatch() {
 	localPlayer = nullptr;
 	assignedHero = nullptr;
 
-	CDOTAParticleManager::TrackedParticles.clear();	
+	Modules::AutoBuyTome.Reset();
+	Modules::SBChargeHighlighter.Reset();
+	Modules::VBE.Reset();
+
 	players.clear();
 	
 	std::cout << "LEFT MATCH\n";

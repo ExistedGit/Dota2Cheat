@@ -191,6 +191,7 @@
     <ClInclude Include="Config.h" />
     <ClInclude Include="EventListeners.h" />
     <ClInclude Include="Hooks.h" />
+    <ClInclude Include="IllusionColoring.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="IScriptVM.h" />
     <ClInclude Include="SpiritBreakerChargeHighlighter.h" />
@@ -211,6 +212,7 @@
     <ClInclude Include="proc.h" />
     <ClInclude Include="sdk.h" />
     <ClInclude Include="Signatures.h" />
+    <ClInclude Include="VBE.h" />
     <ClInclude Include="vtabler.h" />
     <ClInclude Include="Wrappers.h" />
   </ItemGroup>

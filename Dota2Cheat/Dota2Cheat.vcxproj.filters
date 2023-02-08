@@ -161,9 +161,6 @@
     <ClInclude Include="CGameEventManager.h">
       <Filter>Header files\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="EventListeners.h">
-      <Filter>Header files\Interfaces</Filter>
-    </ClInclude>
     <ClInclude Include="CInputService.h">
       <Filter>Header files\Interfaces</Filter>
     </ClInclude>
@@ -174,6 +171,15 @@
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
     <ClInclude Include="SpiritBreakerChargeHighlighter.h">
+      <Filter>Header files\Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="EventListeners.h">
+      <Filter>Header files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="VBE.h">
+      <Filter>Header files\Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="IllusionColoring.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
   </ItemGroup>

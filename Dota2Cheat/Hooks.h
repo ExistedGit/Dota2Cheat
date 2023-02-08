@@ -13,17 +13,16 @@
 #include <future>
 #include <algorithm>
 #include <optional>
-#include "SunStrikeHighlighter.h"
+
 #include "SpiritBreakerChargeHighlighter.h"
+#include "SunStrikeHighlighter.h"
+#include "VBE.h"
+#include "IllusionColoring.h"
 
 extern bool IsInMatch;
 extern std::vector<BaseNpc*> enemyHeroes;
 extern CDOTAParticleManager::ParticleWrapper particleWrap;
 
-namespace Modules {
-	inline Hacks::SunStrikeHighlighter SunStrikeHighlighter{};
-	inline Hacks::SBChargeHighlighter SBChargeHighlighter{};
-}
 
 namespace VMTs {
 	inline std::unique_ptr<VMT> UIEngine = nullptr;
@@ -165,23 +164,8 @@ namespace Hooks {
 						localPlayer->PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_PICKUP_RUNE, i, &Vector3::Zero, 0, PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_SELECTED_UNITS, nullptr, false, false);
 				}
 			}
-			else if (strstr(className, "DOTA_Unit_Hero") != nullptr) {
-				auto hero = (BaseNpcHero*)ent;
-				//if (!test) {
-				//	enemyHeroes.push_back(hero);
-				//	test = true;
-				//}
-
-				//std::cout << std::hex;
-
-				if (hero->IsIllusion() &&
-					strstr(className, "CDOTA_Unit_Hero_ArcWarden") == nullptr) {
-					illusionCount++;
-					if (assignedHero->GetTeam() == hero->GetTeam())
-						hero->SetColor(Color(0, 255, 0));
-					else
-						hero->SetColor(Color(255, 0, 0));
-				}
+			else {
+				Modules::IllusionColoring.ColorIfIllusion(ent);
 			}
 
 		}
@@ -190,10 +174,6 @@ namespace Hooks {
 		//gotoxy(0, 5);
 		//std::cout << "Illusions: " << illusionCount;
 	}
-
-	inline float sscCount = 0;
-	inline float sscSum = 0;
-	inline bool visible = false;
 
 	inline void UpdateCameraDistance() {
 		static auto varInfo = CVarSystem::CVar["dota_camera_distance"];
@@ -210,56 +190,26 @@ namespace Hooks {
 	}
 
 	inline void RunFrame(u64 a, u64 b) {
-		const bool inGameStuff = true;
 		static bool isInGame = Interfaces::Engine->IsInGame();
 
 		if (isInGame) {
 			//std::cout << "frame\n";
-			if (inGameStuff && IsInMatch) {
+			if (IsInMatch) {
 
 				UpdateCameraDistance();
 				UpdateWeather();
-				if (Modules::SunStrikeHighlighter.SunStrikeThinker != nullptr &&
-					Modules::SunStrikeHighlighter.SunStrikeThinker->GetPos() != Vector3::Zero) {
-					Modules::SunStrikeHighlighter.DrawEnemySunstrike(
-						Modules::SunStrikeHighlighter.SunStrikeThinker->GetPos()
-					);
+				Modules::SunStrikeHighlighter.FrameBasedLogic();
 
-					Modules::SunStrikeHighlighter.SunStrikeThinker = nullptr;
-				}
 				if (assignedHero->GetLifeState() == 0) { // if alive
 					// VBE: m_flStartSequenceCycle updates 30 times a second
 					// It doesn't update when you are seen(stays at zero)
-					sscSum += assignedHero->GetSSC();
-					sscCount++;
-					if (sscCount == 3) {
-						UIState::HeroVisibleToEnemy = visible = sscSum == 0;
-						sscCount = sscSum = 0;
-					}
-
-					{
-						bool vbeParticleActive = CDOTAParticleManager::TrackedParticles[TRACKED_PARTICLE_VBE].particle != nullptr;
-						if (visible) {
-							if (!vbeParticleActive && Config::VBEShowParticle) {
-								Globals::ParticleManager->CreateParticle(
-									"particles/items5_fx/revenant_brooch_ring_glow.vpcf",
-									CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
-									(BaseEntity*)assignedHero,
-									TRACKED_PARTICLE_VBE
-								).particle
-									->SetControlPoint(0, &Vector3::Zero);
-							}
-						}
-						if ((!visible && vbeParticleActive) || // if not visible and there's a particle
-							(!Config::VBEShowParticle && CDOTAParticleManager::TrackedParticles[ // if the particle was disabled via config
-								TRACKED_PARTICLE_VBE
-							].particle))
-							Globals::ParticleManager->DestroyTrackedParticle(TRACKED_PARTICLE_VBE);
-					}
+					
 
 					AutoUseWandCheck(assignedHero, Config::AutoHealWandHPTreshold, Config::AutoHealWandMinCharges);
 					AutoUseFaerieFireCheck(assignedHero, Config::AutoHealFaerieFireHPTreshold);
-					Hacks::AutoBuyTomeCheck();
+					Modules::AutoBuyTome.FrameBasedLogic();
+					Modules::VBE.FrameBasedLogic();
+					Modules::SBChargeHighlighter.FrameBasedLogic();
 					EntityIteration();
 				}
 #ifdef _DEBUG
@@ -327,10 +277,10 @@ namespace Hooks {
 				physicalItems.push_back(ent);
 			else if (TestStringFilters(className, { "BaseNPC" })) {
 				const char* idName = ent->GetIdentity()->GetName();
-				if (Modules::SunStrikeHighlighter.SunStrikeIncoming && idName == nullptr) {
-					Modules::SunStrikeHighlighter.SunStrikeIncoming = false;
-					Modules::SunStrikeHighlighter.SunStrikeThinker = ent;
-				}
+				if (Modules::SunStrikeHighlighter.SunStrikeIncoming && 
+					idName == nullptr)
+					Modules::SunStrikeHighlighter.QueueThinker(ent);
+				
 			}
 		}
 

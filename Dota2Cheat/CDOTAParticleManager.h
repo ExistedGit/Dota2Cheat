@@ -2,11 +2,6 @@
 #include "sdk.h"
 #include "Wrappers.h"
 
-enum TrackedParticles_t {
-	TRACKED_PARTICLE_NOT_TRACKED = 0,
-	TRACKED_PARTICLE_VBE
-};
-
 // Found via x64dbg
 // Xref "CreateParticle" to a lea rax instruction
 // You must see "pParticleName" below it
@@ -81,7 +76,6 @@ public:
 			info = CDOTAParticleManager::ParticleInfo{};
 		}
 	};
-	static std::map<TrackedParticles_t, CDOTAParticleManager::ParticleWrapper> TrackedParticles;
 	struct ParticleContainer : NormalClass {
 		inline Particle* GetParticle() {
 			return Member<Particle*>(0x10);
@@ -94,9 +88,8 @@ public:
 	uint32_t GetHandle();
 	void IncHandle();
 
-	ParticleWrapper CreateParticle(const char* name, ParticleAttachment_t attachType, BaseEntity* ent, TrackedParticles_t trackType = TRACKED_PARTICLE_NOT_TRACKED);
+	ParticleWrapper CreateParticle(const char* name, ParticleAttachment_t attachType, BaseEntity* ent);
 	void DestroyParticle(uint32_t handle);
 	void DestroyParticle(ParticleWrapper& info);
-	void DestroyTrackedParticle(TrackedParticles_t trackType);
 };
 
