@@ -292,7 +292,7 @@ public:
 
 // Current stat of Power Treads/Vambrace
 enum class ItemStat_t {
-	STRENGTH,
+	STRENGTH = 0,
 	INTELLIGENCE,
 	AGILITY
 };

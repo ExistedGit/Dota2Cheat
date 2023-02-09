@@ -197,6 +197,14 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwMakeContextCurrent(window);
 	glfwSwapInterval(1); // Enable vsync
 
+	{
+		//auto objCache = Interfaces::GCClient->GetObjCache();
+		//auto objTypeCacheList = objCache->GetTypeCacheList();
+		//auto message = objTypeCacheList[1]->GetProtobufSO()->GetPObject();
+		//auto str = message->DebugString();
+
+
+	}
 	// Setup Dear ImGui context
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();
@@ -220,6 +228,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	bool menuVisible = false;
 	bool featuresMenuVisible = false;
 	bool circleMenuVisible = false;
+	int debugEntIdx = 0;
+
 
 	// Main loop
 	while (!glfwWindowShouldClose(window))
@@ -244,7 +254,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 #ifdef _DEBUG
 			ImGui::Begin("Debug functions", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
-			
+
+			if (ImGui::Button("Log Entities")) {
+				LogEntities();
+			}
 			if (ImGui::Button("Log Inventory")) {
 				auto selected = localPlayer->GetSelectedUnits();
 				auto ent = (BaseNpc*)Interfaces::EntitySystem->GetEntity(selected[0]);
@@ -257,13 +270,26 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 				LogModifiers(ent);
 			}
 
+			ImGui::InputInt("Entity index", &debugEntIdx, 1, 10);
+			if (ImGui::Button("Log entity by index")) {
+				auto* ent = Interfaces::EntitySystem->GetEntity(debugEntIdx);
+				if (ent == nullptr)
+					continue;
+				const char* className = ent->SchemaBinding()->binaryName;
+				if (
+					className != nullptr
+					)
+					std::cout << className << ' ' << debugEntIdx
+					<< " -> " << ent << '\n';
+			}
+
 			ImGui::End();
 #endif // _DEBUG
 
 
 			if (featuresMenuVisible) {
 				ImGui::Begin("Features", &featuresMenuVisible, ImGuiWindowFlags_::ImGuiWindowFlags_AlwaysAutoResize);
-				
+
 				if (ImGui::Button("Circle drawing"))
 					circleMenuVisible = !circleMenuVisible;
 
@@ -274,7 +300,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 					UIState::WeatherList,
 					IM_ARRAYSIZE(UIState::WeatherList),
 					3);
-				
+
 				ImGui::Checkbox("Auto-use Hand of Midas", &Config::AutoMidasEnabled);
 				ImGui::Checkbox("Automatically pick up Bounty runes", &Config::AutoRunePickupEnabled);
 

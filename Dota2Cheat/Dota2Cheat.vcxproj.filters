@@ -182,5 +182,14 @@
     <ClInclude Include="IllusionColoring.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
+    <ClInclude Include="DebugFunctions.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="CGCClient.h">
+      <Filter>Header files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="AegisAutoPickup.h">
+      <Filter>Header files\Hacks</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

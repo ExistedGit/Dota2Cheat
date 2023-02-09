@@ -18,6 +18,7 @@
 #include "SunStrikeHighlighter.h"
 #include "VBE.h"
 #include "IllusionColoring.h"
+#include "AegisAutoPickup.h"
 
 extern bool IsInMatch;
 extern std::vector<BaseNpc*> enemyHeroes;
@@ -32,9 +33,6 @@ namespace VMTs {
 	inline std::unique_ptr<VMT> NetChannel = nullptr;
 }
 
-#ifndef u64
-#define u64 unsigned long long
-#endif
 namespace Hooks {
 	typedef BaseEntity* (*OnAddEntityFn)(CEntitySystem*, BaseEntity*, ENT_HANDLE);
 	typedef void (*RunFrameFn)(u64, u64);
@@ -54,7 +52,7 @@ namespace Hooks {
 		return vec;
 	};
 
-	
+
 
 	//inline bool test = false;
 	inline void EntityIteration() {
@@ -77,7 +75,6 @@ namespace Hooks {
 				&& strstr(className, "Creep")) {
 
 				auto creep = (BaseNpc*)ent;
-				//Fvector posHero = assignedHero->GetPos(), posCreep = creep->GetPos();
 
 				//neutral prefixes because Wildwing Ripper and Dark Troll Warlord spawn a tornado and skeletons respectively
 				//they have their summoner's name in them but not the word "neutral"
@@ -101,38 +98,24 @@ namespace Hooks {
 					!creep->IsWaitingToSpawn() &&
 					IsWithinRadius(creep->GetPos2D(), assignedHero->GetPos2D(), midasEnt->GetEffectiveCastRange()) &&
 					TestStringFilters(creep->GetUnitName(), filters)) {
-					//std::cout << creep->GetUnitName() << '\n';
 					midasUsed = true;
 					localPlayer->PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_TARGET, i, &Vector3::Zero, H2IDX(midas), PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, assignedHero);
 				}
 			}
 			else if (Config::AutoRunePickupEnabled && !runePickUp && strstr(className, "C_DOTA_Item_Rune")) {
 				auto* rune = (ItemRune*)ent;
-				//std::cout << "RUNE " << (int)rune->GetRuneType() << ' ' << rune->GetPos2D().x << ' ' << rune->GetPos2D().y
-				//	<< ' ' << IsWithinRadius(rune->GetPos2D(), assignedHero->GetPos2D(), 150.0f)
-				//	<< '\n';
 				if (rune->GetRuneType() == DotaRunes::BOUNTY &&
 					IsWithinRadius(rune->GetPos2D(), assignedHero->GetPos2D(), 150.0f)
 					) {
-					//std::cout << "Rune pickup!\n";
-					//runePickUp = true;
-					if (
-						Interfaces::EntitySystem->GetEntity(
-							localPlayer->GetSelectedUnits()[0]
-						) == assignedHero
-						)
-						localPlayer->PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_PICKUP_RUNE, i, &Vector3::Zero, 0, PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_SELECTED_UNITS, nullptr, false, false);
+					localPlayer->PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_PICKUP_RUNE, i, &Vector3::Zero, 0, PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_HERO_ONLY, assignedHero, false, false);
 				}
 			}
 			else {
 				Modules::IllusionColoring.ColorIfIllusion(ent);
+				Modules::AegisAutoPickup.PickUpIfAegis(ent);
 			}
 
 		}
-		//rainbowIndex++;
-		//rainbowIndex %= rainbow.size();
-		//gotoxy(0, 5);
-		//std::cout << "Illusions: " << illusionCount;
 	}
 
 	inline void UpdateCameraDistance() {
@@ -163,13 +146,14 @@ namespace Hooks {
 				if (assignedHero->GetLifeState() == 0) { // if alive
 					// VBE: m_flStartSequenceCycle updates 30 times a second
 					// It doesn't update when you are seen(stays at zero)
-					
+
 
 					AutoUseWandCheck(assignedHero, Config::AutoHealWandHPTreshold, Config::AutoHealWandMinCharges);
 					AutoUseFaerieFireCheck(assignedHero, Config::AutoHealFaerieFireHPTreshold);
 					Modules::AutoBuyTome.FrameBasedLogic();
 					Modules::VBE.FrameBasedLogic();
 					Modules::SBChargeHighlighter.FrameBasedLogic();
+
 					EntityIteration();
 				}
 #ifdef _DEBUG
@@ -180,7 +164,7 @@ namespace Hooks {
 
 					std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
 						<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
-						<< "\n\tAttack Time: " << clamp(ent->GetBaseAttackTime() / ent->GetAttackSpeed(), 0.24, 2) 
+						<< "\n\tAttack Time: " << clamp(ent->GetBaseAttackTime() / ent->GetAttackSpeed(), 0.24, 2)
 						<< "\n\t" << "IsRoshan: " << ent->IsRoshan()
 						//<< "\n\t" << "GetCastRangeBonus: " << std::dec << Function(0x00007FFAEE5C0B00).Execute<int>(nullptr, ent->GetIdentity()->entHandle)
 						<< '\n';
@@ -226,14 +210,15 @@ namespace Hooks {
 	inline BaseEntity* OnAddEntity(CEntitySystem* thisptr, BaseEntity* ent, ENT_HANDLE handle) {
 		auto className = ent->SchemaBinding()->binaryName;
 		if (className != nullptr) {
-			if (TestStringFilters(className, { "Item_Physical" }))
+			if (TestStringFilters(className, { "Item_Physical" })) {
 				physicalItems.push_back(ent);
+			}
 			else if (TestStringFilters(className, { "BaseNPC" })) {
 				const char* idName = ent->GetIdentity()->GetName();
-				if (Modules::SunStrikeHighlighter.SunStrikeIncoming && 
+				if (Modules::SunStrikeHighlighter.SunStrikeIncoming &&
 					idName == nullptr)
 					Modules::SunStrikeHighlighter.QueueThinker(ent);
-				
+
 			}
 		}
 
@@ -245,11 +230,14 @@ namespace Hooks {
 			physicalItems.erase(iter);
 		return VMTs::Entity->GetOriginalMethod<OnAddEntityFn>(15)(thisptr, ent, handle);
 	}
-	inline Signatures::prepareUnitOrdersFn PrepareUnitOrdersOriginal = nullptr;
 
+	// for MinHook
+	inline Signatures::PrepareUnitOrdersFn PrepareUnitOrdersOriginal = nullptr;
+	inline Signatures::DispatchPacketFn DispatchPacketOriginal = nullptr;
+	inline Signatures::BAsyncSendProtoFn BAsyncSendProtoOriginal = nullptr;
 
 	inline std::future<void> manaAbusePickup;
-	inline void PrepareUnitOrdersHook(DotaPlayer* player, DotaUnitOrder_t orderType, UINT32 targetIndex, Vector3* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, BaseEntity* issuer, bool queue, bool showEffects) {
+	inline void hkPrepareUnitOrders(DotaPlayer* player, DotaUnitOrder_t orderType, UINT32 targetIndex, Vector3* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, BaseEntity* issuer, bool queue, bool showEffects) {
 		//std::cout << "[ORDER] " << player << '\n';
 		bool giveOrder = true; // whether or not the function will continue
 		switch (orderType) {
@@ -376,12 +364,27 @@ namespace Hooks {
 			PrepareUnitOrdersOriginal(player, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
 	}
 
+	inline bool hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandler* handler, google::protobuf::Message* responseMsg, unsigned int respMsgID) {
+#ifdef _DEBUG
+		std::cout << "GCClient Send: " << std::dec << EDOTAGCMsg2String(protobufMsg->msgID) << '\n';
+#endif // _DEBUG
+		return BAsyncSendProtoOriginal(protobufMsg, handler, responseMsg, respMsgID);
+	}
+
+	inline bool hkDispatchPacket(CGCClient* thisptr, IMsgNetPacket* netPacket) {
+#ifdef _DEBUG
+		std::cout << "GCClient Recv: " << std::dec << EDOTAGCMsg2String(netPacket->GetEMsg()) << '\n';
+#endif // _DEBUG
+		return DispatchPacketOriginal(thisptr, netPacket);
+	};
+
 	typedef void (*PostReceivedNetMessageFn)(INetChannel*, NetMessageHandle_t*, google::protobuf::Message*, void const*, int);
-	inline void PostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits) {
+	inline void hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits) {
 
 		NetMessageInfo_t* info = Interfaces::NetworkMessages->GetNetMessageInfo(messageHandle);
 		const char* name = info->pProtobufBinding->GetName();
-		if (strstr(name, "CDOTAEntityMsg_InvokerSpellCast")) {
+		if (messageHandle->messageID == 586) { // CDOTAEntityMsg_InvokerSpellCast
+			auto copy = msg->New();
 			int castActivity = reinterpret_cast<VClass*>(msg)->Member<int>(0x20);
 
 			if (castActivity == 1743) { //sunstrike
@@ -407,17 +410,28 @@ namespace Hooks {
 
 		VMTs::NetChannel = std::unique_ptr<VMT>(new VMT(ret));
 		//VMTs::NetChannel->HookVM(SendNetMessage, 70);
-		VMTs::NetChannel->HookVM(PostReceivedNetMessage, 86);
+		VMTs::NetChannel->HookVM(hkPostReceivedNetMessage, 86);
 		VMTs::NetChannel->ApplyVMT();
 
 		return ret;
 	}
 
+
 	inline void SetUpByteHooks() {
-		if (MH_CreateHook(Signatures::PrepareUnitOrders, &PrepareUnitOrdersHook,
+		if (MH_CreateHook(Signatures::PrepareUnitOrders, &hkPrepareUnitOrders,
 			(LPVOID*)&PrepareUnitOrdersOriginal) != MH_OK ||
 			MH_EnableHook(Signatures::PrepareUnitOrders) != MH_OK)
 			std::cout << "Could not hook PrepareUnitOrders!\n";
+
+		if (MH_CreateHook(Signatures::DispatchPacket, &hkDispatchPacket,
+			(LPVOID*)&DispatchPacketOriginal) != MH_OK ||
+			MH_EnableHook(Signatures::DispatchPacket) != MH_OK)
+			std::cout << "Could not hook DispatchPacket!\n";
+
+		if (MH_CreateHook(Signatures::BAsyncSendProto, &hkBAsyncSendProto,
+			(LPVOID*)&BAsyncSendProtoOriginal) != MH_OK ||
+			MH_EnableHook(Signatures::BAsyncSendProto) != MH_OK)
+			std::cout << "Could not hook BAsyncSendProto!\n";
 	}
 
 	inline void InitVirtualHooks() {
