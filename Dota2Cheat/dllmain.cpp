@@ -185,26 +185,28 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	//glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // 3.2+ only
 	//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);            // 3.0+ only
 
+	{
+		
+		auto objCache = Interfaces::GCClient->GetObjCache();
+		auto objTypeCacheList = objCache->GetTypeCacheList();
+		auto message = objTypeCacheList[1]->GetProtobufSO()->GetPObject();
+		auto str = message->DebugString();
+
+
+	}
+
 	auto* monitor = glfwGetPrimaryMonitor();
 	if (!monitor)
 		return 0;
 
 	auto videoMode = glfwGetVideoMode(monitor);
 
-	GLFWwindow* window = glfwCreateWindow(videoMode->width, videoMode->height, "Dear ImGui GLFW+OpenGL3 example", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(videoMode->width, videoMode->height, "Dota2Cheat", NULL, NULL);
 	if (window == NULL)
 		return 1;
 	glfwMakeContextCurrent(window);
 	glfwSwapInterval(1); // Enable vsync
 
-	{
-		//auto objCache = Interfaces::GCClient->GetObjCache();
-		//auto objTypeCacheList = objCache->GetTypeCacheList();
-		//auto message = objTypeCacheList[1]->GetProtobufSO()->GetPObject();
-		//auto str = message->DebugString();
-
-
-	}
 	// Setup Dear ImGui context
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();
@@ -404,9 +406,9 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 	{
 	case DLL_PROCESS_ATTACH: {
 		//imgui ver
-		const HANDLE thread = CreateThread(0, 0, (LPTHREAD_START_ROUTINE)HackThread, hModule, 0, 0);
-		if (thread) CloseHandle(thread);
-
+		HANDLE thread = CreateThread(0, 0, (LPTHREAD_START_ROUTINE)HackThread, hModule, 0, 0);
+		if (thread) 
+			CloseHandle(thread);
 		break;
 	}
 	case DLL_THREAD_ATTACH:

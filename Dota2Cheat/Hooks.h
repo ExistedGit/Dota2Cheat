@@ -384,7 +384,6 @@ namespace Hooks {
 		NetMessageInfo_t* info = Interfaces::NetworkMessages->GetNetMessageInfo(messageHandle);
 		const char* name = info->pProtobufBinding->GetName();
 		if (messageHandle->messageID == 586) { // CDOTAEntityMsg_InvokerSpellCast
-			auto copy = msg->New();
 			int castActivity = reinterpret_cast<VClass*>(msg)->Member<int>(0x20);
 
 			if (castActivity == 1743) { //sunstrike
@@ -392,7 +391,7 @@ namespace Hooks {
 					->Member<VClass*>(0x18)
 					->Member<ENT_HANDLE>(0x18);
 
-				auto invoker = Interfaces::EntitySystem->GetEntity(handle & 0x7ff); // weird smaller mask
+				auto invoker = Interfaces::EntitySystem->GetEntity(handle & 0x3fff); // weird smaller mask
 				if (invoker != nullptr &&
 					invoker->GetTeam() != assignedHero->GetTeam())
 					Modules::SunStrikeHighlighter.SunStrikeIncoming = true;

@@ -38,15 +38,14 @@
 #ifndef GOOGLE_PROTOBUF_DYNAMIC_MESSAGE_H__
 #define GOOGLE_PROTOBUF_DYNAMIC_MESSAGE_H__
 
-
 #include <algorithm>
 #include <memory>
 #include <unordered_map>
 #include <vector>
 
 #include <google/protobuf/stubs/common.h>
-#include <google/protobuf/stubs/mutex.h>
 #include <google/protobuf/message.h>
+#include <google/protobuf/stubs/mutex.h>
 #include <google/protobuf/reflection.h>
 #include <google/protobuf/repeated_field.h>
 
@@ -54,7 +53,6 @@
 #error "You cannot SWIG proto headers"
 #endif
 
-// Must be included last.
 #include <google/protobuf/port_def.inc>
 
 namespace google {
@@ -96,7 +94,7 @@ class PROTOBUF_EXPORT DynamicMessageFactory : public MessageFactory {
   //   the zero-arg constructor.
   DynamicMessageFactory(const DescriptorPool* pool);
 
-  ~DynamicMessageFactory() override;
+  ~DynamicMessageFactory();
 
   // Call this to tell the DynamicMessageFactory that if it is given a
   // Descriptor d for which:
@@ -184,23 +182,23 @@ class PROTOBUF_EXPORT DynamicMapSorter {
           return first < second;
         }
         case FieldDescriptor::CPPTYPE_INT32: {
-          int32_t first = reflection->GetInt32(*a, field_);
-          int32_t second = reflection->GetInt32(*b, field_);
+          int32 first = reflection->GetInt32(*a, field_);
+          int32 second = reflection->GetInt32(*b, field_);
           return first < second;
         }
         case FieldDescriptor::CPPTYPE_INT64: {
-          int64_t first = reflection->GetInt64(*a, field_);
-          int64_t second = reflection->GetInt64(*b, field_);
+          int64 first = reflection->GetInt64(*a, field_);
+          int64 second = reflection->GetInt64(*b, field_);
           return first < second;
         }
         case FieldDescriptor::CPPTYPE_UINT32: {
-          uint32_t first = reflection->GetUInt32(*a, field_);
-          uint32_t second = reflection->GetUInt32(*b, field_);
+          uint32 first = reflection->GetUInt32(*a, field_);
+          uint32 second = reflection->GetUInt32(*b, field_);
           return first < second;
         }
         case FieldDescriptor::CPPTYPE_UINT64: {
-          uint64_t first = reflection->GetUInt64(*a, field_);
-          uint64_t second = reflection->GetUInt64(*b, field_);
+          uint64 first = reflection->GetUInt64(*a, field_);
+          uint64 second = reflection->GetUInt64(*b, field_);
           return first < second;
         }
         case FieldDescriptor::CPPTYPE_STRING: {
