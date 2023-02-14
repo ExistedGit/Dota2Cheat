@@ -36,7 +36,6 @@ namespace Hacks {
 					int newElementAmount = buffList->m_Size - trackingInfo.prevModifierCount;
 
 					for (int i = buffList->m_Size - newElementAmount; i < buffList->m_Size; i++) {
-
 						auto buffName = buffList->at(i)->GetName(); // checking the name of the new buff
 
 						if (strstr(buffName, "modifier_spirit_breaker_charge_of_darkness_vision")) {

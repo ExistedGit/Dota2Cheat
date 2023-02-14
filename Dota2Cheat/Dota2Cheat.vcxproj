@@ -71,10 +71,16 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)Build\</OutDir>
+    <OutDir>$(SolutionDir)Build\$(Configuration)</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)Build\</OutDir>
+    <OutDir>$(SolutionDir)Build\$(Configuration)</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)Build\$(Configuration)</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)Build\$(Configuration)</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -129,9 +135,10 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <OutputFile>$(OutDir)Debug\$(TargetName)$(TargetExt)</OutputFile>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;libprotobufd.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)lib\</AdditionalLibraryDirectories>
+      <AdditionalOptions>/NODEFAULTLIB:library %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -154,7 +161,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <OutputFile>$(OutDir)Release\$(TargetName)$(TargetExt)</OutputFile>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;libprotobuf.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)lib\</AdditionalLibraryDirectories>
     </Link>
@@ -180,6 +187,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbilityCooldownTracking.h" />
+    <ClInclude Include="AegisAutoPickup.h" />
     <ClInclude Include="AutoBuyTome.h" />
     <ClInclude Include="AutoUseMagicWand.h" />
     <ClInclude Include="AutoUseMidas.h" />
@@ -187,6 +195,7 @@
     <ClInclude Include="CDOTAParticleManager.h" />
     <ClInclude Include="CGameEntitySystem.h" />
     <ClInclude Include="CGameEventManager.h" />
+    <ClInclude Include="CGCClient.h" />
     <ClInclude Include="CInputService.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="DebugFunctions.h" />

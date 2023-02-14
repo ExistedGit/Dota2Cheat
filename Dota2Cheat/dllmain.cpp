@@ -185,13 +185,23 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	//glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // 3.2+ only
 	//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);            // 3.0+ only
 
+	{
+		
+		auto objCache = Interfaces::GCClient->GetObjCache();
+		auto objTypeCacheList = objCache->GetTypeCacheList();
+		auto message = objTypeCacheList[1]->GetProtobufSO()->GetPObject();
+		auto str = message->DebugString();
+
+
+	}
+
 	auto* monitor = glfwGetPrimaryMonitor();
 	if (!monitor)
 		return 0;
 
 	auto videoMode = glfwGetVideoMode(monitor);
 
-	GLFWwindow* window = glfwCreateWindow(videoMode->width, videoMode->height, "Dear ImGui GLFW+OpenGL3 example", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(videoMode->width, videoMode->height, "Dota2Cheat", NULL, NULL);
 	if (window == NULL)
 		return 1;
 	glfwMakeContextCurrent(window);
@@ -220,6 +230,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	bool menuVisible = false;
 	bool featuresMenuVisible = false;
 	bool circleMenuVisible = false;
+	int debugEntIdx = 0;
+
 
 	// Main loop
 	while (!glfwWindowShouldClose(window))
@@ -244,7 +256,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 #ifdef _DEBUG
 			ImGui::Begin("Debug functions", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
-			
+
+			if (ImGui::Button("Log Entities")) {
+				LogEntities();
+			}
 			if (ImGui::Button("Log Inventory")) {
 				auto selected = localPlayer->GetSelectedUnits();
 				auto ent = (BaseNpc*)Interfaces::EntitySystem->GetEntity(selected[0]);
@@ -257,13 +272,26 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 				LogModifiers(ent);
 			}
 
+			ImGui::InputInt("Entity index", &debugEntIdx, 1, 10);
+			if (ImGui::Button("Log entity by index")) {
+				auto* ent = Interfaces::EntitySystem->GetEntity(debugEntIdx);
+				if (ent == nullptr)
+					continue;
+				const char* className = ent->SchemaBinding()->binaryName;
+				if (
+					className != nullptr
+					)
+					std::cout << className << ' ' << debugEntIdx
+					<< " -> " << ent << '\n';
+			}
+
 			ImGui::End();
 #endif // _DEBUG
 
 
 			if (featuresMenuVisible) {
 				ImGui::Begin("Features", &featuresMenuVisible, ImGuiWindowFlags_::ImGuiWindowFlags_AlwaysAutoResize);
-				
+
 				if (ImGui::Button("Circle drawing"))
 					circleMenuVisible = !circleMenuVisible;
 
@@ -274,7 +302,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 					UIState::WeatherList,
 					IM_ARRAYSIZE(UIState::WeatherList),
 					3);
-				
+
 				ImGui::Checkbox("Auto-use Hand of Midas", &Config::AutoMidasEnabled);
 				ImGui::Checkbox("Automatically pick up Bounty runes", &Config::AutoRunePickupEnabled);
 
@@ -378,9 +406,9 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 	{
 	case DLL_PROCESS_ATTACH: {
 		//imgui ver
-		const HANDLE thread = CreateThread(0, 0, (LPTHREAD_START_ROUTINE)HackThread, hModule, 0, 0);
-		if (thread) CloseHandle(thread);
-
+		HANDLE thread = CreateThread(0, 0, (LPTHREAD_START_ROUTINE)HackThread, hModule, 0, 0);
+		if (thread) 
+			CloseHandle(thread);
 		break;
 	}
 	case DLL_THREAD_ATTACH:

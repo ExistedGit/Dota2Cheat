@@ -5,6 +5,10 @@
 #include "Config.h"
 
 namespace Hacks {
+	// C_DOTA_BaseNPC's m_startSequenceCycle is set to 0 if you are visible
+	// It updates 30 times a second, thus if we check it at 60FPS it needs to be 0 three times in a row
+	// This netvar is also briefly zeroed if you order the unit to move to the exact position they stand at,
+	// suggesting it's not only responsible for VBE
 	class VisibleByEnemy {
 	private:
 		int sscCount = 0;

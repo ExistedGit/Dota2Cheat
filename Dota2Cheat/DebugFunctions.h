@@ -10,7 +10,10 @@ inline void LogEntities() {
 			continue;
 		//std::cout << ent->SchemaBinding() << '\n';
 		const char* className = ent->SchemaBinding()->binaryName;
-		if (className != nullptr && strstr(className, "Rune"))
+		if (
+			className != nullptr
+			//&& strstr(className, "Rune")
+			)
 			std::cout << className << ' ' << i
 			//<< " // " << ent->GetPos2D().x << ' ' << ent->GetPos2D().y
 			<< " -> " << ent << '\n';

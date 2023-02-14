@@ -1114,111 +1114,123 @@ enum EDOTAGCMsg : int {
     k_EMsgProfileRequest = 8268,
     k_EMsgProfileResponse = 8269,
     k_EMsgProfileUpdate = 8270,
-    k_EMsgProfileUpdateResponse = 8271,
-    k_EMsgSuccessfulHero = 8273,
-    k_EMsgHeroGlobalDataRequest = 8274,
-    k_EMsgHeroGlobalDataResponse = 8275,
-    k_EMsgClientToGCRequestPlusWeeklyChallengeResult = 8276,
-    k_EMsgClientToGCRequestPlusWeeklyChallengeResultResponse = 8277,
-    k_EMsgGCToGCGrantPlusPrepaidTime = 8278,
-    k_EMsgPrivateMetadataKeyRequest = 8279,
-    k_EMsgPrivateMetadataKeyResponse = 8280,
-    k_EMsgGCToGCReconcilePlusStatus = 8281,
-    k_EMsgGCToGCCheckPlusStatus = 8282,
-    k_EMsgGCToGCCheckPlusStatusResponse = 8283,
-    k_EMsgGCToGCReconcilePlusAutoGrantItems = 8284,
-    k_EMsgGCToGCReconcilePlusStatusUnreliable = 8285,
-    k_EMsgActivatePlusFreeTrialRequest = 8286,
-    k_EMsgActivatePlusFreeTrialResponse = 8287,
-    k_EMsgGCToClientCavernCrawlMapPathCompleted = 8288,
-    k_EMsgClientToGCCavernCrawlClaimRoom = 8289,
-    k_EMsgClientToGCCavernCrawlClaimRoomResponse = 8290,
-    k_EMsgClientToGCCavernCrawlUseItemOnRoom = 8291,
-    k_EMsgClientToGCCavernCrawlUseItemOnRoomResponse = 8292,
-    k_EMsgClientToGCCavernCrawlUseItemOnPath = 8293,
-    k_EMsgClientToGCCavernCrawlUseItemOnPathResponse = 8294,
-    k_EMsgClientToGCCavernCrawlRequestMapState = 8295,
-    k_EMsgClientToGCCavernCrawlRequestMapStateResponse = 8296,
-    k_EMsgSignOutTips = 8297,
-    k_EMsgClientToGCRequestEventPointLogV2 = 8298,
-    k_EMsgClientToGCRequestEventPointLogResponseV2 = 8299,
-    k_EMsgClientToGCRequestEventTipsSummary = 8300,
-    k_EMsgClientToGCRequestEventTipsSummaryResponse = 8301,
-    k_EMsgHeroGlobalDataAllHeroes = 8302,
-    k_EMsgClientToGCRequestSocialFeed = 8303,
-    k_EMsgClientToGCRequestSocialFeedResponse = 8304,
-    k_EMsgClientToGCRequestSocialFeedComments = 8305,
-    k_EMsgClientToGCRequestSocialFeedCommentsResponse = 8306,
-    k_EMsgClientToGCCavernCrawlGetClaimedRoomCount = 8308,
-    k_EMsgClientToGCCavernCrawlGetClaimedRoomCountResponse = 8309,
-    k_EMsgGCToGCReconcilePlusAutoGrantItemsUnreliable = 8310,
-    k_EMsgServerToGCAddBroadcastTimelineEvent = 8311,
-    k_EMsgGCToServerUpdateSteamBroadcasting = 8312,
-    k_EMsgClientToGCRecordContestVote = 8313,
-    k_EMsgGCToClientRecordContestVoteResponse = 8314,
-    k_EMsgGCToGCGrantAutograph = 8315,
-    k_EMsgGCToGCGrantAutographResponse = 8316,
-    k_EMsgSignOutConsumableUsage = 8317,
-    k_EMsgLobbyEventGameDetails = 8318,
-    k_EMsgDevGrantEventPoints = 8319,
-    k_EMsgDevGrantEventPointsResponse = 8320,
-    k_EMsgDevGrantEventAction = 8321,
-    k_EMsgDevGrantEventActionResponse = 8322,
-    k_EMsgDevResetEventState = 8323,
-    k_EMsgDevResetEventStateResponse = 8324,
-    k_EMsgGCToGCReconcileEventOwnership = 8325,
-    k_EMsgConsumeEventSupportGrantItem = 8326,
-    k_EMsgConsumeEventSupportGrantItemResponse = 8327,
-    k_EMsgGCToClientClaimEventActionUsingItemCompleted = 8328,
-    k_EMsgGCToClientCavernCrawlMapUpdated = 8329,
-    k_EMsgServerToGCRequestPlayerRecentAccomplishments = 8330,
-    k_EMsgServerToGCRequestPlayerRecentAccomplishmentsResponse = 8331,
-    k_EMsgClientToGCRequestPlayerRecentAccomplishments = 8332,
-    k_EMsgClientToGCRequestPlayerRecentAccomplishmentsResponse = 8333,
-    k_EMsgClientToGCRequestPlayerHeroRecentAccomplishments = 8334,
-    k_EMsgClientToGCRequestPlayerHeroRecentAccomplishmentsResponse = 8335,
-    k_EMsgSignOutEventActionGrants = 8336,
-    k_EMsgClientToGCRequestPlayerCoachMatches = 8337,
-    k_EMsgClientToGCRequestPlayerCoachMatchesResponse = 8338,
-    k_EMsgClientToGCGetTicketCodesRequest = 8339,
-    k_EMsgClientToGCGetTicketCodesResponse = 8340,
-    k_EMsgClientToGCSubmitCoachTeammateRating = 8341,
-    k_EMsgClientToGCSubmitCoachTeammateRatingResponse = 8342,
-    k_EMsgGCToClientCoachTeammateRatingsChanged = 8343,
-    k_EMsgClientToGCVoteForLeagueGameMVP = 8344,
-    k_EMsgClientToGCRequestPlayerCoachMatch = 8345,
-    k_EMsgClientToGCRequestPlayerCoachMatchResponse = 8346,
-    k_EMsgClientToGCRequestContestVotes = 8347,
-    k_EMsgClientToGCRequestContestVotesResponse = 8348,
-    k_EMsgClientToGCMVPVoteTimeout = 8349,
-    k_EMsgClientToGCMVPVoteTimeoutResponse = 8350,
-    k_EMsgClientToGCGetUnderlordsCDKeyRequest = 8351,
-    k_EMsgClientToGCGetUnderlordsCDKeyResponse = 8352,
-    k_EMsgDetailedGameStats = 8353,
-    k_EMsgClientToGCSetFavoriteAllStarPlayer = 8354,
-    k_EMsgClientToGCSetFavoriteAllStarPlayerResponse = 8355,
-    k_EMsgAllStarStats = 8356,
-    k_EMsgClientToGCGetFavoriteAllStarPlayerRequest = 8357,
-    k_EMsgClientToGCGetFavoriteAllStarPlayerResponse = 8358,
-    k_EMsgClientToGCVerifyIntegrity = 8359,
-    k_EMsgMatchMatchmakingStats = 8360,
-    k_EMsgClientToGCSubmitPlayerMatchSurvey = 8361,
-    k_EMsgClientToGCSubmitPlayerMatchSurveyResponse = 8362,
-    k_EMsgSQLGCToGCGrantAllHeroProgressAccount = 8363,
-    k_EMsgSQLGCToGCGrantAllHeroProgressVictory = 8364,
-    k_eMsgGCToGCGetAllHeroCurrent = 8635,
-    k_eMsgGCToGCGetAllHeroCurrentResponse = 8636,
-    k_EMsgGCSubmitPlayerAvoidRequest = 8637,
-    k_EMsgGCSubmitPlayerAvoidRequestResponse = 8638,
-    k_EMsgGCToClientNotificationsUpdated = 8639,
-    k_EMsgGCtoGCAssociatedExploiterAccountInfo = 8640,
-    k_EMsgGCtoGCAssociatedExploiterAccountInfoResponse = 8641,
-    k_EMsgGCtoGCRequestRecalibrationCheck = 8642,
+k_EMsgProfileUpdateResponse = 8271,
+k_EMsgSuccessfulHero = 8273,
+k_EMsgHeroGlobalDataRequest = 8274,
+k_EMsgHeroGlobalDataResponse = 8275,
+k_EMsgClientToGCRequestPlusWeeklyChallengeResult = 8276,
+k_EMsgClientToGCRequestPlusWeeklyChallengeResultResponse = 8277,
+k_EMsgGCToGCGrantPlusPrepaidTime = 8278,
+k_EMsgPrivateMetadataKeyRequest = 8279,
+k_EMsgPrivateMetadataKeyResponse = 8280,
+k_EMsgGCToGCReconcilePlusStatus = 8281,
+k_EMsgGCToGCCheckPlusStatus = 8282,
+k_EMsgGCToGCCheckPlusStatusResponse = 8283,
+k_EMsgGCToGCReconcilePlusAutoGrantItems = 8284,
+k_EMsgGCToGCReconcilePlusStatusUnreliable = 8285,
+k_EMsgActivatePlusFreeTrialRequest = 8286,
+k_EMsgActivatePlusFreeTrialResponse = 8287,
+k_EMsgGCToClientCavernCrawlMapPathCompleted = 8288,
+k_EMsgClientToGCCavernCrawlClaimRoom = 8289,
+k_EMsgClientToGCCavernCrawlClaimRoomResponse = 8290,
+k_EMsgClientToGCCavernCrawlUseItemOnRoom = 8291,
+k_EMsgClientToGCCavernCrawlUseItemOnRoomResponse = 8292,
+k_EMsgClientToGCCavernCrawlUseItemOnPath = 8293,
+k_EMsgClientToGCCavernCrawlUseItemOnPathResponse = 8294,
+k_EMsgClientToGCCavernCrawlRequestMapState = 8295,
+k_EMsgClientToGCCavernCrawlRequestMapStateResponse = 8296,
+k_EMsgSignOutTips = 8297,
+k_EMsgClientToGCRequestEventPointLogV2 = 8298,
+k_EMsgClientToGCRequestEventPointLogResponseV2 = 8299,
+k_EMsgClientToGCRequestEventTipsSummary = 8300,
+k_EMsgClientToGCRequestEventTipsSummaryResponse = 8301,
+k_EMsgHeroGlobalDataAllHeroes = 8302,
+k_EMsgClientToGCRequestSocialFeed = 8303,
+k_EMsgClientToGCRequestSocialFeedResponse = 8304,
+k_EMsgClientToGCRequestSocialFeedComments = 8305,
+k_EMsgClientToGCRequestSocialFeedCommentsResponse = 8306,
+k_EMsgClientToGCCavernCrawlGetClaimedRoomCount = 8308,
+k_EMsgClientToGCCavernCrawlGetClaimedRoomCountResponse = 8309,
+k_EMsgGCToGCReconcilePlusAutoGrantItemsUnreliable = 8310,
+k_EMsgServerToGCAddBroadcastTimelineEvent = 8311,
+k_EMsgGCToServerUpdateSteamBroadcasting = 8312,
+k_EMsgClientToGCRecordContestVote = 8313,
+k_EMsgGCToClientRecordContestVoteResponse = 8314,
+k_EMsgGCToGCGrantAutograph = 8315,
+k_EMsgGCToGCGrantAutographResponse = 8316,
+k_EMsgSignOutConsumableUsage = 8317,
+k_EMsgLobbyEventGameDetails = 8318,
+k_EMsgDevGrantEventPoints = 8319,
+k_EMsgDevGrantEventPointsResponse = 8320,
+k_EMsgDevGrantEventAction = 8321,
+k_EMsgDevGrantEventActionResponse = 8322,
+k_EMsgDevResetEventState = 8323,
+k_EMsgDevResetEventStateResponse = 8324,
+k_EMsgGCToGCReconcileEventOwnership = 8325,
+k_EMsgConsumeEventSupportGrantItem = 8326,
+k_EMsgConsumeEventSupportGrantItemResponse = 8327,
+k_EMsgGCToClientClaimEventActionUsingItemCompleted = 8328,
+k_EMsgGCToClientCavernCrawlMapUpdated = 8329,
+k_EMsgServerToGCRequestPlayerRecentAccomplishments = 8330,
+k_EMsgServerToGCRequestPlayerRecentAccomplishmentsResponse = 8331,
+k_EMsgClientToGCRequestPlayerRecentAccomplishments = 8332,
+k_EMsgClientToGCRequestPlayerRecentAccomplishmentsResponse = 8333,
+k_EMsgClientToGCRequestPlayerHeroRecentAccomplishments = 8334,
+k_EMsgClientToGCRequestPlayerHeroRecentAccomplishmentsResponse = 8335,
+k_EMsgSignOutEventActionGrants = 8336,
+k_EMsgClientToGCRequestPlayerCoachMatches = 8337,
+k_EMsgClientToGCRequestPlayerCoachMatchesResponse = 8338,
+k_EMsgClientToGCGetTicketCodesRequest = 8339,
+k_EMsgClientToGCGetTicketCodesResponse = 8340,
+k_EMsgClientToGCSubmitCoachTeammateRating = 8341,
+k_EMsgClientToGCSubmitCoachTeammateRatingResponse = 8342,
+k_EMsgGCToClientCoachTeammateRatingsChanged = 8343,
+k_EMsgClientToGCVoteForLeagueGameMVP = 8344,
+k_EMsgClientToGCRequestPlayerCoachMatch = 8345,
+k_EMsgClientToGCRequestPlayerCoachMatchResponse = 8346,
+k_EMsgClientToGCRequestContestVotes = 8347,
+k_EMsgClientToGCRequestContestVotesResponse = 8348,
+k_EMsgClientToGCMVPVoteTimeout = 8349,
+k_EMsgClientToGCMVPVoteTimeoutResponse = 8350,
+k_EMsgClientToGCGetUnderlordsCDKeyRequest = 8351,
+k_EMsgClientToGCGetUnderlordsCDKeyResponse = 8352,
+k_EMsgDetailedGameStats = 8353,
+k_EMsgClientToGCSetFavoriteAllStarPlayer = 8354,
+k_EMsgClientToGCSetFavoriteAllStarPlayerResponse = 8355,
+k_EMsgAllStarStats = 8356,
+k_EMsgClientToGCGetFavoriteAllStarPlayerRequest = 8357,
+k_EMsgClientToGCGetFavoriteAllStarPlayerResponse = 8358,
+k_EMsgClientToGCVerifyIntegrity = 8359,
+k_EMsgMatchMatchmakingStats = 8360,
+k_EMsgClientToGCSubmitPlayerMatchSurvey = 8361,
+k_EMsgClientToGCSubmitPlayerMatchSurveyResponse = 8362,
+k_EMsgSQLGCToGCGrantAllHeroProgressAccount = 8363,
+k_EMsgSQLGCToGCGrantAllHeroProgressVictory = 8364,
+k_eMsgGCToGCGetAllHeroCurrent = 8635,
+k_eMsgGCToGCGetAllHeroCurrentResponse = 8636,
+k_EMsgGCSubmitPlayerAvoidRequest = 8637,
+k_EMsgGCSubmitPlayerAvoidRequestResponse = 8638,
+k_EMsgGCToClientNotificationsUpdated = 8639,
+k_EMsgGCtoGCAssociatedExploiterAccountInfo = 8640,
+k_EMsgGCtoGCAssociatedExploiterAccountInfoResponse = 8641,
+k_EMsgGCtoGCRequestRecalibrationCheck = 8642,
+
+// New ones
+k_EMsgGCToClientAccountGuildEventDataUpdated = 8689,
+k_EMsgClientToGCEquipItems = 2569,
+k_EMsgClientToGCEquipItemsResponse = 2570,
+k_ESOMsg_UpdateMultiple = 26,
+k_EMsgClientToGCRequestAccountGuildPersonaInfoResponse = 8728,
 };
 
 inline std::string EDOTAGCMsg2String( EDOTAGCMsg msg )
 {
     switch( msg ){
+        CASE_STD_STRING(k_EMsgClientToGCEquipItems);
+        CASE_STD_STRING(k_EMsgClientToGCRequestAccountGuildPersonaInfoResponse);
+        CASE_STD_STRING(k_EMsgGCToClientAccountGuildEventDataUpdated);
+        CASE_STD_STRING(k_EMsgClientToGCEquipItemsResponse);
+        CASE_STD_STRING(k_ESOMsg_UpdateMultiple);
         CASE_STD_STRING(k_EMsgGCDOTABase);
         CASE_STD_STRING(k_EMsgGCGeneralResponse);
         CASE_STD_STRING(k_EMsgGCGameMatchSignOut);
@@ -2136,35 +2148,34 @@ public:
     void *pubData;
 };
 
-class IMsgNetPacket
-{
-public:
-    virtual void DESTROY() = 0;
-    virtual void DESTROY2() = 0;
-    virtual void DestroyThis(void) = 0;
-    virtual int GetEMsgFormatType(void) = 0;
-    virtual CNetPacket* GetCNetPacket(void) = 0;
-    virtual const uint8_t *PubData(void) = 0; // Pointer-Unsigned-Byte Data
-    virtual uint32_t CubData(void) = 0; // Count-Unsigned-Byte Data - u can find some of this in the steamworks sdk
-    virtual EDOTAGCMsg GetEMsg(void) = 0;
-    virtual int GetSourceJobID(void) = 0;
-    virtual unsigned long long GetTargetJobID(void) = 0;
-    virtual void SetTargetJobID(unsigned long long) = 0;
-    virtual int64_t GetSteamID(void) = 0;
-    virtual void SetSteamID(int64_t CSteamID) = 0;
-    virtual unsigned int GetSourceAppID(void) = 0;
-    virtual void SetSourceAppID(unsigned int) = 0;
-    virtual bool BHasTargetJobName(void) = 0;
-    virtual const char *GetTargetJobName(void) = 0;
-
-    inline void GetMsgBody( const uint8_t **msg, uint32_t *msgSize )
-    {
-        unsigned int messageSize = *(unsigned int*)(this->PubData() + 4);
-        messageSize += 8; // min size
-        *msg = this->PubData() + messageSize;
-        *msgSize = this->CubData() - messageSize;
-    }
-};
+//class IMsgNetPacket
+//{
+//public:
+//    virtual void DESTROY() = 0;
+//    virtual void DestroyThis(void) = 0;
+//    virtual int GetEMsgFormatType(void) = 0;
+//    virtual CNetPacket* GetCNetPacket(void) = 0;
+//    virtual const uint8_t *PubData(void) = 0; // Pointer-Unsigned-Byte Data
+//    virtual uint32_t CubData(void) = 0; // Count-Unsigned-Byte Data - u can find some of this in the steamworks sdk
+//    virtual EDOTAGCMsg GetEMsg(void) = 0;
+//    virtual int GetSourceJobID(void) = 0;
+//    virtual unsigned long long GetTargetJobID(void) = 0;
+//    virtual void SetTargetJobID(unsigned long long) = 0;
+//    virtual int64_t GetSteamID(void) = 0;
+//    virtual void SetSteamID(int64_t CSteamID) = 0;
+//    virtual unsigned int GetSourceAppID(void) = 0;
+//    virtual void SetSourceAppID(unsigned int) = 0;
+//    virtual bool BHasTargetJobName(void) = 0;
+//    virtual const char *GetTargetJobName(void) = 0;
+//
+//    inline void GetMsgBody( const uint8_t **msg, uint32_t *msgSize )
+//    {
+//        unsigned int messageSize = *(unsigned int*)(this->PubData() + 4);
+//        messageSize += 8; // min size
+//        *msg = this->PubData() + messageSize;
+//        *msgSize = this->CubData() - messageSize;
+//    }
+//};
 
 class CMsgProtoBufHeader;
 class IProtoBufSendHandler
