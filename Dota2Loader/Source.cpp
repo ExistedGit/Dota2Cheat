@@ -1,14 +1,16 @@
 #include <iostream>
 #include <Windows.h>
 #include <filesystem>
+#include <vector>
 
 using namespace std;
 using std::filesystem::current_path;
 
 int main() {
 	const string curDir = current_path().string();
-	const string path = (curDir + "\\Dota2Cheat.dll");
-	LPCSTR DllPath = path.c_str();
+	const vector<string> injectPaths{
+		curDir + "\\Dota2Cheat.dll"
+	};
 	auto handle = FindWindow(nullptr, L"Dota 2");
 	if (!handle) {
 		cout << "Dota 2 is not running!";
@@ -23,19 +25,23 @@ int main() {
 
 	HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, procId);
 
-	LPVOID pDllPath = VirtualAllocEx(hProcess, 0, strlen(DllPath) + 1,
-		MEM_COMMIT, PAGE_READWRITE);
+	for (auto& path : injectPaths) {
+		LPCSTR DllPath = path.c_str();
 
-	WriteProcessMemory(hProcess, pDllPath, (LPVOID)DllPath,
-		strlen(DllPath) + 1, 0);
+		LPVOID pDllPath = VirtualAllocEx(hProcess, 0, strlen(DllPath) + 1,
+			MEM_COMMIT, PAGE_READWRITE);
 
-	HANDLE hLoadThread = CreateRemoteThread(hProcess, 0, 0,
-		(LPTHREAD_START_ROUTINE)GetProcAddress(GetModuleHandleA("Kernel32.dll"),
-			"LoadLibraryA"), pDllPath, 0, 0);
+		WriteProcessMemory(hProcess, pDllPath, (LPVOID)DllPath,
+			strlen(DllPath) + 1, 0);
 
-	WaitForSingleObject(hLoadThread, INFINITE);
+		HANDLE hLoadThread = CreateRemoteThread(hProcess, 0, 0,
+			(LPTHREAD_START_ROUTINE)GetProcAddress(GetModuleHandleA("Kernel32.dll"),
+				"LoadLibraryA"), pDllPath, 0, 0);
 
-	VirtualFreeEx(hProcess, pDllPath, strlen(DllPath) + 1, MEM_RELEASE);
+		WaitForSingleObject(hLoadThread, INFINITE);
+		VirtualFreeEx(hProcess, pDllPath, strlen(DllPath) + 1, MEM_RELEASE);
+	}
+
 
 	cout << "Injection successful.\n";
 	system("pause");

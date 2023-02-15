@@ -1,5 +1,6 @@
 #pragma once
 #include "sdk.h"
+#include <functional>
 
 #define MAX_ENTITIES_IN_LIST 512
 #define MAX_ENTITY_LISTS 64 // 0x3F
@@ -102,6 +103,11 @@ public:
 		//}
 
 		return identity;
+	}
+	inline void ForEachEntity(std::function<void(BaseEntity*)> callback) {
+		for (int i = 0; i <= this->GetHighestEntityIndex(); i++)
+			callback(GetEntity(i));
+		
 	}
 	template<typename T = BaseEntity>
 	inline T* GetEntity(int index)

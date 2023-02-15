@@ -5,6 +5,7 @@
 #include "Hooks.h"
 #include "AutoBuyTome.h"
 #include "EventListeners.h"
+#include "DebugFunctions.h"
 #include "SpiritBreakerChargeHighlighter.h"
 
 extern bool IsInMatch;
@@ -62,16 +63,21 @@ inline void EnteredMatch() {
 		//FillPlayerList();
 
 
-		auto ptr = new RoshanListener();
-		ptr->gameStartTime = Globals::GameRules->GetGameTime();
-		CGameEventManager::EventListeners.push_back(std::unique_ptr<RoshanListener>(ptr));
-		Globals::GameEventManager->AddListener(ptr, "dota_roshan_kill", false);
+		auto roshanListener = new RoshanListener();
+		roshanListener->gameStartTime = Globals::GameRules->GetGameTime();
+		CGameEventManager::EventListeners.push_back(std::unique_ptr<RoshanListener>(roshanListener));
+		Globals::GameEventManager->AddListener(roshanListener, "dota_roshan_kill", false);
 
 		VMTs::UIEngine = std::unique_ptr<VMT>(new VMT(Interfaces::UIEngine));
-		VMTs::UIEngine->HookVM(Hooks::RunFrame, 6);
+		VMTs::UIEngine->HookVM(Hooks::hkRunFrame, 6);
 		VMTs::UIEngine->ApplyVMT();
 
 		Globals::LogGlobals();
+#ifdef _DEBUG
+		Test::HookParticles();
+#endif // _DEBUG
+
+
 		std::cout << "ENTERED MATCH\n";
 	}
 }
@@ -99,6 +105,7 @@ inline void LeftMatch() {
 	localPlayer = nullptr;
 	assignedHero = nullptr;
 
+	Test::partMap.clear();
 	players.clear();
 	
 	std::cout << "LEFT MATCH\n";

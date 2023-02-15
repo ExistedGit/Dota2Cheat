@@ -6,7 +6,7 @@
 #include "Globals.h"
 
 namespace Hacks {
-	//Tracks the size of the modifier list to see if a new one was added
+	//Spirit Breaker's charge gives you a hidden modifier marking you as the target
 	//Fully optimized to use the least possible amount of string comparisons
 	class SBChargeHighlighter {
 	private:

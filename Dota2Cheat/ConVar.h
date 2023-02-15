@@ -3,7 +3,7 @@
 #include <fstream>
 #include <string>
 #include <map>
-#define CVAR_MAX_INDEX 4200
+#define CVAR_MAX_INDEX 4226
 
 enum class EConvarType : std::uint8_t
 {

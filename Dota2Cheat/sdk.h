@@ -37,6 +37,13 @@ struct Vector2 {
 	inline float DistanceTo(const Vector2& v) {
 		return sqrtf(powf(v.x - x, 2) + powf(v.y - y, 2));
 	}
+	friend std::ostream& operator<<(std::ostream& os, const Vector2& vec) {
+		os << "{" << ' '
+			<< "X: " << vec.x << ' '
+			<< "Y: " << vec.y << ' '
+			<< "}";
+		return os;
+	}
 };
 
 struct Vector3 {
@@ -45,6 +52,10 @@ struct Vector3 {
 	inline Vector3(float x, float y, float z) :x(x), y(y), z(z) {
 
 	}
+	inline Vector2 AsVec2() {
+		return *(Vector2*)this;
+	}
+
 	friend bool operator==(const Vector3& v1, const Vector3& v2) {
 		return v1.x == v2.x && v1.y == v2.y && v1.z == v2.z;
 	}
@@ -78,7 +89,7 @@ struct Vector3 {
 
 //mathematicians hate this one trick!
 //yeah, to check for radius, you can actually omit the sqrt and just square the radius
-inline float IsWithinRadius(Vector2 p1, Vector2 p2, float radius) {
+inline bool IsWithinRadius(Vector2 p1, Vector2 p2, float radius) {
 	return pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2) <= radius * radius;
 }
 

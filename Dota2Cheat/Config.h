@@ -13,6 +13,7 @@ namespace Config {
 	inline float AutoHealFaerieFireHPTreshold = 7.0f;
 
 	inline int WeatherListIdx = 0;
+	inline int RiverListIdx = 0;
 
 	inline float CameraDistance = 1200.0f;
 
@@ -23,8 +24,4 @@ namespace Config {
 
 	inline bool VBEShowText = true;
 	inline bool VBEShowParticle = true;
-
-	//inline int OffsetX = 0; 
-	//inline int OffsetY = 0;
-	//inline int OffsetZ = 0;
 }

@@ -3,6 +3,8 @@
 #include "Config.h"
 
 namespace Hacks {
+	// Restock info is stored inside CDOTA_GameRules
+	// It has two of ItemStockInfo for each item(one for each team)
 	class AutoBuyTome {
 	private:
 		ItemStockInfo* tomeStockInfo;

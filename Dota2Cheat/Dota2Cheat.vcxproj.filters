@@ -146,9 +146,6 @@
     <ClInclude Include="UIState.h">
       <Filter>Header files\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Config.h">
-      <Filter>Header files\UI</Filter>
-    </ClInclude>
     <ClInclude Include="IScriptVM.h">
       <Filter>Header files\Interfaces</Filter>
     </ClInclude>
@@ -190,6 +187,21 @@
     </ClInclude>
     <ClInclude Include="AegisAutoPickup.h">
       <Filter>Header files\Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf.h">
+      <Filter>Header files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="RiverPaint.h">
+      <Filter>Header files\Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Drawing.h">
+      <Filter>Header files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackTargetFinder.h">
+      <Filter>Header files\Utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

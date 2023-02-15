@@ -49,7 +49,7 @@ public:
 class BaseEntity : public VClass {
 public:
 	inline CSchemaClassBinding* SchemaBinding() {
-		return (CSchemaClassBinding*)GetVFunc(0)();
+		return CallVFunc<0, CSchemaClassBinding*>();
 	};
 
 	inline CEntityIdentity* GetIdentity() {
@@ -103,7 +103,6 @@ public:
 
 		return pos + forwardVec;
 	}
-
 	inline Vector2 GetPos2D() {
 		auto vec = GetPos();
 		return *(Vector2*)&vec;
@@ -191,8 +190,13 @@ public:
 	}
 
 	//Implemented as a method returning a bool rather than a field
+	//Is inside some kind of inline structure on offset BE8
 	inline bool IsRoshan() {
-		return CallVFunc<57, bool>();
+		return reinterpret_cast<VClass*>((uintptr_t)this + 0xbe8)->CallVFunc<57, bool>();
+	}
+
+	inline int GetAttackRange() {
+		return Member<int>(Schema::Netvars["C_DOTA_BaseNPC"]["m_iAttackRange"]);
 	}
 
 	inline float GetSSC() {
