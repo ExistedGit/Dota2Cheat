@@ -6,7 +6,7 @@ namespace Hacks {
 	// The netvar is unique in having a callback
 	class IllusionColoring {
 	public:
-		inline void ColorIfIllusion(BaseEntity* ent) {
+		void ColorIfIllusion(BaseEntity* ent) {
 			const char* className = ent->SchemaBinding()->binaryName;
 			if (className != nullptr &&
 				strstr(className, "C_DOTA_Unit_Hero") != nullptr) {
@@ -25,5 +25,5 @@ namespace Hacks {
 }
 
 namespace Modules {
-	Hacks::IllusionColoring IllusionColoring{};
+	inline Hacks::IllusionColoring IllusionColoring{};
 }

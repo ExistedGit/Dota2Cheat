@@ -5,6 +5,18 @@
 #include <sstream>
 #include "SDK/color.h"
 
+inline void DrawRect(GLFWwindow* wnd, const ImVec2& topLeft, const ImVec2& size, const ImVec4& color) {
+	auto DrawList = ImGui::GetForegroundDrawList();
+		DrawList->AddRectFilledMultiColor(
+			topLeft, ImVec2(size.x + topLeft.x, size.y + topLeft.y),
+			// all hail vertex coloring!
+			ImGui::GetColorU32(color),
+			ImGui::GetColorU32(color),
+			ImGui::GetColorU32(color),
+			ImGui::GetColorU32(color)
+		);
+}
+
 //credits to SMBB from UnknownCheats
 //https://www.unknowncheats.me/forum/direct3d/244074-imgui-d3d11-text-drawing.html
 inline float DrawTextForeground(GLFWwindow* wnd, ImFont* pFont, const std::string& text, const ImVec2& pos, float size, Color color, bool center)
@@ -21,24 +33,7 @@ inline float DrawTextForeground(GLFWwindow* wnd, ImFont* pFont, const std::strin
 	int i = 0;
 	auto DrawList = ImGui::GetForegroundDrawList();
 
-	//for (const auto& ent : enemyHeroes) {
-	//	int healthbarOffset = ent->Member<int>(0xc6c);
-	//	auto entPos = ent->GetPos();
-	//	float manaPercent = ent->GetMana() / ent->GetMaxMana();
-	//	entPos.x += Config::OffsetX;
-	//	entPos.y += Config::OffsetY;
-	//	entPos.z += healthbarOffset + Config::OffsetZ;
-	//	int x = 0, y = 0;
-	//	Signatures::Scripts::WorldToScreen(entPos, &x, &y, nullptr);
-	//	DrawList->AddRectFilledMultiColor(
-	//		ImVec2(x - 25, y - 3), 
-	//		ImVec2(x + 25 * manaPercent, y + 3),
-	//		// yes, same thing 4 times over, such is ImGui :)
-	//		ImGui::GetColorU32(ImVec4(0, 0, 1, 1)),
-	//		ImGui::GetColorU32(ImVec4(0, 0, 1, 1)),
-	//		ImGui::GetColorU32(ImVec4(0, 0, 1, 1)),
-	//		ImGui::GetColorU32(ImVec4(0, 0, 1, 1)));
-	//}
+
 	while (std::getline(stream, line))
 	{
 		ImVec2 textSize = pFont->CalcTextSizeA(size, FLT_MAX, 0.0f, line.c_str());

@@ -15,5 +15,5 @@ namespace Hacks {
 }
 
 namespace Modules {
-	Hacks::RiverPaint RiverPaint{};
+	inline Hacks::RiverPaint RiverPaint{};
 }

@@ -73,7 +73,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	// Initialize MinHook.
 	if (MH_Initialize() != MH_OK)
 		FreeLibraryAndExitThread(hModule, 0);
-	
+
 	AllocConsole();
 	FILE* f;
 	freopen_s(&f, "CONOUT$", "w", stdout);
@@ -103,7 +103,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	VMTs::Entity->ApplyVMT();
 	Hooks::InitVirtualHooks();
 
-	
+
 
 	//{
 	//	
@@ -310,6 +310,13 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			glfwSetWindowAttrib(window, GLFW_MOUSE_PASSTHROUGH, menuVisible);
 			menuVisible = !menuVisible;
 		}
+		if (assignedHero) {
+			int x = 0, y = 0;
+			auto vec = assignedHero->GetForwardVector(500);
+			Signatures::Scripts::WorldToScreen(&vec, &x, &y, nullptr);
+			int size = 10;
+			DrawRect(window, ImVec2(x - size, y - size), ImVec2(size, size), ImVec4(1, 0, 0, 1));
+		}
 		ImGui::PopFont();
 
 		// Rendering
@@ -335,7 +342,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	if (IsInMatch)
 		LeftMatch();
-	
 
 	Schema::Netvars.clear();
 
@@ -344,6 +350,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	FreeConsole();
 	FreeLibraryAndExitThread(hModule, 0);
 }
+
 BOOL APIENTRY DllMain(HMODULE hModule,
 	DWORD  ul_reason_for_call,
 	LPVOID lpReserved
@@ -354,7 +361,7 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 	case DLL_PROCESS_ATTACH: {
 		//imgui ver
 		HANDLE thread = CreateThread(0, 0, (LPTHREAD_START_ROUTINE)HackThread, hModule, 0, 0);
-		if (thread) 
+		if (thread)
 			CloseHandle(thread);
 		break;
 	}

@@ -2,6 +2,8 @@
 #include "sdk.h"
 #include "Globals.h"
 
+#include "Messages/messages.pb.h"
+
 namespace Hacks {
 	// For each of Invoker's 10 spells there is a CMsg_InvokerSpellCast message with different cast_activity for each spell
 	// When we receive such a message with sunstrike's cast_activity(1743) we begin waiting for a thinker object to appear
@@ -13,12 +15,12 @@ namespace Hacks {
 	public:
 		bool SunStrikeIncoming = false;
 
-		inline void QueueThinker(BaseEntity* thinker) {
+		void QueueThinker(BaseEntity* thinker) {
 			SunStrikeThinker = thinker;
 			SunStrikeIncoming = false;
 		}
 
-		inline void FrameBasedLogic() {
+		void FrameBasedLogic() {
 			if (SunStrikeThinker != nullptr
 				&& SunStrikeThinker->GetPos() != Vector3::Zero) {
 				DrawEnemySunstrike(SunStrikeThinker->GetPos());
@@ -26,7 +28,22 @@ namespace Hacks {
 			}
 		}
 
-		inline void DrawEnemySunstrike(Vector3 pos) {
+		void ProcessMessage(NetMessageHandle_t* messageHandle, google::protobuf::Message* msg) {
+			if (messageHandle->messageID == 586) { // CDOTAEntityMsg_InvokerSpellCast
+				auto castMsg = reinterpret_cast<MsgInvokerCast*>(msg);
+				if (castMsg->cast_activity() == 1743) { //sunstrike
+					auto invoker = Interfaces::EntitySystem->GetEntity(
+						castMsg->entity_msg().target_entity() & 0x3fff // weird smaller mask
+					); 
+
+					if (invoker != nullptr &&
+						invoker->GetTeam() != assignedHero->GetTeam())
+						SunStrikeIncoming = true;
+				}
+			}
+		}
+
+		void DrawEnemySunstrike(Vector3 pos) {
 			Globals::ParticleManager->CreateParticle(
 				"particles/econ/items/invoker/invoker_apex/invoker_sun_strike_team_immortal1.vpcf",
 				CDOTAParticleManager::ParticleAttachment_t::PATTACH_WORLDORIGIN,

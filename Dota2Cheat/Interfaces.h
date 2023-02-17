@@ -50,9 +50,9 @@ namespace Interfaces {
 		//char buffer[256];
 		//FileSystem->ReadLine(buffer, 256, file);
 
-
 		Panorama = GetInterface<VClass*>("panorama.dll", "PanoramaUIEngine001");
 		UIEngine = Panorama->Member<VClass*>(0x28);
+
 		GCClient = GetInterface<CGCClient*>("client.dll", "DOTA_CLIENT_GCCLIENT");
 		Schema = GetInterface<VClass*>("schemasystem.dll", "SchemaSystem_001");
 		InputService = GetInterface<CInputService*>("engine2.dll", "InputService_001");
@@ -60,7 +60,7 @@ namespace Interfaces {
 		NetworkMessages = GetInterface<CNetworkMessages*>("networksystem.dll", "NetworkMessagesVersion001");
 	}
 	inline  void LogInterfaces() {
-		std::cout << "[INTERFACES]\n" << std::hex;
+		std::cout << "[INTERFACES]\n";
 		std::cout << "Schema: " << Interfaces::Schema << "\n";
 		std::cout << "EntitySystem: " << Interfaces::EntitySystem << "\n";
 		std::cout << "IEngineClient: " << Interfaces::Engine << "\n";

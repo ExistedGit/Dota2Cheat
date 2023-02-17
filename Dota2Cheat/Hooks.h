@@ -23,8 +23,6 @@
 
 #include "AttackTargetFinder.h"
 
-#include "Protobuf.h"
-
 extern bool IsInMatch;
 extern std::vector<BaseNpc*> enemyHeroes;
 
@@ -167,6 +165,7 @@ namespace Hooks {
 					std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
 						<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
 						<< "\n\tAttack Time: " << clamp(ent->GetBaseAttackTime() / ent->GetAttackSpeed(), 0.24, 2)
+						
 						//<< "\n\tIsRoshan: " << ent->IsRoshan()
 						<< "\n\t" << AttackTargetFinder::GetAttackTarget(ent)
 						<< '\n';
@@ -186,7 +185,7 @@ namespace Hooks {
 					for (auto& ent : vec) {
 						const char* className = ent->SchemaBinding()->binaryName;
 						std::cout << className << ' ' << std::dec << H2IDX(ent->GetIdentity()->entHandle)
-							<< std::hex << " -> " << ent << '\n';
+							<< " -> " << ent << '\n';
 					}
 					//auto midas = assignedHero->FindItemBySubstring("blink");
 					//if (HVALID(midas.handle))
@@ -224,6 +223,7 @@ namespace Hooks {
 			}
 		}
 
+		
 		return VMTs::Entity->GetOriginalMethod<decltype(&OnAddEntity)>(14)(thisptr, ent, handle);
 	};
 	inline BaseEntity* OnRemoveEntity(CEntitySystem* thisptr, BaseEntity* ent, ENT_HANDLE handle) {
@@ -381,26 +381,12 @@ namespace Hooks {
 	};
 
 	inline void hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits) {
-		auto msgCopy = msg;
 		NetMessageInfo_t* info = Interfaces::NetworkMessages->GetNetMessageInfo(messageHandle);
 		const char* name = info->pProtobufBinding->GetName();
-		if (messageHandle->messageID == 586) { // CDOTAEntityMsg_InvokerSpellCast
-			int castActivity = reinterpret_cast<VClass*>(msgCopy)->Member<int>(0x20);
+		
+		Modules::SunStrikeHighlighter.ProcessMessage(messageHandle, msg);
+		//Modules::AutoDodge.ProcessMessage(messageHandle, msg);
 
-			if (castActivity == 1743) { //sunstrike
-				ENT_HANDLE handle = reinterpret_cast<VClass*>(msgCopy)
-					->Member<VClass*>(0x18)
-					->Member<ENT_HANDLE>(0x18);
-
-				auto invoker = Interfaces::EntitySystem->GetEntity(handle & 0x3fff); // weird smaller mask
-				if (invoker != nullptr &&
-					invoker->GetTeam() != assignedHero->GetTeam())
-					Modules::SunStrikeHighlighter.SunStrikeIncoming = true;
-			}
-			auto test = Util::Protobuf::GetFieldTraverseInt32(msgCopy, "cast_activity");
-		}
-		if (msgCopy != msg) // debug stuff, don't think too much about this
-			delete msgCopy;
 		return VMTs::NetChannel->GetOriginalMethod<decltype(&hkPostReceivedNetMessage)>(86)(thisptr, messageHandle, msg, type, bits);
 	}
 

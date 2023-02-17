@@ -18,15 +18,15 @@ namespace Hacks {
 
 		std::map<BaseNpc*, ChargeTrackingInfo> TrackedEntities{};
 	public:
-		inline void SubscribeEntity(BaseNpc* ent) {
+		void SubscribeEntity(BaseNpc* ent) {
 			TrackedEntities[ent] = ChargeTrackingInfo{};
 		}
-		inline void UnsubscribeEntity(BaseNpc* ent) {
+		void UnsubscribeEntity(BaseNpc* ent) {
 			TrackedEntities.erase(ent);
 		}
 
 		// Checks subscribed entities for a new modifier being added and if it's Baratrum's charge
-		inline void FrameBasedLogic() {
+		void FrameBasedLogic() {
 			for (auto& pair : TrackedEntities) {
 				auto ent = pair.first;
 				auto& trackingInfo = pair.second;
@@ -64,11 +64,11 @@ namespace Hacks {
 				trackingInfo.prevModifierCount = buffList->m_Size;
 			}
 		}
-		inline void Reset() {
+		void Reset() {
 			TrackedEntities.clear();
 		}
 
-		inline void DrawChargeMark(BaseNpc* ent) {
+		void DrawChargeMark(BaseNpc* ent) {
 
 			TrackedEntities[ent].particleWrap = Globals::ParticleManager->CreateParticle(
 				"particles/units/heroes/hero_spirit_breaker/spirit_breaker_charge_target.vpcf",

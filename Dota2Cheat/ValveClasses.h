@@ -17,18 +17,18 @@ public:
 
 class CDOTAGameRules : VClass {
 public:
-	inline GameState GetGameState() {
+	GameState GetGameState() {
 		return Member<GameState>(0x60);
 	}
-	inline float GetGameTime() {
+	float GetGameTime() {
 		return Member<float>(0x89C);
 	}
 
-	inline GameMode_t GetGameMode() {
+	GameMode_t GetGameMode() {
 		return Member<GameMode_t>(0xcc);
 	}
 
-	inline std::vector<ItemStockInfo*> GetItemStockInfo() {
+	std::vector<ItemStockInfo*> GetItemStockInfo() {
 		CUtlVector<ItemStockInfo>* arr = (CUtlVector<ItemStockInfo>*)((uintptr_t)this + 0x728);
 		auto result = std::vector<ItemStockInfo*>{};
 		result.reserve(arr->m_Size);

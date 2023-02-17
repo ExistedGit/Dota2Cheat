@@ -34,6 +34,9 @@
     <Filter Include="Header files\UI">
       <UniqueIdentifier>{b431f54f-3531-4beb-a3ff-d2b837c371dd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header files\Protobufs">
+      <UniqueIdentifier>{856c36d3-30b7-4edf-9833-13617fa2d71b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -70,6 +73,9 @@
       <Filter>Source files\imgui</Filter>
     </ClCompile>
     <ClCompile Include="CDOTAParticleManager.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Messages\messages.pb.cc">
       <Filter>Source files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -188,9 +194,6 @@
     <ClInclude Include="AegisAutoPickup.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
-    <ClInclude Include="Protobuf.h">
-      <Filter>Header files\Utils</Filter>
-    </ClInclude>
     <ClInclude Include="RiverPaint.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
@@ -203,5 +206,19 @@
     <ClInclude Include="AttackTargetFinder.h">
       <Filter>Header files\Utils</Filter>
     </ClInclude>
+    <ClInclude Include="Messages\messages.pb.h">
+      <Filter>Header files\Protobufs</Filter>
+    </ClInclude>
+    <ClInclude Include="ProtobufDefineFix.h">
+      <Filter>Header files\Protobufs</Filter>
+    </ClInclude>
+    <ClInclude Include="ArmletAbuse.h">
+      <Filter>Header files\Hacks</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="messages.proto">
+      <Filter>Header files\Protobufs</Filter>
+    </None>
   </ItemGroup>
 </Project>

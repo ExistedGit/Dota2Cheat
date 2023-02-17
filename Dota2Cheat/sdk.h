@@ -37,6 +37,7 @@ struct Vector2 {
 	inline float DistanceTo(const Vector2& v) {
 		return sqrtf(powf(v.x - x, 2) + powf(v.y - y, 2));
 	}
+
 	friend std::ostream& operator<<(std::ostream& os, const Vector2& vec) {
 		os << "{" << ' '
 			<< "X: " << vec.x << ' '

@@ -12,12 +12,12 @@ namespace Hacks {
 			if (!strstr(item->GetIdentity()->GetName(), "aegis"))
 				return;
 
-			if (IsWithinRadius(ent->GetPos2D(), assignedHero->GetPos2D(), 130)) {
-				localPlayer->PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_PICKUP_ITEM, H2IDX(ent->GetIdentity()->entHandle), &Vector3::Zero, 0, PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_HERO_ONLY, assignedHero, false, false);
-			}
+			if (IsWithinRadius(ent->GetPos2D(), assignedHero->GetPos2D(), 130))
+				localPlayer->PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_PICKUP_ITEM, H2IDX(ent->GetIdentity()->entHandle), &Vector3::Zero, 0, PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, assignedHero, false, false);
+			
 		}
 	};
 }
 namespace Modules {
-	Hacks::AegisAutoPickup AegisAutoPickup{};
+	inline Hacks::AegisAutoPickup AegisAutoPickup{};
 }
