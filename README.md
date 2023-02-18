@@ -15,7 +15,9 @@ Open the project in Visual Studio and build as **Release x64**
 
 ## Injecting
 I recommend using [Extreme Injector v3.7.2](https://www.unknowncheats.me/forum/downloads.php?do=file&id=21570) with either Thread Hijacking or the default option
+
 It can apparently suddenly stop working at all(the .exe won't launch) so you can compile the Dota2Loader project from this repo
+
 **ABSOLUTELY DETECTABLE BY VAC, FOR USE IN DEMO MODE OR A LOBBY**
 
 # Features
