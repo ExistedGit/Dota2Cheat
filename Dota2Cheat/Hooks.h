@@ -22,9 +22,9 @@
 #include "RiverPaint.h"
 
 #include "AttackTargetFinder.h"
+#include "BadCastPrevention.h"
 
 extern bool IsInMatch;
-extern std::vector<BaseNpc*> enemyHeroes;
 
 namespace VMTs {
 	inline std::unique_ptr<VMT> UIEngine = nullptr;
@@ -98,7 +98,7 @@ namespace Hooks {
 					IsWithinRadius(creep->GetPos2D(), assignedHero->GetPos2D(), midasEnt->GetEffectiveCastRange()) &&
 					TestStringFilters(creep->GetUnitName(), filters)) {
 					midasUsed = true;
-					localPlayer->PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_TARGET, i, &Vector3::Zero, H2IDX(midas), PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, assignedHero);
+					localPlayer->PrepareOrder(DOTA_UNIT_ORDER_CAST_TARGET, i, &Vector3::Zero, H2IDX(midas), DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, assignedHero);
 				}
 			}
 			else if (Config::AutoRunePickupEnabled && !runePickUp && strstr(className, "C_DOTA_Item_Rune")) {
@@ -106,7 +106,7 @@ namespace Hooks {
 				if (rune->GetRuneType() == DotaRunes::BOUNTY &&
 					IsWithinRadius(rune->GetPos2D(), assignedHero->GetPos2D(), 150.0f)
 					) {
-					localPlayer->PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_PICKUP_RUNE, i, &Vector3::Zero, 0, PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_HERO_ONLY, assignedHero, false, false);
+					localPlayer->PrepareOrder(DOTA_UNIT_ORDER_PICKUP_RUNE, i, &Vector3::Zero, 0, DOTA_ORDER_ISSUER_HERO_ONLY, assignedHero, false, false);
 				}
 			}
 			else {
@@ -143,10 +143,6 @@ namespace Hooks {
 				Modules::SunStrikeHighlighter.FrameBasedLogic();
 
 				if (assignedHero->GetLifeState() == 0) { // if alive
-					// VBE: m_flStartSequenceCycle updates 30 times a second
-					// It doesn't update when you are seen(stays at zero)
-
-
 					AutoUseWandCheck(assignedHero, Config::AutoHealWandHPTreshold, Config::AutoHealWandMinCharges);
 					AutoUseFaerieFireCheck(assignedHero, Config::AutoHealFaerieFireHPTreshold);
 					Modules::AutoBuyTome.FrameBasedLogic();
@@ -165,9 +161,8 @@ namespace Hooks {
 					std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
 						<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
 						<< "\n\tAttack Time: " << clamp(ent->GetBaseAttackTime() / ent->GetAttackSpeed(), 0.24, 2)
-						
 						//<< "\n\tIsRoshan: " << ent->IsRoshan()
-						<< "\n\t" << AttackTargetFinder::GetAttackTarget(ent)
+						//<< "\n\t" << AttackTargetFinder::GetAttackTarget(ent)
 						<< '\n';
 				}
 				if (IsKeyPressed(VK_NUMPAD7)) {
@@ -219,11 +214,12 @@ namespace Hooks {
 				if (Modules::SunStrikeHighlighter.SunStrikeIncoming &&
 					idName == nullptr)
 					Modules::SunStrikeHighlighter.QueueThinker(ent);
-
+			}
+			else if (strstr(className, "Unit_Hero")) {
+				heroes.push_back(reinterpret_cast<BaseNpc*>(ent));
 			}
 		}
 
-		
 		return VMTs::Entity->GetOriginalMethod<decltype(&OnAddEntity)>(14)(thisptr, ent, handle);
 	};
 	inline BaseEntity* OnRemoveEntity(CEntitySystem* thisptr, BaseEntity* ent, ENT_HANDLE handle) {
@@ -242,8 +238,22 @@ namespace Hooks {
 	inline void hkPrepareUnitOrders(DotaPlayer* player, DotaUnitOrder_t orderType, UINT32 targetIndex, Vector3* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, BaseEntity* issuer, bool queue, bool showEffects) {
 		//std::cout << "[ORDER] " << player << '\n';
 		bool giveOrder = true; // whether or not the function will continue
+
+		if (!issuer) { // issuer may be nullptr if it's HERO_ONLY or something
+			switch (orderIssuer) {
+			case DOTA_ORDER_ISSUER_HERO_ONLY:
+				issuer = assignedHero;
+				break;
+			case DOTA_ORDER_ISSUER_CURRENT_UNIT_ONLY:
+			case DOTA_ORDER_ISSUER_SELECTED_UNITS:
+				issuer = Interfaces::EntitySystem->GetEntity(localPlayer->GetSelectedUnits().first());
+				break;
+			}
+
+		}
+
 		switch (orderType) {
-		case DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_TARGET:
+		case DOTA_UNIT_ORDER_CAST_TARGET:
 		{
 			//Redirects spell casts from illusions to the real hero
 			auto npc = Interfaces::EntitySystem->GetEntity<BaseNpc>(targetIndex);
@@ -268,7 +278,7 @@ namespace Hooks {
 			}
 			break;
 		}
-		case DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_POSITION: {
+		case DOTA_UNIT_ORDER_CAST_POSITION: {
 			// Blink overshoot bypass
 			auto item = Interfaces::EntitySystem->GetEntity<BaseAbility>(abilityIndex);
 			if (strstr(item->GetIdentity()->GetName(), "blink")) {
@@ -291,11 +301,11 @@ namespace Hooks {
 			}
 			break;
 		}
-		case DotaUnitOrder_t::DOTA_UNIT_ORDER_DROP_ITEM:
+		case DOTA_UNIT_ORDER_DROP_ITEM:
 		{
 			break;
 		}
-		case DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_NO_TARGET: {
+		case DOTA_UNIT_ORDER_CAST_NO_TARGET: {
 			//Automatic mana & HP abuse with items like Arcane Boots or Faerie Fire
 			static std::vector<const char*> filters = {
 				"item_arcane_boots", "item_enchanted_mango",
@@ -344,7 +354,7 @@ namespace Hooks {
 				if (anyBonus > 0) {
 					//std::cout << abilityIndex << bonusInt << '\n';
 					queue = true;
-					PrepareUnitOrdersOriginal(player, DotaUnitOrder_t::DOTA_UNIT_ORDER_DROP_ITEM, 0, &fVec, H2IDX(item.handle), PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
+					PrepareUnitOrdersOriginal(player, DOTA_UNIT_ORDER_DROP_ITEM, 0, &fVec, H2IDX(item.handle), DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
 					callPickup = true;
 				}
 			}
@@ -354,13 +364,17 @@ namespace Hooks {
 				Sleep(300);
 			for (auto& item : physicalItems) { // wtf is with this indentation???
 				if (IsWithinRadius(item->GetPos2D(), assignedHero->GetPos2D(), 50))
-					PrepareUnitOrdersOriginal(player, DotaUnitOrder_t::DOTA_UNIT_ORDER_PICKUP_ITEM, H2IDX(item->GetIdentity()->entHandle), &Vector3::Zero, 0, PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
+					PrepareUnitOrdersOriginal(player, DOTA_UNIT_ORDER_PICKUP_ITEM, H2IDX(item->GetIdentity()->entHandle), &Vector3::Zero, 0, DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
 			}
 			physicalItems.clear();
 					});
 			break;
 		}
 		}
+
+		if (orderType == DOTA_UNIT_ORDER_CAST_NO_TARGET ||
+			orderType == DOTA_UNIT_ORDER_CAST_POSITION)
+			giveOrder = !Modules::BadCastPrevention.IsBadCast(abilityIndex, position, issuer);
 
 		if (giveOrder)
 			PrepareUnitOrdersOriginal(player, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
@@ -383,7 +397,7 @@ namespace Hooks {
 	inline void hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits) {
 		NetMessageInfo_t* info = Interfaces::NetworkMessages->GetNetMessageInfo(messageHandle);
 		const char* name = info->pProtobufBinding->GetName();
-		
+
 		Modules::SunStrikeHighlighter.ProcessMessage(messageHandle, msg);
 		//Modules::AutoDodge.ProcessMessage(messageHandle, msg);
 

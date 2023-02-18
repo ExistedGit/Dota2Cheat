@@ -138,7 +138,7 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <ExceptionHandling>false</ExceptionHandling>
     </ClCompile>
     <Link>
@@ -164,7 +164,7 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ExceptionHandling>false</ExceptionHandling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -205,6 +205,7 @@
     <ClInclude Include="AutoBuyTome.h" />
     <ClInclude Include="AutoUseMagicWand.h" />
     <ClInclude Include="AutoUseMidas.h" />
+    <ClInclude Include="BadCastPrevention.h" />
     <ClInclude Include="CBaseFileSystem.h" />
     <ClInclude Include="CDOTAParticleManager.h" />
     <ClInclude Include="CGameEntitySystem.h" />

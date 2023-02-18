@@ -10,6 +10,8 @@
 
 extern bool IsInMatch;
 
+
+
 inline void FillPlayerList() {
 	auto vec = Globals::PlayerResource->GetVecTeamPlayerData();
 	std::cout << "<PLAYERS>\n";
@@ -18,18 +20,23 @@ inline void FillPlayerList() {
 		auto idx = vec[i].GetPlayerSlot() + 1;
 		if (idx < 1)
 			continue;
+
 		auto player = (DotaPlayer*)Interfaces::EntitySystem->GetEntity(idx);
 		if (player == nullptr)
 			continue;
+		
 		auto hero = (BaseNpc*)player->GetAssignedHero();
 		//std::cout << idx << " " << player << ' ' << player->GetIdentity() << '\n';
 
 		std::cout << "Player " << std::dec << idx << ": " << player;
 		if (hero != nullptr &&
-			hero->GetUnitName() != nullptr)
+			hero->GetUnitName() != nullptr) {
 			std::cout << "\n\t" << hero->GetUnitName() << " " << hero;
+			heroes.push_back(hero);
+		}
 		std::cout << '\n';
-		players.push_back(player);
+		
+		//players.push_back(player);
 	}
 }
 
@@ -41,8 +48,8 @@ inline void EnteredMatch() {
 	Globals::GameEventManager = *Globals::GameEventManagerPtr;
 
 	GameState gameState = Globals::GameRules->GetGameState();
-	if (gameState == GameState::DOTA_GAMERULES_PREGAME ||
-		gameState == GameState::DOTA_GAMERULES_GAME_IN_PROGRESS) {
+	if (gameState == DOTA_GAMERULES_PREGAME ||
+		gameState == DOTA_GAMERULES_GAME_IN_PROGRESS) {
 
 		localPlayer = (DotaPlayer*)Interfaces::EntitySystem->GetEntity(Interfaces::Engine->GetLocalPlayerSlot() + 1);
 		if (localPlayer == nullptr)
@@ -58,10 +65,9 @@ inline void EnteredMatch() {
 			<< "\n\t" << std::dec << "STEAM ID: " << localPlayer->GetSteamID()
 			<< '\n';
 		std::cout << "Assigned Hero: " << assignedHero << " " << assignedHero->GetUnitName() << '\n';
-		IsInMatch = true;
+		FillPlayerList();
+		
 		Interfaces::CVar->SetConvars();
-		//FillPlayerList();
-
 
 		auto roshanListener = new RoshanListener();
 		roshanListener->gameStartTime = Globals::GameRules->GetGameTime();
@@ -77,7 +83,8 @@ inline void EnteredMatch() {
 #ifdef _DEBUG
 		Test::HookParticles();
 #endif // _DEBUG
-
+		
+		IsInMatch = true;
 
 		std::cout << "ENTERED MATCH\n";
 	}
@@ -109,6 +116,7 @@ inline void LeftMatch() {
 	Test::partMap.clear();
 #endif // _DEBUG
 	players.clear();
+	heroes.clear();
 	
 	std::cout << "LEFT MATCH\n";
 }

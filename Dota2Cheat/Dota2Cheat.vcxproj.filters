@@ -215,6 +215,9 @@
     <ClInclude Include="ArmletAbuse.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
+    <ClInclude Include="BadCastPrevention.h">
+      <Filter>Header files\Hacks</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="messages.proto">

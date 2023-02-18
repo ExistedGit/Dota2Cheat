@@ -32,12 +32,16 @@ inline void LogInvAndAbilities(BaseNpc* npc = nullptr) {
 	std::cout << std::dec;
 	std::cout << "abilities: " << '\n';
 	for (const auto& ability : npc->GetAbilities()) {
-		if (ability.name != nullptr)
+		if (ability.name != nullptr) {
+
 			std::cout << '\t' << ability.name << " " << H2IDX(ability.handle)
-			//<< " CD: " << ability.GetAs<BaseAbility>()->GetCooldown() 
-			//<< ' ' << std::dec << ability.GetAs<BaseAbility>()->GetEffectiveCastRange()
-			<< ' ' << ability.GetEntity()
-			<< '\n';
+				//<< " CD: " << ability.GetAs<BaseAbility>()->GetCooldown() 
+				//<< ' ' << std::dec << ability.GetAs<BaseAbility>()->GetEffectiveCastRange()
+				<< ' ' << ability.GetEntity();
+			
+			std::cout << '\n';
+
+		}
 	}
 	std::cout << "inventory: " << '\n';
 	for (const auto& item : npc->GetItems()) {

@@ -66,7 +66,7 @@ static inline void glfw_error_callback(int error, const char* description)
 //};
 //int rainbowIndex = 0;
 
-std::vector<BaseNpc*> enemyHeroes{};
+std::vector<BaseNpc*> heroes{};
 
 
 uintptr_t WINAPI HackThread(HMODULE hModule) {
@@ -302,6 +302,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 			}
 		}
+
 		if (IsInMatch && Config::VBEShowText)
 			DrawTextForeground(window, vbeFont, UIState::HeroVisibleToEnemy ? "DETECTED" : "HIDDEN", ImVec2(1920 / 2, 1080 * 3 / 4), 80.0f, Color(200, 200, 200, 255), true);
 
@@ -310,6 +311,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			glfwSetWindowAttrib(window, GLFW_MOUSE_PASSTHROUGH, menuVisible);
 			menuVisible = !menuVisible;
 		}
+#ifdef _DEBUG
 		if (assignedHero) {
 			int x = 0, y = 0;
 			auto vec = assignedHero->GetForwardVector(500);
@@ -317,6 +319,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			int size = 10;
 			DrawRect(window, ImVec2(x - size, y - size), ImVec2(size, size), ImVec4(1, 0, 0, 1));
 		}
+#endif // _DEBUG
+
 		ImGui::PopFont();
 
 		// Rendering

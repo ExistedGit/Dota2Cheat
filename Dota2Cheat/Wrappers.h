@@ -336,7 +336,7 @@ public:
 	// I currently could not get GetCastRange to work as a standalone vfunc
 	// found via dynamical analysis
 	int GetCastRangeBonus() {
-		return CallVFunc<0x7A0 / 8, int>(nullptr, nullptr, nullptr);
+		return CallVFunc<244, int>(nullptr, nullptr, nullptr);
 	}
 
 	int GetEffectiveCastRange() {
@@ -355,6 +355,14 @@ public:
 	int GetCastRange() {
 		auto infoObj = Member<VClass*>(0x568);
 		return *infoObj->Member<int*>(0x100); // Weird structure
+	}
+	template<typename T = double>
+	T GetLevelSpecialValueFor(const char* valName, int level = -1) {
+		return (T)Signatures::Scripts::GetLevelSpecialValueFor(nullptr, H2IDX(GetIdentity()->entHandle), valName, level);
+	}
+
+	int GetAOERadius() {
+		return static_cast<int>(Signatures::Scripts::GetLevelSpecialValueFor(nullptr, H2IDX(GetIdentity()->entHandle), "radius", -1));
 	}
 };
 
@@ -377,22 +385,22 @@ public:
 	void CastNoTarget(ENT_HANDLE handle, BaseEntity* issuer = nullptr) {
 		if (issuer == nullptr)
 			issuer = GetAssignedHero();
-		PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_CAST_NO_TARGET,
+		PrepareOrder(DOTA_UNIT_ORDER_CAST_NO_TARGET,
 			0,
 			&Vector3::Zero,
 			H2IDX(handle),
-			PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
+			DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
 			issuer,
 			false,
 			true
 		);
 	}
 	void BuyItem(int itemId) {
-		PrepareOrder(DotaUnitOrder_t::DOTA_UNIT_ORDER_PURCHASE_ITEM,
+		PrepareOrder(DOTA_UNIT_ORDER_PURCHASE_ITEM,
 			1,
 			&Vector3::Zero,
 			itemId,
-			PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
+			DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
 			GetAssignedHero(),
 			false,
 			true
@@ -402,11 +410,11 @@ public:
 		if (issuer == nullptr)
 			issuer = GetAssignedHero();
 
-		PrepareOrder(directMovement ? DotaUnitOrder_t::DOTA_UNIT_ORDER_MOVE_TO_DIRECTION : DotaUnitOrder_t::DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+		PrepareOrder(directMovement ? DOTA_UNIT_ORDER_MOVE_TO_DIRECTION : DOTA_UNIT_ORDER_MOVE_TO_POSITION,
 			0,
 			pos,
 			0,
-			PlayerOrderIssuer_t::DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
+			DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
 			issuer,
 			false,
 			true
@@ -427,3 +435,4 @@ extern DotaPlayer* localPlayer;
 extern BaseNpc* assignedHero;
 extern std::vector<DotaPlayer*> players;
 extern std::vector<BaseEntity*> physicalItems; // items dropped onto the floor
+extern std::vector<BaseNpc*> heroes;
