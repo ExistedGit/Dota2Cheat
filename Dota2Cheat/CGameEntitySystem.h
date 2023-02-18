@@ -1,5 +1,6 @@
 #pragma once
 #include "sdk.h"
+#include <functional>
 
 #define MAX_ENTITIES_IN_LIST 512
 #define MAX_ENTITY_LISTS 64 // 0x3F
@@ -81,7 +82,7 @@ public:
 	//void* unk3;, remove because of vtable
 
 	CEntityIdentities* m_pEntityList[MAX_ENTITY_LISTS];
-	inline CEntityIdentity* GetIdentity(int index)
+	CEntityIdentity* GetIdentity(int index)
 	{
 		if (index <= -1 || index >= (MAX_TOTAL_ENTITIES - 1))
 			return nullptr;
@@ -104,7 +105,7 @@ public:
 		return identity;
 	}
 	template<typename T = BaseEntity>
-	inline T* GetEntity(int index)
+	T* GetEntity(int index)
 	{
 		if (index <= -1 || index >= (MAX_TOTAL_ENTITIES - 1))
 			return nullptr;
@@ -126,7 +127,7 @@ public:
 		//std::cout << "identity: " << identity << " " << identity->entity << '\n';
 		return (T*)identity->entity;
 	}
-	inline int GetHighestEntityIndex()
+	int GetHighestEntityIndex()
 	{
 		return *(int*)((uintptr_t)this + 0x1e90);
 	}

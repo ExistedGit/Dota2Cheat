@@ -6,7 +6,7 @@
 #include "Globals.h"
 
 namespace Hacks {
-	//Tracks the size of the modifier list to see if a new one was added
+	//Spirit Breaker's charge gives you a hidden modifier marking you as the target
 	//Fully optimized to use the least possible amount of string comparisons
 	class SBChargeHighlighter {
 	private:
@@ -18,15 +18,15 @@ namespace Hacks {
 
 		std::map<BaseNpc*, ChargeTrackingInfo> TrackedEntities{};
 	public:
-		inline void SubscribeEntity(BaseNpc* ent) {
+		void SubscribeEntity(BaseNpc* ent) {
 			TrackedEntities[ent] = ChargeTrackingInfo{};
 		}
-		inline void UnsubscribeEntity(BaseNpc* ent) {
+		void UnsubscribeEntity(BaseNpc* ent) {
 			TrackedEntities.erase(ent);
 		}
 
 		// Checks subscribed entities for a new modifier being added and if it's Baratrum's charge
-		inline void FrameBasedLogic() {
+		void FrameBasedLogic() {
 			for (auto& pair : TrackedEntities) {
 				auto ent = pair.first;
 				auto& trackingInfo = pair.second;
@@ -36,7 +36,6 @@ namespace Hacks {
 					int newElementAmount = buffList->m_Size - trackingInfo.prevModifierCount;
 
 					for (int i = buffList->m_Size - newElementAmount; i < buffList->m_Size; i++) {
-
 						auto buffName = buffList->at(i)->GetName(); // checking the name of the new buff
 
 						if (strstr(buffName, "modifier_spirit_breaker_charge_of_darkness_vision")) {
@@ -65,11 +64,11 @@ namespace Hacks {
 				trackingInfo.prevModifierCount = buffList->m_Size;
 			}
 		}
-		inline void Reset() {
+		void Reset() {
 			TrackedEntities.clear();
 		}
 
-		inline void DrawChargeMark(BaseNpc* ent) {
+		void DrawChargeMark(BaseNpc* ent) {
 
 			TrackedEntities[ent].particleWrap = Globals::ParticleManager->CreateParticle(
 				"particles/units/heroes/hero_spirit_breaker/spirit_breaker_charge_target.vpcf",

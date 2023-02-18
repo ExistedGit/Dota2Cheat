@@ -55,10 +55,10 @@ public:
 
 	class Particle : public VClass {
 	public:
-		inline VClass* GetParticleCollection() {
+		VClass* GetParticleCollection() {
 			return Member<VClass*>(0x20);
 		}
-		inline Particle* SetControlPoint(int idx, Vector3* pos) {
+		Particle* SetControlPoint(int idx, Vector3* pos) {
 			auto coll = GetParticleCollection();
 			coll->GetVFunc(Particle_SetControlPoint_VTABLE_INDEX)(coll, idx, pos);
 			return this;

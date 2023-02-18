@@ -5,6 +5,7 @@
 #include "Hooks.h"
 #include "AutoBuyTome.h"
 #include "EventListeners.h"
+#include "DebugFunctions.h"
 #include "SpiritBreakerChargeHighlighter.h"
 
 extern bool IsInMatch;
@@ -35,7 +36,7 @@ inline void FillPlayerList() {
 inline void EnteredMatch() {
 	Globals::GameRules = *Globals::GameRulesPtr;
 	Globals::PlayerResource = *Globals::PlayerResourcePtr;
-	Globals::ScriptVM = *Globals::ScriptVMPtr;
+//	Globals::ScriptVM = *Globals::ScriptVMPtr;
 	Globals::ParticleManager = *Globals::ParticleManagerPtr;
 	Globals::GameEventManager = *Globals::GameEventManagerPtr;
 
@@ -53,25 +54,31 @@ inline void EnteredMatch() {
 		Modules::SBChargeHighlighter.SubscribeEntity(assignedHero);
 
 		Modules::AutoBuyTome.Init();
-		std::cout << std::hex << "Local Player: " << localPlayer
+		std::cout << "Local Player: " << localPlayer
 			<< "\n\t" << std::dec << "STEAM ID: " << localPlayer->GetSteamID()
 			<< '\n';
-		std::cout << std::hex << "Assigned Hero: " << assignedHero << " " << assignedHero->GetUnitName() << '\n';
+		std::cout << "Assigned Hero: " << assignedHero << " " << assignedHero->GetUnitName() << '\n';
 		IsInMatch = true;
 		Interfaces::CVar->SetConvars();
 		//FillPlayerList();
 
 
-		auto ptr = new RoshanListener();
-		ptr->gameStartTime = Globals::GameRules->GetGameTime();
-		CGameEventManager::EventListeners.push_back(std::unique_ptr<RoshanListener>(ptr));
-		Globals::GameEventManager->AddListener(ptr, "dota_roshan_kill", false);
+		auto roshanListener = new RoshanListener();
+		roshanListener->gameStartTime = Globals::GameRules->GetGameTime();
+		auto hurtListener = new EntityHurtListener();
+		Globals::GameEventManager->AddListener(roshanListener, "dota_roshan_kill");
+		Globals::GameEventManager->AddListener(hurtListener, "entity_hurt");
 
 		VMTs::UIEngine = std::unique_ptr<VMT>(new VMT(Interfaces::UIEngine));
-		VMTs::UIEngine->HookVM(Hooks::RunFrame, 6);
+		VMTs::UIEngine->HookVM(Hooks::hkRunFrame, 6);
 		VMTs::UIEngine->ApplyVMT();
 
 		Globals::LogGlobals();
+#ifdef _DEBUG
+		Test::HookParticles();
+#endif // _DEBUG
+
+
 		std::cout << "ENTERED MATCH\n";
 	}
 }
@@ -98,7 +105,9 @@ inline void LeftMatch() {
 
 	localPlayer = nullptr;
 	assignedHero = nullptr;
-
+#ifdef _DEBUG
+	Test::partMap.clear();
+#endif // _DEBUG
 	players.clear();
 	
 	std::cout << "LEFT MATCH\n";

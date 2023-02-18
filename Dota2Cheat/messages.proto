@@ -1,0 +1,9 @@
+syntax = "proto2";
+
+message MsgInvokerCast {
+  message EntityMsg {
+	required int32 target_entity = 1;
+  }
+  required EntityMsg entity_msg = 1;
+  required int32 cast_activity = 2;
+}

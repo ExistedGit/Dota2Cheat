@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 #include <cstdint>
 
 template <class T>
@@ -9,22 +10,34 @@ public:
 	T* m_pElements;
 	uintptr_t m_Capacity;
 
-	inline T& operator[](int i)
+	T& operator[](int i)
 	{
 		return m_pElements[i];
 	}
-	inline T& at(int i) {
+
+	T& at(int i) {
 		return m_pElements[i];
 	}
-	inline T& first() {
+
+	T& first() {
 		return m_pElements[0];
 	}
-	inline T& last() {
+
+	T& last() {
 		return m_pElements[m_Size - 1];
 	}
 
+	std::vector<T> ToStdVector() {
+		auto result = std::vector<T>{};
+		result.reserve(m_Size);
+		for (int i = 0; i  < m_Size; i++) {
+			//std::cout << std::hex << &arr[i] << '\n';
+			result.push_back(&m_pElements[i]);
+		}
+		return result;
+	}
 
-	inline [[nodiscard]] int Count() const
+	[[nodiscard]] int Count() const
 	{
 		return m_Size;
 	}

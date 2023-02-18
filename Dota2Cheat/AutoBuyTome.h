@@ -3,14 +3,16 @@
 #include "Config.h"
 
 namespace Hacks {
+	// Restock info is stored inside CDOTA_GameRules
+	// It has two of ItemStockInfo for each item(one for each team)
 	class AutoBuyTome {
 	private:
 		ItemStockInfo* tomeStockInfo;
 	public:
-		inline void Reset() {
+		void Reset() {
 			tomeStockInfo = nullptr;
 		}
-		inline void Init() {
+		void Init() {
 			if (Globals::GameRules == nullptr ||
 				assignedHero == nullptr)
 				return;
@@ -25,7 +27,7 @@ namespace Hacks {
 				}
 			}
 		}
-		inline void FrameBasedLogic() {
+		void FrameBasedLogic() {
 			if (!Config::AutoBuyTome ||
 				tomeStockInfo->ItemID != 0x101) // maybe the tome stock info was not found
 				return;
@@ -38,5 +40,5 @@ namespace Hacks {
 }
 
 namespace Modules {
-	Hacks::AutoBuyTome AutoBuyTome{};
+	inline Hacks::AutoBuyTome AutoBuyTome{};
 }

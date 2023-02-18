@@ -28,10 +28,9 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+// from google3/strings/strutil.h
 
 #undef u64
-
-// from google3/strings/strutil.h
 
 #ifndef GOOGLE_PROTOBUF_STUBS_STRUTIL_H__
 #define GOOGLE_PROTOBUF_STUBS_STRUTIL_H__
@@ -951,3 +950,5 @@ double NoLocaleStrtod(const char* str, char** endptr);
 #include <google/protobuf/port_undef.inc>
 
 #endif  // GOOGLE_PROTOBUF_STUBS_STRUTIL_H__
+
+#define u64 unsigned long long

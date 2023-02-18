@@ -17,9 +17,11 @@
 #include "imgui/imgui_impl_opengl3.h"
 #include "GL/glew.h"
 #include <GLFW/glfw3.h> // Will drag system OpenGL headers
-#include <sstream>
+
 #include "Config.h"
 #include "DebugFunctions.h"
+
+#include "Drawing.h"
 
 
 
@@ -49,7 +51,7 @@ int CurProcId;
 //}
 
 
-static void glfw_error_callback(int error, const char* description)
+static inline void glfw_error_callback(int error, const char* description)
 {
 	fprintf(stderr, "Glfw Error %d: %s\n", error, description);
 }
@@ -66,74 +68,11 @@ static void glfw_error_callback(int error, const char* description)
 
 std::vector<BaseNpc*> enemyHeroes{};
 
-//credits to SMBB from UnknownCheats
-//https://www.unknowncheats.me/forum/direct3d/244074-imgui-d3d11-text-drawing.html
-float DrawTextForeground(GLFWwindow* wnd, ImFont* pFont, const std::string& text, const ImVec2& pos, float size, Color color, bool center)
-{
-	float r = color.RGBA[0];
-	float g = color.RGBA[1];
-	float b = color.RGBA[2];
-	float a = color.RGBA[3];
 
-	std::stringstream stream(text);
-	std::string line;
-
-	float y = 0.0f;
-	int i = 0;
-	auto DrawList = ImGui::GetForegroundDrawList();
-
-	//for (const auto& ent : enemyHeroes) {
-	//	int healthbarOffset = ent->Member<int>(0xc6c);
-	//	auto entPos = ent->GetPos();
-	//	float manaPercent = ent->GetMana() / ent->GetMaxMana();
-	//	entPos.x += Config::OffsetX;
-	//	entPos.y += Config::OffsetY;
-	//	entPos.z += healthbarOffset + Config::OffsetZ;
-	//	int x = 0, y = 0;
-	//	Signatures::Scripts::WorldToScreen(entPos, &x, &y, nullptr);
-	//	DrawList->AddRectFilledMultiColor(
-	//		ImVec2(x - 25, y - 3), 
-	//		ImVec2(x + 25 * manaPercent, y + 3),
-	//		// yes, same thing 4 times over, such is ImGui :)
-	//		ImGui::GetColorU32(ImVec4(0, 0, 1, 1)),
-	//		ImGui::GetColorU32(ImVec4(0, 0, 1, 1)),
-	//		ImGui::GetColorU32(ImVec4(0, 0, 1, 1)),
-	//		ImGui::GetColorU32(ImVec4(0, 0, 1, 1)));
-	//}
-	while (std::getline(stream, line))
-	{
-		ImVec2 textSize = pFont->CalcTextSizeA(size, FLT_MAX, 0.0f, line.c_str());
-		if (center)
-		{
-			DrawList->AddText(pFont, size, ImVec2((pos.x - textSize.x / 2.0f) + 1, (pos.y + textSize.y * i) + 1), ImGui::GetColorU32(ImVec4(0, 0, 0, a / 255)), line.c_str());
-			DrawList->AddText(pFont, size, ImVec2((pos.x - textSize.x / 2.0f) - 1, (pos.y + textSize.y * i) - 1), ImGui::GetColorU32(ImVec4(0, 0, 0, a / 255)), line.c_str());
-			DrawList->AddText(pFont, size, ImVec2((pos.x - textSize.x / 2.0f) + 1, (pos.y + textSize.y * i) - 1), ImGui::GetColorU32(ImVec4(0, 0, 0, a / 255)), line.c_str());
-			DrawList->AddText(pFont, size, ImVec2((pos.x - textSize.x / 2.0f) - 1, (pos.y + textSize.y * i) + 1), ImGui::GetColorU32(ImVec4(0, 0, 0, a / 255)), line.c_str());
-			DrawList->AddText(pFont, size, ImVec2(pos.x - textSize.x / 2.0f, pos.y + textSize.y * i), ImGui::GetColorU32(ImVec4(r / 255, g / 255, b / 255, a / 255)), line.c_str());
-		}
-		else
-		{
-			DrawList->AddText(pFont, size, ImVec2((pos.x) + 1, (pos.y + textSize.y * i) + 1), ImGui::GetColorU32(ImVec4(0, 0, 0, a / 255)), line.c_str());
-			DrawList->AddText(pFont, size, ImVec2((pos.x) - 1, (pos.y + textSize.y * i) - 1), ImGui::GetColorU32(ImVec4(0, 0, 0, a / 255)), line.c_str());
-			DrawList->AddText(pFont, size, ImVec2((pos.x) + 1, (pos.y + textSize.y * i) - 1), ImGui::GetColorU32(ImVec4(0, 0, 0, a / 255)), line.c_str());
-			DrawList->AddText(pFont, size, ImVec2((pos.x) - 1, (pos.y + textSize.y * i) + 1), ImGui::GetColorU32(ImVec4(0, 0, 0, a / 255)), line.c_str());
-			DrawList->AddText(pFont, size, ImVec2(pos.x, pos.y + textSize.y * i), ImGui::GetColorU32(ImVec4(r / 255, g / 255, b / 255, a / 255)), line.c_str());
-		}
-
-		y = pos.y + textSize.y * (i + 1);
-		i++;
-	}
-
-	return y;
-}
-
-CDOTAParticleManager::ParticleWrapper particleWrap{};
 uintptr_t WINAPI HackThread(HMODULE hModule) {
 	// Initialize MinHook.
 	if (MH_Initialize() != MH_OK)
-	{
-		return 1;
-	}
+		FreeLibraryAndExitThread(hModule, 0);
 
 	AllocConsole();
 	FILE* f;
@@ -164,6 +103,17 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	VMTs::Entity->ApplyVMT();
 	Hooks::InitVirtualHooks();
 
+
+
+	//{
+	//	
+	//	auto objCache = Interfaces::GCClient->GetObjCache();
+	//	auto objTypeCacheList = objCache->GetTypeCacheList();
+	//	auto message = objTypeCacheList[1]->GetProtobufSO()->GetPObject();
+	//	auto str = message->DebugString();
+	//}
+
+
 	glfwSetErrorCallback(glfw_error_callback);
 	if (!glfwInit())
 		return 1;
@@ -191,7 +141,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	auto videoMode = glfwGetVideoMode(monitor);
 
-	GLFWwindow* window = glfwCreateWindow(videoMode->width, videoMode->height, "Dear ImGui GLFW+OpenGL3 example", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(videoMode->width, videoMode->height, "Dota2Cheat", NULL, NULL);
 	if (window == NULL)
 		return 1;
 	glfwMakeContextCurrent(window);
@@ -214,12 +164,15 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
-	io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\consola.ttf)", 16.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
-	auto font = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
+	//io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\consola.ttf)", 16.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
+	auto vbeFont = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
+	auto defaultFont = io.Fonts->AddFontDefault();
 
 	bool menuVisible = false;
 	bool featuresMenuVisible = false;
 	bool circleMenuVisible = false;
+	int debugEntIdx = 0;
+
 
 	// Main loop
 	while (!glfwWindowShouldClose(window))
@@ -231,6 +184,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
 
+		ImGui::PushFont(defaultFont);
 		if (menuVisible) {
 			ImGui::Begin("Main");
 			if (ImGui::Button("Features"))
@@ -244,7 +198,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 #ifdef _DEBUG
 			ImGui::Begin("Debug functions", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
-			
+
+			if (ImGui::Button("Log Entities")) {
+				LogEntities();
+			}
 			if (ImGui::Button("Log Inventory")) {
 				auto selected = localPlayer->GetSelectedUnits();
 				auto ent = (BaseNpc*)Interfaces::EntitySystem->GetEntity(selected[0]);
@@ -257,13 +214,26 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 				LogModifiers(ent);
 			}
 
+			ImGui::InputInt("Entity index", &debugEntIdx, 1, 10);
+			if (ImGui::Button("Log entity by index")) {
+				auto* ent = Interfaces::EntitySystem->GetEntity(debugEntIdx);
+				if (ent == nullptr)
+					continue;
+				const char* className = ent->SchemaBinding()->binaryName;
+				if (
+					className != nullptr
+					)
+					std::cout << className << ' ' << debugEntIdx
+					<< " -> " << ent << '\n';
+			}
+
 			ImGui::End();
 #endif // _DEBUG
 
 
 			if (featuresMenuVisible) {
 				ImGui::Begin("Features", &featuresMenuVisible, ImGuiWindowFlags_::ImGuiWindowFlags_AlwaysAutoResize);
-				
+
 				if (ImGui::Button("Circle drawing"))
 					circleMenuVisible = !circleMenuVisible;
 
@@ -273,8 +243,17 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 					&Config::WeatherListIdx,
 					UIState::WeatherList,
 					IM_ARRAYSIZE(UIState::WeatherList),
-					3);
-				
+					4);
+
+				// credits to the screenshot https://yougame.biz/threads/283404/
+				// should've figured out it's controlled by a convar like the weather :)
+				ImGui::ListBox(
+					"River paint",
+					&Config::RiverListIdx,
+					UIState::RiverList,
+					IM_ARRAYSIZE(UIState::RiverList),
+					4);
+				//ImGui::SliderInt("River debug", &Config::RiverListIdx, 0, 10);
 				ImGui::Checkbox("Auto-use Hand of Midas", &Config::AutoMidasEnabled);
 				ImGui::Checkbox("Automatically pick up Bounty runes", &Config::AutoRunePickupEnabled);
 
@@ -324,13 +303,21 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			}
 		}
 		if (IsInMatch && Config::VBEShowText)
-			DrawTextForeground(window, font, UIState::HeroVisibleToEnemy ? "DETECTED" : "HIDDEN", ImVec2(1920 / 2, 1080 * 3 / 4), 80.0f, Color(200, 200, 200, 255), true);
+			DrawTextForeground(window, vbeFont, UIState::HeroVisibleToEnemy ? "DETECTED" : "HIDDEN", ImVec2(1920 / 2, 1080 * 3 / 4), 80.0f, Color(200, 200, 200, 255), true);
 
 		//if (ImGui::IsKeyPressed(ImGuiKey::ImGuiKey_Insert, false)) {
 		if (IsKeyPressed(VK_INSERT)) {
 			glfwSetWindowAttrib(window, GLFW_MOUSE_PASSTHROUGH, menuVisible);
 			menuVisible = !menuVisible;
 		}
+		if (assignedHero) {
+			int x = 0, y = 0;
+			auto vec = assignedHero->GetForwardVector(500);
+			Signatures::Scripts::WorldToScreen(&vec, &x, &y, nullptr);
+			int size = 10;
+			DrawRect(window, ImVec2(x - size, y - size), ImVec2(size, size), ImVec4(1, 0, 0, 1));
+		}
+		ImGui::PopFont();
 
 		// Rendering
 		ImGui::Render();
@@ -353,14 +340,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwDestroyWindow(window);
 	glfwTerminate();
 
-	if (IsInMatch) {
-		Modules::VBE.Reset();
-		if (Globals::GameEventManager)
-			for (auto& listener : CGameEventManager::EventListeners)
-				Globals::GameEventManager->RemoveListener(listener.get());
-		CGameEventManager::EventListeners.clear();
-		CVarSystem::CVar.clear();
-	}
+	if (IsInMatch)
+		LeftMatch();
 
 	Schema::Netvars.clear();
 
@@ -369,6 +350,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	FreeConsole();
 	FreeLibraryAndExitThread(hModule, 0);
 }
+
 BOOL APIENTRY DllMain(HMODULE hModule,
 	DWORD  ul_reason_for_call,
 	LPVOID lpReserved
@@ -378,9 +360,9 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 	{
 	case DLL_PROCESS_ATTACH: {
 		//imgui ver
-		const HANDLE thread = CreateThread(0, 0, (LPTHREAD_START_ROUTINE)HackThread, hModule, 0, 0);
-		if (thread) CloseHandle(thread);
-
+		HANDLE thread = CreateThread(0, 0, (LPTHREAD_START_ROUTINE)HackThread, hModule, 0, 0);
+		if (thread)
+			CloseHandle(thread);
 		break;
 	}
 	case DLL_THREAD_ATTACH:

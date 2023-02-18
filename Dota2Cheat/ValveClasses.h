@@ -13,28 +13,28 @@ public:
 	float InitialStockDuration;
 	uint32_t PlayerID;
 	int BonusDelayedStockCount;
-//private:
-//	char pad2[0x16]; //idk why tho
 };
 
 class CDOTAGameRules : VClass {
 public:
-	inline GameState GetGameState() {
+	GameState GetGameState() {
 		return Member<GameState>(0x60);
 	}
-	inline float GetGameTime() {
+	float GetGameTime() {
 		return Member<float>(0x89C);
 	}
-	inline std::vector<ItemStockInfo*> GetItemStockInfo() {
-		auto arr = *(ItemStockInfo**)((uintptr_t)this + 0x730);
-		int size = Member<int>(0x728);
-		//std::cout << "arr " << arr << " size " << size << '\n';
+
+	GameMode_t GetGameMode() {
+		return Member<GameMode_t>(0xcc);
+	}
+
+	std::vector<ItemStockInfo*> GetItemStockInfo() {
+		CUtlVector<ItemStockInfo>* arr = (CUtlVector<ItemStockInfo>*)((uintptr_t)this + 0x728);
 		auto result = std::vector<ItemStockInfo*>{};
-		result.reserve(size);
-		for (int i = 0; i < size; i++) {
-			//std::cout << std::hex << &arr[i] << '\n';
-			result.push_back(&arr[i]);
-		}
+		result.reserve(arr->m_Size);
+		for (int i = 0; i < arr->m_Size; i++)
+			result.push_back(&arr->at(i));
+		
 		return result;
 	}
 };
