@@ -6,10 +6,15 @@ SDK folder code is from another github repo, McDota by LWSS. It's a very helpful
 
 Using GLFW, GLEW and ImGui for the interface, cheers to their wonderful creators!
 also using Minhook for bytehooking
+also using Google's Protocol Buffers library
+
 ## Building
 Open the project in Visual Studio and build as **Release x64**
+
 ## Injecting
 I recommend using [Extreme Injector v3.7.2](https://www.unknowncheats.me/forum/downloads.php?do=file&id=21570) with either Thread Hijacking or the default option
+It can apparently suddenly stop working at all(the .exe won't launch) so you can compile the Dota2Loader project from this repo
+**ABSOLUTELY DETECTABLE BY VAC, FOR USE IN DEMO MODE OR A LOBBY**
 
 # Features
 To open the cheat menu, press Insert
@@ -19,7 +24,7 @@ This list is subject to frequent change as I'm testing new features
 * Automation:
   * Magic Wand and Faerie Fire usage with customizable health tresholds
   * Hand of Midas usage on nearby big neutrals, ranged & flagbearer lane creeps and catapults
-  * Bounty rune pickup
+  * Bounty rune & Aegis pickup
   * Tome of Knowledge purchase
   * Redirects spell casts from illusions to the real hero
   * Mana & HP abuse with items like Arcane Boots
@@ -27,7 +32,7 @@ This list is subject to frequent change as I'm testing new features
 * Information:
   * Visible by Enemy — shows a Skyrim-inspired HIDDEN/DETECTED text and/or a particle under your hero
   * Roshan — saves his death time and approximates when he will spawn [WIP]
-  * Draw circles of custom radius(e. g. to see XP receiving range)
+  * Draw circles of custom radius around you hero(e. g. to see XP receiving range)
   * Highlights enemy sun strikes as if they were yours
 
 * Convars:
@@ -40,6 +45,7 @@ This list is subject to frequent change as I'm testing new features
 
 * Visuals:
   * Weather changing(Ash, Spring etc)
+  * River painting
   * Customizable illusion coloring
 
 I intend to implement most of the usual cheat functionality
