@@ -5,7 +5,9 @@
 SDK folder code is from another github repo, McDota by LWSS. It's a very helpful source regarding memory structures
 
 Using GLFW, GLEW and ImGui for the interface, cheers to their wonderful creators!
+
 also using Minhook for bytehooking
+
 also using Google's Protocol Buffers library
 
 ## Building
