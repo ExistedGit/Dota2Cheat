@@ -11,7 +11,7 @@ inline void LogEntities() {
 		//std::cout << ent->SchemaBinding() << '\n';
 		const char* className = ent->SchemaBinding()->binaryName;
 		if (
-			className != nullptr
+			className 
 			//&& strstr(className, "Rune")
 			)
 			std::cout << className << ' ' << i
@@ -32,7 +32,7 @@ inline void LogInvAndAbilities(BaseNpc* npc = nullptr) {
 	std::cout << std::dec;
 	std::cout << "abilities: " << '\n';
 	for (const auto& ability : npc->GetAbilities()) {
-		if (ability.name != nullptr) {
+		if (ability.name ) {
 
 			std::cout << '\t' << ability.name << " " << H2IDX(ability.handle)
 				//<< " CD: " << ability.GetAs<BaseAbility>()->GetCooldown() 
@@ -45,7 +45,7 @@ inline void LogInvAndAbilities(BaseNpc* npc = nullptr) {
 	}
 	std::cout << "inventory: " << '\n';
 	for (const auto& item : npc->GetItems()) {
-		if (item.name != nullptr)
+		if (item.name )
 			std::cout << '\t' << item.name << " " << H2IDX(item.handle)
 			<< ' ' << item.GetEntity()
 			<< '\n';

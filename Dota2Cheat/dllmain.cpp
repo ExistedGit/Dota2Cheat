@@ -221,7 +221,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 					continue;
 				const char* className = ent->SchemaBinding()->binaryName;
 				if (
-					className != nullptr
+					className 
 					)
 					std::cout << className << ' ' << debugEntIdx
 					<< " -> " << ent << '\n';

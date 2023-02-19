@@ -45,7 +45,7 @@ namespace Hacks {
 			}
 
 
-			bool vbeParticleActive = vbeParticleWrap.particle != nullptr;
+			bool vbeParticleActive = vbeParticleWrap.particle ;
 
 			if (visible && !vbeParticleActive && Config::VBEShowParticle)
 				CreateVbeParticleFor(assignedHero);

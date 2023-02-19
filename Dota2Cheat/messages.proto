@@ -1,9 +1,27 @@
 syntax = "proto2";
 
-message MsgInvokerCast {
+message CUserMsg_InvokerCast {
   message EntityMsg {
 	required int32 target_entity = 1;
   }
   required EntityMsg entity_msg = 1;
   required int32 cast_activity = 2;
+}
+
+message CDOTAUserMsg_TE_UnitAnimation {
+  required int32 entity = 1;
+  required int32 sequence_variant = 2;
+  required float playbackrate = 3;
+  required float castpoint = 4;
+  required int32 type = 5;
+  required int32 activity = 6;
+}
+
+message CDOTAUserMsg_MinimapEvent
+{
+	required int32 event_type = 1;
+	required int32 entity_handle = 2;
+	required int32 x = 3;
+	required float y = 4;
+	required int32 duration = 5;
 }

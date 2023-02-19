@@ -37,6 +37,12 @@
     <Filter Include="Header files\Protobufs">
       <UniqueIdentifier>{856c36d3-30b7-4edf-9833-13617fa2d71b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source files\Protobuf Messages">
+      <UniqueIdentifier>{a6b22c09-c300-4fa0-b9dc-05fce663c711}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\Protobuf Messages">
+      <UniqueIdentifier>{f9c05d2c-da8b-4639-86fd-e3322ecdc055}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -76,7 +82,7 @@
       <Filter>Source files</Filter>
     </ClCompile>
     <ClCompile Include="Messages\messages.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -216,6 +222,9 @@
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
     <ClInclude Include="BadCastPrevention.h">
+      <Filter>Header files\Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="ShakerAttackAnimFix.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
   </ItemGroup>

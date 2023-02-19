@@ -21,7 +21,7 @@ namespace Hacks {
 		}
 
 		void FrameBasedLogic() {
-			if (SunStrikeThinker != nullptr
+			if (SunStrikeThinker 
 				&& SunStrikeThinker->GetPos() != Vector3::Zero) {
 				DrawEnemySunstrike(SunStrikeThinker->GetPos());
 				SunStrikeThinker = nullptr;
@@ -30,13 +30,13 @@ namespace Hacks {
 
 		void ProcessMessage(NetMessageHandle_t* messageHandle, google::protobuf::Message* msg) {
 			if (messageHandle->messageID == 586) { // CDOTAEntityMsg_InvokerSpellCast
-				auto castMsg = reinterpret_cast<MsgInvokerCast*>(msg);
+				auto castMsg = reinterpret_cast<CUserMsg_InvokerCast*>(msg);
 				if (castMsg->cast_activity() == 1743) { //sunstrike
 					auto invoker = Interfaces::EntitySystem->GetEntity(
 						castMsg->entity_msg().target_entity() & 0x3fff // weird smaller mask
 					); 
 
-					if (invoker != nullptr &&
+					if (invoker  &&
 						invoker->GetTeam() != assignedHero->GetTeam())
 						SunStrikeIncoming = true;
 				}

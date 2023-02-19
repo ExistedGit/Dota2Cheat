@@ -8,8 +8,8 @@ namespace Hacks {
 	public:
 		void ColorIfIllusion(BaseEntity* ent) {
 			const char* className = ent->SchemaBinding()->binaryName;
-			if (className != nullptr &&
-				strstr(className, "C_DOTA_Unit_Hero") != nullptr) {
+			if (className  &&
+				strstr(className, "C_DOTA_Unit_Hero") ) {
 				auto hero = (BaseNpcHero*)ent;
 				if (
 					assignedHero->GetTeam() != hero->GetTeam() &&

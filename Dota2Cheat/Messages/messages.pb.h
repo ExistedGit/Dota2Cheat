@@ -47,37 +47,45 @@ struct TableStruct_messages_2eproto {
   static const uint32_t offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_messages_2eproto;
-class MsgInvokerCast;
-struct MsgInvokerCastDefaultTypeInternal;
-extern MsgInvokerCastDefaultTypeInternal _MsgInvokerCast_default_instance_;
-class MsgInvokerCast_EntityMsg;
-struct MsgInvokerCast_EntityMsgDefaultTypeInternal;
-extern MsgInvokerCast_EntityMsgDefaultTypeInternal _MsgInvokerCast_EntityMsg_default_instance_;
+class CDOTAUserMsg_MinimapEvent;
+struct CDOTAUserMsg_MinimapEventDefaultTypeInternal;
+extern CDOTAUserMsg_MinimapEventDefaultTypeInternal _CDOTAUserMsg_MinimapEvent_default_instance_;
+class CDOTAUserMsg_TE_UnitAnimation;
+struct CDOTAUserMsg_TE_UnitAnimationDefaultTypeInternal;
+extern CDOTAUserMsg_TE_UnitAnimationDefaultTypeInternal _CDOTAUserMsg_TE_UnitAnimation_default_instance_;
+class CUserMsg_InvokerCast;
+struct CUserMsg_InvokerCastDefaultTypeInternal;
+extern CUserMsg_InvokerCastDefaultTypeInternal _CUserMsg_InvokerCast_default_instance_;
+class CUserMsg_InvokerCast_EntityMsg;
+struct CUserMsg_InvokerCast_EntityMsgDefaultTypeInternal;
+extern CUserMsg_InvokerCast_EntityMsgDefaultTypeInternal _CUserMsg_InvokerCast_EntityMsg_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
-template<> ::MsgInvokerCast* Arena::CreateMaybeMessage<::MsgInvokerCast>(Arena*);
-template<> ::MsgInvokerCast_EntityMsg* Arena::CreateMaybeMessage<::MsgInvokerCast_EntityMsg>(Arena*);
+template<> ::CDOTAUserMsg_MinimapEvent* Arena::CreateMaybeMessage<::CDOTAUserMsg_MinimapEvent>(Arena*);
+template<> ::CDOTAUserMsg_TE_UnitAnimation* Arena::CreateMaybeMessage<::CDOTAUserMsg_TE_UnitAnimation>(Arena*);
+template<> ::CUserMsg_InvokerCast* Arena::CreateMaybeMessage<::CUserMsg_InvokerCast>(Arena*);
+template<> ::CUserMsg_InvokerCast_EntityMsg* Arena::CreateMaybeMessage<::CUserMsg_InvokerCast_EntityMsg>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 
 // ===================================================================
 
-class MsgInvokerCast_EntityMsg final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:MsgInvokerCast.EntityMsg) */ {
+class CUserMsg_InvokerCast_EntityMsg final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CUserMsg_InvokerCast.EntityMsg) */ {
  public:
-  inline MsgInvokerCast_EntityMsg() : MsgInvokerCast_EntityMsg(nullptr) {}
-  ~MsgInvokerCast_EntityMsg() override;
-  explicit PROTOBUF_CONSTEXPR MsgInvokerCast_EntityMsg(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CUserMsg_InvokerCast_EntityMsg() : CUserMsg_InvokerCast_EntityMsg(nullptr) {}
+  ~CUserMsg_InvokerCast_EntityMsg() override;
+  explicit PROTOBUF_CONSTEXPR CUserMsg_InvokerCast_EntityMsg(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  MsgInvokerCast_EntityMsg(const MsgInvokerCast_EntityMsg& from);
-  MsgInvokerCast_EntityMsg(MsgInvokerCast_EntityMsg&& from) noexcept
-    : MsgInvokerCast_EntityMsg() {
+  CUserMsg_InvokerCast_EntityMsg(const CUserMsg_InvokerCast_EntityMsg& from);
+  CUserMsg_InvokerCast_EntityMsg(CUserMsg_InvokerCast_EntityMsg&& from) noexcept
+    : CUserMsg_InvokerCast_EntityMsg() {
     *this = ::std::move(from);
   }
 
-  inline MsgInvokerCast_EntityMsg& operator=(const MsgInvokerCast_EntityMsg& from) {
+  inline CUserMsg_InvokerCast_EntityMsg& operator=(const CUserMsg_InvokerCast_EntityMsg& from) {
     CopyFrom(from);
     return *this;
   }
-  inline MsgInvokerCast_EntityMsg& operator=(MsgInvokerCast_EntityMsg&& from) noexcept {
+  inline CUserMsg_InvokerCast_EntityMsg& operator=(CUserMsg_InvokerCast_EntityMsg&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -107,20 +115,20 @@ class MsgInvokerCast_EntityMsg final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const MsgInvokerCast_EntityMsg& default_instance() {
+  static const CUserMsg_InvokerCast_EntityMsg& default_instance() {
     return *internal_default_instance();
   }
-  static inline const MsgInvokerCast_EntityMsg* internal_default_instance() {
-    return reinterpret_cast<const MsgInvokerCast_EntityMsg*>(
-               &_MsgInvokerCast_EntityMsg_default_instance_);
+  static inline const CUserMsg_InvokerCast_EntityMsg* internal_default_instance() {
+    return reinterpret_cast<const CUserMsg_InvokerCast_EntityMsg*>(
+               &_CUserMsg_InvokerCast_EntityMsg_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  friend void swap(MsgInvokerCast_EntityMsg& a, MsgInvokerCast_EntityMsg& b) {
+  friend void swap(CUserMsg_InvokerCast_EntityMsg& a, CUserMsg_InvokerCast_EntityMsg& b) {
     a.Swap(&b);
   }
-  inline void Swap(MsgInvokerCast_EntityMsg* other) {
+  inline void Swap(CUserMsg_InvokerCast_EntityMsg* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -133,7 +141,7 @@ class MsgInvokerCast_EntityMsg final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(MsgInvokerCast_EntityMsg* other) {
+  void UnsafeArenaSwap(CUserMsg_InvokerCast_EntityMsg* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -141,14 +149,14 @@ class MsgInvokerCast_EntityMsg final :
 
   // implements Message ----------------------------------------------
 
-  MsgInvokerCast_EntityMsg* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<MsgInvokerCast_EntityMsg>(arena);
+  CUserMsg_InvokerCast_EntityMsg* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CUserMsg_InvokerCast_EntityMsg>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const MsgInvokerCast_EntityMsg& from);
+  void CopyFrom(const CUserMsg_InvokerCast_EntityMsg& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const MsgInvokerCast_EntityMsg& from) {
-    MsgInvokerCast_EntityMsg::MergeImpl(*this, from);
+  void MergeFrom( const CUserMsg_InvokerCast_EntityMsg& from) {
+    CUserMsg_InvokerCast_EntityMsg::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -166,15 +174,15 @@ class MsgInvokerCast_EntityMsg final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(MsgInvokerCast_EntityMsg* other);
+  void InternalSwap(CUserMsg_InvokerCast_EntityMsg* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "MsgInvokerCast.EntityMsg";
+    return "CUserMsg_InvokerCast.EntityMsg";
   }
   protected:
-  explicit MsgInvokerCast_EntityMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit CUserMsg_InvokerCast_EntityMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -203,7 +211,7 @@ class MsgInvokerCast_EntityMsg final :
   void _internal_set_target_entity(int32_t value);
   public:
 
-  // @@protoc_insertion_point(class_scope:MsgInvokerCast.EntityMsg)
+  // @@protoc_insertion_point(class_scope:CUserMsg_InvokerCast.EntityMsg)
  private:
   class _Internal;
 
@@ -220,24 +228,24 @@ class MsgInvokerCast_EntityMsg final :
 };
 // -------------------------------------------------------------------
 
-class MsgInvokerCast final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:MsgInvokerCast) */ {
+class CUserMsg_InvokerCast final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CUserMsg_InvokerCast) */ {
  public:
-  inline MsgInvokerCast() : MsgInvokerCast(nullptr) {}
-  ~MsgInvokerCast() override;
-  explicit PROTOBUF_CONSTEXPR MsgInvokerCast(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CUserMsg_InvokerCast() : CUserMsg_InvokerCast(nullptr) {}
+  ~CUserMsg_InvokerCast() override;
+  explicit PROTOBUF_CONSTEXPR CUserMsg_InvokerCast(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  MsgInvokerCast(const MsgInvokerCast& from);
-  MsgInvokerCast(MsgInvokerCast&& from) noexcept
-    : MsgInvokerCast() {
+  CUserMsg_InvokerCast(const CUserMsg_InvokerCast& from);
+  CUserMsg_InvokerCast(CUserMsg_InvokerCast&& from) noexcept
+    : CUserMsg_InvokerCast() {
     *this = ::std::move(from);
   }
 
-  inline MsgInvokerCast& operator=(const MsgInvokerCast& from) {
+  inline CUserMsg_InvokerCast& operator=(const CUserMsg_InvokerCast& from) {
     CopyFrom(from);
     return *this;
   }
-  inline MsgInvokerCast& operator=(MsgInvokerCast&& from) noexcept {
+  inline CUserMsg_InvokerCast& operator=(CUserMsg_InvokerCast&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -267,20 +275,20 @@ class MsgInvokerCast final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const MsgInvokerCast& default_instance() {
+  static const CUserMsg_InvokerCast& default_instance() {
     return *internal_default_instance();
   }
-  static inline const MsgInvokerCast* internal_default_instance() {
-    return reinterpret_cast<const MsgInvokerCast*>(
-               &_MsgInvokerCast_default_instance_);
+  static inline const CUserMsg_InvokerCast* internal_default_instance() {
+    return reinterpret_cast<const CUserMsg_InvokerCast*>(
+               &_CUserMsg_InvokerCast_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  friend void swap(MsgInvokerCast& a, MsgInvokerCast& b) {
+  friend void swap(CUserMsg_InvokerCast& a, CUserMsg_InvokerCast& b) {
     a.Swap(&b);
   }
-  inline void Swap(MsgInvokerCast* other) {
+  inline void Swap(CUserMsg_InvokerCast* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -293,7 +301,7 @@ class MsgInvokerCast final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(MsgInvokerCast* other) {
+  void UnsafeArenaSwap(CUserMsg_InvokerCast* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -301,14 +309,14 @@ class MsgInvokerCast final :
 
   // implements Message ----------------------------------------------
 
-  MsgInvokerCast* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<MsgInvokerCast>(arena);
+  CUserMsg_InvokerCast* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CUserMsg_InvokerCast>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const MsgInvokerCast& from);
+  void CopyFrom(const CUserMsg_InvokerCast& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const MsgInvokerCast& from) {
-    MsgInvokerCast::MergeImpl(*this, from);
+  void MergeFrom( const CUserMsg_InvokerCast& from) {
+    CUserMsg_InvokerCast::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -326,15 +334,15 @@ class MsgInvokerCast final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(MsgInvokerCast* other);
+  void InternalSwap(CUserMsg_InvokerCast* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "MsgInvokerCast";
+    return "CUserMsg_InvokerCast";
   }
   protected:
-  explicit MsgInvokerCast(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit CUserMsg_InvokerCast(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -345,7 +353,7 @@ class MsgInvokerCast final :
 
   // nested types ----------------------------------------------------
 
-  typedef MsgInvokerCast_EntityMsg EntityMsg;
+  typedef CUserMsg_InvokerCast_EntityMsg EntityMsg;
 
   // accessors -------------------------------------------------------
 
@@ -353,23 +361,23 @@ class MsgInvokerCast final :
     kEntityMsgFieldNumber = 1,
     kCastActivityFieldNumber = 2,
   };
-  // required .MsgInvokerCast.EntityMsg entity_msg = 1;
+  // required .CUserMsg_InvokerCast.EntityMsg entity_msg = 1;
   bool has_entity_msg() const;
   private:
   bool _internal_has_entity_msg() const;
   public:
   void clear_entity_msg();
-  const ::MsgInvokerCast_EntityMsg& entity_msg() const;
-  PROTOBUF_NODISCARD ::MsgInvokerCast_EntityMsg* release_entity_msg();
-  ::MsgInvokerCast_EntityMsg* mutable_entity_msg();
-  void set_allocated_entity_msg(::MsgInvokerCast_EntityMsg* entity_msg);
+  const ::CUserMsg_InvokerCast_EntityMsg& entity_msg() const;
+  PROTOBUF_NODISCARD ::CUserMsg_InvokerCast_EntityMsg* release_entity_msg();
+  ::CUserMsg_InvokerCast_EntityMsg* mutable_entity_msg();
+  void set_allocated_entity_msg(::CUserMsg_InvokerCast_EntityMsg* entity_msg);
   private:
-  const ::MsgInvokerCast_EntityMsg& _internal_entity_msg() const;
-  ::MsgInvokerCast_EntityMsg* _internal_mutable_entity_msg();
+  const ::CUserMsg_InvokerCast_EntityMsg& _internal_entity_msg() const;
+  ::CUserMsg_InvokerCast_EntityMsg* _internal_mutable_entity_msg();
   public:
   void unsafe_arena_set_allocated_entity_msg(
-      ::MsgInvokerCast_EntityMsg* entity_msg);
-  ::MsgInvokerCast_EntityMsg* unsafe_arena_release_entity_msg();
+      ::CUserMsg_InvokerCast_EntityMsg* entity_msg);
+  ::CUserMsg_InvokerCast_EntityMsg* unsafe_arena_release_entity_msg();
 
   // required int32 cast_activity = 2;
   bool has_cast_activity() const;
@@ -384,7 +392,7 @@ class MsgInvokerCast final :
   void _internal_set_cast_activity(int32_t value);
   public:
 
-  // @@protoc_insertion_point(class_scope:MsgInvokerCast)
+  // @@protoc_insertion_point(class_scope:CUserMsg_InvokerCast)
  private:
   class _Internal;
 
@@ -397,8 +405,469 @@ class MsgInvokerCast final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::MsgInvokerCast_EntityMsg* entity_msg_;
+    ::CUserMsg_InvokerCast_EntityMsg* entity_msg_;
     int32_t cast_activity_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_messages_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CDOTAUserMsg_TE_UnitAnimation final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CDOTAUserMsg_TE_UnitAnimation) */ {
+ public:
+  inline CDOTAUserMsg_TE_UnitAnimation() : CDOTAUserMsg_TE_UnitAnimation(nullptr) {}
+  ~CDOTAUserMsg_TE_UnitAnimation() override;
+  explicit PROTOBUF_CONSTEXPR CDOTAUserMsg_TE_UnitAnimation(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CDOTAUserMsg_TE_UnitAnimation(const CDOTAUserMsg_TE_UnitAnimation& from);
+  CDOTAUserMsg_TE_UnitAnimation(CDOTAUserMsg_TE_UnitAnimation&& from) noexcept
+    : CDOTAUserMsg_TE_UnitAnimation() {
+    *this = ::std::move(from);
+  }
+
+  inline CDOTAUserMsg_TE_UnitAnimation& operator=(const CDOTAUserMsg_TE_UnitAnimation& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CDOTAUserMsg_TE_UnitAnimation& operator=(CDOTAUserMsg_TE_UnitAnimation&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CDOTAUserMsg_TE_UnitAnimation& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CDOTAUserMsg_TE_UnitAnimation* internal_default_instance() {
+    return reinterpret_cast<const CDOTAUserMsg_TE_UnitAnimation*>(
+               &_CDOTAUserMsg_TE_UnitAnimation_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(CDOTAUserMsg_TE_UnitAnimation& a, CDOTAUserMsg_TE_UnitAnimation& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CDOTAUserMsg_TE_UnitAnimation* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CDOTAUserMsg_TE_UnitAnimation* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CDOTAUserMsg_TE_UnitAnimation* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CDOTAUserMsg_TE_UnitAnimation>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CDOTAUserMsg_TE_UnitAnimation& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CDOTAUserMsg_TE_UnitAnimation& from) {
+    CDOTAUserMsg_TE_UnitAnimation::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CDOTAUserMsg_TE_UnitAnimation* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CDOTAUserMsg_TE_UnitAnimation";
+  }
+  protected:
+  explicit CDOTAUserMsg_TE_UnitAnimation(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kEntityFieldNumber = 1,
+    kSequenceVariantFieldNumber = 2,
+    kPlaybackrateFieldNumber = 3,
+    kCastpointFieldNumber = 4,
+    kTypeFieldNumber = 5,
+    kActivityFieldNumber = 6,
+  };
+  // required int32 entity = 1;
+  bool has_entity() const;
+  private:
+  bool _internal_has_entity() const;
+  public:
+  void clear_entity();
+  int32_t entity() const;
+  void set_entity(int32_t value);
+  private:
+  int32_t _internal_entity() const;
+  void _internal_set_entity(int32_t value);
+  public:
+
+  // required int32 sequence_variant = 2;
+  bool has_sequence_variant() const;
+  private:
+  bool _internal_has_sequence_variant() const;
+  public:
+  void clear_sequence_variant();
+  int32_t sequence_variant() const;
+  void set_sequence_variant(int32_t value);
+  private:
+  int32_t _internal_sequence_variant() const;
+  void _internal_set_sequence_variant(int32_t value);
+  public:
+
+  // required float playbackrate = 3;
+  bool has_playbackrate() const;
+  private:
+  bool _internal_has_playbackrate() const;
+  public:
+  void clear_playbackrate();
+  float playbackrate() const;
+  void set_playbackrate(float value);
+  private:
+  float _internal_playbackrate() const;
+  void _internal_set_playbackrate(float value);
+  public:
+
+  // required float castpoint = 4;
+  bool has_castpoint() const;
+  private:
+  bool _internal_has_castpoint() const;
+  public:
+  void clear_castpoint();
+  float castpoint() const;
+  void set_castpoint(float value);
+  private:
+  float _internal_castpoint() const;
+  void _internal_set_castpoint(float value);
+  public:
+
+  // required int32 type = 5;
+  bool has_type() const;
+  private:
+  bool _internal_has_type() const;
+  public:
+  void clear_type();
+  int32_t type() const;
+  void set_type(int32_t value);
+  private:
+  int32_t _internal_type() const;
+  void _internal_set_type(int32_t value);
+  public:
+
+  // required int32 activity = 6;
+  bool has_activity() const;
+  private:
+  bool _internal_has_activity() const;
+  public:
+  void clear_activity();
+  int32_t activity() const;
+  void set_activity(int32_t value);
+  private:
+  int32_t _internal_activity() const;
+  void _internal_set_activity(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CDOTAUserMsg_TE_UnitAnimation)
+ private:
+  class _Internal;
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    int32_t entity_;
+    int32_t sequence_variant_;
+    float playbackrate_;
+    float castpoint_;
+    int32_t type_;
+    int32_t activity_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_messages_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CDOTAUserMsg_MinimapEvent final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CDOTAUserMsg_MinimapEvent) */ {
+ public:
+  inline CDOTAUserMsg_MinimapEvent() : CDOTAUserMsg_MinimapEvent(nullptr) {}
+  ~CDOTAUserMsg_MinimapEvent() override;
+  explicit PROTOBUF_CONSTEXPR CDOTAUserMsg_MinimapEvent(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CDOTAUserMsg_MinimapEvent(const CDOTAUserMsg_MinimapEvent& from);
+  CDOTAUserMsg_MinimapEvent(CDOTAUserMsg_MinimapEvent&& from) noexcept
+    : CDOTAUserMsg_MinimapEvent() {
+    *this = ::std::move(from);
+  }
+
+  inline CDOTAUserMsg_MinimapEvent& operator=(const CDOTAUserMsg_MinimapEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CDOTAUserMsg_MinimapEvent& operator=(CDOTAUserMsg_MinimapEvent&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CDOTAUserMsg_MinimapEvent& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CDOTAUserMsg_MinimapEvent* internal_default_instance() {
+    return reinterpret_cast<const CDOTAUserMsg_MinimapEvent*>(
+               &_CDOTAUserMsg_MinimapEvent_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(CDOTAUserMsg_MinimapEvent& a, CDOTAUserMsg_MinimapEvent& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CDOTAUserMsg_MinimapEvent* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CDOTAUserMsg_MinimapEvent* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CDOTAUserMsg_MinimapEvent* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CDOTAUserMsg_MinimapEvent>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CDOTAUserMsg_MinimapEvent& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CDOTAUserMsg_MinimapEvent& from) {
+    CDOTAUserMsg_MinimapEvent::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CDOTAUserMsg_MinimapEvent* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CDOTAUserMsg_MinimapEvent";
+  }
+  protected:
+  explicit CDOTAUserMsg_MinimapEvent(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kEventTypeFieldNumber = 1,
+    kEntityHandleFieldNumber = 2,
+    kXFieldNumber = 3,
+    kYFieldNumber = 4,
+    kDurationFieldNumber = 5,
+  };
+  // required int32 event_type = 1;
+  bool has_event_type() const;
+  private:
+  bool _internal_has_event_type() const;
+  public:
+  void clear_event_type();
+  int32_t event_type() const;
+  void set_event_type(int32_t value);
+  private:
+  int32_t _internal_event_type() const;
+  void _internal_set_event_type(int32_t value);
+  public:
+
+  // required int32 entity_handle = 2;
+  bool has_entity_handle() const;
+  private:
+  bool _internal_has_entity_handle() const;
+  public:
+  void clear_entity_handle();
+  int32_t entity_handle() const;
+  void set_entity_handle(int32_t value);
+  private:
+  int32_t _internal_entity_handle() const;
+  void _internal_set_entity_handle(int32_t value);
+  public:
+
+  // required int32 x = 3;
+  bool has_x() const;
+  private:
+  bool _internal_has_x() const;
+  public:
+  void clear_x();
+  int32_t x() const;
+  void set_x(int32_t value);
+  private:
+  int32_t _internal_x() const;
+  void _internal_set_x(int32_t value);
+  public:
+
+  // required float y = 4;
+  bool has_y() const;
+  private:
+  bool _internal_has_y() const;
+  public:
+  void clear_y();
+  float y() const;
+  void set_y(float value);
+  private:
+  float _internal_y() const;
+  void _internal_set_y(float value);
+  public:
+
+  // required int32 duration = 5;
+  bool has_duration() const;
+  private:
+  bool _internal_has_duration() const;
+  public:
+  void clear_duration();
+  int32_t duration() const;
+  void set_duration(int32_t value);
+  private:
+  int32_t _internal_duration() const;
+  void _internal_set_duration(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CDOTAUserMsg_MinimapEvent)
+ private:
+  class _Internal;
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    int32_t event_type_;
+    int32_t entity_handle_;
+    int32_t x_;
+    float y_;
+    int32_t duration_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_messages_2eproto;
@@ -412,64 +881,64 @@ class MsgInvokerCast final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// MsgInvokerCast_EntityMsg
+// CUserMsg_InvokerCast_EntityMsg
 
 // required int32 target_entity = 1;
-inline bool MsgInvokerCast_EntityMsg::_internal_has_target_entity() const {
+inline bool CUserMsg_InvokerCast_EntityMsg::_internal_has_target_entity() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool MsgInvokerCast_EntityMsg::has_target_entity() const {
+inline bool CUserMsg_InvokerCast_EntityMsg::has_target_entity() const {
   return _internal_has_target_entity();
 }
-inline void MsgInvokerCast_EntityMsg::clear_target_entity() {
+inline void CUserMsg_InvokerCast_EntityMsg::clear_target_entity() {
   _impl_.target_entity_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline int32_t MsgInvokerCast_EntityMsg::_internal_target_entity() const {
+inline int32_t CUserMsg_InvokerCast_EntityMsg::_internal_target_entity() const {
   return _impl_.target_entity_;
 }
-inline int32_t MsgInvokerCast_EntityMsg::target_entity() const {
-  // @@protoc_insertion_point(field_get:MsgInvokerCast.EntityMsg.target_entity)
+inline int32_t CUserMsg_InvokerCast_EntityMsg::target_entity() const {
+  // @@protoc_insertion_point(field_get:CUserMsg_InvokerCast.EntityMsg.target_entity)
   return _internal_target_entity();
 }
-inline void MsgInvokerCast_EntityMsg::_internal_set_target_entity(int32_t value) {
+inline void CUserMsg_InvokerCast_EntityMsg::_internal_set_target_entity(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.target_entity_ = value;
 }
-inline void MsgInvokerCast_EntityMsg::set_target_entity(int32_t value) {
+inline void CUserMsg_InvokerCast_EntityMsg::set_target_entity(int32_t value) {
   _internal_set_target_entity(value);
-  // @@protoc_insertion_point(field_set:MsgInvokerCast.EntityMsg.target_entity)
+  // @@protoc_insertion_point(field_set:CUserMsg_InvokerCast.EntityMsg.target_entity)
 }
 
 // -------------------------------------------------------------------
 
-// MsgInvokerCast
+// CUserMsg_InvokerCast
 
-// required .MsgInvokerCast.EntityMsg entity_msg = 1;
-inline bool MsgInvokerCast::_internal_has_entity_msg() const {
+// required .CUserMsg_InvokerCast.EntityMsg entity_msg = 1;
+inline bool CUserMsg_InvokerCast::_internal_has_entity_msg() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.entity_msg_ != nullptr);
   return value;
 }
-inline bool MsgInvokerCast::has_entity_msg() const {
+inline bool CUserMsg_InvokerCast::has_entity_msg() const {
   return _internal_has_entity_msg();
 }
-inline void MsgInvokerCast::clear_entity_msg() {
+inline void CUserMsg_InvokerCast::clear_entity_msg() {
   if (_impl_.entity_msg_ != nullptr) _impl_.entity_msg_->Clear();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline const ::MsgInvokerCast_EntityMsg& MsgInvokerCast::_internal_entity_msg() const {
-  const ::MsgInvokerCast_EntityMsg* p = _impl_.entity_msg_;
-  return p != nullptr ? *p : reinterpret_cast<const ::MsgInvokerCast_EntityMsg&>(
-      ::_MsgInvokerCast_EntityMsg_default_instance_);
+inline const ::CUserMsg_InvokerCast_EntityMsg& CUserMsg_InvokerCast::_internal_entity_msg() const {
+  const ::CUserMsg_InvokerCast_EntityMsg* p = _impl_.entity_msg_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CUserMsg_InvokerCast_EntityMsg&>(
+      ::_CUserMsg_InvokerCast_EntityMsg_default_instance_);
 }
-inline const ::MsgInvokerCast_EntityMsg& MsgInvokerCast::entity_msg() const {
-  // @@protoc_insertion_point(field_get:MsgInvokerCast.entity_msg)
+inline const ::CUserMsg_InvokerCast_EntityMsg& CUserMsg_InvokerCast::entity_msg() const {
+  // @@protoc_insertion_point(field_get:CUserMsg_InvokerCast.entity_msg)
   return _internal_entity_msg();
 }
-inline void MsgInvokerCast::unsafe_arena_set_allocated_entity_msg(
-    ::MsgInvokerCast_EntityMsg* entity_msg) {
+inline void CUserMsg_InvokerCast::unsafe_arena_set_allocated_entity_msg(
+    ::CUserMsg_InvokerCast_EntityMsg* entity_msg) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.entity_msg_);
   }
@@ -479,11 +948,11 @@ inline void MsgInvokerCast::unsafe_arena_set_allocated_entity_msg(
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:MsgInvokerCast.entity_msg)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CUserMsg_InvokerCast.entity_msg)
 }
-inline ::MsgInvokerCast_EntityMsg* MsgInvokerCast::release_entity_msg() {
+inline ::CUserMsg_InvokerCast_EntityMsg* CUserMsg_InvokerCast::release_entity_msg() {
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::MsgInvokerCast_EntityMsg* temp = _impl_.entity_msg_;
+  ::CUserMsg_InvokerCast_EntityMsg* temp = _impl_.entity_msg_;
   _impl_.entity_msg_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
@@ -496,27 +965,27 @@ inline ::MsgInvokerCast_EntityMsg* MsgInvokerCast::release_entity_msg() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::MsgInvokerCast_EntityMsg* MsgInvokerCast::unsafe_arena_release_entity_msg() {
-  // @@protoc_insertion_point(field_release:MsgInvokerCast.entity_msg)
+inline ::CUserMsg_InvokerCast_EntityMsg* CUserMsg_InvokerCast::unsafe_arena_release_entity_msg() {
+  // @@protoc_insertion_point(field_release:CUserMsg_InvokerCast.entity_msg)
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::MsgInvokerCast_EntityMsg* temp = _impl_.entity_msg_;
+  ::CUserMsg_InvokerCast_EntityMsg* temp = _impl_.entity_msg_;
   _impl_.entity_msg_ = nullptr;
   return temp;
 }
-inline ::MsgInvokerCast_EntityMsg* MsgInvokerCast::_internal_mutable_entity_msg() {
+inline ::CUserMsg_InvokerCast_EntityMsg* CUserMsg_InvokerCast::_internal_mutable_entity_msg() {
   _impl_._has_bits_[0] |= 0x00000001u;
   if (_impl_.entity_msg_ == nullptr) {
-    auto* p = CreateMaybeMessage<::MsgInvokerCast_EntityMsg>(GetArenaForAllocation());
+    auto* p = CreateMaybeMessage<::CUserMsg_InvokerCast_EntityMsg>(GetArenaForAllocation());
     _impl_.entity_msg_ = p;
   }
   return _impl_.entity_msg_;
 }
-inline ::MsgInvokerCast_EntityMsg* MsgInvokerCast::mutable_entity_msg() {
-  ::MsgInvokerCast_EntityMsg* _msg = _internal_mutable_entity_msg();
-  // @@protoc_insertion_point(field_mutable:MsgInvokerCast.entity_msg)
+inline ::CUserMsg_InvokerCast_EntityMsg* CUserMsg_InvokerCast::mutable_entity_msg() {
+  ::CUserMsg_InvokerCast_EntityMsg* _msg = _internal_mutable_entity_msg();
+  // @@protoc_insertion_point(field_mutable:CUserMsg_InvokerCast.entity_msg)
   return _msg;
 }
-inline void MsgInvokerCast::set_allocated_entity_msg(::MsgInvokerCast_EntityMsg* entity_msg) {
+inline void CUserMsg_InvokerCast::set_allocated_entity_msg(::CUserMsg_InvokerCast_EntityMsg* entity_msg) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.entity_msg_;
@@ -533,40 +1002,360 @@ inline void MsgInvokerCast::set_allocated_entity_msg(::MsgInvokerCast_EntityMsg*
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
   _impl_.entity_msg_ = entity_msg;
-  // @@protoc_insertion_point(field_set_allocated:MsgInvokerCast.entity_msg)
+  // @@protoc_insertion_point(field_set_allocated:CUserMsg_InvokerCast.entity_msg)
 }
 
 // required int32 cast_activity = 2;
-inline bool MsgInvokerCast::_internal_has_cast_activity() const {
+inline bool CUserMsg_InvokerCast::_internal_has_cast_activity() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
-inline bool MsgInvokerCast::has_cast_activity() const {
+inline bool CUserMsg_InvokerCast::has_cast_activity() const {
   return _internal_has_cast_activity();
 }
-inline void MsgInvokerCast::clear_cast_activity() {
+inline void CUserMsg_InvokerCast::clear_cast_activity() {
   _impl_.cast_activity_ = 0;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline int32_t MsgInvokerCast::_internal_cast_activity() const {
+inline int32_t CUserMsg_InvokerCast::_internal_cast_activity() const {
   return _impl_.cast_activity_;
 }
-inline int32_t MsgInvokerCast::cast_activity() const {
-  // @@protoc_insertion_point(field_get:MsgInvokerCast.cast_activity)
+inline int32_t CUserMsg_InvokerCast::cast_activity() const {
+  // @@protoc_insertion_point(field_get:CUserMsg_InvokerCast.cast_activity)
   return _internal_cast_activity();
 }
-inline void MsgInvokerCast::_internal_set_cast_activity(int32_t value) {
+inline void CUserMsg_InvokerCast::_internal_set_cast_activity(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.cast_activity_ = value;
 }
-inline void MsgInvokerCast::set_cast_activity(int32_t value) {
+inline void CUserMsg_InvokerCast::set_cast_activity(int32_t value) {
   _internal_set_cast_activity(value);
-  // @@protoc_insertion_point(field_set:MsgInvokerCast.cast_activity)
+  // @@protoc_insertion_point(field_set:CUserMsg_InvokerCast.cast_activity)
+}
+
+// -------------------------------------------------------------------
+
+// CDOTAUserMsg_TE_UnitAnimation
+
+// required int32 entity = 1;
+inline bool CDOTAUserMsg_TE_UnitAnimation::_internal_has_entity() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_TE_UnitAnimation::has_entity() const {
+  return _internal_has_entity();
+}
+inline void CDOTAUserMsg_TE_UnitAnimation::clear_entity() {
+  _impl_.entity_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline int32_t CDOTAUserMsg_TE_UnitAnimation::_internal_entity() const {
+  return _impl_.entity_;
+}
+inline int32_t CDOTAUserMsg_TE_UnitAnimation::entity() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_TE_UnitAnimation.entity)
+  return _internal_entity();
+}
+inline void CDOTAUserMsg_TE_UnitAnimation::_internal_set_entity(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.entity_ = value;
+}
+inline void CDOTAUserMsg_TE_UnitAnimation::set_entity(int32_t value) {
+  _internal_set_entity(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_TE_UnitAnimation.entity)
+}
+
+// required int32 sequence_variant = 2;
+inline bool CDOTAUserMsg_TE_UnitAnimation::_internal_has_sequence_variant() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_TE_UnitAnimation::has_sequence_variant() const {
+  return _internal_has_sequence_variant();
+}
+inline void CDOTAUserMsg_TE_UnitAnimation::clear_sequence_variant() {
+  _impl_.sequence_variant_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline int32_t CDOTAUserMsg_TE_UnitAnimation::_internal_sequence_variant() const {
+  return _impl_.sequence_variant_;
+}
+inline int32_t CDOTAUserMsg_TE_UnitAnimation::sequence_variant() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_TE_UnitAnimation.sequence_variant)
+  return _internal_sequence_variant();
+}
+inline void CDOTAUserMsg_TE_UnitAnimation::_internal_set_sequence_variant(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.sequence_variant_ = value;
+}
+inline void CDOTAUserMsg_TE_UnitAnimation::set_sequence_variant(int32_t value) {
+  _internal_set_sequence_variant(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_TE_UnitAnimation.sequence_variant)
+}
+
+// required float playbackrate = 3;
+inline bool CDOTAUserMsg_TE_UnitAnimation::_internal_has_playbackrate() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_TE_UnitAnimation::has_playbackrate() const {
+  return _internal_has_playbackrate();
+}
+inline void CDOTAUserMsg_TE_UnitAnimation::clear_playbackrate() {
+  _impl_.playbackrate_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline float CDOTAUserMsg_TE_UnitAnimation::_internal_playbackrate() const {
+  return _impl_.playbackrate_;
+}
+inline float CDOTAUserMsg_TE_UnitAnimation::playbackrate() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_TE_UnitAnimation.playbackrate)
+  return _internal_playbackrate();
+}
+inline void CDOTAUserMsg_TE_UnitAnimation::_internal_set_playbackrate(float value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.playbackrate_ = value;
+}
+inline void CDOTAUserMsg_TE_UnitAnimation::set_playbackrate(float value) {
+  _internal_set_playbackrate(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_TE_UnitAnimation.playbackrate)
+}
+
+// required float castpoint = 4;
+inline bool CDOTAUserMsg_TE_UnitAnimation::_internal_has_castpoint() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_TE_UnitAnimation::has_castpoint() const {
+  return _internal_has_castpoint();
+}
+inline void CDOTAUserMsg_TE_UnitAnimation::clear_castpoint() {
+  _impl_.castpoint_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline float CDOTAUserMsg_TE_UnitAnimation::_internal_castpoint() const {
+  return _impl_.castpoint_;
+}
+inline float CDOTAUserMsg_TE_UnitAnimation::castpoint() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_TE_UnitAnimation.castpoint)
+  return _internal_castpoint();
+}
+inline void CDOTAUserMsg_TE_UnitAnimation::_internal_set_castpoint(float value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.castpoint_ = value;
+}
+inline void CDOTAUserMsg_TE_UnitAnimation::set_castpoint(float value) {
+  _internal_set_castpoint(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_TE_UnitAnimation.castpoint)
+}
+
+// required int32 type = 5;
+inline bool CDOTAUserMsg_TE_UnitAnimation::_internal_has_type() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_TE_UnitAnimation::has_type() const {
+  return _internal_has_type();
+}
+inline void CDOTAUserMsg_TE_UnitAnimation::clear_type() {
+  _impl_.type_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline int32_t CDOTAUserMsg_TE_UnitAnimation::_internal_type() const {
+  return _impl_.type_;
+}
+inline int32_t CDOTAUserMsg_TE_UnitAnimation::type() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_TE_UnitAnimation.type)
+  return _internal_type();
+}
+inline void CDOTAUserMsg_TE_UnitAnimation::_internal_set_type(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.type_ = value;
+}
+inline void CDOTAUserMsg_TE_UnitAnimation::set_type(int32_t value) {
+  _internal_set_type(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_TE_UnitAnimation.type)
+}
+
+// required int32 activity = 6;
+inline bool CDOTAUserMsg_TE_UnitAnimation::_internal_has_activity() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_TE_UnitAnimation::has_activity() const {
+  return _internal_has_activity();
+}
+inline void CDOTAUserMsg_TE_UnitAnimation::clear_activity() {
+  _impl_.activity_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000020u;
+}
+inline int32_t CDOTAUserMsg_TE_UnitAnimation::_internal_activity() const {
+  return _impl_.activity_;
+}
+inline int32_t CDOTAUserMsg_TE_UnitAnimation::activity() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_TE_UnitAnimation.activity)
+  return _internal_activity();
+}
+inline void CDOTAUserMsg_TE_UnitAnimation::_internal_set_activity(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_.activity_ = value;
+}
+inline void CDOTAUserMsg_TE_UnitAnimation::set_activity(int32_t value) {
+  _internal_set_activity(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_TE_UnitAnimation.activity)
+}
+
+// -------------------------------------------------------------------
+
+// CDOTAUserMsg_MinimapEvent
+
+// required int32 event_type = 1;
+inline bool CDOTAUserMsg_MinimapEvent::_internal_has_event_type() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_MinimapEvent::has_event_type() const {
+  return _internal_has_event_type();
+}
+inline void CDOTAUserMsg_MinimapEvent::clear_event_type() {
+  _impl_.event_type_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline int32_t CDOTAUserMsg_MinimapEvent::_internal_event_type() const {
+  return _impl_.event_type_;
+}
+inline int32_t CDOTAUserMsg_MinimapEvent::event_type() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_MinimapEvent.event_type)
+  return _internal_event_type();
+}
+inline void CDOTAUserMsg_MinimapEvent::_internal_set_event_type(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.event_type_ = value;
+}
+inline void CDOTAUserMsg_MinimapEvent::set_event_type(int32_t value) {
+  _internal_set_event_type(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_MinimapEvent.event_type)
+}
+
+// required int32 entity_handle = 2;
+inline bool CDOTAUserMsg_MinimapEvent::_internal_has_entity_handle() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_MinimapEvent::has_entity_handle() const {
+  return _internal_has_entity_handle();
+}
+inline void CDOTAUserMsg_MinimapEvent::clear_entity_handle() {
+  _impl_.entity_handle_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline int32_t CDOTAUserMsg_MinimapEvent::_internal_entity_handle() const {
+  return _impl_.entity_handle_;
+}
+inline int32_t CDOTAUserMsg_MinimapEvent::entity_handle() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_MinimapEvent.entity_handle)
+  return _internal_entity_handle();
+}
+inline void CDOTAUserMsg_MinimapEvent::_internal_set_entity_handle(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.entity_handle_ = value;
+}
+inline void CDOTAUserMsg_MinimapEvent::set_entity_handle(int32_t value) {
+  _internal_set_entity_handle(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_MinimapEvent.entity_handle)
+}
+
+// required int32 x = 3;
+inline bool CDOTAUserMsg_MinimapEvent::_internal_has_x() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_MinimapEvent::has_x() const {
+  return _internal_has_x();
+}
+inline void CDOTAUserMsg_MinimapEvent::clear_x() {
+  _impl_.x_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline int32_t CDOTAUserMsg_MinimapEvent::_internal_x() const {
+  return _impl_.x_;
+}
+inline int32_t CDOTAUserMsg_MinimapEvent::x() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_MinimapEvent.x)
+  return _internal_x();
+}
+inline void CDOTAUserMsg_MinimapEvent::_internal_set_x(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.x_ = value;
+}
+inline void CDOTAUserMsg_MinimapEvent::set_x(int32_t value) {
+  _internal_set_x(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_MinimapEvent.x)
+}
+
+// required float y = 4;
+inline bool CDOTAUserMsg_MinimapEvent::_internal_has_y() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_MinimapEvent::has_y() const {
+  return _internal_has_y();
+}
+inline void CDOTAUserMsg_MinimapEvent::clear_y() {
+  _impl_.y_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline float CDOTAUserMsg_MinimapEvent::_internal_y() const {
+  return _impl_.y_;
+}
+inline float CDOTAUserMsg_MinimapEvent::y() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_MinimapEvent.y)
+  return _internal_y();
+}
+inline void CDOTAUserMsg_MinimapEvent::_internal_set_y(float value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.y_ = value;
+}
+inline void CDOTAUserMsg_MinimapEvent::set_y(float value) {
+  _internal_set_y(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_MinimapEvent.y)
+}
+
+// required int32 duration = 5;
+inline bool CDOTAUserMsg_MinimapEvent::_internal_has_duration() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_MinimapEvent::has_duration() const {
+  return _internal_has_duration();
+}
+inline void CDOTAUserMsg_MinimapEvent::clear_duration() {
+  _impl_.duration_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline int32_t CDOTAUserMsg_MinimapEvent::_internal_duration() const {
+  return _impl_.duration_;
+}
+inline int32_t CDOTAUserMsg_MinimapEvent::duration() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_MinimapEvent.duration)
+  return _internal_duration();
+}
+inline void CDOTAUserMsg_MinimapEvent::_internal_set_duration(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.duration_ = value;
+}
+inline void CDOTAUserMsg_MinimapEvent::set_duration(int32_t value) {
+  _internal_set_duration(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_MinimapEvent.duration)
 }
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 

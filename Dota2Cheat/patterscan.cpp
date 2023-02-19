@@ -46,7 +46,7 @@ void* PatternScanEx(HANDLE hProcess, uintptr_t begin, uintptr_t end, const char*
 
 		void* internalAddress = PatternScan((char*)&buffer, bytesRead, pattern, mask);
 
-		if (internalAddress != nullptr)
+		if (internalAddress )
 		{
 			//calculate from internal to external
 			uintptr_t offsetFromBuffer = (uintptr_t)internalAddress - (uintptr_t)&buffer;

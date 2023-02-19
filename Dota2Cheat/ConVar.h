@@ -103,8 +103,8 @@ public:
 		auto list = GetCVarNodeList();
 		for (int i = 0; i < 4200; i++) {
 			auto var = list[i].var;
-			if (var != nullptr &&
-				var->name != nullptr) {
+			if (var  &&
+				var->name ) {
 				CVarInfo info;
 				info.var = list[i].var;
 				info.index = i;
@@ -118,8 +118,8 @@ public:
 		if (file.is_open()) {
 			auto list = GetCVarNodeList();
 			for (int i = 0; i < 4200; i++) {
-				if (list[i].var != nullptr &&
-					list[i].var->name != nullptr)
+				if (list[i].var  &&
+					list[i].var->name )
 					file << list[i].var->name << " " << i << '\n';
 			}
 

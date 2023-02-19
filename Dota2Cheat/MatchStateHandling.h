@@ -10,8 +10,6 @@
 
 extern bool IsInMatch;
 
-
-
 inline void FillPlayerList() {
 	auto vec = Globals::PlayerResource->GetVecTeamPlayerData();
 	std::cout << "<PLAYERS>\n";
@@ -29,8 +27,8 @@ inline void FillPlayerList() {
 		//std::cout << idx << " " << player << ' ' << player->GetIdentity() << '\n';
 
 		std::cout << "Player " << std::dec << idx << ": " << player;
-		if (hero != nullptr &&
-			hero->GetUnitName() != nullptr) {
+		if (hero  &&
+			hero->GetUnitName() ) {
 			std::cout << "\n\t" << hero->GetUnitName() << " " << hero;
 			heroes.push_back(hero);
 		}
@@ -59,6 +57,7 @@ inline void EnteredMatch() {
 			return;
 
 		Modules::SBChargeHighlighter.SubscribeEntity(assignedHero);
+		Modules::ShakerAttackAnimFix.SubscribeEntity(assignedHero);
 
 		Modules::AutoBuyTome.Init();
 		std::cout << "Local Player: " << localPlayer

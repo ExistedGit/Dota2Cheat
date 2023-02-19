@@ -222,7 +222,7 @@ public:
 			ENT_HANDLE handle = hAbilities[j];
 			if (HVALID(handle)) {
 				auto* identity = Interfaces::EntitySystem->GetIdentity(H2IDX(handle));
-				result.push_back(ItemOrAbility((identity->entityName != nullptr ? identity->entityName : identity->internalName), identity->entHandle));
+				result.push_back(ItemOrAbility((identity->entityName  ? identity->entityName : identity->internalName), identity->entHandle));
 			}
 		}
 		return result;
@@ -232,7 +232,7 @@ public:
 		if (str == nullptr)
 			return ItemOrAbility{ nullptr, 0xFFFFFFFF };
 		for (const auto& item : GetItems())
-			if (item.name != nullptr &&
+			if (item.name  &&
 				strstr(item.name, str))
 				return item;
 
@@ -257,7 +257,7 @@ public:
 			for (int i = 0; i < 19; i++) {
 				if (HVALID(itemsHandle[i])) {
 					auto* identity = Interfaces::EntitySystem->GetIdentity(H2IDX(itemsHandle[i]));
-					result.push_back(ItemOrAbility((identity->entityName != nullptr ? identity->entityName : identity->internalName), identity->entHandle));
+					result.push_back(ItemOrAbility((identity->entityName  ? identity->entityName : identity->internalName), identity->entHandle));
 				}
 			}
 		}

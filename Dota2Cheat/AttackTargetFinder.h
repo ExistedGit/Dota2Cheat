@@ -9,7 +9,7 @@ public:
 			for (int j = 0; j <= Interfaces::EntitySystem->GetHighestEntityIndex(); j++) {
 				auto pos = attacker->GetForwardVector(i).AsVec2();
 				auto ent = Interfaces::EntitySystem->GetEntity(j);
-				if (ent != nullptr &&
+				if (ent  &&
 					ent->GetTeam() != attacker->GetTeam() &&
 					IsWithinRadius(
 						pos,

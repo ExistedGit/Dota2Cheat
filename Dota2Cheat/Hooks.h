@@ -20,6 +20,7 @@
 #include "IllusionColoring.h"
 #include "AegisAutoPickup.h"
 #include "RiverPaint.h"
+#include "ShakerAttackAnimFix.h"
 
 #include "AttackTargetFinder.h"
 #include "BadCastPrevention.h"
@@ -45,7 +46,7 @@ namespace Hooks {
 				continue;
 			//std::cout << ent->SchemaBinding() << '\n';
 			const char* className = ent->SchemaBinding()->binaryName;
-			if (className != nullptr && TestStringFilters(className, filters))
+			if (className  && TestStringFilters(className, filters))
 				vec.push_back((T*)ent);
 		}
 		return vec;
@@ -165,12 +166,6 @@ namespace Hooks {
 						//<< "\n\t" << AttackTargetFinder::GetAttackTarget(ent)
 						<< '\n';
 				}
-				if (IsKeyPressed(VK_NUMPAD7)) {
-					//LogInvAndAbilities(ent);
-					//auto ab = ent->GetAbilities()[2];
-					//std::cout << std::dec << selected[0] << " " << std::dec<< ab.name << " " << ab.GetAs<BaseAbility>()->GetCooldown() << '\n';
-					//LogEntities();
-				}
 				if (IsKeyPressed(VK_NUMPAD3)) {
 					//std::cout << assignedHero->GetForwardVector(10) << '\n';
 					//LogEntities();
@@ -205,7 +200,7 @@ namespace Hooks {
 
 	inline BaseEntity* OnAddEntity(CEntitySystem* thisptr, BaseEntity* ent, ENT_HANDLE handle) {
 		auto className = ent->SchemaBinding()->binaryName;
-		if (className != nullptr) {
+		if (className ) {
 			if (TestStringFilters(className, { "Item_Physical" })) {
 				physicalItems.push_back(ent);
 			}
@@ -399,7 +394,7 @@ namespace Hooks {
 		const char* name = info->pProtobufBinding->GetName();
 
 		Modules::SunStrikeHighlighter.ProcessMessage(messageHandle, msg);
-		//Modules::AutoDodge.ProcessMessage(messageHandle, msg);
+		Modules::ShakerAttackAnimFix.ChangeAttackAnimIfNeeded(messageHandle, msg);
 
 		return VMTs::NetChannel->GetOriginalMethod<decltype(&hkPostReceivedNetMessage)>(86)(thisptr, messageHandle, msg, type, bits);
 	}
