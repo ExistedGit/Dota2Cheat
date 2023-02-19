@@ -22,18 +22,18 @@ inline void FillPlayerList() {
 		auto player = (DotaPlayer*)Interfaces::EntitySystem->GetEntity(idx);
 		if (player == nullptr)
 			continue;
-		
+
 		auto hero = (BaseNpc*)player->GetAssignedHero();
 		//std::cout << idx << " " << player << ' ' << player->GetIdentity() << '\n';
 
 		std::cout << "Player " << std::dec << idx << ": " << player;
-		if (hero  &&
-			hero->GetUnitName() ) {
+		if (hero &&
+			hero->GetUnitName()) {
 			std::cout << "\n\t" << hero->GetUnitName() << " " << hero;
 			heroes.push_back(hero);
 		}
 		std::cout << '\n';
-		
+
 		//players.push_back(player);
 	}
 }
@@ -41,7 +41,7 @@ inline void FillPlayerList() {
 inline void EnteredMatch() {
 	Globals::GameRules = *Globals::GameRulesPtr;
 	Globals::PlayerResource = *Globals::PlayerResourcePtr;
-//	Globals::ScriptVM = *Globals::ScriptVMPtr;
+	//	Globals::ScriptVM = *Globals::ScriptVMPtr;
 	Globals::ParticleManager = *Globals::ParticleManagerPtr;
 	Globals::GameEventManager = *Globals::GameEventManagerPtr;
 
@@ -56,16 +56,21 @@ inline void EnteredMatch() {
 		if (assignedHero == nullptr)
 			return;
 
-		Modules::SBChargeHighlighter.SubscribeEntity(assignedHero);
-		Modules::ShakerAttackAnimFix.SubscribeEntity(assignedHero);
+		FillPlayerList();
 
+		Modules::ShakerAttackAnimFix.SubscribeEntity(assignedHero);
+		for (auto& hero : heroes) {
+			if (hero->GetTeam() == assignedHero->GetTeam()) {
+				Modules::SBChargeHighlighter.SubscribeEntity(hero);
+				Modules::VBE.SubscribeEntity(hero);
+			}
+		}
 		Modules::AutoBuyTome.Init();
 		std::cout << "Local Player: " << localPlayer
 			<< "\n\t" << std::dec << "STEAM ID: " << localPlayer->GetSteamID()
 			<< '\n';
 		std::cout << "Assigned Hero: " << assignedHero << " " << assignedHero->GetUnitName() << '\n';
-		FillPlayerList();
-		
+
 		Interfaces::CVar->SetConvars();
 
 		auto roshanListener = new RoshanListener();
@@ -82,7 +87,7 @@ inline void EnteredMatch() {
 #ifdef _DEBUG
 		Test::HookParticles();
 #endif // _DEBUG
-		
+
 		IsInMatch = true;
 
 		std::cout << "ENTERED MATCH\n";
@@ -94,12 +99,12 @@ inline void LeftMatch() {
 	Modules::AutoBuyTome.Reset();
 	Modules::SBChargeHighlighter.Reset();
 	Modules::VBE.Reset();
-	
+
 	Globals::PlayerResource = nullptr;
 	Globals::GameRules = nullptr;
 	Globals::ScriptVM = nullptr;
 	Globals::ParticleManager = nullptr;
-	
+
 	VMTs::NetChannel.reset();
 	VMTs::UIEngine.reset();
 
@@ -116,7 +121,7 @@ inline void LeftMatch() {
 #endif // _DEBUG
 	players.clear();
 	heroes.clear();
-	
+
 	std::cout << "LEFT MATCH\n";
 }
 inline void CheckMatchState() {

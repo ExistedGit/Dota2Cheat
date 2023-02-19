@@ -46,7 +46,7 @@ namespace Hooks {
 				continue;
 			//std::cout << ent->SchemaBinding() << '\n';
 			const char* className = ent->SchemaBinding()->binaryName;
-			if (className  && TestStringFilters(className, filters))
+			if (className && TestStringFilters(className, filters))
 				vec.push_back((T*)ent);
 		}
 		return vec;
@@ -200,7 +200,7 @@ namespace Hooks {
 
 	inline BaseEntity* OnAddEntity(CEntitySystem* thisptr, BaseEntity* ent, ENT_HANDLE handle) {
 		auto className = ent->SchemaBinding()->binaryName;
-		if (className ) {
+		if (className) {
 			if (TestStringFilters(className, { "Item_Physical" })) {
 				physicalItems.push_back(ent);
 			}
@@ -241,131 +241,131 @@ namespace Hooks {
 				break;
 			case DOTA_ORDER_ISSUER_CURRENT_UNIT_ONLY:
 			case DOTA_ORDER_ISSUER_SELECTED_UNITS:
-				issuer = Interfaces::EntitySystem->GetEntity(localPlayer->GetSelectedUnits().first());
+				if (localPlayer->GetSelectedUnits().m_Size != 0)
+					issuer = Interfaces::EntitySystem->GetEntity(localPlayer->GetSelectedUnits().first());
 				break;
 			}
-
 		}
+		if (issuer)
+			switch (orderType) {
+			case DOTA_UNIT_ORDER_CAST_TARGET:
+			{
+				//Redirects spell casts from illusions to the real hero
+				auto npc = Interfaces::EntitySystem->GetEntity<BaseNpc>(targetIndex);
 
-		switch (orderType) {
-		case DOTA_UNIT_ORDER_CAST_TARGET:
-		{
-			//Redirects spell casts from illusions to the real hero
-			auto npc = Interfaces::EntitySystem->GetEntity<BaseNpc>(targetIndex);
-
-			if (strstr(npc->SchemaBinding()->binaryName, "C_DOTA_Unit_Hero") &&
-				reinterpret_cast<BaseNpcHero*>(npc)->IsIllusion()) {
-				auto assignedHero = Interfaces::EntitySystem->GetEntity<DotaPlayer>(
-					H2IDX(
-						npc->GetOwnerEntityHandle()
-					)
-					)
-					->GetAssignedHero();
-				if (assignedHero->IsTargetable()) {
-					targetIndex =
+				if (strstr(npc->SchemaBinding()->binaryName, "C_DOTA_Unit_Hero") &&
+					reinterpret_cast<BaseNpcHero*>(npc)->IsIllusion()) {
+					auto assignedHero = Interfaces::EntitySystem->GetEntity<DotaPlayer>(
 						H2IDX(
-							assignedHero
-							->GetIdentity()
-							->entHandle
-						);
-					showEffects = false;
+							npc->GetOwnerEntityHandle()
+						)
+						)
+						->GetAssignedHero();
+					if (assignedHero->IsTargetable()) {
+						targetIndex =
+							H2IDX(
+								assignedHero
+								->GetIdentity()
+								->entHandle
+							);
+						showEffects = false;
+					}
 				}
-			}
-			break;
-		}
-		case DOTA_UNIT_ORDER_CAST_POSITION: {
-			// Blink overshoot bypass
-			auto item = Interfaces::EntitySystem->GetEntity<BaseAbility>(abilityIndex);
-			if (strstr(item->GetIdentity()->GetName(), "blink")) {
-				auto maxDist = item->GetEffectiveCastRange();
-				auto pos2D = *(Vector2*)position;
-				if (!IsWithinRadius(issuer->GetPos2D(), pos2D, maxDist)) {
-					auto dist = issuer->GetPos2D().DistanceTo(pos2D);
-					// Relative vector from the hero to the click point
-					auto vec = Vector2(pos2D.x - issuer->GetPos2D().x, pos2D.y - issuer->GetPos2D().y);
-					// -1% to make it 100% be inside the radius
-					vec.x *= maxDist / dist * 0.99;
-					vec.x += issuer->GetPos2D().x;
-					vec.y *= maxDist / dist * 0.99;
-					vec.y += issuer->GetPos2D().y;
-
-					position->x = vec.x;
-					position->y = vec.y;
-					showEffects = false;
-				}
-			}
-			break;
-		}
-		case DOTA_UNIT_ORDER_DROP_ITEM:
-		{
-			break;
-		}
-		case DOTA_UNIT_ORDER_CAST_NO_TARGET: {
-			//Automatic mana & HP abuse with items like Arcane Boots or Faerie Fire
-			static std::vector<const char*> filters = {
-				"item_arcane_boots", "item_enchanted_mango",
-				"item_guardian_greaves",
-				"item_magic_stick",
-				"item_magic_wand",
-				"item_holy_locket",
-				"item_soul_ring", "item_cheese", "item_arcane_ring", "item_faerie_fire", "item_greater_faerie_fire"
-			};
-			static std::vector<const char*> bonusTypes = {
-				"bonus_int",
-				"bonus_intellect",
-				"bonus_strength",
-				"bonus_str",
-				"bonus_all_stats",
-				"bonus_mana",
-				"bonus_health"
-			};
-			if (issuer == nullptr)
-				issuer = player->GetAssignedHero();
-
-			if (!TestStringFilters(
-				Interfaces::EntitySystem
-				->GetEntity<BaseAbility>(abilityIndex)
-				->GetIdentity()
-				->GetName(),
-				filters))
 				break;
-
-			BaseNpc* npc = (BaseNpc*)issuer;
-			bool callPickup = false;
-			uint32_t stashSlot = 6;
-			for (auto& item : npc->GetItems()) {
-				if (H2IDX(item.handle) == abilityIndex                   // must not be the item we're using
-					|| npc->GetInventory()->GetItemSlot(item.handle) > 5 // must not bew in the backpack
-					)
-					continue;
-
-				double anyBonus = 0;
-				for (auto& bonus : bonusTypes) {
-					anyBonus += Signatures::Scripts::GetLevelSpecialValueFor(nullptr, H2IDX(item.handle), bonus, -1);
-					if (anyBonus > 0)
-						break;
-				}
-				auto fVec = npc->GetForwardVector(5);
-				if (anyBonus > 0) {
-					//std::cout << abilityIndex << bonusInt << '\n';
-					queue = true;
-					PrepareUnitOrdersOriginal(player, DOTA_UNIT_ORDER_DROP_ITEM, 0, &fVec, H2IDX(item.handle), DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
-					callPickup = true;
-				}
 			}
-			if (callPickup)
-				// Multhithreading magic — who knows when the hero finishes dropping the items?
-				manaAbusePickup = std::async(std::launch::async, [&, player, issuer]() mutable {
-				Sleep(300);
-			for (auto& item : physicalItems) { // wtf is with this indentation???
-				if (IsWithinRadius(item->GetPos2D(), assignedHero->GetPos2D(), 50))
-					PrepareUnitOrdersOriginal(player, DOTA_UNIT_ORDER_PICKUP_ITEM, H2IDX(item->GetIdentity()->entHandle), &Vector3::Zero, 0, DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
+			case DOTA_UNIT_ORDER_CAST_POSITION: {
+				// Blink overshoot bypass
+				auto item = Interfaces::EntitySystem->GetEntity<BaseAbility>(abilityIndex);
+				if (strstr(item->GetIdentity()->GetName(), "blink")) {
+					auto maxDist = item->GetEffectiveCastRange();
+					auto pos2D = *(Vector2*)position;
+					if (!IsWithinRadius(issuer->GetPos2D(), pos2D, maxDist)) {
+						auto dist = issuer->GetPos2D().DistanceTo(pos2D);
+						// Relative vector from the hero to the click point
+						auto vec = Vector2(pos2D.x - issuer->GetPos2D().x, pos2D.y - issuer->GetPos2D().y);
+						// -1% to make it 100% be inside the radius
+						vec.x *= maxDist / dist * 0.99;
+						vec.x += issuer->GetPos2D().x;
+						vec.y *= maxDist / dist * 0.99;
+						vec.y += issuer->GetPos2D().y;
+
+						position->x = vec.x;
+						position->y = vec.y;
+						showEffects = false;
+					}
+				}
+				break;
 			}
-			physicalItems.clear();
-					});
-			break;
-		}
-		}
+			case DOTA_UNIT_ORDER_DROP_ITEM:
+			{
+				break;
+			}
+			case DOTA_UNIT_ORDER_CAST_NO_TARGET: {
+				//Automatic mana & HP abuse with items like Arcane Boots or Faerie Fire
+				static std::vector<const char*> filters = {
+					"item_arcane_boots", "item_enchanted_mango",
+					"item_guardian_greaves",
+					"item_magic_stick",
+					"item_magic_wand",
+					"item_holy_locket",
+					"item_soul_ring", "item_cheese", "item_arcane_ring", "item_faerie_fire", "item_greater_faerie_fire"
+				};
+				static std::vector<const char*> bonusTypes = {
+					"bonus_int",
+					"bonus_intellect",
+					"bonus_strength",
+					"bonus_str",
+					"bonus_all_stats",
+					"bonus_mana",
+					"bonus_health"
+				};
+				if (issuer == nullptr)
+					issuer = player->GetAssignedHero();
+
+				if (!TestStringFilters(
+					Interfaces::EntitySystem
+					->GetEntity<BaseAbility>(abilityIndex)
+					->GetIdentity()
+					->GetName(),
+					filters))
+					break;
+
+				BaseNpc* npc = (BaseNpc*)issuer;
+				bool callPickup = false;
+				uint32_t stashSlot = 6;
+				for (auto& item : npc->GetItems()) {
+					if (H2IDX(item.handle) == abilityIndex                   // must not be the item we're using
+						|| npc->GetInventory()->GetItemSlot(item.handle) > 5 // must not bew in the backpack
+						)
+						continue;
+
+					double anyBonus = 0;
+					for (auto& bonus : bonusTypes) {
+						anyBonus += Signatures::Scripts::GetLevelSpecialValueFor(nullptr, H2IDX(item.handle), bonus, -1);
+						if (anyBonus > 0)
+							break;
+					}
+					auto fVec = npc->GetForwardVector(5);
+					if (anyBonus > 0) {
+						//std::cout << abilityIndex << bonusInt << '\n';
+						queue = true;
+						PrepareUnitOrdersOriginal(player, DOTA_UNIT_ORDER_DROP_ITEM, 0, &fVec, H2IDX(item.handle), DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
+						callPickup = true;
+					}
+				}
+				if (callPickup)
+					// Multhithreading magic — who knows when the hero finishes dropping the items?
+					manaAbusePickup = std::async(std::launch::async, [&, player, issuer]() mutable {
+					Sleep(300);
+				for (auto& item : physicalItems) { // wtf is with this indentation???
+					if (IsWithinRadius(item->GetPos2D(), assignedHero->GetPos2D(), 50))
+						PrepareUnitOrdersOriginal(player, DOTA_UNIT_ORDER_PICKUP_ITEM, H2IDX(item->GetIdentity()->entHandle), &Vector3::Zero, 0, DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
+				}
+				physicalItems.clear();
+						});
+				break;
+			}
+			}
 
 		if (orderType == DOTA_UNIT_ORDER_CAST_NO_TARGET ||
 			orderType == DOTA_UNIT_ORDER_CAST_POSITION)
