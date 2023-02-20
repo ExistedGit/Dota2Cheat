@@ -87,7 +87,7 @@ enum PlayerOrderIssuer_t : int {
 	DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY = 3
 };
 
-//unused since somewhen in 2022
+//unused since somewhen in late 2022
 enum OrderQueueBehavior_t : int {
 	DOTA_ORDER_QUEUE_DEFAULT = 0,
 	DOTA_ORDER_QUEUE_NEVER = 1,

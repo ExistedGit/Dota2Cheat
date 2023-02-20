@@ -1,9 +1,4 @@
 #pragma once
-#include "MatchStateHandling.h"
-#include "Wrappers.h"
-#include "UIState.h"
-#include "Input.h"
-#include "CDOTAParticleManager.h"
 
 #include "Hooks/PrepareUnitOrders.h"
 #include "Hooks/NetChannel.h"
@@ -19,7 +14,7 @@ namespace Hooks {
 		};
 
 		static void SetUpByteHooks() {
-			Hook(Signatures::PrepareUnitOrders, &hkPrepareUnitOrders, PrepareUnitOrdersOriginal, "PrepareUnitOrders");
+			Hook(Signatures::PrepareUnitOrders, &hkPrepareUnitOrders, &PrepareUnitOrdersOriginal, "PrepareUnitOrders");
 			Hook(Signatures::DispatchPacket, &hkDispatchPacket, &DispatchPacketOriginal, "DispatchPacket");
 			Hook(Signatures::BAsyncSendProto, &hkBAsyncSendProto, &BAsyncSendProtoOriginal, "BAsyncSendProto");
 		}
@@ -30,5 +25,4 @@ namespace Hooks {
 			VMTs::NetworkSystem->ApplyVMT();
 		}
 	};
-
 }

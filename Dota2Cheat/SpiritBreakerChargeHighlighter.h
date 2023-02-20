@@ -1,8 +1,8 @@
 #pragma once
 #include <vector>
+#include <functional>
 #include "CUtlVector.h"
 #include "Wrappers.h"
-#include "CDOTAParticleManager.h"
 #include "Globals.h"
 
 namespace Hacks {

@@ -219,6 +219,7 @@
     <ClInclude Include="EventListeners.h" />
     <ClInclude Include="HookHelper.h" />
     <ClInclude Include="Hooks\NetChannel.h" />
+    <ClInclude Include="Netvars.h" />
     <ClInclude Include="Hooks\PrepareUnitOrders.h" />
     <ClInclude Include="Hooks\RunFrame.h" />
     <ClInclude Include="Hooks\VMT.h" />

@@ -46,6 +46,9 @@
     <Filter Include="Header files\Hooks">
       <UniqueIdentifier>{a99fdb0c-6680-4f5d-88cb-aaadf8759d5a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header files\Lua">
+      <UniqueIdentifier>{6bc97820-53b1-4cf7-bda5-e43dd37004e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -247,6 +250,9 @@
     </ClInclude>
     <ClInclude Include="Hooks\NetChannel.h">
       <Filter>Header files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="Netvars.h">
+      <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

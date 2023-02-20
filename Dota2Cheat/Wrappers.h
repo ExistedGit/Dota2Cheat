@@ -5,6 +5,7 @@
 #include "CUtlVector.h"
 #include <set>
 //#include <span>
+#include "Netvars.h"
 #include "SDK/color.h"
 
 #define u64 unsigned long long
@@ -129,7 +130,27 @@ public:
 class DotaModifier : public VClass {
 public:
 	const char* GetName() {
-		return Member<const char*>(0x28);
+		return Member<const char*>(Netvars::CDOTAModifier::m_name);
+	}
+
+	float GetDuration() {
+		return Member<float>(Netvars::CDOTAModifier::m_flDuration);
+	}
+
+	float GetDieTime() {
+		return Member<float>(Netvars::CDOTAModifier::m_flDieTime);
+	}
+
+	ENT_HANDLE GetCaster() {
+		return Member<ENT_HANDLE>(Netvars::CDOTAModifier::m_hCaster);
+	}
+
+	ENT_HANDLE GetAbility() {
+		return Member<ENT_HANDLE>(Netvars::CDOTAModifier::m_hAbility);
+	}
+
+	ENT_HANDLE GetOwner() {
+		return Member<ENT_HANDLE>(Netvars::CDOTAModifier::m_hParent);
 	}
 };
 
@@ -222,7 +243,7 @@ public:
 			ENT_HANDLE handle = hAbilities[j];
 			if (HVALID(handle)) {
 				auto* identity = Interfaces::EntitySystem->GetIdentity(H2IDX(handle));
-				result.push_back(ItemOrAbility((identity->entityName  ? identity->entityName : identity->internalName), identity->entHandle));
+				result.push_back(ItemOrAbility((identity->entityName ? identity->entityName : identity->internalName), identity->entHandle));
 			}
 		}
 		return result;
@@ -232,7 +253,7 @@ public:
 		if (str == nullptr)
 			return ItemOrAbility{ nullptr, 0xFFFFFFFF };
 		for (const auto& item : GetItems())
-			if (item.name  &&
+			if (item.name &&
 				strstr(item.name, str))
 				return item;
 
@@ -257,7 +278,7 @@ public:
 			for (int i = 0; i < 19; i++) {
 				if (HVALID(itemsHandle[i])) {
 					auto* identity = Interfaces::EntitySystem->GetIdentity(H2IDX(itemsHandle[i]));
-					result.push_back(ItemOrAbility((identity->entityName  ? identity->entityName : identity->internalName), identity->entHandle));
+					result.push_back(ItemOrAbility((identity->entityName ? identity->entityName : identity->internalName), identity->entHandle));
 				}
 			}
 		}
