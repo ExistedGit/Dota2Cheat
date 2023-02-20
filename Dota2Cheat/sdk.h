@@ -20,7 +20,6 @@ inline void PAUSE() {
 #define HVALID(H) (H != 0xFFFFFFFF)
 
 #define u64 unsigned long long
-#define cc const char*
 
 inline float clamp(float n, float min, float max) {
 	return n < min ? min : (n > max ? max : n);
@@ -126,7 +125,7 @@ inline Function getvfunc(void* instance, int index)
 }
 template<typename T, typename Z>
 inline bool StringsMatch(T a, Z b) {
-	return !strcmp((cc)a, (cc)b);
+	return !strcmp((const char*)a, (const char*)b);
 }
 template<typename T, typename Z>
 inline void MemCopy(T dst, Z src, size_t size) {

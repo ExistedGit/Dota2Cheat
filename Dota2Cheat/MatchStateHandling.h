@@ -88,6 +88,11 @@ inline void EnteredMatch() {
 
 		ctx.IsInMatch = true;
 
+
+		ctx.lua["assignedHero"] = ctx.assignedHero;
+
+		ctx.lua.script(R"(print(assignedHero:GetUnitName()))");
+
 		std::cout << "ENTERED MATCH\n";
 	}
 }

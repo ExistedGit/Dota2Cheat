@@ -25,9 +25,9 @@
 
 #include "Drawing.h"
 
+#include "Lua/LuaInitialization.h"
 
-
-#pragma region Global variables
+#pragma region Static variables
 
 Vector3 Vector3::Zero = Vector3(0, 0, 0);
 std::map<std::string, CVarSystem::CVarInfo> CVarSystem::CVar{};
@@ -72,8 +72,14 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	ctx.CurProcId = GetCurrentProcessId();
 	ctx.CurProcHandle = OpenProcess(PROCESS_ALL_ACCESS, TRUE, ctx.CurProcId);
+	
+	// open some common libraries
+	ctx.lua.open_libraries(sol::lib::base, sol::lib::package);
+	Lua::InitEnums(ctx.lua);
+	Lua::InitClasses(ctx.lua);
 
-	std::cout << "works!" << std::endl;
+	ctx.lua.script("print(\"works!\")");
+	//std::cout << "works!" << std::endl;
 	Interfaces::InitInterfaces();
 	Interfaces::LogInterfaces();
 	//Interfaces::CVar->DumpConVarsToFile("H:\\SchemaDump\\convars.txt");
@@ -82,7 +88,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Schema::SchemaDumpToMap("client.dll", "C_DOTA_BaseNPC_Hero");
 	Schema::SchemaDumpToMap("client.dll", "C_DOTAPlayerController");
 	Schema::SchemaDumpToMap("client.dll", "C_DOTA_UnitInventory");
-
 	Signatures::InitSignatures();
 	Signatures::LogSignatures();
 
@@ -94,7 +99,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	VMTs::Entity->HookVM(Hooks::OnRemoveEntity, 15);
 	VMTs::Entity->ApplyVMT();
 	Hooks::HookHelper::SetUpVirtualHooks();
-
 
 
 	//{
