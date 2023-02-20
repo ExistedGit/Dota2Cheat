@@ -2,13 +2,11 @@
 #include "Globals.h"
 #include "Interfaces.h"
 #include "Wrappers.h"
-#include "Hooks.h"
+#include "Hooks/RunFrame.h"
 #include "AutoBuyTome.h"
 #include "EventListeners.h"
 #include "DebugFunctions.h"
 #include "SpiritBreakerChargeHighlighter.h"
-
-extern bool IsInMatch;
 
 inline void FillPlayerList() {
 	auto vec = Globals::PlayerResource->GetVecTeamPlayerData();

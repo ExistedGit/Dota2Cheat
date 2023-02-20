@@ -13,8 +13,8 @@ namespace Hacks {
 			tomeStockInfo = nullptr;
 		}
 		void Init() {
-			if (Globals::GameRules == nullptr ||
-				assignedHero == nullptr)
+			if (!Globals::GameRules ||
+				!assignedHero)
 				return;
 
 			auto vec = Globals::GameRules->GetItemStockInfo();

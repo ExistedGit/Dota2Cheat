@@ -8,7 +8,7 @@
 #include "SDK/color.h"
 #include "Globals.h"
 #include "MatchStateHandling.h"
-#include "Hooks.h"
+#include "HookHelper.h"
 #include "Input.h"
 #include "UIState.h"
 
@@ -20,6 +20,8 @@
 
 #include "Config.h"
 #include "DebugFunctions.h"
+
+#include "Hooks/EntitySystemEvents.h"
 
 #include "Drawing.h"
 
@@ -95,13 +97,13 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Signatures::LogSignatures();
 
 	Globals::InitGlobals();
-	Hooks::SetUpByteHooks();
+	Hooks::HookHelper::SetUpByteHooks();
 
 	VMTs::Entity = std::unique_ptr<VMT>(new VMT(Interfaces::EntitySystem));
 	VMTs::Entity->HookVM(Hooks::OnAddEntity, 14);
 	VMTs::Entity->HookVM(Hooks::OnRemoveEntity, 15);
 	VMTs::Entity->ApplyVMT();
-	Hooks::InitVirtualHooks();
+	Hooks::HookHelper::SetUpVirtualHooks();
 
 
 

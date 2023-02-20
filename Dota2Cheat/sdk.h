@@ -13,7 +13,6 @@ inline void PAUSE() {
 	}
 }
 
-
 #define ENT_HANDLE uint32_t
 #define ENT_HANDLE_MASK 0x7fff
 #define H2IDX(H) (H & ENT_HANDLE_MASK) // Entity handle to entity index
@@ -24,6 +23,7 @@ inline void PAUSE() {
 
 extern HANDLE CurProcHandle;
 extern int CurProcId;
+extern bool IsInMatch;
 
 inline float clamp(float n, float min, float max) {
 	return n < min ? min : (n > max ? max : n);
