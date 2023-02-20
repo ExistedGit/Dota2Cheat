@@ -215,6 +215,7 @@
     <ClInclude Include="Config.h" />
     <ClInclude Include="DebugFunctions.h" />
     <ClInclude Include="Drawing.h" />
+    <ClInclude Include="Context.h" />
     <ClInclude Include="Hooks\EntitySystemEvents.h" />
     <ClInclude Include="EventListeners.h" />
     <ClInclude Include="HookHelper.h" />

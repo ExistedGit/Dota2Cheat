@@ -4,6 +4,7 @@
 #include <Windows.h>
 #include <vector>
 #include "Input.h"
+#include "Context.h"
 
 #define PI 3.1415926
 
@@ -20,10 +21,6 @@ inline void PAUSE() {
 
 #define u64 unsigned long long
 #define cc const char*
-
-extern HANDLE CurProcHandle;
-extern int CurProcId;
-extern bool IsInMatch;
 
 inline float clamp(float n, float min, float max) {
 	return n < min ? min : (n > max ? max : n);

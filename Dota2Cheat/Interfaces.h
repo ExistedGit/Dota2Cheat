@@ -1,16 +1,14 @@
 #pragma once
-//#include "SDK/IEngineClient.h"
-//#include "SDK/CGameEntitySystem.h"
+
+#include "sdk.h"
 #include "SDK/CSource2Client.h"
 #include "SDK/CNetworkMessages.h"
-#include "sdk.h"
 #include "CGameEntitySystem.h"
-#include "ConVar.h"
 #include "IEngineClient.h"
 #include "CInputService.h"
 #include "CBaseFileSystem.h"
 #include "CGCClient.h"
-
+#include "ConVar.h"
 
 namespace Interfaces {
 	inline CVarSystem* CVar = nullptr;
@@ -46,7 +44,7 @@ namespace Interfaces {
 		EntitySystem = *(CGameEntitySystem**)(addr_start + *(uint32_t*)(addr_start)+4);
 
 		FileSystem = GetInterface<CBaseFileSystem*>("filesystem_stdio.dll", "VFileSystem017");
-		//auto file = FileSystem->OpenFile("scripts/npc/npc_heroes.txt", "r");
+		//auto file = FileSystem->OpenFile("scripts/npc/npc_ctx.heroes.txt", "r");
 		//char buffer[256];
 		//FileSystem->ReadLine(buffer, 256, file);
 

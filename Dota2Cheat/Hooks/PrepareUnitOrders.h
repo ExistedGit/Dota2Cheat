@@ -14,12 +14,12 @@ namespace Hooks {
 		if (!issuer) { // issuer may be nullptr if it's HERO_ONLY or something
 			switch (orderIssuer) {
 			case DOTA_ORDER_ISSUER_HERO_ONLY:
-				issuer = assignedHero;
+				issuer = ctx.assignedHero;
 				break;
 			case DOTA_ORDER_ISSUER_CURRENT_UNIT_ONLY:
 			case DOTA_ORDER_ISSUER_SELECTED_UNITS:
-				if (localPlayer->GetSelectedUnits().m_Size != 0)
-					issuer = Interfaces::EntitySystem->GetEntity(localPlayer->GetSelectedUnits().first());
+				if (ctx.localPlayer->GetSelectedUnits().m_Size != 0)
+					issuer = Interfaces::EntitySystem->GetEntity(ctx.localPlayer->GetSelectedUnits().first());
 				break;
 			}
 		}
@@ -134,11 +134,11 @@ namespace Hooks {
 					// Multhithreading magic — who knows when the hero finishes dropping the items?
 					manaAbusePickup = std::async(std::launch::async, [&, player, issuer]() mutable {
 					Sleep(300);
-				for (auto& item : physicalItems) { // wtf is with this indentation???
-					if (IsWithinRadius(item->GetPos2D(), assignedHero->GetPos2D(), 50))
+				for (auto& item : ctx.physicalItems) { // wtf is with this indentation???
+					if (IsWithinRadius(item->GetPos2D(), ctx.assignedHero->GetPos2D(), 50))
 						PrepareUnitOrdersOriginal(player, DOTA_UNIT_ORDER_PICKUP_ITEM, H2IDX(item->GetIdentity()->entHandle), &Vector3::Zero, 0, DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
 				}
-				physicalItems.clear();
+				ctx.physicalItems.clear();
 						});
 				break;
 			}

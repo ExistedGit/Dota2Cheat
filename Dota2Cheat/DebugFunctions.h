@@ -26,7 +26,7 @@ inline void LogModifiers(BaseNpc* npc) {
 }
 inline void LogInvAndAbilities(BaseNpc* npc = nullptr) {
 	if (npc == nullptr)
-		npc = assignedHero;
+		npc = ctx.assignedHero;
 
 	std::cout << std::dec;
 	std::cout << "abilities: " << '\n';

@@ -29,18 +29,10 @@
 
 #pragma region Global variables
 
-bool IsInMatch = false;
 Vector3 Vector3::Zero = Vector3(0, 0, 0);
 std::map<std::string, CVarSystem::CVarInfo> CVarSystem::CVar{};
 std::vector<std::unique_ptr<IGameEventListener2>> CGameEventManager::EventListeners{};
 
-DotaPlayer* localPlayer;
-BaseNpc* assignedHero;
-std::vector<DotaPlayer*> players{};
-std::vector<BaseEntity*> physicalItems{};
-
-HANDLE CurProcHandle;
-int CurProcId;
 #pragma endregion
 
 
@@ -68,8 +60,6 @@ static inline void glfw_error_callback(int error, const char* description)
 //};
 //int rainbowIndex = 0;
 
-std::vector<BaseNpc*> heroes{};
-
 
 uintptr_t WINAPI HackThread(HMODULE hModule) {
 	// Initialize MinHook.
@@ -80,8 +70,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	FILE* f;
 	freopen_s(&f, "CONOUT$", "w", stdout);
 
-	CurProcId = GetCurrentProcessId();
-	CurProcHandle = OpenProcess(PROCESS_ALL_ACCESS, TRUE, CurProcId);
+	ctx.CurProcId = GetCurrentProcessId();
+	ctx.CurProcHandle = OpenProcess(PROCESS_ALL_ACCESS, TRUE, ctx.CurProcId);
 
 	std::cout << "works!" << std::endl;
 	Interfaces::InitInterfaces();
@@ -205,13 +195,13 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 				LogEntities();
 			}
 			if (ImGui::Button("Log Inventory")) {
-				auto selected = localPlayer->GetSelectedUnits();
+				auto selected = ctx.localPlayer->GetSelectedUnits();
 				auto ent = (BaseNpc*)Interfaces::EntitySystem->GetEntity(selected[0]);
 				LogInvAndAbilities(ent);
 			}
 
 			if (ImGui::Button("Log Modifiers")) {
-				auto selected = localPlayer->GetSelectedUnits();
+				auto selected = ctx.localPlayer->GetSelectedUnits();
 				auto ent = (BaseNpc*)Interfaces::EntitySystem->GetEntity(selected[0]);
 				LogModifiers(ent);
 			}
@@ -293,7 +283,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 						auto particle = Globals::ParticleManager->CreateParticle(
 							"particles/ui_mouseactions/selected_ring.vpcf",
 							CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
-							(BaseEntity*)assignedHero
+							(BaseEntity*)ctx.assignedHero
 						).particle
 							->SetControlPoint(1, &color)
 							->SetControlPoint(2, &radius)
@@ -305,7 +295,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			}
 		}
 
-		if (IsInMatch && Config::VBEShowText)
+		if (ctx.IsInMatch && Config::VBEShowText)
 			DrawTextForeground(window, vbeFont, UIState::HeroVisibleToEnemy ? "DETECTED" : "HIDDEN", ImVec2(1920 / 2, 1080 * 3 / 4), 80.0f, Color(200, 200, 200, 255), true);
 
 		//if (ImGui::IsKeyPressed(ImGuiKey::ImGuiKey_Insert, false)) {
@@ -314,9 +304,9 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			menuVisible = !menuVisible;
 		}
 #ifdef _DEBUG
-		if (assignedHero) {
+		if (ctx.assignedHero) {
 			int x = 0, y = 0;
-			auto vec = assignedHero->GetForwardVector(500);
+			auto vec = ctx.assignedHero->GetForwardVector(500);
 			Signatures::Scripts::WorldToScreen(&vec, &x, &y, nullptr);
 			int size = 10;
 			DrawRect(window, ImVec2(x - size, y - size), ImVec2(size, size), ImVec4(1, 0, 0, 1));
@@ -346,7 +336,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwDestroyWindow(window);
 	glfwTerminate();
 
-	if (IsInMatch)
+	if (ctx.IsInMatch)
 		LeftMatch();
 
 	Schema::Netvars.clear();

@@ -28,7 +28,7 @@ inline void FillPlayerList() {
 		if (hero &&
 			hero->GetUnitName()) {
 			std::cout << "\n\t" << hero->GetUnitName() << " " << hero;
-			heroes.push_back(hero);
+			ctx.heroes.push_back(hero);
 		}
 		std::cout << '\n';
 
@@ -47,27 +47,27 @@ inline void EnteredMatch() {
 	if (gameState == DOTA_GAMERULES_PREGAME ||
 		gameState == DOTA_GAMERULES_GAME_IN_PROGRESS) {
 
-		localPlayer = (DotaPlayer*)Interfaces::EntitySystem->GetEntity(Interfaces::Engine->GetLocalPlayerSlot() + 1);
-		if (localPlayer == nullptr)
+		ctx.localPlayer = (DotaPlayer*)Interfaces::EntitySystem->GetEntity(Interfaces::Engine->GetLocalPlayerSlot() + 1);
+		if (ctx.localPlayer == nullptr)
 			return;
-		assignedHero = (BaseNpc*)Interfaces::EntitySystem->GetEntity(H2IDX(localPlayer->GetAssignedHeroHandle()));
-		if (assignedHero == nullptr)
+		ctx.assignedHero = (BaseNpc*)Interfaces::EntitySystem->GetEntity(H2IDX(ctx.localPlayer->GetAssignedHeroHandle()));
+		if (ctx.assignedHero == nullptr)
 			return;
 
 		FillPlayerList();
 
-		Modules::ShakerAttackAnimFix.SubscribeEntity(assignedHero);
-		for (auto& hero : heroes) {
-			if (hero->GetTeam() == assignedHero->GetTeam()) {
+		Modules::ShakerAttackAnimFix.SubscribeEntity(ctx.assignedHero);
+		for (auto& hero : ctx.heroes) {
+			if (hero->GetTeam() == ctx.assignedHero->GetTeam()) {
 				Modules::SBChargeHighlighter.SubscribeEntity(hero);
 				Modules::VBE.SubscribeEntity(hero);
 			}
 		}
 		Modules::AutoBuyTome.Init();
-		std::cout << "Local Player: " << localPlayer
-			<< "\n\t" << std::dec << "STEAM ID: " << localPlayer->GetSteamID()
+		std::cout << "Local Player: " << ctx.localPlayer
+			<< "\n\t" << std::dec << "STEAM ID: " << ctx.localPlayer->GetSteamID()
 			<< '\n';
-		std::cout << "Assigned Hero: " << assignedHero << " " << assignedHero->GetUnitName() << '\n';
+		std::cout << "Assigned Hero: " << ctx.assignedHero << " " << ctx.assignedHero->GetUnitName() << '\n';
 
 		Interfaces::CVar->SetConvars();
 
@@ -86,13 +86,13 @@ inline void EnteredMatch() {
 		Test::HookParticles();
 #endif // _DEBUG
 
-		IsInMatch = true;
+		ctx.IsInMatch = true;
 
 		std::cout << "ENTERED MATCH\n";
 	}
 }
 inline void LeftMatch() {
-	IsInMatch = false;
+	ctx.IsInMatch = false;
 
 	Modules::AutoBuyTome.Reset();
 	Modules::SBChargeHighlighter.Reset();
@@ -112,20 +112,20 @@ inline void LeftMatch() {
 	Globals::GameEventManager = nullptr;
 
 
-	localPlayer = nullptr;
-	assignedHero = nullptr;
+	ctx.localPlayer = nullptr;
+	ctx.assignedHero = nullptr;
 #ifdef _DEBUG
 	Test::partMap.clear();
 #endif // _DEBUG
-	players.clear();
-	heroes.clear();
+	ctx.players.clear();
+	ctx.heroes.clear();
 
 	std::cout << "LEFT MATCH\n";
 }
 inline void CheckMatchState() {
 	if (Interfaces::Engine->IsInGame()) {
-		if (!IsInMatch)
+		if (!ctx.IsInMatch)
 			EnteredMatch();
 	}
-	else if (IsInMatch) LeftMatch();
+	else if (ctx.IsInMatch) LeftMatch();
 }

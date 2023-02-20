@@ -254,6 +254,9 @@
     <ClInclude Include="Netvars.h">
       <Filter>Header files</Filter>
     </ClInclude>
+    <ClInclude Include="Context.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="messages.proto">

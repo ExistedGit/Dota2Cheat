@@ -9,7 +9,7 @@ namespace Hooks {
 		auto className = ent->SchemaBinding()->binaryName;
 		if (className) {
 			if (TestStringFilters(className, { "Item_Physical" })) {
-				physicalItems.push_back(ent);
+				ctx.physicalItems.push_back(ent);
 			}
 			else if (TestStringFilters(className, { "BaseNPC" })) {
 				const char* idName = ent->GetIdentity()->GetName();
@@ -17,7 +17,7 @@ namespace Hooks {
 					Modules::SunStrikeHighlighter.QueueThinker(ent);
 			}
 			else if (strstr(className, "Unit_Hero")) {
-				heroes.push_back(reinterpret_cast<BaseNpc*>(ent));
+				ctx.heroes.push_back(reinterpret_cast<BaseNpc*>(ent));
 			}
 		}
 
@@ -25,9 +25,9 @@ namespace Hooks {
 	};
 
 	inline BaseEntity* OnRemoveEntity(CEntitySystem* thisptr, BaseEntity* ent, ENT_HANDLE handle) {
-		auto iter = std::find(physicalItems.begin(), physicalItems.end(), ent);
-		if (iter != physicalItems.end())
-			physicalItems.erase(iter);
+		auto iter = std::find(ctx.physicalItems.begin(), ctx.physicalItems.end(), ent);
+		if (iter != ctx.physicalItems.end())
+			ctx.physicalItems.erase(iter);
 		return VMTs::Entity->GetOriginalMethod<decltype(&OnAddEntity)>(15)(thisptr, ent, handle);
 	}
 }

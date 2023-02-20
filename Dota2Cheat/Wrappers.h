@@ -452,8 +452,3 @@ public:
 	}
 };
 
-extern DotaPlayer* localPlayer;
-extern BaseNpc* assignedHero;
-extern std::vector<DotaPlayer*> players;
-extern std::vector<BaseEntity*> physicalItems; // items dropped onto the floor
-extern std::vector<BaseNpc*> heroes;

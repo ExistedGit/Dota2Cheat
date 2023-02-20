@@ -37,7 +37,7 @@ namespace Hacks {
 					); 
 
 					if (invoker  &&
-						invoker->GetTeam() != assignedHero->GetTeam())
+						invoker->GetTeam() != ctx.assignedHero->GetTeam())
 						SunStrikeIncoming = true;
 				}
 			}

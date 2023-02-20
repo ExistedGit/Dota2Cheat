@@ -41,7 +41,7 @@ namespace Hooks {
 		bool midasUsed = false;
 		bool runePickUp = false;
 
-		ENT_HANDLE midas = AutoUseMidasCheck(assignedHero);
+		ENT_HANDLE midas = AutoUseMidasCheck(ctx.assignedHero);
 
 		for (int i = 0; i < Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
 			auto* ent = Interfaces::EntitySystem->GetEntity(i);
@@ -74,21 +74,21 @@ namespace Hooks {
 				auto midasEnt = Interfaces::EntitySystem->GetEntity < BaseAbility>(H2IDX(midas));
 
 				// If the creep is visible, not one of ours, is alive, is within 600 hammer units and its name matches one of the filters
-				if (creep->GetTeam() != assignedHero->GetTeam() &&
+				if (creep->GetTeam() != ctx.assignedHero->GetTeam() &&
 					creep->GetHealth() > 0 &&
 					!creep->IsWaitingToSpawn() &&
-					IsWithinRadius(creep->GetPos2D(), assignedHero->GetPos2D(), midasEnt->GetEffectiveCastRange()) &&
+					IsWithinRadius(creep->GetPos2D(), ctx.assignedHero->GetPos2D(), midasEnt->GetEffectiveCastRange()) &&
 					TestStringFilters(creep->GetUnitName(), filters)) {
 					midasUsed = true;
-					localPlayer->PrepareOrder(DOTA_UNIT_ORDER_CAST_TARGET, i, &Vector3::Zero, H2IDX(midas), DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, assignedHero);
+					ctx.localPlayer->PrepareOrder(DOTA_UNIT_ORDER_CAST_TARGET, i, &Vector3::Zero, H2IDX(midas), DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, ctx.assignedHero);
 				}
 			}
 			else if (Config::AutoRunePickupEnabled && !runePickUp && strstr(className, "C_DOTA_Item_Rune")) {
 				auto* rune = (ItemRune*)ent;
 				if (rune->GetRuneType() == DotaRunes::BOUNTY &&
-					IsWithinRadius(rune->GetPos2D(), assignedHero->GetPos2D(), 150.0f)
+					IsWithinRadius(rune->GetPos2D(), ctx.assignedHero->GetPos2D(), 150.0f)
 					) {
-					localPlayer->PrepareOrder(DOTA_UNIT_ORDER_PICKUP_RUNE, i, &Vector3::Zero, 0, DOTA_ORDER_ISSUER_HERO_ONLY, assignedHero, false, false);
+					ctx.localPlayer->PrepareOrder(DOTA_UNIT_ORDER_PICKUP_RUNE, i, &Vector3::Zero, 0, DOTA_ORDER_ISSUER_HERO_ONLY, ctx.assignedHero, false, false);
 				}
 			}
 			else {
@@ -119,15 +119,15 @@ namespace Hooks {
 
 		if (isInGame) {
 			//std::cout << "frame\n";
-			if (IsInMatch) {
+			if (ctx.IsInMatch) {
 
 				UpdateCameraDistance();
 				UpdateWeather();
 				Modules::SunStrikeHighlighter.FrameBasedLogic();
 
-				if (assignedHero->GetLifeState() == 0) { // if alive
-					AutoUseWandCheck(assignedHero, Config::AutoHealWandHPTreshold, Config::AutoHealWandMinCharges);
-					AutoUseFaerieFireCheck(assignedHero, Config::AutoHealFaerieFireHPTreshold);
+				if (ctx.assignedHero->GetLifeState() == 0) { // if alive
+					AutoUseWandCheck(ctx.assignedHero, Config::AutoHealWandHPTreshold, Config::AutoHealWandMinCharges);
+					AutoUseFaerieFireCheck(ctx.assignedHero, Config::AutoHealFaerieFireHPTreshold);
 					Modules::AutoBuyTome.FrameBasedLogic();
 					Modules::VBE.FrameBasedLogic();
 					Modules::SBChargeHighlighter.FrameBasedLogic();
@@ -137,7 +137,7 @@ namespace Hooks {
 				}
 #ifdef _DEBUG
 				if (IsKeyPressed(VK_NUMPAD8)) {
-					auto selected = localPlayer->GetSelectedUnits();
+					auto selected = ctx.localPlayer->GetSelectedUnits();
 					auto ent = Interfaces::EntitySystem->GetEntity<BaseNpc>(selected[0]);
 					auto pos = ent->GetPos();
 

@@ -14,7 +14,7 @@ namespace Hacks {
 			for (int i = 0; i <= Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
 				auto ent = Interfaces::EntitySystem->GetEntity(i);
 				if (ent 
-					&& ent->GetTeam() != assignedHero->GetTeam()
+					&& ent->GetTeam() != ctx.assignedHero->GetTeam()
 
 					&& ent->SchemaBinding()->binaryName
 					&& TestStringFilters(ent->SchemaBinding()->binaryName, { "BaseNPC","Unit_Hero" })
@@ -28,10 +28,10 @@ namespace Hacks {
 		}
 
 		bool AreEnemyHeroesInArea(const Vector2& center, int radius) {
-			for (auto& hero : heroes) {
+			for (auto& hero : ctx.heroes) {
 				if (
 					hero->IsTargetable() &&
-					hero->GetTeam() != assignedHero->GetTeam() &&
+					hero->GetTeam() != ctx.assignedHero->GetTeam() &&
 					IsWithinRadius(center, hero->GetPos2D(), radius)
 					)
 					return true;
@@ -39,7 +39,7 @@ namespace Hacks {
 			return false;
 		}
 
-		// Checks whether the ability is cast at an area without enemy heroes/units
+		// Checks whether the ability is cast at an area without enemy ctx.heroes/units
 		bool IsBadCast(uint32_t abilityIdx, Vector3* pos, BaseEntity* caster) {
 			auto abilityName = Interfaces::EntitySystem->GetIdentity(abilityIdx)->GetName();
 			auto ability = Interfaces::EntitySystem->GetEntity<BaseAbility>(abilityIdx);
