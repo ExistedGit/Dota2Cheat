@@ -1,5 +1,6 @@
 #pragma once
 #include <cstdint>
+#include <sol/sol.hpp>
 #include <iostream>
 #include <Windows.h>
 #include <vector>
@@ -30,7 +31,7 @@ struct Vector2 {
 	Vector2(float x, float y) : x(x), y(y) {
 
 	}
-	float DistanceTo(const Vector2& v) {
+	float DistanceTo(Vector2 v) {
 		return sqrtf(powf(v.x - x, 2) + powf(v.y - y, 2));
 	}
 

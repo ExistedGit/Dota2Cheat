@@ -13,7 +13,6 @@
 struct SchemaClassBinding {
 	SchemaClassBinding* parent;
 	const char* binaryName; // ex: C_World
-	//const char* projectName; // ex: libclient.so
 	const char* className; // ex: client
 	void* classInfoOldSynthesized;
 	void* classInfoN;
@@ -103,7 +102,7 @@ public:
 	}
 	Vector2 GetPos2D() {
 		auto vec = GetPos();
-		return *(Vector2*)&vec;
+		return vec.AsVec2();
 	}
 	int GetMaxHealth() {
 		return Member<int>(Schema::Netvars["C_BaseEntity"]["m_iMaxHealth"]);

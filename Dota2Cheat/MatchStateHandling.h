@@ -2,11 +2,13 @@
 #include "Globals.h"
 #include "Interfaces.h"
 #include "Wrappers.h"
-#include "Hooks/RunFrame.h"
-#include "AutoBuyTome.h"
 #include "EventListeners.h"
 #include "DebugFunctions.h"
+#include "Hooks/RunFrame.h"
+
+#include "AutoBuyTome.h"
 #include "SpiritBreakerChargeHighlighter.h"
+#include <format>
 
 inline void FillPlayerList() {
 	auto vec = Globals::PlayerResource->GetVecTeamPlayerData();
@@ -91,9 +93,8 @@ inline void EnteredMatch() {
 
 		ctx.lua["assignedHero"] = ctx.assignedHero;
 
-		ctx.lua.script(R"(print(assignedHero:GetUnitName()))");
-
-		std::cout << "ENTERED MATCH\n";
+		ctx.lua.script(R"(print(assignedHero:GetSchemaBinding().binaryName))" );
+		std::cout << "ENTERED MATCH\n"; 
 	}
 }
 inline void LeftMatch() {

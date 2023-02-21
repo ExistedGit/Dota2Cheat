@@ -82,6 +82,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	//std::cout << "works!" << std::endl;
 	Interfaces::InitInterfaces();
 	Interfaces::LogInterfaces();
+	Lua::InitInterfaces(ctx.lua);
 	//Interfaces::CVar->DumpConVarsToFile("H:\\SchemaDump\\convars.txt");
 	Interfaces::CVar->DumpConVarsToMap();
 
@@ -115,7 +116,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		return 1;
 
 	// GL 3.0 + GLSL 130
-	const char* glsl_version = "#version 130";
+	constexpr const char* glsl_version = "#version 130";
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
@@ -166,6 +167,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	bool menuVisible = false;
 	bool featuresMenuVisible = false;
+	bool scriptMenuVisible = false;
+	char scriptBuf[4096]{};
 	bool circleMenuVisible = false;
 	int debugEntIdx = 0;
 
@@ -186,12 +189,25 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			if (ImGui::Button("Features"))
 				featuresMenuVisible = !featuresMenuVisible;
 
+			if (ImGui::Button("Scripting"))
+				scriptMenuVisible = !scriptMenuVisible;
+			
 
 			if (ImGui::Button("EXIT", ImVec2(0, 50)))
 				glfwSetWindowShouldClose(window, 1);
 
 			ImGui::End();
 
+			
+			if (scriptMenuVisible) {
+
+				ImGui::Begin("Scripting");
+				ImGui::InputTextMultiline("Lua script", scriptBuf, 4096, ImVec2(300, 500));
+				if (ImGui::Button("Execute"))
+					ctx.lua.script(scriptBuf);
+				
+				ImGui::End();
+			}
 #ifdef _DEBUG
 			ImGui::Begin("Debug functions", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
 
