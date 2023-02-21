@@ -6,12 +6,22 @@
 struct CSchemaClassBinding {
     CSchemaClassBinding* parent;
     const char* binaryName; // ex: C_World
-    //const char* projectName; // ex: libclient.so
     const char* className; // ex: client
     void *classInfoOldSynthesized;
     void *classInfoN;
     void *thisModuleBindingPointer;
     void *pSchemaType;
+
+    static void BindLua(sol::state& lua) {
+        sol::usertype<CSchemaClassBinding> type = lua.new_usertype<CSchemaClassBinding>("CSchemaClassBinding");
+        type["parent"] = &CSchemaClassBinding::parent;
+        type["binaryName"] = &CSchemaClassBinding::binaryName; // ex: C_World
+        type["className"] = &CSchemaClassBinding::className; // ex: client
+        type["classInfoOldSynthesized"] = &CSchemaClassBinding::classInfoOldSynthesized;
+        type["classInfoN"] = &CSchemaClassBinding::classInfoN;
+        type["thisModuleBindingPointer"] = &CSchemaClassBinding::thisModuleBindingPointer;
+        type["pSchemaType"] = &CSchemaClassBinding::pSchemaType;
+    }
 };
 
 

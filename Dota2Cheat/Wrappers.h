@@ -116,6 +116,22 @@ public:
 	INT8 GetLifeState() {
 		return Member<INT8>(Schema::Netvars["C_BaseEntity"]["m_lifeState"]);
 	}
+
+	static void BindLua(sol::state& lua) {
+		sol::usertype<BaseEntity> type = lua.new_usertype<BaseEntity>("BaseEntity");
+		type["GetSchemaBinding"] = &BaseEntity::SchemaBinding;
+		type["GetIdentity"] = &BaseEntity::GetIdentity;
+		type["SetColor"] = &BaseEntity::SetColor;
+		type["GetOwnerEntityHandle"] = &BaseEntity::GetOwnerEntityHandle;
+		type["GetPos"] = &BaseEntity::GetPos;
+		type["GetRotation"] = &BaseEntity::GetRotation;
+		type["GetForwardVector"] = &BaseEntity::GetForwardVector;
+		type["GetPos2D"] = &BaseEntity::GetPos2D;
+		type["GetMaxHealth"] = &BaseEntity::GetMaxHealth;
+		type["GetHealth"] = &BaseEntity::GetHealth;
+		type["GetTeam"] = &BaseEntity::GetTeam;
+		type["GetLifeState"] = &BaseEntity::GetLifeState;
+	}
 };
 
 
@@ -151,6 +167,17 @@ public:
 	ENT_HANDLE GetOwner() {
 		return Member<ENT_HANDLE>(Netvars::CDOTAModifier::m_hParent);
 	}
+
+	static void BindLua(sol::state& lua) {
+		auto type = lua.new_usertype<DotaModifier>("DotaModifier");
+
+		type["GetName"] = &DotaModifier::GetName;
+		type["GetDuration"] = &DotaModifier::GetDuration;
+		type["GetDieTime"] = &DotaModifier::GetDieTime;
+		type["GetCaster"] = &DotaModifier::GetCaster;
+		type["GetAbility"] = &DotaModifier::GetAbility;
+		type["GetOwner"] = &DotaModifier::GetOwner;
+	}
 };
 
 class DotaModifierManager : public VClass {
@@ -167,6 +194,11 @@ public:
 			result.push_back(vecModifiers->at(i));
 
 		return result;
+	}
+
+	static void BindLua(sol::state& lua) {
+		auto type = lua.new_usertype<DotaModifierManager>("DotaModifierManager");
+		type["GetModifierList"] = &DotaModifierManager::GetModifierList;
 	}
 };
 
@@ -187,6 +219,14 @@ public:
 		}
 		bool IsValid() {
 			return handle != 0xFFFFFFFF;
+		}
+
+		static void BindLua(sol::state& lua) {
+			auto type = lua.new_usertype<ItemOrAbility>("ItemOrAbility", sol::constructors<ItemOrAbility(const char*, ENT_HANDLE)>());
+
+			type["GetEntity"] = &ItemOrAbility::GetEntity;
+			type["GetAsAbility"] = &ItemOrAbility::GetAs<BaseAbility>;
+			type["IsValid"] = &ItemOrAbility::IsValid;
 		}
 	};
 
@@ -277,7 +317,7 @@ public:
 			for (int i = 0; i < 19; i++) {
 				if (HVALID(itemsHandle[i])) {
 					auto* identity = Interfaces::EntitySystem->GetIdentity(H2IDX(itemsHandle[i]));
-					result.push_back(ItemOrAbility((identity->entityName ? identity->entityName : identity->internalName), identity->entHandle));
+					result.push_back(ItemOrAbility(identity->GetName(), identity->entHandle));
 				}
 			}
 		}
@@ -299,6 +339,29 @@ public:
 	}
 	float GetAttackSpeed() {
 		return 1 + CallVFunc<295, float>();
+	}
+
+	static void BindLua(sol::state& lua) {
+		auto type = lua.new_usertype<BaseNpc>("BaseNpc", sol::base_classes, sol::bases<BaseEntity>());
+
+		type["GetModifierManager"] = &BaseNpc::GetModifierManager;
+		type["IsTargetable"] = &BaseNpc::IsTargetable;
+		type["IsWaitingToSpawn"] = &BaseNpc::IsWaitingToSpawn;
+		type["IsAncient"] = &BaseNpc::IsAncient;
+		type["IsRoshan"] = &BaseNpc::IsRoshan;
+		type["GetAttackRange"] = &BaseNpc::GetAttackRange;
+		type["GetSSC"] = &BaseNpc::GetSSC;
+		type["GoalEntity"] = &BaseNpc::GoalEntity;
+		type["GetUnitName"] = &BaseNpc::GetUnitName;
+		type["GetAbilities"] = &BaseNpc::GetAbilities;
+		type["FindItemBySubstring"] = &BaseNpc::FindItemBySubstring;
+		type["GetInventory"] = &BaseNpc::GetInventory;
+		type["GetItems"] = &BaseNpc::GetItems;;
+		type["GetMana"] = &BaseNpc::GetMana;
+		type["GetMaxMana"] = &BaseNpc::GetMaxMana;
+		type["GetBaseAttackTime"] = &BaseNpc::GetBaseAttackTime;
+		type["GetHullRadius"] = &BaseNpc::GetHullRadius;
+		type["GetAttackSpeed"] = &BaseNpc::GetAttackSpeed;
 	}
 };
 

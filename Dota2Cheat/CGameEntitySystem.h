@@ -41,6 +41,17 @@ public:
 	const bool IsDormant() const {
 		return (flags[0] & 0x80);
 	}
+
+	static void BindLua(sol::state& lua) {
+		sol::usertype<CEntityIdentity> type = lua.new_usertype<CEntityIdentity>("CEntityIdentity");
+		type["entity"] = &CEntityIdentity::entity;
+		type["entHandle"] = &CEntityIdentity::entHandle;
+		type["internalName"] = &CEntityIdentity::internalName;
+		type["entityName"] = &CEntityIdentity::entityName;
+		type["flags"] = &CEntityIdentity::flags;
+		type["GetName"] = &CEntityIdentity::GetName;
+		type["IsDormant"] = &CEntityIdentity::IsDormant;
+	}
 };
 
 class CEntityIdentities

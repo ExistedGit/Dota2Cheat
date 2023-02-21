@@ -70,53 +70,14 @@ namespace Lua {
 			type_Color["RGBA"] = &Color::RGBA;
 		}
 #pragma endregion
-#pragma region Wrappers
-		sol::usertype<CSchemaClassBinding> type_SchemaBinding = lua.new_usertype<CSchemaClassBinding>("CSchemaClassBinding");
-		type_SchemaBinding["parent"] = &CSchemaClassBinding::parent;
-		type_SchemaBinding["binaryName"] = &CSchemaClassBinding::binaryName; // ex: C_World
-		type_SchemaBinding["className"] = &CSchemaClassBinding::className; // ex: client
-		type_SchemaBinding["classInfoOldSynthesized"] = &CSchemaClassBinding::classInfoOldSynthesized;
-		type_SchemaBinding["classInfoN"] = &CSchemaClassBinding::classInfoN;
-		type_SchemaBinding["thisModuleBindingPointer"] = &CSchemaClassBinding::thisModuleBindingPointer;
-		type_SchemaBinding["pSchemaType"] = &CSchemaClassBinding::pSchemaType;
 
-		sol::usertype<CEntityIdentity> type_entIdentity = lua.new_usertype<CEntityIdentity>("CEntityIdentity");
-		type_entIdentity["entity"] = &CEntityIdentity::entity;
-		type_entIdentity["dunno"] = &CEntityIdentity::dunno;
-		type_entIdentity["entHandle"] = &CEntityIdentity::entHandle;
-		type_entIdentity["internalName"] = &CEntityIdentity::internalName; 
-		type_entIdentity["entityName"] = &CEntityIdentity::entityName;
-		type_entIdentity["flags"] = &CEntityIdentity::flags;
-		type_entIdentity["GetName"] = &CEntityIdentity::GetName;
-		type_entIdentity["IsDormant"] = &CEntityIdentity::IsDormant;
+		CSchemaClassBinding::BindLua(lua);
+		CEntityIdentity::BindLua(lua);
 
-		sol::usertype<BaseEntity> type_baseEnt = lua.new_usertype<BaseEntity>("BaseEntity");
-		type_baseEnt["GetSchemaBinding"] = &BaseEntity::SchemaBinding;
-
-		type_baseEnt["GetIdentity"] = &BaseEntity::GetIdentity;
-		type_baseEnt["SetColor"] = &BaseEntity::SetColor;
-		type_baseEnt["GetOwnerEntityHandle"] = &BaseEntity::GetOwnerEntityHandle;
-
-		type_baseEnt["GetPos"] = &BaseEntity::GetPos;
-
-		// In degrees from 180 to -180(on 0 it looks right)
-		type_baseEnt["GetRotation"] = &BaseEntity::GetRotation;
-
-		// Gets the point in front of the entity at the specified distance
-		type_baseEnt["GetForwardVector"] = &BaseEntity::GetForwardVector;
-		type_baseEnt["GetPos2D"] = &BaseEntity::GetPos2D;
-		type_baseEnt["GetMaxHealth"] = &BaseEntity::GetMaxHealth;
-		type_baseEnt["GetHealth"] = &BaseEntity::GetHealth;
-		type_baseEnt["GetTeam"] = &BaseEntity::GetTeam;
-		type_baseEnt["GetLifeState"] = &BaseEntity::GetLifeState;
-
-		sol::usertype<BaseNpc> type_baseNpc = lua.new_usertype<BaseNpc>("BaseNpc", sol::base_classes, sol::bases<BaseEntity>());
-		type_baseNpc["GetUnitName"] = &BaseNpc::GetUnitName;
-
-
-#pragma endregion
-#pragma region Interfaces
+		BaseEntity::BindLua(lua);
 		CGameEntitySystem::BindLua(lua);
-#pragma endregion
+		DotaModifier::BindLua(lua);
+		BaseNpc::ItemOrAbility::BindLua(lua);
+		BaseNpc::BindLua(lua);
 	}
 }
