@@ -35,7 +35,6 @@ namespace Signatures {
 	namespace Scripts {
 		inline WorldToScreenFn WorldToScreen = nullptr;
 		inline GetLevelSpecialValueForFn GetLevelSpecialValueFor = nullptr;
-		//		inline EntGetter GetCastRange = nullptr;
 	}
 
 	inline void InitSignatures() {

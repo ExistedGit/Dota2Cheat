@@ -296,7 +296,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 						auto particle = Globals::ParticleManager->CreateParticle(
 							"particles/ui_mouseactions/selected_ring.vpcf",
-							CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
+							PATTACH_ABSORIGIN_FOLLOW,
 							(BaseEntity*)ctx.assignedHero
 						).particle
 							->SetControlPoint(1, &color)

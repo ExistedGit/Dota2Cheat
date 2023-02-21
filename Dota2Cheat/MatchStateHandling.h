@@ -5,6 +5,7 @@
 #include "EventListeners.h"
 #include "DebugFunctions.h"
 #include "Hooks/RunFrame.h"
+#include "Lua/LuaInitialization.h"
 
 #include "AutoBuyTome.h"
 #include "SpiritBreakerChargeHighlighter.h"
@@ -84,6 +85,7 @@ inline void EnteredMatch() {
 		VMTs::UIEngine->ApplyVMT();
 
 		Globals::LogGlobals();
+		Lua::InitGlobals(ctx.lua);
 #ifdef _DEBUG
 		Test::HookParticles();
 #endif // _DEBUG
@@ -106,7 +108,8 @@ inline void LeftMatch() {
 	Globals::GameRules = nullptr;
 	Globals::ScriptVM = nullptr;
 	Globals::ParticleManager = nullptr;
-
+	Lua::ResetGlobals(ctx.lua);
+	
 	VMTs::NetChannel.reset();
 	VMTs::UIEngine.reset();
 

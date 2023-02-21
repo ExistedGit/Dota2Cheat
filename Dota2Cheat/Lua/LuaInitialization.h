@@ -3,11 +3,11 @@
 #include "../Enums.h"
 #include "../CGameEntitySystem.h"
 #include "../Wrappers.h"
+#include "../Globals.h"
 #define LUA_ENUM_TABLE_ENTRY(x) #x, x
 
 namespace Lua {
 	inline void InitEnums(sol::state& lua) {
-
 		auto orderTable = lua.create_table_with(
 			LUA_ENUM_TABLE_ENTRY(DOTA_UNIT_ORDER_NONE),
 			LUA_ENUM_TABLE_ENTRY(DOTA_UNIT_ORDER_MOVE_TO_POSITION),
@@ -53,12 +53,41 @@ namespace Lua {
 			LUA_ENUM_TABLE_ENTRY(DOTA_ORDER_ISSUER_HERO_ONLY),
 			LUA_ENUM_TABLE_ENTRY(DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY)
 		);
+		auto pAttachTable = lua.create_table_with(
+			LUA_ENUM_TABLE_ENTRY(PATTACH_INVALID),
+			LUA_ENUM_TABLE_ENTRY(PATTACH_ABSORIGIN),
+			LUA_ENUM_TABLE_ENTRY(PATTACH_ABSORIGIN_FOLLOW),
+			LUA_ENUM_TABLE_ENTRY(PATTACH_CUSTOMORIGIN),
+			LUA_ENUM_TABLE_ENTRY(PATTACH_CUSTOMORIGIN_FOLLOW),
+			LUA_ENUM_TABLE_ENTRY(PATTACH_POINT),
+			LUA_ENUM_TABLE_ENTRY(PATTACH_POINT_FOLLOW),
+			LUA_ENUM_TABLE_ENTRY(PATTACH_EYES_FOLLOW),
+			LUA_ENUM_TABLE_ENTRY(PATTACH_OVERHEAD_FOLLOW),
+			LUA_ENUM_TABLE_ENTRY(PATTACH_WORLDORIGIN),
+			LUA_ENUM_TABLE_ENTRY(PATTACH_ROOTBONE_FOLLOW),
+			LUA_ENUM_TABLE_ENTRY(PATTACH_RENDERORIGIN_FOLLOW),
+			LUA_ENUM_TABLE_ENTRY(PATTACH_MAIN_VIEW),
+			LUA_ENUM_TABLE_ENTRY(PATTACH_WATERWAKE),
+			LUA_ENUM_TABLE_ENTRY(PATTACH_CENTER_FOLLOW),
+			LUA_ENUM_TABLE_ENTRY(PATTACH_CUSTOM_GAME_STATE_1),
+			LUA_ENUM_TABLE_ENTRY(PATTACH_HEALTHBAR),
+			LUA_ENUM_TABLE_ENTRY(MAX_PATTACH_TYPES)
+		);
+
 		lua.create_named_table("Enum",
 			"PlayerOrderIssuer", orderIssuerTable,
-			"DotaUnitOrder", orderTable
-			);
-		
+			"DotaUnitOrder", orderTable,
+			"PAttach", pAttachTable
+		);
+
 	}
+	inline void InitGlobals(sol::state& lua) {
+		lua["ParticleManager"] = Globals::ParticleManager;
+	}
+	inline void ResetGlobals(sol::state& lua) {
+		lua["ParticleManager"] = nullptr;
+	}
+
 	inline void InitInterfaces(sol::state& lua) {
 		lua["EntitySystem"] = Interfaces::EntitySystem;
 	}
@@ -89,5 +118,9 @@ namespace Lua {
 		BaseNpc::ItemOrAbility::BindLua(lua);
 		BaseNpc::BindLua(lua);
 		DotaPlayer::BindLua(lua);
+
+		CDOTAParticleManager::Particle::BindLua(lua);
+		CDOTAParticleManager::ParticleWrapper::BindLua(lua);
+		CDOTAParticleManager::BindLua(lua);
 	}
 }

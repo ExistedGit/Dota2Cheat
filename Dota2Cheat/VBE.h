@@ -35,7 +35,7 @@ namespace Hacks {
 		void CreateVbeParticleFor(BaseNpc* ent) {
 			TrackedEntities[ent].vbeParticleWrap = Globals::ParticleManager->CreateParticle(
 				"particles/items5_fx/revenant_brooch_ring_glow.vpcf",
-				CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
+				PATTACH_ABSORIGIN_FOLLOW,
 				ent
 			);
 

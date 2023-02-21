@@ -2,6 +2,28 @@
 #include "sdk.h"
 #include "Wrappers.h"
 
+// Enum from animationsystem.dll, dumped by Liberalist
+enum ParticleAttachment_t : int32_t {
+	PATTACH_INVALID = -1,
+	PATTACH_ABSORIGIN = 0,
+	PATTACH_ABSORIGIN_FOLLOW = 1,
+	PATTACH_CUSTOMORIGIN = 2,
+	PATTACH_CUSTOMORIGIN_FOLLOW = 3,
+	PATTACH_POINT = 4,
+	PATTACH_POINT_FOLLOW = 5,
+	PATTACH_EYES_FOLLOW = 6,
+	PATTACH_OVERHEAD_FOLLOW = 7,
+	PATTACH_WORLDORIGIN = 8,
+	PATTACH_ROOTBONE_FOLLOW = 9,
+	PATTACH_RENDERORIGIN_FOLLOW = 10,
+	PATTACH_MAIN_VIEW = 11,
+	PATTACH_WATERWAKE = 12,
+	PATTACH_CENTER_FOLLOW = 13,
+	PATTACH_CUSTOM_GAME_STATE_1 = 14,
+	PATTACH_HEALTHBAR = 15,
+	MAX_PATTACH_TYPES = 16,
+};
+
 // Found via x64dbg
 // Xref "CreateParticle" to a lea rax instruction
 // You must see "pParticleName" below it
@@ -13,29 +35,8 @@
 // mov rax, [rcx]       <- Puts the Particle vtable pointer into rax
 // call [rax + 38h]     <- Calls the vfunc on index 0x38 / 8 = 16
 #define Particle_SetControlPoint_VTABLE_INDEX 16
-class CDOTAParticleManager :public VClass {
+class CDOTAParticleManager : public VClass {
 public:
-	// Enum from animationsystem.dll, dumped by Liberalist
-	enum class ParticleAttachment_t : int32_t {
-		PATTACH_INVALID = -1,
-		PATTACH_ABSORIGIN = 0,
-		PATTACH_ABSORIGIN_FOLLOW = 1,
-		PATTACH_CUSTOMORIGIN = 2,
-		PATTACH_CUSTOMORIGIN_FOLLOW = 3,
-		PATTACH_POINT = 4,
-		PATTACH_POINT_FOLLOW = 5,
-		PATTACH_EYES_FOLLOW = 6,
-		PATTACH_OVERHEAD_FOLLOW = 7,
-		PATTACH_WORLDORIGIN = 8,
-		PATTACH_ROOTBONE_FOLLOW = 9,
-		PATTACH_RENDERORIGIN_FOLLOW = 10,
-		PATTACH_MAIN_VIEW = 11,
-		PATTACH_WATERWAKE = 12,
-		PATTACH_CENTER_FOLLOW = 13,
-		PATTACH_CUSTOM_GAME_STATE_1 = 14,
-		PATTACH_HEALTHBAR = 15,
-		MAX_PATTACH_TYPES = 16,
-	};
 
 	// Struct used when creating a particle
 	struct ParticleInfo {
@@ -53,8 +54,8 @@ public:
 		void* unk4 = nullptr;
 	};
 
-	class Particle : public VClass {
-	public:
+	struct Particle : public VClass {
+	
 		VClass* GetParticleCollection() {
 			return Member<VClass*>(0x20);
 		}
@@ -63,17 +64,28 @@ public:
 			coll->GetVFunc(Particle_SetControlPoint_VTABLE_INDEX)(coll, idx, pos);
 			return this;
 		}
+		static void BindLua(sol::state& lua) {
+			auto type = lua.new_usertype<Particle>("Particle");
+			type["SetControlPoint"] = &Particle::SetControlPoint;
+		}
 	};
 
 	struct ParticleWrapper {
 		ParticleInfo info{};
-		Particle* particle = nullptr;
+		Particle* particle{};
 		ENT_HANDLE handle = 0XFFFFFFFF;
 
 		void Invalidate() {
 			particle = nullptr;
 			handle = 0XFFFFFFFF;
 			info = CDOTAParticleManager::ParticleInfo{};
+		}
+
+		static void BindLua(sol::state& lua) {
+			auto type = lua.new_usertype<ParticleWrapper>("ParticleWrapper");
+			type["info"] = &ParticleWrapper::info;
+			type["particle"] = &ParticleWrapper::particle;
+			type["handle"] = &ParticleWrapper::handle;
 		}
 	};
 	struct ParticleContainer : NormalClass {
@@ -91,5 +103,25 @@ public:
 	ParticleWrapper CreateParticle(const char* name, ParticleAttachment_t attachType, BaseEntity* ent);
 	void DestroyParticle(uint32_t handle);
 	void DestroyParticle(ParticleWrapper& info);
+
+	static void BindLua(sol::state& lua) {
+		auto type = lua.new_usertype<CDOTAParticleManager>(
+			"CDOTAParticleManager"
+			);
+		type["GetParticleCount"] = &CDOTAParticleManager::GetParticleCount;
+		//type["GetParticleArray"] = &CDOTAParticleManager::GetParticleArray;
+		//type["GetHandle"] = &CDOTAParticleManager::GetHandle;
+		//type["IncHandle"] = &CDOTAParticleManager::IncHandle;
+		type["CreateParticle"] = &CDOTAParticleManager::CreateParticle;
+
+		type["DestroyParticleByHandle"] = [](CDOTAParticleManager& thisptr, uint32_t handle) -> void {
+			thisptr.DestroyParticle(handle);
+		};
+
+		type["DestroyParticleWrapper"] = [](CDOTAParticleManager& thisptr, ParticleWrapper& wrapper) -> void {
+			thisptr.DestroyParticle(wrapper);
+		};
+
+	}
 };
 

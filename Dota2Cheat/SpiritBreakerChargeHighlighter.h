@@ -72,7 +72,7 @@ namespace Hacks {
 
 			TrackedEntities[ent].particleWrap = Globals::ParticleManager->CreateParticle(
 				"particles/units/ctx.heroes/hero_spirit_breaker/spirit_breaker_charge_target.vpcf",
-				CDOTAParticleManager::ParticleAttachment_t::PATTACH_OVERHEAD_FOLLOW,
+				PATTACH_OVERHEAD_FOLLOW,
 				ent
 			);
 			TrackedEntities[ent].particleWrap.particle
