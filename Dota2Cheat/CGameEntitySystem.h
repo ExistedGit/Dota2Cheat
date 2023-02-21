@@ -152,8 +152,6 @@ public:
 		type["GetBaseEntity"] = &CGameEntitySystem::GetEntity<BaseEntity>;
 		type["GetHighestEntityIndex"] = &CGameEntitySystem::GetHighestEntityIndex;
 		type["GetBaseNpc"] = &CGameEntitySystem::GetEntity<BaseNpc>;
-
-
 	}
 	
 };

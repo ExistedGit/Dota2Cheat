@@ -32,7 +32,7 @@ public:
 		result.reserve(m_Size);
 		for (int i = 0; i  < m_Size; i++) {
 			//std::cout << std::hex << &arr[i] << '\n';
-			result.push_back(&m_pElements[i]);
+			result.push_back(m_pElements[i]);
 		}
 		return result;
 	}

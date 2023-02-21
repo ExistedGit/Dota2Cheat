@@ -7,7 +7,7 @@
 
 namespace Lua {
 	inline void InitEnums(sol::state& lua) {
-		
+
 		auto orderTable = lua.create_table_with(
 			LUA_ENUM_TABLE_ENTRY(DOTA_UNIT_ORDER_NONE),
 			LUA_ENUM_TABLE_ENTRY(DOTA_UNIT_ORDER_MOVE_TO_POSITION),
@@ -47,9 +47,17 @@ namespace Lua {
 			LUA_ENUM_TABLE_ENTRY(DOTA_UNIT_ORDER_CAST_RIVER_PAINT),
 			LUA_ENUM_TABLE_ENTRY(DOTA_UNIT_ORDER_PREGAME_ADJUST_ITEM_ASSIGNMENT)
 		);
-		lua.create_named_table("Enum",
-			"DotaUnitOrder", orderTable
+		auto orderIssuerTable = lua.create_table_with(
+			LUA_ENUM_TABLE_ENTRY(DOTA_ORDER_ISSUER_SELECTED_UNITS),
+			LUA_ENUM_TABLE_ENTRY(DOTA_ORDER_ISSUER_CURRENT_UNIT_ONLY),
+			LUA_ENUM_TABLE_ENTRY(DOTA_ORDER_ISSUER_HERO_ONLY),
+			LUA_ENUM_TABLE_ENTRY(DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY)
 		);
+		lua.create_named_table("Enum",
+			"PlayerOrderIssuer", orderIssuerTable,
+			"DotaUnitOrder", orderTable
+			);
+		
 	}
 	inline void InitInterfaces(sol::state& lua) {
 		lua["EntitySystem"] = Interfaces::EntitySystem;
@@ -79,5 +87,6 @@ namespace Lua {
 		DotaModifier::BindLua(lua);
 		BaseNpc::ItemOrAbility::BindLua(lua);
 		BaseNpc::BindLua(lua);
+		DotaPlayer::BindLua(lua);
 	}
 }

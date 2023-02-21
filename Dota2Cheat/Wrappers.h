@@ -202,6 +202,78 @@ public:
 	}
 };
 
+
+// Current stat of Power Treads/Vambrace
+enum class ItemStat_t {
+	STRENGTH = 0,
+	INTELLIGENCE,
+	AGILITY
+};
+
+class BaseAbility : public BaseEntity {
+public:
+	float GetCooldown() {
+		return Member<float>(0x5a8);
+	}
+	int GetCharges() {
+		return Member<int>(0x610);
+	}
+	int GetManaCost() {
+		return Member<int>(0x5b0);
+	}
+
+	ItemStat_t GetItemStat() {
+		return Member<ItemStat_t>(0x670);
+	}
+
+	// For items like Armlet
+	bool IsToggled() {
+		return Member<bool>(0x59d);
+	}
+
+	//int GetCastRange() {
+	//	auto pos = GetPos();
+	//	return CallVFunc<0x798/8, int>(&pos, nullptr, *(uintptr_t*)this);
+	//}
+
+	// Xref "Script_GetCastRangeBonus" in x64dbg to a lea rax
+	// Below there will be "hTarget" or something, above that will be a lea rcx, [XXX] with a function
+	// At the end there are two calls to [rdi + 0x798] and [rdi + 0x7a0], first it gets the range, then the bonus
+	// I currently could not get GetCastRange to work as a standalone vfunc
+	// found via dynamical analysis
+	int GetCastRangeBonus() {
+		return CallVFunc<244, int>(nullptr, nullptr, nullptr);
+	}
+
+	int GetEffectiveCastRange() {
+		return GetCastRange() + GetCastRangeBonus();
+	}
+
+	// A bit tricky to reverse, done via x64dbg
+	// Xref GetCastRange to a lea, rcx instruction, before it is a lea r9, [XXX] <- Follow in Disassembler > Constant: XXX
+	// The return register for x64 fastcall is RAX, so breakpoint it and call with nullptr and entity index of your item
+	// Step over until you see RAX change to the hex representation of the item's range(in my case Hand of Midas has 600 dec 0x258 hex)
+	// There will be a call instruction that will change RAX to the radius, double-click it
+	// At the end of the call are:
+	// mov rbx, [rcx + 0x568]     <- I forgot the actual registers used here
+	// mov rax, [rbx + 0x100]
+	// Which means "dereference a pointer to an object on offset 0x568, then dereference a pointer to an int on 0x100 offset of that object"
+	int GetCastRange() {
+		auto infoObj = Member<VClass*>(0x568);
+		return *infoObj->Member<int*>(0x100); // Weird structure
+	}
+	template<typename T = double>
+	T GetLevelSpecialValueFor(const char* valName, int level = -1) {
+		return (T)Signatures::Scripts::GetLevelSpecialValueFor(nullptr, H2IDX(GetIdentity()->entHandle), valName, level);
+	}
+
+	int GetAOERadius() {
+		return static_cast<int>(Signatures::Scripts::GetLevelSpecialValueFor(nullptr, H2IDX(GetIdentity()->entHandle), "radius", -1));
+	}
+};
+
+
+
 class BaseNpc : public BaseEntity {
 public:
 	struct ItemOrAbility {
@@ -380,84 +452,13 @@ public:
 	}
 };
 
-// Current stat of Power Treads/Vambrace
-enum class ItemStat_t {
-	STRENGTH = 0,
-	INTELLIGENCE,
-	AGILITY
-};
-
-class BaseAbility : public BaseEntity {
-public:
-	float GetCooldown() {
-		return Member<float>(0x5a8);
-	}
-	int GetCharges() {
-		return Member<int>(0x610);
-	}
-	int GetManaCost() {
-		return Member<int>(0x5b0);
-	}
-
-	ItemStat_t GetItemStat() {
-		return Member<ItemStat_t>(0x670);
-	}
-
-	// For items like Armlet
-	bool IsToggled() {
-		return Member<bool>(0x59d);
-	}
-
-	//int GetCastRange() {
-	//	auto pos = GetPos();
-	//	return CallVFunc<0x798/8, int>(&pos, nullptr, *(uintptr_t*)this);
-	//}
-
-	// Xref "Script_GetCastRangeBonus" in x64dbg to a lea rax
-	// Below there will be "hTarget" or something, above that will be a lea rcx, [XXX] with a function
-	// At the end there are two calls to [rdi + 0x798] and [rdi + 0x7a0], first it gets the range, then the bonus
-	// I currently could not get GetCastRange to work as a standalone vfunc
-	// found via dynamical analysis
-	int GetCastRangeBonus() {
-		return CallVFunc<244, int>(nullptr, nullptr, nullptr);
-	}
-
-	int GetEffectiveCastRange() {
-		return GetCastRange() + GetCastRangeBonus();
-	}
-
-	// A bit tricky to reverse, done via x64dbg
-	// Xref GetCastRange to a lea, rcx instruction, before it is a lea r9, [XXX] <- Follow in Disassembler > Constant: XXX
-	// The return register for x64 fastcall is RAX, so breakpoint it and call with nullptr and entity index of your item
-	// Step over until you see RAX change to the hex representation of the item's range(in my case Hand of Midas has 600 dec 0x258 hex)
-	// There will be a call instruction that will change RAX to the radius, double-click it
-	// At the end of the call are:
-	// mov rbx, [rcx + 0x568]     <- I forgot the actual registers used here
-	// mov rax, [rbx + 0x100]
-	// Which means "dereference a pointer to an object on offset 0x568, then dereference a pointer to an int on 0x100 offset of that object"
-	int GetCastRange() {
-		auto infoObj = Member<VClass*>(0x568);
-		return *infoObj->Member<int*>(0x100); // Weird structure
-	}
-	template<typename T = double>
-	T GetLevelSpecialValueFor(const char* valName, int level = -1) {
-		return (T)Signatures::Scripts::GetLevelSpecialValueFor(nullptr, H2IDX(GetIdentity()->entHandle), valName, level);
-	}
-
-	int GetAOERadius() {
-		return static_cast<int>(Signatures::Scripts::GetLevelSpecialValueFor(nullptr, H2IDX(GetIdentity()->entHandle), "radius", -1));
-	}
-};
-
-
-
 class DotaPlayer : public BaseEntity {
 public:
 	uint32_t GetAssignedHeroHandle() {
 		return Member< uint32_t>(Schema::Netvars["C_DOTAPlayerController"]["m_hAssignedHero"]);
 	}
-	CUtlVector<uint32_t> GetSelectedUnits() {
-		return Member<CUtlVector<uint32_t>>(Schema::Netvars["C_DOTAPlayerController"]["m_nSelectedUnits"]);
+	std::vector<uint32_t> GetSelectedUnits() {
+		return Member<CUtlVector<uint32_t>>(Schema::Netvars["C_DOTAPlayerController"]["m_nSelectedUnits"]).ToStdVector();
 	}
 	BaseNpc* GetAssignedHero() {
 		return Interfaces::EntitySystem->GetEntity<BaseNpc>(H2IDX(GetAssignedHeroHandle()));
@@ -511,6 +512,19 @@ public:
 			return;
 
 		Signatures::PrepareUnitOrders(this, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
+	}
+
+	static void BindLua(sol::state& lua) {
+		auto type = lua.new_usertype<DotaPlayer>("DotaPlayer", sol::base_classes, sol::bases<BaseEntity>());
+		type["GetAssignedHeroHandle"] = &DotaPlayer::GetAssignedHeroHandle;
+		type["GetSelectedUnits"] = &DotaPlayer::GetSelectedUnits;
+		type["GetAssignedHero"] = &DotaPlayer::GetAssignedHero;
+		type["GetSteamID"] = &DotaPlayer::GetSteamID;
+
+		type["PrepareOrder"] = &DotaPlayer::PrepareOrder;
+		type["CastNoTarget"] = &DotaPlayer::CastNoTarget;
+		type["OrderMoveTo"] = &DotaPlayer::OrderMoveTo;
+		type["BuyItem"] = &DotaPlayer::BuyItem;
 	}
 };
 

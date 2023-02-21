@@ -18,8 +18,8 @@ namespace Hooks {
 				break;
 			case DOTA_ORDER_ISSUER_CURRENT_UNIT_ONLY:
 			case DOTA_ORDER_ISSUER_SELECTED_UNITS:
-				if (ctx.localPlayer->GetSelectedUnits().m_Size != 0)
-					issuer = Interfaces::EntitySystem->GetEntity(ctx.localPlayer->GetSelectedUnits().first());
+				if (!ctx.localPlayer->GetSelectedUnits().empty())
+					issuer = Interfaces::EntitySystem->GetEntity(ctx.localPlayer->GetSelectedUnits().front());
 				break;
 			}
 		}

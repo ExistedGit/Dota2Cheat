@@ -89,11 +89,9 @@ inline void EnteredMatch() {
 #endif // _DEBUG
 
 		ctx.IsInMatch = true;
-
-
 		ctx.lua["assignedHero"] = ctx.assignedHero;
+		ctx.lua["localPlayer"] = ctx.localPlayer;
 
-		ctx.lua.script(R"(print(assignedHero:GetSchemaBinding().binaryName))" );
 		std::cout << "ENTERED MATCH\n"; 
 	}
 }
@@ -120,6 +118,8 @@ inline void LeftMatch() {
 
 	ctx.localPlayer = nullptr;
 	ctx.assignedHero = nullptr;
+	ctx.lua["assignedHero"] = nullptr;
+	ctx.lua["localPlayer"] = nullptr;
 #ifdef _DEBUG
 	Test::partMap.clear();
 #endif // _DEBUG
