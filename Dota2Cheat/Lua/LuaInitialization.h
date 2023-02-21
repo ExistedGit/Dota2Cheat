@@ -85,6 +85,7 @@ namespace Lua {
 		BaseEntity::BindLua(lua);
 		CGameEntitySystem::BindLua(lua);
 		DotaModifier::BindLua(lua);
+		DotaModifierManager::BindLua(lua);
 		BaseNpc::ItemOrAbility::BindLua(lua);
 		BaseNpc::BindLua(lua);
 		DotaPlayer::BindLua(lua);
