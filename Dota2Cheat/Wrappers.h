@@ -434,6 +434,7 @@ public:
 		type["GetBaseAttackTime"] = &BaseNpc::GetBaseAttackTime;
 		type["GetHullRadius"] = &BaseNpc::GetHullRadius;
 		type["GetAttackSpeed"] = &BaseNpc::GetAttackSpeed;
+		lua["BaseNpc"] = [](BaseEntity* ent) { return (BaseNpc*)ent; };
 	}
 };
 
@@ -449,6 +450,19 @@ public:
 
 	bool IsIllusion() {
 		return Member<ENT_HANDLE>(Schema::Netvars["C_DOTA_BaseNPC_Hero"]["m_hReplicatingOtherHeroModel"]) != 0xFFFFFFFF;
+	}
+
+	static void BindLua(sol::state& lua) {
+		auto type = lua.new_usertype<BaseNpcHero>(
+			"BaseNpcHero",
+			sol::base_classes, sol::bases<BaseNpc, BaseEntity>()
+			);
+		type["GetAttributes"] = &BaseNpcHero::GetAttributes;
+		type["IsIllusion"] = &BaseNpcHero::IsIllusion;
+		lua["BaseNpcHero"] = sol::overload(
+			[](BaseNpc* npc) {return (BaseNpcHero*)npc; },
+			[](BaseEntity* ent) {return (BaseNpcHero*)ent; }
+			);
 	}
 };
 

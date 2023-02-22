@@ -260,6 +260,9 @@
     <ClInclude Include="Lua\LuaInitialization.h">
       <Filter>Header files\Lua</Filter>
     </ClInclude>
+    <ClInclude Include="Lua\LuaModules.h">
+      <Filter>Header files\Lua</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="messages.proto">

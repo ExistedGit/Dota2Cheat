@@ -129,7 +129,6 @@ public:
 	void SetConvars() {
 		CVar["sv_cheats"].var->value.boolean = true;
 		CVar["r_farz"].var->value.flt = 10000.0f;
-		CVar["dota_use_particle_fow"].var->value.boolean = false;
 		CVar["fog_enable"].var->value.boolean = false;
 	}
 

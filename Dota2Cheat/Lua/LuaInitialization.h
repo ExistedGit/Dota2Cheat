@@ -8,6 +8,26 @@
 
 namespace Lua {
 	inline void InitEnums(sol::state& lua) {
+		auto teamTable = lua.create_table_with(
+			LUA_ENUM_TABLE_ENTRY(DOTA_TEAM_INVALID),
+			LUA_ENUM_TABLE_ENTRY(DOTA_TEAM_FIRST),
+			LUA_ENUM_TABLE_ENTRY(DOTA_TEAM_GOODGUYS), //Radiant team.
+			LUA_ENUM_TABLE_ENTRY(DOTA_TEAM_BADGUYS), 	//Dire team.
+			LUA_ENUM_TABLE_ENTRY(DOTA_TEAM_NEUTRALS), //Neutral.
+			LUA_ENUM_TABLE_ENTRY(DOTA_TEAM_NOTEAM),
+			LUA_ENUM_TABLE_ENTRY(DOTA_TEAM_CUSTOM_1),
+			LUA_ENUM_TABLE_ENTRY(DOTA_TEAM_CUSTOM_MIN),
+			LUA_ENUM_TABLE_ENTRY(DOTA_TEAM_CUSTOM_2),
+			LUA_ENUM_TABLE_ENTRY(DOTA_TEAM_CUSTOM_3),
+			LUA_ENUM_TABLE_ENTRY(DOTA_TEAM_CUSTOM_COUNT),
+			LUA_ENUM_TABLE_ENTRY(DOTA_TEAM_CUSTOM_4),
+			LUA_ENUM_TABLE_ENTRY(DOTA_TEAM_CUSTOM_5),
+			LUA_ENUM_TABLE_ENTRY(DOTA_TEAM_CUSTOM_6),
+			LUA_ENUM_TABLE_ENTRY(DOTA_TEAM_CUSTOM_7),
+			LUA_ENUM_TABLE_ENTRY(DOTA_TEAM_CUSTOM_8),
+			LUA_ENUM_TABLE_ENTRY(DOTA_TEAM_CUSTOM_MAX),
+			LUA_ENUM_TABLE_ENTRY(DOTA_TEAM_COUNT)
+		);
 		auto orderTable = lua.create_table_with(
 			LUA_ENUM_TABLE_ENTRY(DOTA_UNIT_ORDER_NONE),
 			LUA_ENUM_TABLE_ENTRY(DOTA_UNIT_ORDER_MOVE_TO_POSITION),
@@ -77,7 +97,8 @@ namespace Lua {
 		lua.create_named_table("Enum",
 			"PlayerOrderIssuer", orderIssuerTable,
 			"DotaUnitOrder", orderTable,
-			"PAttach", pAttachTable
+			"PAttach", pAttachTable,
+			"DotaTeam", teamTable
 		);
 
 	}
@@ -97,10 +118,10 @@ namespace Lua {
 			lua.new_usertype<Vector3>(
 				"Vector3",
 				sol::constructors<Vector3(), Vector3(float, float, float)>());
-			sol::usertype<Vector2> type_Vector2 = lua.new_usertype<Vector2>(
+			auto type_Vector2 = lua.new_usertype<Vector2> (
 				"Vector2",
 				sol::constructors<Vector2(float, float)>());
-			sol::usertype<Color> type_Color = lua.new_usertype<Color>(
+			auto type_Color = lua.new_usertype<Color>(
 				"Color",
 				sol::constructors<Color(unsigned char, unsigned char, unsigned char, unsigned char)>()
 				);
@@ -117,6 +138,7 @@ namespace Lua {
 		DotaModifierManager::BindLua(lua);
 		BaseNpc::ItemOrAbility::BindLua(lua);
 		BaseNpc::BindLua(lua);
+		BaseNpcHero::BindLua(lua);
 		DotaPlayer::BindLua(lua);
 
 		CDOTAParticleManager::Particle::BindLua(lua);

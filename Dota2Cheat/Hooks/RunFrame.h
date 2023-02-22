@@ -13,7 +13,7 @@
 #include "../AutoUseMidas.h"
 #include "../AutoUseMagicWand.h"
 #include "../ShakerAttackAnimFix.h"
-
+#include "../Lua/LuaModules.h"
 #include "../Interfaces.h"
 #include "VMT.h"
 
@@ -92,7 +92,7 @@ namespace Hooks {
 				}
 			}
 			else {
-				Modules::IllusionColoring.ColorIfIllusion(ent);
+				Lua::CallModuleFunc("OnEntity", ent);
 				Modules::AegisAutoPickup.PickUpIfAegis(ent);
 			}
 

@@ -1,6 +1,7 @@
 ﻿// dllmain.cpp : Определяет точку входа для приложения DLL.
 #pragma once
 #include "pch.h"
+
 #include <cstdio>
 #include <iostream>
 #include "vtabler.h"
@@ -12,6 +13,12 @@
 #include "Input.h"
 #include "UIState.h"
 
+#include "imgui/imgui.h"
+#include "imgui/imgui_impl_glfw.h"
+#include "imgui/imgui_impl_opengl3.h"
+#include "GL/glew.h"
+#include <GLFW/glfw3.h> // Will drag system OpenGL headers
+
 #include "Config.h"
 #include "DebugFunctions.h"
 
@@ -19,6 +26,7 @@
 
 #include "Drawing.h"
 
+#include "Lua/LuaModules.h"
 #include "Lua/LuaInitialization.h"
 
 #pragma region Static variables
@@ -68,9 +76,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	ctx.CurProcHandle = OpenProcess(PROCESS_ALL_ACCESS, TRUE, ctx.CurProcId);
 	
 	// open some common libraries
-	ctx.lua.open_libraries(sol::lib::base, sol::lib::package);
+	ctx.lua.open_libraries(sol::lib::base, sol::lib::package, sol::lib::string);
 	Lua::InitEnums(ctx.lua);
 	Lua::InitClasses(ctx.lua);
+	Lua::LoadScriptFiles(ctx.lua);
 
 	ctx.lua.script("print(\"works!\")");
 	//std::cout << "works!" << std::endl;

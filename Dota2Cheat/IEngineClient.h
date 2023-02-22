@@ -13,6 +13,11 @@ public:
 	bool IsInGame() {
 		return (bool)CallVFunc<25, unsigned char>();
 	}
-
+	
+	static void BindLua(sol::state& lua) {
+		auto type = lua.new_usertype<IEngineClient>("IEngineClient");
+		type["GetLocalPlayerSlot"] = &IEngineClient::GetLocalPlayerSlot;
+		type["IsInGame"] = &IEngineClient::IsInGame;
+	}
 };
 
