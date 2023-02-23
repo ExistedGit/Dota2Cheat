@@ -90,203 +90,203 @@
     <ClCompile Include="Protobuf Messages\dota_usermessages.pb.cc">
       <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
-    <ClCompile Include="Protobuf Messages\econ_gcmessages.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\econ_shared_enums.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\steammessages_steamlearn.steamworkssdk.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\steammessages_unified_base.steamworkssdk.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\network_connection.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\networkbasetypes.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\netmessages.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\usermessages.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\gcsdk_gcmessages.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\valveextensions.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\steamnetworkingsockets_messages.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\steamnetworkingsockets_messages_certs.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\steamnetworkingsockets_messages_udp.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\te.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\uifontfile_format.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\usercmd.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\steammessages_cloud.steamworkssdk.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\steammessages_gamenetworkingui.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\steammessages_helprequest.steamworkssdk.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\steammessages_int.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\steammessages_oauth.steamworkssdk.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\steammessages_player.steamworkssdk.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\steammessages_publishedfile.steamworkssdk.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\networksystem_protomessages.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\steamdatagram_messages_auth.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\steamdatagram_messages_sdr.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
     <ClCompile Include="Protobuf Messages\base_gcmessages.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\c_peer2peer_netmessages.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\clientmessages.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Protobuf Messages\connectionless_netmessages.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\demo.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\connectionless_netmessages.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\clientmessages.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_broadcastmessages.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_client_enums.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_clientmessages.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_commonmessages.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_gcmessages_client.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_gcmessages_client_battle_report.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_gcmessages_client_candy_shop.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_gcmessages_client_chat.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_gcmessages_client_coaching.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_gcmessages_client_fantasy.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_gcmessages_client_guild.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_gcmessages_client_guild_events.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_gcmessages_client_match_management.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_gcmessages_client_team.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_gcmessages_client_tournament.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_gcmessages_client_watch.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_gcmessages_common.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_gcmessages_common_bot_script.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_gcmessages_common_league.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_gcmessages_common_lobby.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_gcmessages_common_match_management.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_gcmessages_msgid.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_gcmessages_server.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_gcmessages_webapi.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_hud_types.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_match_metadata.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_messages_mlbot.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_modifiers.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\dota_scenariomessages.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\econ_gcmessages.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\econ_shared_enums.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\engine_gcmessages.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\enums_clientserver.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\gameevents.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\gametoolevents.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\gcsdk_gcmessages.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\gcsystemmsgs.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\netmessages.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\network_connection.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\networkbasetypes.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\networksystem_protomessages.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\steamdatagram_messages_auth.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\steamdatagram_messages_sdr.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
     <ClCompile Include="Protobuf Messages\steammessages.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\steammessages_cloud.steamworkssdk.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\steammessages_gamenetworkingui.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\steammessages_helprequest.steamworkssdk.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\steammessages_int.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\steammessages_oauth.steamworkssdk.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\steammessages_player.steamworkssdk.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\steammessages_publishedfile.steamworkssdk.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\steammessages_steamlearn.steamworkssdk.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\steammessages_unified_base.steamworkssdk.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\steamnetworkingsockets_messages.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\steamnetworkingsockets_messages_certs.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\steamnetworkingsockets_messages_udp.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\te.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\uifontfile_format.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\usercmd.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\usermessages.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="Protobuf Messages\valveextensions.pb.cc">
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -467,203 +467,203 @@
     <ClInclude Include="Protobuf Messages\dota_usermessages.pb.h">
       <Filter>Header files\Protobuf Messages</Filter>
     </ClInclude>
-    <ClInclude Include="Protobuf Messages\econ_gcmessages.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\econ_shared_enums.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\steammessages_steamlearn.steamworkssdk.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\steammessages_unified_base.steamworkssdk.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\network_connection.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\networkbasetypes.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\netmessages.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
     <ClInclude Include="Protobuf Messages\usermessages.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\gcsdk_gcmessages.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\valveextensions.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\steamnetworkingsockets_messages.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\steamnetworkingsockets_messages_certs.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\steamnetworkingsockets_messages_udp.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\te.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\uifontfile_format.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\usercmd.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\steammessages_publishedfile.steamworkssdk.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\steammessages_cloud.steamworkssdk.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\steammessages_gamenetworkingui.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\steammessages_helprequest.steamworkssdk.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\steammessages_int.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\steammessages_oauth.steamworkssdk.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\steammessages_player.steamworkssdk.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\networksystem_protomessages.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\steamdatagram_messages_auth.pb.h">
-      <Filter>Header files</Filter>
+      <Filter>Header files\Protobuf Messages</Filter>
     </ClInclude>
     <ClInclude Include="Protobuf Messages\steamdatagram_messages_sdr.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\base_gcmessages.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\c_peer2peer_netmessages.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\clientmessages.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\connectionless_netmessages.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\demo.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_broadcastmessages.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_client_enums.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_clientmessages.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_commonmessages.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_gcmessages_client.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_gcmessages_client_battle_report.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_gcmessages_client_candy_shop.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_gcmessages_client_chat.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_gcmessages_client_coaching.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_gcmessages_client_fantasy.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_gcmessages_client_guild.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_gcmessages_client_guild_events.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_gcmessages_client_match_management.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_gcmessages_client_team.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_gcmessages_client_tournament.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_gcmessages_client_watch.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_gcmessages_common.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_gcmessages_common_bot_script.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_gcmessages_common_league.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_gcmessages_common_lobby.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_gcmessages_common_match_management.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_gcmessages_msgid.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_gcmessages_server.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_gcmessages_webapi.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_hud_types.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_match_metadata.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_messages_mlbot.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_modifiers.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_scenariomessages.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\engine_gcmessages.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\enums_clientserver.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\gameevents.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\gametoolevents.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Protobuf Messages\gcsystemmsgs.pb.h">
-      <Filter>Header files</Filter>
+      <Filter>Header files\Protobuf Messages</Filter>
     </ClInclude>
     <ClInclude Include="Protobuf Messages\steammessages.pb.h">
-      <Filter>Header files</Filter>
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\steammessages_cloud.steamworkssdk.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\steammessages_gamenetworkingui.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\steammessages_helprequest.steamworkssdk.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\steammessages_int.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\steammessages_oauth.steamworkssdk.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\steammessages_player.steamworkssdk.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\steammessages_publishedfile.steamworkssdk.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\steammessages_steamlearn.steamworkssdk.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\steammessages_unified_base.steamworkssdk.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\steamnetworkingsockets_messages.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\steamnetworkingsockets_messages_certs.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\steamnetworkingsockets_messages_udp.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\te.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\uifontfile_format.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\usercmd.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\steamdatagram_messages_auth.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\networksystem_protomessages.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\networkbasetypes.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\netmessages.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\base_gcmessages.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\c_peer2peer_netmessages.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\clientmessages.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\connectionless_netmessages.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\gcsystemmsgs.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\econ_gcmessages.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\econ_shared_enums.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\engine_gcmessages.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\enums_clientserver.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\gameevents.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\gametoolevents.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\gcsdk_gcmessages.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_broadcastmessages.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_client_enums.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_clientmessages.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_commonmessages.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_gcmessages_client.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_gcmessages_client_battle_report.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_gcmessages_client_candy_shop.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_gcmessages_client_chat.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_gcmessages_client_coaching.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_gcmessages_client_fantasy.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_gcmessages_client_guild.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_gcmessages_client_guild_events.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_gcmessages_client_match_management.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_gcmessages_client_team.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_gcmessages_client_tournament.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_gcmessages_client_watch.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_gcmessages_common.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_gcmessages_common_bot_script.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_gcmessages_common_league.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_gcmessages_common_lobby.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_gcmessages_common_match_management.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_gcmessages_msgid.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_gcmessages_server.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_gcmessages_webapi.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_hud_types.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_match_metadata.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_messages_mlbot.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_modifiers.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\dota_scenariomessages.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\network_connection.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\valveextensions.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Protobuf Messages\demo.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
