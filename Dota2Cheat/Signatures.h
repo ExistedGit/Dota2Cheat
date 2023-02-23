@@ -10,7 +10,7 @@ namespace Signatures {
 	typedef void(__fastcall* CMsgFn)(const char* format, ...);
 	typedef void(__fastcall* ColorMsgFn)(Color* color, const char* format, ...);
 
-	typedef void(__fastcall* PrepareUnitOrdersFn)(DotaPlayer* player, DotaUnitOrder_t orderType, UINT32 targetIndex, Vector3* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, BaseEntity* issuer, bool queue, bool showEffects);
+	typedef void(__fastcall* PrepareUnitOrdersFn)(DotaPlayer* player, dotaunitorder_t orderType, UINT32 targetIndex, Vector3* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, BaseEntity* issuer, bool queue, bool showEffects);
 	typedef void(__fastcall* EntityCallback)(void* thisptr);
 	typedef void(__fastcall* WorldToScreenFn)(Vector3* coord, int* outX, int* outY, void* offset);
 	typedef void(__fastcall* DestroyParticleFn)(void* thisptr, ENT_HANDLE handle, bool unk);

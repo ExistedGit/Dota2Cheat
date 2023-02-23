@@ -20,16 +20,16 @@ enum NetChannelBufType_t : int
     BUF_VOICE = 2,
 };
 
-enum class SignonState_t : uint32_t {
-    SIGNONSTATE_NONE = 0,
-    SIGNONSTATE_CHALLENGE = 1,
-    SIGNONSTATE_CONNECTED = 2,
-    SIGNONSTATE_NEW = 3,
-    SIGNONSTATE_PRESPAWN = 4,
-    SIGNONSTATE_SPAWN = 5,
-    SIGNONSTATE_FULL = 6,
-    SIGNONSTATE_CHANGELEVEL = 7,
-};
+//enum class SignonState_t : uint32_t {
+//    SIGNONSTATE_NONE = 0,
+//    SIGNONSTATE_CHALLENGE = 1,
+//    SIGNONSTATE_CONNECTED = 2,
+//    SIGNONSTATE_NEW = 3,
+//    SIGNONSTATE_PRESPAWN = 4,
+//    SIGNONSTATE_SPAWN = 5,
+//    SIGNONSTATE_FULL = 6,
+//    SIGNONSTATE_CHANGELEVEL = 7,
+//};
 
 enum class NetMessageTypes : short
 {

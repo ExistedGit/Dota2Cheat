@@ -34,7 +34,6 @@ namespace Hooks {
 	};
 
 	inline void EntityIteration() {
-		int illusionCount = 0;
 		bool midasUsed = false;
 		bool runePickUp = false;
 
@@ -97,7 +96,6 @@ namespace Hooks {
 				Modules::IllusionColoring.ColorIfIllusion(ent);
 				Modules::AegisAutoPickup.PickUpIfAegis(ent);
 			}
-
 		}
 	}
 

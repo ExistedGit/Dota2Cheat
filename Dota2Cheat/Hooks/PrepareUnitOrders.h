@@ -7,7 +7,7 @@ namespace Hooks {
 
 	inline Signatures::PrepareUnitOrdersFn oPrepareUnitOrders = nullptr;
 	inline std::future<void> manaAbusePickup;
-	inline void hkPrepareUnitOrders(DotaPlayer* player, DotaUnitOrder_t orderType, UINT32 targetIndex, Vector3* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, BaseEntity* issuer, bool queue, bool showEffects) {
+	inline void hkPrepareUnitOrders(DotaPlayer* player, dotaunitorder_t orderType, UINT32 targetIndex, Vector3* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, BaseEntity* issuer, bool queue, bool showEffects) {
 		//std::cout << "[ORDER] " << player << '\n';
 		bool giveOrder = true; // whether or not the function will continue
 

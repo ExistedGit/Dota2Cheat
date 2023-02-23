@@ -2,6 +2,7 @@
 #define PCH_H
 
 #include "framework.h"
-#include "Messages/messages.pb.h"
+#include <google/protobuf/message.h>
+#include "Protobuf Messages/dota_usermessages.pb.h"
 
 #endif //PCH_H

@@ -1,12 +1,13 @@
 #pragma once
-#include <cstdint>
 #include <sol/sol.hpp>
 #include <iostream>
-#include <Windows.h>
+#include <cstdint>
+
 #include <vector>
 #include "Input.h"
 #include "Context.h"
 #include "MinHook.h"
+#include "Protobuf Messages/dota_usermessages.pb.h"
 
 #define PI 3.1415926
 

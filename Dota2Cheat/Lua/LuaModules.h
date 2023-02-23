@@ -10,7 +10,7 @@ namespace Lua {
 	// Loads and executes scripts from C:\Program Files\Dota2Cheat\scripts
 	inline void LoadScriptFiles(sol::state& lua) {
 		lua.create_named_table("Modules");
-		for (auto& file : directory_iterator(R"(C:\Program Files\Dota2Cheat\scripts)")) {
+		for (auto& file : directory_iterator(R"(C:\Users\user\Documents\Dota2Cheat\scripts)")) {
 			auto path = file.path();
 			if (path.string().substr(path.string().size() - 3) == "lua") {
 				lua.load_file(path.string())();

@@ -110,8 +110,8 @@ public:
 	int GetHealth() {
 		return Member<int>(Schema::Netvars["C_BaseEntity"]["m_iHealth"]);
 	}
-	DOTATeam_t GetTeam() {
-		return Member<DOTATeam_t>(Schema::Netvars["C_BaseEntity"]["m_iTeamNum"]);
+	DOTA_GC_TEAM GetTeam() {
+		return Member<DOTA_GC_TEAM>(Schema::Netvars["C_BaseEntity"]["m_iTeamNum"]);
 	}
 	INT8 GetLifeState() {
 		return Member<INT8>(Schema::Netvars["C_BaseEntity"]["m_lifeState"]);
@@ -518,13 +518,13 @@ public:
 			true
 		);
 	}
-	void PrepareOrder(DotaUnitOrder_t orderType, UINT32 targetIndex, Vector3* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, BaseEntity* issuer, bool queue = false, bool showEffects = true) {
+	void PrepareOrder(dotaunitorder_t orderType, UINT32 targetIndex, Vector3* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, BaseEntity* issuer, bool queue = false, bool showEffects = true) {
 		//if (issuer == nullptr)
 		//	issuer = GetAssignedHero();
 
 		if (Signatures::PrepareUnitOrders == nullptr)
 			return;
-
+		
 		Signatures::PrepareUnitOrders(this, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
 	}
 

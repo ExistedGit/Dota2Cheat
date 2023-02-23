@@ -5,7 +5,7 @@ class ItemStockInfo : VClass {
 private:
 	char pad[40]; //idk why tho
 public:
-	DOTATeam_t TeamNumber;
+	DOTA_GC_TEAM TeamNumber;
 	int ItemID;
 	float StockDuration, StockTime;
 	int StockCount, MaxCount;
@@ -16,15 +16,15 @@ public:
 
 class CDOTAGameRules : VClass {
 public:
-	GameState GetGameState() {
-		return Member<GameState>(0x60);
+	DOTA_GameState GetGameState() {
+		return Member<DOTA_GameState>(0x60);
 	}
 	float GetGameTime() {
 		return Member<float>(0x89C);
 	}
 
-	GameMode_t GetGameMode() {
-		return Member<GameMode_t>(0xcc);
+	DOTA_GameMode GetGameMode() {
+		return Member<DOTA_GameMode>(0xcc);
 	}
 
 	std::vector<ItemStockInfo*> GetItemStockInfo() {
