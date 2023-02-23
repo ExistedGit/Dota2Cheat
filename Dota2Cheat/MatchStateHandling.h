@@ -31,7 +31,7 @@ inline void FillPlayerList() {
 		if (hero &&
 			hero->GetUnitName()) {
 			std::cout << "\n\t" << hero->GetUnitName() << " " << hero;
-			ctx.heroes.push_back(hero);
+			ctx.heroes.insert(hero);
 		}
 		std::cout << '\n';
 
@@ -56,6 +56,12 @@ inline void EnteredMatch() {
 		ctx.assignedHero = (BaseNpc*)Interfaces::EntitySystem->GetEntity(H2IDX(ctx.localPlayer->GetAssignedHeroHandle()));
 		if (ctx.assignedHero == nullptr)
 			return;
+
+		for (int i = 0; i <= Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
+			auto ent = Interfaces::EntitySystem->GetEntity(i);
+			if (ent != nullptr && ent->SchemaBinding()->binaryName != nullptr)
+				ctx.entities.insert(ent);
+		}
 
 		FillPlayerList();
 
@@ -126,8 +132,8 @@ inline void LeftMatch() {
 #ifdef _DEBUG
 	Test::partMap.clear();
 #endif // _DEBUG
-	ctx.players.clear();
-	ctx.heroes.clear();
+	//ctx.players.clear();
+	//ctx.heroes.clear();
 
 	std::cout << "LEFT MATCH\n";
 }

@@ -19,8 +19,8 @@
 
 namespace Hooks {
 	template<typename T = BaseEntity>
-	inline std::vector<T*> GetEntitiesByFilter(const std::vector<const char*>& filters) {
-		std::vector<T*> vec{};
+	std::set<T*> GetEntitiesByFilter(const std::vector<const char*>& filters) {
+		std::set<T*> vec{};
 		for (int i = 0; i < Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
 			auto* ent = Interfaces::EntitySystem->GetEntity(i);
 			if (ent == nullptr || ent->GetIdentity()->IsDormant())
@@ -28,12 +28,10 @@ namespace Hooks {
 			//std::cout << ent->SchemaBinding() << '\n';
 			const char* className = ent->SchemaBinding()->binaryName;
 			if (className && TestStringFilters(className, filters))
-				vec.push_back((T*)ent);
+				vec.insert((T*)ent);
 		}
 		return vec;
 	};
-
-
 
 	//inline bool test = false;
 	inline void EntityIteration() {
@@ -43,15 +41,14 @@ namespace Hooks {
 
 		ENT_HANDLE midas = AutoUseMidasCheck(ctx.assignedHero);
 
-		for (int i = 0; i < Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
-			auto* ent = Interfaces::EntitySystem->GetEntity(i);
-
-			if (ent == nullptr || ent->GetIdentity()->IsDormant())
+		for (auto& ent : ctx.entities) {
+			if (ent->GetIdentity()->IsDormant())
 				continue;
+			
 			const char* className = ent->SchemaBinding()->binaryName;
-
 			if (className == nullptr)
 				continue;
+
 			if (!midasUsed && midas != -1
 				&& strstr(className, "Creep")) {
 
@@ -80,7 +77,7 @@ namespace Hooks {
 					IsWithinRadius(creep->GetPos2D(), ctx.assignedHero->GetPos2D(), midasEnt->GetEffectiveCastRange()) &&
 					TestStringFilters(creep->GetUnitName(), filters)) {
 					midasUsed = true;
-					ctx.localPlayer->PrepareOrder(DOTA_UNIT_ORDER_CAST_TARGET, i, &Vector3::Zero, H2IDX(midas), DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, ctx.assignedHero);
+					ctx.localPlayer->PrepareOrder(DOTA_UNIT_ORDER_CAST_TARGET, H2IDX(ent->GetIdentity()->entHandle), &Vector3::Zero, H2IDX(midas), DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, ctx.assignedHero);
 				}
 			}
 			else if (Config::AutoPickUpRunes && !runePickUp && strstr(className, "C_DOTA_Item_Rune")) {
@@ -88,7 +85,7 @@ namespace Hooks {
 				if (rune->GetRuneType() == DotaRunes::BOUNTY &&
 					IsWithinRadius(rune->GetPos2D(), ctx.assignedHero->GetPos2D(), 150.0f)
 					) {
-					ctx.localPlayer->PrepareOrder(DOTA_UNIT_ORDER_PICKUP_RUNE, i, &Vector3::Zero, 0, DOTA_ORDER_ISSUER_HERO_ONLY, ctx.assignedHero, false, false);
+					ctx.localPlayer->PrepareOrder(DOTA_UNIT_ORDER_PICKUP_RUNE, H2IDX(ent->GetIdentity()->entHandle), &Vector3::Zero, 0, DOTA_ORDER_ISSUER_HERO_ONLY, ctx.assignedHero, false, false);
 				}
 			}
 			else {
@@ -98,6 +95,7 @@ namespace Hooks {
 				//	if (callback.get_type() != sol::type::nil)
 				//		callback(ent);
 				//}
+				Modules::IllusionColoring.ColorIfIllusion(ent);
 				Modules::AegisAutoPickup.PickUpIfAegis(ent);
 			}
 
@@ -127,7 +125,7 @@ namespace Hooks {
 			if (ctx.IsInMatch) {
 				//sol::function entIter = ctx.lua["Modules"]["Core"]["EntityIteration"];
 				//entIter();
-				
+
 				UpdateCameraDistance();
 				UpdateWeather();
 				Modules::SunStrikeHighlighter.FrameBasedLogic();

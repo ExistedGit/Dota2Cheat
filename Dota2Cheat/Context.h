@@ -1,6 +1,6 @@
 #pragma once
 #include <Windows.h>
-#include <vector>
+#include <set>
 #include <sol/sol.hpp>
 
 class BaseNpc;
@@ -15,9 +15,11 @@ struct Context {
 	HANDLE CurProcHandle;
 	int CurProcId;
 	bool IsInMatch = false;
-	std::vector<DotaPlayer*> players{};
-	std::vector<BaseEntity*> physicalItems{};
-	std::vector<BaseNpc*> heroes{};
+
+	std::set<BaseEntity*> entities{};
+	std::set<DotaPlayer*> players{};
+	std::set<BaseEntity*> physicalItems{};
+	std::set<BaseNpc*> heroes{};
 	sol::state lua{};
 };
 
