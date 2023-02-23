@@ -42,3 +42,4 @@ void CDOTAParticleManager::DestroyParticle(ParticleWrapper& particleWrap) {
 	Signatures::DestroyParticle(this, particleWrap.handle, 1);
 	particleWrap.Invalidate();
 }
+

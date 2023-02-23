@@ -8,11 +8,11 @@ namespace Hacks {
 	public:
 		void ColorIfIllusion(BaseEntity* ent) {
 			const char* className = ent->SchemaBinding()->binaryName;
-			if (className != nullptr &&
-				strstr(className, "C_DOTA_Unit_Hero") != nullptr) {
+			if (className  &&
+				strstr(className, "C_DOTA_Unit_Hero") ) {
 				auto hero = (BaseNpcHero*)ent;
 				if (
-					assignedHero->GetTeam() != hero->GetTeam() &&
+					ctx.assignedHero->GetTeam() != hero->GetTeam() &&
 					hero->IsIllusion() &&
 					strstr(className, "CDOTA_Unit_Hero_ArcWarden") == nullptr //Arc's double is replicating his model but is not an illusion
 					) {

@@ -5,55 +5,70 @@
 #include "Config.h"
 
 namespace Hacks {
+
+	// DEPRECATED: on 21.02.2022 Valve announced that m_flStartSequence and maybe something else was their honeypot
+	// Cheats accessing it were detected and their users banned. The VBE circus ended, though there must still be the offset to the local player's part of it
+	// Search on UnknownCheats, there are at least two cheats using that there(if it still works, that is)
+	//  
 	// C_DOTA_BaseNPC's m_startSequenceCycle is set to 0 if you are visible
 	// It updates 30 times a second, thus if we check it at 60FPS it needs to be 0 three times in a row
 	// This netvar is also briefly zeroed if you order the unit to move to the exact position they stand at,
 	// suggesting it's not only responsible for VBE
 	class VisibleByEnemy {
 	private:
-		int sscCount = 0;
-		float sscSum = 0;
-		
 		// After how many ticks with SSC equal to 0 you need to be considered visible
-		// Needed to fix the aforementioned false positive when you order your hero to more to the same position
-		const int tickTreshold = 5; 
-
-		CDOTAParticleManager::ParticleWrapper vbeParticleWrap{};
-		bool visible = false;
+		// Needed to fix the aforementioned false positive when you order your hero to move to the same position
+		const int tickTreshold = 5;
+		struct TrackingInfo {
+			int sscCount = 0;
+			float sscSum = 0;
+			bool visible = false;
+			CDOTAParticleManager::ParticleWrapper vbeParticleWrap{};
+		};
+		std::map<BaseNpc*, TrackingInfo> TrackedEntities{};
 	public:
-		void CreateVbeParticleFor(BaseEntity* ent) {
-			vbeParticleWrap = Globals::ParticleManager->CreateParticle(
+		void Reset() {
+			for (auto& pair : TrackedEntities)
+				if (pair.second.vbeParticleWrap.particle)
+					Globals::ParticleManager->DestroyParticle(pair.second.vbeParticleWrap);
+			//TrackedEntities.clear();
+		}
+		void SubscribeEntity(BaseNpc* ent) {
+			//TrackedEntities[ent] = TrackingInfo{};
+		}
+		void CreateVbeParticleFor(BaseNpc* ent) {
+			TrackedEntities[ent].vbeParticleWrap = Globals::ParticleManager->CreateParticle(
 				"particles/items5_fx/revenant_brooch_ring_glow.vpcf",
-				CDOTAParticleManager::ParticleAttachment_t::PATTACH_ABSORIGIN_FOLLOW,
+				PATTACH_ABSORIGIN_FOLLOW,
 				ent
 			);
 
-			vbeParticleWrap.particle
+			TrackedEntities[ent].vbeParticleWrap.particle
 				->SetControlPoint(0, &Vector3::Zero);
 		}
-		void Reset() {
-			if (vbeParticleWrap.particle)
-				Globals::ParticleManager->DestroyParticle(vbeParticleWrap);
-		}
+
 		void FrameBasedLogic() {
-			sscCount++;
-			sscSum += assignedHero->GetSSC();
-			if (sscCount == tickTreshold) {
-				visible = sscSum == 0;
-				sscCount = sscSum = 0;
-				UIState::HeroVisibleToEnemy = visible;
+			for (auto& pair : TrackedEntities) {
+
+				auto& trackInfo = pair.second;
+				trackInfo.sscCount++;
+				trackInfo.sscSum += pair.first->GetSSC();
+				if (trackInfo.sscCount == tickTreshold) {
+					pair.second.visible = trackInfo.sscSum == 0;
+					trackInfo.sscCount = trackInfo.sscSum = 0;
+					UIState::HeroVisibleToEnemy = pair.second.visible;
+				}
+
+				bool vbeParticleActive = trackInfo.vbeParticleWrap.particle;
+
+				if (pair.second.visible && !vbeParticleActive && Config::VBEShowParticle)
+					CreateVbeParticleFor(pair.first);
+				else if (vbeParticleActive &&
+					(!pair.second.visible ||			   // if not visible 
+						!Config::VBEShowParticle)) // OR if VBE particle was disabled via config
+					Globals::ParticleManager->DestroyParticle(trackInfo.vbeParticleWrap);
+				
 			}
-
-
-			bool vbeParticleActive = vbeParticleWrap.particle != nullptr;
-
-			if (visible && !vbeParticleActive && Config::VBEShowParticle)
-				CreateVbeParticleFor(assignedHero);
-
-			else if (vbeParticleActive &&  
-				(!visible ||			   // if not visible 
-				!Config::VBEShowParticle)) // OR if VBE particle was disabled via config
-				Globals::ParticleManager->DestroyParticle(vbeParticleWrap);
 		}
 	};
 }

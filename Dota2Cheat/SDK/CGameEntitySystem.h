@@ -32,7 +32,7 @@ public:
 	void* unkptr8;
 
 	const char* GetName() const {
-		return internalName != nullptr ? internalName : entityName;
+		return internalName  ? internalName : entityName;
 	}
 };
 

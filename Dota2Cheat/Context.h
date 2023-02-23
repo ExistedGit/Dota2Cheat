@@ -1,0 +1,26 @@
+#pragma once
+#include <Windows.h>
+#include <set>
+#include <sol/sol.hpp>
+
+class BaseNpc;
+class BaseEntity;
+class DotaPlayer;
+
+
+struct Context {
+	DotaPlayer* localPlayer{};
+	BaseNpc* assignedHero{};
+	
+	HANDLE CurProcHandle;
+	int CurProcId;
+	bool IsInMatch = false;
+
+	std::set<BaseEntity*> entities{};
+	std::set<DotaPlayer*> players{};
+	std::set<BaseEntity*> physicalItems{};
+	std::set<BaseNpc*> heroes{};
+	sol::state lua{};
+};
+
+inline Context ctx{};

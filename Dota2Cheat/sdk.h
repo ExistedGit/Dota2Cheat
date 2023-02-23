@@ -1,9 +1,12 @@
 #pragma once
 #include <cstdint>
+#include <sol/sol.hpp>
 #include <iostream>
 #include <Windows.h>
 #include <vector>
 #include "Input.h"
+#include "Context.h"
+#include "MinHook.h"
 
 #define PI 3.1415926
 
@@ -13,17 +16,12 @@ inline void PAUSE() {
 	}
 }
 
-
 #define ENT_HANDLE uint32_t
 #define ENT_HANDLE_MASK 0x7fff
 #define H2IDX(H) (H & ENT_HANDLE_MASK) // Entity handle to entity index
 #define HVALID(H) (H != 0xFFFFFFFF)
 
 #define u64 unsigned long long
-#define cc const char*
-
-extern HANDLE CurProcHandle;
-extern int CurProcId;
 
 inline float clamp(float n, float min, float max) {
 	return n < min ? min : (n > max ? max : n);
@@ -31,10 +29,10 @@ inline float clamp(float n, float min, float max) {
 
 struct Vector2 {
 	float x, y;
-	inline Vector2(float x, float y) : x(x), y(y) {
+	Vector2(float x, float y) : x(x), y(y) {
 
 	}
-	inline float DistanceTo(const Vector2& v) {
+	float DistanceTo(Vector2 v) {
 		return sqrtf(powf(v.x - x, 2) + powf(v.y - y, 2));
 	}
 
@@ -50,10 +48,15 @@ struct Vector2 {
 struct Vector3 {
 	static Vector3 Zero;
 	float x, y, z;
-	inline Vector3(float x, float y, float z) :x(x), y(y), z(z) {
+
+	explicit Vector3() :x(0), y(0), z(0) {
 
 	}
-	inline Vector2 AsVec2() {
+
+	Vector3(float x, float y, float z) :x(x), y(y), z(z) {
+
+	}
+	Vector2 AsVec2() {
 		return *(Vector2*)this;
 	}
 
@@ -99,15 +102,15 @@ inline bool IsWithinRadius(Vector2 p1, Vector2 p2, float radius) {
 class Function {
 public:
 	void* ptr;
-	inline Function(uintptr_t ptr) : ptr((void*)ptr) {
+	Function(uintptr_t ptr) : ptr((void*)ptr) {
 
 	}
 	template<typename ...T>
-	inline void* __fastcall operator()(T... t) {
+	void* __fastcall operator()(T... t) {
 		return (void*)((u64(__fastcall*)(T...))ptr)(t...);
 	}
 	template<typename V, typename ...T>
-	inline V __fastcall Execute(T... t) {
+	V __fastcall Execute(T... t) {
 		return ((V(__fastcall*)(T...))ptr)(t...);
 	}
 
@@ -124,7 +127,7 @@ inline Function getvfunc(void* instance, int index)
 }
 template<typename T, typename Z>
 inline bool StringsMatch(T a, Z b) {
-	return !strcmp((cc)a, (cc)b);
+	return !strcmp((const char*)a, (const char*)b);
 }
 template<typename T, typename Z>
 inline void MemCopy(T dst, Z src, size_t size) {
@@ -154,19 +157,20 @@ class VClass {
 public:
 	virtual void dummy_fn() = 0; // so that the classes have a vtable
 	template<typename T>
-	inline T Member(int offset/*, T defaultValue = T{}*/) {
-		//if (!offset)
-		//	return defaultValue;
+	T Member(int offset, T defaultValue = T{}) {
+		if (!offset)
+			return defaultValue;
 		return *(T*)((uintptr_t)this + offset);
 	}
-	inline Function GetVFunc(int index)
+
+	Function GetVFunc(int index)
 	{
 		uintptr_t vtable = *((uintptr_t*)(this));
 		uintptr_t entry = vtable + sizeof(uintptr_t) * index;
 		return Function(*(uintptr_t*)entry);
 	}
 	template<uint32_t index, typename RET = void*, typename ...T>
-	inline RET CallVFunc(T... t) {
+	RET CallVFunc(T... t) {
 		return GetVFunc(index).Execute<RET>(this, t...);
 	}
 };
@@ -178,3 +182,10 @@ inline bool TestStringFilters(const char* str, const std::vector<const char*>& f
 
 	return false;
 }
+
+inline void HookFunc(void* func, void* detour, void* original, const std::string& name) {
+	if (MH_CreateHook(func, detour,
+		(LPVOID*)original) != MH_OK ||
+		MH_EnableHook(func) != MH_OK)
+		std::cout << "Could not hook" << name << "()!\n";
+};

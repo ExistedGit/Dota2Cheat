@@ -38,13 +38,13 @@ namespace Globals {
 		char funcAddrMask[60];
 
 		ParseCombo("48 8B ? ? ? ? ? 48 85 C0 74 34 48 63 48 68 44 8B 90 CC 00 00 00 83 F9 0B", funcAddr, funcAddrMask);
-		uintptr_t addr = (uintptr_t)PatternScanExModule(CurProcHandle, CurProcId, L"client.dll", funcAddr, funcAddrMask);
+		uintptr_t addr = (uintptr_t)PatternScanExModule(ctx.CurProcHandle, ctx.CurProcId, L"client.dll", funcAddr, funcAddrMask);
 		if (addr != 0) {
 			GameRulesPtr = (CDOTAGameRules**)GetAbsoluteAddress(addr, 3, 7);
 			std::cout << "GameRulesPtr: " << GameRulesPtr << '\n';
 		}
 		ParseCombo("48 8B ? ? ? ? ? 48 85 C9 0F 85 ? ? ? ? B8 FF FF FF FF C3", funcAddr, funcAddrMask);
-		addr = (uintptr_t)PatternScanExModule(CurProcHandle, CurProcId, L"client.dll", funcAddr, funcAddrMask);
+		addr = (uintptr_t)PatternScanExModule(ctx.CurProcHandle, ctx.CurProcId, L"client.dll", funcAddr, funcAddrMask);
 		if (addr != 0) {
 			PlayerResourcePtr = (CDOTAPlayerResource**)GetAbsoluteAddress(addr, 3, 7);
 			std::cout << "PlayerResourcePtr: " << PlayerResourcePtr << '\n';
@@ -52,13 +52,13 @@ namespace Globals {
 
 
 		//ParseCombo("48 8B ? ? ? ? ? 33 C9 48 89 5C 24 30 48 8B 18 E8 ? ? ? ? 48 8B ? ? ? ? ? 4C 8B C0 48 8B D7", funcAddr, funcAddrMask);
-		//ScriptVMPtr = (IScriptVM**)GetAbsoluteAddress((uintptr_t)PatternScanExModule(CurProcHandle, CurProcId, L"client.dll", funcAddr, funcAddrMask), 3, 7);
+		//ScriptVMPtr = (IScriptVM**)GetAbsoluteAddress((uintptr_t)PatternScanExModule(ctx.CurProcHandle, ctx.CurProcId, L"client.dll", funcAddr, funcAddrMask), 3, 7);
 		//std::cout << "SVMPtr: " << ScriptVMPtr << '\n';
 
 		ParseCombo("7E 0B 41 8D 42 F1 A9 FB FF FF FF 75 0B 41 8B C9 E8 ? ? ? ? 48 8B D8 E8", funcAddr, funcAddrMask);
 		addr = GetAbsoluteAddress(
-			(uintptr_t)PatternScanExModule(CurProcHandle,
-				CurProcId,
+			(uintptr_t)PatternScanExModule(ctx.CurProcHandle,
+				ctx.CurProcId,
 				L"client.dll",
 				funcAddr,
 				funcAddrMask) + 0x18,

@@ -27,17 +27,17 @@ public:
 		return m_pElements[m_Size - 1];
 	}
 
-	std::vector<T> ToStdVector() {
+	[[nodiscard]] std::vector<T> ToStdVector() {
 		auto result = std::vector<T>{};
 		result.reserve(m_Size);
 		for (int i = 0; i  < m_Size; i++) {
 			//std::cout << std::hex << &arr[i] << '\n';
-			result.push_back(&m_pElements[i]);
+			result.push_back(m_pElements[i]);
 		}
 		return result;
 	}
 
-	[[nodiscard]] int Count() const
+	int Count() const
 	{
 		return m_Size;
 	}

@@ -2,13 +2,14 @@
 #include "Globals.h"
 #include "Interfaces.h"
 #include "Wrappers.h"
-#include "Hooks.h"
-#include "AutoBuyTome.h"
 #include "EventListeners.h"
 #include "DebugFunctions.h"
-#include "SpiritBreakerChargeHighlighter.h"
+#include "Hooks/RunFrame.h"
+#include "Lua/LuaInitialization.h"
 
-extern bool IsInMatch;
+#include "AutoBuyTome.h"
+#include "SpiritBreakerChargeHighlighter.h"
+#include <format>
 
 inline void FillPlayerList() {
 	auto vec = Globals::PlayerResource->GetVecTeamPlayerData();
@@ -18,50 +19,66 @@ inline void FillPlayerList() {
 		auto idx = vec[i].GetPlayerSlot() + 1;
 		if (idx < 1)
 			continue;
+
 		auto player = (DotaPlayer*)Interfaces::EntitySystem->GetEntity(idx);
 		if (player == nullptr)
 			continue;
+
 		auto hero = (BaseNpc*)player->GetAssignedHero();
 		//std::cout << idx << " " << player << ' ' << player->GetIdentity() << '\n';
 
 		std::cout << "Player " << std::dec << idx << ": " << player;
-		if (hero != nullptr &&
-			hero->GetUnitName() != nullptr)
+		if (hero &&
+			hero->GetUnitName()) {
 			std::cout << "\n\t" << hero->GetUnitName() << " " << hero;
+			ctx.heroes.insert(hero);
+		}
 		std::cout << '\n';
-		players.push_back(player);
+
+		//players.push_back(player);
 	}
 }
 
 inline void EnteredMatch() {
 	Globals::GameRules = *Globals::GameRulesPtr;
 	Globals::PlayerResource = *Globals::PlayerResourcePtr;
-//	Globals::ScriptVM = *Globals::ScriptVMPtr;
+	//	Globals::ScriptVM = *Globals::ScriptVMPtr;
 	Globals::ParticleManager = *Globals::ParticleManagerPtr;
 	Globals::GameEventManager = *Globals::GameEventManagerPtr;
 
 	GameState gameState = Globals::GameRules->GetGameState();
-	if (gameState == GameState::DOTA_GAMERULES_PREGAME ||
-		gameState == GameState::DOTA_GAMERULES_GAME_IN_PROGRESS) {
+	if (gameState == DOTA_GAMERULES_PREGAME ||
+		gameState == DOTA_GAMERULES_GAME_IN_PROGRESS) {
 
-		localPlayer = (DotaPlayer*)Interfaces::EntitySystem->GetEntity(Interfaces::Engine->GetLocalPlayerSlot() + 1);
-		if (localPlayer == nullptr)
+		ctx.localPlayer = (DotaPlayer*)Interfaces::EntitySystem->GetEntity(Interfaces::Engine->GetLocalPlayerSlot() + 1);
+		if (ctx.localPlayer == nullptr)
 			return;
-		assignedHero = (BaseNpc*)Interfaces::EntitySystem->GetEntity(H2IDX(localPlayer->GetAssignedHeroHandle()));
-		if (assignedHero == nullptr)
+		ctx.assignedHero = (BaseNpc*)Interfaces::EntitySystem->GetEntity(H2IDX(ctx.localPlayer->GetAssignedHeroHandle()));
+		if (ctx.assignedHero == nullptr)
 			return;
 
-		Modules::SBChargeHighlighter.SubscribeEntity(assignedHero);
+		for (int i = 0; i <= Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
+			auto ent = Interfaces::EntitySystem->GetEntity(i);
+			if (ent != nullptr && ent->SchemaBinding()->binaryName != nullptr)
+				ctx.entities.insert(ent);
+		}
 
+		FillPlayerList();
+
+		Modules::ShakerAttackAnimFix.SubscribeEntity(ctx.assignedHero);
+		for (auto& hero : ctx.heroes) {
+			if (hero->GetTeam() == ctx.assignedHero->GetTeam()) {
+				Modules::SBChargeHighlighter.SubscribeEntity(hero);
+				Modules::VBE.SubscribeEntity(hero);
+			}
+		}
 		Modules::AutoBuyTome.Init();
-		std::cout << "Local Player: " << localPlayer
-			<< "\n\t" << std::dec << "STEAM ID: " << localPlayer->GetSteamID()
+		std::cout << "Local Player: " << ctx.localPlayer
+			<< "\n\t" << std::dec << "STEAM ID: " << ctx.localPlayer->GetSteamID()
 			<< '\n';
-		std::cout << "Assigned Hero: " << assignedHero << " " << assignedHero->GetUnitName() << '\n';
-		IsInMatch = true;
-		Interfaces::CVar->SetConvars();
-		//FillPlayerList();
+		std::cout << "Assigned Hero: " << ctx.assignedHero << " " << ctx.assignedHero->GetUnitName() << '\n';
 
+		Interfaces::CVar->SetConvars();
 
 		auto roshanListener = new RoshanListener();
 		roshanListener->gameStartTime = Globals::GameRules->GetGameTime();
@@ -74,25 +91,30 @@ inline void EnteredMatch() {
 		VMTs::UIEngine->ApplyVMT();
 
 		Globals::LogGlobals();
+		Lua::InitGlobals(ctx.lua);
 #ifdef _DEBUG
 		Test::HookParticles();
 #endif // _DEBUG
 
+		ctx.IsInMatch = true;
+		ctx.lua["assignedHero"] = ctx.assignedHero;
+		ctx.lua["localPlayer"] = ctx.localPlayer;
 
-		std::cout << "ENTERED MATCH\n";
+		std::cout << "ENTERED MATCH\n"; 
 	}
 }
 inline void LeftMatch() {
-	IsInMatch = false;
+	ctx.IsInMatch = false;
 
 	Modules::AutoBuyTome.Reset();
 	Modules::SBChargeHighlighter.Reset();
 	Modules::VBE.Reset();
-	
+
 	Globals::PlayerResource = nullptr;
 	Globals::GameRules = nullptr;
 	Globals::ScriptVM = nullptr;
 	Globals::ParticleManager = nullptr;
+	Lua::ResetGlobals(ctx.lua);
 	
 	VMTs::NetChannel.reset();
 	VMTs::UIEngine.reset();
@@ -103,19 +125,19 @@ inline void LeftMatch() {
 	Globals::GameEventManager = nullptr;
 
 
-	localPlayer = nullptr;
-	assignedHero = nullptr;
+	ctx.localPlayer = nullptr;
+	ctx.assignedHero = nullptr;
+	ctx.lua["assignedHero"] = nullptr;
+	ctx.lua["localPlayer"] = nullptr;
 #ifdef _DEBUG
 	Test::partMap.clear();
 #endif // _DEBUG
-	players.clear();
-	
 	std::cout << "LEFT MATCH\n";
 }
 inline void CheckMatchState() {
 	if (Interfaces::Engine->IsInGame()) {
-		if (!IsInMatch)
+		if (!ctx.IsInMatch)
 			EnteredMatch();
 	}
-	else if (IsInMatch) LeftMatch();
+	else if (ctx.IsInMatch) LeftMatch();
 }

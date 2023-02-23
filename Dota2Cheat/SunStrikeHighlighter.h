@@ -21,7 +21,7 @@ namespace Hacks {
 		}
 
 		void FrameBasedLogic() {
-			if (SunStrikeThinker != nullptr
+			if (SunStrikeThinker 
 				&& SunStrikeThinker->GetPos() != Vector3::Zero) {
 				DrawEnemySunstrike(SunStrikeThinker->GetPos());
 				SunStrikeThinker = nullptr;
@@ -30,14 +30,14 @@ namespace Hacks {
 
 		void ProcessMessage(NetMessageHandle_t* messageHandle, google::protobuf::Message* msg) {
 			if (messageHandle->messageID == 586) { // CDOTAEntityMsg_InvokerSpellCast
-				auto castMsg = reinterpret_cast<MsgInvokerCast*>(msg);
+				auto castMsg = reinterpret_cast<CUserMsg_InvokerCast*>(msg);
 				if (castMsg->cast_activity() == 1743) { //sunstrike
 					auto invoker = Interfaces::EntitySystem->GetEntity(
 						castMsg->entity_msg().target_entity() & 0x3fff // weird smaller mask
 					); 
 
-					if (invoker != nullptr &&
-						invoker->GetTeam() != assignedHero->GetTeam())
+					if (invoker  &&
+						invoker->GetTeam() != ctx.assignedHero->GetTeam())
 						SunStrikeIncoming = true;
 				}
 			}
@@ -46,7 +46,7 @@ namespace Hacks {
 		void DrawEnemySunstrike(Vector3 pos) {
 			Globals::ParticleManager->CreateParticle(
 				"particles/econ/items/invoker/invoker_apex/invoker_sun_strike_team_immortal1.vpcf",
-				CDOTAParticleManager::ParticleAttachment_t::PATTACH_WORLDORIGIN,
+				PATTACH_WORLDORIGIN,
 				nullptr).particle
 				->SetControlPoint(0, &pos)
 				->SetControlPoint(1, &Vector3::Zero);

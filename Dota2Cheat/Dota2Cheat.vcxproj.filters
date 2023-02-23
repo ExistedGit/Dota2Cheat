@@ -37,6 +37,18 @@
     <Filter Include="Header files\Protobufs">
       <UniqueIdentifier>{856c36d3-30b7-4edf-9833-13617fa2d71b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source files\Protobuf Messages">
+      <UniqueIdentifier>{a6b22c09-c300-4fa0-b9dc-05fce663c711}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\Protobuf Messages">
+      <UniqueIdentifier>{f9c05d2c-da8b-4639-86fd-e3322ecdc055}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\Hooks">
+      <UniqueIdentifier>{a99fdb0c-6680-4f5d-88cb-aaadf8759d5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\Lua">
+      <UniqueIdentifier>{6bc97820-53b1-4cf7-bda5-e43dd37004e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -76,7 +88,7 @@
       <Filter>Source files</Filter>
     </ClCompile>
     <ClCompile Include="Messages\messages.pb.cc">
-      <Filter>Source files</Filter>
+      <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -143,7 +155,7 @@
     <ClInclude Include="AbilityCooldownTracking.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
-    <ClInclude Include="Hooks.h">
+    <ClInclude Include="HookHelper.h">
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="Input.h">
@@ -206,14 +218,53 @@
     <ClInclude Include="AttackTargetFinder.h">
       <Filter>Header files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Messages\messages.pb.h">
-      <Filter>Header files\Protobufs</Filter>
-    </ClInclude>
     <ClInclude Include="ProtobufDefineFix.h">
       <Filter>Header files\Protobufs</Filter>
     </ClInclude>
     <ClInclude Include="ArmletAbuse.h">
       <Filter>Header files\Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="BadCastPrevention.h">
+      <Filter>Header files\Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="ShakerAttackAnimFix.h">
+      <Filter>Header files\Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\RunFrame.h">
+      <Filter>Header files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\PrepareUnitOrders.h">
+      <Filter>Header files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="Messages\messages.pb.h">
+      <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\EntitySystemEvents.h">
+      <Filter>Header files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\VMT.h">
+      <Filter>Header files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\NetChannel.h">
+      <Filter>Header files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="Netvars.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Context.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\LuaInitialization.h">
+      <Filter>Header files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\LuaModules.h">
+      <Filter>Header files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\ParticleRendering.h">
+      <Filter>Header files\Hooks</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

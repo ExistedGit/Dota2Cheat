@@ -5,7 +5,10 @@
 #define MAX_ENTITIES_IN_LIST 512
 #define MAX_ENTITY_LISTS 64 // 0x3F
 #define MAX_TOTAL_ENTITIES MAX_ENTITIES_IN_LIST * MAX_ENTITY_LISTS // 0x8000
+
 class BaseEntity;
+class BaseNpc;
+
 class CEntityIdentity {
 
 public:
@@ -33,10 +36,21 @@ private:
 	void* unkptr8;
 public:
 	const char* GetName() const {
-		return internalName != nullptr ? internalName : entityName;
+		return internalName  ? internalName : entityName;
 	}
 	const bool IsDormant() const {
 		return (flags[0] & 0x80);
+	}
+
+	static void BindLua(sol::state& lua) {
+		sol::usertype<CEntityIdentity> type = lua.new_usertype<CEntityIdentity>("CEntityIdentity");
+		type["entity"] = &CEntityIdentity::entity;
+		type["entHandle"] = &CEntityIdentity::entHandle;
+		type["internalName"] = &CEntityIdentity::internalName;
+		type["entityName"] = &CEntityIdentity::entityName;
+		type["flags"] = &CEntityIdentity::flags;
+		type["GetName"] = &CEntityIdentity::GetName;
+		type["IsDormant"] = &CEntityIdentity::IsDormant;
 	}
 };
 
@@ -50,28 +64,28 @@ public:
 
 class CEntitySystem{
 public:
-	virtual void n_0();
-	virtual void BuildResourceManifest(void); // 01
-	virtual void n_2();
-	virtual void n_3();
-	virtual void n_4();
-	virtual void n_5();
-	virtual void n_6();
-	virtual void AddRefKeyValues(void const*); // 7
-	virtual void ReleaseKeyValues(void const*); // 8
-	virtual void n_9();
-	virtual void n_10();
+	virtual void n_0() = 0;
+	virtual void BuildResourceManifest(void) = 0; // 01
+	virtual void n_2() = 0;
+	virtual void n_3() = 0;
+	virtual void n_4() = 0;
+	virtual void n_5() = 0;
+	virtual void n_6() = 0;
+	virtual void AddRefKeyValues(void const*) = 0; // 7
+	virtual void ReleaseKeyValues(void const*) = 0; // 8
+	virtual void n_9() = 0;
+	virtual void n_10() = 0;
 	virtual void ClearEntityDatabase(void); // 11
-	virtual BaseEntity* FindEntityProcedural(const char *...);
-	virtual BaseEntity* OnEntityParentChanged(BaseEntity*, BaseEntity*); //13
-	virtual BaseEntity* OnAddEntity(BaseEntity*, ENT_HANDLE); // 14
-	virtual BaseEntity* OnRemoveEntity(BaseEntity*, ENT_HANDLE); // 15
-	virtual void n_16();
-	virtual void SortEntities(int, void*, int*, int*); // 17
-	virtual void n_18();
-	virtual void n_19();
-	virtual void n_20();
-	virtual void n_21();
+	virtual BaseEntity* FindEntityProcedural(const char *...) = 0;
+	virtual BaseEntity* OnEntityParentChanged(BaseEntity*, BaseEntity*) = 0; //13
+	virtual BaseEntity* OnAddEntity(BaseEntity*, ENT_HANDLE) = 0; // 14
+	virtual BaseEntity* OnRemoveEntity(BaseEntity*, ENT_HANDLE) = 0; // 15
+	virtual void n_16() = 0;
+	virtual void SortEntities(int, void*, int*, int*) = 0; // 17
+	virtual void n_18() = 0;
+	virtual void n_19() = 0;
+	virtual void n_20() = 0;
+	virtual void n_21() = 0;
 };
 
 class CGameEntitySystem : public CEntitySystem
@@ -131,5 +145,14 @@ public:
 	{
 		return *(int*)((uintptr_t)this + 0x1e90);
 	}
+
+	static void BindLua(sol::state& lua) {
+		auto type = lua.new_usertype<CGameEntitySystem>("CGameEntitySystem");
+		type["GetIdentity"] = &CGameEntitySystem::GetIdentity;
+		type["GetBaseEntity"] = &CGameEntitySystem::GetEntity<BaseEntity>;
+		type["GetHighestEntityIndex"] = &CGameEntitySystem::GetHighestEntityIndex;
+		type["GetBaseNpc"] = &CGameEntitySystem::GetEntity<BaseNpc>;
+	}
+	
 };
 

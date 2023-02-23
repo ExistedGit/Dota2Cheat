@@ -11,7 +11,7 @@ inline void LogEntities() {
 		//std::cout << ent->SchemaBinding() << '\n';
 		const char* className = ent->SchemaBinding()->binaryName;
 		if (
-			className != nullptr
+			className 
 			//&& strstr(className, "Rune")
 			)
 			std::cout << className << ' ' << i
@@ -22,26 +22,29 @@ inline void LogEntities() {
 inline void LogModifiers(BaseNpc* npc) {
 	std::cout << "modifiers:\n";
 	for (const auto& modifier : npc->GetModifierManager()->GetModifierList())
-		std::cout << "\t" << modifier->GetName() << '\n';
-
+		std::cout << "\t" << modifier->GetName() << ' ' << modifier << '\n';
 }
 inline void LogInvAndAbilities(BaseNpc* npc = nullptr) {
 	if (npc == nullptr)
-		npc = assignedHero;
+		npc = ctx.assignedHero;
 
 	std::cout << std::dec;
 	std::cout << "abilities: " << '\n';
 	for (const auto& ability : npc->GetAbilities()) {
-		if (ability.name != nullptr)
+		if (ability.name ) {
+
 			std::cout << '\t' << ability.name << " " << H2IDX(ability.handle)
-			//<< " CD: " << ability.GetAs<BaseAbility>()->GetCooldown() 
-			//<< ' ' << std::dec << ability.GetAs<BaseAbility>()->GetEffectiveCastRange()
-			<< ' ' << ability.GetEntity()
-			<< '\n';
+				//<< " CD: " << ability.GetAs<BaseAbility>()->GetCooldown() 
+				//<< ' ' << std::dec << ability.GetAs<BaseAbility>()->GetEffectiveCastRange()
+				<< ' ' << ability.GetEntity();
+			
+			std::cout << '\n';
+
+		}
 	}
 	std::cout << "inventory: " << '\n';
 	for (const auto& item : npc->GetItems()) {
-		if (item.name != nullptr)
+		if (item.name )
 			std::cout << '\t' << item.name << " " << H2IDX(item.handle)
 			<< ' ' << item.GetEntity()
 			<< '\n';

@@ -13,13 +13,13 @@ namespace Hacks {
 			tomeStockInfo = nullptr;
 		}
 		void Init() {
-			if (Globals::GameRules == nullptr ||
-				assignedHero == nullptr)
+			if (!Globals::GameRules ||
+				!ctx.assignedHero)
 				return;
 
 			auto vec = Globals::GameRules->GetItemStockInfo();
 			for (auto& info : vec) {
-				if (info->TeamNumber == assignedHero->GetTeam() &&
+				if (info->TeamNumber == ctx.assignedHero->GetTeam() &&
 					info->ItemID == 0x101) { // tome's id is 257
 					tomeStockInfo = info;
 					std::cout << "FOUND TOME STOCK INFO\n";
@@ -33,7 +33,7 @@ namespace Hacks {
 				return;
 
 			if (tomeStockInfo->StockCount > 0)
-				localPlayer->BuyItem(0x101);
+				ctx.localPlayer->BuyItem(0x101);
 		}
 	};
 
