@@ -3,7 +3,8 @@
 namespace Config {
 	inline bool AutoMidasEnabled = true;
 
-	inline bool AutoRunePickupEnabled = true;
+	inline bool AutoPickUpRunes = true;
+	inline bool AutoPickUpAegis = false;
 
 	inline bool AutoBuyTome = false;
 
@@ -16,6 +17,8 @@ namespace Config {
 	inline int RiverListIdx = 0;
 
 	inline float CameraDistance = 1200.0f;
+
+	inline bool RenderAllParticles = true;
 
 	inline Vector3 IllusionColor{ 1,0,0 };
 

@@ -12,7 +12,7 @@ namespace Hacks {
 				strstr(className, "C_DOTA_Unit_Hero") ) {
 				auto hero = (BaseNpcHero*)ent;
 				if (
-					assignedHero->GetTeam() != hero->GetTeam() &&
+					ctx.assignedHero->GetTeam() != hero->GetTeam() &&
 					hero->IsIllusion() &&
 					strstr(className, "CDOTA_Unit_Hero_ArcWarden") == nullptr //Arc's double is replicating his model but is not an illusion
 					) {

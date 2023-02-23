@@ -22,12 +22,11 @@ inline void LogEntities() {
 inline void LogModifiers(BaseNpc* npc) {
 	std::cout << "modifiers:\n";
 	for (const auto& modifier : npc->GetModifierManager()->GetModifierList())
-		std::cout << "\t" << modifier->GetName() << '\n';
-
+		std::cout << "\t" << modifier->GetName() << ' ' << modifier << '\n';
 }
 inline void LogInvAndAbilities(BaseNpc* npc = nullptr) {
 	if (npc == nullptr)
-		npc = assignedHero;
+		npc = ctx.assignedHero;
 
 	std::cout << std::dec;
 	std::cout << "abilities: " << '\n';

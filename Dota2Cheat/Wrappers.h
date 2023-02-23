@@ -5,6 +5,7 @@
 #include "CUtlVector.h"
 #include <set>
 //#include <span>
+#include "Netvars.h"
 #include "SDK/color.h"
 
 #define u64 unsigned long long
@@ -12,7 +13,6 @@
 struct SchemaClassBinding {
 	SchemaClassBinding* parent;
 	const char* binaryName; // ex: C_World
-	//const char* projectName; // ex: libclient.so
 	const char* className; // ex: client
 	void* classInfoOldSynthesized;
 	void* classInfoN;
@@ -102,7 +102,7 @@ public:
 	}
 	Vector2 GetPos2D() {
 		auto vec = GetPos();
-		return *(Vector2*)&vec;
+		return vec.AsVec2();
 	}
 	int GetMaxHealth() {
 		return Member<int>(Schema::Netvars["C_BaseEntity"]["m_iMaxHealth"]);
@@ -115,6 +115,22 @@ public:
 	}
 	INT8 GetLifeState() {
 		return Member<INT8>(Schema::Netvars["C_BaseEntity"]["m_lifeState"]);
+	}
+
+	static void BindLua(sol::state& lua) {
+		sol::usertype<BaseEntity> type = lua.new_usertype<BaseEntity>("BaseEntity");
+		type["GetSchemaBinding"] = &BaseEntity::SchemaBinding;
+		type["GetIdentity"] = &BaseEntity::GetIdentity;
+		type["SetColor"] = &BaseEntity::SetColor;
+		type["GetOwnerEntityHandle"] = &BaseEntity::GetOwnerEntityHandle;
+		type["GetPos"] = &BaseEntity::GetPos;
+		type["GetRotation"] = &BaseEntity::GetRotation;
+		type["GetForwardVector"] = &BaseEntity::GetForwardVector;
+		type["GetPos2D"] = &BaseEntity::GetPos2D;
+		type["GetMaxHealth"] = &BaseEntity::GetMaxHealth;
+		type["GetHealth"] = &BaseEntity::GetHealth;
+		type["GetTeam"] = &BaseEntity::GetTeam;
+		type["GetLifeState"] = &BaseEntity::GetLifeState;
 	}
 };
 
@@ -129,7 +145,38 @@ public:
 class DotaModifier : public VClass {
 public:
 	const char* GetName() {
-		return Member<const char*>(0x28);
+		return Member<const char*>(Netvars::CDOTAModifier::m_name);
+	}
+
+	float GetDuration() {
+		return Member<float>(Netvars::CDOTAModifier::m_flDuration);
+	}
+
+	float GetDieTime() {
+		return Member<float>(Netvars::CDOTAModifier::m_flDieTime);
+	}
+
+	ENT_HANDLE GetCaster() {
+		return Member<ENT_HANDLE>(Netvars::CDOTAModifier::m_hCaster);
+	}
+
+	ENT_HANDLE GetAbility() {
+		return Member<ENT_HANDLE>(Netvars::CDOTAModifier::m_hAbility);
+	}
+
+	ENT_HANDLE GetOwner() {
+		return Member<ENT_HANDLE>(Netvars::CDOTAModifier::m_hParent);
+	}
+
+	static void BindLua(sol::state& lua) {
+		auto type = lua.new_usertype<DotaModifier>("DotaModifier");
+
+		type["GetName"] = &DotaModifier::GetName;
+		type["GetDuration"] = &DotaModifier::GetDuration;
+		type["GetDieTime"] = &DotaModifier::GetDieTime;
+		type["GetCaster"] = &DotaModifier::GetCaster;
+		type["GetAbility"] = &DotaModifier::GetAbility;
+		type["GetOwner"] = &DotaModifier::GetOwner;
 	}
 };
 
@@ -148,154 +195,13 @@ public:
 
 		return result;
 	}
-};
 
-class BaseNpc : public BaseEntity {
-public:
-	struct ItemOrAbility {
-		const char* name;
-		ENT_HANDLE handle;
-		ItemOrAbility(const char* name, ENT_HANDLE handle) :name(name), handle(handle) {
-
-		}
-		BaseEntity* GetEntity() const {
-			return Interfaces::EntitySystem->GetEntity(H2IDX(handle));
-		}
-		template<typename T>
-		T* GetAs() const {
-			return reinterpret_cast<T*>(Interfaces::EntitySystem->GetEntity(H2IDX(handle)));
-		}
-		bool IsValid() {
-			return handle != 0xFFFFFFFF;
-		}
-	};
-
-	DotaModifierManager* GetModifierManager() {
-		// Inlined into the object instead of a pointer
-		return (DotaModifierManager*)((uintptr_t)this + Schema::Netvars["C_DOTA_BaseNPC"]["m_ModifierManager"]);
-	}
-
-	// Wrapper function combining the following conditions: 
-	// Is not dormant
-	// Is alive
-	// Is not waiting to spawn
-	bool IsTargetable() {
-		return !GetIdentity()->IsDormant() && GetLifeState() == 0 && !IsWaitingToSpawn();
-	}
-	bool IsWaitingToSpawn() {
-		return Member<bool>(Schema::Netvars["C_DOTA_BaseNPC"]["m_bIsWaitingToSpawn"]);
-	}
-	bool IsAncient() {
-		return Member<bool>(Schema::Netvars["C_DOTA_BaseNPC"]["m_bIsAncient"]);
-	}
-
-	//Implemented as a method returning a bool rather than a field
-	//Is inside some kind of structure on offset BE8
-	bool IsRoshan() {
-		return reinterpret_cast<VClass*>((uintptr_t)this + 0xbe8)->CallVFunc<57, bool>();
-	}
-
-	int GetAttackRange() {
-		return Member<int>(Schema::Netvars["C_DOTA_BaseNPC"]["m_iAttackRange"]);
-	}
-
-	float GetSSC() {
-		return Member<float>(Schema::Netvars["C_DOTA_BaseNPC"]["m_flStartSequenceCycle"]);
-	}
-	ENT_HANDLE GoalEntity() {
-		return Member<ENT_HANDLE>(Schema::Netvars["C_DOTA_BaseNPC"]["m_hGoalEntity"]);
-	}
-	const char* GetUnitName() {
-		//return *(const char**)((uintptr_t)this + Schema::Netvars["C_DOTA_BaseNPC"]["m_iszUnitName"]);
-		//std::cout << std::hex << Schema::Netvars["C_DOTA_BaseNPC"]["m_iszUnitName"] << '\n';
-		//std::cout << "this: " << this << '\n';
-		return Member<const char*>(Schema::Netvars["C_DOTA_BaseNPC"]["m_iszUnitName"]);
-	}
-	std::vector<ItemOrAbility> GetAbilities() {
-		static int offset = Schema::Netvars["C_DOTA_BaseNPC"]["m_hAbilities"];
-		if (!offset)
-			return {};
-
-		std::vector<ItemOrAbility> result{};
-		ENT_HANDLE* hAbilities = (ENT_HANDLE*)((uintptr_t)this + offset);
-		for (int j = 0; j < 35; j++) {
-			ENT_HANDLE handle = hAbilities[j];
-			if (HVALID(handle)) {
-				auto* identity = Interfaces::EntitySystem->GetIdentity(H2IDX(handle));
-				result.push_back(ItemOrAbility((identity->entityName  ? identity->entityName : identity->internalName), identity->entHandle));
-			}
-		}
-		return result;
-	}
-
-	ItemOrAbility FindItemBySubstring(const char* str) {
-		if (str == nullptr)
-			return ItemOrAbility{ nullptr, 0xFFFFFFFF };
-		for (const auto& item : GetItems())
-			if (item.name  &&
-				strstr(item.name, str))
-				return item;
-
-		return ItemOrAbility{ nullptr, 0xFFFFFFFF };
-	}
-
-	CUnitInventory* GetInventory() {
-		static int offset = Schema::Netvars["C_DOTA_BaseNPC"]["m_Inventory"];
-		if (!offset)
-			return nullptr;
-		return (CUnitInventory*)((uintptr_t)this + offset);
-	}
-	std::vector<ItemOrAbility> GetItems() {
-		static int offset = Schema::Netvars["C_DOTA_BaseNPC"]["m_Inventory"];
-		if (!offset)
-			return {};
-
-		std::vector<ItemOrAbility> result{};
-		CUnitInventory* inv = (CUnitInventory*)((uintptr_t)this + offset);
-		if (inv) {
-			ENT_HANDLE* itemsHandle = inv->GetItems();
-			for (int i = 0; i < 19; i++) {
-				if (HVALID(itemsHandle[i])) {
-					auto* identity = Interfaces::EntitySystem->GetIdentity(H2IDX(itemsHandle[i]));
-					result.push_back(ItemOrAbility((identity->entityName  ? identity->entityName : identity->internalName), identity->entHandle));
-				}
-			}
-		}
-		return result;
-	}
-
-	float GetMana() {
-		return Member<float>(Schema::Netvars["C_DOTA_BaseNPC"]["m_flMana"]);
-	}
-	float GetMaxMana() {
-		return Member<float>(Schema::Netvars["C_DOTA_BaseNPC"]["m_flMaxMana"]);
-	}
-
-	float GetBaseAttackTime() {
-		return Member<float>(Schema::Netvars["C_DOTA_BaseNPC"]["m_flBaseAttackTime"]);
-	}
-	float GetHullRadius() {
-		return Member<float>(Schema::Netvars["C_DOTA_BaseNPC"]["m_flHullRadius"]);
-	}
-	float GetAttackSpeed() {
-		return 1 + CallVFunc<295, float>();
+	static void BindLua(sol::state& lua) {
+		auto type = lua.new_usertype<DotaModifierManager>("DotaModifierManager");
+		type["GetModifierList"] = &DotaModifierManager::GetModifierList;
 	}
 };
 
-class BaseNpcHero : public BaseNpc {
-public:
-	struct HeroAttributes {
-		float strength, agility, intellect;
-	};
-
-	HeroAttributes GetAttributes() {
-		return Member<HeroAttributes>(Schema::Netvars["C_DOTA_BaseNPC_Hero"]["m_flStrengthTotal"]);
-	}
-
-	bool IsIllusion() {
-		return Member<ENT_HANDLE>(Schema::Netvars["C_DOTA_BaseNPC_Hero"]["m_hReplicatingOtherHeroModel"]) != 0xFFFFFFFF;
-	}
-};
 
 // Current stat of Power Treads/Vambrace
 enum class ItemStat_t {
@@ -368,13 +274,205 @@ public:
 
 
 
+class BaseNpc : public BaseEntity {
+public:
+	struct ItemOrAbility {
+		const char* name;
+		ENT_HANDLE handle;
+		ItemOrAbility(const char* name, ENT_HANDLE handle) :name(name), handle(handle) {
+
+		}
+		BaseEntity* GetEntity() const {
+			return Interfaces::EntitySystem->GetEntity(H2IDX(handle));
+		}
+		template<typename T>
+		T* GetAs() const {
+			return reinterpret_cast<T*>(Interfaces::EntitySystem->GetEntity(H2IDX(handle)));
+		}
+		bool IsValid() {
+			return handle != 0xFFFFFFFF;
+		}
+
+		static void BindLua(sol::state& lua) {
+			auto type = lua.new_usertype<ItemOrAbility>("ItemOrAbility", sol::constructors<ItemOrAbility(const char*, ENT_HANDLE)>());
+
+			type["GetEntity"] = &ItemOrAbility::GetEntity;
+			type["GetAsAbility"] = &ItemOrAbility::GetAs<BaseAbility>;
+			type["IsValid"] = &ItemOrAbility::IsValid;
+		}
+	};
+
+	DotaModifierManager* GetModifierManager() {
+		// Inlined into the object instead of a pointer
+		return (DotaModifierManager*)((uintptr_t)this + Schema::Netvars["C_DOTA_BaseNPC"]["m_ModifierManager"]);
+	}
+
+	// Wrapper function combining the following conditions: 
+	// Is not dormant
+	// Is alive
+	// Is not waiting to spawn
+	bool IsTargetable() {
+		return !GetIdentity()->IsDormant() && GetLifeState() == 0 && !IsWaitingToSpawn();
+	}
+	bool IsWaitingToSpawn() {
+		return Member<bool>(Schema::Netvars["C_DOTA_BaseNPC"]["m_bIsWaitingToSpawn"]);
+	}
+	bool IsAncient() {
+		return Member<bool>(Schema::Netvars["C_DOTA_BaseNPC"]["m_bIsAncient"]);
+	}
+
+	//Implemented as a method returning a bool rather than a field
+	//Is inside some kind of structure on offset BE8
+	bool IsRoshan() {
+		return reinterpret_cast<VClass*>((uintptr_t)this + 0xbe8)->CallVFunc<57, bool>();
+	}
+
+	int GetAttackRange() {
+		return Member<int>(Schema::Netvars["C_DOTA_BaseNPC"]["m_iAttackRange"]);
+	}
+
+	float GetSSC() {
+		return Member<float>(Schema::Netvars["C_DOTA_BaseNPC"]["m_flStartSequenceCycle"]);
+	}
+	ENT_HANDLE GoalEntity() {
+		return Member<ENT_HANDLE>(Schema::Netvars["C_DOTA_BaseNPC"]["m_hGoalEntity"]);
+	}
+	const char* GetUnitName() {
+		//return *(const char**)((uintptr_t)this + Schema::Netvars["C_DOTA_BaseNPC"]["m_iszUnitName"]);
+		//std::cout << std::hex << Schema::Netvars["C_DOTA_BaseNPC"]["m_iszUnitName"] << '\n';
+		//std::cout << "this: " << this << '\n';
+		return Member<const char*>(Schema::Netvars["C_DOTA_BaseNPC"]["m_iszUnitName"]);
+	}
+	std::vector<ItemOrAbility> GetAbilities() {
+		static int offset = Schema::Netvars["C_DOTA_BaseNPC"]["m_hAbilities"];
+		if (!offset)
+			return {};
+
+		std::vector<ItemOrAbility> result{};
+		ENT_HANDLE* hAbilities = (ENT_HANDLE*)((uintptr_t)this + offset);
+		for (int j = 0; j < 35; j++) {
+			ENT_HANDLE handle = hAbilities[j];
+			if (HVALID(handle)) {
+				auto* identity = Interfaces::EntitySystem->GetIdentity(H2IDX(handle));
+				result.push_back(ItemOrAbility((identity->entityName ? identity->entityName : identity->internalName), identity->entHandle));
+			}
+		}
+		return result;
+	}
+
+	ItemOrAbility FindItemBySubstring(const char* str) {
+		if (str == nullptr)
+			return ItemOrAbility{ nullptr, 0xFFFFFFFF };
+		for (const auto& item : GetItems())
+			if (item.name &&
+				strstr(item.name, str))
+				return item;
+
+		return ItemOrAbility{ nullptr, 0xFFFFFFFF };
+	}
+
+	CUnitInventory* GetInventory() {
+		static int offset = Schema::Netvars["C_DOTA_BaseNPC"]["m_Inventory"];
+		if (!offset)
+			return nullptr;
+		return (CUnitInventory*)((uintptr_t)this + offset);
+	}
+	std::vector<ItemOrAbility> GetItems() {
+		static int offset = Schema::Netvars["C_DOTA_BaseNPC"]["m_Inventory"];
+		if (!offset)
+			return {};
+
+		std::vector<ItemOrAbility> result{};
+		CUnitInventory* inv = (CUnitInventory*)((uintptr_t)this + offset);
+		if (inv) {
+			ENT_HANDLE* itemsHandle = inv->GetItems();
+			for (int i = 0; i < 19; i++) {
+				if (HVALID(itemsHandle[i])) {
+					auto* identity = Interfaces::EntitySystem->GetIdentity(H2IDX(itemsHandle[i]));
+					result.push_back(ItemOrAbility(identity->GetName(), identity->entHandle));
+				}
+			}
+		}
+		return result;
+	}
+
+	float GetMana() {
+		return Member<float>(Schema::Netvars["C_DOTA_BaseNPC"]["m_flMana"]);
+	}
+	float GetMaxMana() {
+		return Member<float>(Schema::Netvars["C_DOTA_BaseNPC"]["m_flMaxMana"]);
+	}
+
+	float GetBaseAttackTime() {
+		return Member<float>(Schema::Netvars["C_DOTA_BaseNPC"]["m_flBaseAttackTime"]);
+	}
+	float GetHullRadius() {
+		return Member<float>(Schema::Netvars["C_DOTA_BaseNPC"]["m_flHullRadius"]);
+	}
+	float GetAttackSpeed() {
+		return 1 + CallVFunc<295, float>();
+	}
+
+	static void BindLua(sol::state& lua) {
+		auto type = lua.new_usertype<BaseNpc>("BaseNpc", sol::base_classes, sol::bases<BaseEntity>());
+
+		type["GetModifierManager"] = &BaseNpc::GetModifierManager;
+		type["IsTargetable"] = &BaseNpc::IsTargetable;
+		type["IsWaitingToSpawn"] = &BaseNpc::IsWaitingToSpawn;
+		type["IsAncient"] = &BaseNpc::IsAncient;
+		type["IsRoshan"] = &BaseNpc::IsRoshan;
+		type["GetAttackRange"] = &BaseNpc::GetAttackRange;
+		type["GetSSC"] = &BaseNpc::GetSSC;
+		type["GoalEntity"] = &BaseNpc::GoalEntity;
+		type["GetUnitName"] = &BaseNpc::GetUnitName;
+		type["GetAbilities"] = &BaseNpc::GetAbilities;
+		type["FindItemBySubstring"] = &BaseNpc::FindItemBySubstring;
+		type["GetInventory"] = &BaseNpc::GetInventory;
+		type["GetItems"] = &BaseNpc::GetItems;;
+		type["GetMana"] = &BaseNpc::GetMana;
+		type["GetMaxMana"] = &BaseNpc::GetMaxMana;
+		type["GetBaseAttackTime"] = &BaseNpc::GetBaseAttackTime;
+		type["GetHullRadius"] = &BaseNpc::GetHullRadius;
+		type["GetAttackSpeed"] = &BaseNpc::GetAttackSpeed;
+		lua["BaseNpc"] = [](BaseEntity* ent) { return (BaseNpc*)ent; };
+	}
+};
+
+class BaseNpcHero : public BaseNpc {
+public:
+	struct HeroAttributes {
+		float strength, agility, intellect;
+	};
+
+	HeroAttributes GetAttributes() {
+		return Member<HeroAttributes>(Schema::Netvars["C_DOTA_BaseNPC_Hero"]["m_flStrengthTotal"]);
+	}
+
+	bool IsIllusion() {
+		return Member<ENT_HANDLE>(Schema::Netvars["C_DOTA_BaseNPC_Hero"]["m_hReplicatingOtherHeroModel"]) != 0xFFFFFFFF;
+	}
+
+	static void BindLua(sol::state& lua) {
+		auto type = lua.new_usertype<BaseNpcHero>(
+			"BaseNpcHero",
+			sol::base_classes, sol::bases<BaseNpc, BaseEntity>()
+			);
+		type["GetAttributes"] = &BaseNpcHero::GetAttributes;
+		type["IsIllusion"] = &BaseNpcHero::IsIllusion;
+		lua["BaseNpcHero"] = sol::overload(
+			[](BaseNpc* npc) {return (BaseNpcHero*)npc; },
+			[](BaseEntity* ent) {return (BaseNpcHero*)ent; }
+			);
+	}
+};
+
 class DotaPlayer : public BaseEntity {
 public:
 	uint32_t GetAssignedHeroHandle() {
 		return Member< uint32_t>(Schema::Netvars["C_DOTAPlayerController"]["m_hAssignedHero"]);
 	}
-	CUtlVector<uint32_t> GetSelectedUnits() {
-		return Member<CUtlVector<uint32_t>>(Schema::Netvars["C_DOTAPlayerController"]["m_nSelectedUnits"]);
+	std::vector<uint32_t> GetSelectedUnits() {
+		return Member<CUtlVector<uint32_t>>(Schema::Netvars["C_DOTAPlayerController"]["m_nSelectedUnits"]).ToStdVector();
 	}
 	BaseNpc* GetAssignedHero() {
 		return Interfaces::EntitySystem->GetEntity<BaseNpc>(H2IDX(GetAssignedHeroHandle()));
@@ -429,10 +527,18 @@ public:
 
 		Signatures::PrepareUnitOrders(this, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
 	}
+
+	static void BindLua(sol::state& lua) {
+		auto type = lua.new_usertype<DotaPlayer>("DotaPlayer", sol::base_classes, sol::bases<BaseEntity>());
+		type["GetAssignedHeroHandle"] = &DotaPlayer::GetAssignedHeroHandle;
+		type["GetSelectedUnits"] = &DotaPlayer::GetSelectedUnits;
+		type["GetAssignedHero"] = &DotaPlayer::GetAssignedHero;
+		type["GetSteamID"] = &DotaPlayer::GetSteamID;
+
+		type["PrepareOrder"] = &DotaPlayer::PrepareOrder;
+		type["CastNoTarget"] = &DotaPlayer::CastNoTarget;
+		type["OrderMoveTo"] = &DotaPlayer::OrderMoveTo;
+		type["BuyItem"] = &DotaPlayer::BuyItem;
+	}
 };
 
-extern DotaPlayer* localPlayer;
-extern BaseNpc* assignedHero;
-extern std::vector<DotaPlayer*> players;
-extern std::vector<BaseEntity*> physicalItems; // items dropped onto the floor
-extern std::vector<BaseNpc*> heroes;

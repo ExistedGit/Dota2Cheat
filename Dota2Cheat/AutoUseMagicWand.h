@@ -2,7 +2,7 @@
 #include "Wrappers.h"
 #include "Config.h"
 
-//extern DotaPlayer* localPlayer;
+//extern DotaPlayer* ctx.localPlayer;
 
 // Uses the wand if the health is at N% of max, where N is hpPercentTreshold(values are percents, like 10 or 20)
 // if you don't specify the hero it will check your main hero
@@ -19,7 +19,7 @@ inline void AutoUseWandCheck(BaseNpc* hero, int hpPercentTreshold, int minCharge
 		auto wandEnt = wand.GetAs<BaseAbility>();
 		if (wandEnt->GetCooldown() != 0 || wandEnt->GetCharges() < minCharges)
 			return;
-		localPlayer->CastNoTarget(wand.handle, hero);
+		ctx.localPlayer->CastNoTarget(wand.handle, hero);
 	}
 }
 inline void AutoUseFaerieFireCheck(BaseNpc* hero, int hpPercentTreshold) {
@@ -35,6 +35,6 @@ inline void AutoUseFaerieFireCheck(BaseNpc* hero, int hpPercentTreshold) {
 		auto itemEnt = faerieFire.GetAs<BaseAbility>();
 		if (itemEnt->GetCooldown() != 0)
 			return;
-		localPlayer->CastNoTarget(faerieFire.handle, hero);
+		ctx.localPlayer->CastNoTarget(faerieFire.handle, hero);
 	}
 }

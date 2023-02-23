@@ -1,6 +1,5 @@
 #pragma once
 #include "sdk.h"
-#include <vector>
 
 class ItemStockInfo : VClass {
 private:

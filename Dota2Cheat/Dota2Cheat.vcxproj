@@ -140,13 +140,14 @@
       <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <ExceptionHandling>false</ExceptionHandling>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;libprotobufd.lib;libprotobuf-lited.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;lua54.lib;libprotobufd.lib;libprotobuf-lited.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)lib\;E:\Visual Studio Projects\vcpkg\vcpkg\installed\x64-windows\debug\lib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -165,6 +166,7 @@
       <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -173,7 +175,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;libprotobuf.lib;libprotobuf-lite.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;lua54.lib;libprotobuf.lib;libprotobuf-lite.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)lib\;E:\Visual Studio Projects\vcpkg\vcpkg\installed\x64-windows\debug\lib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -215,12 +217,23 @@
     <ClInclude Include="Config.h" />
     <ClInclude Include="DebugFunctions.h" />
     <ClInclude Include="Drawing.h" />
+    <ClInclude Include="Context.h" />
+    <ClInclude Include="Hooks\EntitySystemEvents.h" />
     <ClInclude Include="EventListeners.h" />
-    <ClInclude Include="Hooks.h" />
+    <ClInclude Include="HookHelper.h" />
+    <ClInclude Include="Lua\LuaModules.h" />
+    <ClInclude Include="Lua\LuaInitialization.h" />
+    <ClInclude Include="Hooks\NetChannel.h" />
+    <ClInclude Include="Netvars.h" />
+    <ClInclude Include="Hooks\PrepareUnitOrders.h" />
+    <ClInclude Include="Hooks\RunFrame.h" />
+    <ClInclude Include="Hooks\VMT.h" />
     <ClInclude Include="IllusionColoring.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="IScriptVM.h" />
     <ClInclude Include="Messages\messages.pb.h" />
+    <ClInclude Include="Hooks\ParticleRendering.h" />
+    <ClInclude Include="pch.h" />
     <ClInclude Include="ProtobufDefineFix.h" />
     <ClInclude Include="RiverPaint.h" />
     <ClInclude Include="ShakerAttackAnimFix.h" />
