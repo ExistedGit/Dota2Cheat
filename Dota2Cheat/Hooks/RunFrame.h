@@ -33,7 +33,6 @@ namespace Hooks {
 		return vec;
 	};
 
-	//inline bool test = false;
 	inline void EntityIteration() {
 		int illusionCount = 0;
 		bool midasUsed = false;
@@ -70,7 +69,7 @@ namespace Hooks {
 				};
 				auto midasEnt = Interfaces::EntitySystem->GetEntity < BaseAbility>(H2IDX(midas));
 
-				// If the creep is visible, not one of ours, is alive, is within 600 hammer units and its name matches one of the filters
+				// If the creep is visible, not one of ours, is alive, is within Midas's radius and its name matches one of the filters
 				if (creep->GetTeam() != ctx.assignedHero->GetTeam() &&
 					creep->GetHealth() > 0 &&
 					!creep->IsWaitingToSpawn() &&

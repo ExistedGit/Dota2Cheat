@@ -132,9 +132,6 @@ inline void LeftMatch() {
 #ifdef _DEBUG
 	Test::partMap.clear();
 #endif // _DEBUG
-	//ctx.players.clear();
-	//ctx.heroes.clear();
-
 	std::cout << "LEFT MATCH\n";
 }
 inline void CheckMatchState() {

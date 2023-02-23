@@ -328,8 +328,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 				}
 			}
 
-			if (ctx.IsInMatch && Config::VBEShowText)
-				DrawTextForeground(window, vbeFont, UIState::HeroVisibleToEnemy ? "DETECTED" : "HIDDEN", ImVec2(1920 / 2, 1080 * 3 / 4), 80.0f, Color(200, 200, 200, 255), true);
+			//if (ctx.IsInMatch && Config::VBEShowText)
+			//	DrawTextForeground(window, vbeFont, UIState::HeroVisibleToEnemy ? "DETECTED" : "HIDDEN", ImVec2(1920 / 2, 1080 * 3 / 4), 80.0f, Color(200, 200, 200, 255), true);
 
 			//if (ImGui::IsKeyPressed(ImGuiKey::ImGuiKey_Insert, false)) {
 			if (IsKeyPressed(VK_INSERT)) {
