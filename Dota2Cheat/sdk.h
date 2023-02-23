@@ -6,6 +6,7 @@
 #include <vector>
 #include "Input.h"
 #include "Context.h"
+#include "MinHook.h"
 
 #define PI 3.1415926
 
@@ -181,3 +182,10 @@ inline bool TestStringFilters(const char* str, const std::vector<const char*>& f
 
 	return false;
 }
+
+inline void HookFunc(void* func, void* detour, void* original, const std::string& name) {
+	if (MH_CreateHook(func, detour,
+		(LPVOID*)original) != MH_OK ||
+		MH_EnableHook(func) != MH_OK)
+		std::cout << "Could not hook" << name << "()!\n";
+};

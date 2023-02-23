@@ -141,7 +141,7 @@ namespace Lua {
 		BaseNpcHero::BindLua(lua);
 		DotaPlayer::BindLua(lua);
 
-		CDOTAParticleManager::Particle::BindLua(lua);
+		CDOTAParticleManager::CNewParticleEffect::BindLua(lua);
 		CDOTAParticleManager::ParticleWrapper::BindLua(lua);
 		CDOTAParticleManager::BindLua(lua);
 	}

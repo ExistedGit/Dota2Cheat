@@ -8,22 +8,21 @@
 
 namespace Hooks {
 	// for MinHook
-	inline Signatures::DispatchPacketFn DispatchPacketOriginal = nullptr;
-	inline Signatures::BAsyncSendProtoFn BAsyncSendProtoOriginal = nullptr;
-
+	inline Signatures::DispatchPacketFn oDispatchPacket = nullptr;
+	inline Signatures::BAsyncSendProtoFn oBAsyncSendProto = nullptr;
 
 	inline bool hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandler* handler, google::protobuf::Message* responseMsg, unsigned int respMsgID) {
 #ifdef _DEBUG
 		std::cout << "GCClient Send: " << std::dec << EDOTAGCMsg2String(protobufMsg->msgID) << '\n';
 #endif // _DEBUG
-		return BAsyncSendProtoOriginal(protobufMsg, handler, responseMsg, respMsgID);
+		return oBAsyncSendProto(protobufMsg, handler, responseMsg, respMsgID);
 	}
 
 	inline bool hkDispatchPacket(CGCClient* thisptr, IMsgNetPacket* netPacket) {
 #ifdef _DEBUG
 		std::cout << "GCClient Recv: " << std::dec << EDOTAGCMsg2String(netPacket->GetEMsg()) << '\n';
 #endif // _DEBUG
-		return DispatchPacketOriginal(thisptr, netPacket);
+		return oDispatchPacket(thisptr, netPacket);
 	};
 
 	inline void hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits) {

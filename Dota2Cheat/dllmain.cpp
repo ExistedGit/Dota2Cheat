@@ -74,7 +74,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	ctx.CurProcId = GetCurrentProcessId();
 	ctx.CurProcHandle = OpenProcess(PROCESS_ALL_ACCESS, TRUE, ctx.CurProcId);
-	
+
 	// open some common libraries
 	ctx.lua.open_libraries(sol::lib::base, sol::lib::package, sol::lib::string);
 	Lua::InitEnums(ctx.lua);
@@ -96,13 +96,13 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Signatures::LogSignatures();
 
 	Globals::InitGlobals();
-	Hooks::HookHelper::SetUpByteHooks();
+	Hooks::SetUpByteHooks();
 
 	VMTs::Entity = std::unique_ptr<VMT>(new VMT(Interfaces::EntitySystem));
 	VMTs::Entity->HookVM(Hooks::OnAddEntity, 14);
 	VMTs::Entity->HookVM(Hooks::OnRemoveEntity, 15);
 	VMTs::Entity->ApplyVMT();
-	Hooks::HookHelper::SetUpVirtualHooks();
+	Hooks::SetUpVirtualHooks();
 
 
 	//{
@@ -194,21 +194,21 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 			if (ImGui::Button("Scripting"))
 				scriptMenuVisible = !scriptMenuVisible;
-			
+
 
 			if (ImGui::Button("EXIT", ImVec2(0, 50)))
 				glfwSetWindowShouldClose(window, 1);
 
 			ImGui::End();
 
-			
+
 			if (scriptMenuVisible) {
 
 				ImGui::Begin("Scripting");
 				ImGui::InputTextMultiline("Lua script", scriptBuf, 4096, ImVec2(300, 500));
 				if (ImGui::Button("Execute"))
 					ctx.lua.script(scriptBuf);
-				
+
 				ImGui::End();
 			}
 #ifdef _DEBUG
@@ -236,7 +236,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 					continue;
 				const char* className = ent->SchemaBinding()->binaryName;
 				if (
-					className 
+					className
 					)
 					std::cout << className << ' ' << debugEntIdx
 					<< " -> " << ent << '\n';
@@ -252,43 +252,53 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 				if (ImGui::Button("Circle drawing"))
 					circleMenuVisible = !circleMenuVisible;
 
-				// https://github.com/SK68-ph/Shadow-Dance-Menu
-				ImGui::ListBox(
-					"Change weather",
-					&Config::WeatherListIdx,
-					UIState::WeatherList,
-					IM_ARRAYSIZE(UIState::WeatherList),
-					4);
 
-				// credits to the screenshot https://yougame.biz/threads/283404/
-				// should've figured out it's controlled by a convar like the weather :)
-				ImGui::ListBox(
-					"River paint",
-					&Config::RiverListIdx,
-					UIState::RiverList,
-					IM_ARRAYSIZE(UIState::RiverList),
-					4);
-				//ImGui::SliderInt("River debug", &Config::RiverListIdx, 0, 10);
-				ImGui::Checkbox("Auto-use Hand of Midas", &Config::AutoMidasEnabled);
-				ImGui::Checkbox("Automatically pick up Bounty runes", &Config::AutoRunePickupEnabled);
+				if (ImGui::TreeNode("Visuals")) {
+					// https://github.com/SK68-ph/Shadow-Dance-Menu
+					ImGui::ListBox(
+						"Change weather",
+						&Config::WeatherListIdx,
+						UIState::WeatherList,
+						IM_ARRAYSIZE(UIState::WeatherList),
+						4);
 
-
-				if (ImGui::CollapsingHeader("Visible by Enemy")) {
-					ImGui::Checkbox("Show HIDDEN/DETECTED text", &Config::VBEShowText);
-					ImGui::Checkbox("Show a circle under the hero when visible", &Config::VBEShowParticle);
+					// credits to the screenshot https://yougame.biz/threads/283404/
+					// should've figured out it's controlled by a convar like the weather :)
+					ImGui::ListBox(
+						"River paint",
+						&Config::RiverListIdx,
+						UIState::RiverList,
+						IM_ARRAYSIZE(UIState::RiverList),
+						4);
+					ImGui::TreePop();
 				}
-				if (ImGui::CollapsingHeader("Illusion coloring")) {
+				if (ImGui::TreeNode("Auto-pickup")) {
+					ImGui::Checkbox("Bounty runes", &Config::AutoPickUpRunes);
+					ImGui::Checkbox("Aegis", &Config::AutoPickUpAegis);
+					ImGui::TreePop();
+				}
+
+				//if (ImGui::TreeNode("Visible by Enemy")) {
+				//	ImGui::Checkbox("Show HIDDEN/DETECTED text", &Config::VBEShowText);
+				//	ImGui::Checkbox("Show a circle under the hero when visible", &Config::VBEShowParticle);
+				//	ImGui::TreePop();
+				//}
+				if (ImGui::TreeNode("Illusion coloring")) {
 					ImGui::ColorEdit3("Color", &Config::IllusionColor.x);
+					ImGui::TreePop();
 				}
-				if (ImGui::CollapsingHeader("AutoWand")) {
+				if (ImGui::TreeNode("AutoWand")) {
 					ImGui::Checkbox("Auto-use Faerie Fire and Magic Stick", &Config::AutoWandEnabled);
 					ImGui::SliderFloat("Faerie Fire HP Treshold", &Config::AutoHealFaerieFireHPTreshold, 0, 100, "%.1f");
-
-					ImGui::Separator();
-
 					ImGui::SliderFloat("Magic Stick/Wand/Holy Locket HP Treshold", &Config::AutoHealWandHPTreshold, 0, 100, "%.1f");
 					ImGui::SliderInt("Minimum charges", &Config::AutoHealWandMinCharges, 1, 20);
+
+					ImGui::TreePop();
 				}
+				ImGui::Checkbox("Show all particles", &Config::RenderAllParticles);
+				ImGui::SameLine(); HelpMarker("Renders any possible particle, even in FoW");
+
+				ImGui::Checkbox("Auto-use Hand of Midas", &Config::AutoMidasEnabled);
 				ImGui::Checkbox("Auto-buy Tome of Knowledge", &Config::AutoBuyTome);
 				ImGui::SliderFloat("Camera distance", &Config::CameraDistance, 1200, 3000, "%.1f");
 
@@ -315,80 +325,80 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 					ImGui::End();
 				}
 
+				}
 			}
-		}
 
-		if (ctx.IsInMatch && Config::VBEShowText)
-			DrawTextForeground(window, vbeFont, UIState::HeroVisibleToEnemy ? "DETECTED" : "HIDDEN", ImVec2(1920 / 2, 1080 * 3 / 4), 80.0f, Color(200, 200, 200, 255), true);
+			if (ctx.IsInMatch && Config::VBEShowText)
+				DrawTextForeground(window, vbeFont, UIState::HeroVisibleToEnemy ? "DETECTED" : "HIDDEN", ImVec2(1920 / 2, 1080 * 3 / 4), 80.0f, Color(200, 200, 200, 255), true);
 
-		//if (ImGui::IsKeyPressed(ImGuiKey::ImGuiKey_Insert, false)) {
-		if (IsKeyPressed(VK_INSERT)) {
-			glfwSetWindowAttrib(window, GLFW_MOUSE_PASSTHROUGH, menuVisible);
-			menuVisible = !menuVisible;
-		}
+			//if (ImGui::IsKeyPressed(ImGuiKey::ImGuiKey_Insert, false)) {
+			if (IsKeyPressed(VK_INSERT)) {
+				glfwSetWindowAttrib(window, GLFW_MOUSE_PASSTHROUGH, menuVisible);
+				menuVisible = !menuVisible;
+			}
 #ifdef _DEBUG
-		if (ctx.assignedHero) {
-			int x = 0, y = 0;
-			auto vec = ctx.assignedHero->GetForwardVector(500);
-			Signatures::Scripts::WorldToScreen(&vec, &x, &y, nullptr);
-			int size = 10;
-			DrawRect(window, ImVec2(x - size, y - size), ImVec2(size, size), ImVec4(1, 0, 0, 1));
-		}
+			if (ctx.assignedHero) {
+				int x = 0, y = 0;
+				auto vec = ctx.assignedHero->GetForwardVector(500);
+				Signatures::Scripts::WorldToScreen(&vec, &x, &y, nullptr);
+				int size = 10;
+				DrawRect(window, ImVec2(x - size, y - size), ImVec2(size, size), ImVec4(1, 0, 0, 1));
+			}
 #endif // _DEBUG
 
-		ImGui::PopFont();
+			ImGui::PopFont();
 
-		// Rendering
-		ImGui::Render();
-		int display_w, display_h;
-		glfwGetFramebufferSize(window, &display_w, &display_h);
-		glViewport(0, 0, display_w, display_h);
-		glClear(GL_COLOR_BUFFER_BIT);
-		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+			// Rendering
+			ImGui::Render();
+			int display_w, display_h;
+			glfwGetFramebufferSize(window, &display_w, &display_h);
+			glViewport(0, 0, display_w, display_h);
+			glClear(GL_COLOR_BUFFER_BIT);
+			ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
-		glfwSwapBuffers(window);
+			glfwSwapBuffers(window);
 
-		CheckMatchState(); // checking every frame
+			CheckMatchState(); // checking every frame
+		}
+
+		// Cleanup
+		ImGui_ImplOpenGL3_Shutdown();
+		ImGui_ImplGlfw_Shutdown();
+		ImGui::DestroyContext();
+
+		glfwDestroyWindow(window);
+		glfwTerminate();
+
+		if (ctx.IsInMatch)
+			LeftMatch();
+
+		Schema::Netvars.clear();
+
+		MH_Uninitialize();
+		if (f) fclose(f);
+		FreeConsole();
+		FreeLibraryAndExitThread(hModule, 0);
 	}
 
-	// Cleanup
-	ImGui_ImplOpenGL3_Shutdown();
-	ImGui_ImplGlfw_Shutdown();
-	ImGui::DestroyContext();
-
-	glfwDestroyWindow(window);
-	glfwTerminate();
-
-	if (ctx.IsInMatch)
-		LeftMatch();
-
-	Schema::Netvars.clear();
-
-	MH_Uninitialize();
-	if (f) fclose(f);
-	FreeConsole();
-	FreeLibraryAndExitThread(hModule, 0);
-}
-
-BOOL APIENTRY DllMain(HMODULE hModule,
-	DWORD  ul_reason_for_call,
-	LPVOID lpReserved
-)
-{
-	switch (ul_reason_for_call)
+	BOOL APIENTRY DllMain(HMODULE hModule,
+		DWORD  ul_reason_for_call,
+		LPVOID lpReserved
+	)
 	{
-	case DLL_PROCESS_ATTACH: {
-		//imgui ver
-		HANDLE thread = CreateThread(0, 0, (LPTHREAD_START_ROUTINE)HackThread, hModule, 0, 0);
-		if (thread)
-			CloseHandle(thread);
-		break;
+		switch (ul_reason_for_call)
+		{
+		case DLL_PROCESS_ATTACH: {
+			//imgui ver
+			HANDLE thread = CreateThread(0, 0, (LPTHREAD_START_ROUTINE)HackThread, hModule, 0, 0);
+			if (thread)
+				CloseHandle(thread);
+			break;
+		}
+		case DLL_THREAD_ATTACH:
+		case DLL_THREAD_DETACH:
+		case DLL_PROCESS_DETACH:
+			break;
+		}
+		return TRUE;
 	}
-	case DLL_THREAD_ATTACH:
-	case DLL_THREAD_DETACH:
-	case DLL_PROCESS_DETACH:
-		break;
-	}
-	return TRUE;
-}
 

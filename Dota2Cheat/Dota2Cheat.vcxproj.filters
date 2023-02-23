@@ -263,6 +263,9 @@
     <ClInclude Include="Lua\LuaModules.h">
       <Filter>Header files\Lua</Filter>
     </ClInclude>
+    <ClInclude Include="Hooks\ParticleRendering.h">
+      <Filter>Header files\Hooks</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="messages.proto">

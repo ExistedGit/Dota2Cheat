@@ -5,7 +5,6 @@
 #include "Wrappers.h"
 #include <map>
 #include "SDK/color.h"
-#include "MinHook.h"
 
 namespace Signatures {
 	typedef void(__fastcall* CMsgFn)(const char* format, ...);
@@ -31,6 +30,9 @@ namespace Signatures {
 	inline EntityCallback OnColorChanged = nullptr;
 	inline DestroyParticleFn DestroyParticle = nullptr;
 
+	using CParticleCollection = void;
+	typedef CParticleCollection* (*CreateParticleCollectionFn)(void* particleSystemMgr, void*, void*, void*, bool, float, int);
+	inline CreateParticleCollectionFn CreateParticleCollection;
 
 	namespace Scripts {
 		inline WorldToScreenFn WorldToScreen = nullptr;
@@ -55,6 +57,12 @@ namespace Signatures {
 		DestroyParticle = (DestroyParticleFn)
 			((uintptr_t)PatternScanExModule(ctx.CurProcHandle, ctx.CurProcId, L"client.dll", funcAddr, funcAddrMask)
 				- 9);
+
+		ParseCombo("41 56 48 83 EC 40 4C 89 41 50 48 8B F1 49 8B 01", funcAddr, funcAddrMask);
+		CreateParticleCollection = (CreateParticleCollectionFn)
+			((uintptr_t)PatternScanExModule(ctx.CurProcHandle, ctx.CurProcId, L"client.dll", funcAddr, funcAddrMask)
+				- 5);
+
 
 		// UnknownCheats wiki -> Dota 2 -> link to Using engine functions
 		ParseCombo("56 57 41 56 48 83 EC 60 49 8B F0 4C 8B F2 48 8B F9 4D 85 C9", funcAddr, funcAddrMask);

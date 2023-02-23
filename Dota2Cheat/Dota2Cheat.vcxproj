@@ -232,6 +232,7 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="IScriptVM.h" />
     <ClInclude Include="Messages\messages.pb.h" />
+    <ClInclude Include="Hooks\ParticleRendering.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="ProtobufDefineFix.h" />
     <ClInclude Include="RiverPaint.h" />

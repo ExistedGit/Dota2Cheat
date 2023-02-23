@@ -5,7 +5,7 @@
 #include <sstream>
 #include "SDK/color.h"
 
-inline void DrawRect(GLFWwindow* wnd, const ImVec2& topLeft, const ImVec2& size, const ImVec4& color) {
+static void DrawRect(GLFWwindow* wnd, const ImVec2& topLeft, const ImVec2& size, const ImVec4& color) {
 	auto DrawList = ImGui::GetForegroundDrawList();
 		DrawList->AddRectFilledMultiColor(
 			topLeft, ImVec2(size.x + topLeft.x, size.y + topLeft.y),
@@ -16,10 +16,21 @@ inline void DrawRect(GLFWwindow* wnd, const ImVec2& topLeft, const ImVec2& size,
 			ImGui::GetColorU32(color)
 		);
 }
-
+static void HelpMarker(const char* desc)
+{
+	ImGui::TextDisabled("(?)");
+	if (ImGui::IsItemHovered(ImGuiHoveredFlags_DelayShort))
+	{
+		ImGui::BeginTooltip();
+		ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+		ImGui::TextUnformatted(desc);
+		ImGui::PopTextWrapPos();
+		ImGui::EndTooltip();
+	}
+}
 //credits to SMBB from UnknownCheats
 //https://www.unknowncheats.me/forum/direct3d/244074-imgui-d3d11-text-drawing.html
-inline float DrawTextForeground(GLFWwindow* wnd, ImFont* pFont, const std::string& text, const ImVec2& pos, float size, Color color, bool center)
+static float DrawTextForeground(GLFWwindow* wnd, ImFont* pFont, const std::string& text, const ImVec2& pos, float size, Color color, bool center)
 {
 	float r = color.RGBA[0];
 	float g = color.RGBA[1];

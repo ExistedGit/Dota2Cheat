@@ -13,7 +13,7 @@
 #include "../AutoUseMidas.h"
 #include "../AutoUseMagicWand.h"
 #include "../ShakerAttackAnimFix.h"
-#include "../Lua/LuaModules.h"
+
 #include "../Interfaces.h"
 #include "VMT.h"
 
@@ -83,7 +83,7 @@ namespace Hooks {
 					ctx.localPlayer->PrepareOrder(DOTA_UNIT_ORDER_CAST_TARGET, i, &Vector3::Zero, H2IDX(midas), DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, ctx.assignedHero);
 				}
 			}
-			else if (Config::AutoRunePickupEnabled && !runePickUp && strstr(className, "C_DOTA_Item_Rune")) {
+			else if (Config::AutoPickUpRunes && !runePickUp && strstr(className, "C_DOTA_Item_Rune")) {
 				auto* rune = (ItemRune*)ent;
 				if (rune->GetRuneType() == DotaRunes::BOUNTY &&
 					IsWithinRadius(rune->GetPos2D(), ctx.assignedHero->GetPos2D(), 150.0f)
@@ -92,7 +92,12 @@ namespace Hooks {
 				}
 			}
 			else {
-				Lua::CallModuleFunc("OnEntity", ent);
+				//sol::table luaModules = ctx.lua["Modules"];
+				//for (auto& pair : luaModules) {
+				//	sol::function callback = pair.second.as<sol::table>()["OnEntity"];
+				//	if (callback.get_type() != sol::type::nil)
+				//		callback(ent);
+				//}
 				Modules::AegisAutoPickup.PickUpIfAegis(ent);
 			}
 
@@ -120,7 +125,9 @@ namespace Hooks {
 		if (isInGame) {
 			//std::cout << "frame\n";
 			if (ctx.IsInMatch) {
-
+				//sol::function entIter = ctx.lua["Modules"]["Core"]["EntityIteration"];
+				//entIter();
+				
 				UpdateCameraDistance();
 				UpdateWeather();
 				Modules::SunStrikeHighlighter.FrameBasedLogic();

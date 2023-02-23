@@ -5,7 +5,7 @@
 
 namespace Hooks {
 
-	inline Signatures::PrepareUnitOrdersFn PrepareUnitOrdersOriginal = nullptr;
+	inline Signatures::PrepareUnitOrdersFn oPrepareUnitOrders = nullptr;
 	inline std::future<void> manaAbusePickup;
 	inline void hkPrepareUnitOrders(DotaPlayer* player, DotaUnitOrder_t orderType, UINT32 targetIndex, Vector3* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, BaseEntity* issuer, bool queue, bool showEffects) {
 		//std::cout << "[ORDER] " << player << '\n';
@@ -126,7 +126,7 @@ namespace Hooks {
 					if (anyBonus > 0) {
 						//std::cout << abilityIndex << bonusInt << '\n';
 						queue = true;
-						PrepareUnitOrdersOriginal(player, DOTA_UNIT_ORDER_DROP_ITEM, 0, &fVec, H2IDX(item.handle), DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
+						oPrepareUnitOrders(player, DOTA_UNIT_ORDER_DROP_ITEM, 0, &fVec, H2IDX(item.handle), DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
 						callPickup = true;
 					}
 				}
@@ -136,7 +136,7 @@ namespace Hooks {
 					Sleep(300);
 				for (auto& item : ctx.physicalItems) { // wtf is with this indentation???
 					if (IsWithinRadius(item->GetPos2D(), ctx.assignedHero->GetPos2D(), 50))
-						PrepareUnitOrdersOriginal(player, DOTA_UNIT_ORDER_PICKUP_ITEM, H2IDX(item->GetIdentity()->entHandle), &Vector3::Zero, 0, DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
+						oPrepareUnitOrders(player, DOTA_UNIT_ORDER_PICKUP_ITEM, H2IDX(item->GetIdentity()->entHandle), &Vector3::Zero, 0, DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
 				}
 				ctx.physicalItems.clear();
 						});
@@ -149,6 +149,6 @@ namespace Hooks {
 			giveOrder = !Modules::BadCastPrevention.IsBadCast(abilityIndex, position, issuer);
 
 		if (giveOrder)
-			PrepareUnitOrdersOriginal(player, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
+			oPrepareUnitOrders(player, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
 	}
 }

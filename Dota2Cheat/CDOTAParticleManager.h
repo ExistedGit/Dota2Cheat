@@ -54,25 +54,25 @@ public:
 		void* unk4 = nullptr;
 	};
 
-	struct Particle : public VClass {
+	struct CNewParticleEffect : public VClass {
 	
 		VClass* GetParticleCollection() {
 			return Member<VClass*>(0x20);
 		}
-		Particle* SetControlPoint(int idx, Vector3* pos) {
+		CNewParticleEffect* SetControlPoint(int idx, Vector3* pos) {
 			auto coll = GetParticleCollection();
 			coll->GetVFunc(Particle_SetControlPoint_VTABLE_INDEX)(coll, idx, pos);
 			return this;
 		}
 		static void BindLua(sol::state& lua) {
-			auto type = lua.new_usertype<Particle>("Particle");
-			type["SetControlPoint"] = &Particle::SetControlPoint;
+			auto type = lua.new_usertype<CNewParticleEffect>("Particle");
+			type["SetControlPoint"] = &CNewParticleEffect::SetControlPoint;
 		}
 	};
 
 	struct ParticleWrapper {
 		ParticleInfo info{};
-		Particle* particle{};
+		CNewParticleEffect* particle{};
 		ENT_HANDLE handle = 0XFFFFFFFF;
 
 		void Invalidate() {
@@ -89,8 +89,8 @@ public:
 		}
 	};
 	struct ParticleContainer : NormalClass {
-		inline Particle* GetParticle() {
-			return Member<Particle*>(0x10);
+		inline CNewParticleEffect* GetParticle() {
+			return Member<CNewParticleEffect*>(0x10);
 		}
 	};
 
