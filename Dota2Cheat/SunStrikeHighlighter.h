@@ -2,8 +2,6 @@
 #include "sdk.h"
 #include "Globals.h"
 
-#include "Messages/messages.pb.h"
-
 namespace Hacks {
 	// For each of Invoker's 10 spells there is a CMsg_InvokerSpellCast message with different cast_activity for each spell
 	// When we receive such a message with sunstrike's cast_activity(1743) we begin waiting for a thinker object to appear
@@ -30,7 +28,7 @@ namespace Hacks {
 
 		void ProcessMessage(NetMessageHandle_t* messageHandle, google::protobuf::Message* msg) {
 			if (messageHandle->messageID == 586) { // CDOTAEntityMsg_InvokerSpellCast
-				auto castMsg = reinterpret_cast<CUserMsg_InvokerCast*>(msg);
+				auto castMsg = reinterpret_cast<CDOTAEntityMsg_InvokerSpellCast*>(msg);
 				if (castMsg->cast_activity() == 1743) { //sunstrike
 					auto invoker = Interfaces::EntitySystem->GetEntity(
 						castMsg->entity_msg().target_entity() & 0x3fff // weird smaller mask

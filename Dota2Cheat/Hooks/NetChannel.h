@@ -1,5 +1,4 @@
 #pragma once
-#include <google/protobuf/message.h>
 #include "../SDK/INetChannel.h"
 #include "../Signatures.h"
 #include "VMT.h"

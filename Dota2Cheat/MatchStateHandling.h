@@ -45,10 +45,10 @@ inline void EnteredMatch() {
 	//	Globals::ScriptVM = *Globals::ScriptVMPtr;
 	Globals::ParticleManager = *Globals::ParticleManagerPtr;
 	Globals::GameEventManager = *Globals::GameEventManagerPtr;
-
-	GameState gameState = Globals::GameRules->GetGameState();
-	if (gameState == DOTA_GAMERULES_PREGAME ||
-		gameState == DOTA_GAMERULES_GAME_IN_PROGRESS) {
+	
+	DOTA_GameState gameState = Globals::GameRules->GetGameState();
+	if (gameState == DOTA_GAMERULES_STATE_PRE_GAME ||
+		gameState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) {
 
 		ctx.localPlayer = (DotaPlayer*)Interfaces::EntitySystem->GetEntity(Interfaces::Engine->GetLocalPlayerSlot() + 1);
 		if (ctx.localPlayer == nullptr)
