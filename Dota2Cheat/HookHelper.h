@@ -3,12 +3,14 @@
 #include "Hooks/PrepareUnitOrders.h"
 #include "Hooks/NetChannel.h"
 #include "Hooks/ParticleRendering.h"
+#include "Hooks/ModifierEvents.h"
 namespace Hooks {
 	inline void SetUpByteHooks() {
 		HookFunc(Signatures::PrepareUnitOrders, &hkPrepareUnitOrders, &oPrepareUnitOrders, "PrepareUnitOrders");
 		HookFunc(Signatures::DispatchPacket, &hkDispatchPacket, &oDispatchPacket, "DispatchPacket");
 		HookFunc(Signatures::BAsyncSendProto, &hkBAsyncSendProto, &oBAsyncSendProto, "BAsyncSendProto");
 		HookFunc(Signatures::CreateParticleCollection, &hkCreateParticleCollection, &oCreateParticleCollection, "CreateParticleCollection");
+		HookFunc(Signatures::OnRemoveModifier, &hkOnRemoveModifier, &oOnRemoveModifier, "OnRemoveModifier");
 	}
 
 	inline void SetUpVirtualHooks() {

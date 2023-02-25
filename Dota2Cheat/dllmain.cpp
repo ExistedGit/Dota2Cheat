@@ -16,7 +16,10 @@
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_glfw.h"
 #include "imgui/imgui_impl_opengl3.h"
-#include "GL/glew.h"
+
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+#include <GL/glew.h>
 #include <GLFW/glfw3.h> // Will drag system OpenGL headers
 
 #include "Config.h"
@@ -37,31 +40,46 @@ std::vector<std::unique_ptr<IGameEventListener2>> CGameEventManager::EventListen
 
 #pragma endregion
 
+// Simple helper function to load an image into a OpenGL texture with common settings
+bool LoadTextureFromFile(const char* filename, GLuint* out_texture, int* out_width, int* out_height)
+{
+	// Load from file
+	int image_width = 0;
+	int image_height = 0;
+	unsigned char* image_data = stbi_load(filename, &image_width, &image_height, NULL, 4);
+	if (image_data == NULL)
+		return false;
 
-//void gotoxy(int x, int y)
-//{
-//	COORD coord;
-//	coord.X = x;
-//	coord.Y = y;
-//	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-//}
+	// Create a OpenGL texture identifier
+	GLuint image_texture;
+	glGenTextures(1, &image_texture);
+	glBindTexture(GL_TEXTURE_2D, image_texture);
+
+	// Setup filtering parameters for display
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE); // This is required on WebGL for non power-of-two textures
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE); // Same
+
+	// Upload pixels into texture
+#if defined(GL_UNPACK_ROW_LENGTH) && !defined(__EMSCRIPTEN__)
+	glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
+#endif
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image_width, image_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image_data);
+	stbi_image_free(image_data);
+
+	*out_texture = image_texture;
+	*out_width = image_width;
+	*out_height = image_height;
+
+	return true;
+}
 
 
 static inline void glfw_error_callback(int error, const char* description)
 {
 	fprintf(stderr, "Glfw Error %d: %s\n", error, description);
 }
-
-//std::vector<Color> rainbow = {
-//	Color(255,0,0),//red
-//	Color(255,255,0),
-//	Color(0,255,0),//green
-//	Color(0,255,255),
-//	Color(0,0,255),//blue
-//	Color(255,0,255)
-//};
-//int rainbowIndex = 0;
-
 
 uintptr_t WINAPI HackThread(HMODULE hModule) {
 	// Initialize MinHook.
@@ -82,11 +100,9 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Lua::LoadScriptFiles(ctx.lua);
 
 	ctx.lua.script("print(\"works!\")");
-	//std::cout << "works!" << std::endl;
 	Interfaces::InitInterfaces();
 	Interfaces::LogInterfaces();
 	Lua::InitInterfaces(ctx.lua);
-	//Interfaces::CVar->DumpConVarsToFile("H:\\SchemaDump\\convars.txt");
 	Interfaces::CVar->DumpConVarsToMap();
 
 	Schema::SchemaDumpToMap("client.dll", "C_DOTA_BaseNPC_Hero");
@@ -97,21 +113,11 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	Globals::InitGlobals();
 	Hooks::SetUpByteHooks();
-
 	VMTs::Entity = std::unique_ptr<VMT>(new VMT(Interfaces::EntitySystem));
 	VMTs::Entity->HookVM(Hooks::OnAddEntity, 14);
 	VMTs::Entity->HookVM(Hooks::OnRemoveEntity, 15);
 	VMTs::Entity->ApplyVMT();
 	Hooks::SetUpVirtualHooks();
-
-
-	//{
-	//	
-	//	auto objCache = Interfaces::GCClient->GetObjCache();
-	//	auto objTypeCacheList = objCache->GetTypeCacheList();
-	//	auto message = objTypeCacheList[1]->GetProtobufSO()->GetPObject();
-	//	auto str = message->DebugString();
-	//}
 
 
 	glfwSetErrorCallback(glfw_error_callback);
@@ -164,17 +170,17 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
-	//io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\consola.ttf)", 16.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
-	auto vbeFont = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
+	//auto vbeFont = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
 	auto defaultFont = io.Fonts->AddFontDefault();
+
+	char scriptBuf[4096]{};
 
 	bool menuVisible = false;
 	bool featuresMenuVisible = false;
 	bool scriptMenuVisible = false;
-	char scriptBuf[4096]{};
 	bool circleMenuVisible = false;
+	
 	int debugEntIdx = 0;
-
 
 	// Main loop
 	while (!glfwWindowShouldClose(window))
@@ -325,80 +331,81 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 					ImGui::End();
 				}
 
-				}
 			}
+		}
 
-			//if (ctx.IsInMatch && Config::VBEShowText)
-			//	DrawTextForeground(window, vbeFont, UIState::HeroVisibleToEnemy ? "DETECTED" : "HIDDEN", ImVec2(1920 / 2, 1080 * 3 / 4), 80.0f, Color(200, 200, 200, 255), true);
 
-			//if (ImGui::IsKeyPressed(ImGuiKey::ImGuiKey_Insert, false)) {
-			if (IsKeyPressed(VK_INSERT)) {
-				glfwSetWindowAttrib(window, GLFW_MOUSE_PASSTHROUGH, menuVisible);
-				menuVisible = !menuVisible;
-			}
+
+		//if (ctx.IsInMatch && Config::VBEShowText)
+		//	DrawTextForeground(window, vbeFont, UIState::HeroVisibleToEnemy ? "DETECTED" : "HIDDEN", ImVec2(1920 / 2, 1080 * 3 / 4), 80.0f, Color(200, 200, 200, 255), true);
+
+		if (IsKeyPressed(VK_INSERT)) {
+			glfwSetWindowAttrib(window, GLFW_MOUSE_PASSTHROUGH, menuVisible);
+			menuVisible = !menuVisible;
+		}
 #ifdef _DEBUG
-			if (ctx.assignedHero) {
-				int x = 0, y = 0;
-				auto vec = ctx.assignedHero->GetForwardVector(500);
-				Signatures::Scripts::WorldToScreen(&vec, &x, &y, nullptr);
-				int size = 10;
-				DrawRect(window, ImVec2(x - size, y - size), ImVec2(size, size), ImVec4(1, 0, 0, 1));
-			}
+		if (ctx.assignedHero) {
+			int x = 0, y = 0;
+			auto vec = ctx.assignedHero->GetForwardVector(500);
+			Signatures::Scripts::WorldToScreen(&vec, &x, &y, nullptr);
+			int size = 10;
+			DrawRect(window, ImVec2(x - size, y - size), ImVec2(size, size), ImVec4(1, 0, 0, 1));
+		}
 #endif // _DEBUG
 
-			ImGui::PopFont();
+		ImGui::PopFont();
 
-			// Rendering
-			ImGui::Render();
-			int display_w, display_h;
-			glfwGetFramebufferSize(window, &display_w, &display_h);
-			glViewport(0, 0, display_w, display_h);
-			glClear(GL_COLOR_BUFFER_BIT);
-			ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+		// Rendering
+		ImGui::Render();
+		int display_w, display_h;
+		glfwGetFramebufferSize(window, &display_w, &display_h);
+		glViewport(0, 0, display_w, display_h);
+		glClear(GL_COLOR_BUFFER_BIT);
+		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
-			glfwSwapBuffers(window);
+		glfwSwapBuffers(window);
 
-			CheckMatchState(); // checking every frame
-		}
-
-		// Cleanup
-		ImGui_ImplOpenGL3_Shutdown();
-		ImGui_ImplGlfw_Shutdown();
-		ImGui::DestroyContext();
-
-		glfwDestroyWindow(window);
-		glfwTerminate();
-
-		if (ctx.IsInMatch)
-			LeftMatch();
-
-		Schema::Netvars.clear();
-
-		MH_Uninitialize();
-		if (f) fclose(f);
-		FreeConsole();
-		FreeLibraryAndExitThread(hModule, 0);
+		CheckMatchState(); // checking every frame
 	}
 
-	BOOL APIENTRY DllMain(HMODULE hModule,
-		DWORD  ul_reason_for_call,
-		LPVOID lpReserved
-	)
+	// Cleanup
+	ImGui_ImplOpenGL3_Shutdown();
+	ImGui_ImplGlfw_Shutdown();
+	ImGui::DestroyContext();
+
+	glfwDestroyWindow(window);
+	glfwTerminate();
+
+	if (ctx.IsInMatch)
+		LeftMatch();
+
+	Schema::Netvars.clear();
+
+	MH_Uninitialize();
+	if (f) fclose(f);
+	FreeConsole();
+	FreeLibraryAndExitThread(hModule, 0);
+}
+
+BOOL APIENTRY DllMain(HMODULE hModule,
+	DWORD  ul_reason_for_call,
+	LPVOID lpReserved
+)
+{
+	switch (ul_reason_for_call)
 	{
-		switch (ul_reason_for_call)
-		{
-		case DLL_PROCESS_ATTACH: {
-			//imgui ver
-			HANDLE thread = CreateThread(0, 0, (LPTHREAD_START_ROUTINE)HackThread, hModule, 0, 0);
-			if (thread)
-				CloseHandle(thread);
-			break;
-		}
-		case DLL_THREAD_ATTACH:
-		case DLL_THREAD_DETACH:
-		case DLL_PROCESS_DETACH:
-			break;
-		}
-		return TRUE;
+	case DLL_PROCESS_ATTACH: {
+		//imgui ver
+		HANDLE thread = CreateThread(0, 0, (LPTHREAD_START_ROUTINE)HackThread, hModule, 0, 0);
+		if (thread)
+			CloseHandle(thread);
+		break;
 	}
+	case DLL_THREAD_ATTACH:
+	case DLL_THREAD_DETACH:
+	case DLL_PROCESS_DETACH:
+		break;
+	}
+	return TRUE;
+}
 

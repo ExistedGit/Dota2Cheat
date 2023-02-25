@@ -2,9 +2,11 @@
 #include "patternscan.h"
 #include "Enums.h"
 #include "sdk.h"
-#include "Wrappers.h"
 #include <map>
 #include "SDK/color.h"
+
+class DotaPlayer;
+class DotaModifier;
 
 namespace Signatures {
 	typedef void(__fastcall* CMsgFn)(const char* format, ...);
@@ -23,6 +25,12 @@ namespace Signatures {
 	inline CMsgFn CMsg = nullptr;
 	inline ColorMsgFn CMsgColor = nullptr;
 
+	using CParticleCollection = void;
+	typedef CParticleCollection* (*CreateParticleCollectionFn)(void* particleSystemMgr, void*, void*, void*, bool, float, int);
+
+	typedef void(*OnAddModifierFn)(DotaModifier*, int);
+	typedef void(*OnRemoveModifierFn)(DotaModifier*, void*, void*);
+
 	inline PrepareUnitOrdersFn PrepareUnitOrders = nullptr;
 	inline DispatchPacketFn DispatchPacket = nullptr;
 	inline BAsyncSendProtoFn BAsyncSendProto = nullptr;
@@ -30,9 +38,8 @@ namespace Signatures {
 	inline EntityCallback OnColorChanged = nullptr;
 	inline DestroyParticleFn DestroyParticle = nullptr;
 
-	using CParticleCollection = void;
-	typedef CParticleCollection* (*CreateParticleCollectionFn)(void* particleSystemMgr, void*, void*, void*, bool, float, int);
-	inline CreateParticleCollectionFn CreateParticleCollection;
+	inline CreateParticleCollectionFn CreateParticleCollection = nullptr;
+	inline OnRemoveModifierFn OnRemoveModifier = nullptr;
 
 	namespace Scripts {
 		inline WorldToScreenFn WorldToScreen = nullptr;
@@ -43,12 +50,21 @@ namespace Signatures {
 		CMsg = reinterpret_cast<CMsgFn>(GetProcAddress(GetModuleHandleA("tier0.dll"), "Msg"));
 		CMsgColor = reinterpret_cast<ColorMsgFn>(GetProcAddress(GetModuleHandleA("tier0.dll"), "?ConColorMsg@@YAXAEBVColor@@PEBDZZ"));
 
+
 		char funcAddr[256];
 		char funcAddrMask[256];
 
 		//prepareUnitOrders
 		ParseCombo("4C 89 4C 24 20 44 89 44 24 18 89 54 24 10 55 53 57 41 55 41 57 48 8D 6C 24 C0", funcAddr, funcAddrMask);
 		PrepareUnitOrders = (PrepareUnitOrdersFn)PatternScanExModule(ctx.CurProcHandle, ctx.CurProcId, L"client.dll", funcAddr, funcAddrMask);
+
+		ParseCombo("E8 ? ? ? ? 48 83 ED 01 79 DF", funcAddr, funcAddrMask);
+		OnRemoveModifier = (OnRemoveModifierFn)(
+			GetAbsoluteAddress(
+				(uintptr_t)PatternScanExModule(ctx.CurProcHandle, ctx.CurProcId, L"client.dll", funcAddr, funcAddrMask),
+				1, 5
+			)
+			);
 
 
 		// Xref DestroyParticleEffect to a lea rcx just behind the string
@@ -102,5 +118,6 @@ namespace Signatures {
 		std::cout << "DestroyParticle: " << DestroyParticle << std::endl;
 		std::cout << "DispatchPacket: " << DispatchPacket << std::endl;
 		std::cout << "BAsyncSendProto: " << BAsyncSendProto << std::endl;
+		std::cout << "OnRemoveModifier: " << OnRemoveModifier << std::endl;
 	}
 }

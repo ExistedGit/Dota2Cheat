@@ -9,12 +9,13 @@
 #include "CBaseFileSystem.h"
 #include "CGCClient.h"
 #include "ConVar.h"
+#include "Panorama.h"
 
 namespace Interfaces {
 	inline CVarSystem* CVar = nullptr;
 	inline IEngineClient* Engine = nullptr;
 	inline VClass* Panorama = nullptr;
-	inline VClass* UIEngine = nullptr;
+	inline Panorama::CUIEngineSource2* UIEngine = nullptr;
 	inline CSource2Client* Client = nullptr;
 	inline CGameEntitySystem* EntitySystem = nullptr;
 	inline CGCClient* GCClient = nullptr;
@@ -49,7 +50,7 @@ namespace Interfaces {
 		//FileSystem->ReadLine(buffer, 256, file);
 
 		Panorama = GetInterface<VClass*>("panorama.dll", "PanoramaUIEngine001");
-		UIEngine = Panorama->Member<VClass*>(0x28);
+		UIEngine = Panorama->Member<Panorama::CUIEngineSource2*>(0x28);
 
 		GCClient = GetInterface<CGCClient*>("client.dll", "DOTA_CLIENT_GCCLIENT");
 		Schema = GetInterface<VClass*>("schemasystem.dll", "SchemaSystem_001");

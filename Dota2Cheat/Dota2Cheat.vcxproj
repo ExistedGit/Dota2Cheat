@@ -137,7 +137,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <ExceptionHandling>false</ExceptionHandling>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
@@ -147,8 +147,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;lua54.lib;libprotobufd.lib;libprotobuf-lited.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)lib\;E:\Visual Studio Projects\vcpkg\vcpkg\installed\x64-windows\debug\lib\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;lua54.lib;d3d11.lib;dxgi.lib;libprotobufd.lib;libprotobuf-lited.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib\;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -163,7 +163,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
@@ -175,8 +175,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;lua54.lib;libprotobuf.lib;libprotobuf-lite.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)lib\;E:\Visual Studio Projects\vcpkg\vcpkg\installed\x64-windows\debug\lib\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;lua54.lib;d3d11.lib;dxgi.lib;libprotobuf.lib;libprotobuf-lite.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib\;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -291,6 +291,7 @@
     <ClInclude Include="Lua\LuaModules.h" />
     <ClInclude Include="Lua\LuaInitialization.h" />
     <ClInclude Include="Hooks\NetChannel.h" />
+    <ClInclude Include="Hooks\ModifierEvents.h" />
     <ClInclude Include="Netvars.h" />
     <ClInclude Include="Hooks\PrepareUnitOrders.h" />
     <ClInclude Include="Hooks\RunFrame.h" />
@@ -299,6 +300,8 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="IScriptVM.h" />
     <ClInclude Include="Hooks\ParticleRendering.h" />
+    <ClInclude Include="Panorama.h" />
+    <ClInclude Include="ParticleGC.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Projectiles.h" />
     <ClInclude Include="Protobuf Messages\base_gcmessages.pb.h" />
@@ -372,7 +375,8 @@
     <ClInclude Include="RiverPaint.h" />
     <ClInclude Include="ShakerAttackAnimFix.h" />
     <ClInclude Include="SpiritBreakerChargeHighlighter.h" />
-    <ClInclude Include="SunStrikeHighlighter.h" />
+    <ClInclude Include="stb_image.h" />
+    <ClInclude Include="EnemySpellHighlight.h" />
     <ClInclude Include="UIState.h" />
     <ClInclude Include="ValveClasses.h" />
     <ClInclude Include="ConVar.h" />
