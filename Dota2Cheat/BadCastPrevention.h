@@ -39,7 +39,7 @@ namespace Hacks {
 			return false;
 		}
 
-		// Checks whether the ability is cast at an area without enemy ctx.heroes/units
+		// Checks whether the ability is cast at an area without enemy heroes/units
 		bool IsBadCast(uint32_t abilityIdx, Vector3* pos, BaseEntity* caster) {
 			auto abilityName = Interfaces::EntitySystem->GetIdentity(abilityIdx)->GetName();
 			auto ability = Interfaces::EntitySystem->GetEntity<BaseAbility>(abilityIdx);

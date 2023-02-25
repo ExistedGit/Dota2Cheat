@@ -2,7 +2,6 @@
 #include "../SDK/INetChannel.h"
 #include "../Signatures.h"
 #include "VMT.h"
-#include "../SunStrikeHighlighter.h"
 #include "../ShakerAttackAnimFix.h"
 
 namespace Hooks {
@@ -28,7 +27,6 @@ namespace Hooks {
 		NetMessageInfo_t* info = Interfaces::NetworkMessages->GetNetMessageInfo(messageHandle);
 		const char* name = info->pProtobufBinding->GetName();
 
-		Modules::SunStrikeHighlighter.ProcessMessage(messageHandle, msg);
 		Modules::ShakerAttackAnimFix.ChangeAttackAnimIfNeeded(messageHandle, msg);
 
 		return VMTs::NetChannel->GetOriginalMethod<decltype(&hkPostReceivedNetMessage)>(86)(thisptr, messageHandle, msg, type, bits);

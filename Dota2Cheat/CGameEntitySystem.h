@@ -38,8 +38,13 @@ public:
 	const char* GetName() const {
 		return internalName  ? internalName : entityName;
 	}
-	const bool IsDormant() const {
+	
+	bool IsDormant() const {
 		return (flags[0] & 0x80);
+	}
+	
+	uint32_t GetEntIndex() const {
+		return H2IDX(entHandle);
 	}
 
 	static void BindLua(sol::state& lua) {

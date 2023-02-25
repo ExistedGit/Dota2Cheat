@@ -9,7 +9,7 @@
 #include "MinHook.h"
 #include "Protobuf Messages/dota_usermessages.pb.h"
 
-#define PI 3.1415926
+constexpr auto PI = 3.1415926;
 
 inline void PAUSE() {
 	std::cout << "PAUSE" << '\n';
@@ -17,10 +17,10 @@ inline void PAUSE() {
 	}
 }
 
-#define ENT_HANDLE uint32_t
-#define ENT_HANDLE_MASK 0x7fff
-#define H2IDX(H) (H & ENT_HANDLE_MASK) // Entity handle to entity index
-#define HVALID(H) (H != 0xFFFFFFFF)
+using ENT_HANDLE = uint32_t;
+constexpr uint32_t ENT_HANDLE_MASK = 0x7fff;
+#define H2IDX(H) ((H) & ENT_HANDLE_MASK) // Entity handle to entity index
+#define HVALID(H) ((H) != 0xFFFFFFFF)
 
 #define u64 unsigned long long
 

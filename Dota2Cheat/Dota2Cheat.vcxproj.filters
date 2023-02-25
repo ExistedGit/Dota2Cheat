@@ -380,7 +380,7 @@
     <ClInclude Include="CBaseFileSystem.h">
       <Filter>Header files\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="SunStrikeHighlighter.h">
+    <ClInclude Include="EnemySpellHighlight.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
     <ClInclude Include="SpiritBreakerChargeHighlighter.h">
@@ -664,6 +664,18 @@
     </ClInclude>
     <ClInclude Include="Protobuf Messages\demo.pb.h">
       <Filter>Header files\Protobuf Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>Header files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Panorama.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\ModifierEvents.h">
+      <Filter>Header files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleGC.h">
+      <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

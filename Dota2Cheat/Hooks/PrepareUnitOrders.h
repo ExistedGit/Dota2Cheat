@@ -32,20 +32,20 @@ namespace Hooks {
 
 				if (strstr(npc->SchemaBinding()->binaryName, "C_DOTA_Unit_Hero") &&
 					reinterpret_cast<BaseNpcHero*>(npc)->IsIllusion()) {
-					auto assignedHero = Interfaces::EntitySystem->GetEntity<DotaPlayer>(
+					auto illusionOwner = Interfaces::EntitySystem->GetEntity<DotaPlayer>(
 						H2IDX(
 							npc->GetOwnerEntityHandle()
 						)
 						)
 						->GetAssignedHero();
-					if (assignedHero->IsTargetable()) {
+					if (illusionOwner->IsTargetable()) {
 						targetIndex =
 							H2IDX(
-								assignedHero
+								illusionOwner
 								->GetIdentity()
 								->entHandle
 							);
-						showEffects = false;
+						//showEffects = false;
 					}
 				}
 				break;
@@ -111,8 +111,9 @@ namespace Hooks {
 				bool callPickup = false;
 				uint32_t stashSlot = 6;
 				for (auto& item : npc->GetItems()) {
-					if (H2IDX(item.handle) == abilityIndex                   // must not be the item we're using
-						|| npc->GetInventory()->GetItemSlot(item.handle) > 5 // must not bew in the backpack
+					if (
+						H2IDX(item.handle) == abilityIndex                   // must not be the item we're using
+						|| npc->GetInventory()->GetItemSlot(item.handle) > 5 // must not be in the backpack
 						)
 						continue;
 

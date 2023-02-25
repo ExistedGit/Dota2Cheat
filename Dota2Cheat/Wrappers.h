@@ -164,8 +164,12 @@ public:
 		return Member<ENT_HANDLE>(Netvars::CDOTAModifier::m_hAbility);
 	}
 
-	ENT_HANDLE GetOwner() {
-		return Member<ENT_HANDLE>(Netvars::CDOTAModifier::m_hParent);
+	BaseNpc* GetOwner() {
+		return Interfaces::EntitySystem->GetEntity<BaseNpc>(
+			H2IDX(
+				Member<ENT_HANDLE>(Netvars::CDOTAModifier::m_hParent)
+			)
+			);
 	}
 
 	static void BindLua(sol::state& lua) {
@@ -462,7 +466,7 @@ public:
 		lua["BaseNpcHero"] = sol::overload(
 			[](BaseNpc* npc) {return (BaseNpcHero*)npc; },
 			[](BaseEntity* ent) {return (BaseNpcHero*)ent; }
-			);
+		);
 	}
 };
 
@@ -524,7 +528,7 @@ public:
 
 		if (Signatures::PrepareUnitOrders == nullptr)
 			return;
-		
+
 		Signatures::PrepareUnitOrders(this, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
 	}
 
