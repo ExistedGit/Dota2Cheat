@@ -61,9 +61,9 @@ namespace Hooks {
 						// Relative vector from the hero to the click point
 						auto vec = Vector2(pos2D.x - issuer->GetPos2D().x, pos2D.y - issuer->GetPos2D().y);
 						// -1% to make it 100% be inside the radius
-						vec.x *= maxDist / dist * 0.99;
+						vec.x *= maxDist / dist * 0.99f;
 						vec.x += issuer->GetPos2D().x;
-						vec.y *= maxDist / dist * 0.99;
+						vec.y *= maxDist / dist * 0.99f;
 						vec.y += issuer->GetPos2D().y;
 
 						position->x = vec.x;

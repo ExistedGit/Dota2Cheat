@@ -6,12 +6,12 @@
 #include "../IllusionColoring.h"
 #include "../AegisAutoPickup.h"
 #include "../AutoBuyTome.h"
-#include "../VBE.h"
-#include "../SpiritBreakerChargeHighlighter.h"
+#include "../VBE.h"	
 #include "../RiverPaint.h"
 #include "../AutoUseMidas.h"
 #include "../AutoUseMagicWand.h"
 #include "../ShakerAttackAnimFix.h"
+#include "../TargetedSpellHighlighter.h"
 
 #include "../ParticleGC.h"
 
@@ -46,7 +46,7 @@ namespace Hooks {
 			if (className == nullptr)
 				continue;
 
-			if (!midasUsed && CanUseMidas(ctx.assignedHero) && strstr(className, "Creep")) {
+			if (!midasUsed && CanUseMidas() && strstr(className, "Creep")) {
 
 				auto creep = (BaseNpc*)ent;
 
@@ -131,9 +131,9 @@ namespace Hooks {
 					AutoUseFaerieFireCheck(ctx.assignedHero, Config::AutoHealFaerieFireHPTreshold);
 					Modules::AutoBuyTome.FrameBasedLogic();
 					Modules::VBE.FrameBasedLogic();
-					Modules::SBChargeHighlighter.FrameBasedLogic();
 					Modules::RiverPaint.FrameBasedLogic();
 					Modules::ParticleGC.FrameBasedLogic();
+					Modules::TargetedSpellHighlighter.FrameBasedLogic();
 
 					EntityIteration();
 				}

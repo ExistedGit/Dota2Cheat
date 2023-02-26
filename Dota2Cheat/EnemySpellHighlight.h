@@ -14,7 +14,7 @@ namespace Hacks {
 			ParticleCreationInfo(const char* particleName) : particleName(particleName) {
 
 			}
-			ParticleCreationInfo& SetControlPoint(int idx, Vector3 vec) {
+			ParticleCreationInfo& SetControlPoint(int idx, const Vector3& vec) {
 				controlPoints[idx] = vec;
 				return *this;
 			}
@@ -41,12 +41,10 @@ namespace Hacks {
 				"modifier_lina_light_strike_array",
 				ParticleCreationInfo(
 					"particles/units/heroes/hero_lina/lina_spell_light_strike_array_ray_team.vpcf"
-				).SetControlPoint(1, Vector3::Zero)
-
+				).SetControlPoint(1, Vector3(250, 1, 1))
 			}
 		};
 	public:
-
 		void DrawParticleAt(Vector3 pos, ParticleCreationInfo info) {
 			auto particleWrap = Globals::ParticleManager->CreateParticle(
 				info.particleName,
@@ -54,14 +52,17 @@ namespace Hacks {
 				nullptr);
 			particleWrap.particle
 				->SetControlPoint(0, &pos);
-			for (auto& pair : info.controlPoints)
-				particleWrap.particle->SetControlPoint(pair.first, &pair.second);
+			for (auto& [idx, val] : info.controlPoints)
+				particleWrap.particle->SetControlPoint(idx, &val);
 
 			if (info.dieTime)
 				Modules::ParticleGC.SetDieTime(particleWrap, info.dieTime);
 		}
 
 		void RenderIfThinkerModifier(DotaModifier* modifier) {
+			if (!Config::ShowEnemyPointSpells)
+				return;
+
 			if (ModifierParticles.count(modifier->GetName())) {
 				auto thinker = modifier->GetOwner();
 				if (thinker->GetTeam() != ctx.assignedHero->GetTeam()) {
