@@ -28,9 +28,9 @@ namespace Hacks {
 		std::map<BaseNpc*, TrackingInfo> TrackedEntities{};
 	public:
 		void Reset() {
-			for (auto& pair : TrackedEntities)
-				if (pair.second.vbeParticleWrap.particle)
-					Globals::ParticleManager->DestroyParticle(pair.second.vbeParticleWrap);
+			for (auto& [ent, info] : TrackedEntities)
+				if (info.vbeParticleWrap.particle)
+					Globals::ParticleManager->DestroyParticle(info.vbeParticleWrap);
 			//TrackedEntities.clear();
 		}
 		void SubscribeEntity(BaseNpc* ent) {

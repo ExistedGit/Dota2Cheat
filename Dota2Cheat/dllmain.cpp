@@ -176,10 +176,9 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	char scriptBuf[4096]{};
 
 	bool menuVisible = false;
-	bool featuresMenuVisible = false;
 	bool scriptMenuVisible = false;
 	bool circleMenuVisible = false;
-	
+
 	int debugEntIdx = 0;
 
 	// Main loop
@@ -194,18 +193,12 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 		ImGui::PushFont(defaultFont);
 		if (menuVisible) {
-			ImGui::Begin("Main");
-			if (ImGui::Button("Features"))
-				featuresMenuVisible = !featuresMenuVisible;
+			ImGui::Begin("Main", nullptr, ImGuiWindowFlags_::ImGuiWindowFlags_AlwaysAutoResize);
 
 			if (ImGui::Button("Scripting"))
 				scriptMenuVisible = !scriptMenuVisible;
 
-
-			if (ImGui::Button("EXIT", ImVec2(0, 50)))
-				glfwSetWindowShouldClose(window, 1);
-
-			ImGui::End();
+			//ImGui::End();
 
 
 			if (scriptMenuVisible) {
@@ -252,87 +245,101 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 #endif // _DEBUG
 
 
-			if (featuresMenuVisible) {
-				ImGui::Begin("Features", &featuresMenuVisible, ImGuiWindowFlags_::ImGuiWindowFlags_AlwaysAutoResize);
 
-				if (ImGui::Button("Circle drawing"))
-					circleMenuVisible = !circleMenuVisible;
+			if (ImGui::Button("Circle drawing"))
+				circleMenuVisible = !circleMenuVisible;
 
 
-				if (ImGui::TreeNode("Visuals")) {
-					// https://github.com/SK68-ph/Shadow-Dance-Menu
-					ImGui::ListBox(
-						"Change weather",
-						&Config::WeatherListIdx,
-						UIState::WeatherList,
-						IM_ARRAYSIZE(UIState::WeatherList),
-						4);
+			if (ImGui::TreeNode("Visuals")) {
+				// https://github.com/SK68-ph/Shadow-Dance-Menu
+				ImGui::ListBox(
+					"Change weather",
+					&Config::WeatherListIdx,
+					UIState::WeatherList,
+					IM_ARRAYSIZE(UIState::WeatherList),
+					4);
 
-					// credits to the screenshot https://yougame.biz/threads/283404/
-					// should've figured out it's controlled by a convar like the weather :)
-					ImGui::ListBox(
-						"River paint",
-						&Config::RiverListIdx,
-						UIState::RiverList,
-						IM_ARRAYSIZE(UIState::RiverList),
-						4);
-					ImGui::TreePop();
-				}
-				if (ImGui::TreeNode("Auto-pickup")) {
-					ImGui::Checkbox("Bounty runes", &Config::AutoPickUpRunes);
-					ImGui::Checkbox("Aegis", &Config::AutoPickUpAegis);
-					ImGui::TreePop();
-				}
-
-				//if (ImGui::TreeNode("Visible by Enemy")) {
-				//	ImGui::Checkbox("Show HIDDEN/DETECTED text", &Config::VBEShowText);
-				//	ImGui::Checkbox("Show a circle under the hero when visible", &Config::VBEShowParticle);
-				//	ImGui::TreePop();
-				//}
-				if (ImGui::TreeNode("Illusion coloring")) {
-					ImGui::ColorEdit3("Color", &Config::IllusionColor.x);
-					ImGui::TreePop();
-				}
-				if (ImGui::TreeNode("AutoWand")) {
-					ImGui::Checkbox("Auto-use Faerie Fire and Magic Stick", &Config::AutoWandEnabled);
-					ImGui::SliderFloat("Faerie Fire HP Treshold", &Config::AutoHealFaerieFireHPTreshold, 0, 100, "%.1f");
-					ImGui::SliderFloat("Magic Stick/Wand/Holy Locket HP Treshold", &Config::AutoHealWandHPTreshold, 0, 100, "%.1f");
-					ImGui::SliderInt("Minimum charges", &Config::AutoHealWandMinCharges, 1, 20);
-
-					ImGui::TreePop();
-				}
-				ImGui::Checkbox("Show all particles", &Config::RenderAllParticles);
-				ImGui::SameLine(); HelpMarker("Renders any possible particle, even in FoW");
-
-				ImGui::Checkbox("Auto-use Hand of Midas", &Config::AutoMidasEnabled);
-				ImGui::Checkbox("Auto-buy Tome of Knowledge", &Config::AutoBuyTome);
-				ImGui::SliderFloat("Camera distance", &Config::CameraDistance, 1200, 3000, "%.1f");
-
-				ImGui::End();
-
-				if (circleMenuVisible) {
-					ImGui::Begin("C I R C L E S", &circleMenuVisible, ImGuiWindowFlags_AlwaysAutoResize);
-					ImGui::InputInt("Circle radius", &Config::CircleRadius, 1, 10);
-					ImGui::ColorEdit3("Circle RGB", &Config::CircleRGB.x);
-
-					if (ImGui::Button("Draw circle")) {
-						Vector3 color = Config::CircleRGB * 255;
-						Vector3 radius{ static_cast<float>(Config::CircleRadius), 255, 0 };
-
-						auto particle = Globals::ParticleManager->CreateParticle(
-							"particles/ui_mouseactions/selected_ring.vpcf",
-							PATTACH_ABSORIGIN_FOLLOW,
-							(BaseEntity*)ctx.assignedHero
-						).particle
-							->SetControlPoint(1, &color)
-							->SetControlPoint(2, &radius)
-							->SetControlPoint(3, &Vector3::Zero);
-					}
-					ImGui::End();
-				}
-
+				// credits to the screenshot https://yougame.biz/threads/283404/
+				// should've figured out it's controlled by a convar like the weather :)
+				ImGui::ListBox(
+					"River paint",
+					&Config::RiverListIdx,
+					UIState::RiverList,
+					IM_ARRAYSIZE(UIState::RiverList),
+					4);
+				ImGui::TreePop();
 			}
+			if (ImGui::TreeNode("Auto-pickup")) {
+				ImGui::Checkbox("Bounty runes", &Config::AutoPickUpRunes);
+				ImGui::Checkbox("Aegis", &Config::AutoPickUpAegis);
+				ImGui::TreePop();
+			}
+
+			//if (ImGui::TreeNode("Visible by Enemy")) {
+			//	ImGui::Checkbox("Show HIDDEN/DETECTED text", &Config::VBEShowText);
+			//	ImGui::Checkbox("Show a circle under the hero when visible", &Config::VBEShowParticle);
+			//	ImGui::TreePop();
+			//}
+			if (ImGui::TreeNode("Illusion coloring")) {
+				ImGui::ColorEdit3("Color", &Config::IllusionColor.x);
+				ImGui::TreePop();
+			}
+			if (ImGui::TreeNode("Show enemy spells")) {
+				ImGui::Checkbox("Point spells", &Config::ShowEnemyPointSpells);
+				ImGui::SameLine(); HelpMarker("Sunstrike, Torrent, Light Strike Array");
+
+				if (ImGui::Checkbox("Targeted spells", &Config::ShowEnemyTargetedSpells))
+					Modules::TargetedSpellHighlighter.OnDisableTargetedSpells();
+				ImGui::SameLine(); HelpMarker("Assassinate, Charge of Darkness");
+
+				if (ImGui::Checkbox("Show Linken Sphere", &Config::ShowLinkenSphere))
+					Modules::TargetedSpellHighlighter.OnDisableLinken();
+				ImGui::TreePop();
+			}
+			if (ImGui::TreeNode("AutoWand")) {
+				ImGui::Checkbox("Auto-use Faerie Fire and Magic Stick", &Config::AutoWandEnabled);
+				ImGui::SliderFloat("Faerie Fire HP Treshold", &Config::AutoHealFaerieFireHPTreshold, 0, 100, "%.1f");
+				ImGui::SliderFloat("Magic Stick/Wand/Holy Locket HP Treshold", &Config::AutoHealWandHPTreshold, 0, 100, "%.1f");
+				ImGui::SliderInt("Minimum charges", &Config::AutoHealWandMinCharges, 1, 20);
+
+				ImGui::TreePop();
+			}
+			ImGui::Checkbox("Show all particles", &Config::RenderAllParticles);
+			ImGui::SameLine(); HelpMarker("Renders any possible particle, even in FoW");
+
+			ImGui::Checkbox("Auto-use Hand of Midas", &Config::AutoMidasEnabled);
+			ImGui::Checkbox("Auto-buy Tome of Knowledge", &Config::AutoBuyTome);
+			ImGui::SliderFloat("Camera distance", &Config::CameraDistance, 1200, 3000, "%.1f");
+
+
+			if (ImGui::Button("EXIT", ImVec2(100, 50)))
+				glfwSetWindowShouldClose(window, 1);
+
+			ImGui::End();
+
+			if (circleMenuVisible) {
+				ImGui::Begin("C I R C L E S", &circleMenuVisible, ImGuiWindowFlags_AlwaysAutoResize);
+				ImGui::InputInt("Circle radius", &Config::CircleRadius, 1, 10);
+				ImGui::ColorEdit3("Circle RGB", &Config::CircleRGB.x);
+
+				if (ImGui::Button("Draw circle")) {
+					Vector3 color = Config::CircleRGB * 255;
+					Vector3 radius{ static_cast<float>(Config::CircleRadius), 255, 0 };
+
+					auto particle = Globals::ParticleManager->CreateParticle(
+						"particles/ui_mouseactions/selected_ring.vpcf",
+						PATTACH_ABSORIGIN_FOLLOW,
+						(BaseEntity*)ctx.assignedHero
+					).particle
+						->SetControlPoint(1, &color)
+						->SetControlPoint(2, &radius)
+						->SetControlPoint(3, &Vector3::Zero);
+				}
+				ImGui::End();
+			}
+
 		}
+
 
 
 
@@ -378,6 +385,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	if (ctx.IsInMatch)
 		LeftMatch();
+	Modules::TargetedSpellHighlighter.OnDisableTargetedSpells();
+	Modules::TargetedSpellHighlighter.OnDisableLinken();
 
 	Schema::Netvars.clear();
 

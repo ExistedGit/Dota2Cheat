@@ -58,15 +58,15 @@ extern CGCSystemMsg_GetAccountDetails_ResponseDefaultTypeInternal _CGCSystemMsg_
 class CIPLocationInfo;
 struct CIPLocationInfoDefaultTypeInternal;
 extern CIPLocationInfoDefaultTypeInternal _CIPLocationInfo_default_instance_;
-class CMsgProtobufHeader;
-struct CMsgProtobufHeaderDefaultTypeInternal;
-extern CMsgProtobufHeaderDefaultTypeInternal _CMsgProtobufHeader_default_instance_;
+class CMsgProtoBufHeader;
+struct CMsgProtoBufHeaderDefaultTypeInternal;
+extern CMsgProtoBufHeaderDefaultTypeInternal _CMsgProtoBufHeader_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
 template<> ::CGCMsgGetIPLocationResponse* Arena::CreateMaybeMessage<::CGCMsgGetIPLocationResponse>(Arena*);
 template<> ::CGCSystemMsg_GetAccountDetails* Arena::CreateMaybeMessage<::CGCSystemMsg_GetAccountDetails>(Arena*);
 template<> ::CGCSystemMsg_GetAccountDetails_Response* Arena::CreateMaybeMessage<::CGCSystemMsg_GetAccountDetails_Response>(Arena*);
 template<> ::CIPLocationInfo* Arena::CreateMaybeMessage<::CIPLocationInfo>(Arena*);
-template<> ::CMsgProtobufHeader* Arena::CreateMaybeMessage<::CMsgProtobufHeader>(Arena*);
+template<> ::CMsgProtoBufHeader* Arena::CreateMaybeMessage<::CMsgProtoBufHeader>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 
 enum EGCPlatform : int {
@@ -125,24 +125,24 @@ inline bool GCProtoBufMsgSrc_Parse(
 }
 // ===================================================================
 
-class CMsgProtobufHeader final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgProtobufHeader) */ {
+class CMsgProtoBufHeader final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgProtoBufHeader) */ {
  public:
-  inline CMsgProtobufHeader() : CMsgProtobufHeader(nullptr) {}
-  ~CMsgProtobufHeader() override;
-  explicit PROTOBUF_CONSTEXPR CMsgProtobufHeader(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CMsgProtoBufHeader() : CMsgProtoBufHeader(nullptr) {}
+  ~CMsgProtoBufHeader() override;
+  explicit PROTOBUF_CONSTEXPR CMsgProtoBufHeader(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CMsgProtobufHeader(const CMsgProtobufHeader& from);
-  CMsgProtobufHeader(CMsgProtobufHeader&& from) noexcept
-    : CMsgProtobufHeader() {
+  CMsgProtoBufHeader(const CMsgProtoBufHeader& from);
+  CMsgProtoBufHeader(CMsgProtoBufHeader&& from) noexcept
+    : CMsgProtoBufHeader() {
     *this = ::std::move(from);
   }
 
-  inline CMsgProtobufHeader& operator=(const CMsgProtobufHeader& from) {
+  inline CMsgProtoBufHeader& operator=(const CMsgProtoBufHeader& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CMsgProtobufHeader& operator=(CMsgProtobufHeader&& from) noexcept {
+  inline CMsgProtoBufHeader& operator=(CMsgProtoBufHeader&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -172,20 +172,20 @@ class CMsgProtobufHeader final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const CMsgProtobufHeader& default_instance() {
+  static const CMsgProtoBufHeader& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CMsgProtobufHeader* internal_default_instance() {
-    return reinterpret_cast<const CMsgProtobufHeader*>(
-               &_CMsgProtobufHeader_default_instance_);
+  static inline const CMsgProtoBufHeader* internal_default_instance() {
+    return reinterpret_cast<const CMsgProtoBufHeader*>(
+               &_CMsgProtoBufHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  friend void swap(CMsgProtobufHeader& a, CMsgProtobufHeader& b) {
+  friend void swap(CMsgProtoBufHeader& a, CMsgProtoBufHeader& b) {
     a.Swap(&b);
   }
-  inline void Swap(CMsgProtobufHeader* other) {
+  inline void Swap(CMsgProtoBufHeader* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -198,7 +198,7 @@ class CMsgProtobufHeader final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CMsgProtobufHeader* other) {
+  void UnsafeArenaSwap(CMsgProtoBufHeader* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -206,14 +206,14 @@ class CMsgProtobufHeader final :
 
   // implements Message ----------------------------------------------
 
-  CMsgProtobufHeader* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgProtobufHeader>(arena);
+  CMsgProtoBufHeader* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgProtoBufHeader>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgProtobufHeader& from);
+  void CopyFrom(const CMsgProtoBufHeader& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgProtobufHeader& from) {
-    CMsgProtobufHeader::MergeImpl(*this, from);
+  void MergeFrom( const CMsgProtoBufHeader& from) {
+    CMsgProtoBufHeader::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -231,15 +231,15 @@ class CMsgProtobufHeader final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgProtobufHeader* other);
+  void InternalSwap(CMsgProtoBufHeader* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgProtobufHeader";
+    return "CMsgProtoBufHeader";
   }
   protected:
-  explicit CMsgProtobufHeader(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit CMsgProtoBufHeader(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -404,7 +404,7 @@ class CMsgProtobufHeader final :
   void _internal_set_job_id_target(uint64_t value);
   public:
 
-  // @@protoc_insertion_point(class_scope:CMsgProtobufHeader)
+  // @@protoc_insertion_point(class_scope:CMsgProtoBufHeader)
  private:
   class _Internal;
 
@@ -1758,189 +1758,189 @@ extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::PROTOBUF_NAMESP
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// CMsgProtobufHeader
+// CMsgProtoBufHeader
 
 // optional fixed64 client_steam_id = 1;
-inline bool CMsgProtobufHeader::_internal_has_client_steam_id() const {
+inline bool CMsgProtoBufHeader::_internal_has_client_steam_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
-inline bool CMsgProtobufHeader::has_client_steam_id() const {
+inline bool CMsgProtoBufHeader::has_client_steam_id() const {
   return _internal_has_client_steam_id();
 }
-inline void CMsgProtobufHeader::clear_client_steam_id() {
+inline void CMsgProtoBufHeader::clear_client_steam_id() {
   _impl_.client_steam_id_ = uint64_t{0u};
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint64_t CMsgProtobufHeader::_internal_client_steam_id() const {
+inline uint64_t CMsgProtoBufHeader::_internal_client_steam_id() const {
   return _impl_.client_steam_id_;
 }
-inline uint64_t CMsgProtobufHeader::client_steam_id() const {
-  // @@protoc_insertion_point(field_get:CMsgProtobufHeader.client_steam_id)
+inline uint64_t CMsgProtoBufHeader::client_steam_id() const {
+  // @@protoc_insertion_point(field_get:CMsgProtoBufHeader.client_steam_id)
   return _internal_client_steam_id();
 }
-inline void CMsgProtobufHeader::_internal_set_client_steam_id(uint64_t value) {
+inline void CMsgProtoBufHeader::_internal_set_client_steam_id(uint64_t value) {
   _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.client_steam_id_ = value;
 }
-inline void CMsgProtobufHeader::set_client_steam_id(uint64_t value) {
+inline void CMsgProtoBufHeader::set_client_steam_id(uint64_t value) {
   _internal_set_client_steam_id(value);
-  // @@protoc_insertion_point(field_set:CMsgProtobufHeader.client_steam_id)
+  // @@protoc_insertion_point(field_set:CMsgProtoBufHeader.client_steam_id)
 }
 
 // optional int32 client_session_id = 2;
-inline bool CMsgProtobufHeader::_internal_has_client_session_id() const {
+inline bool CMsgProtoBufHeader::_internal_has_client_session_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
-inline bool CMsgProtobufHeader::has_client_session_id() const {
+inline bool CMsgProtoBufHeader::has_client_session_id() const {
   return _internal_has_client_session_id();
 }
-inline void CMsgProtobufHeader::clear_client_session_id() {
+inline void CMsgProtoBufHeader::clear_client_session_id() {
   _impl_.client_session_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
-inline int32_t CMsgProtobufHeader::_internal_client_session_id() const {
+inline int32_t CMsgProtoBufHeader::_internal_client_session_id() const {
   return _impl_.client_session_id_;
 }
-inline int32_t CMsgProtobufHeader::client_session_id() const {
-  // @@protoc_insertion_point(field_get:CMsgProtobufHeader.client_session_id)
+inline int32_t CMsgProtoBufHeader::client_session_id() const {
+  // @@protoc_insertion_point(field_get:CMsgProtoBufHeader.client_session_id)
   return _internal_client_session_id();
 }
-inline void CMsgProtobufHeader::_internal_set_client_session_id(int32_t value) {
+inline void CMsgProtoBufHeader::_internal_set_client_session_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.client_session_id_ = value;
 }
-inline void CMsgProtobufHeader::set_client_session_id(int32_t value) {
+inline void CMsgProtoBufHeader::set_client_session_id(int32_t value) {
   _internal_set_client_session_id(value);
-  // @@protoc_insertion_point(field_set:CMsgProtobufHeader.client_session_id)
+  // @@protoc_insertion_point(field_set:CMsgProtoBufHeader.client_session_id)
 }
 
 // optional uint32 source_app_id = 3;
-inline bool CMsgProtobufHeader::_internal_has_source_app_id() const {
+inline bool CMsgProtoBufHeader::_internal_has_source_app_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
-inline bool CMsgProtobufHeader::has_source_app_id() const {
+inline bool CMsgProtoBufHeader::has_source_app_id() const {
   return _internal_has_source_app_id();
 }
-inline void CMsgProtobufHeader::clear_source_app_id() {
+inline void CMsgProtoBufHeader::clear_source_app_id() {
   _impl_.source_app_id_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000010u;
 }
-inline uint32_t CMsgProtobufHeader::_internal_source_app_id() const {
+inline uint32_t CMsgProtoBufHeader::_internal_source_app_id() const {
   return _impl_.source_app_id_;
 }
-inline uint32_t CMsgProtobufHeader::source_app_id() const {
-  // @@protoc_insertion_point(field_get:CMsgProtobufHeader.source_app_id)
+inline uint32_t CMsgProtoBufHeader::source_app_id() const {
+  // @@protoc_insertion_point(field_get:CMsgProtoBufHeader.source_app_id)
   return _internal_source_app_id();
 }
-inline void CMsgProtobufHeader::_internal_set_source_app_id(uint32_t value) {
+inline void CMsgProtoBufHeader::_internal_set_source_app_id(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.source_app_id_ = value;
 }
-inline void CMsgProtobufHeader::set_source_app_id(uint32_t value) {
+inline void CMsgProtoBufHeader::set_source_app_id(uint32_t value) {
   _internal_set_source_app_id(value);
-  // @@protoc_insertion_point(field_set:CMsgProtobufHeader.source_app_id)
+  // @@protoc_insertion_point(field_set:CMsgProtoBufHeader.source_app_id)
 }
 
 // optional fixed64 job_id_source = 10 [default = 18446744073709551615];
-inline bool CMsgProtobufHeader::_internal_has_job_id_source() const {
+inline bool CMsgProtoBufHeader::_internal_has_job_id_source() const {
   bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
-inline bool CMsgProtobufHeader::has_job_id_source() const {
+inline bool CMsgProtoBufHeader::has_job_id_source() const {
   return _internal_has_job_id_source();
 }
-inline void CMsgProtobufHeader::clear_job_id_source() {
+inline void CMsgProtoBufHeader::clear_job_id_source() {
   _impl_.job_id_source_ = uint64_t{18446744073709551615u};
   _impl_._has_bits_[0] &= ~0x00000100u;
 }
-inline uint64_t CMsgProtobufHeader::_internal_job_id_source() const {
+inline uint64_t CMsgProtoBufHeader::_internal_job_id_source() const {
   return _impl_.job_id_source_;
 }
-inline uint64_t CMsgProtobufHeader::job_id_source() const {
-  // @@protoc_insertion_point(field_get:CMsgProtobufHeader.job_id_source)
+inline uint64_t CMsgProtoBufHeader::job_id_source() const {
+  // @@protoc_insertion_point(field_get:CMsgProtoBufHeader.job_id_source)
   return _internal_job_id_source();
 }
-inline void CMsgProtobufHeader::_internal_set_job_id_source(uint64_t value) {
+inline void CMsgProtoBufHeader::_internal_set_job_id_source(uint64_t value) {
   _impl_._has_bits_[0] |= 0x00000100u;
   _impl_.job_id_source_ = value;
 }
-inline void CMsgProtobufHeader::set_job_id_source(uint64_t value) {
+inline void CMsgProtoBufHeader::set_job_id_source(uint64_t value) {
   _internal_set_job_id_source(value);
-  // @@protoc_insertion_point(field_set:CMsgProtobufHeader.job_id_source)
+  // @@protoc_insertion_point(field_set:CMsgProtoBufHeader.job_id_source)
 }
 
 // optional fixed64 job_id_target = 11 [default = 18446744073709551615];
-inline bool CMsgProtobufHeader::_internal_has_job_id_target() const {
+inline bool CMsgProtoBufHeader::_internal_has_job_id_target() const {
   bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
-inline bool CMsgProtobufHeader::has_job_id_target() const {
+inline bool CMsgProtoBufHeader::has_job_id_target() const {
   return _internal_has_job_id_target();
 }
-inline void CMsgProtobufHeader::clear_job_id_target() {
+inline void CMsgProtoBufHeader::clear_job_id_target() {
   _impl_.job_id_target_ = uint64_t{18446744073709551615u};
   _impl_._has_bits_[0] &= ~0x00000200u;
 }
-inline uint64_t CMsgProtobufHeader::_internal_job_id_target() const {
+inline uint64_t CMsgProtoBufHeader::_internal_job_id_target() const {
   return _impl_.job_id_target_;
 }
-inline uint64_t CMsgProtobufHeader::job_id_target() const {
-  // @@protoc_insertion_point(field_get:CMsgProtobufHeader.job_id_target)
+inline uint64_t CMsgProtoBufHeader::job_id_target() const {
+  // @@protoc_insertion_point(field_get:CMsgProtoBufHeader.job_id_target)
   return _internal_job_id_target();
 }
-inline void CMsgProtobufHeader::_internal_set_job_id_target(uint64_t value) {
+inline void CMsgProtoBufHeader::_internal_set_job_id_target(uint64_t value) {
   _impl_._has_bits_[0] |= 0x00000200u;
   _impl_.job_id_target_ = value;
 }
-inline void CMsgProtobufHeader::set_job_id_target(uint64_t value) {
+inline void CMsgProtoBufHeader::set_job_id_target(uint64_t value) {
   _internal_set_job_id_target(value);
-  // @@protoc_insertion_point(field_set:CMsgProtobufHeader.job_id_target)
+  // @@protoc_insertion_point(field_set:CMsgProtoBufHeader.job_id_target)
 }
 
 // optional string target_job_name = 12;
-inline bool CMsgProtobufHeader::_internal_has_target_job_name() const {
+inline bool CMsgProtoBufHeader::_internal_has_target_job_name() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool CMsgProtobufHeader::has_target_job_name() const {
+inline bool CMsgProtoBufHeader::has_target_job_name() const {
   return _internal_has_target_job_name();
 }
-inline void CMsgProtobufHeader::clear_target_job_name() {
+inline void CMsgProtoBufHeader::clear_target_job_name() {
   _impl_.target_job_name_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline const std::string& CMsgProtobufHeader::target_job_name() const {
-  // @@protoc_insertion_point(field_get:CMsgProtobufHeader.target_job_name)
+inline const std::string& CMsgProtoBufHeader::target_job_name() const {
+  // @@protoc_insertion_point(field_get:CMsgProtoBufHeader.target_job_name)
   return _internal_target_job_name();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void CMsgProtobufHeader::set_target_job_name(ArgT0&& arg0, ArgT... args) {
+void CMsgProtoBufHeader::set_target_job_name(ArgT0&& arg0, ArgT... args) {
  _impl_._has_bits_[0] |= 0x00000001u;
  _impl_.target_job_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CMsgProtobufHeader.target_job_name)
+  // @@protoc_insertion_point(field_set:CMsgProtoBufHeader.target_job_name)
 }
-inline std::string* CMsgProtobufHeader::mutable_target_job_name() {
+inline std::string* CMsgProtoBufHeader::mutable_target_job_name() {
   std::string* _s = _internal_mutable_target_job_name();
-  // @@protoc_insertion_point(field_mutable:CMsgProtobufHeader.target_job_name)
+  // @@protoc_insertion_point(field_mutable:CMsgProtoBufHeader.target_job_name)
   return _s;
 }
-inline const std::string& CMsgProtobufHeader::_internal_target_job_name() const {
+inline const std::string& CMsgProtoBufHeader::_internal_target_job_name() const {
   return _impl_.target_job_name_.Get();
 }
-inline void CMsgProtobufHeader::_internal_set_target_job_name(const std::string& value) {
+inline void CMsgProtoBufHeader::_internal_set_target_job_name(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.target_job_name_.Set(value, GetArenaForAllocation());
 }
-inline std::string* CMsgProtobufHeader::_internal_mutable_target_job_name() {
+inline std::string* CMsgProtoBufHeader::_internal_mutable_target_job_name() {
   _impl_._has_bits_[0] |= 0x00000001u;
   return _impl_.target_job_name_.Mutable(GetArenaForAllocation());
 }
-inline std::string* CMsgProtobufHeader::release_target_job_name() {
-  // @@protoc_insertion_point(field_release:CMsgProtobufHeader.target_job_name)
+inline std::string* CMsgProtoBufHeader::release_target_job_name() {
+  // @@protoc_insertion_point(field_release:CMsgProtoBufHeader.target_job_name)
   if (!_internal_has_target_job_name()) {
     return nullptr;
   }
@@ -1953,7 +1953,7 @@ inline std::string* CMsgProtobufHeader::release_target_job_name() {
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   return p;
 }
-inline void CMsgProtobufHeader::set_allocated_target_job_name(std::string* target_job_name) {
+inline void CMsgProtoBufHeader::set_allocated_target_job_name(std::string* target_job_name) {
   if (target_job_name != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
@@ -1965,78 +1965,78 @@ inline void CMsgProtobufHeader::set_allocated_target_job_name(std::string* targe
     _impl_.target_job_name_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CMsgProtobufHeader.target_job_name)
+  // @@protoc_insertion_point(field_set_allocated:CMsgProtoBufHeader.target_job_name)
 }
 
 // optional int32 eresult = 13 [default = 2];
-inline bool CMsgProtobufHeader::_internal_has_eresult() const {
+inline bool CMsgProtoBufHeader::_internal_has_eresult() const {
   bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
-inline bool CMsgProtobufHeader::has_eresult() const {
+inline bool CMsgProtoBufHeader::has_eresult() const {
   return _internal_has_eresult();
 }
-inline void CMsgProtobufHeader::clear_eresult() {
+inline void CMsgProtoBufHeader::clear_eresult() {
   _impl_.eresult_ = 2;
   _impl_._has_bits_[0] &= ~0x00000080u;
 }
-inline int32_t CMsgProtobufHeader::_internal_eresult() const {
+inline int32_t CMsgProtoBufHeader::_internal_eresult() const {
   return _impl_.eresult_;
 }
-inline int32_t CMsgProtobufHeader::eresult() const {
-  // @@protoc_insertion_point(field_get:CMsgProtobufHeader.eresult)
+inline int32_t CMsgProtoBufHeader::eresult() const {
+  // @@protoc_insertion_point(field_get:CMsgProtoBufHeader.eresult)
   return _internal_eresult();
 }
-inline void CMsgProtobufHeader::_internal_set_eresult(int32_t value) {
+inline void CMsgProtoBufHeader::_internal_set_eresult(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.eresult_ = value;
 }
-inline void CMsgProtobufHeader::set_eresult(int32_t value) {
+inline void CMsgProtoBufHeader::set_eresult(int32_t value) {
   _internal_set_eresult(value);
-  // @@protoc_insertion_point(field_set:CMsgProtobufHeader.eresult)
+  // @@protoc_insertion_point(field_set:CMsgProtoBufHeader.eresult)
 }
 
 // optional string error_message = 14;
-inline bool CMsgProtobufHeader::_internal_has_error_message() const {
+inline bool CMsgProtoBufHeader::_internal_has_error_message() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
-inline bool CMsgProtobufHeader::has_error_message() const {
+inline bool CMsgProtoBufHeader::has_error_message() const {
   return _internal_has_error_message();
 }
-inline void CMsgProtobufHeader::clear_error_message() {
+inline void CMsgProtoBufHeader::clear_error_message() {
   _impl_.error_message_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline const std::string& CMsgProtobufHeader::error_message() const {
-  // @@protoc_insertion_point(field_get:CMsgProtobufHeader.error_message)
+inline const std::string& CMsgProtoBufHeader::error_message() const {
+  // @@protoc_insertion_point(field_get:CMsgProtoBufHeader.error_message)
   return _internal_error_message();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void CMsgProtobufHeader::set_error_message(ArgT0&& arg0, ArgT... args) {
+void CMsgProtoBufHeader::set_error_message(ArgT0&& arg0, ArgT... args) {
  _impl_._has_bits_[0] |= 0x00000002u;
  _impl_.error_message_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CMsgProtobufHeader.error_message)
+  // @@protoc_insertion_point(field_set:CMsgProtoBufHeader.error_message)
 }
-inline std::string* CMsgProtobufHeader::mutable_error_message() {
+inline std::string* CMsgProtoBufHeader::mutable_error_message() {
   std::string* _s = _internal_mutable_error_message();
-  // @@protoc_insertion_point(field_mutable:CMsgProtobufHeader.error_message)
+  // @@protoc_insertion_point(field_mutable:CMsgProtoBufHeader.error_message)
   return _s;
 }
-inline const std::string& CMsgProtobufHeader::_internal_error_message() const {
+inline const std::string& CMsgProtoBufHeader::_internal_error_message() const {
   return _impl_.error_message_.Get();
 }
-inline void CMsgProtobufHeader::_internal_set_error_message(const std::string& value) {
+inline void CMsgProtoBufHeader::_internal_set_error_message(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.error_message_.Set(value, GetArenaForAllocation());
 }
-inline std::string* CMsgProtobufHeader::_internal_mutable_error_message() {
+inline std::string* CMsgProtoBufHeader::_internal_mutable_error_message() {
   _impl_._has_bits_[0] |= 0x00000002u;
   return _impl_.error_message_.Mutable(GetArenaForAllocation());
 }
-inline std::string* CMsgProtobufHeader::release_error_message() {
-  // @@protoc_insertion_point(field_release:CMsgProtobufHeader.error_message)
+inline std::string* CMsgProtoBufHeader::release_error_message() {
+  // @@protoc_insertion_point(field_release:CMsgProtoBufHeader.error_message)
   if (!_internal_has_error_message()) {
     return nullptr;
   }
@@ -2049,7 +2049,7 @@ inline std::string* CMsgProtobufHeader::release_error_message() {
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   return p;
 }
-inline void CMsgProtobufHeader::set_allocated_error_message(std::string* error_message) {
+inline void CMsgProtoBufHeader::set_allocated_error_message(std::string* error_message) {
   if (error_message != nullptr) {
     _impl_._has_bits_[0] |= 0x00000002u;
   } else {
@@ -2061,64 +2061,64 @@ inline void CMsgProtobufHeader::set_allocated_error_message(std::string* error_m
     _impl_.error_message_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CMsgProtobufHeader.error_message)
+  // @@protoc_insertion_point(field_set_allocated:CMsgProtoBufHeader.error_message)
 }
 
 // optional .GCProtoBufMsgSrc gc_msg_src = 200 [default = GCProtoBufMsgSrc_Unspecified];
-inline bool CMsgProtobufHeader::_internal_has_gc_msg_src() const {
+inline bool CMsgProtoBufHeader::_internal_has_gc_msg_src() const {
   bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
-inline bool CMsgProtobufHeader::has_gc_msg_src() const {
+inline bool CMsgProtoBufHeader::has_gc_msg_src() const {
   return _internal_has_gc_msg_src();
 }
-inline void CMsgProtobufHeader::clear_gc_msg_src() {
+inline void CMsgProtoBufHeader::clear_gc_msg_src() {
   _impl_.gc_msg_src_ = 0;
   _impl_._has_bits_[0] &= ~0x00000020u;
 }
-inline ::GCProtoBufMsgSrc CMsgProtobufHeader::_internal_gc_msg_src() const {
+inline ::GCProtoBufMsgSrc CMsgProtoBufHeader::_internal_gc_msg_src() const {
   return static_cast< ::GCProtoBufMsgSrc >(_impl_.gc_msg_src_);
 }
-inline ::GCProtoBufMsgSrc CMsgProtobufHeader::gc_msg_src() const {
-  // @@protoc_insertion_point(field_get:CMsgProtobufHeader.gc_msg_src)
+inline ::GCProtoBufMsgSrc CMsgProtoBufHeader::gc_msg_src() const {
+  // @@protoc_insertion_point(field_get:CMsgProtoBufHeader.gc_msg_src)
   return _internal_gc_msg_src();
 }
-inline void CMsgProtobufHeader::_internal_set_gc_msg_src(::GCProtoBufMsgSrc value) {
+inline void CMsgProtoBufHeader::_internal_set_gc_msg_src(::GCProtoBufMsgSrc value) {
   assert(::GCProtoBufMsgSrc_IsValid(value));
   _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.gc_msg_src_ = value;
 }
-inline void CMsgProtobufHeader::set_gc_msg_src(::GCProtoBufMsgSrc value) {
+inline void CMsgProtoBufHeader::set_gc_msg_src(::GCProtoBufMsgSrc value) {
   _internal_set_gc_msg_src(value);
-  // @@protoc_insertion_point(field_set:CMsgProtobufHeader.gc_msg_src)
+  // @@protoc_insertion_point(field_set:CMsgProtoBufHeader.gc_msg_src)
 }
 
 // optional int32 gc_dir_index_source = 201;
-inline bool CMsgProtobufHeader::_internal_has_gc_dir_index_source() const {
+inline bool CMsgProtoBufHeader::_internal_has_gc_dir_index_source() const {
   bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
-inline bool CMsgProtobufHeader::has_gc_dir_index_source() const {
+inline bool CMsgProtoBufHeader::has_gc_dir_index_source() const {
   return _internal_has_gc_dir_index_source();
 }
-inline void CMsgProtobufHeader::clear_gc_dir_index_source() {
+inline void CMsgProtoBufHeader::clear_gc_dir_index_source() {
   _impl_.gc_dir_index_source_ = 0;
   _impl_._has_bits_[0] &= ~0x00000040u;
 }
-inline int32_t CMsgProtobufHeader::_internal_gc_dir_index_source() const {
+inline int32_t CMsgProtoBufHeader::_internal_gc_dir_index_source() const {
   return _impl_.gc_dir_index_source_;
 }
-inline int32_t CMsgProtobufHeader::gc_dir_index_source() const {
-  // @@protoc_insertion_point(field_get:CMsgProtobufHeader.gc_dir_index_source)
+inline int32_t CMsgProtoBufHeader::gc_dir_index_source() const {
+  // @@protoc_insertion_point(field_get:CMsgProtoBufHeader.gc_dir_index_source)
   return _internal_gc_dir_index_source();
 }
-inline void CMsgProtobufHeader::_internal_set_gc_dir_index_source(int32_t value) {
+inline void CMsgProtoBufHeader::_internal_set_gc_dir_index_source(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.gc_dir_index_source_ = value;
 }
-inline void CMsgProtobufHeader::set_gc_dir_index_source(int32_t value) {
+inline void CMsgProtoBufHeader::set_gc_dir_index_source(int32_t value) {
   _internal_set_gc_dir_index_source(value);
-  // @@protoc_insertion_point(field_set:CMsgProtobufHeader.gc_dir_index_source)
+  // @@protoc_insertion_point(field_set:CMsgProtoBufHeader.gc_dir_index_source)
 }
 
 // -------------------------------------------------------------------

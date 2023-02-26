@@ -11,7 +11,7 @@ inline void LogEntities() {
 		//std::cout << ent->SchemaBinding() << '\n';
 		const char* className = ent->SchemaBinding()->binaryName;
 		if (
-			className 
+			className
 			//&& strstr(className, "Rune")
 			)
 			std::cout << className << ' ' << i
@@ -31,20 +31,20 @@ inline void LogInvAndAbilities(BaseNpc* npc = nullptr) {
 	std::cout << std::dec;
 	std::cout << "abilities: " << '\n';
 	for (const auto& ability : npc->GetAbilities()) {
-		if (ability.name ) {
+		if (ability.name) {
 
 			std::cout << '\t' << ability.name << " " << H2IDX(ability.handle)
 				//<< " CD: " << ability.GetAs<BaseAbility>()->GetCooldown() 
 				//<< ' ' << std::dec << ability.GetAs<BaseAbility>()->GetEffectiveCastRange()
 				<< ' ' << ability.GetEntity();
-			
+
 			std::cout << '\n';
 
 		}
 	}
 	std::cout << "inventory: " << '\n';
 	for (const auto& item : npc->GetItems()) {
-		if (item.name )
+		if (item.name)
 			std::cout << '\t' << item.name << " " << H2IDX(item.handle)
 			<< ' ' << item.GetEntity()
 			<< '\n';
@@ -60,24 +60,20 @@ namespace Test {
 		partMap[thisptr]->GetOriginalMethod<decltype(&hkSetControlPoint)>(16)(thisptr, idx, pos);
 	}
 
-	//typedef void(__fastcall* CreateParticleFn)(CDOTAParticleManager* thisptr, uint32_t handle, CDOTAParticleManager::ParticleInfo* info);
 	void hkCreateParticle(CDOTAParticleManager* thisptr, uint32_t handle, CDOTAParticleManager::ParticleInfo* info) {
 		ParticleManagerVMT->GetOriginalMethod<decltype(&hkCreateParticle)>(7)(thisptr, handle, info);
-		if (!strcmp(info->particleName, "particles/generic_gameplay/generic_hit_blood.vpcf")) {
+		if (!strcmp(info->particleName, "particles/items_fx/immunity_sphere_buff.vpcf")) {
 			auto newParticleCollection = Globals::ParticleManager->GetParticleArray()[Globals::ParticleManager->GetParticleCount() - 1]->GetParticle()->GetParticleCollection();
 
 			partMap[newParticleCollection] = std::unique_ptr<VMT>(new VMT(newParticleCollection));
 			partMap[newParticleCollection]->HookVM(hkSetControlPoint, 16);
 			partMap[newParticleCollection]->ApplyVMT();
-
 		}
 	}
 	void HookParticles() {
-		//ParticleManagerVMT = std::unique_ptr<VMT>(
-		//	new VMT(Globals::ParticleManager));
-		//ParticleManagerVMT->HookVM(hkCreateParticle, 7);
-		//ParticleManagerVMT->ApplyVMT();
-
+		ParticleManagerVMT = std::unique_ptr<VMT>(new VMT(Globals::ParticleManager));
+		ParticleManagerVMT->HookVM(hkCreateParticle, 7);
+		ParticleManagerVMT->ApplyVMT();
 	}
 }
 #endif // _DEBUG

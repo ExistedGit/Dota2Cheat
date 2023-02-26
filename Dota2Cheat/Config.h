@@ -13,6 +13,10 @@ namespace Config {
 	inline int AutoHealWandMinCharges = 5;
 	inline float AutoHealFaerieFireHPTreshold = 7.0f;
 
+	inline bool ShowEnemyPointSpells = true;
+	inline bool ShowEnemyTargetedSpells = true;
+	inline bool ShowLinkenSphere = true;
+
 	inline int WeatherListIdx = 0;
 	inline int RiverListIdx = 0;
 

@@ -20,7 +20,7 @@ PROTOBUF_PRAGMA_INIT_SEG
 namespace _pb = ::PROTOBUF_NAMESPACE_ID;
 namespace _pbi = _pb::internal;
 
-PROTOBUF_CONSTEXPR CMsgProtobufHeader::CMsgProtobufHeader(
+PROTOBUF_CONSTEXPR CMsgProtoBufHeader::CMsgProtoBufHeader(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
@@ -34,15 +34,15 @@ PROTOBUF_CONSTEXPR CMsgProtobufHeader::CMsgProtobufHeader(
   , /*decltype(_impl_.eresult_)*/2
   , /*decltype(_impl_.job_id_source_)*/uint64_t{18446744073709551615u}
   , /*decltype(_impl_.job_id_target_)*/uint64_t{18446744073709551615u}} {}
-struct CMsgProtobufHeaderDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR CMsgProtobufHeaderDefaultTypeInternal()
+struct CMsgProtoBufHeaderDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgProtoBufHeaderDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~CMsgProtobufHeaderDefaultTypeInternal() {}
+  ~CMsgProtoBufHeaderDefaultTypeInternal() {}
   union {
-    CMsgProtobufHeader _instance;
+    CMsgProtoBufHeader _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgProtobufHeaderDefaultTypeInternal _CMsgProtobufHeader_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgProtoBufHeaderDefaultTypeInternal _CMsgProtoBufHeader_default_instance_;
 PROTOBUF_CONSTEXPR CGCSystemMsg_GetAccountDetails::CGCSystemMsg_GetAccountDetails(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -145,22 +145,22 @@ static const ::_pb::EnumDescriptor* file_level_enum_descriptors_steammessages_2e
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_steammessages_2eproto = nullptr;
 
 const uint32_t TableStruct_steammessages_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  PROTOBUF_FIELD_OFFSET(::CMsgProtobufHeader, _impl_._has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CMsgProtobufHeader, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProtoBufHeader, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProtoBufHeader, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::CMsgProtobufHeader, _impl_.client_steam_id_),
-  PROTOBUF_FIELD_OFFSET(::CMsgProtobufHeader, _impl_.client_session_id_),
-  PROTOBUF_FIELD_OFFSET(::CMsgProtobufHeader, _impl_.source_app_id_),
-  PROTOBUF_FIELD_OFFSET(::CMsgProtobufHeader, _impl_.job_id_source_),
-  PROTOBUF_FIELD_OFFSET(::CMsgProtobufHeader, _impl_.job_id_target_),
-  PROTOBUF_FIELD_OFFSET(::CMsgProtobufHeader, _impl_.target_job_name_),
-  PROTOBUF_FIELD_OFFSET(::CMsgProtobufHeader, _impl_.eresult_),
-  PROTOBUF_FIELD_OFFSET(::CMsgProtobufHeader, _impl_.error_message_),
-  PROTOBUF_FIELD_OFFSET(::CMsgProtobufHeader, _impl_.gc_msg_src_),
-  PROTOBUF_FIELD_OFFSET(::CMsgProtobufHeader, _impl_.gc_dir_index_source_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProtoBufHeader, _impl_.client_steam_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProtoBufHeader, _impl_.client_session_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProtoBufHeader, _impl_.source_app_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProtoBufHeader, _impl_.job_id_source_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProtoBufHeader, _impl_.job_id_target_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProtoBufHeader, _impl_.target_job_name_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProtoBufHeader, _impl_.eresult_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProtoBufHeader, _impl_.error_message_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProtoBufHeader, _impl_.gc_msg_src_),
+  PROTOBUF_FIELD_OFFSET(::CMsgProtoBufHeader, _impl_.gc_dir_index_source_),
   2,
   3,
   4,
@@ -288,7 +288,7 @@ const uint32_t TableStruct_steammessages_2eproto::offsets[] PROTOBUF_SECTION_VAR
   PROTOBUF_FIELD_OFFSET(::CGCMsgGetIPLocationResponse, _impl_.infos_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 16, -1, sizeof(::CMsgProtobufHeader)},
+  { 0, 16, -1, sizeof(::CMsgProtoBufHeader)},
   { 26, 34, -1, sizeof(::CGCSystemMsg_GetAccountDetails)},
   { 36, 79, -1, sizeof(::CGCSystemMsg_GetAccountDetails_Response)},
   { 116, 128, -1, sizeof(::CIPLocationInfo)},
@@ -296,7 +296,7 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
-  &::_CMsgProtobufHeader_default_instance_._instance,
+  &::_CMsgProtoBufHeader_default_instance_._instance,
   &::_CGCSystemMsg_GetAccountDetails_default_instance_._instance,
   &::_CGCSystemMsg_GetAccountDetails_Response_default_instance_._instance,
   &::_CIPLocationInfo_default_instance_._instance,
@@ -305,7 +305,7 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_steammessages_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\023steammessages.proto\032 google/protobuf/d"
-  "escriptor.proto\"\355\002\n\022CMsgProtobufHeader\022\027"
+  "escriptor.proto\"\355\002\n\022CMsgProtoBufHeader\022\027"
   "\n\017client_steam_id\030\001 \001(\006\022\031\n\021client_sessio"
   "n_id\030\002 \001(\005\022\025\n\rsource_app_id\030\003 \001(\r\022+\n\rjob"
   "_id_source\030\n \001(\006:\02418446744073709551615\022+"
@@ -420,9 +420,9 @@ bool GCProtoBufMsgSrc_IsValid(int value) {
 
 // ===================================================================
 
-class CMsgProtobufHeader::_Internal {
+class CMsgProtoBufHeader::_Internal {
  public:
-  using HasBits = decltype(std::declval<CMsgProtobufHeader>()._impl_._has_bits_);
+  using HasBits = decltype(std::declval<CMsgProtoBufHeader>()._impl_._has_bits_);
   static void set_has_client_steam_id(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
@@ -455,15 +455,15 @@ class CMsgProtobufHeader::_Internal {
   }
 };
 
-CMsgProtobufHeader::CMsgProtobufHeader(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+CMsgProtoBufHeader::CMsgProtoBufHeader(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:CMsgProtobufHeader)
+  // @@protoc_insertion_point(arena_constructor:CMsgProtoBufHeader)
 }
-CMsgProtobufHeader::CMsgProtobufHeader(const CMsgProtobufHeader& from)
+CMsgProtoBufHeader::CMsgProtoBufHeader(const CMsgProtoBufHeader& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  CMsgProtobufHeader* const _this = this; (void)_this;
+  CMsgProtoBufHeader* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
@@ -498,10 +498,10 @@ CMsgProtobufHeader::CMsgProtobufHeader(const CMsgProtobufHeader& from)
   ::memcpy(&_impl_.client_steam_id_, &from._impl_.client_steam_id_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.job_id_target_) -
     reinterpret_cast<char*>(&_impl_.client_steam_id_)) + sizeof(_impl_.job_id_target_));
-  // @@protoc_insertion_point(copy_constructor:CMsgProtobufHeader)
+  // @@protoc_insertion_point(copy_constructor:CMsgProtoBufHeader)
 }
 
-inline void CMsgProtobufHeader::SharedCtor(
+inline void CMsgProtoBufHeader::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
@@ -529,8 +529,8 @@ inline void CMsgProtobufHeader::SharedCtor(
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
-CMsgProtobufHeader::~CMsgProtobufHeader() {
-  // @@protoc_insertion_point(destructor:CMsgProtobufHeader)
+CMsgProtoBufHeader::~CMsgProtoBufHeader() {
+  // @@protoc_insertion_point(destructor:CMsgProtoBufHeader)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -538,18 +538,18 @@ CMsgProtobufHeader::~CMsgProtobufHeader() {
   SharedDtor();
 }
 
-inline void CMsgProtobufHeader::SharedDtor() {
+inline void CMsgProtoBufHeader::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.target_job_name_.Destroy();
   _impl_.error_message_.Destroy();
 }
 
-void CMsgProtobufHeader::SetCachedSize(int size) const {
+void CMsgProtoBufHeader::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void CMsgProtobufHeader::Clear() {
-// @@protoc_insertion_point(message_clear_start:CMsgProtobufHeader)
+void CMsgProtoBufHeader::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgProtoBufHeader)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -577,7 +577,7 @@ void CMsgProtobufHeader::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* CMsgProtobufHeader::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* CMsgProtoBufHeader::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
@@ -636,7 +636,7 @@ const char* CMsgProtobufHeader::_InternalParse(const char* ptr, ::_pbi::ParseCon
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           #ifndef NDEBUG
-          ::_pbi::VerifyUTF8(str, "CMsgProtobufHeader.target_job_name");
+          ::_pbi::VerifyUTF8(str, "CMsgProtoBufHeader.target_job_name");
           #endif  // !NDEBUG
         } else
           goto handle_unusual;
@@ -657,7 +657,7 @@ const char* CMsgProtobufHeader::_InternalParse(const char* ptr, ::_pbi::ParseCon
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           #ifndef NDEBUG
-          ::_pbi::VerifyUTF8(str, "CMsgProtobufHeader.error_message");
+          ::_pbi::VerifyUTF8(str, "CMsgProtoBufHeader.error_message");
           #endif  // !NDEBUG
         } else
           goto handle_unusual;
@@ -708,9 +708,9 @@ failure:
 #undef CHK_
 }
 
-uint8_t* CMsgProtobufHeader::_InternalSerialize(
+uint8_t* CMsgProtoBufHeader::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CMsgProtobufHeader)
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgProtoBufHeader)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -750,7 +750,7 @@ uint8_t* CMsgProtobufHeader::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_target_job_name().data(), static_cast<int>(this->_internal_target_job_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CMsgProtobufHeader.target_job_name");
+      "CMsgProtoBufHeader.target_job_name");
     target = stream->WriteStringMaybeAliased(
         12, this->_internal_target_job_name(), target);
   }
@@ -766,7 +766,7 @@ uint8_t* CMsgProtobufHeader::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_error_message().data(), static_cast<int>(this->_internal_error_message().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CMsgProtobufHeader.error_message");
+      "CMsgProtoBufHeader.error_message");
     target = stream->WriteStringMaybeAliased(
         14, this->_internal_error_message(), target);
   }
@@ -788,12 +788,12 @@ uint8_t* CMsgProtobufHeader::_InternalSerialize(
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:CMsgProtobufHeader)
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgProtoBufHeader)
   return target;
 }
 
-size_t CMsgProtobufHeader::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CMsgProtobufHeader)
+size_t CMsgProtoBufHeader::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgProtoBufHeader)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -865,17 +865,17 @@ size_t CMsgProtobufHeader::ByteSizeLong() const {
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgProtobufHeader::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgProtoBufHeader::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    CMsgProtobufHeader::MergeImpl
+    CMsgProtoBufHeader::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgProtobufHeader::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgProtoBufHeader::GetClassData() const { return &_class_data_; }
 
 
-void CMsgProtobufHeader::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<CMsgProtobufHeader*>(&to_msg);
-  auto& from = static_cast<const CMsgProtobufHeader&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgProtobufHeader)
+void CMsgProtoBufHeader::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgProtoBufHeader*>(&to_msg);
+  auto& from = static_cast<const CMsgProtoBufHeader&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgProtoBufHeader)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -920,18 +920,18 @@ void CMsgProtobufHeader::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, con
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void CMsgProtobufHeader::CopyFrom(const CMsgProtobufHeader& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CMsgProtobufHeader)
+void CMsgProtoBufHeader::CopyFrom(const CMsgProtoBufHeader& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgProtoBufHeader)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool CMsgProtobufHeader::IsInitialized() const {
+bool CMsgProtoBufHeader::IsInitialized() const {
   return true;
 }
 
-void CMsgProtobufHeader::InternalSwap(CMsgProtobufHeader* other) {
+void CMsgProtoBufHeader::InternalSwap(CMsgProtoBufHeader* other) {
   using std::swap;
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
@@ -946,9 +946,9 @@ void CMsgProtobufHeader::InternalSwap(CMsgProtobufHeader* other) {
       &other->_impl_.error_message_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgProtobufHeader, _impl_.gc_dir_index_source_)
-      + sizeof(CMsgProtobufHeader::_impl_.gc_dir_index_source_)
-      - PROTOBUF_FIELD_OFFSET(CMsgProtobufHeader, _impl_.client_steam_id_)>(
+      PROTOBUF_FIELD_OFFSET(CMsgProtoBufHeader, _impl_.gc_dir_index_source_)
+      + sizeof(CMsgProtoBufHeader::_impl_.gc_dir_index_source_)
+      - PROTOBUF_FIELD_OFFSET(CMsgProtoBufHeader, _impl_.client_steam_id_)>(
           reinterpret_cast<char*>(&_impl_.client_steam_id_),
           reinterpret_cast<char*>(&other->_impl_.client_steam_id_));
   swap(_impl_.eresult_, other->_impl_.eresult_);
@@ -956,7 +956,7 @@ void CMsgProtobufHeader::InternalSwap(CMsgProtobufHeader* other) {
   swap(_impl_.job_id_target_, other->_impl_.job_id_target_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata CMsgProtobufHeader::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgProtoBufHeader::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_steammessages_2eproto_getter, &descriptor_table_steammessages_2eproto_once,
       file_level_metadata_steammessages_2eproto[0]);
@@ -3244,9 +3244,9 @@ PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::PROTOBUF_NAMESPACE_ID::internal::ExtensionId
 
 // @@protoc_insertion_point(namespace_scope)
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::CMsgProtobufHeader*
-Arena::CreateMaybeMessage< ::CMsgProtobufHeader >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CMsgProtobufHeader >(arena);
+template<> PROTOBUF_NOINLINE ::CMsgProtoBufHeader*
+Arena::CreateMaybeMessage< ::CMsgProtoBufHeader >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgProtoBufHeader >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CGCSystemMsg_GetAccountDetails*
 Arena::CreateMaybeMessage< ::CGCSystemMsg_GetAccountDetails >(Arena* arena) {

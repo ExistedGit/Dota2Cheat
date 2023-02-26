@@ -3,6 +3,7 @@
 #include "../Wrappers.h"
 #include "../ValveClasses.h"
 #include "../EnemySpellHighlight.h"
+#include "../TargetedSpellHighlighter.h"
 
 namespace Hooks {
 	inline Signatures::OnRemoveModifierFn oOnRemoveModifier = nullptr;
@@ -14,22 +15,25 @@ namespace Hooks {
 		if (modName.starts_with("modifier_item"))
 		{
 			auto itemName = modName.substr(9); // removing the "modifier_" prefix
-
 			auto owner = modifier->GetOwner();
 			auto foundItem = owner->FindItemBySubstring(itemName.c_str());
 			if (foundItem.IsValid()) {
 				if (strstr(foundItem.name, "midas")) {
 					ctx.importantItems.midas = foundItem.GetAs<BaseAbility>();
 				}
+				else if (strstr(foundItem.name, "sphere")) {
+					Modules::TargetedSpellHighlighter.SubscribeLinkenRendering(owner, foundItem.GetAs<BaseAbility>());
+				}
 			}
 		}
-		else
-			Modules::EnemySpellHighlighter.RenderIfThinkerModifier(modifier);
 	}
 
-	void hkOnAddModifier(DotaModifier* thisptr, int unk) {
-		CacheIfItemModifier(thisptr);
-		oOnAddModifier(thisptr, unk);
+	void hkOnAddModifier(DotaModifier* modifier, int unk) {
+		CacheIfItemModifier(modifier);
+		Modules::TargetedSpellHighlighter.DrawParticleIfTargetedSpell(modifier);
+		Modules::EnemySpellHighlighter.RenderIfThinkerModifier(modifier);
+
+		oOnAddModifier(modifier, unk);
 	}
 
 	void hkOnRemoveModifier(DotaModifier* modifier, CDOTAPlayerResource* playerResource, void* unk) {
@@ -40,16 +44,22 @@ namespace Hooks {
 			HookFunc(onAddModifier, &hkOnAddModifier, &oOnAddModifier, "AddModifier");
 		}
 
+
 		std::string_view modName = modifier->GetName();
 		if (modName.starts_with("modifier_item"))
 		{
 			auto itemName = modName.substr(9); // removing the "modifier_" prefix
-			if (itemName.find("midas", 0) != std::string_view::npos &&
+			if (itemName.find("midas", 0) != -1 &&
 				modifier->GetOwner() == ctx.assignedHero) {
 				ctx.importantItems.midas = nullptr;
 			}
+			else if (itemName.find("sphere", 0) != -1) {
+				Modules::TargetedSpellHighlighter.UnsubscribeLinkenRendering(modifier->GetOwner());
+			}
 
 		}
+
+		Modules::TargetedSpellHighlighter.RemoveParticleIfTargetedSpell(modifier);
 
 		oOnRemoveModifier(modifier, playerResource, unk);
 	}
