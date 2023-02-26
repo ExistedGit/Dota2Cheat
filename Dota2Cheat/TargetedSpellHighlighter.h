@@ -63,14 +63,16 @@ namespace Hacks {
 		std::map<DotaModifier*, CDOTAParticleManager::ParticleWrapper> TrackedModifiers{};
 	public:
 		void Reset() {
+			OnDisableTargetedSpells();
+			OnDisableLinken();
 			HeroesWithLinken.clear();
-			TrackedModifiers.clear();
-			LinkenSphereParticles.clear();
 		}
 
 		void OnDisableTargetedSpells() {
 			for (auto& [_, pw] : TrackedModifiers)
-				Globals::ParticleManager->DestroyParticle(pw);
+				if (pw.handle != 0xFFFFFFFF)
+					Globals::ParticleManager->DestroyParticle(pw);
+			
 
 			TrackedModifiers.clear();
 		}
