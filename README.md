@@ -16,6 +16,8 @@ also using [Lua 5.4](https://www.lua.org/) and [sol2](https://github.com/ThePhD/
 Open the project in Visual Studio and build as **Release x64**
 
 ## Injecting
+You need to have libprotobuf DLLs in your game folder, get them from a release in this repo or install protobuf via vcpkg and get them fron the vcpkg/installed/x64-windows/bin folder
+
 I recommend using [Extreme Injector v3.7.2](https://www.unknowncheats.me/forum/downloads.php?do=file&id=21570) with either Thread Hijacking or the default option
 
 It can apparently suddenly stop working at all(the .exe won't launch) so you can compile the Dota2Loader project from this repo
@@ -51,7 +53,7 @@ This list is subject to frequent change as I'm testing new features
   * ~~`dota_use_particle_fow`~~ RIP too
 
 * Utility:
-  * Bypasses Blink Dagger's overshoot which normally makes you only blink for 1000 units if clicked out of its casting range
+  * Perfect Blink
   * Prevents bad spell casts(such as Black Hole/Chronosphere with no one in its radius)
 
 * Visuals:
