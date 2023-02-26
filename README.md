@@ -39,10 +39,12 @@ This list is subject to frequent change as I'm testing new features
   * ~~Visible by Enemy~~ RIP on 21.02.2023, you shall not be forgotten
   * Roshan — saves his death time and approximates when he will spawn [WIP]
   * Draw circles of custom radius around you hero(e. g. to see XP receiving range)
-  * Highlights enemy sun strikes as if they were yours
+  * Shows point-cast spells(Sunstrike, Torrent, Light Strike Array)
+  * Shows target-cast spells(Assassinate, Charge of Darkness)
+  * Shows Linken's Sphere effect on heroes
   * Renders any and all possible particles, including in FoW
   * Customizable enemy illusion coloring
-  
+ 
 * Convars:
   * `sv_cheats` spoofing
   * customizable `dota_camera_distance` with proper `r_farz` and `fog_enable`(no clipping or blue fog)
