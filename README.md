@@ -1,6 +1,6 @@
 # Dota2Cheat: now with Lua!
 
-![Screenshot](https://user-images.githubusercontent.com/66470490/220915529-598f1e87-3047-4dc2-928b-9901808e321f.png)
+![Screenshot_462](https://user-images.githubusercontent.com/66470490/221685025-95ce9474-6eeb-4a1d-aa2b-09b184710173.png)
 
 SDK folder code is from another github repo, [McDota](https://github.com/LWSS/McDota) by LWSS. It's a very helpful source regarding memory structures
 
@@ -18,11 +18,13 @@ Open the project in Visual Studio and build as **Release x64**
 ## Injecting
 You need to have libprotobuf DLLs in your the folder with dota2.exe, get them from a release in this repo or install protobuf via vcpkg and get them from the vcpkg/installed/x64-windows/bin folder
 
+It is preferrable to inject before entering a match. Though you can safely (re)inject mid-match, some functions will not work(such as projectile trajectories)
+
 I recommend using [Extreme Injector v3.7.2](https://www.unknowncheats.me/forum/downloads.php?do=file&id=21570) with either Thread Hijacking or the default option
 
-It can apparently suddenly stop working at all(the .exe won't launch) so you can compile the Dota2Loader project from this repo
+This damn injector can apparently suddenly stop working at all(the .exe won't launch) so you can compile the Dota2Loader project from this repo if that ever happens
 
-**ABSOLUTELY DETECTABLE BY VAC, FOR USE IN DEMO MODE OR A LOBBY**
+**ABSOLUTELY DETECTABLE BY VAC, FOR USE IN DEMO MODE OR A LOBBY** (Memory Map support WIP)
 
 # Features
 To open the cheat menu, press Insert
