@@ -2,6 +2,7 @@
 #include <sol/sol.hpp>
 #include <iostream>
 #include <cstdint>
+#include <string_view>
 
 #include <vector>
 #include "Input.h"
@@ -211,6 +212,15 @@ inline bool TestStringFilters(const char* str, const std::vector<const char*>& f
 
 	return false;
 }
+
+inline bool TestStringFilters(std::string_view str, const std::vector<const char*>& filters) {
+	for (auto& filter : filters)
+		if (str.find(filter, 0) != -1)
+			return true;
+
+	return false;
+}
+
 
 inline void HookFunc(void* func, void* detour, void* original, const std::string& name) {
 	if (MH_CreateHook(func, detour,

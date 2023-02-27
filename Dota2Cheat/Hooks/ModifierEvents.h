@@ -11,12 +11,12 @@ namespace Hooks {
 	inline bool HookedOnAddModifier = false;
 
 	void CacheIfItemModifier(DotaModifier* modifier) {
-		std::string modName = modifier->GetName();
+		std::string_view modName = modifier->GetName();
 		if (modName.starts_with("modifier_item"))
 		{
 			auto itemName = modName.substr(9); // removing the "modifier_" prefix
 			auto owner = modifier->GetOwner();
-			auto foundItem = owner->FindItemBySubstring(itemName.c_str());
+			auto foundItem = owner->FindItemBySubstring(itemName.data());
 			if (foundItem.IsValid()) {
 				if (strstr(foundItem.name, "midas")) {
 					ctx.importantItems.midas = foundItem.GetAs<BaseAbility>();
@@ -32,7 +32,7 @@ namespace Hooks {
 		CacheIfItemModifier(modifier);
 		Modules::TargetedSpellHighlighter.DrawParticleIfTargetedSpell(modifier);
 		Modules::EnemySpellHighlighter.RenderIfThinkerModifier(modifier);
-
+		Modules::LinearProjectileWarner.DrawIfTrajectoryModifier(modifier);
 		oOnAddModifier(modifier, unk);
 	}
 
@@ -60,6 +60,7 @@ namespace Hooks {
 		}
 
 		Modules::TargetedSpellHighlighter.RemoveParticleIfTargetedSpell(modifier);
+		Modules::LinearProjectileWarner.RemoveParticleIfTrajectoryModifier(modifier);
 
 		oOnRemoveModifier(modifier, playerResource, unk);
 	}
