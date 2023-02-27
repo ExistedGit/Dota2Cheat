@@ -12,6 +12,7 @@
 #include "../AutoUseMagicWand.h"
 #include "../ShakerAttackAnimFix.h"
 #include "../TargetedSpellHighlighter.h"
+#include "../LinearProjectileWarner.h"
 
 #include "../ParticleGC.h"
 
@@ -134,6 +135,7 @@ namespace Hooks {
 					Modules::RiverPaint.FrameBasedLogic();
 					Modules::ParticleGC.FrameBasedLogic();
 					Modules::TargetedSpellHighlighter.FrameBasedLogic();
+					Modules::LinearProjectileWarner.FrameBasedLogic();
 
 					EntityIteration();
 				}

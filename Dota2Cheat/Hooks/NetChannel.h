@@ -3,6 +3,7 @@
 #include "../Signatures.h"
 #include "VMT.h"
 #include "../ShakerAttackAnimFix.h"
+#include "../LinearProjectileWarner.h"
 
 namespace Hooks {
 	// for MinHook
@@ -28,6 +29,7 @@ namespace Hooks {
 		const char* name = info->pProtobufBinding->GetName();
 
 		Modules::ShakerAttackAnimFix.ChangeAttackAnimIfNeeded(messageHandle, msg);
+		Modules::LinearProjectileWarner.ProcessLinearProjectileMsg(messageHandle, msg);
 
 		return VMTs::NetChannel->GetOriginalMethod<decltype(&hkPostReceivedNetMessage)>(86)(thisptr, messageHandle, msg, type, bits);
 	}

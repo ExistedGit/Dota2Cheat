@@ -17,7 +17,10 @@ namespace Signatures {
 	typedef void(__fastcall* WorldToScreenFn)(Vector3* coord, int* outX, int* outY, void* offset);
 	typedef void(__fastcall* DestroyParticleFn)(void* thisptr, ENT_HANDLE handle, bool unk);
 	typedef double(__fastcall* GetLevelSpecialValueForFn)(void* thisptr, int abilityIndex, const char* value, int level);
-
+	
+	//there's actually no point in sigging it
+	//netmessages ftw
+	//typedef CDOTAParticleManager::CNewParticleEffect* (__fastcall* CreateLinearProjectile)(void* thisptr, void* creationInfo);
 
 	typedef bool (*BAsyncSendProtoFn)(CProtobufMsgBase* protobufMsg, IProtoBufSendHandler* handler, google::protobuf::Message* responseMsg, unsigned int respMsgID);
 	typedef bool (*DispatchPacketFn)(void*, IMsgNetPacket*);

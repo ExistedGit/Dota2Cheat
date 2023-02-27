@@ -2,6 +2,7 @@
 #include <sol/sol.hpp>
 #include <iostream>
 #include <cstdint>
+#include <string_view>
 
 #include <vector>
 #include "Input.h"
@@ -33,6 +34,11 @@ struct Vector2 {
 	Vector2(float x, float y) : x(x), y(y) {
 
 	}
+
+	float Length() {
+		return sqrtf(x * x + y * y);
+	}
+
 	float DistanceTo(Vector2 v) {
 		return sqrtf(powf(v.x - x, 2) + powf(v.y - y, 2));
 	}
@@ -44,6 +50,20 @@ struct Vector2 {
 			<< "}";
 		return os;
 	}
+
+	friend Vector2 operator+(const Vector2& v1, const Vector2& v2) {
+		return Vector2(v1.x + v2.x, v1.y + v2.y);
+	}
+	friend Vector2 operator*(const Vector2& v1, float n) {
+		return Vector2(v1.x * n, v1.y * n);
+	}
+	friend Vector2 operator-(const Vector2& v1, const Vector2& v2) {
+		return Vector2(v1.x - v2.x, v1.y - v2.y);
+	}
+	friend Vector2 operator/(const Vector2& v1, float n) {
+		return Vector2(v1.x / n, v1.y / n);
+	}
+
 };
 
 struct Vector3 {
@@ -73,7 +93,16 @@ struct Vector3 {
 	friend Vector3 operator*(const Vector3& v1, float n) {
 		return Vector3(v1.x * n, v1.y * n, v1.z * n);
 	}
+	friend Vector3 operator-(const Vector3& v1, const Vector3& v2) {
+		return Vector3(v1.x - v2.x, v1.y - v2.y, v2.z - v1.z);
+	}
+	friend Vector3 operator/(const Vector3& v1, float n) {
+		return Vector3(v1.x / n, v1.y / n, v1.z / n);
+	}
 
+	friend Vector3 operator+(const Vector3& v1, const Vector2& v2) {
+		return Vector3(v1.x + v2.x, v1.y + v2.y, v1.z);
+	}
 
 	friend std::ostream& operator<<(std::ostream& os, const Vector3& vec) {
 		os << "{" << ' '
@@ -183,6 +212,15 @@ inline bool TestStringFilters(const char* str, const std::vector<const char*>& f
 
 	return false;
 }
+
+inline bool TestStringFilters(std::string_view str, const std::vector<const char*>& filters) {
+	for (auto& filter : filters)
+		if (str.find(filter, 0) != -1)
+			return true;
+
+	return false;
+}
+
 
 inline void HookFunc(void* func, void* detour, void* original, const std::string& name) {
 	if (MH_CreateHook(func, detour,

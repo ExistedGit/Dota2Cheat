@@ -356,5 +356,8 @@
     <ClInclude Include="ParticleGC.h">
       <Filter>Header files</Filter>
     </ClInclude>
+    <ClInclude Include="LinearProjectileWarner.h">
+      <Filter>Header files\Hacks</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
