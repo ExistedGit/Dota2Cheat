@@ -16,7 +16,7 @@ also using [Lua 5.4](https://www.lua.org/) and [sol2](https://github.com/ThePhD/
 Open the project in Visual Studio and build as **Release x64**
 
 ## Injecting
-You need to have libprotobuf DLLs in your game folder, get them from a release in this repo or install protobuf via vcpkg and get them fron the vcpkg/installed/x64-windows/bin folder
+You need to have libprotobuf DLLs in your the folder with dota2.exe, get them from a release in this repo or install protobuf via vcpkg and get them from the vcpkg/installed/x64-windows/bin folder
 
 I recommend using [Extreme Injector v3.7.2](https://www.unknowncheats.me/forum/downloads.php?do=file&id=21570) with either Thread Hijacking or the default option
 
@@ -46,6 +46,7 @@ This list is subject to frequent change as I'm testing new features
   * Shows Linken's Sphere effect on heroes
   * Renders any and all possible particles, including in FoW
   * Customizable enemy illusion coloring
+  * Shows trajectories of enemy projectiles like Mirana's arrow
  
 * Convars:
   * `sv_cheats` spoofing
