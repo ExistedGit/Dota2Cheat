@@ -28,7 +28,7 @@ public:
 		int minutes = (gameTime - gameStartTime - offset) / 60,
 			seconds = (gameTime - gameStartTime - offset) % 60;
 
-		
+
 
 		//Interfaces::InputService->CmdCommand(std::format("say_team Roshan died: {}{}:{}{}",
 		//	(minutes < 10 ? "0" : ""),
@@ -51,8 +51,8 @@ public:
 		std::cout << std::dec << "Roshan died: "
 			<< (minutes < 10 ? "0" : "") << minutes << ':'
 			<< (seconds < 10 ? "0" : "") << seconds << "\n";
-	}
 #endif // _DEBUG
+	}
 };
 
 class EntityHurtListener : public IGameEventListener2 {
