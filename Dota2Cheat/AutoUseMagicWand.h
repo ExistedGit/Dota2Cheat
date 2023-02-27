@@ -5,7 +5,6 @@
 //extern DotaPlayer* ctx.localPlayer;
 
 // Uses the wand if the health is at N% of max, where N is hpPercentTreshold(values are percents, like 10 or 20)
-// if you don't specify the hero it will check your main hero
 inline void AutoUseWandCheck(BaseNpc* hero, int hpPercentTreshold, int minCharges) {
 	if (!Config::AutoWandEnabled)
 		return;
@@ -22,6 +21,7 @@ inline void AutoUseWandCheck(BaseNpc* hero, int hpPercentTreshold, int minCharge
 		ctx.localPlayer->CastNoTarget(wand.handle, hero);
 	}
 }
+
 inline void AutoUseFaerieFireCheck(BaseNpc* hero, int hpPercentTreshold) {
 	if (!Config::AutoWandEnabled)
 		return;

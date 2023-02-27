@@ -10,8 +10,6 @@ namespace Hacks {
 	class TargetedSpellHighlighter {
 	private:
 		struct ParticleCreationInfo {
-			ParticleAttachment_t attachType;
-
 			std::map<int, Vector3> controlPoints{};
 			float dieTime{};
 			const char* particleName{};
@@ -27,10 +25,6 @@ namespace Hacks {
 				this->dieTime = dieTime;
 				return *this;
 			}
-			ParticleCreationInfo& SetAttachType(ParticleAttachment_t value) {
-				attachType = value;
-				return *this;
-			}
 		};
 
 		std::map<std::string_view, ParticleCreationInfo> ModifierParticles = {
@@ -41,7 +35,6 @@ namespace Hacks {
 				)
 				.SetControlPoint(0, Vector3::Zero)
 				.SetControlPoint(1, Vector3::Zero)
-				.SetAttachType(PATTACH_OVERHEAD_FOLLOW)
 			},
 			{
 				"modifier_sniper_assassinate",
@@ -51,7 +44,6 @@ namespace Hacks {
 				.SetControlPoint(0, Vector3::Zero)
 				.SetControlPoint(60, Vector3::Zero) // RGB color of the crosshair
 				.SetControlPoint(61, Vector3::Zero) // X coordinate controls whether the color applies
-				.SetAttachType(PATTACH_OVERHEAD_FOLLOW)
 			}
 		};
 
@@ -142,7 +134,7 @@ namespace Hacks {
 
 			TrackedModifiers[modifier] = Globals::ParticleManager->CreateParticle(
 				entry.particleName,
-				entry.attachType,
+				PATTACH_OVERHEAD_FOLLOW,
 				modifier->GetOwner()
 			);
 			for (auto& cp : entry.controlPoints)

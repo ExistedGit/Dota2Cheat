@@ -58,13 +58,14 @@ namespace Test {
 
 	void hkSetControlPoint(VClass* thisptr, int idx, Vector3* pos) {
 		partMap[thisptr]->GetOriginalMethod<decltype(&hkSetControlPoint)>(16)(thisptr, idx, pos);
+		//std::cout << "Set CP #" << idx << ": " << *pos << '\n';
 	}
 
 	void hkCreateParticle(CDOTAParticleManager* thisptr, uint32_t handle, CDOTAParticleManager::ParticleInfo* info) {
 		ParticleManagerVMT->GetOriginalMethod<decltype(&hkCreateParticle)>(7)(thisptr, handle, info);
-		if (!strcmp(info->particleName, "particles/items_fx/immunity_sphere_buff.vpcf")) {
+		if (!strcmp(info->particleName, " particles/ui_mouseactions/range_finder_tower_line.vpcf")) {
 			auto newParticleCollection = Globals::ParticleManager->GetParticleArray()[Globals::ParticleManager->GetParticleCount() - 1]->GetParticle()->GetParticleCollection();
-
+			//std::cout << "Created particle: " << info->particleName << '\n';
 			partMap[newParticleCollection] = std::unique_ptr<VMT>(new VMT(newParticleCollection));
 			partMap[newParticleCollection]->HookVM(hkSetControlPoint, 16);
 			partMap[newParticleCollection]->ApplyVMT();

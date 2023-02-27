@@ -119,7 +119,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	VMTs::Entity->ApplyVMT();
 	Hooks::SetUpVirtualHooks();
 
-
 	glfwSetErrorCallback(glfw_error_callback);
 	if (!glfwInit())
 		return 1;
@@ -306,6 +305,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			}
 			ImGui::Checkbox("Show all particles", &Config::RenderAllParticles);
 			ImGui::SameLine(); HelpMarker("Renders any possible particle, even in FoW");
+
+			ImGui::Checkbox("Show enemy projectile trajectory", &Config::WarnLinearProjectiles);
+			ImGui::SameLine(); HelpMarker("Draws a red line for things like Mirana's arrow");
+
 
 			ImGui::Checkbox("Auto-use Hand of Midas", &Config::AutoMidasEnabled);
 			ImGui::Checkbox("Auto-buy Tome of Knowledge", &Config::AutoBuyTome);

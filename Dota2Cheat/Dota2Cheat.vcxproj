@@ -235,6 +235,7 @@
     <ClInclude Include="Hooks\EntitySystemEvents.h" />
     <ClInclude Include="EventListeners.h" />
     <ClInclude Include="HookHelper.h" />
+    <ClInclude Include="LinearProjectileWarner.h" />
     <ClInclude Include="Lua\LuaModules.h" />
     <ClInclude Include="Lua\LuaInitialization.h" />
     <ClInclude Include="Hooks\NetChannel.h" />
