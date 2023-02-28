@@ -48,7 +48,7 @@ This list is subject to frequent change as I'm testing new features
   * Shows Linken's Sphere effect on heroes
   * Renders any and all possible particles, including in FoW
   * Customizable enemy illusion coloring
-  * Shows trajectories of enemy projectiles like Mirana's arrow
+  * Shows trajectories of enemy projectiles like Mirana's arrow and non-projectile abilities like Meat Hook
  
 * Convars:
   * `sv_cheats` spoofing
