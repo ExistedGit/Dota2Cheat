@@ -359,5 +359,8 @@
     <ClInclude Include="LinearProjectileWarner.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
+    <ClInclude Include="ParticleAbilityWarner.h">
+      <Filter>Header files\Hacks</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
