@@ -1,5 +1,4 @@
 #pragma once
-#include "LinearProjectileWarner.h"
 #include <map>
 #include "Globals.h"
 #include "Wrappers.h"
@@ -36,8 +35,24 @@ namespace Hacks {
 		std::map<int32_t, CDOTAParticleManager::ParticleWrapper> TrackedProjectiles{};
 		std::map<int32_t, LinearProjectile> linearProjectiles{};
 
-		std::map<std::string_view, int> AbilityTrajectories{
-			{"modifier_hoodwink_sharpshooter_windup", 3125}
+
+		struct AbilityTrajectoryConfig {
+			int value;
+			bool isAbilitySlot; // if false, value is distance
+		};
+
+		std::map<std::string_view, AbilityTrajectoryConfig> AbilityTrajectories{
+			{"modifier_hoodwink_sharpshooter_windup",
+			AbilityTrajectoryConfig{
+				.value = 3125,
+				.isAbilitySlot = false
+			}
+			},
+			{"modifier_keeper_of_the_light_illuminate",
+		AbilityTrajectoryConfig{
+				.value = 7,
+				.isAbilitySlot = true
+			}}
 		};
 
 		struct EntTrajectoryInfo {
@@ -69,9 +84,14 @@ namespace Hacks {
 				return;
 
 			auto owner = modifier->GetOwner();
-			if (AbilityTrajectories.count(modifier->GetName()) && 
+			if (AbilityTrajectories.count(modifier->GetName()) &&
 				!EntityTrajectories.count(modifier)) {
-				int offset = AbilityTrajectories[modifier->GetName()];
+				auto trajectoryInfo = AbilityTrajectories[modifier->GetName()];
+				int offset = 0;
+				offset = trajectoryInfo.isAbilitySlot 
+					? offset = owner->GetAbilities()[trajectoryInfo.value].GetAs<BaseAbility>()->GetEffectiveCastRange() 
+					: offset = trajectoryInfo.value;
+
 				EntityTrajectories[modifier] = EntTrajectoryInfo{
 					.offset = offset,
 					.particleWrap = DrawTrajectory(
@@ -95,6 +115,7 @@ namespace Hacks {
 				info.particleWrap.particle->SetControlPoint(7, &forwardVec);
 			}
 		}
+
 
 		void ProcessLinearProjectileMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
 			if (msgHandle->messageID == 471) {

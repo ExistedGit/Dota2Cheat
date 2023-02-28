@@ -44,7 +44,7 @@ namespace Hooks {
 				continue;
 
 			const char* className = ent->SchemaBinding()->binaryName;
-			if (className == nullptr)
+			if (!className)
 				continue;
 
 			if (!midasUsed && CanUseMidas() && strstr(className, "Creep")) {
@@ -80,24 +80,25 @@ namespace Hooks {
 					ctx.localPlayer->PrepareOrder(DOTA_UNIT_ORDER_CAST_TARGET, ent->GetIdentity()->GetEntIndex(), &Vector3::Zero, midasEnt->GetIdentity()->GetEntIndex(), DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, ctx.assignedHero);
 				}
 			}
-			else if (Config::AutoPickUpRunes && !runePickUp && strstr(className, "C_DOTA_Item_Rune")) {
+			else if (Config::AutoPickUpRunes && !runePickUp && ctx.runes.count((ItemRune*)ent)) {
 				auto* rune = (ItemRune*)ent;
 				if (
 					rune->GetRuneType() == DotaRunes::BOUNTY &&
 					IsWithinRadius(rune->GetPos2D(), ctx.assignedHero->GetPos2D(), 150.0f)
 					)
 					ctx.localPlayer->PrepareOrder(DOTA_UNIT_ORDER_PICKUP_RUNE, ent->GetIdentity()->GetEntIndex(), &Vector3::Zero, 0, DOTA_ORDER_ISSUER_HERO_ONLY, ctx.assignedHero, false, false);
-				
 			}
 			else {
+
+				if (Modules::IllusionColoring.ColorIfIllusion(ent)
+					|| Modules::AegisAutoPickup.PickUpIfAegis(ent))
+					continue;
 				//sol::table luaModules = ctx.lua["Modules"];
 				//for (auto& pair : luaModules) {
 				//	sol::function callback = pair.second.as<sol::table>()["OnEntity"];
 				//	if (callback.get_type() != sol::type::nil)
 				//		callback(ent);
 				//}
-				Modules::IllusionColoring.ColorIfIllusion(ent);
-				Modules::AegisAutoPickup.PickUpIfAegis(ent);
 			}
 		}
 	}

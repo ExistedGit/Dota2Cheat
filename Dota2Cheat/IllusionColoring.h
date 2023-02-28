@@ -6,9 +6,9 @@ namespace Hacks {
 	// The netvar is unique in having a callback
 	class IllusionColoring {
 	public:
-		void ColorIfIllusion(BaseEntity* ent) {
+		bool ColorIfIllusion(BaseEntity* ent) {
 			const char* className = ent->SchemaBinding()->binaryName;
-			if (className  &&
+			if (className &&
 				strstr(className, "C_DOTA_Unit_Hero") ) {
 				auto hero = (BaseNpcHero*)ent;
 				if (
@@ -18,8 +18,10 @@ namespace Hacks {
 					) {
 
 					hero->SetColor(Color(Config::IllusionColor.x * 255, Config::IllusionColor.y * 255, Config::IllusionColor.z * 255));
+					return true;
 				}
 			}
+			return false;
 		}
 	};
 }

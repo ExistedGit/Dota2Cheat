@@ -249,6 +249,7 @@
     <ClInclude Include="IScriptVM.h" />
     <ClInclude Include="Hooks\ParticleRendering.h" />
     <ClInclude Include="Panorama.h" />
+    <ClInclude Include="ParticleAbilityWarner.h" />
     <ClInclude Include="ParticleGC.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Projectiles.h" />

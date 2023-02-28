@@ -4,17 +4,20 @@
 namespace Hacks {
 	class AegisAutoPickup {
 	public:
-		void PickUpIfAegis(BaseEntity* ent) {
+		bool PickUpIfAegis(BaseEntity* ent) {
 			auto className = ent->SchemaBinding()->binaryName;
 			if (!strstr(className, "Item_Physical"))
-				return;
+				return false;
 			auto item = Interfaces::EntitySystem->GetEntity(H2IDX(ent->Member<ENT_HANDLE>(0x990)));
 			if (!strstr(item->GetIdentity()->GetName(), "aegis"))
-				return;
+				return false;
 
-			if (IsWithinRadius(ent->GetPos2D(), ctx.assignedHero->GetPos2D(), 130))
+			if (IsWithinRadius(ent->GetPos2D(), ctx.assignedHero->GetPos2D(), 130)) {
 				ctx.localPlayer->PrepareOrder(DOTA_UNIT_ORDER_PICKUP_ITEM, H2IDX(ent->GetIdentity()->entHandle), &Vector3::Zero, 0, DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, ctx.assignedHero, false, false);
+				return true;
+			}
 			
+			return false;
 		}
 	};
 }

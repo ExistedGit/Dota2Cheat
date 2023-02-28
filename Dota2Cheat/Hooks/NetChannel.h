@@ -3,6 +3,7 @@
 #include "../Signatures.h"
 #include "VMT.h"
 #include "../ShakerAttackAnimFix.h"
+#include "../ParticleAbilityWarner.h"
 #include "../LinearProjectileWarner.h"
 
 namespace Hooks {
@@ -30,12 +31,16 @@ namespace Hooks {
 
 		Modules::ShakerAttackAnimFix.ChangeAttackAnimIfNeeded(messageHandle, msg);
 		Modules::LinearProjectileWarner.ProcessLinearProjectileMsg(messageHandle, msg);
+		Modules::ParticleAbilityWarner.ProcessParticleMsg(messageHandle, msg);
 
 		return VMTs::NetChannel->GetOriginalMethod<decltype(&hkPostReceivedNetMessage)>(86)(thisptr, messageHandle, msg, type, bits);
 	}
 
 	inline void* CreateNetChannel(void* thisptr, int unk, void* ns_addr, const char* str, unsigned int uUnk, unsigned int uUnk2) {
+		if (VMTs::NetChannel.get())
+			VMTs::NetChannel->ReleaseDestroyedVMT();
 		VMTs::NetChannel.reset();
+
 		void* ret = VMTs::NetworkSystem->GetOriginalMethod<decltype(&CreateNetChannel)>(26)(thisptr, unk, ns_addr, str, uUnk, uUnk2);
 
 		VMTs::NetChannel = std::unique_ptr<VMT>(new VMT(ret));

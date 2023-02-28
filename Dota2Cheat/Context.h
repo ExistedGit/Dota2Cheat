@@ -8,6 +8,7 @@ class BaseNpc;
 class BaseEntity;
 class DotaPlayer;
 class BaseAbility;
+class ItemRune;
 
 struct Context {
 	DotaPlayer* localPlayer{};
@@ -17,10 +18,12 @@ struct Context {
 	int CurProcId;
 	bool IsInMatch = false;
 
+	std::set<ItemRune*> runes{};
 	std::set<BaseEntity*> entities{};
 	std::set<DotaPlayer*> players{};
 	std::set<BaseEntity*> physicalItems{};
 	std::set<BaseNpc*> heroes{};
+	
 	struct {
 		BaseAbility* midas{};
 	} importantItems{};
