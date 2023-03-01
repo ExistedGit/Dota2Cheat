@@ -2,6 +2,9 @@
 
 ![Screenshot_462](https://user-images.githubusercontent.com/66470490/221685025-95ce9474-6eeb-4a1d-aa2b-09b184710173.png)
 
+There weren't many open-source Dota cheats. And so I decided to fix that.
+Written in C++20 with love
+
 SDK folder code is from another github repo, [McDota](https://github.com/LWSS/McDota) by LWSS. It's a very helpful source regarding memory structures
 
 Using [GLFW](https://github.com/glfw/glfw), [GLEW](https://glew.sourceforge.net/) and [ImGui](https://github.com/ocornut/imgui) for the interface, cheers to their wonderful creators!
@@ -18,7 +21,7 @@ Open the project in Visual Studio and build as **Release x64**
 ## Injecting
 You need to have libprotobuf DLLs in your the folder with dota2.exe, get them from a release in this repo or install protobuf via vcpkg and get them from the vcpkg/installed/x64-windows/bin folder
 
-It is preferrable to inject before entering a match. Though you can safely (re)inject mid-match, some functions will not work(such as projectile trajectories)
+This cheat can be safely reinjected at any point of the game
 
 I recommend using [Extreme Injector v3.7.2](https://www.unknowncheats.me/forum/downloads.php?do=file&id=21570) with either Thread Hijacking or the default option
 
