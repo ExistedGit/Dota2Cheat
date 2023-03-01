@@ -6,7 +6,7 @@ namespace Hacks {
 
 	class PerfectBlink {
 	public:
-		bool AdjustIfBlink(Vector3*& position, uint32_t abilityIndex, BaseEntity* issuer) {
+		bool AdjustIfBlink(Vector3* position, uint32_t abilityIndex, BaseEntity* issuer) {
 			// Blink overshoot bypass
 			auto item = Interfaces::EntitySystem->GetEntity<BaseAbility>(abilityIndex);
 			

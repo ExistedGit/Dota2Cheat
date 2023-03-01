@@ -4,7 +4,7 @@
 #include "Wrappers.h"
 #include "Globals.h"
 
-// STUB, need to produce highly a sophisticated mechanism to track non-linear stuff
+// STUB, need to produce a highly sophisticated mechanism to track non-linear stuff
 class ProjectileTracker {
 
 public:

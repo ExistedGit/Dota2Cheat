@@ -9,7 +9,7 @@ namespace Hacks {
 	// DEPRECATED: on 21.02.2022 Valve announced that m_flStartSequence and maybe something else was their honeypot
 	// Cheats accessing it were detected and their users banned. The VBE circus ended, though there must still be the offset to the local player's part of it
 	// Search on UnknownCheats, there are at least two cheats using that there(if it still works, that is)
-	//  
+	
 	// C_DOTA_BaseNPC's m_startSequenceCycle is set to 0 if you are visible
 	// It updates 30 times a second, thus if we check it at 60FPS it needs to be 0 three times in a row
 	// This netvar is also briefly zeroed if you order the unit to move to the exact position they stand at,
