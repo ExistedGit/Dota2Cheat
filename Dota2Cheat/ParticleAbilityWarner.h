@@ -24,7 +24,9 @@ namespace Hacks {
 
 		enum AbilityParticles : uint64_t {
 			AP_PUDGE_MEAT_HOOK = 16517413739925325824,
-			AP_KOTL_ILLUMINATE = 2498180139172148061
+			AP_KOTL_ILLUMINATE = 2498180139172148061,
+			AP_BANSHEE_CRYPT_SWARM = 3020948711683823655,
+			AP_MEEPO_EARTHBIND = 9143050083230003323
 		};
 
 		struct AbilityParticleInfo {
@@ -32,15 +34,28 @@ namespace Hacks {
 			Vector3 begin{}, end{};
 			BaseNpc* owner;
 		};
-
+		// Map of particle name indexes to their respective ability indexes
+		const std::map<AbilityParticles, uint32_t> AbilityIndexes{
+			{AP_KOTL_ILLUMINATE, 7},	// illuminate is moved to index 7 when End Illuminate takes its place
+			{AP_BANSHEE_CRYPT_SWARM, 0}
+		};
 		std::map<uint32_t, AbilityParticleInfo> queuedParticleIndexes{};
 		std::map<uint32_t, CDOTAParticleManager::ParticleWrapper> TrackedAbilityParticles{};
+
+		BaseNpcHero* FindParticleOwner(const char* name) {
+			for (auto& hero : ctx.heroes)
+				if (!strcmp(hero->GetUnitName(), name)) {
+					return hero;
+					break;
+				}
+			return nullptr;
+		}
 	public:
 		// Meat hook:
 		// On create: begin = fallback_position 
 		// Update: end = control point 1
 
-		// Illuminate:
+		// Illuminate, Crypt Swarm:
 		// 
 		// Update: velocity = control point 1
 
@@ -57,20 +72,22 @@ namespace Hacks {
 					auto particle = pmMsg->create_particle();
 					switch (particle.particle_name_index()) {
 
-					case AbilityParticles::AP_KOTL_ILLUMINATE:
-					case AbilityParticles::AP_PUDGE_MEAT_HOOK:
+					case AP_KOTL_ILLUMINATE:
+					case AP_PUDGE_MEAT_HOOK:
+					case AP_BANSHEE_CRYPT_SWARM:
+					case AP_MEEPO_EARTHBIND:
 						auto& qParticle = queuedParticleIndexes[msgIndex] = AbilityParticleInfo{
 							.nameIndex = (AbilityParticles)particle.particle_name_index()
 						};
 
-						if (qParticle.nameIndex == AbilityParticles::AP_KOTL_ILLUMINATE) {
-							for (auto& hero : ctx.heroes)
-								if (!strcmp(hero->GetUnitName(), "npc_dota_hero_keeper_of_the_light")) {
-									qParticle.owner = hero;
-									break;
-								}
-							break;
-						}
+						if (qParticle.nameIndex == AP_KOTL_ILLUMINATE)
+							qParticle.owner = FindParticleOwner("npc_dota_hero_keeper_of_the_light");
+						else if (qParticle.nameIndex == AP_BANSHEE_CRYPT_SWARM)
+							qParticle.owner = FindParticleOwner("npc_dota_hero_death_prophet");
+						else if (qParticle.nameIndex == AP_MEEPO_EARTHBIND)
+							qParticle.owner = FindParticleOwner("npc_dota_hero_meepo");
+
+
 						break;
 					}
 
@@ -103,6 +120,7 @@ namespace Hacks {
 					}
 					}
 				}
+				// Here we register the actual trajectory
 				case GAME_PARTICLE_MANAGER_EVENT_UPDATE:
 				{
 					if (!queuedParticleIndexes.count(msgIndex))
@@ -127,20 +145,35 @@ namespace Hacks {
 						}
 						break;
 					case AP_KOTL_ILLUMINATE:
+					case AP_BANSHEE_CRYPT_SWARM:
 						if (cpIdx == 0)
 							info.begin = cpVal;
-						// Illuminate's velocity
+						// Particle's velocity
 						// Same calculations as in LinearProjectileWarner
 						else if (cpIdx == 1) {
 							auto castRange =
-								info.owner->GetAbilities()[7] // illuminate is moved to index 7 when End Illuminate takes its place
+								info.owner->GetAbilities()[
+									AbilityIndexes.at(info.nameIndex)
+								]
 								.GetAs<BaseAbility>()->GetEffectiveCastRange();
+
+							if (info.nameIndex == AP_BANSHEE_CRYPT_SWARM)
+								castRange += 390; // hits past its cast range, for some reason
+
 							auto ratio = castRange / cpVal.AsVec2().Length();
 							auto enlargedVec = cpVal.AsVec2() * ratio;
 							info.end = info.begin + enlargedVec;
 							TrackedAbilityParticles[msgIndex] = DrawTrajectory(info.begin, info.end);
 						}
 						break;
+					case AP_MEEPO_EARTHBIND:
+						if (cpIdx == 0)
+							info.begin = cpVal;
+						else if (cpIdx == 1) {
+							info.end = cpVal;
+							TrackedAbilityParticles[msgIndex] = DrawTrajectory(info.begin, info.end);
+							Modules::ParticleGC.SetDieTime(TrackedAbilityParticles[msgIndex], 3);
+						}
 					}
 					break;
 				}
