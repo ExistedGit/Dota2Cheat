@@ -13,6 +13,8 @@ namespace Panorama {
 		//}
 	};
 	class CSource2UITexture : public NormalClass {
+	private:
+		char pad[256];
 	public:
 		auto GetTexture() {
 			return *Member<CTextureDx11**>(0x30);
@@ -21,6 +23,9 @@ namespace Panorama {
 
 	class CUIRenderDeviceSource2 : public VClass {
 	public:
+		bool LoadVPK(void* output, const char* path) {
+			return CallVFunc<0, bool>(output, path);
+		}
 	};
 
 	class CUIEngineSource2 : public VClass {

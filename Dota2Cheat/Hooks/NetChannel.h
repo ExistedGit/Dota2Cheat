@@ -25,6 +25,8 @@ namespace Hooks {
 		return oDispatchPacket(thisptr, netPacket);
 	};
 
+	typedef void(__fastcall* PostReceivedNetMessageFn)(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits);
+	inline PostReceivedNetMessageFn oPostReceivedNetMessage;
 	inline void hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits) {
 		NetMessageInfo_t* info = Interfaces::NetworkMessages->GetNetMessageInfo(messageHandle);
 		const char* name = info->pProtobufBinding->GetName();
@@ -33,21 +35,28 @@ namespace Hooks {
 		Modules::LinearProjectileWarner.ProcessLinearProjectileMsg(messageHandle, msg);
 		Modules::ParticleAbilityWarner.ProcessParticleMsg(messageHandle, msg);
 
-		return VMTs::NetChannel->GetOriginalMethod<decltype(&hkPostReceivedNetMessage)>(86)(thisptr, messageHandle, msg, type, bits);
+		oPostReceivedNetMessage(thisptr, messageHandle, msg, type, bits);
 	}
 
-	inline void* CreateNetChannel(void* thisptr, int unk, void* ns_addr, const char* str, unsigned int uUnk, unsigned int uUnk2) {
-		if (VMTs::NetChannel.get())
-			VMTs::NetChannel->ReleaseDestroyedVMT();
-		VMTs::NetChannel.reset();
+	//inline bool hkSendNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, NetChannelBufType_t type) {
+	//	return VMTs::NetChannel->GetOriginalMethod<decltype(&hkSendNetMessage)>(69)(thisptr, messageHandle, msg, type);
+	//}
 
-		void* ret = VMTs::NetworkSystem->GetOriginalMethod<decltype(&CreateNetChannel)>(26)(thisptr, unk, ns_addr, str, uUnk, uUnk2);
+	// Another way to hook NetChan.
+	// It's unreliable, since you need to reset and capture the object's VMT and it happens strictly during game load
+	// So if you reinject with this hooking method, no NetChannel for your :^(
+	//inline void* CreateNetChannel(void* thisptr, int unk, void* ns_addr, const char* str, unsigned int uUnk, unsigned int uUnk2) {
+	//	if (VMTs::NetChannel.get())
+	//		VMTs::NetChannel->ReleaseDestroyedVMT();
+	//	VMTs::NetChannel.reset();
 
-		VMTs::NetChannel = std::unique_ptr<VMT>(new VMT(ret));
-		//VMTs::NetChannel->HookVM(SendNetMessage, 70);
-		VMTs::NetChannel->HookVM(hkPostReceivedNetMessage, 86);
-		VMTs::NetChannel->ApplyVMT();
+	//	void* ret = VMTs::NetworkSystem->GetOriginalMethod<decltype(&CreateNetChannel)>(26)(thisptr, unk, ns_addr, str, uUnk, uUnk2);
 
-		return ret;
-	}
+	//	VMTs::NetChannel = std::unique_ptr<VMT>(new VMT(ret));
+	//	//VMTs::NetChannel->HookVM(hkSendNetMessage, 69);
+	//	VMTs::NetChannel->HookVM(hkPostReceivedNetMessage, 86);
+	//	VMTs::NetChannel->ApplyVMT();
+
+	//	return ret;
+	//}
 }
