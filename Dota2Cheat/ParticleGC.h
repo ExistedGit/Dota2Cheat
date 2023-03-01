@@ -23,11 +23,14 @@ namespace Particles {
 			);
 		}
 		void RemoveFromGC(CDOTAParticleManager::ParticleWrapper particle) {
-			for (auto it = gcInfo.begin(); it <= gcInfo.end(); ++it)
+			decltype(gcInfo)::iterator foundIterator = gcInfo.end();
+			for (auto it = gcInfo.begin(); it != gcInfo.end(); ++it)
 				if ((*it).particleWrap.particle == particle.particle) {
-					gcInfo.erase(it);
+					foundIterator = it;
 					break;
 				}
+			if(foundIterator != gcInfo.end())
+			gcInfo.erase(foundIterator);
 		}
 		void FrameBasedLogic() {
 			for (auto& info : gcInfo)

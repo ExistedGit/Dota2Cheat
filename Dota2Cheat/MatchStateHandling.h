@@ -11,7 +11,7 @@
 #include <format>
 
 inline void FillPlayerList() {
-	auto vec = Globals::PlayerResource->GetVecTeamPlayerData();
+	auto vec = Globals::PlayerResource->GetVecPlayerTeamData();
 	std::cout << "<PLAYERS>\n";
 	for (int i = 0; i < vec.m_Size; i++) {
 		//Sleep(800);

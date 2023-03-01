@@ -36,7 +36,7 @@ namespace Hooks {
 		oOnAddModifier(modifier, unk);
 	}
 
-	void hkOnRemoveModifier(DotaModifier* modifier, CDOTAPlayerResource* playerResource, void* unk) {
+	void hkOnRemoveModifier(DotaModifier* modifier, C_DOTA_PlayerResource* playerResource, void* unk) {
 		if (!HookedOnAddModifier) {
 			HookedOnAddModifier = true;
 			void* onAddModifier = modifier->GetVFunc(35).ptr;

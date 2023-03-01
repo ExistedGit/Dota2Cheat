@@ -17,18 +17,18 @@ public:
 class CDOTAGameRules : VClass {
 public:
 	DOTA_GameState GetGameState() {
-		return Member<DOTA_GameState>(0x60);
+		return Member<DOTA_GameState>(Netvars::C_DOTAGamerules::m_nGameState);
 	}
 	float GetGameTime() {
-		return Member<float>(0x89C);
+		return Member<float>(Netvars::C_DOTAGamerules::m_fGameTime);
 	}
 
 	DOTA_GameMode GetGameMode() {
-		return Member<DOTA_GameMode>(0xcc);
+		return Member<DOTA_GameMode>(Netvars::C_DOTAGamerules::m_iGameMode);
 	}
 
 	std::vector<ItemStockInfo*> GetItemStockInfo() {
-		CUtlVector<ItemStockInfo>* arr = (CUtlVector<ItemStockInfo>*)((uintptr_t)this + 0x728);
+		CUtlVector<ItemStockInfo>* arr = (CUtlVector<ItemStockInfo>*)((uintptr_t)this + Netvars::C_DOTAGamerules::m_vecItemStockInfo);
 		auto result = std::vector<ItemStockInfo*>{};
 		result.reserve(arr->m_Size);
 		for (int i = 0; i < arr->m_Size; i++)
@@ -40,15 +40,15 @@ public:
 
 
 class PlayerResourcePlayerData_t :public VClass {
-	char pad[0xd0 - 0x8];
+	char pad[0xc8];
 public:
 	uint32_t GetPlayerSlot() {
-		return Member<uint32_t>(0xc8);
+		return Member<uint32_t>(Netvars::PlayerResourcePlayerData_t::m_nPlayerSlot);
 	}
 };
-class CDOTAPlayerResource : public VClass {
+class C_DOTA_PlayerResource : public VClass {
 public:
-	CUtlVector<PlayerResourcePlayerData_t> GetVecTeamPlayerData() {
-		return Member< CUtlVector<PlayerResourcePlayerData_t>>(0x5d0);
+	CUtlVector<PlayerResourcePlayerData_t> GetVecPlayerTeamData() {
+		return Member< CUtlVector<PlayerResourcePlayerData_t>>(Netvars::C_DOTA_PlayerResource::m_vecPlayerTeamData);
 	}
 };

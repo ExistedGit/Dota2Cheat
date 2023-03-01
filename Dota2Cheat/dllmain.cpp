@@ -103,11 +103,11 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Interfaces::InitInterfaces();
 	Interfaces::LogInterfaces();
 
-	std::future<void> schemaThread = std::async(std::launch::async, []() mutable {
-		Schema::SchemaDumpToMap("client.dll", "C_DOTA_BaseNPC_Hero");
-	Schema::SchemaDumpToMap("client.dll", "C_DOTAPlayerController");
-	Schema::SchemaDumpToMap("client.dll", "C_DOTA_UnitInventory");
-		});
+	//std::future<void> schemaThread = std::async(std::launch::async, []() mutable {
+	//	Schema::SchemaDumpToMap("client.dll", "C_DOTA_BaseNPC_Hero");
+	//Schema::SchemaDumpToMap("client.dll", "C_DOTAPlayerController");
+	//Schema::SchemaDumpToMap("client.dll", "C_DOTA_UnitInventory");
+	//	});
 
 	Lua::InitInterfaces(ctx.lua);
 	Interfaces::CVar->DumpConVarsToMap();
@@ -126,7 +126,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	VMTs::EntitySystem->ApplyVMT();
 	Hooks::SetUpVirtualHooks(true);
 
-	schemaThread.wait();
+//	schemaThread.wait();
 
 	//auto file = Interfaces::FileSystem->OpenFile("scripts/npc/npc_heroes.txt", "r");
 	//char buffer[512];
