@@ -109,7 +109,6 @@ inline void LeftMatch() {
 	Globals::ParticleManager = nullptr;
 	Lua::ResetGlobals(ctx.lua);
 	
-	VMTs::NetChannel.reset();
 	VMTs::UIEngine.reset();
 
 	for (auto& listener : CGameEventManager::EventListeners)

@@ -20,7 +20,7 @@ namespace Hooks {
 			ctx.entities.insert(ent);
 		}
 
-		return VMTs::Entity->GetOriginalMethod<decltype(&OnAddEntity)>(14)(thisptr, ent, handle);
+		return VMTs::EntitySystem->GetOriginalMethod<decltype(&OnAddEntity)>(14)(thisptr, ent, handle);
 	};
 
 	inline BaseEntity* OnRemoveEntity(CEntitySystem* thisptr, BaseEntity* ent, ENT_HANDLE handle) {
@@ -33,6 +33,6 @@ namespace Hooks {
 			ctx.importantItems.midas = nullptr;
 
 
-		return VMTs::Entity->GetOriginalMethod<decltype(&OnAddEntity)>(15)(thisptr, ent, handle);
+		return VMTs::EntitySystem->GetOriginalMethod<decltype(&OnAddEntity)>(15)(thisptr, ent, handle);
 	}
 }

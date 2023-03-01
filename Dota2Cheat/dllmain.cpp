@@ -125,10 +125,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	
 	Globals::InitGlobals();
 	Hooks::SetUpByteHooks();
-	VMTs::Entity = std::unique_ptr<VMT>(new VMT(Interfaces::EntitySystem));
-	VMTs::Entity->HookVM(Hooks::OnAddEntity, 14);
-	VMTs::Entity->HookVM(Hooks::OnRemoveEntity, 15);
-	VMTs::Entity->ApplyVMT();
+	VMTs::EntitySystem = std::unique_ptr<VMT>(new VMT(Interfaces::EntitySystem));
+	VMTs::EntitySystem->HookVM(Hooks::OnAddEntity, 14);
+	VMTs::EntitySystem->HookVM(Hooks::OnRemoveEntity, 15);
+	VMTs::EntitySystem->ApplyVMT();
 	Hooks::SetUpVirtualHooks(true);
 	
 	schemaThread.wait();

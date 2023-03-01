@@ -8,8 +8,7 @@ namespace Hacks {
 	public:
 		bool ColorIfIllusion(BaseEntity* ent) {
 			const char* className = ent->SchemaBinding()->binaryName;
-			if (className &&
-				strstr(className, "C_DOTA_Unit_Hero") ) {
+			if (ctx.heroes.count((BaseNpc*)ent)) {
 				auto hero = (BaseNpcHero*)ent;
 				if (
 					ctx.assignedHero->GetTeam() != hero->GetTeam() &&
