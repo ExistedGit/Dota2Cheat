@@ -362,5 +362,11 @@
     <ClInclude Include="ParticleAbilityWarner.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
+    <ClInclude Include="CastRedirection.h">
+      <Filter>Header files\Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="PerfectBlink.h">
+      <Filter>Header files\Hacks</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

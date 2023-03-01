@@ -103,35 +103,30 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Interfaces::InitInterfaces();
 	Interfaces::LogInterfaces();
 
-	std::future<void> schemaThread = std::async(std::launch::async, []() mutable {
-		Schema::SchemaDumpToMap("client.dll", "C_DOTA_BaseNPC_Hero");
-	Schema::SchemaDumpToMap("client.dll", "C_DOTAPlayerController");
-	Schema::SchemaDumpToMap("client.dll", "C_DOTA_UnitInventory");
-		});
+	//std::future<void> schemaThread = std::async(std::launch::async, []() mutable {
+	//	Schema::SchemaDumpToMap("client.dll", "C_DOTA_BaseNPC_Hero");
+	//Schema::SchemaDumpToMap("client.dll", "C_DOTAPlayerController");
+	//Schema::SchemaDumpToMap("client.dll", "C_DOTA_UnitInventory");
+	//	});
 
 	Lua::InitInterfaces(ctx.lua);
 	Interfaces::CVar->DumpConVarsToMap();
-
-	Schema::SchemaDumpToMap("client.dll", "C_DOTA_BaseNPC_Hero");
-	Schema::SchemaDumpToMap("client.dll", "C_DOTAPlayerController");
-	Schema::SchemaDumpToMap("client.dll", "C_DOTA_UnitInventory");
-	
 #ifdef _DEBUG
 	Signatures::InitSignatures(true);
 #else
 	Signatures::InitSignatures(false);
 #endif // _DEBUG
 
-	
+
 	Globals::InitGlobals();
 	Hooks::SetUpByteHooks();
-	VMTs::Entity = std::unique_ptr<VMT>(new VMT(Interfaces::EntitySystem));
-	VMTs::Entity->HookVM(Hooks::OnAddEntity, 14);
-	VMTs::Entity->HookVM(Hooks::OnRemoveEntity, 15);
-	VMTs::Entity->ApplyVMT();
+	VMTs::EntitySystem = std::unique_ptr<VMT>(new VMT(Interfaces::EntitySystem));
+	VMTs::EntitySystem->HookVM(Hooks::OnAddEntity, 14);
+	VMTs::EntitySystem->HookVM(Hooks::OnRemoveEntity, 15);
+	VMTs::EntitySystem->ApplyVMT();
 	Hooks::SetUpVirtualHooks(true);
-	
-	schemaThread.wait();
+
+//	schemaThread.wait();
 
 	//auto file = Interfaces::FileSystem->OpenFile("scripts/npc/npc_heroes.txt", "r");
 	//char buffer[512];

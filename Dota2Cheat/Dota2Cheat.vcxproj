@@ -222,6 +222,7 @@
     <ClInclude Include="AutoUseMagicWand.h" />
     <ClInclude Include="AutoUseMidas.h" />
     <ClInclude Include="BadCastPrevention.h" />
+    <ClInclude Include="CastRedirection.h" />
     <ClInclude Include="CBaseFileSystem.h" />
     <ClInclude Include="CDOTAParticleManager.h" />
     <ClInclude Include="CGameEntitySystem.h" />
@@ -252,6 +253,7 @@
     <ClInclude Include="ParticleAbilityWarner.h" />
     <ClInclude Include="ParticleGC.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="PerfectBlink.h" />
     <ClInclude Include="Projectiles.h" />
     <ClInclude Include="Protobuf Messages\dota_clientmessages.pb.h" />
     <ClInclude Include="Protobuf Messages\dota_commonmessages.pb.h" />

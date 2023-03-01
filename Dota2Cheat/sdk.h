@@ -5,6 +5,7 @@
 #include <string_view>
 
 #include <vector>
+#include "Netvars.h"
 #include "Input.h"
 #include "Context.h"
 #include "MinHook.h"

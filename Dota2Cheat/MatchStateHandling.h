@@ -11,7 +11,7 @@
 #include <format>
 
 inline void FillPlayerList() {
-	auto vec = Globals::PlayerResource->GetVecTeamPlayerData();
+	auto vec = Globals::PlayerResource->GetVecPlayerTeamData();
 	std::cout << "<PLAYERS>\n";
 	for (int i = 0; i < vec.m_Size; i++) {
 		//Sleep(800);
@@ -30,7 +30,7 @@ inline void FillPlayerList() {
 		if (hero &&
 			hero->GetUnitName()) {
 			std::cout << "\n\t" << hero->GetUnitName() << " " << hero;
-			ctx.heroes.insert(hero);
+			ctx.heroes.insert((BaseNpcHero*)hero);
 		}
 		std::cout << '\n';
 
@@ -109,7 +109,6 @@ inline void LeftMatch() {
 	Globals::ParticleManager = nullptr;
 	Lua::ResetGlobals(ctx.lua);
 	
-	VMTs::NetChannel.reset();
 	VMTs::UIEngine.reset();
 
 	for (auto& listener : CGameEventManager::EventListeners)

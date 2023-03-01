@@ -123,6 +123,7 @@ namespace Hacks {
 						if (cpIdx == 1) {
 							info.end = cpVal;
 							TrackedAbilityParticles[msgIndex] = DrawTrajectory(info.begin, info.end);
+							Modules::ParticleGC.SetDieTime(TrackedAbilityParticles[msgIndex], 3);
 						}
 						break;
 					case AP_KOTL_ILLUMINATE:
@@ -146,6 +147,7 @@ namespace Hacks {
 				case GAME_PARTICLE_MANAGER_EVENT_DESTROY: {
 					queuedParticleIndexes.erase(msgIndex);
 					if (TrackedAbilityParticles.count(msgIndex)) {
+						Modules::ParticleGC.RemoveFromGC(TrackedAbilityParticles[msgIndex]);
 						Globals::ParticleManager->DestroyParticle(TrackedAbilityParticles[msgIndex]);
 						TrackedAbilityParticles.erase(msgIndex);
 					}

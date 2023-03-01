@@ -6,6 +6,7 @@
 
 class BaseNpc;
 class BaseEntity;
+class BaseNpcHero;
 class DotaPlayer;
 class BaseAbility;
 class ItemRune;
@@ -22,7 +23,7 @@ struct Context {
 	std::set<BaseEntity*> entities{};
 	std::set<DotaPlayer*> players{};
 	std::set<BaseEntity*> physicalItems{};
-	std::set<BaseNpc*> heroes{};
+	std::set<BaseNpcHero*> heroes{};
 	
 	struct {
 		BaseAbility* midas{};

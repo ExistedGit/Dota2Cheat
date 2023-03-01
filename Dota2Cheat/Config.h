@@ -8,6 +8,8 @@ namespace Config {
 
 	inline bool AutoBuyTome = false;
 
+	inline bool CastRedirection = true;
+
 	inline bool AutoWandEnabled = true;
 	inline float AutoHealWandHPTreshold = 10.0f;
 	inline int AutoHealWandMinCharges = 5;

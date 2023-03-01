@@ -14,8 +14,8 @@ namespace Globals {
 	inline CDOTAGameRules** GameRulesPtr = nullptr;
 	inline CDOTAGameRules* GameRules = nullptr;
 
-	inline CDOTAPlayerResource** PlayerResourcePtr = nullptr;
-	inline CDOTAPlayerResource* PlayerResource = nullptr;
+	inline C_DOTA_PlayerResource** PlayerResourcePtr = nullptr;
+	inline C_DOTA_PlayerResource* PlayerResource = nullptr;
 
 	inline CDOTAParticleManager** ParticleManagerPtr = nullptr;
 	inline CDOTAParticleManager* ParticleManager = nullptr;
@@ -46,7 +46,7 @@ namespace Globals {
 		ParseCombo("48 8B ? ? ? ? ? 48 85 C9 0F 85 ? ? ? ? B8 FF FF FF FF C3", funcAddr, funcAddrMask);
 		addr = (uintptr_t)PatternScanExModule(ctx.CurProcHandle, ctx.CurProcId, L"client.dll", funcAddr, funcAddrMask);
 		if (addr != 0) {
-			PlayerResourcePtr = (CDOTAPlayerResource**)GetAbsoluteAddress(addr, 3, 7);
+			PlayerResourcePtr = (C_DOTA_PlayerResource**)GetAbsoluteAddress(addr, 3, 7);
 			std::cout << "PlayerResourcePtr: " << PlayerResourcePtr << '\n';
 		}
 

@@ -15,17 +15,17 @@ namespace Hooks {
 				ctx.runes.insert((ItemRune*)ent);
 			}
 			else if (strstr(className, "Unit_Hero")) {
-				ctx.heroes.insert(reinterpret_cast<BaseNpc*>(ent));
+				ctx.heroes.insert(reinterpret_cast<BaseNpcHero*>(ent));
 			}
 			ctx.entities.insert(ent);
 		}
 
-		return VMTs::Entity->GetOriginalMethod<decltype(&OnAddEntity)>(14)(thisptr, ent, handle);
+		return VMTs::EntitySystem->GetOriginalMethod<decltype(&OnAddEntity)>(14)(thisptr, ent, handle);
 	};
 
 	inline BaseEntity* OnRemoveEntity(CEntitySystem* thisptr, BaseEntity* ent, ENT_HANDLE handle) {
 		ctx.physicalItems.erase(ent);
-		ctx.heroes.erase((BaseNpc*)ent);
+		ctx.heroes.erase((BaseNpcHero*)ent);
 		ctx.entities.erase(ent);
 		ctx.runes.erase((ItemRune*)ent);
 
@@ -33,6 +33,6 @@ namespace Hooks {
 			ctx.importantItems.midas = nullptr;
 
 
-		return VMTs::Entity->GetOriginalMethod<decltype(&OnAddEntity)>(15)(thisptr, ent, handle);
+		return VMTs::EntitySystem->GetOriginalMethod<decltype(&OnAddEntity)>(15)(thisptr, ent, handle);
 	}
 }

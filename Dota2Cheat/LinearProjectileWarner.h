@@ -52,6 +52,12 @@ namespace Hacks {
 		AbilityTrajectoryConfig{
 				.value = 7,
 				.isAbilitySlot = true
+			}},
+			{
+				"modifier_primal_beast_onslaught_windup",
+				AbilityTrajectoryConfig{
+				.value = 2000,
+				.isAbilitySlot = false
 			}}
 		};
 
@@ -88,8 +94,8 @@ namespace Hacks {
 				!EntityTrajectories.count(modifier)) {
 				auto trajectoryInfo = AbilityTrajectories[modifier->GetName()];
 				int offset = 0;
-				offset = trajectoryInfo.isAbilitySlot 
-					? offset = owner->GetAbilities()[trajectoryInfo.value].GetAs<BaseAbility>()->GetEffectiveCastRange() 
+				offset = trajectoryInfo.isAbilitySlot
+					? offset = owner->GetAbilities()[trajectoryInfo.value].GetAs<BaseAbility>()->GetEffectiveCastRange()
 					: offset = trajectoryInfo.value;
 
 				EntityTrajectories[modifier] = EntTrajectoryInfo{

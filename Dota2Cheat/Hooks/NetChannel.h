@@ -28,6 +28,11 @@ namespace Hooks {
 	typedef void(__fastcall* PostReceivedNetMessageFn)(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits);
 	inline PostReceivedNetMessageFn oPostReceivedNetMessage;
 	inline void hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits) {
+		oPostReceivedNetMessage(thisptr, messageHandle, msg, type, bits);
+
+		if (messageHandle->messageID == 4) // CNetMsg_Tick [4]
+			return;
+		
 		NetMessageInfo_t* info = Interfaces::NetworkMessages->GetNetMessageInfo(messageHandle);
 		const char* name = info->pProtobufBinding->GetName();
 
@@ -35,7 +40,6 @@ namespace Hooks {
 		Modules::LinearProjectileWarner.ProcessLinearProjectileMsg(messageHandle, msg);
 		Modules::ParticleAbilityWarner.ProcessParticleMsg(messageHandle, msg);
 
-		oPostReceivedNetMessage(thisptr, messageHandle, msg, type, bits);
 	}
 
 	//inline bool hkSendNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, NetChannelBufType_t type) {

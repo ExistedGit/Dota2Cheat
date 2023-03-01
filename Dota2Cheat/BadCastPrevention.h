@@ -13,15 +13,14 @@ namespace Hacks {
 		bool AreEnemyUnitsInArea(const Vector2& center, int radius) {
 			for (int i = 0; i <= Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
 				auto ent = Interfaces::EntitySystem->GetEntity(i);
-				if (ent 
+				if (ent
 					&& ent->GetTeam() != ctx.assignedHero->GetTeam()
+					&& IsWithinRadius(center, ent->GetPos2D(), radius)
 
 					&& ent->SchemaBinding()->binaryName
 					&& TestStringFilters(ent->SchemaBinding()->binaryName, { "BaseNPC","Unit_Hero" })
 
-					&& reinterpret_cast<BaseNpc*>(ent)->IsTargetable()
-					&& IsWithinRadius(center, ent->GetPos2D(), radius))
-
+					&& reinterpret_cast<BaseNpc*>(ent)->IsTargetable())
 					return true;
 			}
 			return false;
@@ -32,6 +31,7 @@ namespace Hacks {
 				if (
 					hero->IsTargetable() &&
 					hero->GetTeam() != ctx.assignedHero->GetTeam() &&
+
 					IsWithinRadius(center, hero->GetPos2D(), radius)
 					)
 					return true;
@@ -41,20 +41,21 @@ namespace Hacks {
 
 		// Checks whether the ability is cast at an area without enemy heroes/units
 		bool IsBadCast(uint32_t abilityIdx, Vector3* pos, BaseEntity* caster) {
-			auto abilityName = Interfaces::EntitySystem->GetIdentity(abilityIdx)->GetName();
 			auto ability = Interfaces::EntitySystem->GetEntity<BaseAbility>(abilityIdx);
 
-			if (abilityName) {
+			if (Interfaces::EntitySystem->GetIdentity(abilityIdx)->GetName()) {
+
+				std::string_view abilityName = Interfaces::EntitySystem->GetIdentity(abilityIdx)->GetName();
 				if (TestStringFilters(abilityName, pointAbilityNames))
 					return !AreEnemyHeroesInArea(pos->AsVec2(), ability->GetAOERadius());
 				else {
-					if (strstr(abilityName, "magnataur_reverse_polarity"))
+					if (abilityName == "magnataur_reverse_polarity")
 						// don't ask why RP's radius is stored as cast range.
 						// I don't know
 						return !AreEnemyHeroesInArea(caster->GetPos2D(), ability->GetCastRange());
-					else if (strstr(abilityName, "earthshaker_echo_slam"))
+					else if (abilityName == "earthshaker_echo_slam")
 						return !AreEnemyHeroesInArea(caster->GetPos2D(), ability->GetLevelSpecialValueFor("echo_slam_echo_search_range"));
-					else if (strstr(abilityName, "ember_spirit_sleight_of_fist")) // it's also frequently used on creeps
+					else if (abilityName == "ember_spirit_sleight_of_fist") // it's also frequently used on creeps
 						return !AreEnemyUnitsInArea(pos->AsVec2(), ability->GetAOERadius());
 					// can be expanded indefinitely
 				}

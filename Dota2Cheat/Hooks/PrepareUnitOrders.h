@@ -2,6 +2,8 @@
 #include <future>
 #include "../Signatures.h"
 #include "../BadCastPrevention.h"
+#include "../PerfectBlink.h"
+#include "../CastRedirection.h"
 
 namespace Hooks {
 
@@ -27,50 +29,11 @@ namespace Hooks {
 			switch (orderType) {
 			case DOTA_UNIT_ORDER_CAST_TARGET:
 			{
-				//Redirects spell casts from illusions to the real hero
-				auto npc = Interfaces::EntitySystem->GetEntity<BaseNpc>(targetIndex);
-
-				if (strstr(npc->SchemaBinding()->binaryName, "C_DOTA_Unit_Hero") &&
-					reinterpret_cast<BaseNpcHero*>(npc)->IsIllusion()) {
-					auto illusionOwner = Interfaces::EntitySystem->GetEntity<DotaPlayer>(
-						H2IDX(
-							npc->GetOwnerEntityHandle()
-						)
-						)
-						->GetAssignedHero();
-					if (illusionOwner->IsTargetable()) {
-						targetIndex =
-							H2IDX(
-								illusionOwner
-								->GetIdentity()
-								->entHandle
-							);
-						//showEffects = false;
-					}
-				}
+				Modules::CastRedirection.RedirectIfIllusionCast(targetIndex, issuer, abilityIndex);
 				break;
 			}
 			case DOTA_UNIT_ORDER_CAST_POSITION: {
-				// Blink overshoot bypass
-				auto item = Interfaces::EntitySystem->GetEntity<BaseAbility>(abilityIndex);
-				if (strstr(item->GetIdentity()->GetName(), "blink")) {
-					auto maxDist = item->GetEffectiveCastRange();
-					auto pos2D = *(Vector2*)position;
-					if (!IsWithinRadius(issuer->GetPos2D(), pos2D, maxDist)) {
-						auto dist = issuer->GetPos2D().DistanceTo(pos2D);
-						// Relative vector from the hero to the click point
-						auto vec = Vector2(pos2D.x - issuer->GetPos2D().x, pos2D.y - issuer->GetPos2D().y);
-						// -1% to make it 100% be inside the radius
-						vec.x *= maxDist / dist * 0.99f;
-						vec.x += issuer->GetPos2D().x;
-						vec.y *= maxDist / dist * 0.99f;
-						vec.y += issuer->GetPos2D().y;
-
-						position->x = vec.x;
-						position->y = vec.y;
-						showEffects = false;
-					}
-				}
+				Modules::PerfectBlink.AdjustIfBlink(position, abilityIndex, issuer);
 				break;
 			}
 			case DOTA_UNIT_ORDER_DROP_ITEM:
