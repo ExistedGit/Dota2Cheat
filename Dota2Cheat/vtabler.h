@@ -85,10 +85,6 @@ public:
 		applied_vmt = *this->interface;
 	}
 
-	void ReleaseDestroyedVMT() {
-		this->interface = nullptr;
-	}
-
 	void ReleaseVMT()
 	{
 		/* Check if vtable is still set to ours. If it's not, something changed in memory and we should just leave it alone */

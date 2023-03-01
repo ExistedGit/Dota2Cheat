@@ -10,9 +10,6 @@ private:
 public:
 	google::protobuf::Message* header;
 	EDOTAGCMsg msgID;
-private:
-	char pad[4];
-public:
 	google::protobuf::Message* msg;
 };
 
@@ -48,5 +45,8 @@ class CGCClient : public VClass {
 public:
 	CGCClientSharedObjectCache* GetObjCache() {
 		return Member<CGCClientSharedObjectCache*>(0x450);
+	}
+	VClass* GetGCClientSystem() {
+		return Member<VClass*>(0x768);
 	}
 };
