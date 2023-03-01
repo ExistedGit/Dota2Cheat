@@ -2,7 +2,7 @@
 #include "Globals.h"
 
 namespace Particles {
-
+		
 	class ParticleGarbageCollector {
 	private:
 		struct ParticleGCInfo {

@@ -30,7 +30,7 @@ inline void FillPlayerList() {
 		if (hero &&
 			hero->GetUnitName()) {
 			std::cout << "\n\t" << hero->GetUnitName() << " " << hero;
-			ctx.heroes.insert(hero);
+			ctx.heroes.insert((BaseNpcHero*)hero);
 		}
 		std::cout << '\n';
 

@@ -15,7 +15,7 @@ namespace Hooks {
 				ctx.runes.insert((ItemRune*)ent);
 			}
 			else if (strstr(className, "Unit_Hero")) {
-				ctx.heroes.insert(reinterpret_cast<BaseNpc*>(ent));
+				ctx.heroes.insert(reinterpret_cast<BaseNpcHero*>(ent));
 			}
 			ctx.entities.insert(ent);
 		}
@@ -25,7 +25,7 @@ namespace Hooks {
 
 	inline BaseEntity* OnRemoveEntity(CEntitySystem* thisptr, BaseEntity* ent, ENT_HANDLE handle) {
 		ctx.physicalItems.erase(ent);
-		ctx.heroes.erase((BaseNpc*)ent);
+		ctx.heroes.erase((BaseNpcHero*)ent);
 		ctx.entities.erase(ent);
 		ctx.runes.erase((ItemRune*)ent);
 

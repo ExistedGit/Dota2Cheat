@@ -111,18 +111,13 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	Lua::InitInterfaces(ctx.lua);
 	Interfaces::CVar->DumpConVarsToMap();
-
-	Schema::SchemaDumpToMap("client.dll", "C_DOTA_BaseNPC_Hero");
-	Schema::SchemaDumpToMap("client.dll", "C_DOTAPlayerController");
-	Schema::SchemaDumpToMap("client.dll", "C_DOTA_UnitInventory");
-	
 #ifdef _DEBUG
 	Signatures::InitSignatures(true);
 #else
 	Signatures::InitSignatures(false);
 #endif // _DEBUG
 
-	
+
 	Globals::InitGlobals();
 	Hooks::SetUpByteHooks();
 	VMTs::EntitySystem = std::unique_ptr<VMT>(new VMT(Interfaces::EntitySystem));
@@ -130,7 +125,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	VMTs::EntitySystem->HookVM(Hooks::OnRemoveEntity, 15);
 	VMTs::EntitySystem->ApplyVMT();
 	Hooks::SetUpVirtualHooks(true);
-	
+
 	schemaThread.wait();
 
 	//auto file = Interfaces::FileSystem->OpenFile("scripts/npc/npc_heroes.txt", "r");

@@ -66,7 +66,7 @@ namespace Schema {
 		if (!Scope) { return; }
 
 		//std::cout << "Scope " << std::hex << Scope << std::dec << std::endl;
-		ClassDescription* classDesc = Scope->CallVFunc<2, ClassDescription*>(_class);
+		auto classDesc = Scope->CallVFunc<2, ClassDescription*>(_class);
 		if (!classDesc) {
 			//std::cout << "No such class!\n"; 
 			return;

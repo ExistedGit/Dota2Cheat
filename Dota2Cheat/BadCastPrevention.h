@@ -31,6 +31,7 @@ namespace Hacks {
 				if (
 					hero->IsTargetable() &&
 					hero->GetTeam() != ctx.assignedHero->GetTeam() &&
+
 					IsWithinRadius(center, hero->GetPos2D(), radius)
 					)
 					return true;
