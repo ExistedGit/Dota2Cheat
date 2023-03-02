@@ -1,5 +1,7 @@
 #pragma once
 #include "sdk.h"
+#include <span>
+#include <string_view>
 
 
 namespace Panorama {
@@ -28,9 +30,26 @@ namespace Panorama {
 		}
 	};
 
+	class CUIPanel : public VClass {
+	public:
+		const char* GetName() {
+			return Member<const char*>(0x10);
+		}
+	};
+	class PanelListNode {
+		void* unk0, * unk1;
+	public:
+		CUIPanel* panel;
+	private:
+		void* unk2;
+	};
+
 	class CUIEngineSource2 : public VClass {
 
 	public:
+		auto GetPanelList() {
+			return std::span{ Member<PanelListNode*>(0xf8), 30000 };
+		}
 		auto GetUIRenderDevice() {
 			return Member<CUIRenderDeviceSource2*>(0xB90);
 		}

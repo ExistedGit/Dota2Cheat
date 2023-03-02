@@ -126,14 +126,13 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	VMTs::EntitySystem->ApplyVMT();
 	Hooks::SetUpVirtualHooks(true);
 
-//	schemaThread.wait();
+	//	schemaThread.wait();
 
-	//auto file = Interfaces::FileSystem->OpenFile("scripts/npc/npc_heroes.txt", "r");
-	//char buffer[512];
-	//while (Interfaces::FileSystem->ReadLine(buffer, 512, file)) {
-	//	std::cout << buffer;
-	//};
-
+		//auto file = Interfaces::FileSystem->OpenFile("scripts/npc/npc_heroes.txt", "r");
+		//char buffer[512];
+		//while (Interfaces::FileSystem->ReadLine(buffer, 512, file)) {
+		//	std::cout << buffer;
+		//};
 
 	glfwSetErrorCallback(glfw_error_callback);
 	if (!glfwInit())
@@ -275,6 +274,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 					4);
 
 				// credits to the screenshot https://yougame.biz/threads/283404/
+				// and to Wolf49046 himself
 				// should've figured out it's controlled by a convar like the weather :)
 				ImGui::ListBox(
 					"River paint",
@@ -296,6 +296,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			//	ImGui::TreePop();
 			//}
 			if (ImGui::TreeNode("Illusion coloring")) {
+				ImGui::Checkbox("Enable", &Config::IllusionColoring);
 				ImGui::ColorEdit3("Color", &Config::IllusionColor.x);
 				ImGui::TreePop();
 			}
@@ -303,11 +304,13 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 				ImGui::Checkbox("Point spells", &Config::ShowEnemyPointSpells);
 				ImGui::SameLine(); HelpMarker("Sunstrike, Torrent, Light Strike Array");
 
-				if (ImGui::Checkbox("Targeted spells", &Config::ShowEnemyTargetedSpells))
+				if (ImGui::Checkbox("Targeted spells", &Config::ShowEnemyTargetedSpells) &&
+					!Config::ShowEnemyTargetedSpells)
 					Modules::TargetedSpellHighlighter.OnDisableTargetedSpells();
-				ImGui::SameLine(); HelpMarker("Assassinate, Charge of Darkness");
+				ImGui::SameLine(); HelpMarker("Assassinate, Charge of Darkness, Track");
 
-				if (ImGui::Checkbox("Show Linken Sphere", &Config::ShowLinkenSphere))
+				if (ImGui::Checkbox("Show Linken Sphere", &Config::ShowLinkenSphere) &&
+					!Config::ShowLinkenSphere)
 					Modules::TargetedSpellHighlighter.OnDisableLinken();
 				ImGui::TreePop();
 			}
@@ -325,6 +328,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			ImGui::Checkbox("Show enemy projectile trajectory", &Config::WarnLinearProjectiles);
 			ImGui::SameLine(); HelpMarker("Draws a red line for things like Mirana's arrow");
 
+			ImGui::Checkbox("Redirect illusion casts", &Config::CastRedirection);
+			ImGui::SameLine(); HelpMarker("You cast something on an illusion - it aims for the real hero(if they're in range, of course)");
 
 			ImGui::Checkbox("Auto-use Hand of Midas", &Config::AutoMidasEnabled);
 			ImGui::Checkbox("Auto-buy Tome of Knowledge", &Config::AutoBuyTome);

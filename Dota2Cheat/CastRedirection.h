@@ -4,9 +4,10 @@
 #include "Wrappers.h"
 namespace Hacks {
 	//Redirects spell casts from illusions to the real hero
+	//If the hero is not seen or is too far the spell cast is cancelled
 	class CastRedirection {
 	public:
-		bool RedirectIfIllusionCast(uint32_t& targetIndex, BaseEntity* issuer, uint32_t abilityIndex) {
+		bool RedirectIfIllusionCast(uint32_t& targetIndex, BaseEntity* issuer, uint32_t abilityIndex, bool& giveOrder) {
 			if (!Config::CastRedirection)
 				return false;
 			auto npc = Interfaces::EntitySystem->GetEntity<BaseNpc>(targetIndex);
@@ -22,8 +23,10 @@ namespace Hacks {
 
 			auto range = Interfaces::EntitySystem->GetEntity<BaseAbility>(abilityIndex)->GetEffectiveCastRange();
 			if (!illusionOwner->IsTargetable() ||
-				!IsWithinRadius(illusionOwner->GetPos2D(), issuer->GetPos2D(), range * 1.25))
+				!IsWithinRadius(illusionOwner->GetPos2D(), issuer->GetPos2D(), range * 1.25)) {
+				giveOrder = false;
 				return false;
+			}
 
 			targetIndex =
 				H2IDX(

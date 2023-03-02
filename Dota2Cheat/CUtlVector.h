@@ -27,7 +27,7 @@ public:
 		return m_pElements[m_Size - 1];
 	}
 
-	[[nodiscard]] std::vector<T> ToStdVector() {
+	[[nodiscard]] std::vector<T> AsStdVector() {
 		auto result = std::vector<T>{};
 		result.reserve(m_Size);
 		for (int i = 0; i  < m_Size; i++) {

@@ -38,13 +38,35 @@ inline void FillPlayerList() {
 	}
 }
 
+// Now that the iteration is based on collections, the cheat does not retain the entity lists upon reinjection
+inline void ReinjectEntIteration() {
+	for (int i = 0; i <= Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
+		auto ent = Interfaces::EntitySystem->GetEntity(i);
+		if (!ent)
+			continue;
+		auto className = ent->SchemaBinding()->binaryName;
+		if (!className)
+			continue;
+		if (strstr(className, "Item_Physical")) {
+			ctx.physicalItems.insert(ent);
+		}
+		else if (!strcmp(className, "C_DOTA_Item_Rune")) {
+			ctx.runes.insert((ItemRune*)ent);
+		}
+		else if (strstr(className, "Unit_Hero")) {
+			ctx.heroes.insert(reinterpret_cast<BaseNpcHero*>(ent));
+		}
+		ctx.entities.insert(ent);
+	}
+}
+
 inline void EnteredMatch() {
 	Globals::GameRules = *Globals::GameRulesPtr;
 	Globals::PlayerResource = *Globals::PlayerResourcePtr;
 	//	Globals::ScriptVM = *Globals::ScriptVMPtr;
 	Globals::ParticleManager = *Globals::ParticleManagerPtr;
 	Globals::GameEventManager = *Globals::GameEventManagerPtr;
-	
+
 	DOTA_GameState gameState = Globals::GameRules->GetGameState();
 	if (gameState == DOTA_GAMERULES_STATE_PRE_GAME ||
 		gameState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) {
@@ -93,7 +115,9 @@ inline void EnteredMatch() {
 		ctx.lua["assignedHero"] = ctx.assignedHero;
 		ctx.lua["localPlayer"] = ctx.localPlayer;
 
-		std::cout << "ENTERED MATCH\n"; 
+		ReinjectEntIteration();
+
+		std::cout << "ENTERED MATCH\n";
 	}
 }
 inline void LeftMatch() {
@@ -108,7 +132,7 @@ inline void LeftMatch() {
 	Globals::ScriptVM = nullptr;
 	Globals::ParticleManager = nullptr;
 	Lua::ResetGlobals(ctx.lua);
-	
+
 	VMTs::UIEngine.reset();
 
 	for (auto& listener : CGameEventManager::EventListeners)

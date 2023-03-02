@@ -4,7 +4,7 @@
 #include "Signatures.h"
 #include "CUtlVector.h"
 #include <set>
-//#include <span>
+#include <span>
 #include "Netvars.h"
 #include "SDK/color.h"
 
@@ -20,15 +20,12 @@ struct SchemaClassBinding {
 	void* pSchemaType;
 };
 
-class CUnitInventory {
+class CUnitInventory : NormalClass {
 public:
 	// Returns an array of 19 entity handles representing slots, if the slot is empty, the handle is invalid(0XFFFFFFFF)
 	// Valid handles of items are ordered by slots, i. e. moving an item to backpack will change its index inside this array
-	ENT_HANDLE* GetItems() {
-		static int offset = Netvars::C_DOTA_UnitInventory::m_hItems;
-		if (!offset)
-			return nullptr;
-		return reinterpret_cast<ENT_HANDLE*>((uintptr_t)this + offset);
+	auto GetItems() {
+		return std::span<ENT_HANDLE, 19>{ MemberInline<ENT_HANDLE>(Netvars::C_DOTA_UnitInventory::m_hItems), 19 };
 	}
 	bool IsItemInSlot(ENT_HANDLE item, uint32_t slot) {
 		if (slot > 18)
@@ -37,11 +34,11 @@ public:
 		return GetItems()[slot] == item;
 	}
 	int GetItemSlot(ENT_HANDLE item) {
-		for (int i = 0; i < 19; i++) {
-			if (GetItems()[i] == item)
-				return i;
-		}
-		return -1;
+		auto items = GetItems();
+		auto it = std::find(items.begin(), items.end(), item);
+		return it != items.end()
+			? it - items.begin() 
+			: -1;
 	}
 };
 
@@ -58,14 +55,11 @@ public:
 
 	void SetColor(Color clr)
 	{
-		static int offset = Netvars::C_BaseModelEntity::m_clrRender;
-		if (!offset)
-			return;
-		uintptr_t clrAddr = (uintptr_t)this + offset;
-		*(BYTE*)(clrAddr + 0) = static_cast<BYTE>(clr.RGBA[0]);
-		*(BYTE*)(clrAddr + 1) = static_cast<BYTE>(clr.RGBA[1]);
-		*(BYTE*)(clrAddr + 2) = static_cast<BYTE>(clr.RGBA[2]);
-		*(BYTE*)(clrAddr + 3) = static_cast<BYTE>(clr.RGBA[3]);
+		uintptr_t clrAddr = (uintptr_t)this + Netvars::C_BaseModelEntity::m_clrRender;
+		*(BYTE*)(clrAddr + 0) = clr.RGBA[0];
+		*(BYTE*)(clrAddr + 1) = clr.RGBA[1];
+		*(BYTE*)(clrAddr + 2) = clr.RGBA[2];
+		*(BYTE*)(clrAddr + 3) = clr.RGBA[3];
 
 		Signatures::OnColorChanged(this);
 	}
@@ -181,17 +175,12 @@ public:
 class DotaModifierManager : public VClass {
 public:
 	// Returns the original CUtlVector that stores the list
-	CUtlVector<DotaModifier*>* GetModifierListRaw() {
-		return (CUtlVector<DotaModifier*>*)((uintptr_t)this + 0x10);
+	auto GetModifierListRaw() {
+		return MemberInline<CUtlVector<DotaModifier*>>(0x10);
 	}
-	std::vector<DotaModifier*> GetModifierList() {
-		auto result = std::vector<DotaModifier*>{};
-
-		auto vecModifiers = (CUtlVector<DotaModifier*>*)((uintptr_t)this + 0x10);
-		for (int i = 0; i < vecModifiers->m_Size; i++)
-			result.push_back(vecModifiers->at(i));
-
-		return result;
+	auto GetModifierList() {
+		auto vecModifiers = MemberInline<CUtlVector<DotaModifier*>>(0x10);
+		return vecModifiers->AsStdVector();
 	}
 
 	static void BindLua(sol::state& lua) {
@@ -259,7 +248,7 @@ public:
 	// Which means "dereference a pointer to an object on offset 0x568, then dereference a pointer to an int on 0x100 offset of that object"
 	int GetCastRange() {
 		auto infoObj = Member<VClass*>(0x568);
-		return *infoObj->Member<int*>(0x100); // Weird structure
+		return *infoObj->Member<int*>(0x100); // Weird key-value structure
 	}
 	template<typename T = double>
 	T GetLevelSpecialValueFor(const char* valName, int level = -1) {
@@ -268,6 +257,10 @@ public:
 
 	int GetAOERadius() {
 		return static_cast<int>(Signatures::Scripts::GetLevelSpecialValueFor(nullptr, H2IDX(GetIdentity()->entHandle), "radius", -1));
+	}
+
+	bool IsHidden() {
+		return Member<bool>(Netvars::C_DOTABaseAbility::m_bHidden);
 	}
 };
 
@@ -288,7 +281,7 @@ public:
 		T* GetAs() const {
 			return reinterpret_cast<T*>(Interfaces::EntitySystem->GetEntity(H2IDX(handle)));
 		}
-		bool IsValid() {
+		bool IsValid() const {
 			return handle != 0xFFFFFFFF;
 		}
 
@@ -303,7 +296,7 @@ public:
 
 	DotaModifierManager* GetModifierManager() {
 		// Inlined into the object instead of a pointer
-		return (DotaModifierManager*)((uintptr_t)this + Netvars::C_DOTA_BaseNPC::m_ModifierManager);
+		return MemberInline<DotaModifierManager>(Netvars::C_DOTA_BaseNPC::m_ModifierManager);
 	}
 
 	// Wrapper function combining the following conditions: 
@@ -323,7 +316,7 @@ public:
 	//Implemented as a method returning a bool rather than a field
 	//Is inside some kind of structure on offset BE8
 	bool IsRoshan() {
-		return reinterpret_cast<VClass*>((uintptr_t)this + 0xbe8)->CallVFunc<57, bool>();
+		return MemberInline<VClass>(0xbe8)->CallVFunc<57, bool>();
 	}
 
 	int GetAttackRange() {
@@ -343,12 +336,8 @@ public:
 		return Member<const char*>(Netvars::C_DOTA_BaseNPC::m_iszUnitName);
 	}
 	std::vector<ItemOrAbility> GetAbilities() {
-		static int offset = Netvars::C_DOTA_BaseNPC::m_hAbilities;
-		if (!offset)
-			return {};
-
 		std::vector<ItemOrAbility> result{};
-		ENT_HANDLE* hAbilities = (ENT_HANDLE*)((uintptr_t)this + offset);
+		ENT_HANDLE* hAbilities = MemberInline<ENT_HANDLE>(Netvars::C_DOTA_BaseNPC::m_hAbilities);
 		for (int j = 0; j < 35; j++) {
 			ENT_HANDLE handle = hAbilities[j];
 			if (HVALID(handle)) {
@@ -360,7 +349,7 @@ public:
 	}
 
 	ItemOrAbility FindItemBySubstring(const char* str) {
-		if (str == nullptr)
+		if (!str)
 			return ItemOrAbility{ nullptr, 0xFFFFFFFF };
 		for (const auto& item : GetItems())
 			if (item.name &&
@@ -371,27 +360,23 @@ public:
 	}
 
 	CUnitInventory* GetInventory() {
-		static int offset = Netvars::C_DOTA_BaseNPC::m_Inventory;
-		if (!offset)
-			return nullptr;
-		return (CUnitInventory*)((uintptr_t)this + offset);
+		return MemberInline<CUnitInventory>(Netvars::C_DOTA_BaseNPC::m_Inventory);
 	}
 	std::vector<ItemOrAbility> GetItems() {
-		static int offset = Netvars::C_DOTA_BaseNPC::m_Inventory;
-		if (!offset)
-			return {};
-
 		std::vector<ItemOrAbility> result{};
-		CUnitInventory* inv = (CUnitInventory*)((uintptr_t)this + offset);
-		if (inv) {
-			ENT_HANDLE* itemsHandle = inv->GetItems();
-			for (int i = 0; i < 19; i++) {
-				if (HVALID(itemsHandle[i])) {
-					auto* identity = Interfaces::EntitySystem->GetIdentity(H2IDX(itemsHandle[i]));
-					result.push_back(ItemOrAbility(identity->GetName(), identity->entHandle));
-				}
-			}
+		CUnitInventory* inv = GetInventory();
+		if (!inv)
+			return result;
+
+		auto itemsHandle = inv->GetItems();
+		for(auto& handle : itemsHandle) { 
+			if (!HVALID(handle))
+				continue;
+
+			auto* identity = Interfaces::EntitySystem->GetIdentity(H2IDX(handle));
+			result.push_back(ItemOrAbility(identity->GetName(), identity->entHandle));
 		}
+
 		return result;
 	}
 
@@ -448,7 +433,7 @@ public:
 	}
 
 	bool IsIllusion() {
-		return Member<ENT_HANDLE>(Netvars::C_DOTA_BaseNPC_Hero::m_hReplicatingOtherHeroModel) != 0xFFFFFFFF;
+		return HVALID(Member<ENT_HANDLE>(Netvars::C_DOTA_BaseNPC_Hero::m_hReplicatingOtherHeroModel));
 	}
 
 	static void BindLua(sol::state& lua) {
@@ -470,8 +455,8 @@ public:
 	uint32_t GetAssignedHeroHandle() {
 		return Member< uint32_t>(Netvars::C_DOTAPlayerController::m_hAssignedHero);
 	}
-	std::vector<uint32_t> GetSelectedUnits() {
-		return Member<CUtlVector<uint32_t>>(Netvars::C_DOTAPlayerController::m_nSelectedUnits).ToStdVector();
+	auto GetSelectedUnits() {
+		return Member<CUtlVector<uint32_t>>(Netvars::C_DOTAPlayerController::m_nSelectedUnits).AsStdVector();
 	}
 	BaseNpc* GetAssignedHero() {
 		return Interfaces::EntitySystem->GetEntity<BaseNpc>(H2IDX(GetAssignedHeroHandle()));

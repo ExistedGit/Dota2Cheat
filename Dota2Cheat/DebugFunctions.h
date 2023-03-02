@@ -58,22 +58,22 @@ namespace Test {
 
 	void hkSetControlPoint(VClass* thisptr, int idx, Vector3* pos) {
 		partMap[thisptr]->GetOriginalMethod<decltype(&hkSetControlPoint)>(16)(thisptr, idx, pos);
-		//std::cout << "Set CP #" << idx << ": " << *pos << '\n';
+		std::cout << "Set CP #" << idx << ": " << *pos << '\n';
 	}
 	void hkCreateParticle(CDOTAParticleManager* thisptr, uint32_t handle, CDOTAParticleManager::ParticleInfo* info) {
 		ParticleManagerVMT->GetOriginalMethod<decltype(&hkCreateParticle)>(7)(thisptr, handle, info);
-		if (!strcmp(info->particleName, "particles/units/heroes/hero_primal_beast/primal_beast_onslaught_range_finder.vpcf")) {
+		if (!strcmp(info->particleName, "particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_shield.vpcf")) {
 			auto newParticleCollection = Globals::ParticleManager->GetParticleArray()[Globals::ParticleManager->GetParticleCount() - 1]->GetParticle()->GetParticleCollection();
-			//std::cout << "Created particle: " << info->particleName << '\n';
+			std::cout << "Created particle: " << info->particleName << '\n';
 			partMap[newParticleCollection] = std::unique_ptr<VMT>(new VMT(newParticleCollection));
 			partMap[newParticleCollection]->HookVM(hkSetControlPoint, 16);
 			partMap[newParticleCollection]->ApplyVMT();
 		}
 	}
 	void HookParticles() {
-		ParticleManagerVMT = std::unique_ptr<VMT>(new VMT(Globals::ParticleManager));
-		ParticleManagerVMT->HookVM(hkCreateParticle, 7);
-		ParticleManagerVMT->ApplyVMT();
+		//ParticleManagerVMT = std::unique_ptr<VMT>(new VMT(Globals::ParticleManager));
+		//ParticleManagerVMT->HookVM(hkCreateParticle, 7);
+		//ParticleManagerVMT->ApplyVMT();
 	}
 }
 #endif // _DEBUG

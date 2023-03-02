@@ -29,7 +29,7 @@ namespace Hooks {
 			switch (orderType) {
 			case DOTA_UNIT_ORDER_CAST_TARGET:
 			{
-				Modules::CastRedirection.RedirectIfIllusionCast(targetIndex, issuer, abilityIndex);
+				Modules::CastRedirection.RedirectIfIllusionCast(targetIndex, issuer, abilityIndex, giveOrder);
 				break;
 			}
 			case DOTA_UNIT_ORDER_CAST_POSITION: {

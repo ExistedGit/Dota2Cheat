@@ -9,7 +9,7 @@ namespace Config {
 	inline bool AutoBuyTome = false;
 
 	inline bool CastRedirection = true;
-
+	
 	inline bool AutoWandEnabled = true;
 	inline float AutoHealWandHPTreshold = 10.0f;
 	inline int AutoHealWandMinCharges = 5;
@@ -29,7 +29,8 @@ namespace Config {
 	inline bool RenderAllParticles = true;
 
 	inline Vector3 IllusionColor{ 1,0,0 };
-
+	inline bool IllusionColoring = true;
+	
 	inline int CircleRadius = 1200;
 	inline Vector3 CircleRGB{ 0,0,0 };
 

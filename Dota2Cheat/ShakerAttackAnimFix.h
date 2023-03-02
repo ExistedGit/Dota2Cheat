@@ -3,6 +3,8 @@
 
 
 namespace Hacks {
+	// Changes Shaker's default attack animation to Enchant Totem's one
+	// rofl feature from melonity :)
 	class ShakerAttackAnimFix {
 	private:
 		BaseNpc* shaker = nullptr;
@@ -16,14 +18,13 @@ namespace Hacks {
 		}
 
 		void ChangeAttackAnimIfNeeded(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
-			if (!shaker)
+			if (msgHandle->messageID != 521 ||
+				!shaker)
 				return;
-			if (msgHandle->messageID == 521) {
-				auto animMsg = reinterpret_cast<CDOTAUserMsg_TE_UnitAnimation*>(msg);
-				if ((animMsg->entity() & 0x3fff) == H2IDX(shaker->GetIdentity()->entHandle)) {
-					animMsg->set_sequence_variant(3);
-				};
-			}
+
+			auto animMsg = reinterpret_cast<CDOTAUserMsg_TE_UnitAnimation*>(msg);
+			if ((animMsg->entity() & 0x3fff) == H2IDX(shaker->GetIdentity()->entHandle))
+				animMsg->set_sequence_variant(3);
 		}
 	};
 }
