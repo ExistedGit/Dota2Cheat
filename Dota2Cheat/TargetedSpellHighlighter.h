@@ -44,6 +44,14 @@ namespace Hacks {
 				.SetControlPoint(0, Vector3::Zero)
 				.SetControlPoint(60, Vector3::Zero) // RGB color of the crosshair
 				.SetControlPoint(61, Vector3::Zero) // X coordinate controls whether the color applies
+			},
+			{
+				"modifier_bounty_hunter_track",
+				ParticleCreationInfo(
+					"particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_shield.vpcf"
+				)
+				.SetControlPoint(0, Vector3::Zero)
+				.SetControlPoint(3, Vector3::Zero)
 			}
 		};
 
@@ -64,8 +72,6 @@ namespace Hacks {
 			for (auto& [_, pw] : TrackedModifiers)
 				if (pw.handle != 0xFFFFFFFF)
 					Globals::ParticleManager->DestroyParticle(pw);
-			
-
 			TrackedModifiers.clear();
 		}
 
@@ -128,6 +134,8 @@ namespace Hacks {
 			if (!Config::ShowEnemyTargetedSpells)
 				return;
 			if (!ModifierParticles.count(modifier->GetName()))
+				return;
+			if (modifier->GetOwner()->GetTeam() != ctx.assignedHero->GetTeam())
 				return;
 
 			auto entry = ModifierParticles[modifier->GetName()];

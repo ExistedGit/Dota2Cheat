@@ -7,19 +7,21 @@ namespace Hacks {
 	class IllusionColoring {
 	public:
 		bool ColorIfIllusion(BaseEntity* ent) {
-			const char* className = ent->SchemaBinding()->binaryName;
-			if (ctx.heroes.count((BaseNpcHero*)ent)) {
-				auto hero = (BaseNpcHero*)ent;
-				if (
-					ctx.assignedHero->GetTeam() != hero->GetTeam() &&
-					hero->IsIllusion() &&
-					strstr(className, "CDOTA_Unit_Hero_ArcWarden") == nullptr //Arc's double is replicating his model but is not an illusion
-					) {
+			if (!Config::IllusionColoring ||
+				!ctx.heroes.count((BaseNpcHero*)ent))
+				return false;
 
-					hero->SetColor(Color(Config::IllusionColor.x * 255, Config::IllusionColor.y * 255, Config::IllusionColor.z * 255));
-					return true;
-				}
+			const char* className = ent->SchemaBinding()->binaryName;
+			auto hero = (BaseNpcHero*)ent;
+			if (
+				ctx.assignedHero->GetTeam() != hero->GetTeam() &&
+				hero->IsIllusion() &&
+				!strstr(className, "CDOTA_Unit_Hero_ArcWarden") //Arc's double is replicating his model but is not an illusion
+				) {
+				hero->SetColor(Color(Config::IllusionColor.x * 255, Config::IllusionColor.y * 255, Config::IllusionColor.z * 255));
+				return true;
 			}
+
 			return false;
 		}
 	};

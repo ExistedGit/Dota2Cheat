@@ -45,7 +45,7 @@ inline void ReinjectEntIteration() {
 		if (!ent)
 			continue;
 		auto className = ent->SchemaBinding()->binaryName;
-		if (className)
+		if (!className)
 			continue;
 		if (strstr(className, "Item_Physical")) {
 			ctx.physicalItems.insert(ent);
@@ -115,9 +115,7 @@ inline void EnteredMatch() {
 		ctx.lua["assignedHero"] = ctx.assignedHero;
 		ctx.lua["localPlayer"] = ctx.localPlayer;
 
-		// if gameTime is more than 10 seconds in it must surely be a mid-match inject
-		if (Globals::GameRules->GetGameTime() >= 10) 
-			ReinjectEntIteration();
+		ReinjectEntIteration();
 
 		std::cout << "ENTERED MATCH\n";
 	}
