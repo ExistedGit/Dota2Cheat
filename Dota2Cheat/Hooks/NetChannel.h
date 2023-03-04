@@ -5,8 +5,11 @@
 #include "../ShakerAttackAnimFix.h"
 #include "../ParticleAbilityWarner.h"
 #include "../LinearProjectileWarner.h"
+#include "../Projectiles.h"
 
 namespace Hooks {
+	inline INetChannel* NetChan{};
+
 	// for MinHook
 	inline Signatures::DispatchPacketFn oDispatchPacket = nullptr;
 	inline Signatures::BAsyncSendProtoFn oBAsyncSendProto = nullptr;
@@ -26,9 +29,9 @@ namespace Hooks {
 	};
 
 	typedef void(__fastcall* PostReceivedNetMessageFn)(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits);
-	inline PostReceivedNetMessageFn oPostReceivedNetMessage;
+	inline PostReceivedNetMessageFn oPostReceivedNetMessage{};
 	inline void hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits) {
-
+		NetChan = thisptr;
 		if (messageHandle->messageID != 4) // not CNetMsg_Tick [4]
 		{
 			NetMessageInfo_t* info = Interfaces::NetworkMessages->GetNetMessageInfo(messageHandle);
@@ -42,9 +45,32 @@ namespace Hooks {
 		oPostReceivedNetMessage(thisptr, messageHandle, msg, type, bits);
 	}
 
-	//inline bool hkSendNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, NetChannelBufType_t type) {
-	//	return VMTs::NetChannel->GetOriginalMethod<decltype(&hkSendNetMessage)>(69)(thisptr, messageHandle, msg, type);
-	//}
+	typedef bool(__fastcall* SendNetMessageFn)(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, NetChannelBufType_t type);
+	inline SendNetMessageFn oSendNetMessage{};
+	inline bool hkSendNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, NetChannelBufType_t type) {
+
+
+		//if (messageHandle->messageID == 303) {
+		//	CDOTAClientMsg_MapPing myMsg{};
+		//	auto loc = myMsg.mutable_location_ping();
+		//	loc->set_x(ctx.assignedHero->GetPos().x);
+		//	loc->set_y(ctx.assignedHero->GetPos().y);
+		//	loc->set_target(-1);
+		//	loc->set_direct_ping(false);
+		//	loc->set_type(0);
+		//	loc->set_ping_source(k_ePingSource_Default);
+		//	
+		//	//CDOTAClientMsg_MapPing* clone = static_cast<CDOTAClientMsg_MapPing*>(msg->New());
+		//	//clone->CopyFrom(*static_cast<CDOTAClientMsg_MapPing*>(msg));
+		//	//clone->mutable_location_ping()->CopyFrom(*static_cast<CDOTAClientMsg_MapPing*>(msg)->mutable_location_ping());
+		//	auto handle = Interfaces::NetworkMessages->FindNetworkMessage2("CDOTAClientMsg_MapPing");
+		//	//if (Hooks::NetChan)
+		//	
+		//	return oSendNetMessage(NetChan, handle, &myMsg, BUF_DEFAULT);
+		//}
+		
+		return oSendNetMessage(thisptr, messageHandle, msg, type);
+	}
 
 	// Another way to hook NetChan.
 	// It's unreliable, since you need to reset and capture the object's VMT and it happens strictly during game load

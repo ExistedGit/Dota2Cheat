@@ -14,7 +14,7 @@ namespace Signatures {
 
 	typedef void(__fastcall* PrepareUnitOrdersFn)(DotaPlayer* player, dotaunitorder_t orderType, UINT32 targetIndex, Vector3* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, BaseEntity* issuer, bool queue, bool showEffects);
 	typedef void(__fastcall* EntityCallback)(void* thisptr);
-	typedef void(__fastcall* WorldToScreenFn)(Vector3* coord, int* outX, int* outY, void* offset);
+	typedef void(__fastcall* WorldToScreenFn)(Vector* coord, int* outX, int* outY, void* offset);
 	typedef void(__fastcall* DestroyParticleFn)(void* thisptr, ENT_HANDLE handle, bool unk);
 	typedef double(__fastcall* GetLevelSpecialValueForFn)(void* thisptr, int abilityIndex, const char* value, int level);
 
@@ -51,7 +51,9 @@ namespace Signatures {
 
 	// Default signature scan
 #define SIGSCAN(func, sig, dll) ParseCombo(sig, funcAddr, funcAddrMask); \
-	func =(decltype(func))PatternScanExModule(ctx.CurProcHandle, ctx.CurProcId, dll, funcAddr, funcAddrMask); \
+	func =(decltype(func))PatternScanExModule(ctx.CurProcHandle, ctx.CurProcId, dll, funcAddr, funcAddrMask)
+
+#define SIGSCAN_LOG(func, sig, dll) SIGSCAN(func, sig, dll); \
 	if(log) std::cout << #func << ": " << func << '\n'
 
 	// Signature scan with offset from the found address, I have plenty of such signatures
@@ -68,8 +70,6 @@ namespace Signatures {
 
 		char funcAddr[256];
 		char funcAddrMask[256];
-
-
 		SIGSCAN(PrepareUnitOrders, "4C 89 4C 24 20 44 89 44 24 18 89 54 24 10 55 53 57 41 55 41 57 48 8D 6C 24 C0", L"client.dll");
 
 		ParseCombo("E8 ? ? ? ? 48 83 ED 01 79 DF", funcAddr, funcAddrMask);
@@ -93,9 +93,9 @@ namespace Signatures {
 		SIGSCAN_OFF(DispatchPacket, "74 05 48 8B 01 FF 10 48 8B 06 48 8B CE 48 89 BC 24 80 00 00 00", L"client.dll", -0x1B);
 
 		//xref "CProtoBufMsg::BAsyncSendProto"
-		SIGSCAN(BAsyncSendProto, "40 53 41 54 48 83 EC 58 48 83 79 10 00 4C 8B E2 48 8B D9 75 0A", L"client.dll");
+		SIGSCAN_LOG(BAsyncSendProto, "40 53 41 54 48 83 EC 58 48 83 79 10 00 4C 8B E2 48 8B D9 75 0A", L"client.dll");
 
 		//xref "OnColorChanged", lea rax, [XXXXXXXXX] below it
-		SIGSCAN(OnColorChanged, "40 53 48 83 EC 20 48 8B D9 48 8B 89 ? ? ? ? 48 8B 01 0F B6 93", L"client.dll");
+		SIGSCAN_LOG(OnColorChanged, "40 53 48 83 EC 20 48 8B D9 48 8B 89 ? ? ? ? 48 8B 01 0F B6 93", L"client.dll");
 	}
 }

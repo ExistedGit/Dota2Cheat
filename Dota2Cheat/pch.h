@@ -3,6 +3,9 @@
 
 #include "framework.h"
 
+#include <google/protobuf/message.h>
+#include <google/protobuf/repeated_field.h>
+
 #include "Protobuf Messages/dota_clientmessages.pb.h"
 #include "Protobuf Messages/dota_commonmessages.pb.h"
 #include "Protobuf Messages/dota_gcmessages_msgid.pb.h"

@@ -219,6 +219,9 @@
     <ClInclude Include="ArmletAbuse.h" />
     <ClInclude Include="AttackTargetFinder.h" />
     <ClInclude Include="AutoBuyTome.h" />
+    <ClInclude Include="AutoDodge.h" />
+    <ClInclude Include="AutoPick.h" />
+    <ClInclude Include="AutoPing.h" />
     <ClInclude Include="AutoUseMagicWand.h" />
     <ClInclude Include="AutoUseMidas.h" />
     <ClInclude Include="BadCastPrevention.h" />
