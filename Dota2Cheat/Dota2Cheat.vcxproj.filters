@@ -299,9 +299,6 @@
     <ClInclude Include="Hooks\ParticleRendering.h">
       <Filter>Header files\Hooks</Filter>
     </ClInclude>
-    <ClInclude Include="Projectiles.h">
-      <Filter>Header files\Events</Filter>
-    </ClInclude>
     <ClInclude Include="Protobuf Messages\dota_shared_enums.pb.h">
       <Filter>Header files\Protobuf Messages</Filter>
     </ClInclude>
@@ -366,6 +363,18 @@
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
     <ClInclude Include="PerfectBlink.h">
+      <Filter>Header files\Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoPick.h">
+      <Filter>Header files\Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoPing.h">
+      <Filter>Header files\Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectiles.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoDodge.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
   </ItemGroup>

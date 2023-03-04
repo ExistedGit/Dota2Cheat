@@ -13,11 +13,16 @@ class ItemRune;
 
 struct Context {
 	DotaPlayer* localPlayer{};
-	BaseNpc* assignedHero{};
+	BaseNpcHero* assignedHero{};
 	
 	HANDLE CurProcHandle;
 	int CurProcId;
-	bool IsInMatch = false;
+	enum class GameStage {
+		NONE = 0,
+		IN_MATCH = 1,
+		IN_GAME = 2
+	};
+	GameStage gameStage = GameStage::NONE;
 
 	std::set<ItemRune*> runes{};
 	std::set<BaseEntity*> entities{};
@@ -25,8 +30,10 @@ struct Context {
 	std::set<BaseEntity*> physicalItems{};
 	std::set<BaseNpcHero*> heroes{};
 	
-	struct {
+	struct ImportantItems {
 		BaseAbility* midas{};
+		BaseAbility* manta{};
+		BaseAbility* bottle{};
 	} importantItems{};
 	sol::state lua{};
 };

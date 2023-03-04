@@ -13,7 +13,7 @@ namespace Hacks {
 
 			const char* className = ent->SchemaBinding()->binaryName;
 			auto hero = (BaseNpcHero*)ent;
-			if (
+			if (ctx.assignedHero &&
 				ctx.assignedHero->GetTeam() != hero->GetTeam() &&
 				hero->IsIllusion() &&
 				!strstr(className, "CDOTA_Unit_Hero_ArcWarden") //Arc's double is replicating his model but is not an illusion

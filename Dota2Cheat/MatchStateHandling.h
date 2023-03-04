@@ -6,9 +6,12 @@
 #include "DebugFunctions.h"
 #include "Hooks/RunFrame.h"
 #include "Lua/LuaInitialization.h"
+#include "Hooks/ModifierEvents.h"
 
 #include "AutoBuyTome.h"
 #include <format>
+#include "AutoPick.h"
+#include "AutoPing.h"
 
 inline void FillPlayerList() {
 	auto vec = Globals::PlayerResource->GetVecPlayerTeamData();
@@ -59,73 +62,88 @@ inline void ReinjectEntIteration() {
 		ctx.entities.insert(ent);
 	}
 }
+#define OnEnterMatch_InitGlobal(global) Globals::##global = *Globals::## global ##Ptr
 
 inline void EnteredMatch() {
-	Globals::GameRules = *Globals::GameRulesPtr;
-	Globals::PlayerResource = *Globals::PlayerResourcePtr;
 	//	Globals::ScriptVM = *Globals::ScriptVMPtr;
-	Globals::ParticleManager = *Globals::ParticleManagerPtr;
-	Globals::GameEventManager = *Globals::GameEventManagerPtr;
+	OnEnterMatch_InitGlobal(GameRules);
+	OnEnterMatch_InitGlobal(ProjectileManager);
+	OnEnterMatch_InitGlobal(PlayerResource);
+	OnEnterMatch_InitGlobal(ParticleManager);
+	OnEnterMatch_InitGlobal(GameEventManager);
 
+	//	Modules::AutoPick.autoBanHero = "sniper";
+	//	Modules::AutoPick.autoPickHero = "arc_warden";
+
+	ctx.localPlayer = (DotaPlayer*)Interfaces::EntitySystem->GetEntity(Interfaces::Engine->GetLocalPlayerSlot() + 1);
+	if (!ctx.localPlayer)
+		return;
+
+	ctx.gameStage = Context::GameStage::IN_MATCH;
+	std::cout << "ENTERED MATCH\n";
+}
+
+inline void EnteredInGame() {
 	DOTA_GameState gameState = Globals::GameRules->GetGameState();
-	if (gameState == DOTA_GAMERULES_STATE_PRE_GAME ||
-		gameState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) {
+	if (gameState != DOTA_GAMERULES_STATE_PRE_GAME &&
+		gameState != DOTA_GAMERULES_STATE_GAME_IN_PROGRESS)
+		return;
 
-		ctx.localPlayer = (DotaPlayer*)Interfaces::EntitySystem->GetEntity(Interfaces::Engine->GetLocalPlayerSlot() + 1);
-		if (ctx.localPlayer == nullptr)
-			return;
-		ctx.assignedHero = (BaseNpc*)Interfaces::EntitySystem->GetEntity(H2IDX(ctx.localPlayer->GetAssignedHeroHandle()));
-		if (ctx.assignedHero == nullptr)
-			return;
+	ctx.assignedHero = Interfaces::EntitySystem->GetEntity<BaseNpcHero>(H2IDX(ctx.localPlayer->GetAssignedHeroHandle()));
+	if (!ctx.assignedHero)
+		return;
 
-		for (int i = 0; i <= Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
-			auto ent = Interfaces::EntitySystem->GetEntity(i);
-			if (ent != nullptr && ent->SchemaBinding()->binaryName != nullptr)
-				ctx.entities.insert(ent);
-		}
+	//Config::AutoPingTarget = ctx.assignedHero;
+	for (auto& modifier : ctx.assignedHero->GetModifierManager()->GetModifierList())
+		Hooks::CacheIfItemModifier(modifier); // for registering important items on reinjection
+	
 
-		FillPlayerList();
+	FillPlayerList();
 
-		Modules::ShakerAttackAnimFix.SubscribeEntity(ctx.assignedHero);
-		Modules::AutoBuyTome.Init();
-		std::cout << "Local Player: " << ctx.localPlayer
-			<< "\n\t" << std::dec << "STEAM ID: " << ctx.localPlayer->GetSteamID()
-			<< '\n';
-		std::cout << "Assigned Hero: " << ctx.assignedHero << " " << ctx.assignedHero->GetUnitName() << '\n';
+	Modules::ShakerAttackAnimFix.SubscribeEntity(ctx.assignedHero);
+	Modules::AutoBuyTome.Init();
 
-		Interfaces::CVar->SetConvars();
+	std::cout << "Local Player: " << ctx.localPlayer
+		<< "\n\t" << std::dec << "STEAM ID: " << ctx.localPlayer->GetSteamID()
+		<< '\n';
+	std::cout << "Assigned Hero: " << ctx.assignedHero << " " << ctx.assignedHero->GetUnitName() << '\n';
 
-		auto roshanListener = new RoshanListener();
-		roshanListener->gameStartTime = Globals::GameRules->GetGameTime();
-		auto hurtListener = new EntityHurtListener();
-		Globals::GameEventManager->AddListener(roshanListener, "dota_roshan_kill");
-		Globals::GameEventManager->AddListener(hurtListener, "entity_hurt");
+	Interfaces::CVar->SetConvars();
 
-		VMTs::UIEngine = std::unique_ptr<VMT>(new VMT(Interfaces::UIEngine));
-		VMTs::UIEngine->HookVM(Hooks::hkRunFrame, 6);
-		VMTs::UIEngine->ApplyVMT();
+	auto roshanListener = new RoshanListener();
+	roshanListener->gameStartTime = Globals::GameRules->GetGameTime();
+	auto hurtListener = new EntityHurtListener();
+	Globals::GameEventManager->AddListener(roshanListener, "dota_roshan_kill");
+	Globals::GameEventManager->AddListener(hurtListener, "entity_hurt");
 
-		Globals::LogGlobals();
-		Lua::InitGlobals(ctx.lua);
+	VMTs::UIEngine = std::unique_ptr<VMT>(new VMT(Interfaces::UIEngine));
+	VMTs::UIEngine->HookVM(Hooks::hkRunFrame, 6);
+	VMTs::UIEngine->ApplyVMT();
+
+	Globals::LogGlobals();
+	Lua::InitGlobals(ctx.lua);
 #ifdef _DEBUG
-		Test::HookParticles();
+	Test::HookParticles();
 #endif // _DEBUG
 
-		ctx.IsInMatch = true;
-		ctx.lua["assignedHero"] = ctx.assignedHero;
-		ctx.lua["localPlayer"] = ctx.localPlayer;
+	ctx.lua["assignedHero"] = ctx.assignedHero;
+	ctx.lua["localPlayer"] = ctx.localPlayer;
 
-		ReinjectEntIteration();
+	ReinjectEntIteration();
 
-		std::cout << "ENTERED MATCH\n";
-	}
+	ctx.gameStage = Context::GameStage::IN_GAME;
+	std::cout << "ENTERED GAME\n";
 }
+
+
 inline void LeftMatch() {
-	ctx.IsInMatch = false;
+	ctx.gameStage = Context::GameStage::NONE;
+	//Hooks::NetChan = nullptr;
 
 	Modules::AutoBuyTome.Reset();
 	Modules::VBE.Reset();
 	Modules::TargetedSpellHighlighter.Reset();
+	Modules::AutoPick.Reset();
 
 	Globals::PlayerResource = nullptr;
 	Globals::GameRules = nullptr;
@@ -151,9 +169,13 @@ inline void LeftMatch() {
 	std::cout << "LEFT MATCH\n";
 }
 inline void CheckMatchState() {
+	Modules::AutoPick.TryAutoBan();
 	if (Interfaces::Engine->IsInGame()) {
-		if (!ctx.IsInMatch)
+		if (ctx.gameStage == Context::GameStage::NONE)
 			EnteredMatch();
+		else if (ctx.gameStage == Context::GameStage::IN_MATCH)
+			EnteredInGame();
 	}
-	else if (ctx.IsInMatch) LeftMatch();
+	else if (ctx.gameStage != Context::GameStage::NONE)
+		LeftMatch();
 }

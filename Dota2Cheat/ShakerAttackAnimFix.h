@@ -23,8 +23,10 @@ namespace Hacks {
 				return;
 
 			auto animMsg = reinterpret_cast<CDOTAUserMsg_TE_UnitAnimation*>(msg);
-			if ((animMsg->entity() & 0x3fff) == H2IDX(shaker->GetIdentity()->entHandle))
+			if (animMsg->activity() == 1503 &&
+				NH2IDX(animMsg->entity()) == H2IDX(shaker->GetIdentity()->entHandle))
 				animMsg->set_sequence_variant(3);
+			
 		}
 	};
 }

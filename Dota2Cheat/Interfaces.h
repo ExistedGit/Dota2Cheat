@@ -12,51 +12,47 @@
 #include "Panorama.h"
 
 namespace Interfaces {
-	inline CVarSystem* CVar = nullptr;
-	inline IEngineClient* Engine = nullptr;
-	inline VClass* Panorama = nullptr;
-	inline Panorama::CUIEngineSource2* UIEngine = nullptr;
-	inline CSource2Client* Client = nullptr;
-	inline CGameEntitySystem* EntitySystem = nullptr;
-	inline CGCClient* GCClient = nullptr;
-	inline CInputService* InputService = nullptr;
-	inline VClass* Schema = nullptr;
-	inline CBaseFileSystem* FileSystem = nullptr;
+	inline CVarSystem* CVar{};
+	inline IEngineClient* Engine{};
+	inline VClass* Panorama{};
+	inline Panorama::CUIEngineSource2* UIEngine{};
+	inline CSource2Client* Client{};
+	inline CGameEntitySystem* EntitySystem{};
+	inline CGCClient* GCClient{};
+	inline CInputService* InputService{};
+	inline VClass* Schema{};
+	inline CBaseFileSystem* FileSystem{};
 	inline void* NetworkSystem;
-	inline CNetworkMessages* NetworkMessages = nullptr;
+	inline CNetworkMessages* NetworkMessages{};
 
 	typedef void* (__cdecl* tCreateInterface)(const char* name, int* returnCode);
 	template<typename T>
-	inline T GetInterface(const char* dllName, const char* interfaceName) {
+	inline T* GetInterface(const char* dllName, const char* interfaceName) {
 		tCreateInterface CreateInterface = (tCreateInterface)GetProcAddress(GetModuleHandleA(dllName), "CreateInterface");
 		int retCode = 0;
 		void* retInterface = CreateInterface(interfaceName, &retCode);
-		return reinterpret_cast<T>(retInterface);
+		return reinterpret_cast<T*>(retInterface);
 	}
 
-
 	inline void InitInterfaces() {
-		Engine = GetInterface<IEngineClient*>("engine2.dll", "Source2EngineToClient001");
-		Client = GetInterface<CSource2Client*>("client.dll", "Source2Client002");
-		CVar = GetInterface<CVarSystem*>("tier0.dll", "VEngineCvar007");
+		Engine = GetInterface<IEngineClient>("engine2.dll", "Source2EngineToClient001");
+		Client = GetInterface<CSource2Client>("client.dll", "Source2Client002");
+		CVar = GetInterface<CVarSystem>("tier0.dll", "VEngineCvar007");
 
 		uintptr_t* vmt_slot = *(uintptr_t**)Interfaces::Client + 25;								//25th function in Source2Client vtable
 		uintptr_t addr_start = *vmt_slot + 3;														//stores the relative address portion of the mov rax, [rip + 0x2512059] instruction
 		EntitySystem = *(CGameEntitySystem**)(addr_start + *(uint32_t*)(addr_start)+4);
 
-		FileSystem = GetInterface<CBaseFileSystem*>("filesystem_stdio.dll", "VFileSystem017");
-		//auto file = FileSystem->OpenFile("scripts/npc/npc_ctx.heroes.txt", "r");
-		//char buffer[256];
-		//FileSystem->ReadLine(buffer, 256, file);
+		FileSystem = GetInterface<CBaseFileSystem>("filesystem_stdio.dll", "VFileSystem017");
 
-		Panorama = GetInterface<VClass*>("panorama.dll", "PanoramaUIEngine001");
+		Panorama = GetInterface<VClass>("panorama.dll", "PanoramaUIEngine001");
 		UIEngine = Panorama->Member<Panorama::CUIEngineSource2*>(0x28);
 
-		GCClient = GetInterface<CGCClient*>("client.dll", "DOTA_CLIENT_GCCLIENT");
-		Schema = GetInterface<VClass*>("schemasystem.dll", "SchemaSystem_001");
-		InputService = GetInterface<CInputService*>("engine2.dll", "InputService_001");
-		NetworkSystem = GetInterface<void*>("networksystem.dll", "NetworkSystemVersion001");
-		NetworkMessages = GetInterface<CNetworkMessages*>("networksystem.dll", "NetworkMessagesVersion001");
+		GCClient = GetInterface<CGCClient>("client.dll", "DOTA_CLIENT_GCCLIENT");
+		Schema = GetInterface<VClass>("schemasystem.dll", "SchemaSystem_001");
+		InputService = GetInterface<CInputService>("engine2.dll", "InputService_001");
+		NetworkSystem = GetInterface<void>("networksystem.dll", "NetworkSystemVersion001");
+		NetworkMessages = GetInterface<CNetworkMessages>("networksystem.dll", "NetworkMessagesVersion001");
 	}
 	inline  void LogInterfaces() {
 		std::cout << "[INTERFACES]\n";

@@ -13,6 +13,9 @@
 #include "../ShakerAttackAnimFix.h"
 #include "../TargetedSpellHighlighter.h"
 #include "../LinearProjectileWarner.h"
+#include "../AutoPing.h"
+#include "../Projectiles.h"
+#include "../AutoDodge.h"
 
 #include "../ParticleGC.h"
 
@@ -121,7 +124,7 @@ namespace Hooks {
 
 		if (isInGame) {
 			//std::cout << "frame\n";
-			if (ctx.IsInMatch) {
+			if (ctx.gameStage == Context::GameStage::IN_GAME) {
 				//sol::function entIter = ctx.lua["Modules"]["Core"]["EntityIteration"];
 				//entIter();
 
@@ -131,13 +134,15 @@ namespace Hooks {
 				if (ctx.assignedHero->GetLifeState() == 0) { // if alive
 					AutoUseWandCheck(ctx.assignedHero, Config::AutoHealWandHPTreshold, Config::AutoHealWandMinCharges);
 					AutoUseFaerieFireCheck(ctx.assignedHero, Config::AutoHealFaerieFireHPTreshold);
+
+					Modules::AutoPing.FrameBasedLogic();
+					Modules::AutoDodge.FrameBasedLogic();
 					Modules::AutoBuyTome.FrameBasedLogic();
 					Modules::VBE.FrameBasedLogic();
 					Modules::RiverPaint.FrameBasedLogic();
 					Modules::ParticleGC.FrameBasedLogic();
 					Modules::TargetedSpellHighlighter.FrameBasedLogic();
 					Modules::LinearProjectileWarner.FrameBasedLogic();
-
 					EntityIteration();
 				}
 #ifdef _DEBUG
@@ -154,8 +159,24 @@ namespace Hooks {
 						<< '\n';
 				}
 				if (IsKeyPressed(VK_NUMPAD3)) {
-
-
+					auto arr = Globals::ProjectileManager->GetTrackingProjectiles();
+					std::cout << "[PROJECTILES]\n";
+					for (int i = 0; i < arr.size(); i++) {
+						auto proj = arr[i];
+						if (!proj)
+							continue;
+						auto target = Interfaces::EntitySystem->GetEntity<BaseNpcHero>(H2IDX(proj->GetTarget()));
+						auto source = Interfaces::EntitySystem->GetEntity<BaseNpcHero>(H2IDX(proj->GetSource()));
+						std::cout << std::format("[{}] Move speed {} Source {} Target {} Dodgeable {} Attack {} Evaded {}\n",
+							i,
+							proj->GetMoveSpeed(),
+							source ? source->GetUnitName() : "unknown",
+							target ? target->GetUnitName() : "unknown",
+							proj->IsDodgeable() ? "YES" : "NO",
+							proj->IsAttack() ? "YES" : "NO",
+							proj->IsEvaded() ? "YES" : "NO"
+						);
+					};
 				}
 				if (IsKeyPressed(VK_HOME)) {
 

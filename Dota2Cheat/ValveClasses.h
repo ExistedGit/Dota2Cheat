@@ -14,7 +14,7 @@ public:
 	int BonusDelayedStockCount;
 };
 
-class CDOTAGameRules : VClass {
+class CDOTAGameRules : public VClass {
 public:
 	DOTA_GameState GetGameState() {
 		return Member<DOTA_GameState>(Netvars::C_DOTAGamerules::m_nGameState);

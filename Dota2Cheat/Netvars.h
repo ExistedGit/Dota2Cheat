@@ -734,7 +734,7 @@ namespace Netvars {
 		constexpr uint32_t m_vecNewBannedHeroes = 0x378; // C_NetworkUtlVectorBase< int32 >
 		constexpr uint32_t m_flOverride_dota_postgame_time = 0x80; // float32
 		constexpr uint32_t m_bFreeCourierMode = 0x42; // bool
-		constexpr uint32_t m_flLastUnfocusedSleepTime = 0xabc8; // float64
+		constexpr uint32_t m_flLastUnfocusedSleepTime = 0xabd8; // float64
 		constexpr uint32_t __m_pChainEntity = 0x8; // CNetworkVarChainer
 		constexpr uint32_t m_iPlayerIDsInControl = 0xe0; // uint64
 		constexpr uint32_t m_iMiscHeroPickCounter = 0x30; // int32
@@ -754,7 +754,7 @@ namespace Netvars {
 		constexpr uint32_t m_flHeroSelectPenaltyTime = 0x210; // float32
 		constexpr uint32_t m_flGoldTickTime = 0x4c; // float32
 		constexpr uint32_t m_nHeroPickState = 0x6c; // DOTA_HeroPickState
-		constexpr uint32_t m_bDidSeeStrategyTime = 0x1e70; // bool
+		constexpr uint32_t m_bDidSeeStrategyTime = 0x1e80; // bool
 		constexpr uint32_t m_bItemWhiteListChanged = 0x50; // bool
 		constexpr uint32_t m_flCustomGameEndDelay = 0x200; // float32
 		constexpr uint32_t m_bEnableSuggestAbilities = 0x51; // bool
@@ -941,9 +941,13 @@ namespace Netvars {
 		constexpr uint32_t m_vecIngameEvents = 0xe40; // C_NetworkUtlVectorBase< CHandle< C_IngameEvent_Base > >
 		constexpr uint32_t m_nPrimaryIngameEventIndex = 0xe58; // int8
 		constexpr uint32_t m_hObsoleteIngameEvent = 0xe5c; // CHandle< C_IngameEvent_Base >
-		constexpr uint32_t m_NeutralSpawnBoxes = 0xe90; // C_NetworkUtlVectorBase< NeutralSpawnBoxes_t >
-		constexpr uint32_t m_flLastPerfSampleTime = 0x1e60; // float64
-		constexpr uint32_t m_flLastPerfSampleSendTime = 0x1e68; // float64
+		constexpr uint32_t m_nOfrendaPledges = 0xe60; // uint32
+		constexpr uint32_t m_nRadiantOfrendas = 0xe64; // uint32
+		constexpr uint32_t m_nDireOfrendas = 0xe68; // uint32
+		constexpr uint32_t m_bOfrendaEnabled = 0xe6c; // bool
+		constexpr uint32_t m_NeutralSpawnBoxes = 0xea0; // C_NetworkUtlVectorBase< NeutralSpawnBoxes_t >
+		constexpr uint32_t m_flLastPerfSampleTime = 0x1e70; // float64
+		constexpr uint32_t m_flLastPerfSampleSendTime = 0x1e78; // float64
 	}
 	namespace CGameSceneNode {
 		constexpr uint32_t m_bNetworkedAnglesChanged = 0x0; // bitfield:1
@@ -979,5 +983,10 @@ namespace Netvars {
 		constexpr uint32_t m_hierarchyAttachName = 0x168; // CUtlStringToken
 		constexpr uint32_t m_flZOffset = 0x16c; // float32
 		constexpr uint32_t m_vRenderOrigin = 0x170; // Vector
+	}
+	namespace C_DOTA_Item_EmptyBottle {
+		constexpr uint32_t rune_expire_time = 0x678; // float32
+		constexpr uint32_t m_fStoredRuneTime = 0x674; // float32
+		constexpr uint32_t m_iStoredRuneType = 0x670; // int32
 	}
 }

@@ -31,6 +31,7 @@
 
 #include "Lua/LuaModules.h"
 #include "Lua/LuaInitialization.h"
+#include "Projectiles.h"
 
 #pragma region Static variables
 
@@ -322,6 +323,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 				ImGui::TreePop();
 			}
+			ImGui::Checkbox("AutoDodge", &Config::AutoDodge);
+			ImGui::SameLine(); HelpMarker("Can use Manta Style, Bottled Illusion Rune and Naga's Mirror Image");
+
+
 			ImGui::Checkbox("Show all particles", &Config::RenderAllParticles);
 			ImGui::SameLine(); HelpMarker("Renders any possible particle, even in FoW");
 
@@ -365,8 +370,14 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		}
 
 
-
-
+		//{
+		//	for (auto& proj : UtilityModules::ProjectileTracker.projectiles) {
+		//		int x = 0, y = 0;
+		//		Signatures::Scripts::WorldToScreen(&proj.pos, &x, &y, nullptr);
+		//		y += 10;
+		//		DrawTextForeground(window, defaultFont, "\\/", ImVec2(x, y), 20, Color{ 255,0,0,255 }, true);
+		//	}
+		//}
 		//if (ctx.IsInMatch && Config::VBEShowText)
 		//	DrawTextForeground(window, vbeFont, UIState::HeroVisibleToEnemy ? "DETECTED" : "HIDDEN", ImVec2(1920 / 2, 1080 * 3 / 4), 80.0f, Color(200, 200, 200, 255), true);
 
@@ -375,13 +386,13 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			menuVisible = !menuVisible;
 		}
 #ifdef _DEBUG
-		if (ctx.assignedHero) {
-			int x = 0, y = 0;
-			auto vec = ctx.assignedHero->GetForwardVector(500);
-			Signatures::Scripts::WorldToScreen(&vec, &x, &y, nullptr);
-			int size = 10;
-			DrawRect(window, ImVec2(x - size, y - size), ImVec2(size, size), ImVec4(1, 0, 0, 1));
-		}
+		//if (ctx.assignedHero) {
+		//	int x = 0, y = 0;
+		//	auto vec = ctx.assignedHero->GetForwardVector(500);
+		//	Signatures::Scripts::WorldToScreen(&vec, &x, &y, nullptr);
+		//	int size = 10;
+		//	DrawRect(window, ImVec2(x - size, y - size), ImVec2(size, size), ImVec4(1, 0, 0, 1));
+		//}
 #endif // _DEBUG
 
 		ImGui::PopFont();
@@ -407,7 +418,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwDestroyWindow(window);
 	glfwTerminate();
 
-	if (ctx.IsInMatch)
+	if (ctx.gameStage != Context::GameStage::NONE)
 		LeftMatch();
 	Modules::TargetedSpellHighlighter.OnDisableTargetedSpells();
 	Modules::TargetedSpellHighlighter.OnDisableLinken();

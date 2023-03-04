@@ -10,22 +10,49 @@ namespace Hooks {
 	inline Signatures::OnAddModifierFn oOnAddModifier = nullptr;
 	inline bool HookedOnAddModifier = false;
 
-	void CacheIfItemModifier(DotaModifier* modifier) {
-		std::string_view modName = modifier->GetName();
-		if (modName.starts_with("modifier_item"))
-		{
-			auto itemName = modName.substr(9); // removing the "modifier_" prefix
-			auto owner = modifier->GetOwner();
-			auto foundItem = owner->FindItemBySubstring(itemName.data());
-			if (foundItem.IsValid()) {
-				if (strstr(foundItem.name, "midas")) {
-					ctx.importantItems.midas = foundItem.GetAs<BaseAbility>();
-				}
-				else if (strstr(foundItem.name, "sphere")) {
-					Modules::TargetedSpellHighlighter.SubscribeLinkenRendering(owner, foundItem.GetAs<BaseAbility>());
-				}
-			}
+
+	struct ImportantItemInfo {
+		const char* itemName{};
+		const char* modifierName{};
+		BaseAbility** importantItemPtr{};
+		ImportantItemInfo(const char* itemName, const char* modifierName, BaseAbility** importantItemPtr)
+			:itemName(itemName), modifierName(modifierName), importantItemPtr(importantItemPtr) {
+
 		}
+	};
+	void CacheIfItemModifier(DotaModifier* modifier) {
+		static const std::vector<ImportantItemInfo> importantItemNames = {
+			{
+				"item_hand_of_midas",
+				"modifier_item_hand_of_midas",
+				&ctx.importantItems.midas
+			},
+			{
+				"item_manta",
+				"modifier_item_manta_style",
+				&ctx.importantItems.manta
+			},
+			{
+				"item_bottle",
+				"modifier_item_empty_bottle",
+				&ctx.importantItems.bottle
+			}
+		};
+		std::string_view modName = modifier->GetName();
+		if (modifier->GetOwner() != ctx.assignedHero ||
+			!modName.starts_with("modifier_item"))
+			return;
+	
+		for (auto& info : importantItemNames) {
+			if (info.modifierName != modName)
+				continue;
+			auto item = modifier->GetOwner()->FindItemBySubstring(info.itemName);
+			if (!item.IsValid())
+				break;
+
+			*info.importantItemPtr = item.GetAs<BaseAbility>();
+		}
+
 	}
 
 	void hkOnAddModifier(DotaModifier* modifier, int unk) {

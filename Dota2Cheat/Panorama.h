@@ -47,8 +47,9 @@ namespace Panorama {
 	class CUIEngineSource2 : public VClass {
 
 	public:
+		template<uint32_t size>
 		auto GetPanelList() {
-			return std::span{ Member<PanelListNode*>(0xf8), 30000 };
+			return std::span{ Member<PanelListNode*>(0xf8), size };
 		}
 		auto GetUIRenderDevice() {
 			return Member<CUIRenderDeviceSource2*>(0xB90);
