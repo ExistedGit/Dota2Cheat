@@ -5,7 +5,7 @@
 There weren't many open-source Dota cheats. And so I decided to fix that.
 Written in C++20 with love
 
-SDK folder code is from another github repo, [McDota](https://github.com/LWSS/McDota) by LWSS. It's a very helpful source regarding memory structures
+Some SDK bits were fully or partionally taken from [McDota](https://github.com/LWSS/McDota) by LWSS. It's a very helpful source regarding memory structures
 
 Using [GLFW](https://github.com/glfw/glfw), [GLEW](https://glew.sourceforge.net/) and [ImGui](https://github.com/ocornut/imgui) for the interface, cheers to their wonderful creators!
 
@@ -41,7 +41,8 @@ This list is subject to frequent change as I'm testing new features
   * Tome of Knowledge purchase
   * Redirects spell casts from illusions to the real hero
   * Mana & HP abuse with items like Arcane Boots
-
+  * AutoDodge for projectiles(can't dodge point-blank, am working on it)
+  
 * Information:
   * ~~Visible by Enemy~~ RIP on 21.02.2023, you shall not be forgotten
   * Roshan — saves his death time and approximates when he will spawn [WIP]
@@ -65,7 +66,5 @@ This list is subject to frequent change as I'm testing new features
 * Visuals:
   * Weather changing(Ash, Spring etc)
   * River painting
-
-* A Lua API for scripting, currently in development, documentation will appear at some point
 
 I intend to implement most of the usual cheat functionality
