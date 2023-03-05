@@ -19,11 +19,6 @@ namespace Hooks {
 	}
 
 	inline void SetUpVirtualHooks(bool log) {
-		//VMTs::NetworkSystem = std::unique_ptr<VMT>(new VMT(Interfaces::NetworkSystem));
-		//VMTs::NetworkSystem->HookVM(CreateNetChannel, 26);
-		//VMTs::NetworkSystem->ApplyVMT();
-		
-		
 		char funcAddr[60]{}, funcAddrMask[60]{};
 
 		uintptr_t addr;

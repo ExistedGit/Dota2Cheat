@@ -3,7 +3,7 @@
 #include <imgui/imgui_impl_glfw.h>
 #include <string>
 #include <sstream>
-#include "SDK/color.h"
+#include "../SDK/Base/Color.h"
 
 static void DrawRect(GLFWwindow* wnd, const ImVec2& topLeft, const ImVec2& size, const ImVec4& color) {
 	auto DrawList = ImGui::GetForegroundDrawList();

@@ -1,11 +1,13 @@
 #pragma once
-#include "../SDK/INetChannel.h"
-#include "../Signatures.h"
+#include "../SDK/include.h"
+#include "../SDK/Interfaces/Network/INetChannel.h"
+
+#include "../SDK/Globals/Signatures.h"
 #include "VMT.h"
-#include "../ShakerAttackAnimFix.h"
-#include "../ParticleAbilityWarner.h"
-#include "../LinearProjectileWarner.h"
-#include "../Projectiles.h"
+
+#include "../Modules/Hacks/ShakerAttackAnimFix.h"
+#include "../Modules/Hacks/ParticleAbilityWarner.h"
+#include "../Modules/Hacks/LinearProjectileWarner.h"
 
 namespace Hooks {
 	inline INetChannel* NetChan{};

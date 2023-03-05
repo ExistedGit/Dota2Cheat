@@ -1,20 +1,19 @@
 #pragma once
-#include "Globals.h"
-#include "Interfaces.h"
-#include "Wrappers.h"
+#include "SDK/include.h"
+
 #include "EventListeners.h"
 #include "DebugFunctions.h"
 #include "Hooks/RunFrame.h"
 #include "Lua/LuaInitialization.h"
 #include "Hooks/ModifierEvents.h"
 
-#include "AutoBuyTome.h"
+#include "Modules/Hacks/AutoBuyTome.h"
 #include <format>
-#include "AutoPick.h"
-#include "AutoPing.h"
+#include "Modules/Hacks/AutoPick.h"
+#include "Modules/Hacks/AutoPing.h"
 
 inline void FillPlayerList() {
-	auto vec = Globals::PlayerResource->GetVecPlayerTeamData();
+	auto vec = GameSystems::PlayerResource->GetVecPlayerTeamData();
 	std::cout << "<PLAYERS>\n";
 	for (int i = 0; i < vec.m_Size; i++) {
 		//Sleep(800);
@@ -22,18 +21,18 @@ inline void FillPlayerList() {
 		if (idx < 1)
 			continue;
 
-		auto player = (DotaPlayer*)Interfaces::EntitySystem->GetEntity(idx);
+		auto player = (CDOTAPlayerController*)Interfaces::EntitySystem->GetEntity(idx);
 		if (player == nullptr)
 			continue;
 
-		auto hero = (BaseNpc*)player->GetAssignedHero();
+		auto hero = (CDOTABaseNPC*)player->GetAssignedHero();
 		//std::cout << idx << " " << player << ' ' << player->GetIdentity() << '\n';
 
 		std::cout << "Player " << std::dec << idx << ": " << player;
 		if (hero &&
 			hero->GetUnitName()) {
 			std::cout << "\n\t" << hero->GetUnitName() << " " << hero;
-			ctx.heroes.insert((BaseNpcHero*)hero);
+			ctx.heroes.insert((CDOTABaseNPC_Hero*)hero);
 		}
 		std::cout << '\n';
 
@@ -53,19 +52,19 @@ inline void ReinjectEntIteration() {
 		if (strstr(className, "Item_Physical")) {
 			ctx.physicalItems.insert(ent);
 		}
-		else if (!strcmp(className, "C_DOTA_Item_Rune")) {
-			ctx.runes.insert((ItemRune*)ent);
+		else if (!strcmp(className, "CDOTAItemRune")) {
+			ctx.runes.insert((CDOTAItemRune*)ent);
 		}
 		else if (strstr(className, "Unit_Hero")) {
-			ctx.heroes.insert(reinterpret_cast<BaseNpcHero*>(ent));
+			ctx.heroes.insert(reinterpret_cast<CDOTABaseNPC_Hero*>(ent));
 		}
 		ctx.entities.insert(ent);
 	}
 }
-#define OnEnterMatch_InitGlobal(global) Globals::##global = *Globals::## global ##Ptr
+#define OnEnterMatch_InitGlobal(global) GameSystems::##global = *GameSystems::## global ##Ptr
 
 inline void EnteredMatch() {
-	//	Globals::ScriptVM = *Globals::ScriptVMPtr;
+	//	GameSystems::ScriptVM = *GameSystems::ScriptVMPtr;
 	OnEnterMatch_InitGlobal(GameRules);
 	OnEnterMatch_InitGlobal(ProjectileManager);
 	OnEnterMatch_InitGlobal(PlayerResource);
@@ -75,7 +74,7 @@ inline void EnteredMatch() {
 	//	Modules::AutoPick.autoBanHero = "sniper";
 	//	Modules::AutoPick.autoPickHero = "arc_warden";
 
-	ctx.localPlayer = (DotaPlayer*)Interfaces::EntitySystem->GetEntity(Interfaces::Engine->GetLocalPlayerSlot() + 1);
+	ctx.localPlayer = (CDOTAPlayerController*)Interfaces::EntitySystem->GetEntity(Interfaces::Engine->GetLocalPlayerSlot() + 1);
 	if (!ctx.localPlayer)
 		return;
 
@@ -84,12 +83,12 @@ inline void EnteredMatch() {
 }
 
 inline void EnteredInGame() {
-	DOTA_GameState gameState = Globals::GameRules->GetGameState();
+	DOTA_GameState gameState = GameSystems::GameRules->GetGameState();
 	if (gameState != DOTA_GAMERULES_STATE_PRE_GAME &&
 		gameState != DOTA_GAMERULES_STATE_GAME_IN_PROGRESS)
 		return;
 
-	ctx.assignedHero = Interfaces::EntitySystem->GetEntity<BaseNpcHero>(H2IDX(ctx.localPlayer->GetAssignedHeroHandle()));
+	ctx.assignedHero = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(ctx.localPlayer->GetAssignedHeroHandle()));
 	if (!ctx.assignedHero)
 		return;
 
@@ -111,20 +110,17 @@ inline void EnteredInGame() {
 	Interfaces::CVar->SetConvars();
 
 	auto roshanListener = new RoshanListener();
-	roshanListener->gameStartTime = Globals::GameRules->GetGameTime();
+	roshanListener->gameStartTime = GameSystems::GameRules->GetGameTime();
 	auto hurtListener = new EntityHurtListener();
-	Globals::GameEventManager->AddListener(roshanListener, "dota_roshan_kill");
-	Globals::GameEventManager->AddListener(hurtListener, "entity_hurt");
+	GameSystems::GameEventManager->AddListener(roshanListener, "dota_roshan_kill");
+	GameSystems::GameEventManager->AddListener(hurtListener, "entity_hurt");
 
 	VMTs::UIEngine = std::unique_ptr<VMT>(new VMT(Interfaces::UIEngine));
 	VMTs::UIEngine->HookVM(Hooks::hkRunFrame, 6);
 	VMTs::UIEngine->ApplyVMT();
 
-	Globals::LogGlobals();
+	GameSystems::LogGameSystems();
 	Lua::InitGlobals(ctx.lua);
-#ifdef _DEBUG
-	Test::HookParticles();
-#endif // _DEBUG
 
 	ctx.lua["assignedHero"] = ctx.assignedHero;
 	ctx.lua["localPlayer"] = ctx.localPlayer;
@@ -145,27 +141,24 @@ inline void LeftMatch() {
 	Modules::TargetedSpellHighlighter.Reset();
 	Modules::AutoPick.Reset();
 
-	Globals::PlayerResource = nullptr;
-	Globals::GameRules = nullptr;
-	Globals::ScriptVM = nullptr;
-	Globals::ParticleManager = nullptr;
+	GameSystems::PlayerResource = nullptr;
+	GameSystems::GameRules = nullptr;
+	GameSystems::ParticleManager = nullptr;
 	Lua::ResetGlobals(ctx.lua);
 
 	VMTs::UIEngine.reset();
 
 	for (auto& listener : CGameEventManager::EventListeners)
-		Globals::GameEventManager->RemoveListener(listener.get());
+		GameSystems::GameEventManager->RemoveListener(listener.get());
 	CGameEventManager::EventListeners.clear();
-	Globals::GameEventManager = nullptr;
+	GameSystems::GameEventManager = nullptr;
 
 
 	ctx.localPlayer = nullptr;
 	ctx.assignedHero = nullptr;
 	ctx.lua["assignedHero"] = nullptr;
 	ctx.lua["localPlayer"] = nullptr;
-#ifdef _DEBUG
-	Test::partMap.clear();
-#endif // _DEBUG
+
 	std::cout << "LEFT MATCH\n";
 }
 inline void CheckMatchState() {

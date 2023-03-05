@@ -1,29 +1,28 @@
 #pragma once
-#include "vtabler.h"
+#include "../SDK/include.h"
 
-#include "../ConVar.h"
 #include "../Config.h"
-#include "../IllusionColoring.h"
-#include "../AegisAutoPickup.h"
-#include "../AutoBuyTome.h"
-#include "../VBE.h"	
-#include "../RiverPaint.h"
-#include "../AutoUseMidas.h"
-#include "../AutoUseMagicWand.h"
-#include "../ShakerAttackAnimFix.h"
-#include "../TargetedSpellHighlighter.h"
-#include "../LinearProjectileWarner.h"
-#include "../AutoPing.h"
-#include "../Projectiles.h"
-#include "../AutoDodge.h"
+#include "../Modules/Hacks/IllusionColoring.h"
+#include "../Modules/Hacks/AegisAutoPickup.h"
+#include "../Modules/Hacks/AutoBuyTome.h"
+#include "../Modules/Hacks/VBE.h"	
+#include "../Modules/Hacks/RiverPaint.h"
+#include "../Modules/Hacks/AutoUseMidas.h"
+#include "../Modules/Hacks/AutoUseMagicWand.h"
+#include "../Modules/Hacks/ShakerAttackAnimFix.h"
+#include "../Modules/Hacks/TargetedSpellHighlighter.h"
+#include "../Modules/Hacks/LinearProjectileWarner.h"
+#include "../Modules/Hacks/AutoPing.h"
+#include "../Modules/Hacks/AutoDodge.h"
 
-#include "../ParticleGC.h"
+#include "../Modules/Utility/ParticleGC.h"
 
-#include "../Interfaces.h"
 #include "VMT.h"
+#include "../Input.h"
+#include "../SDK/Entities/CDOTAItemRune.h"
 
 namespace Hooks {
-	template<typename T = BaseEntity>
+	template<typename T = CBaseEntity>
 	std::set<T*> GetEntitiesByFilter(const std::vector<const char*>& filters) {
 		std::set<T*> vec{};
 		for (int i = 0; i < Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
@@ -52,7 +51,7 @@ namespace Hooks {
 
 			if (!midasUsed && CanUseMidas() && strstr(className, "Creep")) {
 
-				auto creep = (BaseNpc*)ent;
+				auto creep = (CDOTABaseNPC*)ent;
 
 				//neutral prefixes because Wildwing Ripper and Dark Troll Warlord spawn a tornado and skeletons respectively
 				//they have their summoner's name in them but not the word "neutral"
@@ -76,20 +75,20 @@ namespace Hooks {
 					creep->GetTeam() != ctx.assignedHero->GetTeam() &&
 					creep->GetHealth() > 0 &&
 					!creep->IsWaitingToSpawn() &&
-					IsWithinRadius(creep->GetPos2D(), ctx.assignedHero->GetPos2D(), midasEnt->GetEffectiveCastRange()) &&
+					IsWithinRadius(creep->GetPos(), ctx.assignedHero->GetPos(), midasEnt->GetEffectiveCastRange()) &&
 					TestStringFilters(creep->GetUnitName(), filters)
 					) {
 					midasUsed = true;
-					ctx.localPlayer->PrepareOrder(DOTA_UNIT_ORDER_CAST_TARGET, ent->GetIdentity()->GetEntIndex(), &Vector3::Zero, midasEnt->GetIdentity()->GetEntIndex(), DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, ctx.assignedHero);
+					ctx.localPlayer->PrepareOrder(DOTA_UNIT_ORDER_CAST_TARGET, ent->GetIdentity()->GetEntIndex(), &Vector::Zero, midasEnt->GetIdentity()->GetEntIndex(), DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, ctx.assignedHero);
 				}
 			}
-			else if (Config::AutoPickUpRunes && !runePickUp && ctx.runes.count((ItemRune*)ent)) {
-				auto* rune = (ItemRune*)ent;
+			else if (Config::AutoPickUpRunes && !runePickUp && ctx.runes.count((CDOTAItemRune*)ent)) {
+				auto* rune = (CDOTAItemRune*)ent;
 				if (
 					rune->GetRuneType() == DotaRunes::BOUNTY &&
-					IsWithinRadius(rune->GetPos2D(), ctx.assignedHero->GetPos2D(), 150.0f)
+					IsWithinRadius(rune->GetPos(), ctx.assignedHero->GetPos(), 150.0f)
 					)
-					ctx.localPlayer->PrepareOrder(DOTA_UNIT_ORDER_PICKUP_RUNE, ent->GetIdentity()->GetEntIndex(), &Vector3::Zero, 0, DOTA_ORDER_ISSUER_HERO_ONLY, ctx.assignedHero, false, false);
+					ctx.localPlayer->PrepareOrder(DOTA_UNIT_ORDER_PICKUP_RUNE, ent->GetIdentity()->GetEntIndex(), &Vector::Zero, 0, DOTA_ORDER_ISSUER_HERO_ONLY, ctx.assignedHero, false, false);
 			}
 			else {
 
@@ -148,25 +147,25 @@ namespace Hooks {
 #ifdef _DEBUG
 				if (IsKeyPressed(VK_NUMPAD8)) {
 					auto selected = ctx.localPlayer->GetSelectedUnits();
-					auto ent = Interfaces::EntitySystem->GetEntity<BaseNpc>(selected[0]);
+					auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(selected[0]);
 					auto pos = ent->GetPos();
 
 					std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
 						<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
-						<< "\n\tAttack Time: " << clamp(ent->GetBaseAttackTime() / ent->GetAttackSpeed(), 0.24, 2)
+						<< "\n\tAttack Time: " << std::clamp(ent->GetBaseAttackTime() / ent->GetAttackSpeed(), 0.24f, 2.0f)
 						//<< "\n\tIsRoshan: " << ent->IsRoshan()
 						//<< "\n\t" << AttackTargetFinder::GetAttackTarget(ent)
 						<< '\n';
 				}
 				if (IsKeyPressed(VK_NUMPAD3)) {
-					auto arr = Globals::ProjectileManager->GetTrackingProjectiles();
+					auto arr = GameSystems::ProjectileManager->GetTrackingProjectiles();
 					std::cout << "[PROJECTILES]\n";
 					for (int i = 0; i < arr.size(); i++) {
 						auto proj = arr[i];
 						if (!proj)
 							continue;
-						auto target = Interfaces::EntitySystem->GetEntity<BaseNpcHero>(H2IDX(proj->GetTarget()));
-						auto source = Interfaces::EntitySystem->GetEntity<BaseNpcHero>(H2IDX(proj->GetSource()));
+						auto target = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(proj->GetTarget()));
+						auto source = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(proj->GetSource()));
 						std::cout << std::format("[{}] Move speed {} Source {} Target {} Dodgeable {} Attack {} Evaded {}\n",
 							i,
 							proj->GetMoveSpeed(),

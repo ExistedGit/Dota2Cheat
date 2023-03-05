@@ -1,9 +1,8 @@
 #pragma once
-#include "../Signatures.h"
-#include "../Wrappers.h"
-#include "../ValveClasses.h"
-#include "../EnemySpellHighlight.h"
-#include "../TargetedSpellHighlighter.h"
+#include "../SDK/include.h"
+#include "../Modules/Hacks/EnemySpellHighlight.h"
+#include "../Modules/Hacks/TargetedSpellHighlighter.h"
+#include "../Modules/Hacks/LinearProjectileWarner.h"
 
 namespace Hooks {
 	inline Signatures::OnRemoveModifierFn oOnRemoveModifier = nullptr;
@@ -14,13 +13,13 @@ namespace Hooks {
 	struct ImportantItemInfo {
 		const char* itemName{};
 		const char* modifierName{};
-		BaseAbility** importantItemPtr{};
-		ImportantItemInfo(const char* itemName, const char* modifierName, BaseAbility** importantItemPtr)
+		CDOTABaseAbility** importantItemPtr{};
+		ImportantItemInfo(const char* itemName, const char* modifierName, CDOTABaseAbility** importantItemPtr)
 			:itemName(itemName), modifierName(modifierName), importantItemPtr(importantItemPtr) {
 
 		}
 	};
-	void CacheIfItemModifier(DotaModifier* modifier) {
+	void CacheIfItemModifier(CDOTAModifier* modifier) {
 		static const std::vector<ImportantItemInfo> importantItemNames = {
 			{
 				"item_hand_of_midas",
@@ -36,26 +35,47 @@ namespace Hooks {
 				"item_bottle",
 				"modifier_item_empty_bottle",
 				&ctx.importantItems.bottle
+			},
+			{
+				"item_armlet",
+				"modifier_item_armlet",
+				&ctx.importantItems.armlet
+			},
+			{
+				"item_power_treads",
+				"modifier_item_power_treads",
+				&ctx.importantItems.power_treads
+			},
+			{
+				"item_vambrace",
+				"modifier_item_vambrace",
+				&ctx.importantItems.vambrace
 			}
 		};
 		std::string_view modName = modifier->GetName();
-		if (modifier->GetOwner() != ctx.assignedHero ||
-			!modName.starts_with("modifier_item"))
+		if (!modName.starts_with("modifier_item"))
 			return;
-	
-		for (auto& info : importantItemNames) {
-			if (info.modifierName != modName)
-				continue;
-			auto item = modifier->GetOwner()->FindItemBySubstring(info.itemName);
-			if (!item.IsValid())
-				break;
 
-			*info.importantItemPtr = item.GetAs<BaseAbility>();
+		if (modifier->GetOwner() == ctx.assignedHero)
+			for (auto& info : importantItemNames) {
+				if (info.modifierName != modName)
+					continue;
+				auto item = modifier->GetOwner()->FindItemBySubstring(info.itemName);
+				if (!item.IsValid())
+					break;
+
+				*info.importantItemPtr = item.GetEnt();
+			}
+		auto itemName = modName.substr(9); // removing the "modifier_" prefix
+		auto item = modifier->GetOwner()->FindItemBySubstring(itemName.data());
+		if (item.IsValid()) {
+			if (itemName.find("sphere", 0) != -1)
+				Modules::TargetedSpellHighlighter.SubscribeLinkenRendering(modifier->GetOwner(), item.GetEnt());
 		}
 
 	}
 
-	void hkOnAddModifier(DotaModifier* modifier, int unk) {
+	void hkOnAddModifier(CDOTAModifier* modifier, int unk) {
 		CacheIfItemModifier(modifier);
 		Modules::TargetedSpellHighlighter.DrawParticleIfTargetedSpell(modifier);
 		Modules::EnemySpellHighlighter.RenderIfThinkerModifier(modifier);
@@ -63,7 +83,7 @@ namespace Hooks {
 		oOnAddModifier(modifier, unk);
 	}
 
-	void hkOnRemoveModifier(DotaModifier* modifier, C_DOTA_PlayerResource* playerResource, void* unk) {
+	void hkOnRemoveModifier(CDOTAModifier* modifier, C_DOTA_PlayerResource* playerResource, void* unk) {
 		if (!HookedOnAddModifier) {
 			HookedOnAddModifier = true;
 			void* onAddModifier = modifier->GetVFunc(35).ptr;

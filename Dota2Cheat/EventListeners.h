@@ -1,5 +1,5 @@
 #pragma once
-#include "Globals.h"
+#include "SDK/include.h"
 #include <format>
 
 
@@ -15,12 +15,12 @@ public:
 		if (gameStartTime <= 4)
 			gameStartTime = 0;
 
-		int gameTime = Globals::GameRules->GetGameTime();
+		int gameTime = GameSystems::GameRules->GetGameTime();
 
 		int offset = 0;
 		int respTimeMin = 0, respTimeMax = 0;
 
-		switch (Globals::GameRules->GetGameMode()) {
+		switch (GameSystems::GameRules->GetGameMode()) {
 		case DOTA_GAMEMODE_TURBO: offset = 60; respTimeMin = 5; respTimeMax = 6; break;
 		case DOTA_GAMEMODE_AP: case DOTA_GAMEMODE_ALL_DRAFT: offset = 90; respTimeMin = 8; respTimeMax = 11; break;
 		}
