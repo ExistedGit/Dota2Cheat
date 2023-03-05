@@ -1,9 +1,6 @@
 #pragma once
 #include <sol/sol.hpp>
-#include "../Enums.h"
-#include "../CGameEntitySystem.h"
-#include "../Wrappers.h"
-#include "../Globals.h"
+#include "../SDK/include.h"
 #define LUA_ENUM_TABLE_ENTRY(x) #x, x
 
 namespace Lua {
@@ -100,7 +97,7 @@ namespace Lua {
 
 	}
 	inline void InitGlobals(sol::state& lua) {
-		lua["ParticleManager"] = Globals::ParticleManager;
+		lua["ParticleManager"] = GameSystems::ParticleManager;
 	}
 	inline void ResetGlobals(sol::state& lua) {
 		lua["ParticleManager"] = nullptr;
@@ -112,12 +109,12 @@ namespace Lua {
 	inline void InitClasses(sol::state& lua) {
 #pragma region Base types
 		{
-			lua.new_usertype<Vector3>(
-				"Vector3",
-				sol::constructors<Vector3(), Vector3(float, float, float)>());
-			auto type_Vector2 = lua.new_usertype<Vector2>(
-				"Vector2",
-				sol::constructors<Vector2(float, float)>());
+			lua.new_usertype<Vector>(
+				"Vector",
+				sol::constructors<Vector(), Vector(float, float, float)>());
+			auto type_Vector2 = lua.new_usertype<Vector2D>(
+				"Vector2D",
+				sol::constructors<Vector2D(float, float)>());
 			auto type_Color = lua.new_usertype<Color>(
 				"Color",
 				sol::constructors<Color(unsigned char, unsigned char, unsigned char, unsigned char)>()
@@ -129,17 +126,17 @@ namespace Lua {
 		CSchemaClassBinding::BindLua(lua);
 		CEntityIdentity::BindLua(lua);
 
-		BaseEntity::BindLua(lua);
+		CBaseEntity::BindLua(lua);
 		CGameEntitySystem::BindLua(lua);
-		DotaModifier::BindLua(lua);
-		DotaModifierManager::BindLua(lua);
-		BaseNpc::ItemOrAbility::BindLua(lua);
-		BaseNpc::BindLua(lua);
-		BaseNpcHero::BindLua(lua);
-		DotaPlayer::BindLua(lua);
+		CDOTAModifier::BindLua(lua);
+		CDOTAModifierManager::BindLua(lua);
+		ItemOrAbility::BindLua(lua);
+		CDOTABaseNPC::BindLua(lua);
+		CDOTABaseNPC_Hero::BindLua(lua);
+		CDOTAPlayerController::BindLua(lua);
 
-		CDOTAParticleManager::CNewParticleEffect::BindLua(lua);
-		CDOTAParticleManager::ParticleWrapper::BindLua(lua);
+		CNewParticleEffect::BindLua(lua);
+		ParticleWrapper::BindLua(lua);
 		CDOTAParticleManager::BindLua(lua);
 	}
 }

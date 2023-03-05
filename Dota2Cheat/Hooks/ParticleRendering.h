@@ -1,6 +1,7 @@
 #pragma once
 #include "../Config.h"
-#include "../Signatures.h"
+#include "../SDK/Globals/Signatures.h"
+#include "../SDK/Base/Bytehook.h"
 
 namespace Hooks {
 	using CParticleCollection = Signatures::CParticleCollection;
@@ -19,7 +20,7 @@ namespace Hooks {
 	}
 
 	inline void* SetRenderingEnabled = nullptr;
-	CParticleCollection* hkCreateParticleCollection(CDOTAParticleManager::CNewParticleEffect* thisptr, void* particleMgr, void* unk, void* query, bool bUnk, float fUnk, int particleIndex) {
+	CParticleCollection* hkCreateParticleCollection(CNewParticleEffect* thisptr, void* particleMgr, void* unk, void* query, bool bUnk, float fUnk, int particleIndex) {
 		CParticleCollection* Ret = oCreateParticleCollection(thisptr, particleMgr, unk, query, bUnk, fUnk, particleIndex);
 
 		if (!SetRenderingEnabled) {

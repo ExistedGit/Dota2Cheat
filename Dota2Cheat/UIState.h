@@ -1,5 +1,4 @@
 #pragma once
-#include "sdk.h"
 
 namespace UIState {
 

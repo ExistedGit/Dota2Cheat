@@ -1,6 +1,7 @@
 #pragma once
-#include "Wrappers.h"
-#include "Interfaces.h"
+#include "SDK/Entities/CDOTABaseNPC.h"
+#include "SDK/Globals/Interfaces.h"
+#include "SDK/Base/VMT.h"
 
 #ifdef _DEBUG
 inline void LogEntities() {
@@ -15,16 +16,16 @@ inline void LogEntities() {
 			//&& strstr(className, "Rune")
 			)
 			std::cout << className << ' ' << i
-			//<< " // " << ent->GetPos2D().x << ' ' << ent->GetPos2D().y
+			//<< " // " << ent->GetPos().x << ' ' << ent->GetPos().y
 			<< " -> " << ent << '\n';
 	}
 }
-inline void LogModifiers(BaseNpc* npc) {
+inline void LogModifiers(CDOTABaseNPC* npc) {
 	std::cout << "modifiers:\n";
 	for (const auto& modifier : npc->GetModifierManager()->GetModifierList())
 		std::cout << "\t" << modifier->GetName() << ' ' << modifier << '\n';
 }
-inline void LogInvAndAbilities(BaseNpc* npc = nullptr) {
+inline void LogInvAndAbilities(CDOTABaseNPC* npc = nullptr) {
 	if (npc == nullptr)
 		npc = ctx.assignedHero;
 
@@ -34,9 +35,9 @@ inline void LogInvAndAbilities(BaseNpc* npc = nullptr) {
 		if (ability.name) {
 
 			std::cout << '\t' << ability.name << " " << H2IDX(ability.handle)
-				//<< " CD: " << ability.GetAs<BaseAbility>()->GetCooldown() 
-				//<< ' ' << std::dec << ability.GetAs<BaseAbility>()->GetEffectiveCastRange()
-				<< ' ' << ability.GetEntity();
+				//<< " CD: " << ability.GetEnt()->GetCooldown() 
+				//<< ' ' << std::dec << ability.GetEnt()->GetEffectiveCastRange()
+				<< ' ' << ability.GetEnt();
 
 			std::cout << '\n';
 
@@ -46,34 +47,9 @@ inline void LogInvAndAbilities(BaseNpc* npc = nullptr) {
 	for (const auto& item : npc->GetItems()) {
 		if (item.name)
 			std::cout << '\t' << item.name << " " << H2IDX(item.handle)
-			<< ' ' << item.GetEntity()
+			<< ' ' << item.GetEnt()
 			<< '\n';
 	}
 }
 
-namespace Test {
-	inline CDOTAParticleManager::ParticleWrapper particleWrap{};
-	inline std::unique_ptr<VMT> ParticleManagerVMT;
-	inline std::map<VClass*, std::unique_ptr<VMT>> partMap{};
-
-	void hkSetControlPoint(VClass* thisptr, int idx, Vector3* pos) {
-		partMap[thisptr]->GetOriginalMethod<decltype(&hkSetControlPoint)>(16)(thisptr, idx, pos);
-		std::cout << "Set CP #" << idx << ": " << *pos << '\n';
-	}
-	void hkCreateParticle(CDOTAParticleManager* thisptr, uint32_t handle, CDOTAParticleManager::ParticleInfo* info) {
-		ParticleManagerVMT->GetOriginalMethod<decltype(&hkCreateParticle)>(7)(thisptr, handle, info);
-		if (!strcmp(info->particleName, "particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_shield.vpcf")) {
-			auto newParticleCollection = Globals::ParticleManager->GetParticleArray()[Globals::ParticleManager->GetParticleCount() - 1]->GetParticle()->GetParticleCollection();
-			std::cout << "Created particle: " << info->particleName << '\n';
-			partMap[newParticleCollection] = std::unique_ptr<VMT>(new VMT(newParticleCollection));
-			partMap[newParticleCollection]->HookVM(hkSetControlPoint, 16);
-			partMap[newParticleCollection]->ApplyVMT();
-		}
-	}
-	void HookParticles() {
-		//ParticleManagerVMT = std::unique_ptr<VMT>(new VMT(Globals::ParticleManager));
-		//ParticleManagerVMT->HookVM(hkCreateParticle, 7);
-		//ParticleManagerVMT->ApplyVMT();
-	}
-}
 #endif // _DEBUG

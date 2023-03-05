@@ -28,11 +28,11 @@ namespace Config {
 
 	inline bool RenderAllParticles = true;
 
-	inline Vector3 IllusionColor{ 1,0,0 };
+	inline Vector IllusionColor{ 1,0,0 };
 	inline bool IllusionColoring = true;
 	
 	inline int CircleRadius = 1200;
-	inline Vector3 CircleRGB{ 0,0,0 };
+	inline Vector CircleRGB{ 0,0,0 };
 
 	inline bool VBEShowText = true;
 	inline bool VBEShowParticle = true;

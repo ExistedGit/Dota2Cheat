@@ -1,15 +1,37 @@
 #pragma once
 #include <future>
-#include "../Signatures.h"
-#include "../BadCastPrevention.h"
-#include "../PerfectBlink.h"
-#include "../CastRedirection.h"
+#include "../SDK/Globals/Signatures.h"
+#include "../Modules/Hacks/BadCastPrevention.h"
+#include "../Modules/Hacks/PerfectBlink.h"
+#include "../Modules/Hacks/CastRedirection.h"
+#include "../SDK/Base/StringUtils.h"
 
 namespace Hooks {
-
 	inline Signatures::PrepareUnitOrdersFn oPrepareUnitOrders = nullptr;
+
 	inline std::future<void> manaAbusePickup;
-	inline void hkPrepareUnitOrders(DotaPlayer* player, dotaunitorder_t orderType, UINT32 targetIndex, Vector3* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, BaseEntity* issuer, bool queue, bool showEffects) {
+
+	inline void ChangeItemStatTo(CDOTABaseAbility* ability, ItemStat_t stat, CDOTAPlayerController* player, CBaseEntity* issuer) {
+		if (!ability || ability->GetItemStat() == stat)
+			return;
+		int diff = (int)stat - (int)ability->GetItemStat();
+
+		for (int i = 0; i < diff > 0 ? diff : diff + 3; i++) {
+			oPrepareUnitOrders(
+				player,
+				DOTA_UNIT_ORDER_CAST_NO_TARGET,
+				0,
+				&Vector::Zero,
+				H2IDX(ability->GetIdentity()->entHandle),
+				DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
+				issuer,
+				true,
+				false);
+		}
+
+	}
+
+	inline void hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t orderType, UINT32 targetIndex, Vector* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, CBaseEntity* issuer, bool queue, bool showEffects) {
 		//std::cout << "[ORDER] " << player << '\n';
 		bool giveOrder = true; // whether or not the function will continue
 
@@ -64,25 +86,42 @@ namespace Hooks {
 
 				if (!TestStringFilters(
 					Interfaces::EntitySystem
-					->GetEntity<BaseAbility>(abilityIndex)
+					->GetEntity<CDOTABaseAbility>(abilityIndex)
 					->GetIdentity()
 					->GetName(),
 					filters))
 					break;
 
-				BaseNpc* npc = (BaseNpc*)issuer;
+				CDOTABaseNPC* npc = (CDOTABaseNPC*)issuer;
 				bool callPickup = false;
-				uint32_t stashSlot = 6;
+
+				std::map<CDOTABaseAbility*, ItemStat_t> origItemStats{
+					{
+					ctx.importantItems.power_treads, ctx.importantItems.power_treads->GetItemStat(),
+					},
+					{
+					ctx.importantItems.vambrace, ctx.importantItems.vambrace->GetItemStat()
+					}
+				};
+				ChangeItemStatTo(ctx.importantItems.power_treads, ItemStat_t::AGILITY, player, issuer);
+				ChangeItemStatTo(ctx.importantItems.vambrace, ItemStat_t::AGILITY, player, issuer);
+
+
 				for (auto& item : npc->GetItems()) {
+					auto itemSlot = npc->GetInventory()->GetItemSlot(item.handle);
 					if (
 						H2IDX(item.handle) == abilityIndex                   // must not be the item we're using
-						|| npc->GetInventory()->GetItemSlot(item.handle) > 5 // must not be in the backpack
+						||
+						(
+							itemSlot > 5 && // must not be in the backpack
+							itemSlot != 16 // but can be in the neutral slot
+							)
 						)
 						continue;
 
 					double anyBonus = 0;
 					for (auto& bonus : bonusTypes) {
-						anyBonus += Signatures::Scripts::GetLevelSpecialValueFor(nullptr, H2IDX(item.handle), bonus, -1);
+						anyBonus = item.GetEnt()->GetLevelSpecialValueFor(bonus, -1);
 						if (anyBonus > 0)
 							break;
 					}
@@ -96,11 +135,14 @@ namespace Hooks {
 				}
 				if (callPickup)
 					// Multhithreading magic — who knows when the hero finishes dropping the items?
-					manaAbusePickup = std::async(std::launch::async, [&, player, issuer]() mutable {
+					manaAbusePickup = std::async(std::launch::async, [&, origItemStats, player, issuer]() mutable {
 					Sleep(300);
+				for (auto& [item, stat] : origItemStats) {
+					ChangeItemStatTo(item, stat, player, issuer);
+				}
 				for (auto& item : ctx.physicalItems) { // wtf is with this indentation???
-					if (IsWithinRadius(item->GetPos2D(), ctx.assignedHero->GetPos2D(), 50))
-						oPrepareUnitOrders(player, DOTA_UNIT_ORDER_PICKUP_ITEM, H2IDX(item->GetIdentity()->entHandle), &Vector3::Zero, 0, DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
+					if (IsWithinRadius(item->GetPos(), ctx.assignedHero->GetPos(), 50))
+						oPrepareUnitOrders(player, DOTA_UNIT_ORDER_PICKUP_ITEM, H2IDX(item->GetIdentity()->entHandle), &Vector::Zero, 0, DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
 				}
 				ctx.physicalItems.clear();
 						});

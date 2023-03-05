@@ -54,10 +54,10 @@
     <ClCompile Include="pch.cpp">
       <Filter>Header files</Filter>
     </ClCompile>
-    <ClCompile Include="patterscan.cpp">
+    <ClCompile Include="SDK\SigScan\patterscan.cpp">
       <Filter>Header files\SigScan</Filter>
     </ClCompile>
-    <ClCompile Include="proc.cpp">
+    <ClCompile Include="SDK\SigScan\proc.cpp">
       <Filter>Header files\SigScan</Filter>
     </ClCompile>
     <ClCompile Include="include\imgui\imgui.cpp">
@@ -81,117 +81,99 @@
     <ClCompile Include="include\imgui\imgui_widgets.cpp">
       <Filter>Source files\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="CDOTAParticleManager.cpp">
+    <ClCompile Include="SDK\GameSystems\CDOTAParticleManager.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
-    <ClCompile Include="Protobuf Messages\dota_shared_enums.pb.cc">
+    <ClCompile Include="SDK\Protobufs\dota_shared_enums.pb.cc">
       <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
-    <ClCompile Include="Protobuf Messages\dota_usermessages.pb.cc">
+    <ClCompile Include="SDK\Protobufs\dota_usermessages.pb.cc">
       <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
-    <ClCompile Include="Protobuf Messages\dota_clientmessages.pb.cc">
+    <ClCompile Include="SDK\Protobufs\dota_clientmessages.pb.cc">
       <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
-    <ClCompile Include="Protobuf Messages\dota_commonmessages.pb.cc">
+    <ClCompile Include="SDK\Protobufs\dota_commonmessages.pb.cc">
       <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
-    <ClCompile Include="Protobuf Messages\dota_gcmessages_msgid.pb.cc">
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_msgid.pb.cc">
       <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
-    <ClCompile Include="Protobuf Messages\econ_gcmessages.pb.cc">
+    <ClCompile Include="SDK\Protobufs\econ_gcmessages.pb.cc">
       <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
-    <ClCompile Include="Protobuf Messages\econ_shared_enums.pb.cc">
+    <ClCompile Include="SDK\Protobufs\econ_shared_enums.pb.cc">
       <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
-    <ClCompile Include="Protobuf Messages\gcsdk_gcmessages.pb.cc">
+    <ClCompile Include="SDK\Protobufs\gcsdk_gcmessages.pb.cc">
       <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
-    <ClCompile Include="Protobuf Messages\netmessages.pb.cc">
+    <ClCompile Include="SDK\Protobufs\netmessages.pb.cc">
       <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
-    <ClCompile Include="Protobuf Messages\network_connection.pb.cc">
+    <ClCompile Include="SDK\Protobufs\network_connection.pb.cc">
       <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
-    <ClCompile Include="Protobuf Messages\networkbasetypes.pb.cc">
+    <ClCompile Include="SDK\Protobufs\networkbasetypes.pb.cc">
       <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
-    <ClCompile Include="Protobuf Messages\steammessages_steamlearn.steamworkssdk.pb.cc">
+    <ClCompile Include="SDK\Protobufs\steammessages_steamlearn.steamworkssdk.pb.cc">
       <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
-    <ClCompile Include="Protobuf Messages\steammessages_unified_base.steamworkssdk.pb.cc">
+    <ClCompile Include="SDK\Protobufs\steammessages_unified_base.steamworkssdk.pb.cc">
       <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
-    <ClCompile Include="Protobuf Messages\usermessages.pb.cc">
+    <ClCompile Include="SDK\Protobufs\usermessages.pb.cc">
       <Filter>Source files\Protobuf Messages</Filter>
     </ClCompile>
-    <ClCompile Include="Protobuf Messages\steammessages.pb.cc">
+    <ClCompile Include="SDK\Protobufs\steammessages.pb.cc">
       <Filter>Source files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="vtabler.h">
+    <ClInclude Include="SDK\Interfaces\SchemaSystem.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="Schema.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="patternscan.h">
+    <ClInclude Include="SDK\SigScan\patternscan.h">
       <Filter>Header files\SigScan</Filter>
     </ClInclude>
-    <ClInclude Include="proc.h">
+    <ClInclude Include="SDK\SigScan\proc.h">
       <Filter>Header files\SigScan</Filter>
     </ClInclude>
-    <ClInclude Include="Interfaces.h">
+    <ClInclude Include="SDK\Globals\Signatures.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="sdk.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Signatures.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Wrappers.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="ConVar.h">
+    <ClInclude Include="SDK\Interfaces\CVarSystem.h">
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="dllmain.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="Globals.h">
+    <ClInclude Include="SDK\Enums.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="Enums.h">
+    <ClInclude Include="SDK\Base\CUtlVector.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="CUtlVector.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="AutoUseMagicWand.h">
+    <ClInclude Include="Modules\Hacks\AutoUseMagicWand.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
-    <ClInclude Include="AutoUseMidas.h">
+    <ClInclude Include="Modules\Hacks\AutoUseMidas.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
-    <ClInclude Include="CGameEntitySystem.h">
+    <ClInclude Include="SDK\Interfaces\CGameEntitySystem.h">
       <Filter>Header files\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="MatchStateHandling.h">
       <Filter>Header files\Events</Filter>
     </ClInclude>
-    <ClInclude Include="IEngineClient.h">
+    <ClInclude Include="SDK\Interfaces\IEngineClient.h">
       <Filter>Header files\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="AutoBuyTome.h">
+    <ClInclude Include="Modules\Hacks\AutoBuyTome.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
-    <ClInclude Include="ValveClasses.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="AbilityCooldownTracking.h">
+    <ClInclude Include="Modules\Utility\AbilityCooldownTracking.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
     <ClInclude Include="HookHelper.h">
@@ -203,49 +185,46 @@
     <ClInclude Include="UIState.h">
       <Filter>Header files\UI</Filter>
     </ClInclude>
-    <ClInclude Include="IScriptVM.h">
-      <Filter>Header files\Interfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="CDOTAParticleManager.h">
+    <ClInclude Include="SDK\GameSystems\CDOTAParticleManager.h">
       <Filter>Header files\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="include.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="CGameEventManager.h">
+    <ClInclude Include="SDK\GameSystems\CGameEventManager.h">
       <Filter>Header files\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="CInputService.h">
+    <ClInclude Include="SDK\Interfaces\CInputService.h">
       <Filter>Header files\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="CBaseFileSystem.h">
+    <ClInclude Include="SDK\Interfaces\CBaseFileSystem.h">
       <Filter>Header files\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="EnemySpellHighlight.h">
+    <ClInclude Include="Modules\Hacks\EnemySpellHighlight.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
-    <ClInclude Include="TargetedSpellHighlighter.h">
+    <ClInclude Include="Modules\Hacks\TargetedSpellHighlighter.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
     <ClInclude Include="EventListeners.h">
       <Filter>Header files\Events</Filter>
     </ClInclude>
-    <ClInclude Include="VBE.h">
+    <ClInclude Include="Modules\Hacks\VBE.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
-    <ClInclude Include="IllusionColoring.h">
+    <ClInclude Include="Modules\Hacks\IllusionColoring.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
     <ClInclude Include="DebugFunctions.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="CGCClient.h">
+    <ClInclude Include="SDK\Interfaces\CGCClient.h">
       <Filter>Header files\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="AegisAutoPickup.h">
+    <ClInclude Include="Modules\Hacks\AegisAutoPickup.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
-    <ClInclude Include="RiverPaint.h">
+    <ClInclude Include="Modules\Hacks\RiverPaint.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
     <ClInclude Include="Config.h">
@@ -254,16 +233,16 @@
     <ClInclude Include="Drawing.h">
       <Filter>Header files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="AttackTargetFinder.h">
+    <ClInclude Include="Modules\Utility\AttackTargetFinder.h">
       <Filter>Header files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="ArmletAbuse.h">
+    <ClInclude Include="Modules\Hacks\ArmletAbuse.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
-    <ClInclude Include="BadCastPrevention.h">
+    <ClInclude Include="Modules\Hacks\BadCastPrevention.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
-    <ClInclude Include="ShakerAttackAnimFix.h">
+    <ClInclude Include="Modules\Hacks\ShakerAttackAnimFix.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
     <ClInclude Include="Hooks\RunFrame.h">
@@ -284,10 +263,10 @@
     <ClInclude Include="Hooks\NetChannel.h">
       <Filter>Header files\Hooks</Filter>
     </ClInclude>
-    <ClInclude Include="Netvars.h">
+    <ClInclude Include="SDK\Netvars.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="Context.h">
+    <ClInclude Include="SDK\Globals\Context.h">
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="Lua\LuaInitialization.h">
@@ -299,83 +278,176 @@
     <ClInclude Include="Hooks\ParticleRendering.h">
       <Filter>Header files\Hooks</Filter>
     </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_shared_enums.pb.h">
+    <ClInclude Include="SDK\Protobufs\dota_shared_enums.pb.h">
       <Filter>Header files\Protobuf Messages</Filter>
     </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_usermessages.pb.h">
+    <ClInclude Include="SDK\Protobufs\dota_usermessages.pb.h">
       <Filter>Header files\Protobuf Messages</Filter>
     </ClInclude>
-    <ClInclude Include="Protobuf Messages\usermessages.pb.h">
+    <ClInclude Include="SDK\Protobufs\usermessages.pb.h">
       <Filter>Header files\Protobuf Messages</Filter>
     </ClInclude>
-    <ClInclude Include="Protobuf Messages\steammessages_steamlearn.steamworkssdk.pb.h">
+    <ClInclude Include="SDK\Protobufs\steammessages_steamlearn.steamworkssdk.pb.h">
       <Filter>Header files\Protobuf Messages</Filter>
     </ClInclude>
-    <ClInclude Include="Protobuf Messages\steammessages_unified_base.steamworkssdk.pb.h">
+    <ClInclude Include="SDK\Protobufs\steammessages_unified_base.steamworkssdk.pb.h">
       <Filter>Header files\Protobuf Messages</Filter>
     </ClInclude>
-    <ClInclude Include="Protobuf Messages\networkbasetypes.pb.h">
+    <ClInclude Include="SDK\Protobufs\networkbasetypes.pb.h">
       <Filter>Header files\Protobuf Messages</Filter>
     </ClInclude>
-    <ClInclude Include="Protobuf Messages\netmessages.pb.h">
+    <ClInclude Include="SDK\Protobufs\netmessages.pb.h">
       <Filter>Header files\Protobuf Messages</Filter>
     </ClInclude>
-    <ClInclude Include="Protobuf Messages\econ_gcmessages.pb.h">
+    <ClInclude Include="SDK\Protobufs\econ_gcmessages.pb.h">
       <Filter>Header files\Protobuf Messages</Filter>
     </ClInclude>
-    <ClInclude Include="Protobuf Messages\econ_shared_enums.pb.h">
+    <ClInclude Include="SDK\Protobufs\econ_shared_enums.pb.h">
       <Filter>Header files\Protobuf Messages</Filter>
     </ClInclude>
-    <ClInclude Include="Protobuf Messages\gcsdk_gcmessages.pb.h">
+    <ClInclude Include="SDK\Protobufs\gcsdk_gcmessages.pb.h">
       <Filter>Header files\Protobuf Messages</Filter>
     </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_clientmessages.pb.h">
+    <ClInclude Include="SDK\Protobufs\dota_clientmessages.pb.h">
       <Filter>Header files\Protobuf Messages</Filter>
     </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_commonmessages.pb.h">
+    <ClInclude Include="SDK\Protobufs\dota_commonmessages.pb.h">
       <Filter>Header files\Protobuf Messages</Filter>
     </ClInclude>
-    <ClInclude Include="Protobuf Messages\dota_gcmessages_msgid.pb.h">
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_msgid.pb.h">
       <Filter>Header files\Protobuf Messages</Filter>
     </ClInclude>
-    <ClInclude Include="Protobuf Messages\network_connection.pb.h">
+    <ClInclude Include="SDK\Protobufs\network_connection.pb.h">
       <Filter>Header files\Protobuf Messages</Filter>
     </ClInclude>
     <ClInclude Include="stb_image.h">
       <Filter>Header files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Panorama.h">
+    <ClInclude Include="SDK\Interfaces\Panorama.h">
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="Hooks\ModifierEvents.h">
       <Filter>Header files\Hooks</Filter>
     </ClInclude>
-    <ClInclude Include="ParticleGC.h">
+    <ClInclude Include="Modules\Utility\ParticleGC.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="LinearProjectileWarner.h">
+    <ClInclude Include="Modules\Hacks\LinearProjectileWarner.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
-    <ClInclude Include="ParticleAbilityWarner.h">
+    <ClInclude Include="Modules\Hacks\ParticleAbilityWarner.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
-    <ClInclude Include="CastRedirection.h">
+    <ClInclude Include="Modules\Hacks\CastRedirection.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
-    <ClInclude Include="PerfectBlink.h">
+    <ClInclude Include="Modules\Hacks\PerfectBlink.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
-    <ClInclude Include="AutoPick.h">
+    <ClInclude Include="Modules\Hacks\AutoPick.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
-    <ClInclude Include="AutoPing.h">
+    <ClInclude Include="Modules\Hacks\AutoPing.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
-    <ClInclude Include="Projectiles.h">
+    <ClInclude Include="Modules\Hacks\AutoDodge.h">
+      <Filter>Header files\Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="Modules\Hacks\ManaHpAbuse.h">
+      <Filter>Header files\Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Entities\CBaseEntity.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="AutoDodge.h">
-      <Filter>Header files\Hacks</Filter>
+    <ClInclude Include="SDK\Base\Color.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Base\NormalClass.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Base\VClass.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Base\Function.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Base\Bytehook.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Entities\CDOTABaseNPC.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Base\Definitions.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Entities\CEntityIdentity.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Entities\CDOTABaseAbility.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Base\Vector.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Entities\CDOTAUnitInventory.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Entities\CDOTAPlayerController.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Entities\CDOTAModifier.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Entities\CDOTAModifierManager.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Entities\CDOTABaseNPCHero.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Entities\CDOTAItemRune.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\GameSystems\C_DOTAGameRules.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Base\VMT.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\GameSystems\C_DOTA_ProjectileManager.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Base\Memory.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Globals\GameSystems.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\GameSystems\C_DOTA_PlayerResource.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Globals\Interfaces.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Base\StringUtils.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Interfaces\Network\bf_read.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Interfaces\Network\bf_write.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Interfaces\Network\CNetworkMessages.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\include.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Interfaces\Network\INetChannel.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Pages\MainMenu.h">
+      <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
