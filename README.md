@@ -41,7 +41,7 @@ This list is subject to frequent change as I'm testing new features
   * Tome of Knowledge purchase
   * Redirects spell casts from illusions to the real hero
   * Mana & HP abuse with items like Arcane Boots
-  * AutoDodge for projectiles(can't dodge point-blank, am working on it)
+  * AutoDodge for projectiles
   
 * Information:
   * ~~Visible by Enemy~~ RIP on 21.02.2023, you shall not be forgotten
