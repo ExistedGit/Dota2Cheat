@@ -25,6 +25,9 @@ namespace Signatures {
 	//netmessages ftw
 	//typedef CDOTAParticleManager::CNewParticleEffect* (__fastcall* CreateLinearProjectile)(void* thisptr, void* creationInfo);
 
+	typedef bool (*LoadUITextureFn)(void* thisptr, void** texturePtr, const char* textureName);
+	inline LoadUITextureFn LoadUITexture{};
+
 	typedef bool (*BAsyncSendProtoFn)(CProtobufMsgBase* protobufMsg, IProtoBufSendHandler* handler, google::protobuf::Message* responseMsg, unsigned int respMsgID);
 	typedef bool (*DispatchPacketFn)(void*, IMsgNetPacket*);
 
@@ -97,5 +100,6 @@ namespace Signatures {
 
 		//xref "OnColorChanged", lea rax, [XXXXXXXXX] below it
 		SIGSCAN_LOG(CBaseEntity::OnColorChanged, "40 53 48 83 EC 20 48 8B D9 48 8B 89 ? ? ? ? 48 8B 01 0F B6 93", L"client.dll");
+		SIGSCAN_OFF(LoadUITexture, "57 48 83 EC 20 48 8B 1A 49 8B F0 48 8B FA 48 85 DB", L"panorama.dll", -10);
 	}
 }
