@@ -2,7 +2,12 @@
 #include "../../SDK/include.h"
 
 namespace Config {
+#ifdef _DEBUG
+	inline bool AutoDodge = true;
+#else
 	inline bool AutoDodge = false;
+#endif // _DEBUG
+
 }
 
 namespace Hacks {
@@ -17,31 +22,17 @@ namespace Hacks {
 					(!ctx.importantItems.manta && !ctx.importantItems.bottle))
 					continue;
 
-				auto target = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(proj->GetTarget()));
-				auto source = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(proj->GetSource()));
+				auto target = proj->GetTarget();
+				auto source = proj->GetSource();
 
 				if (target != ctx.assignedHero ||
-					source->GetTeam() == ctx.assignedHero->GetTeam())
+					(source && source->GetTeam() == ctx.assignedHero->GetTeam()))
 					continue;
 
 				//if (counterspell && counterspell->GetCooldown() == 0)
 				//	useTime = 1.2f;
 
-				auto pos = proj->GetPos();
-				auto targetPos = target->GetPos();
-				Vector predictedPos{};
-				{
-					auto deltaMove = proj->GetMoveSpeed() * 0.1f;
-					auto deltaX = pos.x - (*(Vector*)&targetPos).x;
-					auto deltaY = (*(Vector*)&targetPos).y - pos.y;
-
-					float angle = atan2(deltaY, deltaX);
-					float sine = sin(angle), cosine = -cos(angle);
-					auto moveVec = Vector{ cosine * deltaMove, sine * deltaMove, 0 };
-					predictedPos = pos + moveVec;
-				}
-
-				if (!IsWithinRadius(predictedPos, target->GetPos(), target->GetHullRadius()))
+				if (!IsWithinRadius(proj->PredictPos(0.05f), target->GetPos(), target->GetHullRadius()))
 					continue;
 
 				auto usedItem = ctx.importantItems.bottle ? ctx.importantItems.bottle : ctx.importantItems.manta;
@@ -62,7 +53,7 @@ namespace Hacks {
 					DOTA_UNIT_ORDER_CAST_NO_TARGET,
 					0,
 					&Vector::Zero,
-					usedItem->GetIdentity()->GetEntIndex(),
+					usedItem->GetIndex(),
 					DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
 					ctx.assignedHero);
 				break;

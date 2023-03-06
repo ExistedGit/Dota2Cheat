@@ -37,10 +37,6 @@ public:
 		return (flags[0] & 0x80);
 	}
 
-	uint32_t GetEntIndex() const {
-		return H2IDX(entHandle);
-	}
-
 	static void BindLua(sol::state& lua) {
 		sol::usertype<CEntityIdentity> type = lua.new_usertype<CEntityIdentity>("CEntityIdentity");
 		type["entity"] = &CEntityIdentity::entity;

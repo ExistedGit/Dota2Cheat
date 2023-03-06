@@ -153,8 +153,7 @@ namespace Hacks {
 							auto castRange =
 								info.owner->GetAbilities()[
 									AbilityIndexes.at(info.nameIndex)
-								]
-								.GetEnt()->GetEffectiveCastRange();
+								]->GetEffectiveCastRange();
 
 							if (info.nameIndex == AP_BANSHEE_CRYPT_SWARM)
 								castRange += 390; // hits past its cast range, for some reason

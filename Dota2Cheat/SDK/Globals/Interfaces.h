@@ -20,6 +20,7 @@ namespace Interfaces {
 	inline CGCClient* GCClient{};
 	inline CInputService* InputService{};
 	inline VClass* Schema{};
+	inline VClass* ParticleMgrSystem{};
 	inline CBaseFileSystem* FileSystem{};
 	inline void* NetworkSystem;
 	inline CNetworkMessages* NetworkMessages{};
@@ -47,19 +48,21 @@ namespace Interfaces {
 
 		GCClient = GetInterface<CGCClient>("client.dll", "DOTA_CLIENT_GCCLIENT");
 		Schema = GetInterface<VClass>("schemasystem.dll", "SchemaSystem_001");
+		ParticleMgrSystem = GetInterface<VClass>("particles.dll", "ParticleSystemMgr003");
 		InputService = GetInterface<CInputService>("engine2.dll", "InputService_001");
 		NetworkSystem = GetInterface<void>("networksystem.dll", "NetworkSystemVersion001");
 		NetworkMessages = GetInterface<CNetworkMessages>("networksystem.dll", "NetworkMessagesVersion001");
 	}
 	inline  void LogInterfaces() {
 		std::cout << "[INTERFACES]\n";
-		std::cout << "Schema: " << Interfaces::Schema << "\n";
-		std::cout << "EntitySystem: " << Interfaces::EntitySystem << "\n";
-		std::cout << "IEngineClient: " << Interfaces::Engine << "\n";
-		std::cout << "Source2Client: " << Interfaces::Client << "\n";
-		std::cout << "CVarSystem: " << Interfaces::CVar << "\n";
-		std::cout << "Panorama: " << Interfaces::Panorama << "\n";
-		std::cout << "Panorama2: " << Interfaces::UIEngine << "\n";
-		std::cout << "GCClient: " << Interfaces::GCClient << "\n";
+		std::cout << "Schema: " << Schema << "\n";
+		std::cout << "EntitySystem: " << EntitySystem << "\n";
+		std::cout << "IEngineClient: " << Engine << "\n";
+		std::cout << "Source2Client: " << Client << "\n";
+		std::cout << "CVarSystem: " << CVar << "\n";
+		std::cout << "Panorama: " << Panorama << "\n";
+		std::cout << "Panorama2: " << UIEngine << "\n";
+		std::cout << "GCClient: " << GCClient << "\n";
+		std::cout << "ParticleMgrSystem: " << ParticleMgrSystem << "\n";
 	}
 }

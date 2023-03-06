@@ -1,20 +1,31 @@
 #pragma once
 #include "../../SDK/include.h"
-#include "Config.h"
+namespace Config {
+	inline bool ArmletAbuse = false;
+}
 
 namespace Hacks {
 	// STUB
 	class ArmletAbuse {
 	public:
-		inline void SwitchArmletIfNeeded(CDOTABaseNPC* ent) {
-			float hpPercentage = (float)ent->GetHealth() / ent->GetMaxHealth();
+		inline void SwitchArmletIfNeeded() {
+			for (auto& proj : GameSystems::ProjectileManager->GetTrackingProjectiles()) {
+				if (!proj || !proj->IsAttack() ||
+					!ctx.importantItems.armlet)
+					continue;
 
-			auto armlet = ent->FindItemBySubstring("armlet");
-			if (!armlet.IsValid())
-				return;
+				auto target = proj->GetTarget();
+				auto source = proj->GetSource();
+				if (target != ctx.assignedHero || !source)
+					continue;
 
-			auto item = armlet.GetAs <CDOTABaseAbility>();
-			
+				auto armlet = ctx.importantItems.armlet;
+				auto attackDamage = source->GetAttackDamageMin();
+				if (attackDamage >= target->GetHealth()) {
+
+				};
+
+			}
 		}
 	};
 

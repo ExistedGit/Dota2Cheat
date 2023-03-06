@@ -24,7 +24,7 @@ namespace Hacks {
 
 			auto animMsg = reinterpret_cast<CDOTAUserMsg_TE_UnitAnimation*>(msg);
 			if (animMsg->activity() == 1503 &&
-				NH2IDX(animMsg->entity()) == H2IDX(shaker->GetIdentity()->entHandle))
+				NH2IDX(animMsg->entity()) == shaker->GetIndex())
 				animMsg->set_sequence_variant(3);
 			
 		}

@@ -79,7 +79,7 @@ namespace Hooks {
 					TestStringFilters(creep->GetUnitName(), filters)
 					) {
 					midasUsed = true;
-					ctx.localPlayer->PrepareOrder(DOTA_UNIT_ORDER_CAST_TARGET, ent->GetIdentity()->GetEntIndex(), &Vector::Zero, midasEnt->GetIdentity()->GetEntIndex(), DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, ctx.assignedHero);
+					ctx.localPlayer->PrepareOrder(DOTA_UNIT_ORDER_CAST_TARGET, ent->GetIndex(), &Vector::Zero, midasEnt->GetIndex(), DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, ctx.assignedHero);
 				}
 			}
 			else if (Config::AutoPickUpRunes && !runePickUp && ctx.runes.count((CDOTAItemRune*)ent)) {
@@ -88,7 +88,7 @@ namespace Hooks {
 					rune->GetRuneType() == DotaRunes::BOUNTY &&
 					IsWithinRadius(rune->GetPos(), ctx.assignedHero->GetPos(), 150.0f)
 					)
-					ctx.localPlayer->PrepareOrder(DOTA_UNIT_ORDER_PICKUP_RUNE, ent->GetIdentity()->GetEntIndex(), &Vector::Zero, 0, DOTA_ORDER_ISSUER_HERO_ONLY, ctx.assignedHero, false, false);
+					ctx.localPlayer->PrepareOrder(DOTA_UNIT_ORDER_PICKUP_RUNE, ent->GetIndex(), &Vector::Zero, 0, DOTA_ORDER_ISSUER_HERO_ONLY, ctx.assignedHero, false, false);
 			}
 			else {
 
@@ -164,8 +164,8 @@ namespace Hooks {
 						auto proj = arr[i];
 						if (!proj)
 							continue;
-						auto target = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(proj->GetTarget()));
-						auto source = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(proj->GetSource()));
+						auto target = proj->GetTarget();
+						auto source = proj->GetSource();
 						std::cout << std::format("[{}] Move speed {} Source {} Target {} Dodgeable {} Attack {} Evaded {}\n",
 							i,
 							proj->GetMoveSpeed(),

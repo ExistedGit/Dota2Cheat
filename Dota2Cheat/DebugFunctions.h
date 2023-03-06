@@ -32,12 +32,12 @@ inline void LogInvAndAbilities(CDOTABaseNPC* npc = nullptr) {
 	std::cout << std::dec;
 	std::cout << "abilities: " << '\n';
 	for (const auto& ability : npc->GetAbilities()) {
-		if (ability.name) {
+		if (ability->GetIdentity()->GetName()) {
 
-			std::cout << '\t' << ability.name << " " << H2IDX(ability.handle)
+			std::cout << '\t' << ability->GetIdentity()->GetName() << " " << ability->GetIndex()
 				//<< " CD: " << ability.GetEnt()->GetCooldown() 
 				//<< ' ' << std::dec << ability.GetEnt()->GetEffectiveCastRange()
-				<< ' ' << ability.GetEnt();
+				<< ' ' << ability;
 
 			std::cout << '\n';
 
@@ -45,9 +45,9 @@ inline void LogInvAndAbilities(CDOTABaseNPC* npc = nullptr) {
 	}
 	std::cout << "inventory: " << '\n';
 	for (const auto& item : npc->GetItems()) {
-		if (item.name)
-			std::cout << '\t' << item.name << " " << H2IDX(item.handle)
-			<< ' ' << item.GetEnt()
+		if (item->GetIdentity()->GetName())
+			std::cout << '\t' << item->GetIdentity()->GetName() << " " << item->GetIndex()
+			<< ' ' << item
 			<< '\n';
 	}
 }

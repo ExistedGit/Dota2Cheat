@@ -95,7 +95,7 @@ namespace Hacks {
 				auto trajectoryInfo = AbilityTrajectories[modifier->GetName()];
 				int offset = 0;
 				offset = trajectoryInfo.isAbilitySlot
-					? offset = owner->GetAbilities()[trajectoryInfo.value].GetEnt()->GetEffectiveCastRange()
+					? offset = owner->GetAbilities()[trajectoryInfo.value]->GetEffectiveCastRange()
 					: offset = trajectoryInfo.value;
 
 				EntityTrajectories[modifier] = EntTrajectoryInfo{

@@ -130,7 +130,6 @@ namespace Lua {
 		CGameEntitySystem::BindLua(lua);
 		CDOTAModifier::BindLua(lua);
 		CDOTAModifierManager::BindLua(lua);
-		ItemOrAbility::BindLua(lua);
 		CDOTABaseNPC::BindLua(lua);
 		CDOTABaseNPC_Hero::BindLua(lua);
 		CDOTAPlayerController::BindLua(lua);

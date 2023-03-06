@@ -13,8 +13,8 @@ namespace Hooks {
 	struct ImportantItemInfo {
 		const char* itemName{};
 		const char* modifierName{};
-		CDOTABaseAbility** importantItemPtr{};
-		ImportantItemInfo(const char* itemName, const char* modifierName, CDOTABaseAbility** importantItemPtr)
+		CDOTAItem** importantItemPtr{};
+		ImportantItemInfo(const char* itemName, const char* modifierName, CDOTAItem** importantItemPtr)
 			:itemName(itemName), modifierName(modifierName), importantItemPtr(importantItemPtr) {
 
 		}
@@ -61,16 +61,16 @@ namespace Hooks {
 				if (info.modifierName != modName)
 					continue;
 				auto item = modifier->GetOwner()->FindItemBySubstring(info.itemName);
-				if (!item.IsValid())
+				if (!item)
 					break;
 
-				*info.importantItemPtr = item.GetEnt();
+				*info.importantItemPtr = item;
 			}
 		auto itemName = modName.substr(9); // removing the "modifier_" prefix
 		auto item = modifier->GetOwner()->FindItemBySubstring(itemName.data());
-		if (item.IsValid()) {
+		if (item) {
 			if (itemName.find("sphere", 0) != -1)
-				Modules::TargetedSpellHighlighter.SubscribeLinkenRendering(modifier->GetOwner(), item.GetEnt());
+				Modules::TargetedSpellHighlighter.SubscribeLinkenRendering(modifier->GetOwner(), item);
 		}
 
 	}

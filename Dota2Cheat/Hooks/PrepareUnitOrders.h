@@ -11,10 +11,10 @@ namespace Hooks {
 
 	inline std::future<void> manaAbusePickup;
 
-	inline void ChangeItemStatTo(CDOTABaseAbility* ability, ItemStat_t stat, CDOTAPlayerController* player, CBaseEntity* issuer) {
-		if (!ability || ability->GetItemStat() == stat)
+	inline void ChangeItemStatTo(CDOTAItem* item, ItemStat_t stat, CDOTAPlayerController* player, CBaseEntity* issuer) {
+		if (!item || item->GetItemStat() == stat)
 			return;
-		int diff = (int)stat - (int)ability->GetItemStat();
+		int diff = (int)stat - (int)item->GetItemStat();
 
 		for (int i = 0; i < diff > 0 ? diff : diff + 3; i++) {
 			oPrepareUnitOrders(
@@ -22,7 +22,7 @@ namespace Hooks {
 				DOTA_UNIT_ORDER_CAST_NO_TARGET,
 				0,
 				&Vector::Zero,
-				H2IDX(ability->GetIdentity()->entHandle),
+				item->GetIndex(),
 				DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
 				issuer,
 				true,
@@ -95,7 +95,7 @@ namespace Hooks {
 				CDOTABaseNPC* npc = (CDOTABaseNPC*)issuer;
 				bool callPickup = false;
 
-				std::map<CDOTABaseAbility*, ItemStat_t> origItemStats{
+				std::map<CDOTAItem*, ItemStat_t> origItemStats{
 					{
 					ctx.importantItems.power_treads, ctx.importantItems.power_treads->GetItemStat(),
 					},
@@ -108,9 +108,9 @@ namespace Hooks {
 
 
 				for (auto& item : npc->GetItems()) {
-					auto itemSlot = npc->GetInventory()->GetItemSlot(item.handle);
+					auto itemSlot = npc->GetInventory()->GetItemSlot(item->GetIdentity()->entHandle);
 					if (
-						H2IDX(item.handle) == abilityIndex                   // must not be the item we're using
+						item->GetIndex() == abilityIndex                   // must not be the item we're using
 						||
 						(
 							itemSlot > 5 && // must not be in the backpack
@@ -121,7 +121,7 @@ namespace Hooks {
 
 					double anyBonus = 0;
 					for (auto& bonus : bonusTypes) {
-						anyBonus = item.GetEnt()->GetLevelSpecialValueFor(bonus, -1);
+						anyBonus = item->GetLevelSpecialValueFor(bonus, -1);
 						if (anyBonus > 0)
 							break;
 					}
@@ -129,7 +129,7 @@ namespace Hooks {
 					if (anyBonus > 0) {
 						//std::cout << abilityIndex << bonusInt << '\n';
 						queue = true;
-						oPrepareUnitOrders(player, DOTA_UNIT_ORDER_DROP_ITEM, 0, &fVec, H2IDX(item.handle), DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
+						oPrepareUnitOrders(player, DOTA_UNIT_ORDER_DROP_ITEM, 0, &fVec, item->GetIndex(), DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
 						callPickup = true;
 					}
 				}
@@ -142,7 +142,7 @@ namespace Hooks {
 				}
 				for (auto& item : ctx.physicalItems) { // wtf is with this indentation???
 					if (IsWithinRadius(item->GetPos(), ctx.assignedHero->GetPos(), 50))
-						oPrepareUnitOrders(player, DOTA_UNIT_ORDER_PICKUP_ITEM, H2IDX(item->GetIdentity()->entHandle), &Vector::Zero, 0, DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
+						oPrepareUnitOrders(player, DOTA_UNIT_ORDER_PICKUP_ITEM, item->GetIndex(), &Vector::Zero, 0, DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
 				}
 				ctx.physicalItems.clear();
 						});

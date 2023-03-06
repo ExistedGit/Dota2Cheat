@@ -449,5 +449,8 @@
     <ClInclude Include="UI\Pages\MainMenu.h">
       <Filter>Header files</Filter>
     </ClInclude>
+    <ClInclude Include="SDK\Entities\CDOTAItem.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

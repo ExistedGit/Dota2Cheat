@@ -238,6 +238,7 @@
     <ClInclude Include="SDK\Base\VMT.h" />
     <ClInclude Include="SDK\Entities\CDOTABaseAbility.h" />
     <ClInclude Include="SDK\Entities\CDOTABaseNPCHero.h" />
+    <ClInclude Include="SDK\Entities\CDOTAItem.h" />
     <ClInclude Include="SDK\Entities\CDOTAUnitInventory.h" />
     <ClInclude Include="SDK\Entities\CDOTAItemRune.h" />
     <ClInclude Include="SDK\Entities\CDOTAModifier.h" />
