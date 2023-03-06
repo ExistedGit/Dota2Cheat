@@ -15,8 +15,9 @@ namespace Hooks {
 		if (!item || item->GetItemStat() == stat)
 			return;
 		int diff = (int)stat - (int)item->GetItemStat();
+		int cycles = diff > 0 ? diff : diff + 3;
 
-		for (int i = 0; i < diff > 0 ? diff : diff + 3; i++) {
+		for (int i = 0; i < cycles; i++) {
 			oPrepareUnitOrders(
 				player,
 				DOTA_UNIT_ORDER_CAST_NO_TARGET,
@@ -96,25 +97,29 @@ namespace Hooks {
 				bool callPickup = false;
 
 				std::map<CDOTAItem*, ItemStat_t> origItemStats{
-					{
-					ctx.importantItems.power_treads, ctx.importantItems.power_treads->GetItemStat(),
-					},
-					{
-					ctx.importantItems.vambrace, ctx.importantItems.vambrace->GetItemStat()
-					}
 				};
-				ChangeItemStatTo(ctx.importantItems.power_treads, ItemStat_t::AGILITY, player, issuer);
-				ChangeItemStatTo(ctx.importantItems.vambrace, ItemStat_t::AGILITY, player, issuer);
+				if (ctx.importantItems.power_treads) {
 
+					origItemStats[ctx.importantItems.power_treads] = ctx.importantItems.power_treads->GetItemStat();
+					ChangeItemStatTo(ctx.importantItems.power_treads, ItemStat_t::AGILITY, player, issuer);
+					callPickup = true;
+				}
+				if (ctx.importantItems.vambrace) {
 
-				for (auto& item : npc->GetItems()) {
-					auto itemSlot = npc->GetInventory()->GetItemSlot(item->GetIdentity()->entHandle);
+					origItemStats[ctx.importantItems.vambrace] = ctx.importantItems.vambrace->GetItemStat();
+					ChangeItemStatTo(ctx.importantItems.vambrace, ItemStat_t::AGILITY, player, issuer);
+					callPickup = true;
+				}
+
+				auto items = npc->GetItems();
+				for (auto& item : items) {
+					auto itemSlot = npc->GetInventory()->GetItemSlot(item->GetHandle());
 					if (
 						item->GetIndex() == abilityIndex                   // must not be the item we're using
 						||
 						(
 							itemSlot > 5 && // must not be in the backpack
-							itemSlot != 16 // but can be in the neutral slot
+							itemSlot != 15 // but can be in the neutral slot
 							)
 						)
 						continue;
@@ -133,19 +138,20 @@ namespace Hooks {
 						callPickup = true;
 					}
 				}
-				if (callPickup)
+				if (callPickup) {
 					// Multhithreading magic — who knows when the hero finishes dropping the items?
 					manaAbusePickup = std::async(std::launch::async, [&, origItemStats, player, issuer]() mutable {
-					Sleep(300);
-				for (auto& [item, stat] : origItemStats) {
-					ChangeItemStatTo(item, stat, player, issuer);
-				}
-				for (auto& item : ctx.physicalItems) { // wtf is with this indentation???
-					if (IsWithinRadius(item->GetPos(), ctx.assignedHero->GetPos(), 50))
-						oPrepareUnitOrders(player, DOTA_UNIT_ORDER_PICKUP_ITEM, item->GetIndex(), &Vector::Zero, 0, DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
-				}
-				ctx.physicalItems.clear();
+						Sleep(300);
+					for (auto& [item, stat] : origItemStats)
+						ChangeItemStatTo(item, stat, player, issuer);
+
+					for (auto& item : ctx.physicalItems) { // wtf is with this indentation???
+						if (IsWithinRadius(item->GetPos(), ctx.assignedHero->GetPos(), 50))
+							oPrepareUnitOrders(player, DOTA_UNIT_ORDER_PICKUP_ITEM, item->GetIndex(), &Vector::Zero, 0, DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
+					}
+					ctx.physicalItems.clear();
 						});
+				}
 				break;
 			}
 			}

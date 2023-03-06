@@ -14,12 +14,10 @@ namespace Panorama {
 		//	return Member<ID3D11ShaderResourceView*>(0x18);
 		//}
 	};
-	class CSource2UITexture : public NormalClass {
-	private:
-		char pad[256];
+	class CSource2UITexture : public VClass {
 	public:
 		auto GetTexture() {
-			return *Member<CTextureDx11**>(0x30);
+			return *Member<CTextureDx11**>(0x28);
 		}
 	};
 
