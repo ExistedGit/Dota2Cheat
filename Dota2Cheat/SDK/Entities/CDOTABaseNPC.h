@@ -1,30 +1,9 @@
 #pragma once
 #include "../Globals/Interfaces.h"
 #include "CBaseEntity.h"
-#include "CDOTABaseAbility.h"
+#include "CDOTAItem.h"
 #include "CDOTAUnitInventory.h"
 #include "CDOTAModifierManager.h"
-
-struct ItemOrAbility {
-	const char* name;
-	ENT_HANDLE handle;
-	ItemOrAbility(const char* name, ENT_HANDLE handle) :name(name), handle(handle) {
-
-	}
-	CDOTABaseAbility* GetEnt() const {
-		return Interfaces::EntitySystem->GetEntity<CDOTABaseAbility>(H2IDX(handle));
-	}
-	bool IsValid() const {
-		return handle != 0xFFFFFFFF;
-	}
-
-	static void BindLua(sol::state& lua) {
-		auto type = lua.new_usertype<ItemOrAbility>("ItemOrAbility", sol::constructors<ItemOrAbility(const char*, ENT_HANDLE)>());
-
-		type["GetEnt"] = &ItemOrAbility::GetEnt;
-		type["IsValid"] = &ItemOrAbility::IsValid;
-	}
-};
 
 class CDOTABaseNPC : public CBaseEntity {
 public:
@@ -53,6 +32,14 @@ public:
 		return MemberInline<VClass>(0xbe8)->CallVFunc<57, bool>();
 	}
 
+	int GetAttackDamageMin() {
+		return Member<int>(Netvars::C_DOTA_BaseNPC::m_iDamageMin)
+			+ Member<int>(Netvars::C_DOTA_BaseNPC::m_iDamageBonus);
+	}
+	float GetArmor() {
+		return Member<float>(Netvars::C_DOTA_BaseNPC::m_flPhysicalArmorValue);
+	}
+
 	int GetAttackRange() {
 		return Member<int>(Netvars::C_DOTA_BaseNPC::m_iAttackRange);
 	}
@@ -66,36 +53,44 @@ public:
 	const char* GetUnitName() {
 		return Member<const char*>(Netvars::C_DOTA_BaseNPC::m_iszUnitName);
 	}
-	std::vector<ItemOrAbility> GetAbilities() {
-		std::vector<ItemOrAbility> result{};
+	[[nodiscard]] 
+	std::vector<CDOTABaseAbility*> GetAbilities() {
+		std::vector<CDOTABaseAbility*> result{};
 		ENT_HANDLE* hAbilities = MemberInline<ENT_HANDLE>(Netvars::C_DOTA_BaseNPC::m_hAbilities);
 		for (int j = 0; j < 35; j++) {
 			ENT_HANDLE handle = hAbilities[j];
 			if (!HVALID(handle))
 				continue;
 
-			auto* identity = Interfaces::EntitySystem->GetIdentity(H2IDX(handle));
-			result.push_back(ItemOrAbility(identity->GetName(), identity->entHandle));
+			result.push_back(Interfaces::EntitySystem->GetEntity<CDOTABaseAbility>(
+				H2IDX(handle)
+				));
 		}
 		return result;
 	}
 
-	ItemOrAbility FindItemBySubstring(const char* str) {
+	CDOTAItem* FindItemBySubstring(const char* str) {
 		if (!str)
-			return ItemOrAbility{ nullptr, 0xFFFFFFFF };
+			return nullptr;
+
 		for (const auto& item : GetItems())
-			if (item.name &&
-				strstr(item.name, str))
+			if (
+				item 
+				&& item->GetIdentity()->GetName() 
+				&& strstr(item->GetIdentity()->GetName(), str)
+				)
 				return item;
 
-		return ItemOrAbility{ nullptr, 0xFFFFFFFF };
+		return nullptr;
 	}
 
 	CDOTAUnitInventory* GetInventory() {
 		return MemberInline<CDOTAUnitInventory>(Netvars::C_DOTA_BaseNPC::m_Inventory);
 	}
-	std::vector<ItemOrAbility> GetItems() {
-		std::vector<ItemOrAbility> result{};
+	
+	[[nodiscard]] 
+	std::vector<CDOTAItem*> GetItems() {
+		std::vector<CDOTAItem*> result{};
 		CDOTAUnitInventory* inv = GetInventory();
 		if (!inv)
 			return result;
@@ -105,8 +100,7 @@ public:
 			if (!HVALID(handle))
 				continue;
 
-			auto* identity = Interfaces::EntitySystem->GetIdentity(H2IDX(handle));
-			result.push_back(ItemOrAbility(identity->GetName(), identity->entHandle));
+			result.push_back(Interfaces::EntitySystem->GetEntity<CDOTAItem>(H2IDX(handle)));
 		}
 
 		return result;

@@ -61,15 +61,14 @@ inline void ReinjectEntIteration() {
 		ctx.entities.insert(ent);
 	}
 }
-#define OnEnterMatch_InitGlobal(global) GameSystems::##global = *GameSystems::## global ##Ptr
+#define GetGameSystem(global) GameSystems::##global = *GameSystems::## global ##Ptr
 
 inline void EnteredMatch() {
-	//	GameSystems::ScriptVM = *GameSystems::ScriptVMPtr;
-	OnEnterMatch_InitGlobal(GameRules);
-	OnEnterMatch_InitGlobal(ProjectileManager);
-	OnEnterMatch_InitGlobal(PlayerResource);
-	OnEnterMatch_InitGlobal(ParticleManager);
-	OnEnterMatch_InitGlobal(GameEventManager);
+	GetGameSystem(GameRules);
+	GetGameSystem(ProjectileManager);
+	GetGameSystem(PlayerResource);
+	GetGameSystem(ParticleManager);
+	GetGameSystem(GameEventManager);
 
 	//	Modules::AutoPick.autoBanHero = "sniper";
 	//	Modules::AutoPick.autoPickHero = "arc_warden";

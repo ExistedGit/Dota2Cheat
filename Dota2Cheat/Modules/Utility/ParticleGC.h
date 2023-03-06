@@ -2,7 +2,7 @@
 #include "../../SDK/include.h"
 
 namespace Particles {
-		
+
 	class ParticleGarbageCollector {
 	private:
 		struct ParticleGCInfo {
@@ -29,8 +29,8 @@ namespace Particles {
 					foundIterator = it;
 					break;
 				}
-			if(foundIterator != gcInfo.end())
-			gcInfo.erase(foundIterator);
+			if (foundIterator != gcInfo.end())
+				gcInfo.erase(foundIterator);
 		}
 		void FrameBasedLogic() {
 			for (auto& info : gcInfo)

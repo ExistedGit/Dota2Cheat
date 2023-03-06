@@ -11,14 +11,13 @@ inline void AutoUseWandCheck(CDOTABaseNPC* hero, int hpPercentTreshold, int minC
 
 	if ((float)hero->GetHealth() / hero->GetMaxHealth() <= hpPercentTreshold / 100.0f) {
 		auto wand = hero->FindItemBySubstring("item_magic");
-		if (wand.handle == -1)
+		if (!wand)
 			return;
 		
-		//player is for ordering the cast
-		auto wandEnt = wand.GetEnt();
-		if (wandEnt->GetCooldown() != 0 || wandEnt->GetCharges() < minCharges)
+		if (wand->GetCooldown() != 0 || wand->GetCharges() < minCharges)
 			return;
-		ctx.localPlayer->CastNoTarget(wand.handle, hero);
+
+		ctx.localPlayer->CastNoTarget(wand->GetIdentity()->entHandle, hero);
 	}
 }
 
@@ -28,13 +27,9 @@ inline void AutoUseFaerieFireCheck(CDOTABaseNPC* hero, int hpPercentTreshold) {
 
 	if ((float)hero->GetHealth() / hero->GetMaxHealth() <= hpPercentTreshold / 100.0f) {
 		auto faerieFire = hero->FindItemBySubstring("faerie");
-		if (faerieFire.handle == -1)
+		if (!faerieFire)
 			return;
 
-		//player is for ordering the cast
-		auto itemEnt = faerieFire.GetEnt();
-		if (itemEnt->GetCooldown() != 0)
-			return;
-		ctx.localPlayer->CastNoTarget(faerieFire.handle, hero);
+		ctx.localPlayer->CastNoTarget(faerieFire->GetIdentity()->entHandle, hero);
 	}
 }

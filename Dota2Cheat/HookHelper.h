@@ -10,7 +10,6 @@
 
 namespace Hooks {
 	inline void SetUpByteHooks() {
-		//HOOKFUNC(PopupAcceptMatch);
 		HOOKFUNC_SIGNATURES(PrepareUnitOrders);
 		//HOOKFUNC(DispatchPacket);
 		//HOOKFUNC(BAsyncSendProto);

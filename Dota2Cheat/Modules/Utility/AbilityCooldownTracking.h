@@ -3,7 +3,7 @@
 #include "../SDK/include.h"
 namespace Hacks {
 	struct AbilityInfo {
-		ItemOrAbility ability{};
+		CDOTABaseAbility* ability{};
 		const char* iconPath{};
 
 		float lastActiveTime{};
@@ -17,7 +17,7 @@ namespace Hacks {
 		for (auto& hero : ctx.heroes) {
 			if (hero->GetTeam() == ctx.assignedHero->GetTeam())
 				continue;
-			EnemyAbilities[hero].reserve(5);
+			EnemyAbilities[hero].reserve(6);
 		}
 	}
 	std::string assetsPath = "C:\\Users\\user\\Documents\\Dota2Cheat\\assets\\abilityIcons\\";
@@ -27,17 +27,17 @@ namespace Hacks {
 				continue;
 			for (int i = 0; i < 5; i++) {
 				auto ability = hero->GetAbilities()[i];
-				if (EnemyAbilities[hero][i].ability.handle == ability.handle)
+				if (EnemyAbilities[hero][i].ability == ability)
 					continue;
 
-				if (ability.GetEnt()->IsHidden())
+				if (ability->IsHidden())
 					continue;
 				EnemyAbilities[hero][i] = AbilityInfo{
 					.ability = ability,
-					.iconPath = (assetsPath + ability.name).c_str(),
+					.iconPath = (assetsPath + ability->GetIdentity()->GetName()).c_str(),
 					.lastActiveTime = GameSystems::GameRules->GetGameTime(),
-					.lastActiveCooldown = ability.GetEnt()->GetCooldown(),
-					.currentCooldown = ability.GetEnt()->GetCooldown()
+					.lastActiveCooldown = ability->GetCooldown(),
+					.currentCooldown = ability->GetCooldown()
 				};
 			}
 		}

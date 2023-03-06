@@ -9,6 +9,7 @@ class CBaseEntity;
 class CDOTABaseNPC_Hero;
 class CDOTAPlayerController;
 class CDOTABaseAbility;
+class CDOTAItem;
 class CDOTAItemRune;
 
 struct Context {
@@ -31,7 +32,7 @@ struct Context {
 	std::set<CDOTABaseNPC_Hero*> heroes{};
 
 	struct ImportantItems {
-		CDOTABaseAbility
+		CDOTAItem
 			*midas{},
 			*manta{},
 			*bottle{},

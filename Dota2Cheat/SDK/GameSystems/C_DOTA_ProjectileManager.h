@@ -1,6 +1,5 @@
 #pragma once
-#include "../Base/VClass.h"
-#include "../Base/Vector.h"
+#include "../Interfaces/CGameEntitySystem.h"
 #include <span>
 
 class C_DOTA_TrackingProjectileInfo : public VClass {
@@ -11,11 +10,12 @@ public:
 	Vector GetPos() {
 		return Member<Vector>(0x10);
 	}
-	uint32_t GetSource() {
-		return Member<uint32_t>(0x1c);
+	auto GetSource() {
+		return Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(H2IDX(Member<uint32_t>(0x1c)));
 	}
-	uint32_t GetTarget() {
-		return Member<uint32_t>(0x20);
+
+	auto GetTarget() {
+		return Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(H2IDX(Member<uint32_t>(0x20)));
 	}
 
 	float GetExpireTime() {
@@ -30,6 +30,17 @@ public:
 	}
 	bool IsEvaded() {
 		return Member<bool>(0x32);
+	}
+
+	Vector PredictPos(float deltaTime) {
+		auto pos = GetPos();
+		Vector predictedPos{};
+		auto moveVec = GetTarget()->GetPos() - pos;
+		auto moveDelta = moveVec.Length2D();
+		moveVec *= GetMoveSpeed() * deltaTime / moveDelta;
+
+		predictedPos = pos + moveVec;
+		return predictedPos;
 	}
 };
 class C_DOTA_ProjectileManager : public VClass {

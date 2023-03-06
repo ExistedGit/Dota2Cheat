@@ -27,12 +27,7 @@ namespace Hacks {
 				return false;
 			}
 
-			targetIndex =
-				H2IDX(
-					illusionOwner
-					->GetIdentity()
-					->entHandle
-				);
+			targetIndex = illusionOwner->GetIndex();
 
 			return true;
 		}

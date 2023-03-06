@@ -47,6 +47,15 @@ public:
 	GETTER(int8_t, GetLifeState, Netvars::C_BaseEntity::m_lifeState)
 	GETTER(ENT_HANDLE, GetOwnerEntityHandle, Netvars::C_BaseEntity::m_hOwnerEntity)
 
+
+	uint32_t GetHandle() {
+		return GetIdentity()->entHandle;
+	}
+	// Returns the index of this entity in the entity system
+	uint32_t GetIndex() {
+		return H2IDX(GetHandle());
+	}
+
 	void SetColor(Color clr)
 	{
 		uintptr_t clrAddr = (uintptr_t)this + Netvars::C_BaseModelEntity::m_clrRender;
@@ -57,7 +66,6 @@ public:
 
 		OnColorChanged(this);
 	}
-
 
 	Vector GetPos() {
 		// The m_vecAbsOrigin netvar is actually inside a CGameSceneNode
