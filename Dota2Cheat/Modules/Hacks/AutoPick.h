@@ -58,5 +58,5 @@ namespace Hacks {
 	};
 }
 namespace Modules {
-	Hacks::AutoPick AutoPick{};
+	inline static Hacks::AutoPick AutoPick{};
 }

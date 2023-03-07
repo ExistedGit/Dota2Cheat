@@ -13,19 +13,19 @@ namespace Hooks {
 	inline INetChannel* NetChan{};
 
 	// for MinHook
-	inline Signatures::DispatchPacketFn oDispatchPacket = nullptr;
-	inline Signatures::BAsyncSendProtoFn oBAsyncSendProto = nullptr;
+	inline static Signatures::DispatchPacketFn oDispatchPacket = nullptr;
+	inline static Signatures::BAsyncSendProtoFn oBAsyncSendProto = nullptr;
 
 	bool hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandler* handler, google::protobuf::Message* responseMsg, unsigned int respMsgID);
 
 	bool hkDispatchPacket(CGCClient* thisptr, IMsgNetPacket* netPacket);;
 
 	typedef void(__fastcall* PostReceivedNetMessageFn)(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits);
-	PostReceivedNetMessageFn oPostReceivedNetMessage{};
+	inline static PostReceivedNetMessageFn oPostReceivedNetMessage{};
 	void hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits);
 
 	typedef bool(__fastcall* SendNetMessageFn)(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, NetChannelBufType_t type);
-	SendNetMessageFn oSendNetMessage{};
+	inline static SendNetMessageFn oSendNetMessage{};
 	bool hkSendNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, NetChannelBufType_t type);
 
 	// Another way to hook NetChan.

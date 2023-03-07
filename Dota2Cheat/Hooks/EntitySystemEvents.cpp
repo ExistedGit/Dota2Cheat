@@ -1,5 +1,4 @@
 #include "EntitySystemEvents.h"
-
 // Here we filter entities and put them into their respective collections
 CBaseEntity* Hooks::OnAddEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HANDLE handle) {
 	auto className = ent->SchemaBinding()->binaryName;

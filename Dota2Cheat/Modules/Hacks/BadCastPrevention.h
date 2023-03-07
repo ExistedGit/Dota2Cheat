@@ -67,5 +67,5 @@ namespace Hacks {
 	};
 }
 namespace Modules {
-	Hacks::BadCastPrevention BadCastPrevention{};
+	inline static Hacks::BadCastPrevention BadCastPrevention{};
 }

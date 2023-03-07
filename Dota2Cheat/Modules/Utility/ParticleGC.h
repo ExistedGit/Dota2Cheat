@@ -40,5 +40,5 @@ namespace Particles {
 	};
 }
 namespace Modules {
-	Particles::ParticleGarbageCollector ParticleGC{};
+	inline static Particles::ParticleGarbageCollector ParticleGC{};
 }

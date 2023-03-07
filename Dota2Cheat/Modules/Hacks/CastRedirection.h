@@ -35,5 +35,5 @@ namespace Hacks {
 }
 
 namespace Modules {
-	Hacks::CastRedirection CastRedirection{};
+	inline static Hacks::CastRedirection CastRedirection{};
 }

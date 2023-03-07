@@ -28,5 +28,5 @@ namespace Hacks {
 }
 
 namespace Modules {
-	inline Hacks::IllusionColoring IllusionColoring{};
+	inline static Hacks::IllusionColoring IllusionColoring{};
 }

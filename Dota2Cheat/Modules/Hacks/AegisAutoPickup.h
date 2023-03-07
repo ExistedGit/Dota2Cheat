@@ -22,5 +22,5 @@ namespace Hacks {
 	};
 }
 namespace Modules {
-	inline Hacks::AegisAutoPickup AegisAutoPickup{};
+	inline static Hacks::AegisAutoPickup AegisAutoPickup{};
 }

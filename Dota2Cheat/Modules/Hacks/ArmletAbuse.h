@@ -31,5 +31,5 @@ namespace Hacks {
 
 }
 namespace Modules {
-	Hacks::ArmletAbuse ArmletAbuse{};
+	inline Hacks::ArmletAbuse ArmletAbuse{};
 }

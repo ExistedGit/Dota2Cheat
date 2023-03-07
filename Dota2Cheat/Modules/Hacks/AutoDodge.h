@@ -62,5 +62,5 @@ namespace Hacks {
 	};
 }
 namespace Modules {
-	Hacks::AutoDodge AutoDodge{};
+	inline static Hacks::AutoDodge AutoDodge{};
 }

@@ -4,9 +4,9 @@
 #include "../../SDK/Protobufs/dota_clientmessages.pb.h"
 
 namespace Config {
-	bool AutoPingEnabled = false;
-	CDOTABaseNPC_Hero* AutoPingTarget = 0;
-	float AutoPingDelay = 1;
+	inline static bool AutoPingEnabled = false;
+	inline static CDOTABaseNPC_Hero* AutoPingTarget = 0;
+	inline static float AutoPingDelay = 1;
 }
 
 namespace Hacks {
@@ -42,5 +42,5 @@ namespace Hacks {
 	};
 }
 namespace Modules {
-	Hacks::AutoPing AutoPing;
+	inline static Hacks::AutoPing AutoPing;
 }

@@ -127,7 +127,12 @@ namespace Lua {
 		CEntityIdentity::BindLua(lua);
 
 		CBaseEntity::BindLua(lua);
-		CGameEntitySystem::BindLua(lua);
+		{
+			auto type = lua.new_usertype<CGameEntitySystem>("CGameEntitySystem");
+			type["GetIdentity"] = &CGameEntitySystem::GetIdentity;
+			type["GetBaseEntity"] = &CGameEntitySystem::GetEntity<CBaseEntity>;
+			type["GetHighestEntityIndex"] = &CGameEntitySystem::GetHighestEntityIndex;	
+		}
 		CDOTAModifier::BindLua(lua);
 		CDOTAModifierManager::BindLua(lua);
 		CDOTABaseNPC::BindLua(lua);

@@ -90,17 +90,18 @@ public:
 		return (T*)identity->entity;
 	}
 	int GetHighestEntityIndex()
-	{
-		return *(int*)((uintptr_t)this + 0x1e90);
+	{		
+		// IDA:
+		// xref "cl_showents" -> lea rax, [XXXXXXXX] above
+		// decompile it, there is a cycle using a variable initialized with the first call(to sub_18XXXXXX)
+		// that function will have this function
+		return *(int*)((uintptr_t)this + 0x1510);
 	}
-
-	static void BindLua(sol::state& lua) {
-		auto type = lua.new_usertype<CGameEntitySystem>("CGameEntitySystem");
-		type["GetIdentity"] = &CGameEntitySystem::GetIdentity;
-		type["GetBaseEntity"] = &CGameEntitySystem::GetEntity<CBaseEntity>;
-		type["GetHighestEntityIndex"] = &CGameEntitySystem::GetHighestEntityIndex;
-//		type["GetBaseNpc"] = &CGameEntitySystem::GetEntity<BaseNpc>;
-	}
-	
+//
+//	static void BindLua(sol::state& lua) {
+//
+////		type["GetBaseNpc"] = &CGameEntitySystem::GetEntity<BaseNpc>;
+//	}
+//	
 };
 

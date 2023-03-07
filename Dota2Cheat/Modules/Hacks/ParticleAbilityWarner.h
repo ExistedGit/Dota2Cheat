@@ -43,5 +43,5 @@ namespace Hacks {
 	};
 }
 namespace Modules {
-	Hacks::ParticleAbilityWarner ParticleAbilityWarner{};
+	inline Hacks::ParticleAbilityWarner ParticleAbilityWarner{};
 }

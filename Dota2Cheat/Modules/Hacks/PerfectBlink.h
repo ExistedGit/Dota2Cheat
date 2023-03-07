@@ -36,5 +36,5 @@ namespace Hacks {
 	};
 }
 namespace Modules {
-	Hacks::PerfectBlink PerfectBlink{};
+	inline static Hacks::PerfectBlink PerfectBlink{};
 }
