@@ -1,6 +1,7 @@
 #pragma once
 #include "../../SDK/include.h"
-#include "Hooks/NetChannel.h"
+#include "../../Hooks/NetChannel.h"
+#include "../../SDK/Protobufs/dota_clientmessages.pb.h"
 
 namespace Config {
 	bool AutoPingEnabled = false;

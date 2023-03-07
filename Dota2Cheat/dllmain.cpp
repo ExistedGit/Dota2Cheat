@@ -86,10 +86,13 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Lua::InitInterfaces(ctx.lua);
 	Lua::LoadScriptFiles(ctx.lua);
 
+//	Panorama::CSource2UITexture* texture{};
+//	Signatures::LoadUITexture(nullptr, (void**)&texture, "panorama\\images\\hero_badges\\hero_badge_rank_1_png.vtex");
+
 	glfwSetErrorCallback(glfw_error_callback);
 	if (!glfwInit())
 		return 1;
-	
+
 	// GL 3.0 + GLSL 130
 	constexpr const char* glsl_version = "#version 130";
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);

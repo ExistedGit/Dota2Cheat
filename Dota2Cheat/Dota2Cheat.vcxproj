@@ -180,6 +180,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Hooks\EntitySystemEvents.cpp" />
+    <ClCompile Include="Hooks\ModifierEvents.cpp" />
+    <ClCompile Include="Hooks\NetChannel.cpp" />
+    <ClCompile Include="Hooks\ParticleRendering.cpp" />
+    <ClCompile Include="Hooks\PrepareUnitOrders.cpp" />
+    <ClCompile Include="Hooks\RunFrame.cpp" />
+    <ClCompile Include="Modules\Hacks\ParticleAbilityWarner.cpp" />
     <ClCompile Include="SDK\GameSystems\CDOTAParticleManager.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="include\imgui\imgui.cpp" />
@@ -189,6 +196,12 @@
     <ClCompile Include="include\imgui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="include\imgui\imgui_tables.cpp" />
     <ClCompile Include="include\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="SDK\Interfaces\CBaseFileSystem.cpp" />
+    <ClCompile Include="SDK\Interfaces\CGameEntitySystem.cpp" />
+    <ClCompile Include="SDK\Interfaces\CGCClient.cpp" />
+    <ClCompile Include="SDK\Interfaces\CInputService.cpp" />
+    <ClCompile Include="SDK\Interfaces\IEngineClient.cpp" />
+    <ClCompile Include="SDK\Interfaces\Panorama.cpp" />
     <ClCompile Include="SDK\SigScan\patterscan.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -316,7 +329,6 @@
     <ClInclude Include="SDK\SigScan\patternscan.h" />
     <ClInclude Include="SDK\SigScan\proc.h" />
     <ClInclude Include="SDK\Globals\Signatures.h" />
-    <ClInclude Include="Modules\Hacks\VBE.h" />
     <ClInclude Include="SDK\Entities\CBaseEntity.h" />
     <ClInclude Include="SDK\Entities\CDOTABaseNPC.h" />
     <ClInclude Include="SDK\Entities\CEntityIdentity.h" />

@@ -23,7 +23,7 @@ public:
 		return Member<DOTA_GameState>(Netvars::C_DOTAGamerules::m_nGameState);
 	}
 	float GetGameTime() {
-		return Member<float>(Netvars::C_DOTAGamerules::m_fGameTime);
+		return Member<float>(0);
 	}
 
 	DOTA_GameMode GetGameMode() {

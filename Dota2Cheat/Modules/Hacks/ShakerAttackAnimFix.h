@@ -1,6 +1,6 @@
 #pragma once
 #include "../../SDK/include.h"
-
+#include "../../SDK/Protobufs/dota_usermessages.pb.h"
 
 namespace Hacks {
 	// Changes Shaker's default attack animation to Enchant Totem's one

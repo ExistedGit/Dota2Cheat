@@ -1,4 +1,5 @@
 #pragma once
+#include "SDK/Base/Vector.h"
 
 namespace Config {
 	inline bool AutoMidasEnabled = true;

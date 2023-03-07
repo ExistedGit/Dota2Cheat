@@ -34,18 +34,20 @@ namespace GameSystems {
 	inline void FindGameSystems() {
 		std::cout << "[GLOBAL POINTERS]\n";
 
-		// On offset 0x117 in Source2Client::Init(), right after "g_GameEventManager.Init()"
+		// In Source2Client::Init(), right after "g_GameEventManager.Init()":
+		// mov rcx, [XXXXXXXXX]
 		GameEventManagerPtr = (CGameEventManager**)GetAbsoluteAddress(
-			(uintptr_t)Interfaces::Client->GetVFunc(3).ptr + 0x117,
+			(uintptr_t)Interfaces::Client->GetVFunc(3).ptr + 0x106,
 			3,
 			7);
 
+		std::cout << "GameEventManagerPtr: " << GameEventManagerPtr  << '\n';
 		// GetProjectileManager, it's too short and its caller is too generic to be sigged
 		// xref "Spews a list of all client-side projectiles", above it is lea rax, [XXXXXXXX]
 		ProjectileManagerPtr =
 			(decltype(ProjectileManagerPtr))
 			GetAbsoluteAddress(
-				(uintptr_t)GetModuleHandleA("client.dll") + 0xCE0960,
+				(uintptr_t)GetModuleHandleA("client.dll") + 0x1330060,
 				3,
 				7
 			);
@@ -54,8 +56,8 @@ namespace GameSystems {
 		char funcAddr[60];
 		char funcAddrMask[60];
 
-		ParseCombo("48 8B ? ? ? ? ? 48 85 C0 74 34 48 63 48 68 44 8B 90 CC 00 00 00 83 F9 0B", funcAddr, funcAddrMask);
-		uintptr_t addr = (uintptr_t)PatternScanExModule(ctx.CurProcHandle, ctx.CurProcId, L"client.dll", funcAddr, funcAddrMask);
+		ParseCombo("48 89 5C 24 18 48 89 6C 24 20 57 48 83 EC 20 48 8B ? ? ? ? ? 8B DA 48 8B E9 48 85 FF", funcAddr, funcAddrMask);
+		uintptr_t addr = (uintptr_t)PatternScanExModule(ctx.CurProcHandle, ctx.CurProcId, L"client.dll", funcAddr, funcAddrMask) + 0xF;
 		GameRulesPtr = (CDOTAGameRules**)GetAbsoluteAddress(addr, 3, 7);
 		std::cout << "GameRulesPtr: " << GameRulesPtr << '\n';
 
@@ -85,7 +87,6 @@ namespace GameSystems {
 		std::cout << "[GLOBALS]\n";
 		std::cout << "GameRules: " << GameRules << '\n';
 		std::cout << "Projectile Manager:" << ProjectileManager << '\n';
-		//std::cout << "ScriptVM: " << ScriptVM << "\n";
 		std::cout << "Particle Manager: " << ParticleManager << ' ' << ParticleManager->GetVFunc(7).ptr << "\n";
 	}
 }

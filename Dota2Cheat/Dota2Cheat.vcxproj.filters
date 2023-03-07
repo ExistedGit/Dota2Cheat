@@ -209,9 +209,6 @@
     <ClInclude Include="EventListeners.h">
       <Filter>Header files\Events</Filter>
     </ClInclude>
-    <ClInclude Include="Modules\Hacks\VBE.h">
-      <Filter>Header files\Hacks</Filter>
-    </ClInclude>
     <ClInclude Include="Modules\Hacks\IllusionColoring.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>

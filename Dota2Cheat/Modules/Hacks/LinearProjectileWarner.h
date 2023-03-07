@@ -1,7 +1,8 @@
 #pragma once
 #include <map>
+#include "../../Config.h"
 #include "../../SDK/include.h"
-#include "../../SDK/include.h"
+#include "../../SDK/Protobufs/dota_usermessages.pb.h"
 
 // particles\ui_mouseactions\range_finder_tower_aoe.vpcf
 // Point 0: nothing

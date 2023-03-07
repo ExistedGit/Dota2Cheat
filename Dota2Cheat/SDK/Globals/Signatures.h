@@ -1,15 +1,16 @@
 #pragma once
 #include "../../include.h"
+#include "../Base/Memory.h"
+#include "../SigScan/patternscan.h"
 
 #include "Context.h"
 
-#include "../SigScan/patternscan.h"
+#include "../Enums.h"
+#include "../Protobufs/dota_commonmessages.pb.h"
 #include "../GameSystems/CDOTAParticleManager.h"
 #include "../Interfaces/CGCClient.h"
-#include "../Protobufs/dota_commonmessages.pb.h"
-#include "../Enums.h"
-#include "../Base/Memory.h"
 #include "../Interfaces/Network/CNetworkMessages.h"
+#include "../Entities/CDOTABaseAbility.h"
 
 class CDOTAPlayerController;
 class CDOTAModifier;
@@ -73,9 +74,9 @@ namespace Signatures {
 
 		char funcAddr[256];
 		char funcAddrMask[256];
-		SIGSCAN_LOG(PrepareUnitOrders, "4C 89 4C 24 20 44 89 44 24 18 89 54 24 10 55 53 57 41 55 41 57 48 8D 6C 24 C0", L"client.dll");
+		SIGSCAN_LOG(PrepareUnitOrders, "4C 89 4C 24 20 44 89 44 24 18 89 54 24 10 55 53 56 41 55 41 56 48 8D 6C 24 C0", L"client.dll");
 
-		ParseCombo("E8 ? ? ? ? 48 83 ED 01 79 DF", funcAddr, funcAddrMask);
+		ParseCombo("E8 ? ? ? ? 48 83 ED 01 79 AF", funcAddr, funcAddrMask);
 		OnRemoveModifier = (OnRemoveModifierFn)(
 			GetAbsoluteAddress(
 				(uintptr_t)PatternScanExModule(ctx.CurProcHandle, ctx.CurProcId, L"client.dll", funcAddr, funcAddrMask),
@@ -101,5 +102,5 @@ namespace Signatures {
 		//xref "OnColorChanged", lea rax, [XXXXXXXXX] below it
 		SIGSCAN_LOG(CBaseEntity::OnColorChanged, "40 53 48 83 EC 20 48 8B D9 48 8B 89 ? ? ? ? 48 8B 01 0F B6 93", L"client.dll");
 		SIGSCAN_OFF(LoadUITexture, "57 48 83 EC 20 48 8B 1A 49 8B F0 48 8B FA 48 85 DB", L"panorama.dll", -10);
-	}
+	};
 }

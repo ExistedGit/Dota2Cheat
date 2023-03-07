@@ -2,6 +2,7 @@
 #include <vector>
 #include "../../SDK/include.h"
 #include "../Utility/ParticleGC.h"
+#include "../../Config.h"
 
 
 namespace Hacks {

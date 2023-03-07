@@ -136,7 +136,6 @@ inline void LeftMatch() {
 	//Hooks::NetChan = nullptr;
 
 	Modules::AutoBuyTome.Reset();
-	Modules::VBE.Reset();
 	Modules::TargetedSpellHighlighter.Reset();
 	Modules::AutoPick.Reset();
 
