@@ -9,7 +9,7 @@ namespace Hacks {
 			if (!strstr(className, "Item_Physical"))
 				return false;
 			auto item = Interfaces::EntitySystem->GetEntity(H2IDX(ent->Member<ENT_HANDLE>(0x990)));
-			if(!item->GetIdentity() ||
+			if(!item ||
 				!strstr(item->GetIdentity()->GetName(), "aegis"))
 				return false;
 

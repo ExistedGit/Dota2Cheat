@@ -3899,8 +3899,8 @@ class CSVCMsg_ServerInfo final :
     kCOsFieldNumber = 6,
     kMaxClientsFieldNumber = 10,
     kMaxClassesFieldNumber = 11,
-    kPlayerSlotFieldNumber = 12,
     kTickIntervalFieldNumber = 13,
+    kPlayerSlotFieldNumber = 12,
   };
   // optional string game_dir = 14;
   bool has_game_dir() const;
@@ -4119,19 +4119,6 @@ class CSVCMsg_ServerInfo final :
   void _internal_set_max_classes(int32_t value);
   public:
 
-  // optional int32 player_slot = 12;
-  bool has_player_slot() const;
-  private:
-  bool _internal_has_player_slot() const;
-  public:
-  void clear_player_slot();
-  int32_t player_slot() const;
-  void set_player_slot(int32_t value);
-  private:
-  int32_t _internal_player_slot() const;
-  void _internal_set_player_slot(int32_t value);
-  public:
-
   // optional float tick_interval = 13;
   bool has_tick_interval() const;
   private:
@@ -4143,6 +4130,19 @@ class CSVCMsg_ServerInfo final :
   private:
   float _internal_tick_interval() const;
   void _internal_set_tick_interval(float value);
+  public:
+
+  // optional int32 player_slot = 12 [default = -1];
+  bool has_player_slot() const;
+  private:
+  bool _internal_has_player_slot() const;
+  public:
+  void clear_player_slot();
+  int32_t player_slot() const;
+  void set_player_slot(int32_t value);
+  private:
+  int32_t _internal_player_slot() const;
+  void _internal_set_player_slot(int32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:CSVCMsg_ServerInfo)
@@ -4169,8 +4169,8 @@ class CSVCMsg_ServerInfo final :
     int32_t c_os_;
     int32_t max_clients_;
     int32_t max_classes_;
-    int32_t player_slot_;
     float tick_interval_;
+    int32_t player_slot_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_netmessages_2eproto;
@@ -5213,7 +5213,6 @@ class CSVCMsg_Sounds_sounddata_t final :
     kVolumeFieldNumber = 4,
     kDelayValueFieldNumber = 5,
     kSequenceNumberFieldNumber = 6,
-    kEntityIndexFieldNumber = 7,
     kChannelFieldNumber = 8,
     kPitchFieldNumber = 9,
     kFlagsFieldNumber = 10,
@@ -5224,8 +5223,9 @@ class CSVCMsg_Sounds_sounddata_t final :
     kSoundLevelFieldNumber = 15,
     kIsSentenceFieldNumber = 16,
     kIsAmbientFieldNumber = 17,
-    kSoundResourceIdFieldNumber = 19,
     kGuidFieldNumber = 18,
+    kSoundResourceIdFieldNumber = 19,
+    kEntityIndexFieldNumber = 7,
   };
   // optional sint32 origin_x = 1;
   bool has_origin_x() const;
@@ -5303,19 +5303,6 @@ class CSVCMsg_Sounds_sounddata_t final :
   private:
   int32_t _internal_sequence_number() const;
   void _internal_set_sequence_number(int32_t value);
-  public:
-
-  // optional int32 entity_index = 7;
-  bool has_entity_index() const;
-  private:
-  bool _internal_has_entity_index() const;
-  public:
-  void clear_entity_index();
-  int32_t entity_index() const;
-  void set_entity_index(int32_t value);
-  private:
-  int32_t _internal_entity_index() const;
-  void _internal_set_entity_index(int32_t value);
   public:
 
   // optional int32 channel = 8;
@@ -5448,6 +5435,19 @@ class CSVCMsg_Sounds_sounddata_t final :
   void _internal_set_is_ambient(bool value);
   public:
 
+  // optional uint32 guid = 18;
+  bool has_guid() const;
+  private:
+  bool _internal_has_guid() const;
+  public:
+  void clear_guid();
+  uint32_t guid() const;
+  void set_guid(uint32_t value);
+  private:
+  uint32_t _internal_guid() const;
+  void _internal_set_guid(uint32_t value);
+  public:
+
   // optional fixed64 sound_resource_id = 19;
   bool has_sound_resource_id() const;
   private:
@@ -5461,17 +5461,17 @@ class CSVCMsg_Sounds_sounddata_t final :
   void _internal_set_sound_resource_id(uint64_t value);
   public:
 
-  // optional uint32 guid = 18;
-  bool has_guid() const;
+  // optional int32 entity_index = 7 [default = -1];
+  bool has_entity_index() const;
   private:
-  bool _internal_has_guid() const;
+  bool _internal_has_entity_index() const;
   public:
-  void clear_guid();
-  uint32_t guid() const;
-  void set_guid(uint32_t value);
+  void clear_entity_index();
+  int32_t entity_index() const;
+  void set_entity_index(int32_t value);
   private:
-  uint32_t _internal_guid() const;
-  void _internal_set_guid(uint32_t value);
+  int32_t _internal_entity_index() const;
+  void _internal_set_entity_index(int32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:CSVCMsg_Sounds.sounddata_t)
@@ -5490,7 +5490,6 @@ class CSVCMsg_Sounds_sounddata_t final :
     uint32_t volume_;
     float delay_value_;
     int32_t sequence_number_;
-    int32_t entity_index_;
     int32_t channel_;
     int32_t pitch_;
     int32_t flags_;
@@ -5501,8 +5500,9 @@ class CSVCMsg_Sounds_sounddata_t final :
     int32_t sound_level_;
     bool is_sentence_;
     bool is_ambient_;
-    uint64_t sound_resource_id_;
     uint32_t guid_;
+    uint64_t sound_resource_id_;
+    int32_t entity_index_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_netmessages_2eproto;
@@ -5997,7 +5997,7 @@ class CSVCMsg_SetView final :
     kEntityIndexFieldNumber = 1,
     kSlotFieldNumber = 2,
   };
-  // optional int32 entity_index = 1;
+  // optional int32 entity_index = 1 [default = -1];
   bool has_entity_index() const;
   private:
   bool _internal_has_entity_index() const;
@@ -6010,7 +6010,7 @@ class CSVCMsg_SetView final :
   void _internal_set_entity_index(int32_t value);
   public:
 
-  // optional int32 slot = 2;
+  // optional int32 slot = 2 [default = -1];
   bool has_slot() const;
   private:
   bool _internal_has_slot() const;
@@ -6516,9 +6516,9 @@ class CSVCMsg_BSPDecal final :
   enum : int {
     kPosFieldNumber = 1,
     kDecalTextureIndexFieldNumber = 2,
-    kEntityIndexFieldNumber = 3,
     kModelIndexFieldNumber = 4,
     kLowPriorityFieldNumber = 5,
+    kEntityIndexFieldNumber = 3,
   };
   // optional .CMsgVector pos = 1;
   bool has_pos() const;
@@ -6551,19 +6551,6 @@ class CSVCMsg_BSPDecal final :
   void _internal_set_decal_texture_index(int32_t value);
   public:
 
-  // optional int32 entity_index = 3;
-  bool has_entity_index() const;
-  private:
-  bool _internal_has_entity_index() const;
-  public:
-  void clear_entity_index();
-  int32_t entity_index() const;
-  void set_entity_index(int32_t value);
-  private:
-  int32_t _internal_entity_index() const;
-  void _internal_set_entity_index(int32_t value);
-  public:
-
   // optional int32 model_index = 4;
   bool has_model_index() const;
   private:
@@ -6590,6 +6577,19 @@ class CSVCMsg_BSPDecal final :
   void _internal_set_low_priority(bool value);
   public:
 
+  // optional int32 entity_index = 3 [default = -1];
+  bool has_entity_index() const;
+  private:
+  bool _internal_has_entity_index() const;
+  public:
+  void clear_entity_index();
+  int32_t entity_index() const;
+  void set_entity_index(int32_t value);
+  private:
+  int32_t _internal_entity_index() const;
+  void _internal_set_entity_index(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CSVCMsg_BSPDecal)
  private:
   class _Internal;
@@ -6602,9 +6602,9 @@ class CSVCMsg_BSPDecal final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::CMsgVector* pos_;
     int32_t decal_texture_index_;
-    int32_t entity_index_;
     int32_t model_index_;
     bool low_priority_;
+    int32_t entity_index_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_netmessages_2eproto;
@@ -6769,7 +6769,7 @@ class CSVCMsg_SplitScreen final :
   void _internal_set_slot(int32_t value);
   public:
 
-  // optional int32 player_index = 3;
+  // optional int32 player_index = 3 [default = -1];
   bool has_player_index() const;
   private:
   bool _internal_has_player_index() const;
@@ -10007,11 +10007,11 @@ class CSVCMsg_VoiceData final :
 
   enum : int {
     kAudioFieldNumber = 1,
-    kClientFieldNumber = 2,
-    kProximityFieldNumber = 3,
     kXuidFieldNumber = 4,
+    kProximityFieldNumber = 3,
     kAudibleMaskFieldNumber = 5,
     kTickFieldNumber = 6,
+    kClientFieldNumber = 2,
   };
   // optional .CMsgVoiceAudio audio = 1;
   bool has_audio() const;
@@ -10031,17 +10031,17 @@ class CSVCMsg_VoiceData final :
       ::CMsgVoiceAudio* audio);
   ::CMsgVoiceAudio* unsafe_arena_release_audio();
 
-  // optional int32 client = 2;
-  bool has_client() const;
+  // optional fixed64 xuid = 4;
+  bool has_xuid() const;
   private:
-  bool _internal_has_client() const;
+  bool _internal_has_xuid() const;
   public:
-  void clear_client();
-  int32_t client() const;
-  void set_client(int32_t value);
+  void clear_xuid();
+  uint64_t xuid() const;
+  void set_xuid(uint64_t value);
   private:
-  int32_t _internal_client() const;
-  void _internal_set_client(int32_t value);
+  uint64_t _internal_xuid() const;
+  void _internal_set_xuid(uint64_t value);
   public:
 
   // optional bool proximity = 3;
@@ -10055,19 +10055,6 @@ class CSVCMsg_VoiceData final :
   private:
   bool _internal_proximity() const;
   void _internal_set_proximity(bool value);
-  public:
-
-  // optional fixed64 xuid = 4;
-  bool has_xuid() const;
-  private:
-  bool _internal_has_xuid() const;
-  public:
-  void clear_xuid();
-  uint64_t xuid() const;
-  void set_xuid(uint64_t value);
-  private:
-  uint64_t _internal_xuid() const;
-  void _internal_set_xuid(uint64_t value);
   public:
 
   // optional int32 audible_mask = 5;
@@ -10096,6 +10083,19 @@ class CSVCMsg_VoiceData final :
   void _internal_set_tick(uint32_t value);
   public:
 
+  // optional int32 client = 2 [default = -1];
+  bool has_client() const;
+  private:
+  bool _internal_has_client() const;
+  public:
+  void clear_client();
+  int32_t client() const;
+  void set_client(int32_t value);
+  private:
+  int32_t _internal_client() const;
+  void _internal_set_client(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CSVCMsg_VoiceData)
  private:
   class _Internal;
@@ -10107,11 +10107,11 @@ class CSVCMsg_VoiceData final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::CMsgVoiceAudio* audio_;
-    int32_t client_;
-    bool proximity_;
     uint64_t xuid_;
+    bool proximity_;
     int32_t audible_mask_;
     uint32_t tick_;
+    int32_t client_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_netmessages_2eproto;
@@ -11543,10 +11543,10 @@ class CMsgServerPeer final :
   enum : int {
     kIpcFieldNumber = 3,
     kSteamidFieldNumber = 2,
-    kPlayerSlotFieldNumber = 1,
     kTheyHearYouFieldNumber = 4,
     kYouHearThemFieldNumber = 5,
     kIsListenserverHostFieldNumber = 6,
+    kPlayerSlotFieldNumber = 1,
   };
   // optional .CMsgIPCAddress ipc = 3;
   bool has_ipc() const;
@@ -11577,19 +11577,6 @@ class CMsgServerPeer final :
   private:
   uint64_t _internal_steamid() const;
   void _internal_set_steamid(uint64_t value);
-  public:
-
-  // optional int32 player_slot = 1;
-  bool has_player_slot() const;
-  private:
-  bool _internal_has_player_slot() const;
-  public:
-  void clear_player_slot();
-  int32_t player_slot() const;
-  void set_player_slot(int32_t value);
-  private:
-  int32_t _internal_player_slot() const;
-  void _internal_set_player_slot(int32_t value);
   public:
 
   // optional bool they_hear_you = 4;
@@ -11631,6 +11618,19 @@ class CMsgServerPeer final :
   void _internal_set_is_listenserver_host(bool value);
   public:
 
+  // optional int32 player_slot = 1 [default = -1];
+  bool has_player_slot() const;
+  private:
+  bool _internal_has_player_slot() const;
+  public:
+  void clear_player_slot();
+  int32_t player_slot() const;
+  void set_player_slot(int32_t value);
+  private:
+  int32_t _internal_player_slot() const;
+  void _internal_set_player_slot(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgServerPeer)
  private:
   class _Internal;
@@ -11643,10 +11643,10 @@ class CMsgServerPeer final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::CMsgIPCAddress* ipc_;
     uint64_t steamid_;
-    int32_t player_slot_;
     bool they_hear_you_;
     bool you_hear_them_;
     bool is_listenserver_host_;
+    int32_t player_slot_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_netmessages_2eproto;
@@ -14293,13 +14293,13 @@ class CSVCMsg_HltvReplay final :
 
   enum : int {
     kDelayFieldNumber = 1,
-    kPrimaryTargetFieldNumber = 2,
     kReplayStopAtFieldNumber = 3,
     kReplayStartAtFieldNumber = 4,
     kReplaySlowdownBeginFieldNumber = 5,
     kReplaySlowdownEndFieldNumber = 6,
     kReplaySlowdownRateFieldNumber = 7,
     kReasonFieldNumber = 8,
+    kPrimaryTargetFieldNumber = 2,
   };
   // optional int32 delay = 1;
   bool has_delay() const;
@@ -14312,19 +14312,6 @@ class CSVCMsg_HltvReplay final :
   private:
   int32_t _internal_delay() const;
   void _internal_set_delay(int32_t value);
-  public:
-
-  // optional int32 primary_target = 2;
-  bool has_primary_target() const;
-  private:
-  bool _internal_has_primary_target() const;
-  public:
-  void clear_primary_target();
-  int32_t primary_target() const;
-  void set_primary_target(int32_t value);
-  private:
-  int32_t _internal_primary_target() const;
-  void _internal_set_primary_target(int32_t value);
   public:
 
   // optional int32 replay_stop_at = 3;
@@ -14405,6 +14392,19 @@ class CSVCMsg_HltvReplay final :
   void _internal_set_reason(int32_t value);
   public:
 
+  // optional int32 primary_target = 2 [default = -1];
+  bool has_primary_target() const;
+  private:
+  bool _internal_has_primary_target() const;
+  public:
+  void clear_primary_target();
+  int32_t primary_target() const;
+  void set_primary_target(int32_t value);
+  private:
+  int32_t _internal_primary_target() const;
+  void _internal_set_primary_target(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CSVCMsg_HltvReplay)
  private:
   class _Internal;
@@ -14416,13 +14416,13 @@ class CSVCMsg_HltvReplay final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     int32_t delay_;
-    int32_t primary_target_;
     int32_t replay_stop_at_;
     int32_t replay_start_at_;
     int32_t replay_slowdown_begin_;
     int32_t replay_slowdown_end_;
     float replay_slowdown_rate_;
     int32_t reason_;
+    int32_t primary_target_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_netmessages_2eproto;
@@ -14560,8 +14560,8 @@ class CCLCMsg_HltvReplay final :
     kRequestFieldNumber = 1,
     kSlowdownLengthFieldNumber = 2,
     kSlowdownRateFieldNumber = 3,
-    kPrimaryTargetFieldNumber = 4,
     kEventTimeFieldNumber = 5,
+    kPrimaryTargetFieldNumber = 4,
   };
   // optional int32 request = 1;
   bool has_request() const;
@@ -14602,19 +14602,6 @@ class CCLCMsg_HltvReplay final :
   void _internal_set_slowdown_rate(float value);
   public:
 
-  // optional int32 primary_target = 4;
-  bool has_primary_target() const;
-  private:
-  bool _internal_has_primary_target() const;
-  public:
-  void clear_primary_target();
-  int32_t primary_target() const;
-  void set_primary_target(int32_t value);
-  private:
-  int32_t _internal_primary_target() const;
-  void _internal_set_primary_target(int32_t value);
-  public:
-
   // optional float event_time = 5;
   bool has_event_time() const;
   private:
@@ -14626,6 +14613,19 @@ class CCLCMsg_HltvReplay final :
   private:
   float _internal_event_time() const;
   void _internal_set_event_time(float value);
+  public:
+
+  // optional int32 primary_target = 4 [default = -1];
+  bool has_primary_target() const;
+  private:
+  bool _internal_has_primary_target() const;
+  public:
+  void clear_primary_target();
+  int32_t primary_target() const;
+  void set_primary_target(int32_t value);
+  private:
+  int32_t _internal_primary_target() const;
+  void _internal_set_primary_target(int32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:CCLCMsg_HltvReplay)
@@ -14641,8 +14641,8 @@ class CCLCMsg_HltvReplay final :
     int32_t request_;
     float slowdown_length_;
     float slowdown_rate_;
-    int32_t primary_target_;
     float event_time_;
+    int32_t primary_target_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_netmessages_2eproto;
@@ -17167,17 +17167,17 @@ inline void CSVCMsg_ServerInfo::set_max_classes(int32_t value) {
   // @@protoc_insertion_point(field_set:CSVCMsg_ServerInfo.max_classes)
 }
 
-// optional int32 player_slot = 12;
+// optional int32 player_slot = 12 [default = -1];
 inline bool CSVCMsg_ServerInfo::_internal_has_player_slot() const {
-  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CSVCMsg_ServerInfo::has_player_slot() const {
   return _internal_has_player_slot();
 }
 inline void CSVCMsg_ServerInfo::clear_player_slot() {
-  _impl_.player_slot_ = 0;
-  _impl_._has_bits_[0] &= ~0x00004000u;
+  _impl_.player_slot_ = -1;
+  _impl_._has_bits_[0] &= ~0x00008000u;
 }
 inline int32_t CSVCMsg_ServerInfo::_internal_player_slot() const {
   return _impl_.player_slot_;
@@ -17187,7 +17187,7 @@ inline int32_t CSVCMsg_ServerInfo::player_slot() const {
   return _internal_player_slot();
 }
 inline void CSVCMsg_ServerInfo::_internal_set_player_slot(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00004000u;
+  _impl_._has_bits_[0] |= 0x00008000u;
   _impl_.player_slot_ = value;
 }
 inline void CSVCMsg_ServerInfo::set_player_slot(int32_t value) {
@@ -17197,7 +17197,7 @@ inline void CSVCMsg_ServerInfo::set_player_slot(int32_t value) {
 
 // optional float tick_interval = 13;
 inline bool CSVCMsg_ServerInfo::_internal_has_tick_interval() const {
-  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
 inline bool CSVCMsg_ServerInfo::has_tick_interval() const {
@@ -17205,7 +17205,7 @@ inline bool CSVCMsg_ServerInfo::has_tick_interval() const {
 }
 inline void CSVCMsg_ServerInfo::clear_tick_interval() {
   _impl_.tick_interval_ = 0;
-  _impl_._has_bits_[0] &= ~0x00008000u;
+  _impl_._has_bits_[0] &= ~0x00004000u;
 }
 inline float CSVCMsg_ServerInfo::_internal_tick_interval() const {
   return _impl_.tick_interval_;
@@ -17215,7 +17215,7 @@ inline float CSVCMsg_ServerInfo::tick_interval() const {
   return _internal_tick_interval();
 }
 inline void CSVCMsg_ServerInfo::_internal_set_tick_interval(float value) {
-  _impl_._has_bits_[0] |= 0x00008000u;
+  _impl_._has_bits_[0] |= 0x00004000u;
   _impl_.tick_interval_ = value;
 }
 inline void CSVCMsg_ServerInfo::set_tick_interval(float value) {
@@ -18362,17 +18362,17 @@ inline void CSVCMsg_Sounds_sounddata_t::set_sequence_number(int32_t value) {
   // @@protoc_insertion_point(field_set:CSVCMsg_Sounds.sounddata_t.sequence_number)
 }
 
-// optional int32 entity_index = 7;
+// optional int32 entity_index = 7 [default = -1];
 inline bool CSVCMsg_Sounds_sounddata_t::_internal_has_entity_index() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00040000u) != 0;
   return value;
 }
 inline bool CSVCMsg_Sounds_sounddata_t::has_entity_index() const {
   return _internal_has_entity_index();
 }
 inline void CSVCMsg_Sounds_sounddata_t::clear_entity_index() {
-  _impl_.entity_index_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_.entity_index_ = -1;
+  _impl_._has_bits_[0] &= ~0x00040000u;
 }
 inline int32_t CSVCMsg_Sounds_sounddata_t::_internal_entity_index() const {
   return _impl_.entity_index_;
@@ -18382,7 +18382,7 @@ inline int32_t CSVCMsg_Sounds_sounddata_t::entity_index() const {
   return _internal_entity_index();
 }
 inline void CSVCMsg_Sounds_sounddata_t::_internal_set_entity_index(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00040000u;
   _impl_.entity_index_ = value;
 }
 inline void CSVCMsg_Sounds_sounddata_t::set_entity_index(int32_t value) {
@@ -18392,7 +18392,7 @@ inline void CSVCMsg_Sounds_sounddata_t::set_entity_index(int32_t value) {
 
 // optional int32 channel = 8;
 inline bool CSVCMsg_Sounds_sounddata_t::_internal_has_channel() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CSVCMsg_Sounds_sounddata_t::has_channel() const {
@@ -18400,7 +18400,7 @@ inline bool CSVCMsg_Sounds_sounddata_t::has_channel() const {
 }
 inline void CSVCMsg_Sounds_sounddata_t::clear_channel() {
   _impl_.channel_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline int32_t CSVCMsg_Sounds_sounddata_t::_internal_channel() const {
   return _impl_.channel_;
@@ -18410,7 +18410,7 @@ inline int32_t CSVCMsg_Sounds_sounddata_t::channel() const {
   return _internal_channel();
 }
 inline void CSVCMsg_Sounds_sounddata_t::_internal_set_channel(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.channel_ = value;
 }
 inline void CSVCMsg_Sounds_sounddata_t::set_channel(int32_t value) {
@@ -18420,7 +18420,7 @@ inline void CSVCMsg_Sounds_sounddata_t::set_channel(int32_t value) {
 
 // optional int32 pitch = 9;
 inline bool CSVCMsg_Sounds_sounddata_t::_internal_has_pitch() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CSVCMsg_Sounds_sounddata_t::has_pitch() const {
@@ -18428,7 +18428,7 @@ inline bool CSVCMsg_Sounds_sounddata_t::has_pitch() const {
 }
 inline void CSVCMsg_Sounds_sounddata_t::clear_pitch() {
   _impl_.pitch_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000100u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
 inline int32_t CSVCMsg_Sounds_sounddata_t::_internal_pitch() const {
   return _impl_.pitch_;
@@ -18438,7 +18438,7 @@ inline int32_t CSVCMsg_Sounds_sounddata_t::pitch() const {
   return _internal_pitch();
 }
 inline void CSVCMsg_Sounds_sounddata_t::_internal_set_pitch(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000100u;
+  _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.pitch_ = value;
 }
 inline void CSVCMsg_Sounds_sounddata_t::set_pitch(int32_t value) {
@@ -18448,7 +18448,7 @@ inline void CSVCMsg_Sounds_sounddata_t::set_pitch(int32_t value) {
 
 // optional int32 flags = 10;
 inline bool CSVCMsg_Sounds_sounddata_t::_internal_has_flags() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CSVCMsg_Sounds_sounddata_t::has_flags() const {
@@ -18456,7 +18456,7 @@ inline bool CSVCMsg_Sounds_sounddata_t::has_flags() const {
 }
 inline void CSVCMsg_Sounds_sounddata_t::clear_flags() {
   _impl_.flags_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000200u;
+  _impl_._has_bits_[0] &= ~0x00000100u;
 }
 inline int32_t CSVCMsg_Sounds_sounddata_t::_internal_flags() const {
   return _impl_.flags_;
@@ -18466,7 +18466,7 @@ inline int32_t CSVCMsg_Sounds_sounddata_t::flags() const {
   return _internal_flags();
 }
 inline void CSVCMsg_Sounds_sounddata_t::_internal_set_flags(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_._has_bits_[0] |= 0x00000100u;
   _impl_.flags_ = value;
 }
 inline void CSVCMsg_Sounds_sounddata_t::set_flags(int32_t value) {
@@ -18476,7 +18476,7 @@ inline void CSVCMsg_Sounds_sounddata_t::set_flags(int32_t value) {
 
 // optional uint32 sound_num = 11;
 inline bool CSVCMsg_Sounds_sounddata_t::_internal_has_sound_num() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CSVCMsg_Sounds_sounddata_t::has_sound_num() const {
@@ -18484,7 +18484,7 @@ inline bool CSVCMsg_Sounds_sounddata_t::has_sound_num() const {
 }
 inline void CSVCMsg_Sounds_sounddata_t::clear_sound_num() {
   _impl_.sound_num_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000400u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
 }
 inline uint32_t CSVCMsg_Sounds_sounddata_t::_internal_sound_num() const {
   return _impl_.sound_num_;
@@ -18494,7 +18494,7 @@ inline uint32_t CSVCMsg_Sounds_sounddata_t::sound_num() const {
   return _internal_sound_num();
 }
 inline void CSVCMsg_Sounds_sounddata_t::_internal_set_sound_num(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000400u;
+  _impl_._has_bits_[0] |= 0x00000200u;
   _impl_.sound_num_ = value;
 }
 inline void CSVCMsg_Sounds_sounddata_t::set_sound_num(uint32_t value) {
@@ -18504,7 +18504,7 @@ inline void CSVCMsg_Sounds_sounddata_t::set_sound_num(uint32_t value) {
 
 // optional fixed32 sound_num_handle = 12;
 inline bool CSVCMsg_Sounds_sounddata_t::_internal_has_sound_num_handle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool CSVCMsg_Sounds_sounddata_t::has_sound_num_handle() const {
@@ -18512,7 +18512,7 @@ inline bool CSVCMsg_Sounds_sounddata_t::has_sound_num_handle() const {
 }
 inline void CSVCMsg_Sounds_sounddata_t::clear_sound_num_handle() {
   _impl_.sound_num_handle_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000800u;
+  _impl_._has_bits_[0] &= ~0x00000400u;
 }
 inline uint32_t CSVCMsg_Sounds_sounddata_t::_internal_sound_num_handle() const {
   return _impl_.sound_num_handle_;
@@ -18522,7 +18522,7 @@ inline uint32_t CSVCMsg_Sounds_sounddata_t::sound_num_handle() const {
   return _internal_sound_num_handle();
 }
 inline void CSVCMsg_Sounds_sounddata_t::_internal_set_sound_num_handle(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000800u;
+  _impl_._has_bits_[0] |= 0x00000400u;
   _impl_.sound_num_handle_ = value;
 }
 inline void CSVCMsg_Sounds_sounddata_t::set_sound_num_handle(uint32_t value) {
@@ -18532,7 +18532,7 @@ inline void CSVCMsg_Sounds_sounddata_t::set_sound_num_handle(uint32_t value) {
 
 // optional int32 speaker_entity = 13;
 inline bool CSVCMsg_Sounds_sounddata_t::_internal_has_speaker_entity() const {
-  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
   return value;
 }
 inline bool CSVCMsg_Sounds_sounddata_t::has_speaker_entity() const {
@@ -18540,7 +18540,7 @@ inline bool CSVCMsg_Sounds_sounddata_t::has_speaker_entity() const {
 }
 inline void CSVCMsg_Sounds_sounddata_t::clear_speaker_entity() {
   _impl_.speaker_entity_ = 0;
-  _impl_._has_bits_[0] &= ~0x00001000u;
+  _impl_._has_bits_[0] &= ~0x00000800u;
 }
 inline int32_t CSVCMsg_Sounds_sounddata_t::_internal_speaker_entity() const {
   return _impl_.speaker_entity_;
@@ -18550,7 +18550,7 @@ inline int32_t CSVCMsg_Sounds_sounddata_t::speaker_entity() const {
   return _internal_speaker_entity();
 }
 inline void CSVCMsg_Sounds_sounddata_t::_internal_set_speaker_entity(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00001000u;
+  _impl_._has_bits_[0] |= 0x00000800u;
   _impl_.speaker_entity_ = value;
 }
 inline void CSVCMsg_Sounds_sounddata_t::set_speaker_entity(int32_t value) {
@@ -18560,7 +18560,7 @@ inline void CSVCMsg_Sounds_sounddata_t::set_speaker_entity(int32_t value) {
 
 // optional int32 random_seed = 14;
 inline bool CSVCMsg_Sounds_sounddata_t::_internal_has_random_seed() const {
-  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
   return value;
 }
 inline bool CSVCMsg_Sounds_sounddata_t::has_random_seed() const {
@@ -18568,7 +18568,7 @@ inline bool CSVCMsg_Sounds_sounddata_t::has_random_seed() const {
 }
 inline void CSVCMsg_Sounds_sounddata_t::clear_random_seed() {
   _impl_.random_seed_ = 0;
-  _impl_._has_bits_[0] &= ~0x00002000u;
+  _impl_._has_bits_[0] &= ~0x00001000u;
 }
 inline int32_t CSVCMsg_Sounds_sounddata_t::_internal_random_seed() const {
   return _impl_.random_seed_;
@@ -18578,7 +18578,7 @@ inline int32_t CSVCMsg_Sounds_sounddata_t::random_seed() const {
   return _internal_random_seed();
 }
 inline void CSVCMsg_Sounds_sounddata_t::_internal_set_random_seed(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00002000u;
+  _impl_._has_bits_[0] |= 0x00001000u;
   _impl_.random_seed_ = value;
 }
 inline void CSVCMsg_Sounds_sounddata_t::set_random_seed(int32_t value) {
@@ -18588,7 +18588,7 @@ inline void CSVCMsg_Sounds_sounddata_t::set_random_seed(int32_t value) {
 
 // optional int32 sound_level = 15;
 inline bool CSVCMsg_Sounds_sounddata_t::_internal_has_sound_level() const {
-  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool CSVCMsg_Sounds_sounddata_t::has_sound_level() const {
@@ -18596,7 +18596,7 @@ inline bool CSVCMsg_Sounds_sounddata_t::has_sound_level() const {
 }
 inline void CSVCMsg_Sounds_sounddata_t::clear_sound_level() {
   _impl_.sound_level_ = 0;
-  _impl_._has_bits_[0] &= ~0x00004000u;
+  _impl_._has_bits_[0] &= ~0x00002000u;
 }
 inline int32_t CSVCMsg_Sounds_sounddata_t::_internal_sound_level() const {
   return _impl_.sound_level_;
@@ -18606,7 +18606,7 @@ inline int32_t CSVCMsg_Sounds_sounddata_t::sound_level() const {
   return _internal_sound_level();
 }
 inline void CSVCMsg_Sounds_sounddata_t::_internal_set_sound_level(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00004000u;
+  _impl_._has_bits_[0] |= 0x00002000u;
   _impl_.sound_level_ = value;
 }
 inline void CSVCMsg_Sounds_sounddata_t::set_sound_level(int32_t value) {
@@ -18616,7 +18616,7 @@ inline void CSVCMsg_Sounds_sounddata_t::set_sound_level(int32_t value) {
 
 // optional bool is_sentence = 16;
 inline bool CSVCMsg_Sounds_sounddata_t::_internal_has_is_sentence() const {
-  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
 inline bool CSVCMsg_Sounds_sounddata_t::has_is_sentence() const {
@@ -18624,7 +18624,7 @@ inline bool CSVCMsg_Sounds_sounddata_t::has_is_sentence() const {
 }
 inline void CSVCMsg_Sounds_sounddata_t::clear_is_sentence() {
   _impl_.is_sentence_ = false;
-  _impl_._has_bits_[0] &= ~0x00008000u;
+  _impl_._has_bits_[0] &= ~0x00004000u;
 }
 inline bool CSVCMsg_Sounds_sounddata_t::_internal_is_sentence() const {
   return _impl_.is_sentence_;
@@ -18634,7 +18634,7 @@ inline bool CSVCMsg_Sounds_sounddata_t::is_sentence() const {
   return _internal_is_sentence();
 }
 inline void CSVCMsg_Sounds_sounddata_t::_internal_set_is_sentence(bool value) {
-  _impl_._has_bits_[0] |= 0x00008000u;
+  _impl_._has_bits_[0] |= 0x00004000u;
   _impl_.is_sentence_ = value;
 }
 inline void CSVCMsg_Sounds_sounddata_t::set_is_sentence(bool value) {
@@ -18644,7 +18644,7 @@ inline void CSVCMsg_Sounds_sounddata_t::set_is_sentence(bool value) {
 
 // optional bool is_ambient = 17;
 inline bool CSVCMsg_Sounds_sounddata_t::_internal_has_is_ambient() const {
-  bool value = (_impl_._has_bits_[0] & 0x00010000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CSVCMsg_Sounds_sounddata_t::has_is_ambient() const {
@@ -18652,7 +18652,7 @@ inline bool CSVCMsg_Sounds_sounddata_t::has_is_ambient() const {
 }
 inline void CSVCMsg_Sounds_sounddata_t::clear_is_ambient() {
   _impl_.is_ambient_ = false;
-  _impl_._has_bits_[0] &= ~0x00010000u;
+  _impl_._has_bits_[0] &= ~0x00008000u;
 }
 inline bool CSVCMsg_Sounds_sounddata_t::_internal_is_ambient() const {
   return _impl_.is_ambient_;
@@ -18662,7 +18662,7 @@ inline bool CSVCMsg_Sounds_sounddata_t::is_ambient() const {
   return _internal_is_ambient();
 }
 inline void CSVCMsg_Sounds_sounddata_t::_internal_set_is_ambient(bool value) {
-  _impl_._has_bits_[0] |= 0x00010000u;
+  _impl_._has_bits_[0] |= 0x00008000u;
   _impl_.is_ambient_ = value;
 }
 inline void CSVCMsg_Sounds_sounddata_t::set_is_ambient(bool value) {
@@ -18672,7 +18672,7 @@ inline void CSVCMsg_Sounds_sounddata_t::set_is_ambient(bool value) {
 
 // optional uint32 guid = 18;
 inline bool CSVCMsg_Sounds_sounddata_t::_internal_has_guid() const {
-  bool value = (_impl_._has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00010000u) != 0;
   return value;
 }
 inline bool CSVCMsg_Sounds_sounddata_t::has_guid() const {
@@ -18680,7 +18680,7 @@ inline bool CSVCMsg_Sounds_sounddata_t::has_guid() const {
 }
 inline void CSVCMsg_Sounds_sounddata_t::clear_guid() {
   _impl_.guid_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00040000u;
+  _impl_._has_bits_[0] &= ~0x00010000u;
 }
 inline uint32_t CSVCMsg_Sounds_sounddata_t::_internal_guid() const {
   return _impl_.guid_;
@@ -18690,7 +18690,7 @@ inline uint32_t CSVCMsg_Sounds_sounddata_t::guid() const {
   return _internal_guid();
 }
 inline void CSVCMsg_Sounds_sounddata_t::_internal_set_guid(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00040000u;
+  _impl_._has_bits_[0] |= 0x00010000u;
   _impl_.guid_ = value;
 }
 inline void CSVCMsg_Sounds_sounddata_t::set_guid(uint32_t value) {
@@ -18863,7 +18863,7 @@ inline void CSVCMsg_Prefetch::set_resource_type(::PrefetchType value) {
 
 // CSVCMsg_SetView
 
-// optional int32 entity_index = 1;
+// optional int32 entity_index = 1 [default = -1];
 inline bool CSVCMsg_SetView::_internal_has_entity_index() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -18872,7 +18872,7 @@ inline bool CSVCMsg_SetView::has_entity_index() const {
   return _internal_has_entity_index();
 }
 inline void CSVCMsg_SetView::clear_entity_index() {
-  _impl_.entity_index_ = 0;
+  _impl_.entity_index_ = -1;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CSVCMsg_SetView::_internal_entity_index() const {
@@ -18891,7 +18891,7 @@ inline void CSVCMsg_SetView::set_entity_index(int32_t value) {
   // @@protoc_insertion_point(field_set:CSVCMsg_SetView.entity_index)
 }
 
-// optional int32 slot = 2;
+// optional int32 slot = 2 [default = -1];
 inline bool CSVCMsg_SetView::_internal_has_slot() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -18900,7 +18900,7 @@ inline bool CSVCMsg_SetView::has_slot() const {
   return _internal_has_slot();
 }
 inline void CSVCMsg_SetView::clear_slot() {
-  _impl_.slot_ = 0;
+  _impl_.slot_ = -1;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CSVCMsg_SetView::_internal_slot() const {
@@ -19248,17 +19248,17 @@ inline void CSVCMsg_BSPDecal::set_decal_texture_index(int32_t value) {
   // @@protoc_insertion_point(field_set:CSVCMsg_BSPDecal.decal_texture_index)
 }
 
-// optional int32 entity_index = 3;
+// optional int32 entity_index = 3 [default = -1];
 inline bool CSVCMsg_BSPDecal::_internal_has_entity_index() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CSVCMsg_BSPDecal::has_entity_index() const {
   return _internal_has_entity_index();
 }
 inline void CSVCMsg_BSPDecal::clear_entity_index() {
-  _impl_.entity_index_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.entity_index_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CSVCMsg_BSPDecal::_internal_entity_index() const {
   return _impl_.entity_index_;
@@ -19268,7 +19268,7 @@ inline int32_t CSVCMsg_BSPDecal::entity_index() const {
   return _internal_entity_index();
 }
 inline void CSVCMsg_BSPDecal::_internal_set_entity_index(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.entity_index_ = value;
 }
 inline void CSVCMsg_BSPDecal::set_entity_index(int32_t value) {
@@ -19278,7 +19278,7 @@ inline void CSVCMsg_BSPDecal::set_entity_index(int32_t value) {
 
 // optional int32 model_index = 4;
 inline bool CSVCMsg_BSPDecal::_internal_has_model_index() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CSVCMsg_BSPDecal::has_model_index() const {
@@ -19286,7 +19286,7 @@ inline bool CSVCMsg_BSPDecal::has_model_index() const {
 }
 inline void CSVCMsg_BSPDecal::clear_model_index() {
   _impl_.model_index_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CSVCMsg_BSPDecal::_internal_model_index() const {
   return _impl_.model_index_;
@@ -19296,7 +19296,7 @@ inline int32_t CSVCMsg_BSPDecal::model_index() const {
   return _internal_model_index();
 }
 inline void CSVCMsg_BSPDecal::_internal_set_model_index(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.model_index_ = value;
 }
 inline void CSVCMsg_BSPDecal::set_model_index(int32_t value) {
@@ -19306,7 +19306,7 @@ inline void CSVCMsg_BSPDecal::set_model_index(int32_t value) {
 
 // optional bool low_priority = 5;
 inline bool CSVCMsg_BSPDecal::_internal_has_low_priority() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CSVCMsg_BSPDecal::has_low_priority() const {
@@ -19314,7 +19314,7 @@ inline bool CSVCMsg_BSPDecal::has_low_priority() const {
 }
 inline void CSVCMsg_BSPDecal::clear_low_priority() {
   _impl_.low_priority_ = false;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline bool CSVCMsg_BSPDecal::_internal_low_priority() const {
   return _impl_.low_priority_;
@@ -19324,7 +19324,7 @@ inline bool CSVCMsg_BSPDecal::low_priority() const {
   return _internal_low_priority();
 }
 inline void CSVCMsg_BSPDecal::_internal_set_low_priority(bool value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.low_priority_ = value;
 }
 inline void CSVCMsg_BSPDecal::set_low_priority(bool value) {
@@ -19393,7 +19393,7 @@ inline void CSVCMsg_SplitScreen::set_slot(int32_t value) {
   // @@protoc_insertion_point(field_set:CSVCMsg_SplitScreen.slot)
 }
 
-// optional int32 player_index = 3;
+// optional int32 player_index = 3 [default = -1];
 inline bool CSVCMsg_SplitScreen::_internal_has_player_index() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -19402,7 +19402,7 @@ inline bool CSVCMsg_SplitScreen::has_player_index() const {
   return _internal_has_player_index();
 }
 inline void CSVCMsg_SplitScreen::clear_player_index() {
-  _impl_.player_index_ = 0;
+  _impl_.player_index_ = -1;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CSVCMsg_SplitScreen::_internal_player_index() const {
@@ -22005,17 +22005,17 @@ inline void CSVCMsg_VoiceData::set_allocated_audio(::CMsgVoiceAudio* audio) {
   // @@protoc_insertion_point(field_set_allocated:CSVCMsg_VoiceData.audio)
 }
 
-// optional int32 client = 2;
+// optional int32 client = 2 [default = -1];
 inline bool CSVCMsg_VoiceData::_internal_has_client() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CSVCMsg_VoiceData::has_client() const {
   return _internal_has_client();
 }
 inline void CSVCMsg_VoiceData::clear_client() {
-  _impl_.client_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.client_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline int32_t CSVCMsg_VoiceData::_internal_client() const {
   return _impl_.client_;
@@ -22025,7 +22025,7 @@ inline int32_t CSVCMsg_VoiceData::client() const {
   return _internal_client();
 }
 inline void CSVCMsg_VoiceData::_internal_set_client(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.client_ = value;
 }
 inline void CSVCMsg_VoiceData::set_client(int32_t value) {
@@ -22063,7 +22063,7 @@ inline void CSVCMsg_VoiceData::set_proximity(bool value) {
 
 // optional fixed64 xuid = 4;
 inline bool CSVCMsg_VoiceData::_internal_has_xuid() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CSVCMsg_VoiceData::has_xuid() const {
@@ -22071,7 +22071,7 @@ inline bool CSVCMsg_VoiceData::has_xuid() const {
 }
 inline void CSVCMsg_VoiceData::clear_xuid() {
   _impl_.xuid_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint64_t CSVCMsg_VoiceData::_internal_xuid() const {
   return _impl_.xuid_;
@@ -22081,7 +22081,7 @@ inline uint64_t CSVCMsg_VoiceData::xuid() const {
   return _internal_xuid();
 }
 inline void CSVCMsg_VoiceData::_internal_set_xuid(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.xuid_ = value;
 }
 inline void CSVCMsg_VoiceData::set_xuid(uint64_t value) {
@@ -22091,7 +22091,7 @@ inline void CSVCMsg_VoiceData::set_xuid(uint64_t value) {
 
 // optional int32 audible_mask = 5;
 inline bool CSVCMsg_VoiceData::_internal_has_audible_mask() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CSVCMsg_VoiceData::has_audible_mask() const {
@@ -22099,7 +22099,7 @@ inline bool CSVCMsg_VoiceData::has_audible_mask() const {
 }
 inline void CSVCMsg_VoiceData::clear_audible_mask() {
   _impl_.audible_mask_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CSVCMsg_VoiceData::_internal_audible_mask() const {
   return _impl_.audible_mask_;
@@ -22109,7 +22109,7 @@ inline int32_t CSVCMsg_VoiceData::audible_mask() const {
   return _internal_audible_mask();
 }
 inline void CSVCMsg_VoiceData::_internal_set_audible_mask(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.audible_mask_ = value;
 }
 inline void CSVCMsg_VoiceData::set_audible_mask(int32_t value) {
@@ -22119,7 +22119,7 @@ inline void CSVCMsg_VoiceData::set_audible_mask(int32_t value) {
 
 // optional uint32 tick = 6;
 inline bool CSVCMsg_VoiceData::_internal_has_tick() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CSVCMsg_VoiceData::has_tick() const {
@@ -22127,7 +22127,7 @@ inline bool CSVCMsg_VoiceData::has_tick() const {
 }
 inline void CSVCMsg_VoiceData::clear_tick() {
   _impl_.tick_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline uint32_t CSVCMsg_VoiceData::_internal_tick() const {
   return _impl_.tick_;
@@ -22137,7 +22137,7 @@ inline uint32_t CSVCMsg_VoiceData::tick() const {
   return _internal_tick();
 }
 inline void CSVCMsg_VoiceData::_internal_set_tick(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.tick_ = value;
 }
 inline void CSVCMsg_VoiceData::set_tick(uint32_t value) {
@@ -22853,17 +22853,17 @@ inline void CMsgIPCAddress::set_process_id(uint32_t value) {
 
 // CMsgServerPeer
 
-// optional int32 player_slot = 1;
+// optional int32 player_slot = 1 [default = -1];
 inline bool CMsgServerPeer::_internal_has_player_slot() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgServerPeer::has_player_slot() const {
   return _internal_has_player_slot();
 }
 inline void CMsgServerPeer::clear_player_slot() {
-  _impl_.player_slot_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.player_slot_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline int32_t CMsgServerPeer::_internal_player_slot() const {
   return _impl_.player_slot_;
@@ -22873,7 +22873,7 @@ inline int32_t CMsgServerPeer::player_slot() const {
   return _internal_player_slot();
 }
 inline void CMsgServerPeer::_internal_set_player_slot(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.player_slot_ = value;
 }
 inline void CMsgServerPeer::set_player_slot(int32_t value) {
@@ -23001,7 +23001,7 @@ inline void CMsgServerPeer::set_allocated_ipc(::CMsgIPCAddress* ipc) {
 
 // optional bool they_hear_you = 4;
 inline bool CMsgServerPeer::_internal_has_they_hear_you() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgServerPeer::has_they_hear_you() const {
@@ -23009,7 +23009,7 @@ inline bool CMsgServerPeer::has_they_hear_you() const {
 }
 inline void CMsgServerPeer::clear_they_hear_you() {
   _impl_.they_hear_you_ = false;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline bool CMsgServerPeer::_internal_they_hear_you() const {
   return _impl_.they_hear_you_;
@@ -23019,7 +23019,7 @@ inline bool CMsgServerPeer::they_hear_you() const {
   return _internal_they_hear_you();
 }
 inline void CMsgServerPeer::_internal_set_they_hear_you(bool value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.they_hear_you_ = value;
 }
 inline void CMsgServerPeer::set_they_hear_you(bool value) {
@@ -23029,7 +23029,7 @@ inline void CMsgServerPeer::set_they_hear_you(bool value) {
 
 // optional bool you_hear_them = 5;
 inline bool CMsgServerPeer::_internal_has_you_hear_them() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgServerPeer::has_you_hear_them() const {
@@ -23037,7 +23037,7 @@ inline bool CMsgServerPeer::has_you_hear_them() const {
 }
 inline void CMsgServerPeer::clear_you_hear_them() {
   _impl_.you_hear_them_ = false;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline bool CMsgServerPeer::_internal_you_hear_them() const {
   return _impl_.you_hear_them_;
@@ -23047,7 +23047,7 @@ inline bool CMsgServerPeer::you_hear_them() const {
   return _internal_you_hear_them();
 }
 inline void CMsgServerPeer::_internal_set_you_hear_them(bool value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.you_hear_them_ = value;
 }
 inline void CMsgServerPeer::set_you_hear_them(bool value) {
@@ -23057,7 +23057,7 @@ inline void CMsgServerPeer::set_you_hear_them(bool value) {
 
 // optional bool is_listenserver_host = 6;
 inline bool CMsgServerPeer::_internal_has_is_listenserver_host() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CMsgServerPeer::has_is_listenserver_host() const {
@@ -23065,7 +23065,7 @@ inline bool CMsgServerPeer::has_is_listenserver_host() const {
 }
 inline void CMsgServerPeer::clear_is_listenserver_host() {
   _impl_.is_listenserver_host_ = false;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline bool CMsgServerPeer::_internal_is_listenserver_host() const {
   return _impl_.is_listenserver_host_;
@@ -23075,7 +23075,7 @@ inline bool CMsgServerPeer::is_listenserver_host() const {
   return _internal_is_listenserver_host();
 }
 inline void CMsgServerPeer::_internal_set_is_listenserver_host(bool value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.is_listenserver_host_ = value;
 }
 inline void CMsgServerPeer::set_is_listenserver_host(bool value) {
@@ -25001,17 +25001,17 @@ inline void CSVCMsg_HltvReplay::set_delay(int32_t value) {
   // @@protoc_insertion_point(field_set:CSVCMsg_HltvReplay.delay)
 }
 
-// optional int32 primary_target = 2;
+// optional int32 primary_target = 2 [default = -1];
 inline bool CSVCMsg_HltvReplay::_internal_has_primary_target() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CSVCMsg_HltvReplay::has_primary_target() const {
   return _internal_has_primary_target();
 }
 inline void CSVCMsg_HltvReplay::clear_primary_target() {
-  _impl_.primary_target_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.primary_target_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
 inline int32_t CSVCMsg_HltvReplay::_internal_primary_target() const {
   return _impl_.primary_target_;
@@ -25021,7 +25021,7 @@ inline int32_t CSVCMsg_HltvReplay::primary_target() const {
   return _internal_primary_target();
 }
 inline void CSVCMsg_HltvReplay::_internal_set_primary_target(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.primary_target_ = value;
 }
 inline void CSVCMsg_HltvReplay::set_primary_target(int32_t value) {
@@ -25031,7 +25031,7 @@ inline void CSVCMsg_HltvReplay::set_primary_target(int32_t value) {
 
 // optional int32 replay_stop_at = 3;
 inline bool CSVCMsg_HltvReplay::_internal_has_replay_stop_at() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CSVCMsg_HltvReplay::has_replay_stop_at() const {
@@ -25039,7 +25039,7 @@ inline bool CSVCMsg_HltvReplay::has_replay_stop_at() const {
 }
 inline void CSVCMsg_HltvReplay::clear_replay_stop_at() {
   _impl_.replay_stop_at_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CSVCMsg_HltvReplay::_internal_replay_stop_at() const {
   return _impl_.replay_stop_at_;
@@ -25049,7 +25049,7 @@ inline int32_t CSVCMsg_HltvReplay::replay_stop_at() const {
   return _internal_replay_stop_at();
 }
 inline void CSVCMsg_HltvReplay::_internal_set_replay_stop_at(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.replay_stop_at_ = value;
 }
 inline void CSVCMsg_HltvReplay::set_replay_stop_at(int32_t value) {
@@ -25059,7 +25059,7 @@ inline void CSVCMsg_HltvReplay::set_replay_stop_at(int32_t value) {
 
 // optional int32 replay_start_at = 4;
 inline bool CSVCMsg_HltvReplay::_internal_has_replay_start_at() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CSVCMsg_HltvReplay::has_replay_start_at() const {
@@ -25067,7 +25067,7 @@ inline bool CSVCMsg_HltvReplay::has_replay_start_at() const {
 }
 inline void CSVCMsg_HltvReplay::clear_replay_start_at() {
   _impl_.replay_start_at_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CSVCMsg_HltvReplay::_internal_replay_start_at() const {
   return _impl_.replay_start_at_;
@@ -25077,7 +25077,7 @@ inline int32_t CSVCMsg_HltvReplay::replay_start_at() const {
   return _internal_replay_start_at();
 }
 inline void CSVCMsg_HltvReplay::_internal_set_replay_start_at(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.replay_start_at_ = value;
 }
 inline void CSVCMsg_HltvReplay::set_replay_start_at(int32_t value) {
@@ -25087,7 +25087,7 @@ inline void CSVCMsg_HltvReplay::set_replay_start_at(int32_t value) {
 
 // optional int32 replay_slowdown_begin = 5;
 inline bool CSVCMsg_HltvReplay::_internal_has_replay_slowdown_begin() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CSVCMsg_HltvReplay::has_replay_slowdown_begin() const {
@@ -25095,7 +25095,7 @@ inline bool CSVCMsg_HltvReplay::has_replay_slowdown_begin() const {
 }
 inline void CSVCMsg_HltvReplay::clear_replay_slowdown_begin() {
   _impl_.replay_slowdown_begin_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CSVCMsg_HltvReplay::_internal_replay_slowdown_begin() const {
   return _impl_.replay_slowdown_begin_;
@@ -25105,7 +25105,7 @@ inline int32_t CSVCMsg_HltvReplay::replay_slowdown_begin() const {
   return _internal_replay_slowdown_begin();
 }
 inline void CSVCMsg_HltvReplay::_internal_set_replay_slowdown_begin(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.replay_slowdown_begin_ = value;
 }
 inline void CSVCMsg_HltvReplay::set_replay_slowdown_begin(int32_t value) {
@@ -25115,7 +25115,7 @@ inline void CSVCMsg_HltvReplay::set_replay_slowdown_begin(int32_t value) {
 
 // optional int32 replay_slowdown_end = 6;
 inline bool CSVCMsg_HltvReplay::_internal_has_replay_slowdown_end() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CSVCMsg_HltvReplay::has_replay_slowdown_end() const {
@@ -25123,7 +25123,7 @@ inline bool CSVCMsg_HltvReplay::has_replay_slowdown_end() const {
 }
 inline void CSVCMsg_HltvReplay::clear_replay_slowdown_end() {
   _impl_.replay_slowdown_end_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CSVCMsg_HltvReplay::_internal_replay_slowdown_end() const {
   return _impl_.replay_slowdown_end_;
@@ -25133,7 +25133,7 @@ inline int32_t CSVCMsg_HltvReplay::replay_slowdown_end() const {
   return _internal_replay_slowdown_end();
 }
 inline void CSVCMsg_HltvReplay::_internal_set_replay_slowdown_end(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.replay_slowdown_end_ = value;
 }
 inline void CSVCMsg_HltvReplay::set_replay_slowdown_end(int32_t value) {
@@ -25143,7 +25143,7 @@ inline void CSVCMsg_HltvReplay::set_replay_slowdown_end(int32_t value) {
 
 // optional float replay_slowdown_rate = 7;
 inline bool CSVCMsg_HltvReplay::_internal_has_replay_slowdown_rate() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CSVCMsg_HltvReplay::has_replay_slowdown_rate() const {
@@ -25151,7 +25151,7 @@ inline bool CSVCMsg_HltvReplay::has_replay_slowdown_rate() const {
 }
 inline void CSVCMsg_HltvReplay::clear_replay_slowdown_rate() {
   _impl_.replay_slowdown_rate_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline float CSVCMsg_HltvReplay::_internal_replay_slowdown_rate() const {
   return _impl_.replay_slowdown_rate_;
@@ -25161,7 +25161,7 @@ inline float CSVCMsg_HltvReplay::replay_slowdown_rate() const {
   return _internal_replay_slowdown_rate();
 }
 inline void CSVCMsg_HltvReplay::_internal_set_replay_slowdown_rate(float value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.replay_slowdown_rate_ = value;
 }
 inline void CSVCMsg_HltvReplay::set_replay_slowdown_rate(float value) {
@@ -25171,7 +25171,7 @@ inline void CSVCMsg_HltvReplay::set_replay_slowdown_rate(float value) {
 
 // optional int32 reason = 8;
 inline bool CSVCMsg_HltvReplay::_internal_has_reason() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CSVCMsg_HltvReplay::has_reason() const {
@@ -25179,7 +25179,7 @@ inline bool CSVCMsg_HltvReplay::has_reason() const {
 }
 inline void CSVCMsg_HltvReplay::clear_reason() {
   _impl_.reason_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline int32_t CSVCMsg_HltvReplay::_internal_reason() const {
   return _impl_.reason_;
@@ -25189,7 +25189,7 @@ inline int32_t CSVCMsg_HltvReplay::reason() const {
   return _internal_reason();
 }
 inline void CSVCMsg_HltvReplay::_internal_set_reason(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.reason_ = value;
 }
 inline void CSVCMsg_HltvReplay::set_reason(int32_t value) {
@@ -25285,17 +25285,17 @@ inline void CCLCMsg_HltvReplay::set_slowdown_rate(float value) {
   // @@protoc_insertion_point(field_set:CCLCMsg_HltvReplay.slowdown_rate)
 }
 
-// optional int32 primary_target = 4;
+// optional int32 primary_target = 4 [default = -1];
 inline bool CCLCMsg_HltvReplay::_internal_has_primary_target() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CCLCMsg_HltvReplay::has_primary_target() const {
   return _internal_has_primary_target();
 }
 inline void CCLCMsg_HltvReplay::clear_primary_target() {
-  _impl_.primary_target_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_.primary_target_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CCLCMsg_HltvReplay::_internal_primary_target() const {
   return _impl_.primary_target_;
@@ -25305,7 +25305,7 @@ inline int32_t CCLCMsg_HltvReplay::primary_target() const {
   return _internal_primary_target();
 }
 inline void CCLCMsg_HltvReplay::_internal_set_primary_target(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.primary_target_ = value;
 }
 inline void CCLCMsg_HltvReplay::set_primary_target(int32_t value) {
@@ -25315,7 +25315,7 @@ inline void CCLCMsg_HltvReplay::set_primary_target(int32_t value) {
 
 // optional float event_time = 5;
 inline bool CCLCMsg_HltvReplay::_internal_has_event_time() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CCLCMsg_HltvReplay::has_event_time() const {
@@ -25323,7 +25323,7 @@ inline bool CCLCMsg_HltvReplay::has_event_time() const {
 }
 inline void CCLCMsg_HltvReplay::clear_event_time() {
   _impl_.event_time_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline float CCLCMsg_HltvReplay::_internal_event_time() const {
   return _impl_.event_time_;
@@ -25333,7 +25333,7 @@ inline float CCLCMsg_HltvReplay::event_time() const {
   return _internal_event_time();
 }
 inline void CCLCMsg_HltvReplay::_internal_set_event_time(float value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.event_time_ = value;
 }
 inline void CCLCMsg_HltvReplay::set_event_time(float value) {

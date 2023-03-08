@@ -27,7 +27,7 @@ static constexpr ::_pbi::MigrationSchema* schemas = nullptr;
 static constexpr ::_pb::Message* const* file_default_instances = nullptr;
 
 const char descriptor_table_protodef_dota_5fgcmessages_5fmsgid_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\033dota_gcmessages_msgid.proto*\334\216\002\n\nEDOTA"
+  "\n\033dota_gcmessages_msgid.proto*\365\217\002\n\nEDOTA"
   "GCMsg\022\025\n\020k_EMsgGCDOTABase\020\3306\022\035\n\030k_EMsgGC"
   "GameMatchSignOut\020\3346\022%\n k_EMsgGCGameMatch"
   "SignOutResponse\020\3356\022\034\n\027k_EMsgGCJoinChatCh"
@@ -886,19 +886,22 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fmsgid_2eproto[] PROTOBU
   "GCCandyShopDevShuffleExchangeResponse\020\242E"
   "\0223\n.k_EMsgClientToGCCandyShopDevGrantRer"
   "ollCharges\020\243E\022;\n6k_EMsgClientToGCCandySh"
-  "opDevGrantRerollChargesResponse\020\244E\0228\n3k_"
-  "EMsgClientToGCCollectorsCacheAvailableDa"
-  "taRequest\020\247E\0229\n4k_EMsgGCToClientCollecto"
-  "rsCacheAvailableDataResponse\020\250E\022$\n\037k_EMs"
-  "gClientToGCUploadMatchClip\020\251E\022,\n\'k_EMsgG"
-  "CToClientUploadMatchClipResponse\020\252E\022)\n$k"
-  "_EMsgGCToServerSetSteamLearnDisable\020\253E\022-"
-  "\n(k_EMsgGCToServerSetSteamLearnKeysChang"
-  "ed\020\254EB\005H\001\200\001\000"
+  "opDevGrantRerollChargesResponse\020\244E\022%\n k_"
+  "EMsgLobbyAdditionalAccountData\020\245E\022%\n k_E"
+  "MsgServerToGCLobbyInitialized\020\246E\0228\n3k_EM"
+  "sgClientToGCCollectorsCacheAvailableData"
+  "Request\020\247E\0229\n4k_EMsgGCToClientCollectors"
+  "CacheAvailableDataResponse\020\250E\022$\n\037k_EMsgC"
+  "lientToGCUploadMatchClip\020\251E\022,\n\'k_EMsgGCT"
+  "oClientUploadMatchClipResponse\020\252E\022)\n$k_E"
+  "MsgGCToServerSetSteamLearnDisable\020\253E\022-\n("
+  "k_EMsgGCToServerSetSteamLearnKeysChanged"
+  "\020\254E\022 \n\033k_EMsgSignOutMuertaMinigame\020\255E\022\'\n"
+  "\"k_EMsgGCToServerLobbyHeroRoleStats\020\256E"
   ;
 static ::_pbi::once_flag descriptor_table_dota_5fgcmessages_5fmsgid_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fgcmessages_5fmsgid_2eproto = {
-    false, false, 34692, descriptor_table_protodef_dota_5fgcmessages_5fmsgid_2eproto,
+    false, false, 34838, descriptor_table_protodef_dota_5fgcmessages_5fmsgid_2eproto,
     "dota_gcmessages_msgid.proto",
     &descriptor_table_dota_5fgcmessages_5fmsgid_2eproto_once, nullptr, 0, 0,
     schemas, file_default_instances, TableStruct_dota_5fgcmessages_5fmsgid_2eproto::offsets,
@@ -1721,12 +1724,16 @@ bool EDOTAGCMsg_IsValid(int value) {
     case 8866:
     case 8867:
     case 8868:
+    case 8869:
+    case 8870:
     case 8871:
     case 8872:
     case 8873:
     case 8874:
     case 8875:
     case 8876:
+    case 8877:
+    case 8878:
       return true;
     default:
       return false;

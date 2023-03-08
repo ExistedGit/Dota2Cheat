@@ -30,10 +30,10 @@ PROTOBUF_CONSTEXPR CMsgProtoBufHeader::CMsgProtoBufHeader(
   , /*decltype(_impl_.client_session_id_)*/0
   , /*decltype(_impl_.source_app_id_)*/0u
   , /*decltype(_impl_.gc_msg_src_)*/0
-  , /*decltype(_impl_.gc_dir_index_source_)*/0
-  , /*decltype(_impl_.eresult_)*/2
   , /*decltype(_impl_.job_id_source_)*/uint64_t{18446744073709551615u}
-  , /*decltype(_impl_.job_id_target_)*/uint64_t{18446744073709551615u}} {}
+  , /*decltype(_impl_.job_id_target_)*/uint64_t{18446744073709551615u}
+  , /*decltype(_impl_.eresult_)*/2
+  , /*decltype(_impl_.gc_dir_index_source_)*/-1} {}
 struct CMsgProtoBufHeaderDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgProtoBufHeaderDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -164,13 +164,13 @@ const uint32_t TableStruct_steammessages_2eproto::offsets[] PROTOBUF_SECTION_VAR
   2,
   3,
   4,
-  8,
-  9,
-  0,
+  6,
   7,
+  0,
+  8,
   1,
   5,
-  6,
+  9,
   PROTOBUF_FIELD_OFFSET(::CGCSystemMsg_GetAccountDetails, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CGCSystemMsg_GetAccountDetails, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -305,7 +305,7 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_steammessages_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\023steammessages.proto\032 google/protobuf/d"
-  "escriptor.proto\"\355\002\n\022CMsgProtoBufHeader\022\027"
+  "escriptor.proto\"\361\002\n\022CMsgProtoBufHeader\022\027"
   "\n\017client_steam_id\030\001 \001(\006\022\031\n\021client_sessio"
   "n_id\030\002 \001(\005\022\025\n\rsource_app_id\030\003 \001(\r\022+\n\rjob"
   "_id_source\030\n \001(\006:\02418446744073709551615\022+"
@@ -313,62 +313,62 @@ const char descriptor_table_protodef_steammessages_2eproto[] PROTOBUF_SECTION_VA
   "615\022\027\n\017target_job_name\030\014 \001(\t\022\022\n\007eresult\030"
   "\r \001(\005:\0012\022\025\n\rerror_message\030\016 \001(\t\022D\n\ngc_ms"
   "g_src\030\310\001 \001(\0162\021.GCProtoBufMsgSrc:\034GCProto"
-  "BufMsgSrc_Unspecified\022\034\n\023gc_dir_index_so"
-  "urce\030\311\001 \001(\005:\n\200\246\035\200\002\210\246\035\200\010\"L\n\036CGCSystemMsg_"
-  "GetAccountDetails\022\017\n\007steamid\030\001 \001(\006\022\r\n\005ap"
-  "pid\030\002 \001(\r:\n\200\246\035\200\001\210\246\035\200\004\"\214\010\n\'CGCSystemMsg_G"
-  "etAccountDetails_Response\022\035\n\022eresult_dep"
-  "recated\030\001 \001(\r:\0012\022\024\n\014account_name\030\002 \001(\t\022\024"
-  "\n\014persona_name\030\003 \001(\t\022\032\n\022is_profile_creat"
-  "ed\030\032 \001(\010\022\031\n\021is_profile_public\030\004 \001(\010\022\033\n\023i"
-  "s_inventory_public\030\005 \001(\010\022\025\n\ris_vac_banne"
-  "d\030\007 \001(\010\022\025\n\ris_cyber_cafe\030\010 \001(\010\022\031\n\021is_sch"
-  "ool_account\030\t \001(\010\022\022\n\nis_limited\030\n \001(\010\022\025\n"
-  "\ris_subscribed\030\013 \001(\010\022\017\n\007package\030\014 \001(\r\022\035\n"
-  "\025is_free_trial_account\030\r \001(\010\022\035\n\025free_tri"
-  "al_expiration\030\016 \001(\r\022\027\n\017is_low_violence\030\017"
-  " \001(\010\022\036\n\026is_account_locked_down\030\020 \001(\010\022\033\n\023"
-  "is_community_banned\030\021 \001(\010\022\027\n\017is_trade_ba"
-  "nned\030\022 \001(\010\022\034\n\024trade_ban_expiration\030\023 \001(\r"
-  "\022\021\n\taccountid\030\024 \001(\r\022\033\n\023suspension_end_ti"
-  "me\030\025 \001(\r\022\020\n\010currency\030\026 \001(\t\022\023\n\013steam_leve"
-  "l\030\027 \001(\r\022\024\n\014friend_count\030\030 \001(\r\022\035\n\025account"
-  "_creation_time\030\031 \001(\r\022\035\n\025is_steamguard_en"
-  "abled\030\033 \001(\010\022\031\n\021is_phone_verified\030\034 \001(\010\022\""
-  "\n\032is_two_factor_auth_enabled\030\035 \001(\010\022\037\n\027tw"
-  "o_factor_enabled_time\030\036 \001(\r\022\037\n\027phone_ver"
-  "ification_time\030\037 \001(\r\022\020\n\010phone_id\030! \001(\004\022\034"
-  "\n\024is_phone_identifying\030\" \001(\010\022\032\n\022rt_ident"
-  "ity_linked\030# \001(\r\022\025\n\rrt_birth_date\030$ \001(\r\022"
-  "\030\n\020txn_country_code\030% \001(\t\022\036\n\026has_accepte"
-  "d_china_ssa\030& \001(\010\022\035\n\025is_banned_steam_chi"
-  "na\030\' \001(\010:\n\200\246\035\200\001\210\246\035\200\004\"p\n\017CIPLocationInfo\022"
-  "\n\n\002ip\030\001 \001(\r\022\020\n\010latitude\030\002 \001(\002\022\021\n\tlongitu"
-  "de\030\003 \001(\002\022\017\n\007country\030\004 \001(\t\022\r\n\005state\030\005 \001(\t"
-  "\022\014\n\004city\030\006 \001(\t\">\n\033CGCMsgGetIPLocationRes"
-  "ponse\022\037\n\005infos\030\001 \003(\0132\020.CIPLocationInfo*\235"
-  "\001\n\013EGCPlatform\022\026\n\022k_eGCPlatform_None\020\000\022\024"
-  "\n\020k_eGCPlatform_PC\020\001\022\025\n\021k_eGCPlatform_Ma"
-  "c\020\002\022\027\n\023k_eGCPlatform_Linux\020\003\022\031\n\025k_eGCPla"
-  "tform_Android\020\004\022\025\n\021k_eGCPlatform_iOS\020\005*\333"
-  "\001\n\020GCProtoBufMsgSrc\022 \n\034GCProtoBufMsgSrc_"
-  "Unspecified\020\000\022\037\n\033GCProtoBufMsgSrc_FromSy"
-  "stem\020\001\022 \n\034GCProtoBufMsgSrc_FromSteamID\020\002"
-  "\022\033\n\027GCProtoBufMsgSrc_FromGC\020\003\022 \n\034GCProto"
-  "BufMsgSrc_ReplySystem\020\004\022#\n\037GCProtoBufMsg"
-  "Src_SpoofedSteamID\020\005:9\n\tkey_field\022\035.goog"
-  "le.protobuf.FieldOptions\030\340\324\003 \001(\010:\005false:"
-  "A\n\022msgpool_soft_limit\022\037.google.protobuf."
-  "MessageOptions\030\340\324\003 \001(\005:\00232:B\n\022msgpool_ha"
-  "rd_limit\022\037.google.protobuf.MessageOption"
-  "s\030\341\324\003 \001(\005:\003384B\005H\001\200\001\000"
+  "BufMsgSrc_Unspecified\022 \n\023gc_dir_index_so"
+  "urce\030\311\001 \001(\005:\002-1:\n\200\246\035\200\002\210\246\035\200\010\"L\n\036CGCSystem"
+  "Msg_GetAccountDetails\022\017\n\007steamid\030\001 \001(\006\022\r"
+  "\n\005appid\030\002 \001(\r:\n\200\246\035\200\001\210\246\035\200\004\"\214\010\n\'CGCSystemM"
+  "sg_GetAccountDetails_Response\022\035\n\022eresult"
+  "_deprecated\030\001 \001(\r:\0012\022\024\n\014account_name\030\002 \001"
+  "(\t\022\024\n\014persona_name\030\003 \001(\t\022\032\n\022is_profile_c"
+  "reated\030\032 \001(\010\022\031\n\021is_profile_public\030\004 \001(\010\022"
+  "\033\n\023is_inventory_public\030\005 \001(\010\022\025\n\ris_vac_b"
+  "anned\030\007 \001(\010\022\025\n\ris_cyber_cafe\030\010 \001(\010\022\031\n\021is"
+  "_school_account\030\t \001(\010\022\022\n\nis_limited\030\n \001("
+  "\010\022\025\n\ris_subscribed\030\013 \001(\010\022\017\n\007package\030\014 \001("
+  "\r\022\035\n\025is_free_trial_account\030\r \001(\010\022\035\n\025free"
+  "_trial_expiration\030\016 \001(\r\022\027\n\017is_low_violen"
+  "ce\030\017 \001(\010\022\036\n\026is_account_locked_down\030\020 \001(\010"
+  "\022\033\n\023is_community_banned\030\021 \001(\010\022\027\n\017is_trad"
+  "e_banned\030\022 \001(\010\022\034\n\024trade_ban_expiration\030\023"
+  " \001(\r\022\021\n\taccountid\030\024 \001(\r\022\033\n\023suspension_en"
+  "d_time\030\025 \001(\r\022\020\n\010currency\030\026 \001(\t\022\023\n\013steam_"
+  "level\030\027 \001(\r\022\024\n\014friend_count\030\030 \001(\r\022\035\n\025acc"
+  "ount_creation_time\030\031 \001(\r\022\035\n\025is_steamguar"
+  "d_enabled\030\033 \001(\010\022\031\n\021is_phone_verified\030\034 \001"
+  "(\010\022\"\n\032is_two_factor_auth_enabled\030\035 \001(\010\022\037"
+  "\n\027two_factor_enabled_time\030\036 \001(\r\022\037\n\027phone"
+  "_verification_time\030\037 \001(\r\022\020\n\010phone_id\030! \001"
+  "(\004\022\034\n\024is_phone_identifying\030\" \001(\010\022\032\n\022rt_i"
+  "dentity_linked\030# \001(\r\022\025\n\rrt_birth_date\030$ "
+  "\001(\r\022\030\n\020txn_country_code\030% \001(\t\022\036\n\026has_acc"
+  "epted_china_ssa\030& \001(\010\022\035\n\025is_banned_steam"
+  "_china\030\' \001(\010:\n\200\246\035\200\001\210\246\035\200\004\"p\n\017CIPLocationI"
+  "nfo\022\n\n\002ip\030\001 \001(\r\022\020\n\010latitude\030\002 \001(\002\022\021\n\tlon"
+  "gitude\030\003 \001(\002\022\017\n\007country\030\004 \001(\t\022\r\n\005state\030\005"
+  " \001(\t\022\014\n\004city\030\006 \001(\t\">\n\033CGCMsgGetIPLocatio"
+  "nResponse\022\037\n\005infos\030\001 \003(\0132\020.CIPLocationIn"
+  "fo*\235\001\n\013EGCPlatform\022\026\n\022k_eGCPlatform_None"
+  "\020\000\022\024\n\020k_eGCPlatform_PC\020\001\022\025\n\021k_eGCPlatfor"
+  "m_Mac\020\002\022\027\n\023k_eGCPlatform_Linux\020\003\022\031\n\025k_eG"
+  "CPlatform_Android\020\004\022\025\n\021k_eGCPlatform_iOS"
+  "\020\005*\333\001\n\020GCProtoBufMsgSrc\022 \n\034GCProtoBufMsg"
+  "Src_Unspecified\020\000\022\037\n\033GCProtoBufMsgSrc_Fr"
+  "omSystem\020\001\022 \n\034GCProtoBufMsgSrc_FromSteam"
+  "ID\020\002\022\033\n\027GCProtoBufMsgSrc_FromGC\020\003\022 \n\034GCP"
+  "rotoBufMsgSrc_ReplySystem\020\004\022#\n\037GCProtoBu"
+  "fMsgSrc_SpoofedSteamID\020\005:9\n\tkey_field\022\035."
+  "google.protobuf.FieldOptions\030\340\324\003 \001(\010:\005fa"
+  "lse:A\n\022msgpool_soft_limit\022\037.google.proto"
+  "buf.MessageOptions\030\340\324\003 \001(\005:\00232:B\n\022msgpoo"
+  "l_hard_limit\022\037.google.protobuf.MessageOp"
+  "tions\030\341\324\003 \001(\005:\003384"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_steammessages_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_steammessages_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_steammessages_2eproto = {
-    false, false, 2301, descriptor_table_protodef_steammessages_2eproto,
+    false, false, 2298, descriptor_table_protodef_steammessages_2eproto,
     "steammessages.proto",
     &descriptor_table_steammessages_2eproto_once, descriptor_table_steammessages_2eproto_deps, 1, 5,
     schemas, file_default_instances, TableStruct_steammessages_2eproto::offsets,
@@ -433,16 +433,16 @@ class CMsgProtoBufHeader::_Internal {
     (*has_bits)[0] |= 16u;
   }
   static void set_has_job_id_source(HasBits* has_bits) {
-    (*has_bits)[0] |= 256u;
+    (*has_bits)[0] |= 64u;
   }
   static void set_has_job_id_target(HasBits* has_bits) {
-    (*has_bits)[0] |= 512u;
+    (*has_bits)[0] |= 128u;
   }
   static void set_has_target_job_name(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_eresult(HasBits* has_bits) {
-    (*has_bits)[0] |= 128u;
+    (*has_bits)[0] |= 256u;
   }
   static void set_has_error_message(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
@@ -451,7 +451,7 @@ class CMsgProtoBufHeader::_Internal {
     (*has_bits)[0] |= 32u;
   }
   static void set_has_gc_dir_index_source(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
+    (*has_bits)[0] |= 512u;
   }
 };
 
@@ -473,10 +473,10 @@ CMsgProtoBufHeader::CMsgProtoBufHeader(const CMsgProtoBufHeader& from)
     , decltype(_impl_.client_session_id_){}
     , decltype(_impl_.source_app_id_){}
     , decltype(_impl_.gc_msg_src_){}
-    , decltype(_impl_.gc_dir_index_source_){}
-    , decltype(_impl_.eresult_){}
     , decltype(_impl_.job_id_source_){}
-    , decltype(_impl_.job_id_target_){}};
+    , decltype(_impl_.job_id_target_){}
+    , decltype(_impl_.eresult_){}
+    , decltype(_impl_.gc_dir_index_source_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _impl_.target_job_name_.InitDefault();
@@ -496,8 +496,8 @@ CMsgProtoBufHeader::CMsgProtoBufHeader(const CMsgProtoBufHeader& from)
       _this->GetArenaForAllocation());
   }
   ::memcpy(&_impl_.client_steam_id_, &from._impl_.client_steam_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.job_id_target_) -
-    reinterpret_cast<char*>(&_impl_.client_steam_id_)) + sizeof(_impl_.job_id_target_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.gc_dir_index_source_) -
+    reinterpret_cast<char*>(&_impl_.client_steam_id_)) + sizeof(_impl_.gc_dir_index_source_));
   // @@protoc_insertion_point(copy_constructor:CMsgProtoBufHeader)
 }
 
@@ -514,10 +514,10 @@ inline void CMsgProtoBufHeader::SharedCtor(
     , decltype(_impl_.client_session_id_){0}
     , decltype(_impl_.source_app_id_){0u}
     , decltype(_impl_.gc_msg_src_){0}
-    , decltype(_impl_.gc_dir_index_source_){0}
-    , decltype(_impl_.eresult_){2}
     , decltype(_impl_.job_id_source_){uint64_t{18446744073709551615u}}
     , decltype(_impl_.job_id_target_){uint64_t{18446744073709551615u}}
+    , decltype(_impl_.eresult_){2}
+    , decltype(_impl_.gc_dir_index_source_){-1}
   };
   _impl_.target_job_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -565,13 +565,14 @@ void CMsgProtoBufHeader::Clear() {
   }
   if (cached_has_bits & 0x000000fcu) {
     ::memset(&_impl_.client_steam_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.gc_dir_index_source_) -
-        reinterpret_cast<char*>(&_impl_.client_steam_id_)) + sizeof(_impl_.gc_dir_index_source_));
-    _impl_.eresult_ = 2;
-  }
-  if (cached_has_bits & 0x00000300u) {
+        reinterpret_cast<char*>(&_impl_.gc_msg_src_) -
+        reinterpret_cast<char*>(&_impl_.client_steam_id_)) + sizeof(_impl_.gc_msg_src_));
     _impl_.job_id_source_ = uint64_t{18446744073709551615u};
     _impl_.job_id_target_ = uint64_t{18446744073709551615u};
+  }
+  if (cached_has_bits & 0x00000300u) {
+    _impl_.eresult_ = 2;
+    _impl_.gc_dir_index_source_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -675,7 +676,7 @@ const char* CMsgProtoBufHeader::_InternalParse(const char* ptr, ::_pbi::ParseCon
         } else
           goto handle_unusual;
         continue;
-      // optional int32 gc_dir_index_source = 201;
+      // optional int32 gc_dir_index_source = 201 [default = -1];
       case 201:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 72)) {
           _Internal::set_has_gc_dir_index_source(&has_bits);
@@ -734,13 +735,13 @@ uint8_t* CMsgProtoBufHeader::_InternalSerialize(
   }
 
   // optional fixed64 job_id_source = 10 [default = 18446744073709551615];
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFixed64ToArray(10, this->_internal_job_id_source(), target);
   }
 
   // optional fixed64 job_id_target = 11 [default = 18446744073709551615];
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFixed64ToArray(11, this->_internal_job_id_target(), target);
   }
@@ -756,7 +757,7 @@ uint8_t* CMsgProtoBufHeader::_InternalSerialize(
   }
 
   // optional int32 eresult = 13 [default = 2];
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(13, this->_internal_eresult(), target);
   }
@@ -778,8 +779,8 @@ uint8_t* CMsgProtoBufHeader::_InternalSerialize(
       200, this->_internal_gc_msg_src(), target);
   }
 
-  // optional int32 gc_dir_index_source = 201;
-  if (cached_has_bits & 0x00000040u) {
+  // optional int32 gc_dir_index_source = 201 [default = -1];
+  if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(201, this->_internal_gc_dir_index_source(), target);
   }
@@ -837,28 +838,28 @@ size_t CMsgProtoBufHeader::ByteSizeLong() const {
         ::_pbi::WireFormatLite::EnumSize(this->_internal_gc_msg_src());
     }
 
-    // optional int32 gc_dir_index_source = 201;
-    if (cached_has_bits & 0x00000040u) {
-      total_size += 2 +
-        ::_pbi::WireFormatLite::Int32Size(
-          this->_internal_gc_dir_index_source());
-    }
-
-    // optional int32 eresult = 13 [default = 2];
-    if (cached_has_bits & 0x00000080u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_eresult());
-    }
-
-  }
-  if (cached_has_bits & 0x00000300u) {
     // optional fixed64 job_id_source = 10 [default = 18446744073709551615];
-    if (cached_has_bits & 0x00000100u) {
+    if (cached_has_bits & 0x00000040u) {
       total_size += 1 + 8;
     }
 
     // optional fixed64 job_id_target = 11 [default = 18446744073709551615];
-    if (cached_has_bits & 0x00000200u) {
+    if (cached_has_bits & 0x00000080u) {
       total_size += 1 + 8;
+    }
+
+  }
+  if (cached_has_bits & 0x00000300u) {
+    // optional int32 eresult = 13 [default = 2];
+    if (cached_has_bits & 0x00000100u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_eresult());
+    }
+
+    // optional int32 gc_dir_index_source = 201 [default = -1];
+    if (cached_has_bits & 0x00000200u) {
+      total_size += 2 +
+        ::_pbi::WireFormatLite::Int32Size(
+          this->_internal_gc_dir_index_source());
     }
 
   }
@@ -901,19 +902,19 @@ void CMsgProtoBufHeader::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, con
       _this->_impl_.gc_msg_src_ = from._impl_.gc_msg_src_;
     }
     if (cached_has_bits & 0x00000040u) {
-      _this->_impl_.gc_dir_index_source_ = from._impl_.gc_dir_index_source_;
+      _this->_impl_.job_id_source_ = from._impl_.job_id_source_;
     }
     if (cached_has_bits & 0x00000080u) {
-      _this->_impl_.eresult_ = from._impl_.eresult_;
+      _this->_impl_.job_id_target_ = from._impl_.job_id_target_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   if (cached_has_bits & 0x00000300u) {
     if (cached_has_bits & 0x00000100u) {
-      _this->_impl_.job_id_source_ = from._impl_.job_id_source_;
+      _this->_impl_.eresult_ = from._impl_.eresult_;
     }
     if (cached_has_bits & 0x00000200u) {
-      _this->_impl_.job_id_target_ = from._impl_.job_id_target_;
+      _this->_impl_.gc_dir_index_source_ = from._impl_.gc_dir_index_source_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -946,14 +947,15 @@ void CMsgProtoBufHeader::InternalSwap(CMsgProtoBufHeader* other) {
       &other->_impl_.error_message_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgProtoBufHeader, _impl_.gc_dir_index_source_)
-      + sizeof(CMsgProtoBufHeader::_impl_.gc_dir_index_source_)
+      PROTOBUF_FIELD_OFFSET(CMsgProtoBufHeader, _impl_.gc_msg_src_)
+      + sizeof(CMsgProtoBufHeader::_impl_.gc_msg_src_)
       - PROTOBUF_FIELD_OFFSET(CMsgProtoBufHeader, _impl_.client_steam_id_)>(
           reinterpret_cast<char*>(&_impl_.client_steam_id_),
           reinterpret_cast<char*>(&other->_impl_.client_steam_id_));
-  swap(_impl_.eresult_, other->_impl_.eresult_);
   swap(_impl_.job_id_source_, other->_impl_.job_id_source_);
   swap(_impl_.job_id_target_, other->_impl_.job_id_target_);
+  swap(_impl_.eresult_, other->_impl_.eresult_);
+  swap(_impl_.gc_dir_index_source_, other->_impl_.gc_dir_index_source_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgProtoBufHeader::GetMetadata() const {

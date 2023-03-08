@@ -69,8 +69,10 @@ void Hacks::LinearProjectileWarner::ProcessLinearProjectileMsg(NetMessageHandle_
 			.origin = Vector(linProjMsg->origin().x(), linProjMsg->origin().y(), linProjMsg->origin().z())
 		};
 
-		if (Config::WarnLinearProjectiles &&
-			newProj.source->GetTeam() != ctx.assignedHero->GetTeam()) {
+		if (
+			Config::WarnLinearProjectiles &&
+			(!newProj.source || newProj.source->GetTeam() != ctx.assignedHero->GetTeam())
+			) {
 
 			auto ratio = newProj.distance / newProj.velocity.Length();
 			auto endPoint = newProj.origin;

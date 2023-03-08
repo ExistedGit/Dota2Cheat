@@ -271,14 +271,14 @@ const char descriptor_table_protodef_network_5fconnection_2eproto[] PROTOBUF_SEC
   "NNECT_KICKED_NOSTEAMTICKET\020\241\001\032*\242\324\030&#Play"
   "er_DisconnectReason_NoSteamTicket:E\n\030net"
   "work_connection_token\022!.google.protobuf."
-  "EnumValueOptions\030\304\212\003 \001(\tB\003\200\001\000"
+  "EnumValueOptions\030\304\212\003 \001(\t"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_network_5fconnection_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_network_5fconnection_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_network_5fconnection_2eproto = {
-    false, false, 9789, descriptor_table_protodef_network_5fconnection_2eproto,
+    false, false, 9784, descriptor_table_protodef_network_5fconnection_2eproto,
     "network_connection.proto",
     &descriptor_table_network_5fconnection_2eproto_once, descriptor_table_network_5fconnection_2eproto_deps, 1, 0,
     schemas, file_default_instances, TableStruct_network_5fconnection_2eproto::offsets,

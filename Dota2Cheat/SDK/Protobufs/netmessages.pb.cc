@@ -295,8 +295,8 @@ PROTOBUF_CONSTEXPR CSVCMsg_ServerInfo::CSVCMsg_ServerInfo(
   , /*decltype(_impl_.c_os_)*/0
   , /*decltype(_impl_.max_clients_)*/0
   , /*decltype(_impl_.max_classes_)*/0
-  , /*decltype(_impl_.player_slot_)*/0
-  , /*decltype(_impl_.tick_interval_)*/0} {}
+  , /*decltype(_impl_.tick_interval_)*/0
+  , /*decltype(_impl_.player_slot_)*/-1} {}
 struct CSVCMsg_ServerInfoDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CSVCMsg_ServerInfoDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -391,7 +391,6 @@ PROTOBUF_CONSTEXPR CSVCMsg_Sounds_sounddata_t::CSVCMsg_Sounds_sounddata_t(
   , /*decltype(_impl_.volume_)*/0u
   , /*decltype(_impl_.delay_value_)*/0
   , /*decltype(_impl_.sequence_number_)*/0
-  , /*decltype(_impl_.entity_index_)*/0
   , /*decltype(_impl_.channel_)*/0
   , /*decltype(_impl_.pitch_)*/0
   , /*decltype(_impl_.flags_)*/0
@@ -402,8 +401,9 @@ PROTOBUF_CONSTEXPR CSVCMsg_Sounds_sounddata_t::CSVCMsg_Sounds_sounddata_t(
   , /*decltype(_impl_.sound_level_)*/0
   , /*decltype(_impl_.is_sentence_)*/false
   , /*decltype(_impl_.is_ambient_)*/false
+  , /*decltype(_impl_.guid_)*/0u
   , /*decltype(_impl_.sound_resource_id_)*/uint64_t{0u}
-  , /*decltype(_impl_.guid_)*/0u} {}
+  , /*decltype(_impl_.entity_index_)*/-1} {}
 struct CSVCMsg_Sounds_sounddata_tDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CSVCMsg_Sounds_sounddata_tDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -447,8 +447,8 @@ PROTOBUF_CONSTEXPR CSVCMsg_SetView::CSVCMsg_SetView(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.entity_index_)*/0
-  , /*decltype(_impl_.slot_)*/0} {}
+  , /*decltype(_impl_.entity_index_)*/-1
+  , /*decltype(_impl_.slot_)*/-1} {}
 struct CSVCMsg_SetViewDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CSVCMsg_SetViewDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -493,9 +493,9 @@ PROTOBUF_CONSTEXPR CSVCMsg_BSPDecal::CSVCMsg_BSPDecal(
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.pos_)*/nullptr
   , /*decltype(_impl_.decal_texture_index_)*/0
-  , /*decltype(_impl_.entity_index_)*/0
   , /*decltype(_impl_.model_index_)*/0
-  , /*decltype(_impl_.low_priority_)*/false} {}
+  , /*decltype(_impl_.low_priority_)*/false
+  , /*decltype(_impl_.entity_index_)*/-1} {}
 struct CSVCMsg_BSPDecalDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CSVCMsg_BSPDecalDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -511,7 +511,7 @@ PROTOBUF_CONSTEXPR CSVCMsg_SplitScreen::CSVCMsg_SplitScreen(
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.type_)*/0
   , /*decltype(_impl_.slot_)*/0
-  , /*decltype(_impl_.player_index_)*/0} {}
+  , /*decltype(_impl_.player_index_)*/-1} {}
 struct CSVCMsg_SplitScreenDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CSVCMsg_SplitScreenDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -770,11 +770,11 @@ PROTOBUF_CONSTEXPR CSVCMsg_VoiceData::CSVCMsg_VoiceData(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.audio_)*/nullptr
-  , /*decltype(_impl_.client_)*/0
-  , /*decltype(_impl_.proximity_)*/false
   , /*decltype(_impl_.xuid_)*/uint64_t{0u}
+  , /*decltype(_impl_.proximity_)*/false
   , /*decltype(_impl_.audible_mask_)*/0
-  , /*decltype(_impl_.tick_)*/0u} {}
+  , /*decltype(_impl_.tick_)*/0u
+  , /*decltype(_impl_.client_)*/-1} {}
 struct CSVCMsg_VoiceDataDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CSVCMsg_VoiceDataDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -898,10 +898,10 @@ PROTOBUF_CONSTEXPR CMsgServerPeer::CMsgServerPeer(
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.ipc_)*/nullptr
   , /*decltype(_impl_.steamid_)*/uint64_t{0u}
-  , /*decltype(_impl_.player_slot_)*/0
   , /*decltype(_impl_.they_hear_you_)*/false
   , /*decltype(_impl_.you_hear_them_)*/false
-  , /*decltype(_impl_.is_listenserver_host_)*/false} {}
+  , /*decltype(_impl_.is_listenserver_host_)*/false
+  , /*decltype(_impl_.player_slot_)*/-1} {}
 struct CMsgServerPeerDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgServerPeerDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1114,13 +1114,13 @@ PROTOBUF_CONSTEXPR CSVCMsg_HltvReplay::CSVCMsg_HltvReplay(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.delay_)*/0
-  , /*decltype(_impl_.primary_target_)*/0
   , /*decltype(_impl_.replay_stop_at_)*/0
   , /*decltype(_impl_.replay_start_at_)*/0
   , /*decltype(_impl_.replay_slowdown_begin_)*/0
   , /*decltype(_impl_.replay_slowdown_end_)*/0
   , /*decltype(_impl_.replay_slowdown_rate_)*/0
-  , /*decltype(_impl_.reason_)*/0} {}
+  , /*decltype(_impl_.reason_)*/0
+  , /*decltype(_impl_.primary_target_)*/-1} {}
 struct CSVCMsg_HltvReplayDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CSVCMsg_HltvReplayDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1137,8 +1137,8 @@ PROTOBUF_CONSTEXPR CCLCMsg_HltvReplay::CCLCMsg_HltvReplay(
   , /*decltype(_impl_.request_)*/0
   , /*decltype(_impl_.slowdown_length_)*/0
   , /*decltype(_impl_.slowdown_rate_)*/0
-  , /*decltype(_impl_.primary_target_)*/0
-  , /*decltype(_impl_.event_time_)*/0} {}
+  , /*decltype(_impl_.event_time_)*/0
+  , /*decltype(_impl_.primary_target_)*/-1} {}
 struct CCLCMsg_HltvReplayDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CCLCMsg_HltvReplayDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1411,8 +1411,8 @@ const uint32_t TableStruct_netmessages_2eproto::offsets[] PROTOBUF_SECTION_VARIA
   11,
   12,
   13,
-  14,
   15,
+  14,
   0,
   1,
   2,
@@ -1501,6 +1501,7 @@ const uint32_t TableStruct_netmessages_2eproto::offsets[] PROTOBUF_SECTION_VARIA
   3,
   4,
   5,
+  18,
   6,
   7,
   8,
@@ -1512,7 +1513,6 @@ const uint32_t TableStruct_netmessages_2eproto::offsets[] PROTOBUF_SECTION_VARIA
   14,
   15,
   16,
-  18,
   17,
   PROTOBUF_FIELD_OFFSET(::CSVCMsg_Sounds, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CSVCMsg_Sounds, _internal_metadata_),
@@ -1575,9 +1575,9 @@ const uint32_t TableStruct_netmessages_2eproto::offsets[] PROTOBUF_SECTION_VARIA
   PROTOBUF_FIELD_OFFSET(::CSVCMsg_BSPDecal, _impl_.low_priority_),
   0,
   1,
+  4,
   2,
   3,
-  4,
   PROTOBUF_FIELD_OFFSET(::CSVCMsg_SplitScreen, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CSVCMsg_SplitScreen, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1812,11 +1812,11 @@ const uint32_t TableStruct_netmessages_2eproto::offsets[] PROTOBUF_SECTION_VARIA
   PROTOBUF_FIELD_OFFSET(::CSVCMsg_VoiceData, _impl_.audible_mask_),
   PROTOBUF_FIELD_OFFSET(::CSVCMsg_VoiceData, _impl_.tick_),
   0,
-  1,
+  5,
   2,
+  1,
   3,
   4,
-  5,
   PROTOBUF_FIELD_OFFSET(::CSVCMsg_PacketReliable, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CSVCMsg_PacketReliable, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1905,12 +1905,12 @@ const uint32_t TableStruct_netmessages_2eproto::offsets[] PROTOBUF_SECTION_VARIA
   PROTOBUF_FIELD_OFFSET(::CMsgServerPeer, _impl_.they_hear_you_),
   PROTOBUF_FIELD_OFFSET(::CMsgServerPeer, _impl_.you_hear_them_),
   PROTOBUF_FIELD_OFFSET(::CMsgServerPeer, _impl_.is_listenserver_host_),
-  2,
+  5,
   1,
   0,
+  2,
   3,
   4,
-  5,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CSVCMsg_PeerList, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2102,13 +2102,13 @@ const uint32_t TableStruct_netmessages_2eproto::offsets[] PROTOBUF_SECTION_VARIA
   PROTOBUF_FIELD_OFFSET(::CSVCMsg_HltvReplay, _impl_.replay_slowdown_rate_),
   PROTOBUF_FIELD_OFFSET(::CSVCMsg_HltvReplay, _impl_.reason_),
   0,
+  7,
   1,
   2,
   3,
   4,
   5,
   6,
-  7,
   PROTOBUF_FIELD_OFFSET(::CCLCMsg_HltvReplay, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CCLCMsg_HltvReplay, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2123,8 +2123,8 @@ const uint32_t TableStruct_netmessages_2eproto::offsets[] PROTOBUF_SECTION_VARIA
   0,
   1,
   2,
-  3,
   4,
+  3,
   PROTOBUF_FIELD_OFFSET(::CSVCMsg_Broadcast_Command, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CSVCMsg_Broadcast_Command, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2345,165 +2345,166 @@ const char descriptor_table_protodef_netmessages_2eproto[] PROTOBUF_SECTION_VARI
   "equestPause_t:\010RP_PAUSE\022\023\n\013pause_group\030\002"
   " \001(\005\"$\n\024CCLCMsg_CmdKeyValues\022\014\n\004data\030\001 \001"
   "(\014\"*\n\031CCLCMsg_RconServerDetails\022\r\n\005token"
-  "\030\001 \001(\014\"\203\003\n\022CSVCMsg_ServerInfo\022\020\n\010protoco"
+  "\030\001 \001(\014\"\207\003\n\022CSVCMsg_ServerInfo\022\020\n\010protoco"
   "l\030\001 \001(\005\022\024\n\014server_count\030\002 \001(\005\022\024\n\014is_dedi"
   "cated\030\003 \001(\010\022\017\n\007is_hltv\030\004 \001(\010\022\014\n\004c_os\030\006 \001"
   "(\005\022\023\n\013max_clients\030\n \001(\005\022\023\n\013max_classes\030\013"
-  " \001(\005\022\023\n\013player_slot\030\014 \001(\005\022\025\n\rtick_interv"
-  "al\030\r \001(\002\022\020\n\010game_dir\030\016 \001(\t\022\020\n\010map_name\030\017"
-  " \001(\t\022\020\n\010sky_name\030\020 \001(\t\022\021\n\thost_name\030\021 \001("
-  "\t\022\022\n\naddon_name\030\022 \001(\t\022>\n\023game_session_co"
-  "nfig\030\023 \001(\0132!.CSVCMsg_GameSessionConfigur"
-  "ation\022\035\n\025game_session_manifest\030\024 \001(\014\"\244\001\n"
-  "\021CSVCMsg_ClassInfo\022\030\n\020create_on_client\030\001"
-  " \001(\010\022+\n\007classes\030\002 \003(\0132\032.CSVCMsg_ClassInf"
-  "o.class_t\032H\n\007class_t\022\020\n\010class_id\030\001 \001(\005\022\027"
-  "\n\017data_table_name\030\002 \001(\t\022\022\n\nclass_name\030\003 "
-  "\001(\t\"\"\n\020CSVCMsg_SetPause\022\016\n\006paused\030\001 \001(\010\""
-  "G\n\021CSVCMsg_VoiceInit\022\017\n\007quality\030\001 \001(\005\022\r\n"
-  "\005codec\030\002 \001(\t\022\022\n\007version\030\003 \001(\005:\0010\"\035\n\rCSVC"
-  "Msg_Print\022\014\n\004text\030\001 \001(\t\"\337\003\n\016CSVCMsg_Soun"
-  "ds\022\026\n\016reliable_sound\030\001 \001(\010\022+\n\006sounds\030\002 \003"
-  "(\0132\033.CSVCMsg_Sounds.sounddata_t\032\207\003\n\013soun"
-  "ddata_t\022\020\n\010origin_x\030\001 \001(\021\022\020\n\010origin_y\030\002 "
-  "\001(\021\022\020\n\010origin_z\030\003 \001(\021\022\016\n\006volume\030\004 \001(\r\022\023\n"
-  "\013delay_value\030\005 \001(\002\022\027\n\017sequence_number\030\006 "
-  "\001(\005\022\024\n\014entity_index\030\007 \001(\005\022\017\n\007channel\030\010 \001"
-  "(\005\022\r\n\005pitch\030\t \001(\005\022\r\n\005flags\030\n \001(\005\022\021\n\tsoun"
-  "d_num\030\013 \001(\r\022\030\n\020sound_num_handle\030\014 \001(\007\022\026\n"
-  "\016speaker_entity\030\r \001(\005\022\023\n\013random_seed\030\016 \001"
-  "(\005\022\023\n\013sound_level\030\017 \001(\005\022\023\n\013is_sentence\030\020"
-  " \001(\010\022\022\n\nis_ambient\030\021 \001(\010\022\014\n\004guid\030\022 \001(\r\022\031"
-  "\n\021sound_resource_id\030\023 \001(\006\"X\n\020CSVCMsg_Pre"
-  "fetch\022\023\n\013sound_index\030\001 \001(\005\022/\n\rresource_t"
-  "ype\030\002 \001(\0162\r.PrefetchType:\tPFT_SOUND\"5\n\017C"
-  "SVCMsg_SetView\022\024\n\014entity_index\030\001 \001(\005\022\014\n\004"
-  "slot\030\002 \001(\005\"@\n\020CSVCMsg_FixAngle\022\020\n\010relati"
-  "ve\030\001 \001(\010\022\032\n\005angle\030\002 \001(\0132\013.CMsgQAngle\"4\n\026"
-  "CSVCMsg_CrosshairAngle\022\032\n\005angle\030\001 \001(\0132\013."
-  "CMsgQAngle\"\212\001\n\020CSVCMsg_BSPDecal\022\030\n\003pos\030\001"
-  " \001(\0132\013.CMsgVector\022\033\n\023decal_texture_index"
-  "\030\002 \001(\005\022\024\n\014entity_index\030\003 \001(\005\022\023\n\013model_in"
-  "dex\030\004 \001(\005\022\024\n\014low_priority\030\005 \001(\010\"z\n\023CSVCM"
-  "sg_SplitScreen\022\?\n\004type\030\001 \001(\0162\030.ESplitScr"
-  "eenMessageType:\027MSG_SPLITSCREEN_ADDUSER\022"
-  "\014\n\004slot\030\002 \001(\005\022\024\n\014player_index\030\003 \001(\005\"9\n\024C"
-  "SVCMsg_GetCvarValue\022\016\n\006cookie\030\001 \001(\005\022\021\n\tc"
-  "var_name\030\002 \001(\t\"<\n\014CSVCMsg_Menu\022\023\n\013dialog"
-  "_type\030\001 \001(\005\022\027\n\017menu_key_values\030\002 \001(\014\"N\n\023"
-  "CSVCMsg_UserMessage\022\020\n\010msg_type\030\001 \001(\005\022\020\n"
-  "\010msg_data\030\002 \001(\014\022\023\n\013passthrough\030\003 \001(\005\"\260\002\n"
-  "\021CSVCMsg_SendTable\022\016\n\006is_end\030\001 \001(\010\022\026\n\016ne"
-  "t_table_name\030\002 \001(\t\022\025\n\rneeds_decoder\030\003 \001("
-  "\010\022,\n\005props\030\004 \003(\0132\035.CSVCMsg_SendTable.sen"
-  "dprop_t\032\255\001\n\nsendprop_t\022\014\n\004type\030\001 \001(\005\022\020\n\010"
-  "var_name\030\002 \001(\t\022\r\n\005flags\030\003 \001(\005\022\020\n\010priorit"
-  "y\030\004 \001(\005\022\017\n\007dt_name\030\005 \001(\t\022\024\n\014num_elements"
-  "\030\006 \001(\005\022\021\n\tlow_value\030\007 \001(\002\022\022\n\nhigh_value\030"
-  "\010 \001(\002\022\020\n\010num_bits\030\t \001(\005\"\321\001\n\025CSVCMsg_Game"
-  "EventList\0228\n\013descriptors\030\001 \003(\0132#.CSVCMsg"
-  "_GameEventList.descriptor_t\032#\n\005key_t\022\014\n\004"
-  "type\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\032Y\n\014descriptor_t"
-  "\022\017\n\007eventid\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022*\n\004keys\030"
-  "\003 \003(\0132\034.CSVCMsg_GameEventList.key_t\"\356\005\n\026"
-  "CSVCMsg_PacketEntities\022\023\n\013max_entries\030\001 "
-  "\001(\005\022\027\n\017updated_entries\030\002 \001(\005\022\020\n\010is_delta"
-  "\030\003 \001(\010\022\027\n\017update_baseline\030\004 \001(\010\022\020\n\010basel"
-  "ine\030\005 \001(\005\022\022\n\ndelta_from\030\006 \001(\005\022\023\n\013entity_"
-  "data\030\007 \001(\014\022\032\n\022pending_full_frame\030\010 \001(\010\022 "
-  "\n\030active_spawngroup_handle\030\t \001(\r\022\'\n\037max_"
-  "spawngroup_creationsequence\030\n \001(\r\022\027\n\017las"
-  "t_cmd_number\030\013 \001(\r\022\023\n\013server_tick\030\014 \001(\r\022"
-  "\033\n\023serialized_entities\030\r \001(\014\022H\n\022command_"
-  "queue_info\030\016 \001(\0132,.CSVCMsg_PacketEntitie"
-  "s.command_queue_info_t\022I\n\023alternate_base"
-  "lines\030\017 \003(\0132,.CSVCMsg_PacketEntities.alt"
-  "ernate_baseline_t\032\262\001\n\024command_queue_info"
-  "_t\022\027\n\017commands_queued\030\001 \001(\r\022\"\n\032command_q"
-  "ueue_desired_size\030\002 \001(\r\022\035\n\025starved_comma"
-  "nd_ticks\030\003 \001(\r\022\035\n\025time_dilation_percent\030"
-  "\004 \001(\002\022\037\n\027discarded_command_ticks\030\005 \001(\r\032D"
-  "\n\024alternate_baseline_t\022\024\n\014entity_index\030\001"
-  " \001(\005\022\026\n\016baseline_index\030\002 \001(\005\"R\n\024CSVCMsg_"
-  "TempEntities\022\020\n\010reliable\030\001 \001(\010\022\023\n\013num_en"
-  "tries\030\002 \001(\005\022\023\n\013entity_data\030\003 \001(\014\"\351\001\n\031CSV"
-  "CMsg_CreateStringTable\022\014\n\004name\030\001 \001(\t\022\023\n\013"
-  "num_entries\030\002 \001(\005\022\034\n\024user_data_fixed_siz"
-  "e\030\003 \001(\010\022\026\n\016user_data_size\030\004 \001(\005\022\033\n\023user_"
-  "data_size_bits\030\005 \001(\005\022\r\n\005flags\030\006 \001(\005\022\023\n\013s"
-  "tring_data\030\007 \001(\014\022\031\n\021uncompressed_size\030\010 "
-  "\001(\005\022\027\n\017data_compressed\030\t \001(\010\"_\n\031CSVCMsg_"
-  "UpdateStringTable\022\020\n\010table_id\030\001 \001(\005\022\033\n\023n"
-  "um_changed_entries\030\002 \001(\005\022\023\n\013string_data\030"
-  "\003 \001(\014\"\210\001\n\021CSVCMsg_VoiceData\022\036\n\005audio\030\001 \001"
-  "(\0132\017.CMsgVoiceAudio\022\016\n\006client\030\002 \001(\005\022\021\n\tp"
-  "roximity\030\003 \001(\010\022\014\n\004xuid\030\004 \001(\006\022\024\n\014audible_"
-  "mask\030\005 \001(\005\022\014\n\004tick\030\006 \001(\r\"K\n\026CSVCMsg_Pack"
-  "etReliable\022\014\n\004tick\030\001 \001(\005\022\024\n\014messagessize"
-  "\030\002 \001(\005\022\r\n\005state\030\003 \001(\010\"T\n\026CSVCMsg_FullFra"
-  "meSplit\022\014\n\004tick\030\001 \001(\005\022\017\n\007section\030\002 \001(\005\022\r"
-  "\n\005total\030\003 \001(\005\022\014\n\004data\030\004 \001(\014\"U\n\022CSVCMsg_H"
-  "LTVStatus\022\016\n\006master\030\001 \001(\t\022\017\n\007clients\030\002 \001"
-  "(\005\022\r\n\005slots\030\003 \001(\005\022\017\n\007proxies\030\004 \001(\005\")\n\025CS"
-  "VCMsg_ServerSteamID\022\020\n\010steam_id\030\001 \001(\004\"$\n"
-  "\024CSVCMsg_CmdKeyValues\022\014\n\004data\030\001 \001(\014\";\n\031C"
-  "SVCMsg_RconServerDetails\022\r\n\005token\030\001 \001(\014\022"
-  "\017\n\007details\030\002 \001(\t\";\n\016CMsgIPCAddress\022\025\n\rco"
-  "mputer_guid\030\001 \001(\006\022\022\n\nprocess_id\030\002 \001(\r\"\240\001"
-  "\n\016CMsgServerPeer\022\023\n\013player_slot\030\001 \001(\005\022\017\n"
-  "\007steamid\030\002 \001(\006\022\034\n\003ipc\030\003 \001(\0132\017.CMsgIPCAdd"
-  "ress\022\025\n\rthey_hear_you\030\004 \001(\010\022\025\n\ryou_hear_"
-  "them\030\005 \001(\010\022\034\n\024is_listenserver_host\030\006 \001(\010"
-  "\"1\n\020CSVCMsg_PeerList\022\035\n\004peer\030\001 \003(\0132\017.CMs"
-  "gServerPeer\"/\n\034CSVCMsg_ClearAllStringTab"
-  "les\022\017\n\007mapname\030\001 \001(\t\"\222\002\n\037ProtoFlattenedS"
-  "erializerField_t\022\024\n\014var_type_sym\030\001 \001(\005\022\024"
-  "\n\014var_name_sym\030\002 \001(\005\022\021\n\tbit_count\030\003 \001(\005\022"
-  "\021\n\tlow_value\030\004 \001(\002\022\022\n\nhigh_value\030\005 \001(\002\022\024"
-  "\n\014encode_flags\030\006 \001(\005\022!\n\031field_serializer"
-  "_name_sym\030\007 \001(\005\022 \n\030field_serializer_vers"
-  "ion\030\010 \001(\005\022\025\n\rsend_node_sym\030\t \001(\005\022\027\n\017var_"
-  "encoder_sym\030\n \001(\005\"k\n\032ProtoFlattenedSeria"
-  "lizer_t\022\033\n\023serializer_name_sym\030\001 \001(\005\022\032\n\022"
-  "serializer_version\030\002 \001(\005\022\024\n\014fields_index"
-  "\030\003 \003(\005\"\222\001\n\033CSVCMsg_FlattenedSerializer\0220"
-  "\n\013serializers\030\001 \003(\0132\033.ProtoFlattenedSeri"
-  "alizer_t\022\017\n\007symbols\030\002 \003(\t\0220\n\006fields\030\003 \003("
-  "\0132 .ProtoFlattenedSerializerField_t\"!\n\021C"
-  "SVCMsg_StopSound\022\014\n\004guid\030\001 \001(\007\"y\n\036CBidir"
-  "Msg_RebroadcastGameEvent\022\024\n\014posttoserver"
-  "\030\001 \001(\010\022\017\n\007buftype\030\002 \001(\005\022\026\n\016clientbitcoun"
-  "t\030\003 \001(\r\022\030\n\020receivingclients\030\004 \001(\004\"2\n\033CBi"
-  "dirMsg_RebroadcastSource\022\023\n\013eventsource\030"
-  "\001 \001(\005\"\233\006\n\026CMsgServerNetworkStats\022\021\n\tdedi"
-  "cated\030\001 \001(\010\022\021\n\tcpu_usage\030\002 \001(\005\022\026\n\016memory"
-  "_used_mb\030\003 \001(\005\022\026\n\016memory_free_mb\030\004 \001(\005\022\016"
-  "\n\006uptime\030\005 \001(\005\022\023\n\013spawn_count\030\006 \001(\005\022\023\n\013n"
-  "um_clients\030\010 \001(\005\022\020\n\010num_bots\030\t \001(\005\022\026\n\016nu"
-  "m_spectators\030\n \001(\005\022\025\n\rnum_tv_relays\030\013 \001("
-  "\005\022\013\n\003fps\030\014 \001(\002\022+\n\005ports\030\021 \003(\0132\034.CMsgServ"
-  "erNetworkStats.Port\022\027\n\017avg_latency_out\030\022"
-  " \001(\002\022\026\n\016avg_latency_in\030\023 \001(\002\022\027\n\017avg_pack"
-  "ets_out\030\024 \001(\002\022\026\n\016avg_packets_in\030\025 \001(\002\022\024\n"
-  "\014avg_loss_out\030\026 \001(\002\022\023\n\013avg_loss_in\030\027 \001(\002"
-  "\022\024\n\014avg_data_out\030\030 \001(\002\022\023\n\013avg_data_in\030\031 "
-  "\001(\002\022\025\n\rtotal_data_in\030\032 \001(\004\022\030\n\020total_pack"
-  "ets_in\030\033 \001(\004\022\026\n\016total_data_out\030\034 \001(\004\022\031\n\021"
-  "total_packets_out\030\035 \001(\004\022/\n\007players\030\036 \003(\013"
-  "2\036.CMsgServerNetworkStats.Player\032\"\n\004Port"
-  "\022\014\n\004port\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\032\204\001\n\006Player\022"
-  "\017\n\007steamid\030\001 \001(\004\022\023\n\013remote_addr\030\002 \001(\t\022\026\n"
-  "\016ping_stddev_ms\030\003 \001(\005\022\023\n\013ping_avg_ms\030\004 \001"
-  "(\005\022\027\n\017packet_loss_pct\030\005 \001(\002\022\016\n\006is_bot\030\006 "
-  "\001(\010\"\326\001\n\022CSVCMsg_HltvReplay\022\r\n\005delay\030\001 \001("
-  "\005\022\026\n\016primary_target\030\002 \001(\005\022\026\n\016replay_stop"
-  "_at\030\003 \001(\005\022\027\n\017replay_start_at\030\004 \001(\005\022\035\n\025re"
-  "play_slowdown_begin\030\005 \001(\005\022\033\n\023replay_slow"
-  "down_end\030\006 \001(\005\022\034\n\024replay_slowdown_rate\030\007"
-  " \001(\002\022\016\n\006reason\030\010 \001(\005\"\201\001\n\022CCLCMsg_HltvRep"
-  "lay\022\017\n\007request\030\001 \001(\005\022\027\n\017slowdown_length\030"
-  "\002 \001(\002\022\025\n\rslowdown_rate\030\003 \001(\002\022\026\n\016primary_"
-  "target\030\004 \001(\005\022\022\n\nevent_time\030\005 \001(\002\"(\n\031CSVC"
+  " \001(\005\022\027\n\013player_slot\030\014 \001(\005:\002-1\022\025\n\rtick_in"
+  "terval\030\r \001(\002\022\020\n\010game_dir\030\016 \001(\t\022\020\n\010map_na"
+  "me\030\017 \001(\t\022\020\n\010sky_name\030\020 \001(\t\022\021\n\thost_name\030"
+  "\021 \001(\t\022\022\n\naddon_name\030\022 \001(\t\022>\n\023game_sessio"
+  "n_config\030\023 \001(\0132!.CSVCMsg_GameSessionConf"
+  "iguration\022\035\n\025game_session_manifest\030\024 \001(\014"
+  "\"\244\001\n\021CSVCMsg_ClassInfo\022\030\n\020create_on_clie"
+  "nt\030\001 \001(\010\022+\n\007classes\030\002 \003(\0132\032.CSVCMsg_Clas"
+  "sInfo.class_t\032H\n\007class_t\022\020\n\010class_id\030\001 \001"
+  "(\005\022\027\n\017data_table_name\030\002 \001(\t\022\022\n\nclass_nam"
+  "e\030\003 \001(\t\"\"\n\020CSVCMsg_SetPause\022\016\n\006paused\030\001 "
+  "\001(\010\"G\n\021CSVCMsg_VoiceInit\022\017\n\007quality\030\001 \001("
+  "\005\022\r\n\005codec\030\002 \001(\t\022\022\n\007version\030\003 \001(\005:\0010\"\035\n\r"
+  "CSVCMsg_Print\022\014\n\004text\030\001 \001(\t\"\343\003\n\016CSVCMsg_"
+  "Sounds\022\026\n\016reliable_sound\030\001 \001(\010\022+\n\006sounds"
+  "\030\002 \003(\0132\033.CSVCMsg_Sounds.sounddata_t\032\213\003\n\013"
+  "sounddata_t\022\020\n\010origin_x\030\001 \001(\021\022\020\n\010origin_"
+  "y\030\002 \001(\021\022\020\n\010origin_z\030\003 \001(\021\022\016\n\006volume\030\004 \001("
+  "\r\022\023\n\013delay_value\030\005 \001(\002\022\027\n\017sequence_numbe"
+  "r\030\006 \001(\005\022\030\n\014entity_index\030\007 \001(\005:\002-1\022\017\n\007cha"
+  "nnel\030\010 \001(\005\022\r\n\005pitch\030\t \001(\005\022\r\n\005flags\030\n \001(\005"
+  "\022\021\n\tsound_num\030\013 \001(\r\022\030\n\020sound_num_handle\030"
+  "\014 \001(\007\022\026\n\016speaker_entity\030\r \001(\005\022\023\n\013random_"
+  "seed\030\016 \001(\005\022\023\n\013sound_level\030\017 \001(\005\022\023\n\013is_se"
+  "ntence\030\020 \001(\010\022\022\n\nis_ambient\030\021 \001(\010\022\014\n\004guid"
+  "\030\022 \001(\r\022\031\n\021sound_resource_id\030\023 \001(\006\"X\n\020CSV"
+  "CMsg_Prefetch\022\023\n\013sound_index\030\001 \001(\005\022/\n\rre"
+  "source_type\030\002 \001(\0162\r.PrefetchType:\tPFT_SO"
+  "UND\"=\n\017CSVCMsg_SetView\022\030\n\014entity_index\030\001"
+  " \001(\005:\002-1\022\020\n\004slot\030\002 \001(\005:\002-1\"@\n\020CSVCMsg_Fi"
+  "xAngle\022\020\n\010relative\030\001 \001(\010\022\032\n\005angle\030\002 \001(\0132"
+  "\013.CMsgQAngle\"4\n\026CSVCMsg_CrosshairAngle\022\032"
+  "\n\005angle\030\001 \001(\0132\013.CMsgQAngle\"\216\001\n\020CSVCMsg_B"
+  "SPDecal\022\030\n\003pos\030\001 \001(\0132\013.CMsgVector\022\033\n\023dec"
+  "al_texture_index\030\002 \001(\005\022\030\n\014entity_index\030\003"
+  " \001(\005:\002-1\022\023\n\013model_index\030\004 \001(\005\022\024\n\014low_pri"
+  "ority\030\005 \001(\010\"~\n\023CSVCMsg_SplitScreen\022\?\n\004ty"
+  "pe\030\001 \001(\0162\030.ESplitScreenMessageType:\027MSG_"
+  "SPLITSCREEN_ADDUSER\022\014\n\004slot\030\002 \001(\005\022\030\n\014pla"
+  "yer_index\030\003 \001(\005:\002-1\"9\n\024CSVCMsg_GetCvarVa"
+  "lue\022\016\n\006cookie\030\001 \001(\005\022\021\n\tcvar_name\030\002 \001(\t\"<"
+  "\n\014CSVCMsg_Menu\022\023\n\013dialog_type\030\001 \001(\005\022\027\n\017m"
+  "enu_key_values\030\002 \001(\014\"N\n\023CSVCMsg_UserMess"
+  "age\022\020\n\010msg_type\030\001 \001(\005\022\020\n\010msg_data\030\002 \001(\014\022"
+  "\023\n\013passthrough\030\003 \001(\005\"\260\002\n\021CSVCMsg_SendTab"
+  "le\022\016\n\006is_end\030\001 \001(\010\022\026\n\016net_table_name\030\002 \001"
+  "(\t\022\025\n\rneeds_decoder\030\003 \001(\010\022,\n\005props\030\004 \003(\013"
+  "2\035.CSVCMsg_SendTable.sendprop_t\032\255\001\n\nsend"
+  "prop_t\022\014\n\004type\030\001 \001(\005\022\020\n\010var_name\030\002 \001(\t\022\r"
+  "\n\005flags\030\003 \001(\005\022\020\n\010priority\030\004 \001(\005\022\017\n\007dt_na"
+  "me\030\005 \001(\t\022\024\n\014num_elements\030\006 \001(\005\022\021\n\tlow_va"
+  "lue\030\007 \001(\002\022\022\n\nhigh_value\030\010 \001(\002\022\020\n\010num_bit"
+  "s\030\t \001(\005\"\321\001\n\025CSVCMsg_GameEventList\0228\n\013des"
+  "criptors\030\001 \003(\0132#.CSVCMsg_GameEventList.d"
+  "escriptor_t\032#\n\005key_t\022\014\n\004type\030\001 \001(\005\022\014\n\004na"
+  "me\030\002 \001(\t\032Y\n\014descriptor_t\022\017\n\007eventid\030\001 \001("
+  "\005\022\014\n\004name\030\002 \001(\t\022*\n\004keys\030\003 \003(\0132\034.CSVCMsg_"
+  "GameEventList.key_t\"\356\005\n\026CSVCMsg_PacketEn"
+  "tities\022\023\n\013max_entries\030\001 \001(\005\022\027\n\017updated_e"
+  "ntries\030\002 \001(\005\022\020\n\010is_delta\030\003 \001(\010\022\027\n\017update"
+  "_baseline\030\004 \001(\010\022\020\n\010baseline\030\005 \001(\005\022\022\n\ndel"
+  "ta_from\030\006 \001(\005\022\023\n\013entity_data\030\007 \001(\014\022\032\n\022pe"
+  "nding_full_frame\030\010 \001(\010\022 \n\030active_spawngr"
+  "oup_handle\030\t \001(\r\022\'\n\037max_spawngroup_creat"
+  "ionsequence\030\n \001(\r\022\027\n\017last_cmd_number\030\013 \001"
+  "(\r\022\023\n\013server_tick\030\014 \001(\r\022\033\n\023serialized_en"
+  "tities\030\r \001(\014\022H\n\022command_queue_info\030\016 \001(\013"
+  "2,.CSVCMsg_PacketEntities.command_queue_"
+  "info_t\022I\n\023alternate_baselines\030\017 \003(\0132,.CS"
+  "VCMsg_PacketEntities.alternate_baseline_"
+  "t\032\262\001\n\024command_queue_info_t\022\027\n\017commands_q"
+  "ueued\030\001 \001(\r\022\"\n\032command_queue_desired_siz"
+  "e\030\002 \001(\r\022\035\n\025starved_command_ticks\030\003 \001(\r\022\035"
+  "\n\025time_dilation_percent\030\004 \001(\002\022\037\n\027discard"
+  "ed_command_ticks\030\005 \001(\r\032D\n\024alternate_base"
+  "line_t\022\024\n\014entity_index\030\001 \001(\005\022\026\n\016baseline"
+  "_index\030\002 \001(\005\"R\n\024CSVCMsg_TempEntities\022\020\n\010"
+  "reliable\030\001 \001(\010\022\023\n\013num_entries\030\002 \001(\005\022\023\n\013e"
+  "ntity_data\030\003 \001(\014\"\351\001\n\031CSVCMsg_CreateStrin"
+  "gTable\022\014\n\004name\030\001 \001(\t\022\023\n\013num_entries\030\002 \001("
+  "\005\022\034\n\024user_data_fixed_size\030\003 \001(\010\022\026\n\016user_"
+  "data_size\030\004 \001(\005\022\033\n\023user_data_size_bits\030\005"
+  " \001(\005\022\r\n\005flags\030\006 \001(\005\022\023\n\013string_data\030\007 \001(\014"
+  "\022\031\n\021uncompressed_size\030\010 \001(\005\022\027\n\017data_comp"
+  "ressed\030\t \001(\010\"_\n\031CSVCMsg_UpdateStringTabl"
+  "e\022\020\n\010table_id\030\001 \001(\005\022\033\n\023num_changed_entri"
+  "es\030\002 \001(\005\022\023\n\013string_data\030\003 \001(\014\"\214\001\n\021CSVCMs"
+  "g_VoiceData\022\036\n\005audio\030\001 \001(\0132\017.CMsgVoiceAu"
+  "dio\022\022\n\006client\030\002 \001(\005:\002-1\022\021\n\tproximity\030\003 \001"
+  "(\010\022\014\n\004xuid\030\004 \001(\006\022\024\n\014audible_mask\030\005 \001(\005\022\014"
+  "\n\004tick\030\006 \001(\r\"K\n\026CSVCMsg_PacketReliable\022\014"
+  "\n\004tick\030\001 \001(\005\022\024\n\014messagessize\030\002 \001(\005\022\r\n\005st"
+  "ate\030\003 \001(\010\"T\n\026CSVCMsg_FullFrameSplit\022\014\n\004t"
+  "ick\030\001 \001(\005\022\017\n\007section\030\002 \001(\005\022\r\n\005total\030\003 \001("
+  "\005\022\014\n\004data\030\004 \001(\014\"U\n\022CSVCMsg_HLTVStatus\022\016\n"
+  "\006master\030\001 \001(\t\022\017\n\007clients\030\002 \001(\005\022\r\n\005slots\030"
+  "\003 \001(\005\022\017\n\007proxies\030\004 \001(\005\")\n\025CSVCMsg_Server"
+  "SteamID\022\020\n\010steam_id\030\001 \001(\004\"$\n\024CSVCMsg_Cmd"
+  "KeyValues\022\014\n\004data\030\001 \001(\014\";\n\031CSVCMsg_RconS"
+  "erverDetails\022\r\n\005token\030\001 \001(\014\022\017\n\007details\030\002"
+  " \001(\t\";\n\016CMsgIPCAddress\022\025\n\rcomputer_guid\030"
+  "\001 \001(\006\022\022\n\nprocess_id\030\002 \001(\r\"\244\001\n\016CMsgServer"
+  "Peer\022\027\n\013player_slot\030\001 \001(\005:\002-1\022\017\n\007steamid"
+  "\030\002 \001(\006\022\034\n\003ipc\030\003 \001(\0132\017.CMsgIPCAddress\022\025\n\r"
+  "they_hear_you\030\004 \001(\010\022\025\n\ryou_hear_them\030\005 \001"
+  "(\010\022\034\n\024is_listenserver_host\030\006 \001(\010\"1\n\020CSVC"
+  "Msg_PeerList\022\035\n\004peer\030\001 \003(\0132\017.CMsgServerP"
+  "eer\"/\n\034CSVCMsg_ClearAllStringTables\022\017\n\007m"
+  "apname\030\001 \001(\t\"\222\002\n\037ProtoFlattenedSerialize"
+  "rField_t\022\024\n\014var_type_sym\030\001 \001(\005\022\024\n\014var_na"
+  "me_sym\030\002 \001(\005\022\021\n\tbit_count\030\003 \001(\005\022\021\n\tlow_v"
+  "alue\030\004 \001(\002\022\022\n\nhigh_value\030\005 \001(\002\022\024\n\014encode"
+  "_flags\030\006 \001(\005\022!\n\031field_serializer_name_sy"
+  "m\030\007 \001(\005\022 \n\030field_serializer_version\030\010 \001("
+  "\005\022\025\n\rsend_node_sym\030\t \001(\005\022\027\n\017var_encoder_"
+  "sym\030\n \001(\005\"k\n\032ProtoFlattenedSerializer_t\022"
+  "\033\n\023serializer_name_sym\030\001 \001(\005\022\032\n\022serializ"
+  "er_version\030\002 \001(\005\022\024\n\014fields_index\030\003 \003(\005\"\222"
+  "\001\n\033CSVCMsg_FlattenedSerializer\0220\n\013serial"
+  "izers\030\001 \003(\0132\033.ProtoFlattenedSerializer_t"
+  "\022\017\n\007symbols\030\002 \003(\t\0220\n\006fields\030\003 \003(\0132 .Prot"
+  "oFlattenedSerializerField_t\"!\n\021CSVCMsg_S"
+  "topSound\022\014\n\004guid\030\001 \001(\007\"y\n\036CBidirMsg_Rebr"
+  "oadcastGameEvent\022\024\n\014posttoserver\030\001 \001(\010\022\017"
+  "\n\007buftype\030\002 \001(\005\022\026\n\016clientbitcount\030\003 \001(\r\022"
+  "\030\n\020receivingclients\030\004 \001(\004\"2\n\033CBidirMsg_R"
+  "ebroadcastSource\022\023\n\013eventsource\030\001 \001(\005\"\233\006"
+  "\n\026CMsgServerNetworkStats\022\021\n\tdedicated\030\001 "
+  "\001(\010\022\021\n\tcpu_usage\030\002 \001(\005\022\026\n\016memory_used_mb"
+  "\030\003 \001(\005\022\026\n\016memory_free_mb\030\004 \001(\005\022\016\n\006uptime"
+  "\030\005 \001(\005\022\023\n\013spawn_count\030\006 \001(\005\022\023\n\013num_clien"
+  "ts\030\010 \001(\005\022\020\n\010num_bots\030\t \001(\005\022\026\n\016num_specta"
+  "tors\030\n \001(\005\022\025\n\rnum_tv_relays\030\013 \001(\005\022\013\n\003fps"
+  "\030\014 \001(\002\022+\n\005ports\030\021 \003(\0132\034.CMsgServerNetwor"
+  "kStats.Port\022\027\n\017avg_latency_out\030\022 \001(\002\022\026\n\016"
+  "avg_latency_in\030\023 \001(\002\022\027\n\017avg_packets_out\030"
+  "\024 \001(\002\022\026\n\016avg_packets_in\030\025 \001(\002\022\024\n\014avg_los"
+  "s_out\030\026 \001(\002\022\023\n\013avg_loss_in\030\027 \001(\002\022\024\n\014avg_"
+  "data_out\030\030 \001(\002\022\023\n\013avg_data_in\030\031 \001(\002\022\025\n\rt"
+  "otal_data_in\030\032 \001(\004\022\030\n\020total_packets_in\030\033"
+  " \001(\004\022\026\n\016total_data_out\030\034 \001(\004\022\031\n\021total_pa"
+  "ckets_out\030\035 \001(\004\022/\n\007players\030\036 \003(\0132\036.CMsgS"
+  "erverNetworkStats.Player\032\"\n\004Port\022\014\n\004port"
+  "\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\032\204\001\n\006Player\022\017\n\007steam"
+  "id\030\001 \001(\004\022\023\n\013remote_addr\030\002 \001(\t\022\026\n\016ping_st"
+  "ddev_ms\030\003 \001(\005\022\023\n\013ping_avg_ms\030\004 \001(\005\022\027\n\017pa"
+  "cket_loss_pct\030\005 \001(\002\022\016\n\006is_bot\030\006 \001(\010\"\332\001\n\022"
+  "CSVCMsg_HltvReplay\022\r\n\005delay\030\001 \001(\005\022\032\n\016pri"
+  "mary_target\030\002 \001(\005:\002-1\022\026\n\016replay_stop_at\030"
+  "\003 \001(\005\022\027\n\017replay_start_at\030\004 \001(\005\022\035\n\025replay"
+  "_slowdown_begin\030\005 \001(\005\022\033\n\023replay_slowdown"
+  "_end\030\006 \001(\005\022\034\n\024replay_slowdown_rate\030\007 \001(\002"
+  "\022\016\n\006reason\030\010 \001(\005\"\205\001\n\022CCLCMsg_HltvReplay\022"
+  "\017\n\007request\030\001 \001(\005\022\027\n\017slowdown_length\030\002 \001("
+  "\002\022\025\n\rslowdown_rate\030\003 \001(\002\022\032\n\016primary_targ"
+  "et\030\004 \001(\005:\002-1\022\022\n\nevent_time\030\005 \001(\002\"(\n\031CSVC"
   "Msg_Broadcast_Command\022\013\n\003cmd\030\001 \001(\t\"\357\001\n\035C"
   "CLCMsg_HltvFixupOperatorTick\022\014\n\004tick\030\001 \001"
   "(\005\022\022\n\nprops_data\030\002 \001(\014\022\033\n\006origin\030\003 \001(\0132\013"
@@ -2563,14 +2564,14 @@ const char descriptor_table_protodef_netmessages_2eproto[] PROTOBUF_SECTION_VARI
   "_CANCEL\020\000\022\026\n\022REPLAY_EVENT_DEATH\020\001\022\030\n\024REP"
   "LAY_EVENT_GENERIC\020\002\022\'\n#REPLAY_EVENT_STUC"
   "K_NEED_FULL_UPDATE\020\003\022\030\n\024REPLAY_EVENT_VIC"
-  "TORY\020\004B\003\200\001\000"
+  "TORY\020\004"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_netmessages_2eproto_deps[1] = {
   &::descriptor_table_networkbasetypes_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_netmessages_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_netmessages_2eproto = {
-    false, false, 10011, descriptor_table_protodef_netmessages_2eproto,
+    false, false, 10046, descriptor_table_protodef_netmessages_2eproto,
     "netmessages.proto",
     &descriptor_table_netmessages_2eproto_once, descriptor_table_netmessages_2eproto_deps, 1, 70,
     schemas, file_default_instances, TableStruct_netmessages_2eproto::offsets,
@@ -7046,10 +7047,10 @@ class CSVCMsg_ServerInfo::_Internal {
     (*has_bits)[0] |= 8192u;
   }
   static void set_has_player_slot(HasBits* has_bits) {
-    (*has_bits)[0] |= 16384u;
+    (*has_bits)[0] |= 32768u;
   }
   static void set_has_tick_interval(HasBits* has_bits) {
-    (*has_bits)[0] |= 32768u;
+    (*has_bits)[0] |= 16384u;
   }
   static void set_has_game_dir(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
@@ -7109,8 +7110,8 @@ CSVCMsg_ServerInfo::CSVCMsg_ServerInfo(const CSVCMsg_ServerInfo& from)
     , decltype(_impl_.c_os_){}
     , decltype(_impl_.max_clients_){}
     , decltype(_impl_.max_classes_){}
-    , decltype(_impl_.player_slot_){}
-    , decltype(_impl_.tick_interval_){}};
+    , decltype(_impl_.tick_interval_){}
+    , decltype(_impl_.player_slot_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _impl_.game_dir_.InitDefault();
@@ -7165,8 +7166,8 @@ CSVCMsg_ServerInfo::CSVCMsg_ServerInfo(const CSVCMsg_ServerInfo& from)
     _this->_impl_.game_session_config_ = new ::CSVCMsg_GameSessionConfiguration(*from._impl_.game_session_config_);
   }
   ::memcpy(&_impl_.protocol_, &from._impl_.protocol_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.tick_interval_) -
-    reinterpret_cast<char*>(&_impl_.protocol_)) + sizeof(_impl_.tick_interval_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_slot_) -
+    reinterpret_cast<char*>(&_impl_.protocol_)) + sizeof(_impl_.player_slot_));
   // @@protoc_insertion_point(copy_constructor:CSVCMsg_ServerInfo)
 }
 
@@ -7191,8 +7192,8 @@ inline void CSVCMsg_ServerInfo::SharedCtor(
     , decltype(_impl_.c_os_){0}
     , decltype(_impl_.max_clients_){0}
     , decltype(_impl_.max_classes_){0}
-    , decltype(_impl_.player_slot_){0}
     , decltype(_impl_.tick_interval_){0}
+    , decltype(_impl_.player_slot_){-1}
   };
   _impl_.game_dir_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -7280,6 +7281,7 @@ void CSVCMsg_ServerInfo::Clear() {
     ::memset(&_impl_.server_count_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.tick_interval_) -
         reinterpret_cast<char*>(&_impl_.server_count_)) + sizeof(_impl_.tick_interval_));
+    _impl_.player_slot_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -7355,7 +7357,7 @@ const char* CSVCMsg_ServerInfo::_InternalParse(const char* ptr, ::_pbi::ParseCon
         } else
           goto handle_unusual;
         continue;
-      // optional int32 player_slot = 12;
+      // optional int32 player_slot = 12 [default = -1];
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 96)) {
           _Internal::set_has_player_slot(&has_bits);
@@ -7523,14 +7525,14 @@ uint8_t* CSVCMsg_ServerInfo::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(11, this->_internal_max_classes(), target);
   }
 
-  // optional int32 player_slot = 12;
-  if (cached_has_bits & 0x00004000u) {
+  // optional int32 player_slot = 12 [default = -1];
+  if (cached_has_bits & 0x00008000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(12, this->_internal_player_slot(), target);
   }
 
   // optional float tick_interval = 13;
-  if (cached_has_bits & 0x00008000u) {
+  if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(13, this->_internal_tick_interval(), target);
   }
@@ -7702,14 +7704,14 @@ size_t CSVCMsg_ServerInfo::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_max_classes());
     }
 
-    // optional int32 player_slot = 12;
+    // optional float tick_interval = 13;
     if (cached_has_bits & 0x00004000u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_slot());
+      total_size += 1 + 4;
     }
 
-    // optional float tick_interval = 13;
+    // optional int32 player_slot = 12 [default = -1];
     if (cached_has_bits & 0x00008000u) {
-      total_size += 1 + 4;
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_slot());
     }
 
   }
@@ -7780,10 +7782,10 @@ void CSVCMsg_ServerInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, con
       _this->_impl_.max_classes_ = from._impl_.max_classes_;
     }
     if (cached_has_bits & 0x00004000u) {
-      _this->_impl_.player_slot_ = from._impl_.player_slot_;
+      _this->_impl_.tick_interval_ = from._impl_.tick_interval_;
     }
     if (cached_has_bits & 0x00008000u) {
-      _this->_impl_.tick_interval_ = from._impl_.tick_interval_;
+      _this->_impl_.player_slot_ = from._impl_.player_slot_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -7837,6 +7839,7 @@ void CSVCMsg_ServerInfo::InternalSwap(CSVCMsg_ServerInfo* other) {
       - PROTOBUF_FIELD_OFFSET(CSVCMsg_ServerInfo, _impl_.game_session_config_)>(
           reinterpret_cast<char*>(&_impl_.game_session_config_),
           reinterpret_cast<char*>(&other->_impl_.game_session_config_));
+  swap(_impl_.player_slot_, other->_impl_.player_slot_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CSVCMsg_ServerInfo::GetMetadata() const {
@@ -9117,40 +9120,40 @@ class CSVCMsg_Sounds_sounddata_t::_Internal {
     (*has_bits)[0] |= 32u;
   }
   static void set_has_entity_index(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
+    (*has_bits)[0] |= 262144u;
   }
   static void set_has_channel(HasBits* has_bits) {
-    (*has_bits)[0] |= 128u;
+    (*has_bits)[0] |= 64u;
   }
   static void set_has_pitch(HasBits* has_bits) {
-    (*has_bits)[0] |= 256u;
+    (*has_bits)[0] |= 128u;
   }
   static void set_has_flags(HasBits* has_bits) {
-    (*has_bits)[0] |= 512u;
+    (*has_bits)[0] |= 256u;
   }
   static void set_has_sound_num(HasBits* has_bits) {
-    (*has_bits)[0] |= 1024u;
+    (*has_bits)[0] |= 512u;
   }
   static void set_has_sound_num_handle(HasBits* has_bits) {
-    (*has_bits)[0] |= 2048u;
+    (*has_bits)[0] |= 1024u;
   }
   static void set_has_speaker_entity(HasBits* has_bits) {
-    (*has_bits)[0] |= 4096u;
+    (*has_bits)[0] |= 2048u;
   }
   static void set_has_random_seed(HasBits* has_bits) {
-    (*has_bits)[0] |= 8192u;
+    (*has_bits)[0] |= 4096u;
   }
   static void set_has_sound_level(HasBits* has_bits) {
-    (*has_bits)[0] |= 16384u;
+    (*has_bits)[0] |= 8192u;
   }
   static void set_has_is_sentence(HasBits* has_bits) {
-    (*has_bits)[0] |= 32768u;
+    (*has_bits)[0] |= 16384u;
   }
   static void set_has_is_ambient(HasBits* has_bits) {
-    (*has_bits)[0] |= 65536u;
+    (*has_bits)[0] |= 32768u;
   }
   static void set_has_guid(HasBits* has_bits) {
-    (*has_bits)[0] |= 262144u;
+    (*has_bits)[0] |= 65536u;
   }
   static void set_has_sound_resource_id(HasBits* has_bits) {
     (*has_bits)[0] |= 131072u;
@@ -9175,7 +9178,6 @@ CSVCMsg_Sounds_sounddata_t::CSVCMsg_Sounds_sounddata_t(const CSVCMsg_Sounds_soun
     , decltype(_impl_.volume_){}
     , decltype(_impl_.delay_value_){}
     , decltype(_impl_.sequence_number_){}
-    , decltype(_impl_.entity_index_){}
     , decltype(_impl_.channel_){}
     , decltype(_impl_.pitch_){}
     , decltype(_impl_.flags_){}
@@ -9186,13 +9188,14 @@ CSVCMsg_Sounds_sounddata_t::CSVCMsg_Sounds_sounddata_t(const CSVCMsg_Sounds_soun
     , decltype(_impl_.sound_level_){}
     , decltype(_impl_.is_sentence_){}
     , decltype(_impl_.is_ambient_){}
+    , decltype(_impl_.guid_){}
     , decltype(_impl_.sound_resource_id_){}
-    , decltype(_impl_.guid_){}};
+    , decltype(_impl_.entity_index_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.origin_x_, &from._impl_.origin_x_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.guid_) -
-    reinterpret_cast<char*>(&_impl_.origin_x_)) + sizeof(_impl_.guid_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.entity_index_) -
+    reinterpret_cast<char*>(&_impl_.origin_x_)) + sizeof(_impl_.entity_index_));
   // @@protoc_insertion_point(copy_constructor:CSVCMsg_Sounds.sounddata_t)
 }
 
@@ -9209,7 +9212,6 @@ inline void CSVCMsg_Sounds_sounddata_t::SharedCtor(
     , decltype(_impl_.volume_){0u}
     , decltype(_impl_.delay_value_){0}
     , decltype(_impl_.sequence_number_){0}
-    , decltype(_impl_.entity_index_){0}
     , decltype(_impl_.channel_){0}
     , decltype(_impl_.pitch_){0}
     , decltype(_impl_.flags_){0}
@@ -9220,8 +9222,9 @@ inline void CSVCMsg_Sounds_sounddata_t::SharedCtor(
     , decltype(_impl_.sound_level_){0}
     , decltype(_impl_.is_sentence_){false}
     , decltype(_impl_.is_ambient_){false}
-    , decltype(_impl_.sound_resource_id_){uint64_t{0u}}
     , decltype(_impl_.guid_){0u}
+    , decltype(_impl_.sound_resource_id_){uint64_t{0u}}
+    , decltype(_impl_.entity_index_){-1}
   };
 }
 
@@ -9251,18 +9254,19 @@ void CSVCMsg_Sounds_sounddata_t::Clear() {
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
     ::memset(&_impl_.origin_x_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.channel_) -
-        reinterpret_cast<char*>(&_impl_.origin_x_)) + sizeof(_impl_.channel_));
+        reinterpret_cast<char*>(&_impl_.pitch_) -
+        reinterpret_cast<char*>(&_impl_.origin_x_)) + sizeof(_impl_.pitch_));
   }
   if (cached_has_bits & 0x0000ff00u) {
-    ::memset(&_impl_.pitch_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.is_sentence_) -
-        reinterpret_cast<char*>(&_impl_.pitch_)) + sizeof(_impl_.is_sentence_));
+    ::memset(&_impl_.flags_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.is_ambient_) -
+        reinterpret_cast<char*>(&_impl_.flags_)) + sizeof(_impl_.is_ambient_));
   }
   if (cached_has_bits & 0x00070000u) {
-    ::memset(&_impl_.is_ambient_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.guid_) -
-        reinterpret_cast<char*>(&_impl_.is_ambient_)) + sizeof(_impl_.guid_));
+    ::memset(&_impl_.guid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.sound_resource_id_) -
+        reinterpret_cast<char*>(&_impl_.guid_)) + sizeof(_impl_.sound_resource_id_));
+    _impl_.entity_index_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -9329,7 +9333,7 @@ const char* CSVCMsg_Sounds_sounddata_t::_InternalParse(const char* ptr, ::_pbi::
         } else
           goto handle_unusual;
         continue;
-      // optional int32 entity_index = 7;
+      // optional int32 entity_index = 7 [default = -1];
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
           _Internal::set_has_entity_index(&has_bits);
@@ -9513,74 +9517,74 @@ uint8_t* CSVCMsg_Sounds_sounddata_t::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(6, this->_internal_sequence_number(), target);
   }
 
-  // optional int32 entity_index = 7;
-  if (cached_has_bits & 0x00000040u) {
+  // optional int32 entity_index = 7 [default = -1];
+  if (cached_has_bits & 0x00040000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(7, this->_internal_entity_index(), target);
   }
 
   // optional int32 channel = 8;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(8, this->_internal_channel(), target);
   }
 
   // optional int32 pitch = 9;
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(9, this->_internal_pitch(), target);
   }
 
   // optional int32 flags = 10;
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(10, this->_internal_flags(), target);
   }
 
   // optional uint32 sound_num = 11;
-  if (cached_has_bits & 0x00000400u) {
+  if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(11, this->_internal_sound_num(), target);
   }
 
   // optional fixed32 sound_num_handle = 12;
-  if (cached_has_bits & 0x00000800u) {
+  if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFixed32ToArray(12, this->_internal_sound_num_handle(), target);
   }
 
   // optional int32 speaker_entity = 13;
-  if (cached_has_bits & 0x00001000u) {
+  if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(13, this->_internal_speaker_entity(), target);
   }
 
   // optional int32 random_seed = 14;
-  if (cached_has_bits & 0x00002000u) {
+  if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(14, this->_internal_random_seed(), target);
   }
 
   // optional int32 sound_level = 15;
-  if (cached_has_bits & 0x00004000u) {
+  if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(15, this->_internal_sound_level(), target);
   }
 
   // optional bool is_sentence = 16;
-  if (cached_has_bits & 0x00008000u) {
+  if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(16, this->_internal_is_sentence(), target);
   }
 
   // optional bool is_ambient = 17;
-  if (cached_has_bits & 0x00010000u) {
+  if (cached_has_bits & 0x00008000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(17, this->_internal_is_ambient(), target);
   }
 
   // optional uint32 guid = 18;
-  if (cached_has_bits & 0x00040000u) {
+  if (cached_has_bits & 0x00010000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(18, this->_internal_guid(), target);
   }
@@ -9639,63 +9643,65 @@ size_t CSVCMsg_Sounds_sounddata_t::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_sequence_number());
     }
 
-    // optional int32 entity_index = 7;
+    // optional int32 channel = 8;
     if (cached_has_bits & 0x00000040u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_entity_index());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_channel());
     }
 
-    // optional int32 channel = 8;
+    // optional int32 pitch = 9;
     if (cached_has_bits & 0x00000080u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_channel());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_pitch());
     }
 
   }
   if (cached_has_bits & 0x0000ff00u) {
-    // optional int32 pitch = 9;
-    if (cached_has_bits & 0x00000100u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_pitch());
-    }
-
     // optional int32 flags = 10;
-    if (cached_has_bits & 0x00000200u) {
+    if (cached_has_bits & 0x00000100u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_flags());
     }
 
     // optional uint32 sound_num = 11;
-    if (cached_has_bits & 0x00000400u) {
+    if (cached_has_bits & 0x00000200u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_sound_num());
     }
 
     // optional fixed32 sound_num_handle = 12;
-    if (cached_has_bits & 0x00000800u) {
+    if (cached_has_bits & 0x00000400u) {
       total_size += 1 + 4;
     }
 
     // optional int32 speaker_entity = 13;
-    if (cached_has_bits & 0x00001000u) {
+    if (cached_has_bits & 0x00000800u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_speaker_entity());
     }
 
     // optional int32 random_seed = 14;
-    if (cached_has_bits & 0x00002000u) {
+    if (cached_has_bits & 0x00001000u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_random_seed());
     }
 
     // optional int32 sound_level = 15;
-    if (cached_has_bits & 0x00004000u) {
+    if (cached_has_bits & 0x00002000u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_sound_level());
     }
 
     // optional bool is_sentence = 16;
+    if (cached_has_bits & 0x00004000u) {
+      total_size += 2 + 1;
+    }
+
+    // optional bool is_ambient = 17;
     if (cached_has_bits & 0x00008000u) {
       total_size += 2 + 1;
     }
 
   }
   if (cached_has_bits & 0x00070000u) {
-    // optional bool is_ambient = 17;
+    // optional uint32 guid = 18;
     if (cached_has_bits & 0x00010000u) {
-      total_size += 2 + 1;
+      total_size += 2 +
+        ::_pbi::WireFormatLite::UInt32Size(
+          this->_internal_guid());
     }
 
     // optional fixed64 sound_resource_id = 19;
@@ -9703,11 +9709,9 @@ size_t CSVCMsg_Sounds_sounddata_t::ByteSizeLong() const {
       total_size += 2 + 8;
     }
 
-    // optional uint32 guid = 18;
+    // optional int32 entity_index = 7 [default = -1];
     if (cached_has_bits & 0x00040000u) {
-      total_size += 2 +
-        ::_pbi::WireFormatLite::UInt32Size(
-          this->_internal_guid());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_entity_index());
     }
 
   }
@@ -9750,49 +9754,49 @@ void CSVCMsg_Sounds_sounddata_t::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_
       _this->_impl_.sequence_number_ = from._impl_.sequence_number_;
     }
     if (cached_has_bits & 0x00000040u) {
-      _this->_impl_.entity_index_ = from._impl_.entity_index_;
+      _this->_impl_.channel_ = from._impl_.channel_;
     }
     if (cached_has_bits & 0x00000080u) {
-      _this->_impl_.channel_ = from._impl_.channel_;
+      _this->_impl_.pitch_ = from._impl_.pitch_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   if (cached_has_bits & 0x0000ff00u) {
     if (cached_has_bits & 0x00000100u) {
-      _this->_impl_.pitch_ = from._impl_.pitch_;
-    }
-    if (cached_has_bits & 0x00000200u) {
       _this->_impl_.flags_ = from._impl_.flags_;
     }
-    if (cached_has_bits & 0x00000400u) {
+    if (cached_has_bits & 0x00000200u) {
       _this->_impl_.sound_num_ = from._impl_.sound_num_;
     }
-    if (cached_has_bits & 0x00000800u) {
+    if (cached_has_bits & 0x00000400u) {
       _this->_impl_.sound_num_handle_ = from._impl_.sound_num_handle_;
     }
-    if (cached_has_bits & 0x00001000u) {
+    if (cached_has_bits & 0x00000800u) {
       _this->_impl_.speaker_entity_ = from._impl_.speaker_entity_;
     }
-    if (cached_has_bits & 0x00002000u) {
+    if (cached_has_bits & 0x00001000u) {
       _this->_impl_.random_seed_ = from._impl_.random_seed_;
     }
-    if (cached_has_bits & 0x00004000u) {
+    if (cached_has_bits & 0x00002000u) {
       _this->_impl_.sound_level_ = from._impl_.sound_level_;
     }
-    if (cached_has_bits & 0x00008000u) {
+    if (cached_has_bits & 0x00004000u) {
       _this->_impl_.is_sentence_ = from._impl_.is_sentence_;
+    }
+    if (cached_has_bits & 0x00008000u) {
+      _this->_impl_.is_ambient_ = from._impl_.is_ambient_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   if (cached_has_bits & 0x00070000u) {
     if (cached_has_bits & 0x00010000u) {
-      _this->_impl_.is_ambient_ = from._impl_.is_ambient_;
+      _this->_impl_.guid_ = from._impl_.guid_;
     }
     if (cached_has_bits & 0x00020000u) {
       _this->_impl_.sound_resource_id_ = from._impl_.sound_resource_id_;
     }
     if (cached_has_bits & 0x00040000u) {
-      _this->_impl_.guid_ = from._impl_.guid_;
+      _this->_impl_.entity_index_ = from._impl_.entity_index_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -9815,11 +9819,12 @@ void CSVCMsg_Sounds_sounddata_t::InternalSwap(CSVCMsg_Sounds_sounddata_t* other)
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CSVCMsg_Sounds_sounddata_t, _impl_.guid_)
-      + sizeof(CSVCMsg_Sounds_sounddata_t::_impl_.guid_)
+      PROTOBUF_FIELD_OFFSET(CSVCMsg_Sounds_sounddata_t, _impl_.sound_resource_id_)
+      + sizeof(CSVCMsg_Sounds_sounddata_t::_impl_.sound_resource_id_)
       - PROTOBUF_FIELD_OFFSET(CSVCMsg_Sounds_sounddata_t, _impl_.origin_x_)>(
           reinterpret_cast<char*>(&_impl_.origin_x_),
           reinterpret_cast<char*>(&other->_impl_.origin_x_));
+  swap(_impl_.entity_index_, other->_impl_.entity_index_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CSVCMsg_Sounds_sounddata_t::GetMetadata() const {
@@ -10338,8 +10343,8 @@ inline void CSVCMsg_SetView::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.entity_index_){0}
-    , decltype(_impl_.slot_){0}
+    , decltype(_impl_.entity_index_){-1}
+    , decltype(_impl_.slot_){-1}
   };
 }
 
@@ -10368,9 +10373,8 @@ void CSVCMsg_SetView::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    ::memset(&_impl_.entity_index_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.slot_) -
-        reinterpret_cast<char*>(&_impl_.entity_index_)) + sizeof(_impl_.slot_));
+    _impl_.entity_index_ = -1;
+    _impl_.slot_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -10383,7 +10387,7 @@ const char* CSVCMsg_SetView::_InternalParse(const char* ptr, ::_pbi::ParseContex
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 entity_index = 1;
+      // optional int32 entity_index = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_entity_index(&has_bits);
@@ -10392,7 +10396,7 @@ const char* CSVCMsg_SetView::_InternalParse(const char* ptr, ::_pbi::ParseContex
         } else
           goto handle_unusual;
         continue;
-      // optional int32 slot = 2;
+      // optional int32 slot = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_slot(&has_bits);
@@ -10432,13 +10436,13 @@ uint8_t* CSVCMsg_SetView::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 entity_index = 1;
+  // optional int32 entity_index = 1 [default = -1];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_entity_index(), target);
   }
 
-  // optional int32 slot = 2;
+  // optional int32 slot = 2 [default = -1];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_slot(), target);
@@ -10462,12 +10466,12 @@ size_t CSVCMsg_SetView::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional int32 entity_index = 1;
+    // optional int32 entity_index = 1 [default = -1];
     if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_entity_index());
     }
 
-    // optional int32 slot = 2;
+    // optional int32 slot = 2 [default = -1];
     if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_slot());
     }
@@ -10519,12 +10523,8 @@ void CSVCMsg_SetView::InternalSwap(CSVCMsg_SetView* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CSVCMsg_SetView, _impl_.slot_)
-      + sizeof(CSVCMsg_SetView::_impl_.slot_)
-      - PROTOBUF_FIELD_OFFSET(CSVCMsg_SetView, _impl_.entity_index_)>(
-          reinterpret_cast<char*>(&_impl_.entity_index_),
-          reinterpret_cast<char*>(&other->_impl_.entity_index_));
+  swap(_impl_.entity_index_, other->_impl_.entity_index_);
+  swap(_impl_.slot_, other->_impl_.slot_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CSVCMsg_SetView::GetMetadata() const {
@@ -11007,13 +11007,13 @@ class CSVCMsg_BSPDecal::_Internal {
     (*has_bits)[0] |= 2u;
   }
   static void set_has_entity_index(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_model_index(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_low_priority(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 8u;
   }
 };
 
@@ -11039,17 +11039,17 @@ CSVCMsg_BSPDecal::CSVCMsg_BSPDecal(const CSVCMsg_BSPDecal& from)
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.pos_){nullptr}
     , decltype(_impl_.decal_texture_index_){}
-    , decltype(_impl_.entity_index_){}
     , decltype(_impl_.model_index_){}
-    , decltype(_impl_.low_priority_){}};
+    , decltype(_impl_.low_priority_){}
+    , decltype(_impl_.entity_index_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_pos()) {
     _this->_impl_.pos_ = new ::CMsgVector(*from._impl_.pos_);
   }
   ::memcpy(&_impl_.decal_texture_index_, &from._impl_.decal_texture_index_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.low_priority_) -
-    reinterpret_cast<char*>(&_impl_.decal_texture_index_)) + sizeof(_impl_.low_priority_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.entity_index_) -
+    reinterpret_cast<char*>(&_impl_.decal_texture_index_)) + sizeof(_impl_.entity_index_));
   // @@protoc_insertion_point(copy_constructor:CSVCMsg_BSPDecal)
 }
 
@@ -11062,9 +11062,9 @@ inline void CSVCMsg_BSPDecal::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.pos_){nullptr}
     , decltype(_impl_.decal_texture_index_){0}
-    , decltype(_impl_.entity_index_){0}
     , decltype(_impl_.model_index_){0}
     , decltype(_impl_.low_priority_){false}
+    , decltype(_impl_.entity_index_){-1}
   };
 }
 
@@ -11101,6 +11101,7 @@ void CSVCMsg_BSPDecal::Clear() {
     ::memset(&_impl_.decal_texture_index_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.low_priority_) -
         reinterpret_cast<char*>(&_impl_.decal_texture_index_)) + sizeof(_impl_.low_priority_));
+    _impl_.entity_index_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -11130,7 +11131,7 @@ const char* CSVCMsg_BSPDecal::_InternalParse(const char* ptr, ::_pbi::ParseConte
         } else
           goto handle_unusual;
         continue;
-      // optional int32 entity_index = 3;
+      // optional int32 entity_index = 3 [default = -1];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_entity_index(&has_bits);
@@ -11201,20 +11202,20 @@ uint8_t* CSVCMsg_BSPDecal::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_decal_texture_index(), target);
   }
 
-  // optional int32 entity_index = 3;
-  if (cached_has_bits & 0x00000004u) {
+  // optional int32 entity_index = 3 [default = -1];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_entity_index(), target);
   }
 
   // optional int32 model_index = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_model_index(), target);
   }
 
   // optional bool low_priority = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(5, this->_internal_low_priority(), target);
   }
@@ -11249,19 +11250,19 @@ size_t CSVCMsg_BSPDecal::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_decal_texture_index());
     }
 
-    // optional int32 entity_index = 3;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_entity_index());
-    }
-
     // optional int32 model_index = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_model_index());
     }
 
     // optional bool low_priority = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 1;
+    }
+
+    // optional int32 entity_index = 3 [default = -1];
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_entity_index());
     }
 
   }
@@ -11293,13 +11294,13 @@ void CSVCMsg_BSPDecal::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const
       _this->_impl_.decal_texture_index_ = from._impl_.decal_texture_index_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.entity_index_ = from._impl_.entity_index_;
-    }
-    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.model_index_ = from._impl_.model_index_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.low_priority_ = from._impl_.low_priority_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.entity_index_ = from._impl_.entity_index_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -11327,6 +11328,7 @@ void CSVCMsg_BSPDecal::InternalSwap(CSVCMsg_BSPDecal* other) {
       - PROTOBUF_FIELD_OFFSET(CSVCMsg_BSPDecal, _impl_.pos_)>(
           reinterpret_cast<char*>(&_impl_.pos_),
           reinterpret_cast<char*>(&other->_impl_.pos_));
+  swap(_impl_.entity_index_, other->_impl_.entity_index_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CSVCMsg_BSPDecal::GetMetadata() const {
@@ -11383,7 +11385,7 @@ inline void CSVCMsg_SplitScreen::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.type_){0}
     , decltype(_impl_.slot_){0}
-    , decltype(_impl_.player_index_){0}
+    , decltype(_impl_.player_index_){-1}
   };
 }
 
@@ -11413,8 +11415,9 @@ void CSVCMsg_SplitScreen::Clear() {
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
     ::memset(&_impl_.type_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.player_index_) -
-        reinterpret_cast<char*>(&_impl_.type_)) + sizeof(_impl_.player_index_));
+        reinterpret_cast<char*>(&_impl_.slot_) -
+        reinterpret_cast<char*>(&_impl_.type_)) + sizeof(_impl_.slot_));
+    _impl_.player_index_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -11449,7 +11452,7 @@ const char* CSVCMsg_SplitScreen::_InternalParse(const char* ptr, ::_pbi::ParseCo
         } else
           goto handle_unusual;
         continue;
-      // optional int32 player_index = 3;
+      // optional int32 player_index = 3 [default = -1];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_player_index(&has_bits);
@@ -11502,7 +11505,7 @@ uint8_t* CSVCMsg_SplitScreen::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_slot(), target);
   }
 
-  // optional int32 player_index = 3;
+  // optional int32 player_index = 3 [default = -1];
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_player_index(), target);
@@ -11537,7 +11540,7 @@ size_t CSVCMsg_SplitScreen::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_slot());
     }
 
-    // optional int32 player_index = 3;
+    // optional int32 player_index = 3 [default = -1];
     if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_index());
     }
@@ -11593,11 +11596,12 @@ void CSVCMsg_SplitScreen::InternalSwap(CSVCMsg_SplitScreen* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CSVCMsg_SplitScreen, _impl_.player_index_)
-      + sizeof(CSVCMsg_SplitScreen::_impl_.player_index_)
+      PROTOBUF_FIELD_OFFSET(CSVCMsg_SplitScreen, _impl_.slot_)
+      + sizeof(CSVCMsg_SplitScreen::_impl_.slot_)
       - PROTOBUF_FIELD_OFFSET(CSVCMsg_SplitScreen, _impl_.type_)>(
           reinterpret_cast<char*>(&_impl_.type_),
           reinterpret_cast<char*>(&other->_impl_.type_));
+  swap(_impl_.player_index_, other->_impl_.player_index_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CSVCMsg_SplitScreen::GetMetadata() const {
@@ -16275,19 +16279,19 @@ class CSVCMsg_VoiceData::_Internal {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_client(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 32u;
   }
   static void set_has_proximity(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
   static void set_has_xuid(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_audible_mask(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_tick(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 16u;
   }
 };
 
@@ -16308,19 +16312,19 @@ CSVCMsg_VoiceData::CSVCMsg_VoiceData(const CSVCMsg_VoiceData& from)
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.audio_){nullptr}
-    , decltype(_impl_.client_){}
-    , decltype(_impl_.proximity_){}
     , decltype(_impl_.xuid_){}
+    , decltype(_impl_.proximity_){}
     , decltype(_impl_.audible_mask_){}
-    , decltype(_impl_.tick_){}};
+    , decltype(_impl_.tick_){}
+    , decltype(_impl_.client_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_audio()) {
     _this->_impl_.audio_ = new ::CMsgVoiceAudio(*from._impl_.audio_);
   }
-  ::memcpy(&_impl_.client_, &from._impl_.client_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.tick_) -
-    reinterpret_cast<char*>(&_impl_.client_)) + sizeof(_impl_.tick_));
+  ::memcpy(&_impl_.xuid_, &from._impl_.xuid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.client_) -
+    reinterpret_cast<char*>(&_impl_.xuid_)) + sizeof(_impl_.client_));
   // @@protoc_insertion_point(copy_constructor:CSVCMsg_VoiceData)
 }
 
@@ -16332,11 +16336,11 @@ inline void CSVCMsg_VoiceData::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.audio_){nullptr}
-    , decltype(_impl_.client_){0}
-    , decltype(_impl_.proximity_){false}
     , decltype(_impl_.xuid_){uint64_t{0u}}
+    , decltype(_impl_.proximity_){false}
     , decltype(_impl_.audible_mask_){0}
     , decltype(_impl_.tick_){0u}
+    , decltype(_impl_.client_){-1}
   };
 }
 
@@ -16370,9 +16374,10 @@ void CSVCMsg_VoiceData::Clear() {
     _impl_.audio_->Clear();
   }
   if (cached_has_bits & 0x0000003eu) {
-    ::memset(&_impl_.client_, 0, static_cast<size_t>(
+    ::memset(&_impl_.xuid_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.tick_) -
-        reinterpret_cast<char*>(&_impl_.client_)) + sizeof(_impl_.tick_));
+        reinterpret_cast<char*>(&_impl_.xuid_)) + sizeof(_impl_.tick_));
+    _impl_.client_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -16393,7 +16398,7 @@ const char* CSVCMsg_VoiceData::_InternalParse(const char* ptr, ::_pbi::ParseCont
         } else
           goto handle_unusual;
         continue;
-      // optional int32 client = 2;
+      // optional int32 client = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_client(&has_bits);
@@ -16476,8 +16481,8 @@ uint8_t* CSVCMsg_VoiceData::_InternalSerialize(
         _Internal::audio(this).GetCachedSize(), target, stream);
   }
 
-  // optional int32 client = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 client = 2 [default = -1];
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_client(), target);
   }
@@ -16489,19 +16494,19 @@ uint8_t* CSVCMsg_VoiceData::_InternalSerialize(
   }
 
   // optional fixed64 xuid = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFixed64ToArray(4, this->_internal_xuid(), target);
   }
 
   // optional int32 audible_mask = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(5, this->_internal_audible_mask(), target);
   }
 
   // optional uint32 tick = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_tick(), target);
   }
@@ -16531,9 +16536,9 @@ size_t CSVCMsg_VoiceData::ByteSizeLong() const {
           *_impl_.audio_);
     }
 
-    // optional int32 client = 2;
+    // optional fixed64 xuid = 4;
     if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_client());
+      total_size += 1 + 8;
     }
 
     // optional bool proximity = 3;
@@ -16541,19 +16546,19 @@ size_t CSVCMsg_VoiceData::ByteSizeLong() const {
       total_size += 1 + 1;
     }
 
-    // optional fixed64 xuid = 4;
-    if (cached_has_bits & 0x00000008u) {
-      total_size += 1 + 8;
-    }
-
     // optional int32 audible_mask = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_audible_mask());
     }
 
     // optional uint32 tick = 6;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_tick());
+    }
+
+    // optional int32 client = 2 [default = -1];
+    if (cached_has_bits & 0x00000020u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_client());
     }
 
   }
@@ -16582,19 +16587,19 @@ void CSVCMsg_VoiceData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, cons
           from._internal_audio());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.client_ = from._impl_.client_;
+      _this->_impl_.xuid_ = from._impl_.xuid_;
     }
     if (cached_has_bits & 0x00000004u) {
       _this->_impl_.proximity_ = from._impl_.proximity_;
     }
     if (cached_has_bits & 0x00000008u) {
-      _this->_impl_.xuid_ = from._impl_.xuid_;
-    }
-    if (cached_has_bits & 0x00000010u) {
       _this->_impl_.audible_mask_ = from._impl_.audible_mask_;
     }
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       _this->_impl_.tick_ = from._impl_.tick_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      _this->_impl_.client_ = from._impl_.client_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -16622,6 +16627,7 @@ void CSVCMsg_VoiceData::InternalSwap(CSVCMsg_VoiceData* other) {
       - PROTOBUF_FIELD_OFFSET(CSVCMsg_VoiceData, _impl_.audio_)>(
           reinterpret_cast<char*>(&_impl_.audio_),
           reinterpret_cast<char*>(&other->_impl_.audio_));
+  swap(_impl_.client_, other->_impl_.client_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CSVCMsg_VoiceData::GetMetadata() const {
@@ -18460,7 +18466,7 @@ class CMsgServerPeer::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgServerPeer>()._impl_._has_bits_);
   static void set_has_player_slot(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 32u;
   }
   static void set_has_steamid(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
@@ -18470,13 +18476,13 @@ class CMsgServerPeer::_Internal {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_they_hear_you(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_you_hear_them(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_is_listenserver_host(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 16u;
   }
 };
 
@@ -18498,18 +18504,18 @@ CMsgServerPeer::CMsgServerPeer(const CMsgServerPeer& from)
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.ipc_){nullptr}
     , decltype(_impl_.steamid_){}
-    , decltype(_impl_.player_slot_){}
     , decltype(_impl_.they_hear_you_){}
     , decltype(_impl_.you_hear_them_){}
-    , decltype(_impl_.is_listenserver_host_){}};
+    , decltype(_impl_.is_listenserver_host_){}
+    , decltype(_impl_.player_slot_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_ipc()) {
     _this->_impl_.ipc_ = new ::CMsgIPCAddress(*from._impl_.ipc_);
   }
   ::memcpy(&_impl_.steamid_, &from._impl_.steamid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.is_listenserver_host_) -
-    reinterpret_cast<char*>(&_impl_.steamid_)) + sizeof(_impl_.is_listenserver_host_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_slot_) -
+    reinterpret_cast<char*>(&_impl_.steamid_)) + sizeof(_impl_.player_slot_));
   // @@protoc_insertion_point(copy_constructor:CMsgServerPeer)
 }
 
@@ -18522,10 +18528,10 @@ inline void CMsgServerPeer::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.ipc_){nullptr}
     , decltype(_impl_.steamid_){uint64_t{0u}}
-    , decltype(_impl_.player_slot_){0}
     , decltype(_impl_.they_hear_you_){false}
     , decltype(_impl_.you_hear_them_){false}
     , decltype(_impl_.is_listenserver_host_){false}
+    , decltype(_impl_.player_slot_){-1}
   };
 }
 
@@ -18562,6 +18568,7 @@ void CMsgServerPeer::Clear() {
     ::memset(&_impl_.steamid_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.is_listenserver_host_) -
         reinterpret_cast<char*>(&_impl_.steamid_)) + sizeof(_impl_.is_listenserver_host_));
+    _impl_.player_slot_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -18574,7 +18581,7 @@ const char* CMsgServerPeer::_InternalParse(const char* ptr, ::_pbi::ParseContext
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_slot = 1;
+      // optional int32 player_slot = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_slot(&has_bits);
@@ -18658,8 +18665,8 @@ uint8_t* CMsgServerPeer::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_slot = 1;
-  if (cached_has_bits & 0x00000004u) {
+  // optional int32 player_slot = 1 [default = -1];
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_slot(), target);
   }
@@ -18678,19 +18685,19 @@ uint8_t* CMsgServerPeer::_InternalSerialize(
   }
 
   // optional bool they_hear_you = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_they_hear_you(), target);
   }
 
   // optional bool you_hear_them = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(5, this->_internal_you_hear_them(), target);
   }
 
   // optional bool is_listenserver_host = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(6, this->_internal_is_listenserver_host(), target);
   }
@@ -18725,24 +18732,24 @@ size_t CMsgServerPeer::ByteSizeLong() const {
       total_size += 1 + 8;
     }
 
-    // optional int32 player_slot = 1;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_slot());
-    }
-
     // optional bool they_hear_you = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
     }
 
     // optional bool you_hear_them = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 1;
     }
 
     // optional bool is_listenserver_host = 6;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 1;
+    }
+
+    // optional int32 player_slot = 1 [default = -1];
+    if (cached_has_bits & 0x00000020u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_slot());
     }
 
   }
@@ -18774,16 +18781,16 @@ void CMsgServerPeer::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
       _this->_impl_.steamid_ = from._impl_.steamid_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.player_slot_ = from._impl_.player_slot_;
-    }
-    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.they_hear_you_ = from._impl_.they_hear_you_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.you_hear_them_ = from._impl_.you_hear_them_;
     }
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       _this->_impl_.is_listenserver_host_ = from._impl_.is_listenserver_host_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      _this->_impl_.player_slot_ = from._impl_.player_slot_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -18811,6 +18818,7 @@ void CMsgServerPeer::InternalSwap(CMsgServerPeer* other) {
       - PROTOBUF_FIELD_OFFSET(CMsgServerPeer, _impl_.ipc_)>(
           reinterpret_cast<char*>(&_impl_.ipc_),
           reinterpret_cast<char*>(&other->_impl_.ipc_));
+  swap(_impl_.player_slot_, other->_impl_.player_slot_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerPeer::GetMetadata() const {
@@ -22471,25 +22479,25 @@ class CSVCMsg_HltvReplay::_Internal {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_primary_target(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 128u;
   }
   static void set_has_replay_stop_at(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_replay_start_at(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_replay_slowdown_begin(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_replay_slowdown_end(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_replay_slowdown_rate(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
+    (*has_bits)[0] |= 32u;
   }
   static void set_has_reason(HasBits* has_bits) {
-    (*has_bits)[0] |= 128u;
+    (*has_bits)[0] |= 64u;
   }
 };
 
@@ -22506,18 +22514,18 @@ CSVCMsg_HltvReplay::CSVCMsg_HltvReplay(const CSVCMsg_HltvReplay& from)
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.delay_){}
-    , decltype(_impl_.primary_target_){}
     , decltype(_impl_.replay_stop_at_){}
     , decltype(_impl_.replay_start_at_){}
     , decltype(_impl_.replay_slowdown_begin_){}
     , decltype(_impl_.replay_slowdown_end_){}
     , decltype(_impl_.replay_slowdown_rate_){}
-    , decltype(_impl_.reason_){}};
+    , decltype(_impl_.reason_){}
+    , decltype(_impl_.primary_target_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.delay_, &from._impl_.delay_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.reason_) -
-    reinterpret_cast<char*>(&_impl_.delay_)) + sizeof(_impl_.reason_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.primary_target_) -
+    reinterpret_cast<char*>(&_impl_.delay_)) + sizeof(_impl_.primary_target_));
   // @@protoc_insertion_point(copy_constructor:CSVCMsg_HltvReplay)
 }
 
@@ -22529,13 +22537,13 @@ inline void CSVCMsg_HltvReplay::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.delay_){0}
-    , decltype(_impl_.primary_target_){0}
     , decltype(_impl_.replay_stop_at_){0}
     , decltype(_impl_.replay_start_at_){0}
     , decltype(_impl_.replay_slowdown_begin_){0}
     , decltype(_impl_.replay_slowdown_end_){0}
     , decltype(_impl_.replay_slowdown_rate_){0}
     , decltype(_impl_.reason_){0}
+    , decltype(_impl_.primary_target_){-1}
   };
 }
 
@@ -22567,6 +22575,7 @@ void CSVCMsg_HltvReplay::Clear() {
     ::memset(&_impl_.delay_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.reason_) -
         reinterpret_cast<char*>(&_impl_.delay_)) + sizeof(_impl_.reason_));
+    _impl_.primary_target_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -22588,7 +22597,7 @@ const char* CSVCMsg_HltvReplay::_InternalParse(const char* ptr, ::_pbi::ParseCon
         } else
           goto handle_unusual;
         continue;
-      // optional int32 primary_target = 2;
+      // optional int32 primary_target = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_primary_target(&has_bits);
@@ -22688,44 +22697,44 @@ uint8_t* CSVCMsg_HltvReplay::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_delay(), target);
   }
 
-  // optional int32 primary_target = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 primary_target = 2 [default = -1];
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_primary_target(), target);
   }
 
   // optional int32 replay_stop_at = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_replay_stop_at(), target);
   }
 
   // optional int32 replay_start_at = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_replay_start_at(), target);
   }
 
   // optional int32 replay_slowdown_begin = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(5, this->_internal_replay_slowdown_begin(), target);
   }
 
   // optional int32 replay_slowdown_end = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(6, this->_internal_replay_slowdown_end(), target);
   }
 
   // optional float replay_slowdown_rate = 7;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(7, this->_internal_replay_slowdown_rate(), target);
   }
 
   // optional int32 reason = 8;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(8, this->_internal_reason(), target);
   }
@@ -22753,39 +22762,39 @@ size_t CSVCMsg_HltvReplay::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_delay());
     }
 
-    // optional int32 primary_target = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_primary_target());
-    }
-
     // optional int32 replay_stop_at = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_replay_stop_at());
     }
 
     // optional int32 replay_start_at = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_replay_start_at());
     }
 
     // optional int32 replay_slowdown_begin = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_replay_slowdown_begin());
     }
 
     // optional int32 replay_slowdown_end = 6;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_replay_slowdown_end());
     }
 
     // optional float replay_slowdown_rate = 7;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 4;
     }
 
     // optional int32 reason = 8;
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000040u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_reason());
+    }
+
+    // optional int32 primary_target = 2 [default = -1];
+    if (cached_has_bits & 0x00000080u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_primary_target());
     }
 
   }
@@ -22813,25 +22822,25 @@ void CSVCMsg_HltvReplay::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, con
       _this->_impl_.delay_ = from._impl_.delay_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.primary_target_ = from._impl_.primary_target_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.replay_stop_at_ = from._impl_.replay_stop_at_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.replay_start_at_ = from._impl_.replay_start_at_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.replay_slowdown_begin_ = from._impl_.replay_slowdown_begin_;
     }
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       _this->_impl_.replay_slowdown_end_ = from._impl_.replay_slowdown_end_;
     }
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000020u) {
       _this->_impl_.replay_slowdown_rate_ = from._impl_.replay_slowdown_rate_;
     }
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000040u) {
       _this->_impl_.reason_ = from._impl_.reason_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      _this->_impl_.primary_target_ = from._impl_.primary_target_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -22859,6 +22868,7 @@ void CSVCMsg_HltvReplay::InternalSwap(CSVCMsg_HltvReplay* other) {
       - PROTOBUF_FIELD_OFFSET(CSVCMsg_HltvReplay, _impl_.delay_)>(
           reinterpret_cast<char*>(&_impl_.delay_),
           reinterpret_cast<char*>(&other->_impl_.delay_));
+  swap(_impl_.primary_target_, other->_impl_.primary_target_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CSVCMsg_HltvReplay::GetMetadata() const {
@@ -22882,10 +22892,10 @@ class CCLCMsg_HltvReplay::_Internal {
     (*has_bits)[0] |= 4u;
   }
   static void set_has_primary_target(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_event_time(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 8u;
   }
 };
 
@@ -22904,13 +22914,13 @@ CCLCMsg_HltvReplay::CCLCMsg_HltvReplay(const CCLCMsg_HltvReplay& from)
     , decltype(_impl_.request_){}
     , decltype(_impl_.slowdown_length_){}
     , decltype(_impl_.slowdown_rate_){}
-    , decltype(_impl_.primary_target_){}
-    , decltype(_impl_.event_time_){}};
+    , decltype(_impl_.event_time_){}
+    , decltype(_impl_.primary_target_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.request_, &from._impl_.request_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.event_time_) -
-    reinterpret_cast<char*>(&_impl_.request_)) + sizeof(_impl_.event_time_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.primary_target_) -
+    reinterpret_cast<char*>(&_impl_.request_)) + sizeof(_impl_.primary_target_));
   // @@protoc_insertion_point(copy_constructor:CCLCMsg_HltvReplay)
 }
 
@@ -22924,8 +22934,8 @@ inline void CCLCMsg_HltvReplay::SharedCtor(
     , decltype(_impl_.request_){0}
     , decltype(_impl_.slowdown_length_){0}
     , decltype(_impl_.slowdown_rate_){0}
-    , decltype(_impl_.primary_target_){0}
     , decltype(_impl_.event_time_){0}
+    , decltype(_impl_.primary_target_){-1}
   };
 }
 
@@ -22957,6 +22967,7 @@ void CCLCMsg_HltvReplay::Clear() {
     ::memset(&_impl_.request_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.event_time_) -
         reinterpret_cast<char*>(&_impl_.request_)) + sizeof(_impl_.event_time_));
+    _impl_.primary_target_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -22996,7 +23007,7 @@ const char* CCLCMsg_HltvReplay::_InternalParse(const char* ptr, ::_pbi::ParseCon
         } else
           goto handle_unusual;
         continue;
-      // optional int32 primary_target = 4;
+      // optional int32 primary_target = 4 [default = -1];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _Internal::set_has_primary_target(&has_bits);
@@ -23063,14 +23074,14 @@ uint8_t* CCLCMsg_HltvReplay::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_slowdown_rate(), target);
   }
 
-  // optional int32 primary_target = 4;
-  if (cached_has_bits & 0x00000008u) {
+  // optional int32 primary_target = 4 [default = -1];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_primary_target(), target);
   }
 
   // optional float event_time = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(5, this->_internal_event_time(), target);
   }
@@ -23108,14 +23119,14 @@ size_t CCLCMsg_HltvReplay::ByteSizeLong() const {
       total_size += 1 + 4;
     }
 
-    // optional int32 primary_target = 4;
+    // optional float event_time = 5;
     if (cached_has_bits & 0x00000008u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_primary_target());
+      total_size += 1 + 4;
     }
 
-    // optional float event_time = 5;
+    // optional int32 primary_target = 4 [default = -1];
     if (cached_has_bits & 0x00000010u) {
-      total_size += 1 + 4;
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_primary_target());
     }
 
   }
@@ -23149,10 +23160,10 @@ void CCLCMsg_HltvReplay::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, con
       _this->_impl_.slowdown_rate_ = from._impl_.slowdown_rate_;
     }
     if (cached_has_bits & 0x00000008u) {
-      _this->_impl_.primary_target_ = from._impl_.primary_target_;
+      _this->_impl_.event_time_ = from._impl_.event_time_;
     }
     if (cached_has_bits & 0x00000010u) {
-      _this->_impl_.event_time_ = from._impl_.event_time_;
+      _this->_impl_.primary_target_ = from._impl_.primary_target_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -23180,6 +23191,7 @@ void CCLCMsg_HltvReplay::InternalSwap(CCLCMsg_HltvReplay* other) {
       - PROTOBUF_FIELD_OFFSET(CCLCMsg_HltvReplay, _impl_.request_)>(
           reinterpret_cast<char*>(&_impl_.request_),
           reinterpret_cast<char*>(&other->_impl_.request_));
+  swap(_impl_.primary_target_, other->_impl_.primary_target_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CCLCMsg_HltvReplay::GetMetadata() const {

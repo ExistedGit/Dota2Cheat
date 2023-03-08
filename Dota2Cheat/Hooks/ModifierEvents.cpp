@@ -1,6 +1,5 @@
 #include "ModifierEvents.h"
 
-
 void Hooks::CacheIfItemModifier(CDOTAModifier* modifier) {
 	static const std::vector<ImportantItemData> importantItemNames = {
 		{
@@ -68,7 +67,7 @@ void Hooks::hkOnAddModifier(CDOTAModifier* modifier, int unk) {
 void Hooks::hkOnRemoveModifier(CDOTAModifier* modifier, C_DOTA_PlayerResource* playerResource, void* unk) {
 	if (!HookedOnAddModifier) {
 		HookedOnAddModifier = true;
-		void* onAddModifier = modifier->GetVFunc(35).ptr;
+		void* onAddModifier = modifier->GetVFunc(VTableIndexes::CDOTA_Buff::OnAddModifier).ptr;
 
 		HookFunc(onAddModifier, &hkOnAddModifier, &oOnAddModifier, "AddModifier");
 	}

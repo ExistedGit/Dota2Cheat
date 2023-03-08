@@ -192,6 +192,9 @@
     <ClCompile Include="SDK\Interfaces\CVarSystem.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="HookHelper.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h">
@@ -507,6 +510,9 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="SDK\VTableIndexes.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Protobufs\steammessages.pb.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>

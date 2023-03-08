@@ -52,10 +52,14 @@ struct CreateParticleInfo
 	const char* m_szParticleName;
 	ParticleAttachment_t m_particleAttachment;
 	CBaseEntity* m_pTargetEntity;
-	CRecipientFilter* m_pFilter = nullptr;
-	CBaseEntity* m_pCaster = nullptr;
-	int                  m_unk1 = 0;
-	bool                 m_bVoice = false;
+private:
+	void* unk[5] = {
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr
+	};
 };
 
 struct CNewParticleEffect : public VClass {

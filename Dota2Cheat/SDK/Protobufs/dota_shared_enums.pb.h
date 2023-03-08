@@ -234,6 +234,7 @@ enum EEvent : int {
   EVENT_ID_TEAM_2021_2022_TOUR3 = 37,
   EVENT_ID_TEAM_INTERNATIONAL_2022 = 38,
   EVENT_ID_PERMANENT_GRANTS = 39,
+  EVENT_ID_MUERTA_RELEASE_SPRING2023 = 40,
   EVENT_ID_TEAM_2023_TOUR1 = 41
 };
 bool EEvent_IsValid(int value);
@@ -254,6 +255,32 @@ inline bool EEvent_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EEvent* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EEvent>(
     EEvent_descriptor(), name, value);
+}
+enum ERankType : int {
+  k_ERankType_Invalid = 0,
+  k_ERankType_Casual = 1,
+  k_ERankType_Ranked = 2,
+  k_ERankType_CasualLegacy = 3,
+  k_ERankType_RankedLegacy = 4
+};
+bool ERankType_IsValid(int value);
+constexpr ERankType ERankType_MIN = k_ERankType_Invalid;
+constexpr ERankType ERankType_MAX = k_ERankType_RankedLegacy;
+constexpr int ERankType_ARRAYSIZE = ERankType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ERankType_descriptor();
+template<typename T>
+inline const std::string& ERankType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, ERankType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function ERankType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    ERankType_descriptor(), enum_t_value);
+}
+inline bool ERankType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ERankType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ERankType>(
+    ERankType_descriptor(), name, value);
 }
 enum DOTALeaverStatus_t : int {
   DOTA_LEAVER_NONE = 0,
@@ -591,29 +618,6 @@ inline bool DOTALobbyReadyState_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<DOTALobbyReadyState>(
     DOTALobbyReadyState_descriptor(), name, value);
 }
-enum DOTAGameVersion : int {
-  GAME_VERSION_CURRENT = 0,
-  GAME_VERSION_STABLE = 1
-};
-bool DOTAGameVersion_IsValid(int value);
-constexpr DOTAGameVersion DOTAGameVersion_MIN = GAME_VERSION_CURRENT;
-constexpr DOTAGameVersion DOTAGameVersion_MAX = GAME_VERSION_STABLE;
-constexpr int DOTAGameVersion_ARRAYSIZE = DOTAGameVersion_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DOTAGameVersion_descriptor();
-template<typename T>
-inline const std::string& DOTAGameVersion_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, DOTAGameVersion>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function DOTAGameVersion_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    DOTAGameVersion_descriptor(), enum_t_value);
-}
-inline bool DOTAGameVersion_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, DOTAGameVersion* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<DOTAGameVersion>(
-    DOTAGameVersion_descriptor(), name, value);
-}
 enum DOTAJoinLobbyResult : int {
   DOTA_JOIN_RESULT_SUCCESS = 0,
   DOTA_JOIN_RESULT_ALREADY_IN_GAME = 1,
@@ -750,13 +754,11 @@ inline bool DOTALobbyVisibility_Parse(
 enum EDOTAPlayerMMRType : int {
   k_EDOTAPlayerMMRType_Invalid = 0,
   k_EDOTAPlayerMMRType_GeneralHidden = 1,
-  k_EDOTAPlayerMMRType_GeneralCompetitive = 3,
-  k_EDOTAPlayerMMRType_SoloCompetitive2019 = 4,
-  k_EDOTAPlayerMMRType_1v1Competitive_UNUSED = 5
+  k_EDOTAPlayerMMRType_GeneralCompetitive = 3
 };
 bool EDOTAPlayerMMRType_IsValid(int value);
 constexpr EDOTAPlayerMMRType EDOTAPlayerMMRType_MIN = k_EDOTAPlayerMMRType_Invalid;
-constexpr EDOTAPlayerMMRType EDOTAPlayerMMRType_MAX = k_EDOTAPlayerMMRType_1v1Competitive_UNUSED;
+constexpr EDOTAPlayerMMRType EDOTAPlayerMMRType_MAX = k_EDOTAPlayerMMRType_GeneralCompetitive;
 constexpr int EDOTAPlayerMMRType_ARRAYSIZE = EDOTAPlayerMMRType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EDOTAPlayerMMRType_descriptor();
@@ -800,18 +802,10 @@ inline bool EDOTAMMRBoostType_Parse(
 enum MatchType : int {
   MATCH_TYPE_CASUAL = 0,
   MATCH_TYPE_COOP_BOTS = 1,
-  MATCH_TYPE_LEGACY_TEAM_RANKED = 2,
-  MATCH_TYPE_LEGACY_SOLO_QUEUE = 3,
   MATCH_TYPE_COMPETITIVE = 4,
   MATCH_TYPE_WEEKEND_TOURNEY = 5,
-  MATCH_TYPE_CASUAL_1V1 = 6,
   MATCH_TYPE_EVENT = 7,
-  MATCH_TYPE_SEASONAL_RANKED = 8,
-  MATCH_TYPE_LOWPRI_DEPRECATED = 9,
-  MATCH_TYPE_STEAM_GROUP = 10,
-  MATCH_TYPE_MUTATION = 11,
   MATCH_TYPE_COACHES_CHALLENGE = 12,
-  MATCH_TYPE_GAUNTLET = 13,
   MATCH_TYPE_NEW_PLAYER_POOL = 14
 };
 bool MatchType_IsValid(int value);
@@ -7345,6 +7339,11 @@ template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::EEvent>() {
   return ::EEvent_descriptor();
 }
+template <> struct is_proto_enum< ::ERankType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ERankType>() {
+  return ::ERankType_descriptor();
+}
 template <> struct is_proto_enum< ::DOTALeaverStatus_t> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::DOTALeaverStatus_t>() {
@@ -7404,11 +7403,6 @@ template <> struct is_proto_enum< ::DOTALobbyReadyState> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::DOTALobbyReadyState>() {
   return ::DOTALobbyReadyState_descriptor();
-}
-template <> struct is_proto_enum< ::DOTAGameVersion> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::DOTAGameVersion>() {
-  return ::DOTAGameVersion_descriptor();
 }
 template <> struct is_proto_enum< ::DOTAJoinLobbyResult> : ::std::true_type {};
 template <>

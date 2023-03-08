@@ -3923,7 +3923,7 @@ class CMsgGCToGCSubGCStarting final :
   enum : int {
     kDirIndexFieldNumber = 1,
   };
-  // optional int32 dir_index = 1;
+  // optional int32 dir_index = 1 [default = -1];
   bool has_dir_index() const;
   private:
   bool _internal_has_dir_index() const;
@@ -4106,7 +4106,7 @@ class CGCToGCMsgMasterAck_Process final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
       mutable_type_instances();
 
-  // optional int32 dir_index = 1;
+  // optional int32 dir_index = 1 [default = -1];
   bool has_dir_index() const;
   private:
   bool _internal_has_dir_index() const;
@@ -4326,7 +4326,7 @@ class CGCToGCMsgMasterAck final :
   std::string* _internal_mutable_process_name();
   public:
 
-  // optional int32 dir_index = 1;
+  // optional int32 dir_index = 1 [default = -1];
   bool has_dir_index() const;
   private:
   bool _internal_has_dir_index() const;
@@ -4988,7 +4988,7 @@ class CGCToGCMsgMasterStartupComplete_GCInfo final :
   std::string* _internal_mutable_machine_name();
   public:
 
-  // optional int32 dir_index = 1;
+  // optional int32 dir_index = 1 [default = -1];
   bool has_dir_index() const;
   private:
   bool _internal_has_dir_index() const;
@@ -17346,7 +17346,7 @@ CMsgGCMultiplexMessage::mutable_steamids() {
 
 // CMsgGCToGCSubGCStarting
 
-// optional int32 dir_index = 1;
+// optional int32 dir_index = 1 [default = -1];
 inline bool CMsgGCToGCSubGCStarting::_internal_has_dir_index() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -17355,7 +17355,7 @@ inline bool CMsgGCToGCSubGCStarting::has_dir_index() const {
   return _internal_has_dir_index();
 }
 inline void CMsgGCToGCSubGCStarting::clear_dir_index() {
-  _impl_.dir_index_ = 0;
+  _impl_.dir_index_ = -1;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CMsgGCToGCSubGCStarting::_internal_dir_index() const {
@@ -17378,7 +17378,7 @@ inline void CMsgGCToGCSubGCStarting::set_dir_index(int32_t value) {
 
 // CGCToGCMsgMasterAck_Process
 
-// optional int32 dir_index = 1;
+// optional int32 dir_index = 1 [default = -1];
 inline bool CGCToGCMsgMasterAck_Process::_internal_has_dir_index() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -17387,7 +17387,7 @@ inline bool CGCToGCMsgMasterAck_Process::has_dir_index() const {
   return _internal_has_dir_index();
 }
 inline void CGCToGCMsgMasterAck_Process::clear_dir_index() {
-  _impl_.dir_index_ = 0;
+  _impl_.dir_index_ = -1;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CGCToGCMsgMasterAck_Process::_internal_dir_index() const {
@@ -17457,7 +17457,7 @@ CGCToGCMsgMasterAck_Process::mutable_type_instances() {
 
 // CGCToGCMsgMasterAck
 
-// optional int32 dir_index = 1;
+// optional int32 dir_index = 1 [default = -1];
 inline bool CGCToGCMsgMasterAck::_internal_has_dir_index() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -17466,7 +17466,7 @@ inline bool CGCToGCMsgMasterAck::has_dir_index() const {
   return _internal_has_dir_index();
 }
 inline void CGCToGCMsgMasterAck::clear_dir_index() {
-  _impl_.dir_index_ = 0;
+  _impl_.dir_index_ = -1;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CGCToGCMsgMasterAck::_internal_dir_index() const {
@@ -17761,7 +17761,7 @@ inline void CMsgGCToGCUniverseStartupResponse::set_eresult(int32_t value) {
 
 // CGCToGCMsgMasterStartupComplete_GCInfo
 
-// optional int32 dir_index = 1;
+// optional int32 dir_index = 1 [default = -1];
 inline bool CGCToGCMsgMasterStartupComplete_GCInfo::_internal_has_dir_index() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -17770,7 +17770,7 @@ inline bool CGCToGCMsgMasterStartupComplete_GCInfo::has_dir_index() const {
   return _internal_has_dir_index();
 }
 inline void CGCToGCMsgMasterStartupComplete_GCInfo::clear_dir_index() {
-  _impl_.dir_index_ = 0;
+  _impl_.dir_index_ = -1;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CGCToGCMsgMasterStartupComplete_GCInfo::_internal_dir_index() const {

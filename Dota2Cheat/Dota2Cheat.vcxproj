@@ -180,6 +180,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="HookHelper.cpp" />
     <ClCompile Include="Hooks\EntitySystemEvents.cpp" />
     <ClCompile Include="Hooks\ModifierEvents.cpp" />
     <ClCompile Include="Hooks\ParticleRendering.cpp" />
@@ -317,6 +318,7 @@
     <ClInclude Include="SDK\Protobufs\netmessages.pb.h" />
     <ClInclude Include="SDK\Protobufs\networkbasetypes.pb.h" />
     <ClInclude Include="SDK\Protobufs\network_connection.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steammessages.pb.h" />
     <ClInclude Include="SDK\Protobufs\steammessages_steamlearn.steamworkssdk.pb.h" />
     <ClInclude Include="SDK\Protobufs\steammessages_unified_base.steamworkssdk.pb.h" />
     <ClInclude Include="SDK\Protobufs\usermessages.pb.h" />

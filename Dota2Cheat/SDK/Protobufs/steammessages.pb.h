@@ -259,10 +259,10 @@ class CMsgProtoBufHeader final :
     kClientSessionIdFieldNumber = 2,
     kSourceAppIdFieldNumber = 3,
     kGcMsgSrcFieldNumber = 200,
-    kGcDirIndexSourceFieldNumber = 201,
-    kEresultFieldNumber = 13,
     kJobIdSourceFieldNumber = 10,
     kJobIdTargetFieldNumber = 11,
+    kEresultFieldNumber = 13,
+    kGcDirIndexSourceFieldNumber = 201,
   };
   // optional string target_job_name = 12;
   bool has_target_job_name() const;
@@ -352,32 +352,6 @@ class CMsgProtoBufHeader final :
   void _internal_set_gc_msg_src(::GCProtoBufMsgSrc value);
   public:
 
-  // optional int32 gc_dir_index_source = 201;
-  bool has_gc_dir_index_source() const;
-  private:
-  bool _internal_has_gc_dir_index_source() const;
-  public:
-  void clear_gc_dir_index_source();
-  int32_t gc_dir_index_source() const;
-  void set_gc_dir_index_source(int32_t value);
-  private:
-  int32_t _internal_gc_dir_index_source() const;
-  void _internal_set_gc_dir_index_source(int32_t value);
-  public:
-
-  // optional int32 eresult = 13 [default = 2];
-  bool has_eresult() const;
-  private:
-  bool _internal_has_eresult() const;
-  public:
-  void clear_eresult();
-  int32_t eresult() const;
-  void set_eresult(int32_t value);
-  private:
-  int32_t _internal_eresult() const;
-  void _internal_set_eresult(int32_t value);
-  public:
-
   // optional fixed64 job_id_source = 10 [default = 18446744073709551615];
   bool has_job_id_source() const;
   private:
@@ -404,6 +378,32 @@ class CMsgProtoBufHeader final :
   void _internal_set_job_id_target(uint64_t value);
   public:
 
+  // optional int32 eresult = 13 [default = 2];
+  bool has_eresult() const;
+  private:
+  bool _internal_has_eresult() const;
+  public:
+  void clear_eresult();
+  int32_t eresult() const;
+  void set_eresult(int32_t value);
+  private:
+  int32_t _internal_eresult() const;
+  void _internal_set_eresult(int32_t value);
+  public:
+
+  // optional int32 gc_dir_index_source = 201 [default = -1];
+  bool has_gc_dir_index_source() const;
+  private:
+  bool _internal_has_gc_dir_index_source() const;
+  public:
+  void clear_gc_dir_index_source();
+  int32_t gc_dir_index_source() const;
+  void set_gc_dir_index_source(int32_t value);
+  private:
+  int32_t _internal_gc_dir_index_source() const;
+  void _internal_set_gc_dir_index_source(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgProtoBufHeader)
  private:
   class _Internal;
@@ -420,10 +420,10 @@ class CMsgProtoBufHeader final :
     int32_t client_session_id_;
     uint32_t source_app_id_;
     int gc_msg_src_;
-    int32_t gc_dir_index_source_;
-    int32_t eresult_;
     uint64_t job_id_source_;
     uint64_t job_id_target_;
+    int32_t eresult_;
+    int32_t gc_dir_index_source_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_steammessages_2eproto;
@@ -1846,7 +1846,7 @@ inline void CMsgProtoBufHeader::set_source_app_id(uint32_t value) {
 
 // optional fixed64 job_id_source = 10 [default = 18446744073709551615];
 inline bool CMsgProtoBufHeader::_internal_has_job_id_source() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_job_id_source() const {
@@ -1854,7 +1854,7 @@ inline bool CMsgProtoBufHeader::has_job_id_source() const {
 }
 inline void CMsgProtoBufHeader::clear_job_id_source() {
   _impl_.job_id_source_ = uint64_t{18446744073709551615u};
-  _impl_._has_bits_[0] &= ~0x00000100u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline uint64_t CMsgProtoBufHeader::_internal_job_id_source() const {
   return _impl_.job_id_source_;
@@ -1864,7 +1864,7 @@ inline uint64_t CMsgProtoBufHeader::job_id_source() const {
   return _internal_job_id_source();
 }
 inline void CMsgProtoBufHeader::_internal_set_job_id_source(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000100u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.job_id_source_ = value;
 }
 inline void CMsgProtoBufHeader::set_job_id_source(uint64_t value) {
@@ -1874,7 +1874,7 @@ inline void CMsgProtoBufHeader::set_job_id_source(uint64_t value) {
 
 // optional fixed64 job_id_target = 11 [default = 18446744073709551615];
 inline bool CMsgProtoBufHeader::_internal_has_job_id_target() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_job_id_target() const {
@@ -1882,7 +1882,7 @@ inline bool CMsgProtoBufHeader::has_job_id_target() const {
 }
 inline void CMsgProtoBufHeader::clear_job_id_target() {
   _impl_.job_id_target_ = uint64_t{18446744073709551615u};
-  _impl_._has_bits_[0] &= ~0x00000200u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
 inline uint64_t CMsgProtoBufHeader::_internal_job_id_target() const {
   return _impl_.job_id_target_;
@@ -1892,7 +1892,7 @@ inline uint64_t CMsgProtoBufHeader::job_id_target() const {
   return _internal_job_id_target();
 }
 inline void CMsgProtoBufHeader::_internal_set_job_id_target(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.job_id_target_ = value;
 }
 inline void CMsgProtoBufHeader::set_job_id_target(uint64_t value) {
@@ -1970,7 +1970,7 @@ inline void CMsgProtoBufHeader::set_allocated_target_job_name(std::string* targe
 
 // optional int32 eresult = 13 [default = 2];
 inline bool CMsgProtoBufHeader::_internal_has_eresult() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_eresult() const {
@@ -1978,7 +1978,7 @@ inline bool CMsgProtoBufHeader::has_eresult() const {
 }
 inline void CMsgProtoBufHeader::clear_eresult() {
   _impl_.eresult_ = 2;
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x00000100u;
 }
 inline int32_t CMsgProtoBufHeader::_internal_eresult() const {
   return _impl_.eresult_;
@@ -1988,7 +1988,7 @@ inline int32_t CMsgProtoBufHeader::eresult() const {
   return _internal_eresult();
 }
 inline void CMsgProtoBufHeader::_internal_set_eresult(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_._has_bits_[0] |= 0x00000100u;
   _impl_.eresult_ = value;
 }
 inline void CMsgProtoBufHeader::set_eresult(int32_t value) {
@@ -2093,17 +2093,17 @@ inline void CMsgProtoBufHeader::set_gc_msg_src(::GCProtoBufMsgSrc value) {
   // @@protoc_insertion_point(field_set:CMsgProtoBufHeader.gc_msg_src)
 }
 
-// optional int32 gc_dir_index_source = 201;
+// optional int32 gc_dir_index_source = 201 [default = -1];
 inline bool CMsgProtoBufHeader::_internal_has_gc_dir_index_source() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CMsgProtoBufHeader::has_gc_dir_index_source() const {
   return _internal_has_gc_dir_index_source();
 }
 inline void CMsgProtoBufHeader::clear_gc_dir_index_source() {
-  _impl_.gc_dir_index_source_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_.gc_dir_index_source_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000200u;
 }
 inline int32_t CMsgProtoBufHeader::_internal_gc_dir_index_source() const {
   return _impl_.gc_dir_index_source_;
@@ -2113,7 +2113,7 @@ inline int32_t CMsgProtoBufHeader::gc_dir_index_source() const {
   return _internal_gc_dir_index_source();
 }
 inline void CMsgProtoBufHeader::_internal_set_gc_dir_index_source(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000200u;
   _impl_.gc_dir_index_source_ = value;
 }
 inline void CMsgProtoBufHeader::set_gc_dir_index_source(int32_t value) {

@@ -19,7 +19,7 @@ void Hacks::AutoDodge::FrameBasedLogic() {
 		//if (counterspell && counterspell->GetCooldown() == 0)
 		//	useTime = 1.2f;
 
-		if (!IsWithinRadius(proj->PredictPos(0.05f), target->GetPos(), target->GetHullRadius()))
+		if (!IsWithinRadius(proj->PredictPos(0.03f), target->GetPos(), target->GetHullRadius()))
 			continue;
 
 		auto usedItem = ctx.importantItems.bottle ? ctx.importantItems.bottle : ctx.importantItems.manta;

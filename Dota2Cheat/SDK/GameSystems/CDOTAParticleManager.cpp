@@ -24,7 +24,7 @@ ParticleWrapper CDOTAParticleManager::CreateParticle(const char* name, ParticleA
 
 	auto h = GetHandle();
 	IncHandle();
-	CallVFunc<7>(h, &info);
+	CallVFunc<VTableIndexes::CDOTAParticleManager::CreateParticle>(h, &info);
 
 	ParticleWrapper result{};
 	result.info = info;

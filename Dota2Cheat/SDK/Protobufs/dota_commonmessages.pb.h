@@ -366,10 +366,10 @@ class CDOTAMsg_LocationPing final :
   enum : int {
     kXFieldNumber = 1,
     kYFieldNumber = 2,
-    kTargetFieldNumber = 3,
     kDirectPingFieldNumber = 4,
-    kTypeFieldNumber = 5,
     kPingSourceFieldNumber = 6,
+    kTargetFieldNumber = 3,
+    kTypeFieldNumber = 5,
   };
   // optional int32 x = 1;
   bool has_x() const;
@@ -397,19 +397,6 @@ class CDOTAMsg_LocationPing final :
   void _internal_set_y(int32_t value);
   public:
 
-  // optional int32 target = 3;
-  bool has_target() const;
-  private:
-  bool _internal_has_target() const;
-  public:
-  void clear_target();
-  int32_t target() const;
-  void set_target(int32_t value);
-  private:
-  int32_t _internal_target() const;
-  void _internal_set_target(int32_t value);
-  public:
-
   // optional bool direct_ping = 4;
   bool has_direct_ping() const;
   private:
@@ -421,19 +408,6 @@ class CDOTAMsg_LocationPing final :
   private:
   bool _internal_direct_ping() const;
   void _internal_set_direct_ping(bool value);
-  public:
-
-  // optional int32 type = 5;
-  bool has_type() const;
-  private:
-  bool _internal_has_type() const;
-  public:
-  void clear_type();
-  int32_t type() const;
-  void set_type(int32_t value);
-  private:
-  int32_t _internal_type() const;
-  void _internal_set_type(int32_t value);
   public:
 
   // optional .EPingSource ping_source = 6 [default = k_ePingSource_Default];
@@ -449,6 +423,32 @@ class CDOTAMsg_LocationPing final :
   void _internal_set_ping_source(::EPingSource value);
   public:
 
+  // optional int32 target = 3 [default = -1];
+  bool has_target() const;
+  private:
+  bool _internal_has_target() const;
+  public:
+  void clear_target();
+  int32_t target() const;
+  void set_target(int32_t value);
+  private:
+  int32_t _internal_target() const;
+  void _internal_set_target(int32_t value);
+  public:
+
+  // optional uint32 type = 5 [default = 4294967295];
+  bool has_type() const;
+  private:
+  bool _internal_has_type() const;
+  public:
+  void clear_type();
+  uint32_t type() const;
+  void set_type(uint32_t value);
+  private:
+  uint32_t _internal_type() const;
+  void _internal_set_type(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAMsg_LocationPing)
  private:
   class _Internal;
@@ -461,10 +461,10 @@ class CDOTAMsg_LocationPing final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     int32_t x_;
     int32_t y_;
-    int32_t target_;
     bool direct_ping_;
-    int32_t type_;
     int ping_source_;
+    int32_t target_;
+    uint32_t type_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fcommonmessages_2eproto;
@@ -629,7 +629,7 @@ class CDOTAMsg_ItemAlert final :
   void _internal_set_y(int32_t value);
   public:
 
-  // optional int32 item_ability_id = 3;
+  // optional int32 item_ability_id = 3 [default = -1];
   bool has_item_ability_id() const;
   private:
   bool _internal_has_item_ability_id() const;
@@ -1842,9 +1842,9 @@ class CDOTAMsg_UnitOrder final :
     kPositionFieldNumber = 6,
     kOrderTypeFieldNumber = 2,
     kTargetIndexFieldNumber = 4,
-    kAbilityIndexFieldNumber = 5,
     kSequenceNumberFieldNumber = 8,
     kFlagsFieldNumber = 9,
+    kAbilityIndexFieldNumber = 5,
   };
   // repeated int32 units = 3;
   int units_size() const;
@@ -1899,7 +1899,7 @@ class CDOTAMsg_UnitOrder final :
   void _internal_set_order_type(::dotaunitorder_t value);
   public:
 
-  // optional int32 target_index = 4;
+  // optional int32 target_index = 4 [default = 0];
   bool has_target_index() const;
   private:
   bool _internal_has_target_index() const;
@@ -1910,19 +1910,6 @@ class CDOTAMsg_UnitOrder final :
   private:
   int32_t _internal_target_index() const;
   void _internal_set_target_index(int32_t value);
-  public:
-
-  // optional int32 ability_index = 5;
-  bool has_ability_index() const;
-  private:
-  bool _internal_has_ability_index() const;
-  public:
-  void clear_ability_index();
-  int32_t ability_index() const;
-  void set_ability_index(int32_t value);
-  private:
-  int32_t _internal_ability_index() const;
-  void _internal_set_ability_index(int32_t value);
   public:
 
   // optional int32 sequence_number = 8;
@@ -1951,6 +1938,19 @@ class CDOTAMsg_UnitOrder final :
   void _internal_set_flags(uint32_t value);
   public:
 
+  // optional int32 ability_index = 5 [default = -1];
+  bool has_ability_index() const;
+  private:
+  bool _internal_has_ability_index() const;
+  public:
+  void clear_ability_index();
+  int32_t ability_index() const;
+  void set_ability_index(int32_t value);
+  private:
+  int32_t _internal_ability_index() const;
+  void _internal_set_ability_index(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAMsg_UnitOrder)
  private:
   class _Internal;
@@ -1965,9 +1965,9 @@ class CDOTAMsg_UnitOrder final :
     ::CMsgVector* position_;
     int order_type_;
     int32_t target_index_;
-    int32_t ability_index_;
     int32_t sequence_number_;
     uint32_t flags_;
+    int32_t ability_index_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fcommonmessages_2eproto;
@@ -2479,22 +2479,9 @@ class VersusScene_ChatWheel final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kChatMessageIdFieldNumber = 1,
     kEmoticonIdFieldNumber = 2,
+    kChatMessageIdFieldNumber = 1,
   };
-  // optional uint32 chat_message_id = 1;
-  bool has_chat_message_id() const;
-  private:
-  bool _internal_has_chat_message_id() const;
-  public:
-  void clear_chat_message_id();
-  uint32_t chat_message_id() const;
-  void set_chat_message_id(uint32_t value);
-  private:
-  uint32_t _internal_chat_message_id() const;
-  void _internal_set_chat_message_id(uint32_t value);
-  public:
-
   // optional uint32 emoticon_id = 2;
   bool has_emoticon_id() const;
   private:
@@ -2508,6 +2495,19 @@ class VersusScene_ChatWheel final :
   void _internal_set_emoticon_id(uint32_t value);
   public:
 
+  // optional uint32 chat_message_id = 1 [default = 4294967295];
+  bool has_chat_message_id() const;
+  private:
+  bool _internal_has_chat_message_id() const;
+  public:
+  void clear_chat_message_id();
+  uint32_t chat_message_id() const;
+  void set_chat_message_id(uint32_t value);
+  private:
+  uint32_t _internal_chat_message_id() const;
+  void _internal_set_chat_message_id(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:VersusScene_ChatWheel)
  private:
   class _Internal;
@@ -2518,8 +2518,8 @@ class VersusScene_ChatWheel final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t chat_message_id_;
     uint32_t emoticon_id_;
+    uint32_t chat_message_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fcommonmessages_2eproto;
@@ -2751,17 +2751,17 @@ inline void CDOTAMsg_LocationPing::set_y(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAMsg_LocationPing.y)
 }
 
-// optional int32 target = 3;
+// optional int32 target = 3 [default = -1];
 inline bool CDOTAMsg_LocationPing::_internal_has_target() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAMsg_LocationPing::has_target() const {
   return _internal_has_target();
 }
 inline void CDOTAMsg_LocationPing::clear_target() {
-  _impl_.target_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.target_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CDOTAMsg_LocationPing::_internal_target() const {
   return _impl_.target_;
@@ -2771,7 +2771,7 @@ inline int32_t CDOTAMsg_LocationPing::target() const {
   return _internal_target();
 }
 inline void CDOTAMsg_LocationPing::_internal_set_target(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.target_ = value;
 }
 inline void CDOTAMsg_LocationPing::set_target(int32_t value) {
@@ -2781,7 +2781,7 @@ inline void CDOTAMsg_LocationPing::set_target(int32_t value) {
 
 // optional bool direct_ping = 4;
 inline bool CDOTAMsg_LocationPing::_internal_has_direct_ping() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAMsg_LocationPing::has_direct_ping() const {
@@ -2789,7 +2789,7 @@ inline bool CDOTAMsg_LocationPing::has_direct_ping() const {
 }
 inline void CDOTAMsg_LocationPing::clear_direct_ping() {
   _impl_.direct_ping_ = false;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline bool CDOTAMsg_LocationPing::_internal_direct_ping() const {
   return _impl_.direct_ping_;
@@ -2799,7 +2799,7 @@ inline bool CDOTAMsg_LocationPing::direct_ping() const {
   return _internal_direct_ping();
 }
 inline void CDOTAMsg_LocationPing::_internal_set_direct_ping(bool value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.direct_ping_ = value;
 }
 inline void CDOTAMsg_LocationPing::set_direct_ping(bool value) {
@@ -2807,37 +2807,37 @@ inline void CDOTAMsg_LocationPing::set_direct_ping(bool value) {
   // @@protoc_insertion_point(field_set:CDOTAMsg_LocationPing.direct_ping)
 }
 
-// optional int32 type = 5;
+// optional uint32 type = 5 [default = 4294967295];
 inline bool CDOTAMsg_LocationPing::_internal_has_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAMsg_LocationPing::has_type() const {
   return _internal_has_type();
 }
 inline void CDOTAMsg_LocationPing::clear_type() {
-  _impl_.type_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_.type_ = 4294967295u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
-inline int32_t CDOTAMsg_LocationPing::_internal_type() const {
+inline uint32_t CDOTAMsg_LocationPing::_internal_type() const {
   return _impl_.type_;
 }
-inline int32_t CDOTAMsg_LocationPing::type() const {
+inline uint32_t CDOTAMsg_LocationPing::type() const {
   // @@protoc_insertion_point(field_get:CDOTAMsg_LocationPing.type)
   return _internal_type();
 }
-inline void CDOTAMsg_LocationPing::_internal_set_type(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+inline void CDOTAMsg_LocationPing::_internal_set_type(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.type_ = value;
 }
-inline void CDOTAMsg_LocationPing::set_type(int32_t value) {
+inline void CDOTAMsg_LocationPing::set_type(uint32_t value) {
   _internal_set_type(value);
   // @@protoc_insertion_point(field_set:CDOTAMsg_LocationPing.type)
 }
 
 // optional .EPingSource ping_source = 6 [default = k_ePingSource_Default];
 inline bool CDOTAMsg_LocationPing::_internal_has_ping_source() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAMsg_LocationPing::has_ping_source() const {
@@ -2845,7 +2845,7 @@ inline bool CDOTAMsg_LocationPing::has_ping_source() const {
 }
 inline void CDOTAMsg_LocationPing::clear_ping_source() {
   _impl_.ping_source_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline ::EPingSource CDOTAMsg_LocationPing::_internal_ping_source() const {
   return static_cast< ::EPingSource >(_impl_.ping_source_);
@@ -2856,7 +2856,7 @@ inline ::EPingSource CDOTAMsg_LocationPing::ping_source() const {
 }
 inline void CDOTAMsg_LocationPing::_internal_set_ping_source(::EPingSource value) {
   assert(::EPingSource_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.ping_source_ = value;
 }
 inline void CDOTAMsg_LocationPing::set_ping_source(::EPingSource value) {
@@ -2924,7 +2924,7 @@ inline void CDOTAMsg_ItemAlert::set_y(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAMsg_ItemAlert.y)
 }
 
-// optional int32 item_ability_id = 3;
+// optional int32 item_ability_id = 3 [default = -1];
 inline bool CDOTAMsg_ItemAlert::_internal_has_item_ability_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -2933,7 +2933,7 @@ inline bool CDOTAMsg_ItemAlert::has_item_ability_id() const {
   return _internal_has_item_ability_id();
 }
 inline void CDOTAMsg_ItemAlert::clear_item_ability_id() {
-  _impl_.item_ability_id_ = 0;
+  _impl_.item_ability_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAMsg_ItemAlert::_internal_item_ability_id() const {
@@ -3750,7 +3750,7 @@ CDOTAMsg_UnitOrder::mutable_units() {
   return _internal_mutable_units();
 }
 
-// optional int32 target_index = 4;
+// optional int32 target_index = 4 [default = 0];
 inline bool CDOTAMsg_UnitOrder::_internal_has_target_index() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -3778,17 +3778,17 @@ inline void CDOTAMsg_UnitOrder::set_target_index(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAMsg_UnitOrder.target_index)
 }
 
-// optional int32 ability_index = 5;
+// optional int32 ability_index = 5 [default = -1];
 inline bool CDOTAMsg_UnitOrder::_internal_has_ability_index() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAMsg_UnitOrder::has_ability_index() const {
   return _internal_has_ability_index();
 }
 inline void CDOTAMsg_UnitOrder::clear_ability_index() {
-  _impl_.ability_index_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_.ability_index_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline int32_t CDOTAMsg_UnitOrder::_internal_ability_index() const {
   return _impl_.ability_index_;
@@ -3798,7 +3798,7 @@ inline int32_t CDOTAMsg_UnitOrder::ability_index() const {
   return _internal_ability_index();
 }
 inline void CDOTAMsg_UnitOrder::_internal_set_ability_index(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.ability_index_ = value;
 }
 inline void CDOTAMsg_UnitOrder::set_ability_index(int32_t value) {
@@ -3895,7 +3895,7 @@ inline void CDOTAMsg_UnitOrder::set_allocated_position(::CMsgVector* position) {
 
 // optional int32 sequence_number = 8;
 inline bool CDOTAMsg_UnitOrder::_internal_has_sequence_number() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAMsg_UnitOrder::has_sequence_number() const {
@@ -3903,7 +3903,7 @@ inline bool CDOTAMsg_UnitOrder::has_sequence_number() const {
 }
 inline void CDOTAMsg_UnitOrder::clear_sequence_number() {
   _impl_.sequence_number_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAMsg_UnitOrder::_internal_sequence_number() const {
   return _impl_.sequence_number_;
@@ -3913,7 +3913,7 @@ inline int32_t CDOTAMsg_UnitOrder::sequence_number() const {
   return _internal_sequence_number();
 }
 inline void CDOTAMsg_UnitOrder::_internal_set_sequence_number(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.sequence_number_ = value;
 }
 inline void CDOTAMsg_UnitOrder::set_sequence_number(int32_t value) {
@@ -3923,7 +3923,7 @@ inline void CDOTAMsg_UnitOrder::set_sequence_number(int32_t value) {
 
 // optional uint32 flags = 9;
 inline bool CDOTAMsg_UnitOrder::_internal_has_flags() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAMsg_UnitOrder::has_flags() const {
@@ -3931,7 +3931,7 @@ inline bool CDOTAMsg_UnitOrder::has_flags() const {
 }
 inline void CDOTAMsg_UnitOrder::clear_flags() {
   _impl_.flags_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline uint32_t CDOTAMsg_UnitOrder::_internal_flags() const {
   return _impl_.flags_;
@@ -3941,7 +3941,7 @@ inline uint32_t CDOTAMsg_UnitOrder::flags() const {
   return _internal_flags();
 }
 inline void CDOTAMsg_UnitOrder::_internal_set_flags(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.flags_ = value;
 }
 inline void CDOTAMsg_UnitOrder::set_flags(uint32_t value) {
@@ -4153,17 +4153,17 @@ inline void VersusScene_PlayActivity::set_playback_rate(float value) {
 
 // VersusScene_ChatWheel
 
-// optional uint32 chat_message_id = 1;
+// optional uint32 chat_message_id = 1 [default = 4294967295];
 inline bool VersusScene_ChatWheel::_internal_has_chat_message_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool VersusScene_ChatWheel::has_chat_message_id() const {
   return _internal_has_chat_message_id();
 }
 inline void VersusScene_ChatWheel::clear_chat_message_id() {
-  _impl_.chat_message_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.chat_message_id_ = 4294967295u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t VersusScene_ChatWheel::_internal_chat_message_id() const {
   return _impl_.chat_message_id_;
@@ -4173,7 +4173,7 @@ inline uint32_t VersusScene_ChatWheel::chat_message_id() const {
   return _internal_chat_message_id();
 }
 inline void VersusScene_ChatWheel::_internal_set_chat_message_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.chat_message_id_ = value;
 }
 inline void VersusScene_ChatWheel::set_chat_message_id(uint32_t value) {
@@ -4183,7 +4183,7 @@ inline void VersusScene_ChatWheel::set_chat_message_id(uint32_t value) {
 
 // optional uint32 emoticon_id = 2;
 inline bool VersusScene_ChatWheel::_internal_has_emoticon_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool VersusScene_ChatWheel::has_emoticon_id() const {
@@ -4191,7 +4191,7 @@ inline bool VersusScene_ChatWheel::has_emoticon_id() const {
 }
 inline void VersusScene_ChatWheel::clear_emoticon_id() {
   _impl_.emoticon_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t VersusScene_ChatWheel::_internal_emoticon_id() const {
   return _impl_.emoticon_id_;
@@ -4201,7 +4201,7 @@ inline uint32_t VersusScene_ChatWheel::emoticon_id() const {
   return _internal_emoticon_id();
 }
 inline void VersusScene_ChatWheel::_internal_set_emoticon_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.emoticon_id_ = value;
 }
 inline void VersusScene_ChatWheel::set_emoticon_id(uint32_t value) {

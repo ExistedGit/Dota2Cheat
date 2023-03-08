@@ -76,14 +76,14 @@ namespace Signatures {
 		char funcAddrMask[256];
 		SIGSCAN_LOG(PrepareUnitOrders, "4C 89 4C 24 20 44 89 44 24 18 89 54 24 10 55 53 56 41 55 41 56 48 8D 6C 24 C0", L"client.dll");
 
-		ParseCombo("E8 ? ? ? ? 48 83 ED 01 79 AF", funcAddr, funcAddrMask);
+		ParseCombo("E8 ? ? ? ? FF CB 48 83 EF 01", funcAddr, funcAddrMask);
 		OnRemoveModifier = (OnRemoveModifierFn)(
 			GetAbsoluteAddress(
 				(uintptr_t)PatternScanExModule(ctx.CurProcHandle, ctx.CurProcId, L"client.dll", funcAddr, funcAddrMask),
 				1, 5
 			)
 			);
-
+		std::cout << "OnRemoveModifier: " << OnRemoveModifier << '\n';
 		// Xref DestroyParticleEffect to a lea rcx just behind the string
 		// It's offset by 9 bytes because it checks for an invalid handle before doing the initial mov
 		SIGSCAN_OFF(CDOTAParticleManager::DestroyParticleFunc, "48 89 6C 24 18 56 48 83 EC 30 48 63 81 80 00 00 00 41 0F B6 E8 48 89 5C 24 40 48 8B F1", L"client.dll", -9);

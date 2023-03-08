@@ -56,9 +56,15 @@ extern CMsgPlayerInfoDefaultTypeInternal _CMsgPlayerInfo_default_instance_;
 class CMsgQAngle;
 struct CMsgQAngleDefaultTypeInternal;
 extern CMsgQAngleDefaultTypeInternal _CMsgQAngle_default_instance_;
+class CMsgQuaternion;
+struct CMsgQuaternionDefaultTypeInternal;
+extern CMsgQuaternionDefaultTypeInternal _CMsgQuaternion_default_instance_;
 class CMsgRGBA;
 struct CMsgRGBADefaultTypeInternal;
 extern CMsgRGBADefaultTypeInternal _CMsgRGBA_default_instance_;
+class CMsgTransform;
+struct CMsgTransformDefaultTypeInternal;
+extern CMsgTransformDefaultTypeInternal _CMsgTransform_default_instance_;
 class CMsgVector;
 struct CMsgVectorDefaultTypeInternal;
 extern CMsgVectorDefaultTypeInternal _CMsgVector_default_instance_;
@@ -129,7 +135,9 @@ PROTOBUF_NAMESPACE_OPEN
 template<> ::CEntityMsg* Arena::CreateMaybeMessage<::CEntityMsg>(Arena*);
 template<> ::CMsgPlayerInfo* Arena::CreateMaybeMessage<::CMsgPlayerInfo>(Arena*);
 template<> ::CMsgQAngle* Arena::CreateMaybeMessage<::CMsgQAngle>(Arena*);
+template<> ::CMsgQuaternion* Arena::CreateMaybeMessage<::CMsgQuaternion>(Arena*);
 template<> ::CMsgRGBA* Arena::CreateMaybeMessage<::CMsgRGBA>(Arena*);
+template<> ::CMsgTransform* Arena::CreateMaybeMessage<::CMsgTransform>(Arena*);
 template<> ::CMsgVector* Arena::CreateMaybeMessage<::CMsgVector>(Arena*);
 template<> ::CMsgVector2D* Arena::CreateMaybeMessage<::CMsgVector2D>(Arena*);
 template<> ::CMsg_CVars* Arena::CreateMaybeMessage<::CMsg_CVars>(Arena*);
@@ -818,6 +826,411 @@ class CMsgQAngle final :
 };
 // -------------------------------------------------------------------
 
+class CMsgQuaternion final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgQuaternion) */ {
+ public:
+  inline CMsgQuaternion() : CMsgQuaternion(nullptr) {}
+  ~CMsgQuaternion() override;
+  explicit PROTOBUF_CONSTEXPR CMsgQuaternion(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgQuaternion(const CMsgQuaternion& from);
+  CMsgQuaternion(CMsgQuaternion&& from) noexcept
+    : CMsgQuaternion() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgQuaternion& operator=(const CMsgQuaternion& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgQuaternion& operator=(CMsgQuaternion&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgQuaternion& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgQuaternion* internal_default_instance() {
+    return reinterpret_cast<const CMsgQuaternion*>(
+               &_CMsgQuaternion_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(CMsgQuaternion& a, CMsgQuaternion& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgQuaternion* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgQuaternion* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgQuaternion* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgQuaternion>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgQuaternion& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgQuaternion& from) {
+    CMsgQuaternion::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgQuaternion* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgQuaternion";
+  }
+  protected:
+  explicit CMsgQuaternion(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kXFieldNumber = 1,
+    kYFieldNumber = 2,
+    kZFieldNumber = 3,
+    kWFieldNumber = 4,
+  };
+  // optional float x = 1;
+  bool has_x() const;
+  private:
+  bool _internal_has_x() const;
+  public:
+  void clear_x();
+  float x() const;
+  void set_x(float value);
+  private:
+  float _internal_x() const;
+  void _internal_set_x(float value);
+  public:
+
+  // optional float y = 2;
+  bool has_y() const;
+  private:
+  bool _internal_has_y() const;
+  public:
+  void clear_y();
+  float y() const;
+  void set_y(float value);
+  private:
+  float _internal_y() const;
+  void _internal_set_y(float value);
+  public:
+
+  // optional float z = 3;
+  bool has_z() const;
+  private:
+  bool _internal_has_z() const;
+  public:
+  void clear_z();
+  float z() const;
+  void set_z(float value);
+  private:
+  float _internal_z() const;
+  void _internal_set_z(float value);
+  public:
+
+  // optional float w = 4;
+  bool has_w() const;
+  private:
+  bool _internal_has_w() const;
+  public:
+  void clear_w();
+  float w() const;
+  void set_w(float value);
+  private:
+  float _internal_w() const;
+  void _internal_set_w(float value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgQuaternion)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    float x_;
+    float y_;
+    float z_;
+    float w_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_networkbasetypes_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgTransform final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgTransform) */ {
+ public:
+  inline CMsgTransform() : CMsgTransform(nullptr) {}
+  ~CMsgTransform() override;
+  explicit PROTOBUF_CONSTEXPR CMsgTransform(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgTransform(const CMsgTransform& from);
+  CMsgTransform(CMsgTransform&& from) noexcept
+    : CMsgTransform() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgTransform& operator=(const CMsgTransform& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgTransform& operator=(CMsgTransform&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgTransform& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgTransform* internal_default_instance() {
+    return reinterpret_cast<const CMsgTransform*>(
+               &_CMsgTransform_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(CMsgTransform& a, CMsgTransform& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgTransform* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgTransform* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgTransform* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgTransform>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgTransform& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgTransform& from) {
+    CMsgTransform::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgTransform* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgTransform";
+  }
+  protected:
+  explicit CMsgTransform(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPositionFieldNumber = 1,
+    kOrientationFieldNumber = 3,
+    kScaleFieldNumber = 2,
+  };
+  // optional .CMsgVector position = 1;
+  bool has_position() const;
+  private:
+  bool _internal_has_position() const;
+  public:
+  void clear_position();
+  const ::CMsgVector& position() const;
+  PROTOBUF_NODISCARD ::CMsgVector* release_position();
+  ::CMsgVector* mutable_position();
+  void set_allocated_position(::CMsgVector* position);
+  private:
+  const ::CMsgVector& _internal_position() const;
+  ::CMsgVector* _internal_mutable_position();
+  public:
+  void unsafe_arena_set_allocated_position(
+      ::CMsgVector* position);
+  ::CMsgVector* unsafe_arena_release_position();
+
+  // optional .CMsgQuaternion orientation = 3;
+  bool has_orientation() const;
+  private:
+  bool _internal_has_orientation() const;
+  public:
+  void clear_orientation();
+  const ::CMsgQuaternion& orientation() const;
+  PROTOBUF_NODISCARD ::CMsgQuaternion* release_orientation();
+  ::CMsgQuaternion* mutable_orientation();
+  void set_allocated_orientation(::CMsgQuaternion* orientation);
+  private:
+  const ::CMsgQuaternion& _internal_orientation() const;
+  ::CMsgQuaternion* _internal_mutable_orientation();
+  public:
+  void unsafe_arena_set_allocated_orientation(
+      ::CMsgQuaternion* orientation);
+  ::CMsgQuaternion* unsafe_arena_release_orientation();
+
+  // optional float scale = 2;
+  bool has_scale() const;
+  private:
+  bool _internal_has_scale() const;
+  public:
+  void clear_scale();
+  float scale() const;
+  void set_scale(float value);
+  private:
+  float _internal_scale() const;
+  void _internal_set_scale(float value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgTransform)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::CMsgVector* position_;
+    ::CMsgQuaternion* orientation_;
+    float scale_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_networkbasetypes_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMsgRGBA final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgRGBA) */ {
  public:
@@ -873,7 +1286,7 @@ class CMsgRGBA final :
                &_CMsgRGBA_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    5;
 
   friend void swap(CMsgRGBA& a, CMsgRGBA& b) {
     a.Swap(&b);
@@ -1078,7 +1491,7 @@ class CMsgPlayerInfo final :
                &_CMsgPlayerInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    6;
 
   friend void swap(CMsgPlayerInfo& a, CMsgPlayerInfo& b) {
     a.Swap(&b);
@@ -1318,7 +1731,7 @@ class CEntityMsg final :
                &_CEntityMsg_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    7;
 
   friend void swap(CEntityMsg& a, CEntityMsg& b) {
     a.Swap(&b);
@@ -1393,7 +1806,7 @@ class CEntityMsg final :
   enum : int {
     kTargetEntityFieldNumber = 1,
   };
-  // optional uint32 target_entity = 1;
+  // optional uint32 target_entity = 1 [default = 16777215];
   bool has_target_entity() const;
   private:
   bool _internal_has_target_entity() const;
@@ -1478,7 +1891,7 @@ class CMsg_CVars_CVar final :
                &_CMsg_CVars_CVar_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    8;
 
   friend void swap(CMsg_CVars_CVar& a, CMsg_CVars_CVar& b) {
     a.Swap(&b);
@@ -1663,7 +2076,7 @@ class CMsg_CVars final :
                &_CMsg_CVars_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    9;
 
   friend void swap(CMsg_CVars& a, CMsg_CVars& b) {
     a.Swap(&b);
@@ -1828,7 +2241,7 @@ class CNETMsg_NOP final :
                &_CNETMsg_NOP_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    10;
 
   friend void swap(CNETMsg_NOP& a, CNETMsg_NOP& b) {
     a.Swap(&b);
@@ -1954,7 +2367,7 @@ class CNETMsg_SplitScreenUser final :
                &_CNETMsg_SplitScreenUser_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    11;
 
   friend void swap(CNETMsg_SplitScreenUser& a, CNETMsg_SplitScreenUser& b) {
     a.Swap(&b);
@@ -2114,7 +2527,7 @@ class CNETMsg_Disconnect final :
                &_CNETMsg_Disconnect_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    12;
 
   friend void swap(CNETMsg_Disconnect& a, CNETMsg_Disconnect& b) {
     a.Swap(&b);
@@ -2274,7 +2687,7 @@ class CNETMsg_Tick final :
                &_CNETMsg_Tick_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    13;
 
   friend void swap(CNETMsg_Tick& a, CNETMsg_Tick& b) {
     a.Swap(&b);
@@ -2554,7 +2967,7 @@ class CNETMsg_StringCmd final :
                &_CNETMsg_StringCmd_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    14;
 
   friend void swap(CNETMsg_StringCmd& a, CNETMsg_StringCmd& b) {
     a.Swap(&b);
@@ -2719,7 +3132,7 @@ class CNETMsg_SetConVar final :
                &_CNETMsg_SetConVar_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    15;
 
   friend void swap(CNETMsg_SetConVar& a, CNETMsg_SetConVar& b) {
     a.Swap(&b);
@@ -2884,7 +3297,7 @@ class CNETMsg_SignonState final :
                &_CNETMsg_SignonState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    16;
 
   friend void swap(CNETMsg_SignonState& a, CNETMsg_SignonState& b) {
     a.Swap(&b);
@@ -3140,7 +3553,7 @@ class CSVCMsg_GameEvent_key_t final :
                &_CSVCMsg_GameEvent_key_t_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    17;
 
   friend void swap(CSVCMsg_GameEvent_key_t& a, CSVCMsg_GameEvent_key_t& b) {
     a.Swap(&b);
@@ -3410,7 +3823,7 @@ class CSVCMsg_GameEvent final :
                &_CSVCMsg_GameEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    18;
 
   friend void swap(CSVCMsg_GameEvent& a, CSVCMsg_GameEvent& b) {
     a.Swap(&b);
@@ -3612,7 +4025,7 @@ class CSVCMsgList_GameEvents_event_t final :
                &_CSVCMsgList_GameEvents_event_t_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    19;
 
   friend void swap(CSVCMsgList_GameEvents_event_t& a, CSVCMsgList_GameEvents_event_t& b) {
     a.Swap(&b);
@@ -3792,7 +4205,7 @@ class CSVCMsgList_GameEvents final :
                &_CSVCMsgList_GameEvents_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    20;
 
   friend void swap(CSVCMsgList_GameEvents& a, CSVCMsgList_GameEvents& b) {
     a.Swap(&b);
@@ -3958,7 +4371,7 @@ class CNETMsg_SpawnGroup_Load final :
                &_CNETMsg_SpawnGroup_Load_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    21;
 
   friend void swap(CNETMsg_SpawnGroup_Load& a, CNETMsg_SpawnGroup_Load& b) {
     a.Swap(&b);
@@ -4038,6 +4451,7 @@ class CNETMsg_SpawnGroup_Load final :
     kLocalnamefixupFieldNumber = 12,
     kParentnamefixupFieldNumber = 13,
     kSavegamefilenameFieldNumber = 17,
+    kWorldgroupnameFieldNumber = 20,
     kWorldOffsetPosFieldNumber = 6,
     kWorldOffsetAngleFieldNumber = 7,
     kSpawngrouphandleFieldNumber = 4,
@@ -4175,6 +4589,24 @@ class CNETMsg_SpawnGroup_Load final :
   const std::string& _internal_savegamefilename() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_savegamefilename(const std::string& value);
   std::string* _internal_mutable_savegamefilename();
+  public:
+
+  // optional string worldgroupname = 20;
+  bool has_worldgroupname() const;
+  private:
+  bool _internal_has_worldgroupname() const;
+  public:
+  void clear_worldgroupname();
+  const std::string& worldgroupname() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_worldgroupname(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_worldgroupname();
+  PROTOBUF_NODISCARD std::string* release_worldgroupname();
+  void set_allocated_worldgroupname(std::string* worldgroupname);
+  private:
+  const std::string& _internal_worldgroupname() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_worldgroupname(const std::string& value);
+  std::string* _internal_mutable_worldgroupname();
   public:
 
   // optional .CMsgVector world_offset_pos = 6;
@@ -4360,6 +4792,7 @@ class CNETMsg_SpawnGroup_Load final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr localnamefixup_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr parentnamefixup_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr savegamefilename_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr worldgroupname_;
     ::CMsgVector* world_offset_pos_;
     ::CMsgQAngle* world_offset_angle_;
     uint32_t spawngrouphandle_;
@@ -4433,7 +4866,7 @@ class CNETMsg_SpawnGroup_ManifestUpdate final :
                &_CNETMsg_SpawnGroup_ManifestUpdate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    22;
 
   friend void swap(CNETMsg_SpawnGroup_ManifestUpdate& a, CNETMsg_SpawnGroup_ManifestUpdate& b) {
     a.Swap(&b);
@@ -4628,7 +5061,7 @@ class CNETMsg_SpawnGroup_SetCreationTick final :
                &_CNETMsg_SpawnGroup_SetCreationTick_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    23;
 
   friend void swap(CNETMsg_SpawnGroup_SetCreationTick& a, CNETMsg_SpawnGroup_SetCreationTick& b) {
     a.Swap(&b);
@@ -4818,7 +5251,7 @@ class CNETMsg_SpawnGroup_Unload final :
                &_CNETMsg_SpawnGroup_Unload_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    24;
 
   friend void swap(CNETMsg_SpawnGroup_Unload& a, CNETMsg_SpawnGroup_Unload& b) {
     a.Swap(&b);
@@ -5008,7 +5441,7 @@ class CNETMsg_SpawnGroup_LoadCompleted final :
                &_CNETMsg_SpawnGroup_LoadCompleted_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    25;
 
   friend void swap(CNETMsg_SpawnGroup_LoadCompleted& a, CNETMsg_SpawnGroup_LoadCompleted& b) {
     a.Swap(&b);
@@ -5168,7 +5601,7 @@ class CSVCMsg_GameSessionConfiguration final :
                &_CSVCMsg_GameSessionConfiguration_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    26;
 
   friend void swap(CSVCMsg_GameSessionConfiguration& a, CSVCMsg_GameSessionConfiguration& b) {
     a.Swap(&b);
@@ -5638,7 +6071,7 @@ class CNETMsg_DebugOverlay final :
                &_CNETMsg_DebugOverlay_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    27;
 
   friend void swap(CNETMsg_DebugOverlay& a, CNETMsg_DebugOverlay& b) {
     a.Swap(&b);
@@ -6150,6 +6583,334 @@ inline void CMsgQAngle::set_z(float value) {
 
 // -------------------------------------------------------------------
 
+// CMsgQuaternion
+
+// optional float x = 1;
+inline bool CMsgQuaternion::_internal_has_x() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgQuaternion::has_x() const {
+  return _internal_has_x();
+}
+inline void CMsgQuaternion::clear_x() {
+  _impl_.x_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline float CMsgQuaternion::_internal_x() const {
+  return _impl_.x_;
+}
+inline float CMsgQuaternion::x() const {
+  // @@protoc_insertion_point(field_get:CMsgQuaternion.x)
+  return _internal_x();
+}
+inline void CMsgQuaternion::_internal_set_x(float value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.x_ = value;
+}
+inline void CMsgQuaternion::set_x(float value) {
+  _internal_set_x(value);
+  // @@protoc_insertion_point(field_set:CMsgQuaternion.x)
+}
+
+// optional float y = 2;
+inline bool CMsgQuaternion::_internal_has_y() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgQuaternion::has_y() const {
+  return _internal_has_y();
+}
+inline void CMsgQuaternion::clear_y() {
+  _impl_.y_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline float CMsgQuaternion::_internal_y() const {
+  return _impl_.y_;
+}
+inline float CMsgQuaternion::y() const {
+  // @@protoc_insertion_point(field_get:CMsgQuaternion.y)
+  return _internal_y();
+}
+inline void CMsgQuaternion::_internal_set_y(float value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.y_ = value;
+}
+inline void CMsgQuaternion::set_y(float value) {
+  _internal_set_y(value);
+  // @@protoc_insertion_point(field_set:CMsgQuaternion.y)
+}
+
+// optional float z = 3;
+inline bool CMsgQuaternion::_internal_has_z() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgQuaternion::has_z() const {
+  return _internal_has_z();
+}
+inline void CMsgQuaternion::clear_z() {
+  _impl_.z_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline float CMsgQuaternion::_internal_z() const {
+  return _impl_.z_;
+}
+inline float CMsgQuaternion::z() const {
+  // @@protoc_insertion_point(field_get:CMsgQuaternion.z)
+  return _internal_z();
+}
+inline void CMsgQuaternion::_internal_set_z(float value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.z_ = value;
+}
+inline void CMsgQuaternion::set_z(float value) {
+  _internal_set_z(value);
+  // @@protoc_insertion_point(field_set:CMsgQuaternion.z)
+}
+
+// optional float w = 4;
+inline bool CMsgQuaternion::_internal_has_w() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMsgQuaternion::has_w() const {
+  return _internal_has_w();
+}
+inline void CMsgQuaternion::clear_w() {
+  _impl_.w_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline float CMsgQuaternion::_internal_w() const {
+  return _impl_.w_;
+}
+inline float CMsgQuaternion::w() const {
+  // @@protoc_insertion_point(field_get:CMsgQuaternion.w)
+  return _internal_w();
+}
+inline void CMsgQuaternion::_internal_set_w(float value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.w_ = value;
+}
+inline void CMsgQuaternion::set_w(float value) {
+  _internal_set_w(value);
+  // @@protoc_insertion_point(field_set:CMsgQuaternion.w)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgTransform
+
+// optional .CMsgVector position = 1;
+inline bool CMsgTransform::_internal_has_position() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.position_ != nullptr);
+  return value;
+}
+inline bool CMsgTransform::has_position() const {
+  return _internal_has_position();
+}
+inline void CMsgTransform::clear_position() {
+  if (_impl_.position_ != nullptr) _impl_.position_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::CMsgVector& CMsgTransform::_internal_position() const {
+  const ::CMsgVector* p = _impl_.position_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgVector&>(
+      ::_CMsgVector_default_instance_);
+}
+inline const ::CMsgVector& CMsgTransform::position() const {
+  // @@protoc_insertion_point(field_get:CMsgTransform.position)
+  return _internal_position();
+}
+inline void CMsgTransform::unsafe_arena_set_allocated_position(
+    ::CMsgVector* position) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.position_);
+  }
+  _impl_.position_ = position;
+  if (position) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgTransform.position)
+}
+inline ::CMsgVector* CMsgTransform::release_position() {
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgVector* temp = _impl_.position_;
+  _impl_.position_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CMsgVector* CMsgTransform::unsafe_arena_release_position() {
+  // @@protoc_insertion_point(field_release:CMsgTransform.position)
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgVector* temp = _impl_.position_;
+  _impl_.position_ = nullptr;
+  return temp;
+}
+inline ::CMsgVector* CMsgTransform::_internal_mutable_position() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.position_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgVector>(GetArenaForAllocation());
+    _impl_.position_ = p;
+  }
+  return _impl_.position_;
+}
+inline ::CMsgVector* CMsgTransform::mutable_position() {
+  ::CMsgVector* _msg = _internal_mutable_position();
+  // @@protoc_insertion_point(field_mutable:CMsgTransform.position)
+  return _msg;
+}
+inline void CMsgTransform::set_allocated_position(::CMsgVector* position) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.position_;
+  }
+  if (position) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(position);
+    if (message_arena != submessage_arena) {
+      position = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, position, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.position_ = position;
+  // @@protoc_insertion_point(field_set_allocated:CMsgTransform.position)
+}
+
+// optional float scale = 2;
+inline bool CMsgTransform::_internal_has_scale() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgTransform::has_scale() const {
+  return _internal_has_scale();
+}
+inline void CMsgTransform::clear_scale() {
+  _impl_.scale_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline float CMsgTransform::_internal_scale() const {
+  return _impl_.scale_;
+}
+inline float CMsgTransform::scale() const {
+  // @@protoc_insertion_point(field_get:CMsgTransform.scale)
+  return _internal_scale();
+}
+inline void CMsgTransform::_internal_set_scale(float value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.scale_ = value;
+}
+inline void CMsgTransform::set_scale(float value) {
+  _internal_set_scale(value);
+  // @@protoc_insertion_point(field_set:CMsgTransform.scale)
+}
+
+// optional .CMsgQuaternion orientation = 3;
+inline bool CMsgTransform::_internal_has_orientation() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.orientation_ != nullptr);
+  return value;
+}
+inline bool CMsgTransform::has_orientation() const {
+  return _internal_has_orientation();
+}
+inline void CMsgTransform::clear_orientation() {
+  if (_impl_.orientation_ != nullptr) _impl_.orientation_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline const ::CMsgQuaternion& CMsgTransform::_internal_orientation() const {
+  const ::CMsgQuaternion* p = _impl_.orientation_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgQuaternion&>(
+      ::_CMsgQuaternion_default_instance_);
+}
+inline const ::CMsgQuaternion& CMsgTransform::orientation() const {
+  // @@protoc_insertion_point(field_get:CMsgTransform.orientation)
+  return _internal_orientation();
+}
+inline void CMsgTransform::unsafe_arena_set_allocated_orientation(
+    ::CMsgQuaternion* orientation) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.orientation_);
+  }
+  _impl_.orientation_ = orientation;
+  if (orientation) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgTransform.orientation)
+}
+inline ::CMsgQuaternion* CMsgTransform::release_orientation() {
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  ::CMsgQuaternion* temp = _impl_.orientation_;
+  _impl_.orientation_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CMsgQuaternion* CMsgTransform::unsafe_arena_release_orientation() {
+  // @@protoc_insertion_point(field_release:CMsgTransform.orientation)
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  ::CMsgQuaternion* temp = _impl_.orientation_;
+  _impl_.orientation_ = nullptr;
+  return temp;
+}
+inline ::CMsgQuaternion* CMsgTransform::_internal_mutable_orientation() {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  if (_impl_.orientation_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgQuaternion>(GetArenaForAllocation());
+    _impl_.orientation_ = p;
+  }
+  return _impl_.orientation_;
+}
+inline ::CMsgQuaternion* CMsgTransform::mutable_orientation() {
+  ::CMsgQuaternion* _msg = _internal_mutable_orientation();
+  // @@protoc_insertion_point(field_mutable:CMsgTransform.orientation)
+  return _msg;
+}
+inline void CMsgTransform::set_allocated_orientation(::CMsgQuaternion* orientation) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.orientation_;
+  }
+  if (orientation) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(orientation);
+    if (message_arena != submessage_arena) {
+      orientation = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, orientation, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  _impl_.orientation_ = orientation;
+  // @@protoc_insertion_point(field_set_allocated:CMsgTransform.orientation)
+}
+
+// -------------------------------------------------------------------
+
 // CMsgRGBA
 
 // optional int32 r = 1;
@@ -6480,7 +7241,7 @@ inline void CMsgPlayerInfo::set_ishltv(bool value) {
 
 // CEntityMsg
 
-// optional uint32 target_entity = 1;
+// optional uint32 target_entity = 1 [default = 16777215];
 inline bool CEntityMsg::_internal_has_target_entity() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -6489,7 +7250,7 @@ inline bool CEntityMsg::has_target_entity() const {
   return _internal_has_target_entity();
 }
 inline void CEntityMsg::clear_target_entity() {
-  _impl_.target_entity_ = 0u;
+  _impl_.target_entity_ = 16777215u;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CEntityMsg::_internal_target_entity() const {
@@ -8267,7 +9028,7 @@ inline void CNETMsg_SpawnGroup_Load::set_allocated_entityfiltername(std::string*
 
 // optional uint32 spawngrouphandle = 4;
 inline bool CNETMsg_SpawnGroup_Load::_internal_has_spawngrouphandle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool CNETMsg_SpawnGroup_Load::has_spawngrouphandle() const {
@@ -8275,7 +9036,7 @@ inline bool CNETMsg_SpawnGroup_Load::has_spawngrouphandle() const {
 }
 inline void CNETMsg_SpawnGroup_Load::clear_spawngrouphandle() {
   _impl_.spawngrouphandle_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000200u;
+  _impl_._has_bits_[0] &= ~0x00000400u;
 }
 inline uint32_t CNETMsg_SpawnGroup_Load::_internal_spawngrouphandle() const {
   return _impl_.spawngrouphandle_;
@@ -8285,7 +9046,7 @@ inline uint32_t CNETMsg_SpawnGroup_Load::spawngrouphandle() const {
   return _internal_spawngrouphandle();
 }
 inline void CNETMsg_SpawnGroup_Load::_internal_set_spawngrouphandle(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_._has_bits_[0] |= 0x00000400u;
   _impl_.spawngrouphandle_ = value;
 }
 inline void CNETMsg_SpawnGroup_Load::set_spawngrouphandle(uint32_t value) {
@@ -8295,7 +9056,7 @@ inline void CNETMsg_SpawnGroup_Load::set_spawngrouphandle(uint32_t value) {
 
 // optional uint32 spawngroupownerhandle = 5;
 inline bool CNETMsg_SpawnGroup_Load::_internal_has_spawngroupownerhandle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
   return value;
 }
 inline bool CNETMsg_SpawnGroup_Load::has_spawngroupownerhandle() const {
@@ -8303,7 +9064,7 @@ inline bool CNETMsg_SpawnGroup_Load::has_spawngroupownerhandle() const {
 }
 inline void CNETMsg_SpawnGroup_Load::clear_spawngroupownerhandle() {
   _impl_.spawngroupownerhandle_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000400u;
+  _impl_._has_bits_[0] &= ~0x00000800u;
 }
 inline uint32_t CNETMsg_SpawnGroup_Load::_internal_spawngroupownerhandle() const {
   return _impl_.spawngroupownerhandle_;
@@ -8313,7 +9074,7 @@ inline uint32_t CNETMsg_SpawnGroup_Load::spawngroupownerhandle() const {
   return _internal_spawngroupownerhandle();
 }
 inline void CNETMsg_SpawnGroup_Load::_internal_set_spawngroupownerhandle(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000400u;
+  _impl_._has_bits_[0] |= 0x00000800u;
   _impl_.spawngroupownerhandle_ = value;
 }
 inline void CNETMsg_SpawnGroup_Load::set_spawngroupownerhandle(uint32_t value) {
@@ -8323,7 +9084,7 @@ inline void CNETMsg_SpawnGroup_Load::set_spawngroupownerhandle(uint32_t value) {
 
 // optional .CMsgVector world_offset_pos = 6;
 inline bool CNETMsg_SpawnGroup_Load::_internal_has_world_offset_pos() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.world_offset_pos_ != nullptr);
   return value;
 }
@@ -8332,7 +9093,7 @@ inline bool CNETMsg_SpawnGroup_Load::has_world_offset_pos() const {
 }
 inline void CNETMsg_SpawnGroup_Load::clear_world_offset_pos() {
   if (_impl_.world_offset_pos_ != nullptr) _impl_.world_offset_pos_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x00000100u;
 }
 inline const ::CMsgVector& CNETMsg_SpawnGroup_Load::_internal_world_offset_pos() const {
   const ::CMsgVector* p = _impl_.world_offset_pos_;
@@ -8350,14 +9111,14 @@ inline void CNETMsg_SpawnGroup_Load::unsafe_arena_set_allocated_world_offset_pos
   }
   _impl_.world_offset_pos_ = world_offset_pos;
   if (world_offset_pos) {
-    _impl_._has_bits_[0] |= 0x00000080u;
+    _impl_._has_bits_[0] |= 0x00000100u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000080u;
+    _impl_._has_bits_[0] &= ~0x00000100u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CNETMsg_SpawnGroup_Load.world_offset_pos)
 }
 inline ::CMsgVector* CNETMsg_SpawnGroup_Load::release_world_offset_pos() {
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x00000100u;
   ::CMsgVector* temp = _impl_.world_offset_pos_;
   _impl_.world_offset_pos_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -8373,13 +9134,13 @@ inline ::CMsgVector* CNETMsg_SpawnGroup_Load::release_world_offset_pos() {
 }
 inline ::CMsgVector* CNETMsg_SpawnGroup_Load::unsafe_arena_release_world_offset_pos() {
   // @@protoc_insertion_point(field_release:CNETMsg_SpawnGroup_Load.world_offset_pos)
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x00000100u;
   ::CMsgVector* temp = _impl_.world_offset_pos_;
   _impl_.world_offset_pos_ = nullptr;
   return temp;
 }
 inline ::CMsgVector* CNETMsg_SpawnGroup_Load::_internal_mutable_world_offset_pos() {
-  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_._has_bits_[0] |= 0x00000100u;
   if (_impl_.world_offset_pos_ == nullptr) {
     auto* p = CreateMaybeMessage<::CMsgVector>(GetArenaForAllocation());
     _impl_.world_offset_pos_ = p;
@@ -8403,9 +9164,9 @@ inline void CNETMsg_SpawnGroup_Load::set_allocated_world_offset_pos(::CMsgVector
       world_offset_pos = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, world_offset_pos, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000080u;
+    _impl_._has_bits_[0] |= 0x00000100u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000080u;
+    _impl_._has_bits_[0] &= ~0x00000100u;
   }
   _impl_.world_offset_pos_ = world_offset_pos;
   // @@protoc_insertion_point(field_set_allocated:CNETMsg_SpawnGroup_Load.world_offset_pos)
@@ -8413,7 +9174,7 @@ inline void CNETMsg_SpawnGroup_Load::set_allocated_world_offset_pos(::CMsgVector
 
 // optional .CMsgQAngle world_offset_angle = 7;
 inline bool CNETMsg_SpawnGroup_Load::_internal_has_world_offset_angle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.world_offset_angle_ != nullptr);
   return value;
 }
@@ -8422,7 +9183,7 @@ inline bool CNETMsg_SpawnGroup_Load::has_world_offset_angle() const {
 }
 inline void CNETMsg_SpawnGroup_Load::clear_world_offset_angle() {
   if (_impl_.world_offset_angle_ != nullptr) _impl_.world_offset_angle_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000100u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
 }
 inline const ::CMsgQAngle& CNETMsg_SpawnGroup_Load::_internal_world_offset_angle() const {
   const ::CMsgQAngle* p = _impl_.world_offset_angle_;
@@ -8440,14 +9201,14 @@ inline void CNETMsg_SpawnGroup_Load::unsafe_arena_set_allocated_world_offset_ang
   }
   _impl_.world_offset_angle_ = world_offset_angle;
   if (world_offset_angle) {
-    _impl_._has_bits_[0] |= 0x00000100u;
+    _impl_._has_bits_[0] |= 0x00000200u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000100u;
+    _impl_._has_bits_[0] &= ~0x00000200u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CNETMsg_SpawnGroup_Load.world_offset_angle)
 }
 inline ::CMsgQAngle* CNETMsg_SpawnGroup_Load::release_world_offset_angle() {
-  _impl_._has_bits_[0] &= ~0x00000100u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
   ::CMsgQAngle* temp = _impl_.world_offset_angle_;
   _impl_.world_offset_angle_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -8463,13 +9224,13 @@ inline ::CMsgQAngle* CNETMsg_SpawnGroup_Load::release_world_offset_angle() {
 }
 inline ::CMsgQAngle* CNETMsg_SpawnGroup_Load::unsafe_arena_release_world_offset_angle() {
   // @@protoc_insertion_point(field_release:CNETMsg_SpawnGroup_Load.world_offset_angle)
-  _impl_._has_bits_[0] &= ~0x00000100u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
   ::CMsgQAngle* temp = _impl_.world_offset_angle_;
   _impl_.world_offset_angle_ = nullptr;
   return temp;
 }
 inline ::CMsgQAngle* CNETMsg_SpawnGroup_Load::_internal_mutable_world_offset_angle() {
-  _impl_._has_bits_[0] |= 0x00000100u;
+  _impl_._has_bits_[0] |= 0x00000200u;
   if (_impl_.world_offset_angle_ == nullptr) {
     auto* p = CreateMaybeMessage<::CMsgQAngle>(GetArenaForAllocation());
     _impl_.world_offset_angle_ = p;
@@ -8493,9 +9254,9 @@ inline void CNETMsg_SpawnGroup_Load::set_allocated_world_offset_angle(::CMsgQAng
       world_offset_angle = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, world_offset_angle, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000100u;
+    _impl_._has_bits_[0] |= 0x00000200u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000100u;
+    _impl_._has_bits_[0] &= ~0x00000200u;
   }
   _impl_.world_offset_angle_ = world_offset_angle;
   // @@protoc_insertion_point(field_set_allocated:CNETMsg_SpawnGroup_Load.world_offset_angle)
@@ -8571,7 +9332,7 @@ inline void CNETMsg_SpawnGroup_Load::set_allocated_spawngroupmanifest(std::strin
 
 // optional uint32 flags = 9;
 inline bool CNETMsg_SpawnGroup_Load::_internal_has_flags() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
   return value;
 }
 inline bool CNETMsg_SpawnGroup_Load::has_flags() const {
@@ -8579,7 +9340,7 @@ inline bool CNETMsg_SpawnGroup_Load::has_flags() const {
 }
 inline void CNETMsg_SpawnGroup_Load::clear_flags() {
   _impl_.flags_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000800u;
+  _impl_._has_bits_[0] &= ~0x00001000u;
 }
 inline uint32_t CNETMsg_SpawnGroup_Load::_internal_flags() const {
   return _impl_.flags_;
@@ -8589,7 +9350,7 @@ inline uint32_t CNETMsg_SpawnGroup_Load::flags() const {
   return _internal_flags();
 }
 inline void CNETMsg_SpawnGroup_Load::_internal_set_flags(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000800u;
+  _impl_._has_bits_[0] |= 0x00001000u;
   _impl_.flags_ = value;
 }
 inline void CNETMsg_SpawnGroup_Load::set_flags(uint32_t value) {
@@ -8599,7 +9360,7 @@ inline void CNETMsg_SpawnGroup_Load::set_flags(uint32_t value) {
 
 // optional int32 tickcount = 10;
 inline bool CNETMsg_SpawnGroup_Load::_internal_has_tickcount() const {
-  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool CNETMsg_SpawnGroup_Load::has_tickcount() const {
@@ -8607,7 +9368,7 @@ inline bool CNETMsg_SpawnGroup_Load::has_tickcount() const {
 }
 inline void CNETMsg_SpawnGroup_Load::clear_tickcount() {
   _impl_.tickcount_ = 0;
-  _impl_._has_bits_[0] &= ~0x00001000u;
+  _impl_._has_bits_[0] &= ~0x00002000u;
 }
 inline int32_t CNETMsg_SpawnGroup_Load::_internal_tickcount() const {
   return _impl_.tickcount_;
@@ -8617,7 +9378,7 @@ inline int32_t CNETMsg_SpawnGroup_Load::tickcount() const {
   return _internal_tickcount();
 }
 inline void CNETMsg_SpawnGroup_Load::_internal_set_tickcount(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00001000u;
+  _impl_._has_bits_[0] |= 0x00002000u;
   _impl_.tickcount_ = value;
 }
 inline void CNETMsg_SpawnGroup_Load::set_tickcount(int32_t value) {
@@ -8627,7 +9388,7 @@ inline void CNETMsg_SpawnGroup_Load::set_tickcount(int32_t value) {
 
 // optional bool manifestincomplete = 11;
 inline bool CNETMsg_SpawnGroup_Load::_internal_has_manifestincomplete() const {
-  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00010000u) != 0;
   return value;
 }
 inline bool CNETMsg_SpawnGroup_Load::has_manifestincomplete() const {
@@ -8635,7 +9396,7 @@ inline bool CNETMsg_SpawnGroup_Load::has_manifestincomplete() const {
 }
 inline void CNETMsg_SpawnGroup_Load::clear_manifestincomplete() {
   _impl_.manifestincomplete_ = false;
-  _impl_._has_bits_[0] &= ~0x00008000u;
+  _impl_._has_bits_[0] &= ~0x00010000u;
 }
 inline bool CNETMsg_SpawnGroup_Load::_internal_manifestincomplete() const {
   return _impl_.manifestincomplete_;
@@ -8645,7 +9406,7 @@ inline bool CNETMsg_SpawnGroup_Load::manifestincomplete() const {
   return _internal_manifestincomplete();
 }
 inline void CNETMsg_SpawnGroup_Load::_internal_set_manifestincomplete(bool value) {
-  _impl_._has_bits_[0] |= 0x00008000u;
+  _impl_._has_bits_[0] |= 0x00010000u;
   _impl_.manifestincomplete_ = value;
 }
 inline void CNETMsg_SpawnGroup_Load::set_manifestincomplete(bool value) {
@@ -8791,7 +9552,7 @@ inline void CNETMsg_SpawnGroup_Load::set_allocated_parentnamefixup(std::string* 
 
 // optional int32 manifestloadpriority = 14;
 inline bool CNETMsg_SpawnGroup_Load::_internal_has_manifestloadpriority() const {
-  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
 inline bool CNETMsg_SpawnGroup_Load::has_manifestloadpriority() const {
@@ -8799,7 +9560,7 @@ inline bool CNETMsg_SpawnGroup_Load::has_manifestloadpriority() const {
 }
 inline void CNETMsg_SpawnGroup_Load::clear_manifestloadpriority() {
   _impl_.manifestloadpriority_ = 0;
-  _impl_._has_bits_[0] &= ~0x00002000u;
+  _impl_._has_bits_[0] &= ~0x00004000u;
 }
 inline int32_t CNETMsg_SpawnGroup_Load::_internal_manifestloadpriority() const {
   return _impl_.manifestloadpriority_;
@@ -8809,7 +9570,7 @@ inline int32_t CNETMsg_SpawnGroup_Load::manifestloadpriority() const {
   return _internal_manifestloadpriority();
 }
 inline void CNETMsg_SpawnGroup_Load::_internal_set_manifestloadpriority(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00002000u;
+  _impl_._has_bits_[0] |= 0x00004000u;
   _impl_.manifestloadpriority_ = value;
 }
 inline void CNETMsg_SpawnGroup_Load::set_manifestloadpriority(int32_t value) {
@@ -8819,7 +9580,7 @@ inline void CNETMsg_SpawnGroup_Load::set_manifestloadpriority(int32_t value) {
 
 // optional uint32 worldgroupid = 15;
 inline bool CNETMsg_SpawnGroup_Load::_internal_has_worldgroupid() const {
-  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CNETMsg_SpawnGroup_Load::has_worldgroupid() const {
@@ -8827,7 +9588,7 @@ inline bool CNETMsg_SpawnGroup_Load::has_worldgroupid() const {
 }
 inline void CNETMsg_SpawnGroup_Load::clear_worldgroupid() {
   _impl_.worldgroupid_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00004000u;
+  _impl_._has_bits_[0] &= ~0x00008000u;
 }
 inline uint32_t CNETMsg_SpawnGroup_Load::_internal_worldgroupid() const {
   return _impl_.worldgroupid_;
@@ -8837,7 +9598,7 @@ inline uint32_t CNETMsg_SpawnGroup_Load::worldgroupid() const {
   return _internal_worldgroupid();
 }
 inline void CNETMsg_SpawnGroup_Load::_internal_set_worldgroupid(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00004000u;
+  _impl_._has_bits_[0] |= 0x00008000u;
   _impl_.worldgroupid_ = value;
 }
 inline void CNETMsg_SpawnGroup_Load::set_worldgroupid(uint32_t value) {
@@ -8847,7 +9608,7 @@ inline void CNETMsg_SpawnGroup_Load::set_worldgroupid(uint32_t value) {
 
 // optional uint32 creationsequence = 16;
 inline bool CNETMsg_SpawnGroup_Load::_internal_has_creationsequence() const {
-  bool value = (_impl_._has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00040000u) != 0;
   return value;
 }
 inline bool CNETMsg_SpawnGroup_Load::has_creationsequence() const {
@@ -8855,7 +9616,7 @@ inline bool CNETMsg_SpawnGroup_Load::has_creationsequence() const {
 }
 inline void CNETMsg_SpawnGroup_Load::clear_creationsequence() {
   _impl_.creationsequence_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00020000u;
+  _impl_._has_bits_[0] &= ~0x00040000u;
 }
 inline uint32_t CNETMsg_SpawnGroup_Load::_internal_creationsequence() const {
   return _impl_.creationsequence_;
@@ -8865,7 +9626,7 @@ inline uint32_t CNETMsg_SpawnGroup_Load::creationsequence() const {
   return _internal_creationsequence();
 }
 inline void CNETMsg_SpawnGroup_Load::_internal_set_creationsequence(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00020000u;
+  _impl_._has_bits_[0] |= 0x00040000u;
   _impl_.creationsequence_ = value;
 }
 inline void CNETMsg_SpawnGroup_Load::set_creationsequence(uint32_t value) {
@@ -8943,7 +9704,7 @@ inline void CNETMsg_SpawnGroup_Load::set_allocated_savegamefilename(std::string*
 
 // optional uint32 spawngroupparenthandle = 18;
 inline bool CNETMsg_SpawnGroup_Load::_internal_has_spawngroupparenthandle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
   return value;
 }
 inline bool CNETMsg_SpawnGroup_Load::has_spawngroupparenthandle() const {
@@ -8951,7 +9712,7 @@ inline bool CNETMsg_SpawnGroup_Load::has_spawngroupparenthandle() const {
 }
 inline void CNETMsg_SpawnGroup_Load::clear_spawngroupparenthandle() {
   _impl_.spawngroupparenthandle_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00040000u;
+  _impl_._has_bits_[0] &= ~0x00080000u;
 }
 inline uint32_t CNETMsg_SpawnGroup_Load::_internal_spawngroupparenthandle() const {
   return _impl_.spawngroupparenthandle_;
@@ -8961,7 +9722,7 @@ inline uint32_t CNETMsg_SpawnGroup_Load::spawngroupparenthandle() const {
   return _internal_spawngroupparenthandle();
 }
 inline void CNETMsg_SpawnGroup_Load::_internal_set_spawngroupparenthandle(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00040000u;
+  _impl_._has_bits_[0] |= 0x00080000u;
   _impl_.spawngroupparenthandle_ = value;
 }
 inline void CNETMsg_SpawnGroup_Load::set_spawngroupparenthandle(uint32_t value) {
@@ -8971,7 +9732,7 @@ inline void CNETMsg_SpawnGroup_Load::set_spawngroupparenthandle(uint32_t value) 
 
 // optional bool leveltransition = 19;
 inline bool CNETMsg_SpawnGroup_Load::_internal_has_leveltransition() const {
-  bool value = (_impl_._has_bits_[0] & 0x00010000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00020000u) != 0;
   return value;
 }
 inline bool CNETMsg_SpawnGroup_Load::has_leveltransition() const {
@@ -8979,7 +9740,7 @@ inline bool CNETMsg_SpawnGroup_Load::has_leveltransition() const {
 }
 inline void CNETMsg_SpawnGroup_Load::clear_leveltransition() {
   _impl_.leveltransition_ = false;
-  _impl_._has_bits_[0] &= ~0x00010000u;
+  _impl_._has_bits_[0] &= ~0x00020000u;
 }
 inline bool CNETMsg_SpawnGroup_Load::_internal_leveltransition() const {
   return _impl_.leveltransition_;
@@ -8989,12 +9750,80 @@ inline bool CNETMsg_SpawnGroup_Load::leveltransition() const {
   return _internal_leveltransition();
 }
 inline void CNETMsg_SpawnGroup_Load::_internal_set_leveltransition(bool value) {
-  _impl_._has_bits_[0] |= 0x00010000u;
+  _impl_._has_bits_[0] |= 0x00020000u;
   _impl_.leveltransition_ = value;
 }
 inline void CNETMsg_SpawnGroup_Load::set_leveltransition(bool value) {
   _internal_set_leveltransition(value);
   // @@protoc_insertion_point(field_set:CNETMsg_SpawnGroup_Load.leveltransition)
+}
+
+// optional string worldgroupname = 20;
+inline bool CNETMsg_SpawnGroup_Load::_internal_has_worldgroupname() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  return value;
+}
+inline bool CNETMsg_SpawnGroup_Load::has_worldgroupname() const {
+  return _internal_has_worldgroupname();
+}
+inline void CNETMsg_SpawnGroup_Load::clear_worldgroupname() {
+  _impl_.worldgroupname_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000080u;
+}
+inline const std::string& CNETMsg_SpawnGroup_Load::worldgroupname() const {
+  // @@protoc_insertion_point(field_get:CNETMsg_SpawnGroup_Load.worldgroupname)
+  return _internal_worldgroupname();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CNETMsg_SpawnGroup_Load::set_worldgroupname(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000080u;
+ _impl_.worldgroupname_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CNETMsg_SpawnGroup_Load.worldgroupname)
+}
+inline std::string* CNETMsg_SpawnGroup_Load::mutable_worldgroupname() {
+  std::string* _s = _internal_mutable_worldgroupname();
+  // @@protoc_insertion_point(field_mutable:CNETMsg_SpawnGroup_Load.worldgroupname)
+  return _s;
+}
+inline const std::string& CNETMsg_SpawnGroup_Load::_internal_worldgroupname() const {
+  return _impl_.worldgroupname_.Get();
+}
+inline void CNETMsg_SpawnGroup_Load::_internal_set_worldgroupname(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_.worldgroupname_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CNETMsg_SpawnGroup_Load::_internal_mutable_worldgroupname() {
+  _impl_._has_bits_[0] |= 0x00000080u;
+  return _impl_.worldgroupname_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CNETMsg_SpawnGroup_Load::release_worldgroupname() {
+  // @@protoc_insertion_point(field_release:CNETMsg_SpawnGroup_Load.worldgroupname)
+  if (!_internal_has_worldgroupname()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000080u;
+  auto* p = _impl_.worldgroupname_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.worldgroupname_.IsDefault()) {
+    _impl_.worldgroupname_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void CNETMsg_SpawnGroup_Load::set_allocated_worldgroupname(std::string* worldgroupname) {
+  if (worldgroupname != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000080u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000080u;
+  }
+  _impl_.worldgroupname_.SetAllocated(worldgroupname, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.worldgroupname_.IsDefault()) {
+    _impl_.worldgroupname_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:CNETMsg_SpawnGroup_Load.worldgroupname)
 }
 
 // -------------------------------------------------------------------
@@ -10492,6 +11321,10 @@ CNETMsg_DebugOverlay::mutable_uint64s() {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -295,7 +295,7 @@ PROTOBUF_CONSTEXPR CMsgGCToGCSubGCStarting::CMsgGCToGCSubGCStarting(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.dir_index_)*/0} {}
+  , /*decltype(_impl_.dir_index_)*/-1} {}
 struct CMsgGCToGCSubGCStartingDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgGCToGCSubGCStartingDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -310,7 +310,7 @@ PROTOBUF_CONSTEXPR CGCToGCMsgMasterAck_Process::CGCToGCMsgMasterAck_Process(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.type_instances_)*/{}
-  , /*decltype(_impl_.dir_index_)*/0} {}
+  , /*decltype(_impl_.dir_index_)*/-1} {}
 struct CGCToGCMsgMasterAck_ProcessDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CGCToGCMsgMasterAck_ProcessDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -327,7 +327,7 @@ PROTOBUF_CONSTEXPR CGCToGCMsgMasterAck::CGCToGCMsgMasterAck(
   , /*decltype(_impl_.directory_)*/{}
   , /*decltype(_impl_.machine_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.process_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.dir_index_)*/0} {}
+  , /*decltype(_impl_.dir_index_)*/-1} {}
 struct CGCToGCMsgMasterAckDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CGCToGCMsgMasterAckDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -384,7 +384,7 @@ PROTOBUF_CONSTEXPR CGCToGCMsgMasterStartupComplete_GCInfo::CGCToGCMsgMasterStart
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.machine_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.dir_index_)*/0} {}
+  , /*decltype(_impl_.dir_index_)*/-1} {}
 struct CGCToGCMsgMasterStartupComplete_GCInfoDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CGCToGCMsgMasterStartupComplete_GCInfoDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2292,189 +2292,189 @@ const char descriptor_table_protodef_gcsdk_5fgcmessages_2eproto[] PROTOBUF_SECTI
   "ner_soid\030\002 \001(\0132\016.CMsgSOIDOwner\"%\n\022CMsgSO"
   "CacheVersion\022\017\n\007version\030\001 \001(\006\"L\n\026CMsgGCM"
   "ultiplexMessage\022\017\n\007msgtype\030\001 \001(\r\022\017\n\007payl"
-  "oad\030\002 \001(\014\022\020\n\010steamids\030\003 \003(\006\",\n\027CMsgGCToG"
-  "CSubGCStarting\022\021\n\tdir_index\030\001 \001(\005\"\273\001\n\023CG"
-  "CToGCMsgMasterAck\022\021\n\tdir_index\030\001 \001(\005\022\024\n\014"
-  "machine_name\030\003 \001(\t\022\024\n\014process_name\030\004 \001(\t"
-  "\022/\n\tdirectory\030\006 \003(\0132\034.CGCToGCMsgMasterAc"
-  "k.Process\0324\n\007Process\022\021\n\tdir_index\030\001 \001(\005\022"
-  "\026\n\016type_instances\030\002 \003(\r\"2\n\034CGCToGCMsgMas"
-  "terAck_Response\022\022\n\007eresult\030\001 \001(\005:\0012\"7\n\031C"
-  "MsgGCToGCUniverseStartup\022\032\n\022is_initial_s"
-  "tartup\030\001 \001(\010\"4\n!CMsgGCToGCUniverseStartu"
-  "pResponse\022\017\n\007eresult\030\001 \001(\005\"\216\001\n\037CGCToGCMs"
-  "gMasterStartupComplete\0228\n\007gc_info\030\001 \003(\0132"
-  "\'.CGCToGCMsgMasterStartupComplete.GCInfo"
-  "\0321\n\006GCInfo\022\021\n\tdir_index\030\001 \001(\005\022\024\n\014machine"
-  "_name\030\002 \001(\t\"L\n\020CGCToGCMsgRouted\022\020\n\010msg_t"
-  "ype\030\001 \001(\r\022\021\n\tsender_id\030\002 \001(\006\022\023\n\013net_mess"
-  "age\030\003 \001(\014\">\n\025CGCToGCMsgRoutedReply\022\020\n\010ms"
-  "g_type\030\001 \001(\r\022\023\n\013net_message\030\002 \001(\014\"\225\001\n\034CM"
-  "sgGCUpdateSubGCSessionInfo\0229\n\007updates\030\001 "
-  "\003(\0132(.CMsgGCUpdateSubGCSessionInfo.CMsgU"
-  "pdate\032:\n\nCMsgUpdate\022\017\n\007steamid\030\001 \001(\006\022\n\n\002"
-  "ip\030\002 \001(\007\022\017\n\007trusted\030\003 \001(\010\"0\n\035CMsgGCReque"
-  "stSubGCSessionInfo\022\017\n\007steamid\030\001 \001(\006\"c\n%C"
-  "MsgGCRequestSubGCSessionInfoResponse\022\n\n\002"
-  "ip\030\001 \001(\007\022\017\n\007trusted\030\002 \001(\010\022\014\n\004port\030\003 \001(\r\022"
-  "\017\n\007success\030\004 \001(\010\"x\n\026CMsgSOCacheHaveVersi"
-  "on\022\034\n\004soid\030\001 \001(\0132\016.CMsgSOIDOwner\022\017\n\007vers"
-  "ion\030\002 \001(\006\022\022\n\nservice_id\030\003 \001(\r\022\033\n\023cached_"
-  "file_version\030\004 \001(\r\"\377\004\n\017CMsgClientHello\022\017"
-  "\n\007version\030\001 \001(\r\0226\n\025socache_have_versions"
-  "\030\002 \003(\0132\027.CMsgSOCacheHaveVersion\022\033\n\023clien"
-  "t_session_need\030\003 \001(\r\022:\n\017client_launcher\030"
-  "\004 \001(\0162\023.PartnerAccountType:\014PARTNER_NONE"
-  "\022\022\n\nsecret_key\030\005 \001(\t\022\027\n\017client_language\030"
-  "\006 \001(\r\022-\n\006engine\030\007 \001(\0162\016.ESourceEngine:\rk"
-  "_ESE_Source1\022\033\n\023steamdatagram_login\030\010 \001("
-  "\014\022\023\n\013platform_id\030\t \001(\r\022\020\n\010game_msg\030\n \001(\014"
-  "\022\017\n\007os_type\030\013 \001(\005\022\025\n\rrender_system\030\014 \001(\r"
-  "\022\031\n\021render_system_req\030\r \001(\r\022\024\n\014screen_wi"
-  "dth\030\016 \001(\r\022\025\n\rscreen_height\030\017 \001(\r\022\026\n\016scre"
-  "en_refresh\030\020 \001(\r\022\024\n\014render_width\030\021 \001(\r\022\025"
-  "\n\rrender_height\030\022 \001(\r\022\022\n\nswap_width\030\023 \001("
-  "\r\022\023\n\013swap_height\030\024 \001(\r\022\026\n\016is_steam_china"
-  "\030\026 \001(\010\022\035\n\025is_steam_china_client\030\030 \001(\010\022\025\n"
-  "\rplatform_name\030\027 \001(\t\"\225\005\n\021CMsgClientWelco"
-  "me\022\017\n\007version\030\001 \001(\r\022\021\n\tgame_data\030\002 \001(\014\022;"
-  "\n\033outofdate_subscribed_caches\030\003 \003(\0132\026.CM"
-  "sgSOCacheSubscribed\022A\n\032uptodate_subscrib"
-  "ed_caches\030\004 \003(\0132\035.CMsgSOCacheSubscriptio"
-  "nCheck\022-\n\010location\030\005 \001(\0132\033.CMsgClientWel"
-  "come.Location\022\025\n\rsave_game_key\030\006 \001(\014\022\037\n\027"
-  "gc_socache_file_version\030\t \001(\r\022\030\n\020txn_cou"
-  "ntry_code\030\n \001(\t\022\022\n\ngame_data2\030\013 \001(\014\022$\n\034r"
-  "time32_gc_welcome_timestamp\030\014 \001(\r\022\020\n\010cur"
-  "rency\030\r \001(\r\022\017\n\007balance\030\016 \001(\r\022\023\n\013balance_"
-  "url\030\017 \001(\t\022\036\n\026has_accepted_china_ssa\030\020 \001("
-  "\010\022\035\n\025is_banned_steam_china\030\021 \001(\010\0220\n\027addi"
-  "tional_welcome_msgs\030\022 \001(\0132\017.CExtraMsgBlo"
-  "ck\0226\n\025steam_learn_hmac_keys\030\023 \001(\0132\027.CMsg"
-  "SteamLearnHMACKeys\032@\n\010Location\022\020\n\010latitu"
-  "de\030\001 \001(\002\022\021\n\tlongitude\030\002 \001(\002\022\017\n\007country\030\003"
-  " \001(\t\"\345\001\n\024CMsgConnectionStatus\022D\n\006status\030"
-  "\001 \001(\0162\023.GCConnectionStatus:\037GCConnection"
-  "Status_HAVE_SESSION\022\033\n\023client_session_ne"
-  "ed\030\002 \001(\r\022\026\n\016queue_position\030\003 \001(\005\022\022\n\nqueu"
-  "e_size\030\004 \001(\005\022\024\n\014wait_seconds\030\005 \001(\005\022(\n es"
-  "timated_wait_seconds_remaining\030\006 \001(\005\"\370\001\n"
-  "\032CMsgGCToGCSOCacheSubscribe\022\022\n\nsubscribe"
-  "r\030\001 \001(\006\022\027\n\017subscribe_to_id\030\002 \001(\006\022\024\n\014sync"
-  "_version\030\003 \001(\006\022C\n\rhave_versions\030\004 \003(\0132,."
-  "CMsgGCToGCSOCacheSubscribe.CMsgHaveVersi"
-  "ons\022\031\n\021subscribe_to_type\030\005 \001(\r\0327\n\020CMsgHa"
-  "veVersions\022\022\n\nservice_id\030\001 \001(\r\022\017\n\007versio"
-  "n\030\002 \001(\004\"n\n\034CMsgGCToGCSOCacheUnsubscribe\022"
-  "\022\n\nsubscriber\030\001 \001(\006\022\033\n\023unsubscribe_from_"
-  "id\030\002 \001(\006\022\035\n\025unsubscribe_from_type\030\003 \001(\r\""
-  "\022\n\020CMsgGCClientPing\"\212\001\n\037CMsgGCToGCForwar"
-  "dAccountDetails\022\017\n\007steamid\030\001 \001(\006\022A\n\017acco"
-  "unt_details\030\002 \001(\0132(.CGCSystemMsg_GetAcco"
-  "untDetails_Response\022\023\n\013age_seconds\030\003 \001(\r"
-  "\"u\n\034CMsgGCToGCLoadSessionSOCache\022\022\n\nacco"
-  "unt_id\030\001 \001(\r\022A\n\027forward_account_details\030"
-  "\002 \001(\0132 .CMsgGCToGCForwardAccountDetails\""
-  "&\n$CMsgGCToGCLoadSessionSOCacheResponse\""
-  "f\n\034CMsgGCToGCUpdateSessionStats\022\025\n\ruser_"
-  "sessions\030\001 \001(\r\022\027\n\017server_sessions\030\002 \001(\r\022"
-  "\026\n\016in_logon_surge\030\003 \001(\010\"\036\n\034CMsgGCToClien"
-  "tRequestDropped\"\355\002\n*CWorkshop_PopulateIt"
-  "emDescriptions_Request\022\r\n\005appid\030\001 \001(\r\022\\\n"
-  "\tlanguages\030\002 \003(\0132I.CWorkshop_PopulateIte"
-  "mDescriptions_Request.ItemDescriptionsLa"
-  "nguageBlock\032E\n\025SingleItemDescription\022\022\n\n"
-  "gameitemid\030\001 \001(\r\022\030\n\020item_description\030\002 \001"
-  "(\t\032\212\001\n\035ItemDescriptionsLanguageBlock\022\020\n\010"
-  "language\030\001 \001(\t\022W\n\014descriptions\030\002 \003(\0132A.C"
-  "Workshop_PopulateItemDescriptions_Reques"
-  "t.SingleItemDescription\"F\n!CWorkshop_Get"
-  "Contributors_Request\022\r\n\005appid\030\001 \001(\r\022\022\n\ng"
-  "ameitemid\030\002 \001(\r\":\n\"CWorkshop_GetContribu"
-  "tors_Response\022\024\n\014contributors\030\001 \003(\006\"\365\005\n%"
-  "CWorkshop_SetItemPaymentRules_Request\022\r\n"
-  "\005appid\030\001 \001(\r\022\022\n\ngameitemid\030\002 \001(\r\022a\n\031asso"
-  "ciated_workshop_files\030\003 \003(\0132>.CWorkshop_"
-  "SetItemPaymentRules_Request.WorkshopItem"
-  "PaymentRule\022W\n\020partner_accounts\030\004 \003(\0132=."
-  "CWorkshop_SetItemPaymentRules_Request.Pa"
-  "rtnerItemPaymentRule\022\025\n\rvalidate_only\030\005 "
-  "\001(\010\022(\n make_workshop_files_subscribable\030"
-  "\006 \001(\010\022v\n,associated_workshop_file_for_di"
-  "rect_payments\030\007 \001(\0132@.CWorkshop_SetItemP"
-  "aymentRules_Request.WorkshopDirectPaymen"
-  "tRule\032\177\n\027WorkshopItemPaymentRule\022\030\n\020work"
-  "shop_file_id\030\001 \001(\004\022\032\n\022revenue_percentage"
-  "\030\002 \001(\002\022\030\n\020rule_description\030\003 \001(\t\022\024\n\trule"
-  "_type\030\004 \001(\r:\0011\032O\n\031WorkshopDirectPaymentR"
-  "ule\022\030\n\020workshop_file_id\030\001 \001(\004\022\030\n\020rule_de"
-  "scription\030\002 \001(\t\032b\n\026PartnerItemPaymentRul"
-  "e\022\022\n\naccount_id\030\001 \001(\r\022\032\n\022revenue_percent"
-  "age\030\002 \001(\002\022\030\n\020rule_description\030\003 \001(\t\"C\n&C"
-  "Workshop_SetItemPaymentRules_Response\022\031\n"
-  "\021validation_errors\030\001 \003(\t\"\364\001\n\037CCommunity_"
-  "ClanAnnouncementInfo\022\013\n\003gid\030\001 \001(\004\022\016\n\006cla"
-  "nid\030\002 \001(\004\022\020\n\010posterid\030\003 \001(\004\022\020\n\010headline\030"
-  "\004 \001(\t\022\020\n\010posttime\030\005 \001(\r\022\022\n\nupdatetime\030\006 "
-  "\001(\r\022\014\n\004body\030\007 \001(\t\022\024\n\014commentcount\030\010 \001(\005\022"
-  "\014\n\004tags\030\t \003(\t\022\020\n\010language\030\n \001(\005\022\016\n\006hidde"
-  "n\030\013 \001(\010\022\026\n\016forum_topic_id\030\014 \001(\006\"\306\002\n\'CCom"
-  "munity_GetClanAnnouncements_Request\022\017\n\007s"
-  "teamid\030\001 \001(\004\022\016\n\006offset\030\002 \001(\r\022\r\n\005count\030\003 "
-  "\001(\r\022\020\n\010maxchars\030\004 \001(\r\022\022\n\nstrip_html\030\005 \001("
-  "\010\022\025\n\rrequired_tags\030\006 \003(\t\022\027\n\017require_no_t"
-  "ags\030\007 \001(\010\022\033\n\023language_preference\030\010 \003(\r\022\023"
-  "\n\013hidden_only\030\t \001(\010\022\020\n\010only_gid\030\n \001(\010\022\031\n"
-  "\021rtime_oldest_date\030\013 \001(\r\022\026\n\016include_hidd"
-  "en\030\014 \001(\010\022\036\n\026include_partner_events\030\r \001(\010"
-  "\"\211\001\n(CCommunity_GetClanAnnouncements_Res"
-  "ponse\022\020\n\010maxchars\030\001 \001(\r\022\022\n\nstrip_html\030\002 "
-  "\001(\010\0227\n\rannouncements\030\003 \003(\0132 .CCommunity_"
-  "ClanAnnouncementInfo\"p\n$CBroadcast_PostG"
-  "ameDataFrame_Request\022\r\n\005appid\030\001 \001(\r\022\017\n\007s"
-  "teamid\030\002 \001(\006\022\024\n\014broadcast_id\030\003 \001(\006\022\022\n\nfr"
-  "ame_data\030\004 \001(\014\"\374\002\n\025CMsgSerializedSOCache"
-  "\022\024\n\014file_version\030\001 \001(\r\022,\n\006caches\030\002 \003(\0132\034"
-  ".CMsgSerializedSOCache.Cache\022\037\n\027gc_socac"
-  "he_file_version\030\003 \001(\r\032>\n\tTypeCache\022\014\n\004ty"
-  "pe\030\001 \001(\r\022\017\n\007objects\030\002 \003(\014\022\022\n\nservice_id\030"
-  "\003 \001(\r\032\275\001\n\005Cache\022\014\n\004type\030\001 \001(\r\022\n\n\002id\030\002 \001("
-  "\004\0226\n\010versions\030\003 \003(\0132$.CMsgSerializedSOCa"
-  "che.Cache.Version\0225\n\013type_caches\030\004 \003(\0132 "
-  ".CMsgSerializedSOCache.TypeCache\032+\n\007Vers"
-  "ion\022\017\n\007service\030\001 \001(\r\022\017\n\007version\030\002 \001(\004\"G\n"
-  "\037CMsgGCToClientPollConvarRequest\022\023\n\013conv"
-  "ar_name\030\001 \001(\t\022\017\n\007poll_id\030\002 \001(\r\"I\n CMsgGC"
-  "ToClientPollConvarResponse\022\017\n\007poll_id\030\001 "
-  "\001(\r\022\024\n\014convar_value\030\002 \001(\t\"E\n\033CGCMsgCompr"
-  "essedMsgToClient\022\016\n\006msg_id\030\001 \001(\r\022\026\n\016comp"
-  "ressed_msg\030\002 \001(\014\"\216\001\n CMsgGCToGCMasterBro"
-  "adcastMessage\022\030\n\020users_per_second\030\001 \001(\r\022"
-  "\025\n\rsend_to_users\030\002 \001(\010\022\027\n\017send_to_server"
-  "s\030\003 \001(\010\022\016\n\006msg_id\030\004 \001(\r\022\020\n\010msg_data\030\005 \001("
-  "\014\"n\n CMsgGCToGCMasterSubscribeToCache\022\021\n"
-  "\tsoid_type\030\001 \001(\r\022\017\n\007soid_id\030\002 \001(\006\022\023\n\013acc"
-  "ount_ids\030\003 \003(\r\022\021\n\tsteam_ids\030\004 \003(\006\"*\n(CMs"
-  "gGCToGCMasterSubscribeToCacheResponse\"a\n"
-  "%CMsgGCToGCMasterSubscribeToCacheAsync\0228"
-  "\n\rsubscribe_msg\030\001 \001(\0132!.CMsgGCToGCMaster"
-  "SubscribeToCache\"r\n$CMsgGCToGCMasterUnsu"
-  "bscribeFromCache\022\021\n\tsoid_type\030\001 \001(\r\022\017\n\007s"
-  "oid_id\030\002 \001(\006\022\023\n\013account_ids\030\003 \003(\r\022\021\n\tste"
-  "am_ids\030\004 \003(\006\"B\n\034CMsgGCToGCMasterDestroyC"
-  "ache\022\021\n\tsoid_type\030\001 \001(\r\022\017\n\007soid_id\030\002 \001(\006"
-  "*5\n\rESourceEngine\022\021\n\rk_ESE_Source1\020\000\022\021\n\r"
-  "k_ESE_Source2\020\001*V\n\022PartnerAccountType\022\020\n"
-  "\014PARTNER_NONE\020\000\022\031\n\025PARTNER_PERFECT_WORLD"
-  "\020\001\022\023\n\017PARTNER_INVALID\020\003*\240\002\n\022GCConnection"
-  "Status\022#\n\037GCConnectionStatus_HAVE_SESSIO"
-  "N\020\000\022$\n GCConnectionStatus_GC_GOING_DOWN\020"
-  "\001\022!\n\035GCConnectionStatus_NO_SESSION\020\002\0220\n,"
-  "GCConnectionStatus_NO_SESSION_IN_LOGON_Q"
-  "UEUE\020\003\022\037\n\033GCConnectionStatus_NO_STEAM\020\004\022"
-  " \n\034GCConnectionStatus_SUSPENDED\020\005\022\'\n#GCC"
-  "onnectionStatus_STEAM_GOING_DOWN\020\006B\005H\001\200\001"
-  "\000"
+  "oad\030\002 \001(\014\022\020\n\010steamids\030\003 \003(\006\"0\n\027CMsgGCToG"
+  "CSubGCStarting\022\025\n\tdir_index\030\001 \001(\005:\002-1\"\303\001"
+  "\n\023CGCToGCMsgMasterAck\022\025\n\tdir_index\030\001 \001(\005"
+  ":\002-1\022\024\n\014machine_name\030\003 \001(\t\022\024\n\014process_na"
+  "me\030\004 \001(\t\022/\n\tdirectory\030\006 \003(\0132\034.CGCToGCMsg"
+  "MasterAck.Process\0328\n\007Process\022\025\n\tdir_inde"
+  "x\030\001 \001(\005:\002-1\022\026\n\016type_instances\030\002 \003(\r\"2\n\034C"
+  "GCToGCMsgMasterAck_Response\022\022\n\007eresult\030\001"
+  " \001(\005:\0012\"7\n\031CMsgGCToGCUniverseStartup\022\032\n\022"
+  "is_initial_startup\030\001 \001(\010\"4\n!CMsgGCToGCUn"
+  "iverseStartupResponse\022\017\n\007eresult\030\001 \001(\005\"\222"
+  "\001\n\037CGCToGCMsgMasterStartupComplete\0228\n\007gc"
+  "_info\030\001 \003(\0132\'.CGCToGCMsgMasterStartupCom"
+  "plete.GCInfo\0325\n\006GCInfo\022\025\n\tdir_index\030\001 \001("
+  "\005:\002-1\022\024\n\014machine_name\030\002 \001(\t\"L\n\020CGCToGCMs"
+  "gRouted\022\020\n\010msg_type\030\001 \001(\r\022\021\n\tsender_id\030\002"
+  " \001(\006\022\023\n\013net_message\030\003 \001(\014\">\n\025CGCToGCMsgR"
+  "outedReply\022\020\n\010msg_type\030\001 \001(\r\022\023\n\013net_mess"
+  "age\030\002 \001(\014\"\225\001\n\034CMsgGCUpdateSubGCSessionIn"
+  "fo\0229\n\007updates\030\001 \003(\0132(.CMsgGCUpdateSubGCS"
+  "essionInfo.CMsgUpdate\032:\n\nCMsgUpdate\022\017\n\007s"
+  "teamid\030\001 \001(\006\022\n\n\002ip\030\002 \001(\007\022\017\n\007trusted\030\003 \001("
+  "\010\"0\n\035CMsgGCRequestSubGCSessionInfo\022\017\n\007st"
+  "eamid\030\001 \001(\006\"c\n%CMsgGCRequestSubGCSession"
+  "InfoResponse\022\n\n\002ip\030\001 \001(\007\022\017\n\007trusted\030\002 \001("
+  "\010\022\014\n\004port\030\003 \001(\r\022\017\n\007success\030\004 \001(\010\"x\n\026CMsg"
+  "SOCacheHaveVersion\022\034\n\004soid\030\001 \001(\0132\016.CMsgS"
+  "OIDOwner\022\017\n\007version\030\002 \001(\006\022\022\n\nservice_id\030"
+  "\003 \001(\r\022\033\n\023cached_file_version\030\004 \001(\r\"\377\004\n\017C"
+  "MsgClientHello\022\017\n\007version\030\001 \001(\r\0226\n\025socac"
+  "he_have_versions\030\002 \003(\0132\027.CMsgSOCacheHave"
+  "Version\022\033\n\023client_session_need\030\003 \001(\r\022:\n\017"
+  "client_launcher\030\004 \001(\0162\023.PartnerAccountTy"
+  "pe:\014PARTNER_NONE\022\022\n\nsecret_key\030\005 \001(\t\022\027\n\017"
+  "client_language\030\006 \001(\r\022-\n\006engine\030\007 \001(\0162\016."
+  "ESourceEngine:\rk_ESE_Source1\022\033\n\023steamdat"
+  "agram_login\030\010 \001(\014\022\023\n\013platform_id\030\t \001(\r\022\020"
+  "\n\010game_msg\030\n \001(\014\022\017\n\007os_type\030\013 \001(\005\022\025\n\rren"
+  "der_system\030\014 \001(\r\022\031\n\021render_system_req\030\r "
+  "\001(\r\022\024\n\014screen_width\030\016 \001(\r\022\025\n\rscreen_heig"
+  "ht\030\017 \001(\r\022\026\n\016screen_refresh\030\020 \001(\r\022\024\n\014rend"
+  "er_width\030\021 \001(\r\022\025\n\rrender_height\030\022 \001(\r\022\022\n"
+  "\nswap_width\030\023 \001(\r\022\023\n\013swap_height\030\024 \001(\r\022\026"
+  "\n\016is_steam_china\030\026 \001(\010\022\035\n\025is_steam_china"
+  "_client\030\030 \001(\010\022\025\n\rplatform_name\030\027 \001(\t\"\225\005\n"
+  "\021CMsgClientWelcome\022\017\n\007version\030\001 \001(\r\022\021\n\tg"
+  "ame_data\030\002 \001(\014\022;\n\033outofdate_subscribed_c"
+  "aches\030\003 \003(\0132\026.CMsgSOCacheSubscribed\022A\n\032u"
+  "ptodate_subscribed_caches\030\004 \003(\0132\035.CMsgSO"
+  "CacheSubscriptionCheck\022-\n\010location\030\005 \001(\013"
+  "2\033.CMsgClientWelcome.Location\022\025\n\rsave_ga"
+  "me_key\030\006 \001(\014\022\037\n\027gc_socache_file_version\030"
+  "\t \001(\r\022\030\n\020txn_country_code\030\n \001(\t\022\022\n\ngame_"
+  "data2\030\013 \001(\014\022$\n\034rtime32_gc_welcome_timest"
+  "amp\030\014 \001(\r\022\020\n\010currency\030\r \001(\r\022\017\n\007balance\030\016"
+  " \001(\r\022\023\n\013balance_url\030\017 \001(\t\022\036\n\026has_accepte"
+  "d_china_ssa\030\020 \001(\010\022\035\n\025is_banned_steam_chi"
+  "na\030\021 \001(\010\0220\n\027additional_welcome_msgs\030\022 \001("
+  "\0132\017.CExtraMsgBlock\0226\n\025steam_learn_hmac_k"
+  "eys\030\023 \001(\0132\027.CMsgSteamLearnHMACKeys\032@\n\010Lo"
+  "cation\022\020\n\010latitude\030\001 \001(\002\022\021\n\tlongitude\030\002 "
+  "\001(\002\022\017\n\007country\030\003 \001(\t\"\345\001\n\024CMsgConnectionS"
+  "tatus\022D\n\006status\030\001 \001(\0162\023.GCConnectionStat"
+  "us:\037GCConnectionStatus_HAVE_SESSION\022\033\n\023c"
+  "lient_session_need\030\002 \001(\r\022\026\n\016queue_positi"
+  "on\030\003 \001(\005\022\022\n\nqueue_size\030\004 \001(\005\022\024\n\014wait_sec"
+  "onds\030\005 \001(\005\022(\n estimated_wait_seconds_rem"
+  "aining\030\006 \001(\005\"\370\001\n\032CMsgGCToGCSOCacheSubscr"
+  "ibe\022\022\n\nsubscriber\030\001 \001(\006\022\027\n\017subscribe_to_"
+  "id\030\002 \001(\006\022\024\n\014sync_version\030\003 \001(\006\022C\n\rhave_v"
+  "ersions\030\004 \003(\0132,.CMsgGCToGCSOCacheSubscri"
+  "be.CMsgHaveVersions\022\031\n\021subscribe_to_type"
+  "\030\005 \001(\r\0327\n\020CMsgHaveVersions\022\022\n\nservice_id"
+  "\030\001 \001(\r\022\017\n\007version\030\002 \001(\004\"n\n\034CMsgGCToGCSOC"
+  "acheUnsubscribe\022\022\n\nsubscriber\030\001 \001(\006\022\033\n\023u"
+  "nsubscribe_from_id\030\002 \001(\006\022\035\n\025unsubscribe_"
+  "from_type\030\003 \001(\r\"\022\n\020CMsgGCClientPing\"\212\001\n\037"
+  "CMsgGCToGCForwardAccountDetails\022\017\n\007steam"
+  "id\030\001 \001(\006\022A\n\017account_details\030\002 \001(\0132(.CGCS"
+  "ystemMsg_GetAccountDetails_Response\022\023\n\013a"
+  "ge_seconds\030\003 \001(\r\"u\n\034CMsgGCToGCLoadSessio"
+  "nSOCache\022\022\n\naccount_id\030\001 \001(\r\022A\n\027forward_"
+  "account_details\030\002 \001(\0132 .CMsgGCToGCForwar"
+  "dAccountDetails\"&\n$CMsgGCToGCLoadSession"
+  "SOCacheResponse\"f\n\034CMsgGCToGCUpdateSessi"
+  "onStats\022\025\n\ruser_sessions\030\001 \001(\r\022\027\n\017server"
+  "_sessions\030\002 \001(\r\022\026\n\016in_logon_surge\030\003 \001(\010\""
+  "\036\n\034CMsgGCToClientRequestDropped\"\355\002\n*CWor"
+  "kshop_PopulateItemDescriptions_Request\022\r"
+  "\n\005appid\030\001 \001(\r\022\\\n\tlanguages\030\002 \003(\0132I.CWork"
+  "shop_PopulateItemDescriptions_Request.It"
+  "emDescriptionsLanguageBlock\032E\n\025SingleIte"
+  "mDescription\022\022\n\ngameitemid\030\001 \001(\r\022\030\n\020item"
+  "_description\030\002 \001(\t\032\212\001\n\035ItemDescriptionsL"
+  "anguageBlock\022\020\n\010language\030\001 \001(\t\022W\n\014descri"
+  "ptions\030\002 \003(\0132A.CWorkshop_PopulateItemDes"
+  "criptions_Request.SingleItemDescription\""
+  "F\n!CWorkshop_GetContributors_Request\022\r\n\005"
+  "appid\030\001 \001(\r\022\022\n\ngameitemid\030\002 \001(\r\":\n\"CWork"
+  "shop_GetContributors_Response\022\024\n\014contrib"
+  "utors\030\001 \003(\006\"\365\005\n%CWorkshop_SetItemPayment"
+  "Rules_Request\022\r\n\005appid\030\001 \001(\r\022\022\n\ngameitem"
+  "id\030\002 \001(\r\022a\n\031associated_workshop_files\030\003 "
+  "\003(\0132>.CWorkshop_SetItemPaymentRules_Requ"
+  "est.WorkshopItemPaymentRule\022W\n\020partner_a"
+  "ccounts\030\004 \003(\0132=.CWorkshop_SetItemPayment"
+  "Rules_Request.PartnerItemPaymentRule\022\025\n\r"
+  "validate_only\030\005 \001(\010\022(\n make_workshop_fil"
+  "es_subscribable\030\006 \001(\010\022v\n,associated_work"
+  "shop_file_for_direct_payments\030\007 \001(\0132@.CW"
+  "orkshop_SetItemPaymentRules_Request.Work"
+  "shopDirectPaymentRule\032\177\n\027WorkshopItemPay"
+  "mentRule\022\030\n\020workshop_file_id\030\001 \001(\004\022\032\n\022re"
+  "venue_percentage\030\002 \001(\002\022\030\n\020rule_descripti"
+  "on\030\003 \001(\t\022\024\n\trule_type\030\004 \001(\r:\0011\032O\n\031Worksh"
+  "opDirectPaymentRule\022\030\n\020workshop_file_id\030"
+  "\001 \001(\004\022\030\n\020rule_description\030\002 \001(\t\032b\n\026Partn"
+  "erItemPaymentRule\022\022\n\naccount_id\030\001 \001(\r\022\032\n"
+  "\022revenue_percentage\030\002 \001(\002\022\030\n\020rule_descri"
+  "ption\030\003 \001(\t\"C\n&CWorkshop_SetItemPaymentR"
+  "ules_Response\022\031\n\021validation_errors\030\001 \003(\t"
+  "\"\364\001\n\037CCommunity_ClanAnnouncementInfo\022\013\n\003"
+  "gid\030\001 \001(\004\022\016\n\006clanid\030\002 \001(\004\022\020\n\010posterid\030\003 "
+  "\001(\004\022\020\n\010headline\030\004 \001(\t\022\020\n\010posttime\030\005 \001(\r\022"
+  "\022\n\nupdatetime\030\006 \001(\r\022\014\n\004body\030\007 \001(\t\022\024\n\014com"
+  "mentcount\030\010 \001(\005\022\014\n\004tags\030\t \003(\t\022\020\n\010languag"
+  "e\030\n \001(\005\022\016\n\006hidden\030\013 \001(\010\022\026\n\016forum_topic_i"
+  "d\030\014 \001(\006\"\306\002\n\'CCommunity_GetClanAnnounceme"
+  "nts_Request\022\017\n\007steamid\030\001 \001(\004\022\016\n\006offset\030\002"
+  " \001(\r\022\r\n\005count\030\003 \001(\r\022\020\n\010maxchars\030\004 \001(\r\022\022\n"
+  "\nstrip_html\030\005 \001(\010\022\025\n\rrequired_tags\030\006 \003(\t"
+  "\022\027\n\017require_no_tags\030\007 \001(\010\022\033\n\023language_pr"
+  "eference\030\010 \003(\r\022\023\n\013hidden_only\030\t \001(\010\022\020\n\010o"
+  "nly_gid\030\n \001(\010\022\031\n\021rtime_oldest_date\030\013 \001(\r"
+  "\022\026\n\016include_hidden\030\014 \001(\010\022\036\n\026include_part"
+  "ner_events\030\r \001(\010\"\211\001\n(CCommunity_GetClanA"
+  "nnouncements_Response\022\020\n\010maxchars\030\001 \001(\r\022"
+  "\022\n\nstrip_html\030\002 \001(\010\0227\n\rannouncements\030\003 \003"
+  "(\0132 .CCommunity_ClanAnnouncementInfo\"p\n$"
+  "CBroadcast_PostGameDataFrame_Request\022\r\n\005"
+  "appid\030\001 \001(\r\022\017\n\007steamid\030\002 \001(\006\022\024\n\014broadcas"
+  "t_id\030\003 \001(\006\022\022\n\nframe_data\030\004 \001(\014\"\374\002\n\025CMsgS"
+  "erializedSOCache\022\024\n\014file_version\030\001 \001(\r\022,"
+  "\n\006caches\030\002 \003(\0132\034.CMsgSerializedSOCache.C"
+  "ache\022\037\n\027gc_socache_file_version\030\003 \001(\r\032>\n"
+  "\tTypeCache\022\014\n\004type\030\001 \001(\r\022\017\n\007objects\030\002 \003("
+  "\014\022\022\n\nservice_id\030\003 \001(\r\032\275\001\n\005Cache\022\014\n\004type\030"
+  "\001 \001(\r\022\n\n\002id\030\002 \001(\004\0226\n\010versions\030\003 \003(\0132$.CM"
+  "sgSerializedSOCache.Cache.Version\0225\n\013typ"
+  "e_caches\030\004 \003(\0132 .CMsgSerializedSOCache.T"
+  "ypeCache\032+\n\007Version\022\017\n\007service\030\001 \001(\r\022\017\n\007"
+  "version\030\002 \001(\004\"G\n\037CMsgGCToClientPollConva"
+  "rRequest\022\023\n\013convar_name\030\001 \001(\t\022\017\n\007poll_id"
+  "\030\002 \001(\r\"I\n CMsgGCToClientPollConvarRespon"
+  "se\022\017\n\007poll_id\030\001 \001(\r\022\024\n\014convar_value\030\002 \001("
+  "\t\"E\n\033CGCMsgCompressedMsgToClient\022\016\n\006msg_"
+  "id\030\001 \001(\r\022\026\n\016compressed_msg\030\002 \001(\014\"\216\001\n CMs"
+  "gGCToGCMasterBroadcastMessage\022\030\n\020users_p"
+  "er_second\030\001 \001(\r\022\025\n\rsend_to_users\030\002 \001(\010\022\027"
+  "\n\017send_to_servers\030\003 \001(\010\022\016\n\006msg_id\030\004 \001(\r\022"
+  "\020\n\010msg_data\030\005 \001(\014\"n\n CMsgGCToGCMasterSub"
+  "scribeToCache\022\021\n\tsoid_type\030\001 \001(\r\022\017\n\007soid"
+  "_id\030\002 \001(\006\022\023\n\013account_ids\030\003 \003(\r\022\021\n\tsteam_"
+  "ids\030\004 \003(\006\"*\n(CMsgGCToGCMasterSubscribeTo"
+  "CacheResponse\"a\n%CMsgGCToGCMasterSubscri"
+  "beToCacheAsync\0228\n\rsubscribe_msg\030\001 \001(\0132!."
+  "CMsgGCToGCMasterSubscribeToCache\"r\n$CMsg"
+  "GCToGCMasterUnsubscribeFromCache\022\021\n\tsoid"
+  "_type\030\001 \001(\r\022\017\n\007soid_id\030\002 \001(\006\022\023\n\013account_"
+  "ids\030\003 \003(\r\022\021\n\tsteam_ids\030\004 \003(\006\"B\n\034CMsgGCTo"
+  "GCMasterDestroyCache\022\021\n\tsoid_type\030\001 \001(\r\022"
+  "\017\n\007soid_id\030\002 \001(\006*5\n\rESourceEngine\022\021\n\rk_E"
+  "SE_Source1\020\000\022\021\n\rk_ESE_Source2\020\001*V\n\022Partn"
+  "erAccountType\022\020\n\014PARTNER_NONE\020\000\022\031\n\025PARTN"
+  "ER_PERFECT_WORLD\020\001\022\023\n\017PARTNER_INVALID\020\003*"
+  "\240\002\n\022GCConnectionStatus\022#\n\037GCConnectionSt"
+  "atus_HAVE_SESSION\020\000\022$\n GCConnectionStatu"
+  "s_GC_GOING_DOWN\020\001\022!\n\035GCConnectionStatus_"
+  "NO_SESSION\020\002\0220\n,GCConnectionStatus_NO_SE"
+  "SSION_IN_LOGON_QUEUE\020\003\022\037\n\033GCConnectionSt"
+  "atus_NO_STEAM\020\004\022 \n\034GCConnectionStatus_SU"
+  "SPENDED\020\005\022\'\n#GCConnectionStatus_STEAM_GO"
+  "ING_DOWN\020\006"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_gcsdk_5fgcmessages_2eproto_deps[2] = {
   &::descriptor_table_steammessages_2eproto,
@@ -2482,7 +2482,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_gcsdk_5fgcmessages_
 };
 static ::_pbi::once_flag descriptor_table_gcsdk_5fgcmessages_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_gcsdk_5fgcmessages_2eproto = {
-    false, false, 9001, descriptor_table_protodef_gcsdk_5fgcmessages_2eproto,
+    false, false, 9010, descriptor_table_protodef_gcsdk_5fgcmessages_2eproto,
     "gcsdk_gcmessages.proto",
     &descriptor_table_gcsdk_5fgcmessages_2eproto_once, descriptor_table_gcsdk_5fgcmessages_2eproto_deps, 2, 72,
     schemas, file_default_instances, TableStruct_gcsdk_5fgcmessages_2eproto::offsets,
@@ -7296,7 +7296,7 @@ inline void CMsgGCToGCSubGCStarting::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.dir_index_){0}
+    , decltype(_impl_.dir_index_){-1}
   };
 }
 
@@ -7323,7 +7323,7 @@ void CMsgGCToGCSubGCStarting::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.dir_index_ = 0;
+  _impl_.dir_index_ = -1;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -7335,7 +7335,7 @@ const char* CMsgGCToGCSubGCStarting::_InternalParse(const char* ptr, ::_pbi::Par
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 dir_index = 1;
+      // optional int32 dir_index = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_dir_index(&has_bits);
@@ -7375,7 +7375,7 @@ uint8_t* CMsgGCToGCSubGCStarting::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 dir_index = 1;
+  // optional int32 dir_index = 1 [default = -1];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_dir_index(), target);
@@ -7397,7 +7397,7 @@ size_t CMsgGCToGCSubGCStarting::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional int32 dir_index = 1;
+  // optional int32 dir_index = 1 [default = -1];
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_dir_index());
@@ -7489,7 +7489,7 @@ inline void CGCToGCMsgMasterAck_Process::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.type_instances_){arena}
-    , decltype(_impl_.dir_index_){0}
+    , decltype(_impl_.dir_index_){-1}
   };
 }
 
@@ -7518,7 +7518,7 @@ void CGCToGCMsgMasterAck_Process::Clear() {
   (void) cached_has_bits;
 
   _impl_.type_instances_.Clear();
-  _impl_.dir_index_ = 0;
+  _impl_.dir_index_ = -1;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -7530,7 +7530,7 @@ const char* CGCToGCMsgMasterAck_Process::_InternalParse(const char* ptr, ::_pbi:
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 dir_index = 1;
+      // optional int32 dir_index = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_dir_index(&has_bits);
@@ -7586,7 +7586,7 @@ uint8_t* CGCToGCMsgMasterAck_Process::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 dir_index = 1;
+  // optional int32 dir_index = 1 [default = -1];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_dir_index(), target);
@@ -7623,7 +7623,7 @@ size_t CGCToGCMsgMasterAck_Process::ByteSizeLong() const {
     total_size += data_size;
   }
 
-  // optional int32 dir_index = 1;
+  // optional int32 dir_index = 1 [default = -1];
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_dir_index());
@@ -7743,7 +7743,7 @@ inline void CGCToGCMsgMasterAck::SharedCtor(
     , decltype(_impl_.directory_){arena}
     , decltype(_impl_.machine_name_){}
     , decltype(_impl_.process_name_){}
-    , decltype(_impl_.dir_index_){0}
+    , decltype(_impl_.dir_index_){-1}
   };
   _impl_.machine_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -7783,15 +7783,15 @@ void CGCToGCMsgMasterAck::Clear() {
 
   _impl_.directory_.Clear();
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
       _impl_.machine_name_.ClearNonDefaultToEmpty();
     }
     if (cached_has_bits & 0x00000002u) {
       _impl_.process_name_.ClearNonDefaultToEmpty();
     }
+    _impl_.dir_index_ = -1;
   }
-  _impl_.dir_index_ = 0;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -7803,7 +7803,7 @@ const char* CGCToGCMsgMasterAck::_InternalParse(const char* ptr, ::_pbi::ParseCo
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 dir_index = 1;
+      // optional int32 dir_index = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_dir_index(&has_bits);
@@ -7880,7 +7880,7 @@ uint8_t* CGCToGCMsgMasterAck::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 dir_index = 1;
+  // optional int32 dir_index = 1 [default = -1];
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_dir_index(), target);
@@ -7953,7 +7953,7 @@ size_t CGCToGCMsgMasterAck::ByteSizeLong() const {
           this->_internal_process_name());
     }
 
-    // optional int32 dir_index = 1;
+    // optional int32 dir_index = 1 [default = -1];
     if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_dir_index());
     }
@@ -8651,7 +8651,7 @@ inline void CGCToGCMsgMasterStartupComplete_GCInfo::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.machine_name_){}
-    , decltype(_impl_.dir_index_){0}
+    , decltype(_impl_.dir_index_){-1}
   };
   _impl_.machine_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -8684,10 +8684,12 @@ void CGCToGCMsgMasterStartupComplete_GCInfo::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    _impl_.machine_name_.ClearNonDefaultToEmpty();
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _impl_.machine_name_.ClearNonDefaultToEmpty();
+    }
+    _impl_.dir_index_ = -1;
   }
-  _impl_.dir_index_ = 0;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -8699,7 +8701,7 @@ const char* CGCToGCMsgMasterStartupComplete_GCInfo::_InternalParse(const char* p
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 dir_index = 1;
+      // optional int32 dir_index = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_dir_index(&has_bits);
@@ -8751,7 +8753,7 @@ uint8_t* CGCToGCMsgMasterStartupComplete_GCInfo::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 dir_index = 1;
+  // optional int32 dir_index = 1 [default = -1];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_dir_index(), target);
@@ -8792,7 +8794,7 @@ size_t CGCToGCMsgMasterStartupComplete_GCInfo::ByteSizeLong() const {
           this->_internal_machine_name());
     }
 
-    // optional int32 dir_index = 1;
+    // optional int32 dir_index = 1 [default = -1];
     if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_dir_index());
     }
