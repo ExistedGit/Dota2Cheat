@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "../../SDK/include.h"
+#include "../../SDK/pch.h"
 #include "../Utility/ParticleGC.h"
 #include "../../Config.h"
 
@@ -61,97 +61,24 @@ namespace Hacks {
 
 		std::map<CDOTAModifier*, ParticleWrapper> TrackedModifiers{};
 	public:
-		void Reset() {
-			OnDisableTargetedSpells();
-			OnDisableLinken();
-			HeroesWithLinken.clear();
-		}
+		void Reset();
 
-		void OnDisableTargetedSpells() {
-			for (auto& [_, pw] : TrackedModifiers)
-				if (pw.handle != 0xFFFFFFFF)
-					GameSystems::ParticleManager->DestroyParticle(pw);
-			TrackedModifiers.clear();
-		}
+		void OnDisableTargetedSpells();
 
-		void OnDisableLinken() {
-			for (auto& [hero, _] : HeroesWithLinken)
-				GameSystems::ParticleManager->DestroyParticle(LinkenSphereParticles[hero]);
+		void OnDisableLinken();
 
-			LinkenSphereParticles.clear();
-		}
+		void SubscribeLinkenRendering(CBaseEntity* ent, CDOTABaseAbility* sphere);
+		void UnsubscribeLinkenRendering(CBaseEntity* ent);
 
-		void SubscribeLinkenRendering(CBaseEntity* ent, CDOTABaseAbility* sphere) {
-			HeroesWithLinken[ent] = sphere;
-		}
-		void UnsubscribeLinkenRendering(CBaseEntity* ent) {
-			RemoveLinkenEffectFor(ent);
-			HeroesWithLinken.erase(ent);
-		}
+		void RemoveLinkenEffectFor(CBaseEntity* ent);
 
-		void RemoveLinkenEffectFor(CBaseEntity* ent) {
-			if (!LinkenSphereParticles.count(ent))
-				return;
+		void DrawLinkenEffectFor(CBaseEntity* ent);
 
-			GameSystems::ParticleManager->DestroyParticle(LinkenSphereParticles[ent]);
-			LinkenSphereParticles.erase(ent);
-		}
+		void FrameBasedLogic();
 
-		void DrawLinkenEffectFor(CBaseEntity* ent) {
-			if (!Config::ShowLinkenSphere)
-				return;
+		void RemoveParticleIfTargetedSpell(CDOTAModifier* modifier);
 
-			if (LinkenSphereParticles.count(ent))
-				return;
-
-			LinkenSphereParticles[ent] = GameSystems::ParticleManager->CreateParticle(
-				"particles/items_fx/immunity_sphere_buff.vpcf",
-				PATTACH_ROOTBONE_FOLLOW,
-				ent
-			);
-
-		}
-
-		void FrameBasedLogic() {
-
-			for (auto& [hero, ability] : HeroesWithLinken) {
-				if (!hero->GetIdentity()->IsDormant() && ability->GetCooldown() == 0)
-					DrawLinkenEffectFor(hero);
-				else
-					RemoveLinkenEffectFor(hero);
-			}
-		}
-
-		void RemoveParticleIfTargetedSpell(CDOTAModifier* modifier) {
-			if (!TrackedModifiers.count(modifier))
-				return;
-			GameSystems::ParticleManager->DestroyParticle(TrackedModifiers[modifier]);
-			TrackedModifiers.erase(modifier);
-		}
-
-		void DrawParticleIfTargetedSpell(CDOTAModifier* modifier) {
-			if (!Config::ShowEnemyTargetedSpells)
-				return;
-			if (!ModifierParticles.count(modifier->GetName()))
-				return;
-			if (modifier->GetOwner()->GetTeam() != ctx.assignedHero->GetTeam())
-				return;
-
-			auto entry = ModifierParticles[modifier->GetName()];
-
-			TrackedModifiers[modifier] = GameSystems::ParticleManager->CreateParticle(
-				entry.particleName,
-				PATTACH_OVERHEAD_FOLLOW,
-				modifier->GetOwner()
-			);
-			for (auto& cp : entry.controlPoints)
-				TrackedModifiers[modifier].particle
-				->SetControlPoint(cp.first, &cp.second);
-
-			if (entry.dieTime)
-				Modules::ParticleGC.SetDieTime(TrackedModifiers[modifier], entry.dieTime);
-
-		}
+		void DrawParticleIfTargetedSpell(CDOTAModifier* modifier);
 
 	};
 }

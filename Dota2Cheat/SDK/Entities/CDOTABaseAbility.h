@@ -1,8 +1,6 @@
 #pragma once
 #include "CBaseEntity.h"
 
-
-
 class CDOTABaseAbility : public CBaseEntity {
 public:
 	typedef double(__fastcall* GetLevelSpecialValueForFn)(void* thisptr, int abilityIndex, const char* value, int level);
@@ -18,20 +16,21 @@ public:
 		return Member<int>(Netvars::C_DOTABaseAbility::m_iManaCost);
 	}
 
-	// Xref "Script_GetCastRangeBonus" in x64dbg to a lea rax
-	// Below there will be "hTarget" or something, above that will be a lea rcx, [XXX] with a function
-	// At the end there are two calls to [rdi + 0x798] and [rdi + 0x7a0], first it gets the range, then the bonus
-	// I currently could not get GetCastRange to work as a standalone vfunc
-	// found via dynamical analysis
+	
+	// xref: "GetCastRange" to lea rcx, above that is lea rax, [XXXXXXXXX]
+	// In the end of the func is a call to [rcx + 0x???] <--- that divided by 8 gives you the index
+	int GetCastRange() {
+		return GetLevelSpecialValueFor<int>("AbilityCastRange");
+	}
+	// Goes right after GetCastRange
 	int GetCastRangeBonus() {
-		return CallVFunc<244, int>(nullptr, nullptr, nullptr);
+		
+		//return Function(0x00007FFE1495DEA0).Execute<int>(nullptr, GetHandle());
+		return CallVFunc<VTableIndexes::CDOTABaseAbility::GetCastRangeBonus, int>(nullptr, nullptr, nullptr);
 	}
 
 	int GetEffectiveCastRange() {
 		return GetCastRange() + GetCastRangeBonus();
-	}
-	int GetCastRange() {
-		return GetLevelSpecialValueFor<int>("AbilityCastRange");
 	}
 
 	template<typename T = double>

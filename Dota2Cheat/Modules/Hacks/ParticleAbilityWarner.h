@@ -1,6 +1,5 @@
 #pragma once
 #include <map>
-#include "../../SDK/include.h"
 #include "../Utility/ParticleGC.h"
 
 namespace Hacks {

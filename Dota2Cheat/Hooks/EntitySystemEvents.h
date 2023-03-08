@@ -1,5 +1,5 @@
 #pragma once
-#include "../SDK/include.h"
+
 #include "VMT.h"
 
 namespace Hooks {

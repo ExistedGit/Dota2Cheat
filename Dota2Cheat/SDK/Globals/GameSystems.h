@@ -47,7 +47,7 @@ namespace GameSystems {
 		ProjectileManagerPtr =
 			(decltype(ProjectileManagerPtr))
 			GetAbsoluteAddress(
-				(uintptr_t)GetModuleHandleA("client.dll") + 0x1330060,
+				(uintptr_t)GetModuleHandleA("client.dll") + 0x1330380,
 				3,
 				7
 			);

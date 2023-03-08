@@ -132,22 +132,22 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;DOTA2CHEAT_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <ExceptionHandling>false</ExceptionHandling>
-      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/bigobj /FI"pch.h" </AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;lua54.lib;libprotobufd.lib;libprotobuf-lited.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;lua54.lib;dxgi.lib;d3d11.lib;libprotobufd.lib;libprotobuf-lited.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)lib\;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -159,14 +159,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;DOTA2CHEAT_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/bigobj /FI"pch.h" </AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -175,18 +175,30 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;lua54.lib;libprotobuf.lib;libprotobuf-lite.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;lua54.lib;dxgi.lib;d3d11.lib;libprotobuf.lib;libprotobuf-lite.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)lib\;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Hooks\EntitySystemEvents.cpp" />
     <ClCompile Include="Hooks\ModifierEvents.cpp" />
-    <ClCompile Include="Hooks\NetChannel.cpp" />
     <ClCompile Include="Hooks\ParticleRendering.cpp" />
     <ClCompile Include="Hooks\PrepareUnitOrders.cpp" />
     <ClCompile Include="Hooks\RunFrame.cpp" />
+    <ClCompile Include="Modules\Hacks\AutoBuyTome.cpp" />
+    <ClCompile Include="Modules\Hacks\AutoDodge.cpp" />
+    <ClCompile Include="Modules\Hacks\AutoPick.cpp" />
+    <ClCompile Include="Modules\Hacks\AutoPing.cpp" />
+    <ClCompile Include="Modules\Hacks\BadCastPrevention.cpp" />
+    <ClCompile Include="Modules\Hacks\CastRedirection.cpp" />
+    <ClCompile Include="Modules\Hacks\EnemySpellHighlight.cpp" />
+    <ClCompile Include="Modules\Hacks\IllusionColoring.cpp" />
+    <ClCompile Include="Modules\Hacks\LinearProjectileWarner.cpp" />
     <ClCompile Include="Modules\Hacks\ParticleAbilityWarner.cpp" />
+    <ClCompile Include="Modules\Hacks\PerfectBlink.cpp" />
+    <ClCompile Include="Modules\Hacks\RiverPaint.cpp" />
+    <ClCompile Include="Modules\Hacks\ShakerAttackAnimFix.cpp" />
+    <ClCompile Include="Modules\Hacks\TargetedSpellHighlighter.cpp" />
     <ClCompile Include="SDK\GameSystems\CDOTAParticleManager.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="include\imgui\imgui.cpp" />
@@ -196,14 +208,10 @@
     <ClCompile Include="include\imgui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="include\imgui\imgui_tables.cpp" />
     <ClCompile Include="include\imgui\imgui_widgets.cpp" />
-    <ClCompile Include="SDK\Interfaces\CBaseFileSystem.cpp" />
-    <ClCompile Include="SDK\Interfaces\CGameEntitySystem.cpp" />
     <ClCompile Include="SDK\Interfaces\CGCClient.cpp" />
-    <ClCompile Include="SDK\Interfaces\CInputService.cpp" />
-    <ClCompile Include="SDK\Interfaces\IEngineClient.cpp" />
-    <ClCompile Include="SDK\Interfaces\Panorama.cpp" />
+    <ClCompile Include="SDK\Interfaces\CVarSystem.cpp" />
     <ClCompile Include="SDK\SigScan\patterscan.cpp" />
-    <ClCompile Include="pch.cpp">
+    <ClCompile Include="SDK\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -227,6 +235,7 @@
     <ClCompile Include="SDK\Protobufs\usermessages.pb.cc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include.h" />
     <ClInclude Include="Modules\Utility\AbilityCooldownTracking.h" />
     <ClInclude Include="Modules\Hacks\AegisAutoPickup.h" />
     <ClInclude Include="Modules\Hacks\ArmletAbuse.h" />
@@ -261,7 +270,6 @@
     <ClInclude Include="SDK\GameSystems\C_DOTA_PlayerResource.h" />
     <ClInclude Include="SDK\GameSystems\C_DOTA_ProjectileManager.h" />
     <ClInclude Include="SDK\Globals\GameSystems.h" />
-    <ClInclude Include="SDK\include.h" />
     <ClInclude Include="SDK\Interfaces\CBaseFileSystem.h" />
     <ClInclude Include="SDK\GameSystems\CDOTAParticleManager.h" />
     <ClInclude Include="SDK\Interfaces\CGameEntitySystem.h" />
@@ -296,7 +304,7 @@
     <ClInclude Include="SDK\Interfaces\Panorama.h" />
     <ClInclude Include="Modules\Hacks\ParticleAbilityWarner.h" />
     <ClInclude Include="Modules\Utility\ParticleGC.h" />
-    <ClInclude Include="pch.h" />
+    <ClInclude Include="SDK\pch.h" />
     <ClInclude Include="Modules\Hacks\PerfectBlink.h" />
     <ClInclude Include="SDK\Protobufs\dota_clientmessages.pb.h" />
     <ClInclude Include="SDK\Protobufs\dota_commonmessages.pb.h" />
@@ -315,15 +323,14 @@
     <ClInclude Include="Modules\Hacks\RiverPaint.h" />
     <ClInclude Include="Modules\Hacks\ShakerAttackAnimFix.h" />
     <ClInclude Include="Modules\Hacks\TargetedSpellHighlighter.h" />
-    <ClInclude Include="stb_image.h" />
     <ClInclude Include="Modules\Hacks\EnemySpellHighlight.h" />
+    <ClInclude Include="SDK\VTableIndexes.h" />
     <ClInclude Include="UIState.h" />
     <ClInclude Include="SDK\Interfaces\CVarSystem.h" />
     <ClInclude Include="SDK\Base\CUtlVector.h" />
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="SDK\Enums.h" />
     <ClInclude Include="SDK\Interfaces\IEngineClient.h" />
-    <ClInclude Include="include.h" />
     <ClInclude Include="MatchStateHandling.h" />
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h" />
     <ClInclude Include="SDK\SigScan\patternscan.h" />

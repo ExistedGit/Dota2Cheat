@@ -1,6 +1,6 @@
 #pragma once
 #include <map>
-#include "../SDK/include.h"
+#include "../SDK/pch.h"
 namespace Hacks {
 	struct AbilityInfo {
 		CDOTABaseAbility* ability{};

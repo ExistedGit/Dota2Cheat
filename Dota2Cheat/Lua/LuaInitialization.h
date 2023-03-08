@@ -1,6 +1,6 @@
 #pragma once
 #include <sol/sol.hpp>
-#include "../SDK/include.h"
+#include "../SDK/pch.h"
 #define LUA_ENUM_TABLE_ENTRY(x) #x, x
 
 namespace Lua {

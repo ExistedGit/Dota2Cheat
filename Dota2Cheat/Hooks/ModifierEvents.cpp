@@ -1,5 +1,6 @@
 #include "ModifierEvents.h"
 
+
 void Hooks::CacheIfItemModifier(CDOTAModifier* modifier) {
 	static const std::vector<ImportantItemData> importantItemNames = {
 		{

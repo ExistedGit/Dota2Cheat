@@ -1,6 +1,4 @@
 #pragma once
-#include "../SDK/include.h"
-
 #include "../Config.h"
 #include "../Modules/Hacks/IllusionColoring.h"
 #include "../Modules/Hacks/AegisAutoPickup.h"

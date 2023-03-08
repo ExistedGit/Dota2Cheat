@@ -5,11 +5,11 @@
 #include "Hooks/ParticleRendering.h"
 #include "Hooks/ModifierEvents.h"
 
-#define HOOKFUNC(func) HookFunc(##func, &hk##func, &o##func, #func)
+#define HOOKFUNC(func) HookFunc(func, &hk##func, &o##func, #func)
 #define HOOKFUNC_SIGNATURES(func) HookFunc(Signatures::##func, &hk##func, &o##func, #func)
 
 namespace Hooks {
-	inline void SetUpByteHooks() {
+	static void SetUpByteHooks() {
 		HOOKFUNC_SIGNATURES(PrepareUnitOrders);
 		//HOOKFUNC(DispatchPacket);
 		//HOOKFUNC(BAsyncSendProto);
@@ -17,7 +17,7 @@ namespace Hooks {
 		HOOKFUNC_SIGNATURES(OnRemoveModifier);
 	}
 
-	inline void SetUpVirtualHooks(bool log) {
+	static void SetUpVirtualHooks(bool log) {
 		char funcAddr[60]{}, funcAddrMask[60]{};
 
 		uintptr_t addr;

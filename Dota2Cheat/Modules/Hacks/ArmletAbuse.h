@@ -1,5 +1,5 @@
 #pragma once
-#include "../../SDK/include.h"
+#include "../../SDK/pch.h"
 namespace Config {
 	inline bool ArmletAbuse = false;
 }

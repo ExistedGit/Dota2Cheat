@@ -2,39 +2,39 @@
 #include "SDK/Base/Vector.h"
 
 namespace Config {
-	inline static bool AutoMidasEnabled = true;
+	inline bool AutoMidasEnabled = true;
 
-	inline static bool AutoPickUpRunes = true;
-	inline static bool AutoPickUpAegis = false;
+	inline bool AutoPickUpRunes = true;
+	inline bool AutoPickUpAegis = false;
 
-	inline static bool AutoBuyTome = false;
+	inline bool AutoBuyTome = false;
 
-	inline static bool CastRedirection = true;
+	inline bool CastRedirection = true;
 	
-	inline static bool AutoWandEnabled = true;
-	inline static float AutoHealWandHPTreshold = 10.0f;
-	inline static int AutoHealWandMinCharges = 5;
-	inline static float AutoHealFaerieFireHPTreshold = 7.0f;
+	inline bool AutoWandEnabled = true;
+	inline float AutoHealWandHPTreshold = 10.0f;
+	inline int AutoHealWandMinCharges = 5;
+	inline float AutoHealFaerieFireHPTreshold = 7.0f;
 
-	inline static bool WarnLinearProjectiles = true;
+	inline bool WarnLinearProjectiles = true;
 
-	inline static bool ShowEnemyPointSpells = true;
-	inline static bool ShowEnemyTargetedSpells = true;
-	inline static bool ShowLinkenSphere = true;
+	inline bool ShowEnemyPointSpells = true;
+	inline bool ShowEnemyTargetedSpells = true;
+	inline bool ShowLinkenSphere = true;
 
-	inline static int WeatherListIdx = 0;
-	inline static int RiverListIdx = 0;
+	inline int WeatherListIdx = 0;
+	inline int RiverListIdx = 0;
 
-	inline static float CameraDistance = 1200.0f;
+	inline float CameraDistance = 1200.0f;
 
-	inline static bool RenderAllParticles = true;
+	inline bool RenderAllParticles = true;
 
-	inline static Vector IllusionColor{ 1,0,0 };
-	inline static bool IllusionColoring = true;
+	inline Vector IllusionColor{ 1,0,0 };
+	inline bool IllusionColoring = true;
 	
-	inline static int CircleRadius = 1200;
-	inline static Vector CircleRGB{ 0,0,0 };
+	inline int CircleRadius = 1200;
+	inline Vector CircleRGB{ 0,0,0 };
 
-	inline static bool VBEShowText = true;
-	inline static bool VBEShowParticle = true;
+	inline bool VBEShowText = true;
+	inline bool VBEShowParticle = true;
 }

@@ -12,7 +12,7 @@
 
 namespace Interfaces {
 	inline CVarSystem* CVar{};
-	inline IEngineClient* Engine{};
+	inline CEngineClient* Engine{};
 	inline VClass* Panorama{};
 	inline Panorama::CUIEngineSource2* UIEngine{};
 	inline VClass* Client{};
@@ -35,7 +35,7 @@ namespace Interfaces {
 	}
 
 	inline void FindInterfaces() {
-		Engine = GetInterface<IEngineClient>("engine2.dll", "Source2EngineToClient001");
+		Engine = GetInterface<CEngineClient>("engine2.dll", "Source2EngineToClient001");
 		Client = GetInterface<VClass>("client.dll", "Source2Client002");
 		CVar = GetInterface<CVarSystem>("tier0.dll", "VEngineCvar007");
 
@@ -57,7 +57,7 @@ namespace Interfaces {
 		std::cout << "[INTERFACES]\n";
 		std::cout << "Schema: " << Schema << "\n";
 		std::cout << "EntitySystem: " << EntitySystem << "\n";
-		std::cout << "IEngineClient: " << Engine << "\n";
+		std::cout << "CEngineClient: " << Engine << "\n";
 		std::cout << "Source2Client: " << Client << "\n";
 		std::cout << "CVarSystem: " << CVar << "\n";
 		std::cout << "Panorama: " << Panorama << "\n";

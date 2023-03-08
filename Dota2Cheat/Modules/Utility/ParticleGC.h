@@ -1,5 +1,5 @@
 #pragma once
-#include "../../SDK/include.h"
+#include "../../SDK/pch.h"
 
 namespace Particles {
 
@@ -40,5 +40,5 @@ namespace Particles {
 	};
 }
 namespace Modules {
-	inline static Particles::ParticleGarbageCollector ParticleGC{};
+	inline Particles::ParticleGarbageCollector ParticleGC{};
 }

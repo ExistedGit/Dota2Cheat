@@ -18,9 +18,9 @@ void CDOTAParticleManager::IncHandle() {
 
 ParticleWrapper CDOTAParticleManager::CreateParticle(const char* name, ParticleAttachment_t attachType, CBaseEntity* ent) {
 	CreateParticleInfo info{};
-	info.particleName = name;
-	info.attachType = attachType;
-	info.attachEntity = ent;
+	info.m_szParticleName = name;
+	info.m_particleAttachment = attachType;
+	info.m_pTargetEntity = ent;
 
 	auto h = GetHandle();
 	IncHandle();

@@ -69,25 +69,10 @@ public:
 	template<typename T = CBaseEntity>
 	T* GetEntity(int index)
 	{
-		if (index <= -1 || index >= (MAX_TOTAL_ENTITIES - 1))
-			return nullptr;
-
-		CEntityIdentities* chunkToUse = m_pEntityList[(index / MAX_ENTITIES_IN_LIST)]; // equal to ( index >> 9 )
-
-		if (!chunkToUse)
-			return nullptr;
-
-		CEntityIdentity* identity = &chunkToUse->m_pIdentities[index % MAX_ENTITIES_IN_LIST]; // equal to ( index & 1FF )
-
-		if (!identity)
-			return nullptr;
-
-		// This is an extra check in the official implementation that I am omitting for speed
-		//if( (LOWORD( identity->entHandle ) & 0x7FFF) == index ){
-		//    return identity->entity;
-		//}
-
-		return (T*)identity->entity;
+		auto identity = GetIdentity(index);
+		if(identity)
+			return (T*)identity->entity;
+		return nullptr;
 	}
 	int GetHighestEntityIndex()
 	{		
@@ -97,11 +82,5 @@ public:
 		// that function will have this function
 		return *(int*)((uintptr_t)this + 0x1510);
 	}
-//
-//	static void BindLua(sol::state& lua) {
-//
-////		type["GetBaseNpc"] = &CGameEntitySystem::GetEntity<BaseNpc>;
-//	}
-//	
 };
 
