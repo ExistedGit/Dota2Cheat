@@ -19,11 +19,16 @@ public:
 
 class CDOTAGameRules : public VClass {
 public:
+	typedef void(*GetGameTimeFn)(float* out, bool unk);
+	inline static GetGameTimeFn GetGameTimeFunc{};
+
 	DOTA_GameState GetGameState() {
 		return Member<DOTA_GameState>(Netvars::C_DOTAGamerules::m_nGameState);
 	}
 	float GetGameTime() {
-		return Member<float>(Netvars::C_DOTAGamerules::m_fGameTime);
+		float result = 0;
+		GetGameTimeFunc(&result, 0);
+		return result;
 	}
 
 	DOTA_GameMode GetGameMode() {

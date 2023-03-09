@@ -34,29 +34,26 @@ namespace GameSystems {
 	inline void FindGameSystems() {
 		std::cout << "[GLOBAL POINTERS]\n";
 
-		// On offset 0x117 in Source2Client::Init(), right after "g_GameEventManager.Init()"
+		// In Source2Client::Init(), right after "g_GameEventManager.Init()":
+		// mov rcx, [XXXXXXXXX]
 		GameEventManagerPtr = (CGameEventManager**)GetAbsoluteAddress(
-			(uintptr_t)Interfaces::Client->GetVFunc(3).ptr + 0x117,
+			(uintptr_t)Interfaces::Client->GetVFunc(3).ptr + 0x106,
 			3,
 			7);
 
-		// GetProjectileManager, it's too short and its caller is too generic to be sigged
-		// xref "Spews a list of all client-side projectiles", above it is lea rax, [XXXXXXXX]
-		ProjectileManagerPtr =
-			(decltype(ProjectileManagerPtr))
-			GetAbsoluteAddress(
-				(uintptr_t)GetModuleHandleA("client.dll") + 0xCE0960,
-				3,
-				7
-			);
-		std::cout << "ProjectileManagerPtr: " << ProjectileManagerPtr << '\n';
-
+		std::cout << "GameEventManagerPtr: " << GameEventManagerPtr  << '\n';
+		
 		char funcAddr[60];
 		char funcAddrMask[60];
 
-		ParseCombo("48 8B ? ? ? ? ? 48 85 C0 74 34 48 63 48 68 44 8B 90 CC 00 00 00 83 F9 0B", funcAddr, funcAddrMask);
-		uintptr_t addr = (uintptr_t)PatternScanExModule(ctx.CurProcHandle, ctx.CurProcId, L"client.dll", funcAddr, funcAddrMask);
-		GameRulesPtr = (CDOTAGameRules**)GetAbsoluteAddress(addr, 3, 7);
+		// xref "Spews a list of all client-side projectiles", above it is lea rax, [XXXXXXXX]
+		// right click -> Find references to -> Address: XXXXXXXX
+		ParseCombo("4C 8B F0 48 8B BC 24 58 01 00 00 48 8D ? ? ? ? ? 48 8D ? ? ? ? ? 48 83 38 00", funcAddr, funcAddrMask);
+		uintptr_t addr = (uintptr_t)PatternScanExModule(ctx.CurProcHandle, ctx.CurProcId, L"client.dll", funcAddr, funcAddrMask) ;
+		ProjectileManagerPtr = (C_DOTA_ProjectileManager**)GetAbsoluteAddress(addr + 0x12, 3, 7);
+		std::cout << "ProjectileManagerPtr: " << ProjectileManagerPtr << '\n';
+
+		GameRulesPtr = (decltype(GameRulesPtr))GetAbsoluteAddress((uintptr_t)CDOTAGameRules::GetGameTimeFunc + 0xF, 3, 7);
 		std::cout << "GameRulesPtr: " << GameRulesPtr << '\n';
 
 		ParseCombo("48 8B ? ? ? ? ? 48 85 C9 0F 85 ? ? ? ? B8 FF FF FF FF C3", funcAddr, funcAddrMask);
@@ -85,7 +82,6 @@ namespace GameSystems {
 		std::cout << "[GLOBALS]\n";
 		std::cout << "GameRules: " << GameRules << '\n';
 		std::cout << "Projectile Manager:" << ProjectileManager << '\n';
-		//std::cout << "ScriptVM: " << ScriptVM << "\n";
-		std::cout << "Particle Manager: " << ParticleManager << ' ' << ParticleManager->GetVFunc(7).ptr << "\n";
+		std::cout << "Particle Manager: " << ParticleManager << ' ' << ParticleManager->GetVFunc(9).ptr << "\n";
 	}
 }

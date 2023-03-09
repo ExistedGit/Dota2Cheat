@@ -26,10 +26,10 @@ PROTOBUF_CONSTEXPR CDOTAMsg_LocationPing::CDOTAMsg_LocationPing(
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.x_)*/0
   , /*decltype(_impl_.y_)*/0
-  , /*decltype(_impl_.target_)*/0
   , /*decltype(_impl_.direct_ping_)*/false
-  , /*decltype(_impl_.type_)*/0
-  , /*decltype(_impl_.ping_source_)*/0} {}
+  , /*decltype(_impl_.ping_source_)*/0
+  , /*decltype(_impl_.target_)*/-1
+  , /*decltype(_impl_.type_)*/4294967295u} {}
 struct CDOTAMsg_LocationPingDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAMsg_LocationPingDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -45,7 +45,7 @@ PROTOBUF_CONSTEXPR CDOTAMsg_ItemAlert::CDOTAMsg_ItemAlert(
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.x_)*/0
   , /*decltype(_impl_.y_)*/0
-  , /*decltype(_impl_.item_ability_id_)*/0} {}
+  , /*decltype(_impl_.item_ability_id_)*/-1} {}
 struct CDOTAMsg_ItemAlertDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAMsg_ItemAlertDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -147,9 +147,9 @@ PROTOBUF_CONSTEXPR CDOTAMsg_UnitOrder::CDOTAMsg_UnitOrder(
   , /*decltype(_impl_.position_)*/nullptr
   , /*decltype(_impl_.order_type_)*/0
   , /*decltype(_impl_.target_index_)*/0
-  , /*decltype(_impl_.ability_index_)*/0
   , /*decltype(_impl_.sequence_number_)*/0
-  , /*decltype(_impl_.flags_)*/0u} {}
+  , /*decltype(_impl_.flags_)*/0u
+  , /*decltype(_impl_.ability_index_)*/-1} {}
 struct CDOTAMsg_UnitOrderDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAMsg_UnitOrderDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -194,8 +194,8 @@ PROTOBUF_CONSTEXPR VersusScene_ChatWheel::VersusScene_ChatWheel(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.chat_message_id_)*/0u
-  , /*decltype(_impl_.emoticon_id_)*/0u} {}
+  , /*decltype(_impl_.emoticon_id_)*/0u
+  , /*decltype(_impl_.chat_message_id_)*/4294967295u} {}
 struct VersusScene_ChatWheelDefaultTypeInternal {
   PROTOBUF_CONSTEXPR VersusScene_ChatWheelDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -238,10 +238,10 @@ const uint32_t TableStruct_dota_5fcommonmessages_2eproto::offsets[] PROTOBUF_SEC
   PROTOBUF_FIELD_OFFSET(::CDOTAMsg_LocationPing, _impl_.ping_source_),
   0,
   1,
-  2,
-  3,
   4,
+  2,
   5,
+  3,
   PROTOBUF_FIELD_OFFSET(::CDOTAMsg_ItemAlert, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAMsg_ItemAlert, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -338,10 +338,10 @@ const uint32_t TableStruct_dota_5fcommonmessages_2eproto::offsets[] PROTOBUF_SEC
   1,
   ~0u,
   2,
-  3,
-  0,
-  4,
   5,
+  0,
+  3,
+  4,
   PROTOBUF_FIELD_OFFSET(::VersusScene_PlayActivity_ActivityInfo, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::VersusScene_PlayActivity_ActivityInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -372,8 +372,8 @@ const uint32_t TableStruct_dota_5fcommonmessages_2eproto::offsets[] PROTOBUF_SEC
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::VersusScene_ChatWheel, _impl_.chat_message_id_),
   PROTOBUF_FIELD_OFFSET(::VersusScene_ChatWheel, _impl_.emoticon_id_),
-  0,
   1,
+  0,
   PROTOBUF_FIELD_OFFSET(::VersusScene_PlaybackRate, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::VersusScene_PlaybackRate, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -415,91 +415,92 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_dota_5fcommonmessages_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\031dota_commonmessages.proto\032\026networkbase"
-  "types.proto\"\232\001\n\025CDOTAMsg_LocationPing\022\t\n"
-  "\001x\030\001 \001(\005\022\t\n\001y\030\002 \001(\005\022\016\n\006target\030\003 \001(\005\022\023\n\013d"
-  "irect_ping\030\004 \001(\010\022\014\n\004type\030\005 \001(\005\0228\n\013ping_s"
-  "ource\030\006 \001(\0162\014.EPingSource:\025k_ePingSource"
-  "_Default\"C\n\022CDOTAMsg_ItemAlert\022\t\n\001x\030\001 \001("
-  "\005\022\t\n\001y\030\002 \001(\005\022\027\n\017item_ability_id\030\003 \001(\005\"9\n"
-  "\020CDOTAMsg_MapLine\022\t\n\001x\030\001 \001(\005\022\t\n\001y\030\002 \001(\005\022"
-  "\017\n\007initial\030\003 \001(\010\"S\n\022CDOTAMsg_WorldLine\022\t"
-  "\n\001x\030\001 \001(\005\022\t\n\001y\030\002 \001(\005\022\t\n\001z\030\003 \001(\005\022\017\n\007initi"
-  "al\030\004 \001(\010\022\013\n\003end\030\005 \001(\010\"\320\001\n\026CDOTAMsg_SendS"
-  "tatPopup\0229\n\005style\030\001 \001(\0162\024.EDOTAStatPopup"
-  "Types:\024k_EDOTA_SPT_Textline\022\024\n\014stat_stri"
-  "ngs\030\002 \003(\t\022\023\n\013stat_images\030\003 \003(\005\022\030\n\020stat_i"
-  "mage_types\030\004 \003(\005\022\020\n\010duration\030\005 \001(\002\022\020\n\010us"
-  "e_html\030\006 \001(\010\022\022\n\nmovie_name\030\007 \001(\t\"3\n\035CDOT"
-  "AMsg_DismissAllStatPopups\022\022\n\ntime_delay\030"
-  "\001 \001(\002\">\n\025CDOTAMsg_CoachHUDPing\022\t\n\001x\030\001 \001("
-  "\r\022\t\n\001y\030\002 \001(\r\022\017\n\007tgtpath\030\003 \001(\t\"\323\001\n\022CDOTAM"
-  "sg_UnitOrder\022:\n\norder_type\030\002 \001(\0162\020.dotau"
-  "nitorder_t:\024DOTA_UNIT_ORDER_NONE\022\r\n\005unit"
-  "s\030\003 \003(\005\022\024\n\014target_index\030\004 \001(\005\022\025\n\rability"
-  "_index\030\005 \001(\005\022\035\n\010position\030\006 \001(\0132\013.CMsgVec"
-  "tor\022\027\n\017sequence_number\030\010 \001(\005\022\r\n\005flags\030\t "
-  "\001(\r\"\301\001\n\030VersusScene_PlayActivity\022:\n\nacti"
-  "vities\030\001 \003(\0132&.VersusScene_PlayActivity."
-  "ActivityInfo\022\025\n\rplayback_rate\030\002 \001(\002\032R\n\014A"
-  "ctivityInfo\022\020\n\010activity\030\001 \001(\t\022\031\n\021disable"
-  "_auto_kill\030\002 \001(\010\022\025\n\rforce_looping\030\003 \001(\010\""
-  "E\n\025VersusScene_ChatWheel\022\027\n\017chat_message"
-  "_id\030\001 \001(\r\022\023\n\013emoticon_id\030\002 \001(\r\"(\n\030Versus"
-  "Scene_PlaybackRate\022\014\n\004rate\030\001 \001(\002*v\n\013EPin"
-  "gSource\022\031\n\025k_ePingSource_Default\020\000\022\031\n\025k_"
-  "ePingSource_Warning\020\001\022\027\n\023k_ePingSource_W"
-  "heel\020\002\022\030\n\024k_ePingSource_System\020\003*\244\001\n\023EDO"
-  "TAStatPopupTypes\022\030\n\024k_EDOTA_SPT_Textline"
-  "\020\000\022\025\n\021k_EDOTA_SPT_Basic\020\001\022\024\n\020k_EDOTA_SPT"
-  "_Poll\020\002\022\024\n\020k_EDOTA_SPT_Grid\020\003\022\031\n\025k_EDOTA"
-  "_SPT_DualImage\020\004\022\025\n\021k_EDOTA_SPT_Movie\020\005*"
-  "\222\013\n\017dotaunitorder_t\022\030\n\024DOTA_UNIT_ORDER_N"
-  "ONE\020\000\022$\n DOTA_UNIT_ORDER_MOVE_TO_POSITIO"
-  "N\020\001\022\"\n\036DOTA_UNIT_ORDER_MOVE_TO_TARGET\020\002\022"
-  "\037\n\033DOTA_UNIT_ORDER_ATTACK_MOVE\020\003\022!\n\035DOTA"
-  "_UNIT_ORDER_ATTACK_TARGET\020\004\022!\n\035DOTA_UNIT"
-  "_ORDER_CAST_POSITION\020\005\022\037\n\033DOTA_UNIT_ORDE"
-  "R_CAST_TARGET\020\006\022$\n DOTA_UNIT_ORDER_CAST_"
-  "TARGET_TREE\020\007\022\"\n\036DOTA_UNIT_ORDER_CAST_NO"
-  "_TARGET\020\010\022\037\n\033DOTA_UNIT_ORDER_CAST_TOGGLE"
-  "\020\t\022!\n\035DOTA_UNIT_ORDER_HOLD_POSITION\020\n\022!\n"
-  "\035DOTA_UNIT_ORDER_TRAIN_ABILITY\020\013\022\035\n\031DOTA"
-  "_UNIT_ORDER_DROP_ITEM\020\014\022\035\n\031DOTA_UNIT_ORD"
-  "ER_GIVE_ITEM\020\r\022\037\n\033DOTA_UNIT_ORDER_PICKUP"
-  "_ITEM\020\016\022\037\n\033DOTA_UNIT_ORDER_PICKUP_RUNE\020\017"
-  "\022!\n\035DOTA_UNIT_ORDER_PURCHASE_ITEM\020\020\022\035\n\031D"
-  "OTA_UNIT_ORDER_SELL_ITEM\020\021\022$\n DOTA_UNIT_"
-  "ORDER_DISASSEMBLE_ITEM\020\022\022\035\n\031DOTA_UNIT_OR"
-  "DER_MOVE_ITEM\020\023\022$\n DOTA_UNIT_ORDER_CAST_"
-  "TOGGLE_AUTO\020\024\022\030\n\024DOTA_UNIT_ORDER_STOP\020\025\022"
-  "\031\n\025DOTA_UNIT_ORDER_TAUNT\020\026\022\033\n\027DOTA_UNIT_"
-  "ORDER_BUYBACK\020\027\022\031\n\025DOTA_UNIT_ORDER_GLYPH"
-  "\020\030\022)\n%DOTA_UNIT_ORDER_EJECT_ITEM_FROM_ST"
-  "ASH\020\031\022\035\n\031DOTA_UNIT_ORDER_CAST_RUNE\020\032\022 \n\034"
-  "DOTA_UNIT_ORDER_PING_ABILITY\020\033\022%\n!DOTA_U"
-  "NIT_ORDER_MOVE_TO_DIRECTION\020\034\022\032\n\026DOTA_UN"
-  "IT_ORDER_PATROL\020\035\022*\n&DOTA_UNIT_ORDER_VEC"
-  "TOR_TARGET_POSITION\020\036\022\031\n\025DOTA_UNIT_ORDER"
-  "_RADAR\020\037\022)\n%DOTA_UNIT_ORDER_SET_ITEM_COM"
-  "BINE_LOCK\020 \022\034\n\030DOTA_UNIT_ORDER_CONTINUE\020"
-  "!\022*\n&DOTA_UNIT_ORDER_VECTOR_TARGET_CANCE"
-  "LED\020\"\022$\n DOTA_UNIT_ORDER_CAST_RIVER_PAIN"
-  "T\020#\0222\n.DOTA_UNIT_ORDER_PREGAME_ADJUST_IT"
-  "EM_ASSIGNMENT\020$\022)\n%DOTA_UNIT_ORDER_DROP_"
-  "ITEM_AT_FOUNTAIN\020%\0225\n1DOTA_UNIT_ORDER_TA"
-  "KE_ITEM_FROM_NEUTRAL_ITEM_STASH\020&\022!\n\035DOT"
-  "A_UNIT_ORDER_MOVE_RELATIVE\020\'*\217\001\n\036EDOTAVe"
-  "rsusScenePlayerBehavior\022$\n VS_PLAYER_BEH"
-  "AVIOR_PLAY_ACTIVITY\020\001\022!\n\035VS_PLAYER_BEHAV"
-  "IOR_CHAT_WHEEL\020\002\022$\n VS_PLAYER_BEHAVIOR_P"
-  "LAYBACK_RATE\020\003B\005H\001\200\001\000"
+  "types.proto\"\252\001\n\025CDOTAMsg_LocationPing\022\t\n"
+  "\001x\030\001 \001(\005\022\t\n\001y\030\002 \001(\005\022\022\n\006target\030\003 \001(\005:\002-1\022"
+  "\023\n\013direct_ping\030\004 \001(\010\022\030\n\004type\030\005 \001(\r:\n4294"
+  "967295\0228\n\013ping_source\030\006 \001(\0162\014.EPingSourc"
+  "e:\025k_ePingSource_Default\"G\n\022CDOTAMsg_Ite"
+  "mAlert\022\t\n\001x\030\001 \001(\005\022\t\n\001y\030\002 \001(\005\022\033\n\017item_abi"
+  "lity_id\030\003 \001(\005:\002-1\"9\n\020CDOTAMsg_MapLine\022\t\n"
+  "\001x\030\001 \001(\005\022\t\n\001y\030\002 \001(\005\022\017\n\007initial\030\003 \001(\010\"S\n\022"
+  "CDOTAMsg_WorldLine\022\t\n\001x\030\001 \001(\005\022\t\n\001y\030\002 \001(\005"
+  "\022\t\n\001z\030\003 \001(\005\022\017\n\007initial\030\004 \001(\010\022\013\n\003end\030\005 \001("
+  "\010\"\320\001\n\026CDOTAMsg_SendStatPopup\0229\n\005style\030\001 "
+  "\001(\0162\024.EDOTAStatPopupTypes:\024k_EDOTA_SPT_T"
+  "extline\022\024\n\014stat_strings\030\002 \003(\t\022\023\n\013stat_im"
+  "ages\030\003 \003(\005\022\030\n\020stat_image_types\030\004 \003(\005\022\020\n\010"
+  "duration\030\005 \001(\002\022\020\n\010use_html\030\006 \001(\010\022\022\n\nmovi"
+  "e_name\030\007 \001(\t\"3\n\035CDOTAMsg_DismissAllStatP"
+  "opups\022\022\n\ntime_delay\030\001 \001(\002\">\n\025CDOTAMsg_Co"
+  "achHUDPing\022\t\n\001x\030\001 \001(\r\022\t\n\001y\030\002 \001(\r\022\017\n\007tgtp"
+  "ath\030\003 \001(\t\"\332\001\n\022CDOTAMsg_UnitOrder\022:\n\norde"
+  "r_type\030\002 \001(\0162\020.dotaunitorder_t:\024DOTA_UNI"
+  "T_ORDER_NONE\022\r\n\005units\030\003 \003(\005\022\027\n\014target_in"
+  "dex\030\004 \001(\005:\0010\022\031\n\rability_index\030\005 \001(\005:\002-1\022"
+  "\035\n\010position\030\006 \001(\0132\013.CMsgVector\022\027\n\017sequen"
+  "ce_number\030\010 \001(\005\022\r\n\005flags\030\t \001(\r\"\301\001\n\030Versu"
+  "sScene_PlayActivity\022:\n\nactivities\030\001 \003(\0132"
+  "&.VersusScene_PlayActivity.ActivityInfo\022"
+  "\025\n\rplayback_rate\030\002 \001(\002\032R\n\014ActivityInfo\022\020"
+  "\n\010activity\030\001 \001(\t\022\031\n\021disable_auto_kill\030\002 "
+  "\001(\010\022\025\n\rforce_looping\030\003 \001(\010\"Q\n\025VersusScen"
+  "e_ChatWheel\022#\n\017chat_message_id\030\001 \001(\r:\n42"
+  "94967295\022\023\n\013emoticon_id\030\002 \001(\r\"(\n\030VersusS"
+  "cene_PlaybackRate\022\014\n\004rate\030\001 \001(\002*v\n\013EPing"
+  "Source\022\031\n\025k_ePingSource_Default\020\000\022\031\n\025k_e"
+  "PingSource_Warning\020\001\022\027\n\023k_ePingSource_Wh"
+  "eel\020\002\022\030\n\024k_ePingSource_System\020\003*\244\001\n\023EDOT"
+  "AStatPopupTypes\022\030\n\024k_EDOTA_SPT_Textline\020"
+  "\000\022\025\n\021k_EDOTA_SPT_Basic\020\001\022\024\n\020k_EDOTA_SPT_"
+  "Poll\020\002\022\024\n\020k_EDOTA_SPT_Grid\020\003\022\031\n\025k_EDOTA_"
+  "SPT_DualImage\020\004\022\025\n\021k_EDOTA_SPT_Movie\020\005*\222"
+  "\013\n\017dotaunitorder_t\022\030\n\024DOTA_UNIT_ORDER_NO"
+  "NE\020\000\022$\n DOTA_UNIT_ORDER_MOVE_TO_POSITION"
+  "\020\001\022\"\n\036DOTA_UNIT_ORDER_MOVE_TO_TARGET\020\002\022\037"
+  "\n\033DOTA_UNIT_ORDER_ATTACK_MOVE\020\003\022!\n\035DOTA_"
+  "UNIT_ORDER_ATTACK_TARGET\020\004\022!\n\035DOTA_UNIT_"
+  "ORDER_CAST_POSITION\020\005\022\037\n\033DOTA_UNIT_ORDER"
+  "_CAST_TARGET\020\006\022$\n DOTA_UNIT_ORDER_CAST_T"
+  "ARGET_TREE\020\007\022\"\n\036DOTA_UNIT_ORDER_CAST_NO_"
+  "TARGET\020\010\022\037\n\033DOTA_UNIT_ORDER_CAST_TOGGLE\020"
+  "\t\022!\n\035DOTA_UNIT_ORDER_HOLD_POSITION\020\n\022!\n\035"
+  "DOTA_UNIT_ORDER_TRAIN_ABILITY\020\013\022\035\n\031DOTA_"
+  "UNIT_ORDER_DROP_ITEM\020\014\022\035\n\031DOTA_UNIT_ORDE"
+  "R_GIVE_ITEM\020\r\022\037\n\033DOTA_UNIT_ORDER_PICKUP_"
+  "ITEM\020\016\022\037\n\033DOTA_UNIT_ORDER_PICKUP_RUNE\020\017\022"
+  "!\n\035DOTA_UNIT_ORDER_PURCHASE_ITEM\020\020\022\035\n\031DO"
+  "TA_UNIT_ORDER_SELL_ITEM\020\021\022$\n DOTA_UNIT_O"
+  "RDER_DISASSEMBLE_ITEM\020\022\022\035\n\031DOTA_UNIT_ORD"
+  "ER_MOVE_ITEM\020\023\022$\n DOTA_UNIT_ORDER_CAST_T"
+  "OGGLE_AUTO\020\024\022\030\n\024DOTA_UNIT_ORDER_STOP\020\025\022\031"
+  "\n\025DOTA_UNIT_ORDER_TAUNT\020\026\022\033\n\027DOTA_UNIT_O"
+  "RDER_BUYBACK\020\027\022\031\n\025DOTA_UNIT_ORDER_GLYPH\020"
+  "\030\022)\n%DOTA_UNIT_ORDER_EJECT_ITEM_FROM_STA"
+  "SH\020\031\022\035\n\031DOTA_UNIT_ORDER_CAST_RUNE\020\032\022 \n\034D"
+  "OTA_UNIT_ORDER_PING_ABILITY\020\033\022%\n!DOTA_UN"
+  "IT_ORDER_MOVE_TO_DIRECTION\020\034\022\032\n\026DOTA_UNI"
+  "T_ORDER_PATROL\020\035\022*\n&DOTA_UNIT_ORDER_VECT"
+  "OR_TARGET_POSITION\020\036\022\031\n\025DOTA_UNIT_ORDER_"
+  "RADAR\020\037\022)\n%DOTA_UNIT_ORDER_SET_ITEM_COMB"
+  "INE_LOCK\020 \022\034\n\030DOTA_UNIT_ORDER_CONTINUE\020!"
+  "\022*\n&DOTA_UNIT_ORDER_VECTOR_TARGET_CANCEL"
+  "ED\020\"\022$\n DOTA_UNIT_ORDER_CAST_RIVER_PAINT"
+  "\020#\0222\n.DOTA_UNIT_ORDER_PREGAME_ADJUST_ITE"
+  "M_ASSIGNMENT\020$\022)\n%DOTA_UNIT_ORDER_DROP_I"
+  "TEM_AT_FOUNTAIN\020%\0225\n1DOTA_UNIT_ORDER_TAK"
+  "E_ITEM_FROM_NEUTRAL_ITEM_STASH\020&\022!\n\035DOTA"
+  "_UNIT_ORDER_MOVE_RELATIVE\020\'*\217\001\n\036EDOTAVer"
+  "susScenePlayerBehavior\022$\n VS_PLAYER_BEHA"
+  "VIOR_PLAY_ACTIVITY\020\001\022!\n\035VS_PLAYER_BEHAVI"
+  "OR_CHAT_WHEEL\020\002\022$\n VS_PLAYER_BEHAVIOR_PL"
+  "AYBACK_RATE\020\003"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fcommonmessages_2eproto_deps[1] = {
   &::descriptor_table_networkbasetypes_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_dota_5fcommonmessages_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fcommonmessages_2eproto = {
-    false, false, 3141, descriptor_table_protodef_dota_5fcommonmessages_2eproto,
+    false, false, 3173, descriptor_table_protodef_dota_5fcommonmessages_2eproto,
     "dota_commonmessages.proto",
     &descriptor_table_dota_5fcommonmessages_2eproto_once, descriptor_table_dota_5fcommonmessages_2eproto_deps, 1, 12,
     schemas, file_default_instances, TableStruct_dota_5fcommonmessages_2eproto::offsets,
@@ -626,16 +627,16 @@ class CDOTAMsg_LocationPing::_Internal {
     (*has_bits)[0] |= 2u;
   }
   static void set_has_target(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_direct_ping(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-  static void set_has_type(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
   }
-  static void set_has_ping_source(HasBits* has_bits) {
+  static void set_has_direct_ping(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_type(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
+  }
+  static void set_has_ping_source(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
   }
 };
 
@@ -653,15 +654,15 @@ CDOTAMsg_LocationPing::CDOTAMsg_LocationPing(const CDOTAMsg_LocationPing& from)
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.x_){}
     , decltype(_impl_.y_){}
-    , decltype(_impl_.target_){}
     , decltype(_impl_.direct_ping_){}
-    , decltype(_impl_.type_){}
-    , decltype(_impl_.ping_source_){}};
+    , decltype(_impl_.ping_source_){}
+    , decltype(_impl_.target_){}
+    , decltype(_impl_.type_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.x_, &from._impl_.x_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.ping_source_) -
-    reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.ping_source_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.type_) -
+    reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.type_));
   // @@protoc_insertion_point(copy_constructor:CDOTAMsg_LocationPing)
 }
 
@@ -674,10 +675,10 @@ inline void CDOTAMsg_LocationPing::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.x_){0}
     , decltype(_impl_.y_){0}
-    , decltype(_impl_.target_){0}
     , decltype(_impl_.direct_ping_){false}
-    , decltype(_impl_.type_){0}
     , decltype(_impl_.ping_source_){0}
+    , decltype(_impl_.target_){-1}
+    , decltype(_impl_.type_){4294967295u}
   };
 }
 
@@ -709,6 +710,8 @@ void CDOTAMsg_LocationPing::Clear() {
     ::memset(&_impl_.x_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.ping_source_) -
         reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.ping_source_));
+    _impl_.target_ = -1;
+    _impl_.type_ = 4294967295u;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -739,7 +742,7 @@ const char* CDOTAMsg_LocationPing::_InternalParse(const char* ptr, ::_pbi::Parse
         } else
           goto handle_unusual;
         continue;
-      // optional int32 target = 3;
+      // optional int32 target = 3 [default = -1];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_target(&has_bits);
@@ -757,7 +760,7 @@ const char* CDOTAMsg_LocationPing::_InternalParse(const char* ptr, ::_pbi::Parse
         } else
           goto handle_unusual;
         continue;
-      // optional int32 type = 5;
+      // optional uint32 type = 5 [default = 4294967295];
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
           _Internal::set_has_type(&has_bits);
@@ -822,26 +825,26 @@ uint8_t* CDOTAMsg_LocationPing::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_y(), target);
   }
 
-  // optional int32 target = 3;
-  if (cached_has_bits & 0x00000004u) {
+  // optional int32 target = 3 [default = -1];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_target(), target);
   }
 
   // optional bool direct_ping = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_direct_ping(), target);
   }
 
-  // optional int32 type = 5;
-  if (cached_has_bits & 0x00000010u) {
+  // optional uint32 type = 5 [default = 4294967295];
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(5, this->_internal_type(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_type(), target);
   }
 
   // optional .EPingSource ping_source = 6 [default = k_ePingSource_Default];
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
       6, this->_internal_ping_source(), target);
@@ -875,25 +878,25 @@ size_t CDOTAMsg_LocationPing::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_y());
     }
 
-    // optional int32 target = 3;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target());
-    }
-
     // optional bool direct_ping = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
     }
 
-    // optional int32 type = 5;
-    if (cached_has_bits & 0x00000010u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_type());
-    }
-
     // optional .EPingSource ping_source = 6 [default = k_ePingSource_Default];
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::_pbi::WireFormatLite::EnumSize(this->_internal_ping_source());
+    }
+
+    // optional int32 target = 3 [default = -1];
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target());
+    }
+
+    // optional uint32 type = 5 [default = 4294967295];
+    if (cached_has_bits & 0x00000020u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_type());
     }
 
   }
@@ -924,16 +927,16 @@ void CDOTAMsg_LocationPing::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, 
       _this->_impl_.y_ = from._impl_.y_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.target_ = from._impl_.target_;
-    }
-    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.direct_ping_ = from._impl_.direct_ping_;
     }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.ping_source_ = from._impl_.ping_source_;
+    }
     if (cached_has_bits & 0x00000010u) {
-      _this->_impl_.type_ = from._impl_.type_;
+      _this->_impl_.target_ = from._impl_.target_;
     }
     if (cached_has_bits & 0x00000020u) {
-      _this->_impl_.ping_source_ = from._impl_.ping_source_;
+      _this->_impl_.type_ = from._impl_.type_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -961,6 +964,8 @@ void CDOTAMsg_LocationPing::InternalSwap(CDOTAMsg_LocationPing* other) {
       - PROTOBUF_FIELD_OFFSET(CDOTAMsg_LocationPing, _impl_.x_)>(
           reinterpret_cast<char*>(&_impl_.x_),
           reinterpret_cast<char*>(&other->_impl_.x_));
+  swap(_impl_.target_, other->_impl_.target_);
+  swap(_impl_.type_, other->_impl_.type_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAMsg_LocationPing::GetMetadata() const {
@@ -1017,7 +1022,7 @@ inline void CDOTAMsg_ItemAlert::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.x_){0}
     , decltype(_impl_.y_){0}
-    , decltype(_impl_.item_ability_id_){0}
+    , decltype(_impl_.item_ability_id_){-1}
   };
 }
 
@@ -1047,8 +1052,9 @@ void CDOTAMsg_ItemAlert::Clear() {
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
     ::memset(&_impl_.x_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.item_ability_id_) -
-        reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.item_ability_id_));
+        reinterpret_cast<char*>(&_impl_.y_) -
+        reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.y_));
+    _impl_.item_ability_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -1079,7 +1085,7 @@ const char* CDOTAMsg_ItemAlert::_InternalParse(const char* ptr, ::_pbi::ParseCon
         } else
           goto handle_unusual;
         continue;
-      // optional int32 item_ability_id = 3;
+      // optional int32 item_ability_id = 3 [default = -1];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_item_ability_id(&has_bits);
@@ -1131,7 +1137,7 @@ uint8_t* CDOTAMsg_ItemAlert::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_y(), target);
   }
 
-  // optional int32 item_ability_id = 3;
+  // optional int32 item_ability_id = 3 [default = -1];
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_item_ability_id(), target);
@@ -1165,7 +1171,7 @@ size_t CDOTAMsg_ItemAlert::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_y());
     }
 
-    // optional int32 item_ability_id = 3;
+    // optional int32 item_ability_id = 3 [default = -1];
     if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_item_ability_id());
     }
@@ -1221,11 +1227,12 @@ void CDOTAMsg_ItemAlert::InternalSwap(CDOTAMsg_ItemAlert* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAMsg_ItemAlert, _impl_.item_ability_id_)
-      + sizeof(CDOTAMsg_ItemAlert::_impl_.item_ability_id_)
+      PROTOBUF_FIELD_OFFSET(CDOTAMsg_ItemAlert, _impl_.y_)
+      + sizeof(CDOTAMsg_ItemAlert::_impl_.y_)
       - PROTOBUF_FIELD_OFFSET(CDOTAMsg_ItemAlert, _impl_.x_)>(
           reinterpret_cast<char*>(&_impl_.x_),
           reinterpret_cast<char*>(&other->_impl_.x_));
+  swap(_impl_.item_ability_id_, other->_impl_.item_ability_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAMsg_ItemAlert::GetMetadata() const {
@@ -2764,17 +2771,17 @@ class CDOTAMsg_UnitOrder::_Internal {
     (*has_bits)[0] |= 4u;
   }
   static void set_has_ability_index(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 32u;
   }
   static const ::CMsgVector& position(const CDOTAMsg_UnitOrder* msg);
   static void set_has_position(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_sequence_number(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_flags(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 16u;
   }
 };
 
@@ -2802,17 +2809,17 @@ CDOTAMsg_UnitOrder::CDOTAMsg_UnitOrder(const CDOTAMsg_UnitOrder& from)
     , decltype(_impl_.position_){nullptr}
     , decltype(_impl_.order_type_){}
     , decltype(_impl_.target_index_){}
-    , decltype(_impl_.ability_index_){}
     , decltype(_impl_.sequence_number_){}
-    , decltype(_impl_.flags_){}};
+    , decltype(_impl_.flags_){}
+    , decltype(_impl_.ability_index_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_position()) {
     _this->_impl_.position_ = new ::CMsgVector(*from._impl_.position_);
   }
   ::memcpy(&_impl_.order_type_, &from._impl_.order_type_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.flags_) -
-    reinterpret_cast<char*>(&_impl_.order_type_)) + sizeof(_impl_.flags_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.ability_index_) -
+    reinterpret_cast<char*>(&_impl_.order_type_)) + sizeof(_impl_.ability_index_));
   // @@protoc_insertion_point(copy_constructor:CDOTAMsg_UnitOrder)
 }
 
@@ -2827,9 +2834,9 @@ inline void CDOTAMsg_UnitOrder::SharedCtor(
     , decltype(_impl_.position_){nullptr}
     , decltype(_impl_.order_type_){0}
     , decltype(_impl_.target_index_){0}
-    , decltype(_impl_.ability_index_){0}
     , decltype(_impl_.sequence_number_){0}
     , decltype(_impl_.flags_){0u}
+    , decltype(_impl_.ability_index_){-1}
   };
 }
 
@@ -2868,6 +2875,7 @@ void CDOTAMsg_UnitOrder::Clear() {
     ::memset(&_impl_.order_type_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.flags_) -
         reinterpret_cast<char*>(&_impl_.order_type_)) + sizeof(_impl_.flags_));
+    _impl_.ability_index_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -2909,7 +2917,7 @@ const char* CDOTAMsg_UnitOrder::_InternalParse(const char* ptr, ::_pbi::ParseCon
         } else
           goto handle_unusual;
         continue;
-      // optional int32 target_index = 4;
+      // optional int32 target_index = 4 [default = 0];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _Internal::set_has_target_index(&has_bits);
@@ -2918,7 +2926,7 @@ const char* CDOTAMsg_UnitOrder::_InternalParse(const char* ptr, ::_pbi::ParseCon
         } else
           goto handle_unusual;
         continue;
-      // optional int32 ability_index = 5;
+      // optional int32 ability_index = 5 [default = -1];
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
           _Internal::set_has_ability_index(&has_bits);
@@ -2997,14 +3005,14 @@ uint8_t* CDOTAMsg_UnitOrder::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_units(i), target);
   }
 
-  // optional int32 target_index = 4;
+  // optional int32 target_index = 4 [default = 0];
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_target_index(), target);
   }
 
-  // optional int32 ability_index = 5;
-  if (cached_has_bits & 0x00000008u) {
+  // optional int32 ability_index = 5 [default = -1];
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(5, this->_internal_ability_index(), target);
   }
@@ -3017,13 +3025,13 @@ uint8_t* CDOTAMsg_UnitOrder::_InternalSerialize(
   }
 
   // optional int32 sequence_number = 8;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(8, this->_internal_sequence_number(), target);
   }
 
   // optional uint32 flags = 9;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(9, this->_internal_flags(), target);
   }
@@ -3068,24 +3076,24 @@ size_t CDOTAMsg_UnitOrder::ByteSizeLong() const {
         ::_pbi::WireFormatLite::EnumSize(this->_internal_order_type());
     }
 
-    // optional int32 target_index = 4;
+    // optional int32 target_index = 4 [default = 0];
     if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_index());
     }
 
-    // optional int32 ability_index = 5;
-    if (cached_has_bits & 0x00000008u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_ability_index());
-    }
-
     // optional int32 sequence_number = 8;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_sequence_number());
     }
 
     // optional uint32 flags = 9;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_flags());
+    }
+
+    // optional int32 ability_index = 5 [default = -1];
+    if (cached_has_bits & 0x00000020u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_ability_index());
     }
 
   }
@@ -3121,13 +3129,13 @@ void CDOTAMsg_UnitOrder::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, con
       _this->_impl_.target_index_ = from._impl_.target_index_;
     }
     if (cached_has_bits & 0x00000008u) {
-      _this->_impl_.ability_index_ = from._impl_.ability_index_;
-    }
-    if (cached_has_bits & 0x00000010u) {
       _this->_impl_.sequence_number_ = from._impl_.sequence_number_;
     }
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       _this->_impl_.flags_ = from._impl_.flags_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      _this->_impl_.ability_index_ = from._impl_.ability_index_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -3156,6 +3164,7 @@ void CDOTAMsg_UnitOrder::InternalSwap(CDOTAMsg_UnitOrder* other) {
       - PROTOBUF_FIELD_OFFSET(CDOTAMsg_UnitOrder, _impl_.position_)>(
           reinterpret_cast<char*>(&_impl_.position_),
           reinterpret_cast<char*>(&other->_impl_.position_));
+  swap(_impl_.ability_index_, other->_impl_.ability_index_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAMsg_UnitOrder::GetMetadata() const {
@@ -3689,10 +3698,10 @@ class VersusScene_ChatWheel::_Internal {
  public:
   using HasBits = decltype(std::declval<VersusScene_ChatWheel>()._impl_._has_bits_);
   static void set_has_chat_message_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_emoticon_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -3708,13 +3717,13 @@ VersusScene_ChatWheel::VersusScene_ChatWheel(const VersusScene_ChatWheel& from)
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.chat_message_id_){}
-    , decltype(_impl_.emoticon_id_){}};
+    , decltype(_impl_.emoticon_id_){}
+    , decltype(_impl_.chat_message_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.chat_message_id_, &from._impl_.chat_message_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.emoticon_id_) -
-    reinterpret_cast<char*>(&_impl_.chat_message_id_)) + sizeof(_impl_.emoticon_id_));
+  ::memcpy(&_impl_.emoticon_id_, &from._impl_.emoticon_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.chat_message_id_) -
+    reinterpret_cast<char*>(&_impl_.emoticon_id_)) + sizeof(_impl_.chat_message_id_));
   // @@protoc_insertion_point(copy_constructor:VersusScene_ChatWheel)
 }
 
@@ -3725,8 +3734,8 @@ inline void VersusScene_ChatWheel::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.chat_message_id_){0u}
     , decltype(_impl_.emoticon_id_){0u}
+    , decltype(_impl_.chat_message_id_){4294967295u}
   };
 }
 
@@ -3755,9 +3764,8 @@ void VersusScene_ChatWheel::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    ::memset(&_impl_.chat_message_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.emoticon_id_) -
-        reinterpret_cast<char*>(&_impl_.chat_message_id_)) + sizeof(_impl_.emoticon_id_));
+    _impl_.emoticon_id_ = 0u;
+    _impl_.chat_message_id_ = 4294967295u;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -3770,7 +3778,7 @@ const char* VersusScene_ChatWheel::_InternalParse(const char* ptr, ::_pbi::Parse
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 chat_message_id = 1;
+      // optional uint32 chat_message_id = 1 [default = 4294967295];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_chat_message_id(&has_bits);
@@ -3819,14 +3827,14 @@ uint8_t* VersusScene_ChatWheel::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 chat_message_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional uint32 chat_message_id = 1 [default = 4294967295];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_chat_message_id(), target);
   }
 
   // optional uint32 emoticon_id = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_emoticon_id(), target);
   }
@@ -3849,14 +3857,14 @@ size_t VersusScene_ChatWheel::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint32 chat_message_id = 1;
+    // optional uint32 emoticon_id = 2;
     if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_chat_message_id());
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_emoticon_id());
     }
 
-    // optional uint32 emoticon_id = 2;
+    // optional uint32 chat_message_id = 1 [default = 4294967295];
     if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_emoticon_id());
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_chat_message_id());
     }
 
   }
@@ -3881,10 +3889,10 @@ void VersusScene_ChatWheel::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, 
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.chat_message_id_ = from._impl_.chat_message_id_;
+      _this->_impl_.emoticon_id_ = from._impl_.emoticon_id_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.emoticon_id_ = from._impl_.emoticon_id_;
+      _this->_impl_.chat_message_id_ = from._impl_.chat_message_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -3906,12 +3914,8 @@ void VersusScene_ChatWheel::InternalSwap(VersusScene_ChatWheel* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(VersusScene_ChatWheel, _impl_.emoticon_id_)
-      + sizeof(VersusScene_ChatWheel::_impl_.emoticon_id_)
-      - PROTOBUF_FIELD_OFFSET(VersusScene_ChatWheel, _impl_.chat_message_id_)>(
-          reinterpret_cast<char*>(&_impl_.chat_message_id_),
-          reinterpret_cast<char*>(&other->_impl_.chat_message_id_));
+  swap(_impl_.emoticon_id_, other->_impl_.emoticon_id_);
+  swap(_impl_.chat_message_id_, other->_impl_.chat_message_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata VersusScene_ChatWheel::GetMetadata() const {

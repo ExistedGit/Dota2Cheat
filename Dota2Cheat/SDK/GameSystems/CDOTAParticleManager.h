@@ -2,8 +2,11 @@
 #include "../Base/VClass.h"
 #include "../Base/NormalClass.h"
 #include "../Base/Definitions.h"
+#include "../Base/CUtlVector.h"
+#include "../Interfaces/Network/CNetworkMessages.h"
 #include "sol/sol.hpp"
 #include "../Base/Vector.h"
+#include "../VTableIndexes.h"
 
 class CBaseEntity;
 
@@ -30,30 +33,44 @@ enum ParticleAttachment_t : int32_t {
 };
 
 // Struct used when creating a particle
-struct CreateParticleInfo {
-	const char* particleName = nullptr;
-	ParticleAttachment_t attachType = ParticleAttachment_t::PATTACH_INVALID;
-private:
-	char pad0[4] = { 0,0,0,0 };
+class CRecipientFilter
+{
 public:
-	CBaseEntity* attachEntity = nullptr;
+	char                pad_0x0000[0x8];   // 0x0000
+	NetChannelBufType_t m_nBufType;        // 0x0008
+	unsigned char       m_bInitMessage;    // 0x000C
+	char                pad_0x000D[0x3];   // 0x000D
+	CUtlVector<int>     m_Recipients;      // 0x0010
+	char _pad0[0x108];                     // 0x0028
+	unsigned char m_bUsingPredictionRules; // 0x0130
+	unsigned char m_bIgnorePredictionCull; // 0x0131
+	char _pad1[0x6];                       // 0x0132
+};                                         // Size=0x0138
+
+struct CreateParticleInfo
+{
+	const char* m_szParticleName;
+	ParticleAttachment_t m_particleAttachment;
+	CBaseEntity* m_pTargetEntity;
 private:
-	void* unk0 = nullptr;
-	void* unk1 = nullptr;
-	void* unk2 = nullptr;
-	void* unk3 = nullptr;
-	void* unk4 = nullptr;
+	void* unk[5] = {
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr
+	};
 };
 
 struct CNewParticleEffect : public VClass {
-	static constexpr int SetControlPoint_VTABLE_INDEX = 16;
 
 	VClass* GetParticleCollection() {
 		return Member<VClass*>(0x20);
 	}
 	CNewParticleEffect* SetControlPoint(int idx, Vector* pos) {
 		auto coll = GetParticleCollection();
-		coll->GetVFunc(SetControlPoint_VTABLE_INDEX)(coll, idx, pos);
+		auto vec = new Vector(*pos);
+		coll->CallVFunc<VTableIndexes::CParticleCollection::SetControlPoint>(idx, vec);
 		return this;
 	}
 	static void BindLua(sol::state& lua) {
@@ -97,7 +114,7 @@ public:
 		inline CNewParticleEffect* GetParticle() {
 			return Member<CNewParticleEffect*>(0x10);
 		}
-	};	
+	};
 	typedef void(__fastcall* DestroyParticleFn)(void* thisptr, ENT_HANDLE handle, bool unk);
 	static inline DestroyParticleFn DestroyParticleFunc{};
 

@@ -53,7 +53,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_SwapVerify::CDOTAUserMsg_SwapVerify(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0} {}
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_SwapVerifyDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_SwapVerifyDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -92,8 +92,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_BotChat::CDOTAUserMsg_BotChat(
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.message_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.target_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.team_only_)*/false} {}
+  , /*decltype(_impl_.team_only_)*/false
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_BotChatDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_BotChatDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -127,8 +127,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_CombatLogBulkData::CDOTAUserMsg_CombatLogBulkDat
   , /*decltype(_impl_.combat_entries_)*/{}
   , /*decltype(_impl_.timestamp_)*/0
   , /*decltype(_impl_.duration_)*/0
-  , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.request_time_)*/0} {}
+  , /*decltype(_impl_.request_time_)*/0
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_CombatLogBulkDataDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_CombatLogBulkDataDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -157,8 +157,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::CDOTAUserMsg_M
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.ability_id_)*/0u
-  , /*decltype(_impl_.damage_)*/0} {}
+  , /*decltype(_impl_.damage_)*/0
+  , /*decltype(_impl_.ability_id_)*/-1} {}
 struct CDOTAUserMsg_MiniKillCamInfo_Attacker_AbilityDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_MiniKillCamInfo_Attacker_AbilityDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -174,8 +174,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_MiniKillCamInfo_Attacker::CDOTAUserMsg_MiniKillC
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.abilities_)*/{}
   , /*decltype(_impl_.attacker_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.attacker_)*/0u
-  , /*decltype(_impl_.total_damage_)*/0} {}
+  , /*decltype(_impl_.total_damage_)*/0
+  , /*decltype(_impl_.attacker_)*/16777215u} {}
 struct CDOTAUserMsg_MiniKillCamInfo_AttackerDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_MiniKillCamInfo_AttackerDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -233,7 +233,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_LocationPing::CDOTAUserMsg_LocationPing(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.location_ping_)*/nullptr
-  , /*decltype(_impl_.player_id_)*/0} {}
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_LocationPingDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_LocationPingDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -248,9 +248,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_PingConfirmation::CDOTAUserMsg_PingConfirmation(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.location_)*/nullptr
-  , /*decltype(_impl_.player_id_of_original_pinger_)*/0
   , /*decltype(_impl_.entity_index_)*/0u
-  , /*decltype(_impl_.icon_type_)*/0u} {}
+  , /*decltype(_impl_.icon_type_)*/0u
+  , /*decltype(_impl_.player_id_of_original_pinger_)*/-1} {}
 struct CDOTAUserMsg_PingConfirmationDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_PingConfirmationDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -265,7 +265,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_ItemAlert::CDOTAUserMsg_ItemAlert(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.item_alert_)*/nullptr
-  , /*decltype(_impl_.player_id_)*/0} {}
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_ItemAlertDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_ItemAlertDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -279,14 +279,14 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_EnemyItemAlert::CDOTAUserMsg_EnemyItemAlert(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.target_player_id_)*/0
-  , /*decltype(_impl_.item_ability_id_)*/0
   , /*decltype(_impl_.entity_id_)*/0
+  , /*decltype(_impl_.secondary_charges_)*/-1
+  , /*decltype(_impl_.player_id_)*/-1
+  , /*decltype(_impl_.target_player_id_)*/-1
+  , /*decltype(_impl_.item_ability_id_)*/-1
   , /*decltype(_impl_.rune_type_)*/-1
   , /*decltype(_impl_.item_level_)*/-1
-  , /*decltype(_impl_.primary_charges_)*/-1
-  , /*decltype(_impl_.secondary_charges_)*/-1} {}
+  , /*decltype(_impl_.primary_charges_)*/-1} {}
 struct CDOTAUserMsg_EnemyItemAlertDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_EnemyItemAlertDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -301,11 +301,11 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_ModifierAlert::CDOTAUserMsg_ModifierAlert(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.class_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.player_id_)*/0
   , /*decltype(_impl_.stack_count_)*/0u
   , /*decltype(_impl_.is_debuff_)*/false
-  , /*decltype(_impl_.target_entindex_)*/0
-  , /*decltype(_impl_.seconds_remaining_)*/0} {}
+  , /*decltype(_impl_.seconds_remaining_)*/0
+  , /*decltype(_impl_.player_id_)*/-1
+  , /*decltype(_impl_.target_entindex_)*/-1} {}
 struct CDOTAUserMsg_ModifierAlertDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_ModifierAlertDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -319,9 +319,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_HPManaAlert::CDOTAUserMsg_HPManaAlert(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.target_entindex_)*/0
-  , /*decltype(_impl_.show_raw_values_)*/false} {}
+  , /*decltype(_impl_.show_raw_values_)*/false
+  , /*decltype(_impl_.player_id_)*/-1
+  , /*decltype(_impl_.target_entindex_)*/-1} {}
 struct CDOTAUserMsg_HPManaAlertDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_HPManaAlertDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -335,13 +335,13 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_NeutralCampAlert::CDOTAUserMsg_NeutralCampAlert(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.spawner_entindex_)*/0
-  , /*decltype(_impl_.unit_entindex_)*/0
   , /*decltype(_impl_.stack_count_)*/0
   , /*decltype(_impl_.camp_type_)*/0
   , /*decltype(_impl_.stack_request_)*/false
-  , /*decltype(_impl_.stack_intention_)*/false} {}
+  , /*decltype(_impl_.stack_intention_)*/false
+  , /*decltype(_impl_.unit_entindex_)*/-1
+  , /*decltype(_impl_.player_id_)*/-1
+  , /*decltype(_impl_.spawner_entindex_)*/-1} {}
 struct CDOTAUserMsg_NeutralCampAlertDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_NeutralCampAlertDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -355,8 +355,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_GlyphAlert::CDOTAUserMsg_GlyphAlert(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.negative_)*/false} {}
+  , /*decltype(_impl_.negative_)*/false
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_GlyphAlertDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_GlyphAlertDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -370,8 +370,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_RadarAlert::CDOTAUserMsg_RadarAlert(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.negative_)*/false} {}
+  , /*decltype(_impl_.negative_)*/false
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_RadarAlertDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_RadarAlertDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -385,10 +385,10 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_WillPurchaseAlert::CDOTAUserMsg_WillPurchaseAler
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.item_ability_id_)*/0
-  , /*decltype(_impl_.player_id_)*/0
   , /*decltype(_impl_.gold_remaining_)*/0u
-  , /*decltype(_impl_.suggestion_player_id_)*/0} {}
+  , /*decltype(_impl_.suggestion_player_id_)*/-1
+  , /*decltype(_impl_.item_ability_id_)*/-1
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_WillPurchaseAlertDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_WillPurchaseAlertDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -402,9 +402,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_EmptyTeleportAlert::CDOTAUserMsg_EmptyTeleportAl
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.source_player_id_)*/0
-  , /*decltype(_impl_.target_player_id_)*/0
-  , /*decltype(_impl_.cooldown_seconds_)*/0} {}
+  , /*decltype(_impl_.cooldown_seconds_)*/0
+  , /*decltype(_impl_.source_player_id_)*/-1
+  , /*decltype(_impl_.target_player_id_)*/-1} {}
 struct CDOTAUserMsg_EmptyTeleportAlertDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_EmptyTeleportAlertDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -418,9 +418,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_MarsArenaOfBloodAttack::CDOTAUserMsg_MarsArenaOf
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.source_ehandle_)*/0u
-  , /*decltype(_impl_.target_ehandle_)*/0u
-  , /*decltype(_impl_.warrior_index_)*/0} {}
+  , /*decltype(_impl_.warrior_index_)*/0
+  , /*decltype(_impl_.source_ehandle_)*/16777215u
+  , /*decltype(_impl_.target_ehandle_)*/16777215u} {}
 struct CDOTAUserMsg_MarsArenaOfBloodAttackDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_MarsArenaOfBloodAttackDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -449,7 +449,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_BuyBackStateAlert::CDOTAUserMsg_BuyBackStateAler
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0} {}
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_BuyBackStateAlertDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_BuyBackStateAlertDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -463,11 +463,11 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_QuickBuyAlert::CDOTAUserMsg_QuickBuyAlert(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.item_ability_id_)*/0
   , /*decltype(_impl_.gold_cost_)*/0
   , /*decltype(_impl_.item_cooldown_seconds_)*/0
-  , /*decltype(_impl_.show_buyback_)*/false} {}
+  , /*decltype(_impl_.show_buyback_)*/false
+  , /*decltype(_impl_.player_id_)*/-1
+  , /*decltype(_impl_.item_ability_id_)*/-1} {}
 struct CDOTAUserMsg_QuickBuyAlertDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_QuickBuyAlertDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -481,8 +481,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_CourierKilledAlert_LostItem::CDOTAUserMsg_Courie
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.item_ability_id_)*/0
-  , /*decltype(_impl_.quantity_)*/0u} {}
+  , /*decltype(_impl_.quantity_)*/0u
+  , /*decltype(_impl_.item_ability_id_)*/-1} {}
 struct CDOTAUserMsg_CourierKilledAlert_LostItemDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_CourierKilledAlert_LostItemDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -499,10 +499,10 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_CourierKilledAlert::CDOTAUserMsg_CourierKilledAl
   , /*decltype(_impl_.lost_items_)*/{}
   , /*decltype(_impl_.team_)*/0u
   , /*decltype(_impl_.gold_value_)*/0u
-  , /*decltype(_impl_.entity_handle_)*/0u
   , /*decltype(_impl_.timestamp_)*/0
-  , /*decltype(_impl_.killer_player_id_)*/0
-  , /*decltype(_impl_.owning_player_id_)*/0} {}
+  , /*decltype(_impl_.owning_player_id_)*/-1
+  , /*decltype(_impl_.entity_handle_)*/16777215u
+  , /*decltype(_impl_.killer_player_id_)*/-1} {}
 struct CDOTAUserMsg_CourierKilledAlertDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_CourierKilledAlertDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -517,11 +517,11 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_MinimapEvent::CDOTAUserMsg_MinimapEvent(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.event_type_)*/0
-  , /*decltype(_impl_.entity_handle_)*/0u
   , /*decltype(_impl_.x_)*/0
   , /*decltype(_impl_.y_)*/0
   , /*decltype(_impl_.duration_)*/0
-  , /*decltype(_impl_.target_entity_handle_)*/0u} {}
+  , /*decltype(_impl_.entity_handle_)*/16777215u
+  , /*decltype(_impl_.target_entity_handle_)*/16777215u} {}
 struct CDOTAUserMsg_MinimapEventDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_MinimapEventDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -536,7 +536,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_MapLine::CDOTAUserMsg_MapLine(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.mapline_)*/nullptr
-  , /*decltype(_impl_.player_id_)*/0} {}
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_MapLineDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_MapLineDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -573,13 +573,13 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_CreateLinearProjectile::CDOTAUserMsg_CreateLinea
   , /*decltype(_impl_.velocity_)*/nullptr
   , /*decltype(_impl_.acceleration_)*/nullptr
   , /*decltype(_impl_.particle_index_)*/uint64_t{0u}
-  , /*decltype(_impl_.entindex_)*/0
   , /*decltype(_impl_.handle_)*/0
   , /*decltype(_impl_.max_speed_)*/0
   , /*decltype(_impl_.fow_radius_)*/0
   , /*decltype(_impl_.sticky_fow_reveal_)*/false
   , /*decltype(_impl_.distance_)*/0
-  , /*decltype(_impl_.colorgemcolor_)*/0u} {}
+  , /*decltype(_impl_.colorgemcolor_)*/0u
+  , /*decltype(_impl_.entindex_)*/-1} {}
 struct CDOTAUserMsg_CreateLinearProjectileDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_CreateLinearProjectileDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -607,8 +607,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_DodgeTrackingProjectiles::CDOTAUserMsg_DodgeTrac
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.entindex_)*/0
-  , /*decltype(_impl_.attacks_only_)*/false} {}
+  , /*decltype(_impl_.attacks_only_)*/false
+  , /*decltype(_impl_.entindex_)*/-1} {}
 struct CDOTAUserMsg_DodgeTrackingProjectilesDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_DodgeTrackingProjectilesDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -622,9 +622,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_SpectatorPlayerClick::CDOTAUserMsg_SpectatorPlay
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.entindex_)*/0
   , /*decltype(_impl_.order_type_)*/0
-  , /*decltype(_impl_.target_index_)*/0} {}
+  , /*decltype(_impl_.target_index_)*/0
+  , /*decltype(_impl_.entindex_)*/-1} {}
 struct CDOTAUserMsg_SpectatorPlayerClickDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_SpectatorPlayerClickDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -640,13 +640,13 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_SpectatorPlayerUnitOrders::CDOTAUserMsg_Spectato
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.units_)*/{}
   , /*decltype(_impl_.position_)*/nullptr
-  , /*decltype(_impl_.entindex_)*/0
   , /*decltype(_impl_.order_type_)*/0
   , /*decltype(_impl_.target_index_)*/0
-  , /*decltype(_impl_.ability_id_)*/0
   , /*decltype(_impl_.queue_)*/false
   , /*decltype(_impl_.sequence_number_)*/0
-  , /*decltype(_impl_.flags_)*/0u} {}
+  , /*decltype(_impl_.flags_)*/0u
+  , /*decltype(_impl_.entindex_)*/-1
+  , /*decltype(_impl_.ability_id_)*/-1} {}
 struct CDOTAUserMsg_SpectatorPlayerUnitOrdersDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_SpectatorPlayerUnitOrdersDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -661,9 +661,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_NevermoreRequiem::CDOTAUserMsg_NevermoreRequiem(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.origin_)*/nullptr
-  , /*decltype(_impl_.entity_handle_)*/0u
   , /*decltype(_impl_.lines_)*/0
-  , /*decltype(_impl_.reverse_)*/false} {}
+  , /*decltype(_impl_.reverse_)*/false
+  , /*decltype(_impl_.entity_handle_)*/16777215u} {}
 struct CDOTAUserMsg_NevermoreRequiemDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_NevermoreRequiemDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -708,9 +708,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_SharedCooldown::CDOTAUserMsg_SharedCooldown(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.entindex_)*/0
   , /*decltype(_impl_.cooldown_)*/0
-  , /*decltype(_impl_.name_index_)*/0} {}
+  , /*decltype(_impl_.name_index_)*/0
+  , /*decltype(_impl_.entindex_)*/-1} {}
 struct CDOTAUserMsg_SharedCooldownDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_SharedCooldownDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -857,7 +857,6 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_UnitEvent_Speech::CDOTAUserMsg_UnitEvent_Speech(
   , /*decltype(_impl_.predelay_)*/nullptr
   , /*decltype(_impl_.speech_concept_)*/0
   , /*decltype(_impl_.recipient_type_)*/0
-  , /*decltype(_impl_.level_)*/0
   , /*decltype(_impl_.muteable_)*/false
   , /*decltype(_impl_.flags_)*/0u} {}
 struct CDOTAUserMsg_UnitEvent_SpeechDefaultTypeInternal {
@@ -972,7 +971,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_ItemPurchased::CDOTAUserMsg_ItemPurchased(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.item_ability_id_)*/0} {}
+  , /*decltype(_impl_.item_ability_id_)*/-1} {}
 struct CDOTAUserMsg_ItemPurchasedDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_ItemPurchasedDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -986,7 +985,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_ItemSold::CDOTAUserMsg_ItemSold(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.item_ability_id_)*/0} {}
+  , /*decltype(_impl_.item_ability_id_)*/-1} {}
 struct CDOTAUserMsg_ItemSoldDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_ItemSoldDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1000,11 +999,11 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_ItemFound::CDOTAUserMsg_ItemFound(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_)*/0
   , /*decltype(_impl_.quality_)*/0
   , /*decltype(_impl_.rarity_)*/0
   , /*decltype(_impl_.method_)*/0
-  , /*decltype(_impl_.itemdef_)*/0u} {}
+  , /*decltype(_impl_.itemdef_)*/0u
+  , /*decltype(_impl_.player_)*/-1} {}
 struct CDOTAUserMsg_ItemFoundDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_ItemFoundDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1020,9 +1019,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_OverheadEvent::CDOTAUserMsg_OverheadEvent(
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.message_type_)*/0
   , /*decltype(_impl_.value_)*/0
-  , /*decltype(_impl_.target_player_entindex_)*/0
-  , /*decltype(_impl_.target_entindex_)*/0
-  , /*decltype(_impl_.source_player_entindex_)*/0} {}
+  , /*decltype(_impl_.source_player_entindex_)*/-1
+  , /*decltype(_impl_.target_player_entindex_)*/-1
+  , /*decltype(_impl_.target_entindex_)*/-1} {}
 struct CDOTAUserMsg_OverheadEventDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_OverheadEventDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1097,7 +1096,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_WorldLine::CDOTAUserMsg_WorldLine(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.worldline_)*/nullptr
-  , /*decltype(_impl_.player_id_)*/0} {}
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_WorldLineDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_WorldLineDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1111,11 +1110,11 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_ChatWheel::CDOTAUserMsg_ChatWheel(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.chat_message_id_)*/0u
-  , /*decltype(_impl_.player_id_)*/0
   , /*decltype(_impl_.account_id_)*/0u
   , /*decltype(_impl_.param_hero_id_)*/0u
-  , /*decltype(_impl_.emoticon_id_)*/0u} {}
+  , /*decltype(_impl_.emoticon_id_)*/0u
+  , /*decltype(_impl_.chat_message_id_)*/4294967295u
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_ChatWheelDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_ChatWheelDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1130,8 +1129,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_ReceivedXmasGift::CDOTAUserMsg_ReceivedXmasGift(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.item_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.inventory_slot_)*/0} {}
+  , /*decltype(_impl_.inventory_slot_)*/0
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_ReceivedXmasGiftDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_ReceivedXmasGiftDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1203,11 +1202,11 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_TutorialPingMinimap::CDOTAUserMsg_TutorialPingMi
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
   , /*decltype(_impl_.pos_x_)*/0
   , /*decltype(_impl_.pos_y_)*/0
   , /*decltype(_impl_.pos_z_)*/0
-  , /*decltype(_impl_.entity_index_)*/0} {}
+  , /*decltype(_impl_.entity_index_)*/0
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_TutorialPingMinimapDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_TutorialPingMinimapDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1251,7 +1250,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_SendStatPopup::CDOTAUserMsg_SendStatPopup(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.statpopup_)*/nullptr
-  , /*decltype(_impl_.player_id_)*/0} {}
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_SendStatPopupDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_SendStatPopupDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1325,8 +1324,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_CustomMsg::CDOTAUserMsg_CustomMsg(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.message_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.value_)*/0} {}
+  , /*decltype(_impl_.value_)*/0
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_CustomMsgDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_CustomMsgDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1341,7 +1340,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_CoachHUDPing::CDOTAUserMsg_CoachHUDPing(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.hud_ping_)*/nullptr
-  , /*decltype(_impl_.player_id_)*/0} {}
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_CoachHUDPingDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_CoachHUDPingDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1368,8 +1367,6 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_TE_Projectile::CDOTAUserMsg_TE_Projectile(
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.particle_cp_data_)*/{}
   , /*decltype(_impl_.target_loc_)*/nullptr
-  , /*decltype(_impl_.source_)*/0u
-  , /*decltype(_impl_.target_)*/0u
   , /*decltype(_impl_.move_speed_)*/0
   , /*decltype(_impl_.source_attachment_)*/0
   , /*decltype(_impl_.particle_system_handle_)*/int64_t{0}
@@ -1380,7 +1377,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_TE_Projectile::CDOTAUserMsg_TE_Projectile(
   , /*decltype(_impl_.colorgemcolor_)*/0u
   , /*decltype(_impl_.launch_tick_)*/0
   , /*decltype(_impl_.handle_)*/0
-  , /*decltype(_impl_.additional_particle_system_handle_)*/int64_t{0}} {}
+  , /*decltype(_impl_.additional_particle_system_handle_)*/int64_t{0}
+  , /*decltype(_impl_.source_)*/16777215u
+  , /*decltype(_impl_.target_)*/16777215u} {}
 struct CDOTAUserMsg_TE_ProjectileDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_TE_ProjectileDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1397,18 +1396,18 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_TE_ProjectileLoc::CDOTAUserMsg_TE_ProjectileLoc(
   , /*decltype(_impl_.particle_cp_data_)*/{}
   , /*decltype(_impl_.source_loc_)*/nullptr
   , /*decltype(_impl_.target_loc_)*/nullptr
-  , /*decltype(_impl_.target_)*/0u
-  , /*decltype(_impl_.move_speed_)*/0
   , /*decltype(_impl_.particle_system_handle_)*/int64_t{0}
+  , /*decltype(_impl_.move_speed_)*/0
   , /*decltype(_impl_.dodgeable_)*/false
   , /*decltype(_impl_.is_attack_)*/false
   , /*decltype(_impl_.expire_time_)*/0
   , /*decltype(_impl_.colorgemcolor_)*/0u
   , /*decltype(_impl_.launch_tick_)*/0
   , /*decltype(_impl_.handle_)*/0
-  , /*decltype(_impl_.source_)*/0u
   , /*decltype(_impl_.additional_particle_system_handle_)*/int64_t{0}
-  , /*decltype(_impl_.source_attachment_)*/0} {}
+  , /*decltype(_impl_.source_attachment_)*/0
+  , /*decltype(_impl_.target_)*/16777215u
+  , /*decltype(_impl_.source_)*/16777215u} {}
 struct CDOTAUserMsg_TE_ProjectileLocDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_TE_ProjectileLocDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1436,10 +1435,10 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_TE_DotaBloodImpact::CDOTAUserMsg_TE_DotaBloodImp
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.entity_)*/0u
   , /*decltype(_impl_.scale_)*/0
   , /*decltype(_impl_.xnormal_)*/0
-  , /*decltype(_impl_.ynormal_)*/0} {}
+  , /*decltype(_impl_.ynormal_)*/0
+  , /*decltype(_impl_.entity_)*/16777215u} {}
 struct CDOTAUserMsg_TE_DotaBloodImpactDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_TE_DotaBloodImpactDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1453,8 +1452,6 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_AbilityPing::CDOTAUserMsg_AbilityPing(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.ability_id_)*/0u
   , /*decltype(_impl_.cooldown_seconds_)*/0u
   , /*decltype(_impl_.level_)*/0u
   , /*decltype(_impl_.mana_needed_)*/0u
@@ -1464,7 +1461,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_AbilityPing::CDOTAUserMsg_AbilityPing(
   , /*decltype(_impl_.ctrl_held_)*/false
   , /*decltype(_impl_.secondary_charges_)*/0
   , /*decltype(_impl_.reclaim_time_)*/0
-  , /*decltype(_impl_.type_)*/1} {}
+  , /*decltype(_impl_.type_)*/1
+  , /*decltype(_impl_.player_id_)*/-1
+  , /*decltype(_impl_.ability_id_)*/-1} {}
 struct CDOTAUserMsg_AbilityPingDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_AbilityPingDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1478,13 +1477,13 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_TE_UnitAnimation::CDOTAUserMsg_TE_UnitAnimation(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.entity_)*/0u
   , /*decltype(_impl_.sequence_variant_)*/0
   , /*decltype(_impl_.playbackrate_)*/0
   , /*decltype(_impl_.castpoint_)*/0
   , /*decltype(_impl_.type_)*/0
   , /*decltype(_impl_.activity_)*/0
-  , /*decltype(_impl_.lag_compensation_time_)*/0} {}
+  , /*decltype(_impl_.lag_compensation_time_)*/0
+  , /*decltype(_impl_.entity_)*/16777215u} {}
 struct CDOTAUserMsg_TE_UnitAnimationDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_TE_UnitAnimationDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1498,8 +1497,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_TE_UnitAnimationEnd::CDOTAUserMsg_TE_UnitAnimati
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.entity_)*/0u
-  , /*decltype(_impl_.snap_)*/false} {}
+  , /*decltype(_impl_.snap_)*/false
+  , /*decltype(_impl_.entity_)*/16777215u} {}
 struct CDOTAUserMsg_TE_UnitAnimationEndDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_TE_UnitAnimationEndDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1576,11 +1575,11 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_BoosterStatePlayer::CDOTAUserMsg_BoosterStatePla
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
   , /*decltype(_impl_.bonus_)*/0
   , /*decltype(_impl_.event_bonus_)*/0
   , /*decltype(_impl_.bonus_item_id_)*/0u
-  , /*decltype(_impl_.event_bonus_item_id_)*/0u} {}
+  , /*decltype(_impl_.event_bonus_item_id_)*/0u
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_BoosterStatePlayerDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_BoosterStatePlayerDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1621,9 +1620,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_AbilitySteal::CDOTAUserMsg_AbilitySteal(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.ability_id_)*/0u
-  , /*decltype(_impl_.ability_level_)*/0u} {}
+  , /*decltype(_impl_.ability_level_)*/0u
+  , /*decltype(_impl_.player_id_)*/-1
+  , /*decltype(_impl_.ability_id_)*/-1} {}
 struct CDOTAUserMsg_AbilityStealDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_AbilityStealDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1639,8 +1638,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_StatsHeroLookup::CDOTAUserMsg_StatsHeroLookup(
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.hero_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.persona_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.hero_id_)*/0} {}
+  , /*decltype(_impl_.hero_id_)*/0
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_StatsHeroLookupDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_StatsHeroLookupDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1751,12 +1750,12 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_StatsPlayerKillShare::CDOTAUserMsg_StatsPlayerKi
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
   , /*decltype(_impl_.kill_share_percent_)*/0
   , /*decltype(_impl_.player_loc_x_)*/0
   , /*decltype(_impl_.player_loc_y_)*/0
   , /*decltype(_impl_.health_percent_)*/0
-  , /*decltype(_impl_.mana_percent_)*/0} {}
+  , /*decltype(_impl_.mana_percent_)*/0
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_StatsPlayerKillShareDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_StatsPlayerKillShareDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1771,11 +1770,11 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_StatsKillDetails::CDOTAUserMsg_StatsKillDetails(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.kill_shares_)*/{}
-  , /*decltype(_impl_.victim_id_)*/0
   , /*decltype(_impl_.damage_to_kill_)*/0u
   , /*decltype(_impl_.effective_health_)*/0u
   , /*decltype(_impl_.death_time_)*/0
-  , /*decltype(_impl_.killer_id_)*/0} {}
+  , /*decltype(_impl_.victim_id_)*/-1
+  , /*decltype(_impl_.killer_id_)*/-1} {}
 struct CDOTAUserMsg_StatsKillDetailsDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_StatsKillDetailsDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1841,7 +1840,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_MiniTaunt::CDOTAUserMsg_MiniTaunt(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.taunting_player_id_)*/0} {}
+  , /*decltype(_impl_.taunting_player_id_)*/-1} {}
 struct CDOTAUserMsg_MiniTauntDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_MiniTauntDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1870,9 +1869,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_CustomHeaderMessage::CDOTAUserMsg_CustomHeaderMe
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.message_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.player_id_)*/0
   , /*decltype(_impl_.duration_)*/0
-  , /*decltype(_impl_.value_)*/0} {}
+  , /*decltype(_impl_.value_)*/0
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_CustomHeaderMessageDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_CustomHeaderMessageDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1995,8 +1994,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_CompendiumStatePlayer::CDOTAUserMsg_CompendiumSt
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.level_)*/0u} {}
+  , /*decltype(_impl_.level_)*/0u
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_CompendiumStatePlayerDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_CompendiumStatePlayerDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2024,13 +2023,13 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_ProjectionAbility::CDOTAUserMsg_ProjectionAbilit
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.origin_)*/nullptr
-  , /*decltype(_impl_.ability_id_)*/0u
-  , /*decltype(_impl_.caster_ent_index_)*/0
   , /*decltype(_impl_.caster_team_)*/0
   , /*decltype(_impl_.channel_end_)*/false
   , /*decltype(_impl_.track_caster_only_)*/false
   , /*decltype(_impl_.end_time_)*/0
-  , /*decltype(_impl_.victim_ent_index_)*/0} {}
+  , /*decltype(_impl_.victim_ent_index_)*/-1
+  , /*decltype(_impl_.ability_id_)*/-1
+  , /*decltype(_impl_.caster_ent_index_)*/-1} {}
 struct CDOTAUserMsg_ProjectionAbilityDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_ProjectionAbilityDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2059,8 +2058,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_XPAlert::CDOTAUserMsg_XPAlert(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.target_entindex_)*/0} {}
+  , /*decltype(_impl_.player_id_)*/-1
+  , /*decltype(_impl_.target_entindex_)*/-1} {}
 struct CDOTAUserMsg_XPAlertDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_XPAlertDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2074,11 +2073,11 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_TalentTreeAlert::CDOTAUserMsg_TalentTreeAlert(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.target_entindex_)*/0
-  , /*decltype(_impl_.ability_id_)*/0
   , /*decltype(_impl_.slot_)*/0
-  , /*decltype(_impl_.learned_)*/false} {}
+  , /*decltype(_impl_.learned_)*/false
+  , /*decltype(_impl_.ability_id_)*/-1
+  , /*decltype(_impl_.player_id_)*/-1
+  , /*decltype(_impl_.target_entindex_)*/-1} {}
 struct CDOTAUserMsg_TalentTreeAlertDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_TalentTreeAlertDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2103,14 +2102,14 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_QuestStatus::CDOTAUserMsg_QuestStatus(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
   , /*decltype(_impl_.quest_id_)*/0u
   , /*decltype(_impl_.challenge_id_)*/0u
   , /*decltype(_impl_.progress_)*/0u
   , /*decltype(_impl_.goal_)*/0u
   , /*decltype(_impl_.query_)*/0u
   , /*decltype(_impl_.fail_gametime_)*/0
-  , /*decltype(_impl_.item_ability_id_)*/0u} {}
+  , /*decltype(_impl_.player_id_)*/-1
+  , /*decltype(_impl_.item_ability_id_)*/-1} {}
 struct CDOTAUserMsg_QuestStatusDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_QuestStatusDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2124,9 +2123,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_SuggestHeroPick::CDOTAUserMsg_SuggestHeroPick(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
   , /*decltype(_impl_.hero_id_)*/0u
-  , /*decltype(_impl_.ban_)*/false} {}
+  , /*decltype(_impl_.ban_)*/false
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_SuggestHeroPickDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_SuggestHeroPickDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2141,7 +2140,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_SuggestHeroRole::CDOTAUserMsg_SuggestHeroRole(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.hero_role_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.player_id_)*/0} {}
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_SuggestHeroRoleDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_SuggestHeroRoleDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2157,10 +2156,10 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_KillcamDamageTaken::CDOTAUserMsg_KillcamDamageTa
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.hero_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.damage_color_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.player_id_)*/0
   , /*decltype(_impl_.damage_taken_)*/0u
   , /*decltype(_impl_.item_type_)*/0u
-  , /*decltype(_impl_.item_ability_id_)*/0u} {}
+  , /*decltype(_impl_.player_id_)*/-1
+  , /*decltype(_impl_.item_ability_id_)*/-1} {}
 struct CDOTAUserMsg_KillcamDamageTakenDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_KillcamDamageTakenDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2174,8 +2173,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_SelectPenaltyGold::CDOTAUserMsg_SelectPenaltyGol
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.cost_)*/0} {}
+  , /*decltype(_impl_.cost_)*/0
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_SelectPenaltyGoldDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_SelectPenaltyGoldDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2189,11 +2188,11 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_RollDiceResult::CDOTAUserMsg_RollDiceResult(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
   , /*decltype(_impl_.channel_type_)*/0u
   , /*decltype(_impl_.roll_min_)*/0u
   , /*decltype(_impl_.roll_max_)*/0u
-  , /*decltype(_impl_.result_)*/0u} {}
+  , /*decltype(_impl_.result_)*/0u
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_RollDiceResultDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_RollDiceResultDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2207,9 +2206,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_FlipCoinResult::CDOTAUserMsg_FlipCoinResult(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
   , /*decltype(_impl_.channel_type_)*/0u
-  , /*decltype(_impl_.result_)*/false} {}
+  , /*decltype(_impl_.result_)*/false
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_FlipCoinResultDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_FlipCoinResultDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2223,7 +2222,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMessage_RequestItemSuggestions::CDOTAUserMessage_Req
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0} {}
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMessage_RequestItemSuggestionsDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMessage_RequestItemSuggestionsDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2238,7 +2237,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMessage_TeamCaptainChanged::CDOTAUserMessage_TeamCap
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.team_)*/0u
-  , /*decltype(_impl_.captain_player_id_)*/0} {}
+  , /*decltype(_impl_.captain_player_id_)*/-1} {}
 struct CDOTAUserMessage_TeamCaptainChangedDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMessage_TeamCaptainChangedDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2252,8 +2251,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_ChatWheelCooldown::CDOTAUserMsg_ChatWheelCooldow
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.message_id_)*/0u
-  , /*decltype(_impl_.cooldown_remaining_)*/0} {}
+  , /*decltype(_impl_.cooldown_remaining_)*/0
+  , /*decltype(_impl_.message_id_)*/4294967295u} {}
 struct CDOTAUserMsg_ChatWheelCooldownDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_ChatWheelCooldownDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2269,9 +2268,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_HeroRelicProgress::CDOTAUserMsg_HeroRelicProgres
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.hero_relic_type_)*/0u
   , /*decltype(_impl_.value_)*/0u
-  , /*decltype(_impl_.ehandle_)*/0u
   , /*decltype(_impl_.event_id_)*/0u
-  , /*decltype(_impl_.value_display_)*/0} {}
+  , /*decltype(_impl_.value_display_)*/0
+  , /*decltype(_impl_.ehandle_)*/16777215u} {}
 struct CDOTAUserMsg_HeroRelicProgressDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_HeroRelicProgressDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2285,9 +2284,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_AbilityDraftRequestAbility::CDOTAUserMsg_Ability
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.requested_ability_id_)*/0u
-  , /*decltype(_impl_.ctrl_is_down_)*/false} {}
+  , /*decltype(_impl_.ctrl_is_down_)*/false
+  , /*decltype(_impl_.player_id_)*/-1
+  , /*decltype(_impl_.requested_ability_id_)*/-1} {}
 struct CDOTAUserMsg_AbilityDraftRequestAbilityDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_AbilityDraftRequestAbilityDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2301,11 +2300,11 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_DamageReport::CDOTAUserMsg_DamageReport(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
   , /*decltype(_impl_.target_hero_id_)*/0u
   , /*decltype(_impl_.source_hero_id_)*/0u
   , /*decltype(_impl_.damage_amount_)*/0
-  , /*decltype(_impl_.broadcast_)*/false} {}
+  , /*decltype(_impl_.broadcast_)*/false
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_DamageReportDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_DamageReportDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2320,10 +2319,11 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_SalutePlayer::CDOTAUserMsg_SalutePlayer(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.custom_tip_style_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.source_player_id_)*/0
-  , /*decltype(_impl_.target_player_id_)*/0
   , /*decltype(_impl_.tip_amount_)*/0u
-  , /*decltype(_impl_.event_id_)*/0u} {}
+  , /*decltype(_impl_.event_id_)*/0u
+  , /*decltype(_impl_.num_recent_tips_)*/0u
+  , /*decltype(_impl_.source_player_id_)*/-1
+  , /*decltype(_impl_.target_player_id_)*/-1} {}
 struct CDOTAUserMsg_SalutePlayerDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_SalutePlayerDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2338,7 +2338,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_TipAlert::CDOTAUserMsg_TipAlert(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.tip_text_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.player_id_)*/0} {}
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_TipAlertDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_TipAlertDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2352,9 +2352,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_ReplaceQueryUnit::CDOTAUserMsg_ReplaceQueryUnit(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.source_entindex_)*/0
-  , /*decltype(_impl_.target_entindex_)*/0} {}
+  , /*decltype(_impl_.target_entindex_)*/-1
+  , /*decltype(_impl_.player_id_)*/-1
+  , /*decltype(_impl_.source_entindex_)*/-1} {}
 struct CDOTAUserMsg_ReplaceQueryUnitDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_ReplaceQueryUnitDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2368,9 +2368,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_ESArcanaCombo::CDOTAUserMsg_ESArcanaCombo(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.ehandle_)*/0u
   , /*decltype(_impl_.combo_count_)*/0u
-  , /*decltype(_impl_.arcana_level_)*/0u} {}
+  , /*decltype(_impl_.arcana_level_)*/0u
+  , /*decltype(_impl_.ehandle_)*/16777215u} {}
 struct CDOTAUserMsg_ESArcanaComboDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_ESArcanaComboDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2384,9 +2384,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_ESArcanaComboSummary::CDOTAUserMsg_ESArcanaCombo
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.ehandle_)*/0u
   , /*decltype(_impl_.combo_count_)*/0u
-  , /*decltype(_impl_.damage_amount_)*/0u} {}
+  , /*decltype(_impl_.damage_amount_)*/0u
+  , /*decltype(_impl_.ehandle_)*/16777215u} {}
 struct CDOTAUserMsg_ESArcanaComboSummaryDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_ESArcanaComboSummaryDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2400,10 +2400,10 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_OMArcanaCombo::CDOTAUserMsg_OMArcanaCombo(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.ehandle_)*/0u
   , /*decltype(_impl_.multicast_amount_)*/0u
   , /*decltype(_impl_.arcana_level_)*/0u
-  , /*decltype(_impl_.multicast_chance_)*/0u} {}
+  , /*decltype(_impl_.multicast_chance_)*/0u
+  , /*decltype(_impl_.ehandle_)*/16777215u} {}
 struct CDOTAUserMsg_OMArcanaComboDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_OMArcanaComboDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2417,10 +2417,10 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_HighFiveCompleted::CDOTAUserMsg_HighFiveComplete
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_1_)*/0
-  , /*decltype(_impl_.player_id_2_)*/0
   , /*decltype(_impl_.special_high_five_)*/false
-  , /*decltype(_impl_.special_entindex_)*/0} {}
+  , /*decltype(_impl_.special_entindex_)*/-1
+  , /*decltype(_impl_.player_id_1_)*/-1
+  , /*decltype(_impl_.player_id_2_)*/-1} {}
 struct CDOTAUserMsg_HighFiveCompletedDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_HighFiveCompletedDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2434,7 +2434,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_HighFiveLeftHanging::CDOTAUserMsg_HighFiveLeftHa
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0} {}
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_HighFiveLeftHangingDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_HighFiveLeftHangingDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2449,9 +2449,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_ShovelUnearth::CDOTAUserMsg_ShovelUnearth(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.locstring_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.player_id_)*/0
   , /*decltype(_impl_.all_chat_)*/false
-  , /*decltype(_impl_.quantity_)*/0u} {}
+  , /*decltype(_impl_.quantity_)*/0u
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_ShovelUnearthDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_ShovelUnearthDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2465,8 +2465,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_AllStarEvent_PlayerScore::CDOTAUserMsg_AllStarEv
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.score_sans_kda_)*/0u} {}
+  , /*decltype(_impl_.score_sans_kda_)*/0u
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_AllStarEvent_PlayerScoreDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_AllStarEvent_PlayerScoreDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2481,10 +2481,10 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_AllStarEvent::CDOTAUserMsg_AllStarEvent(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.player_scores_)*/{}
-  , /*decltype(_impl_.source_player_id_)*/0
-  , /*decltype(_impl_.target_player_id_)*/0
   , /*decltype(_impl_.point_amount_)*/0u
-  , /*decltype(_impl_.event_id_)*/0u} {}
+  , /*decltype(_impl_.event_id_)*/0u
+  , /*decltype(_impl_.source_player_id_)*/-1
+  , /*decltype(_impl_.target_player_id_)*/-1} {}
 struct CDOTAUserMsg_AllStarEventDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_AllStarEventDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2531,10 +2531,10 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_FoundNeutralItem::CDOTAUserMsg_FoundNeutralItem(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.item_ability_id_)*/0u
   , /*decltype(_impl_.item_tier_)*/0u
-  , /*decltype(_impl_.tier_item_count_)*/0u} {}
+  , /*decltype(_impl_.tier_item_count_)*/0u
+  , /*decltype(_impl_.player_id_)*/-1
+  , /*decltype(_impl_.item_ability_id_)*/-1} {}
 struct CDOTAUserMsg_FoundNeutralItemDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_FoundNeutralItemDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2548,8 +2548,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_OutpostCaptured::CDOTAUserMsg_OutpostCaptured(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.outpost_entindex_)*/0
-  , /*decltype(_impl_.team_id_)*/0u} {}
+  , /*decltype(_impl_.team_id_)*/0u
+  , /*decltype(_impl_.outpost_entindex_)*/-1} {}
 struct CDOTAUserMsg_OutpostCapturedDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_OutpostCapturedDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2578,7 +2578,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_MoveCameraToUnit::CDOTAUserMsg_MoveCameraToUnit(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.unit_ehandle_)*/0u} {}
+  , /*decltype(_impl_.unit_ehandle_)*/16777215u} {}
 struct CDOTAUserMsg_MoveCameraToUnitDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_MoveCameraToUnitDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2624,7 +2624,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_VersusScene_PlayerBehavior::CDOTAUserMsg_VersusS
   , /*decltype(_impl_.play_activity_)*/nullptr
   , /*decltype(_impl_.chat_wheel_)*/nullptr
   , /*decltype(_impl_.playback_rate_)*/nullptr
-  , /*decltype(_impl_.player_id_)*/0
+  , /*decltype(_impl_.player_id_)*/-1
   , /*decltype(_impl_.behavior_)*/1} {}
 struct CDOTAUserMsg_VersusScene_PlayerBehaviorDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_VersusScene_PlayerBehaviorDefaultTypeInternal()
@@ -2639,10 +2639,10 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_QoP_ArcanaSummary::CDOTAUserMsg_QoP_ArcanaSummar
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.ehandle_)*/0u
   , /*decltype(_impl_.arcana_level_)*/0u
   , /*decltype(_impl_.players_hit_)*/0u
-  , /*decltype(_impl_.players_killed_)*/0u} {}
+  , /*decltype(_impl_.players_killed_)*/0u
+  , /*decltype(_impl_.ehandle_)*/16777215u} {}
 struct CDOTAUserMsg_QoP_ArcanaSummaryDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_QoP_ArcanaSummaryDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2656,8 +2656,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_HotPotato_Created::CDOTAUserMsg_HotPotato_Create
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_1_)*/0
-  , /*decltype(_impl_.player_id_2_)*/0} {}
+  , /*decltype(_impl_.player_id_1_)*/-1
+  , /*decltype(_impl_.player_id_2_)*/-1} {}
 struct CDOTAUserMsg_HotPotato_CreatedDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_HotPotato_CreatedDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2671,7 +2671,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_HotPotato_Exploded::CDOTAUserMsg_HotPotato_Explo
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0} {}
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_HotPotato_ExplodedDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_HotPotato_ExplodedDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2685,9 +2685,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_WK_Arcana_Progress::CDOTAUserMsg_WK_Arcana_Progr
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.ehandle_)*/0u
   , /*decltype(_impl_.arcana_level_)*/0u
-  , /*decltype(_impl_.hero_id_)*/0u} {}
+  , /*decltype(_impl_.hero_id_)*/0u
+  , /*decltype(_impl_.ehandle_)*/16777215u} {}
 struct CDOTAUserMsg_WK_Arcana_ProgressDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_WK_Arcana_ProgressDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2701,8 +2701,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::CDOTAUse
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.progress_)*/0u} {}
+  , /*decltype(_impl_.progress_)*/0u
+  , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_GuildChallenge_Progress_PlayerProgressDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_GuildChallenge_Progress_PlayerProgressDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2736,13 +2736,13 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_WRArcanaProgress::CDOTAUserMsg_WRArcanaProgress(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.ehandle_)*/0u
-  , /*decltype(_impl_.target_ehandle_)*/0u
   , /*decltype(_impl_.arrows_landed_)*/0u
   , /*decltype(_impl_.damage_dealt_)*/0u
   , /*decltype(_impl_.target_hp_)*/0u
   , /*decltype(_impl_.target_max_hp_)*/0u
-  , /*decltype(_impl_.arcana_level_)*/0u} {}
+  , /*decltype(_impl_.arcana_level_)*/0u
+  , /*decltype(_impl_.ehandle_)*/16777215u
+  , /*decltype(_impl_.target_ehandle_)*/16777215u} {}
 struct CDOTAUserMsg_WRArcanaProgressDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_WRArcanaProgressDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2756,14 +2756,14 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_WRArcanaSummary::CDOTAUserMsg_WRArcanaSummary(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.ehandle_)*/0u
-  , /*decltype(_impl_.target_ehandle_)*/0u
   , /*decltype(_impl_.arrows_landed_)*/0u
   , /*decltype(_impl_.damage_dealt_)*/0u
   , /*decltype(_impl_.target_hp_)*/0u
   , /*decltype(_impl_.target_max_hp_)*/0u
   , /*decltype(_impl_.arcana_level_)*/0u
-  , /*decltype(_impl_.success_)*/false} {}
+  , /*decltype(_impl_.success_)*/false
+  , /*decltype(_impl_.ehandle_)*/16777215u
+  , /*decltype(_impl_.target_ehandle_)*/16777215u} {}
 struct CDOTAUserMsg_WRArcanaSummaryDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_WRArcanaSummaryDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2777,10 +2777,10 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_EmptyItemSlotAlert::CDOTAUserMsg_EmptyItemSlotAl
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.source_player_id_)*/0
-  , /*decltype(_impl_.target_player_id_)*/0
   , /*decltype(_impl_.slot_index_)*/0
-  , /*decltype(_impl_.cooldown_seconds_)*/0} {}
+  , /*decltype(_impl_.cooldown_seconds_)*/0
+  , /*decltype(_impl_.source_player_id_)*/-1
+  , /*decltype(_impl_.target_player_id_)*/-1} {}
 struct CDOTAUserMsg_EmptyItemSlotAlertDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_EmptyItemSlotAlertDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2794,12 +2794,12 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_AghsStatusAlert::CDOTAUserMsg_AghsStatusAlert(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.source_player_id_)*/0
-  , /*decltype(_impl_.target_player_id_)*/0
-  , /*decltype(_impl_.target_entindex_)*/0
   , /*decltype(_impl_.alert_type_)*/0u
   , /*decltype(_impl_.has_scepter_)*/false
-  , /*decltype(_impl_.has_shard_)*/false} {}
+  , /*decltype(_impl_.has_shard_)*/false
+  , /*decltype(_impl_.target_entindex_)*/-1
+  , /*decltype(_impl_.source_player_id_)*/-1
+  , /*decltype(_impl_.target_player_id_)*/-1} {}
 struct CDOTAUserMsg_AghsStatusAlertDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_AghsStatusAlertDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2856,8 +2856,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_ChatMessage::CDOTAUserMsg_ChatMessage(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.message_text_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.source_player_id_)*/0
-  , /*decltype(_impl_.channel_type_)*/0u} {}
+  , /*decltype(_impl_.channel_type_)*/0u
+  , /*decltype(_impl_.source_player_id_)*/-1} {}
 struct CDOTAUserMsg_ChatMessageDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_ChatMessageDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2871,8 +2871,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_RockPaperScissorsStarted::CDOTAUserMsg_RockPaper
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_source_)*/0
-  , /*decltype(_impl_.player_id_target_)*/0} {}
+  , /*decltype(_impl_.player_id_source_)*/-1
+  , /*decltype(_impl_.player_id_target_)*/-1} {}
 struct CDOTAUserMsg_RockPaperScissorsStartedDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_RockPaperScissorsStartedDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2886,10 +2886,10 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_RockPaperScissorsFinished::CDOTAUserMsg_RockPape
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_1_)*/0
-  , /*decltype(_impl_.player_id_2_)*/0
   , /*decltype(_impl_.player_1_choice_)*/0
-  , /*decltype(_impl_.player_2_choice_)*/0} {}
+  , /*decltype(_impl_.player_2_choice_)*/0
+  , /*decltype(_impl_.player_id_1_)*/-1
+  , /*decltype(_impl_.player_id_2_)*/-1} {}
 struct CDOTAUserMsg_RockPaperScissorsFinishedDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_RockPaperScissorsFinishedDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2933,7 +2933,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_DuelRequested::CDOTAUserMsg_DuelRequested(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.player_id_requestor_)*/0} {}
+  , /*decltype(_impl_.player_id_requestor_)*/-1} {}
 struct CDOTAUserMsg_DuelRequestedDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_DuelRequestedDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -2943,7 +2943,25 @@ struct CDOTAUserMsg_DuelRequestedDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CDOTAUserMsg_DuelRequestedDefaultTypeInternal _CDOTAUserMsg_DuelRequested_default_instance_;
-static ::_pb::Metadata file_level_metadata_dota_5fusermessages_2eproto[177];
+PROTOBUF_CONSTEXPR CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.points_)*/0
+  , /*decltype(_impl_.points_total_)*/0
+  , /*decltype(_impl_.last_hit_)*/false
+  , /*decltype(_impl_.player_id_killer_)*/-1
+  , /*decltype(_impl_.player_id_target_)*/-1} {}
+struct CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilledDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilledDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilledDefaultTypeInternal() {}
+  union {
+    CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilledDefaultTypeInternal _CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled_default_instance_;
+static ::_pb::Metadata file_level_metadata_dota_5fusermessages_2eproto[178];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_dota_5fusermessages_2eproto[17];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_dota_5fusermessages_2eproto = nullptr;
 
@@ -3010,10 +3028,10 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_BotChat, _impl_.message_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_BotChat, _impl_.target_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_BotChat, _impl_.team_only_),
-  2,
+  3,
   0,
   1,
-  3,
+  2,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_CombatHeroPositions, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_CombatHeroPositions, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3042,8 +3060,8 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,
   0,
   1,
-  2,
   3,
+  2,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ProjectileParticleCPData, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ProjectileParticleCPData, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3062,8 +3080,8 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability, _impl_.ability_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability, _impl_.damage_),
-  0,
   1,
+  0,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MiniKillCamInfo_Attacker, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MiniKillCamInfo_Attacker, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3074,8 +3092,8 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MiniKillCamInfo_Attacker, _impl_.total_damage_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MiniKillCamInfo_Attacker, _impl_.abilities_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MiniKillCamInfo_Attacker, _impl_.attacker_name_),
-  1,
   2,
+  1,
   ~0u,
   0,
   ~0u,  // no _has_bits_
@@ -3125,9 +3143,9 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_PingConfirmation, _impl_.entity_index_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_PingConfirmation, _impl_.icon_type_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_PingConfirmation, _impl_.location_),
+  3,
   1,
   2,
-  3,
   0,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ItemAlert, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ItemAlert, _internal_metadata_),
@@ -3153,14 +3171,14 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_EnemyItemAlert, _impl_.item_level_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_EnemyItemAlert, _impl_.primary_charges_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_EnemyItemAlert, _impl_.secondary_charges_),
-  0,
-  1,
   2,
-  4,
   3,
+  4,
   5,
+  0,
   6,
   7,
+  1,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ModifierAlert, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ModifierAlert, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3173,12 +3191,12 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ModifierAlert, _impl_.is_debuff_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ModifierAlert, _impl_.target_entindex_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ModifierAlert, _impl_.seconds_remaining_),
-  1,
-  0,
-  2,
-  3,
   4,
+  0,
+  1,
+  2,
   5,
+  3,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_HPManaAlert, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_HPManaAlert, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3188,9 +3206,9 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_HPManaAlert, _impl_.player_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_HPManaAlert, _impl_.target_entindex_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_HPManaAlert, _impl_.show_raw_values_),
-  0,
   1,
   2,
+  0,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_NeutralCampAlert, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_NeutralCampAlert, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3204,13 +3222,13 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_NeutralCampAlert, _impl_.camp_type_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_NeutralCampAlert, _impl_.stack_request_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_NeutralCampAlert, _impl_.stack_intention_),
+  5,
+  6,
+  4,
   0,
   1,
   2,
   3,
-  4,
-  5,
-  6,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_GlyphAlert, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_GlyphAlert, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3219,8 +3237,8 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_GlyphAlert, _impl_.player_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_GlyphAlert, _impl_.negative_),
-  0,
   1,
+  0,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_RadarAlert, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_RadarAlert, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3229,8 +3247,8 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_RadarAlert, _impl_.player_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_RadarAlert, _impl_.negative_),
-  0,
   1,
+  0,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_WillPurchaseAlert, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_WillPurchaseAlert, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3241,10 +3259,10 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_WillPurchaseAlert, _impl_.player_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_WillPurchaseAlert, _impl_.gold_remaining_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_WillPurchaseAlert, _impl_.suggestion_player_id_),
-  0,
-  1,
   2,
   3,
+  0,
+  1,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_EmptyTeleportAlert, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_EmptyTeleportAlert, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3254,9 +3272,9 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_EmptyTeleportAlert, _impl_.source_player_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_EmptyTeleportAlert, _impl_.target_player_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_EmptyTeleportAlert, _impl_.cooldown_seconds_),
-  0,
   1,
   2,
+  0,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MarsArenaOfBloodAttack, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MarsArenaOfBloodAttack, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3266,9 +3284,9 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MarsArenaOfBloodAttack, _impl_.source_ehandle_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MarsArenaOfBloodAttack, _impl_.target_ehandle_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MarsArenaOfBloodAttack, _impl_.warrior_index_),
-  0,
   1,
   2,
+  0,
   PROTOBUF_FIELD_OFFSET(::CDOTAEntityMsg_InvokerSpellCast, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAEntityMsg_InvokerSpellCast, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3298,11 +3316,11 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_QuickBuyAlert, _impl_.gold_cost_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_QuickBuyAlert, _impl_.item_cooldown_seconds_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_QuickBuyAlert, _impl_.show_buyback_),
+  3,
+  4,
   0,
   1,
   2,
-  3,
-  4,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_CourierKilledAlert_LostItem, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_CourierKilledAlert_LostItem, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3311,8 +3329,8 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_CourierKilledAlert_LostItem, _impl_.item_ability_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_CourierKilledAlert_LostItem, _impl_.quantity_),
-  0,
   1,
+  0,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_CourierKilledAlert, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_CourierKilledAlert, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3328,11 +3346,11 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_CourierKilledAlert, _impl_.owning_player_id_),
   0,
   1,
-  2,
-  3,
-  ~0u,
   4,
+  2,
+  ~0u,
   5,
+  3,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MinimapEvent, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MinimapEvent, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3346,10 +3364,10 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MinimapEvent, _impl_.duration_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MinimapEvent, _impl_.target_entity_handle_),
   0,
+  4,
   1,
   2,
   3,
-  4,
   5,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MapLine, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MapLine, _internal_metadata_),
@@ -3397,15 +3415,15 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_CreateLinearProjectile, _impl_.particle_cp_data_),
   0,
   1,
-  4,
+  10,
   3,
-  5,
+  4,
   2,
+  5,
   6,
   7,
   8,
   9,
-  10,
   ~0u,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_DestroyLinearProjectile, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_DestroyLinearProjectile, _internal_metadata_),
@@ -3423,8 +3441,8 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_DodgeTrackingProjectiles, _impl_.entindex_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_DodgeTrackingProjectiles, _impl_.attacks_only_),
-  0,
   1,
+  0,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SpectatorPlayerClick, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SpectatorPlayerClick, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3434,9 +3452,9 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SpectatorPlayerClick, _impl_.entindex_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SpectatorPlayerClick, _impl_.order_type_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SpectatorPlayerClick, _impl_.target_index_),
+  2,
   0,
   1,
-  2,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SpectatorPlayerUnitOrders, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SpectatorPlayerUnitOrders, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3452,15 +3470,15 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SpectatorPlayerUnitOrders, _impl_.queue_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SpectatorPlayerUnitOrders, _impl_.sequence_number_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SpectatorPlayerUnitOrders, _impl_.flags_),
+  6,
   1,
-  2,
   ~0u,
+  2,
+  7,
+  0,
   3,
   4,
-  0,
   5,
-  6,
-  7,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_NevermoreRequiem, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_NevermoreRequiem, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3471,10 +3489,10 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_NevermoreRequiem, _impl_.lines_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_NevermoreRequiem, _impl_.origin_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_NevermoreRequiem, _impl_.reverse_),
-  1,
-  2,
-  0,
   3,
+  1,
+  0,
+  2,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_InvalidCommand, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_InvalidCommand, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3505,10 +3523,10 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SharedCooldown, _impl_.name_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SharedCooldown, _impl_.cooldown_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SharedCooldown, _impl_.name_index_),
-  1,
-  0,
-  2,
   3,
+  0,
+  1,
+  2,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SetNextAutobuyItem, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SetNextAutobuyItem, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3617,7 +3635,6 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_UnitEvent_Speech, _impl_.speech_concept_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_UnitEvent_Speech, _impl_.response_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_UnitEvent_Speech, _impl_.recipient_type_),
-  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_UnitEvent_Speech, _impl_.level_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_UnitEvent_Speech, _impl_.muteable_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_UnitEvent_Speech, _impl_.predelay_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_UnitEvent_Speech, _impl_.flags_),
@@ -3625,9 +3642,8 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   0,
   3,
   4,
-  5,
   1,
-  6,
+  5,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_UnitEvent_SpeechMute, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_UnitEvent_SpeechMute, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3733,11 +3749,11 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ItemFound, _impl_.rarity_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ItemFound, _impl_.method_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ItemFound, _impl_.itemdef_),
+  4,
   0,
   1,
   2,
   3,
-  4,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_OverheadEvent, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_OverheadEvent, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3751,9 +3767,9 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_OverheadEvent, _impl_.source_player_entindex_),
   0,
   1,
-  2,
   3,
   4,
+  2,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TutorialTipInfo, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TutorialTipInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3819,11 +3835,11 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ChatWheel, _impl_.account_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ChatWheel, _impl_.param_hero_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ChatWheel, _impl_.emoticon_id_),
+  3,
+  4,
   0,
   1,
   2,
-  3,
-  4,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ReceivedXmasGift, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ReceivedXmasGift, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3833,9 +3849,9 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ReceivedXmasGift, _impl_.player_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ReceivedXmasGift, _impl_.item_name_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ReceivedXmasGift, _impl_.inventory_slot_),
-  1,
-  0,
   2,
+  0,
+  1,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ShowSurvey, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ShowSurvey, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3887,11 +3903,11 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TutorialPingMinimap, _impl_.pos_y_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TutorialPingMinimap, _impl_.pos_z_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TutorialPingMinimap, _impl_.entity_index_),
+  4,
   0,
   1,
   2,
   3,
-  4,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_GamerulesStateChanged, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_GamerulesStateChanged, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3968,8 +3984,8 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_CustomMsg, _impl_.player_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_CustomMsg, _impl_.value_),
   0,
-  1,
   2,
+  1,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_CoachHUDPing, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_CoachHUDPing, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4007,6 +4023,8 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_Projectile, _impl_.target_loc_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_Projectile, _impl_.particle_cp_data_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_Projectile, _impl_.additional_particle_system_handle_),
+  12,
+  13,
   1,
   2,
   3,
@@ -4017,11 +4035,9 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   8,
   9,
   10,
-  11,
-  12,
   0,
   ~0u,
-  13,
+  11,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_ProjectileLoc, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_ProjectileLoc, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4044,20 +4060,20 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_ProjectileLoc, _impl_.particle_cp_data_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_ProjectileLoc, _impl_.additional_particle_system_handle_),
   0,
-  2,
+  12,
   3,
+  2,
   4,
   5,
   6,
-  7,
   1,
+  7,
   8,
   9,
-  10,
-  11,
   13,
+  11,
   ~0u,
-  12,
+  10,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_DestroyProjectile, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_DestroyProjectile, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4076,10 +4092,10 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_DotaBloodImpact, _impl_.scale_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_DotaBloodImpact, _impl_.xnormal_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_DotaBloodImpact, _impl_.ynormal_),
+  3,
   0,
   1,
   2,
-  3,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AbilityPing, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AbilityPing, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4098,18 +4114,18 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AbilityPing, _impl_.secondary_charges_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AbilityPing, _impl_.ctrl_held_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AbilityPing, _impl_.reclaim_time_),
+  10,
+  11,
+  9,
   0,
   1,
-  11,
+  5,
   2,
   3,
-  7,
   4,
-  5,
+  7,
   6,
-  9,
   8,
-  10,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_UnitAnimation, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_UnitAnimation, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4123,13 +4139,13 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_UnitAnimation, _impl_.type_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_UnitAnimation, _impl_.activity_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_UnitAnimation, _impl_.lag_compensation_time_),
+  6,
   0,
   1,
   2,
   3,
   4,
   5,
-  6,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_UnitAnimationEnd, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_UnitAnimationEnd, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4138,8 +4154,8 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_UnitAnimationEnd, _impl_.entity_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_UnitAnimationEnd, _impl_.snap_),
-  0,
   1,
+  0,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ShowGenericPopup, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ShowGenericPopup, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4198,11 +4214,11 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_BoosterStatePlayer, _impl_.event_bonus_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_BoosterStatePlayer, _impl_.bonus_item_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_BoosterStatePlayer, _impl_.event_bonus_item_id_),
+  4,
   0,
   1,
   2,
   3,
-  4,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_BoosterState, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4226,9 +4242,9 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AbilitySteal, _impl_.player_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AbilitySteal, _impl_.ability_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AbilitySteal, _impl_.ability_level_),
-  0,
   1,
   2,
+  0,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_StatsHeroLookup, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_StatsHeroLookup, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4239,8 +4255,8 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_StatsHeroLookup, _impl_.hero_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_StatsHeroLookup, _impl_.hero_name_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_StatsHeroLookup, _impl_.persona_),
-  2,
   3,
+  2,
   0,
   1,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_StatsHeroPositionInfo_PositionPair, _impl_._has_bits_),
@@ -4349,12 +4365,12 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_StatsPlayerKillShare, _impl_.player_loc_y_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_StatsPlayerKillShare, _impl_.health_percent_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_StatsPlayerKillShare, _impl_.mana_percent_),
+  5,
   0,
   1,
   2,
   3,
   4,
-  5,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_StatsKillDetails, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_StatsKillDetails, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4367,11 +4383,11 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_StatsKillDetails, _impl_.effective_health_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_StatsKillDetails, _impl_.death_time_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_StatsKillDetails, _impl_.killer_id_),
-  0,
+  3,
   ~0u,
+  0,
   1,
   2,
-  3,
   4,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightTeamDetails, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightTeamDetails, _internal_metadata_),
@@ -4439,10 +4455,10 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_CustomHeaderMessage, _impl_.duration_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_CustomHeaderMessage, _impl_.message_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_CustomHeaderMessage, _impl_.value_),
-  1,
-  2,
-  0,
   3,
+  1,
+  0,
+  2,
   PROTOBUF_FIELD_OFFSET(::CMsgHeroAbilityStat, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgHeroAbilityStat, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4529,8 +4545,8 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_CompendiumStatePlayer, _impl_.player_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_CompendiumStatePlayer, _impl_.level_),
-  0,
   1,
+  0,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_CompendiumState, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4552,14 +4568,14 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ProjectionAbility, _impl_.track_caster_only_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ProjectionAbility, _impl_.end_time_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ProjectionAbility, _impl_.victim_ent_index_),
-  1,
-  2,
-  3,
-  4,
-  0,
-  5,
   6,
   7,
+  1,
+  2,
+  0,
+  3,
+  4,
+  5,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ProjectionEvent, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ProjectionEvent, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4591,11 +4607,11 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TalentTreeAlert, _impl_.ability_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TalentTreeAlert, _impl_.slot_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TalentTreeAlert, _impl_.learned_),
-  0,
-  1,
-  2,
   3,
   4,
+  2,
+  0,
+  1,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_UpdateQuestProgress, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4616,13 +4632,13 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_QuestStatus, _impl_.query_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_QuestStatus, _impl_.fail_gametime_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_QuestStatus, _impl_.item_ability_id_),
+  6,
   0,
   1,
   2,
   3,
   4,
   5,
-  6,
   7,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SuggestHeroPick, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SuggestHeroPick, _internal_metadata_),
@@ -4633,9 +4649,9 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SuggestHeroPick, _impl_.player_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SuggestHeroPick, _impl_.hero_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SuggestHeroPick, _impl_.ban_),
+  2,
   0,
   1,
-  2,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SuggestHeroRole, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SuggestHeroRole, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4658,9 +4674,9 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_KillcamDamageTaken, _impl_.item_ability_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_KillcamDamageTaken, _impl_.hero_name_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_KillcamDamageTaken, _impl_.damage_color_),
+  4,
   2,
   3,
-  4,
   5,
   0,
   1,
@@ -4672,8 +4688,8 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SelectPenaltyGold, _impl_.player_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SelectPenaltyGold, _impl_.cost_),
-  0,
   1,
+  0,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_RollDiceResult, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_RollDiceResult, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4685,11 +4701,11 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_RollDiceResult, _impl_.roll_min_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_RollDiceResult, _impl_.roll_max_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_RollDiceResult, _impl_.result_),
+  4,
   0,
   1,
   2,
   3,
-  4,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_FlipCoinResult, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_FlipCoinResult, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4699,9 +4715,9 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_FlipCoinResult, _impl_.player_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_FlipCoinResult, _impl_.channel_type_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_FlipCoinResult, _impl_.result_),
+  2,
   0,
   1,
-  2,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMessage_RequestItemSuggestions, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMessage_RequestItemSuggestions, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4728,8 +4744,8 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ChatWheelCooldown, _impl_.message_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ChatWheelCooldown, _impl_.cooldown_remaining_),
-  0,
   1,
+  0,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_HeroRelicProgress, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_HeroRelicProgress, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4743,9 +4759,9 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_HeroRelicProgress, _impl_.value_display_),
   0,
   1,
+  4,
   2,
   3,
-  4,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AbilityDraftRequestAbility, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AbilityDraftRequestAbility, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4755,9 +4771,9 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AbilityDraftRequestAbility, _impl_.player_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AbilityDraftRequestAbility, _impl_.requested_ability_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AbilityDraftRequestAbility, _impl_.ctrl_is_down_),
-  0,
   1,
   2,
+  0,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_DamageReport, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_DamageReport, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4769,11 +4785,11 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_DamageReport, _impl_.source_hero_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_DamageReport, _impl_.damage_amount_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_DamageReport, _impl_.broadcast_),
+  4,
   0,
   1,
   2,
   3,
-  4,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SalutePlayer, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SalutePlayer, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4785,11 +4801,13 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SalutePlayer, _impl_.tip_amount_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SalutePlayer, _impl_.event_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SalutePlayer, _impl_.custom_tip_style_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SalutePlayer, _impl_.num_recent_tips_),
+  4,
+  5,
   1,
   2,
-  3,
-  4,
   0,
+  3,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TipAlert, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TipAlert, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4809,9 +4827,9 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ReplaceQueryUnit, _impl_.player_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ReplaceQueryUnit, _impl_.source_entindex_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ReplaceQueryUnit, _impl_.target_entindex_),
-  0,
   1,
   2,
+  0,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ESArcanaCombo, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ESArcanaCombo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4821,9 +4839,9 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ESArcanaCombo, _impl_.ehandle_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ESArcanaCombo, _impl_.combo_count_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ESArcanaCombo, _impl_.arcana_level_),
+  2,
   0,
   1,
-  2,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ESArcanaComboSummary, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ESArcanaComboSummary, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4833,9 +4851,9 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ESArcanaComboSummary, _impl_.ehandle_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ESArcanaComboSummary, _impl_.combo_count_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ESArcanaComboSummary, _impl_.damage_amount_),
+  2,
   0,
   1,
-  2,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_OMArcanaCombo, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_OMArcanaCombo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4846,10 +4864,10 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_OMArcanaCombo, _impl_.multicast_amount_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_OMArcanaCombo, _impl_.arcana_level_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_OMArcanaCombo, _impl_.multicast_chance_),
+  3,
   0,
   1,
   2,
-  3,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_HighFiveCompleted, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_HighFiveCompleted, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4860,10 +4878,10 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_HighFiveCompleted, _impl_.player_id_2_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_HighFiveCompleted, _impl_.special_high_five_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_HighFiveCompleted, _impl_.special_entindex_),
-  0,
-  1,
   2,
   3,
+  0,
+  1,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_HighFiveLeftHanging, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_HighFiveLeftHanging, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4882,10 +4900,10 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ShovelUnearth, _impl_.all_chat_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ShovelUnearth, _impl_.locstring_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ShovelUnearth, _impl_.quantity_),
-  1,
-  2,
-  0,
   3,
+  1,
+  0,
+  2,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AllStarEvent_PlayerScore, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AllStarEvent_PlayerScore, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4894,8 +4912,8 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AllStarEvent_PlayerScore, _impl_.player_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AllStarEvent_PlayerScore, _impl_.score_sans_kda_),
-  0,
   1,
+  0,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AllStarEvent, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AllStarEvent, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4907,10 +4925,10 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AllStarEvent, _impl_.point_amount_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AllStarEvent, _impl_.event_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AllStarEvent, _impl_.player_scores_),
-  0,
-  1,
   2,
   3,
+  0,
+  1,
   ~0u,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_QueuedOrderRemoved, _internal_metadata_),
@@ -4949,10 +4967,10 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_FoundNeutralItem, _impl_.item_ability_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_FoundNeutralItem, _impl_.item_tier_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_FoundNeutralItem, _impl_.tier_item_count_),
-  0,
-  1,
   2,
   3,
+  0,
+  1,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_OutpostCaptured, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_OutpostCaptured, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4961,8 +4979,8 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_OutpostCaptured, _impl_.outpost_entindex_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_OutpostCaptured, _impl_.team_id_),
-  0,
   1,
+  0,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_OutpostGrantedXP, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_OutpostGrantedXP, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -5026,10 +5044,10 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_QoP_ArcanaSummary, _impl_.arcana_level_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_QoP_ArcanaSummary, _impl_.players_hit_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_QoP_ArcanaSummary, _impl_.players_killed_),
+  3,
   0,
   1,
   2,
-  3,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_HotPotato_Created, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_HotPotato_Created, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -5057,9 +5075,9 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_WK_Arcana_Progress, _impl_.ehandle_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_WK_Arcana_Progress, _impl_.arcana_level_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_WK_Arcana_Progress, _impl_.hero_id_),
+  2,
   0,
   1,
-  2,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -5068,8 +5086,8 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress, _impl_.player_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress, _impl_.progress_),
-  0,
   1,
+  0,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_GuildChallenge_Progress, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_GuildChallenge_Progress, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -5103,13 +5121,13 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_WRArcanaProgress, _impl_.target_hp_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_WRArcanaProgress, _impl_.target_max_hp_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_WRArcanaProgress, _impl_.arcana_level_),
+  5,
+  6,
   0,
   1,
   2,
   3,
   4,
-  5,
-  6,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_WRArcanaSummary, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_WRArcanaSummary, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -5124,14 +5142,14 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_WRArcanaSummary, _impl_.target_max_hp_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_WRArcanaSummary, _impl_.arcana_level_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_WRArcanaSummary, _impl_.success_),
+  6,
+  7,
   0,
   1,
   2,
   3,
   4,
   5,
-  6,
-  7,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_EmptyItemSlotAlert, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_EmptyItemSlotAlert, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -5142,10 +5160,10 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_EmptyItemSlotAlert, _impl_.target_player_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_EmptyItemSlotAlert, _impl_.slot_index_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_EmptyItemSlotAlert, _impl_.cooldown_seconds_),
-  0,
-  1,
   2,
   3,
+  0,
+  1,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AghsStatusAlert, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AghsStatusAlert, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -5158,12 +5176,12 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AghsStatusAlert, _impl_.alert_type_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AghsStatusAlert, _impl_.has_scepter_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AghsStatusAlert, _impl_.has_shard_),
+  4,
+  5,
+  3,
   0,
   1,
   2,
-  3,
-  4,
-  5,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MutedPlayers, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -5217,8 +5235,8 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ChatMessage, _impl_.source_player_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ChatMessage, _impl_.channel_type_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ChatMessage, _impl_.message_text_),
-  1,
   2,
+  1,
   0,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_RockPaperScissorsStarted, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_RockPaperScissorsStarted, _internal_metadata_),
@@ -5240,10 +5258,10 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_RockPaperScissorsFinished, _impl_.player_id_2_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_RockPaperScissorsFinished, _impl_.player_1_choice_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_RockPaperScissorsFinished, _impl_.player_2_choice_),
-  0,
-  1,
   2,
   3,
+  0,
+  1,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_DuelOpponentKilled, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_DuelOpponentKilled, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -5272,6 +5290,22 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_DuelRequested, _impl_.player_id_requestor_),
   0,
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled, _impl_.player_id_killer_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled, _impl_.player_id_target_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled, _impl_.points_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled, _impl_.points_total_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled, _impl_.last_hit_),
+  3,
+  4,
+  0,
+  1,
+  2,
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 7, -1, sizeof(::CDOTAUserMsg_AIDebugLine)},
@@ -5324,96 +5358,96 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 629, -1, -1, sizeof(::CDOTAResponseQuerySerialized)},
   { 636, 646, -1, sizeof(::CDOTASpeechMatchOnClient)},
   { 650, 658, -1, sizeof(::CDOTAUserMsg_UnitEvent_Interval)},
-  { 660, 673, -1, sizeof(::CDOTAUserMsg_UnitEvent_Speech)},
-  { 680, 687, -1, sizeof(::CDOTAUserMsg_UnitEvent_SpeechMute)},
-  { 688, 700, -1, sizeof(::CDOTAUserMsg_UnitEvent_AddGesture)},
-  { 706, 713, -1, sizeof(::CDOTAUserMsg_UnitEvent_RemoveGesture)},
-  { 714, 723, -1, sizeof(::CDOTAUserMsg_UnitEvent_BloodImpact)},
-  { 726, 733, -1, sizeof(::CDOTAUserMsg_UnitEvent_FadeGesture)},
-  { 734, 749, -1, sizeof(::CDOTAUserMsg_UnitEvent)},
-  { 758, 765, -1, sizeof(::CDOTAUserMsg_ItemPurchased)},
-  { 766, 773, -1, sizeof(::CDOTAUserMsg_ItemSold)},
-  { 774, 785, -1, sizeof(::CDOTAUserMsg_ItemFound)},
-  { 790, 801, -1, sizeof(::CDOTAUserMsg_OverheadEvent)},
-  { 806, 814, -1, sizeof(::CDOTAUserMsg_TutorialTipInfo)},
-  { 816, 826, -1, sizeof(::CDOTAUserMsg_TutorialFinish)},
-  { 830, -1, -1, sizeof(::CDOTAUserMsg_TutorialMinimapPosition)},
-  { 836, 846, -1, sizeof(::CDOTAUserMsg_SendGenericToolTip)},
-  { 850, 858, -1, sizeof(::CDOTAUserMsg_WorldLine)},
-  { 860, 871, -1, sizeof(::CDOTAUserMsg_ChatWheel)},
-  { 876, 885, -1, sizeof(::CDOTAUserMsg_ReceivedXmasGift)},
-  { 888, 900, -1, sizeof(::CDOTAUserMsg_ShowSurvey)},
-  { 906, 913, -1, sizeof(::CDOTAUserMsg_UpdateSharedContent)},
-  { 914, -1, -1, sizeof(::CDOTAUserMsg_TutorialRequestExp)},
-  { 920, 927, -1, sizeof(::CDOTAUserMsg_TutorialFade)},
-  { 928, 939, -1, sizeof(::CDOTAUserMsg_TutorialPingMinimap)},
-  { 944, 951, -1, sizeof(::CDOTAUserMsg_GamerulesStateChanged)},
-  { 952, 960, -1, sizeof(::CDOTAUserMsg_AddQuestLogEntry)},
-  { 962, 970, -1, sizeof(::CDOTAUserMsg_SendStatPopup)},
-  { 972, 979, -1, sizeof(::CDOTAUserMsg_DismissAllStatPopups)},
-  { 980, 989, -1, sizeof(::CDOTAUserMsg_SendRoshanSpectatorPhase)},
-  { 992, 1000, -1, sizeof(::CDOTAUserMsg_SendRoshanPopup)},
-  { 1002, -1, -1, sizeof(::CDOTAUserMsg_SendFinalGold)},
-  { 1010, 1019, -1, sizeof(::CDOTAUserMsg_CustomMsg)},
-  { 1022, 1030, -1, sizeof(::CDOTAUserMsg_CoachHUDPing)},
-  { 1032, -1, -1, sizeof(::CDOTAUserMsg_ClientLoadGridNav)},
-  { 1038, 1059, -1, sizeof(::CDOTAUserMsg_TE_Projectile)},
-  { 1074, 1095, -1, sizeof(::CDOTAUserMsg_TE_ProjectileLoc)},
-  { 1110, 1117, -1, sizeof(::CDOTAUserMsg_TE_DestroyProjectile)},
-  { 1118, 1128, -1, sizeof(::CDOTAUserMsg_TE_DotaBloodImpact)},
-  { 1132, 1150, -1, sizeof(::CDOTAUserMsg_AbilityPing)},
-  { 1162, 1175, -1, sizeof(::CDOTAUserMsg_TE_UnitAnimation)},
-  { 1182, 1190, -1, sizeof(::CDOTAUserMsg_TE_UnitAnimationEnd)},
-  { 1192, 1204, -1, sizeof(::CDOTAUserMsg_ShowGenericPopup)},
-  { 1210, 1220, -1, sizeof(::CDOTAUserMsg_VoteStart)},
-  { 1224, -1, -1, sizeof(::CDOTAUserMsg_VoteUpdate)},
-  { 1231, 1238, -1, sizeof(::CDOTAUserMsg_VoteEnd)},
-  { 1239, 1250, -1, sizeof(::CDOTAUserMsg_BoosterStatePlayer)},
-  { 1255, -1, -1, sizeof(::CDOTAUserMsg_BoosterState)},
-  { 1262, -1, -1, sizeof(::CDOTAUserMsg_PlayerMMR)},
-  { 1269, 1278, -1, sizeof(::CDOTAUserMsg_AbilitySteal)},
-  { 1281, 1291, -1, sizeof(::CDOTAUserMsg_StatsHeroLookup)},
-  { 1295, 1303, -1, sizeof(::CDOTAUserMsg_StatsHeroPositionInfo_PositionPair)},
-  { 1305, 1313, -1, sizeof(::CDOTAUserMsg_StatsHeroPositionInfo)},
-  { 1315, 1336, -1, sizeof(::CDOTAUserMsg_StatsHeroMinuteDetails)},
-  { 1351, 1360, -1, sizeof(::CDOTAUserMsg_StatsTeamMinuteDetails_LocationPerformance)},
-  { 1363, 1379, -1, sizeof(::CDOTAUserMsg_StatsTeamMinuteDetails)},
-  { 1389, 1401, -1, sizeof(::CDOTAUserMsg_StatsPlayerKillShare)},
-  { 1407, 1419, -1, sizeof(::CDOTAUserMsg_StatsKillDetails)},
-  { 1425, 1435, -1, sizeof(::CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightTeamDetails)},
-  { 1439, 1449, -1, sizeof(::CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightDetails)},
-  { 1453, -1, -1, sizeof(::CDOTAUserMsg_StatsMatchDetails)},
-  { 1465, 1472, -1, sizeof(::CDOTAUserMsg_MiniTaunt)},
-  { 1473, 1480, -1, sizeof(::CDOTAUserMsg_SpeechBubble)},
-  { 1481, 1491, -1, sizeof(::CDOTAUserMsg_CustomHeaderMessage)},
-  { 1495, 1504, -1, sizeof(::CMsgHeroAbilityStat)},
-  { 1507, 1515, -1, sizeof(::CMsgCombatAnalyzerPlayerStat)},
-  { 1517, 1525, -1, sizeof(::CMsgCombatAnalyzerStats)},
-  { 1527, 1537, -1, sizeof(::CDOTAUserMsg_BeastChat)},
-  { 1541, 1550, -1, sizeof(::CDOTAUserMsg_CustomHudElement_Create)},
-  { 1553, 1562, -1, sizeof(::CDOTAUserMsg_CustomHudElement_Modify)},
-  { 1565, 1572, -1, sizeof(::CDOTAUserMsg_CustomHudElement_Destroy)},
-  { 1573, 1581, -1, sizeof(::CDOTAUserMsg_CompendiumStatePlayer)},
-  { 1583, -1, -1, sizeof(::CDOTAUserMsg_CompendiumState)},
-  { 1590, 1604, -1, sizeof(::CDOTAUserMsg_ProjectionAbility)},
-  { 1612, 1620, -1, sizeof(::CDOTAUserMsg_ProjectionEvent)},
-  { 1622, 1630, -1, sizeof(::CDOTAUserMsg_XPAlert)},
-  { 1632, 1643, -1, sizeof(::CDOTAUserMsg_TalentTreeAlert)},
-  { 1648, -1, -1, sizeof(::CDOTAUserMsg_UpdateQuestProgress)},
-  { 1654, 1668, -1, sizeof(::CDOTAUserMsg_QuestStatus)},
-  { 1676, 1685, -1, sizeof(::CDOTAUserMsg_SuggestHeroPick)},
-  { 1688, 1696, -1, sizeof(::CDOTAUserMsg_SuggestHeroRole)},
-  { 1698, 1710, -1, sizeof(::CDOTAUserMsg_KillcamDamageTaken)},
-  { 1716, 1724, -1, sizeof(::CDOTAUserMsg_SelectPenaltyGold)},
-  { 1726, 1737, -1, sizeof(::CDOTAUserMsg_RollDiceResult)},
-  { 1742, 1751, -1, sizeof(::CDOTAUserMsg_FlipCoinResult)},
-  { 1754, 1761, -1, sizeof(::CDOTAUserMessage_RequestItemSuggestions)},
-  { 1762, 1770, -1, sizeof(::CDOTAUserMessage_TeamCaptainChanged)},
-  { 1772, 1780, -1, sizeof(::CDOTAUserMsg_ChatWheelCooldown)},
-  { 1782, 1793, -1, sizeof(::CDOTAUserMsg_HeroRelicProgress)},
-  { 1798, 1807, -1, sizeof(::CDOTAUserMsg_AbilityDraftRequestAbility)},
-  { 1810, 1821, -1, sizeof(::CDOTAUserMsg_DamageReport)},
-  { 1826, 1837, -1, sizeof(::CDOTAUserMsg_SalutePlayer)},
+  { 660, 672, -1, sizeof(::CDOTAUserMsg_UnitEvent_Speech)},
+  { 678, 685, -1, sizeof(::CDOTAUserMsg_UnitEvent_SpeechMute)},
+  { 686, 698, -1, sizeof(::CDOTAUserMsg_UnitEvent_AddGesture)},
+  { 704, 711, -1, sizeof(::CDOTAUserMsg_UnitEvent_RemoveGesture)},
+  { 712, 721, -1, sizeof(::CDOTAUserMsg_UnitEvent_BloodImpact)},
+  { 724, 731, -1, sizeof(::CDOTAUserMsg_UnitEvent_FadeGesture)},
+  { 732, 747, -1, sizeof(::CDOTAUserMsg_UnitEvent)},
+  { 756, 763, -1, sizeof(::CDOTAUserMsg_ItemPurchased)},
+  { 764, 771, -1, sizeof(::CDOTAUserMsg_ItemSold)},
+  { 772, 783, -1, sizeof(::CDOTAUserMsg_ItemFound)},
+  { 788, 799, -1, sizeof(::CDOTAUserMsg_OverheadEvent)},
+  { 804, 812, -1, sizeof(::CDOTAUserMsg_TutorialTipInfo)},
+  { 814, 824, -1, sizeof(::CDOTAUserMsg_TutorialFinish)},
+  { 828, -1, -1, sizeof(::CDOTAUserMsg_TutorialMinimapPosition)},
+  { 834, 844, -1, sizeof(::CDOTAUserMsg_SendGenericToolTip)},
+  { 848, 856, -1, sizeof(::CDOTAUserMsg_WorldLine)},
+  { 858, 869, -1, sizeof(::CDOTAUserMsg_ChatWheel)},
+  { 874, 883, -1, sizeof(::CDOTAUserMsg_ReceivedXmasGift)},
+  { 886, 898, -1, sizeof(::CDOTAUserMsg_ShowSurvey)},
+  { 904, 911, -1, sizeof(::CDOTAUserMsg_UpdateSharedContent)},
+  { 912, -1, -1, sizeof(::CDOTAUserMsg_TutorialRequestExp)},
+  { 918, 925, -1, sizeof(::CDOTAUserMsg_TutorialFade)},
+  { 926, 937, -1, sizeof(::CDOTAUserMsg_TutorialPingMinimap)},
+  { 942, 949, -1, sizeof(::CDOTAUserMsg_GamerulesStateChanged)},
+  { 950, 958, -1, sizeof(::CDOTAUserMsg_AddQuestLogEntry)},
+  { 960, 968, -1, sizeof(::CDOTAUserMsg_SendStatPopup)},
+  { 970, 977, -1, sizeof(::CDOTAUserMsg_DismissAllStatPopups)},
+  { 978, 987, -1, sizeof(::CDOTAUserMsg_SendRoshanSpectatorPhase)},
+  { 990, 998, -1, sizeof(::CDOTAUserMsg_SendRoshanPopup)},
+  { 1000, -1, -1, sizeof(::CDOTAUserMsg_SendFinalGold)},
+  { 1008, 1017, -1, sizeof(::CDOTAUserMsg_CustomMsg)},
+  { 1020, 1028, -1, sizeof(::CDOTAUserMsg_CoachHUDPing)},
+  { 1030, -1, -1, sizeof(::CDOTAUserMsg_ClientLoadGridNav)},
+  { 1036, 1057, -1, sizeof(::CDOTAUserMsg_TE_Projectile)},
+  { 1072, 1093, -1, sizeof(::CDOTAUserMsg_TE_ProjectileLoc)},
+  { 1108, 1115, -1, sizeof(::CDOTAUserMsg_TE_DestroyProjectile)},
+  { 1116, 1126, -1, sizeof(::CDOTAUserMsg_TE_DotaBloodImpact)},
+  { 1130, 1148, -1, sizeof(::CDOTAUserMsg_AbilityPing)},
+  { 1160, 1173, -1, sizeof(::CDOTAUserMsg_TE_UnitAnimation)},
+  { 1180, 1188, -1, sizeof(::CDOTAUserMsg_TE_UnitAnimationEnd)},
+  { 1190, 1202, -1, sizeof(::CDOTAUserMsg_ShowGenericPopup)},
+  { 1208, 1218, -1, sizeof(::CDOTAUserMsg_VoteStart)},
+  { 1222, -1, -1, sizeof(::CDOTAUserMsg_VoteUpdate)},
+  { 1229, 1236, -1, sizeof(::CDOTAUserMsg_VoteEnd)},
+  { 1237, 1248, -1, sizeof(::CDOTAUserMsg_BoosterStatePlayer)},
+  { 1253, -1, -1, sizeof(::CDOTAUserMsg_BoosterState)},
+  { 1260, -1, -1, sizeof(::CDOTAUserMsg_PlayerMMR)},
+  { 1267, 1276, -1, sizeof(::CDOTAUserMsg_AbilitySteal)},
+  { 1279, 1289, -1, sizeof(::CDOTAUserMsg_StatsHeroLookup)},
+  { 1293, 1301, -1, sizeof(::CDOTAUserMsg_StatsHeroPositionInfo_PositionPair)},
+  { 1303, 1311, -1, sizeof(::CDOTAUserMsg_StatsHeroPositionInfo)},
+  { 1313, 1334, -1, sizeof(::CDOTAUserMsg_StatsHeroMinuteDetails)},
+  { 1349, 1358, -1, sizeof(::CDOTAUserMsg_StatsTeamMinuteDetails_LocationPerformance)},
+  { 1361, 1377, -1, sizeof(::CDOTAUserMsg_StatsTeamMinuteDetails)},
+  { 1387, 1399, -1, sizeof(::CDOTAUserMsg_StatsPlayerKillShare)},
+  { 1405, 1417, -1, sizeof(::CDOTAUserMsg_StatsKillDetails)},
+  { 1423, 1433, -1, sizeof(::CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightTeamDetails)},
+  { 1437, 1447, -1, sizeof(::CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightDetails)},
+  { 1451, -1, -1, sizeof(::CDOTAUserMsg_StatsMatchDetails)},
+  { 1463, 1470, -1, sizeof(::CDOTAUserMsg_MiniTaunt)},
+  { 1471, 1478, -1, sizeof(::CDOTAUserMsg_SpeechBubble)},
+  { 1479, 1489, -1, sizeof(::CDOTAUserMsg_CustomHeaderMessage)},
+  { 1493, 1502, -1, sizeof(::CMsgHeroAbilityStat)},
+  { 1505, 1513, -1, sizeof(::CMsgCombatAnalyzerPlayerStat)},
+  { 1515, 1523, -1, sizeof(::CMsgCombatAnalyzerStats)},
+  { 1525, 1535, -1, sizeof(::CDOTAUserMsg_BeastChat)},
+  { 1539, 1548, -1, sizeof(::CDOTAUserMsg_CustomHudElement_Create)},
+  { 1551, 1560, -1, sizeof(::CDOTAUserMsg_CustomHudElement_Modify)},
+  { 1563, 1570, -1, sizeof(::CDOTAUserMsg_CustomHudElement_Destroy)},
+  { 1571, 1579, -1, sizeof(::CDOTAUserMsg_CompendiumStatePlayer)},
+  { 1581, -1, -1, sizeof(::CDOTAUserMsg_CompendiumState)},
+  { 1588, 1602, -1, sizeof(::CDOTAUserMsg_ProjectionAbility)},
+  { 1610, 1618, -1, sizeof(::CDOTAUserMsg_ProjectionEvent)},
+  { 1620, 1628, -1, sizeof(::CDOTAUserMsg_XPAlert)},
+  { 1630, 1641, -1, sizeof(::CDOTAUserMsg_TalentTreeAlert)},
+  { 1646, -1, -1, sizeof(::CDOTAUserMsg_UpdateQuestProgress)},
+  { 1652, 1666, -1, sizeof(::CDOTAUserMsg_QuestStatus)},
+  { 1674, 1683, -1, sizeof(::CDOTAUserMsg_SuggestHeroPick)},
+  { 1686, 1694, -1, sizeof(::CDOTAUserMsg_SuggestHeroRole)},
+  { 1696, 1708, -1, sizeof(::CDOTAUserMsg_KillcamDamageTaken)},
+  { 1714, 1722, -1, sizeof(::CDOTAUserMsg_SelectPenaltyGold)},
+  { 1724, 1735, -1, sizeof(::CDOTAUserMsg_RollDiceResult)},
+  { 1740, 1749, -1, sizeof(::CDOTAUserMsg_FlipCoinResult)},
+  { 1752, 1759, -1, sizeof(::CDOTAUserMessage_RequestItemSuggestions)},
+  { 1760, 1768, -1, sizeof(::CDOTAUserMessage_TeamCaptainChanged)},
+  { 1770, 1778, -1, sizeof(::CDOTAUserMsg_ChatWheelCooldown)},
+  { 1780, 1791, -1, sizeof(::CDOTAUserMsg_HeroRelicProgress)},
+  { 1796, 1805, -1, sizeof(::CDOTAUserMsg_AbilityDraftRequestAbility)},
+  { 1808, 1819, -1, sizeof(::CDOTAUserMsg_DamageReport)},
+  { 1824, 1836, -1, sizeof(::CDOTAUserMsg_SalutePlayer)},
   { 1842, 1850, -1, sizeof(::CDOTAUserMsg_TipAlert)},
   { 1852, 1861, -1, sizeof(::CDOTAUserMsg_ReplaceQueryUnit)},
   { 1864, 1873, -1, sizeof(::CDOTAUserMsg_ESArcanaCombo)},
@@ -5451,6 +5485,7 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 2296, 2304, -1, sizeof(::CDOTAUserMsg_DuelOpponentKilled)},
   { 2306, 2314, -1, sizeof(::CDOTAUserMsg_DuelAccepted)},
   { 2316, 2323, -1, sizeof(::CDOTAUserMsg_DuelRequested)},
+  { 2324, 2335, -1, sizeof(::CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -5631,6 +5666,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CDOTAUserMsg_DuelOpponentKilled_default_instance_._instance,
   &::_CDOTAUserMsg_DuelAccepted_default_instance_._instance,
   &::_CDOTAUserMsg_DuelRequested_default_instance_._instance,
+  &::_CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_dota_5fusermessages_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -5638,880 +5674,905 @@ const char descriptor_table_protodef_dota_5fusermessages_2eproto[] PROTOBUF_SECT
   "pes.proto\032\027dota_shared_enums.proto\032\031dota"
   "_commonmessages.proto\"+\n\030CDOTAUserMsg_AI"
   "DebugLine\022\017\n\007message\030\001 \001(\t\"/\n\021CDOTAUserM"
-  "sg_Ping\022\014\n\004ping\030\002 \001(\r\022\014\n\004loss\030\003 \001(\r\",\n\027C"
-  "DOTAUserMsg_SwapVerify\022\021\n\tplayer_id\030\001 \001("
-  "\005\"\217\002\n\026CDOTAUserMsg_ChatEvent\0226\n\004type\030\001 \002"
-  "(\0162\022.DOTA_CHAT_MESSAGE:\024CHAT_MESSAGE_INV"
-  "ALID\022\r\n\005value\030\002 \001(\r\022\026\n\nplayerid_1\030\003 \001(\021:"
-  "\002-1\022\026\n\nplayerid_2\030\004 \001(\021:\002-1\022\026\n\nplayerid_"
-  "3\030\005 \001(\021:\002-1\022\026\n\nplayerid_4\030\006 \001(\021:\002-1\022\026\n\np"
-  "layerid_5\030\007 \001(\021:\002-1\022\026\n\nplayerid_6\030\010 \001(\021:"
-  "\002-1\022\016\n\006value2\030\t \001(\r\022\016\n\006value3\030\n \001(\r\"]\n\024C"
-  "DOTAUserMsg_BotChat\022\021\n\tplayer_id\030\001 \001(\005\022\017"
-  "\n\007message\030\003 \001(\t\022\016\n\006target\030\004 \001(\t\022\021\n\tteam_"
-  "only\030\005 \001(\010\"q\n CDOTAUserMsg_CombatHeroPos"
-  "itions\022\r\n\005index\030\001 \001(\r\022\014\n\004time\030\002 \001(\005\022 \n\tw"
-  "orld_pos\030\003 \001(\0132\r.CMsgVector2D\022\016\n\006health\030"
-  "\004 \001(\005\"\237\001\n\036CDOTAUserMsg_CombatLogBulkData"
-  "\022/\n\016combat_entries\030\001 \003(\0132\027.CMsgDOTAComba"
-  "tLogEntry\022\021\n\ttimestamp\030\002 \001(\002\022\020\n\010duration"
-  "\030\003 \001(\002\022\021\n\tplayer_id\030\004 \001(\005\022\024\n\014request_tim"
-  "e\030\005 \001(\002\"[\n%CDOTAUserMsg_ProjectilePartic"
-  "leCPData\022\025\n\rcontrol_point\030\001 \001(\005\022\033\n\006vecto"
-  "r\030\002 \001(\0132\013.CMsgVector\"\227\002\n\034CDOTAUserMsg_Mi"
-  "niKillCamInfo\0229\n\tattackers\030\001 \003(\0132&.CDOTA"
-  "UserMsg_MiniKillCamInfo.Attacker\032\273\001\n\010Att"
-  "acker\022\020\n\010attacker\030\001 \001(\r\022\024\n\014total_damage\030"
-  "\002 \001(\005\022A\n\tabilities\030\003 \003(\0132..CDOTAUserMsg_"
-  "MiniKillCamInfo.Attacker.Ability\022\025\n\ratta"
-  "cker_name\030\004 \001(\t\032-\n\007Ability\022\022\n\nability_id"
-  "\030\001 \001(\r\022\016\n\006damage\030\002 \001(\005\"@\n\035CDOTAUserMsg_G"
-  "lobalLightColor\022\r\n\005color\030\001 \001(\r\022\020\n\010durati"
-  "on\030\002 \001(\002\"U\n!CDOTAUserMsg_GlobalLightDire"
-  "ction\022\036\n\tdirection\030\001 \001(\0132\013.CMsgVector\022\020\n"
-  "\010duration\030\002 \001(\002\"]\n\031CDOTAUserMsg_Location"
-  "Ping\022\021\n\tplayer_id\030\001 \001(\005\022-\n\rlocation_ping"
-  "\030\002 \001(\0132\026.CDOTAMsg_LocationPing\"\215\001\n\035CDOTA"
-  "UserMsg_PingConfirmation\022$\n\034player_id_of"
-  "_original_pinger\030\001 \001(\005\022\024\n\014entity_index\030\002"
-  " \001(\r\022\021\n\ticon_type\030\003 \001(\r\022\035\n\010location\030\004 \001("
-  "\0132\013.CMsgVector\"T\n\026CDOTAUserMsg_ItemAlert"
-  "\022\021\n\tplayer_id\030\001 \001(\005\022\'\n\nitem_alert\030\002 \001(\0132"
-  "\023.CDOTAMsg_ItemAlert\"\341\001\n\033CDOTAUserMsg_En"
-  "emyItemAlert\022\021\n\tplayer_id\030\001 \001(\005\022\030\n\020targe"
-  "t_player_id\030\002 \001(\005\022\027\n\017item_ability_id\030\003 \001"
-  "(\005\022\025\n\trune_type\030\004 \001(\005:\002-1\022\021\n\tentity_id\030\005"
-  " \001(\005\022\026\n\nitem_level\030\006 \001(\005:\002-1\022\033\n\017primary_"
-  "charges\030\007 \001(\005:\002-1\022\035\n\021secondary_charges\030\010"
-  " \001(\005:\002-1\"\237\001\n\032CDOTAUserMsg_ModifierAlert\022"
-  "\021\n\tplayer_id\030\001 \001(\005\022\022\n\nclass_name\030\002 \001(\t\022\023"
-  "\n\013stack_count\030\003 \001(\r\022\021\n\tis_debuff\030\004 \001(\010\022\027"
-  "\n\017target_entindex\030\005 \001(\005\022\031\n\021seconds_remai"
-  "ning\030\006 \001(\002\"_\n\030CDOTAUserMsg_HPManaAlert\022\021"
-  "\n\tplayer_id\030\001 \001(\005\022\027\n\017target_entindex\030\002 \001"
-  "(\005\022\027\n\017show_raw_values\030\003 \001(\010\"\273\001\n\035CDOTAUse"
-  "rMsg_NeutralCampAlert\022\021\n\tplayer_id\030\001 \001(\005"
-  "\022\030\n\020spawner_entindex\030\002 \001(\005\022\025\n\runit_entin"
-  "dex\030\003 \001(\005\022\023\n\013stack_count\030\004 \001(\005\022\021\n\tcamp_t"
-  "ype\030\005 \001(\005\022\025\n\rstack_request\030\006 \001(\010\022\027\n\017stac"
-  "k_intention\030\007 \001(\010\">\n\027CDOTAUserMsg_GlyphA"
-  "lert\022\021\n\tplayer_id\030\001 \001(\005\022\020\n\010negative\030\002 \001("
-  "\010\">\n\027CDOTAUserMsg_RadarAlert\022\021\n\tplayer_i"
-  "d\030\001 \001(\005\022\020\n\010negative\030\002 \001(\010\"\202\001\n\036CDOTAUserM"
-  "sg_WillPurchaseAlert\022\027\n\017item_ability_id\030"
-  "\001 \001(\005\022\021\n\tplayer_id\030\002 \001(\005\022\026\n\016gold_remaini"
-  "ng\030\003 \001(\r\022\034\n\024suggestion_player_id\030\004 \001(\005\"o"
-  "\n\037CDOTAUserMsg_EmptyTeleportAlert\022\030\n\020sou"
-  "rce_player_id\030\001 \001(\005\022\030\n\020target_player_id\030"
-  "\002 \001(\005\022\030\n\020cooldown_seconds\030\003 \001(\005\"l\n#CDOTA"
-  "UserMsg_MarsArenaOfBloodAttack\022\026\n\016source"
-  "_ehandle\030\001 \001(\r\022\026\n\016target_ehandle\030\002 \001(\r\022\025"
-  "\n\rwarrior_index\030\003 \001(\005\"Y\n\037CDOTAEntityMsg_"
-  "InvokerSpellCast\022\037\n\nentity_msg\030\001 \001(\0132\013.C"
-  "EntityMsg\022\025\n\rcast_activity\030\002 \001(\005\"3\n\036CDOT"
-  "AUserMsg_BuyBackStateAlert\022\021\n\tplayer_id\030"
-  "\001 \001(\005\"\220\001\n\032CDOTAUserMsg_QuickBuyAlert\022\021\n\t"
-  "player_id\030\001 \001(\005\022\027\n\017item_ability_id\030\002 \001(\005"
-  "\022\021\n\tgold_cost\030\003 \001(\005\022\035\n\025item_cooldown_sec"
-  "onds\030\004 \001(\005\022\024\n\014show_buyback\030\005 \001(\010\"\227\002\n\037CDO"
-  "TAUserMsg_CourierKilledAlert\022\014\n\004team\030\001 \001"
-  "(\r\022\022\n\ngold_value\030\002 \001(\r\022\025\n\rentity_handle\030"
-  "\003 \001(\r\022\021\n\ttimestamp\030\004 \001(\005\022=\n\nlost_items\030\005"
-  " \003(\0132).CDOTAUserMsg_CourierKilledAlert.L"
-  "ostItem\022\030\n\020killer_player_id\030\006 \001(\005\022\030\n\020own"
-  "ing_player_id\030\007 \001(\005\0325\n\010LostItem\022\027\n\017item_"
-  "ability_id\030\001 \001(\005\022\020\n\010quantity\030\002 \001(\r\"\214\001\n\031C"
-  "DOTAUserMsg_MinimapEvent\022\022\n\nevent_type\030\001"
-  " \001(\005\022\025\n\rentity_handle\030\002 \001(\r\022\t\n\001x\030\003 \001(\005\022\t"
-  "\n\001y\030\004 \001(\005\022\020\n\010duration\030\005 \001(\005\022\034\n\024target_en"
-  "tity_handle\030\006 \001(\r\"M\n\024CDOTAUserMsg_MapLin"
-  "e\022\021\n\tplayer_id\030\001 \001(\005\022\"\n\007mapline\030\002 \001(\0132\021."
-  "CDOTAMsg_MapLine\"}\n\036CDOTAUserMsg_Minimap"
-  "DebugPoint\022\035\n\010location\030\001 \001(\0132\013.CMsgVecto"
-  "r\022\r\n\005color\030\002 \001(\r\022\014\n\004size\030\003 \001(\005\022\020\n\010durati"
-  "on\030\004 \001(\002\022\r\n\005index\030\005 \001(\005\"\357\002\n#CDOTAUserMsg"
-  "_CreateLinearProjectile\022\033\n\006origin\030\001 \001(\0132"
-  "\013.CMsgVector\022\037\n\010velocity\030\002 \001(\0132\r.CMsgVec"
-  "tor2D\022\020\n\010entindex\030\004 \001(\005\022\026\n\016particle_inde"
-  "x\030\005 \001(\004\022\016\n\006handle\030\006 \001(\005\022#\n\014acceleration\030"
-  "\007 \001(\0132\r.CMsgVector2D\022\021\n\tmax_speed\030\010 \001(\002\022"
-  "\022\n\nfow_radius\030\t \001(\002\022\031\n\021sticky_fow_reveal"
-  "\030\n \001(\010\022\020\n\010distance\030\013 \001(\002\022\025\n\rcolorgemcolo"
-  "r\030\014 \001(\007\022@\n\020particle_cp_data\030\r \003(\0132&.CDOT"
-  "AUserMsg_ProjectileParticleCPData\"6\n$CDO"
-  "TAUserMsg_DestroyLinearProjectile\022\016\n\006han"
-  "dle\030\001 \001(\005\"O\n%CDOTAUserMsg_DodgeTrackingP"
-  "rojectiles\022\020\n\010entindex\030\001 \002(\005\022\024\n\014attacks_"
-  "only\030\002 \001(\010\"_\n!CDOTAUserMsg_SpectatorPlay"
-  "erClick\022\020\n\010entindex\030\001 \002(\005\022\022\n\norder_type\030"
-  "\002 \001(\005\022\024\n\014target_index\030\003 \001(\005\"\335\001\n&CDOTAUse"
-  "rMsg_SpectatorPlayerUnitOrders\022\020\n\010entind"
-  "ex\030\001 \001(\005\022\022\n\norder_type\030\002 \001(\005\022\r\n\005units\030\003 "
-  "\003(\005\022\024\n\014target_index\030\004 \001(\005\022\022\n\nability_id\030"
-  "\005 \001(\005\022\035\n\010position\030\006 \001(\0132\013.CMsgVector\022\r\n\005"
-  "queue\030\007 \001(\010\022\027\n\017sequence_number\030\010 \001(\005\022\r\n\005"
-  "flags\030\t \001(\r\"s\n\035CDOTAUserMsg_NevermoreReq"
-  "uiem\022\025\n\rentity_handle\030\001 \001(\r\022\r\n\005lines\030\002 \001"
-  "(\005\022\033\n\006origin\030\003 \001(\0132\013.CMsgVector\022\017\n\007rever"
-  "se\030\004 \001(\010\"G\n\033CDOTAUserMsg_InvalidCommand\022"
-  "\017\n\007message\030\001 \001(\t\022\027\n\017sequence_number\030\002 \001("
-  "\005\"B\n\025CDOTAUserMsg_HudError\022\020\n\010order_id\030\001"
-  " \001(\005\022\027\n\017sequence_number\030\002 \001(\005\"c\n\033CDOTAUs"
-  "erMsg_SharedCooldown\022\020\n\010entindex\030\001 \001(\005\022\014"
-  "\n\004name\030\002 \001(\t\022\020\n\010cooldown\030\003 \001(\002\022\022\n\nname_i"
-  "ndex\030\004 \001(\005\"/\n\037CDOTAUserMsg_SetNextAutobu"
-  "yItem\022\014\n\004name\030\001 \001(\t\"X\n\033CDOTAUserMsg_Hall"
-  "oweenDrops\022\021\n\titem_defs\030\001 \003(\r\022\022\n\nplayer_"
-  "ids\030\002 \003(\005\022\022\n\nprize_list\030\003 \001(\r\"\223\003\n\035CDOTAU"
-  "serMsg_PredictionResult\022\022\n\naccount_id\030\001 "
-  "\001(\r\022\020\n\010match_id\030\002 \001(\004\022\017\n\007correct\030\003 \001(\010\022>"
-  "\n\013predictions\030\004 \003(\0132).CDOTAUserMsg_Predi"
-  "ctionResult.Prediction\032\372\001\n\nPrediction\022\020\n"
-  "\010item_def\030\001 \001(\r\022\023\n\013num_correct\030\002 \001(\r\022\021\n\t"
-  "num_fails\030\003 \001(\r\022X\n\006result\030\004 \001(\01621.CDOTAU"
-  "serMsg_PredictionResult.Prediction.EResu"
-  "lt:\025k_eResult_ItemGranted\022\031\n\021granted_ite"
-  "m_defs\030\006 \003(\r\"=\n\007EResult\022\031\n\025k_eResult_Ite"
-  "mGranted\020\001\022\027\n\023k_eResult_Destroyed\020\002\"\336\002\n\034"
-  "CDOTAResponseQuerySerialized\0221\n\005facts\030\001 "
-  "\003(\0132\".CDOTAResponseQuerySerialized.Fact\032"
-  "\212\002\n\004Fact\022\013\n\003key\030\001 \002(\005\022F\n\007valtype\030\002 \002(\0162,"
-  ".CDOTAResponseQuerySerialized.Fact.Value"
-  "Type:\007NUMERIC\022\023\n\013val_numeric\030\003 \001(\002\022\022\n\nva"
-  "l_string\030\004 \001(\t\022\035\n\025val_stringtable_index\030"
-  "\005 \001(\005\022\027\n\017val_int_numeric\030\006 \001(\021\"L\n\tValueT"
-  "ype\022\013\n\007NUMERIC\020\001\022\n\n\006STRING\020\002\022\025\n\021STRINGTA"
-  "BLE_INDEX\020\003\022\017\n\013INT_NUMERIC\020\004\"\227\001\n\030CDOTASp"
-  "eechMatchOnClient\022\026\n\016speech_concept\030\001 \001("
-  "\005\022\026\n\016recipient_type\030\002 \001(\005\0224\n\rresponseque"
-  "ry\030\003 \001(\0132\035.CDOTAResponseQuerySerialized\022"
-  "\025\n\nrandomseed\030\004 \001(\017:\0010\"\222\010\n\026CDOTAUserMsg_"
-  "UnitEvent\0228\n\010msg_type\030\001 \002(\0162\024.EDotaEntit"
-  "yMessages:\020DOTA_UNIT_SPEECH\022\024\n\014entity_in"
-  "dex\030\002 \002(\005\022.\n\006speech\030\003 \001(\0132\036.CDOTAUserMsg"
-  "_UnitEvent.Speech\0227\n\013speech_mute\030\004 \001(\0132\""
-  ".CDOTAUserMsg_UnitEvent.SpeechMute\0227\n\013ad"
-  "d_gesture\030\005 \001(\0132\".CDOTAUserMsg_UnitEvent"
-  ".AddGesture\022=\n\016remove_gesture\030\006 \001(\0132%.CD"
-  "OTAUserMsg_UnitEvent.RemoveGesture\0229\n\014bl"
-  "ood_impact\030\007 \001(\0132#.CDOTAUserMsg_UnitEven"
-  "t.BloodImpact\0229\n\014fade_gesture\030\010 \001(\0132#.CD"
-  "OTAUserMsg_UnitEvent.FadeGesture\0229\n\026spee"
-  "ch_match_on_client\030\t \001(\0132\031.CDOTASpeechMa"
-  "tchOnClient\032(\n\010Interval\022\r\n\005start\030\001 \001(\002\022\r"
-  "\n\005range\030\002 \001(\002\032\265\001\n\006Speech\022\026\n\016speech_conce"
-  "pt\030\001 \001(\005\022\020\n\010response\030\002 \001(\t\022\026\n\016recipient_"
-  "type\030\003 \001(\005\022\r\n\005level\030\004 \001(\005\022\027\n\010muteable\030\005 "
-  "\001(\010:\005false\0222\n\010predelay\030\006 \001(\0132 .CDOTAUser"
-  "Msg_UnitEvent.Interval\022\r\n\005flags\030\007 \001(\r\032 \n"
-  "\nSpeechMute\022\022\n\005delay\030\001 \001(\002:\0030.5\032\213\001\n\nAddG"
-  "esture\022\020\n\010activity\030\001 \001(\005\022\014\n\004slot\030\002 \001(\005\022\022"
-  "\n\007fade_in\030\003 \001(\002:\0010\022\025\n\010fade_out\030\004 \001(\002:\0030."
-  "1\022\030\n\rplayback_rate\030\005 \001(\002:\0011\022\030\n\020sequence_"
-  "variant\030\006 \001(\005\032!\n\rRemoveGesture\022\020\n\010activi"
-  "ty\030\001 \001(\005\032@\n\013BloodImpact\022\r\n\005scale\030\001 \001(\005\022\020"
-  "\n\010x_normal\030\002 \001(\005\022\020\n\010y_normal\030\003 \001(\005\032\037\n\013Fa"
-  "deGesture\022\020\n\010activity\030\001 \001(\005\"5\n\032CDOTAUser"
-  "Msg_ItemPurchased\022\027\n\017item_ability_id\030\001 \001"
-  "(\005\"0\n\025CDOTAUserMsg_ItemSold\022\027\n\017item_abil"
-  "ity_id\030\001 \001(\005\"j\n\026CDOTAUserMsg_ItemFound\022\016"
-  "\n\006player\030\001 \001(\005\022\017\n\007quality\030\002 \001(\005\022\016\n\006rarit"
-  "y\030\003 \001(\005\022\016\n\006method\030\004 \001(\005\022\017\n\007itemdef\030\005 \001(\r"
-  "\"\305\001\n\032CDOTAUserMsg_OverheadEvent\022\?\n\014messa"
-  "ge_type\030\001 \002(\0162\024.DOTA_OVERHEAD_ALERT:\023OVE"
-  "RHEAD_ALERT_GOLD\022\r\n\005value\030\002 \001(\005\022\036\n\026targe"
-  "t_player_entindex\030\003 \001(\005\022\027\n\017target_entind"
-  "ex\030\004 \001(\005\022\036\n\026source_player_entindex\030\005 \001(\005"
-  "\">\n\034CDOTAUserMsg_TutorialTipInfo\022\014\n\004name"
-  "\030\001 \001(\t\022\020\n\010progress\030\002 \001(\005\"]\n\033CDOTAUserMsg"
-  "_TutorialFinish\022\017\n\007heading\030\001 \001(\t\022\016\n\006embl"
-  "em\030\002 \001(\t\022\014\n\004body\030\003 \001(\t\022\017\n\007success\030\004 \001(\010\""
-  "&\n$CDOTAUserMsg_TutorialMinimapPosition\""
-  "_\n\037CDOTAUserMsg_SendGenericToolTip\022\r\n\005ti"
-  "tle\030\001 \001(\t\022\014\n\004text\030\002 \001(\t\022\020\n\010entindex\030\003 \001("
-  "\005\022\r\n\005close\030\004 \001(\010\"S\n\026CDOTAUserMsg_WorldLi"
-  "ne\022\021\n\tplayer_id\030\001 \001(\005\022&\n\tworldline\030\002 \001(\013"
-  "2\023.CDOTAMsg_WorldLine\"\204\001\n\026CDOTAUserMsg_C"
-  "hatWheel\022\027\n\017chat_message_id\030\001 \001(\r\022\021\n\tpla"
-  "yer_id\030\002 \001(\005\022\022\n\naccount_id\030\003 \001(\r\022\025\n\rpara"
-  "m_hero_id\030\004 \001(\r\022\023\n\013emoticon_id\030\005 \001(\r\"]\n\035"
-  "CDOTAUserMsg_ReceivedXmasGift\022\021\n\tplayer_"
-  "id\030\001 \001(\005\022\021\n\titem_name\030\002 \001(\t\022\026\n\016inventory"
-  "_slot\030\003 \001(\005\"\244\001\n\027CDOTAUserMsg_ShowSurvey\022"
-  "\021\n\tsurvey_id\030\001 \001(\005\022\020\n\010match_id\030\002 \001(\004\022\026\n\016"
-  "response_style\030\003 \001(\t\022\030\n\020teammate_hero_id"
-  "\030\004 \001(\r\022\025\n\rteammate_name\030\005 \001(\t\022\033\n\023teammat"
-  "e_account_id\030\006 \001(\r\"5\n CDOTAUserMsg_Updat"
-  "eSharedContent\022\021\n\tslot_type\030\001 \001(\005\"!\n\037CDO"
-  "TAUserMsg_TutorialRequestExp\".\n\031CDOTAUse"
-  "rMsg_TutorialFade\022\021\n\ttgt_alpha\030\001 \001(\005\"x\n "
-  "CDOTAUserMsg_TutorialPingMinimap\022\021\n\tplay"
-  "er_id\030\001 \001(\005\022\r\n\005pos_x\030\002 \001(\002\022\r\n\005pos_y\030\003 \001("
-  "\002\022\r\n\005pos_z\030\004 \001(\002\022\024\n\014entity_index\030\005 \001(\005\"3"
-  "\n\"CDOTAUserMsg_GamerulesStateChanged\022\r\n\005"
-  "state\030\001 \001(\r\"E\n\035CDOTAUserMsg_AddQuestLogE"
-  "ntry\022\020\n\010npc_name\030\001 \001(\t\022\022\n\nnpc_dialog\030\002 \001"
-  "(\t\"[\n\032CDOTAUserMsg_SendStatPopup\022\021\n\tplay"
-  "er_id\030\001 \001(\005\022*\n\tstatpopup\030\002 \001(\0132\027.CDOTAMs"
-  "g_SendStatPopup\"Z\n!CDOTAUserMsg_DismissA"
-  "llStatPopups\0225\n\rdismissallmsg\030\001 \001(\0132\036.CD"
-  "OTAMsg_DismissAllStatPopups\"\217\001\n%CDOTAUse"
-  "rMsg_SendRoshanSpectatorPhase\0226\n\005phase\030\001"
-  " \001(\0162\022.DOTA_ROSHAN_PHASE:\023k_SRSP_ROSHAN_"
-  "ALIVE\022\030\n\020phase_start_time\030\002 \001(\005\022\024\n\014phase"
-  "_length\030\003 \001(\005\"C\n\034CDOTAUserMsg_SendRoshan"
-  "Popup\022\021\n\treclaimed\030\001 \001(\010\022\020\n\010gametime\030\002 \001"
-  "(\005\"L\n\032CDOTAUserMsg_SendFinalGold\022\025\n\rreli"
-  "able_gold\030\001 \003(\r\022\027\n\017unreliable_gold\030\002 \003(\r"
-  "\"K\n\026CDOTAUserMsg_CustomMsg\022\017\n\007message\030\001 "
-  "\001(\t\022\021\n\tplayer_id\030\002 \001(\005\022\r\n\005value\030\003 \001(\005\"X\n"
-  "\031CDOTAUserMsg_CoachHUDPing\022\021\n\tplayer_id\030"
-  "\001 \001(\005\022(\n\010hud_ping\030\002 \001(\0132\026.CDOTAMsg_Coach"
-  "HUDPing\" \n\036CDOTAUserMsg_ClientLoadGridNa"
-  "v\"\247\003\n\032CDOTAUserMsg_TE_Projectile\022\016\n\006sour"
-  "ce\030\001 \001(\r\022\016\n\006target\030\002 \001(\r\022\022\n\nmove_speed\030\003"
-  " \001(\005\022\031\n\021source_attachment\030\004 \001(\005\022\036\n\026parti"
-  "cle_system_handle\030\005 \001(\003\022\021\n\tdodgeable\030\006 \001"
-  "(\010\022\021\n\tis_attack\030\007 \001(\010\022\023\n\013expire_time\030\t \001"
-  "(\002\022\025\n\rmaximpacttime\030\n \001(\002\022\025\n\rcolorgemcol"
-  "or\030\013 \001(\007\022\023\n\013launch_tick\030\014 \001(\005\022\016\n\006handle\030"
-  "\r \001(\005\022\037\n\ntarget_loc\030\016 \001(\0132\013.CMsgVector\022@"
-  "\n\020particle_cp_data\030\017 \003(\0132&.CDOTAUserMsg_"
-  "ProjectileParticleCPData\022)\n!additional_p"
-  "article_system_handle\030\020 \001(\003\"\264\003\n\035CDOTAUse"
-  "rMsg_TE_ProjectileLoc\022\037\n\nsource_loc\030\001 \001("
-  "\0132\013.CMsgVector\022\016\n\006target\030\002 \001(\r\022\022\n\nmove_s"
-  "peed\030\003 \001(\005\022\036\n\026particle_system_handle\030\004 \001"
-  "(\003\022\021\n\tdodgeable\030\005 \001(\010\022\021\n\tis_attack\030\006 \001(\010"
-  "\022\023\n\013expire_time\030\t \001(\002\022\037\n\ntarget_loc\030\n \001("
-  "\0132\013.CMsgVector\022\025\n\rcolorgemcolor\030\013 \001(\007\022\023\n"
-  "\013launch_tick\030\014 \001(\005\022\016\n\006handle\030\r \001(\005\022\016\n\006so"
-  "urce\030\016 \001(\r\022\031\n\021source_attachment\030\017 \001(\005\022@\n"
-  "\020particle_cp_data\030\020 \003(\0132&.CDOTAUserMsg_P"
-  "rojectileParticleCPData\022)\n!additional_pa"
-  "rticle_system_handle\030\021 \001(\003\"3\n!CDOTAUserM"
-  "sg_TE_DestroyProjectile\022\016\n\006handle\030\001 \001(\005\""
-  "b\n\037CDOTAUserMsg_TE_DotaBloodImpact\022\016\n\006en"
-  "tity\030\001 \001(\r\022\r\n\005scale\030\002 \001(\002\022\017\n\007xnormal\030\003 \001"
-  "(\002\022\017\n\007ynormal\030\004 \001(\002\"\273\002\n\030CDOTAUserMsg_Abi"
-  "lityPing\022\021\n\tplayer_id\030\001 \001(\005\022\022\n\nability_i"
-  "d\030\002 \001(\r\0229\n\004type\030\003 \001(\0162\027.DOTA_ABILITY_PIN"
-  "G_TYPE:\022ABILITY_PING_READY\022\030\n\020cooldown_s"
-  "econds\030\004 \001(\r\022\r\n\005level\030\005 \001(\r\022\017\n\007passive\030\006"
-  " \001(\010\022\023\n\013mana_needed\030\007 \001(\r\022\021\n\tentity_id\030\010"
-  " \001(\r\022\027\n\017primary_charges\030\t \001(\005\022\031\n\021seconda"
-  "ry_charges\030\n \001(\005\022\021\n\tctrl_held\030\014 \001(\010\022\024\n\014r"
-  "eclaim_time\030\r \001(\002\"\261\001\n\035CDOTAUserMsg_TE_Un"
-  "itAnimation\022\016\n\006entity\030\001 \001(\r\022\030\n\020sequence_"
-  "variant\030\002 \001(\005\022\024\n\014playbackrate\030\003 \001(\002\022\021\n\tc"
-  "astpoint\030\004 \001(\002\022\014\n\004type\030\005 \001(\005\022\020\n\010activity"
-  "\030\006 \001(\005\022\035\n\025lag_compensation_time\030\007 \001(\002\"@\n"
-  " CDOTAUserMsg_TE_UnitAnimationEnd\022\016\n\006ent"
-  "ity\030\001 \001(\r\022\014\n\004snap\030\002 \001(\010\"\221\001\n\035CDOTAUserMsg"
-  "_ShowGenericPopup\022\016\n\006header\030\001 \002(\t\022\014\n\004bod"
-  "y\030\002 \002(\t\022\016\n\006param1\030\003 \001(\t\022\016\n\006param2\030\004 \001(\t\022"
-  "\023\n\013tint_screen\030\005 \001(\010\022\035\n\025show_no_other_di"
-  "alogs\030\006 \001(\010\"`\n\026CDOTAUserMsg_VoteStart\022\r\n"
-  "\005title\030\001 \001(\t\022\020\n\010duration\030\002 \001(\002\022\024\n\014choice"
-  "_count\030\003 \001(\005\022\017\n\007choices\030\004 \003(\t\"0\n\027CDOTAUs"
-  "erMsg_VoteUpdate\022\025\n\rchoice_counts\030\001 \003(\005\""
-  "/\n\024CDOTAUserMsg_VoteEnd\022\027\n\017selected_choi"
-  "ce\030\001 \001(\005\"\214\001\n\037CDOTAUserMsg_BoosterStatePl"
-  "ayer\022\021\n\tplayer_id\030\001 \001(\005\022\r\n\005bonus\030\002 \001(\002\022\023"
-  "\n\013event_bonus\030\003 \001(\002\022\025\n\rbonus_item_id\030\004 \001"
-  "(\r\022\033\n\023event_bonus_item_id\030\005 \001(\r\"V\n\031CDOTA"
-  "UserMsg_BoosterState\0229\n\017boosted_players\030"
-  "\001 \003(\0132 .CDOTAUserMsg_BoosterStatePlayer\""
-  ")\n\026CDOTAUserMsg_PlayerMMR\022\017\n\003mmr\030\001 \003(\021B\002"
-  "\020\001\"Y\n\031CDOTAUserMsg_AbilitySteal\022\021\n\tplaye"
-  "r_id\030\001 \001(\005\022\022\n\nability_id\030\002 \001(\r\022\025\n\rabilit"
-  "y_level\030\003 \001(\r\"f\n\034CDOTAUserMsg_StatsHeroL"
-  "ookup\022\021\n\tplayer_id\030\001 \001(\005\022\017\n\007hero_id\030\002 \001("
-  "\005\022\021\n\thero_name\030\003 \001(\t\022\017\n\007persona\030\004 \001(\t\"\372\001"
-  "\n\"CDOTAUserMsg_StatsHeroPositionInfo\022\030\n\020"
-  "average_position\030\001 \001(\002\022J\n\020position_detai"
-  "ls\030\002 \003(\01320.CDOTAUserMsg_StatsHeroPositio"
-  "nInfo.PositionPair\032n\n\014PositionPair\022F\n\021po"
-  "sition_category\030\001 \001(\0162\027.DOTA_POSITION_CA"
-  "TEGORY:\022DOTA_POSITION_NONE\022\026\n\016position_c"
-  "ount\030\002 \001(\r\"\217\003\n#CDOTAUserMsg_StatsHeroMin"
-  "uteDetails\022\021\n\tlast_hits\030\001 \001(\r\022\022\n\nhero_ki"
-  "lls\030\002 \001(\r\022\023\n\013hero_damage\030\003 \001(\r\022\024\n\014tower_"
-  "damage\030\004 \001(\r\022:\n\rposition_info\030\005 \001(\0132#.CD"
-  "OTAUserMsg_StatsHeroPositionInfo\022\020\n\010tota"
-  "l_xp\030\006 \001(\r\022\021\n\tnet_worth\030\007 \001(\r\022\034\n\024harvest"
-  "ed_creep_gold\030\010 \001(\r\022\024\n\014claimed_farm\030\t \001("
-  "\r\022\024\n\014wards_placed\030\n \001(\r\022\027\n\017runes_collect"
-  "ed\030\013 \001(\r\022\020\n\010tps_used\030\014 \001(\r\022\022\n\nmana_spent"
-  "\030\r \003(\r\022\027\n\017damage_absorbed\030\016 \003(\r\022\023\n\013damag"
-  "e_done\030\017 \003(\r\"\347\003\n#CDOTAUserMsg_StatsTeamM"
-  "inuteDetails\022:\n\014player_stats\030\001 \003(\0132$.CDO"
-  "TAUserMsg_StatsHeroMinuteDetails\022\023\n\013towe"
-  "r_kills\030\002 \001(\r\022\025\n\rbarrack_kills\030\003 \001(\r\022!\n\031"
-  "available_lane_creep_gold\030\004 \001(\r\022\032\n\022balan"
-  "ce_kill_value\030\005 \001(\r\022\033\n\023balance_tower_val"
-  "ue\030\006 \001(\r\022\036\n\026balance_barracks_value\030\007 \001(\r"
-  "\022\032\n\022balance_gold_value\030\010 \001(\r\022\030\n\020balance_"
-  "xp_value\030\t \001(\r\022R\n\020lane_performance\030\n \003(\013"
-  "28.CDOTAUserMsg_StatsTeamMinuteDetails.L"
-  "ocationPerformance\032R\n\023LocationPerformanc"
-  "e\022\031\n\021location_category\030\001 \001(\r\022\021\n\tstat_typ"
-  "e\030\002 \001(\r\022\r\n\005value\030\003 \001(\r\"\254\001\n!CDOTAUserMsg_"
-  "StatsPlayerKillShare\022\021\n\tplayer_id\030\001 \001(\005\022"
-  "\032\n\022kill_share_percent\030\002 \001(\002\022\024\n\014player_lo"
-  "c_x\030\003 \001(\002\022\024\n\014player_loc_y\030\004 \001(\002\022\026\n\016healt"
-  "h_percent\030\005 \001(\002\022\024\n\014mana_percent\030\006 \001(\002\"\304\001"
-  "\n\035CDOTAUserMsg_StatsKillDetails\022\021\n\tvicti"
-  "m_id\030\001 \001(\005\0227\n\013kill_shares\030\002 \003(\0132\".CDOTAU"
-  "serMsg_StatsPlayerKillShare\022\026\n\016damage_to"
-  "_kill\030\003 \001(\r\022\030\n\020effective_health\030\004 \001(\r\022\022\n"
-  "\ndeath_time\030\005 \001(\002\022\021\n\tkiller_id\030\006 \001(\005\"\213\006\n"
-  "\036CDOTAUserMsg_StatsMatchDetails\0222\n\013hero_"
-  "lookup\030\001 \003(\0132\035.CDOTAUserMsg_StatsHeroLoo"
-  "kup\022;\n\rradiant_stats\030\002 \003(\0132$.CDOTAUserMs"
-  "g_StatsTeamMinuteDetails\0228\n\ndire_stats\030\003"
-  " \003(\0132$.CDOTAUserMsg_StatsTeamMinuteDetai"
-  "ls\0225\n\rradiant_kills\030\004 \003(\0132\036.CDOTAUserMsg"
-  "_StatsKillDetails\0222\n\ndire_kills\030\005 \003(\0132\036."
-  "CDOTAUserMsg_StatsKillDetails\022U\n\rfight_d"
-  "etails\030\006 \003(\0132>.CDOTAUserMsg_StatsMatchDe"
-  "tails.CDOTAUserMsg_StatsFightDetails\032p\n\""
-  "CDOTAUserMsg_StatsFightTeamDetails\022\024\n\014pa"
-  "rticipants\030\001 \003(\005\022\016\n\006deaths\030\002 \003(\005\022\022\n\ngold"
-  "_delta\030\003 \001(\r\022\020\n\010xp_delta\030\004 \001(\r\032\211\002\n\036CDOTA"
-  "UserMsg_StatsFightDetails\022\022\n\nstart_time\030"
-  "\001 \001(\002\022\020\n\010end_time\030\002 \001(\002\022a\n\025radiant_fight"
-  "_details\030\003 \001(\0132B.CDOTAUserMsg_StatsMatch"
-  "Details.CDOTAUserMsg_StatsFightTeamDetai"
-  "ls\022^\n\022dire_fight_details\030\004 \001(\0132B.CDOTAUs"
-  "erMsg_StatsMatchDetails.CDOTAUserMsg_Sta"
-  "tsFightTeamDetails\"4\n\026CDOTAUserMsg_MiniT"
-  "aunt\022\032\n\022taunting_player_id\030\001 \001(\005\"0\n\031CDOT"
-  "AUserMsg_SpeechBubble\022\023\n\013destroy_all\030\001 \001"
-  "(\010\"g\n CDOTAUserMsg_CustomHeaderMessage\022\021"
-  "\n\tplayer_id\030\001 \001(\005\022\020\n\010duration\030\002 \001(\002\022\017\n\007m"
-  "essage\030\003 \001(\t\022\r\n\005value\030\004 \001(\005\"v\n\023CMsgHeroA"
-  "bilityStat\0227\n\tstat_type\030\001 \001(\0162\016.EHeroSta"
-  "tType:\024k_EHeroStatType_None\022\021\n\tint_value"
-  "\030\002 \001(\005\022\023\n\013float_value\030\003 \001(\002\"d\n\034CMsgComba"
-  "tAnalyzerPlayerStat\022\022\n\naccount_id\030\001 \001(\r\022"
-  "0\n\022hero_ability_stats\030\002 \003(\0132\024.CMsgHeroAb"
-  "ilityStat\"`\n\027CMsgCombatAnalyzerStats\022\020\n\010"
-  "match_id\030\001 \001(\004\0223\n\014player_stats\030\002 \003(\0132\035.C"
-  "MsgCombatAnalyzerPlayerStat\"W\n\026CDOTAUser"
-  "Msg_BeastChat\022\014\n\004team\030\001 \001(\r\022\016\n\006format\030\002 "
-  "\001(\t\022\017\n\007message\030\003 \001(\t\022\016\n\006target\030\004 \001(\t\"a\n$"
-  "CDOTAUserMsg_CustomHudElement_Create\022\022\n\n"
-  "element_id\030\001 \001(\t\022\027\n\017layout_filename\030\002 \001("
-  "\t\022\014\n\004data\030\003 \001(\014\"`\n$CDOTAUserMsg_CustomHu"
-  "dElement_Modify\022\022\n\nelement_id\030\001 \001(\t\022\026\n\016m"
-  "odify_visible\030\002 \001(\010\022\014\n\004data\030\003 \001(\014\";\n%CDO"
-  "TAUserMsg_CustomHudElement_Destroy\022\022\n\nel"
-  "ement_id\030\001 \001(\t\"F\n\"CDOTAUserMsg_Compendiu"
-  "mStatePlayer\022\021\n\tplayer_id\030\001 \001(\005\022\r\n\005level"
-  "\030\002 \001(\r\"_\n\034CDOTAUserMsg_CompendiumState\022\?"
-  "\n\022compendium_players\030\001 \003(\0132#.CDOTAUserMs"
-  "g_CompendiumStatePlayer\"\334\001\n\036CDOTAUserMsg"
-  "_ProjectionAbility\022\022\n\nability_id\030\001 \001(\r\022\030"
-  "\n\020caster_ent_index\030\002 \001(\005\022\023\n\013caster_team\030"
+  "sg_Ping\022\014\n\004ping\030\002 \001(\r\022\014\n\004loss\030\003 \001(\r\"0\n\027C"
+  "DOTAUserMsg_SwapVerify\022\025\n\tplayer_id\030\001 \001("
+  "\005:\002-1\"\217\002\n\026CDOTAUserMsg_ChatEvent\0226\n\004type"
+  "\030\001 \002(\0162\022.DOTA_CHAT_MESSAGE:\024CHAT_MESSAGE"
+  "_INVALID\022\r\n\005value\030\002 \001(\r\022\026\n\nplayerid_1\030\003 "
+  "\001(\021:\002-1\022\026\n\nplayerid_2\030\004 \001(\021:\002-1\022\026\n\nplaye"
+  "rid_3\030\005 \001(\021:\002-1\022\026\n\nplayerid_4\030\006 \001(\021:\002-1\022"
+  "\026\n\nplayerid_5\030\007 \001(\021:\002-1\022\026\n\nplayerid_6\030\010 "
+  "\001(\021:\002-1\022\016\n\006value2\030\t \001(\r\022\016\n\006value3\030\n \001(\r\""
+  "a\n\024CDOTAUserMsg_BotChat\022\025\n\tplayer_id\030\001 \001"
+  "(\005:\002-1\022\017\n\007message\030\003 \001(\t\022\016\n\006target\030\004 \001(\t\022"
+  "\021\n\tteam_only\030\005 \001(\010\"q\n CDOTAUserMsg_Comba"
+  "tHeroPositions\022\r\n\005index\030\001 \001(\r\022\014\n\004time\030\002 "
+  "\001(\005\022 \n\tworld_pos\030\003 \001(\0132\r.CMsgVector2D\022\016\n"
+  "\006health\030\004 \001(\005\"\243\001\n\036CDOTAUserMsg_CombatLog"
+  "BulkData\022/\n\016combat_entries\030\001 \003(\0132\027.CMsgD"
+  "OTACombatLogEntry\022\021\n\ttimestamp\030\002 \001(\002\022\020\n\010"
+  "duration\030\003 \001(\002\022\025\n\tplayer_id\030\004 \001(\005:\002-1\022\024\n"
+  "\014request_time\030\005 \001(\002\"[\n%CDOTAUserMsg_Proj"
+  "ectileParticleCPData\022\025\n\rcontrol_point\030\001 "
+  "\001(\005\022\033\n\006vector\030\002 \001(\0132\013.CMsgVector\"\245\002\n\034CDO"
+  "TAUserMsg_MiniKillCamInfo\0229\n\tattackers\030\001"
+  " \003(\0132&.CDOTAUserMsg_MiniKillCamInfo.Atta"
+  "cker\032\311\001\n\010Attacker\022\032\n\010attacker\030\001 \001(\r:\010167"
+  "77215\022\024\n\014total_damage\030\002 \001(\005\022A\n\tabilities"
+  "\030\003 \003(\0132..CDOTAUserMsg_MiniKillCamInfo.At"
+  "tacker.Ability\022\025\n\rattacker_name\030\004 \001(\t\0321\n"
+  "\007Ability\022\026\n\nability_id\030\001 \001(\005:\002-1\022\016\n\006dama"
+  "ge\030\002 \001(\005\"@\n\035CDOTAUserMsg_GlobalLightColo"
+  "r\022\r\n\005color\030\001 \001(\r\022\020\n\010duration\030\002 \001(\002\"U\n!CD"
+  "OTAUserMsg_GlobalLightDirection\022\036\n\tdirec"
+  "tion\030\001 \001(\0132\013.CMsgVector\022\020\n\010duration\030\002 \001("
+  "\002\"a\n\031CDOTAUserMsg_LocationPing\022\025\n\tplayer"
+  "_id\030\001 \001(\005:\002-1\022-\n\rlocation_ping\030\002 \001(\0132\026.C"
+  "DOTAMsg_LocationPing\"\221\001\n\035CDOTAUserMsg_Pi"
+  "ngConfirmation\022(\n\034player_id_of_original_"
+  "pinger\030\001 \001(\005:\002-1\022\024\n\014entity_index\030\002 \001(\r\022\021"
+  "\n\ticon_type\030\003 \001(\r\022\035\n\010location\030\004 \001(\0132\013.CM"
+  "sgVector\"X\n\026CDOTAUserMsg_ItemAlert\022\025\n\tpl"
+  "ayer_id\030\001 \001(\005:\002-1\022\'\n\nitem_alert\030\002 \001(\0132\023."
+  "CDOTAMsg_ItemAlert\"\355\001\n\033CDOTAUserMsg_Enem"
+  "yItemAlert\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\034\n\020tar"
+  "get_player_id\030\002 \001(\005:\002-1\022\033\n\017item_ability_"
+  "id\030\003 \001(\005:\002-1\022\025\n\trune_type\030\004 \001(\005:\002-1\022\021\n\te"
+  "ntity_id\030\005 \001(\005\022\026\n\nitem_level\030\006 \001(\005:\002-1\022\033"
+  "\n\017primary_charges\030\007 \001(\005:\002-1\022\035\n\021secondary"
+  "_charges\030\010 \001(\005:\002-1\"\247\001\n\032CDOTAUserMsg_Modi"
+  "fierAlert\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\022\n\nclas"
+  "s_name\030\002 \001(\t\022\023\n\013stack_count\030\003 \001(\r\022\021\n\tis_"
+  "debuff\030\004 \001(\010\022\033\n\017target_entindex\030\005 \001(\005:\002-"
+  "1\022\031\n\021seconds_remaining\030\006 \001(\002\"g\n\030CDOTAUse"
+  "rMsg_HPManaAlert\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022"
+  "\033\n\017target_entindex\030\002 \001(\005:\002-1\022\027\n\017show_raw"
+  "_values\030\003 \001(\010\"\307\001\n\035CDOTAUserMsg_NeutralCa"
+  "mpAlert\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\034\n\020spawne"
+  "r_entindex\030\002 \001(\005:\002-1\022\031\n\runit_entindex\030\003 "
+  "\001(\005:\002-1\022\023\n\013stack_count\030\004 \001(\005\022\021\n\tcamp_typ"
+  "e\030\005 \001(\005\022\025\n\rstack_request\030\006 \001(\010\022\027\n\017stack_"
+  "intention\030\007 \001(\010\"B\n\027CDOTAUserMsg_GlyphAle"
+  "rt\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\020\n\010negative\030\002 "
+  "\001(\010\"B\n\027CDOTAUserMsg_RadarAlert\022\025\n\tplayer"
+  "_id\030\001 \001(\005:\002-1\022\020\n\010negative\030\002 \001(\010\"\216\001\n\036CDOT"
+  "AUserMsg_WillPurchaseAlert\022\033\n\017item_abili"
+  "ty_id\030\001 \001(\005:\002-1\022\025\n\tplayer_id\030\002 \001(\005:\002-1\022\026"
+  "\n\016gold_remaining\030\003 \001(\r\022 \n\024suggestion_pla"
+  "yer_id\030\004 \001(\005:\002-1\"w\n\037CDOTAUserMsg_EmptyTe"
+  "leportAlert\022\034\n\020source_player_id\030\001 \001(\005:\002-"
+  "1\022\034\n\020target_player_id\030\002 \001(\005:\002-1\022\030\n\020coold"
+  "own_seconds\030\003 \001(\005\"\200\001\n#CDOTAUserMsg_MarsA"
+  "renaOfBloodAttack\022 \n\016source_ehandle\030\001 \001("
+  "\r:\01016777215\022 \n\016target_ehandle\030\002 \001(\r:\010167"
+  "77215\022\025\n\rwarrior_index\030\003 \001(\005\"Y\n\037CDOTAEnt"
+  "ityMsg_InvokerSpellCast\022\037\n\nentity_msg\030\001 "
+  "\001(\0132\013.CEntityMsg\022\025\n\rcast_activity\030\002 \001(\005\""
+  "7\n\036CDOTAUserMsg_BuyBackStateAlert\022\025\n\tpla"
+  "yer_id\030\001 \001(\005:\002-1\"\230\001\n\032CDOTAUserMsg_QuickB"
+  "uyAlert\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\033\n\017item_a"
+  "bility_id\030\002 \001(\005:\002-1\022\021\n\tgold_cost\030\003 \001(\005\022\035"
+  "\n\025item_cooldown_seconds\030\004 \001(\005\022\024\n\014show_bu"
+  "yback\030\005 \001(\010\"\255\002\n\037CDOTAUserMsg_CourierKill"
+  "edAlert\022\014\n\004team\030\001 \001(\r\022\022\n\ngold_value\030\002 \001("
+  "\r\022\037\n\rentity_handle\030\003 \001(\r:\01016777215\022\021\n\tti"
+  "mestamp\030\004 \001(\005\022=\n\nlost_items\030\005 \003(\0132).CDOT"
+  "AUserMsg_CourierKilledAlert.LostItem\022\034\n\020"
+  "killer_player_id\030\006 \001(\005:\002-1\022\034\n\020owning_pla"
+  "yer_id\030\007 \001(\005:\002-1\0329\n\010LostItem\022\033\n\017item_abi"
+  "lity_id\030\001 \001(\005:\002-1\022\020\n\010quantity\030\002 \001(\r\"\240\001\n\031"
+  "CDOTAUserMsg_MinimapEvent\022\022\n\nevent_type\030"
+  "\001 \001(\005\022\037\n\rentity_handle\030\002 \001(\r:\01016777215\022\t"
+  "\n\001x\030\003 \001(\005\022\t\n\001y\030\004 \001(\005\022\020\n\010duration\030\005 \001(\005\022&"
+  "\n\024target_entity_handle\030\006 \001(\r:\01016777215\"Q"
+  "\n\024CDOTAUserMsg_MapLine\022\025\n\tplayer_id\030\001 \001("
+  "\005:\002-1\022\"\n\007mapline\030\002 \001(\0132\021.CDOTAMsg_MapLin"
+  "e\"}\n\036CDOTAUserMsg_MinimapDebugPoint\022\035\n\010l"
+  "ocation\030\001 \001(\0132\013.CMsgVector\022\r\n\005color\030\002 \001("
+  "\r\022\014\n\004size\030\003 \001(\005\022\020\n\010duration\030\004 \001(\002\022\r\n\005ind"
+  "ex\030\005 \001(\005\"\363\002\n#CDOTAUserMsg_CreateLinearPr"
+  "ojectile\022\033\n\006origin\030\001 \001(\0132\013.CMsgVector\022\037\n"
+  "\010velocity\030\002 \001(\0132\r.CMsgVector2D\022\024\n\010entind"
+  "ex\030\004 \001(\005:\002-1\022\026\n\016particle_index\030\005 \001(\004\022\016\n\006"
+  "handle\030\006 \001(\005\022#\n\014acceleration\030\007 \001(\0132\r.CMs"
+  "gVector2D\022\021\n\tmax_speed\030\010 \001(\002\022\022\n\nfow_radi"
+  "us\030\t \001(\002\022\031\n\021sticky_fow_reveal\030\n \001(\010\022\020\n\010d"
+  "istance\030\013 \001(\002\022\025\n\rcolorgemcolor\030\014 \001(\007\022@\n\020"
+  "particle_cp_data\030\r \003(\0132&.CDOTAUserMsg_Pr"
+  "ojectileParticleCPData\"6\n$CDOTAUserMsg_D"
+  "estroyLinearProjectile\022\016\n\006handle\030\001 \001(\005\"S"
+  "\n%CDOTAUserMsg_DodgeTrackingProjectiles\022"
+  "\024\n\010entindex\030\001 \002(\005:\002-1\022\024\n\014attacks_only\030\002 "
+  "\001(\010\"f\n!CDOTAUserMsg_SpectatorPlayerClick"
+  "\022\024\n\010entindex\030\001 \002(\005:\002-1\022\022\n\norder_type\030\002 \001"
+  "(\005\022\027\n\014target_index\030\003 \001(\005:\0010\"\350\001\n&CDOTAUse"
+  "rMsg_SpectatorPlayerUnitOrders\022\024\n\010entind"
+  "ex\030\001 \001(\005:\002-1\022\022\n\norder_type\030\002 \001(\005\022\r\n\005unit"
+  "s\030\003 \003(\005\022\027\n\014target_index\030\004 \001(\005:\0010\022\026\n\nabil"
+  "ity_id\030\005 \001(\005:\002-1\022\035\n\010position\030\006 \001(\0132\013.CMs"
+  "gVector\022\r\n\005queue\030\007 \001(\010\022\027\n\017sequence_numbe"
+  "r\030\010 \001(\005\022\r\n\005flags\030\t \001(\r\"}\n\035CDOTAUserMsg_N"
+  "evermoreRequiem\022\037\n\rentity_handle\030\001 \001(\r:\010"
+  "16777215\022\r\n\005lines\030\002 \001(\005\022\033\n\006origin\030\003 \001(\0132"
+  "\013.CMsgVector\022\017\n\007reverse\030\004 \001(\010\"G\n\033CDOTAUs"
+  "erMsg_InvalidCommand\022\017\n\007message\030\001 \001(\t\022\027\n"
+  "\017sequence_number\030\002 \001(\005\"B\n\025CDOTAUserMsg_H"
+  "udError\022\020\n\010order_id\030\001 \001(\005\022\027\n\017sequence_nu"
+  "mber\030\002 \001(\005\"g\n\033CDOTAUserMsg_SharedCooldow"
+  "n\022\024\n\010entindex\030\001 \001(\005:\002-1\022\014\n\004name\030\002 \001(\t\022\020\n"
+  "\010cooldown\030\003 \001(\002\022\022\n\nname_index\030\004 \001(\005\"/\n\037C"
+  "DOTAUserMsg_SetNextAutobuyItem\022\014\n\004name\030\001"
+  " \001(\t\"X\n\033CDOTAUserMsg_HalloweenDrops\022\021\n\ti"
+  "tem_defs\030\001 \003(\r\022\022\n\nplayer_ids\030\002 \003(\005\022\022\n\npr"
+  "ize_list\030\003 \001(\r\"\223\003\n\035CDOTAUserMsg_Predicti"
+  "onResult\022\022\n\naccount_id\030\001 \001(\r\022\020\n\010match_id"
+  "\030\002 \001(\004\022\017\n\007correct\030\003 \001(\010\022>\n\013predictions\030\004"
+  " \003(\0132).CDOTAUserMsg_PredictionResult.Pre"
+  "diction\032\372\001\n\nPrediction\022\020\n\010item_def\030\001 \001(\r"
+  "\022\023\n\013num_correct\030\002 \001(\r\022\021\n\tnum_fails\030\003 \001(\r"
+  "\022X\n\006result\030\004 \001(\01621.CDOTAUserMsg_Predicti"
+  "onResult.Prediction.EResult:\025k_eResult_I"
+  "temGranted\022\031\n\021granted_item_defs\030\006 \003(\r\"=\n"
+  "\007EResult\022\031\n\025k_eResult_ItemGranted\020\001\022\027\n\023k"
+  "_eResult_Destroyed\020\002\"\336\002\n\034CDOTAResponseQu"
+  "erySerialized\0221\n\005facts\030\001 \003(\0132\".CDOTAResp"
+  "onseQuerySerialized.Fact\032\212\002\n\004Fact\022\013\n\003key"
+  "\030\001 \002(\005\022F\n\007valtype\030\002 \002(\0162,.CDOTAResponseQ"
+  "uerySerialized.Fact.ValueType:\007NUMERIC\022\023"
+  "\n\013val_numeric\030\003 \001(\002\022\022\n\nval_string\030\004 \001(\t\022"
+  "\035\n\025val_stringtable_index\030\005 \001(\005\022\027\n\017val_in"
+  "t_numeric\030\006 \001(\021\"L\n\tValueType\022\013\n\007NUMERIC\020"
+  "\001\022\n\n\006STRING\020\002\022\025\n\021STRINGTABLE_INDEX\020\003\022\017\n\013"
+  "INT_NUMERIC\020\004\"\227\001\n\030CDOTASpeechMatchOnClie"
+  "nt\022\026\n\016speech_concept\030\001 \001(\005\022\026\n\016recipient_"
+  "type\030\002 \001(\005\0224\n\rresponsequery\030\003 \001(\0132\035.CDOT"
+  "AResponseQuerySerialized\022\025\n\nrandomseed\030\004"
+  " \001(\017:\0010\"\203\010\n\026CDOTAUserMsg_UnitEvent\0228\n\010ms"
+  "g_type\030\001 \002(\0162\024.EDotaEntityMessages:\020DOTA"
+  "_UNIT_SPEECH\022\024\n\014entity_index\030\002 \002(\005\022.\n\006sp"
+  "eech\030\003 \001(\0132\036.CDOTAUserMsg_UnitEvent.Spee"
+  "ch\0227\n\013speech_mute\030\004 \001(\0132\".CDOTAUserMsg_U"
+  "nitEvent.SpeechMute\0227\n\013add_gesture\030\005 \001(\013"
+  "2\".CDOTAUserMsg_UnitEvent.AddGesture\022=\n\016"
+  "remove_gesture\030\006 \001(\0132%.CDOTAUserMsg_Unit"
+  "Event.RemoveGesture\0229\n\014blood_impact\030\007 \001("
+  "\0132#.CDOTAUserMsg_UnitEvent.BloodImpact\0229"
+  "\n\014fade_gesture\030\010 \001(\0132#.CDOTAUserMsg_Unit"
+  "Event.FadeGesture\0229\n\026speech_match_on_cli"
+  "ent\030\t \001(\0132\031.CDOTASpeechMatchOnClient\032(\n\010"
+  "Interval\022\r\n\005start\030\001 \001(\002\022\r\n\005range\030\002 \001(\002\032\246"
+  "\001\n\006Speech\022\026\n\016speech_concept\030\001 \001(\005\022\020\n\010res"
+  "ponse\030\002 \001(\t\022\026\n\016recipient_type\030\003 \001(\005\022\027\n\010m"
+  "uteable\030\005 \001(\010:\005false\0222\n\010predelay\030\006 \001(\0132 "
+  ".CDOTAUserMsg_UnitEvent.Interval\022\r\n\005flag"
+  "s\030\007 \001(\r\032 \n\nSpeechMute\022\022\n\005delay\030\001 \001(\002:\0030."
+  "5\032\213\001\n\nAddGesture\022\020\n\010activity\030\001 \001(\005\022\014\n\004sl"
+  "ot\030\002 \001(\005\022\022\n\007fade_in\030\003 \001(\002:\0010\022\025\n\010fade_out"
+  "\030\004 \001(\002:\0030.1\022\030\n\rplayback_rate\030\005 \001(\002:\0011\022\030\n"
+  "\020sequence_variant\030\006 \001(\005\032!\n\rRemoveGesture"
+  "\022\020\n\010activity\030\001 \001(\005\032@\n\013BloodImpact\022\r\n\005sca"
+  "le\030\001 \001(\005\022\020\n\010x_normal\030\002 \001(\005\022\020\n\010y_normal\030\003"
+  " \001(\005\032\037\n\013FadeGesture\022\020\n\010activity\030\001 \001(\005\"9\n"
+  "\032CDOTAUserMsg_ItemPurchased\022\033\n\017item_abil"
+  "ity_id\030\001 \001(\005:\002-1\"4\n\025CDOTAUserMsg_ItemSol"
+  "d\022\033\n\017item_ability_id\030\001 \001(\005:\002-1\"n\n\026CDOTAU"
+  "serMsg_ItemFound\022\022\n\006player\030\001 \001(\005:\002-1\022\017\n\007"
+  "quality\030\002 \001(\005\022\016\n\006rarity\030\003 \001(\005\022\016\n\006method\030"
+  "\004 \001(\005\022\017\n\007itemdef\030\005 \001(\r\"\321\001\n\032CDOTAUserMsg_"
+  "OverheadEvent\022\?\n\014message_type\030\001 \002(\0162\024.DO"
+  "TA_OVERHEAD_ALERT:\023OVERHEAD_ALERT_GOLD\022\r"
+  "\n\005value\030\002 \001(\005\022\"\n\026target_player_entindex\030"
+  "\003 \001(\005:\002-1\022\033\n\017target_entindex\030\004 \001(\005:\002-1\022\""
+  "\n\026source_player_entindex\030\005 \001(\005:\002-1\">\n\034CD"
+  "OTAUserMsg_TutorialTipInfo\022\014\n\004name\030\001 \001(\t"
+  "\022\020\n\010progress\030\002 \001(\005\"]\n\033CDOTAUserMsg_Tutor"
+  "ialFinish\022\017\n\007heading\030\001 \001(\t\022\016\n\006emblem\030\002 \001"
+  "(\t\022\014\n\004body\030\003 \001(\t\022\017\n\007success\030\004 \001(\010\"&\n$CDO"
+  "TAUserMsg_TutorialMinimapPosition\"_\n\037CDO"
+  "TAUserMsg_SendGenericToolTip\022\r\n\005title\030\001 "
+  "\001(\t\022\014\n\004text\030\002 \001(\t\022\020\n\010entindex\030\003 \001(\005\022\r\n\005c"
+  "lose\030\004 \001(\010\"W\n\026CDOTAUserMsg_WorldLine\022\025\n\t"
+  "player_id\030\001 \001(\005:\002-1\022&\n\tworldline\030\002 \001(\0132\023"
+  ".CDOTAMsg_WorldLine\"\224\001\n\026CDOTAUserMsg_Cha"
+  "tWheel\022#\n\017chat_message_id\030\001 \001(\r:\n4294967"
+  "295\022\025\n\tplayer_id\030\002 \001(\005:\002-1\022\022\n\naccount_id"
+  "\030\003 \001(\r\022\025\n\rparam_hero_id\030\004 \001(\r\022\023\n\013emotico"
+  "n_id\030\005 \001(\r\"a\n\035CDOTAUserMsg_ReceivedXmasG"
+  "ift\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\021\n\titem_name\030"
+  "\002 \001(\t\022\026\n\016inventory_slot\030\003 \001(\005\"\244\001\n\027CDOTAU"
+  "serMsg_ShowSurvey\022\021\n\tsurvey_id\030\001 \001(\005\022\020\n\010"
+  "match_id\030\002 \001(\004\022\026\n\016response_style\030\003 \001(\t\022\030"
+  "\n\020teammate_hero_id\030\004 \001(\r\022\025\n\rteammate_nam"
+  "e\030\005 \001(\t\022\033\n\023teammate_account_id\030\006 \001(\r\"5\n "
+  "CDOTAUserMsg_UpdateSharedContent\022\021\n\tslot"
+  "_type\030\001 \001(\005\"!\n\037CDOTAUserMsg_TutorialRequ"
+  "estExp\".\n\031CDOTAUserMsg_TutorialFade\022\021\n\tt"
+  "gt_alpha\030\001 \001(\005\"|\n CDOTAUserMsg_TutorialP"
+  "ingMinimap\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\r\n\005pos"
+  "_x\030\002 \001(\002\022\r\n\005pos_y\030\003 \001(\002\022\r\n\005pos_z\030\004 \001(\002\022\024"
+  "\n\014entity_index\030\005 \001(\005\"3\n\"CDOTAUserMsg_Gam"
+  "erulesStateChanged\022\r\n\005state\030\001 \001(\r\"E\n\035CDO"
+  "TAUserMsg_AddQuestLogEntry\022\020\n\010npc_name\030\001"
+  " \001(\t\022\022\n\nnpc_dialog\030\002 \001(\t\"_\n\032CDOTAUserMsg"
+  "_SendStatPopup\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022*\n"
+  "\tstatpopup\030\002 \001(\0132\027.CDOTAMsg_SendStatPopu"
+  "p\"Z\n!CDOTAUserMsg_DismissAllStatPopups\0225"
+  "\n\rdismissallmsg\030\001 \001(\0132\036.CDOTAMsg_Dismiss"
+  "AllStatPopups\"\217\001\n%CDOTAUserMsg_SendRosha"
+  "nSpectatorPhase\0226\n\005phase\030\001 \001(\0162\022.DOTA_RO"
+  "SHAN_PHASE:\023k_SRSP_ROSHAN_ALIVE\022\030\n\020phase"
+  "_start_time\030\002 \001(\005\022\024\n\014phase_length\030\003 \001(\005\""
+  "C\n\034CDOTAUserMsg_SendRoshanPopup\022\021\n\trecla"
+  "imed\030\001 \001(\010\022\020\n\010gametime\030\002 \001(\005\"L\n\032CDOTAUse"
+  "rMsg_SendFinalGold\022\025\n\rreliable_gold\030\001 \003("
+  "\r\022\027\n\017unreliable_gold\030\002 \003(\r\"O\n\026CDOTAUserM"
+  "sg_CustomMsg\022\017\n\007message\030\001 \001(\t\022\025\n\tplayer_"
+  "id\030\002 \001(\005:\002-1\022\r\n\005value\030\003 \001(\005\"\\\n\031CDOTAUser"
+  "Msg_CoachHUDPing\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022"
+  "(\n\010hud_ping\030\002 \001(\0132\026.CDOTAMsg_CoachHUDPin"
+  "g\" \n\036CDOTAUserMsg_ClientLoadGridNav\"\273\003\n\032"
+  "CDOTAUserMsg_TE_Projectile\022\030\n\006source\030\001 \001"
+  "(\r:\01016777215\022\030\n\006target\030\002 \001(\r:\01016777215\022\022"
+  "\n\nmove_speed\030\003 \001(\005\022\031\n\021source_attachment\030"
+  "\004 \001(\005\022\036\n\026particle_system_handle\030\005 \001(\003\022\021\n"
+  "\tdodgeable\030\006 \001(\010\022\021\n\tis_attack\030\007 \001(\010\022\023\n\013e"
+  "xpire_time\030\t \001(\002\022\025\n\rmaximpacttime\030\n \001(\002\022"
+  "\025\n\rcolorgemcolor\030\013 \001(\007\022\023\n\013launch_tick\030\014 "
+  "\001(\005\022\016\n\006handle\030\r \001(\005\022\037\n\ntarget_loc\030\016 \001(\0132"
+  "\013.CMsgVector\022@\n\020particle_cp_data\030\017 \003(\0132&"
+  ".CDOTAUserMsg_ProjectileParticleCPData\022)"
+  "\n!additional_particle_system_handle\030\020 \001("
+  "\003\"\310\003\n\035CDOTAUserMsg_TE_ProjectileLoc\022\037\n\ns"
+  "ource_loc\030\001 \001(\0132\013.CMsgVector\022\030\n\006target\030\002"
+  " \001(\r:\01016777215\022\022\n\nmove_speed\030\003 \001(\005\022\036\n\026pa"
+  "rticle_system_handle\030\004 \001(\003\022\021\n\tdodgeable\030"
+  "\005 \001(\010\022\021\n\tis_attack\030\006 \001(\010\022\023\n\013expire_time\030"
+  "\t \001(\002\022\037\n\ntarget_loc\030\n \001(\0132\013.CMsgVector\022\025"
+  "\n\rcolorgemcolor\030\013 \001(\007\022\023\n\013launch_tick\030\014 \001"
+  "(\005\022\016\n\006handle\030\r \001(\005\022\030\n\006source\030\016 \001(\r:\0101677"
+  "7215\022\031\n\021source_attachment\030\017 \001(\005\022@\n\020parti"
+  "cle_cp_data\030\020 \003(\0132&.CDOTAUserMsg_Project"
+  "ileParticleCPData\022)\n!additional_particle"
+  "_system_handle\030\021 \001(\003\"3\n!CDOTAUserMsg_TE_"
+  "DestroyProjectile\022\016\n\006handle\030\001 \001(\005\"l\n\037CDO"
+  "TAUserMsg_TE_DotaBloodImpact\022\030\n\006entity\030\001"
+  " \001(\r:\01016777215\022\r\n\005scale\030\002 \001(\002\022\017\n\007xnormal"
+  "\030\003 \001(\002\022\017\n\007ynormal\030\004 \001(\002\"\303\002\n\030CDOTAUserMsg"
+  "_AbilityPing\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\026\n\na"
+  "bility_id\030\002 \001(\005:\002-1\0229\n\004type\030\003 \001(\0162\027.DOTA"
+  "_ABILITY_PING_TYPE:\022ABILITY_PING_READY\022\030"
+  "\n\020cooldown_seconds\030\004 \001(\r\022\r\n\005level\030\005 \001(\r\022"
+  "\017\n\007passive\030\006 \001(\010\022\023\n\013mana_needed\030\007 \001(\r\022\021\n"
+  "\tentity_id\030\010 \001(\r\022\027\n\017primary_charges\030\t \001("
+  "\005\022\031\n\021secondary_charges\030\n \001(\005\022\021\n\tctrl_hel"
+  "d\030\014 \001(\010\022\024\n\014reclaim_time\030\r \001(\002\"\273\001\n\035CDOTAU"
+  "serMsg_TE_UnitAnimation\022\030\n\006entity\030\001 \001(\r:"
+  "\01016777215\022\030\n\020sequence_variant\030\002 \001(\005\022\024\n\014p"
+  "laybackrate\030\003 \001(\002\022\021\n\tcastpoint\030\004 \001(\002\022\014\n\004"
+  "type\030\005 \001(\005\022\020\n\010activity\030\006 \001(\005\022\035\n\025lag_comp"
+  "ensation_time\030\007 \001(\002\"J\n CDOTAUserMsg_TE_U"
+  "nitAnimationEnd\022\030\n\006entity\030\001 \001(\r:\0101677721"
+  "5\022\014\n\004snap\030\002 \001(\010\"\221\001\n\035CDOTAUserMsg_ShowGen"
+  "ericPopup\022\016\n\006header\030\001 \002(\t\022\014\n\004body\030\002 \002(\t\022"
+  "\016\n\006param1\030\003 \001(\t\022\016\n\006param2\030\004 \001(\t\022\023\n\013tint_"
+  "screen\030\005 \001(\010\022\035\n\025show_no_other_dialogs\030\006 "
+  "\001(\010\"`\n\026CDOTAUserMsg_VoteStart\022\r\n\005title\030\001"
+  " \001(\t\022\020\n\010duration\030\002 \001(\002\022\024\n\014choice_count\030\003"
+  " \001(\005\022\017\n\007choices\030\004 \003(\t\"0\n\027CDOTAUserMsg_Vo"
+  "teUpdate\022\025\n\rchoice_counts\030\001 \003(\005\"/\n\024CDOTA"
+  "UserMsg_VoteEnd\022\027\n\017selected_choice\030\001 \001(\005"
+  "\"\220\001\n\037CDOTAUserMsg_BoosterStatePlayer\022\025\n\t"
+  "player_id\030\001 \001(\005:\002-1\022\r\n\005bonus\030\002 \001(\002\022\023\n\013ev"
+  "ent_bonus\030\003 \001(\002\022\025\n\rbonus_item_id\030\004 \001(\r\022\033"
+  "\n\023event_bonus_item_id\030\005 \001(\r\"V\n\031CDOTAUser"
+  "Msg_BoosterState\0229\n\017boosted_players\030\001 \003("
+  "\0132 .CDOTAUserMsg_BoosterStatePlayer\")\n\026C"
+  "DOTAUserMsg_PlayerMMR\022\017\n\003mmr\030\001 \003(\021B\002\020\001\"a"
+  "\n\031CDOTAUserMsg_AbilitySteal\022\025\n\tplayer_id"
+  "\030\001 \001(\005:\002-1\022\026\n\nability_id\030\002 \001(\005:\002-1\022\025\n\rab"
+  "ility_level\030\003 \001(\r\"j\n\034CDOTAUserMsg_StatsH"
+  "eroLookup\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\017\n\007hero"
+  "_id\030\002 \001(\005\022\021\n\thero_name\030\003 \001(\t\022\017\n\007persona\030"
+  "\004 \001(\t\"\372\001\n\"CDOTAUserMsg_StatsHeroPosition"
+  "Info\022\030\n\020average_position\030\001 \001(\002\022J\n\020positi"
+  "on_details\030\002 \003(\01320.CDOTAUserMsg_StatsHer"
+  "oPositionInfo.PositionPair\032n\n\014PositionPa"
+  "ir\022F\n\021position_category\030\001 \001(\0162\027.DOTA_POS"
+  "ITION_CATEGORY:\022DOTA_POSITION_NONE\022\026\n\016po"
+  "sition_count\030\002 \001(\r\"\217\003\n#CDOTAUserMsg_Stat"
+  "sHeroMinuteDetails\022\021\n\tlast_hits\030\001 \001(\r\022\022\n"
+  "\nhero_kills\030\002 \001(\r\022\023\n\013hero_damage\030\003 \001(\r\022\024"
+  "\n\014tower_damage\030\004 \001(\r\022:\n\rposition_info\030\005 "
+  "\001(\0132#.CDOTAUserMsg_StatsHeroPositionInfo"
+  "\022\020\n\010total_xp\030\006 \001(\r\022\021\n\tnet_worth\030\007 \001(\r\022\034\n"
+  "\024harvested_creep_gold\030\010 \001(\r\022\024\n\014claimed_f"
+  "arm\030\t \001(\r\022\024\n\014wards_placed\030\n \001(\r\022\027\n\017runes"
+  "_collected\030\013 \001(\r\022\020\n\010tps_used\030\014 \001(\r\022\022\n\nma"
+  "na_spent\030\r \003(\r\022\027\n\017damage_absorbed\030\016 \003(\r\022"
+  "\023\n\013damage_done\030\017 \003(\r\"\347\003\n#CDOTAUserMsg_St"
+  "atsTeamMinuteDetails\022:\n\014player_stats\030\001 \003"
+  "(\0132$.CDOTAUserMsg_StatsHeroMinuteDetails"
+  "\022\023\n\013tower_kills\030\002 \001(\r\022\025\n\rbarrack_kills\030\003"
+  " \001(\r\022!\n\031available_lane_creep_gold\030\004 \001(\r\022"
+  "\032\n\022balance_kill_value\030\005 \001(\r\022\033\n\023balance_t"
+  "ower_value\030\006 \001(\r\022\036\n\026balance_barracks_val"
+  "ue\030\007 \001(\r\022\032\n\022balance_gold_value\030\010 \001(\r\022\030\n\020"
+  "balance_xp_value\030\t \001(\r\022R\n\020lane_performan"
+  "ce\030\n \003(\01328.CDOTAUserMsg_StatsTeamMinuteD"
+  "etails.LocationPerformance\032R\n\023LocationPe"
+  "rformance\022\031\n\021location_category\030\001 \001(\r\022\021\n\t"
+  "stat_type\030\002 \001(\r\022\r\n\005value\030\003 \001(\r\"\260\001\n!CDOTA"
+  "UserMsg_StatsPlayerKillShare\022\025\n\tplayer_i"
+  "d\030\001 \001(\005:\002-1\022\032\n\022kill_share_percent\030\002 \001(\002\022"
+  "\024\n\014player_loc_x\030\003 \001(\002\022\024\n\014player_loc_y\030\004 "
+  "\001(\002\022\026\n\016health_percent\030\005 \001(\002\022\024\n\014mana_perc"
+  "ent\030\006 \001(\002\"\314\001\n\035CDOTAUserMsg_StatsKillDeta"
+  "ils\022\025\n\tvictim_id\030\001 \001(\005:\002-1\0227\n\013kill_share"
+  "s\030\002 \003(\0132\".CDOTAUserMsg_StatsPlayerKillSh"
+  "are\022\026\n\016damage_to_kill\030\003 \001(\r\022\030\n\020effective"
+  "_health\030\004 \001(\r\022\022\n\ndeath_time\030\005 \001(\002\022\025\n\tkil"
+  "ler_id\030\006 \001(\005:\002-1\"\213\006\n\036CDOTAUserMsg_StatsM"
+  "atchDetails\0222\n\013hero_lookup\030\001 \003(\0132\035.CDOTA"
+  "UserMsg_StatsHeroLookup\022;\n\rradiant_stats"
+  "\030\002 \003(\0132$.CDOTAUserMsg_StatsTeamMinuteDet"
+  "ails\0228\n\ndire_stats\030\003 \003(\0132$.CDOTAUserMsg_"
+  "StatsTeamMinuteDetails\0225\n\rradiant_kills\030"
+  "\004 \003(\0132\036.CDOTAUserMsg_StatsKillDetails\0222\n"
+  "\ndire_kills\030\005 \003(\0132\036.CDOTAUserMsg_StatsKi"
+  "llDetails\022U\n\rfight_details\030\006 \003(\0132>.CDOTA"
+  "UserMsg_StatsMatchDetails.CDOTAUserMsg_S"
+  "tatsFightDetails\032p\n\"CDOTAUserMsg_StatsFi"
+  "ghtTeamDetails\022\024\n\014participants\030\001 \003(\005\022\016\n\006"
+  "deaths\030\002 \003(\005\022\022\n\ngold_delta\030\003 \001(\r\022\020\n\010xp_d"
+  "elta\030\004 \001(\r\032\211\002\n\036CDOTAUserMsg_StatsFightDe"
+  "tails\022\022\n\nstart_time\030\001 \001(\002\022\020\n\010end_time\030\002 "
+  "\001(\002\022a\n\025radiant_fight_details\030\003 \001(\0132B.CDO"
+  "TAUserMsg_StatsMatchDetails.CDOTAUserMsg"
+  "_StatsFightTeamDetails\022^\n\022dire_fight_det"
+  "ails\030\004 \001(\0132B.CDOTAUserMsg_StatsMatchDeta"
+  "ils.CDOTAUserMsg_StatsFightTeamDetails\"8"
+  "\n\026CDOTAUserMsg_MiniTaunt\022\036\n\022taunting_pla"
+  "yer_id\030\001 \001(\005:\002-1\"0\n\031CDOTAUserMsg_SpeechB"
+  "ubble\022\023\n\013destroy_all\030\001 \001(\010\"k\n CDOTAUserM"
+  "sg_CustomHeaderMessage\022\025\n\tplayer_id\030\001 \001("
+  "\005:\002-1\022\020\n\010duration\030\002 \001(\002\022\017\n\007message\030\003 \001(\t"
+  "\022\r\n\005value\030\004 \001(\005\"v\n\023CMsgHeroAbilityStat\0227"
+  "\n\tstat_type\030\001 \001(\0162\016.EHeroStatType:\024k_EHe"
+  "roStatType_None\022\021\n\tint_value\030\002 \001(\005\022\023\n\013fl"
+  "oat_value\030\003 \001(\002\"d\n\034CMsgCombatAnalyzerPla"
+  "yerStat\022\022\n\naccount_id\030\001 \001(\r\0220\n\022hero_abil"
+  "ity_stats\030\002 \003(\0132\024.CMsgHeroAbilityStat\"`\n"
+  "\027CMsgCombatAnalyzerStats\022\020\n\010match_id\030\001 \001"
+  "(\004\0223\n\014player_stats\030\002 \003(\0132\035.CMsgCombatAna"
+  "lyzerPlayerStat\"W\n\026CDOTAUserMsg_BeastCha"
+  "t\022\014\n\004team\030\001 \001(\r\022\016\n\006format\030\002 \001(\t\022\017\n\007messa"
+  "ge\030\003 \001(\t\022\016\n\006target\030\004 \001(\t\"a\n$CDOTAUserMsg"
+  "_CustomHudElement_Create\022\022\n\nelement_id\030\001"
+  " \001(\t\022\027\n\017layout_filename\030\002 \001(\t\022\014\n\004data\030\003 "
+  "\001(\014\"`\n$CDOTAUserMsg_CustomHudElement_Mod"
+  "ify\022\022\n\nelement_id\030\001 \001(\t\022\026\n\016modify_visibl"
+  "e\030\002 \001(\010\022\014\n\004data\030\003 \001(\014\";\n%CDOTAUserMsg_Cu"
+  "stomHudElement_Destroy\022\022\n\nelement_id\030\001 \001"
+  "(\t\"J\n\"CDOTAUserMsg_CompendiumStatePlayer"
+  "\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\r\n\005level\030\002 \001(\r\"_"
+  "\n\034CDOTAUserMsg_CompendiumState\022\?\n\022compen"
+  "dium_players\030\001 \003(\0132#.CDOTAUserMsg_Compen"
+  "diumStatePlayer\"\350\001\n\036CDOTAUserMsg_Project"
+  "ionAbility\022\026\n\nability_id\030\001 \001(\005:\002-1\022\034\n\020ca"
+  "ster_ent_index\030\002 \001(\005:\002-1\022\023\n\013caster_team\030"
   "\003 \001(\005\022\023\n\013channel_end\030\004 \001(\010\022\033\n\006origin\030\005 \001"
   "(\0132\013.CMsgVector\022\031\n\021track_caster_only\030\006 \001"
-  "(\010\022\020\n\010end_time\030\007 \001(\002\022\030\n\020victim_ent_index"
-  "\030\010 \001(\005\"a\n\034CDOTAUserMsg_ProjectionEvent\0223"
-  "\n\010event_id\030\001 \001(\0162\021.EProjectionEvent:\016ePE"
-  "_FirstBlood\022\014\n\004team\030\002 \001(\r\"B\n\024CDOTAUserMs"
-  "g_XPAlert\022\021\n\tplayer_id\030\001 \001(\005\022\027\n\017target_e"
-  "ntindex\030\002 \001(\005\"}\n\034CDOTAUserMsg_TalentTree"
-  "Alert\022\021\n\tplayer_id\030\001 \001(\005\022\027\n\017target_entin"
-  "dex\030\002 \001(\005\022\022\n\nability_id\030\003 \001(\005\022\014\n\004slot\030\004 "
-  "\001(\005\022\017\n\007learned\030\005 \001(\010\"\"\n CDOTAUserMsg_Upd"
-  "ateQuestProgress\"\264\001\n\030CDOTAUserMsg_QuestS"
-  "tatus\022\021\n\tplayer_id\030\001 \002(\005\022\020\n\010quest_id\030\002 \001"
-  "(\r\022\024\n\014challenge_id\030\003 \001(\r\022\020\n\010progress\030\004 \001"
-  "(\r\022\014\n\004goal\030\005 \001(\r\022\r\n\005query\030\006 \001(\r\022\025\n\rfail_"
-  "gametime\030\007 \001(\002\022\027\n\017item_ability_id\030\010 \001(\r\""
-  "O\n\034CDOTAUserMsg_SuggestHeroPick\022\021\n\tplaye"
-  "r_id\030\001 \002(\005\022\017\n\007hero_id\030\002 \001(\r\022\013\n\003ban\030\003 \001(\010"
-  "\"D\n\034CDOTAUserMsg_SuggestHeroRole\022\021\n\tplay"
-  "er_id\030\001 \002(\005\022\021\n\thero_role\030\002 \001(\t\"\237\001\n\037CDOTA"
-  "UserMsg_KillcamDamageTaken\022\021\n\tplayer_id\030"
-  "\001 \002(\005\022\024\n\014damage_taken\030\002 \001(\r\022\021\n\titem_type"
-  "\030\003 \001(\r\022\027\n\017item_ability_id\030\004 \001(\r\022\021\n\thero_"
-  "name\030\005 \001(\t\022\024\n\014damage_color\030\006 \001(\t\"A\n\036CDOT"
-  "AUserMsg_SelectPenaltyGold\022\021\n\tplayer_id\030"
-  "\001 \002(\005\022\014\n\004cost\030\002 \001(\021\"z\n\033CDOTAUserMsg_Roll"
-  "DiceResult\022\021\n\tplayer_id\030\001 \001(\005\022\024\n\014channel"
-  "_type\030\002 \001(\r\022\020\n\010roll_min\030\003 \001(\r\022\020\n\010roll_ma"
-  "x\030\004 \001(\r\022\016\n\006result\030\005 \001(\r\"V\n\033CDOTAUserMsg_"
-  "FlipCoinResult\022\021\n\tplayer_id\030\001 \001(\005\022\024\n\014cha"
-  "nnel_type\030\002 \001(\r\022\016\n\006result\030\003 \001(\010\"<\n\'CDOTA"
-  "UserMessage_RequestItemSuggestions\022\021\n\tpl"
-  "ayer_id\030\001 \001(\005\"N\n#CDOTAUserMessage_TeamCa"
-  "ptainChanged\022\014\n\004team\030\001 \001(\r\022\031\n\021captain_pl"
-  "ayer_id\030\002 \001(\005\"P\n\036CDOTAUserMsg_ChatWheelC"
-  "ooldown\022\022\n\nmessage_id\030\001 \001(\r\022\032\n\022cooldown_"
-  "remaining\030\002 \001(\002\"\202\001\n\036CDOTAUserMsg_HeroRel"
-  "icProgress\022\027\n\017hero_relic_type\030\001 \001(\r\022\r\n\005v"
-  "alue\030\002 \001(\r\022\017\n\007ehandle\030\003 \001(\r\022\020\n\010event_id\030"
-  "\004 \001(\r\022\025\n\rvalue_display\030\005 \001(\002\"p\n\'CDOTAUse"
-  "rMsg_AbilityDraftRequestAbility\022\021\n\tplaye"
-  "r_id\030\001 \001(\005\022\034\n\024requested_ability_id\030\002 \001(\r"
-  "\022\024\n\014ctrl_is_down\030\003 \001(\010\"\210\001\n\031CDOTAUserMsg_"
-  "DamageReport\022\021\n\tplayer_id\030\001 \001(\005\022\026\n\016targe"
-  "t_hero_id\030\002 \001(\r\022\026\n\016source_hero_id\030\003 \001(\r\022"
-  "\025\n\rdamage_amount\030\004 \001(\005\022\021\n\tbroadcast\030\005 \001("
-  "\010\"\217\001\n\031CDOTAUserMsg_SalutePlayer\022\030\n\020sourc"
-  "e_player_id\030\001 \001(\005\022\030\n\020target_player_id\030\002 "
-  "\001(\005\022\022\n\ntip_amount\030\003 \001(\r\022\020\n\010event_id\030\004 \001("
-  "\r\022\030\n\020custom_tip_style\030\005 \001(\t\"<\n\025CDOTAUser"
-  "Msg_TipAlert\022\021\n\tplayer_id\030\001 \001(\005\022\020\n\010tip_t"
-  "ext\030\002 \001(\t\"d\n\035CDOTAUserMsg_ReplaceQueryUn"
-  "it\022\021\n\tplayer_id\030\001 \002(\005\022\027\n\017source_entindex"
-  "\030\002 \001(\005\022\027\n\017target_entindex\030\003 \001(\005\"X\n\032CDOTA"
-  "UserMsg_ESArcanaCombo\022\017\n\007ehandle\030\001 \001(\r\022\023"
-  "\n\013combo_count\030\002 \001(\r\022\024\n\014arcana_level\030\003 \001("
-  "\r\"`\n!CDOTAUserMsg_ESArcanaComboSummary\022\017"
-  "\n\007ehandle\030\001 \001(\r\022\023\n\013combo_count\030\002 \001(\r\022\025\n\r"
-  "damage_amount\030\003 \001(\r\"w\n\032CDOTAUserMsg_OMAr"
-  "canaCombo\022\017\n\007ehandle\030\001 \001(\r\022\030\n\020multicast_"
-  "amount\030\002 \001(\r\022\024\n\014arcana_level\030\003 \001(\r\022\030\n\020mu"
-  "lticast_chance\030\004 \001(\r\"\177\n\036CDOTAUserMsg_Hig"
-  "hFiveCompleted\022\023\n\013player_id_1\030\001 \001(\005\022\023\n\013p"
-  "layer_id_2\030\002 \001(\005\022\031\n\021special_high_five\030\003 "
-  "\001(\010\022\030\n\020special_entindex\030\004 \001(\005\"5\n CDOTAUs"
-  "erMsg_HighFiveLeftHanging\022\021\n\tplayer_id\030\001"
-  " \001(\005\"f\n\032CDOTAUserMsg_ShovelUnearth\022\021\n\tpl"
-  "ayer_id\030\001 \001(\005\022\020\n\010all_chat\030\002 \001(\010\022\021\n\tlocst"
-  "ring\030\003 \001(\t\022\020\n\010quantity\030\004 \001(\r\"\360\001\n\031CDOTAUs"
-  "erMsg_AllStarEvent\022\030\n\020source_player_id\030\001"
-  " \001(\005\022\030\n\020target_player_id\030\002 \001(\005\022\024\n\014point_"
-  "amount\030\003 \001(\r\022\020\n\010event_id\030\004 \001(\r\022=\n\rplayer"
-  "_scores\030\005 \003(\0132&.CDOTAUserMsg_AllStarEven"
-  "t.PlayerScore\0328\n\013PlayerScore\022\021\n\tplayer_i"
-  "d\030\001 \001(\005\022\026\n\016score_sans_kda\030\002 \001(\r\">\n\037CDOTA"
-  "UserMsg_QueuedOrderRemoved\022\033\n\023unit_order"
-  "_sequence\030\001 \003(\r\"\306\001\n\033CDOTAUserMsg_DebugCh"
-  "allenge\022\026\n\016challenge_type\030\001 \002(\r\022\032\n\022chall"
-  "enge_query_id\030\002 \002(\r\022\020\n\010event_id\030\003 \002(\r\022\023\n"
-  "\013instance_id\030\004 \001(\r\022\027\n\017challenge_var_0\030\005 "
-  "\001(\r\022\027\n\017challenge_var_1\030\006 \001(\r\022\032\n\022challeng"
-  "e_max_rank\030\007 \001(\r\"w\n\035CDOTAUserMsg_FoundNe"
-  "utralItem\022\021\n\tplayer_id\030\001 \001(\005\022\027\n\017item_abi"
-  "lity_id\030\002 \001(\r\022\021\n\titem_tier\030\003 \001(\r\022\027\n\017tier"
-  "_item_count\030\004 \001(\r\"I\n\034CDOTAUserMsg_Outpos"
-  "tCaptured\022\030\n\020outpost_entindex\030\001 \001(\005\022\017\n\007t"
-  "eam_id\030\002 \001(\r\"C\n\035CDOTAUserMsg_OutpostGran"
-  "tedXP\022\017\n\007team_id\030\001 \001(\r\022\021\n\txp_amount\030\002 \001("
-  "\r\"5\n\035CDOTAUserMsg_MoveCameraToUnit\022\024\n\014un"
-  "it_ehandle\030\001 \001(\r\"\230\001\n\036CDOTAUserMsg_PauseM"
-  "inigameData\022:\n\tdata_bits\030\001 \003(\0132\'.CDOTAUs"
-  "erMsg_PauseMinigameData.DataBit\032:\n\007DataB"
-  "it\022\r\n\005index\030\001 \001(\r\022\014\n\004data\030\002 \001(\005\022\022\n\ndata_"
-  "extra\030\003 \001(\003\"\241\002\n\'CDOTAUserMsg_VersusScene"
-  "_PlayerBehavior\022\021\n\tplayer_id\030\001 \001(\005\022S\n\010be"
-  "havior\030\002 \001(\0162\037.EDOTAVersusScenePlayerBeh"
-  "avior: VS_PLAYER_BEHAVIOR_PLAY_ACTIVITY\022"
-  "0\n\rplay_activity\030\003 \001(\0132\031.VersusScene_Pla"
-  "yActivity\022*\n\nchat_wheel\030\004 \001(\0132\026.VersusSc"
-  "ene_ChatWheel\0220\n\rplayback_rate\030\005 \001(\0132\031.V"
-  "ersusScene_PlaybackRate\"t\n\036CDOTAUserMsg_"
-  "QoP_ArcanaSummary\022\017\n\007ehandle\030\001 \001(\r\022\024\n\014ar"
-  "cana_level\030\002 \001(\r\022\023\n\013players_hit\030\003 \001(\r\022\026\n"
-  "\016players_killed\030\004 \001(\r\"J\n\036CDOTAUserMsg_Ho"
-  "tPotato_Created\022\023\n\013player_id_1\030\001 \001(\005\022\023\n\013"
-  "player_id_2\030\002 \001(\005\"4\n\037CDOTAUserMsg_HotPot"
-  "ato_Exploded\022\021\n\tplayer_id\030\001 \001(\005\"Y\n\037CDOTA"
-  "UserMsg_WK_Arcana_Progress\022\017\n\007ehandle\030\001 "
-  "\001(\r\022\024\n\014arcana_level\030\002 \001(\r\022\017\n\007hero_id\030\003 \001"
-  "(\r\"\212\004\n$CDOTAUserMsg_GuildChallenge_Progr"
-  "ess\022M\n\017player_progress\030\001 \003(\01324.CDOTAUser"
-  "Msg_GuildChallenge_Progress.PlayerProgre"
-  "ss\022\020\n\010guild_id\030\002 \001(\r\022\035\n\025challenge_instan"
-  "ce_id\030\003 \001(\r\022\033\n\023challenge_parameter\030\004 \001(\r"
-  "\022f\n\016challenge_type\030\005 \001(\01624.CDOTAUserMsg_"
-  "GuildChallenge_Progress.EChallengeType:\030"
-  "k_EChallengeType_Invalid\022#\n\033challenge_pr"
-  "ogress_at_start\030\007 \001(\r\022\020\n\010complete\030\010 \001(\010\032"
-  "5\n\016PlayerProgress\022\021\n\tplayer_id\030\001 \001(\005\022\020\n\010"
-  "progress\030\006 \001(\r\"o\n\016EChallengeType\022\034\n\030k_EC"
-  "hallengeType_Invalid\020\000\022 \n\034k_EChallengeTy"
-  "pe_Cooperative\020\001\022\035\n\031k_EChallengeType_Con"
-  "tract\020\002\"\265\001\n\035CDOTAUserMsg_WRArcanaProgres"
-  "s\022\017\n\007ehandle\030\001 \001(\r\022\026\n\016target_ehandle\030\002 \001"
-  "(\r\022\025\n\rarrows_landed\030\003 \001(\r\022\024\n\014damage_deal"
-  "t\030\004 \001(\r\022\021\n\ttarget_hp\030\005 \001(\r\022\025\n\rtarget_max"
-  "_hp\030\006 \001(\r\022\024\n\014arcana_level\030\007 \001(\r\"\305\001\n\034CDOT"
-  "AUserMsg_WRArcanaSummary\022\017\n\007ehandle\030\001 \001("
-  "\r\022\026\n\016target_ehandle\030\002 \001(\r\022\025\n\rarrows_land"
-  "ed\030\003 \001(\r\022\024\n\014damage_dealt\030\004 \001(\r\022\021\n\ttarget"
-  "_hp\030\005 \001(\r\022\025\n\rtarget_max_hp\030\006 \001(\r\022\024\n\014arca"
-  "na_level\030\007 \001(\r\022\017\n\007success\030\010 \001(\010\"\203\001\n\037CDOT"
-  "AUserMsg_EmptyItemSlotAlert\022\030\n\020source_pl"
-  "ayer_id\030\001 \001(\005\022\030\n\020target_player_id\030\002 \001(\005\022"
-  "\022\n\nslot_index\030\003 \001(\005\022\030\n\020cooldown_seconds\030"
-  "\004 \001(\005\"\247\001\n\034CDOTAUserMsg_AghsStatusAlert\022\030"
-  "\n\020source_player_id\030\001 \001(\005\022\030\n\020target_playe"
-  "r_id\030\002 \001(\005\022\027\n\017target_entindex\030\003 \001(\005\022\022\n\na"
-  "lert_type\030\004 \001(\r\022\023\n\013has_scepter\030\005 \001(\010\022\021\n\t"
-  "has_shard\030\006 \001(\010\"Z\n\031CDOTAUserMsg_MutedPla"
-  "yers\022\035\n\025text_muted_player_ids\030\001 \003(\005\022\036\n\026v"
-  "oice_muted_player_ids\030\002 \003(\005\"\376\002\n\032CDOTAUse"
-  "rMsg_ContextualTip\022\016\n\006tip_id\030\001 \001(\005\022\034\n\024re"
-  "ferenced_abilities\030\002 \003(\t\022\030\n\020referenced_u"
-  "nits\030\003 \003(\t\022\030\n\020panorama_classes\030\004 \003(\t\022\030\n\020"
-  "force_annotation\030\005 \001(\010\022\017\n\007variant\030\006 \001(\005\022"
-  "\021\n\tint_param\030\007 \001(\005\022\022\n\nint_param2\030\010 \001(\005\022\023"
-  "\n\013float_param\030\t \001(\002\022\024\n\014float_param2\030\n \001("
-  "\002\022\024\n\014string_param\030\013 \001(\t\022\025\n\rstring_param2"
-  "\030\014 \001(\t\022\031\n\021tip_text_override\030\r \001(\t\022\037\n\027tip"
-  "_annotation_override\030\016 \001(\t\022\030\n\020panorama_s"
-  "nippet\030\017 \001(\t\"`\n\030CDOTAUserMsg_ChatMessage"
-  "\022\030\n\020source_player_id\030\001 \001(\005\022\024\n\014channel_ty"
-  "pe\030\002 \001(\r\022\024\n\014message_text\030\003 \001(\t\"[\n%CDOTAU"
-  "serMsg_RockPaperScissorsStarted\022\030\n\020playe"
-  "r_id_source\030\001 \001(\005\022\030\n\020player_id_target\030\002 "
-  "\001(\005\"\204\001\n&CDOTAUserMsg_RockPaperScissorsFi"
-  "nished\022\023\n\013player_id_1\030\001 \001(\005\022\023\n\013player_id"
-  "_2\030\002 \001(\005\022\027\n\017player_1_choice\030\003 \001(\005\022\027\n\017pla"
-  "yer_2_choice\030\004 \001(\005\"T\n\037CDOTAUserMsg_DuelO"
-  "pponentKilled\022\030\n\020player_id_winner\030\001 \001(\005\022"
-  "\027\n\017player_id_loser\030\002 \001(\005\"E\n\031CDOTAUserMsg"
-  "_DuelAccepted\022\023\n\013player_id_1\030\001 \001(\005\022\023\n\013pl"
-  "ayer_id_2\030\002 \001(\005\"9\n\032CDOTAUserMsg_DuelRequ"
-  "ested\022\033\n\023player_id_requestor\030\001 \001(\005*\253$\n\021E"
-  "DotaUserMessages\022\037\n\032DOTA_UM_AddUnitToSel"
-  "ection\020\320\003\022\030\n\023DOTA_UM_AIDebugLine\020\321\003\022\026\n\021D"
-  "OTA_UM_ChatEvent\020\322\003\022 \n\033DOTA_UM_CombatHer"
-  "oPositions\020\323\003\022\032\n\025DOTA_UM_CombatLogData\020\324"
-  "\003\022\036\n\031DOTA_UM_CombatLogBulkData\020\326\003\022#\n\036DOT"
-  "A_UM_CreateLinearProjectile\020\327\003\022$\n\037DOTA_U"
-  "M_DestroyLinearProjectile\020\330\003\022%\n DOTA_UM_"
-  "DodgeTrackingProjectiles\020\331\003\022\035\n\030DOTA_UM_G"
-  "lobalLightColor\020\332\003\022!\n\034DOTA_UM_GlobalLigh"
-  "tDirection\020\333\003\022\033\n\026DOTA_UM_InvalidCommand\020"
-  "\334\003\022\031\n\024DOTA_UM_LocationPing\020\335\003\022\024\n\017DOTA_UM"
-  "_MapLine\020\336\003\022\034\n\027DOTA_UM_MiniKillCamInfo\020\337"
-  "\003\022\036\n\031DOTA_UM_MinimapDebugPoint\020\340\003\022\031\n\024DOT"
-  "A_UM_MinimapEvent\020\341\003\022\035\n\030DOTA_UM_Nevermor"
-  "eRequiem\020\342\003\022\032\n\025DOTA_UM_OverheadEvent\020\343\003\022"
-  "\037\n\032DOTA_UM_SetNextAutobuyItem\020\344\003\022\033\n\026DOTA"
-  "_UM_SharedCooldown\020\345\003\022!\n\034DOTA_UM_Spectat"
-  "orPlayerClick\020\346\003\022\034\n\027DOTA_UM_TutorialTipI"
-  "nfo\020\347\003\022\026\n\021DOTA_UM_UnitEvent\020\350\003\022\034\n\027DOTA_U"
-  "M_ParticleManager\020\351\003\022\024\n\017DOTA_UM_BotChat\020"
-  "\352\003\022\025\n\020DOTA_UM_HudError\020\353\003\022\032\n\025DOTA_UM_Ite"
-  "mPurchased\020\354\003\022\021\n\014DOTA_UM_Ping\020\355\003\022\026\n\021DOTA"
-  "_UM_ItemFound\020\356\003\022\"\n\035DOTA_UM_CharacterSpe"
-  "akConcept\020\357\003\022\027\n\022DOTA_UM_SwapVerify\020\360\003\022\026\n"
-  "\021DOTA_UM_WorldLine\020\361\003\022\033\n\026DOTA_UM_Tournam"
-  "entDrop\020\362\003\022\026\n\021DOTA_UM_ItemAlert\020\363\003\022\033\n\026DO"
-  "TA_UM_HalloweenDrops\020\364\003\022\026\n\021DOTA_UM_ChatW"
-  "heel\020\365\003\022\035\n\030DOTA_UM_ReceivedXmasGift\020\366\003\022 "
-  "\n\033DOTA_UM_UpdateSharedContent\020\367\003\022\037\n\032DOTA"
-  "_UM_TutorialRequestExp\020\370\003\022 \n\033DOTA_UM_Tut"
-  "orialPingMinimap\020\371\003\022\"\n\035DOTA_UM_Gamerules"
-  "StateChanged\020\372\003\022\027\n\022DOTA_UM_ShowSurvey\020\373\003"
-  "\022\031\n\024DOTA_UM_TutorialFade\020\374\003\022\035\n\030DOTA_UM_A"
-  "ddQuestLogEntry\020\375\003\022\032\n\025DOTA_UM_SendStatPo"
-  "pup\020\376\003\022\033\n\026DOTA_UM_TutorialFinish\020\377\003\022\034\n\027D"
-  "OTA_UM_SendRoshanPopup\020\200\004\022\037\n\032DOTA_UM_Sen"
-  "dGenericToolTip\020\201\004\022\032\n\025DOTA_UM_SendFinalG"
-  "old\020\202\004\022\026\n\021DOTA_UM_CustomMsg\020\203\004\022\031\n\024DOTA_U"
-  "M_CoachHUDPing\020\204\004\022\036\n\031DOTA_UM_ClientLoadG"
-  "ridNav\020\205\004\022\032\n\025DOTA_UM_TE_Projectile\020\206\004\022\035\n"
-  "\030DOTA_UM_TE_ProjectileLoc\020\207\004\022\037\n\032DOTA_UM_"
-  "TE_DotaBloodImpact\020\210\004\022\035\n\030DOTA_UM_TE_Unit"
-  "Animation\020\211\004\022 \n\033DOTA_UM_TE_UnitAnimation"
-  "End\020\212\004\022\030\n\023DOTA_UM_AbilityPing\020\213\004\022\035\n\030DOTA"
-  "_UM_ShowGenericPopup\020\214\004\022\026\n\021DOTA_UM_VoteS"
-  "tart\020\215\004\022\027\n\022DOTA_UM_VoteUpdate\020\216\004\022\024\n\017DOTA"
-  "_UM_VoteEnd\020\217\004\022\031\n\024DOTA_UM_BoosterState\020\220"
-  "\004\022\036\n\031DOTA_UM_WillPurchaseAlert\020\221\004\022$\n\037DOT"
-  "A_UM_TutorialMinimapPosition\020\222\004\022\026\n\021DOTA_"
-  "UM_PlayerMMR\020\223\004\022\031\n\024DOTA_UM_AbilitySteal\020"
-  "\224\004\022\037\n\032DOTA_UM_CourierKilledAlert\020\225\004\022\033\n\026D"
-  "OTA_UM_EnemyItemAlert\020\226\004\022\036\n\031DOTA_UM_Stat"
-  "sMatchDetails\020\227\004\022\026\n\021DOTA_UM_MiniTaunt\020\230\004"
-  "\022\036\n\031DOTA_UM_BuyBackStateAlert\020\231\004\022\031\n\024DOTA"
-  "_UM_SpeechBubble\020\232\004\022 \n\033DOTA_UM_CustomHea"
-  "derMessage\020\233\004\022\032\n\025DOTA_UM_QuickBuyAlert\020\234"
-  "\004\022\035\n\030DOTA_UM_StatsHeroDetails\020\235\004\022\035\n\030DOTA"
-  "_UM_PredictionResult\020\236\004\022\032\n\025DOTA_UM_Modif"
-  "ierAlert\020\237\004\022\030\n\023DOTA_UM_HPManaAlert\020\240\004\022\027\n"
-  "\022DOTA_UM_GlyphAlert\020\241\004\022\026\n\021DOTA_UM_BeastC"
-  "hat\020\242\004\022&\n!DOTA_UM_SpectatorPlayerUnitOrd"
-  "ers\020\243\004\022$\n\037DOTA_UM_CustomHudElement_Creat"
-  "e\020\244\004\022$\n\037DOTA_UM_CustomHudElement_Modify\020"
-  "\245\004\022%\n DOTA_UM_CustomHudElement_Destroy\020\246"
-  "\004\022\034\n\027DOTA_UM_CompendiumState\020\247\004\022\036\n\031DOTA_"
-  "UM_ProjectionAbility\020\250\004\022\034\n\027DOTA_UM_Proje"
-  "ctionEvent\020\251\004\022\036\n\031DOTA_UM_CombatLogDataHL"
-  "TV\020\252\004\022\024\n\017DOTA_UM_XPAlert\020\253\004\022 \n\033DOTA_UM_U"
-  "pdateQuestProgress\020\254\004\022\032\n\025DOTA_UM_MatchMe"
-  "tadata\020\255\004\022\031\n\024DOTA_UM_MatchDetails\020\256\004\022\030\n\023"
-  "DOTA_UM_QuestStatus\020\257\004\022\034\n\027DOTA_UM_Sugges"
-  "tHeroPick\020\260\004\022\034\n\027DOTA_UM_SuggestHeroRole\020"
-  "\261\004\022\037\n\032DOTA_UM_KillcamDamageTaken\020\262\004\022\036\n\031D"
-  "OTA_UM_SelectPenaltyGold\020\263\004\022\033\n\026DOTA_UM_R"
-  "ollDiceResult\020\264\004\022\033\n\026DOTA_UM_FlipCoinResu"
-  "lt\020\265\004\022#\n\036DOTA_UM_RequestItemSuggestions\020"
-  "\266\004\022\037\n\032DOTA_UM_TeamCaptainChanged\020\267\004\022%\n D"
-  "OTA_UM_SendRoshanSpectatorPhase\020\270\004\022\036\n\031DO"
-  "TA_UM_ChatWheelCooldown\020\271\004\022!\n\034DOTA_UM_Di"
-  "smissAllStatPopups\020\272\004\022!\n\034DOTA_UM_TE_Dest"
-  "royProjectile\020\273\004\022\036\n\031DOTA_UM_HeroRelicPro"
-  "gress\020\274\004\022\'\n\"DOTA_UM_AbilityDraftRequestA"
-  "bility\020\275\004\022\025\n\020DOTA_UM_ItemSold\020\276\004\022\031\n\024DOTA"
-  "_UM_DamageReport\020\277\004\022\031\n\024DOTA_UM_SalutePla"
-  "yer\020\300\004\022\025\n\020DOTA_UM_TipAlert\020\301\004\022\035\n\030DOTA_UM"
-  "_ReplaceQueryUnit\020\302\004\022\037\n\032DOTA_UM_EmptyTel"
-  "eportAlert\020\303\004\022#\n\036DOTA_UM_MarsArenaOfBloo"
-  "dAttack\020\304\004\022\032\n\025DOTA_UM_ESArcanaCombo\020\305\004\022!"
-  "\n\034DOTA_UM_ESArcanaComboSummary\020\306\004\022 \n\033DOT"
-  "A_UM_HighFiveLeftHanging\020\307\004\022\036\n\031DOTA_UM_H"
-  "ighFiveCompleted\020\310\004\022\032\n\025DOTA_UM_ShovelUne"
-  "arth\020\311\004\022\035\n\030DOTA_EM_InvokerSpellCast\020\312\004\022\027"
-  "\n\022DOTA_UM_RadarAlert\020\313\004\022\031\n\024DOTA_UM_AllSt"
-  "arEvent\020\314\004\022\034\n\027DOTA_UM_TalentTreeAlert\020\315\004"
-  "\022\037\n\032DOTA_UM_QueuedOrderRemoved\020\316\004\022\033\n\026DOT"
-  "A_UM_DebugChallenge\020\317\004\022\032\n\025DOTA_UM_OMArca"
-  "naCombo\020\320\004\022\035\n\030DOTA_UM_FoundNeutralItem\020\321"
-  "\004\022\034\n\027DOTA_UM_OutpostCaptured\020\322\004\022\035\n\030DOTA_"
-  "UM_OutpostGrantedXP\020\323\004\022\035\n\030DOTA_UM_MoveCa"
-  "meraToUnit\020\324\004\022\036\n\031DOTA_UM_PauseMinigameDa"
-  "ta\020\325\004\022\'\n\"DOTA_UM_VersusScene_PlayerBehav"
-  "ior\020\326\004\022\036\n\031DOTA_UM_QoP_ArcanaSummary\020\330\004\022\036"
-  "\n\031DOTA_UM_HotPotato_Created\020\331\004\022\037\n\032DOTA_U"
-  "M_HotPotato_Exploded\020\332\004\022\037\n\032DOTA_UM_WK_Ar"
-  "cana_Progress\020\333\004\022$\n\037DOTA_UM_GuildChallen"
-  "ge_Progress\020\334\004\022\035\n\030DOTA_UM_WRArcanaProgre"
-  "ss\020\335\004\022\034\n\027DOTA_UM_WRArcanaSummary\020\336\004\022\037\n\032D"
-  "OTA_UM_EmptyItemSlotAlert\020\337\004\022\034\n\027DOTA_UM_"
-  "AghsStatusAlert\020\340\004\022\035\n\030DOTA_UM_PingConfir"
-  "mation\020\341\004\022\031\n\024DOTA_UM_MutedPlayers\020\342\004\022\032\n\025"
-  "DOTA_UM_ContextualTip\020\343\004\022\030\n\023DOTA_UM_Chat"
-  "Message\020\344\004\022\035\n\030DOTA_UM_NeutralCampAlert\020\345"
-  "\004\022%\n DOTA_UM_RockPaperScissorsStarted\020\346\004"
-  "\022&\n!DOTA_UM_RockPaperScissorsFinished\020\347\004"
-  "\022\037\n\032DOTA_UM_DuelOpponentKilled\020\350\004\022\031\n\024DOT"
-  "A_UM_DuelAccepted\020\351\004\022\032\n\025DOTA_UM_DuelRequ"
-  "ested\020\352\004*\271\036\n\021DOTA_CHAT_MESSAGE\022!\n\024CHAT_M"
-  "ESSAGE_INVALID\020\377\377\377\377\377\377\377\377\377\001\022\032\n\026CHAT_MESSAG"
-  "E_HERO_KILL\020\000\022\032\n\026CHAT_MESSAGE_HERO_DENY\020"
-  "\001\022\036\n\032CHAT_MESSAGE_BARRACKS_KILL\020\002\022\033\n\027CHA"
-  "T_MESSAGE_TOWER_KILL\020\003\022\033\n\027CHAT_MESSAGE_T"
-  "OWER_DENY\020\004\022\033\n\027CHAT_MESSAGE_FIRSTBLOOD\020\005"
-  "\022\034\n\030CHAT_MESSAGE_STREAK_KILL\020\006\022\030\n\024CHAT_M"
-  "ESSAGE_BUYBACK\020\007\022\026\n\022CHAT_MESSAGE_AEGIS\020\010"
-  "\022\034\n\030CHAT_MESSAGE_ROSHAN_KILL\020\t\022\035\n\031CHAT_M"
-  "ESSAGE_COURIER_LOST\020\n\022\"\n\036CHAT_MESSAGE_CO"
-  "URIER_RESPAWNED\020\013\022\033\n\027CHAT_MESSAGE_GLYPH_"
-  "USED\020\014\022\036\n\032CHAT_MESSAGE_ITEM_PURCHASE\020\r\022\030"
-  "\n\024CHAT_MESSAGE_CONNECT\020\016\022\033\n\027CHAT_MESSAGE"
-  "_DISCONNECT\020\017\022.\n*CHAT_MESSAGE_DISCONNECT"
-  "_WAIT_FOR_RECONNECT\020\020\022*\n&CHAT_MESSAGE_DI"
-  "SCONNECT_TIME_REMAINING\020\021\0221\n-CHAT_MESSAG"
-  "E_DISCONNECT_TIME_REMAINING_PLURAL\020\022\022\032\n\026"
-  "CHAT_MESSAGE_RECONNECT\020\023\022\034\n\030CHAT_MESSAGE"
-  "_PLAYER_LEFT\020\024\022\036\n\032CHAT_MESSAGE_SAFE_TO_L"
-  "EAVE\020\025\022\034\n\030CHAT_MESSAGE_RUNE_PICKUP\020\026\022\034\n\030"
-  "CHAT_MESSAGE_RUNE_BOTTLE\020\027\022\032\n\026CHAT_MESSA"
-  "GE_RUNE_DENY\020r\022\031\n\025CHAT_MESSAGE_INTHEBAG\020"
-  "\030\022\033\n\027CHAT_MESSAGE_SECRETSHOP\020\031\022#\n\037CHAT_M"
-  "ESSAGE_ITEM_AUTOPURCHASED\020\032\022\037\n\033CHAT_MESS"
-  "AGE_ITEMS_COMBINED\020\033\022\035\n\031CHAT_MESSAGE_SUP"
-  "ER_CREEPS\020\034\022%\n!CHAT_MESSAGE_CANT_USE_ACT"
-  "ION_ITEM\020\035\022\032\n\026CHAT_MESSAGE_CANTPAUSE\020\037\022\035"
-  "\n\031CHAT_MESSAGE_NOPAUSESLEFT\020 \022\035\n\031CHAT_ME"
-  "SSAGE_CANTPAUSEYET\020!\022\027\n\023CHAT_MESSAGE_PAU"
-  "SED\020\"\022\"\n\036CHAT_MESSAGE_UNPAUSE_COUNTDOWN\020"
-  "#\022\031\n\025CHAT_MESSAGE_UNPAUSED\020$\022\036\n\032CHAT_MES"
-  "SAGE_AUTO_UNPAUSED\020%\022\032\n\026CHAT_MESSAGE_YOU"
-  "PAUSED\020&\022 \n\034CHAT_MESSAGE_CANTUNPAUSETEAM"
-  "\020\'\022\"\n\036CHAT_MESSAGE_VOICE_TEXT_BANNED\020)\022."
-  "\n*CHAT_MESSAGE_SPECTATORS_WATCHING_THIS_"
-  "GAME\020*\022 \n\034CHAT_MESSAGE_REPORT_REMINDER\020+"
-  "\022\032\n\026CHAT_MESSAGE_ECON_ITEM\020,\022\026\n\022CHAT_MES"
-  "SAGE_TAUNT\020-\022\027\n\023CHAT_MESSAGE_RANDOM\020.\022\030\n"
-  "\024CHAT_MESSAGE_RD_TURN\020/\022 \n\034CHAT_MESSAGE_"
-  "DROP_RATE_BONUS\0201\022!\n\035CHAT_MESSAGE_NO_BAT"
-  "TLE_POINTS\0202\022\035\n\031CHAT_MESSAGE_DENIED_AEGI"
-  "S\0203\022\036\n\032CHAT_MESSAGE_INFORMATIONAL\0204\022\035\n\031C"
-  "HAT_MESSAGE_AEGIS_STOLEN\0205\022\035\n\031CHAT_MESSA"
-  "GE_ROSHAN_CANDY\0206\022\034\n\030CHAT_MESSAGE_ITEM_G"
-  "IFTED\0207\022\'\n#CHAT_MESSAGE_HERO_KILL_WITH_G"
-  "REEVIL\0208\022(\n$CHAT_MESSAGE_HOLDOUT_TOWER_D"
-  "ESTROYED\0209\022\'\n#CHAT_MESSAGE_HOLDOUT_WALL_"
-  "DESTROYED\020:\022&\n\"CHAT_MESSAGE_HOLDOUT_WALL"
-  "_FINISHED\020;\022)\n%CHAT_MESSAGE_PLAYER_LEFT_"
-  "LIMITED_HERO\020>\0221\n-CHAT_MESSAGE_ABANDON_L"
-  "IMITED_HERO_EXPLANATION\020\?\022(\n$CHAT_MESSAG"
-  "E_DISCONNECT_LIMITED_HERO\020@\0223\n/CHAT_MESS"
-  "AGE_LOW_PRIORITY_COMPLETED_EXPLANATION\020A"
-  "\022,\n(CHAT_MESSAGE_RECRUITMENT_DROP_RATE_B"
-  "ONUS\020B\0221\n-CHAT_MESSAGE_FROSTIVUS_SHINING"
-  "_BOOSTER_ACTIVE\020C\022 \n\034CHAT_MESSAGE_PLAYER"
-  "_LEFT_AFK\020I\0222\n.CHAT_MESSAGE_PLAYER_LEFT_"
-  "DISCONNECTED_TOO_LONG\020J\022!\n\035CHAT_MESSAGE_"
-  "PLAYER_ABANDONED\020K\022%\n!CHAT_MESSAGE_PLAYE"
-  "R_ABANDONED_AFK\020L\0227\n3CHAT_MESSAGE_PLAYER"
-  "_ABANDONED_DISCONNECTED_TOO_LONG\020M\022#\n\037CH"
-  "AT_MESSAGE_WILL_NOT_BE_SCORED\020N\022*\n&CHAT_"
-  "MESSAGE_WILL_NOT_BE_SCORED_RANKED\020O\022+\n\'C"
-  "HAT_MESSAGE_WILL_NOT_BE_SCORED_NETWORK\020P"
-  "\0222\n.CHAT_MESSAGE_WILL_NOT_BE_SCORED_NETW"
-  "ORK_RANKED\020Q\022)\n%CHAT_MESSAGE_CAN_QUIT_WI"
-  "THOUT_ABANDON\020R\022:\n6CHAT_MESSAGE_RANKED_G"
-  "AME_STILL_SCORED_LEAVERS_GET_LOSS\020S\0228\n4C"
-  "HAT_MESSAGE_ABANDON_RANKED_BEFORE_FIRST_"
-  "BLOOD_PARTY\020T\022!\n\035CHAT_MESSAGE_COMPENDIUM"
-  "_LEVEL\020U\022*\n&CHAT_MESSAGE_VICTORY_PREDICT"
-  "ION_STREAK\020V\022\"\n\036CHAT_MESSAGE_ASSASSIN_AN"
-  "NOUNCE\020W\022!\n\035CHAT_MESSAGE_ASSASSIN_SUCCES"
-  "S\020X\022 \n\034CHAT_MESSAGE_ASSASSIN_DENIED\020Y\0227\n"
-  "3CHAT_MESSAGE_VICTORY_PREDICTION_SINGLE_"
-  "USER_CONFIRM\020Z\022\034\n\030CHAT_MESSAGE_EFFIGY_KI"
-  "LL\020[\022+\n\'CHAT_MESSAGE_VOICE_TEXT_BANNED_O"
-  "VERFLOW\020\\\022\"\n\036CHAT_MESSAGE_YEAR_BEAST_KIL"
-  "LED\020]\022 \n\034CHAT_MESSAGE_PAUSE_COUNTDOWN\020^\022"
-  "\036\n\032CHAT_MESSAGE_COINS_WAGERED\020_\022#\n\037CHAT_"
-  "MESSAGE_HERO_NOMINATED_BAN\020`\022\034\n\030CHAT_MES"
-  "SAGE_HERO_BANNED\020a\022\037\n\033CHAT_MESSAGE_HERO_"
-  "BAN_COUNT\020b\022\036\n\032CHAT_MESSAGE_RIVER_PAINTE"
-  "D\020c\022\032\n\026CHAT_MESSAGE_SCAN_USED\020d\022\036\n\032CHAT_"
-  "MESSAGE_SHRINE_KILLED\020e\022\"\n\036CHAT_MESSAGE_"
-  "WAGER_TOKEN_SPENT\020f\022\033\n\027CHAT_MESSAGE_RANK"
-  "_WAGER\020g\022$\n CHAT_MESSAGE_NEW_PLAYER_REMI"
-  "NDER\020h\022%\n!CHAT_MESSAGE_OBSERVER_WARD_KIL"
-  "LED\020i\022#\n\037CHAT_MESSAGE_SENTRY_WARD_KILLED"
-  "\020j\022-\n)CHAT_MESSAGE_ITEM_PLACED_IN_NEUTRA"
-  "L_STASH\020k\022$\n CHAT_MESSAGE_HERO_CHOICE_IN"
-  "VALID\020l\022\027\n\023CHAT_MESSAGE_BOUNTY\020m\022$\n CHAT"
-  "_MESSAGE_ABILITY_DRAFT_START\020n\022!\n\035CHAT_M"
-  "ESSAGE_HERO_FOUND_CANDY\020o\022\'\n#CHAT_MESSAG"
-  "E_ABILITY_DRAFT_RANDOMED\020p\022(\n$CHAT_MESSA"
-  "GE_PRIVATE_COACH_CONNECTED\020q\022%\n!CHAT_MES"
-  "SAGE_CANT_PAUSE_TOO_EARLY\020s\022\'\n#CHAT_MESS"
-  "AGE_HERO_KILL_WITH_PENGUIN\020t*\262\001\n\035DOTA_NO"
-  "_BATTLE_POINTS_REASONS\022%\n!NO_BATTLE_POIN"
-  "TS_WRONG_LOBBY_TYPE\020\001\022\"\n\036NO_BATTLE_POINT"
-  "S_PRACTICE_BOTS\020\002\022#\n\037NO_BATTLE_POINTS_CH"
-  "EATS_ENABLED\020\003\022!\n\035NO_BATTLE_POINTS_LOW_P"
-  "RIORITY\020\004*\317\001\n\027DOTA_CHAT_INFORMATIONAL\022!\n"
-  "\035INFO_COOP_BATTLE_POINTS_RULES\020\001\022#\n\037INFO"
-  "_FROSTIVUS_ABANDON_REMINDER\020\002\022\030\n\024INFO_RA"
-  "NKED_REMINDER\020\003\022+\n\'INFO_COOP_LOW_PRIORIT"
-  "Y_PASSIVE_REMINDER\020\004\022%\n!INFO_CUSTOM_GAME"
-  "_PENALTY_REMINDER\020\005*\340\003\n\026DOTA_ABILITY_PIN"
-  "G_TYPE\022\026\n\022ABILITY_PING_READY\020\001\022\025\n\021ABILIT"
-  "Y_PING_MANA\020\002\022\031\n\025ABILITY_PING_COOLDOWN\020\003"
-  "\022\026\n\022ABILITY_PING_ENEMY\020\004\022\032\n\026ABILITY_PING"
-  "_UNLEARNED\020\005\022\033\n\027ABILITY_PING_INBACKPACK\020"
-  "\006\022\030\n\024ABILITY_PING_INSTASH\020\007\022\032\n\026ABILITY_P"
-  "ING_ONCOURIER\020\010\022\025\n\021ABILITY_PING_ALLY\020\t\022\034"
-  "\n\030ABILITY_PING_LEARN_READY\020\n\022\033\n\027ABILITY_"
-  "PING_WILL_LEARN\020\013\022\035\n\031ABILITY_PING_FUTURE"
-  "_LEARN\020\014\022\036\n\032ABILITY_PING_NEUTRAL_OFFER\020\r"
-  "\022 \n\034ABILITY_PING_NEUTRAL_REQUEST\020\016\022\036\n\032AB"
-  "ILITY_PING_NEUTRAL_EQUIP\020\017\022\"\n\036ABILITY_PI"
-  "NG_INCOURIERBACKPACK\020\020*\214\002\n\027DOTA_REPLAY_S"
-  "TATE_EVENT\022&\n\"DOTA_REPLAY_STATE_EVENT_GA"
-  "ME_START\020\001\022)\n%DOTA_REPLAY_STATE_EVENT_ST"
-  "ARTING_HORN\020\002\022\'\n#DOTA_REPLAY_STATE_EVENT"
-  "_FIRST_BLOOD\020\003\022$\n DOTA_REPLAY_STATE_EVEN"
-  "T_SHOWCASE\020\004\022%\n!DOTA_REPLAY_STATE_EVENT_"
-  "POST_GAME\020\005\022(\n$DOTA_REPLAY_STATE_EVENT_W"
-  "AIT_FOR_MAP\020\006*\345\001\n\023EDotaEntityMessages\022\024\n"
-  "\020DOTA_UNIT_SPEECH\020\000\022\031\n\025DOTA_UNIT_SPEECH_"
-  "MUTE\020\001\022\031\n\025DOTA_UNIT_ADD_GESTURE\020\002\022\034\n\030DOT"
-  "A_UNIT_REMOVE_GESTURE\020\003\022!\n\035DOTA_UNIT_REM"
-  "OVE_ALL_GESTURES\020\004\022\032\n\026DOTA_UNIT_FADE_GES"
-  "TURE\020\006\022%\n!DOTA_UNIT_SPEECH_CLIENTSIDE_RU"
-  "LES\020\007*\215\006\n\023DOTA_OVERHEAD_ALERT\022\027\n\023OVERHEA"
-  "D_ALERT_GOLD\020\000\022\027\n\023OVERHEAD_ALERT_DENY\020\001\022"
-  "\033\n\027OVERHEAD_ALERT_CRITICAL\020\002\022\025\n\021OVERHEAD"
-  "_ALERT_XP\020\003\022%\n!OVERHEAD_ALERT_BONUS_SPEL"
-  "L_DAMAGE\020\004\022\027\n\023OVERHEAD_ALERT_MISS\020\005\022\031\n\025O"
-  "VERHEAD_ALERT_DAMAGE\020\006\022\030\n\024OVERHEAD_ALERT"
-  "_EVADE\020\007\022\030\n\024OVERHEAD_ALERT_BLOCK\020\010\022&\n\"OV"
-  "ERHEAD_ALERT_BONUS_POISON_DAMAGE\020\t\022\027\n\023OV"
-  "ERHEAD_ALERT_HEAL\020\n\022\033\n\027OVERHEAD_ALERT_MA"
-  "NA_ADD\020\013\022\034\n\030OVERHEAD_ALERT_MANA_LOSS\020\014\022!"
-  "\n\035OVERHEAD_ALERT_LAST_HIT_EARLY\020\r\022!\n\035OVE"
-  "RHEAD_ALERT_LAST_HIT_CLOSE\020\016\022 \n\034OVERHEAD"
-  "_ALERT_LAST_HIT_MISS\020\017\022 \n\034OVERHEAD_ALERT"
-  "_MAGICAL_BLOCK\020\020\022\"\n\036OVERHEAD_ALERT_INCOM"
-  "ING_DAMAGE\020\021\022\"\n\036OVERHEAD_ALERT_OUTGOING_"
-  "DAMAGE\020\022\022!\n\035OVERHEAD_ALERT_DISABLE_RESIS"
-  "T\020\023\022\030\n\024OVERHEAD_ALERT_DEATH\020\024\022\032\n\026OVERHEA"
-  "D_ALERT_BLOCKED\020\025\022 \n\034OVERHEAD_ALERT_ITEM"
-  "_RECEIVED\020\026\022\030\n\024OVERHEAD_ALERT_SHARD\020\027\022\036\n"
-  "\032OVERHEAD_ALERT_DEADLY_BLOW\020\030*k\n\021DOTA_RO"
-  "SHAN_PHASE\022\027\n\023k_SRSP_ROSHAN_ALIVE\020\000\022\034\n\030k"
-  "_SRSP_ROSHAN_BASE_TIMER\020\001\022\037\n\033k_SRSP_ROSH"
-  "AN_VISIBLE_TIMER\020\002*\201\004\n\026DOTA_POSITION_CAT"
-  "EGORY\022\026\n\022DOTA_POSITION_NONE\020\000\022\035\n\031DOTA_PO"
-  "SITION_BOTTOM_LANE\020\001\022\032\n\026DOTA_POSITION_MI"
-  "D_LANE\020\002\022\032\n\026DOTA_POSITION_TOP_LANE\020\003\022 \n\034"
-  "DOTA_POSITION_RADIANT_JUNGLE\020\004\022\035\n\031DOTA_P"
-  "OSITION_DIRE_JUNGLE\020\005\022\"\n\036DOTA_POSITION_R"
-  "ADIANT_ANCIENTS\020\006\022\037\n\033DOTA_POSITION_DIRE_"
-  "ANCIENTS\020\007\022%\n!DOTA_POSITION_RADIANT_SECR"
-  "ET_SHOP\020\010\022\"\n\036DOTA_POSITION_DIRE_SECRET_S"
-  "HOP\020\t\022\027\n\023DOTA_POSITION_RIVER\020\n\022\034\n\030DOTA_P"
-  "OSITION_ROSHAN_PIT\020\013\022\036\n\032DOTA_POSITION_RA"
-  "DIANT_BASE\020\014\022\033\n\027DOTA_POSITION_DIRE_BASE\020"
-  "\r\022\032\n\026DOTA_POSITION_FOUNTAIN\020\016\022\027\n\023DOTA_PO"
-  "SITION_OTHER\020\017*\346\001\n\030DOTA_ABILITY_TARGET_T"
-  "YPE\022\034\n\030DOTA_ABILITY_TARGET_NONE\020\000\022\034\n\030DOT"
-  "A_ABILITY_TARGET_SELF\020\001\022!\n\035DOTA_ABILITY_"
-  "TARGET_ALLY_HERO\020\002\022\"\n\036DOTA_ABILITY_TARGE"
-  "T_ALLY_CREEP\020\003\022\"\n\036DOTA_ABILITY_TARGET_EN"
-  "EMY_HERO\020\004\022#\n\037DOTA_ABILITY_TARGET_ENEMY_"
-  "CREEP\020\005*\230\010\n\rEHeroStatType\022\030\n\024k_EHeroStat"
-  "Type_None\020\000\022#\n\036k_EHeroStatType_AxeTotalD"
-  "amage\020\320\017\022\'\n\"k_EHeroStatType_BattleHunger"
-  "Damage\020\321\017\022\'\n\"k_EHeroStatType_CounterHeli"
-  "xDamage\020\322\017\022\'\n\"k_EHeroStatType_CullingBla"
-  "deDamage\020\323\017\022,\n\'k_EHeroStatType_Berserker"
-  "sCallCastCount\020\324\017\0223\n.k_EHeroStatType_Ber"
-  "serkersCallHeroesHitAverage\020\325\017\0220\n+k_EHer"
-  "oStatType_BerserkersCallOtherUnitsHit\020\326\017"
-  "\0223\n.k_EHeroStatType_BerserkersCallHeroAt"
-  "tacksTaken\020\327\017\0224\n/k_EHeroStatType_Berserk"
-  "ersCallOtherAttacksTaken\020\330\017\022*\n%k_EHeroSt"
-  "atType_BattleHungerCastCount\020\331\017\0222\n-k_EHe"
-  "roStatType_BattleHungerPotentialDuration"
-  "\020\332\017\0220\n+k_EHeroStatType_BattleHungerAvera"
-  "geDuration\020\333\017\022*\n%k_EHeroStatType_Counter"
-  "HelixProcCount\020\334\017\022.\n)k_EHeroStatType_Cou"
-  "nterHelixHeroProcCount\020\335\017\0221\n,k_EHeroStat"
-  "Type_CounterHelixHeroesHitAverage\020\336\017\0223\n."
-  "k_EHeroStatType_CounterHelixOtherUnitsHi"
-  "tCount\020\337\017\022*\n%k_EHeroStatType_CullingBlad"
-  "eCastCount\020\340\017\022*\n%k_EHeroStatType_Culling"
-  "BladeKillCount\020\341\017\0224\n/k_EHeroStatType_Cul"
-  "lingBladeAverageHealthCulled\020\342\017\0227\n2k_EHe"
-  "roStatType_CullingBladeAverageDamageAvai"
-  "lable\020\343\017\0220\n+k_EHeroStatType_CullingBlade"
-  "HeroBuffAverage\020\344\017*\344\004\n\027EPlayerVoiceListe"
-  "nState\022\016\n\nkPVLS_None\020\000\022\032\n\026kPVLS_DeniedCh"
-  "atBanned\020\001\022\027\n\023kPVLS_DeniedPartner\020\002\022&\n\"k"
-  "PVLS_DeniedHLTVTalkerNotSpectator\020\003\022$\n k"
-  "PVLS_DeniedHLTVNoTalkerPlayerID\020\004\022(\n$kPV"
-  "LS_DeniedHLTVTalkerNotBroadcaster\020\005\022\035\n\031k"
-  "PVLS_DeniedTeamSpectator\020\006\022\027\n\023kPVLS_Deni"
-  "edStudent\020\010\022\034\n\030kPVLS_DeniedPrivateCoach\020"
-  "\t\022\020\n\014kPVLS_Denied\020@\022&\n\"kPVLS_AllowHLTVTa"
-  "lkerIsBroadcaster\020A\022\034\n\030kPVLS_AllowCoBroa"
-  "dcaster\020B\022\026\n\022kPVLS_AllowAllChat\020C\022\035\n\031kPV"
-  "LS_AllowStudentToCoach\020D\022\034\n\030kPVLS_AllowF"
-  "ellowStudent\020E\022\034\n\030kPVLS_AllowTalkerIsCoa"
-  "ch\020F\022\034\n\030kPVLS_AllowCoachHearTeam\020G\022\027\n\023kP"
-  "VLS_AllowSameTeam\020H\022\027\n\023kPVLS_AllowShowca"
-  "se\020I\022\033\n\027kPVLS_AllowPrivateCoach\020J*B\n\020EPr"
-  "ojectionEvent\022\022\n\016ePE_FirstBlood\020\000\022\032\n\026ePE"
-  "_Killstreak_godlike\020\001B\005H\001\200\001\000"
+  "(\010\022\020\n\010end_time\030\007 \001(\002\022\034\n\020victim_ent_index"
+  "\030\010 \001(\005:\002-1\"a\n\034CDOTAUserMsg_ProjectionEve"
+  "nt\0223\n\010event_id\030\001 \001(\0162\021.EProjectionEvent:"
+  "\016ePE_FirstBlood\022\014\n\004team\030\002 \001(\r\"J\n\024CDOTAUs"
+  "erMsg_XPAlert\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\033\n\017"
+  "target_entindex\030\002 \001(\005:\002-1\"\211\001\n\034CDOTAUserM"
+  "sg_TalentTreeAlert\022\025\n\tplayer_id\030\001 \001(\005:\002-"
+  "1\022\033\n\017target_entindex\030\002 \001(\005:\002-1\022\026\n\nabilit"
+  "y_id\030\003 \001(\005:\002-1\022\014\n\004slot\030\004 \001(\005\022\017\n\007learned\030"
+  "\005 \001(\010\"\"\n CDOTAUserMsg_UpdateQuestProgres"
+  "s\"\274\001\n\030CDOTAUserMsg_QuestStatus\022\025\n\tplayer"
+  "_id\030\001 \002(\005:\002-1\022\020\n\010quest_id\030\002 \001(\r\022\024\n\014chall"
+  "enge_id\030\003 \001(\r\022\020\n\010progress\030\004 \001(\r\022\014\n\004goal\030"
+  "\005 \001(\r\022\r\n\005query\030\006 \001(\r\022\025\n\rfail_gametime\030\007 "
+  "\001(\002\022\033\n\017item_ability_id\030\010 \001(\005:\002-1\"S\n\034CDOT"
+  "AUserMsg_SuggestHeroPick\022\025\n\tplayer_id\030\001 "
+  "\002(\005:\002-1\022\017\n\007hero_id\030\002 \001(\r\022\013\n\003ban\030\003 \001(\010\"H\n"
+  "\034CDOTAUserMsg_SuggestHeroRole\022\025\n\tplayer_"
+  "id\030\001 \002(\005:\002-1\022\021\n\thero_role\030\002 \001(\t\"\247\001\n\037CDOT"
+  "AUserMsg_KillcamDamageTaken\022\025\n\tplayer_id"
+  "\030\001 \002(\005:\002-1\022\024\n\014damage_taken\030\002 \001(\r\022\021\n\titem"
+  "_type\030\003 \001(\r\022\033\n\017item_ability_id\030\004 \001(\005:\002-1"
+  "\022\021\n\thero_name\030\005 \001(\t\022\024\n\014damage_color\030\006 \001("
+  "\t\"E\n\036CDOTAUserMsg_SelectPenaltyGold\022\025\n\tp"
+  "layer_id\030\001 \002(\005:\002-1\022\014\n\004cost\030\002 \001(\021\"~\n\033CDOT"
+  "AUserMsg_RollDiceResult\022\025\n\tplayer_id\030\001 \001"
+  "(\005:\002-1\022\024\n\014channel_type\030\002 \001(\r\022\020\n\010roll_min"
+  "\030\003 \001(\r\022\020\n\010roll_max\030\004 \001(\r\022\016\n\006result\030\005 \001(\r"
+  "\"Z\n\033CDOTAUserMsg_FlipCoinResult\022\025\n\tplaye"
+  "r_id\030\001 \001(\005:\002-1\022\024\n\014channel_type\030\002 \001(\r\022\016\n\006"
+  "result\030\003 \001(\010\"@\n\'CDOTAUserMessage_Request"
+  "ItemSuggestions\022\025\n\tplayer_id\030\001 \001(\005:\002-1\"R"
+  "\n#CDOTAUserMessage_TeamCaptainChanged\022\014\n"
+  "\004team\030\001 \001(\r\022\035\n\021captain_player_id\030\002 \001(\005:\002"
+  "-1\"\\\n\036CDOTAUserMsg_ChatWheelCooldown\022\036\n\n"
+  "message_id\030\001 \001(\r:\n4294967295\022\032\n\022cooldown"
+  "_remaining\030\002 \001(\002\"\214\001\n\036CDOTAUserMsg_HeroRe"
+  "licProgress\022\027\n\017hero_relic_type\030\001 \001(\r\022\r\n\005"
+  "value\030\002 \001(\r\022\031\n\007ehandle\030\003 \001(\r:\01016777215\022\020"
+  "\n\010event_id\030\004 \001(\r\022\025\n\rvalue_display\030\005 \001(\002\""
+  "x\n\'CDOTAUserMsg_AbilityDraftRequestAbili"
+  "ty\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022 \n\024requested_a"
+  "bility_id\030\002 \001(\005:\002-1\022\024\n\014ctrl_is_down\030\003 \001("
+  "\010\"\214\001\n\031CDOTAUserMsg_DamageReport\022\025\n\tplaye"
+  "r_id\030\001 \001(\005:\002-1\022\026\n\016target_hero_id\030\002 \001(\r\022\026"
+  "\n\016source_hero_id\030\003 \001(\r\022\025\n\rdamage_amount\030"
+  "\004 \001(\005\022\021\n\tbroadcast\030\005 \001(\010\"\260\001\n\031CDOTAUserMs"
+  "g_SalutePlayer\022\034\n\020source_player_id\030\001 \001(\005"
+  ":\002-1\022\034\n\020target_player_id\030\002 \001(\005:\002-1\022\022\n\nti"
+  "p_amount\030\003 \001(\r\022\020\n\010event_id\030\004 \001(\r\022\030\n\020cust"
+  "om_tip_style\030\005 \001(\t\022\027\n\017num_recent_tips\030\006 "
+  "\001(\r\"@\n\025CDOTAUserMsg_TipAlert\022\025\n\tplayer_i"
+  "d\030\001 \001(\005:\002-1\022\020\n\010tip_text\030\002 \001(\t\"p\n\035CDOTAUs"
+  "erMsg_ReplaceQueryUnit\022\025\n\tplayer_id\030\001 \002("
+  "\005:\002-1\022\033\n\017source_entindex\030\002 \001(\005:\002-1\022\033\n\017ta"
+  "rget_entindex\030\003 \001(\005:\002-1\"b\n\032CDOTAUserMsg_"
+  "ESArcanaCombo\022\031\n\007ehandle\030\001 \001(\r:\01016777215"
+  "\022\023\n\013combo_count\030\002 \001(\r\022\024\n\014arcana_level\030\003 "
+  "\001(\r\"j\n!CDOTAUserMsg_ESArcanaComboSummary"
+  "\022\031\n\007ehandle\030\001 \001(\r:\01016777215\022\023\n\013combo_cou"
+  "nt\030\002 \001(\r\022\025\n\rdamage_amount\030\003 \001(\r\"\201\001\n\032CDOT"
+  "AUserMsg_OMArcanaCombo\022\031\n\007ehandle\030\001 \001(\r:"
+  "\01016777215\022\030\n\020multicast_amount\030\002 \001(\r\022\024\n\014a"
+  "rcana_level\030\003 \001(\r\022\030\n\020multicast_chance\030\004 "
+  "\001(\r\"\213\001\n\036CDOTAUserMsg_HighFiveCompleted\022\027"
+  "\n\013player_id_1\030\001 \001(\005:\002-1\022\027\n\013player_id_2\030\002"
+  " \001(\005:\002-1\022\031\n\021special_high_five\030\003 \001(\010\022\034\n\020s"
+  "pecial_entindex\030\004 \001(\005:\002-1\"9\n CDOTAUserMs"
+  "g_HighFiveLeftHanging\022\025\n\tplayer_id\030\001 \001(\005"
+  ":\002-1\"j\n\032CDOTAUserMsg_ShovelUnearth\022\025\n\tpl"
+  "ayer_id\030\001 \001(\005:\002-1\022\020\n\010all_chat\030\002 \001(\010\022\021\n\tl"
+  "ocstring\030\003 \001(\t\022\020\n\010quantity\030\004 \001(\r\"\374\001\n\031CDO"
+  "TAUserMsg_AllStarEvent\022\034\n\020source_player_"
+  "id\030\001 \001(\005:\002-1\022\034\n\020target_player_id\030\002 \001(\005:\002"
+  "-1\022\024\n\014point_amount\030\003 \001(\r\022\020\n\010event_id\030\004 \001"
+  "(\r\022=\n\rplayer_scores\030\005 \003(\0132&.CDOTAUserMsg"
+  "_AllStarEvent.PlayerScore\032<\n\013PlayerScore"
+  "\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\026\n\016score_sans_kd"
+  "a\030\002 \001(\r\">\n\037CDOTAUserMsg_QueuedOrderRemov"
+  "ed\022\033\n\023unit_order_sequence\030\001 \003(\r\"\306\001\n\033CDOT"
+  "AUserMsg_DebugChallenge\022\026\n\016challenge_typ"
+  "e\030\001 \002(\r\022\032\n\022challenge_query_id\030\002 \002(\r\022\020\n\010e"
+  "vent_id\030\003 \002(\r\022\023\n\013instance_id\030\004 \001(\r\022\027\n\017ch"
+  "allenge_var_0\030\005 \001(\r\022\027\n\017challenge_var_1\030\006"
+  " \001(\r\022\032\n\022challenge_max_rank\030\007 \001(\r\"\177\n\035CDOT"
+  "AUserMsg_FoundNeutralItem\022\025\n\tplayer_id\030\001"
+  " \001(\005:\002-1\022\033\n\017item_ability_id\030\002 \001(\005:\002-1\022\021\n"
+  "\titem_tier\030\003 \001(\r\022\027\n\017tier_item_count\030\004 \001("
+  "\r\"M\n\034CDOTAUserMsg_OutpostCaptured\022\034\n\020out"
+  "post_entindex\030\001 \001(\005:\002-1\022\017\n\007team_id\030\002 \001(\r"
+  "\"C\n\035CDOTAUserMsg_OutpostGrantedXP\022\017\n\007tea"
+  "m_id\030\001 \001(\r\022\021\n\txp_amount\030\002 \001(\r\"\?\n\035CDOTAUs"
+  "erMsg_MoveCameraToUnit\022\036\n\014unit_ehandle\030\001"
+  " \001(\r:\01016777215\"\230\001\n\036CDOTAUserMsg_PauseMin"
+  "igameData\022:\n\tdata_bits\030\001 \003(\0132\'.CDOTAUser"
+  "Msg_PauseMinigameData.DataBit\032:\n\007DataBit"
+  "\022\r\n\005index\030\001 \001(\r\022\014\n\004data\030\002 \001(\005\022\022\n\ndata_ex"
+  "tra\030\003 \001(\003\"\245\002\n\'CDOTAUserMsg_VersusScene_P"
+  "layerBehavior\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022S\n\010"
+  "behavior\030\002 \001(\0162\037.EDOTAVersusScenePlayerB"
+  "ehavior: VS_PLAYER_BEHAVIOR_PLAY_ACTIVIT"
+  "Y\0220\n\rplay_activity\030\003 \001(\0132\031.VersusScene_P"
+  "layActivity\022*\n\nchat_wheel\030\004 \001(\0132\026.Versus"
+  "Scene_ChatWheel\0220\n\rplayback_rate\030\005 \001(\0132\031"
+  ".VersusScene_PlaybackRate\"~\n\036CDOTAUserMs"
+  "g_QoP_ArcanaSummary\022\031\n\007ehandle\030\001 \001(\r:\01016"
+  "777215\022\024\n\014arcana_level\030\002 \001(\r\022\023\n\013players_"
+  "hit\030\003 \001(\r\022\026\n\016players_killed\030\004 \001(\r\"R\n\036CDO"
+  "TAUserMsg_HotPotato_Created\022\027\n\013player_id"
+  "_1\030\001 \001(\005:\002-1\022\027\n\013player_id_2\030\002 \001(\005:\002-1\"8\n"
+  "\037CDOTAUserMsg_HotPotato_Exploded\022\025\n\tplay"
+  "er_id\030\001 \001(\005:\002-1\"c\n\037CDOTAUserMsg_WK_Arcan"
+  "a_Progress\022\031\n\007ehandle\030\001 \001(\r:\01016777215\022\024\n"
+  "\014arcana_level\030\002 \001(\r\022\017\n\007hero_id\030\003 \001(\r\"\216\004\n"
+  "$CDOTAUserMsg_GuildChallenge_Progress\022M\n"
+  "\017player_progress\030\001 \003(\01324.CDOTAUserMsg_Gu"
+  "ildChallenge_Progress.PlayerProgress\022\020\n\010"
+  "guild_id\030\002 \001(\r\022\035\n\025challenge_instance_id\030"
+  "\003 \001(\r\022\033\n\023challenge_parameter\030\004 \001(\r\022f\n\016ch"
+  "allenge_type\030\005 \001(\01624.CDOTAUserMsg_GuildC"
+  "hallenge_Progress.EChallengeType:\030k_ECha"
+  "llengeType_Invalid\022#\n\033challenge_progress"
+  "_at_start\030\007 \001(\r\022\020\n\010complete\030\010 \001(\010\0329\n\016Pla"
+  "yerProgress\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\020\n\010pr"
+  "ogress\030\006 \001(\r\"o\n\016EChallengeType\022\034\n\030k_ECha"
+  "llengeType_Invalid\020\000\022 \n\034k_EChallengeType"
+  "_Cooperative\020\001\022\035\n\031k_EChallengeType_Contr"
+  "act\020\002\"\311\001\n\035CDOTAUserMsg_WRArcanaProgress\022"
+  "\031\n\007ehandle\030\001 \001(\r:\01016777215\022 \n\016target_eha"
+  "ndle\030\002 \001(\r:\01016777215\022\025\n\rarrows_landed\030\003 "
+  "\001(\r\022\024\n\014damage_dealt\030\004 \001(\r\022\021\n\ttarget_hp\030\005"
+  " \001(\r\022\025\n\rtarget_max_hp\030\006 \001(\r\022\024\n\014arcana_le"
+  "vel\030\007 \001(\r\"\331\001\n\034CDOTAUserMsg_WRArcanaSumma"
+  "ry\022\031\n\007ehandle\030\001 \001(\r:\01016777215\022 \n\016target_"
+  "ehandle\030\002 \001(\r:\01016777215\022\025\n\rarrows_landed"
+  "\030\003 \001(\r\022\024\n\014damage_dealt\030\004 \001(\r\022\021\n\ttarget_h"
+  "p\030\005 \001(\r\022\025\n\rtarget_max_hp\030\006 \001(\r\022\024\n\014arcana"
+  "_level\030\007 \001(\r\022\017\n\007success\030\010 \001(\010\"\213\001\n\037CDOTAU"
+  "serMsg_EmptyItemSlotAlert\022\034\n\020source_play"
+  "er_id\030\001 \001(\005:\002-1\022\034\n\020target_player_id\030\002 \001("
+  "\005:\002-1\022\022\n\nslot_index\030\003 \001(\005\022\030\n\020cooldown_se"
+  "conds\030\004 \001(\005\"\263\001\n\034CDOTAUserMsg_AghsStatusA"
+  "lert\022\034\n\020source_player_id\030\001 \001(\005:\002-1\022\034\n\020ta"
+  "rget_player_id\030\002 \001(\005:\002-1\022\033\n\017target_entin"
+  "dex\030\003 \001(\005:\002-1\022\022\n\nalert_type\030\004 \001(\r\022\023\n\013has"
+  "_scepter\030\005 \001(\010\022\021\n\thas_shard\030\006 \001(\010\"Z\n\031CDO"
+  "TAUserMsg_MutedPlayers\022\035\n\025text_muted_pla"
+  "yer_ids\030\001 \003(\005\022\036\n\026voice_muted_player_ids\030"
+  "\002 \003(\005\"\376\002\n\032CDOTAUserMsg_ContextualTip\022\016\n\006"
+  "tip_id\030\001 \001(\005\022\034\n\024referenced_abilities\030\002 \003"
+  "(\t\022\030\n\020referenced_units\030\003 \003(\t\022\030\n\020panorama"
+  "_classes\030\004 \003(\t\022\030\n\020force_annotation\030\005 \001(\010"
+  "\022\017\n\007variant\030\006 \001(\005\022\021\n\tint_param\030\007 \001(\005\022\022\n\n"
+  "int_param2\030\010 \001(\005\022\023\n\013float_param\030\t \001(\002\022\024\n"
+  "\014float_param2\030\n \001(\002\022\024\n\014string_param\030\013 \001("
+  "\t\022\025\n\rstring_param2\030\014 \001(\t\022\031\n\021tip_text_ove"
+  "rride\030\r \001(\t\022\037\n\027tip_annotation_override\030\016"
+  " \001(\t\022\030\n\020panorama_snippet\030\017 \001(\t\"d\n\030CDOTAU"
+  "serMsg_ChatMessage\022\034\n\020source_player_id\030\001"
+  " \001(\005:\002-1\022\024\n\014channel_type\030\002 \001(\r\022\024\n\014messag"
+  "e_text\030\003 \001(\t\"c\n%CDOTAUserMsg_RockPaperSc"
+  "issorsStarted\022\034\n\020player_id_source\030\001 \001(\005:"
+  "\002-1\022\034\n\020player_id_target\030\002 \001(\005:\002-1\"\214\001\n&CD"
+  "OTAUserMsg_RockPaperScissorsFinished\022\027\n\013"
+  "player_id_1\030\001 \001(\005:\002-1\022\027\n\013player_id_2\030\002 \001"
+  "(\005:\002-1\022\027\n\017player_1_choice\030\003 \001(\005\022\027\n\017playe"
+  "r_2_choice\030\004 \001(\005\"T\n\037CDOTAUserMsg_DuelOpp"
+  "onentKilled\022\030\n\020player_id_winner\030\001 \001(\005\022\027\n"
+  "\017player_id_loser\030\002 \001(\005\"E\n\031CDOTAUserMsg_D"
+  "uelAccepted\022\023\n\013player_id_1\030\001 \001(\005\022\023\n\013play"
+  "er_id_2\030\002 \001(\005\"=\n\032CDOTAUserMsg_DuelReques"
+  "ted\022\037\n\023player_id_requestor\030\001 \001(\005:\002-1\"\252\001\n"
+  "4CDOTAUserMsg_MuertaReleaseEvent_Assigne"
+  "dTargetKilled\022\034\n\020player_id_killer\030\001 \002(\005:"
+  "\002-1\022\034\n\020player_id_target\030\002 \002(\005:\002-1\022\016\n\006poi"
+  "nts\030\003 \002(\005\022\024\n\014points_total\030\004 \002(\005\022\020\n\010last_"
+  "hit\030\005 \002(\010*\341$\n\021EDotaUserMessages\022\037\n\032DOTA_"
+  "UM_AddUnitToSelection\020\320\003\022\030\n\023DOTA_UM_AIDe"
+  "bugLine\020\321\003\022\026\n\021DOTA_UM_ChatEvent\020\322\003\022 \n\033DO"
+  "TA_UM_CombatHeroPositions\020\323\003\022\032\n\025DOTA_UM_"
+  "CombatLogData\020\324\003\022\036\n\031DOTA_UM_CombatLogBul"
+  "kData\020\326\003\022#\n\036DOTA_UM_CreateLinearProjecti"
+  "le\020\327\003\022$\n\037DOTA_UM_DestroyLinearProjectile"
+  "\020\330\003\022%\n DOTA_UM_DodgeTrackingProjectiles\020"
+  "\331\003\022\035\n\030DOTA_UM_GlobalLightColor\020\332\003\022!\n\034DOT"
+  "A_UM_GlobalLightDirection\020\333\003\022\033\n\026DOTA_UM_"
+  "InvalidCommand\020\334\003\022\031\n\024DOTA_UM_LocationPin"
+  "g\020\335\003\022\024\n\017DOTA_UM_MapLine\020\336\003\022\034\n\027DOTA_UM_Mi"
+  "niKillCamInfo\020\337\003\022\036\n\031DOTA_UM_MinimapDebug"
+  "Point\020\340\003\022\031\n\024DOTA_UM_MinimapEvent\020\341\003\022\035\n\030D"
+  "OTA_UM_NevermoreRequiem\020\342\003\022\032\n\025DOTA_UM_Ov"
+  "erheadEvent\020\343\003\022\037\n\032DOTA_UM_SetNextAutobuy"
+  "Item\020\344\003\022\033\n\026DOTA_UM_SharedCooldown\020\345\003\022!\n\034"
+  "DOTA_UM_SpectatorPlayerClick\020\346\003\022\034\n\027DOTA_"
+  "UM_TutorialTipInfo\020\347\003\022\026\n\021DOTA_UM_UnitEve"
+  "nt\020\350\003\022\034\n\027DOTA_UM_ParticleManager\020\351\003\022\024\n\017D"
+  "OTA_UM_BotChat\020\352\003\022\025\n\020DOTA_UM_HudError\020\353\003"
+  "\022\032\n\025DOTA_UM_ItemPurchased\020\354\003\022\021\n\014DOTA_UM_"
+  "Ping\020\355\003\022\026\n\021DOTA_UM_ItemFound\020\356\003\022\"\n\035DOTA_"
+  "UM_CharacterSpeakConcept\020\357\003\022\027\n\022DOTA_UM_S"
+  "wapVerify\020\360\003\022\026\n\021DOTA_UM_WorldLine\020\361\003\022\033\n\026"
+  "DOTA_UM_TournamentDrop\020\362\003\022\026\n\021DOTA_UM_Ite"
+  "mAlert\020\363\003\022\033\n\026DOTA_UM_HalloweenDrops\020\364\003\022\026"
+  "\n\021DOTA_UM_ChatWheel\020\365\003\022\035\n\030DOTA_UM_Receiv"
+  "edXmasGift\020\366\003\022 \n\033DOTA_UM_UpdateSharedCon"
+  "tent\020\367\003\022\037\n\032DOTA_UM_TutorialRequestExp\020\370\003"
+  "\022 \n\033DOTA_UM_TutorialPingMinimap\020\371\003\022\"\n\035DO"
+  "TA_UM_GamerulesStateChanged\020\372\003\022\027\n\022DOTA_U"
+  "M_ShowSurvey\020\373\003\022\031\n\024DOTA_UM_TutorialFade\020"
+  "\374\003\022\035\n\030DOTA_UM_AddQuestLogEntry\020\375\003\022\032\n\025DOT"
+  "A_UM_SendStatPopup\020\376\003\022\033\n\026DOTA_UM_Tutoria"
+  "lFinish\020\377\003\022\034\n\027DOTA_UM_SendRoshanPopup\020\200\004"
+  "\022\037\n\032DOTA_UM_SendGenericToolTip\020\201\004\022\032\n\025DOT"
+  "A_UM_SendFinalGold\020\202\004\022\026\n\021DOTA_UM_CustomM"
+  "sg\020\203\004\022\031\n\024DOTA_UM_CoachHUDPing\020\204\004\022\036\n\031DOTA"
+  "_UM_ClientLoadGridNav\020\205\004\022\032\n\025DOTA_UM_TE_P"
+  "rojectile\020\206\004\022\035\n\030DOTA_UM_TE_ProjectileLoc"
+  "\020\207\004\022\037\n\032DOTA_UM_TE_DotaBloodImpact\020\210\004\022\035\n\030"
+  "DOTA_UM_TE_UnitAnimation\020\211\004\022 \n\033DOTA_UM_T"
+  "E_UnitAnimationEnd\020\212\004\022\030\n\023DOTA_UM_Ability"
+  "Ping\020\213\004\022\035\n\030DOTA_UM_ShowGenericPopup\020\214\004\022\026"
+  "\n\021DOTA_UM_VoteStart\020\215\004\022\027\n\022DOTA_UM_VoteUp"
+  "date\020\216\004\022\024\n\017DOTA_UM_VoteEnd\020\217\004\022\031\n\024DOTA_UM"
+  "_BoosterState\020\220\004\022\036\n\031DOTA_UM_WillPurchase"
+  "Alert\020\221\004\022$\n\037DOTA_UM_TutorialMinimapPosit"
+  "ion\020\222\004\022\026\n\021DOTA_UM_PlayerMMR\020\223\004\022\031\n\024DOTA_U"
+  "M_AbilitySteal\020\224\004\022\037\n\032DOTA_UM_CourierKill"
+  "edAlert\020\225\004\022\033\n\026DOTA_UM_EnemyItemAlert\020\226\004\022"
+  "\036\n\031DOTA_UM_StatsMatchDetails\020\227\004\022\026\n\021DOTA_"
+  "UM_MiniTaunt\020\230\004\022\036\n\031DOTA_UM_BuyBackStateA"
+  "lert\020\231\004\022\031\n\024DOTA_UM_SpeechBubble\020\232\004\022 \n\033DO"
+  "TA_UM_CustomHeaderMessage\020\233\004\022\032\n\025DOTA_UM_"
+  "QuickBuyAlert\020\234\004\022\035\n\030DOTA_UM_StatsHeroDet"
+  "ails\020\235\004\022\035\n\030DOTA_UM_PredictionResult\020\236\004\022\032"
+  "\n\025DOTA_UM_ModifierAlert\020\237\004\022\030\n\023DOTA_UM_HP"
+  "ManaAlert\020\240\004\022\027\n\022DOTA_UM_GlyphAlert\020\241\004\022\026\n"
+  "\021DOTA_UM_BeastChat\020\242\004\022&\n!DOTA_UM_Spectat"
+  "orPlayerUnitOrders\020\243\004\022$\n\037DOTA_UM_CustomH"
+  "udElement_Create\020\244\004\022$\n\037DOTA_UM_CustomHud"
+  "Element_Modify\020\245\004\022%\n DOTA_UM_CustomHudEl"
+  "ement_Destroy\020\246\004\022\034\n\027DOTA_UM_CompendiumSt"
+  "ate\020\247\004\022\036\n\031DOTA_UM_ProjectionAbility\020\250\004\022\034"
+  "\n\027DOTA_UM_ProjectionEvent\020\251\004\022\036\n\031DOTA_UM_"
+  "CombatLogDataHLTV\020\252\004\022\024\n\017DOTA_UM_XPAlert\020"
+  "\253\004\022 \n\033DOTA_UM_UpdateQuestProgress\020\254\004\022\032\n\025"
+  "DOTA_UM_MatchMetadata\020\255\004\022\031\n\024DOTA_UM_Matc"
+  "hDetails\020\256\004\022\030\n\023DOTA_UM_QuestStatus\020\257\004\022\034\n"
+  "\027DOTA_UM_SuggestHeroPick\020\260\004\022\034\n\027DOTA_UM_S"
+  "uggestHeroRole\020\261\004\022\037\n\032DOTA_UM_KillcamDama"
+  "geTaken\020\262\004\022\036\n\031DOTA_UM_SelectPenaltyGold\020"
+  "\263\004\022\033\n\026DOTA_UM_RollDiceResult\020\264\004\022\033\n\026DOTA_"
+  "UM_FlipCoinResult\020\265\004\022#\n\036DOTA_UM_RequestI"
+  "temSuggestions\020\266\004\022\037\n\032DOTA_UM_TeamCaptain"
+  "Changed\020\267\004\022%\n DOTA_UM_SendRoshanSpectato"
+  "rPhase\020\270\004\022\036\n\031DOTA_UM_ChatWheelCooldown\020\271"
+  "\004\022!\n\034DOTA_UM_DismissAllStatPopups\020\272\004\022!\n\034"
+  "DOTA_UM_TE_DestroyProjectile\020\273\004\022\036\n\031DOTA_"
+  "UM_HeroRelicProgress\020\274\004\022\'\n\"DOTA_UM_Abili"
+  "tyDraftRequestAbility\020\275\004\022\025\n\020DOTA_UM_Item"
+  "Sold\020\276\004\022\031\n\024DOTA_UM_DamageReport\020\277\004\022\031\n\024DO"
+  "TA_UM_SalutePlayer\020\300\004\022\025\n\020DOTA_UM_TipAler"
+  "t\020\301\004\022\035\n\030DOTA_UM_ReplaceQueryUnit\020\302\004\022\037\n\032D"
+  "OTA_UM_EmptyTeleportAlert\020\303\004\022#\n\036DOTA_UM_"
+  "MarsArenaOfBloodAttack\020\304\004\022\032\n\025DOTA_UM_ESA"
+  "rcanaCombo\020\305\004\022!\n\034DOTA_UM_ESArcanaComboSu"
+  "mmary\020\306\004\022 \n\033DOTA_UM_HighFiveLeftHanging\020"
+  "\307\004\022\036\n\031DOTA_UM_HighFiveCompleted\020\310\004\022\032\n\025DO"
+  "TA_UM_ShovelUnearth\020\311\004\022\035\n\030DOTA_EM_Invoke"
+  "rSpellCast\020\312\004\022\027\n\022DOTA_UM_RadarAlert\020\313\004\022\031"
+  "\n\024DOTA_UM_AllStarEvent\020\314\004\022\034\n\027DOTA_UM_Tal"
+  "entTreeAlert\020\315\004\022\037\n\032DOTA_UM_QueuedOrderRe"
+  "moved\020\316\004\022\033\n\026DOTA_UM_DebugChallenge\020\317\004\022\032\n"
+  "\025DOTA_UM_OMArcanaCombo\020\320\004\022\035\n\030DOTA_UM_Fou"
+  "ndNeutralItem\020\321\004\022\034\n\027DOTA_UM_OutpostCaptu"
+  "red\020\322\004\022\035\n\030DOTA_UM_OutpostGrantedXP\020\323\004\022\035\n"
+  "\030DOTA_UM_MoveCameraToUnit\020\324\004\022\036\n\031DOTA_UM_"
+  "PauseMinigameData\020\325\004\022\'\n\"DOTA_UM_VersusSc"
+  "ene_PlayerBehavior\020\326\004\022\036\n\031DOTA_UM_QoP_Arc"
+  "anaSummary\020\330\004\022\036\n\031DOTA_UM_HotPotato_Creat"
+  "ed\020\331\004\022\037\n\032DOTA_UM_HotPotato_Exploded\020\332\004\022\037"
+  "\n\032DOTA_UM_WK_Arcana_Progress\020\333\004\022$\n\037DOTA_"
+  "UM_GuildChallenge_Progress\020\334\004\022\035\n\030DOTA_UM"
+  "_WRArcanaProgress\020\335\004\022\034\n\027DOTA_UM_WRArcana"
+  "Summary\020\336\004\022\037\n\032DOTA_UM_EmptyItemSlotAlert"
+  "\020\337\004\022\034\n\027DOTA_UM_AghsStatusAlert\020\340\004\022\035\n\030DOT"
+  "A_UM_PingConfirmation\020\341\004\022\031\n\024DOTA_UM_Mute"
+  "dPlayers\020\342\004\022\032\n\025DOTA_UM_ContextualTip\020\343\004\022"
+  "\030\n\023DOTA_UM_ChatMessage\020\344\004\022\035\n\030DOTA_UM_Neu"
+  "tralCampAlert\020\345\004\022%\n DOTA_UM_RockPaperSci"
+  "ssorsStarted\020\346\004\022&\n!DOTA_UM_RockPaperScis"
+  "sorsFinished\020\347\004\022\037\n\032DOTA_UM_DuelOpponentK"
+  "illed\020\350\004\022\031\n\024DOTA_UM_DuelAccepted\020\351\004\022\032\n\025D"
+  "OTA_UM_DuelRequested\020\352\004\0224\n/DOTA_UM_Muert"
+  "aReleaseEvent_AssignedTargetKilled\020\353\004*\271\036"
+  "\n\021DOTA_CHAT_MESSAGE\022!\n\024CHAT_MESSAGE_INVA"
+  "LID\020\377\377\377\377\377\377\377\377\377\001\022\032\n\026CHAT_MESSAGE_HERO_KILL"
+  "\020\000\022\032\n\026CHAT_MESSAGE_HERO_DENY\020\001\022\036\n\032CHAT_M"
+  "ESSAGE_BARRACKS_KILL\020\002\022\033\n\027CHAT_MESSAGE_T"
+  "OWER_KILL\020\003\022\033\n\027CHAT_MESSAGE_TOWER_DENY\020\004"
+  "\022\033\n\027CHAT_MESSAGE_FIRSTBLOOD\020\005\022\034\n\030CHAT_ME"
+  "SSAGE_STREAK_KILL\020\006\022\030\n\024CHAT_MESSAGE_BUYB"
+  "ACK\020\007\022\026\n\022CHAT_MESSAGE_AEGIS\020\010\022\034\n\030CHAT_ME"
+  "SSAGE_ROSHAN_KILL\020\t\022\035\n\031CHAT_MESSAGE_COUR"
+  "IER_LOST\020\n\022\"\n\036CHAT_MESSAGE_COURIER_RESPA"
+  "WNED\020\013\022\033\n\027CHAT_MESSAGE_GLYPH_USED\020\014\022\036\n\032C"
+  "HAT_MESSAGE_ITEM_PURCHASE\020\r\022\030\n\024CHAT_MESS"
+  "AGE_CONNECT\020\016\022\033\n\027CHAT_MESSAGE_DISCONNECT"
+  "\020\017\022.\n*CHAT_MESSAGE_DISCONNECT_WAIT_FOR_R"
+  "ECONNECT\020\020\022*\n&CHAT_MESSAGE_DISCONNECT_TI"
+  "ME_REMAINING\020\021\0221\n-CHAT_MESSAGE_DISCONNEC"
+  "T_TIME_REMAINING_PLURAL\020\022\022\032\n\026CHAT_MESSAG"
+  "E_RECONNECT\020\023\022\034\n\030CHAT_MESSAGE_PLAYER_LEF"
+  "T\020\024\022\036\n\032CHAT_MESSAGE_SAFE_TO_LEAVE\020\025\022\034\n\030C"
+  "HAT_MESSAGE_RUNE_PICKUP\020\026\022\034\n\030CHAT_MESSAG"
+  "E_RUNE_BOTTLE\020\027\022\032\n\026CHAT_MESSAGE_RUNE_DEN"
+  "Y\020r\022\031\n\025CHAT_MESSAGE_INTHEBAG\020\030\022\033\n\027CHAT_M"
+  "ESSAGE_SECRETSHOP\020\031\022#\n\037CHAT_MESSAGE_ITEM"
+  "_AUTOPURCHASED\020\032\022\037\n\033CHAT_MESSAGE_ITEMS_C"
+  "OMBINED\020\033\022\035\n\031CHAT_MESSAGE_SUPER_CREEPS\020\034"
+  "\022%\n!CHAT_MESSAGE_CANT_USE_ACTION_ITEM\020\035\022"
+  "\032\n\026CHAT_MESSAGE_CANTPAUSE\020\037\022\035\n\031CHAT_MESS"
+  "AGE_NOPAUSESLEFT\020 \022\035\n\031CHAT_MESSAGE_CANTP"
+  "AUSEYET\020!\022\027\n\023CHAT_MESSAGE_PAUSED\020\"\022\"\n\036CH"
+  "AT_MESSAGE_UNPAUSE_COUNTDOWN\020#\022\031\n\025CHAT_M"
+  "ESSAGE_UNPAUSED\020$\022\036\n\032CHAT_MESSAGE_AUTO_U"
+  "NPAUSED\020%\022\032\n\026CHAT_MESSAGE_YOUPAUSED\020&\022 \n"
+  "\034CHAT_MESSAGE_CANTUNPAUSETEAM\020\'\022\"\n\036CHAT_"
+  "MESSAGE_VOICE_TEXT_BANNED\020)\022.\n*CHAT_MESS"
+  "AGE_SPECTATORS_WATCHING_THIS_GAME\020*\022 \n\034C"
+  "HAT_MESSAGE_REPORT_REMINDER\020+\022\032\n\026CHAT_ME"
+  "SSAGE_ECON_ITEM\020,\022\026\n\022CHAT_MESSAGE_TAUNT\020"
+  "-\022\027\n\023CHAT_MESSAGE_RANDOM\020.\022\030\n\024CHAT_MESSA"
+  "GE_RD_TURN\020/\022 \n\034CHAT_MESSAGE_DROP_RATE_B"
+  "ONUS\0201\022!\n\035CHAT_MESSAGE_NO_BATTLE_POINTS\020"
+  "2\022\035\n\031CHAT_MESSAGE_DENIED_AEGIS\0203\022\036\n\032CHAT"
+  "_MESSAGE_INFORMATIONAL\0204\022\035\n\031CHAT_MESSAGE"
+  "_AEGIS_STOLEN\0205\022\035\n\031CHAT_MESSAGE_ROSHAN_C"
+  "ANDY\0206\022\034\n\030CHAT_MESSAGE_ITEM_GIFTED\0207\022\'\n#"
+  "CHAT_MESSAGE_HERO_KILL_WITH_GREEVIL\0208\022(\n"
+  "$CHAT_MESSAGE_HOLDOUT_TOWER_DESTROYED\0209\022"
+  "\'\n#CHAT_MESSAGE_HOLDOUT_WALL_DESTROYED\020:"
+  "\022&\n\"CHAT_MESSAGE_HOLDOUT_WALL_FINISHED\020;"
+  "\022)\n%CHAT_MESSAGE_PLAYER_LEFT_LIMITED_HER"
+  "O\020>\0221\n-CHAT_MESSAGE_ABANDON_LIMITED_HERO"
+  "_EXPLANATION\020\?\022(\n$CHAT_MESSAGE_DISCONNEC"
+  "T_LIMITED_HERO\020@\0223\n/CHAT_MESSAGE_LOW_PRI"
+  "ORITY_COMPLETED_EXPLANATION\020A\022,\n(CHAT_ME"
+  "SSAGE_RECRUITMENT_DROP_RATE_BONUS\020B\0221\n-C"
+  "HAT_MESSAGE_FROSTIVUS_SHINING_BOOSTER_AC"
+  "TIVE\020C\022 \n\034CHAT_MESSAGE_PLAYER_LEFT_AFK\020I"
+  "\0222\n.CHAT_MESSAGE_PLAYER_LEFT_DISCONNECTE"
+  "D_TOO_LONG\020J\022!\n\035CHAT_MESSAGE_PLAYER_ABAN"
+  "DONED\020K\022%\n!CHAT_MESSAGE_PLAYER_ABANDONED"
+  "_AFK\020L\0227\n3CHAT_MESSAGE_PLAYER_ABANDONED_"
+  "DISCONNECTED_TOO_LONG\020M\022#\n\037CHAT_MESSAGE_"
+  "WILL_NOT_BE_SCORED\020N\022*\n&CHAT_MESSAGE_WIL"
+  "L_NOT_BE_SCORED_RANKED\020O\022+\n\'CHAT_MESSAGE"
+  "_WILL_NOT_BE_SCORED_NETWORK\020P\0222\n.CHAT_ME"
+  "SSAGE_WILL_NOT_BE_SCORED_NETWORK_RANKED\020"
+  "Q\022)\n%CHAT_MESSAGE_CAN_QUIT_WITHOUT_ABAND"
+  "ON\020R\022:\n6CHAT_MESSAGE_RANKED_GAME_STILL_S"
+  "CORED_LEAVERS_GET_LOSS\020S\0228\n4CHAT_MESSAGE"
+  "_ABANDON_RANKED_BEFORE_FIRST_BLOOD_PARTY"
+  "\020T\022!\n\035CHAT_MESSAGE_COMPENDIUM_LEVEL\020U\022*\n"
+  "&CHAT_MESSAGE_VICTORY_PREDICTION_STREAK\020"
+  "V\022\"\n\036CHAT_MESSAGE_ASSASSIN_ANNOUNCE\020W\022!\n"
+  "\035CHAT_MESSAGE_ASSASSIN_SUCCESS\020X\022 \n\034CHAT"
+  "_MESSAGE_ASSASSIN_DENIED\020Y\0227\n3CHAT_MESSA"
+  "GE_VICTORY_PREDICTION_SINGLE_USER_CONFIR"
+  "M\020Z\022\034\n\030CHAT_MESSAGE_EFFIGY_KILL\020[\022+\n\'CHA"
+  "T_MESSAGE_VOICE_TEXT_BANNED_OVERFLOW\020\\\022\""
+  "\n\036CHAT_MESSAGE_YEAR_BEAST_KILLED\020]\022 \n\034CH"
+  "AT_MESSAGE_PAUSE_COUNTDOWN\020^\022\036\n\032CHAT_MES"
+  "SAGE_COINS_WAGERED\020_\022#\n\037CHAT_MESSAGE_HER"
+  "O_NOMINATED_BAN\020`\022\034\n\030CHAT_MESSAGE_HERO_B"
+  "ANNED\020a\022\037\n\033CHAT_MESSAGE_HERO_BAN_COUNT\020b"
+  "\022\036\n\032CHAT_MESSAGE_RIVER_PAINTED\020c\022\032\n\026CHAT"
+  "_MESSAGE_SCAN_USED\020d\022\036\n\032CHAT_MESSAGE_SHR"
+  "INE_KILLED\020e\022\"\n\036CHAT_MESSAGE_WAGER_TOKEN"
+  "_SPENT\020f\022\033\n\027CHAT_MESSAGE_RANK_WAGER\020g\022$\n"
+  " CHAT_MESSAGE_NEW_PLAYER_REMINDER\020h\022%\n!C"
+  "HAT_MESSAGE_OBSERVER_WARD_KILLED\020i\022#\n\037CH"
+  "AT_MESSAGE_SENTRY_WARD_KILLED\020j\022-\n)CHAT_"
+  "MESSAGE_ITEM_PLACED_IN_NEUTRAL_STASH\020k\022$"
+  "\n CHAT_MESSAGE_HERO_CHOICE_INVALID\020l\022\027\n\023"
+  "CHAT_MESSAGE_BOUNTY\020m\022$\n CHAT_MESSAGE_AB"
+  "ILITY_DRAFT_START\020n\022!\n\035CHAT_MESSAGE_HERO"
+  "_FOUND_CANDY\020o\022\'\n#CHAT_MESSAGE_ABILITY_D"
+  "RAFT_RANDOMED\020p\022(\n$CHAT_MESSAGE_PRIVATE_"
+  "COACH_CONNECTED\020q\022%\n!CHAT_MESSAGE_CANT_P"
+  "AUSE_TOO_EARLY\020s\022\'\n#CHAT_MESSAGE_HERO_KI"
+  "LL_WITH_PENGUIN\020t*\262\001\n\035DOTA_NO_BATTLE_POI"
+  "NTS_REASONS\022%\n!NO_BATTLE_POINTS_WRONG_LO"
+  "BBY_TYPE\020\001\022\"\n\036NO_BATTLE_POINTS_PRACTICE_"
+  "BOTS\020\002\022#\n\037NO_BATTLE_POINTS_CHEATS_ENABLE"
+  "D\020\003\022!\n\035NO_BATTLE_POINTS_LOW_PRIORITY\020\004*\317"
+  "\001\n\027DOTA_CHAT_INFORMATIONAL\022!\n\035INFO_COOP_"
+  "BATTLE_POINTS_RULES\020\001\022#\n\037INFO_FROSTIVUS_"
+  "ABANDON_REMINDER\020\002\022\030\n\024INFO_RANKED_REMIND"
+  "ER\020\003\022+\n\'INFO_COOP_LOW_PRIORITY_PASSIVE_R"
+  "EMINDER\020\004\022%\n!INFO_CUSTOM_GAME_PENALTY_RE"
+  "MINDER\020\005*\340\003\n\026DOTA_ABILITY_PING_TYPE\022\026\n\022A"
+  "BILITY_PING_READY\020\001\022\025\n\021ABILITY_PING_MANA"
+  "\020\002\022\031\n\025ABILITY_PING_COOLDOWN\020\003\022\026\n\022ABILITY"
+  "_PING_ENEMY\020\004\022\032\n\026ABILITY_PING_UNLEARNED\020"
+  "\005\022\033\n\027ABILITY_PING_INBACKPACK\020\006\022\030\n\024ABILIT"
+  "Y_PING_INSTASH\020\007\022\032\n\026ABILITY_PING_ONCOURI"
+  "ER\020\010\022\025\n\021ABILITY_PING_ALLY\020\t\022\034\n\030ABILITY_P"
+  "ING_LEARN_READY\020\n\022\033\n\027ABILITY_PING_WILL_L"
+  "EARN\020\013\022\035\n\031ABILITY_PING_FUTURE_LEARN\020\014\022\036\n"
+  "\032ABILITY_PING_NEUTRAL_OFFER\020\r\022 \n\034ABILITY"
+  "_PING_NEUTRAL_REQUEST\020\016\022\036\n\032ABILITY_PING_"
+  "NEUTRAL_EQUIP\020\017\022\"\n\036ABILITY_PING_INCOURIE"
+  "RBACKPACK\020\020*\214\002\n\027DOTA_REPLAY_STATE_EVENT\022"
+  "&\n\"DOTA_REPLAY_STATE_EVENT_GAME_START\020\001\022"
+  ")\n%DOTA_REPLAY_STATE_EVENT_STARTING_HORN"
+  "\020\002\022\'\n#DOTA_REPLAY_STATE_EVENT_FIRST_BLOO"
+  "D\020\003\022$\n DOTA_REPLAY_STATE_EVENT_SHOWCASE\020"
+  "\004\022%\n!DOTA_REPLAY_STATE_EVENT_POST_GAME\020\005"
+  "\022(\n$DOTA_REPLAY_STATE_EVENT_WAIT_FOR_MAP"
+  "\020\006*\345\001\n\023EDotaEntityMessages\022\024\n\020DOTA_UNIT_"
+  "SPEECH\020\000\022\031\n\025DOTA_UNIT_SPEECH_MUTE\020\001\022\031\n\025D"
+  "OTA_UNIT_ADD_GESTURE\020\002\022\034\n\030DOTA_UNIT_REMO"
+  "VE_GESTURE\020\003\022!\n\035DOTA_UNIT_REMOVE_ALL_GES"
+  "TURES\020\004\022\032\n\026DOTA_UNIT_FADE_GESTURE\020\006\022%\n!D"
+  "OTA_UNIT_SPEECH_CLIENTSIDE_RULES\020\007*\215\006\n\023D"
+  "OTA_OVERHEAD_ALERT\022\027\n\023OVERHEAD_ALERT_GOL"
+  "D\020\000\022\027\n\023OVERHEAD_ALERT_DENY\020\001\022\033\n\027OVERHEAD"
+  "_ALERT_CRITICAL\020\002\022\025\n\021OVERHEAD_ALERT_XP\020\003"
+  "\022%\n!OVERHEAD_ALERT_BONUS_SPELL_DAMAGE\020\004\022"
+  "\027\n\023OVERHEAD_ALERT_MISS\020\005\022\031\n\025OVERHEAD_ALE"
+  "RT_DAMAGE\020\006\022\030\n\024OVERHEAD_ALERT_EVADE\020\007\022\030\n"
+  "\024OVERHEAD_ALERT_BLOCK\020\010\022&\n\"OVERHEAD_ALER"
+  "T_BONUS_POISON_DAMAGE\020\t\022\027\n\023OVERHEAD_ALER"
+  "T_HEAL\020\n\022\033\n\027OVERHEAD_ALERT_MANA_ADD\020\013\022\034\n"
+  "\030OVERHEAD_ALERT_MANA_LOSS\020\014\022!\n\035OVERHEAD_"
+  "ALERT_LAST_HIT_EARLY\020\r\022!\n\035OVERHEAD_ALERT"
+  "_LAST_HIT_CLOSE\020\016\022 \n\034OVERHEAD_ALERT_LAST"
+  "_HIT_MISS\020\017\022 \n\034OVERHEAD_ALERT_MAGICAL_BL"
+  "OCK\020\020\022\"\n\036OVERHEAD_ALERT_INCOMING_DAMAGE\020"
+  "\021\022\"\n\036OVERHEAD_ALERT_OUTGOING_DAMAGE\020\022\022!\n"
+  "\035OVERHEAD_ALERT_DISABLE_RESIST\020\023\022\030\n\024OVER"
+  "HEAD_ALERT_DEATH\020\024\022\032\n\026OVERHEAD_ALERT_BLO"
+  "CKED\020\025\022 \n\034OVERHEAD_ALERT_ITEM_RECEIVED\020\026"
+  "\022\030\n\024OVERHEAD_ALERT_SHARD\020\027\022\036\n\032OVERHEAD_A"
+  "LERT_DEADLY_BLOW\020\030*k\n\021DOTA_ROSHAN_PHASE\022"
+  "\027\n\023k_SRSP_ROSHAN_ALIVE\020\000\022\034\n\030k_SRSP_ROSHA"
+  "N_BASE_TIMER\020\001\022\037\n\033k_SRSP_ROSHAN_VISIBLE_"
+  "TIMER\020\002*\201\004\n\026DOTA_POSITION_CATEGORY\022\026\n\022DO"
+  "TA_POSITION_NONE\020\000\022\035\n\031DOTA_POSITION_BOTT"
+  "OM_LANE\020\001\022\032\n\026DOTA_POSITION_MID_LANE\020\002\022\032\n"
+  "\026DOTA_POSITION_TOP_LANE\020\003\022 \n\034DOTA_POSITI"
+  "ON_RADIANT_JUNGLE\020\004\022\035\n\031DOTA_POSITION_DIR"
+  "E_JUNGLE\020\005\022\"\n\036DOTA_POSITION_RADIANT_ANCI"
+  "ENTS\020\006\022\037\n\033DOTA_POSITION_DIRE_ANCIENTS\020\007\022"
+  "%\n!DOTA_POSITION_RADIANT_SECRET_SHOP\020\010\022\""
+  "\n\036DOTA_POSITION_DIRE_SECRET_SHOP\020\t\022\027\n\023DO"
+  "TA_POSITION_RIVER\020\n\022\034\n\030DOTA_POSITION_ROS"
+  "HAN_PIT\020\013\022\036\n\032DOTA_POSITION_RADIANT_BASE\020"
+  "\014\022\033\n\027DOTA_POSITION_DIRE_BASE\020\r\022\032\n\026DOTA_P"
+  "OSITION_FOUNTAIN\020\016\022\027\n\023DOTA_POSITION_OTHE"
+  "R\020\017*\346\001\n\030DOTA_ABILITY_TARGET_TYPE\022\034\n\030DOTA"
+  "_ABILITY_TARGET_NONE\020\000\022\034\n\030DOTA_ABILITY_T"
+  "ARGET_SELF\020\001\022!\n\035DOTA_ABILITY_TARGET_ALLY"
+  "_HERO\020\002\022\"\n\036DOTA_ABILITY_TARGET_ALLY_CREE"
+  "P\020\003\022\"\n\036DOTA_ABILITY_TARGET_ENEMY_HERO\020\004\022"
+  "#\n\037DOTA_ABILITY_TARGET_ENEMY_CREEP\020\005*\230\010\n"
+  "\rEHeroStatType\022\030\n\024k_EHeroStatType_None\020\000"
+  "\022#\n\036k_EHeroStatType_AxeTotalDamage\020\320\017\022\'\n"
+  "\"k_EHeroStatType_BattleHungerDamage\020\321\017\022\'"
+  "\n\"k_EHeroStatType_CounterHelixDamage\020\322\017\022"
+  "\'\n\"k_EHeroStatType_CullingBladeDamage\020\323\017"
+  "\022,\n\'k_EHeroStatType_BerserkersCallCastCo"
+  "unt\020\324\017\0223\n.k_EHeroStatType_BerserkersCall"
+  "HeroesHitAverage\020\325\017\0220\n+k_EHeroStatType_B"
+  "erserkersCallOtherUnitsHit\020\326\017\0223\n.k_EHero"
+  "StatType_BerserkersCallHeroAttacksTaken\020"
+  "\327\017\0224\n/k_EHeroStatType_BerserkersCallOthe"
+  "rAttacksTaken\020\330\017\022*\n%k_EHeroStatType_Batt"
+  "leHungerCastCount\020\331\017\0222\n-k_EHeroStatType_"
+  "BattleHungerPotentialDuration\020\332\017\0220\n+k_EH"
+  "eroStatType_BattleHungerAverageDuration\020"
+  "\333\017\022*\n%k_EHeroStatType_CounterHelixProcCo"
+  "unt\020\334\017\022.\n)k_EHeroStatType_CounterHelixHe"
+  "roProcCount\020\335\017\0221\n,k_EHeroStatType_Counte"
+  "rHelixHeroesHitAverage\020\336\017\0223\n.k_EHeroStat"
+  "Type_CounterHelixOtherUnitsHitCount\020\337\017\022*"
+  "\n%k_EHeroStatType_CullingBladeCastCount\020"
+  "\340\017\022*\n%k_EHeroStatType_CullingBladeKillCo"
+  "unt\020\341\017\0224\n/k_EHeroStatType_CullingBladeAv"
+  "erageHealthCulled\020\342\017\0227\n2k_EHeroStatType_"
+  "CullingBladeAverageDamageAvailable\020\343\017\0220\n"
+  "+k_EHeroStatType_CullingBladeHeroBuffAve"
+  "rage\020\344\017*\344\004\n\027EPlayerVoiceListenState\022\016\n\nk"
+  "PVLS_None\020\000\022\032\n\026kPVLS_DeniedChatBanned\020\001\022"
+  "\027\n\023kPVLS_DeniedPartner\020\002\022&\n\"kPVLS_Denied"
+  "HLTVTalkerNotSpectator\020\003\022$\n kPVLS_Denied"
+  "HLTVNoTalkerPlayerID\020\004\022(\n$kPVLS_DeniedHL"
+  "TVTalkerNotBroadcaster\020\005\022\035\n\031kPVLS_Denied"
+  "TeamSpectator\020\006\022\027\n\023kPVLS_DeniedStudent\020\010"
+  "\022\034\n\030kPVLS_DeniedPrivateCoach\020\t\022\020\n\014kPVLS_"
+  "Denied\020@\022&\n\"kPVLS_AllowHLTVTalkerIsBroad"
+  "caster\020A\022\034\n\030kPVLS_AllowCoBroadcaster\020B\022\026"
+  "\n\022kPVLS_AllowAllChat\020C\022\035\n\031kPVLS_AllowStu"
+  "dentToCoach\020D\022\034\n\030kPVLS_AllowFellowStuden"
+  "t\020E\022\034\n\030kPVLS_AllowTalkerIsCoach\020F\022\034\n\030kPV"
+  "LS_AllowCoachHearTeam\020G\022\027\n\023kPVLS_AllowSa"
+  "meTeam\020H\022\027\n\023kPVLS_AllowShowcase\020I\022\033\n\027kPV"
+  "LS_AllowPrivateCoach\020J*B\n\020EProjectionEve"
+  "nt\022\022\n\016ePE_FirstBlood\020\000\022\032\n\026ePE_Killstreak"
+  "_godlike\020\001"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fusermessages_2eproto_deps[3] = {
   &::descriptor_table_dota_5fcommonmessages_2eproto,
@@ -6520,9 +6581,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fusermessages
 };
 static ::_pbi::once_flag descriptor_table_dota_5fusermessages_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fusermessages_2eproto = {
-    false, false, 35108, descriptor_table_protodef_dota_5fusermessages_2eproto,
+    false, false, 36090, descriptor_table_protodef_dota_5fusermessages_2eproto,
     "dota_usermessages.proto",
-    &descriptor_table_dota_5fusermessages_2eproto_once, descriptor_table_dota_5fusermessages_2eproto_deps, 3, 177,
+    &descriptor_table_dota_5fusermessages_2eproto_once, descriptor_table_dota_5fusermessages_2eproto_deps, 3, 178,
     schemas, file_default_instances, TableStruct_dota_5fusermessages_2eproto::offsets,
     file_level_metadata_dota_5fusermessages_2eproto, file_level_enum_descriptors_dota_5fusermessages_2eproto,
     file_level_service_descriptors_dota_5fusermessages_2eproto,
@@ -6761,6 +6822,7 @@ bool EDotaUserMessages_IsValid(int value) {
     case 616:
     case 617:
     case 618:
+    case 619:
       return true;
     default:
       return false;
@@ -7657,7 +7719,7 @@ inline void CDOTAUserMsg_SwapVerify::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -7684,7 +7746,7 @@ void CDOTAUserMsg_SwapVerify::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.player_id_ = 0;
+  _impl_.player_id_ = -1;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -7696,7 +7758,7 @@ const char* CDOTAUserMsg_SwapVerify::_InternalParse(const char* ptr, ::_pbi::Par
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -7736,7 +7798,7 @@ uint8_t* CDOTAUserMsg_SwapVerify::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
@@ -7758,7 +7820,7 @@ size_t CDOTAUserMsg_SwapVerify::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
@@ -8311,7 +8373,7 @@ class CDOTAUserMsg_BotChat::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_BotChat>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_message(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
@@ -8320,7 +8382,7 @@ class CDOTAUserMsg_BotChat::_Internal {
     (*has_bits)[0] |= 2u;
   }
   static void set_has_team_only(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
 };
 
@@ -8338,8 +8400,8 @@ CDOTAUserMsg_BotChat::CDOTAUserMsg_BotChat(const CDOTAUserMsg_BotChat& from)
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.message_){}
     , decltype(_impl_.target_){}
-    , decltype(_impl_.player_id_){}
-    , decltype(_impl_.team_only_){}};
+    , decltype(_impl_.team_only_){}
+    , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _impl_.message_.InitDefault();
@@ -8358,9 +8420,9 @@ CDOTAUserMsg_BotChat::CDOTAUserMsg_BotChat(const CDOTAUserMsg_BotChat& from)
     _this->_impl_.target_.Set(from._internal_target(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.team_only_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.team_only_));
+  ::memcpy(&_impl_.team_only_, &from._impl_.team_only_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.team_only_)) + sizeof(_impl_.player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_BotChat)
 }
 
@@ -8373,8 +8435,8 @@ inline void CDOTAUserMsg_BotChat::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.message_){}
     , decltype(_impl_.target_){}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.team_only_){false}
+    , decltype(_impl_.player_id_){-1}
   };
   _impl_.message_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -8421,9 +8483,8 @@ void CDOTAUserMsg_BotChat::Clear() {
     }
   }
   if (cached_has_bits & 0x0000000cu) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.team_only_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.team_only_));
+    _impl_.team_only_ = false;
+    _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -8436,7 +8497,7 @@ const char* CDOTAUserMsg_BotChat::_InternalParse(const char* ptr, ::_pbi::ParseC
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -8509,8 +8570,8 @@ uint8_t* CDOTAUserMsg_BotChat::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000004u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
@@ -8536,7 +8597,7 @@ uint8_t* CDOTAUserMsg_BotChat::_InternalSerialize(
   }
 
   // optional bool team_only = 5;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(5, this->_internal_team_only(), target);
   }
@@ -8573,14 +8634,14 @@ size_t CDOTAUserMsg_BotChat::ByteSizeLong() const {
           this->_internal_target());
     }
 
-    // optional int32 player_id = 1;
+    // optional bool team_only = 5;
     if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
+      total_size += 1 + 1;
     }
 
-    // optional bool team_only = 5;
+    // optional int32 player_id = 1 [default = -1];
     if (cached_has_bits & 0x00000008u) {
-      total_size += 1 + 1;
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
   }
@@ -8611,10 +8672,10 @@ void CDOTAUserMsg_BotChat::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, c
       _this->_internal_set_target(from._internal_target());
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
+      _this->_impl_.team_only_ = from._impl_.team_only_;
     }
     if (cached_has_bits & 0x00000008u) {
-      _this->_impl_.team_only_ = from._impl_.team_only_;
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -8646,12 +8707,8 @@ void CDOTAUserMsg_BotChat::InternalSwap(CDOTAUserMsg_BotChat* other) {
       &_impl_.target_, lhs_arena,
       &other->_impl_.target_, rhs_arena
   );
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_BotChat, _impl_.team_only_)
-      + sizeof(CDOTAUserMsg_BotChat::_impl_.team_only_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_BotChat, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+  swap(_impl_.team_only_, other->_impl_.team_only_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_BotChat::GetMetadata() const {
@@ -8985,10 +9042,10 @@ class CDOTAUserMsg_CombatLogBulkData::_Internal {
     (*has_bits)[0] |= 2u;
   }
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_request_time(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
 };
 
@@ -9010,13 +9067,13 @@ CDOTAUserMsg_CombatLogBulkData::CDOTAUserMsg_CombatLogBulkData(const CDOTAUserMs
     , decltype(_impl_.combat_entries_){from._impl_.combat_entries_}
     , decltype(_impl_.timestamp_){}
     , decltype(_impl_.duration_){}
-    , decltype(_impl_.player_id_){}
-    , decltype(_impl_.request_time_){}};
+    , decltype(_impl_.request_time_){}
+    , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.timestamp_, &from._impl_.timestamp_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.request_time_) -
-    reinterpret_cast<char*>(&_impl_.timestamp_)) + sizeof(_impl_.request_time_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.timestamp_)) + sizeof(_impl_.player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_CombatLogBulkData)
 }
 
@@ -9030,8 +9087,8 @@ inline void CDOTAUserMsg_CombatLogBulkData::SharedCtor(
     , decltype(_impl_.combat_entries_){arena}
     , decltype(_impl_.timestamp_){0}
     , decltype(_impl_.duration_){0}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.request_time_){0}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -9065,6 +9122,7 @@ void CDOTAUserMsg_CombatLogBulkData::Clear() {
     ::memset(&_impl_.timestamp_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.request_time_) -
         reinterpret_cast<char*>(&_impl_.timestamp_)) + sizeof(_impl_.request_time_));
+    _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -9108,7 +9166,7 @@ const char* CDOTAUserMsg_CombatLogBulkData::_InternalParse(const char* ptr, ::_p
         } else
           goto handle_unusual;
         continue;
-      // optional int32 player_id = 4;
+      // optional int32 player_id = 4 [default = -1];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _Internal::set_has_player_id(&has_bits);
@@ -9177,14 +9235,14 @@ uint8_t* CDOTAUserMsg_CombatLogBulkData::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_duration(), target);
   }
 
-  // optional int32 player_id = 4;
-  if (cached_has_bits & 0x00000004u) {
+  // optional int32 player_id = 4 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_player_id(), target);
   }
 
   // optional float request_time = 5;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(5, this->_internal_request_time(), target);
   }
@@ -9224,14 +9282,14 @@ size_t CDOTAUserMsg_CombatLogBulkData::ByteSizeLong() const {
       total_size += 1 + 4;
     }
 
-    // optional int32 player_id = 4;
+    // optional float request_time = 5;
     if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
+      total_size += 1 + 4;
     }
 
-    // optional float request_time = 5;
+    // optional int32 player_id = 4 [default = -1];
     if (cached_has_bits & 0x00000008u) {
-      total_size += 1 + 4;
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
   }
@@ -9263,10 +9321,10 @@ void CDOTAUserMsg_CombatLogBulkData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message&
       _this->_impl_.duration_ = from._impl_.duration_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
+      _this->_impl_.request_time_ = from._impl_.request_time_;
     }
     if (cached_has_bits & 0x00000008u) {
-      _this->_impl_.request_time_ = from._impl_.request_time_;
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -9295,6 +9353,7 @@ void CDOTAUserMsg_CombatLogBulkData::InternalSwap(CDOTAUserMsg_CombatLogBulkData
       - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_CombatLogBulkData, _impl_.timestamp_)>(
           reinterpret_cast<char*>(&_impl_.timestamp_),
           reinterpret_cast<char*>(&other->_impl_.timestamp_));
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_CombatLogBulkData::GetMetadata() const {
@@ -9560,10 +9619,10 @@ class CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability>()._impl_._has_bits_);
   static void set_has_ability_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_damage(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -9579,13 +9638,13 @@ CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::CDOTAUserMsg_MiniKillCamInfo_Atta
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.ability_id_){}
-    , decltype(_impl_.damage_){}};
+    , decltype(_impl_.damage_){}
+    , decltype(_impl_.ability_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.ability_id_, &from._impl_.ability_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.damage_) -
-    reinterpret_cast<char*>(&_impl_.ability_id_)) + sizeof(_impl_.damage_));
+  ::memcpy(&_impl_.damage_, &from._impl_.damage_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.ability_id_) -
+    reinterpret_cast<char*>(&_impl_.damage_)) + sizeof(_impl_.ability_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_MiniKillCamInfo.Attacker.Ability)
 }
 
@@ -9596,8 +9655,8 @@ inline void CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.ability_id_){0u}
     , decltype(_impl_.damage_){0}
+    , decltype(_impl_.ability_id_){-1}
   };
 }
 
@@ -9626,9 +9685,8 @@ void CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    ::memset(&_impl_.ability_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.damage_) -
-        reinterpret_cast<char*>(&_impl_.ability_id_)) + sizeof(_impl_.damage_));
+    _impl_.damage_ = 0;
+    _impl_.ability_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -9641,7 +9699,7 @@ const char* CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::_InternalParse(const 
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 ability_id = 1;
+      // optional int32 ability_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_ability_id(&has_bits);
@@ -9690,14 +9748,14 @@ uint8_t* CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 ability_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 ability_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_ability_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_ability_id(), target);
   }
 
   // optional int32 damage = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_damage(), target);
   }
@@ -9720,14 +9778,14 @@ size_t CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint32 ability_id = 1;
+    // optional int32 damage = 2;
     if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ability_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_damage());
     }
 
-    // optional int32 damage = 2;
+    // optional int32 ability_id = 1 [default = -1];
     if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_damage());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_ability_id());
     }
 
   }
@@ -9752,10 +9810,10 @@ void CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::MergeImpl(::PROTOBUF_NAMESPA
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.ability_id_ = from._impl_.ability_id_;
+      _this->_impl_.damage_ = from._impl_.damage_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.damage_ = from._impl_.damage_;
+      _this->_impl_.ability_id_ = from._impl_.ability_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -9777,12 +9835,8 @@ void CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::InternalSwap(CDOTAUserMsg_Mi
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability, _impl_.damage_)
-      + sizeof(CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::_impl_.damage_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability, _impl_.ability_id_)>(
-          reinterpret_cast<char*>(&_impl_.ability_id_),
-          reinterpret_cast<char*>(&other->_impl_.ability_id_));
+  swap(_impl_.damage_, other->_impl_.damage_);
+  swap(_impl_.ability_id_, other->_impl_.ability_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::GetMetadata() const {
@@ -9797,10 +9851,10 @@ class CDOTAUserMsg_MiniKillCamInfo_Attacker::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_MiniKillCamInfo_Attacker>()._impl_._has_bits_);
   static void set_has_attacker(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_total_damage(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_attacker_name(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
@@ -9821,8 +9875,8 @@ CDOTAUserMsg_MiniKillCamInfo_Attacker::CDOTAUserMsg_MiniKillCamInfo_Attacker(con
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.abilities_){from._impl_.abilities_}
     , decltype(_impl_.attacker_name_){}
-    , decltype(_impl_.attacker_){}
-    , decltype(_impl_.total_damage_){}};
+    , decltype(_impl_.total_damage_){}
+    , decltype(_impl_.attacker_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _impl_.attacker_name_.InitDefault();
@@ -9833,9 +9887,9 @@ CDOTAUserMsg_MiniKillCamInfo_Attacker::CDOTAUserMsg_MiniKillCamInfo_Attacker(con
     _this->_impl_.attacker_name_.Set(from._internal_attacker_name(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.attacker_, &from._impl_.attacker_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.total_damage_) -
-    reinterpret_cast<char*>(&_impl_.attacker_)) + sizeof(_impl_.total_damage_));
+  ::memcpy(&_impl_.total_damage_, &from._impl_.total_damage_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.attacker_) -
+    reinterpret_cast<char*>(&_impl_.total_damage_)) + sizeof(_impl_.attacker_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_MiniKillCamInfo.Attacker)
 }
 
@@ -9848,8 +9902,8 @@ inline void CDOTAUserMsg_MiniKillCamInfo_Attacker::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.abilities_){arena}
     , decltype(_impl_.attacker_name_){}
-    , decltype(_impl_.attacker_){0u}
     , decltype(_impl_.total_damage_){0}
+    , decltype(_impl_.attacker_){16777215u}
   };
   _impl_.attacker_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -9888,9 +9942,8 @@ void CDOTAUserMsg_MiniKillCamInfo_Attacker::Clear() {
     _impl_.attacker_name_.ClearNonDefaultToEmpty();
   }
   if (cached_has_bits & 0x00000006u) {
-    ::memset(&_impl_.attacker_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.total_damage_) -
-        reinterpret_cast<char*>(&_impl_.attacker_)) + sizeof(_impl_.total_damage_));
+    _impl_.total_damage_ = 0;
+    _impl_.attacker_ = 16777215u;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -9903,7 +9956,7 @@ const char* CDOTAUserMsg_MiniKillCamInfo_Attacker::_InternalParse(const char* pt
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 attacker = 1;
+      // optional uint32 attacker = 1 [default = 16777215];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_attacker(&has_bits);
@@ -9977,14 +10030,14 @@ uint8_t* CDOTAUserMsg_MiniKillCamInfo_Attacker::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 attacker = 1;
-  if (cached_has_bits & 0x00000002u) {
+  // optional uint32 attacker = 1 [default = 16777215];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_attacker(), target);
   }
 
   // optional int32 total_damage = 2;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_total_damage(), target);
   }
@@ -10039,14 +10092,14 @@ size_t CDOTAUserMsg_MiniKillCamInfo_Attacker::ByteSizeLong() const {
           this->_internal_attacker_name());
     }
 
-    // optional uint32 attacker = 1;
+    // optional int32 total_damage = 2;
     if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_attacker());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_total_damage());
     }
 
-    // optional int32 total_damage = 2;
+    // optional uint32 attacker = 1 [default = 16777215];
     if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_total_damage());
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_attacker());
     }
 
   }
@@ -10075,10 +10128,10 @@ void CDOTAUserMsg_MiniKillCamInfo_Attacker::MergeImpl(::PROTOBUF_NAMESPACE_ID::M
       _this->_internal_set_attacker_name(from._internal_attacker_name());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.attacker_ = from._impl_.attacker_;
+      _this->_impl_.total_damage_ = from._impl_.total_damage_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.total_damage_ = from._impl_.total_damage_;
+      _this->_impl_.attacker_ = from._impl_.attacker_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -10107,12 +10160,8 @@ void CDOTAUserMsg_MiniKillCamInfo_Attacker::InternalSwap(CDOTAUserMsg_MiniKillCa
       &_impl_.attacker_name_, lhs_arena,
       &other->_impl_.attacker_name_, rhs_arena
   );
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_MiniKillCamInfo_Attacker, _impl_.total_damage_)
-      + sizeof(CDOTAUserMsg_MiniKillCamInfo_Attacker::_impl_.total_damage_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_MiniKillCamInfo_Attacker, _impl_.attacker_)>(
-          reinterpret_cast<char*>(&_impl_.attacker_),
-          reinterpret_cast<char*>(&other->_impl_.attacker_));
+  swap(_impl_.total_damage_, other->_impl_.total_damage_);
+  swap(_impl_.attacker_, other->_impl_.attacker_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_MiniKillCamInfo_Attacker::GetMetadata() const {
@@ -10847,7 +10896,7 @@ inline void CDOTAUserMsg_LocationPing::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.location_ping_){nullptr}
-    , decltype(_impl_.player_id_){0}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -10876,11 +10925,13 @@ void CDOTAUserMsg_LocationPing::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    GOOGLE_DCHECK(_impl_.location_ping_ != nullptr);
-    _impl_.location_ping_->Clear();
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      GOOGLE_DCHECK(_impl_.location_ping_ != nullptr);
+      _impl_.location_ping_->Clear();
+    }
+    _impl_.player_id_ = -1;
   }
-  _impl_.player_id_ = 0;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -10892,7 +10943,7 @@ const char* CDOTAUserMsg_LocationPing::_InternalParse(const char* ptr, ::_pbi::P
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -10940,7 +10991,7 @@ uint8_t* CDOTAUserMsg_LocationPing::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
@@ -10978,7 +11029,7 @@ size_t CDOTAUserMsg_LocationPing::ByteSizeLong() const {
           *_impl_.location_ping_);
     }
 
-    // optional int32 player_id = 1;
+    // optional int32 player_id = 1 [default = -1];
     if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
@@ -11031,12 +11082,8 @@ void CDOTAUserMsg_LocationPing::InternalSwap(CDOTAUserMsg_LocationPing* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_LocationPing, _impl_.player_id_)
-      + sizeof(CDOTAUserMsg_LocationPing::_impl_.player_id_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_LocationPing, _impl_.location_ping_)>(
-          reinterpret_cast<char*>(&_impl_.location_ping_),
-          reinterpret_cast<char*>(&other->_impl_.location_ping_));
+  swap(_impl_.location_ping_, other->_impl_.location_ping_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_LocationPing::GetMetadata() const {
@@ -11051,13 +11098,13 @@ class CDOTAUserMsg_PingConfirmation::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_PingConfirmation>()._impl_._has_bits_);
   static void set_has_player_id_of_original_pinger(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_entity_index(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_icon_type(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
   static const ::CMsgVector& location(const CDOTAUserMsg_PingConfirmation* msg);
   static void set_has_location(HasBits* has_bits) {
@@ -11086,17 +11133,17 @@ CDOTAUserMsg_PingConfirmation::CDOTAUserMsg_PingConfirmation(const CDOTAUserMsg_
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.location_){nullptr}
-    , decltype(_impl_.player_id_of_original_pinger_){}
     , decltype(_impl_.entity_index_){}
-    , decltype(_impl_.icon_type_){}};
+    , decltype(_impl_.icon_type_){}
+    , decltype(_impl_.player_id_of_original_pinger_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_location()) {
     _this->_impl_.location_ = new ::CMsgVector(*from._impl_.location_);
   }
-  ::memcpy(&_impl_.player_id_of_original_pinger_, &from._impl_.player_id_of_original_pinger_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.icon_type_) -
-    reinterpret_cast<char*>(&_impl_.player_id_of_original_pinger_)) + sizeof(_impl_.icon_type_));
+  ::memcpy(&_impl_.entity_index_, &from._impl_.entity_index_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_of_original_pinger_) -
+    reinterpret_cast<char*>(&_impl_.entity_index_)) + sizeof(_impl_.player_id_of_original_pinger_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_PingConfirmation)
 }
 
@@ -11108,9 +11155,9 @@ inline void CDOTAUserMsg_PingConfirmation::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.location_){nullptr}
-    , decltype(_impl_.player_id_of_original_pinger_){0}
     , decltype(_impl_.entity_index_){0u}
     , decltype(_impl_.icon_type_){0u}
+    , decltype(_impl_.player_id_of_original_pinger_){-1}
   };
 }
 
@@ -11144,9 +11191,10 @@ void CDOTAUserMsg_PingConfirmation::Clear() {
     _impl_.location_->Clear();
   }
   if (cached_has_bits & 0x0000000eu) {
-    ::memset(&_impl_.player_id_of_original_pinger_, 0, static_cast<size_t>(
+    ::memset(&_impl_.entity_index_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.icon_type_) -
-        reinterpret_cast<char*>(&_impl_.player_id_of_original_pinger_)) + sizeof(_impl_.icon_type_));
+        reinterpret_cast<char*>(&_impl_.entity_index_)) + sizeof(_impl_.icon_type_));
+    _impl_.player_id_of_original_pinger_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -11159,7 +11207,7 @@ const char* CDOTAUserMsg_PingConfirmation::_InternalParse(const char* ptr, ::_pb
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id_of_original_pinger = 1;
+      // optional int32 player_id_of_original_pinger = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id_of_original_pinger(&has_bits);
@@ -11225,20 +11273,20 @@ uint8_t* CDOTAUserMsg_PingConfirmation::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id_of_original_pinger = 1;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 player_id_of_original_pinger = 1 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id_of_original_pinger(), target);
   }
 
   // optional uint32 entity_index = 2;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_entity_index(), target);
   }
 
   // optional uint32 icon_type = 3;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_icon_type(), target);
   }
@@ -11275,19 +11323,19 @@ size_t CDOTAUserMsg_PingConfirmation::ByteSizeLong() const {
           *_impl_.location_);
     }
 
-    // optional int32 player_id_of_original_pinger = 1;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id_of_original_pinger());
-    }
-
     // optional uint32 entity_index = 2;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_entity_index());
     }
 
     // optional uint32 icon_type = 3;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_icon_type());
+    }
+
+    // optional int32 player_id_of_original_pinger = 1 [default = -1];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id_of_original_pinger());
     }
 
   }
@@ -11316,13 +11364,13 @@ void CDOTAUserMsg_PingConfirmation::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& 
           from._internal_location());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.player_id_of_original_pinger_ = from._impl_.player_id_of_original_pinger_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.entity_index_ = from._impl_.entity_index_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.icon_type_ = from._impl_.icon_type_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.player_id_of_original_pinger_ = from._impl_.player_id_of_original_pinger_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -11350,6 +11398,7 @@ void CDOTAUserMsg_PingConfirmation::InternalSwap(CDOTAUserMsg_PingConfirmation* 
       - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_PingConfirmation, _impl_.location_)>(
           reinterpret_cast<char*>(&_impl_.location_),
           reinterpret_cast<char*>(&other->_impl_.location_));
+  swap(_impl_.player_id_of_original_pinger_, other->_impl_.player_id_of_original_pinger_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_PingConfirmation::GetMetadata() const {
@@ -11411,7 +11460,7 @@ inline void CDOTAUserMsg_ItemAlert::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.item_alert_){nullptr}
-    , decltype(_impl_.player_id_){0}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -11440,11 +11489,13 @@ void CDOTAUserMsg_ItemAlert::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    GOOGLE_DCHECK(_impl_.item_alert_ != nullptr);
-    _impl_.item_alert_->Clear();
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      GOOGLE_DCHECK(_impl_.item_alert_ != nullptr);
+      _impl_.item_alert_->Clear();
+    }
+    _impl_.player_id_ = -1;
   }
-  _impl_.player_id_ = 0;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -11456,7 +11507,7 @@ const char* CDOTAUserMsg_ItemAlert::_InternalParse(const char* ptr, ::_pbi::Pars
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -11504,7 +11555,7 @@ uint8_t* CDOTAUserMsg_ItemAlert::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
@@ -11542,7 +11593,7 @@ size_t CDOTAUserMsg_ItemAlert::ByteSizeLong() const {
           *_impl_.item_alert_);
     }
 
-    // optional int32 player_id = 1;
+    // optional int32 player_id = 1 [default = -1];
     if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
@@ -11595,12 +11646,8 @@ void CDOTAUserMsg_ItemAlert::InternalSwap(CDOTAUserMsg_ItemAlert* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ItemAlert, _impl_.player_id_)
-      + sizeof(CDOTAUserMsg_ItemAlert::_impl_.player_id_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ItemAlert, _impl_.item_alert_)>(
-          reinterpret_cast<char*>(&_impl_.item_alert_),
-          reinterpret_cast<char*>(&other->_impl_.item_alert_));
+  swap(_impl_.item_alert_, other->_impl_.item_alert_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_ItemAlert::GetMetadata() const {
@@ -11615,28 +11662,28 @@ class CDOTAUserMsg_EnemyItemAlert::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_EnemyItemAlert>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_target_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_item_ability_id(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
-  static void set_has_rune_type(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
-  }
-  static void set_has_entity_id(HasBits* has_bits) {
+  static void set_has_target_player_id(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
-  static void set_has_item_level(HasBits* has_bits) {
+  static void set_has_item_ability_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_rune_type(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
   }
-  static void set_has_primary_charges(HasBits* has_bits) {
+  static void set_has_entity_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_item_level(HasBits* has_bits) {
     (*has_bits)[0] |= 64u;
   }
-  static void set_has_secondary_charges(HasBits* has_bits) {
+  static void set_has_primary_charges(HasBits* has_bits) {
     (*has_bits)[0] |= 128u;
+  }
+  static void set_has_secondary_charges(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
   }
 };
 
@@ -11652,19 +11699,19 @@ CDOTAUserMsg_EnemyItemAlert::CDOTAUserMsg_EnemyItemAlert(const CDOTAUserMsg_Enem
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.entity_id_){}
+    , decltype(_impl_.secondary_charges_){}
     , decltype(_impl_.player_id_){}
     , decltype(_impl_.target_player_id_){}
     , decltype(_impl_.item_ability_id_){}
-    , decltype(_impl_.entity_id_){}
     , decltype(_impl_.rune_type_){}
     , decltype(_impl_.item_level_){}
-    , decltype(_impl_.primary_charges_){}
-    , decltype(_impl_.secondary_charges_){}};
+    , decltype(_impl_.primary_charges_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.secondary_charges_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.secondary_charges_));
+  ::memcpy(&_impl_.entity_id_, &from._impl_.entity_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.primary_charges_) -
+    reinterpret_cast<char*>(&_impl_.entity_id_)) + sizeof(_impl_.primary_charges_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_EnemyItemAlert)
 }
 
@@ -11675,14 +11722,14 @@ inline void CDOTAUserMsg_EnemyItemAlert::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
-    , decltype(_impl_.target_player_id_){0}
-    , decltype(_impl_.item_ability_id_){0}
     , decltype(_impl_.entity_id_){0}
+    , decltype(_impl_.secondary_charges_){-1}
+    , decltype(_impl_.player_id_){-1}
+    , decltype(_impl_.target_player_id_){-1}
+    , decltype(_impl_.item_ability_id_){-1}
     , decltype(_impl_.rune_type_){-1}
     , decltype(_impl_.item_level_){-1}
     , decltype(_impl_.primary_charges_){-1}
-    , decltype(_impl_.secondary_charges_){-1}
   };
 }
 
@@ -11711,13 +11758,14 @@ void CDOTAUserMsg_EnemyItemAlert::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.entity_id_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.entity_id_));
+    _impl_.entity_id_ = 0;
+    _impl_.secondary_charges_ = -1;
+    _impl_.player_id_ = -1;
+    _impl_.target_player_id_ = -1;
+    _impl_.item_ability_id_ = -1;
     _impl_.rune_type_ = -1;
     _impl_.item_level_ = -1;
     _impl_.primary_charges_ = -1;
-    _impl_.secondary_charges_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -11730,7 +11778,7 @@ const char* CDOTAUserMsg_EnemyItemAlert::_InternalParse(const char* ptr, ::_pbi:
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -11739,7 +11787,7 @@ const char* CDOTAUserMsg_EnemyItemAlert::_InternalParse(const char* ptr, ::_pbi:
         } else
           goto handle_unusual;
         continue;
-      // optional int32 target_player_id = 2;
+      // optional int32 target_player_id = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_target_player_id(&has_bits);
@@ -11748,7 +11796,7 @@ const char* CDOTAUserMsg_EnemyItemAlert::_InternalParse(const char* ptr, ::_pbi:
         } else
           goto handle_unusual;
         continue;
-      // optional int32 item_ability_id = 3;
+      // optional int32 item_ability_id = 3 [default = -1];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_item_ability_id(&has_bits);
@@ -11833,50 +11881,50 @@ uint8_t* CDOTAUserMsg_EnemyItemAlert::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
-  // optional int32 target_player_id = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 target_player_id = 2 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_target_player_id(), target);
   }
 
-  // optional int32 item_ability_id = 3;
-  if (cached_has_bits & 0x00000004u) {
+  // optional int32 item_ability_id = 3 [default = -1];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_item_ability_id(), target);
   }
 
   // optional int32 rune_type = 4 [default = -1];
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_rune_type(), target);
   }
 
   // optional int32 entity_id = 5;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(5, this->_internal_entity_id(), target);
   }
 
   // optional int32 item_level = 6 [default = -1];
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(6, this->_internal_item_level(), target);
   }
 
   // optional int32 primary_charges = 7 [default = -1];
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(7, this->_internal_primary_charges(), target);
   }
 
   // optional int32 secondary_charges = 8 [default = -1];
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(8, this->_internal_secondary_charges(), target);
   }
@@ -11899,44 +11947,44 @@ size_t CDOTAUserMsg_EnemyItemAlert::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional int32 player_id = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
-    }
-
-    // optional int32 target_player_id = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_player_id());
-    }
-
-    // optional int32 item_ability_id = 3;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_item_ability_id());
-    }
-
     // optional int32 entity_id = 5;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_entity_id());
     }
 
-    // optional int32 rune_type = 4 [default = -1];
+    // optional int32 secondary_charges = 8 [default = -1];
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_secondary_charges());
+    }
+
+    // optional int32 player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
+    }
+
+    // optional int32 target_player_id = 2 [default = -1];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_player_id());
+    }
+
+    // optional int32 item_ability_id = 3 [default = -1];
     if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_item_ability_id());
+    }
+
+    // optional int32 rune_type = 4 [default = -1];
+    if (cached_has_bits & 0x00000020u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_rune_type());
     }
 
     // optional int32 item_level = 6 [default = -1];
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000040u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_item_level());
     }
 
     // optional int32 primary_charges = 7 [default = -1];
-    if (cached_has_bits & 0x00000040u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_primary_charges());
-    }
-
-    // optional int32 secondary_charges = 8 [default = -1];
     if (cached_has_bits & 0x00000080u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_secondary_charges());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_primary_charges());
     }
 
   }
@@ -11961,28 +12009,28 @@ void CDOTAUserMsg_EnemyItemAlert::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.target_player_id_ = from._impl_.target_player_id_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.item_ability_id_ = from._impl_.item_ability_id_;
-    }
-    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.entity_id_ = from._impl_.entity_id_;
     }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.secondary_charges_ = from._impl_.secondary_charges_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.target_player_id_ = from._impl_.target_player_id_;
+    }
     if (cached_has_bits & 0x00000010u) {
-      _this->_impl_.rune_type_ = from._impl_.rune_type_;
+      _this->_impl_.item_ability_id_ = from._impl_.item_ability_id_;
     }
     if (cached_has_bits & 0x00000020u) {
-      _this->_impl_.item_level_ = from._impl_.item_level_;
+      _this->_impl_.rune_type_ = from._impl_.rune_type_;
     }
     if (cached_has_bits & 0x00000040u) {
-      _this->_impl_.primary_charges_ = from._impl_.primary_charges_;
+      _this->_impl_.item_level_ = from._impl_.item_level_;
     }
     if (cached_has_bits & 0x00000080u) {
-      _this->_impl_.secondary_charges_ = from._impl_.secondary_charges_;
+      _this->_impl_.primary_charges_ = from._impl_.primary_charges_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -12004,16 +12052,14 @@ void CDOTAUserMsg_EnemyItemAlert::InternalSwap(CDOTAUserMsg_EnemyItemAlert* othe
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_EnemyItemAlert, _impl_.entity_id_)
-      + sizeof(CDOTAUserMsg_EnemyItemAlert::_impl_.entity_id_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_EnemyItemAlert, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+  swap(_impl_.entity_id_, other->_impl_.entity_id_);
+  swap(_impl_.secondary_charges_, other->_impl_.secondary_charges_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
+  swap(_impl_.target_player_id_, other->_impl_.target_player_id_);
+  swap(_impl_.item_ability_id_, other->_impl_.item_ability_id_);
   swap(_impl_.rune_type_, other->_impl_.rune_type_);
   swap(_impl_.item_level_, other->_impl_.item_level_);
   swap(_impl_.primary_charges_, other->_impl_.primary_charges_);
-  swap(_impl_.secondary_charges_, other->_impl_.secondary_charges_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_EnemyItemAlert::GetMetadata() const {
@@ -12028,22 +12074,22 @@ class CDOTAUserMsg_ModifierAlert::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_ModifierAlert>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_class_name(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_stack_count(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_is_debuff(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_target_entindex(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 32u;
   }
   static void set_has_seconds_remaining(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 8u;
   }
 };
 
@@ -12060,11 +12106,11 @@ CDOTAUserMsg_ModifierAlert::CDOTAUserMsg_ModifierAlert(const CDOTAUserMsg_Modifi
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.class_name_){}
-    , decltype(_impl_.player_id_){}
     , decltype(_impl_.stack_count_){}
     , decltype(_impl_.is_debuff_){}
-    , decltype(_impl_.target_entindex_){}
-    , decltype(_impl_.seconds_remaining_){}};
+    , decltype(_impl_.seconds_remaining_){}
+    , decltype(_impl_.player_id_){}
+    , decltype(_impl_.target_entindex_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _impl_.class_name_.InitDefault();
@@ -12075,9 +12121,9 @@ CDOTAUserMsg_ModifierAlert::CDOTAUserMsg_ModifierAlert(const CDOTAUserMsg_Modifi
     _this->_impl_.class_name_.Set(from._internal_class_name(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.seconds_remaining_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.seconds_remaining_));
+  ::memcpy(&_impl_.stack_count_, &from._impl_.stack_count_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.target_entindex_) -
+    reinterpret_cast<char*>(&_impl_.stack_count_)) + sizeof(_impl_.target_entindex_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_ModifierAlert)
 }
 
@@ -12089,11 +12135,11 @@ inline void CDOTAUserMsg_ModifierAlert::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.class_name_){}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.stack_count_){0u}
     , decltype(_impl_.is_debuff_){false}
-    , decltype(_impl_.target_entindex_){0}
     , decltype(_impl_.seconds_remaining_){0}
+    , decltype(_impl_.player_id_){-1}
+    , decltype(_impl_.target_entindex_){-1}
   };
   _impl_.class_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -12130,9 +12176,11 @@ void CDOTAUserMsg_ModifierAlert::Clear() {
     _impl_.class_name_.ClearNonDefaultToEmpty();
   }
   if (cached_has_bits & 0x0000003eu) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
+    ::memset(&_impl_.stack_count_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.seconds_remaining_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.seconds_remaining_));
+        reinterpret_cast<char*>(&_impl_.stack_count_)) + sizeof(_impl_.seconds_remaining_));
+    _impl_.player_id_ = -1;
+    _impl_.target_entindex_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -12145,7 +12193,7 @@ const char* CDOTAUserMsg_ModifierAlert::_InternalParse(const char* ptr, ::_pbi::
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -12184,7 +12232,7 @@ const char* CDOTAUserMsg_ModifierAlert::_InternalParse(const char* ptr, ::_pbi::
         } else
           goto handle_unusual;
         continue;
-      // optional int32 target_entindex = 5;
+      // optional int32 target_entindex = 5 [default = -1];
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
           _Internal::set_has_target_entindex(&has_bits);
@@ -12233,8 +12281,8 @@ uint8_t* CDOTAUserMsg_ModifierAlert::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
@@ -12250,25 +12298,25 @@ uint8_t* CDOTAUserMsg_ModifierAlert::_InternalSerialize(
   }
 
   // optional uint32 stack_count = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_stack_count(), target);
   }
 
   // optional bool is_debuff = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_is_debuff(), target);
   }
 
-  // optional int32 target_entindex = 5;
-  if (cached_has_bits & 0x00000010u) {
+  // optional int32 target_entindex = 5 [default = -1];
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(5, this->_internal_target_entindex(), target);
   }
 
   // optional float seconds_remaining = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(6, this->_internal_seconds_remaining(), target);
   }
@@ -12298,29 +12346,29 @@ size_t CDOTAUserMsg_ModifierAlert::ByteSizeLong() const {
           this->_internal_class_name());
     }
 
-    // optional int32 player_id = 1;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
-    }
-
     // optional uint32 stack_count = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_stack_count());
     }
 
     // optional bool is_debuff = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
     }
 
-    // optional int32 target_entindex = 5;
-    if (cached_has_bits & 0x00000010u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_entindex());
+    // optional float seconds_remaining = 6;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 + 4;
     }
 
-    // optional float seconds_remaining = 6;
+    // optional int32 player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
+    }
+
+    // optional int32 target_entindex = 5 [default = -1];
     if (cached_has_bits & 0x00000020u) {
-      total_size += 1 + 4;
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_entindex());
     }
 
   }
@@ -12348,19 +12396,19 @@ void CDOTAUserMsg_ModifierAlert::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_
       _this->_internal_set_class_name(from._internal_class_name());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.stack_count_ = from._impl_.stack_count_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.is_debuff_ = from._impl_.is_debuff_;
     }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.seconds_remaining_ = from._impl_.seconds_remaining_;
+    }
     if (cached_has_bits & 0x00000010u) {
-      _this->_impl_.target_entindex_ = from._impl_.target_entindex_;
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     if (cached_has_bits & 0x00000020u) {
-      _this->_impl_.seconds_remaining_ = from._impl_.seconds_remaining_;
+      _this->_impl_.target_entindex_ = from._impl_.target_entindex_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -12391,9 +12439,11 @@ void CDOTAUserMsg_ModifierAlert::InternalSwap(CDOTAUserMsg_ModifierAlert* other)
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ModifierAlert, _impl_.seconds_remaining_)
       + sizeof(CDOTAUserMsg_ModifierAlert::_impl_.seconds_remaining_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ModifierAlert, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ModifierAlert, _impl_.stack_count_)>(
+          reinterpret_cast<char*>(&_impl_.stack_count_),
+          reinterpret_cast<char*>(&other->_impl_.stack_count_));
+  swap(_impl_.player_id_, other->_impl_.player_id_);
+  swap(_impl_.target_entindex_, other->_impl_.target_entindex_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_ModifierAlert::GetMetadata() const {
@@ -12408,13 +12458,13 @@ class CDOTAUserMsg_HPManaAlert::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_HPManaAlert>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_target_entindex(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
-  static void set_has_show_raw_values(HasBits* has_bits) {
+  static void set_has_target_entindex(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
+  }
+  static void set_has_show_raw_values(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -12430,14 +12480,14 @@ CDOTAUserMsg_HPManaAlert::CDOTAUserMsg_HPManaAlert(const CDOTAUserMsg_HPManaAler
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.show_raw_values_){}
     , decltype(_impl_.player_id_){}
-    , decltype(_impl_.target_entindex_){}
-    , decltype(_impl_.show_raw_values_){}};
+    , decltype(_impl_.target_entindex_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.show_raw_values_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.show_raw_values_));
+  ::memcpy(&_impl_.show_raw_values_, &from._impl_.show_raw_values_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.target_entindex_) -
+    reinterpret_cast<char*>(&_impl_.show_raw_values_)) + sizeof(_impl_.target_entindex_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_HPManaAlert)
 }
 
@@ -12448,9 +12498,9 @@ inline void CDOTAUserMsg_HPManaAlert::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
-    , decltype(_impl_.target_entindex_){0}
     , decltype(_impl_.show_raw_values_){false}
+    , decltype(_impl_.player_id_){-1}
+    , decltype(_impl_.target_entindex_){-1}
   };
 }
 
@@ -12479,9 +12529,9 @@ void CDOTAUserMsg_HPManaAlert::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.show_raw_values_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.show_raw_values_));
+    _impl_.show_raw_values_ = false;
+    _impl_.player_id_ = -1;
+    _impl_.target_entindex_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -12494,7 +12544,7 @@ const char* CDOTAUserMsg_HPManaAlert::_InternalParse(const char* ptr, ::_pbi::Pa
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -12503,7 +12553,7 @@ const char* CDOTAUserMsg_HPManaAlert::_InternalParse(const char* ptr, ::_pbi::Pa
         } else
           goto handle_unusual;
         continue;
-      // optional int32 target_entindex = 2;
+      // optional int32 target_entindex = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_target_entindex(&has_bits);
@@ -12552,20 +12602,20 @@ uint8_t* CDOTAUserMsg_HPManaAlert::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
-  // optional int32 target_entindex = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 target_entindex = 2 [default = -1];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_target_entindex(), target);
   }
 
   // optional bool show_raw_values = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_show_raw_values(), target);
   }
@@ -12588,19 +12638,19 @@ size_t CDOTAUserMsg_HPManaAlert::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional int32 player_id = 1;
+    // optional bool show_raw_values = 3;
     if (cached_has_bits & 0x00000001u) {
+      total_size += 1 + 1;
+    }
+
+    // optional int32 player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
-    // optional int32 target_entindex = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_entindex());
-    }
-
-    // optional bool show_raw_values = 3;
+    // optional int32 target_entindex = 2 [default = -1];
     if (cached_has_bits & 0x00000004u) {
-      total_size += 1 + 1;
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_entindex());
     }
 
   }
@@ -12625,13 +12675,13 @@ void CDOTAUserMsg_HPManaAlert::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_ms
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
+      _this->_impl_.show_raw_values_ = from._impl_.show_raw_values_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.target_entindex_ = from._impl_.target_entindex_;
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.show_raw_values_ = from._impl_.show_raw_values_;
+      _this->_impl_.target_entindex_ = from._impl_.target_entindex_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -12653,12 +12703,9 @@ void CDOTAUserMsg_HPManaAlert::InternalSwap(CDOTAUserMsg_HPManaAlert* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_HPManaAlert, _impl_.show_raw_values_)
-      + sizeof(CDOTAUserMsg_HPManaAlert::_impl_.show_raw_values_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_HPManaAlert, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+  swap(_impl_.show_raw_values_, other->_impl_.show_raw_values_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
+  swap(_impl_.target_entindex_, other->_impl_.target_entindex_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_HPManaAlert::GetMetadata() const {
@@ -12673,25 +12720,25 @@ class CDOTAUserMsg_NeutralCampAlert::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_NeutralCampAlert>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_spawner_entindex(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_unit_entindex(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_stack_count(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-  static void set_has_camp_type(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
-  }
-  static void set_has_stack_request(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
   }
-  static void set_has_stack_intention(HasBits* has_bits) {
+  static void set_has_spawner_entindex(HasBits* has_bits) {
     (*has_bits)[0] |= 64u;
+  }
+  static void set_has_unit_entindex(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_stack_count(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_camp_type(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_stack_request(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_stack_intention(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
   }
 };
 
@@ -12707,18 +12754,18 @@ CDOTAUserMsg_NeutralCampAlert::CDOTAUserMsg_NeutralCampAlert(const CDOTAUserMsg_
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){}
-    , decltype(_impl_.spawner_entindex_){}
-    , decltype(_impl_.unit_entindex_){}
     , decltype(_impl_.stack_count_){}
     , decltype(_impl_.camp_type_){}
     , decltype(_impl_.stack_request_){}
-    , decltype(_impl_.stack_intention_){}};
+    , decltype(_impl_.stack_intention_){}
+    , decltype(_impl_.unit_entindex_){}
+    , decltype(_impl_.player_id_){}
+    , decltype(_impl_.spawner_entindex_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.stack_intention_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.stack_intention_));
+  ::memcpy(&_impl_.stack_count_, &from._impl_.stack_count_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.spawner_entindex_) -
+    reinterpret_cast<char*>(&_impl_.stack_count_)) + sizeof(_impl_.spawner_entindex_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_NeutralCampAlert)
 }
 
@@ -12729,13 +12776,13 @@ inline void CDOTAUserMsg_NeutralCampAlert::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
-    , decltype(_impl_.spawner_entindex_){0}
-    , decltype(_impl_.unit_entindex_){0}
     , decltype(_impl_.stack_count_){0}
     , decltype(_impl_.camp_type_){0}
     , decltype(_impl_.stack_request_){false}
     , decltype(_impl_.stack_intention_){false}
+    , decltype(_impl_.unit_entindex_){-1}
+    , decltype(_impl_.player_id_){-1}
+    , decltype(_impl_.spawner_entindex_){-1}
   };
 }
 
@@ -12764,9 +12811,12 @@ void CDOTAUserMsg_NeutralCampAlert::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
+    ::memset(&_impl_.stack_count_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.stack_intention_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.stack_intention_));
+        reinterpret_cast<char*>(&_impl_.stack_count_)) + sizeof(_impl_.stack_intention_));
+    _impl_.unit_entindex_ = -1;
+    _impl_.player_id_ = -1;
+    _impl_.spawner_entindex_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -12779,7 +12829,7 @@ const char* CDOTAUserMsg_NeutralCampAlert::_InternalParse(const char* ptr, ::_pb
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -12788,7 +12838,7 @@ const char* CDOTAUserMsg_NeutralCampAlert::_InternalParse(const char* ptr, ::_pb
         } else
           goto handle_unusual;
         continue;
-      // optional int32 spawner_entindex = 2;
+      // optional int32 spawner_entindex = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_spawner_entindex(&has_bits);
@@ -12797,7 +12847,7 @@ const char* CDOTAUserMsg_NeutralCampAlert::_InternalParse(const char* ptr, ::_pb
         } else
           goto handle_unusual;
         continue;
-      // optional int32 unit_entindex = 3;
+      // optional int32 unit_entindex = 3 [default = -1];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_unit_entindex(&has_bits);
@@ -12873,44 +12923,44 @@ uint8_t* CDOTAUserMsg_NeutralCampAlert::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
-  // optional int32 spawner_entindex = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 spawner_entindex = 2 [default = -1];
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_spawner_entindex(), target);
   }
 
-  // optional int32 unit_entindex = 3;
-  if (cached_has_bits & 0x00000004u) {
+  // optional int32 unit_entindex = 3 [default = -1];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_unit_entindex(), target);
   }
 
   // optional int32 stack_count = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_stack_count(), target);
   }
 
   // optional int32 camp_type = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(5, this->_internal_camp_type(), target);
   }
 
   // optional bool stack_request = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(6, this->_internal_stack_request(), target);
   }
 
   // optional bool stack_intention = 7;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(7, this->_internal_stack_intention(), target);
   }
@@ -12933,39 +12983,39 @@ size_t CDOTAUserMsg_NeutralCampAlert::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
-    // optional int32 player_id = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
-    }
-
-    // optional int32 spawner_entindex = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_spawner_entindex());
-    }
-
-    // optional int32 unit_entindex = 3;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_unit_entindex());
-    }
-
     // optional int32 stack_count = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_stack_count());
     }
 
     // optional int32 camp_type = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_camp_type());
     }
 
     // optional bool stack_request = 6;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
     }
 
     // optional bool stack_intention = 7;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 1;
+    }
+
+    // optional int32 unit_entindex = 3 [default = -1];
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_unit_entindex());
+    }
+
+    // optional int32 player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000020u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
+    }
+
+    // optional int32 spawner_entindex = 2 [default = -1];
+    if (cached_has_bits & 0x00000040u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_spawner_entindex());
     }
 
   }
@@ -12990,25 +13040,25 @@ void CDOTAUserMsg_NeutralCampAlert::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& 
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.spawner_entindex_ = from._impl_.spawner_entindex_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.unit_entindex_ = from._impl_.unit_entindex_;
-    }
-    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.stack_count_ = from._impl_.stack_count_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.camp_type_ = from._impl_.camp_type_;
     }
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.stack_request_ = from._impl_.stack_request_;
     }
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.stack_intention_ = from._impl_.stack_intention_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.unit_entindex_ = from._impl_.unit_entindex_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      _this->_impl_.spawner_entindex_ = from._impl_.spawner_entindex_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -13033,9 +13083,12 @@ void CDOTAUserMsg_NeutralCampAlert::InternalSwap(CDOTAUserMsg_NeutralCampAlert* 
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_NeutralCampAlert, _impl_.stack_intention_)
       + sizeof(CDOTAUserMsg_NeutralCampAlert::_impl_.stack_intention_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_NeutralCampAlert, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_NeutralCampAlert, _impl_.stack_count_)>(
+          reinterpret_cast<char*>(&_impl_.stack_count_),
+          reinterpret_cast<char*>(&other->_impl_.stack_count_));
+  swap(_impl_.unit_entindex_, other->_impl_.unit_entindex_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
+  swap(_impl_.spawner_entindex_, other->_impl_.spawner_entindex_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_NeutralCampAlert::GetMetadata() const {
@@ -13050,10 +13103,10 @@ class CDOTAUserMsg_GlyphAlert::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_GlyphAlert>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_negative(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -13069,13 +13122,13 @@ CDOTAUserMsg_GlyphAlert::CDOTAUserMsg_GlyphAlert(const CDOTAUserMsg_GlyphAlert& 
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){}
-    , decltype(_impl_.negative_){}};
+    , decltype(_impl_.negative_){}
+    , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.negative_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.negative_));
+  ::memcpy(&_impl_.negative_, &from._impl_.negative_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.negative_)) + sizeof(_impl_.player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_GlyphAlert)
 }
 
@@ -13086,8 +13139,8 @@ inline void CDOTAUserMsg_GlyphAlert::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.negative_){false}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -13116,9 +13169,8 @@ void CDOTAUserMsg_GlyphAlert::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.negative_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.negative_));
+    _impl_.negative_ = false;
+    _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -13131,7 +13183,7 @@ const char* CDOTAUserMsg_GlyphAlert::_InternalParse(const char* ptr, ::_pbi::Par
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -13180,14 +13232,14 @@ uint8_t* CDOTAUserMsg_GlyphAlert::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
   // optional bool negative = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_negative(), target);
   }
@@ -13210,14 +13262,14 @@ size_t CDOTAUserMsg_GlyphAlert::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional int32 player_id = 1;
+    // optional bool negative = 2;
     if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
+      total_size += 1 + 1;
     }
 
-    // optional bool negative = 2;
+    // optional int32 player_id = 1 [default = -1];
     if (cached_has_bits & 0x00000002u) {
-      total_size += 1 + 1;
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
   }
@@ -13242,10 +13294,10 @@ void CDOTAUserMsg_GlyphAlert::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
+      _this->_impl_.negative_ = from._impl_.negative_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.negative_ = from._impl_.negative_;
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -13267,12 +13319,8 @@ void CDOTAUserMsg_GlyphAlert::InternalSwap(CDOTAUserMsg_GlyphAlert* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_GlyphAlert, _impl_.negative_)
-      + sizeof(CDOTAUserMsg_GlyphAlert::_impl_.negative_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_GlyphAlert, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+  swap(_impl_.negative_, other->_impl_.negative_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_GlyphAlert::GetMetadata() const {
@@ -13287,10 +13335,10 @@ class CDOTAUserMsg_RadarAlert::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_RadarAlert>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_negative(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -13306,13 +13354,13 @@ CDOTAUserMsg_RadarAlert::CDOTAUserMsg_RadarAlert(const CDOTAUserMsg_RadarAlert& 
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){}
-    , decltype(_impl_.negative_){}};
+    , decltype(_impl_.negative_){}
+    , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.negative_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.negative_));
+  ::memcpy(&_impl_.negative_, &from._impl_.negative_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.negative_)) + sizeof(_impl_.player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_RadarAlert)
 }
 
@@ -13323,8 +13371,8 @@ inline void CDOTAUserMsg_RadarAlert::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.negative_){false}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -13353,9 +13401,8 @@ void CDOTAUserMsg_RadarAlert::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.negative_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.negative_));
+    _impl_.negative_ = false;
+    _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -13368,7 +13415,7 @@ const char* CDOTAUserMsg_RadarAlert::_InternalParse(const char* ptr, ::_pbi::Par
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -13417,14 +13464,14 @@ uint8_t* CDOTAUserMsg_RadarAlert::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
   // optional bool negative = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_negative(), target);
   }
@@ -13447,14 +13494,14 @@ size_t CDOTAUserMsg_RadarAlert::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional int32 player_id = 1;
+    // optional bool negative = 2;
     if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
+      total_size += 1 + 1;
     }
 
-    // optional bool negative = 2;
+    // optional int32 player_id = 1 [default = -1];
     if (cached_has_bits & 0x00000002u) {
-      total_size += 1 + 1;
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
   }
@@ -13479,10 +13526,10 @@ void CDOTAUserMsg_RadarAlert::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
+      _this->_impl_.negative_ = from._impl_.negative_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.negative_ = from._impl_.negative_;
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -13504,12 +13551,8 @@ void CDOTAUserMsg_RadarAlert::InternalSwap(CDOTAUserMsg_RadarAlert* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_RadarAlert, _impl_.negative_)
-      + sizeof(CDOTAUserMsg_RadarAlert::_impl_.negative_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_RadarAlert, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+  swap(_impl_.negative_, other->_impl_.negative_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_RadarAlert::GetMetadata() const {
@@ -13524,16 +13567,16 @@ class CDOTAUserMsg_WillPurchaseAlert::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_WillPurchaseAlert>()._impl_._has_bits_);
   static void set_has_item_ability_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_gold_remaining(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
-  static void set_has_suggestion_player_id(HasBits* has_bits) {
+  static void set_has_player_id(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
+  }
+  static void set_has_gold_remaining(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_suggestion_player_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
   }
 };
 
@@ -13549,15 +13592,15 @@ CDOTAUserMsg_WillPurchaseAlert::CDOTAUserMsg_WillPurchaseAlert(const CDOTAUserMs
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.item_ability_id_){}
-    , decltype(_impl_.player_id_){}
     , decltype(_impl_.gold_remaining_){}
-    , decltype(_impl_.suggestion_player_id_){}};
+    , decltype(_impl_.suggestion_player_id_){}
+    , decltype(_impl_.item_ability_id_){}
+    , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.item_ability_id_, &from._impl_.item_ability_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.suggestion_player_id_) -
-    reinterpret_cast<char*>(&_impl_.item_ability_id_)) + sizeof(_impl_.suggestion_player_id_));
+  ::memcpy(&_impl_.gold_remaining_, &from._impl_.gold_remaining_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.gold_remaining_)) + sizeof(_impl_.player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_WillPurchaseAlert)
 }
 
@@ -13568,10 +13611,10 @@ inline void CDOTAUserMsg_WillPurchaseAlert::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.item_ability_id_){0}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.gold_remaining_){0u}
-    , decltype(_impl_.suggestion_player_id_){0}
+    , decltype(_impl_.suggestion_player_id_){-1}
+    , decltype(_impl_.item_ability_id_){-1}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -13600,9 +13643,10 @@ void CDOTAUserMsg_WillPurchaseAlert::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    ::memset(&_impl_.item_ability_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.suggestion_player_id_) -
-        reinterpret_cast<char*>(&_impl_.item_ability_id_)) + sizeof(_impl_.suggestion_player_id_));
+    _impl_.gold_remaining_ = 0u;
+    _impl_.suggestion_player_id_ = -1;
+    _impl_.item_ability_id_ = -1;
+    _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -13615,7 +13659,7 @@ const char* CDOTAUserMsg_WillPurchaseAlert::_InternalParse(const char* ptr, ::_p
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 item_ability_id = 1;
+      // optional int32 item_ability_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_item_ability_id(&has_bits);
@@ -13624,7 +13668,7 @@ const char* CDOTAUserMsg_WillPurchaseAlert::_InternalParse(const char* ptr, ::_p
         } else
           goto handle_unusual;
         continue;
-      // optional int32 player_id = 2;
+      // optional int32 player_id = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_player_id(&has_bits);
@@ -13642,7 +13686,7 @@ const char* CDOTAUserMsg_WillPurchaseAlert::_InternalParse(const char* ptr, ::_p
         } else
           goto handle_unusual;
         continue;
-      // optional int32 suggestion_player_id = 4;
+      // optional int32 suggestion_player_id = 4 [default = -1];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _Internal::set_has_suggestion_player_id(&has_bits);
@@ -13682,26 +13726,26 @@ uint8_t* CDOTAUserMsg_WillPurchaseAlert::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 item_ability_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 item_ability_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_item_ability_id(), target);
   }
 
-  // optional int32 player_id = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 player_id = 2 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_player_id(), target);
   }
 
   // optional uint32 gold_remaining = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_gold_remaining(), target);
   }
 
-  // optional int32 suggestion_player_id = 4;
-  if (cached_has_bits & 0x00000008u) {
+  // optional int32 suggestion_player_id = 4 [default = -1];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_suggestion_player_id(), target);
   }
@@ -13724,24 +13768,24 @@ size_t CDOTAUserMsg_WillPurchaseAlert::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional int32 item_ability_id = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_item_ability_id());
-    }
-
-    // optional int32 player_id = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
-    }
-
     // optional uint32 gold_remaining = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_gold_remaining());
     }
 
-    // optional int32 suggestion_player_id = 4;
-    if (cached_has_bits & 0x00000008u) {
+    // optional int32 suggestion_player_id = 4 [default = -1];
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_suggestion_player_id());
+    }
+
+    // optional int32 item_ability_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_item_ability_id());
+    }
+
+    // optional int32 player_id = 2 [default = -1];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
   }
@@ -13766,16 +13810,16 @@ void CDOTAUserMsg_WillPurchaseAlert::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message&
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.item_ability_id_ = from._impl_.item_ability_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.gold_remaining_ = from._impl_.gold_remaining_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.suggestion_player_id_ = from._impl_.suggestion_player_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.item_ability_id_ = from._impl_.item_ability_id_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -13797,12 +13841,10 @@ void CDOTAUserMsg_WillPurchaseAlert::InternalSwap(CDOTAUserMsg_WillPurchaseAlert
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_WillPurchaseAlert, _impl_.suggestion_player_id_)
-      + sizeof(CDOTAUserMsg_WillPurchaseAlert::_impl_.suggestion_player_id_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_WillPurchaseAlert, _impl_.item_ability_id_)>(
-          reinterpret_cast<char*>(&_impl_.item_ability_id_),
-          reinterpret_cast<char*>(&other->_impl_.item_ability_id_));
+  swap(_impl_.gold_remaining_, other->_impl_.gold_remaining_);
+  swap(_impl_.suggestion_player_id_, other->_impl_.suggestion_player_id_);
+  swap(_impl_.item_ability_id_, other->_impl_.item_ability_id_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_WillPurchaseAlert::GetMetadata() const {
@@ -13817,13 +13859,13 @@ class CDOTAUserMsg_EmptyTeleportAlert::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_EmptyTeleportAlert>()._impl_._has_bits_);
   static void set_has_source_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_target_player_id(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
-  static void set_has_cooldown_seconds(HasBits* has_bits) {
+  static void set_has_target_player_id(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
+  }
+  static void set_has_cooldown_seconds(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -13839,14 +13881,14 @@ CDOTAUserMsg_EmptyTeleportAlert::CDOTAUserMsg_EmptyTeleportAlert(const CDOTAUser
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.cooldown_seconds_){}
     , decltype(_impl_.source_player_id_){}
-    , decltype(_impl_.target_player_id_){}
-    , decltype(_impl_.cooldown_seconds_){}};
+    , decltype(_impl_.target_player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.source_player_id_, &from._impl_.source_player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.cooldown_seconds_) -
-    reinterpret_cast<char*>(&_impl_.source_player_id_)) + sizeof(_impl_.cooldown_seconds_));
+  ::memcpy(&_impl_.cooldown_seconds_, &from._impl_.cooldown_seconds_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.target_player_id_) -
+    reinterpret_cast<char*>(&_impl_.cooldown_seconds_)) + sizeof(_impl_.target_player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_EmptyTeleportAlert)
 }
 
@@ -13857,9 +13899,9 @@ inline void CDOTAUserMsg_EmptyTeleportAlert::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.source_player_id_){0}
-    , decltype(_impl_.target_player_id_){0}
     , decltype(_impl_.cooldown_seconds_){0}
+    , decltype(_impl_.source_player_id_){-1}
+    , decltype(_impl_.target_player_id_){-1}
   };
 }
 
@@ -13888,9 +13930,9 @@ void CDOTAUserMsg_EmptyTeleportAlert::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    ::memset(&_impl_.source_player_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.cooldown_seconds_) -
-        reinterpret_cast<char*>(&_impl_.source_player_id_)) + sizeof(_impl_.cooldown_seconds_));
+    _impl_.cooldown_seconds_ = 0;
+    _impl_.source_player_id_ = -1;
+    _impl_.target_player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -13903,7 +13945,7 @@ const char* CDOTAUserMsg_EmptyTeleportAlert::_InternalParse(const char* ptr, ::_
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 source_player_id = 1;
+      // optional int32 source_player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_source_player_id(&has_bits);
@@ -13912,7 +13954,7 @@ const char* CDOTAUserMsg_EmptyTeleportAlert::_InternalParse(const char* ptr, ::_
         } else
           goto handle_unusual;
         continue;
-      // optional int32 target_player_id = 2;
+      // optional int32 target_player_id = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_target_player_id(&has_bits);
@@ -13961,20 +14003,20 @@ uint8_t* CDOTAUserMsg_EmptyTeleportAlert::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 source_player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 source_player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_source_player_id(), target);
   }
 
-  // optional int32 target_player_id = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 target_player_id = 2 [default = -1];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_target_player_id(), target);
   }
 
   // optional int32 cooldown_seconds = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_cooldown_seconds(), target);
   }
@@ -13997,19 +14039,19 @@ size_t CDOTAUserMsg_EmptyTeleportAlert::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional int32 source_player_id = 1;
+    // optional int32 cooldown_seconds = 3;
     if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_cooldown_seconds());
+    }
+
+    // optional int32 source_player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_source_player_id());
     }
 
-    // optional int32 target_player_id = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_player_id());
-    }
-
-    // optional int32 cooldown_seconds = 3;
+    // optional int32 target_player_id = 2 [default = -1];
     if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_cooldown_seconds());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_player_id());
     }
 
   }
@@ -14034,13 +14076,13 @@ void CDOTAUserMsg_EmptyTeleportAlert::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.source_player_id_ = from._impl_.source_player_id_;
+      _this->_impl_.cooldown_seconds_ = from._impl_.cooldown_seconds_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.target_player_id_ = from._impl_.target_player_id_;
+      _this->_impl_.source_player_id_ = from._impl_.source_player_id_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.cooldown_seconds_ = from._impl_.cooldown_seconds_;
+      _this->_impl_.target_player_id_ = from._impl_.target_player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -14062,12 +14104,9 @@ void CDOTAUserMsg_EmptyTeleportAlert::InternalSwap(CDOTAUserMsg_EmptyTeleportAle
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_EmptyTeleportAlert, _impl_.cooldown_seconds_)
-      + sizeof(CDOTAUserMsg_EmptyTeleportAlert::_impl_.cooldown_seconds_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_EmptyTeleportAlert, _impl_.source_player_id_)>(
-          reinterpret_cast<char*>(&_impl_.source_player_id_),
-          reinterpret_cast<char*>(&other->_impl_.source_player_id_));
+  swap(_impl_.cooldown_seconds_, other->_impl_.cooldown_seconds_);
+  swap(_impl_.source_player_id_, other->_impl_.source_player_id_);
+  swap(_impl_.target_player_id_, other->_impl_.target_player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_EmptyTeleportAlert::GetMetadata() const {
@@ -14082,13 +14121,13 @@ class CDOTAUserMsg_MarsArenaOfBloodAttack::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_MarsArenaOfBloodAttack>()._impl_._has_bits_);
   static void set_has_source_ehandle(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_target_ehandle(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
-  static void set_has_warrior_index(HasBits* has_bits) {
+  static void set_has_target_ehandle(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
+  }
+  static void set_has_warrior_index(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -14104,14 +14143,14 @@ CDOTAUserMsg_MarsArenaOfBloodAttack::CDOTAUserMsg_MarsArenaOfBloodAttack(const C
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.warrior_index_){}
     , decltype(_impl_.source_ehandle_){}
-    , decltype(_impl_.target_ehandle_){}
-    , decltype(_impl_.warrior_index_){}};
+    , decltype(_impl_.target_ehandle_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.source_ehandle_, &from._impl_.source_ehandle_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.warrior_index_) -
-    reinterpret_cast<char*>(&_impl_.source_ehandle_)) + sizeof(_impl_.warrior_index_));
+  ::memcpy(&_impl_.warrior_index_, &from._impl_.warrior_index_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.target_ehandle_) -
+    reinterpret_cast<char*>(&_impl_.warrior_index_)) + sizeof(_impl_.target_ehandle_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_MarsArenaOfBloodAttack)
 }
 
@@ -14122,9 +14161,9 @@ inline void CDOTAUserMsg_MarsArenaOfBloodAttack::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.source_ehandle_){0u}
-    , decltype(_impl_.target_ehandle_){0u}
     , decltype(_impl_.warrior_index_){0}
+    , decltype(_impl_.source_ehandle_){16777215u}
+    , decltype(_impl_.target_ehandle_){16777215u}
   };
 }
 
@@ -14153,9 +14192,9 @@ void CDOTAUserMsg_MarsArenaOfBloodAttack::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    ::memset(&_impl_.source_ehandle_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.warrior_index_) -
-        reinterpret_cast<char*>(&_impl_.source_ehandle_)) + sizeof(_impl_.warrior_index_));
+    _impl_.warrior_index_ = 0;
+    _impl_.source_ehandle_ = 16777215u;
+    _impl_.target_ehandle_ = 16777215u;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -14168,7 +14207,7 @@ const char* CDOTAUserMsg_MarsArenaOfBloodAttack::_InternalParse(const char* ptr,
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 source_ehandle = 1;
+      // optional uint32 source_ehandle = 1 [default = 16777215];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_source_ehandle(&has_bits);
@@ -14177,7 +14216,7 @@ const char* CDOTAUserMsg_MarsArenaOfBloodAttack::_InternalParse(const char* ptr,
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 target_ehandle = 2;
+      // optional uint32 target_ehandle = 2 [default = 16777215];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_target_ehandle(&has_bits);
@@ -14226,20 +14265,20 @@ uint8_t* CDOTAUserMsg_MarsArenaOfBloodAttack::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 source_ehandle = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional uint32 source_ehandle = 1 [default = 16777215];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_source_ehandle(), target);
   }
 
-  // optional uint32 target_ehandle = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional uint32 target_ehandle = 2 [default = 16777215];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_target_ehandle(), target);
   }
 
   // optional int32 warrior_index = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_warrior_index(), target);
   }
@@ -14262,19 +14301,19 @@ size_t CDOTAUserMsg_MarsArenaOfBloodAttack::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional uint32 source_ehandle = 1;
+    // optional int32 warrior_index = 3;
     if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_warrior_index());
+    }
+
+    // optional uint32 source_ehandle = 1 [default = 16777215];
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_source_ehandle());
     }
 
-    // optional uint32 target_ehandle = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_target_ehandle());
-    }
-
-    // optional int32 warrior_index = 3;
+    // optional uint32 target_ehandle = 2 [default = 16777215];
     if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_warrior_index());
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_target_ehandle());
     }
 
   }
@@ -14299,13 +14338,13 @@ void CDOTAUserMsg_MarsArenaOfBloodAttack::MergeImpl(::PROTOBUF_NAMESPACE_ID::Mes
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.source_ehandle_ = from._impl_.source_ehandle_;
+      _this->_impl_.warrior_index_ = from._impl_.warrior_index_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.target_ehandle_ = from._impl_.target_ehandle_;
+      _this->_impl_.source_ehandle_ = from._impl_.source_ehandle_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.warrior_index_ = from._impl_.warrior_index_;
+      _this->_impl_.target_ehandle_ = from._impl_.target_ehandle_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -14327,12 +14366,9 @@ void CDOTAUserMsg_MarsArenaOfBloodAttack::InternalSwap(CDOTAUserMsg_MarsArenaOfB
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_MarsArenaOfBloodAttack, _impl_.warrior_index_)
-      + sizeof(CDOTAUserMsg_MarsArenaOfBloodAttack::_impl_.warrior_index_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_MarsArenaOfBloodAttack, _impl_.source_ehandle_)>(
-          reinterpret_cast<char*>(&_impl_.source_ehandle_),
-          reinterpret_cast<char*>(&other->_impl_.source_ehandle_));
+  swap(_impl_.warrior_index_, other->_impl_.warrior_index_);
+  swap(_impl_.source_ehandle_, other->_impl_.source_ehandle_);
+  swap(_impl_.target_ehandle_, other->_impl_.target_ehandle_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_MarsArenaOfBloodAttack::GetMetadata() const {
@@ -14628,7 +14664,7 @@ inline void CDOTAUserMsg_BuyBackStateAlert::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -14655,7 +14691,7 @@ void CDOTAUserMsg_BuyBackStateAlert::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.player_id_ = 0;
+  _impl_.player_id_ = -1;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -14667,7 +14703,7 @@ const char* CDOTAUserMsg_BuyBackStateAlert::_InternalParse(const char* ptr, ::_p
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -14707,7 +14743,7 @@ uint8_t* CDOTAUserMsg_BuyBackStateAlert::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
@@ -14729,7 +14765,7 @@ size_t CDOTAUserMsg_BuyBackStateAlert::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
@@ -14789,19 +14825,19 @@ class CDOTAUserMsg_QuickBuyAlert::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_QuickBuyAlert>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_item_ability_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_gold_cost(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_item_cooldown_seconds(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
-  static void set_has_show_buyback(HasBits* has_bits) {
+  static void set_has_item_ability_id(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
+  }
+  static void set_has_gold_cost(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_item_cooldown_seconds(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_show_buyback(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
   }
 };
 
@@ -14817,16 +14853,16 @@ CDOTAUserMsg_QuickBuyAlert::CDOTAUserMsg_QuickBuyAlert(const CDOTAUserMsg_QuickB
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){}
-    , decltype(_impl_.item_ability_id_){}
     , decltype(_impl_.gold_cost_){}
     , decltype(_impl_.item_cooldown_seconds_){}
-    , decltype(_impl_.show_buyback_){}};
+    , decltype(_impl_.show_buyback_){}
+    , decltype(_impl_.player_id_){}
+    , decltype(_impl_.item_ability_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.show_buyback_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.show_buyback_));
+  ::memcpy(&_impl_.gold_cost_, &from._impl_.gold_cost_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.item_ability_id_) -
+    reinterpret_cast<char*>(&_impl_.gold_cost_)) + sizeof(_impl_.item_ability_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_QuickBuyAlert)
 }
 
@@ -14837,11 +14873,11 @@ inline void CDOTAUserMsg_QuickBuyAlert::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
-    , decltype(_impl_.item_ability_id_){0}
     , decltype(_impl_.gold_cost_){0}
     , decltype(_impl_.item_cooldown_seconds_){0}
     , decltype(_impl_.show_buyback_){false}
+    , decltype(_impl_.player_id_){-1}
+    , decltype(_impl_.item_ability_id_){-1}
   };
 }
 
@@ -14870,9 +14906,11 @@ void CDOTAUserMsg_QuickBuyAlert::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
+    ::memset(&_impl_.gold_cost_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.show_buyback_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.show_buyback_));
+        reinterpret_cast<char*>(&_impl_.gold_cost_)) + sizeof(_impl_.show_buyback_));
+    _impl_.player_id_ = -1;
+    _impl_.item_ability_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -14885,7 +14923,7 @@ const char* CDOTAUserMsg_QuickBuyAlert::_InternalParse(const char* ptr, ::_pbi::
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -14894,7 +14932,7 @@ const char* CDOTAUserMsg_QuickBuyAlert::_InternalParse(const char* ptr, ::_pbi::
         } else
           goto handle_unusual;
         continue;
-      // optional int32 item_ability_id = 2;
+      // optional int32 item_ability_id = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_item_ability_id(&has_bits);
@@ -14961,32 +14999,32 @@ uint8_t* CDOTAUserMsg_QuickBuyAlert::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
-  // optional int32 item_ability_id = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 item_ability_id = 2 [default = -1];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_item_ability_id(), target);
   }
 
   // optional int32 gold_cost = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_gold_cost(), target);
   }
 
   // optional int32 item_cooldown_seconds = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_item_cooldown_seconds(), target);
   }
 
   // optional bool show_buyback = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(5, this->_internal_show_buyback(), target);
   }
@@ -15009,29 +15047,29 @@ size_t CDOTAUserMsg_QuickBuyAlert::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    // optional int32 player_id = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
-    }
-
-    // optional int32 item_ability_id = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_item_ability_id());
-    }
-
     // optional int32 gold_cost = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_gold_cost());
     }
 
     // optional int32 item_cooldown_seconds = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_item_cooldown_seconds());
     }
 
     // optional bool show_buyback = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
+    }
+
+    // optional int32 player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
+    }
+
+    // optional int32 item_ability_id = 2 [default = -1];
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_item_ability_id());
     }
 
   }
@@ -15056,19 +15094,19 @@ void CDOTAUserMsg_QuickBuyAlert::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.item_ability_id_ = from._impl_.item_ability_id_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.gold_cost_ = from._impl_.gold_cost_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.item_cooldown_seconds_ = from._impl_.item_cooldown_seconds_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.show_buyback_ = from._impl_.show_buyback_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.item_ability_id_ = from._impl_.item_ability_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -15093,9 +15131,11 @@ void CDOTAUserMsg_QuickBuyAlert::InternalSwap(CDOTAUserMsg_QuickBuyAlert* other)
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_QuickBuyAlert, _impl_.show_buyback_)
       + sizeof(CDOTAUserMsg_QuickBuyAlert::_impl_.show_buyback_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_QuickBuyAlert, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_QuickBuyAlert, _impl_.gold_cost_)>(
+          reinterpret_cast<char*>(&_impl_.gold_cost_),
+          reinterpret_cast<char*>(&other->_impl_.gold_cost_));
+  swap(_impl_.player_id_, other->_impl_.player_id_);
+  swap(_impl_.item_ability_id_, other->_impl_.item_ability_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_QuickBuyAlert::GetMetadata() const {
@@ -15110,10 +15150,10 @@ class CDOTAUserMsg_CourierKilledAlert_LostItem::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_CourierKilledAlert_LostItem>()._impl_._has_bits_);
   static void set_has_item_ability_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_quantity(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -15129,13 +15169,13 @@ CDOTAUserMsg_CourierKilledAlert_LostItem::CDOTAUserMsg_CourierKilledAlert_LostIt
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.item_ability_id_){}
-    , decltype(_impl_.quantity_){}};
+    , decltype(_impl_.quantity_){}
+    , decltype(_impl_.item_ability_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.item_ability_id_, &from._impl_.item_ability_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.quantity_) -
-    reinterpret_cast<char*>(&_impl_.item_ability_id_)) + sizeof(_impl_.quantity_));
+  ::memcpy(&_impl_.quantity_, &from._impl_.quantity_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.item_ability_id_) -
+    reinterpret_cast<char*>(&_impl_.quantity_)) + sizeof(_impl_.item_ability_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_CourierKilledAlert.LostItem)
 }
 
@@ -15146,8 +15186,8 @@ inline void CDOTAUserMsg_CourierKilledAlert_LostItem::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.item_ability_id_){0}
     , decltype(_impl_.quantity_){0u}
+    , decltype(_impl_.item_ability_id_){-1}
   };
 }
 
@@ -15176,9 +15216,8 @@ void CDOTAUserMsg_CourierKilledAlert_LostItem::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    ::memset(&_impl_.item_ability_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.quantity_) -
-        reinterpret_cast<char*>(&_impl_.item_ability_id_)) + sizeof(_impl_.quantity_));
+    _impl_.quantity_ = 0u;
+    _impl_.item_ability_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -15191,7 +15230,7 @@ const char* CDOTAUserMsg_CourierKilledAlert_LostItem::_InternalParse(const char*
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 item_ability_id = 1;
+      // optional int32 item_ability_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_item_ability_id(&has_bits);
@@ -15240,14 +15279,14 @@ uint8_t* CDOTAUserMsg_CourierKilledAlert_LostItem::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 item_ability_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 item_ability_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_item_ability_id(), target);
   }
 
   // optional uint32 quantity = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_quantity(), target);
   }
@@ -15270,14 +15309,14 @@ size_t CDOTAUserMsg_CourierKilledAlert_LostItem::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional int32 item_ability_id = 1;
+    // optional uint32 quantity = 2;
     if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_item_ability_id());
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_quantity());
     }
 
-    // optional uint32 quantity = 2;
+    // optional int32 item_ability_id = 1 [default = -1];
     if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_quantity());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_item_ability_id());
     }
 
   }
@@ -15302,10 +15341,10 @@ void CDOTAUserMsg_CourierKilledAlert_LostItem::MergeImpl(::PROTOBUF_NAMESPACE_ID
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.item_ability_id_ = from._impl_.item_ability_id_;
+      _this->_impl_.quantity_ = from._impl_.quantity_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.quantity_ = from._impl_.quantity_;
+      _this->_impl_.item_ability_id_ = from._impl_.item_ability_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -15327,12 +15366,8 @@ void CDOTAUserMsg_CourierKilledAlert_LostItem::InternalSwap(CDOTAUserMsg_Courier
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_CourierKilledAlert_LostItem, _impl_.quantity_)
-      + sizeof(CDOTAUserMsg_CourierKilledAlert_LostItem::_impl_.quantity_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_CourierKilledAlert_LostItem, _impl_.item_ability_id_)>(
-          reinterpret_cast<char*>(&_impl_.item_ability_id_),
-          reinterpret_cast<char*>(&other->_impl_.item_ability_id_));
+  swap(_impl_.quantity_, other->_impl_.quantity_);
+  swap(_impl_.item_ability_id_, other->_impl_.item_ability_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_CourierKilledAlert_LostItem::GetMetadata() const {
@@ -15353,16 +15388,16 @@ class CDOTAUserMsg_CourierKilledAlert::_Internal {
     (*has_bits)[0] |= 2u;
   }
   static void set_has_entity_handle(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_timestamp(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-  static void set_has_killer_player_id(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
   }
-  static void set_has_owning_player_id(HasBits* has_bits) {
+  static void set_has_timestamp(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_killer_player_id(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
+  }
+  static void set_has_owning_player_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
   }
 };
 
@@ -15381,15 +15416,15 @@ CDOTAUserMsg_CourierKilledAlert::CDOTAUserMsg_CourierKilledAlert(const CDOTAUser
     , decltype(_impl_.lost_items_){from._impl_.lost_items_}
     , decltype(_impl_.team_){}
     , decltype(_impl_.gold_value_){}
-    , decltype(_impl_.entity_handle_){}
     , decltype(_impl_.timestamp_){}
-    , decltype(_impl_.killer_player_id_){}
-    , decltype(_impl_.owning_player_id_){}};
+    , decltype(_impl_.owning_player_id_){}
+    , decltype(_impl_.entity_handle_){}
+    , decltype(_impl_.killer_player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.team_, &from._impl_.team_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.owning_player_id_) -
-    reinterpret_cast<char*>(&_impl_.team_)) + sizeof(_impl_.owning_player_id_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.killer_player_id_) -
+    reinterpret_cast<char*>(&_impl_.team_)) + sizeof(_impl_.killer_player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_CourierKilledAlert)
 }
 
@@ -15403,10 +15438,10 @@ inline void CDOTAUserMsg_CourierKilledAlert::SharedCtor(
     , decltype(_impl_.lost_items_){arena}
     , decltype(_impl_.team_){0u}
     , decltype(_impl_.gold_value_){0u}
-    , decltype(_impl_.entity_handle_){0u}
     , decltype(_impl_.timestamp_){0}
-    , decltype(_impl_.killer_player_id_){0}
-    , decltype(_impl_.owning_player_id_){0}
+    , decltype(_impl_.owning_player_id_){-1}
+    , decltype(_impl_.entity_handle_){16777215u}
+    , decltype(_impl_.killer_player_id_){-1}
   };
 }
 
@@ -15438,8 +15473,11 @@ void CDOTAUserMsg_CourierKilledAlert::Clear() {
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
     ::memset(&_impl_.team_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.owning_player_id_) -
-        reinterpret_cast<char*>(&_impl_.team_)) + sizeof(_impl_.owning_player_id_));
+        reinterpret_cast<char*>(&_impl_.timestamp_) -
+        reinterpret_cast<char*>(&_impl_.team_)) + sizeof(_impl_.timestamp_));
+    _impl_.owning_player_id_ = -1;
+    _impl_.entity_handle_ = 16777215u;
+    _impl_.killer_player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -15470,7 +15508,7 @@ const char* CDOTAUserMsg_CourierKilledAlert::_InternalParse(const char* ptr, ::_
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 entity_handle = 3;
+      // optional uint32 entity_handle = 3 [default = 16777215];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_entity_handle(&has_bits);
@@ -15501,7 +15539,7 @@ const char* CDOTAUserMsg_CourierKilledAlert::_InternalParse(const char* ptr, ::_
         } else
           goto handle_unusual;
         continue;
-      // optional int32 killer_player_id = 6;
+      // optional int32 killer_player_id = 6 [default = -1];
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
           _Internal::set_has_killer_player_id(&has_bits);
@@ -15510,7 +15548,7 @@ const char* CDOTAUserMsg_CourierKilledAlert::_InternalParse(const char* ptr, ::_
         } else
           goto handle_unusual;
         continue;
-      // optional int32 owning_player_id = 7;
+      // optional int32 owning_player_id = 7 [default = -1];
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
           _Internal::set_has_owning_player_id(&has_bits);
@@ -15562,14 +15600,14 @@ uint8_t* CDOTAUserMsg_CourierKilledAlert::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_gold_value(), target);
   }
 
-  // optional uint32 entity_handle = 3;
-  if (cached_has_bits & 0x00000004u) {
+  // optional uint32 entity_handle = 3 [default = 16777215];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_entity_handle(), target);
   }
 
   // optional int32 timestamp = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_timestamp(), target);
   }
@@ -15582,14 +15620,14 @@ uint8_t* CDOTAUserMsg_CourierKilledAlert::_InternalSerialize(
         InternalWriteMessage(5, repfield, repfield.GetCachedSize(), target, stream);
   }
 
-  // optional int32 killer_player_id = 6;
-  if (cached_has_bits & 0x00000010u) {
+  // optional int32 killer_player_id = 6 [default = -1];
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(6, this->_internal_killer_player_id(), target);
   }
 
-  // optional int32 owning_player_id = 7;
-  if (cached_has_bits & 0x00000020u) {
+  // optional int32 owning_player_id = 7 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(7, this->_internal_owning_player_id(), target);
   }
@@ -15629,24 +15667,24 @@ size_t CDOTAUserMsg_CourierKilledAlert::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_gold_value());
     }
 
-    // optional uint32 entity_handle = 3;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_entity_handle());
-    }
-
     // optional int32 timestamp = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_timestamp());
     }
 
-    // optional int32 killer_player_id = 6;
-    if (cached_has_bits & 0x00000010u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_killer_player_id());
+    // optional int32 owning_player_id = 7 [default = -1];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_owning_player_id());
     }
 
-    // optional int32 owning_player_id = 7;
+    // optional uint32 entity_handle = 3 [default = 16777215];
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_entity_handle());
+    }
+
+    // optional int32 killer_player_id = 6 [default = -1];
     if (cached_has_bits & 0x00000020u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_owning_player_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_killer_player_id());
     }
 
   }
@@ -15678,16 +15716,16 @@ void CDOTAUserMsg_CourierKilledAlert::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message
       _this->_impl_.gold_value_ = from._impl_.gold_value_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.entity_handle_ = from._impl_.entity_handle_;
-    }
-    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.timestamp_ = from._impl_.timestamp_;
     }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.owning_player_id_ = from._impl_.owning_player_id_;
+    }
     if (cached_has_bits & 0x00000010u) {
-      _this->_impl_.killer_player_id_ = from._impl_.killer_player_id_;
+      _this->_impl_.entity_handle_ = from._impl_.entity_handle_;
     }
     if (cached_has_bits & 0x00000020u) {
-      _this->_impl_.owning_player_id_ = from._impl_.owning_player_id_;
+      _this->_impl_.killer_player_id_ = from._impl_.killer_player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -15711,11 +15749,14 @@ void CDOTAUserMsg_CourierKilledAlert::InternalSwap(CDOTAUserMsg_CourierKilledAle
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.lost_items_.InternalSwap(&other->_impl_.lost_items_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_CourierKilledAlert, _impl_.owning_player_id_)
-      + sizeof(CDOTAUserMsg_CourierKilledAlert::_impl_.owning_player_id_)
+      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_CourierKilledAlert, _impl_.timestamp_)
+      + sizeof(CDOTAUserMsg_CourierKilledAlert::_impl_.timestamp_)
       - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_CourierKilledAlert, _impl_.team_)>(
           reinterpret_cast<char*>(&_impl_.team_),
           reinterpret_cast<char*>(&other->_impl_.team_));
+  swap(_impl_.owning_player_id_, other->_impl_.owning_player_id_);
+  swap(_impl_.entity_handle_, other->_impl_.entity_handle_);
+  swap(_impl_.killer_player_id_, other->_impl_.killer_player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_CourierKilledAlert::GetMetadata() const {
@@ -15733,16 +15774,16 @@ class CDOTAUserMsg_MinimapEvent::_Internal {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_entity_handle(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_x(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_y(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_duration(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_target_entity_handle(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
@@ -15762,10 +15803,10 @@ CDOTAUserMsg_MinimapEvent::CDOTAUserMsg_MinimapEvent(const CDOTAUserMsg_MinimapE
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.event_type_){}
-    , decltype(_impl_.entity_handle_){}
     , decltype(_impl_.x_){}
     , decltype(_impl_.y_){}
     , decltype(_impl_.duration_){}
+    , decltype(_impl_.entity_handle_){}
     , decltype(_impl_.target_entity_handle_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -15783,11 +15824,11 @@ inline void CDOTAUserMsg_MinimapEvent::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.event_type_){0}
-    , decltype(_impl_.entity_handle_){0u}
     , decltype(_impl_.x_){0}
     , decltype(_impl_.y_){0}
     , decltype(_impl_.duration_){0}
-    , decltype(_impl_.target_entity_handle_){0u}
+    , decltype(_impl_.entity_handle_){16777215u}
+    , decltype(_impl_.target_entity_handle_){16777215u}
   };
 }
 
@@ -15817,8 +15858,10 @@ void CDOTAUserMsg_MinimapEvent::Clear() {
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
     ::memset(&_impl_.event_type_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.target_entity_handle_) -
-        reinterpret_cast<char*>(&_impl_.event_type_)) + sizeof(_impl_.target_entity_handle_));
+        reinterpret_cast<char*>(&_impl_.duration_) -
+        reinterpret_cast<char*>(&_impl_.event_type_)) + sizeof(_impl_.duration_));
+    _impl_.entity_handle_ = 16777215u;
+    _impl_.target_entity_handle_ = 16777215u;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -15840,7 +15883,7 @@ const char* CDOTAUserMsg_MinimapEvent::_InternalParse(const char* ptr, ::_pbi::P
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 entity_handle = 2;
+      // optional uint32 entity_handle = 2 [default = 16777215];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_entity_handle(&has_bits);
@@ -15876,7 +15919,7 @@ const char* CDOTAUserMsg_MinimapEvent::_InternalParse(const char* ptr, ::_pbi::P
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 target_entity_handle = 6;
+      // optional uint32 target_entity_handle = 6 [default = 16777215];
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
           _Internal::set_has_target_entity_handle(&has_bits);
@@ -15922,31 +15965,31 @@ uint8_t* CDOTAUserMsg_MinimapEvent::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_event_type(), target);
   }
 
-  // optional uint32 entity_handle = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional uint32 entity_handle = 2 [default = 16777215];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_entity_handle(), target);
   }
 
   // optional int32 x = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_x(), target);
   }
 
   // optional int32 y = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_y(), target);
   }
 
   // optional int32 duration = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(5, this->_internal_duration(), target);
   }
 
-  // optional uint32 target_entity_handle = 6;
+  // optional uint32 target_entity_handle = 6 [default = 16777215];
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_target_entity_handle(), target);
@@ -15975,27 +16018,27 @@ size_t CDOTAUserMsg_MinimapEvent::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_event_type());
     }
 
-    // optional uint32 entity_handle = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_entity_handle());
-    }
-
     // optional int32 x = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_x());
     }
 
     // optional int32 y = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_y());
     }
 
     // optional int32 duration = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_duration());
     }
 
-    // optional uint32 target_entity_handle = 6;
+    // optional uint32 entity_handle = 2 [default = 16777215];
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_entity_handle());
+    }
+
+    // optional uint32 target_entity_handle = 6 [default = 16777215];
     if (cached_has_bits & 0x00000020u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_target_entity_handle());
     }
@@ -16025,16 +16068,16 @@ void CDOTAUserMsg_MinimapEvent::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_m
       _this->_impl_.event_type_ = from._impl_.event_type_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.entity_handle_ = from._impl_.entity_handle_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.x_ = from._impl_.x_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.y_ = from._impl_.y_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.duration_ = from._impl_.duration_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.entity_handle_ = from._impl_.entity_handle_;
     }
     if (cached_has_bits & 0x00000020u) {
       _this->_impl_.target_entity_handle_ = from._impl_.target_entity_handle_;
@@ -16060,11 +16103,13 @@ void CDOTAUserMsg_MinimapEvent::InternalSwap(CDOTAUserMsg_MinimapEvent* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_MinimapEvent, _impl_.target_entity_handle_)
-      + sizeof(CDOTAUserMsg_MinimapEvent::_impl_.target_entity_handle_)
+      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_MinimapEvent, _impl_.duration_)
+      + sizeof(CDOTAUserMsg_MinimapEvent::_impl_.duration_)
       - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_MinimapEvent, _impl_.event_type_)>(
           reinterpret_cast<char*>(&_impl_.event_type_),
           reinterpret_cast<char*>(&other->_impl_.event_type_));
+  swap(_impl_.entity_handle_, other->_impl_.entity_handle_);
+  swap(_impl_.target_entity_handle_, other->_impl_.target_entity_handle_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_MinimapEvent::GetMetadata() const {
@@ -16126,7 +16171,7 @@ inline void CDOTAUserMsg_MapLine::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.mapline_){nullptr}
-    , decltype(_impl_.player_id_){0}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -16155,11 +16200,13 @@ void CDOTAUserMsg_MapLine::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    GOOGLE_DCHECK(_impl_.mapline_ != nullptr);
-    _impl_.mapline_->Clear();
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      GOOGLE_DCHECK(_impl_.mapline_ != nullptr);
+      _impl_.mapline_->Clear();
+    }
+    _impl_.player_id_ = -1;
   }
-  _impl_.player_id_ = 0;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -16171,7 +16218,7 @@ const char* CDOTAUserMsg_MapLine::_InternalParse(const char* ptr, ::_pbi::ParseC
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -16219,7 +16266,7 @@ uint8_t* CDOTAUserMsg_MapLine::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
@@ -16257,7 +16304,7 @@ size_t CDOTAUserMsg_MapLine::ByteSizeLong() const {
           *_impl_.mapline_);
     }
 
-    // optional int32 player_id = 1;
+    // optional int32 player_id = 1 [default = -1];
     if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
@@ -16310,12 +16357,8 @@ void CDOTAUserMsg_MapLine::InternalSwap(CDOTAUserMsg_MapLine* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_MapLine, _impl_.player_id_)
-      + sizeof(CDOTAUserMsg_MapLine::_impl_.player_id_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_MapLine, _impl_.mapline_)>(
-          reinterpret_cast<char*>(&_impl_.mapline_),
-          reinterpret_cast<char*>(&other->_impl_.mapline_));
+  swap(_impl_.mapline_, other->_impl_.mapline_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_MapLine::GetMetadata() const {
@@ -16679,32 +16722,32 @@ class CDOTAUserMsg_CreateLinearProjectile::_Internal {
     (*has_bits)[0] |= 2u;
   }
   static void set_has_entindex(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 1024u;
   }
   static void set_has_particle_index(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
   static void set_has_handle(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 16u;
   }
   static const ::CMsgVector2D& acceleration(const CDOTAUserMsg_CreateLinearProjectile* msg);
   static void set_has_acceleration(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
   static void set_has_max_speed(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
+    (*has_bits)[0] |= 32u;
   }
   static void set_has_fow_radius(HasBits* has_bits) {
-    (*has_bits)[0] |= 128u;
+    (*has_bits)[0] |= 64u;
   }
   static void set_has_sticky_fow_reveal(HasBits* has_bits) {
-    (*has_bits)[0] |= 256u;
+    (*has_bits)[0] |= 128u;
   }
   static void set_has_distance(HasBits* has_bits) {
-    (*has_bits)[0] |= 512u;
+    (*has_bits)[0] |= 256u;
   }
   static void set_has_colorgemcolor(HasBits* has_bits) {
-    (*has_bits)[0] |= 1024u;
+    (*has_bits)[0] |= 512u;
   }
 };
 
@@ -16749,13 +16792,13 @@ CDOTAUserMsg_CreateLinearProjectile::CDOTAUserMsg_CreateLinearProjectile(const C
     , decltype(_impl_.velocity_){nullptr}
     , decltype(_impl_.acceleration_){nullptr}
     , decltype(_impl_.particle_index_){}
-    , decltype(_impl_.entindex_){}
     , decltype(_impl_.handle_){}
     , decltype(_impl_.max_speed_){}
     , decltype(_impl_.fow_radius_){}
     , decltype(_impl_.sticky_fow_reveal_){}
     , decltype(_impl_.distance_){}
-    , decltype(_impl_.colorgemcolor_){}};
+    , decltype(_impl_.colorgemcolor_){}
+    , decltype(_impl_.entindex_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_origin()) {
@@ -16768,8 +16811,8 @@ CDOTAUserMsg_CreateLinearProjectile::CDOTAUserMsg_CreateLinearProjectile(const C
     _this->_impl_.acceleration_ = new ::CMsgVector2D(*from._impl_.acceleration_);
   }
   ::memcpy(&_impl_.particle_index_, &from._impl_.particle_index_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.colorgemcolor_) -
-    reinterpret_cast<char*>(&_impl_.particle_index_)) + sizeof(_impl_.colorgemcolor_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.entindex_) -
+    reinterpret_cast<char*>(&_impl_.particle_index_)) + sizeof(_impl_.entindex_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_CreateLinearProjectile)
 }
 
@@ -16785,13 +16828,13 @@ inline void CDOTAUserMsg_CreateLinearProjectile::SharedCtor(
     , decltype(_impl_.velocity_){nullptr}
     , decltype(_impl_.acceleration_){nullptr}
     , decltype(_impl_.particle_index_){uint64_t{0u}}
-    , decltype(_impl_.entindex_){0}
     , decltype(_impl_.handle_){0}
     , decltype(_impl_.max_speed_){0}
     , decltype(_impl_.fow_radius_){0}
     , decltype(_impl_.sticky_fow_reveal_){false}
     , decltype(_impl_.distance_){0}
     , decltype(_impl_.colorgemcolor_){0u}
+    , decltype(_impl_.entindex_){-1}
   };
 }
 
@@ -16840,13 +16883,14 @@ void CDOTAUserMsg_CreateLinearProjectile::Clear() {
   }
   if (cached_has_bits & 0x000000f8u) {
     ::memset(&_impl_.particle_index_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.fow_radius_) -
-        reinterpret_cast<char*>(&_impl_.particle_index_)) + sizeof(_impl_.fow_radius_));
+        reinterpret_cast<char*>(&_impl_.sticky_fow_reveal_) -
+        reinterpret_cast<char*>(&_impl_.particle_index_)) + sizeof(_impl_.sticky_fow_reveal_));
   }
   if (cached_has_bits & 0x00000700u) {
-    ::memset(&_impl_.sticky_fow_reveal_, 0, static_cast<size_t>(
+    ::memset(&_impl_.distance_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.colorgemcolor_) -
-        reinterpret_cast<char*>(&_impl_.sticky_fow_reveal_)) + sizeof(_impl_.colorgemcolor_));
+        reinterpret_cast<char*>(&_impl_.distance_)) + sizeof(_impl_.colorgemcolor_));
+    _impl_.entindex_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -16875,7 +16919,7 @@ const char* CDOTAUserMsg_CreateLinearProjectile::_InternalParse(const char* ptr,
         } else
           goto handle_unusual;
         continue;
-      // optional int32 entindex = 4;
+      // optional int32 entindex = 4 [default = -1];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _Internal::set_has_entindex(&has_bits);
@@ -17013,8 +17057,8 @@ uint8_t* CDOTAUserMsg_CreateLinearProjectile::_InternalSerialize(
         _Internal::velocity(this).GetCachedSize(), target, stream);
   }
 
-  // optional int32 entindex = 4;
-  if (cached_has_bits & 0x00000010u) {
+  // optional int32 entindex = 4 [default = -1];
+  if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_entindex(), target);
   }
@@ -17026,7 +17070,7 @@ uint8_t* CDOTAUserMsg_CreateLinearProjectile::_InternalSerialize(
   }
 
   // optional int32 handle = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(6, this->_internal_handle(), target);
   }
@@ -17039,31 +17083,31 @@ uint8_t* CDOTAUserMsg_CreateLinearProjectile::_InternalSerialize(
   }
 
   // optional float max_speed = 8;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(8, this->_internal_max_speed(), target);
   }
 
   // optional float fow_radius = 9;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(9, this->_internal_fow_radius(), target);
   }
 
   // optional bool sticky_fow_reveal = 10;
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(10, this->_internal_sticky_fow_reveal(), target);
   }
 
   // optional float distance = 11;
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(11, this->_internal_distance(), target);
   }
 
   // optional fixed32 colorgemcolor = 12;
-  if (cached_has_bits & 0x00000400u) {
+  if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFixed32ToArray(12, this->_internal_colorgemcolor(), target);
   }
@@ -17127,41 +17171,41 @@ size_t CDOTAUserMsg_CreateLinearProjectile::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_particle_index());
     }
 
-    // optional int32 entindex = 4;
-    if (cached_has_bits & 0x00000010u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_entindex());
-    }
-
     // optional int32 handle = 6;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_handle());
     }
 
     // optional float max_speed = 8;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 4;
     }
 
     // optional float fow_radius = 9;
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000040u) {
       total_size += 1 + 4;
+    }
+
+    // optional bool sticky_fow_reveal = 10;
+    if (cached_has_bits & 0x00000080u) {
+      total_size += 1 + 1;
     }
 
   }
   if (cached_has_bits & 0x00000700u) {
-    // optional bool sticky_fow_reveal = 10;
-    if (cached_has_bits & 0x00000100u) {
-      total_size += 1 + 1;
-    }
-
     // optional float distance = 11;
-    if (cached_has_bits & 0x00000200u) {
+    if (cached_has_bits & 0x00000100u) {
       total_size += 1 + 4;
     }
 
     // optional fixed32 colorgemcolor = 12;
-    if (cached_has_bits & 0x00000400u) {
+    if (cached_has_bits & 0x00000200u) {
       total_size += 1 + 4;
+    }
+
+    // optional int32 entindex = 4 [default = -1];
+    if (cached_has_bits & 0x00000400u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_entindex());
     }
 
   }
@@ -17202,28 +17246,28 @@ void CDOTAUserMsg_CreateLinearProjectile::MergeImpl(::PROTOBUF_NAMESPACE_ID::Mes
       _this->_impl_.particle_index_ = from._impl_.particle_index_;
     }
     if (cached_has_bits & 0x00000010u) {
-      _this->_impl_.entindex_ = from._impl_.entindex_;
-    }
-    if (cached_has_bits & 0x00000020u) {
       _this->_impl_.handle_ = from._impl_.handle_;
     }
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000020u) {
       _this->_impl_.max_speed_ = from._impl_.max_speed_;
     }
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000040u) {
       _this->_impl_.fow_radius_ = from._impl_.fow_radius_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      _this->_impl_.sticky_fow_reveal_ = from._impl_.sticky_fow_reveal_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   if (cached_has_bits & 0x00000700u) {
     if (cached_has_bits & 0x00000100u) {
-      _this->_impl_.sticky_fow_reveal_ = from._impl_.sticky_fow_reveal_;
-    }
-    if (cached_has_bits & 0x00000200u) {
       _this->_impl_.distance_ = from._impl_.distance_;
     }
-    if (cached_has_bits & 0x00000400u) {
+    if (cached_has_bits & 0x00000200u) {
       _this->_impl_.colorgemcolor_ = from._impl_.colorgemcolor_;
+    }
+    if (cached_has_bits & 0x00000400u) {
+      _this->_impl_.entindex_ = from._impl_.entindex_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -17252,6 +17296,7 @@ void CDOTAUserMsg_CreateLinearProjectile::InternalSwap(CDOTAUserMsg_CreateLinear
       - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_CreateLinearProjectile, _impl_.origin_)>(
           reinterpret_cast<char*>(&_impl_.origin_),
           reinterpret_cast<char*>(&other->_impl_.origin_));
+  swap(_impl_.entindex_, other->_impl_.entindex_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_CreateLinearProjectile::GetMetadata() const {
@@ -17457,13 +17502,13 @@ class CDOTAUserMsg_DodgeTrackingProjectiles::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_DodgeTrackingProjectiles>()._impl_._has_bits_);
   static void set_has_entindex(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_attacks_only(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
+  static void set_has_attacks_only(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
   static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000001) ^ 0x00000001) != 0;
+    return ((has_bits[0] & 0x00000002) ^ 0x00000002) != 0;
   }
 };
 
@@ -17479,13 +17524,13 @@ CDOTAUserMsg_DodgeTrackingProjectiles::CDOTAUserMsg_DodgeTrackingProjectiles(con
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.entindex_){}
-    , decltype(_impl_.attacks_only_){}};
+    , decltype(_impl_.attacks_only_){}
+    , decltype(_impl_.entindex_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.entindex_, &from._impl_.entindex_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.attacks_only_) -
-    reinterpret_cast<char*>(&_impl_.entindex_)) + sizeof(_impl_.attacks_only_));
+  ::memcpy(&_impl_.attacks_only_, &from._impl_.attacks_only_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.entindex_) -
+    reinterpret_cast<char*>(&_impl_.attacks_only_)) + sizeof(_impl_.entindex_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_DodgeTrackingProjectiles)
 }
 
@@ -17496,8 +17541,8 @@ inline void CDOTAUserMsg_DodgeTrackingProjectiles::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.entindex_){0}
     , decltype(_impl_.attacks_only_){false}
+    , decltype(_impl_.entindex_){-1}
   };
 }
 
@@ -17526,9 +17571,8 @@ void CDOTAUserMsg_DodgeTrackingProjectiles::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    ::memset(&_impl_.entindex_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.attacks_only_) -
-        reinterpret_cast<char*>(&_impl_.entindex_)) + sizeof(_impl_.attacks_only_));
+    _impl_.attacks_only_ = false;
+    _impl_.entindex_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -17541,7 +17585,7 @@ const char* CDOTAUserMsg_DodgeTrackingProjectiles::_InternalParse(const char* pt
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required int32 entindex = 1;
+      // required int32 entindex = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_entindex(&has_bits);
@@ -17590,14 +17634,14 @@ uint8_t* CDOTAUserMsg_DodgeTrackingProjectiles::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required int32 entindex = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // required int32 entindex = 1 [default = -1];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_entindex(), target);
   }
 
   // optional bool attacks_only = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_attacks_only(), target);
   }
@@ -17614,7 +17658,7 @@ size_t CDOTAUserMsg_DodgeTrackingProjectiles::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CDOTAUserMsg_DodgeTrackingProjectiles)
   size_t total_size = 0;
 
-  // required int32 entindex = 1;
+  // required int32 entindex = 1 [default = -1];
   if (_internal_has_entindex()) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_entindex());
   }
@@ -17624,7 +17668,7 @@ size_t CDOTAUserMsg_DodgeTrackingProjectiles::ByteSizeLong() const {
 
   // optional bool attacks_only = 2;
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 1;
   }
 
@@ -17649,10 +17693,10 @@ void CDOTAUserMsg_DodgeTrackingProjectiles::MergeImpl(::PROTOBUF_NAMESPACE_ID::M
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.entindex_ = from._impl_.entindex_;
+      _this->_impl_.attacks_only_ = from._impl_.attacks_only_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.attacks_only_ = from._impl_.attacks_only_;
+      _this->_impl_.entindex_ = from._impl_.entindex_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -17675,12 +17719,8 @@ void CDOTAUserMsg_DodgeTrackingProjectiles::InternalSwap(CDOTAUserMsg_DodgeTrack
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_DodgeTrackingProjectiles, _impl_.attacks_only_)
-      + sizeof(CDOTAUserMsg_DodgeTrackingProjectiles::_impl_.attacks_only_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_DodgeTrackingProjectiles, _impl_.entindex_)>(
-          reinterpret_cast<char*>(&_impl_.entindex_),
-          reinterpret_cast<char*>(&other->_impl_.entindex_));
+  swap(_impl_.attacks_only_, other->_impl_.attacks_only_);
+  swap(_impl_.entindex_, other->_impl_.entindex_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_DodgeTrackingProjectiles::GetMetadata() const {
@@ -17695,16 +17735,16 @@ class CDOTAUserMsg_SpectatorPlayerClick::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_SpectatorPlayerClick>()._impl_._has_bits_);
   static void set_has_entindex(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_order_type(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_target_index(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
+  static void set_has_order_type(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_target_index(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
   static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000001) ^ 0x00000001) != 0;
+    return ((has_bits[0] & 0x00000004) ^ 0x00000004) != 0;
   }
 };
 
@@ -17720,14 +17760,14 @@ CDOTAUserMsg_SpectatorPlayerClick::CDOTAUserMsg_SpectatorPlayerClick(const CDOTA
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.entindex_){}
     , decltype(_impl_.order_type_){}
-    , decltype(_impl_.target_index_){}};
+    , decltype(_impl_.target_index_){}
+    , decltype(_impl_.entindex_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.entindex_, &from._impl_.entindex_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.target_index_) -
-    reinterpret_cast<char*>(&_impl_.entindex_)) + sizeof(_impl_.target_index_));
+  ::memcpy(&_impl_.order_type_, &from._impl_.order_type_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.entindex_) -
+    reinterpret_cast<char*>(&_impl_.order_type_)) + sizeof(_impl_.entindex_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_SpectatorPlayerClick)
 }
 
@@ -17738,9 +17778,9 @@ inline void CDOTAUserMsg_SpectatorPlayerClick::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.entindex_){0}
     , decltype(_impl_.order_type_){0}
     , decltype(_impl_.target_index_){0}
+    , decltype(_impl_.entindex_){-1}
   };
 }
 
@@ -17769,9 +17809,10 @@ void CDOTAUserMsg_SpectatorPlayerClick::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    ::memset(&_impl_.entindex_, 0, static_cast<size_t>(
+    ::memset(&_impl_.order_type_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.target_index_) -
-        reinterpret_cast<char*>(&_impl_.entindex_)) + sizeof(_impl_.target_index_));
+        reinterpret_cast<char*>(&_impl_.order_type_)) + sizeof(_impl_.target_index_));
+    _impl_.entindex_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -17784,7 +17825,7 @@ const char* CDOTAUserMsg_SpectatorPlayerClick::_InternalParse(const char* ptr, :
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required int32 entindex = 1;
+      // required int32 entindex = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_entindex(&has_bits);
@@ -17802,7 +17843,7 @@ const char* CDOTAUserMsg_SpectatorPlayerClick::_InternalParse(const char* ptr, :
         } else
           goto handle_unusual;
         continue;
-      // optional int32 target_index = 3;
+      // optional int32 target_index = 3 [default = 0];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_target_index(&has_bits);
@@ -17842,20 +17883,20 @@ uint8_t* CDOTAUserMsg_SpectatorPlayerClick::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required int32 entindex = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // required int32 entindex = 1 [default = -1];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_entindex(), target);
   }
 
   // optional int32 order_type = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_order_type(), target);
   }
 
-  // optional int32 target_index = 3;
-  if (cached_has_bits & 0x00000004u) {
+  // optional int32 target_index = 3 [default = 0];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_target_index(), target);
   }
@@ -17872,7 +17913,7 @@ size_t CDOTAUserMsg_SpectatorPlayerClick::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CDOTAUserMsg_SpectatorPlayerClick)
   size_t total_size = 0;
 
-  // required int32 entindex = 1;
+  // required int32 entindex = 1 [default = -1];
   if (_internal_has_entindex()) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_entindex());
   }
@@ -17881,14 +17922,14 @@ size_t CDOTAUserMsg_SpectatorPlayerClick::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000006u) {
+  if (cached_has_bits & 0x00000003u) {
     // optional int32 order_type = 2;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_order_type());
     }
 
-    // optional int32 target_index = 3;
-    if (cached_has_bits & 0x00000004u) {
+    // optional int32 target_index = 3 [default = 0];
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_index());
     }
 
@@ -17914,13 +17955,13 @@ void CDOTAUserMsg_SpectatorPlayerClick::MergeImpl(::PROTOBUF_NAMESPACE_ID::Messa
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.entindex_ = from._impl_.entindex_;
-    }
-    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.order_type_ = from._impl_.order_type_;
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.target_index_ = from._impl_.target_index_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.entindex_ = from._impl_.entindex_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -17946,9 +17987,10 @@ void CDOTAUserMsg_SpectatorPlayerClick::InternalSwap(CDOTAUserMsg_SpectatorPlaye
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_SpectatorPlayerClick, _impl_.target_index_)
       + sizeof(CDOTAUserMsg_SpectatorPlayerClick::_impl_.target_index_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_SpectatorPlayerClick, _impl_.entindex_)>(
-          reinterpret_cast<char*>(&_impl_.entindex_),
-          reinterpret_cast<char*>(&other->_impl_.entindex_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_SpectatorPlayerClick, _impl_.order_type_)>(
+          reinterpret_cast<char*>(&_impl_.order_type_),
+          reinterpret_cast<char*>(&other->_impl_.order_type_));
+  swap(_impl_.entindex_, other->_impl_.entindex_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_SpectatorPlayerClick::GetMetadata() const {
@@ -17963,29 +18005,29 @@ class CDOTAUserMsg_SpectatorPlayerUnitOrders::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_SpectatorPlayerUnitOrders>()._impl_._has_bits_);
   static void set_has_entindex(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 64u;
   }
   static void set_has_order_type(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_target_index(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_ability_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 128u;
   }
   static const ::CMsgVector& position(const CDOTAUserMsg_SpectatorPlayerUnitOrders* msg);
   static void set_has_position(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_queue(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_sequence_number(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_flags(HasBits* has_bits) {
-    (*has_bits)[0] |= 128u;
+    (*has_bits)[0] |= 32u;
   }
 };
 
@@ -18011,21 +18053,21 @@ CDOTAUserMsg_SpectatorPlayerUnitOrders::CDOTAUserMsg_SpectatorPlayerUnitOrders(c
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.units_){from._impl_.units_}
     , decltype(_impl_.position_){nullptr}
-    , decltype(_impl_.entindex_){}
     , decltype(_impl_.order_type_){}
     , decltype(_impl_.target_index_){}
-    , decltype(_impl_.ability_id_){}
     , decltype(_impl_.queue_){}
     , decltype(_impl_.sequence_number_){}
-    , decltype(_impl_.flags_){}};
+    , decltype(_impl_.flags_){}
+    , decltype(_impl_.entindex_){}
+    , decltype(_impl_.ability_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_position()) {
     _this->_impl_.position_ = new ::CMsgVector(*from._impl_.position_);
   }
-  ::memcpy(&_impl_.entindex_, &from._impl_.entindex_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.flags_) -
-    reinterpret_cast<char*>(&_impl_.entindex_)) + sizeof(_impl_.flags_));
+  ::memcpy(&_impl_.order_type_, &from._impl_.order_type_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.ability_id_) -
+    reinterpret_cast<char*>(&_impl_.order_type_)) + sizeof(_impl_.ability_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_SpectatorPlayerUnitOrders)
 }
 
@@ -18038,13 +18080,13 @@ inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.units_){arena}
     , decltype(_impl_.position_){nullptr}
-    , decltype(_impl_.entindex_){0}
     , decltype(_impl_.order_type_){0}
     , decltype(_impl_.target_index_){0}
-    , decltype(_impl_.ability_id_){0}
     , decltype(_impl_.queue_){false}
     , decltype(_impl_.sequence_number_){0}
     , decltype(_impl_.flags_){0u}
+    , decltype(_impl_.entindex_){-1}
+    , decltype(_impl_.ability_id_){-1}
   };
 }
 
@@ -18080,9 +18122,11 @@ void CDOTAUserMsg_SpectatorPlayerUnitOrders::Clear() {
     _impl_.position_->Clear();
   }
   if (cached_has_bits & 0x000000feu) {
-    ::memset(&_impl_.entindex_, 0, static_cast<size_t>(
+    ::memset(&_impl_.order_type_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.flags_) -
-        reinterpret_cast<char*>(&_impl_.entindex_)) + sizeof(_impl_.flags_));
+        reinterpret_cast<char*>(&_impl_.order_type_)) + sizeof(_impl_.flags_));
+    _impl_.entindex_ = -1;
+    _impl_.ability_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -18095,7 +18139,7 @@ const char* CDOTAUserMsg_SpectatorPlayerUnitOrders::_InternalParse(const char* p
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 entindex = 1;
+      // optional int32 entindex = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_entindex(&has_bits);
@@ -18129,7 +18173,7 @@ const char* CDOTAUserMsg_SpectatorPlayerUnitOrders::_InternalParse(const char* p
         } else
           goto handle_unusual;
         continue;
-      // optional int32 target_index = 4;
+      // optional int32 target_index = 4 [default = 0];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _Internal::set_has_target_index(&has_bits);
@@ -18138,7 +18182,7 @@ const char* CDOTAUserMsg_SpectatorPlayerUnitOrders::_InternalParse(const char* p
         } else
           goto handle_unusual;
         continue;
-      // optional int32 ability_id = 5;
+      // optional int32 ability_id = 5 [default = -1];
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
           _Internal::set_has_ability_id(&has_bits);
@@ -18213,14 +18257,14 @@ uint8_t* CDOTAUserMsg_SpectatorPlayerUnitOrders::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 entindex = 1;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 entindex = 1 [default = -1];
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_entindex(), target);
   }
 
   // optional int32 order_type = 2;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_order_type(), target);
   }
@@ -18231,14 +18275,14 @@ uint8_t* CDOTAUserMsg_SpectatorPlayerUnitOrders::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_units(i), target);
   }
 
-  // optional int32 target_index = 4;
-  if (cached_has_bits & 0x00000008u) {
+  // optional int32 target_index = 4 [default = 0];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_target_index(), target);
   }
 
-  // optional int32 ability_id = 5;
-  if (cached_has_bits & 0x00000010u) {
+  // optional int32 ability_id = 5 [default = -1];
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(5, this->_internal_ability_id(), target);
   }
@@ -18251,19 +18295,19 @@ uint8_t* CDOTAUserMsg_SpectatorPlayerUnitOrders::_InternalSerialize(
   }
 
   // optional bool queue = 7;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(7, this->_internal_queue(), target);
   }
 
   // optional int32 sequence_number = 8;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(8, this->_internal_sequence_number(), target);
   }
 
   // optional uint32 flags = 9;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(9, this->_internal_flags(), target);
   }
@@ -18302,39 +18346,39 @@ size_t CDOTAUserMsg_SpectatorPlayerUnitOrders::ByteSizeLong() const {
           *_impl_.position_);
     }
 
-    // optional int32 entindex = 1;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_entindex());
-    }
-
     // optional int32 order_type = 2;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_order_type());
     }
 
-    // optional int32 target_index = 4;
-    if (cached_has_bits & 0x00000008u) {
+    // optional int32 target_index = 4 [default = 0];
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_index());
     }
 
-    // optional int32 ability_id = 5;
-    if (cached_has_bits & 0x00000010u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_ability_id());
-    }
-
     // optional bool queue = 7;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 1;
     }
 
     // optional int32 sequence_number = 8;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_sequence_number());
     }
 
     // optional uint32 flags = 9;
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000020u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_flags());
+    }
+
+    // optional int32 entindex = 1 [default = -1];
+    if (cached_has_bits & 0x00000040u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_entindex());
+    }
+
+    // optional int32 ability_id = 5 [default = -1];
+    if (cached_has_bits & 0x00000080u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_ability_id());
     }
 
   }
@@ -18364,25 +18408,25 @@ void CDOTAUserMsg_SpectatorPlayerUnitOrders::MergeImpl(::PROTOBUF_NAMESPACE_ID::
           from._internal_position());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.entindex_ = from._impl_.entindex_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.order_type_ = from._impl_.order_type_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.target_index_ = from._impl_.target_index_;
     }
-    if (cached_has_bits & 0x00000010u) {
-      _this->_impl_.ability_id_ = from._impl_.ability_id_;
-    }
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.queue_ = from._impl_.queue_;
     }
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000010u) {
       _this->_impl_.sequence_number_ = from._impl_.sequence_number_;
     }
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000020u) {
       _this->_impl_.flags_ = from._impl_.flags_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      _this->_impl_.entindex_ = from._impl_.entindex_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      _this->_impl_.ability_id_ = from._impl_.ability_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -18411,6 +18455,8 @@ void CDOTAUserMsg_SpectatorPlayerUnitOrders::InternalSwap(CDOTAUserMsg_Spectator
       - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_SpectatorPlayerUnitOrders, _impl_.position_)>(
           reinterpret_cast<char*>(&_impl_.position_),
           reinterpret_cast<char*>(&other->_impl_.position_));
+  swap(_impl_.entindex_, other->_impl_.entindex_);
+  swap(_impl_.ability_id_, other->_impl_.ability_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_SpectatorPlayerUnitOrders::GetMetadata() const {
@@ -18425,17 +18471,17 @@ class CDOTAUserMsg_NevermoreRequiem::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_NevermoreRequiem>()._impl_._has_bits_);
   static void set_has_entity_handle(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_lines(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static const ::CMsgVector& origin(const CDOTAUserMsg_NevermoreRequiem* msg);
   static void set_has_origin(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_reverse(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
 };
 
@@ -18460,17 +18506,17 @@ CDOTAUserMsg_NevermoreRequiem::CDOTAUserMsg_NevermoreRequiem(const CDOTAUserMsg_
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.origin_){nullptr}
-    , decltype(_impl_.entity_handle_){}
     , decltype(_impl_.lines_){}
-    , decltype(_impl_.reverse_){}};
+    , decltype(_impl_.reverse_){}
+    , decltype(_impl_.entity_handle_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_origin()) {
     _this->_impl_.origin_ = new ::CMsgVector(*from._impl_.origin_);
   }
-  ::memcpy(&_impl_.entity_handle_, &from._impl_.entity_handle_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.reverse_) -
-    reinterpret_cast<char*>(&_impl_.entity_handle_)) + sizeof(_impl_.reverse_));
+  ::memcpy(&_impl_.lines_, &from._impl_.lines_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.entity_handle_) -
+    reinterpret_cast<char*>(&_impl_.lines_)) + sizeof(_impl_.entity_handle_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_NevermoreRequiem)
 }
 
@@ -18482,9 +18528,9 @@ inline void CDOTAUserMsg_NevermoreRequiem::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.origin_){nullptr}
-    , decltype(_impl_.entity_handle_){0u}
     , decltype(_impl_.lines_){0}
     , decltype(_impl_.reverse_){false}
+    , decltype(_impl_.entity_handle_){16777215u}
   };
 }
 
@@ -18518,9 +18564,10 @@ void CDOTAUserMsg_NevermoreRequiem::Clear() {
     _impl_.origin_->Clear();
   }
   if (cached_has_bits & 0x0000000eu) {
-    ::memset(&_impl_.entity_handle_, 0, static_cast<size_t>(
+    ::memset(&_impl_.lines_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.reverse_) -
-        reinterpret_cast<char*>(&_impl_.entity_handle_)) + sizeof(_impl_.reverse_));
+        reinterpret_cast<char*>(&_impl_.lines_)) + sizeof(_impl_.reverse_));
+    _impl_.entity_handle_ = 16777215u;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -18533,7 +18580,7 @@ const char* CDOTAUserMsg_NevermoreRequiem::_InternalParse(const char* ptr, ::_pb
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 entity_handle = 1;
+      // optional uint32 entity_handle = 1 [default = 16777215];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_entity_handle(&has_bits);
@@ -18599,14 +18646,14 @@ uint8_t* CDOTAUserMsg_NevermoreRequiem::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 entity_handle = 1;
-  if (cached_has_bits & 0x00000002u) {
+  // optional uint32 entity_handle = 1 [default = 16777215];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_entity_handle(), target);
   }
 
   // optional int32 lines = 2;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_lines(), target);
   }
@@ -18619,7 +18666,7 @@ uint8_t* CDOTAUserMsg_NevermoreRequiem::_InternalSerialize(
   }
 
   // optional bool reverse = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_reverse(), target);
   }
@@ -18649,19 +18696,19 @@ size_t CDOTAUserMsg_NevermoreRequiem::ByteSizeLong() const {
           *_impl_.origin_);
     }
 
-    // optional uint32 entity_handle = 1;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_entity_handle());
-    }
-
     // optional int32 lines = 2;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_lines());
     }
 
     // optional bool reverse = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
+    }
+
+    // optional uint32 entity_handle = 1 [default = 16777215];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_entity_handle());
     }
 
   }
@@ -18690,13 +18737,13 @@ void CDOTAUserMsg_NevermoreRequiem::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& 
           from._internal_origin());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.entity_handle_ = from._impl_.entity_handle_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.lines_ = from._impl_.lines_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.reverse_ = from._impl_.reverse_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.entity_handle_ = from._impl_.entity_handle_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -18724,6 +18771,7 @@ void CDOTAUserMsg_NevermoreRequiem::InternalSwap(CDOTAUserMsg_NevermoreRequiem* 
       - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_NevermoreRequiem, _impl_.origin_)>(
           reinterpret_cast<char*>(&_impl_.origin_),
           reinterpret_cast<char*>(&other->_impl_.origin_));
+  swap(_impl_.entity_handle_, other->_impl_.entity_handle_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_NevermoreRequiem::GetMetadata() const {
@@ -19232,16 +19280,16 @@ class CDOTAUserMsg_SharedCooldown::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_SharedCooldown>()._impl_._has_bits_);
   static void set_has_entindex(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_name(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_cooldown(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_name_index(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
 };
 
@@ -19258,9 +19306,9 @@ CDOTAUserMsg_SharedCooldown::CDOTAUserMsg_SharedCooldown(const CDOTAUserMsg_Shar
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.name_){}
-    , decltype(_impl_.entindex_){}
     , decltype(_impl_.cooldown_){}
-    , decltype(_impl_.name_index_){}};
+    , decltype(_impl_.name_index_){}
+    , decltype(_impl_.entindex_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _impl_.name_.InitDefault();
@@ -19271,9 +19319,9 @@ CDOTAUserMsg_SharedCooldown::CDOTAUserMsg_SharedCooldown(const CDOTAUserMsg_Shar
     _this->_impl_.name_.Set(from._internal_name(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.entindex_, &from._impl_.entindex_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.name_index_) -
-    reinterpret_cast<char*>(&_impl_.entindex_)) + sizeof(_impl_.name_index_));
+  ::memcpy(&_impl_.cooldown_, &from._impl_.cooldown_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.entindex_) -
+    reinterpret_cast<char*>(&_impl_.cooldown_)) + sizeof(_impl_.entindex_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_SharedCooldown)
 }
 
@@ -19285,9 +19333,9 @@ inline void CDOTAUserMsg_SharedCooldown::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.name_){}
-    , decltype(_impl_.entindex_){0}
     , decltype(_impl_.cooldown_){0}
     , decltype(_impl_.name_index_){0}
+    , decltype(_impl_.entindex_){-1}
   };
   _impl_.name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -19324,9 +19372,10 @@ void CDOTAUserMsg_SharedCooldown::Clear() {
     _impl_.name_.ClearNonDefaultToEmpty();
   }
   if (cached_has_bits & 0x0000000eu) {
-    ::memset(&_impl_.entindex_, 0, static_cast<size_t>(
+    ::memset(&_impl_.cooldown_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.name_index_) -
-        reinterpret_cast<char*>(&_impl_.entindex_)) + sizeof(_impl_.name_index_));
+        reinterpret_cast<char*>(&_impl_.cooldown_)) + sizeof(_impl_.name_index_));
+    _impl_.entindex_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -19339,7 +19388,7 @@ const char* CDOTAUserMsg_SharedCooldown::_InternalParse(const char* ptr, ::_pbi:
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 entindex = 1;
+      // optional int32 entindex = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_entindex(&has_bits);
@@ -19409,8 +19458,8 @@ uint8_t* CDOTAUserMsg_SharedCooldown::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 entindex = 1;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 entindex = 1 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_entindex(), target);
   }
@@ -19426,13 +19475,13 @@ uint8_t* CDOTAUserMsg_SharedCooldown::_InternalSerialize(
   }
 
   // optional float cooldown = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_cooldown(), target);
   }
 
   // optional int32 name_index = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_name_index(), target);
   }
@@ -19462,19 +19511,19 @@ size_t CDOTAUserMsg_SharedCooldown::ByteSizeLong() const {
           this->_internal_name());
     }
 
-    // optional int32 entindex = 1;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_entindex());
-    }
-
     // optional float cooldown = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 4;
     }
 
     // optional int32 name_index = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_name_index());
+    }
+
+    // optional int32 entindex = 1 [default = -1];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_entindex());
     }
 
   }
@@ -19502,13 +19551,13 @@ void CDOTAUserMsg_SharedCooldown::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to
       _this->_internal_set_name(from._internal_name());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.entindex_ = from._impl_.entindex_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.cooldown_ = from._impl_.cooldown_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.name_index_ = from._impl_.name_index_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.entindex_ = from._impl_.entindex_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -19539,9 +19588,10 @@ void CDOTAUserMsg_SharedCooldown::InternalSwap(CDOTAUserMsg_SharedCooldown* othe
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_SharedCooldown, _impl_.name_index_)
       + sizeof(CDOTAUserMsg_SharedCooldown::_impl_.name_index_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_SharedCooldown, _impl_.entindex_)>(
-          reinterpret_cast<char*>(&_impl_.entindex_),
-          reinterpret_cast<char*>(&other->_impl_.entindex_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_SharedCooldown, _impl_.cooldown_)>(
+          reinterpret_cast<char*>(&_impl_.cooldown_),
+          reinterpret_cast<char*>(&other->_impl_.cooldown_));
+  swap(_impl_.entindex_, other->_impl_.entindex_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_SharedCooldown::GetMetadata() const {
@@ -21831,18 +21881,15 @@ class CDOTAUserMsg_UnitEvent_Speech::_Internal {
   static void set_has_recipient_type(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
-  static void set_has_level(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
-  }
   static void set_has_muteable(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 16u;
   }
   static const ::CDOTAUserMsg_UnitEvent_Interval& predelay(const CDOTAUserMsg_UnitEvent_Speech* msg);
   static void set_has_predelay(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
   static void set_has_flags(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
+    (*has_bits)[0] |= 32u;
   }
 };
 
@@ -21866,7 +21913,6 @@ CDOTAUserMsg_UnitEvent_Speech::CDOTAUserMsg_UnitEvent_Speech(const CDOTAUserMsg_
     , decltype(_impl_.predelay_){nullptr}
     , decltype(_impl_.speech_concept_){}
     , decltype(_impl_.recipient_type_){}
-    , decltype(_impl_.level_){}
     , decltype(_impl_.muteable_){}
     , decltype(_impl_.flags_){}};
 
@@ -21899,7 +21945,6 @@ inline void CDOTAUserMsg_UnitEvent_Speech::SharedCtor(
     , decltype(_impl_.predelay_){nullptr}
     , decltype(_impl_.speech_concept_){0}
     , decltype(_impl_.recipient_type_){0}
-    , decltype(_impl_.level_){0}
     , decltype(_impl_.muteable_){false}
     , decltype(_impl_.flags_){0u}
   };
@@ -21944,7 +21989,7 @@ void CDOTAUserMsg_UnitEvent_Speech::Clear() {
       _impl_.predelay_->Clear();
     }
   }
-  if (cached_has_bits & 0x0000007cu) {
+  if (cached_has_bits & 0x0000003cu) {
     ::memset(&_impl_.speech_concept_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.flags_) -
         reinterpret_cast<char*>(&_impl_.speech_concept_)) + sizeof(_impl_.flags_));
@@ -21986,15 +22031,6 @@ const char* CDOTAUserMsg_UnitEvent_Speech::_InternalParse(const char* ptr, ::_pb
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_recipient_type(&has_bits);
           _impl_.recipient_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // optional int32 level = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          _Internal::set_has_level(&has_bits);
-          _impl_.level_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -22078,14 +22114,8 @@ uint8_t* CDOTAUserMsg_UnitEvent_Speech::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_recipient_type(), target);
   }
 
-  // optional int32 level = 4;
-  if (cached_has_bits & 0x00000010u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_level(), target);
-  }
-
   // optional bool muteable = 5 [default = false];
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(5, this->_internal_muteable(), target);
   }
@@ -22098,7 +22128,7 @@ uint8_t* CDOTAUserMsg_UnitEvent_Speech::_InternalSerialize(
   }
 
   // optional uint32 flags = 7;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(7, this->_internal_flags(), target);
   }
@@ -22120,7 +22150,7 @@ size_t CDOTAUserMsg_UnitEvent_Speech::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
+  if (cached_has_bits & 0x0000003fu) {
     // optional string response = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -22145,18 +22175,13 @@ size_t CDOTAUserMsg_UnitEvent_Speech::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_recipient_type());
     }
 
-    // optional int32 level = 4;
-    if (cached_has_bits & 0x00000010u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_level());
-    }
-
     // optional bool muteable = 5 [default = false];
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 1;
     }
 
     // optional uint32 flags = 7;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000020u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_flags());
     }
 
@@ -22180,7 +22205,7 @@ void CDOTAUserMsg_UnitEvent_Speech::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& 
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
+  if (cached_has_bits & 0x0000003fu) {
     if (cached_has_bits & 0x00000001u) {
       _this->_internal_set_response(from._internal_response());
     }
@@ -22195,12 +22220,9 @@ void CDOTAUserMsg_UnitEvent_Speech::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& 
       _this->_impl_.recipient_type_ = from._impl_.recipient_type_;
     }
     if (cached_has_bits & 0x00000010u) {
-      _this->_impl_.level_ = from._impl_.level_;
-    }
-    if (cached_has_bits & 0x00000020u) {
       _this->_impl_.muteable_ = from._impl_.muteable_;
     }
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000020u) {
       _this->_impl_.flags_ = from._impl_.flags_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -24044,7 +24066,7 @@ inline void CDOTAUserMsg_ItemPurchased::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.item_ability_id_){0}
+    , decltype(_impl_.item_ability_id_){-1}
   };
 }
 
@@ -24071,7 +24093,7 @@ void CDOTAUserMsg_ItemPurchased::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.item_ability_id_ = 0;
+  _impl_.item_ability_id_ = -1;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -24083,7 +24105,7 @@ const char* CDOTAUserMsg_ItemPurchased::_InternalParse(const char* ptr, ::_pbi::
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 item_ability_id = 1;
+      // optional int32 item_ability_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_item_ability_id(&has_bits);
@@ -24123,7 +24145,7 @@ uint8_t* CDOTAUserMsg_ItemPurchased::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 item_ability_id = 1;
+  // optional int32 item_ability_id = 1 [default = -1];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_item_ability_id(), target);
@@ -24145,7 +24167,7 @@ size_t CDOTAUserMsg_ItemPurchased::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional int32 item_ability_id = 1;
+  // optional int32 item_ability_id = 1 [default = -1];
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_item_ability_id());
@@ -24235,7 +24257,7 @@ inline void CDOTAUserMsg_ItemSold::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.item_ability_id_){0}
+    , decltype(_impl_.item_ability_id_){-1}
   };
 }
 
@@ -24262,7 +24284,7 @@ void CDOTAUserMsg_ItemSold::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.item_ability_id_ = 0;
+  _impl_.item_ability_id_ = -1;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -24274,7 +24296,7 @@ const char* CDOTAUserMsg_ItemSold::_InternalParse(const char* ptr, ::_pbi::Parse
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 item_ability_id = 1;
+      // optional int32 item_ability_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_item_ability_id(&has_bits);
@@ -24314,7 +24336,7 @@ uint8_t* CDOTAUserMsg_ItemSold::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 item_ability_id = 1;
+  // optional int32 item_ability_id = 1 [default = -1];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_item_ability_id(), target);
@@ -24336,7 +24358,7 @@ size_t CDOTAUserMsg_ItemSold::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional int32 item_ability_id = 1;
+  // optional int32 item_ability_id = 1 [default = -1];
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_item_ability_id());
@@ -24396,19 +24418,19 @@ class CDOTAUserMsg_ItemFound::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_ItemFound>()._impl_._has_bits_);
   static void set_has_player(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_quality(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_rarity(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_method(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_itemdef(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 8u;
   }
 };
 
@@ -24424,16 +24446,16 @@ CDOTAUserMsg_ItemFound::CDOTAUserMsg_ItemFound(const CDOTAUserMsg_ItemFound& fro
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_){}
     , decltype(_impl_.quality_){}
     , decltype(_impl_.rarity_){}
     , decltype(_impl_.method_){}
-    , decltype(_impl_.itemdef_){}};
+    , decltype(_impl_.itemdef_){}
+    , decltype(_impl_.player_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_, &from._impl_.player_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.itemdef_) -
-    reinterpret_cast<char*>(&_impl_.player_)) + sizeof(_impl_.itemdef_));
+  ::memcpy(&_impl_.quality_, &from._impl_.quality_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_) -
+    reinterpret_cast<char*>(&_impl_.quality_)) + sizeof(_impl_.player_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_ItemFound)
 }
 
@@ -24444,11 +24466,11 @@ inline void CDOTAUserMsg_ItemFound::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_){0}
     , decltype(_impl_.quality_){0}
     , decltype(_impl_.rarity_){0}
     , decltype(_impl_.method_){0}
     , decltype(_impl_.itemdef_){0u}
+    , decltype(_impl_.player_){-1}
   };
 }
 
@@ -24477,9 +24499,10 @@ void CDOTAUserMsg_ItemFound::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    ::memset(&_impl_.player_, 0, static_cast<size_t>(
+    ::memset(&_impl_.quality_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.itemdef_) -
-        reinterpret_cast<char*>(&_impl_.player_)) + sizeof(_impl_.itemdef_));
+        reinterpret_cast<char*>(&_impl_.quality_)) + sizeof(_impl_.itemdef_));
+    _impl_.player_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -24492,7 +24515,7 @@ const char* CDOTAUserMsg_ItemFound::_InternalParse(const char* ptr, ::_pbi::Pars
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player = 1;
+      // optional int32 player = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player(&has_bits);
@@ -24568,32 +24591,32 @@ uint8_t* CDOTAUserMsg_ItemFound::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player = 1 [default = -1];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player(), target);
   }
 
   // optional int32 quality = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_quality(), target);
   }
 
   // optional int32 rarity = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_rarity(), target);
   }
 
   // optional int32 method = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_method(), target);
   }
 
   // optional uint32 itemdef = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_itemdef(), target);
   }
@@ -24616,29 +24639,29 @@ size_t CDOTAUserMsg_ItemFound::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    // optional int32 player = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player());
-    }
-
     // optional int32 quality = 2;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_quality());
     }
 
     // optional int32 rarity = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_rarity());
     }
 
     // optional int32 method = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_method());
     }
 
     // optional uint32 itemdef = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_itemdef());
+    }
+
+    // optional int32 player = 1 [default = -1];
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player());
     }
 
   }
@@ -24663,19 +24686,19 @@ void CDOTAUserMsg_ItemFound::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg,
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_ = from._impl_.player_;
-    }
-    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.quality_ = from._impl_.quality_;
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.rarity_ = from._impl_.rarity_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.method_ = from._impl_.method_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.itemdef_ = from._impl_.itemdef_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.player_ = from._impl_.player_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -24700,9 +24723,10 @@ void CDOTAUserMsg_ItemFound::InternalSwap(CDOTAUserMsg_ItemFound* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ItemFound, _impl_.itemdef_)
       + sizeof(CDOTAUserMsg_ItemFound::_impl_.itemdef_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ItemFound, _impl_.player_)>(
-          reinterpret_cast<char*>(&_impl_.player_),
-          reinterpret_cast<char*>(&other->_impl_.player_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ItemFound, _impl_.quality_)>(
+          reinterpret_cast<char*>(&_impl_.quality_),
+          reinterpret_cast<char*>(&other->_impl_.quality_));
+  swap(_impl_.player_, other->_impl_.player_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_ItemFound::GetMetadata() const {
@@ -24723,13 +24747,13 @@ class CDOTAUserMsg_OverheadEvent::_Internal {
     (*has_bits)[0] |= 2u;
   }
   static void set_has_target_player_entindex(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_target_entindex(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
-  static void set_has_source_player_entindex(HasBits* has_bits) {
+  static void set_has_target_entindex(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
+  }
+  static void set_has_source_player_entindex(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
   }
   static bool MissingRequiredFields(const HasBits& has_bits) {
     return ((has_bits[0] & 0x00000001) ^ 0x00000001) != 0;
@@ -24750,14 +24774,14 @@ CDOTAUserMsg_OverheadEvent::CDOTAUserMsg_OverheadEvent(const CDOTAUserMsg_Overhe
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.message_type_){}
     , decltype(_impl_.value_){}
+    , decltype(_impl_.source_player_entindex_){}
     , decltype(_impl_.target_player_entindex_){}
-    , decltype(_impl_.target_entindex_){}
-    , decltype(_impl_.source_player_entindex_){}};
+    , decltype(_impl_.target_entindex_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.message_type_, &from._impl_.message_type_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.source_player_entindex_) -
-    reinterpret_cast<char*>(&_impl_.message_type_)) + sizeof(_impl_.source_player_entindex_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.target_entindex_) -
+    reinterpret_cast<char*>(&_impl_.message_type_)) + sizeof(_impl_.target_entindex_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_OverheadEvent)
 }
 
@@ -24770,9 +24794,9 @@ inline void CDOTAUserMsg_OverheadEvent::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.message_type_){0}
     , decltype(_impl_.value_){0}
-    , decltype(_impl_.target_player_entindex_){0}
-    , decltype(_impl_.target_entindex_){0}
-    , decltype(_impl_.source_player_entindex_){0}
+    , decltype(_impl_.source_player_entindex_){-1}
+    , decltype(_impl_.target_player_entindex_){-1}
+    , decltype(_impl_.target_entindex_){-1}
   };
 }
 
@@ -24802,8 +24826,11 @@ void CDOTAUserMsg_OverheadEvent::Clear() {
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
     ::memset(&_impl_.message_type_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.source_player_entindex_) -
-        reinterpret_cast<char*>(&_impl_.message_type_)) + sizeof(_impl_.source_player_entindex_));
+        reinterpret_cast<char*>(&_impl_.value_) -
+        reinterpret_cast<char*>(&_impl_.message_type_)) + sizeof(_impl_.value_));
+    _impl_.source_player_entindex_ = -1;
+    _impl_.target_player_entindex_ = -1;
+    _impl_.target_entindex_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -24838,7 +24865,7 @@ const char* CDOTAUserMsg_OverheadEvent::_InternalParse(const char* ptr, ::_pbi::
         } else
           goto handle_unusual;
         continue;
-      // optional int32 target_player_entindex = 3;
+      // optional int32 target_player_entindex = 3 [default = -1];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_target_player_entindex(&has_bits);
@@ -24847,7 +24874,7 @@ const char* CDOTAUserMsg_OverheadEvent::_InternalParse(const char* ptr, ::_pbi::
         } else
           goto handle_unusual;
         continue;
-      // optional int32 target_entindex = 4;
+      // optional int32 target_entindex = 4 [default = -1];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _Internal::set_has_target_entindex(&has_bits);
@@ -24856,7 +24883,7 @@ const char* CDOTAUserMsg_OverheadEvent::_InternalParse(const char* ptr, ::_pbi::
         } else
           goto handle_unusual;
         continue;
-      // optional int32 source_player_entindex = 5;
+      // optional int32 source_player_entindex = 5 [default = -1];
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
           _Internal::set_has_source_player_entindex(&has_bits);
@@ -24909,20 +24936,20 @@ uint8_t* CDOTAUserMsg_OverheadEvent::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_value(), target);
   }
 
-  // optional int32 target_player_entindex = 3;
-  if (cached_has_bits & 0x00000004u) {
+  // optional int32 target_player_entindex = 3 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_target_player_entindex(), target);
   }
 
-  // optional int32 target_entindex = 4;
-  if (cached_has_bits & 0x00000008u) {
+  // optional int32 target_entindex = 4 [default = -1];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_target_entindex(), target);
   }
 
-  // optional int32 source_player_entindex = 5;
-  if (cached_has_bits & 0x00000010u) {
+  // optional int32 source_player_entindex = 5 [default = -1];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(5, this->_internal_source_player_entindex(), target);
   }
@@ -24955,19 +24982,19 @@ size_t CDOTAUserMsg_OverheadEvent::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_value());
     }
 
-    // optional int32 target_player_entindex = 3;
+    // optional int32 source_player_entindex = 5 [default = -1];
     if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_source_player_entindex());
+    }
+
+    // optional int32 target_player_entindex = 3 [default = -1];
+    if (cached_has_bits & 0x00000008u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_player_entindex());
     }
 
-    // optional int32 target_entindex = 4;
-    if (cached_has_bits & 0x00000008u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_entindex());
-    }
-
-    // optional int32 source_player_entindex = 5;
+    // optional int32 target_entindex = 4 [default = -1];
     if (cached_has_bits & 0x00000010u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_source_player_entindex());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_entindex());
     }
 
   }
@@ -24998,13 +25025,13 @@ void CDOTAUserMsg_OverheadEvent::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_
       _this->_impl_.value_ = from._impl_.value_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.target_player_entindex_ = from._impl_.target_player_entindex_;
+      _this->_impl_.source_player_entindex_ = from._impl_.source_player_entindex_;
     }
     if (cached_has_bits & 0x00000008u) {
-      _this->_impl_.target_entindex_ = from._impl_.target_entindex_;
+      _this->_impl_.target_player_entindex_ = from._impl_.target_player_entindex_;
     }
     if (cached_has_bits & 0x00000010u) {
-      _this->_impl_.source_player_entindex_ = from._impl_.source_player_entindex_;
+      _this->_impl_.target_entindex_ = from._impl_.target_entindex_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -25028,11 +25055,14 @@ void CDOTAUserMsg_OverheadEvent::InternalSwap(CDOTAUserMsg_OverheadEvent* other)
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_OverheadEvent, _impl_.source_player_entindex_)
-      + sizeof(CDOTAUserMsg_OverheadEvent::_impl_.source_player_entindex_)
+      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_OverheadEvent, _impl_.value_)
+      + sizeof(CDOTAUserMsg_OverheadEvent::_impl_.value_)
       - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_OverheadEvent, _impl_.message_type_)>(
           reinterpret_cast<char*>(&_impl_.message_type_),
           reinterpret_cast<char*>(&other->_impl_.message_type_));
+  swap(_impl_.source_player_entindex_, other->_impl_.source_player_entindex_);
+  swap(_impl_.target_player_entindex_, other->_impl_.target_player_entindex_);
+  swap(_impl_.target_entindex_, other->_impl_.target_entindex_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_OverheadEvent::GetMetadata() const {
@@ -26119,7 +26149,7 @@ inline void CDOTAUserMsg_WorldLine::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.worldline_){nullptr}
-    , decltype(_impl_.player_id_){0}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -26148,11 +26178,13 @@ void CDOTAUserMsg_WorldLine::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    GOOGLE_DCHECK(_impl_.worldline_ != nullptr);
-    _impl_.worldline_->Clear();
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      GOOGLE_DCHECK(_impl_.worldline_ != nullptr);
+      _impl_.worldline_->Clear();
+    }
+    _impl_.player_id_ = -1;
   }
-  _impl_.player_id_ = 0;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -26164,7 +26196,7 @@ const char* CDOTAUserMsg_WorldLine::_InternalParse(const char* ptr, ::_pbi::Pars
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -26212,7 +26244,7 @@ uint8_t* CDOTAUserMsg_WorldLine::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
@@ -26250,7 +26282,7 @@ size_t CDOTAUserMsg_WorldLine::ByteSizeLong() const {
           *_impl_.worldline_);
     }
 
-    // optional int32 player_id = 1;
+    // optional int32 player_id = 1 [default = -1];
     if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
@@ -26303,12 +26335,8 @@ void CDOTAUserMsg_WorldLine::InternalSwap(CDOTAUserMsg_WorldLine* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_WorldLine, _impl_.player_id_)
-      + sizeof(CDOTAUserMsg_WorldLine::_impl_.player_id_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_WorldLine, _impl_.worldline_)>(
-          reinterpret_cast<char*>(&_impl_.worldline_),
-          reinterpret_cast<char*>(&other->_impl_.worldline_));
+  swap(_impl_.worldline_, other->_impl_.worldline_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_WorldLine::GetMetadata() const {
@@ -26323,19 +26351,19 @@ class CDOTAUserMsg_ChatWheel::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_ChatWheel>()._impl_._has_bits_);
   static void set_has_chat_message_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_account_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_param_hero_id(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
-  static void set_has_emoticon_id(HasBits* has_bits) {
+  static void set_has_player_id(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
+  }
+  static void set_has_account_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_param_hero_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_emoticon_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
   }
 };
 
@@ -26351,16 +26379,16 @@ CDOTAUserMsg_ChatWheel::CDOTAUserMsg_ChatWheel(const CDOTAUserMsg_ChatWheel& fro
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.chat_message_id_){}
-    , decltype(_impl_.player_id_){}
     , decltype(_impl_.account_id_){}
     , decltype(_impl_.param_hero_id_){}
-    , decltype(_impl_.emoticon_id_){}};
+    , decltype(_impl_.emoticon_id_){}
+    , decltype(_impl_.chat_message_id_){}
+    , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.chat_message_id_, &from._impl_.chat_message_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.emoticon_id_) -
-    reinterpret_cast<char*>(&_impl_.chat_message_id_)) + sizeof(_impl_.emoticon_id_));
+  ::memcpy(&_impl_.account_id_, &from._impl_.account_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.account_id_)) + sizeof(_impl_.player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_ChatWheel)
 }
 
@@ -26371,11 +26399,11 @@ inline void CDOTAUserMsg_ChatWheel::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.chat_message_id_){0u}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.account_id_){0u}
     , decltype(_impl_.param_hero_id_){0u}
     , decltype(_impl_.emoticon_id_){0u}
+    , decltype(_impl_.chat_message_id_){4294967295u}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -26404,9 +26432,11 @@ void CDOTAUserMsg_ChatWheel::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    ::memset(&_impl_.chat_message_id_, 0, static_cast<size_t>(
+    ::memset(&_impl_.account_id_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.emoticon_id_) -
-        reinterpret_cast<char*>(&_impl_.chat_message_id_)) + sizeof(_impl_.emoticon_id_));
+        reinterpret_cast<char*>(&_impl_.account_id_)) + sizeof(_impl_.emoticon_id_));
+    _impl_.chat_message_id_ = 4294967295u;
+    _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -26419,7 +26449,7 @@ const char* CDOTAUserMsg_ChatWheel::_InternalParse(const char* ptr, ::_pbi::Pars
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 chat_message_id = 1;
+      // optional uint32 chat_message_id = 1 [default = 4294967295];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_chat_message_id(&has_bits);
@@ -26428,7 +26458,7 @@ const char* CDOTAUserMsg_ChatWheel::_InternalParse(const char* ptr, ::_pbi::Pars
         } else
           goto handle_unusual;
         continue;
-      // optional int32 player_id = 2;
+      // optional int32 player_id = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_player_id(&has_bits);
@@ -26495,32 +26525,32 @@ uint8_t* CDOTAUserMsg_ChatWheel::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 chat_message_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional uint32 chat_message_id = 1 [default = 4294967295];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_chat_message_id(), target);
   }
 
-  // optional int32 player_id = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 player_id = 2 [default = -1];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_player_id(), target);
   }
 
   // optional uint32 account_id = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_account_id(), target);
   }
 
   // optional uint32 param_hero_id = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_param_hero_id(), target);
   }
 
   // optional uint32 emoticon_id = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_emoticon_id(), target);
   }
@@ -26543,29 +26573,29 @@ size_t CDOTAUserMsg_ChatWheel::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    // optional uint32 chat_message_id = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_chat_message_id());
-    }
-
-    // optional int32 player_id = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
-    }
-
     // optional uint32 account_id = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_account_id());
     }
 
     // optional uint32 param_hero_id = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_param_hero_id());
     }
 
     // optional uint32 emoticon_id = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_emoticon_id());
+    }
+
+    // optional uint32 chat_message_id = 1 [default = 4294967295];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_chat_message_id());
+    }
+
+    // optional int32 player_id = 2 [default = -1];
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
   }
@@ -26590,19 +26620,19 @@ void CDOTAUserMsg_ChatWheel::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg,
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.chat_message_id_ = from._impl_.chat_message_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.account_id_ = from._impl_.account_id_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.param_hero_id_ = from._impl_.param_hero_id_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.emoticon_id_ = from._impl_.emoticon_id_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.chat_message_id_ = from._impl_.chat_message_id_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -26627,9 +26657,11 @@ void CDOTAUserMsg_ChatWheel::InternalSwap(CDOTAUserMsg_ChatWheel* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ChatWheel, _impl_.emoticon_id_)
       + sizeof(CDOTAUserMsg_ChatWheel::_impl_.emoticon_id_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ChatWheel, _impl_.chat_message_id_)>(
-          reinterpret_cast<char*>(&_impl_.chat_message_id_),
-          reinterpret_cast<char*>(&other->_impl_.chat_message_id_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ChatWheel, _impl_.account_id_)>(
+          reinterpret_cast<char*>(&_impl_.account_id_),
+          reinterpret_cast<char*>(&other->_impl_.account_id_));
+  swap(_impl_.chat_message_id_, other->_impl_.chat_message_id_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_ChatWheel::GetMetadata() const {
@@ -26644,13 +26676,13 @@ class CDOTAUserMsg_ReceivedXmasGift::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_ReceivedXmasGift>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_item_name(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_inventory_slot(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
 };
 
@@ -26667,8 +26699,8 @@ CDOTAUserMsg_ReceivedXmasGift::CDOTAUserMsg_ReceivedXmasGift(const CDOTAUserMsg_
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.item_name_){}
-    , decltype(_impl_.player_id_){}
-    , decltype(_impl_.inventory_slot_){}};
+    , decltype(_impl_.inventory_slot_){}
+    , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _impl_.item_name_.InitDefault();
@@ -26679,9 +26711,9 @@ CDOTAUserMsg_ReceivedXmasGift::CDOTAUserMsg_ReceivedXmasGift(const CDOTAUserMsg_
     _this->_impl_.item_name_.Set(from._internal_item_name(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.inventory_slot_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.inventory_slot_));
+  ::memcpy(&_impl_.inventory_slot_, &from._impl_.inventory_slot_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.inventory_slot_)) + sizeof(_impl_.player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_ReceivedXmasGift)
 }
 
@@ -26693,8 +26725,8 @@ inline void CDOTAUserMsg_ReceivedXmasGift::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.item_name_){}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.inventory_slot_){0}
+    , decltype(_impl_.player_id_){-1}
   };
   _impl_.item_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -26731,9 +26763,8 @@ void CDOTAUserMsg_ReceivedXmasGift::Clear() {
     _impl_.item_name_.ClearNonDefaultToEmpty();
   }
   if (cached_has_bits & 0x00000006u) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.inventory_slot_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.inventory_slot_));
+    _impl_.inventory_slot_ = 0;
+    _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -26746,7 +26777,7 @@ const char* CDOTAUserMsg_ReceivedXmasGift::_InternalParse(const char* ptr, ::_pb
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -26807,8 +26838,8 @@ uint8_t* CDOTAUserMsg_ReceivedXmasGift::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
@@ -26824,7 +26855,7 @@ uint8_t* CDOTAUserMsg_ReceivedXmasGift::_InternalSerialize(
   }
 
   // optional int32 inventory_slot = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_inventory_slot(), target);
   }
@@ -26854,14 +26885,14 @@ size_t CDOTAUserMsg_ReceivedXmasGift::ByteSizeLong() const {
           this->_internal_item_name());
     }
 
-    // optional int32 player_id = 1;
+    // optional int32 inventory_slot = 3;
     if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_inventory_slot());
     }
 
-    // optional int32 inventory_slot = 3;
+    // optional int32 player_id = 1 [default = -1];
     if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_inventory_slot());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
   }
@@ -26889,10 +26920,10 @@ void CDOTAUserMsg_ReceivedXmasGift::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& 
       _this->_internal_set_item_name(from._internal_item_name());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
+      _this->_impl_.inventory_slot_ = from._impl_.inventory_slot_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.inventory_slot_ = from._impl_.inventory_slot_;
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -26920,12 +26951,8 @@ void CDOTAUserMsg_ReceivedXmasGift::InternalSwap(CDOTAUserMsg_ReceivedXmasGift* 
       &_impl_.item_name_, lhs_arena,
       &other->_impl_.item_name_, rhs_arena
   );
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ReceivedXmasGift, _impl_.inventory_slot_)
-      + sizeof(CDOTAUserMsg_ReceivedXmasGift::_impl_.inventory_slot_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ReceivedXmasGift, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+  swap(_impl_.inventory_slot_, other->_impl_.inventory_slot_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_ReceivedXmasGift::GetMetadata() const {
@@ -27773,19 +27800,19 @@ class CDOTAUserMsg_TutorialPingMinimap::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_TutorialPingMinimap>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_pos_x(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_pos_y(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_pos_z(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_entity_index(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 8u;
   }
 };
 
@@ -27801,16 +27828,16 @@ CDOTAUserMsg_TutorialPingMinimap::CDOTAUserMsg_TutorialPingMinimap(const CDOTAUs
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){}
     , decltype(_impl_.pos_x_){}
     , decltype(_impl_.pos_y_){}
     , decltype(_impl_.pos_z_){}
-    , decltype(_impl_.entity_index_){}};
+    , decltype(_impl_.entity_index_){}
+    , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.entity_index_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.entity_index_));
+  ::memcpy(&_impl_.pos_x_, &from._impl_.pos_x_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.pos_x_)) + sizeof(_impl_.player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_TutorialPingMinimap)
 }
 
@@ -27821,11 +27848,11 @@ inline void CDOTAUserMsg_TutorialPingMinimap::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.pos_x_){0}
     , decltype(_impl_.pos_y_){0}
     , decltype(_impl_.pos_z_){0}
     , decltype(_impl_.entity_index_){0}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -27854,9 +27881,10 @@ void CDOTAUserMsg_TutorialPingMinimap::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
+    ::memset(&_impl_.pos_x_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.entity_index_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.entity_index_));
+        reinterpret_cast<char*>(&_impl_.pos_x_)) + sizeof(_impl_.entity_index_));
+    _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -27869,7 +27897,7 @@ const char* CDOTAUserMsg_TutorialPingMinimap::_InternalParse(const char* ptr, ::
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -27945,32 +27973,32 @@ uint8_t* CDOTAUserMsg_TutorialPingMinimap::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
   // optional float pos_x = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(2, this->_internal_pos_x(), target);
   }
 
   // optional float pos_y = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_pos_y(), target);
   }
 
   // optional float pos_z = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(4, this->_internal_pos_z(), target);
   }
 
   // optional int32 entity_index = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(5, this->_internal_entity_index(), target);
   }
@@ -27993,29 +28021,29 @@ size_t CDOTAUserMsg_TutorialPingMinimap::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    // optional int32 player_id = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
-    }
-
     // optional float pos_x = 2;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 4;
     }
 
     // optional float pos_y = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 4;
     }
 
     // optional float pos_z = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 4;
     }
 
     // optional int32 entity_index = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_entity_index());
+    }
+
+    // optional int32 player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
   }
@@ -28040,19 +28068,19 @@ void CDOTAUserMsg_TutorialPingMinimap::MergeImpl(::PROTOBUF_NAMESPACE_ID::Messag
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.pos_x_ = from._impl_.pos_x_;
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.pos_y_ = from._impl_.pos_y_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.pos_z_ = from._impl_.pos_z_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.entity_index_ = from._impl_.entity_index_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -28077,9 +28105,10 @@ void CDOTAUserMsg_TutorialPingMinimap::InternalSwap(CDOTAUserMsg_TutorialPingMin
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_TutorialPingMinimap, _impl_.entity_index_)
       + sizeof(CDOTAUserMsg_TutorialPingMinimap::_impl_.entity_index_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_TutorialPingMinimap, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_TutorialPingMinimap, _impl_.pos_x_)>(
+          reinterpret_cast<char*>(&_impl_.pos_x_),
+          reinterpret_cast<char*>(&other->_impl_.pos_x_));
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_TutorialPingMinimap::GetMetadata() const {
@@ -28616,7 +28645,7 @@ inline void CDOTAUserMsg_SendStatPopup::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.statpopup_){nullptr}
-    , decltype(_impl_.player_id_){0}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -28645,11 +28674,13 @@ void CDOTAUserMsg_SendStatPopup::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    GOOGLE_DCHECK(_impl_.statpopup_ != nullptr);
-    _impl_.statpopup_->Clear();
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      GOOGLE_DCHECK(_impl_.statpopup_ != nullptr);
+      _impl_.statpopup_->Clear();
+    }
+    _impl_.player_id_ = -1;
   }
-  _impl_.player_id_ = 0;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -28661,7 +28692,7 @@ const char* CDOTAUserMsg_SendStatPopup::_InternalParse(const char* ptr, ::_pbi::
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -28709,7 +28740,7 @@ uint8_t* CDOTAUserMsg_SendStatPopup::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
@@ -28747,7 +28778,7 @@ size_t CDOTAUserMsg_SendStatPopup::ByteSizeLong() const {
           *_impl_.statpopup_);
     }
 
-    // optional int32 player_id = 1;
+    // optional int32 player_id = 1 [default = -1];
     if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
@@ -28800,12 +28831,8 @@ void CDOTAUserMsg_SendStatPopup::InternalSwap(CDOTAUserMsg_SendStatPopup* other)
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_SendStatPopup, _impl_.player_id_)
-      + sizeof(CDOTAUserMsg_SendStatPopup::_impl_.player_id_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_SendStatPopup, _impl_.statpopup_)>(
-          reinterpret_cast<char*>(&_impl_.statpopup_),
-          reinterpret_cast<char*>(&other->_impl_.statpopup_));
+  swap(_impl_.statpopup_, other->_impl_.statpopup_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_SendStatPopup::GetMetadata() const {
@@ -29766,10 +29793,10 @@ class CDOTAUserMsg_CustomMsg::_Internal {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_value(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
 };
 
@@ -29786,8 +29813,8 @@ CDOTAUserMsg_CustomMsg::CDOTAUserMsg_CustomMsg(const CDOTAUserMsg_CustomMsg& fro
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.message_){}
-    , decltype(_impl_.player_id_){}
-    , decltype(_impl_.value_){}};
+    , decltype(_impl_.value_){}
+    , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _impl_.message_.InitDefault();
@@ -29798,9 +29825,9 @@ CDOTAUserMsg_CustomMsg::CDOTAUserMsg_CustomMsg(const CDOTAUserMsg_CustomMsg& fro
     _this->_impl_.message_.Set(from._internal_message(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.value_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.value_));
+  ::memcpy(&_impl_.value_, &from._impl_.value_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.value_)) + sizeof(_impl_.player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_CustomMsg)
 }
 
@@ -29812,8 +29839,8 @@ inline void CDOTAUserMsg_CustomMsg::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.message_){}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.value_){0}
+    , decltype(_impl_.player_id_){-1}
   };
   _impl_.message_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -29850,9 +29877,8 @@ void CDOTAUserMsg_CustomMsg::Clear() {
     _impl_.message_.ClearNonDefaultToEmpty();
   }
   if (cached_has_bits & 0x00000006u) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.value_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.value_));
+    _impl_.value_ = 0;
+    _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -29877,7 +29903,7 @@ const char* CDOTAUserMsg_CustomMsg::_InternalParse(const char* ptr, ::_pbi::Pars
         } else
           goto handle_unusual;
         continue;
-      // optional int32 player_id = 2;
+      // optional int32 player_id = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_player_id(&has_bits);
@@ -29936,14 +29962,14 @@ uint8_t* CDOTAUserMsg_CustomMsg::_InternalSerialize(
         1, this->_internal_message(), target);
   }
 
-  // optional int32 player_id = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 player_id = 2 [default = -1];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_player_id(), target);
   }
 
   // optional int32 value = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_value(), target);
   }
@@ -29973,14 +29999,14 @@ size_t CDOTAUserMsg_CustomMsg::ByteSizeLong() const {
           this->_internal_message());
     }
 
-    // optional int32 player_id = 2;
+    // optional int32 value = 3;
     if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_value());
     }
 
-    // optional int32 value = 3;
+    // optional int32 player_id = 2 [default = -1];
     if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_value());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
   }
@@ -30008,10 +30034,10 @@ void CDOTAUserMsg_CustomMsg::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg,
       _this->_internal_set_message(from._internal_message());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
+      _this->_impl_.value_ = from._impl_.value_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.value_ = from._impl_.value_;
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -30039,12 +30065,8 @@ void CDOTAUserMsg_CustomMsg::InternalSwap(CDOTAUserMsg_CustomMsg* other) {
       &_impl_.message_, lhs_arena,
       &other->_impl_.message_, rhs_arena
   );
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_CustomMsg, _impl_.value_)
-      + sizeof(CDOTAUserMsg_CustomMsg::_impl_.value_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_CustomMsg, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+  swap(_impl_.value_, other->_impl_.value_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_CustomMsg::GetMetadata() const {
@@ -30106,7 +30128,7 @@ inline void CDOTAUserMsg_CoachHUDPing::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.hud_ping_){nullptr}
-    , decltype(_impl_.player_id_){0}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -30135,11 +30157,13 @@ void CDOTAUserMsg_CoachHUDPing::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    GOOGLE_DCHECK(_impl_.hud_ping_ != nullptr);
-    _impl_.hud_ping_->Clear();
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      GOOGLE_DCHECK(_impl_.hud_ping_ != nullptr);
+      _impl_.hud_ping_->Clear();
+    }
+    _impl_.player_id_ = -1;
   }
-  _impl_.player_id_ = 0;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -30151,7 +30175,7 @@ const char* CDOTAUserMsg_CoachHUDPing::_InternalParse(const char* ptr, ::_pbi::P
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -30199,7 +30223,7 @@ uint8_t* CDOTAUserMsg_CoachHUDPing::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
@@ -30237,7 +30261,7 @@ size_t CDOTAUserMsg_CoachHUDPing::ByteSizeLong() const {
           *_impl_.hud_ping_);
     }
 
-    // optional int32 player_id = 1;
+    // optional int32 player_id = 1 [default = -1];
     if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
@@ -30290,12 +30314,8 @@ void CDOTAUserMsg_CoachHUDPing::InternalSwap(CDOTAUserMsg_CoachHUDPing* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_CoachHUDPing, _impl_.player_id_)
-      + sizeof(CDOTAUserMsg_CoachHUDPing::_impl_.player_id_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_CoachHUDPing, _impl_.hud_ping_)>(
-          reinterpret_cast<char*>(&_impl_.hud_ping_),
-          reinterpret_cast<char*>(&other->_impl_.hud_ping_));
+  swap(_impl_.hud_ping_, other->_impl_.hud_ping_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_CoachHUDPing::GetMetadata() const {
@@ -30350,47 +30370,47 @@ class CDOTAUserMsg_TE_Projectile::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_TE_Projectile>()._impl_._has_bits_);
   static void set_has_source(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 4096u;
   }
   static void set_has_target(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 8192u;
   }
   static void set_has_move_speed(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_source_attachment(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_particle_system_handle(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_dodgeable(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_is_attack(HasBits* has_bits) {
-    (*has_bits)[0] |= 128u;
+    (*has_bits)[0] |= 32u;
   }
   static void set_has_expire_time(HasBits* has_bits) {
-    (*has_bits)[0] |= 256u;
+    (*has_bits)[0] |= 64u;
   }
   static void set_has_maximpacttime(HasBits* has_bits) {
-    (*has_bits)[0] |= 512u;
+    (*has_bits)[0] |= 128u;
   }
   static void set_has_colorgemcolor(HasBits* has_bits) {
-    (*has_bits)[0] |= 1024u;
+    (*has_bits)[0] |= 256u;
   }
   static void set_has_launch_tick(HasBits* has_bits) {
-    (*has_bits)[0] |= 2048u;
+    (*has_bits)[0] |= 512u;
   }
   static void set_has_handle(HasBits* has_bits) {
-    (*has_bits)[0] |= 4096u;
+    (*has_bits)[0] |= 1024u;
   }
   static const ::CMsgVector& target_loc(const CDOTAUserMsg_TE_Projectile* msg);
   static void set_has_target_loc(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_additional_particle_system_handle(HasBits* has_bits) {
-    (*has_bits)[0] |= 8192u;
+    (*has_bits)[0] |= 2048u;
   }
 };
 
@@ -30416,8 +30436,6 @@ CDOTAUserMsg_TE_Projectile::CDOTAUserMsg_TE_Projectile(const CDOTAUserMsg_TE_Pro
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.particle_cp_data_){from._impl_.particle_cp_data_}
     , decltype(_impl_.target_loc_){nullptr}
-    , decltype(_impl_.source_){}
-    , decltype(_impl_.target_){}
     , decltype(_impl_.move_speed_){}
     , decltype(_impl_.source_attachment_){}
     , decltype(_impl_.particle_system_handle_){}
@@ -30428,15 +30446,17 @@ CDOTAUserMsg_TE_Projectile::CDOTAUserMsg_TE_Projectile(const CDOTAUserMsg_TE_Pro
     , decltype(_impl_.colorgemcolor_){}
     , decltype(_impl_.launch_tick_){}
     , decltype(_impl_.handle_){}
-    , decltype(_impl_.additional_particle_system_handle_){}};
+    , decltype(_impl_.additional_particle_system_handle_){}
+    , decltype(_impl_.source_){}
+    , decltype(_impl_.target_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_target_loc()) {
     _this->_impl_.target_loc_ = new ::CMsgVector(*from._impl_.target_loc_);
   }
-  ::memcpy(&_impl_.source_, &from._impl_.source_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.additional_particle_system_handle_) -
-    reinterpret_cast<char*>(&_impl_.source_)) + sizeof(_impl_.additional_particle_system_handle_));
+  ::memcpy(&_impl_.move_speed_, &from._impl_.move_speed_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.target_) -
+    reinterpret_cast<char*>(&_impl_.move_speed_)) + sizeof(_impl_.target_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_TE_Projectile)
 }
 
@@ -30449,8 +30469,6 @@ inline void CDOTAUserMsg_TE_Projectile::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.particle_cp_data_){arena}
     , decltype(_impl_.target_loc_){nullptr}
-    , decltype(_impl_.source_){0u}
-    , decltype(_impl_.target_){0u}
     , decltype(_impl_.move_speed_){0}
     , decltype(_impl_.source_attachment_){0}
     , decltype(_impl_.particle_system_handle_){int64_t{0}}
@@ -30462,6 +30480,8 @@ inline void CDOTAUserMsg_TE_Projectile::SharedCtor(
     , decltype(_impl_.launch_tick_){0}
     , decltype(_impl_.handle_){0}
     , decltype(_impl_.additional_particle_system_handle_){int64_t{0}}
+    , decltype(_impl_.source_){16777215u}
+    , decltype(_impl_.target_){16777215u}
   };
 }
 
@@ -30497,14 +30517,16 @@ void CDOTAUserMsg_TE_Projectile::Clear() {
     _impl_.target_loc_->Clear();
   }
   if (cached_has_bits & 0x000000feu) {
-    ::memset(&_impl_.source_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.is_attack_) -
-        reinterpret_cast<char*>(&_impl_.source_)) + sizeof(_impl_.is_attack_));
+    ::memset(&_impl_.move_speed_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.maximpacttime_) -
+        reinterpret_cast<char*>(&_impl_.move_speed_)) + sizeof(_impl_.maximpacttime_));
   }
   if (cached_has_bits & 0x00003f00u) {
-    ::memset(&_impl_.expire_time_, 0, static_cast<size_t>(
+    ::memset(&_impl_.colorgemcolor_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.additional_particle_system_handle_) -
-        reinterpret_cast<char*>(&_impl_.expire_time_)) + sizeof(_impl_.additional_particle_system_handle_));
+        reinterpret_cast<char*>(&_impl_.colorgemcolor_)) + sizeof(_impl_.additional_particle_system_handle_));
+    _impl_.source_ = 16777215u;
+    _impl_.target_ = 16777215u;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -30517,7 +30539,7 @@ const char* CDOTAUserMsg_TE_Projectile::_InternalParse(const char* ptr, ::_pbi::
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 source = 1;
+      // optional uint32 source = 1 [default = 16777215];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_source(&has_bits);
@@ -30526,7 +30548,7 @@ const char* CDOTAUserMsg_TE_Projectile::_InternalParse(const char* ptr, ::_pbi::
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 target = 2;
+      // optional uint32 target = 2 [default = 16777215];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_target(&has_bits);
@@ -30686,74 +30708,74 @@ uint8_t* CDOTAUserMsg_TE_Projectile::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 source = 1;
-  if (cached_has_bits & 0x00000002u) {
+  // optional uint32 source = 1 [default = 16777215];
+  if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_source(), target);
   }
 
-  // optional uint32 target = 2;
-  if (cached_has_bits & 0x00000004u) {
+  // optional uint32 target = 2 [default = 16777215];
+  if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_target(), target);
   }
 
   // optional int32 move_speed = 3;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_move_speed(), target);
   }
 
   // optional int32 source_attachment = 4;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_source_attachment(), target);
   }
 
   // optional int64 particle_system_handle = 5;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(5, this->_internal_particle_system_handle(), target);
   }
 
   // optional bool dodgeable = 6;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(6, this->_internal_dodgeable(), target);
   }
 
   // optional bool is_attack = 7;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(7, this->_internal_is_attack(), target);
   }
 
   // optional float expire_time = 9;
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(9, this->_internal_expire_time(), target);
   }
 
   // optional float maximpacttime = 10;
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(10, this->_internal_maximpacttime(), target);
   }
 
   // optional fixed32 colorgemcolor = 11;
-  if (cached_has_bits & 0x00000400u) {
+  if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFixed32ToArray(11, this->_internal_colorgemcolor(), target);
   }
 
   // optional int32 launch_tick = 12;
-  if (cached_has_bits & 0x00000800u) {
+  if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(12, this->_internal_launch_tick(), target);
   }
 
   // optional int32 handle = 13;
-  if (cached_has_bits & 0x00001000u) {
+  if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(13, this->_internal_handle(), target);
   }
@@ -30774,7 +30796,7 @@ uint8_t* CDOTAUserMsg_TE_Projectile::_InternalSerialize(
   }
 
   // optional int64 additional_particle_system_handle = 16;
-  if (cached_has_bits & 0x00002000u) {
+  if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(16, this->_internal_additional_particle_system_handle(), target);
   }
@@ -30811,73 +30833,73 @@ size_t CDOTAUserMsg_TE_Projectile::ByteSizeLong() const {
           *_impl_.target_loc_);
     }
 
-    // optional uint32 source = 1;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_source());
-    }
-
-    // optional uint32 target = 2;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_target());
-    }
-
     // optional int32 move_speed = 3;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_move_speed());
     }
 
     // optional int32 source_attachment = 4;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_source_attachment());
     }
 
     // optional int64 particle_system_handle = 5;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_particle_system_handle());
     }
 
     // optional bool dodgeable = 6;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 1;
     }
 
     // optional bool is_attack = 7;
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 1;
     }
 
-  }
-  if (cached_has_bits & 0x00003f00u) {
     // optional float expire_time = 9;
-    if (cached_has_bits & 0x00000100u) {
+    if (cached_has_bits & 0x00000040u) {
       total_size += 1 + 4;
     }
 
     // optional float maximpacttime = 10;
-    if (cached_has_bits & 0x00000200u) {
+    if (cached_has_bits & 0x00000080u) {
       total_size += 1 + 4;
     }
 
+  }
+  if (cached_has_bits & 0x00003f00u) {
     // optional fixed32 colorgemcolor = 11;
-    if (cached_has_bits & 0x00000400u) {
+    if (cached_has_bits & 0x00000100u) {
       total_size += 1 + 4;
     }
 
     // optional int32 launch_tick = 12;
-    if (cached_has_bits & 0x00000800u) {
+    if (cached_has_bits & 0x00000200u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_launch_tick());
     }
 
     // optional int32 handle = 13;
-    if (cached_has_bits & 0x00001000u) {
+    if (cached_has_bits & 0x00000400u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_handle());
     }
 
     // optional int64 additional_particle_system_handle = 16;
-    if (cached_has_bits & 0x00002000u) {
+    if (cached_has_bits & 0x00000800u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int64Size(
           this->_internal_additional_particle_system_handle());
+    }
+
+    // optional uint32 source = 1 [default = 16777215];
+    if (cached_has_bits & 0x00001000u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_source());
+    }
+
+    // optional uint32 target = 2 [default = 16777215];
+    if (cached_has_bits & 0x00002000u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_target());
     }
 
   }
@@ -30907,46 +30929,46 @@ void CDOTAUserMsg_TE_Projectile::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_
           from._internal_target_loc());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.source_ = from._impl_.source_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.target_ = from._impl_.target_;
-    }
-    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.move_speed_ = from._impl_.move_speed_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.source_attachment_ = from._impl_.source_attachment_;
     }
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.particle_system_handle_ = from._impl_.particle_system_handle_;
     }
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000010u) {
       _this->_impl_.dodgeable_ = from._impl_.dodgeable_;
     }
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000020u) {
       _this->_impl_.is_attack_ = from._impl_.is_attack_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      _this->_impl_.expire_time_ = from._impl_.expire_time_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      _this->_impl_.maximpacttime_ = from._impl_.maximpacttime_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   if (cached_has_bits & 0x00003f00u) {
     if (cached_has_bits & 0x00000100u) {
-      _this->_impl_.expire_time_ = from._impl_.expire_time_;
-    }
-    if (cached_has_bits & 0x00000200u) {
-      _this->_impl_.maximpacttime_ = from._impl_.maximpacttime_;
-    }
-    if (cached_has_bits & 0x00000400u) {
       _this->_impl_.colorgemcolor_ = from._impl_.colorgemcolor_;
     }
-    if (cached_has_bits & 0x00000800u) {
+    if (cached_has_bits & 0x00000200u) {
       _this->_impl_.launch_tick_ = from._impl_.launch_tick_;
     }
-    if (cached_has_bits & 0x00001000u) {
+    if (cached_has_bits & 0x00000400u) {
       _this->_impl_.handle_ = from._impl_.handle_;
     }
-    if (cached_has_bits & 0x00002000u) {
+    if (cached_has_bits & 0x00000800u) {
       _this->_impl_.additional_particle_system_handle_ = from._impl_.additional_particle_system_handle_;
+    }
+    if (cached_has_bits & 0x00001000u) {
+      _this->_impl_.source_ = from._impl_.source_;
+    }
+    if (cached_has_bits & 0x00002000u) {
+      _this->_impl_.target_ = from._impl_.target_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -30975,6 +30997,8 @@ void CDOTAUserMsg_TE_Projectile::InternalSwap(CDOTAUserMsg_TE_Projectile* other)
       - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_TE_Projectile, _impl_.target_loc_)>(
           reinterpret_cast<char*>(&_impl_.target_loc_),
           reinterpret_cast<char*>(&other->_impl_.target_loc_));
+  swap(_impl_.source_, other->_impl_.source_);
+  swap(_impl_.target_, other->_impl_.target_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_TE_Projectile::GetMetadata() const {
@@ -30993,44 +31017,44 @@ class CDOTAUserMsg_TE_ProjectileLoc::_Internal {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_target(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 4096u;
   }
   static void set_has_move_speed(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
   static void set_has_particle_system_handle(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_dodgeable(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_is_attack(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
+    (*has_bits)[0] |= 32u;
   }
   static void set_has_expire_time(HasBits* has_bits) {
-    (*has_bits)[0] |= 128u;
+    (*has_bits)[0] |= 64u;
   }
   static const ::CMsgVector& target_loc(const CDOTAUserMsg_TE_ProjectileLoc* msg);
   static void set_has_target_loc(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
   static void set_has_colorgemcolor(HasBits* has_bits) {
-    (*has_bits)[0] |= 256u;
+    (*has_bits)[0] |= 128u;
   }
   static void set_has_launch_tick(HasBits* has_bits) {
-    (*has_bits)[0] |= 512u;
+    (*has_bits)[0] |= 256u;
   }
   static void set_has_handle(HasBits* has_bits) {
-    (*has_bits)[0] |= 1024u;
+    (*has_bits)[0] |= 512u;
   }
   static void set_has_source(HasBits* has_bits) {
-    (*has_bits)[0] |= 2048u;
-  }
-  static void set_has_source_attachment(HasBits* has_bits) {
     (*has_bits)[0] |= 8192u;
   }
+  static void set_has_source_attachment(HasBits* has_bits) {
+    (*has_bits)[0] |= 2048u;
+  }
   static void set_has_additional_particle_system_handle(HasBits* has_bits) {
-    (*has_bits)[0] |= 4096u;
+    (*has_bits)[0] |= 1024u;
   }
 };
 
@@ -31065,18 +31089,18 @@ CDOTAUserMsg_TE_ProjectileLoc::CDOTAUserMsg_TE_ProjectileLoc(const CDOTAUserMsg_
     , decltype(_impl_.particle_cp_data_){from._impl_.particle_cp_data_}
     , decltype(_impl_.source_loc_){nullptr}
     , decltype(_impl_.target_loc_){nullptr}
-    , decltype(_impl_.target_){}
-    , decltype(_impl_.move_speed_){}
     , decltype(_impl_.particle_system_handle_){}
+    , decltype(_impl_.move_speed_){}
     , decltype(_impl_.dodgeable_){}
     , decltype(_impl_.is_attack_){}
     , decltype(_impl_.expire_time_){}
     , decltype(_impl_.colorgemcolor_){}
     , decltype(_impl_.launch_tick_){}
     , decltype(_impl_.handle_){}
-    , decltype(_impl_.source_){}
     , decltype(_impl_.additional_particle_system_handle_){}
-    , decltype(_impl_.source_attachment_){}};
+    , decltype(_impl_.source_attachment_){}
+    , decltype(_impl_.target_){}
+    , decltype(_impl_.source_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_source_loc()) {
@@ -31085,9 +31109,9 @@ CDOTAUserMsg_TE_ProjectileLoc::CDOTAUserMsg_TE_ProjectileLoc(const CDOTAUserMsg_
   if (from._internal_has_target_loc()) {
     _this->_impl_.target_loc_ = new ::CMsgVector(*from._impl_.target_loc_);
   }
-  ::memcpy(&_impl_.target_, &from._impl_.target_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.source_attachment_) -
-    reinterpret_cast<char*>(&_impl_.target_)) + sizeof(_impl_.source_attachment_));
+  ::memcpy(&_impl_.particle_system_handle_, &from._impl_.particle_system_handle_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.source_) -
+    reinterpret_cast<char*>(&_impl_.particle_system_handle_)) + sizeof(_impl_.source_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_TE_ProjectileLoc)
 }
 
@@ -31101,18 +31125,18 @@ inline void CDOTAUserMsg_TE_ProjectileLoc::SharedCtor(
     , decltype(_impl_.particle_cp_data_){arena}
     , decltype(_impl_.source_loc_){nullptr}
     , decltype(_impl_.target_loc_){nullptr}
-    , decltype(_impl_.target_){0u}
-    , decltype(_impl_.move_speed_){0}
     , decltype(_impl_.particle_system_handle_){int64_t{0}}
+    , decltype(_impl_.move_speed_){0}
     , decltype(_impl_.dodgeable_){false}
     , decltype(_impl_.is_attack_){false}
     , decltype(_impl_.expire_time_){0}
     , decltype(_impl_.colorgemcolor_){0u}
     , decltype(_impl_.launch_tick_){0}
     , decltype(_impl_.handle_){0}
-    , decltype(_impl_.source_){0u}
     , decltype(_impl_.additional_particle_system_handle_){int64_t{0}}
     , decltype(_impl_.source_attachment_){0}
+    , decltype(_impl_.target_){16777215u}
+    , decltype(_impl_.source_){16777215u}
   };
 }
 
@@ -31155,14 +31179,16 @@ void CDOTAUserMsg_TE_ProjectileLoc::Clear() {
     }
   }
   if (cached_has_bits & 0x000000fcu) {
-    ::memset(&_impl_.target_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.expire_time_) -
-        reinterpret_cast<char*>(&_impl_.target_)) + sizeof(_impl_.expire_time_));
+    ::memset(&_impl_.particle_system_handle_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.colorgemcolor_) -
+        reinterpret_cast<char*>(&_impl_.particle_system_handle_)) + sizeof(_impl_.colorgemcolor_));
   }
   if (cached_has_bits & 0x00003f00u) {
-    ::memset(&_impl_.colorgemcolor_, 0, static_cast<size_t>(
+    ::memset(&_impl_.launch_tick_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.source_attachment_) -
-        reinterpret_cast<char*>(&_impl_.colorgemcolor_)) + sizeof(_impl_.source_attachment_));
+        reinterpret_cast<char*>(&_impl_.launch_tick_)) + sizeof(_impl_.source_attachment_));
+    _impl_.target_ = 16777215u;
+    _impl_.source_ = 16777215u;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -31183,7 +31209,7 @@ const char* CDOTAUserMsg_TE_ProjectileLoc::_InternalParse(const char* ptr, ::_pb
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 target = 2;
+      // optional uint32 target = 2 [default = 16777215];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_target(&has_bits);
@@ -31272,7 +31298,7 @@ const char* CDOTAUserMsg_TE_ProjectileLoc::_InternalParse(const char* ptr, ::_pb
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 source = 14;
+      // optional uint32 source = 14 [default = 16777215];
       case 14:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 112)) {
           _Internal::set_has_source(&has_bits);
@@ -31350,8 +31376,8 @@ uint8_t* CDOTAUserMsg_TE_ProjectileLoc::_InternalSerialize(
         _Internal::source_loc(this).GetCachedSize(), target, stream);
   }
 
-  // optional uint32 target = 2;
-  if (cached_has_bits & 0x00000004u) {
+  // optional uint32 target = 2 [default = 16777215];
+  if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_target(), target);
   }
@@ -31363,25 +31389,25 @@ uint8_t* CDOTAUserMsg_TE_ProjectileLoc::_InternalSerialize(
   }
 
   // optional int64 particle_system_handle = 4;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(4, this->_internal_particle_system_handle(), target);
   }
 
   // optional bool dodgeable = 5;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(5, this->_internal_dodgeable(), target);
   }
 
   // optional bool is_attack = 6;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(6, this->_internal_is_attack(), target);
   }
 
   // optional float expire_time = 9;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(9, this->_internal_expire_time(), target);
   }
@@ -31394,31 +31420,31 @@ uint8_t* CDOTAUserMsg_TE_ProjectileLoc::_InternalSerialize(
   }
 
   // optional fixed32 colorgemcolor = 11;
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFixed32ToArray(11, this->_internal_colorgemcolor(), target);
   }
 
   // optional int32 launch_tick = 12;
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(12, this->_internal_launch_tick(), target);
   }
 
   // optional int32 handle = 13;
-  if (cached_has_bits & 0x00000400u) {
+  if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(13, this->_internal_handle(), target);
   }
 
-  // optional uint32 source = 14;
-  if (cached_has_bits & 0x00000800u) {
+  // optional uint32 source = 14 [default = 16777215];
+  if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(14, this->_internal_source(), target);
   }
 
   // optional int32 source_attachment = 15;
-  if (cached_has_bits & 0x00002000u) {
+  if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(15, this->_internal_source_attachment(), target);
   }
@@ -31432,7 +31458,7 @@ uint8_t* CDOTAUserMsg_TE_ProjectileLoc::_InternalSerialize(
   }
 
   // optional int64 additional_particle_system_handle = 17;
-  if (cached_has_bits & 0x00001000u) {
+  if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(17, this->_internal_additional_particle_system_handle(), target);
   }
@@ -31476,9 +31502,9 @@ size_t CDOTAUserMsg_TE_ProjectileLoc::ByteSizeLong() const {
           *_impl_.target_loc_);
     }
 
-    // optional uint32 target = 2;
+    // optional int64 particle_system_handle = 4;
     if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_target());
+      total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_particle_system_handle());
     }
 
     // optional int32 move_speed = 3;
@@ -31486,58 +31512,58 @@ size_t CDOTAUserMsg_TE_ProjectileLoc::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_move_speed());
     }
 
-    // optional int64 particle_system_handle = 4;
-    if (cached_has_bits & 0x00000010u) {
-      total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_particle_system_handle());
-    }
-
     // optional bool dodgeable = 5;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 1;
     }
 
     // optional bool is_attack = 6;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 1;
     }
 
     // optional float expire_time = 9;
+    if (cached_has_bits & 0x00000040u) {
+      total_size += 1 + 4;
+    }
+
+    // optional fixed32 colorgemcolor = 11;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 + 4;
     }
 
   }
   if (cached_has_bits & 0x00003f00u) {
-    // optional fixed32 colorgemcolor = 11;
-    if (cached_has_bits & 0x00000100u) {
-      total_size += 1 + 4;
-    }
-
     // optional int32 launch_tick = 12;
-    if (cached_has_bits & 0x00000200u) {
+    if (cached_has_bits & 0x00000100u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_launch_tick());
     }
 
     // optional int32 handle = 13;
-    if (cached_has_bits & 0x00000400u) {
+    if (cached_has_bits & 0x00000200u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_handle());
     }
 
-    // optional uint32 source = 14;
-    if (cached_has_bits & 0x00000800u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_source());
-    }
-
     // optional int64 additional_particle_system_handle = 17;
-    if (cached_has_bits & 0x00001000u) {
+    if (cached_has_bits & 0x00000400u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int64Size(
           this->_internal_additional_particle_system_handle());
     }
 
     // optional int32 source_attachment = 15;
-    if (cached_has_bits & 0x00002000u) {
+    if (cached_has_bits & 0x00000800u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_source_attachment());
+    }
+
+    // optional uint32 target = 2 [default = 16777215];
+    if (cached_has_bits & 0x00001000u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_target());
+    }
+
+    // optional uint32 source = 14 [default = 16777215];
+    if (cached_has_bits & 0x00002000u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_source());
     }
 
   }
@@ -31571,43 +31597,43 @@ void CDOTAUserMsg_TE_ProjectileLoc::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& 
           from._internal_target_loc());
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.target_ = from._impl_.target_;
+      _this->_impl_.particle_system_handle_ = from._impl_.particle_system_handle_;
     }
     if (cached_has_bits & 0x00000008u) {
       _this->_impl_.move_speed_ = from._impl_.move_speed_;
     }
     if (cached_has_bits & 0x00000010u) {
-      _this->_impl_.particle_system_handle_ = from._impl_.particle_system_handle_;
-    }
-    if (cached_has_bits & 0x00000020u) {
       _this->_impl_.dodgeable_ = from._impl_.dodgeable_;
     }
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000020u) {
       _this->_impl_.is_attack_ = from._impl_.is_attack_;
     }
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000040u) {
       _this->_impl_.expire_time_ = from._impl_.expire_time_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      _this->_impl_.colorgemcolor_ = from._impl_.colorgemcolor_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   if (cached_has_bits & 0x00003f00u) {
     if (cached_has_bits & 0x00000100u) {
-      _this->_impl_.colorgemcolor_ = from._impl_.colorgemcolor_;
-    }
-    if (cached_has_bits & 0x00000200u) {
       _this->_impl_.launch_tick_ = from._impl_.launch_tick_;
     }
-    if (cached_has_bits & 0x00000400u) {
+    if (cached_has_bits & 0x00000200u) {
       _this->_impl_.handle_ = from._impl_.handle_;
     }
-    if (cached_has_bits & 0x00000800u) {
-      _this->_impl_.source_ = from._impl_.source_;
-    }
-    if (cached_has_bits & 0x00001000u) {
+    if (cached_has_bits & 0x00000400u) {
       _this->_impl_.additional_particle_system_handle_ = from._impl_.additional_particle_system_handle_;
     }
-    if (cached_has_bits & 0x00002000u) {
+    if (cached_has_bits & 0x00000800u) {
       _this->_impl_.source_attachment_ = from._impl_.source_attachment_;
+    }
+    if (cached_has_bits & 0x00001000u) {
+      _this->_impl_.target_ = from._impl_.target_;
+    }
+    if (cached_has_bits & 0x00002000u) {
+      _this->_impl_.source_ = from._impl_.source_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -31636,6 +31662,8 @@ void CDOTAUserMsg_TE_ProjectileLoc::InternalSwap(CDOTAUserMsg_TE_ProjectileLoc* 
       - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_TE_ProjectileLoc, _impl_.source_loc_)>(
           reinterpret_cast<char*>(&_impl_.source_loc_),
           reinterpret_cast<char*>(&other->_impl_.source_loc_));
+  swap(_impl_.target_, other->_impl_.target_);
+  swap(_impl_.source_, other->_impl_.source_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_TE_ProjectileLoc::GetMetadata() const {
@@ -31841,16 +31869,16 @@ class CDOTAUserMsg_TE_DotaBloodImpact::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_TE_DotaBloodImpact>()._impl_._has_bits_);
   static void set_has_entity(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_scale(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_xnormal(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_ynormal(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
 };
 
@@ -31866,15 +31894,15 @@ CDOTAUserMsg_TE_DotaBloodImpact::CDOTAUserMsg_TE_DotaBloodImpact(const CDOTAUser
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.entity_){}
     , decltype(_impl_.scale_){}
     , decltype(_impl_.xnormal_){}
-    , decltype(_impl_.ynormal_){}};
+    , decltype(_impl_.ynormal_){}
+    , decltype(_impl_.entity_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.entity_, &from._impl_.entity_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.ynormal_) -
-    reinterpret_cast<char*>(&_impl_.entity_)) + sizeof(_impl_.ynormal_));
+  ::memcpy(&_impl_.scale_, &from._impl_.scale_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.entity_) -
+    reinterpret_cast<char*>(&_impl_.scale_)) + sizeof(_impl_.entity_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_TE_DotaBloodImpact)
 }
 
@@ -31885,10 +31913,10 @@ inline void CDOTAUserMsg_TE_DotaBloodImpact::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.entity_){0u}
     , decltype(_impl_.scale_){0}
     , decltype(_impl_.xnormal_){0}
     , decltype(_impl_.ynormal_){0}
+    , decltype(_impl_.entity_){16777215u}
   };
 }
 
@@ -31917,9 +31945,10 @@ void CDOTAUserMsg_TE_DotaBloodImpact::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    ::memset(&_impl_.entity_, 0, static_cast<size_t>(
+    ::memset(&_impl_.scale_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.ynormal_) -
-        reinterpret_cast<char*>(&_impl_.entity_)) + sizeof(_impl_.ynormal_));
+        reinterpret_cast<char*>(&_impl_.scale_)) + sizeof(_impl_.ynormal_));
+    _impl_.entity_ = 16777215u;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -31932,7 +31961,7 @@ const char* CDOTAUserMsg_TE_DotaBloodImpact::_InternalParse(const char* ptr, ::_
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 entity = 1;
+      // optional uint32 entity = 1 [default = 16777215];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_entity(&has_bits);
@@ -31999,26 +32028,26 @@ uint8_t* CDOTAUserMsg_TE_DotaBloodImpact::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 entity = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional uint32 entity = 1 [default = 16777215];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_entity(), target);
   }
 
   // optional float scale = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(2, this->_internal_scale(), target);
   }
 
   // optional float xnormal = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_xnormal(), target);
   }
 
   // optional float ynormal = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(4, this->_internal_ynormal(), target);
   }
@@ -32041,24 +32070,24 @@ size_t CDOTAUserMsg_TE_DotaBloodImpact::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional uint32 entity = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_entity());
-    }
-
     // optional float scale = 2;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 4;
     }
 
     // optional float xnormal = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 4;
     }
 
     // optional float ynormal = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 4;
+    }
+
+    // optional uint32 entity = 1 [default = 16777215];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_entity());
     }
 
   }
@@ -32083,16 +32112,16 @@ void CDOTAUserMsg_TE_DotaBloodImpact::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.entity_ = from._impl_.entity_;
-    }
-    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.scale_ = from._impl_.scale_;
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.xnormal_ = from._impl_.xnormal_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.ynormal_ = from._impl_.ynormal_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.entity_ = from._impl_.entity_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -32117,9 +32146,10 @@ void CDOTAUserMsg_TE_DotaBloodImpact::InternalSwap(CDOTAUserMsg_TE_DotaBloodImpa
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_TE_DotaBloodImpact, _impl_.ynormal_)
       + sizeof(CDOTAUserMsg_TE_DotaBloodImpact::_impl_.ynormal_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_TE_DotaBloodImpact, _impl_.entity_)>(
-          reinterpret_cast<char*>(&_impl_.entity_),
-          reinterpret_cast<char*>(&other->_impl_.entity_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_TE_DotaBloodImpact, _impl_.scale_)>(
+          reinterpret_cast<char*>(&_impl_.scale_),
+          reinterpret_cast<char*>(&other->_impl_.scale_));
+  swap(_impl_.entity_, other->_impl_.entity_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_TE_DotaBloodImpact::GetMetadata() const {
@@ -32134,40 +32164,40 @@ class CDOTAUserMsg_AbilityPing::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_AbilityPing>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 1024u;
   }
   static void set_has_ability_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_type(HasBits* has_bits) {
     (*has_bits)[0] |= 2048u;
   }
-  static void set_has_cooldown_seconds(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_level(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-  static void set_has_passive(HasBits* has_bits) {
-    (*has_bits)[0] |= 128u;
-  }
-  static void set_has_mana_needed(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
-  }
-  static void set_has_entity_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
-  }
-  static void set_has_primary_charges(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
-  }
-  static void set_has_secondary_charges(HasBits* has_bits) {
+  static void set_has_type(HasBits* has_bits) {
     (*has_bits)[0] |= 512u;
   }
+  static void set_has_cooldown_seconds(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_level(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_passive(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
+  }
+  static void set_has_mana_needed(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_entity_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_primary_charges(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_secondary_charges(HasBits* has_bits) {
+    (*has_bits)[0] |= 128u;
+  }
   static void set_has_ctrl_held(HasBits* has_bits) {
-    (*has_bits)[0] |= 256u;
+    (*has_bits)[0] |= 64u;
   }
   static void set_has_reclaim_time(HasBits* has_bits) {
-    (*has_bits)[0] |= 1024u;
+    (*has_bits)[0] |= 256u;
   }
 };
 
@@ -32183,8 +32213,6 @@ CDOTAUserMsg_AbilityPing::CDOTAUserMsg_AbilityPing(const CDOTAUserMsg_AbilityPin
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){}
-    , decltype(_impl_.ability_id_){}
     , decltype(_impl_.cooldown_seconds_){}
     , decltype(_impl_.level_){}
     , decltype(_impl_.mana_needed_){}
@@ -32194,12 +32222,14 @@ CDOTAUserMsg_AbilityPing::CDOTAUserMsg_AbilityPing(const CDOTAUserMsg_AbilityPin
     , decltype(_impl_.ctrl_held_){}
     , decltype(_impl_.secondary_charges_){}
     , decltype(_impl_.reclaim_time_){}
-    , decltype(_impl_.type_){}};
+    , decltype(_impl_.type_){}
+    , decltype(_impl_.player_id_){}
+    , decltype(_impl_.ability_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.type_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.type_));
+  ::memcpy(&_impl_.cooldown_seconds_, &from._impl_.cooldown_seconds_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.ability_id_) -
+    reinterpret_cast<char*>(&_impl_.cooldown_seconds_)) + sizeof(_impl_.ability_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_AbilityPing)
 }
 
@@ -32210,8 +32240,6 @@ inline void CDOTAUserMsg_AbilityPing::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
-    , decltype(_impl_.ability_id_){0u}
     , decltype(_impl_.cooldown_seconds_){0u}
     , decltype(_impl_.level_){0u}
     , decltype(_impl_.mana_needed_){0u}
@@ -32222,6 +32250,8 @@ inline void CDOTAUserMsg_AbilityPing::SharedCtor(
     , decltype(_impl_.secondary_charges_){0}
     , decltype(_impl_.reclaim_time_){0}
     , decltype(_impl_.type_){1}
+    , decltype(_impl_.player_id_){-1}
+    , decltype(_impl_.ability_id_){-1}
   };
 }
 
@@ -32250,15 +32280,15 @@ void CDOTAUserMsg_AbilityPing::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.passive_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.passive_));
+    ::memset(&_impl_.cooldown_seconds_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.secondary_charges_) -
+        reinterpret_cast<char*>(&_impl_.cooldown_seconds_)) + sizeof(_impl_.secondary_charges_));
   }
   if (cached_has_bits & 0x00000f00u) {
-    ::memset(&_impl_.ctrl_held_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.reclaim_time_) -
-        reinterpret_cast<char*>(&_impl_.ctrl_held_)) + sizeof(_impl_.reclaim_time_));
+    _impl_.reclaim_time_ = 0;
     _impl_.type_ = 1;
+    _impl_.player_id_ = -1;
+    _impl_.ability_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -32271,7 +32301,7 @@ const char* CDOTAUserMsg_AbilityPing::_InternalParse(const char* ptr, ::_pbi::Pa
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -32280,7 +32310,7 @@ const char* CDOTAUserMsg_AbilityPing::_InternalParse(const char* ptr, ::_pbi::Pa
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 ability_id = 2;
+      // optional int32 ability_id = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_ability_id(&has_bits);
@@ -32414,75 +32444,75 @@ uint8_t* CDOTAUserMsg_AbilityPing::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
-  // optional uint32 ability_id = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 ability_id = 2 [default = -1];
+  if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_ability_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_ability_id(), target);
   }
 
   // optional .DOTA_ABILITY_PING_TYPE type = 3 [default = ABILITY_PING_READY];
-  if (cached_has_bits & 0x00000800u) {
+  if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
       3, this->_internal_type(), target);
   }
 
   // optional uint32 cooldown_seconds = 4;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_cooldown_seconds(), target);
   }
 
   // optional uint32 level = 5;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_level(), target);
   }
 
   // optional bool passive = 6;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(6, this->_internal_passive(), target);
   }
 
   // optional uint32 mana_needed = 7;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(7, this->_internal_mana_needed(), target);
   }
 
   // optional uint32 entity_id = 8;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(8, this->_internal_entity_id(), target);
   }
 
   // optional int32 primary_charges = 9;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(9, this->_internal_primary_charges(), target);
   }
 
   // optional int32 secondary_charges = 10;
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(10, this->_internal_secondary_charges(), target);
   }
 
   // optional bool ctrl_held = 12;
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(12, this->_internal_ctrl_held(), target);
   }
 
   // optional float reclaim_time = 13;
-  if (cached_has_bits & 0x00000400u) {
+  if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(13, this->_internal_reclaim_time(), target);
   }
@@ -32505,67 +32535,67 @@ size_t CDOTAUserMsg_AbilityPing::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional int32 player_id = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
-    }
-
-    // optional uint32 ability_id = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ability_id());
-    }
-
     // optional uint32 cooldown_seconds = 4;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_cooldown_seconds());
     }
 
     // optional uint32 level = 5;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_level());
     }
 
     // optional uint32 mana_needed = 7;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_mana_needed());
     }
 
     // optional uint32 entity_id = 8;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_entity_id());
     }
 
     // optional int32 primary_charges = 9;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_primary_charges());
     }
 
     // optional bool passive = 6;
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 1;
     }
 
-  }
-  if (cached_has_bits & 0x00000f00u) {
     // optional bool ctrl_held = 12;
-    if (cached_has_bits & 0x00000100u) {
+    if (cached_has_bits & 0x00000040u) {
       total_size += 1 + 1;
     }
 
     // optional int32 secondary_charges = 10;
-    if (cached_has_bits & 0x00000200u) {
+    if (cached_has_bits & 0x00000080u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_secondary_charges());
     }
 
+  }
+  if (cached_has_bits & 0x00000f00u) {
     // optional float reclaim_time = 13;
-    if (cached_has_bits & 0x00000400u) {
+    if (cached_has_bits & 0x00000100u) {
       total_size += 1 + 4;
     }
 
     // optional .DOTA_ABILITY_PING_TYPE type = 3 [default = ABILITY_PING_READY];
-    if (cached_has_bits & 0x00000800u) {
+    if (cached_has_bits & 0x00000200u) {
       total_size += 1 +
         ::_pbi::WireFormatLite::EnumSize(this->_internal_type());
+    }
+
+    // optional int32 player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000400u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
+    }
+
+    // optional int32 ability_id = 2 [default = -1];
+    if (cached_has_bits & 0x00000800u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_ability_id());
     }
 
   }
@@ -32590,43 +32620,43 @@ void CDOTAUserMsg_AbilityPing::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_ms
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.ability_id_ = from._impl_.ability_id_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.cooldown_seconds_ = from._impl_.cooldown_seconds_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.level_ = from._impl_.level_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.mana_needed_ = from._impl_.mana_needed_;
     }
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.entity_id_ = from._impl_.entity_id_;
     }
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000010u) {
       _this->_impl_.primary_charges_ = from._impl_.primary_charges_;
     }
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000020u) {
       _this->_impl_.passive_ = from._impl_.passive_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      _this->_impl_.ctrl_held_ = from._impl_.ctrl_held_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      _this->_impl_.secondary_charges_ = from._impl_.secondary_charges_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   if (cached_has_bits & 0x00000f00u) {
     if (cached_has_bits & 0x00000100u) {
-      _this->_impl_.ctrl_held_ = from._impl_.ctrl_held_;
-    }
-    if (cached_has_bits & 0x00000200u) {
-      _this->_impl_.secondary_charges_ = from._impl_.secondary_charges_;
-    }
-    if (cached_has_bits & 0x00000400u) {
       _this->_impl_.reclaim_time_ = from._impl_.reclaim_time_;
     }
-    if (cached_has_bits & 0x00000800u) {
+    if (cached_has_bits & 0x00000200u) {
       _this->_impl_.type_ = from._impl_.type_;
+    }
+    if (cached_has_bits & 0x00000400u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
+    }
+    if (cached_has_bits & 0x00000800u) {
+      _this->_impl_.ability_id_ = from._impl_.ability_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -32651,10 +32681,12 @@ void CDOTAUserMsg_AbilityPing::InternalSwap(CDOTAUserMsg_AbilityPing* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_AbilityPing, _impl_.reclaim_time_)
       + sizeof(CDOTAUserMsg_AbilityPing::_impl_.reclaim_time_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_AbilityPing, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_AbilityPing, _impl_.cooldown_seconds_)>(
+          reinterpret_cast<char*>(&_impl_.cooldown_seconds_),
+          reinterpret_cast<char*>(&other->_impl_.cooldown_seconds_));
   swap(_impl_.type_, other->_impl_.type_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
+  swap(_impl_.ability_id_, other->_impl_.ability_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_AbilityPing::GetMetadata() const {
@@ -32669,25 +32701,25 @@ class CDOTAUserMsg_TE_UnitAnimation::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_TE_UnitAnimation>()._impl_._has_bits_);
   static void set_has_entity(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 64u;
   }
   static void set_has_sequence_variant(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_playbackrate(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_castpoint(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_type(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_activity(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_lag_compensation_time(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
+    (*has_bits)[0] |= 32u;
   }
 };
 
@@ -32703,18 +32735,18 @@ CDOTAUserMsg_TE_UnitAnimation::CDOTAUserMsg_TE_UnitAnimation(const CDOTAUserMsg_
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.entity_){}
     , decltype(_impl_.sequence_variant_){}
     , decltype(_impl_.playbackrate_){}
     , decltype(_impl_.castpoint_){}
     , decltype(_impl_.type_){}
     , decltype(_impl_.activity_){}
-    , decltype(_impl_.lag_compensation_time_){}};
+    , decltype(_impl_.lag_compensation_time_){}
+    , decltype(_impl_.entity_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.entity_, &from._impl_.entity_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.lag_compensation_time_) -
-    reinterpret_cast<char*>(&_impl_.entity_)) + sizeof(_impl_.lag_compensation_time_));
+  ::memcpy(&_impl_.sequence_variant_, &from._impl_.sequence_variant_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.entity_) -
+    reinterpret_cast<char*>(&_impl_.sequence_variant_)) + sizeof(_impl_.entity_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_TE_UnitAnimation)
 }
 
@@ -32725,13 +32757,13 @@ inline void CDOTAUserMsg_TE_UnitAnimation::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.entity_){0u}
     , decltype(_impl_.sequence_variant_){0}
     , decltype(_impl_.playbackrate_){0}
     , decltype(_impl_.castpoint_){0}
     , decltype(_impl_.type_){0}
     , decltype(_impl_.activity_){0}
     , decltype(_impl_.lag_compensation_time_){0}
+    , decltype(_impl_.entity_){16777215u}
   };
 }
 
@@ -32760,9 +32792,10 @@ void CDOTAUserMsg_TE_UnitAnimation::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
-    ::memset(&_impl_.entity_, 0, static_cast<size_t>(
+    ::memset(&_impl_.sequence_variant_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.lag_compensation_time_) -
-        reinterpret_cast<char*>(&_impl_.entity_)) + sizeof(_impl_.lag_compensation_time_));
+        reinterpret_cast<char*>(&_impl_.sequence_variant_)) + sizeof(_impl_.lag_compensation_time_));
+    _impl_.entity_ = 16777215u;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -32775,7 +32808,7 @@ const char* CDOTAUserMsg_TE_UnitAnimation::_InternalParse(const char* ptr, ::_pb
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 entity = 1;
+      // optional uint32 entity = 1 [default = 16777215];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_entity(&has_bits);
@@ -32869,44 +32902,44 @@ uint8_t* CDOTAUserMsg_TE_UnitAnimation::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 entity = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional uint32 entity = 1 [default = 16777215];
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_entity(), target);
   }
 
   // optional int32 sequence_variant = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_sequence_variant(), target);
   }
 
   // optional float playbackrate = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_playbackrate(), target);
   }
 
   // optional float castpoint = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(4, this->_internal_castpoint(), target);
   }
 
   // optional int32 type = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(5, this->_internal_type(), target);
   }
 
   // optional int32 activity = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(6, this->_internal_activity(), target);
   }
 
   // optional float lag_compensation_time = 7;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(7, this->_internal_lag_compensation_time(), target);
   }
@@ -32929,39 +32962,39 @@ size_t CDOTAUserMsg_TE_UnitAnimation::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
-    // optional uint32 entity = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_entity());
-    }
-
     // optional int32 sequence_variant = 2;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_sequence_variant());
     }
 
     // optional float playbackrate = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 4;
     }
 
     // optional float castpoint = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 4;
     }
 
     // optional int32 type = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_type());
     }
 
     // optional int32 activity = 6;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_activity());
     }
 
     // optional float lag_compensation_time = 7;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 4;
+    }
+
+    // optional uint32 entity = 1 [default = 16777215];
+    if (cached_has_bits & 0x00000040u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_entity());
     }
 
   }
@@ -32986,25 +33019,25 @@ void CDOTAUserMsg_TE_UnitAnimation::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& 
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.entity_ = from._impl_.entity_;
-    }
-    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.sequence_variant_ = from._impl_.sequence_variant_;
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.playbackrate_ = from._impl_.playbackrate_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.castpoint_ = from._impl_.castpoint_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.type_ = from._impl_.type_;
     }
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       _this->_impl_.activity_ = from._impl_.activity_;
     }
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000020u) {
       _this->_impl_.lag_compensation_time_ = from._impl_.lag_compensation_time_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      _this->_impl_.entity_ = from._impl_.entity_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -33029,9 +33062,10 @@ void CDOTAUserMsg_TE_UnitAnimation::InternalSwap(CDOTAUserMsg_TE_UnitAnimation* 
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_TE_UnitAnimation, _impl_.lag_compensation_time_)
       + sizeof(CDOTAUserMsg_TE_UnitAnimation::_impl_.lag_compensation_time_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_TE_UnitAnimation, _impl_.entity_)>(
-          reinterpret_cast<char*>(&_impl_.entity_),
-          reinterpret_cast<char*>(&other->_impl_.entity_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_TE_UnitAnimation, _impl_.sequence_variant_)>(
+          reinterpret_cast<char*>(&_impl_.sequence_variant_),
+          reinterpret_cast<char*>(&other->_impl_.sequence_variant_));
+  swap(_impl_.entity_, other->_impl_.entity_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_TE_UnitAnimation::GetMetadata() const {
@@ -33046,10 +33080,10 @@ class CDOTAUserMsg_TE_UnitAnimationEnd::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_TE_UnitAnimationEnd>()._impl_._has_bits_);
   static void set_has_entity(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_snap(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -33065,13 +33099,13 @@ CDOTAUserMsg_TE_UnitAnimationEnd::CDOTAUserMsg_TE_UnitAnimationEnd(const CDOTAUs
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.entity_){}
-    , decltype(_impl_.snap_){}};
+    , decltype(_impl_.snap_){}
+    , decltype(_impl_.entity_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.entity_, &from._impl_.entity_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.snap_) -
-    reinterpret_cast<char*>(&_impl_.entity_)) + sizeof(_impl_.snap_));
+  ::memcpy(&_impl_.snap_, &from._impl_.snap_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.entity_) -
+    reinterpret_cast<char*>(&_impl_.snap_)) + sizeof(_impl_.entity_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_TE_UnitAnimationEnd)
 }
 
@@ -33082,8 +33116,8 @@ inline void CDOTAUserMsg_TE_UnitAnimationEnd::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.entity_){0u}
     , decltype(_impl_.snap_){false}
+    , decltype(_impl_.entity_){16777215u}
   };
 }
 
@@ -33112,9 +33146,8 @@ void CDOTAUserMsg_TE_UnitAnimationEnd::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    ::memset(&_impl_.entity_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.snap_) -
-        reinterpret_cast<char*>(&_impl_.entity_)) + sizeof(_impl_.snap_));
+    _impl_.snap_ = false;
+    _impl_.entity_ = 16777215u;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -33127,7 +33160,7 @@ const char* CDOTAUserMsg_TE_UnitAnimationEnd::_InternalParse(const char* ptr, ::
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 entity = 1;
+      // optional uint32 entity = 1 [default = 16777215];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_entity(&has_bits);
@@ -33176,14 +33209,14 @@ uint8_t* CDOTAUserMsg_TE_UnitAnimationEnd::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 entity = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional uint32 entity = 1 [default = 16777215];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_entity(), target);
   }
 
   // optional bool snap = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_snap(), target);
   }
@@ -33206,14 +33239,14 @@ size_t CDOTAUserMsg_TE_UnitAnimationEnd::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint32 entity = 1;
+    // optional bool snap = 2;
     if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_entity());
+      total_size += 1 + 1;
     }
 
-    // optional bool snap = 2;
+    // optional uint32 entity = 1 [default = 16777215];
     if (cached_has_bits & 0x00000002u) {
-      total_size += 1 + 1;
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_entity());
     }
 
   }
@@ -33238,10 +33271,10 @@ void CDOTAUserMsg_TE_UnitAnimationEnd::MergeImpl(::PROTOBUF_NAMESPACE_ID::Messag
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.entity_ = from._impl_.entity_;
+      _this->_impl_.snap_ = from._impl_.snap_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.snap_ = from._impl_.snap_;
+      _this->_impl_.entity_ = from._impl_.entity_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -33263,12 +33296,8 @@ void CDOTAUserMsg_TE_UnitAnimationEnd::InternalSwap(CDOTAUserMsg_TE_UnitAnimatio
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_TE_UnitAnimationEnd, _impl_.snap_)
-      + sizeof(CDOTAUserMsg_TE_UnitAnimationEnd::_impl_.snap_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_TE_UnitAnimationEnd, _impl_.entity_)>(
-          reinterpret_cast<char*>(&_impl_.entity_),
-          reinterpret_cast<char*>(&other->_impl_.entity_));
+  swap(_impl_.snap_, other->_impl_.snap_);
+  swap(_impl_.entity_, other->_impl_.entity_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_TE_UnitAnimationEnd::GetMetadata() const {
@@ -34490,19 +34519,19 @@ class CDOTAUserMsg_BoosterStatePlayer::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_BoosterStatePlayer>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_bonus(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_event_bonus(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_bonus_item_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_event_bonus_item_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 8u;
   }
 };
 
@@ -34518,16 +34547,16 @@ CDOTAUserMsg_BoosterStatePlayer::CDOTAUserMsg_BoosterStatePlayer(const CDOTAUser
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){}
     , decltype(_impl_.bonus_){}
     , decltype(_impl_.event_bonus_){}
     , decltype(_impl_.bonus_item_id_){}
-    , decltype(_impl_.event_bonus_item_id_){}};
+    , decltype(_impl_.event_bonus_item_id_){}
+    , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.event_bonus_item_id_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.event_bonus_item_id_));
+  ::memcpy(&_impl_.bonus_, &from._impl_.bonus_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.bonus_)) + sizeof(_impl_.player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_BoosterStatePlayer)
 }
 
@@ -34538,11 +34567,11 @@ inline void CDOTAUserMsg_BoosterStatePlayer::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.bonus_){0}
     , decltype(_impl_.event_bonus_){0}
     , decltype(_impl_.bonus_item_id_){0u}
     , decltype(_impl_.event_bonus_item_id_){0u}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -34571,9 +34600,10 @@ void CDOTAUserMsg_BoosterStatePlayer::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
+    ::memset(&_impl_.bonus_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.event_bonus_item_id_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.event_bonus_item_id_));
+        reinterpret_cast<char*>(&_impl_.bonus_)) + sizeof(_impl_.event_bonus_item_id_));
+    _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -34586,7 +34616,7 @@ const char* CDOTAUserMsg_BoosterStatePlayer::_InternalParse(const char* ptr, ::_
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -34662,32 +34692,32 @@ uint8_t* CDOTAUserMsg_BoosterStatePlayer::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
   // optional float bonus = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(2, this->_internal_bonus(), target);
   }
 
   // optional float event_bonus = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_event_bonus(), target);
   }
 
   // optional uint32 bonus_item_id = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_bonus_item_id(), target);
   }
 
   // optional uint32 event_bonus_item_id = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_event_bonus_item_id(), target);
   }
@@ -34710,29 +34740,29 @@ size_t CDOTAUserMsg_BoosterStatePlayer::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    // optional int32 player_id = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
-    }
-
     // optional float bonus = 2;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 4;
     }
 
     // optional float event_bonus = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 4;
     }
 
     // optional uint32 bonus_item_id = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_bonus_item_id());
     }
 
     // optional uint32 event_bonus_item_id = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_event_bonus_item_id());
+    }
+
+    // optional int32 player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
   }
@@ -34757,19 +34787,19 @@ void CDOTAUserMsg_BoosterStatePlayer::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.bonus_ = from._impl_.bonus_;
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.event_bonus_ = from._impl_.event_bonus_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.bonus_item_id_ = from._impl_.bonus_item_id_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.event_bonus_item_id_ = from._impl_.event_bonus_item_id_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -34794,9 +34824,10 @@ void CDOTAUserMsg_BoosterStatePlayer::InternalSwap(CDOTAUserMsg_BoosterStatePlay
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_BoosterStatePlayer, _impl_.event_bonus_item_id_)
       + sizeof(CDOTAUserMsg_BoosterStatePlayer::_impl_.event_bonus_item_id_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_BoosterStatePlayer, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_BoosterStatePlayer, _impl_.bonus_)>(
+          reinterpret_cast<char*>(&_impl_.bonus_),
+          reinterpret_cast<char*>(&other->_impl_.bonus_));
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_BoosterStatePlayer::GetMetadata() const {
@@ -35189,13 +35220,13 @@ class CDOTAUserMsg_AbilitySteal::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_AbilitySteal>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_ability_id(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
-  static void set_has_ability_level(HasBits* has_bits) {
+  static void set_has_ability_id(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
+  }
+  static void set_has_ability_level(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -35211,14 +35242,14 @@ CDOTAUserMsg_AbilitySteal::CDOTAUserMsg_AbilitySteal(const CDOTAUserMsg_AbilityS
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.ability_level_){}
     , decltype(_impl_.player_id_){}
-    , decltype(_impl_.ability_id_){}
-    , decltype(_impl_.ability_level_){}};
+    , decltype(_impl_.ability_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.ability_level_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.ability_level_));
+  ::memcpy(&_impl_.ability_level_, &from._impl_.ability_level_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.ability_id_) -
+    reinterpret_cast<char*>(&_impl_.ability_level_)) + sizeof(_impl_.ability_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_AbilitySteal)
 }
 
@@ -35229,9 +35260,9 @@ inline void CDOTAUserMsg_AbilitySteal::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
-    , decltype(_impl_.ability_id_){0u}
     , decltype(_impl_.ability_level_){0u}
+    , decltype(_impl_.player_id_){-1}
+    , decltype(_impl_.ability_id_){-1}
   };
 }
 
@@ -35260,9 +35291,9 @@ void CDOTAUserMsg_AbilitySteal::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.ability_level_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.ability_level_));
+    _impl_.ability_level_ = 0u;
+    _impl_.player_id_ = -1;
+    _impl_.ability_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -35275,7 +35306,7 @@ const char* CDOTAUserMsg_AbilitySteal::_InternalParse(const char* ptr, ::_pbi::P
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -35284,7 +35315,7 @@ const char* CDOTAUserMsg_AbilitySteal::_InternalParse(const char* ptr, ::_pbi::P
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 ability_id = 2;
+      // optional int32 ability_id = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_ability_id(&has_bits);
@@ -35333,20 +35364,20 @@ uint8_t* CDOTAUserMsg_AbilitySteal::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
-  // optional uint32 ability_id = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 ability_id = 2 [default = -1];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_ability_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_ability_id(), target);
   }
 
   // optional uint32 ability_level = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_ability_level(), target);
   }
@@ -35369,19 +35400,19 @@ size_t CDOTAUserMsg_AbilitySteal::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional int32 player_id = 1;
+    // optional uint32 ability_level = 3;
     if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ability_level());
+    }
+
+    // optional int32 player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
-    // optional uint32 ability_id = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ability_id());
-    }
-
-    // optional uint32 ability_level = 3;
+    // optional int32 ability_id = 2 [default = -1];
     if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ability_level());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_ability_id());
     }
 
   }
@@ -35406,13 +35437,13 @@ void CDOTAUserMsg_AbilitySteal::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_m
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
+      _this->_impl_.ability_level_ = from._impl_.ability_level_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.ability_id_ = from._impl_.ability_id_;
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.ability_level_ = from._impl_.ability_level_;
+      _this->_impl_.ability_id_ = from._impl_.ability_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -35434,12 +35465,9 @@ void CDOTAUserMsg_AbilitySteal::InternalSwap(CDOTAUserMsg_AbilitySteal* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_AbilitySteal, _impl_.ability_level_)
-      + sizeof(CDOTAUserMsg_AbilitySteal::_impl_.ability_level_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_AbilitySteal, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+  swap(_impl_.ability_level_, other->_impl_.ability_level_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
+  swap(_impl_.ability_id_, other->_impl_.ability_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_AbilitySteal::GetMetadata() const {
@@ -35454,10 +35482,10 @@ class CDOTAUserMsg_StatsHeroLookup::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_StatsHeroLookup>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_hero_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_hero_name(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
@@ -35481,8 +35509,8 @@ CDOTAUserMsg_StatsHeroLookup::CDOTAUserMsg_StatsHeroLookup(const CDOTAUserMsg_St
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.hero_name_){}
     , decltype(_impl_.persona_){}
-    , decltype(_impl_.player_id_){}
-    , decltype(_impl_.hero_id_){}};
+    , decltype(_impl_.hero_id_){}
+    , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _impl_.hero_name_.InitDefault();
@@ -35501,9 +35529,9 @@ CDOTAUserMsg_StatsHeroLookup::CDOTAUserMsg_StatsHeroLookup(const CDOTAUserMsg_St
     _this->_impl_.persona_.Set(from._internal_persona(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.hero_id_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.hero_id_));
+  ::memcpy(&_impl_.hero_id_, &from._impl_.hero_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.hero_id_)) + sizeof(_impl_.player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_StatsHeroLookup)
 }
 
@@ -35516,8 +35544,8 @@ inline void CDOTAUserMsg_StatsHeroLookup::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.hero_name_){}
     , decltype(_impl_.persona_){}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.hero_id_){0}
+    , decltype(_impl_.player_id_){-1}
   };
   _impl_.hero_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -35564,9 +35592,8 @@ void CDOTAUserMsg_StatsHeroLookup::Clear() {
     }
   }
   if (cached_has_bits & 0x0000000cu) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.hero_id_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.hero_id_));
+    _impl_.hero_id_ = 0;
+    _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -35579,7 +35606,7 @@ const char* CDOTAUserMsg_StatsHeroLookup::_InternalParse(const char* ptr, ::_pbi
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -35652,14 +35679,14 @@ uint8_t* CDOTAUserMsg_StatsHeroLookup::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000004u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
   // optional int32 hero_id = 2;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_hero_id(), target);
   }
@@ -35716,14 +35743,14 @@ size_t CDOTAUserMsg_StatsHeroLookup::ByteSizeLong() const {
           this->_internal_persona());
     }
 
-    // optional int32 player_id = 1;
+    // optional int32 hero_id = 2;
     if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_hero_id());
     }
 
-    // optional int32 hero_id = 2;
+    // optional int32 player_id = 1 [default = -1];
     if (cached_has_bits & 0x00000008u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_hero_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
   }
@@ -35754,10 +35781,10 @@ void CDOTAUserMsg_StatsHeroLookup::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& t
       _this->_internal_set_persona(from._internal_persona());
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
+      _this->_impl_.hero_id_ = from._impl_.hero_id_;
     }
     if (cached_has_bits & 0x00000008u) {
-      _this->_impl_.hero_id_ = from._impl_.hero_id_;
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -35789,12 +35816,8 @@ void CDOTAUserMsg_StatsHeroLookup::InternalSwap(CDOTAUserMsg_StatsHeroLookup* ot
       &_impl_.persona_, lhs_arena,
       &other->_impl_.persona_, rhs_arena
   );
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_StatsHeroLookup, _impl_.hero_id_)
-      + sizeof(CDOTAUserMsg_StatsHeroLookup::_impl_.hero_id_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_StatsHeroLookup, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+  swap(_impl_.hero_id_, other->_impl_.hero_id_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_StatsHeroLookup::GetMetadata() const {
@@ -37669,22 +37692,22 @@ class CDOTAUserMsg_StatsPlayerKillShare::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_StatsPlayerKillShare>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 32u;
   }
   static void set_has_kill_share_percent(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_player_loc_x(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_player_loc_y(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_health_percent(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_mana_percent(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 16u;
   }
 };
 
@@ -37700,17 +37723,17 @@ CDOTAUserMsg_StatsPlayerKillShare::CDOTAUserMsg_StatsPlayerKillShare(const CDOTA
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){}
     , decltype(_impl_.kill_share_percent_){}
     , decltype(_impl_.player_loc_x_){}
     , decltype(_impl_.player_loc_y_){}
     , decltype(_impl_.health_percent_){}
-    , decltype(_impl_.mana_percent_){}};
+    , decltype(_impl_.mana_percent_){}
+    , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.mana_percent_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.mana_percent_));
+  ::memcpy(&_impl_.kill_share_percent_, &from._impl_.kill_share_percent_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.kill_share_percent_)) + sizeof(_impl_.player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_StatsPlayerKillShare)
 }
 
@@ -37721,12 +37744,12 @@ inline void CDOTAUserMsg_StatsPlayerKillShare::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.kill_share_percent_){0}
     , decltype(_impl_.player_loc_x_){0}
     , decltype(_impl_.player_loc_y_){0}
     , decltype(_impl_.health_percent_){0}
     , decltype(_impl_.mana_percent_){0}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -37755,9 +37778,10 @@ void CDOTAUserMsg_StatsPlayerKillShare::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
+    ::memset(&_impl_.kill_share_percent_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.mana_percent_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.mana_percent_));
+        reinterpret_cast<char*>(&_impl_.kill_share_percent_)) + sizeof(_impl_.mana_percent_));
+    _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -37770,7 +37794,7 @@ const char* CDOTAUserMsg_StatsPlayerKillShare::_InternalParse(const char* ptr, :
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -37855,38 +37879,38 @@ uint8_t* CDOTAUserMsg_StatsPlayerKillShare::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
   // optional float kill_share_percent = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(2, this->_internal_kill_share_percent(), target);
   }
 
   // optional float player_loc_x = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_player_loc_x(), target);
   }
 
   // optional float player_loc_y = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(4, this->_internal_player_loc_y(), target);
   }
 
   // optional float health_percent = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(5, this->_internal_health_percent(), target);
   }
 
   // optional float mana_percent = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(6, this->_internal_mana_percent(), target);
   }
@@ -37909,34 +37933,34 @@ size_t CDOTAUserMsg_StatsPlayerKillShare::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
-    // optional int32 player_id = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
-    }
-
     // optional float kill_share_percent = 2;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 4;
     }
 
     // optional float player_loc_x = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 4;
     }
 
     // optional float player_loc_y = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 4;
     }
 
     // optional float health_percent = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 4;
     }
 
     // optional float mana_percent = 6;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 4;
+    }
+
+    // optional int32 player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000020u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
   }
@@ -37961,22 +37985,22 @@ void CDOTAUserMsg_StatsPlayerKillShare::MergeImpl(::PROTOBUF_NAMESPACE_ID::Messa
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.kill_share_percent_ = from._impl_.kill_share_percent_;
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.player_loc_x_ = from._impl_.player_loc_x_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.player_loc_y_ = from._impl_.player_loc_y_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.health_percent_ = from._impl_.health_percent_;
     }
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       _this->_impl_.mana_percent_ = from._impl_.mana_percent_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -38001,9 +38025,10 @@ void CDOTAUserMsg_StatsPlayerKillShare::InternalSwap(CDOTAUserMsg_StatsPlayerKil
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_StatsPlayerKillShare, _impl_.mana_percent_)
       + sizeof(CDOTAUserMsg_StatsPlayerKillShare::_impl_.mana_percent_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_StatsPlayerKillShare, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_StatsPlayerKillShare, _impl_.kill_share_percent_)>(
+          reinterpret_cast<char*>(&_impl_.kill_share_percent_),
+          reinterpret_cast<char*>(&other->_impl_.kill_share_percent_));
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_StatsPlayerKillShare::GetMetadata() const {
@@ -38018,16 +38043,16 @@ class CDOTAUserMsg_StatsKillDetails::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_StatsKillDetails>()._impl_._has_bits_);
   static void set_has_victim_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_damage_to_kill(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_effective_health(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_death_time(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_killer_id(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
@@ -38047,16 +38072,16 @@ CDOTAUserMsg_StatsKillDetails::CDOTAUserMsg_StatsKillDetails(const CDOTAUserMsg_
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.kill_shares_){from._impl_.kill_shares_}
-    , decltype(_impl_.victim_id_){}
     , decltype(_impl_.damage_to_kill_){}
     , decltype(_impl_.effective_health_){}
     , decltype(_impl_.death_time_){}
+    , decltype(_impl_.victim_id_){}
     , decltype(_impl_.killer_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.victim_id_, &from._impl_.victim_id_,
+  ::memcpy(&_impl_.damage_to_kill_, &from._impl_.damage_to_kill_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.killer_id_) -
-    reinterpret_cast<char*>(&_impl_.victim_id_)) + sizeof(_impl_.killer_id_));
+    reinterpret_cast<char*>(&_impl_.damage_to_kill_)) + sizeof(_impl_.killer_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_StatsKillDetails)
 }
 
@@ -38068,11 +38093,11 @@ inline void CDOTAUserMsg_StatsKillDetails::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.kill_shares_){arena}
-    , decltype(_impl_.victim_id_){0}
     , decltype(_impl_.damage_to_kill_){0u}
     , decltype(_impl_.effective_health_){0u}
     , decltype(_impl_.death_time_){0}
-    , decltype(_impl_.killer_id_){0}
+    , decltype(_impl_.victim_id_){-1}
+    , decltype(_impl_.killer_id_){-1}
   };
 }
 
@@ -38103,9 +38128,11 @@ void CDOTAUserMsg_StatsKillDetails::Clear() {
   _impl_.kill_shares_.Clear();
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    ::memset(&_impl_.victim_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.killer_id_) -
-        reinterpret_cast<char*>(&_impl_.victim_id_)) + sizeof(_impl_.killer_id_));
+    ::memset(&_impl_.damage_to_kill_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.death_time_) -
+        reinterpret_cast<char*>(&_impl_.damage_to_kill_)) + sizeof(_impl_.death_time_));
+    _impl_.victim_id_ = -1;
+    _impl_.killer_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -38118,7 +38145,7 @@ const char* CDOTAUserMsg_StatsKillDetails::_InternalParse(const char* ptr, ::_pb
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 victim_id = 1;
+      // optional int32 victim_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_victim_id(&has_bits);
@@ -38167,7 +38194,7 @@ const char* CDOTAUserMsg_StatsKillDetails::_InternalParse(const char* ptr, ::_pb
         } else
           goto handle_unusual;
         continue;
-      // optional int32 killer_id = 6;
+      // optional int32 killer_id = 6 [default = -1];
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
           _Internal::set_has_killer_id(&has_bits);
@@ -38207,8 +38234,8 @@ uint8_t* CDOTAUserMsg_StatsKillDetails::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 victim_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 victim_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_victim_id(), target);
   }
@@ -38222,24 +38249,24 @@ uint8_t* CDOTAUserMsg_StatsKillDetails::_InternalSerialize(
   }
 
   // optional uint32 damage_to_kill = 3;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_damage_to_kill(), target);
   }
 
   // optional uint32 effective_health = 4;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_effective_health(), target);
   }
 
   // optional float death_time = 5;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(5, this->_internal_death_time(), target);
   }
 
-  // optional int32 killer_id = 6;
+  // optional int32 killer_id = 6 [default = -1];
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(6, this->_internal_killer_id(), target);
@@ -38270,27 +38297,27 @@ size_t CDOTAUserMsg_StatsKillDetails::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    // optional int32 victim_id = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_victim_id());
-    }
-
     // optional uint32 damage_to_kill = 3;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_damage_to_kill());
     }
 
     // optional uint32 effective_health = 4;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_effective_health());
     }
 
     // optional float death_time = 5;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 4;
     }
 
-    // optional int32 killer_id = 6;
+    // optional int32 victim_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_victim_id());
+    }
+
+    // optional int32 killer_id = 6 [default = -1];
     if (cached_has_bits & 0x00000010u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_killer_id());
     }
@@ -38318,16 +38345,16 @@ void CDOTAUserMsg_StatsKillDetails::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& 
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.victim_id_ = from._impl_.victim_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.damage_to_kill_ = from._impl_.damage_to_kill_;
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.effective_health_ = from._impl_.effective_health_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.death_time_ = from._impl_.death_time_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.victim_id_ = from._impl_.victim_id_;
     }
     if (cached_has_bits & 0x00000010u) {
       _this->_impl_.killer_id_ = from._impl_.killer_id_;
@@ -38354,11 +38381,13 @@ void CDOTAUserMsg_StatsKillDetails::InternalSwap(CDOTAUserMsg_StatsKillDetails* 
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.kill_shares_.InternalSwap(&other->_impl_.kill_shares_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_StatsKillDetails, _impl_.killer_id_)
-      + sizeof(CDOTAUserMsg_StatsKillDetails::_impl_.killer_id_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_StatsKillDetails, _impl_.victim_id_)>(
-          reinterpret_cast<char*>(&_impl_.victim_id_),
-          reinterpret_cast<char*>(&other->_impl_.victim_id_));
+      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_StatsKillDetails, _impl_.death_time_)
+      + sizeof(CDOTAUserMsg_StatsKillDetails::_impl_.death_time_)
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_StatsKillDetails, _impl_.damage_to_kill_)>(
+          reinterpret_cast<char*>(&_impl_.damage_to_kill_),
+          reinterpret_cast<char*>(&other->_impl_.damage_to_kill_));
+  swap(_impl_.victim_id_, other->_impl_.victim_id_);
+  swap(_impl_.killer_id_, other->_impl_.killer_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_StatsKillDetails::GetMetadata() const {
@@ -39396,7 +39425,7 @@ inline void CDOTAUserMsg_MiniTaunt::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.taunting_player_id_){0}
+    , decltype(_impl_.taunting_player_id_){-1}
   };
 }
 
@@ -39423,7 +39452,7 @@ void CDOTAUserMsg_MiniTaunt::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.taunting_player_id_ = 0;
+  _impl_.taunting_player_id_ = -1;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -39435,7 +39464,7 @@ const char* CDOTAUserMsg_MiniTaunt::_InternalParse(const char* ptr, ::_pbi::Pars
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 taunting_player_id = 1;
+      // optional int32 taunting_player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_taunting_player_id(&has_bits);
@@ -39475,7 +39504,7 @@ uint8_t* CDOTAUserMsg_MiniTaunt::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 taunting_player_id = 1;
+  // optional int32 taunting_player_id = 1 [default = -1];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_taunting_player_id(), target);
@@ -39497,7 +39526,7 @@ size_t CDOTAUserMsg_MiniTaunt::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional int32 taunting_player_id = 1;
+  // optional int32 taunting_player_id = 1 [default = -1];
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_taunting_player_id());
@@ -39748,16 +39777,16 @@ class CDOTAUserMsg_CustomHeaderMessage::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_CustomHeaderMessage>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_duration(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_message(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_value(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
 };
 
@@ -39774,9 +39803,9 @@ CDOTAUserMsg_CustomHeaderMessage::CDOTAUserMsg_CustomHeaderMessage(const CDOTAUs
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.message_){}
-    , decltype(_impl_.player_id_){}
     , decltype(_impl_.duration_){}
-    , decltype(_impl_.value_){}};
+    , decltype(_impl_.value_){}
+    , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _impl_.message_.InitDefault();
@@ -39787,9 +39816,9 @@ CDOTAUserMsg_CustomHeaderMessage::CDOTAUserMsg_CustomHeaderMessage(const CDOTAUs
     _this->_impl_.message_.Set(from._internal_message(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.value_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.value_));
+  ::memcpy(&_impl_.duration_, &from._impl_.duration_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.duration_)) + sizeof(_impl_.player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_CustomHeaderMessage)
 }
 
@@ -39801,9 +39830,9 @@ inline void CDOTAUserMsg_CustomHeaderMessage::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.message_){}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.duration_){0}
     , decltype(_impl_.value_){0}
+    , decltype(_impl_.player_id_){-1}
   };
   _impl_.message_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -39840,9 +39869,10 @@ void CDOTAUserMsg_CustomHeaderMessage::Clear() {
     _impl_.message_.ClearNonDefaultToEmpty();
   }
   if (cached_has_bits & 0x0000000eu) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
+    ::memset(&_impl_.duration_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.value_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.value_));
+        reinterpret_cast<char*>(&_impl_.duration_)) + sizeof(_impl_.value_));
+    _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -39855,7 +39885,7 @@ const char* CDOTAUserMsg_CustomHeaderMessage::_InternalParse(const char* ptr, ::
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -39925,14 +39955,14 @@ uint8_t* CDOTAUserMsg_CustomHeaderMessage::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
   // optional float duration = 2;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(2, this->_internal_duration(), target);
   }
@@ -39948,7 +39978,7 @@ uint8_t* CDOTAUserMsg_CustomHeaderMessage::_InternalSerialize(
   }
 
   // optional int32 value = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_value(), target);
   }
@@ -39978,19 +40008,19 @@ size_t CDOTAUserMsg_CustomHeaderMessage::ByteSizeLong() const {
           this->_internal_message());
     }
 
-    // optional int32 player_id = 1;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
-    }
-
     // optional float duration = 2;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 4;
     }
 
     // optional int32 value = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_value());
+    }
+
+    // optional int32 player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
   }
@@ -40018,13 +40048,13 @@ void CDOTAUserMsg_CustomHeaderMessage::MergeImpl(::PROTOBUF_NAMESPACE_ID::Messag
       _this->_internal_set_message(from._internal_message());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.duration_ = from._impl_.duration_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.value_ = from._impl_.value_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -40055,9 +40085,10 @@ void CDOTAUserMsg_CustomHeaderMessage::InternalSwap(CDOTAUserMsg_CustomHeaderMes
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_CustomHeaderMessage, _impl_.value_)
       + sizeof(CDOTAUserMsg_CustomHeaderMessage::_impl_.value_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_CustomHeaderMessage, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_CustomHeaderMessage, _impl_.duration_)>(
+          reinterpret_cast<char*>(&_impl_.duration_),
+          reinterpret_cast<char*>(&other->_impl_.duration_));
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_CustomHeaderMessage::GetMetadata() const {
@@ -42029,10 +42060,10 @@ class CDOTAUserMsg_CompendiumStatePlayer::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_CompendiumStatePlayer>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_level(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -42048,13 +42079,13 @@ CDOTAUserMsg_CompendiumStatePlayer::CDOTAUserMsg_CompendiumStatePlayer(const CDO
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){}
-    , decltype(_impl_.level_){}};
+    , decltype(_impl_.level_){}
+    , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.level_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.level_));
+  ::memcpy(&_impl_.level_, &from._impl_.level_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.level_)) + sizeof(_impl_.player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_CompendiumStatePlayer)
 }
 
@@ -42065,8 +42096,8 @@ inline void CDOTAUserMsg_CompendiumStatePlayer::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.level_){0u}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -42095,9 +42126,8 @@ void CDOTAUserMsg_CompendiumStatePlayer::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.level_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.level_));
+    _impl_.level_ = 0u;
+    _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -42110,7 +42140,7 @@ const char* CDOTAUserMsg_CompendiumStatePlayer::_InternalParse(const char* ptr, 
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -42159,14 +42189,14 @@ uint8_t* CDOTAUserMsg_CompendiumStatePlayer::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
   // optional uint32 level = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_level(), target);
   }
@@ -42189,14 +42219,14 @@ size_t CDOTAUserMsg_CompendiumStatePlayer::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional int32 player_id = 1;
+    // optional uint32 level = 2;
     if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_level());
     }
 
-    // optional uint32 level = 2;
+    // optional int32 player_id = 1 [default = -1];
     if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_level());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
   }
@@ -42221,10 +42251,10 @@ void CDOTAUserMsg_CompendiumStatePlayer::MergeImpl(::PROTOBUF_NAMESPACE_ID::Mess
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
+      _this->_impl_.level_ = from._impl_.level_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.level_ = from._impl_.level_;
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -42246,12 +42276,8 @@ void CDOTAUserMsg_CompendiumStatePlayer::InternalSwap(CDOTAUserMsg_CompendiumSta
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_CompendiumStatePlayer, _impl_.level_)
-      + sizeof(CDOTAUserMsg_CompendiumStatePlayer::_impl_.level_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_CompendiumStatePlayer, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+  swap(_impl_.level_, other->_impl_.level_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_CompendiumStatePlayer::GetMetadata() const {
@@ -42451,29 +42477,29 @@ class CDOTAUserMsg_ProjectionAbility::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_ProjectionAbility>()._impl_._has_bits_);
   static void set_has_ability_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 64u;
   }
   static void set_has_caster_ent_index(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 128u;
   }
   static void set_has_caster_team(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_channel_end(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 4u;
   }
   static const ::CMsgVector& origin(const CDOTAUserMsg_ProjectionAbility* msg);
   static void set_has_origin(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_track_caster_only(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_end_time(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_victim_ent_index(HasBits* has_bits) {
-    (*has_bits)[0] |= 128u;
+    (*has_bits)[0] |= 32u;
   }
 };
 
@@ -42498,21 +42524,21 @@ CDOTAUserMsg_ProjectionAbility::CDOTAUserMsg_ProjectionAbility(const CDOTAUserMs
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.origin_){nullptr}
-    , decltype(_impl_.ability_id_){}
-    , decltype(_impl_.caster_ent_index_){}
     , decltype(_impl_.caster_team_){}
     , decltype(_impl_.channel_end_){}
     , decltype(_impl_.track_caster_only_){}
     , decltype(_impl_.end_time_){}
-    , decltype(_impl_.victim_ent_index_){}};
+    , decltype(_impl_.victim_ent_index_){}
+    , decltype(_impl_.ability_id_){}
+    , decltype(_impl_.caster_ent_index_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_origin()) {
     _this->_impl_.origin_ = new ::CMsgVector(*from._impl_.origin_);
   }
-  ::memcpy(&_impl_.ability_id_, &from._impl_.ability_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.victim_ent_index_) -
-    reinterpret_cast<char*>(&_impl_.ability_id_)) + sizeof(_impl_.victim_ent_index_));
+  ::memcpy(&_impl_.caster_team_, &from._impl_.caster_team_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.caster_ent_index_) -
+    reinterpret_cast<char*>(&_impl_.caster_team_)) + sizeof(_impl_.caster_ent_index_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_ProjectionAbility)
 }
 
@@ -42524,13 +42550,13 @@ inline void CDOTAUserMsg_ProjectionAbility::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.origin_){nullptr}
-    , decltype(_impl_.ability_id_){0u}
-    , decltype(_impl_.caster_ent_index_){0}
     , decltype(_impl_.caster_team_){0}
     , decltype(_impl_.channel_end_){false}
     , decltype(_impl_.track_caster_only_){false}
     , decltype(_impl_.end_time_){0}
-    , decltype(_impl_.victim_ent_index_){0}
+    , decltype(_impl_.victim_ent_index_){-1}
+    , decltype(_impl_.ability_id_){-1}
+    , decltype(_impl_.caster_ent_index_){-1}
   };
 }
 
@@ -42564,9 +42590,12 @@ void CDOTAUserMsg_ProjectionAbility::Clear() {
     _impl_.origin_->Clear();
   }
   if (cached_has_bits & 0x000000feu) {
-    ::memset(&_impl_.ability_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.victim_ent_index_) -
-        reinterpret_cast<char*>(&_impl_.ability_id_)) + sizeof(_impl_.victim_ent_index_));
+    ::memset(&_impl_.caster_team_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.end_time_) -
+        reinterpret_cast<char*>(&_impl_.caster_team_)) + sizeof(_impl_.end_time_));
+    _impl_.victim_ent_index_ = -1;
+    _impl_.ability_id_ = -1;
+    _impl_.caster_ent_index_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -42579,7 +42608,7 @@ const char* CDOTAUserMsg_ProjectionAbility::_InternalParse(const char* ptr, ::_p
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 ability_id = 1;
+      // optional int32 ability_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_ability_id(&has_bits);
@@ -42588,7 +42617,7 @@ const char* CDOTAUserMsg_ProjectionAbility::_InternalParse(const char* ptr, ::_p
         } else
           goto handle_unusual;
         continue;
-      // optional int32 caster_ent_index = 2;
+      // optional int32 caster_ent_index = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_caster_ent_index(&has_bits);
@@ -42641,7 +42670,7 @@ const char* CDOTAUserMsg_ProjectionAbility::_InternalParse(const char* ptr, ::_p
         } else
           goto handle_unusual;
         continue;
-      // optional int32 victim_ent_index = 8;
+      // optional int32 victim_ent_index = 8 [default = -1];
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
           _Internal::set_has_victim_ent_index(&has_bits);
@@ -42681,26 +42710,26 @@ uint8_t* CDOTAUserMsg_ProjectionAbility::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 ability_id = 1;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 ability_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_ability_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_ability_id(), target);
   }
 
-  // optional int32 caster_ent_index = 2;
-  if (cached_has_bits & 0x00000004u) {
+  // optional int32 caster_ent_index = 2 [default = -1];
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_caster_ent_index(), target);
   }
 
   // optional int32 caster_team = 3;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_caster_team(), target);
   }
 
   // optional bool channel_end = 4;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_channel_end(), target);
   }
@@ -42713,19 +42742,19 @@ uint8_t* CDOTAUserMsg_ProjectionAbility::_InternalSerialize(
   }
 
   // optional bool track_caster_only = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(6, this->_internal_track_caster_only(), target);
   }
 
   // optional float end_time = 7;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(7, this->_internal_end_time(), target);
   }
 
-  // optional int32 victim_ent_index = 8;
-  if (cached_has_bits & 0x00000080u) {
+  // optional int32 victim_ent_index = 8 [default = -1];
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(8, this->_internal_victim_ent_index(), target);
   }
@@ -42755,39 +42784,39 @@ size_t CDOTAUserMsg_ProjectionAbility::ByteSizeLong() const {
           *_impl_.origin_);
     }
 
-    // optional uint32 ability_id = 1;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ability_id());
-    }
-
-    // optional int32 caster_ent_index = 2;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_caster_ent_index());
-    }
-
     // optional int32 caster_team = 3;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_caster_team());
     }
 
     // optional bool channel_end = 4;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
     }
 
     // optional bool track_caster_only = 6;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 1;
     }
 
     // optional float end_time = 7;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 4;
     }
 
-    // optional int32 victim_ent_index = 8;
-    if (cached_has_bits & 0x00000080u) {
+    // optional int32 victim_ent_index = 8 [default = -1];
+    if (cached_has_bits & 0x00000020u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_victim_ent_index());
+    }
+
+    // optional int32 ability_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000040u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_ability_id());
+    }
+
+    // optional int32 caster_ent_index = 2 [default = -1];
+    if (cached_has_bits & 0x00000080u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_caster_ent_index());
     }
 
   }
@@ -42816,25 +42845,25 @@ void CDOTAUserMsg_ProjectionAbility::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message&
           from._internal_origin());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.ability_id_ = from._impl_.ability_id_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.caster_ent_index_ = from._impl_.caster_ent_index_;
-    }
-    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.caster_team_ = from._impl_.caster_team_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.channel_end_ = from._impl_.channel_end_;
     }
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.track_caster_only_ = from._impl_.track_caster_only_;
     }
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000010u) {
       _this->_impl_.end_time_ = from._impl_.end_time_;
     }
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000020u) {
       _this->_impl_.victim_ent_index_ = from._impl_.victim_ent_index_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      _this->_impl_.ability_id_ = from._impl_.ability_id_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      _this->_impl_.caster_ent_index_ = from._impl_.caster_ent_index_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -42857,11 +42886,14 @@ void CDOTAUserMsg_ProjectionAbility::InternalSwap(CDOTAUserMsg_ProjectionAbility
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ProjectionAbility, _impl_.victim_ent_index_)
-      + sizeof(CDOTAUserMsg_ProjectionAbility::_impl_.victim_ent_index_)
+      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ProjectionAbility, _impl_.end_time_)
+      + sizeof(CDOTAUserMsg_ProjectionAbility::_impl_.end_time_)
       - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ProjectionAbility, _impl_.origin_)>(
           reinterpret_cast<char*>(&_impl_.origin_),
           reinterpret_cast<char*>(&other->_impl_.origin_));
+  swap(_impl_.victim_ent_index_, other->_impl_.victim_ent_index_);
+  swap(_impl_.ability_id_, other->_impl_.ability_id_);
+  swap(_impl_.caster_ent_index_, other->_impl_.caster_ent_index_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_ProjectionAbility::GetMetadata() const {
@@ -43155,8 +43187,8 @@ inline void CDOTAUserMsg_XPAlert::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
-    , decltype(_impl_.target_entindex_){0}
+    , decltype(_impl_.player_id_){-1}
+    , decltype(_impl_.target_entindex_){-1}
   };
 }
 
@@ -43185,9 +43217,8 @@ void CDOTAUserMsg_XPAlert::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.target_entindex_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.target_entindex_));
+    _impl_.player_id_ = -1;
+    _impl_.target_entindex_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -43200,7 +43231,7 @@ const char* CDOTAUserMsg_XPAlert::_InternalParse(const char* ptr, ::_pbi::ParseC
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -43209,7 +43240,7 @@ const char* CDOTAUserMsg_XPAlert::_InternalParse(const char* ptr, ::_pbi::ParseC
         } else
           goto handle_unusual;
         continue;
-      // optional int32 target_entindex = 2;
+      // optional int32 target_entindex = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_target_entindex(&has_bits);
@@ -43249,13 +43280,13 @@ uint8_t* CDOTAUserMsg_XPAlert::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
-  // optional int32 target_entindex = 2;
+  // optional int32 target_entindex = 2 [default = -1];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_target_entindex(), target);
@@ -43279,12 +43310,12 @@ size_t CDOTAUserMsg_XPAlert::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional int32 player_id = 1;
+    // optional int32 player_id = 1 [default = -1];
     if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
-    // optional int32 target_entindex = 2;
+    // optional int32 target_entindex = 2 [default = -1];
     if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_entindex());
     }
@@ -43336,12 +43367,8 @@ void CDOTAUserMsg_XPAlert::InternalSwap(CDOTAUserMsg_XPAlert* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_XPAlert, _impl_.target_entindex_)
-      + sizeof(CDOTAUserMsg_XPAlert::_impl_.target_entindex_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_XPAlert, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+  swap(_impl_.player_id_, other->_impl_.player_id_);
+  swap(_impl_.target_entindex_, other->_impl_.target_entindex_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_XPAlert::GetMetadata() const {
@@ -43356,19 +43383,19 @@ class CDOTAUserMsg_TalentTreeAlert::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_TalentTreeAlert>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_target_entindex(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_ability_id(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
   static void set_has_slot(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_learned(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 2u;
   }
 };
 
@@ -43384,16 +43411,16 @@ CDOTAUserMsg_TalentTreeAlert::CDOTAUserMsg_TalentTreeAlert(const CDOTAUserMsg_Ta
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){}
-    , decltype(_impl_.target_entindex_){}
-    , decltype(_impl_.ability_id_){}
     , decltype(_impl_.slot_){}
-    , decltype(_impl_.learned_){}};
+    , decltype(_impl_.learned_){}
+    , decltype(_impl_.ability_id_){}
+    , decltype(_impl_.player_id_){}
+    , decltype(_impl_.target_entindex_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.learned_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.learned_));
+  ::memcpy(&_impl_.slot_, &from._impl_.slot_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.target_entindex_) -
+    reinterpret_cast<char*>(&_impl_.slot_)) + sizeof(_impl_.target_entindex_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_TalentTreeAlert)
 }
 
@@ -43404,11 +43431,11 @@ inline void CDOTAUserMsg_TalentTreeAlert::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
-    , decltype(_impl_.target_entindex_){0}
-    , decltype(_impl_.ability_id_){0}
     , decltype(_impl_.slot_){0}
     , decltype(_impl_.learned_){false}
+    , decltype(_impl_.ability_id_){-1}
+    , decltype(_impl_.player_id_){-1}
+    , decltype(_impl_.target_entindex_){-1}
   };
 }
 
@@ -43437,9 +43464,12 @@ void CDOTAUserMsg_TalentTreeAlert::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
+    ::memset(&_impl_.slot_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.learned_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.learned_));
+        reinterpret_cast<char*>(&_impl_.slot_)) + sizeof(_impl_.learned_));
+    _impl_.ability_id_ = -1;
+    _impl_.player_id_ = -1;
+    _impl_.target_entindex_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -43452,7 +43482,7 @@ const char* CDOTAUserMsg_TalentTreeAlert::_InternalParse(const char* ptr, ::_pbi
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -43461,7 +43491,7 @@ const char* CDOTAUserMsg_TalentTreeAlert::_InternalParse(const char* ptr, ::_pbi
         } else
           goto handle_unusual;
         continue;
-      // optional int32 target_entindex = 2;
+      // optional int32 target_entindex = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_target_entindex(&has_bits);
@@ -43470,7 +43500,7 @@ const char* CDOTAUserMsg_TalentTreeAlert::_InternalParse(const char* ptr, ::_pbi
         } else
           goto handle_unusual;
         continue;
-      // optional int32 ability_id = 3;
+      // optional int32 ability_id = 3 [default = -1];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_ability_id(&has_bits);
@@ -43528,32 +43558,32 @@ uint8_t* CDOTAUserMsg_TalentTreeAlert::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
-  // optional int32 target_entindex = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 target_entindex = 2 [default = -1];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_target_entindex(), target);
   }
 
-  // optional int32 ability_id = 3;
+  // optional int32 ability_id = 3 [default = -1];
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_ability_id(), target);
   }
 
   // optional int32 slot = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_slot(), target);
   }
 
   // optional bool learned = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(5, this->_internal_learned(), target);
   }
@@ -43576,29 +43606,29 @@ size_t CDOTAUserMsg_TalentTreeAlert::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    // optional int32 player_id = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
-    }
-
-    // optional int32 target_entindex = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_entindex());
-    }
-
-    // optional int32 ability_id = 3;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_ability_id());
-    }
-
     // optional int32 slot = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_slot());
     }
 
     // optional bool learned = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
+    }
+
+    // optional int32 ability_id = 3 [default = -1];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_ability_id());
+    }
+
+    // optional int32 player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
+    }
+
+    // optional int32 target_entindex = 2 [default = -1];
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_entindex());
     }
 
   }
@@ -43623,19 +43653,19 @@ void CDOTAUserMsg_TalentTreeAlert::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& t
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
+      _this->_impl_.slot_ = from._impl_.slot_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.target_entindex_ = from._impl_.target_entindex_;
+      _this->_impl_.learned_ = from._impl_.learned_;
     }
     if (cached_has_bits & 0x00000004u) {
       _this->_impl_.ability_id_ = from._impl_.ability_id_;
     }
     if (cached_has_bits & 0x00000008u) {
-      _this->_impl_.slot_ = from._impl_.slot_;
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     if (cached_has_bits & 0x00000010u) {
-      _this->_impl_.learned_ = from._impl_.learned_;
+      _this->_impl_.target_entindex_ = from._impl_.target_entindex_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -43660,9 +43690,12 @@ void CDOTAUserMsg_TalentTreeAlert::InternalSwap(CDOTAUserMsg_TalentTreeAlert* ot
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_TalentTreeAlert, _impl_.learned_)
       + sizeof(CDOTAUserMsg_TalentTreeAlert::_impl_.learned_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_TalentTreeAlert, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_TalentTreeAlert, _impl_.slot_)>(
+          reinterpret_cast<char*>(&_impl_.slot_),
+          reinterpret_cast<char*>(&other->_impl_.slot_));
+  swap(_impl_.ability_id_, other->_impl_.ability_id_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
+  swap(_impl_.target_entindex_, other->_impl_.target_entindex_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_TalentTreeAlert::GetMetadata() const {
@@ -43717,31 +43750,31 @@ class CDOTAUserMsg_QuestStatus::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_QuestStatus>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 64u;
   }
   static void set_has_quest_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_challenge_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_progress(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_goal(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_query(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_fail_gametime(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
+    (*has_bits)[0] |= 32u;
   }
   static void set_has_item_ability_id(HasBits* has_bits) {
     (*has_bits)[0] |= 128u;
   }
   static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000001) ^ 0x00000001) != 0;
+    return ((has_bits[0] & 0x00000040) ^ 0x00000040) != 0;
   }
 };
 
@@ -43757,19 +43790,19 @@ CDOTAUserMsg_QuestStatus::CDOTAUserMsg_QuestStatus(const CDOTAUserMsg_QuestStatu
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){}
     , decltype(_impl_.quest_id_){}
     , decltype(_impl_.challenge_id_){}
     , decltype(_impl_.progress_){}
     , decltype(_impl_.goal_){}
     , decltype(_impl_.query_){}
     , decltype(_impl_.fail_gametime_){}
+    , decltype(_impl_.player_id_){}
     , decltype(_impl_.item_ability_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
+  ::memcpy(&_impl_.quest_id_, &from._impl_.quest_id_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.item_ability_id_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.item_ability_id_));
+    reinterpret_cast<char*>(&_impl_.quest_id_)) + sizeof(_impl_.item_ability_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_QuestStatus)
 }
 
@@ -43780,14 +43813,14 @@ inline void CDOTAUserMsg_QuestStatus::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.quest_id_){0u}
     , decltype(_impl_.challenge_id_){0u}
     , decltype(_impl_.progress_){0u}
     , decltype(_impl_.goal_){0u}
     , decltype(_impl_.query_){0u}
     , decltype(_impl_.fail_gametime_){0}
-    , decltype(_impl_.item_ability_id_){0u}
+    , decltype(_impl_.player_id_){-1}
+    , decltype(_impl_.item_ability_id_){-1}
   };
 }
 
@@ -43816,9 +43849,11 @@ void CDOTAUserMsg_QuestStatus::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.item_ability_id_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.item_ability_id_));
+    ::memset(&_impl_.quest_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.fail_gametime_) -
+        reinterpret_cast<char*>(&_impl_.quest_id_)) + sizeof(_impl_.fail_gametime_));
+    _impl_.player_id_ = -1;
+    _impl_.item_ability_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -43831,7 +43866,7 @@ const char* CDOTAUserMsg_QuestStatus::_InternalParse(const char* ptr, ::_pbi::Pa
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required int32 player_id = 1;
+      // required int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -43894,7 +43929,7 @@ const char* CDOTAUserMsg_QuestStatus::_InternalParse(const char* ptr, ::_pbi::Pa
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 item_ability_id = 8;
+      // optional int32 item_ability_id = 8 [default = -1];
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
           _Internal::set_has_item_ability_id(&has_bits);
@@ -43934,52 +43969,52 @@ uint8_t* CDOTAUserMsg_QuestStatus::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // required int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
   // optional uint32 quest_id = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_quest_id(), target);
   }
 
   // optional uint32 challenge_id = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_challenge_id(), target);
   }
 
   // optional uint32 progress = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_progress(), target);
   }
 
   // optional uint32 goal = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_goal(), target);
   }
 
   // optional uint32 query = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_query(), target);
   }
 
   // optional float fail_gametime = 7;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(7, this->_internal_fail_gametime(), target);
   }
 
-  // optional uint32 item_ability_id = 8;
+  // optional int32 item_ability_id = 8 [default = -1];
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(8, this->_internal_item_ability_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(8, this->_internal_item_ability_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -43994,7 +44029,7 @@ size_t CDOTAUserMsg_QuestStatus::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CDOTAUserMsg_QuestStatus)
   size_t total_size = 0;
 
-  // required int32 player_id = 1;
+  // required int32 player_id = 1 [default = -1];
   if (_internal_has_player_id()) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
   }
@@ -44003,43 +44038,43 @@ size_t CDOTAUserMsg_QuestStatus::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x000000feu) {
+  if (cached_has_bits & 0x0000003fu) {
     // optional uint32 quest_id = 2;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_quest_id());
     }
 
     // optional uint32 challenge_id = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_challenge_id());
     }
 
     // optional uint32 progress = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_progress());
     }
 
     // optional uint32 goal = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_goal());
     }
 
     // optional uint32 query = 6;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_query());
     }
 
     // optional float fail_gametime = 7;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 4;
     }
 
-    // optional uint32 item_ability_id = 8;
-    if (cached_has_bits & 0x00000080u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_item_ability_id());
-    }
-
   }
+  // optional int32 item_ability_id = 8 [default = -1];
+  if (cached_has_bits & 0x00000080u) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_item_ability_id());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -44061,25 +44096,25 @@ void CDOTAUserMsg_QuestStatus::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_ms
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.quest_id_ = from._impl_.quest_id_;
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.challenge_id_ = from._impl_.challenge_id_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.progress_ = from._impl_.progress_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.goal_ = from._impl_.goal_;
     }
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       _this->_impl_.query_ = from._impl_.query_;
     }
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000020u) {
       _this->_impl_.fail_gametime_ = from._impl_.fail_gametime_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     if (cached_has_bits & 0x00000080u) {
       _this->_impl_.item_ability_id_ = from._impl_.item_ability_id_;
@@ -44106,11 +44141,13 @@ void CDOTAUserMsg_QuestStatus::InternalSwap(CDOTAUserMsg_QuestStatus* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_QuestStatus, _impl_.item_ability_id_)
-      + sizeof(CDOTAUserMsg_QuestStatus::_impl_.item_ability_id_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_QuestStatus, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_QuestStatus, _impl_.fail_gametime_)
+      + sizeof(CDOTAUserMsg_QuestStatus::_impl_.fail_gametime_)
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_QuestStatus, _impl_.quest_id_)>(
+          reinterpret_cast<char*>(&_impl_.quest_id_),
+          reinterpret_cast<char*>(&other->_impl_.quest_id_));
+  swap(_impl_.player_id_, other->_impl_.player_id_);
+  swap(_impl_.item_ability_id_, other->_impl_.item_ability_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_QuestStatus::GetMetadata() const {
@@ -44125,16 +44162,16 @@ class CDOTAUserMsg_SuggestHeroPick::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_SuggestHeroPick>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_hero_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_ban(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
+  static void set_has_hero_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_ban(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
   static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000001) ^ 0x00000001) != 0;
+    return ((has_bits[0] & 0x00000004) ^ 0x00000004) != 0;
   }
 };
 
@@ -44150,14 +44187,14 @@ CDOTAUserMsg_SuggestHeroPick::CDOTAUserMsg_SuggestHeroPick(const CDOTAUserMsg_Su
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){}
     , decltype(_impl_.hero_id_){}
-    , decltype(_impl_.ban_){}};
+    , decltype(_impl_.ban_){}
+    , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.ban_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.ban_));
+  ::memcpy(&_impl_.hero_id_, &from._impl_.hero_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.hero_id_)) + sizeof(_impl_.player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_SuggestHeroPick)
 }
 
@@ -44168,9 +44205,9 @@ inline void CDOTAUserMsg_SuggestHeroPick::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.hero_id_){0u}
     , decltype(_impl_.ban_){false}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -44199,9 +44236,10 @@ void CDOTAUserMsg_SuggestHeroPick::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
+    ::memset(&_impl_.hero_id_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.ban_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.ban_));
+        reinterpret_cast<char*>(&_impl_.hero_id_)) + sizeof(_impl_.ban_));
+    _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -44214,7 +44252,7 @@ const char* CDOTAUserMsg_SuggestHeroPick::_InternalParse(const char* ptr, ::_pbi
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required int32 player_id = 1;
+      // required int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -44272,20 +44310,20 @@ uint8_t* CDOTAUserMsg_SuggestHeroPick::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // required int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
   // optional uint32 hero_id = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_hero_id(), target);
   }
 
   // optional bool ban = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_ban(), target);
   }
@@ -44302,7 +44340,7 @@ size_t CDOTAUserMsg_SuggestHeroPick::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CDOTAUserMsg_SuggestHeroPick)
   size_t total_size = 0;
 
-  // required int32 player_id = 1;
+  // required int32 player_id = 1 [default = -1];
   if (_internal_has_player_id()) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
   }
@@ -44311,14 +44349,14 @@ size_t CDOTAUserMsg_SuggestHeroPick::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000006u) {
+  if (cached_has_bits & 0x00000003u) {
     // optional uint32 hero_id = 2;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_hero_id());
     }
 
     // optional bool ban = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
 
@@ -44344,13 +44382,13 @@ void CDOTAUserMsg_SuggestHeroPick::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& t
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.hero_id_ = from._impl_.hero_id_;
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.ban_ = from._impl_.ban_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -44376,9 +44414,10 @@ void CDOTAUserMsg_SuggestHeroPick::InternalSwap(CDOTAUserMsg_SuggestHeroPick* ot
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_SuggestHeroPick, _impl_.ban_)
       + sizeof(CDOTAUserMsg_SuggestHeroPick::_impl_.ban_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_SuggestHeroPick, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_SuggestHeroPick, _impl_.hero_id_)>(
+          reinterpret_cast<char*>(&_impl_.hero_id_),
+          reinterpret_cast<char*>(&other->_impl_.hero_id_));
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_SuggestHeroPick::GetMetadata() const {
@@ -44439,7 +44478,7 @@ inline void CDOTAUserMsg_SuggestHeroRole::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.hero_role_){}
-    , decltype(_impl_.player_id_){0}
+    , decltype(_impl_.player_id_){-1}
   };
   _impl_.hero_role_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -44472,10 +44511,12 @@ void CDOTAUserMsg_SuggestHeroRole::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    _impl_.hero_role_.ClearNonDefaultToEmpty();
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _impl_.hero_role_.ClearNonDefaultToEmpty();
+    }
+    _impl_.player_id_ = -1;
   }
-  _impl_.player_id_ = 0;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -44487,7 +44528,7 @@ const char* CDOTAUserMsg_SuggestHeroRole::_InternalParse(const char* ptr, ::_pbi
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required int32 player_id = 1;
+      // required int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -44539,7 +44580,7 @@ uint8_t* CDOTAUserMsg_SuggestHeroRole::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required int32 player_id = 1;
+  // required int32 player_id = 1 [default = -1];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
@@ -44567,7 +44608,7 @@ size_t CDOTAUserMsg_SuggestHeroRole::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CDOTAUserMsg_SuggestHeroRole)
   size_t total_size = 0;
 
-  // required int32 player_id = 1;
+  // required int32 player_id = 1 [default = -1];
   if (_internal_has_player_id()) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
   }
@@ -44651,13 +44692,13 @@ class CDOTAUserMsg_KillcamDamageTaken::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_KillcamDamageTaken>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_damage_taken(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_item_type(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_item_ability_id(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
@@ -44669,7 +44710,7 @@ class CDOTAUserMsg_KillcamDamageTaken::_Internal {
     (*has_bits)[0] |= 2u;
   }
   static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000004) ^ 0x00000004) != 0;
+    return ((has_bits[0] & 0x00000010) ^ 0x00000010) != 0;
   }
 };
 
@@ -44687,9 +44728,9 @@ CDOTAUserMsg_KillcamDamageTaken::CDOTAUserMsg_KillcamDamageTaken(const CDOTAUser
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.hero_name_){}
     , decltype(_impl_.damage_color_){}
-    , decltype(_impl_.player_id_){}
     , decltype(_impl_.damage_taken_){}
     , decltype(_impl_.item_type_){}
+    , decltype(_impl_.player_id_){}
     , decltype(_impl_.item_ability_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -44709,9 +44750,9 @@ CDOTAUserMsg_KillcamDamageTaken::CDOTAUserMsg_KillcamDamageTaken(const CDOTAUser
     _this->_impl_.damage_color_.Set(from._internal_damage_color(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
+  ::memcpy(&_impl_.damage_taken_, &from._impl_.damage_taken_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.item_ability_id_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.item_ability_id_));
+    reinterpret_cast<char*>(&_impl_.damage_taken_)) + sizeof(_impl_.item_ability_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_KillcamDamageTaken)
 }
 
@@ -44724,10 +44765,10 @@ inline void CDOTAUserMsg_KillcamDamageTaken::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.hero_name_){}
     , decltype(_impl_.damage_color_){}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.damage_taken_){0u}
     , decltype(_impl_.item_type_){0u}
-    , decltype(_impl_.item_ability_id_){0u}
+    , decltype(_impl_.player_id_){-1}
+    , decltype(_impl_.item_ability_id_){-1}
   };
   _impl_.hero_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -44774,9 +44815,11 @@ void CDOTAUserMsg_KillcamDamageTaken::Clear() {
     }
   }
   if (cached_has_bits & 0x0000003cu) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.item_ability_id_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.item_ability_id_));
+    ::memset(&_impl_.damage_taken_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.item_type_) -
+        reinterpret_cast<char*>(&_impl_.damage_taken_)) + sizeof(_impl_.item_type_));
+    _impl_.player_id_ = -1;
+    _impl_.item_ability_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -44789,7 +44832,7 @@ const char* CDOTAUserMsg_KillcamDamageTaken::_InternalParse(const char* ptr, ::_
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required int32 player_id = 1;
+      // required int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -44816,7 +44859,7 @@ const char* CDOTAUserMsg_KillcamDamageTaken::_InternalParse(const char* ptr, ::_
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 item_ability_id = 4;
+      // optional int32 item_ability_id = 4 [default = -1];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _Internal::set_has_item_ability_id(&has_bits);
@@ -44880,28 +44923,28 @@ uint8_t* CDOTAUserMsg_KillcamDamageTaken::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required int32 player_id = 1;
-  if (cached_has_bits & 0x00000004u) {
+  // required int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
   // optional uint32 damage_taken = 2;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_damage_taken(), target);
   }
 
   // optional uint32 item_type = 3;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_item_type(), target);
   }
 
-  // optional uint32 item_ability_id = 4;
+  // optional int32 item_ability_id = 4 [default = -1];
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_item_ability_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_item_ability_id(), target);
   }
 
   // optional string hero_name = 5;
@@ -44936,7 +44979,7 @@ size_t CDOTAUserMsg_KillcamDamageTaken::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CDOTAUserMsg_KillcamDamageTaken)
   size_t total_size = 0;
 
-  // required int32 player_id = 1;
+  // required int32 player_id = 1 [default = -1];
   if (_internal_has_player_id()) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
   }
@@ -44945,7 +44988,7 @@ size_t CDOTAUserMsg_KillcamDamageTaken::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x0000000fu) {
     // optional string hero_name = 5;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -44960,24 +45003,22 @@ size_t CDOTAUserMsg_KillcamDamageTaken::ByteSizeLong() const {
           this->_internal_damage_color());
     }
 
-  }
-  if (cached_has_bits & 0x00000038u) {
     // optional uint32 damage_taken = 2;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_damage_taken());
     }
 
     // optional uint32 item_type = 3;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_item_type());
     }
 
-    // optional uint32 item_ability_id = 4;
-    if (cached_has_bits & 0x00000020u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_item_ability_id());
-    }
-
   }
+  // optional int32 item_ability_id = 4 [default = -1];
+  if (cached_has_bits & 0x00000020u) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_item_ability_id());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -45005,13 +45046,13 @@ void CDOTAUserMsg_KillcamDamageTaken::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message
       _this->_internal_set_damage_color(from._internal_damage_color());
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
-    }
-    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.damage_taken_ = from._impl_.damage_taken_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.item_type_ = from._impl_.item_type_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     if (cached_has_bits & 0x00000020u) {
       _this->_impl_.item_ability_id_ = from._impl_.item_ability_id_;
@@ -45048,11 +45089,13 @@ void CDOTAUserMsg_KillcamDamageTaken::InternalSwap(CDOTAUserMsg_KillcamDamageTak
       &other->_impl_.damage_color_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_KillcamDamageTaken, _impl_.item_ability_id_)
-      + sizeof(CDOTAUserMsg_KillcamDamageTaken::_impl_.item_ability_id_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_KillcamDamageTaken, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_KillcamDamageTaken, _impl_.item_type_)
+      + sizeof(CDOTAUserMsg_KillcamDamageTaken::_impl_.item_type_)
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_KillcamDamageTaken, _impl_.damage_taken_)>(
+          reinterpret_cast<char*>(&_impl_.damage_taken_),
+          reinterpret_cast<char*>(&other->_impl_.damage_taken_));
+  swap(_impl_.player_id_, other->_impl_.player_id_);
+  swap(_impl_.item_ability_id_, other->_impl_.item_ability_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_KillcamDamageTaken::GetMetadata() const {
@@ -45067,13 +45110,13 @@ class CDOTAUserMsg_SelectPenaltyGold::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_SelectPenaltyGold>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_cost(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
+  static void set_has_cost(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
   static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000001) ^ 0x00000001) != 0;
+    return ((has_bits[0] & 0x00000002) ^ 0x00000002) != 0;
   }
 };
 
@@ -45089,13 +45132,13 @@ CDOTAUserMsg_SelectPenaltyGold::CDOTAUserMsg_SelectPenaltyGold(const CDOTAUserMs
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){}
-    , decltype(_impl_.cost_){}};
+    , decltype(_impl_.cost_){}
+    , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.cost_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.cost_));
+  ::memcpy(&_impl_.cost_, &from._impl_.cost_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.cost_)) + sizeof(_impl_.player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_SelectPenaltyGold)
 }
 
@@ -45106,8 +45149,8 @@ inline void CDOTAUserMsg_SelectPenaltyGold::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.cost_){0}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -45136,9 +45179,8 @@ void CDOTAUserMsg_SelectPenaltyGold::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.cost_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.cost_));
+    _impl_.cost_ = 0;
+    _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -45151,7 +45193,7 @@ const char* CDOTAUserMsg_SelectPenaltyGold::_InternalParse(const char* ptr, ::_p
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required int32 player_id = 1;
+      // required int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -45200,14 +45242,14 @@ uint8_t* CDOTAUserMsg_SelectPenaltyGold::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // required int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
   // optional sint32 cost = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteSInt32ToArray(2, this->_internal_cost(), target);
   }
@@ -45224,7 +45266,7 @@ size_t CDOTAUserMsg_SelectPenaltyGold::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CDOTAUserMsg_SelectPenaltyGold)
   size_t total_size = 0;
 
-  // required int32 player_id = 1;
+  // required int32 player_id = 1 [default = -1];
   if (_internal_has_player_id()) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
   }
@@ -45234,7 +45276,7 @@ size_t CDOTAUserMsg_SelectPenaltyGold::ByteSizeLong() const {
 
   // optional sint32 cost = 2;
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     total_size += ::_pbi::WireFormatLite::SInt32SizePlusOne(this->_internal_cost());
   }
 
@@ -45259,10 +45301,10 @@ void CDOTAUserMsg_SelectPenaltyGold::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message&
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
+      _this->_impl_.cost_ = from._impl_.cost_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.cost_ = from._impl_.cost_;
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -45285,12 +45327,8 @@ void CDOTAUserMsg_SelectPenaltyGold::InternalSwap(CDOTAUserMsg_SelectPenaltyGold
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_SelectPenaltyGold, _impl_.cost_)
-      + sizeof(CDOTAUserMsg_SelectPenaltyGold::_impl_.cost_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_SelectPenaltyGold, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+  swap(_impl_.cost_, other->_impl_.cost_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_SelectPenaltyGold::GetMetadata() const {
@@ -45305,19 +45343,19 @@ class CDOTAUserMsg_RollDiceResult::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_RollDiceResult>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_channel_type(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_roll_min(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_roll_max(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_result(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 8u;
   }
 };
 
@@ -45333,16 +45371,16 @@ CDOTAUserMsg_RollDiceResult::CDOTAUserMsg_RollDiceResult(const CDOTAUserMsg_Roll
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){}
     , decltype(_impl_.channel_type_){}
     , decltype(_impl_.roll_min_){}
     , decltype(_impl_.roll_max_){}
-    , decltype(_impl_.result_){}};
+    , decltype(_impl_.result_){}
+    , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.result_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.result_));
+  ::memcpy(&_impl_.channel_type_, &from._impl_.channel_type_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.channel_type_)) + sizeof(_impl_.player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_RollDiceResult)
 }
 
@@ -45353,11 +45391,11 @@ inline void CDOTAUserMsg_RollDiceResult::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.channel_type_){0u}
     , decltype(_impl_.roll_min_){0u}
     , decltype(_impl_.roll_max_){0u}
     , decltype(_impl_.result_){0u}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -45386,9 +45424,10 @@ void CDOTAUserMsg_RollDiceResult::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
+    ::memset(&_impl_.channel_type_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.result_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.result_));
+        reinterpret_cast<char*>(&_impl_.channel_type_)) + sizeof(_impl_.result_));
+    _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -45401,7 +45440,7 @@ const char* CDOTAUserMsg_RollDiceResult::_InternalParse(const char* ptr, ::_pbi:
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -45477,32 +45516,32 @@ uint8_t* CDOTAUserMsg_RollDiceResult::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
   // optional uint32 channel_type = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_channel_type(), target);
   }
 
   // optional uint32 roll_min = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_roll_min(), target);
   }
 
   // optional uint32 roll_max = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_roll_max(), target);
   }
 
   // optional uint32 result = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_result(), target);
   }
@@ -45525,29 +45564,29 @@ size_t CDOTAUserMsg_RollDiceResult::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    // optional int32 player_id = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
-    }
-
     // optional uint32 channel_type = 2;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_channel_type());
     }
 
     // optional uint32 roll_min = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_roll_min());
     }
 
     // optional uint32 roll_max = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_roll_max());
     }
 
     // optional uint32 result = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_result());
+    }
+
+    // optional int32 player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
   }
@@ -45572,19 +45611,19 @@ void CDOTAUserMsg_RollDiceResult::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.channel_type_ = from._impl_.channel_type_;
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.roll_min_ = from._impl_.roll_min_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.roll_max_ = from._impl_.roll_max_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.result_ = from._impl_.result_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -45609,9 +45648,10 @@ void CDOTAUserMsg_RollDiceResult::InternalSwap(CDOTAUserMsg_RollDiceResult* othe
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_RollDiceResult, _impl_.result_)
       + sizeof(CDOTAUserMsg_RollDiceResult::_impl_.result_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_RollDiceResult, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_RollDiceResult, _impl_.channel_type_)>(
+          reinterpret_cast<char*>(&_impl_.channel_type_),
+          reinterpret_cast<char*>(&other->_impl_.channel_type_));
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_RollDiceResult::GetMetadata() const {
@@ -45626,13 +45666,13 @@ class CDOTAUserMsg_FlipCoinResult::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_FlipCoinResult>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_channel_type(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_result(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
 };
 
@@ -45648,14 +45688,14 @@ CDOTAUserMsg_FlipCoinResult::CDOTAUserMsg_FlipCoinResult(const CDOTAUserMsg_Flip
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){}
     , decltype(_impl_.channel_type_){}
-    , decltype(_impl_.result_){}};
+    , decltype(_impl_.result_){}
+    , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.result_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.result_));
+  ::memcpy(&_impl_.channel_type_, &from._impl_.channel_type_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.channel_type_)) + sizeof(_impl_.player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_FlipCoinResult)
 }
 
@@ -45666,9 +45706,9 @@ inline void CDOTAUserMsg_FlipCoinResult::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.channel_type_){0u}
     , decltype(_impl_.result_){false}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -45697,9 +45737,10 @@ void CDOTAUserMsg_FlipCoinResult::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
+    ::memset(&_impl_.channel_type_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.result_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.result_));
+        reinterpret_cast<char*>(&_impl_.channel_type_)) + sizeof(_impl_.result_));
+    _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -45712,7 +45753,7 @@ const char* CDOTAUserMsg_FlipCoinResult::_InternalParse(const char* ptr, ::_pbi:
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -45770,20 +45811,20 @@ uint8_t* CDOTAUserMsg_FlipCoinResult::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
   // optional uint32 channel_type = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_channel_type(), target);
   }
 
   // optional bool result = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_result(), target);
   }
@@ -45806,19 +45847,19 @@ size_t CDOTAUserMsg_FlipCoinResult::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional int32 player_id = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
-    }
-
     // optional uint32 channel_type = 2;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_channel_type());
     }
 
     // optional bool result = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
+    }
+
+    // optional int32 player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
   }
@@ -45843,13 +45884,13 @@ void CDOTAUserMsg_FlipCoinResult::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.channel_type_ = from._impl_.channel_type_;
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.result_ = from._impl_.result_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -45874,9 +45915,10 @@ void CDOTAUserMsg_FlipCoinResult::InternalSwap(CDOTAUserMsg_FlipCoinResult* othe
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_FlipCoinResult, _impl_.result_)
       + sizeof(CDOTAUserMsg_FlipCoinResult::_impl_.result_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_FlipCoinResult, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_FlipCoinResult, _impl_.channel_type_)>(
+          reinterpret_cast<char*>(&_impl_.channel_type_),
+          reinterpret_cast<char*>(&other->_impl_.channel_type_));
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_FlipCoinResult::GetMetadata() const {
@@ -45921,7 +45963,7 @@ inline void CDOTAUserMessage_RequestItemSuggestions::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -45948,7 +45990,7 @@ void CDOTAUserMessage_RequestItemSuggestions::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.player_id_ = 0;
+  _impl_.player_id_ = -1;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -45960,7 +46002,7 @@ const char* CDOTAUserMessage_RequestItemSuggestions::_InternalParse(const char* 
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -46000,7 +46042,7 @@ uint8_t* CDOTAUserMessage_RequestItemSuggestions::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
@@ -46022,7 +46064,7 @@ size_t CDOTAUserMessage_RequestItemSuggestions::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
@@ -46119,7 +46161,7 @@ inline void CDOTAUserMessage_TeamCaptainChanged::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.team_){0u}
-    , decltype(_impl_.captain_player_id_){0}
+    , decltype(_impl_.captain_player_id_){-1}
   };
 }
 
@@ -46148,9 +46190,8 @@ void CDOTAUserMessage_TeamCaptainChanged::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    ::memset(&_impl_.team_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.captain_player_id_) -
-        reinterpret_cast<char*>(&_impl_.team_)) + sizeof(_impl_.captain_player_id_));
+    _impl_.team_ = 0u;
+    _impl_.captain_player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -46172,7 +46213,7 @@ const char* CDOTAUserMessage_TeamCaptainChanged::_InternalParse(const char* ptr,
         } else
           goto handle_unusual;
         continue;
-      // optional int32 captain_player_id = 2;
+      // optional int32 captain_player_id = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_captain_player_id(&has_bits);
@@ -46218,7 +46259,7 @@ uint8_t* CDOTAUserMessage_TeamCaptainChanged::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_team(), target);
   }
 
-  // optional int32 captain_player_id = 2;
+  // optional int32 captain_player_id = 2 [default = -1];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_captain_player_id(), target);
@@ -46247,7 +46288,7 @@ size_t CDOTAUserMessage_TeamCaptainChanged::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_team());
     }
 
-    // optional int32 captain_player_id = 2;
+    // optional int32 captain_player_id = 2 [default = -1];
     if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_captain_player_id());
     }
@@ -46299,12 +46340,8 @@ void CDOTAUserMessage_TeamCaptainChanged::InternalSwap(CDOTAUserMessage_TeamCapt
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMessage_TeamCaptainChanged, _impl_.captain_player_id_)
-      + sizeof(CDOTAUserMessage_TeamCaptainChanged::_impl_.captain_player_id_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMessage_TeamCaptainChanged, _impl_.team_)>(
-          reinterpret_cast<char*>(&_impl_.team_),
-          reinterpret_cast<char*>(&other->_impl_.team_));
+  swap(_impl_.team_, other->_impl_.team_);
+  swap(_impl_.captain_player_id_, other->_impl_.captain_player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMessage_TeamCaptainChanged::GetMetadata() const {
@@ -46319,10 +46356,10 @@ class CDOTAUserMsg_ChatWheelCooldown::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_ChatWheelCooldown>()._impl_._has_bits_);
   static void set_has_message_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_cooldown_remaining(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -46338,13 +46375,13 @@ CDOTAUserMsg_ChatWheelCooldown::CDOTAUserMsg_ChatWheelCooldown(const CDOTAUserMs
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.message_id_){}
-    , decltype(_impl_.cooldown_remaining_){}};
+    , decltype(_impl_.cooldown_remaining_){}
+    , decltype(_impl_.message_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.message_id_, &from._impl_.message_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.cooldown_remaining_) -
-    reinterpret_cast<char*>(&_impl_.message_id_)) + sizeof(_impl_.cooldown_remaining_));
+  ::memcpy(&_impl_.cooldown_remaining_, &from._impl_.cooldown_remaining_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.message_id_) -
+    reinterpret_cast<char*>(&_impl_.cooldown_remaining_)) + sizeof(_impl_.message_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_ChatWheelCooldown)
 }
 
@@ -46355,8 +46392,8 @@ inline void CDOTAUserMsg_ChatWheelCooldown::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.message_id_){0u}
     , decltype(_impl_.cooldown_remaining_){0}
+    , decltype(_impl_.message_id_){4294967295u}
   };
 }
 
@@ -46385,9 +46422,8 @@ void CDOTAUserMsg_ChatWheelCooldown::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    ::memset(&_impl_.message_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.cooldown_remaining_) -
-        reinterpret_cast<char*>(&_impl_.message_id_)) + sizeof(_impl_.cooldown_remaining_));
+    _impl_.cooldown_remaining_ = 0;
+    _impl_.message_id_ = 4294967295u;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -46400,7 +46436,7 @@ const char* CDOTAUserMsg_ChatWheelCooldown::_InternalParse(const char* ptr, ::_p
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 message_id = 1;
+      // optional uint32 message_id = 1 [default = 4294967295];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_message_id(&has_bits);
@@ -46449,14 +46485,14 @@ uint8_t* CDOTAUserMsg_ChatWheelCooldown::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 message_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional uint32 message_id = 1 [default = 4294967295];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_message_id(), target);
   }
 
   // optional float cooldown_remaining = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(2, this->_internal_cooldown_remaining(), target);
   }
@@ -46479,14 +46515,14 @@ size_t CDOTAUserMsg_ChatWheelCooldown::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint32 message_id = 1;
+    // optional float cooldown_remaining = 2;
     if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_message_id());
+      total_size += 1 + 4;
     }
 
-    // optional float cooldown_remaining = 2;
+    // optional uint32 message_id = 1 [default = 4294967295];
     if (cached_has_bits & 0x00000002u) {
-      total_size += 1 + 4;
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_message_id());
     }
 
   }
@@ -46511,10 +46547,10 @@ void CDOTAUserMsg_ChatWheelCooldown::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message&
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.message_id_ = from._impl_.message_id_;
+      _this->_impl_.cooldown_remaining_ = from._impl_.cooldown_remaining_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.cooldown_remaining_ = from._impl_.cooldown_remaining_;
+      _this->_impl_.message_id_ = from._impl_.message_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -46536,12 +46572,8 @@ void CDOTAUserMsg_ChatWheelCooldown::InternalSwap(CDOTAUserMsg_ChatWheelCooldown
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ChatWheelCooldown, _impl_.cooldown_remaining_)
-      + sizeof(CDOTAUserMsg_ChatWheelCooldown::_impl_.cooldown_remaining_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ChatWheelCooldown, _impl_.message_id_)>(
-          reinterpret_cast<char*>(&_impl_.message_id_),
-          reinterpret_cast<char*>(&other->_impl_.message_id_));
+  swap(_impl_.cooldown_remaining_, other->_impl_.cooldown_remaining_);
+  swap(_impl_.message_id_, other->_impl_.message_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_ChatWheelCooldown::GetMetadata() const {
@@ -46562,13 +46594,13 @@ class CDOTAUserMsg_HeroRelicProgress::_Internal {
     (*has_bits)[0] |= 2u;
   }
   static void set_has_ehandle(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_event_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_value_display(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 8u;
   }
 };
 
@@ -46586,14 +46618,14 @@ CDOTAUserMsg_HeroRelicProgress::CDOTAUserMsg_HeroRelicProgress(const CDOTAUserMs
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.hero_relic_type_){}
     , decltype(_impl_.value_){}
-    , decltype(_impl_.ehandle_){}
     , decltype(_impl_.event_id_){}
-    , decltype(_impl_.value_display_){}};
+    , decltype(_impl_.value_display_){}
+    , decltype(_impl_.ehandle_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.hero_relic_type_, &from._impl_.hero_relic_type_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.value_display_) -
-    reinterpret_cast<char*>(&_impl_.hero_relic_type_)) + sizeof(_impl_.value_display_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.ehandle_) -
+    reinterpret_cast<char*>(&_impl_.hero_relic_type_)) + sizeof(_impl_.ehandle_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_HeroRelicProgress)
 }
 
@@ -46606,9 +46638,9 @@ inline void CDOTAUserMsg_HeroRelicProgress::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.hero_relic_type_){0u}
     , decltype(_impl_.value_){0u}
-    , decltype(_impl_.ehandle_){0u}
     , decltype(_impl_.event_id_){0u}
     , decltype(_impl_.value_display_){0}
+    , decltype(_impl_.ehandle_){16777215u}
   };
 }
 
@@ -46640,6 +46672,7 @@ void CDOTAUserMsg_HeroRelicProgress::Clear() {
     ::memset(&_impl_.hero_relic_type_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.value_display_) -
         reinterpret_cast<char*>(&_impl_.hero_relic_type_)) + sizeof(_impl_.value_display_));
+    _impl_.ehandle_ = 16777215u;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -46670,7 +46703,7 @@ const char* CDOTAUserMsg_HeroRelicProgress::_InternalParse(const char* ptr, ::_p
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 ehandle = 3;
+      // optional uint32 ehandle = 3 [default = 16777215];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_ehandle(&has_bits);
@@ -46740,20 +46773,20 @@ uint8_t* CDOTAUserMsg_HeroRelicProgress::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_value(), target);
   }
 
-  // optional uint32 ehandle = 3;
-  if (cached_has_bits & 0x00000004u) {
+  // optional uint32 ehandle = 3 [default = 16777215];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_ehandle(), target);
   }
 
   // optional uint32 event_id = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_event_id(), target);
   }
 
   // optional float value_display = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(5, this->_internal_value_display(), target);
   }
@@ -46786,19 +46819,19 @@ size_t CDOTAUserMsg_HeroRelicProgress::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_value());
     }
 
-    // optional uint32 ehandle = 3;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ehandle());
-    }
-
     // optional uint32 event_id = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_event_id());
     }
 
     // optional float value_display = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 4;
+    }
+
+    // optional uint32 ehandle = 3 [default = 16777215];
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ehandle());
     }
 
   }
@@ -46829,13 +46862,13 @@ void CDOTAUserMsg_HeroRelicProgress::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message&
       _this->_impl_.value_ = from._impl_.value_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.ehandle_ = from._impl_.ehandle_;
-    }
-    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.event_id_ = from._impl_.event_id_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.value_display_ = from._impl_.value_display_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.ehandle_ = from._impl_.ehandle_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -46863,6 +46896,7 @@ void CDOTAUserMsg_HeroRelicProgress::InternalSwap(CDOTAUserMsg_HeroRelicProgress
       - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_HeroRelicProgress, _impl_.hero_relic_type_)>(
           reinterpret_cast<char*>(&_impl_.hero_relic_type_),
           reinterpret_cast<char*>(&other->_impl_.hero_relic_type_));
+  swap(_impl_.ehandle_, other->_impl_.ehandle_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_HeroRelicProgress::GetMetadata() const {
@@ -46877,13 +46911,13 @@ class CDOTAUserMsg_AbilityDraftRequestAbility::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_AbilityDraftRequestAbility>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_requested_ability_id(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
-  static void set_has_ctrl_is_down(HasBits* has_bits) {
+  static void set_has_requested_ability_id(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
+  }
+  static void set_has_ctrl_is_down(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -46899,14 +46933,14 @@ CDOTAUserMsg_AbilityDraftRequestAbility::CDOTAUserMsg_AbilityDraftRequestAbility
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.ctrl_is_down_){}
     , decltype(_impl_.player_id_){}
-    , decltype(_impl_.requested_ability_id_){}
-    , decltype(_impl_.ctrl_is_down_){}};
+    , decltype(_impl_.requested_ability_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.ctrl_is_down_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.ctrl_is_down_));
+  ::memcpy(&_impl_.ctrl_is_down_, &from._impl_.ctrl_is_down_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.requested_ability_id_) -
+    reinterpret_cast<char*>(&_impl_.ctrl_is_down_)) + sizeof(_impl_.requested_ability_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_AbilityDraftRequestAbility)
 }
 
@@ -46917,9 +46951,9 @@ inline void CDOTAUserMsg_AbilityDraftRequestAbility::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
-    , decltype(_impl_.requested_ability_id_){0u}
     , decltype(_impl_.ctrl_is_down_){false}
+    , decltype(_impl_.player_id_){-1}
+    , decltype(_impl_.requested_ability_id_){-1}
   };
 }
 
@@ -46948,9 +46982,9 @@ void CDOTAUserMsg_AbilityDraftRequestAbility::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.ctrl_is_down_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.ctrl_is_down_));
+    _impl_.ctrl_is_down_ = false;
+    _impl_.player_id_ = -1;
+    _impl_.requested_ability_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -46963,7 +46997,7 @@ const char* CDOTAUserMsg_AbilityDraftRequestAbility::_InternalParse(const char* 
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -46972,7 +47006,7 @@ const char* CDOTAUserMsg_AbilityDraftRequestAbility::_InternalParse(const char* 
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 requested_ability_id = 2;
+      // optional int32 requested_ability_id = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_requested_ability_id(&has_bits);
@@ -47021,20 +47055,20 @@ uint8_t* CDOTAUserMsg_AbilityDraftRequestAbility::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
-  // optional uint32 requested_ability_id = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 requested_ability_id = 2 [default = -1];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_requested_ability_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_requested_ability_id(), target);
   }
 
   // optional bool ctrl_is_down = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_ctrl_is_down(), target);
   }
@@ -47057,19 +47091,19 @@ size_t CDOTAUserMsg_AbilityDraftRequestAbility::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional int32 player_id = 1;
+    // optional bool ctrl_is_down = 3;
     if (cached_has_bits & 0x00000001u) {
+      total_size += 1 + 1;
+    }
+
+    // optional int32 player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
-    // optional uint32 requested_ability_id = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_requested_ability_id());
-    }
-
-    // optional bool ctrl_is_down = 3;
+    // optional int32 requested_ability_id = 2 [default = -1];
     if (cached_has_bits & 0x00000004u) {
-      total_size += 1 + 1;
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_requested_ability_id());
     }
 
   }
@@ -47094,13 +47128,13 @@ void CDOTAUserMsg_AbilityDraftRequestAbility::MergeImpl(::PROTOBUF_NAMESPACE_ID:
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
+      _this->_impl_.ctrl_is_down_ = from._impl_.ctrl_is_down_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.requested_ability_id_ = from._impl_.requested_ability_id_;
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.ctrl_is_down_ = from._impl_.ctrl_is_down_;
+      _this->_impl_.requested_ability_id_ = from._impl_.requested_ability_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -47122,12 +47156,9 @@ void CDOTAUserMsg_AbilityDraftRequestAbility::InternalSwap(CDOTAUserMsg_AbilityD
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_AbilityDraftRequestAbility, _impl_.ctrl_is_down_)
-      + sizeof(CDOTAUserMsg_AbilityDraftRequestAbility::_impl_.ctrl_is_down_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_AbilityDraftRequestAbility, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+  swap(_impl_.ctrl_is_down_, other->_impl_.ctrl_is_down_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
+  swap(_impl_.requested_ability_id_, other->_impl_.requested_ability_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_AbilityDraftRequestAbility::GetMetadata() const {
@@ -47142,19 +47173,19 @@ class CDOTAUserMsg_DamageReport::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_DamageReport>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_target_hero_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_source_hero_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_damage_amount(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_broadcast(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 8u;
   }
 };
 
@@ -47170,16 +47201,16 @@ CDOTAUserMsg_DamageReport::CDOTAUserMsg_DamageReport(const CDOTAUserMsg_DamageRe
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){}
     , decltype(_impl_.target_hero_id_){}
     , decltype(_impl_.source_hero_id_){}
     , decltype(_impl_.damage_amount_){}
-    , decltype(_impl_.broadcast_){}};
+    , decltype(_impl_.broadcast_){}
+    , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.broadcast_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.broadcast_));
+  ::memcpy(&_impl_.target_hero_id_, &from._impl_.target_hero_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.target_hero_id_)) + sizeof(_impl_.player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_DamageReport)
 }
 
@@ -47190,11 +47221,11 @@ inline void CDOTAUserMsg_DamageReport::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.target_hero_id_){0u}
     , decltype(_impl_.source_hero_id_){0u}
     , decltype(_impl_.damage_amount_){0}
     , decltype(_impl_.broadcast_){false}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -47223,9 +47254,10 @@ void CDOTAUserMsg_DamageReport::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
+    ::memset(&_impl_.target_hero_id_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.broadcast_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.broadcast_));
+        reinterpret_cast<char*>(&_impl_.target_hero_id_)) + sizeof(_impl_.broadcast_));
+    _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -47238,7 +47270,7 @@ const char* CDOTAUserMsg_DamageReport::_InternalParse(const char* ptr, ::_pbi::P
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -47314,32 +47346,32 @@ uint8_t* CDOTAUserMsg_DamageReport::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
   // optional uint32 target_hero_id = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_target_hero_id(), target);
   }
 
   // optional uint32 source_hero_id = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_source_hero_id(), target);
   }
 
   // optional int32 damage_amount = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_damage_amount(), target);
   }
 
   // optional bool broadcast = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(5, this->_internal_broadcast(), target);
   }
@@ -47362,29 +47394,29 @@ size_t CDOTAUserMsg_DamageReport::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    // optional int32 player_id = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
-    }
-
     // optional uint32 target_hero_id = 2;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_target_hero_id());
     }
 
     // optional uint32 source_hero_id = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_source_hero_id());
     }
 
     // optional int32 damage_amount = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_damage_amount());
     }
 
     // optional bool broadcast = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 1;
+    }
+
+    // optional int32 player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
   }
@@ -47409,19 +47441,19 @@ void CDOTAUserMsg_DamageReport::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_m
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.target_hero_id_ = from._impl_.target_hero_id_;
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.source_hero_id_ = from._impl_.source_hero_id_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.damage_amount_ = from._impl_.damage_amount_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.broadcast_ = from._impl_.broadcast_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -47446,9 +47478,10 @@ void CDOTAUserMsg_DamageReport::InternalSwap(CDOTAUserMsg_DamageReport* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_DamageReport, _impl_.broadcast_)
       + sizeof(CDOTAUserMsg_DamageReport::_impl_.broadcast_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_DamageReport, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_DamageReport, _impl_.target_hero_id_)>(
+          reinterpret_cast<char*>(&_impl_.target_hero_id_),
+          reinterpret_cast<char*>(&other->_impl_.target_hero_id_));
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_DamageReport::GetMetadata() const {
@@ -47463,19 +47496,22 @@ class CDOTAUserMsg_SalutePlayer::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_SalutePlayer>()._impl_._has_bits_);
   static void set_has_source_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_target_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 32u;
   }
   static void set_has_tip_amount(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_event_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_custom_tip_style(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
+  }
+  static void set_has_num_recent_tips(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
   }
 };
 
@@ -47492,10 +47528,11 @@ CDOTAUserMsg_SalutePlayer::CDOTAUserMsg_SalutePlayer(const CDOTAUserMsg_SalutePl
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.custom_tip_style_){}
-    , decltype(_impl_.source_player_id_){}
-    , decltype(_impl_.target_player_id_){}
     , decltype(_impl_.tip_amount_){}
-    , decltype(_impl_.event_id_){}};
+    , decltype(_impl_.event_id_){}
+    , decltype(_impl_.num_recent_tips_){}
+    , decltype(_impl_.source_player_id_){}
+    , decltype(_impl_.target_player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _impl_.custom_tip_style_.InitDefault();
@@ -47506,9 +47543,9 @@ CDOTAUserMsg_SalutePlayer::CDOTAUserMsg_SalutePlayer(const CDOTAUserMsg_SalutePl
     _this->_impl_.custom_tip_style_.Set(from._internal_custom_tip_style(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.source_player_id_, &from._impl_.source_player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.event_id_) -
-    reinterpret_cast<char*>(&_impl_.source_player_id_)) + sizeof(_impl_.event_id_));
+  ::memcpy(&_impl_.tip_amount_, &from._impl_.tip_amount_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.target_player_id_) -
+    reinterpret_cast<char*>(&_impl_.tip_amount_)) + sizeof(_impl_.target_player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_SalutePlayer)
 }
 
@@ -47520,10 +47557,11 @@ inline void CDOTAUserMsg_SalutePlayer::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.custom_tip_style_){}
-    , decltype(_impl_.source_player_id_){0}
-    , decltype(_impl_.target_player_id_){0}
     , decltype(_impl_.tip_amount_){0u}
     , decltype(_impl_.event_id_){0u}
+    , decltype(_impl_.num_recent_tips_){0u}
+    , decltype(_impl_.source_player_id_){-1}
+    , decltype(_impl_.target_player_id_){-1}
   };
   _impl_.custom_tip_style_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -47559,10 +47597,12 @@ void CDOTAUserMsg_SalutePlayer::Clear() {
   if (cached_has_bits & 0x00000001u) {
     _impl_.custom_tip_style_.ClearNonDefaultToEmpty();
   }
-  if (cached_has_bits & 0x0000001eu) {
-    ::memset(&_impl_.source_player_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.event_id_) -
-        reinterpret_cast<char*>(&_impl_.source_player_id_)) + sizeof(_impl_.event_id_));
+  if (cached_has_bits & 0x0000003eu) {
+    ::memset(&_impl_.tip_amount_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.num_recent_tips_) -
+        reinterpret_cast<char*>(&_impl_.tip_amount_)) + sizeof(_impl_.num_recent_tips_));
+    _impl_.source_player_id_ = -1;
+    _impl_.target_player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -47575,7 +47615,7 @@ const char* CDOTAUserMsg_SalutePlayer::_InternalParse(const char* ptr, ::_pbi::P
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 source_player_id = 1;
+      // optional int32 source_player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_source_player_id(&has_bits);
@@ -47584,7 +47624,7 @@ const char* CDOTAUserMsg_SalutePlayer::_InternalParse(const char* ptr, ::_pbi::P
         } else
           goto handle_unusual;
         continue;
-      // optional int32 target_player_id = 2;
+      // optional int32 target_player_id = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_target_player_id(&has_bits);
@@ -47623,6 +47663,15 @@ const char* CDOTAUserMsg_SalutePlayer::_InternalParse(const char* ptr, ::_pbi::P
         } else
           goto handle_unusual;
         continue;
+      // optional uint32 num_recent_tips = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          _Internal::set_has_num_recent_tips(&has_bits);
+          _impl_.num_recent_tips_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -47654,26 +47703,26 @@ uint8_t* CDOTAUserMsg_SalutePlayer::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 source_player_id = 1;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 source_player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_source_player_id(), target);
   }
 
-  // optional int32 target_player_id = 2;
-  if (cached_has_bits & 0x00000004u) {
+  // optional int32 target_player_id = 2 [default = -1];
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_target_player_id(), target);
   }
 
   // optional uint32 tip_amount = 3;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_tip_amount(), target);
   }
 
   // optional uint32 event_id = 4;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_event_id(), target);
   }
@@ -47686,6 +47735,12 @@ uint8_t* CDOTAUserMsg_SalutePlayer::_InternalSerialize(
       "CDOTAUserMsg_SalutePlayer.custom_tip_style");
     target = stream->WriteStringMaybeAliased(
         5, this->_internal_custom_tip_style(), target);
+  }
+
+  // optional uint32 num_recent_tips = 6;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_num_recent_tips(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -47705,7 +47760,7 @@ size_t CDOTAUserMsg_SalutePlayer::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x0000003fu) {
     // optional string custom_tip_style = 5;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -47713,24 +47768,29 @@ size_t CDOTAUserMsg_SalutePlayer::ByteSizeLong() const {
           this->_internal_custom_tip_style());
     }
 
-    // optional int32 source_player_id = 1;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_source_player_id());
-    }
-
-    // optional int32 target_player_id = 2;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_player_id());
-    }
-
     // optional uint32 tip_amount = 3;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_tip_amount());
     }
 
     // optional uint32 event_id = 4;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_event_id());
+    }
+
+    // optional uint32 num_recent_tips = 6;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_num_recent_tips());
+    }
+
+    // optional int32 source_player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_source_player_id());
+    }
+
+    // optional int32 target_player_id = 2 [default = -1];
+    if (cached_has_bits & 0x00000020u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_player_id());
     }
 
   }
@@ -47753,21 +47813,24 @@ void CDOTAUserMsg_SalutePlayer::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_m
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x0000003fu) {
     if (cached_has_bits & 0x00000001u) {
       _this->_internal_set_custom_tip_style(from._internal_custom_tip_style());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.source_player_id_ = from._impl_.source_player_id_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.target_player_id_ = from._impl_.target_player_id_;
-    }
-    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.tip_amount_ = from._impl_.tip_amount_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.event_id_ = from._impl_.event_id_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.num_recent_tips_ = from._impl_.num_recent_tips_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.source_player_id_ = from._impl_.source_player_id_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      _this->_impl_.target_player_id_ = from._impl_.target_player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -47796,11 +47859,13 @@ void CDOTAUserMsg_SalutePlayer::InternalSwap(CDOTAUserMsg_SalutePlayer* other) {
       &other->_impl_.custom_tip_style_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_SalutePlayer, _impl_.event_id_)
-      + sizeof(CDOTAUserMsg_SalutePlayer::_impl_.event_id_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_SalutePlayer, _impl_.source_player_id_)>(
-          reinterpret_cast<char*>(&_impl_.source_player_id_),
-          reinterpret_cast<char*>(&other->_impl_.source_player_id_));
+      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_SalutePlayer, _impl_.num_recent_tips_)
+      + sizeof(CDOTAUserMsg_SalutePlayer::_impl_.num_recent_tips_)
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_SalutePlayer, _impl_.tip_amount_)>(
+          reinterpret_cast<char*>(&_impl_.tip_amount_),
+          reinterpret_cast<char*>(&other->_impl_.tip_amount_));
+  swap(_impl_.source_player_id_, other->_impl_.source_player_id_);
+  swap(_impl_.target_player_id_, other->_impl_.target_player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_SalutePlayer::GetMetadata() const {
@@ -47858,7 +47923,7 @@ inline void CDOTAUserMsg_TipAlert::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.tip_text_){}
-    , decltype(_impl_.player_id_){0}
+    , decltype(_impl_.player_id_){-1}
   };
   _impl_.tip_text_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -47891,10 +47956,12 @@ void CDOTAUserMsg_TipAlert::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    _impl_.tip_text_.ClearNonDefaultToEmpty();
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _impl_.tip_text_.ClearNonDefaultToEmpty();
+    }
+    _impl_.player_id_ = -1;
   }
-  _impl_.player_id_ = 0;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -47906,7 +47973,7 @@ const char* CDOTAUserMsg_TipAlert::_InternalParse(const char* ptr, ::_pbi::Parse
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -47958,7 +48025,7 @@ uint8_t* CDOTAUserMsg_TipAlert::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
@@ -47999,7 +48066,7 @@ size_t CDOTAUserMsg_TipAlert::ByteSizeLong() const {
           this->_internal_tip_text());
     }
 
-    // optional int32 player_id = 1;
+    // optional int32 player_id = 1 [default = -1];
     if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
@@ -48072,16 +48139,16 @@ class CDOTAUserMsg_ReplaceQueryUnit::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_ReplaceQueryUnit>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_source_entindex(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
-  static void set_has_target_entindex(HasBits* has_bits) {
+  static void set_has_source_entindex(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
+  static void set_has_target_entindex(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
   static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000001) ^ 0x00000001) != 0;
+    return ((has_bits[0] & 0x00000002) ^ 0x00000002) != 0;
   }
 };
 
@@ -48097,14 +48164,14 @@ CDOTAUserMsg_ReplaceQueryUnit::CDOTAUserMsg_ReplaceQueryUnit(const CDOTAUserMsg_
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.target_entindex_){}
     , decltype(_impl_.player_id_){}
-    , decltype(_impl_.source_entindex_){}
-    , decltype(_impl_.target_entindex_){}};
+    , decltype(_impl_.source_entindex_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.target_entindex_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.target_entindex_));
+  ::memcpy(&_impl_.target_entindex_, &from._impl_.target_entindex_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.source_entindex_) -
+    reinterpret_cast<char*>(&_impl_.target_entindex_)) + sizeof(_impl_.source_entindex_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_ReplaceQueryUnit)
 }
 
@@ -48115,9 +48182,9 @@ inline void CDOTAUserMsg_ReplaceQueryUnit::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
-    , decltype(_impl_.source_entindex_){0}
-    , decltype(_impl_.target_entindex_){0}
+    , decltype(_impl_.target_entindex_){-1}
+    , decltype(_impl_.player_id_){-1}
+    , decltype(_impl_.source_entindex_){-1}
   };
 }
 
@@ -48146,9 +48213,9 @@ void CDOTAUserMsg_ReplaceQueryUnit::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.target_entindex_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.target_entindex_));
+    _impl_.target_entindex_ = -1;
+    _impl_.player_id_ = -1;
+    _impl_.source_entindex_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -48161,7 +48228,7 @@ const char* CDOTAUserMsg_ReplaceQueryUnit::_InternalParse(const char* ptr, ::_pb
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required int32 player_id = 1;
+      // required int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -48170,7 +48237,7 @@ const char* CDOTAUserMsg_ReplaceQueryUnit::_InternalParse(const char* ptr, ::_pb
         } else
           goto handle_unusual;
         continue;
-      // optional int32 source_entindex = 2;
+      // optional int32 source_entindex = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_source_entindex(&has_bits);
@@ -48179,7 +48246,7 @@ const char* CDOTAUserMsg_ReplaceQueryUnit::_InternalParse(const char* ptr, ::_pb
         } else
           goto handle_unusual;
         continue;
-      // optional int32 target_entindex = 3;
+      // optional int32 target_entindex = 3 [default = -1];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_target_entindex(&has_bits);
@@ -48219,20 +48286,20 @@ uint8_t* CDOTAUserMsg_ReplaceQueryUnit::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // required int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
-  // optional int32 source_entindex = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 source_entindex = 2 [default = -1];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_source_entindex(), target);
   }
 
-  // optional int32 target_entindex = 3;
-  if (cached_has_bits & 0x00000004u) {
+  // optional int32 target_entindex = 3 [default = -1];
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_target_entindex(), target);
   }
@@ -48249,7 +48316,7 @@ size_t CDOTAUserMsg_ReplaceQueryUnit::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CDOTAUserMsg_ReplaceQueryUnit)
   size_t total_size = 0;
 
-  // required int32 player_id = 1;
+  // required int32 player_id = 1 [default = -1];
   if (_internal_has_player_id()) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
   }
@@ -48257,19 +48324,17 @@ size_t CDOTAUserMsg_ReplaceQueryUnit::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  // optional int32 target_entindex = 3 [default = -1];
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000006u) {
-    // optional int32 source_entindex = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_source_entindex());
-    }
-
-    // optional int32 target_entindex = 3;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_entindex());
-    }
-
+  if (cached_has_bits & 0x00000001u) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_entindex());
   }
+
+  // optional int32 source_entindex = 2 [default = -1];
+  if (cached_has_bits & 0x00000004u) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_source_entindex());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -48291,13 +48356,13 @@ void CDOTAUserMsg_ReplaceQueryUnit::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& 
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
+      _this->_impl_.target_entindex_ = from._impl_.target_entindex_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.source_entindex_ = from._impl_.source_entindex_;
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.target_entindex_ = from._impl_.target_entindex_;
+      _this->_impl_.source_entindex_ = from._impl_.source_entindex_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -48320,12 +48385,9 @@ void CDOTAUserMsg_ReplaceQueryUnit::InternalSwap(CDOTAUserMsg_ReplaceQueryUnit* 
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ReplaceQueryUnit, _impl_.target_entindex_)
-      + sizeof(CDOTAUserMsg_ReplaceQueryUnit::_impl_.target_entindex_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ReplaceQueryUnit, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+  swap(_impl_.target_entindex_, other->_impl_.target_entindex_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
+  swap(_impl_.source_entindex_, other->_impl_.source_entindex_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_ReplaceQueryUnit::GetMetadata() const {
@@ -48340,13 +48402,13 @@ class CDOTAUserMsg_ESArcanaCombo::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_ESArcanaCombo>()._impl_._has_bits_);
   static void set_has_ehandle(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_combo_count(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_arcana_level(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
 };
 
@@ -48362,14 +48424,14 @@ CDOTAUserMsg_ESArcanaCombo::CDOTAUserMsg_ESArcanaCombo(const CDOTAUserMsg_ESArca
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.ehandle_){}
     , decltype(_impl_.combo_count_){}
-    , decltype(_impl_.arcana_level_){}};
+    , decltype(_impl_.arcana_level_){}
+    , decltype(_impl_.ehandle_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.ehandle_, &from._impl_.ehandle_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.arcana_level_) -
-    reinterpret_cast<char*>(&_impl_.ehandle_)) + sizeof(_impl_.arcana_level_));
+  ::memcpy(&_impl_.combo_count_, &from._impl_.combo_count_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.ehandle_) -
+    reinterpret_cast<char*>(&_impl_.combo_count_)) + sizeof(_impl_.ehandle_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_ESArcanaCombo)
 }
 
@@ -48380,9 +48442,9 @@ inline void CDOTAUserMsg_ESArcanaCombo::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.ehandle_){0u}
     , decltype(_impl_.combo_count_){0u}
     , decltype(_impl_.arcana_level_){0u}
+    , decltype(_impl_.ehandle_){16777215u}
   };
 }
 
@@ -48411,9 +48473,10 @@ void CDOTAUserMsg_ESArcanaCombo::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    ::memset(&_impl_.ehandle_, 0, static_cast<size_t>(
+    ::memset(&_impl_.combo_count_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.arcana_level_) -
-        reinterpret_cast<char*>(&_impl_.ehandle_)) + sizeof(_impl_.arcana_level_));
+        reinterpret_cast<char*>(&_impl_.combo_count_)) + sizeof(_impl_.arcana_level_));
+    _impl_.ehandle_ = 16777215u;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -48426,7 +48489,7 @@ const char* CDOTAUserMsg_ESArcanaCombo::_InternalParse(const char* ptr, ::_pbi::
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 ehandle = 1;
+      // optional uint32 ehandle = 1 [default = 16777215];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_ehandle(&has_bits);
@@ -48484,20 +48547,20 @@ uint8_t* CDOTAUserMsg_ESArcanaCombo::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 ehandle = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional uint32 ehandle = 1 [default = 16777215];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_ehandle(), target);
   }
 
   // optional uint32 combo_count = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_combo_count(), target);
   }
 
   // optional uint32 arcana_level = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_arcana_level(), target);
   }
@@ -48520,19 +48583,19 @@ size_t CDOTAUserMsg_ESArcanaCombo::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional uint32 ehandle = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ehandle());
-    }
-
     // optional uint32 combo_count = 2;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_combo_count());
     }
 
     // optional uint32 arcana_level = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_arcana_level());
+    }
+
+    // optional uint32 ehandle = 1 [default = 16777215];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ehandle());
     }
 
   }
@@ -48557,13 +48620,13 @@ void CDOTAUserMsg_ESArcanaCombo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.ehandle_ = from._impl_.ehandle_;
-    }
-    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.combo_count_ = from._impl_.combo_count_;
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.arcana_level_ = from._impl_.arcana_level_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.ehandle_ = from._impl_.ehandle_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -48588,9 +48651,10 @@ void CDOTAUserMsg_ESArcanaCombo::InternalSwap(CDOTAUserMsg_ESArcanaCombo* other)
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ESArcanaCombo, _impl_.arcana_level_)
       + sizeof(CDOTAUserMsg_ESArcanaCombo::_impl_.arcana_level_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ESArcanaCombo, _impl_.ehandle_)>(
-          reinterpret_cast<char*>(&_impl_.ehandle_),
-          reinterpret_cast<char*>(&other->_impl_.ehandle_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ESArcanaCombo, _impl_.combo_count_)>(
+          reinterpret_cast<char*>(&_impl_.combo_count_),
+          reinterpret_cast<char*>(&other->_impl_.combo_count_));
+  swap(_impl_.ehandle_, other->_impl_.ehandle_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_ESArcanaCombo::GetMetadata() const {
@@ -48605,13 +48669,13 @@ class CDOTAUserMsg_ESArcanaComboSummary::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_ESArcanaComboSummary>()._impl_._has_bits_);
   static void set_has_ehandle(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_combo_count(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_damage_amount(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
 };
 
@@ -48627,14 +48691,14 @@ CDOTAUserMsg_ESArcanaComboSummary::CDOTAUserMsg_ESArcanaComboSummary(const CDOTA
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.ehandle_){}
     , decltype(_impl_.combo_count_){}
-    , decltype(_impl_.damage_amount_){}};
+    , decltype(_impl_.damage_amount_){}
+    , decltype(_impl_.ehandle_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.ehandle_, &from._impl_.ehandle_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.damage_amount_) -
-    reinterpret_cast<char*>(&_impl_.ehandle_)) + sizeof(_impl_.damage_amount_));
+  ::memcpy(&_impl_.combo_count_, &from._impl_.combo_count_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.ehandle_) -
+    reinterpret_cast<char*>(&_impl_.combo_count_)) + sizeof(_impl_.ehandle_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_ESArcanaComboSummary)
 }
 
@@ -48645,9 +48709,9 @@ inline void CDOTAUserMsg_ESArcanaComboSummary::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.ehandle_){0u}
     , decltype(_impl_.combo_count_){0u}
     , decltype(_impl_.damage_amount_){0u}
+    , decltype(_impl_.ehandle_){16777215u}
   };
 }
 
@@ -48676,9 +48740,10 @@ void CDOTAUserMsg_ESArcanaComboSummary::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    ::memset(&_impl_.ehandle_, 0, static_cast<size_t>(
+    ::memset(&_impl_.combo_count_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.damage_amount_) -
-        reinterpret_cast<char*>(&_impl_.ehandle_)) + sizeof(_impl_.damage_amount_));
+        reinterpret_cast<char*>(&_impl_.combo_count_)) + sizeof(_impl_.damage_amount_));
+    _impl_.ehandle_ = 16777215u;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -48691,7 +48756,7 @@ const char* CDOTAUserMsg_ESArcanaComboSummary::_InternalParse(const char* ptr, :
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 ehandle = 1;
+      // optional uint32 ehandle = 1 [default = 16777215];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_ehandle(&has_bits);
@@ -48749,20 +48814,20 @@ uint8_t* CDOTAUserMsg_ESArcanaComboSummary::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 ehandle = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional uint32 ehandle = 1 [default = 16777215];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_ehandle(), target);
   }
 
   // optional uint32 combo_count = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_combo_count(), target);
   }
 
   // optional uint32 damage_amount = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_damage_amount(), target);
   }
@@ -48785,19 +48850,19 @@ size_t CDOTAUserMsg_ESArcanaComboSummary::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional uint32 ehandle = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ehandle());
-    }
-
     // optional uint32 combo_count = 2;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_combo_count());
     }
 
     // optional uint32 damage_amount = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_damage_amount());
+    }
+
+    // optional uint32 ehandle = 1 [default = 16777215];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ehandle());
     }
 
   }
@@ -48822,13 +48887,13 @@ void CDOTAUserMsg_ESArcanaComboSummary::MergeImpl(::PROTOBUF_NAMESPACE_ID::Messa
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.ehandle_ = from._impl_.ehandle_;
-    }
-    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.combo_count_ = from._impl_.combo_count_;
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.damage_amount_ = from._impl_.damage_amount_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.ehandle_ = from._impl_.ehandle_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -48853,9 +48918,10 @@ void CDOTAUserMsg_ESArcanaComboSummary::InternalSwap(CDOTAUserMsg_ESArcanaComboS
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ESArcanaComboSummary, _impl_.damage_amount_)
       + sizeof(CDOTAUserMsg_ESArcanaComboSummary::_impl_.damage_amount_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ESArcanaComboSummary, _impl_.ehandle_)>(
-          reinterpret_cast<char*>(&_impl_.ehandle_),
-          reinterpret_cast<char*>(&other->_impl_.ehandle_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ESArcanaComboSummary, _impl_.combo_count_)>(
+          reinterpret_cast<char*>(&_impl_.combo_count_),
+          reinterpret_cast<char*>(&other->_impl_.combo_count_));
+  swap(_impl_.ehandle_, other->_impl_.ehandle_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_ESArcanaComboSummary::GetMetadata() const {
@@ -48870,16 +48936,16 @@ class CDOTAUserMsg_OMArcanaCombo::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_OMArcanaCombo>()._impl_._has_bits_);
   static void set_has_ehandle(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_multicast_amount(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_arcana_level(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_multicast_chance(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
 };
 
@@ -48895,15 +48961,15 @@ CDOTAUserMsg_OMArcanaCombo::CDOTAUserMsg_OMArcanaCombo(const CDOTAUserMsg_OMArca
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.ehandle_){}
     , decltype(_impl_.multicast_amount_){}
     , decltype(_impl_.arcana_level_){}
-    , decltype(_impl_.multicast_chance_){}};
+    , decltype(_impl_.multicast_chance_){}
+    , decltype(_impl_.ehandle_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.ehandle_, &from._impl_.ehandle_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.multicast_chance_) -
-    reinterpret_cast<char*>(&_impl_.ehandle_)) + sizeof(_impl_.multicast_chance_));
+  ::memcpy(&_impl_.multicast_amount_, &from._impl_.multicast_amount_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.ehandle_) -
+    reinterpret_cast<char*>(&_impl_.multicast_amount_)) + sizeof(_impl_.ehandle_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_OMArcanaCombo)
 }
 
@@ -48914,10 +48980,10 @@ inline void CDOTAUserMsg_OMArcanaCombo::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.ehandle_){0u}
     , decltype(_impl_.multicast_amount_){0u}
     , decltype(_impl_.arcana_level_){0u}
     , decltype(_impl_.multicast_chance_){0u}
+    , decltype(_impl_.ehandle_){16777215u}
   };
 }
 
@@ -48946,9 +49012,10 @@ void CDOTAUserMsg_OMArcanaCombo::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    ::memset(&_impl_.ehandle_, 0, static_cast<size_t>(
+    ::memset(&_impl_.multicast_amount_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.multicast_chance_) -
-        reinterpret_cast<char*>(&_impl_.ehandle_)) + sizeof(_impl_.multicast_chance_));
+        reinterpret_cast<char*>(&_impl_.multicast_amount_)) + sizeof(_impl_.multicast_chance_));
+    _impl_.ehandle_ = 16777215u;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -48961,7 +49028,7 @@ const char* CDOTAUserMsg_OMArcanaCombo::_InternalParse(const char* ptr, ::_pbi::
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 ehandle = 1;
+      // optional uint32 ehandle = 1 [default = 16777215];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_ehandle(&has_bits);
@@ -49028,26 +49095,26 @@ uint8_t* CDOTAUserMsg_OMArcanaCombo::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 ehandle = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional uint32 ehandle = 1 [default = 16777215];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_ehandle(), target);
   }
 
   // optional uint32 multicast_amount = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_multicast_amount(), target);
   }
 
   // optional uint32 arcana_level = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_arcana_level(), target);
   }
 
   // optional uint32 multicast_chance = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_multicast_chance(), target);
   }
@@ -49070,24 +49137,24 @@ size_t CDOTAUserMsg_OMArcanaCombo::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional uint32 ehandle = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ehandle());
-    }
-
     // optional uint32 multicast_amount = 2;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_multicast_amount());
     }
 
     // optional uint32 arcana_level = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_arcana_level());
     }
 
     // optional uint32 multicast_chance = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_multicast_chance());
+    }
+
+    // optional uint32 ehandle = 1 [default = 16777215];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ehandle());
     }
 
   }
@@ -49112,16 +49179,16 @@ void CDOTAUserMsg_OMArcanaCombo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.ehandle_ = from._impl_.ehandle_;
-    }
-    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.multicast_amount_ = from._impl_.multicast_amount_;
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.arcana_level_ = from._impl_.arcana_level_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.multicast_chance_ = from._impl_.multicast_chance_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.ehandle_ = from._impl_.ehandle_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -49146,9 +49213,10 @@ void CDOTAUserMsg_OMArcanaCombo::InternalSwap(CDOTAUserMsg_OMArcanaCombo* other)
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_OMArcanaCombo, _impl_.multicast_chance_)
       + sizeof(CDOTAUserMsg_OMArcanaCombo::_impl_.multicast_chance_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_OMArcanaCombo, _impl_.ehandle_)>(
-          reinterpret_cast<char*>(&_impl_.ehandle_),
-          reinterpret_cast<char*>(&other->_impl_.ehandle_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_OMArcanaCombo, _impl_.multicast_amount_)>(
+          reinterpret_cast<char*>(&_impl_.multicast_amount_),
+          reinterpret_cast<char*>(&other->_impl_.multicast_amount_));
+  swap(_impl_.ehandle_, other->_impl_.ehandle_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_OMArcanaCombo::GetMetadata() const {
@@ -49163,16 +49231,16 @@ class CDOTAUserMsg_HighFiveCompleted::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_HighFiveCompleted>()._impl_._has_bits_);
   static void set_has_player_id_1(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_player_id_2(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_special_high_five(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
-  static void set_has_special_entindex(HasBits* has_bits) {
+  static void set_has_player_id_2(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
+  }
+  static void set_has_special_high_five(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_special_entindex(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
   }
 };
 
@@ -49188,15 +49256,15 @@ CDOTAUserMsg_HighFiveCompleted::CDOTAUserMsg_HighFiveCompleted(const CDOTAUserMs
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_1_){}
-    , decltype(_impl_.player_id_2_){}
     , decltype(_impl_.special_high_five_){}
-    , decltype(_impl_.special_entindex_){}};
+    , decltype(_impl_.special_entindex_){}
+    , decltype(_impl_.player_id_1_){}
+    , decltype(_impl_.player_id_2_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_1_, &from._impl_.player_id_1_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.special_entindex_) -
-    reinterpret_cast<char*>(&_impl_.player_id_1_)) + sizeof(_impl_.special_entindex_));
+  ::memcpy(&_impl_.special_high_five_, &from._impl_.special_high_five_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_2_) -
+    reinterpret_cast<char*>(&_impl_.special_high_five_)) + sizeof(_impl_.player_id_2_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_HighFiveCompleted)
 }
 
@@ -49207,10 +49275,10 @@ inline void CDOTAUserMsg_HighFiveCompleted::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_1_){0}
-    , decltype(_impl_.player_id_2_){0}
     , decltype(_impl_.special_high_five_){false}
-    , decltype(_impl_.special_entindex_){0}
+    , decltype(_impl_.special_entindex_){-1}
+    , decltype(_impl_.player_id_1_){-1}
+    , decltype(_impl_.player_id_2_){-1}
   };
 }
 
@@ -49239,9 +49307,10 @@ void CDOTAUserMsg_HighFiveCompleted::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    ::memset(&_impl_.player_id_1_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.special_entindex_) -
-        reinterpret_cast<char*>(&_impl_.player_id_1_)) + sizeof(_impl_.special_entindex_));
+    _impl_.special_high_five_ = false;
+    _impl_.special_entindex_ = -1;
+    _impl_.player_id_1_ = -1;
+    _impl_.player_id_2_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -49254,7 +49323,7 @@ const char* CDOTAUserMsg_HighFiveCompleted::_InternalParse(const char* ptr, ::_p
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id_1 = 1;
+      // optional int32 player_id_1 = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id_1(&has_bits);
@@ -49263,7 +49332,7 @@ const char* CDOTAUserMsg_HighFiveCompleted::_InternalParse(const char* ptr, ::_p
         } else
           goto handle_unusual;
         continue;
-      // optional int32 player_id_2 = 2;
+      // optional int32 player_id_2 = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_player_id_2(&has_bits);
@@ -49281,7 +49350,7 @@ const char* CDOTAUserMsg_HighFiveCompleted::_InternalParse(const char* ptr, ::_p
         } else
           goto handle_unusual;
         continue;
-      // optional int32 special_entindex = 4;
+      // optional int32 special_entindex = 4 [default = -1];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _Internal::set_has_special_entindex(&has_bits);
@@ -49321,26 +49390,26 @@ uint8_t* CDOTAUserMsg_HighFiveCompleted::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id_1 = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player_id_1 = 1 [default = -1];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id_1(), target);
   }
 
-  // optional int32 player_id_2 = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 player_id_2 = 2 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_player_id_2(), target);
   }
 
   // optional bool special_high_five = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_special_high_five(), target);
   }
 
-  // optional int32 special_entindex = 4;
-  if (cached_has_bits & 0x00000008u) {
+  // optional int32 special_entindex = 4 [default = -1];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_special_entindex(), target);
   }
@@ -49363,24 +49432,24 @@ size_t CDOTAUserMsg_HighFiveCompleted::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional int32 player_id_1 = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id_1());
-    }
-
-    // optional int32 player_id_2 = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id_2());
-    }
-
     // optional bool special_high_five = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 1;
     }
 
-    // optional int32 special_entindex = 4;
-    if (cached_has_bits & 0x00000008u) {
+    // optional int32 special_entindex = 4 [default = -1];
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_special_entindex());
+    }
+
+    // optional int32 player_id_1 = 1 [default = -1];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id_1());
+    }
+
+    // optional int32 player_id_2 = 2 [default = -1];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id_2());
     }
 
   }
@@ -49405,16 +49474,16 @@ void CDOTAUserMsg_HighFiveCompleted::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message&
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_1_ = from._impl_.player_id_1_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.player_id_2_ = from._impl_.player_id_2_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.special_high_five_ = from._impl_.special_high_five_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.special_entindex_ = from._impl_.special_entindex_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.player_id_1_ = from._impl_.player_id_1_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.player_id_2_ = from._impl_.player_id_2_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -49436,12 +49505,10 @@ void CDOTAUserMsg_HighFiveCompleted::InternalSwap(CDOTAUserMsg_HighFiveCompleted
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_HighFiveCompleted, _impl_.special_entindex_)
-      + sizeof(CDOTAUserMsg_HighFiveCompleted::_impl_.special_entindex_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_HighFiveCompleted, _impl_.player_id_1_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_1_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_1_));
+  swap(_impl_.special_high_five_, other->_impl_.special_high_five_);
+  swap(_impl_.special_entindex_, other->_impl_.special_entindex_);
+  swap(_impl_.player_id_1_, other->_impl_.player_id_1_);
+  swap(_impl_.player_id_2_, other->_impl_.player_id_2_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_HighFiveCompleted::GetMetadata() const {
@@ -49486,7 +49553,7 @@ inline void CDOTAUserMsg_HighFiveLeftHanging::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -49513,7 +49580,7 @@ void CDOTAUserMsg_HighFiveLeftHanging::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.player_id_ = 0;
+  _impl_.player_id_ = -1;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -49525,7 +49592,7 @@ const char* CDOTAUserMsg_HighFiveLeftHanging::_InternalParse(const char* ptr, ::
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -49565,7 +49632,7 @@ uint8_t* CDOTAUserMsg_HighFiveLeftHanging::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
@@ -49587,7 +49654,7 @@ size_t CDOTAUserMsg_HighFiveLeftHanging::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
@@ -49647,16 +49714,16 @@ class CDOTAUserMsg_ShovelUnearth::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_ShovelUnearth>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_all_chat(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_locstring(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_quantity(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
 };
 
@@ -49673,9 +49740,9 @@ CDOTAUserMsg_ShovelUnearth::CDOTAUserMsg_ShovelUnearth(const CDOTAUserMsg_Shovel
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.locstring_){}
-    , decltype(_impl_.player_id_){}
     , decltype(_impl_.all_chat_){}
-    , decltype(_impl_.quantity_){}};
+    , decltype(_impl_.quantity_){}
+    , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _impl_.locstring_.InitDefault();
@@ -49686,9 +49753,9 @@ CDOTAUserMsg_ShovelUnearth::CDOTAUserMsg_ShovelUnearth(const CDOTAUserMsg_Shovel
     _this->_impl_.locstring_.Set(from._internal_locstring(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.quantity_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.quantity_));
+  ::memcpy(&_impl_.all_chat_, &from._impl_.all_chat_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.all_chat_)) + sizeof(_impl_.player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_ShovelUnearth)
 }
 
@@ -49700,9 +49767,9 @@ inline void CDOTAUserMsg_ShovelUnearth::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.locstring_){}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.all_chat_){false}
     , decltype(_impl_.quantity_){0u}
+    , decltype(_impl_.player_id_){-1}
   };
   _impl_.locstring_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -49739,9 +49806,10 @@ void CDOTAUserMsg_ShovelUnearth::Clear() {
     _impl_.locstring_.ClearNonDefaultToEmpty();
   }
   if (cached_has_bits & 0x0000000eu) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
+    ::memset(&_impl_.all_chat_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.quantity_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.quantity_));
+        reinterpret_cast<char*>(&_impl_.all_chat_)) + sizeof(_impl_.quantity_));
+    _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -49754,7 +49822,7 @@ const char* CDOTAUserMsg_ShovelUnearth::_InternalParse(const char* ptr, ::_pbi::
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -49824,14 +49892,14 @@ uint8_t* CDOTAUserMsg_ShovelUnearth::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
   // optional bool all_chat = 2;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_all_chat(), target);
   }
@@ -49847,7 +49915,7 @@ uint8_t* CDOTAUserMsg_ShovelUnearth::_InternalSerialize(
   }
 
   // optional uint32 quantity = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_quantity(), target);
   }
@@ -49877,19 +49945,19 @@ size_t CDOTAUserMsg_ShovelUnearth::ByteSizeLong() const {
           this->_internal_locstring());
     }
 
-    // optional int32 player_id = 1;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
-    }
-
     // optional bool all_chat = 2;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
 
     // optional uint32 quantity = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_quantity());
+    }
+
+    // optional int32 player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
   }
@@ -49917,13 +49985,13 @@ void CDOTAUserMsg_ShovelUnearth::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_
       _this->_internal_set_locstring(from._internal_locstring());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.all_chat_ = from._impl_.all_chat_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.quantity_ = from._impl_.quantity_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -49954,9 +50022,10 @@ void CDOTAUserMsg_ShovelUnearth::InternalSwap(CDOTAUserMsg_ShovelUnearth* other)
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ShovelUnearth, _impl_.quantity_)
       + sizeof(CDOTAUserMsg_ShovelUnearth::_impl_.quantity_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ShovelUnearth, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ShovelUnearth, _impl_.all_chat_)>(
+          reinterpret_cast<char*>(&_impl_.all_chat_),
+          reinterpret_cast<char*>(&other->_impl_.all_chat_));
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_ShovelUnearth::GetMetadata() const {
@@ -49971,10 +50040,10 @@ class CDOTAUserMsg_AllStarEvent_PlayerScore::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_AllStarEvent_PlayerScore>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_score_sans_kda(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -49990,13 +50059,13 @@ CDOTAUserMsg_AllStarEvent_PlayerScore::CDOTAUserMsg_AllStarEvent_PlayerScore(con
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){}
-    , decltype(_impl_.score_sans_kda_){}};
+    , decltype(_impl_.score_sans_kda_){}
+    , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.score_sans_kda_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.score_sans_kda_));
+  ::memcpy(&_impl_.score_sans_kda_, &from._impl_.score_sans_kda_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.score_sans_kda_)) + sizeof(_impl_.player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_AllStarEvent.PlayerScore)
 }
 
@@ -50007,8 +50076,8 @@ inline void CDOTAUserMsg_AllStarEvent_PlayerScore::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.score_sans_kda_){0u}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -50037,9 +50106,8 @@ void CDOTAUserMsg_AllStarEvent_PlayerScore::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.score_sans_kda_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.score_sans_kda_));
+    _impl_.score_sans_kda_ = 0u;
+    _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -50052,7 +50120,7 @@ const char* CDOTAUserMsg_AllStarEvent_PlayerScore::_InternalParse(const char* pt
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -50101,14 +50169,14 @@ uint8_t* CDOTAUserMsg_AllStarEvent_PlayerScore::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
   // optional uint32 score_sans_kda = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_score_sans_kda(), target);
   }
@@ -50131,14 +50199,14 @@ size_t CDOTAUserMsg_AllStarEvent_PlayerScore::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional int32 player_id = 1;
+    // optional uint32 score_sans_kda = 2;
     if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_score_sans_kda());
     }
 
-    // optional uint32 score_sans_kda = 2;
+    // optional int32 player_id = 1 [default = -1];
     if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_score_sans_kda());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
   }
@@ -50163,10 +50231,10 @@ void CDOTAUserMsg_AllStarEvent_PlayerScore::MergeImpl(::PROTOBUF_NAMESPACE_ID::M
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
+      _this->_impl_.score_sans_kda_ = from._impl_.score_sans_kda_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.score_sans_kda_ = from._impl_.score_sans_kda_;
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -50188,12 +50256,8 @@ void CDOTAUserMsg_AllStarEvent_PlayerScore::InternalSwap(CDOTAUserMsg_AllStarEve
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_AllStarEvent_PlayerScore, _impl_.score_sans_kda_)
-      + sizeof(CDOTAUserMsg_AllStarEvent_PlayerScore::_impl_.score_sans_kda_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_AllStarEvent_PlayerScore, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+  swap(_impl_.score_sans_kda_, other->_impl_.score_sans_kda_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_AllStarEvent_PlayerScore::GetMetadata() const {
@@ -50208,16 +50272,16 @@ class CDOTAUserMsg_AllStarEvent::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_AllStarEvent>()._impl_._has_bits_);
   static void set_has_source_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_target_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_point_amount(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
-  static void set_has_event_id(HasBits* has_bits) {
+  static void set_has_target_player_id(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
+  }
+  static void set_has_point_amount(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_event_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
   }
 };
 
@@ -50234,15 +50298,15 @@ CDOTAUserMsg_AllStarEvent::CDOTAUserMsg_AllStarEvent(const CDOTAUserMsg_AllStarE
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.player_scores_){from._impl_.player_scores_}
-    , decltype(_impl_.source_player_id_){}
-    , decltype(_impl_.target_player_id_){}
     , decltype(_impl_.point_amount_){}
-    , decltype(_impl_.event_id_){}};
+    , decltype(_impl_.event_id_){}
+    , decltype(_impl_.source_player_id_){}
+    , decltype(_impl_.target_player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.source_player_id_, &from._impl_.source_player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.event_id_) -
-    reinterpret_cast<char*>(&_impl_.source_player_id_)) + sizeof(_impl_.event_id_));
+  ::memcpy(&_impl_.point_amount_, &from._impl_.point_amount_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.target_player_id_) -
+    reinterpret_cast<char*>(&_impl_.point_amount_)) + sizeof(_impl_.target_player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_AllStarEvent)
 }
 
@@ -50254,10 +50318,10 @@ inline void CDOTAUserMsg_AllStarEvent::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.player_scores_){arena}
-    , decltype(_impl_.source_player_id_){0}
-    , decltype(_impl_.target_player_id_){0}
     , decltype(_impl_.point_amount_){0u}
     , decltype(_impl_.event_id_){0u}
+    , decltype(_impl_.source_player_id_){-1}
+    , decltype(_impl_.target_player_id_){-1}
   };
 }
 
@@ -50288,9 +50352,11 @@ void CDOTAUserMsg_AllStarEvent::Clear() {
   _impl_.player_scores_.Clear();
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    ::memset(&_impl_.source_player_id_, 0, static_cast<size_t>(
+    ::memset(&_impl_.point_amount_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.event_id_) -
-        reinterpret_cast<char*>(&_impl_.source_player_id_)) + sizeof(_impl_.event_id_));
+        reinterpret_cast<char*>(&_impl_.point_amount_)) + sizeof(_impl_.event_id_));
+    _impl_.source_player_id_ = -1;
+    _impl_.target_player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -50303,7 +50369,7 @@ const char* CDOTAUserMsg_AllStarEvent::_InternalParse(const char* ptr, ::_pbi::P
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 source_player_id = 1;
+      // optional int32 source_player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_source_player_id(&has_bits);
@@ -50312,7 +50378,7 @@ const char* CDOTAUserMsg_AllStarEvent::_InternalParse(const char* ptr, ::_pbi::P
         } else
           goto handle_unusual;
         continue;
-      // optional int32 target_player_id = 2;
+      // optional int32 target_player_id = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_target_player_id(&has_bits);
@@ -50383,26 +50449,26 @@ uint8_t* CDOTAUserMsg_AllStarEvent::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 source_player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 source_player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_source_player_id(), target);
   }
 
-  // optional int32 target_player_id = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 target_player_id = 2 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_target_player_id(), target);
   }
 
   // optional uint32 point_amount = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_point_amount(), target);
   }
 
   // optional uint32 event_id = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_event_id(), target);
   }
@@ -50440,24 +50506,24 @@ size_t CDOTAUserMsg_AllStarEvent::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional int32 source_player_id = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_source_player_id());
-    }
-
-    // optional int32 target_player_id = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_player_id());
-    }
-
     // optional uint32 point_amount = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_point_amount());
     }
 
     // optional uint32 event_id = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_event_id());
+    }
+
+    // optional int32 source_player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_source_player_id());
+    }
+
+    // optional int32 target_player_id = 2 [default = -1];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_player_id());
     }
 
   }
@@ -50483,16 +50549,16 @@ void CDOTAUserMsg_AllStarEvent::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_m
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.source_player_id_ = from._impl_.source_player_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.target_player_id_ = from._impl_.target_player_id_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.point_amount_ = from._impl_.point_amount_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.event_id_ = from._impl_.event_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.source_player_id_ = from._impl_.source_player_id_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.target_player_id_ = from._impl_.target_player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -50518,9 +50584,11 @@ void CDOTAUserMsg_AllStarEvent::InternalSwap(CDOTAUserMsg_AllStarEvent* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_AllStarEvent, _impl_.event_id_)
       + sizeof(CDOTAUserMsg_AllStarEvent::_impl_.event_id_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_AllStarEvent, _impl_.source_player_id_)>(
-          reinterpret_cast<char*>(&_impl_.source_player_id_),
-          reinterpret_cast<char*>(&other->_impl_.source_player_id_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_AllStarEvent, _impl_.point_amount_)>(
+          reinterpret_cast<char*>(&_impl_.point_amount_),
+          reinterpret_cast<char*>(&other->_impl_.point_amount_));
+  swap(_impl_.source_player_id_, other->_impl_.source_player_id_);
+  swap(_impl_.target_player_id_, other->_impl_.target_player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_AllStarEvent::GetMetadata() const {
@@ -51123,16 +51191,16 @@ class CDOTAUserMsg_FoundNeutralItem::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_FoundNeutralItem>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_item_ability_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_item_tier(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
-  static void set_has_tier_item_count(HasBits* has_bits) {
+  static void set_has_item_ability_id(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
+  }
+  static void set_has_item_tier(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_tier_item_count(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
   }
 };
 
@@ -51148,15 +51216,15 @@ CDOTAUserMsg_FoundNeutralItem::CDOTAUserMsg_FoundNeutralItem(const CDOTAUserMsg_
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){}
-    , decltype(_impl_.item_ability_id_){}
     , decltype(_impl_.item_tier_){}
-    , decltype(_impl_.tier_item_count_){}};
+    , decltype(_impl_.tier_item_count_){}
+    , decltype(_impl_.player_id_){}
+    , decltype(_impl_.item_ability_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.tier_item_count_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.tier_item_count_));
+  ::memcpy(&_impl_.item_tier_, &from._impl_.item_tier_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.item_ability_id_) -
+    reinterpret_cast<char*>(&_impl_.item_tier_)) + sizeof(_impl_.item_ability_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_FoundNeutralItem)
 }
 
@@ -51167,10 +51235,10 @@ inline void CDOTAUserMsg_FoundNeutralItem::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
-    , decltype(_impl_.item_ability_id_){0u}
     , decltype(_impl_.item_tier_){0u}
     , decltype(_impl_.tier_item_count_){0u}
+    , decltype(_impl_.player_id_){-1}
+    , decltype(_impl_.item_ability_id_){-1}
   };
 }
 
@@ -51199,9 +51267,11 @@ void CDOTAUserMsg_FoundNeutralItem::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
+    ::memset(&_impl_.item_tier_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.tier_item_count_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.tier_item_count_));
+        reinterpret_cast<char*>(&_impl_.item_tier_)) + sizeof(_impl_.tier_item_count_));
+    _impl_.player_id_ = -1;
+    _impl_.item_ability_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -51214,7 +51284,7 @@ const char* CDOTAUserMsg_FoundNeutralItem::_InternalParse(const char* ptr, ::_pb
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -51223,7 +51293,7 @@ const char* CDOTAUserMsg_FoundNeutralItem::_InternalParse(const char* ptr, ::_pb
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 item_ability_id = 2;
+      // optional int32 item_ability_id = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_item_ability_id(&has_bits);
@@ -51281,26 +51351,26 @@ uint8_t* CDOTAUserMsg_FoundNeutralItem::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
-  // optional uint32 item_ability_id = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 item_ability_id = 2 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_item_ability_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_item_ability_id(), target);
   }
 
   // optional uint32 item_tier = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_item_tier(), target);
   }
 
   // optional uint32 tier_item_count = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_tier_item_count(), target);
   }
@@ -51323,24 +51393,24 @@ size_t CDOTAUserMsg_FoundNeutralItem::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional int32 player_id = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
-    }
-
-    // optional uint32 item_ability_id = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_item_ability_id());
-    }
-
     // optional uint32 item_tier = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_item_tier());
     }
 
     // optional uint32 tier_item_count = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_tier_item_count());
+    }
+
+    // optional int32 player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
+    }
+
+    // optional int32 item_ability_id = 2 [default = -1];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_item_ability_id());
     }
 
   }
@@ -51365,16 +51435,16 @@ void CDOTAUserMsg_FoundNeutralItem::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& 
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.item_ability_id_ = from._impl_.item_ability_id_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.item_tier_ = from._impl_.item_tier_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.tier_item_count_ = from._impl_.tier_item_count_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.item_ability_id_ = from._impl_.item_ability_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -51399,9 +51469,11 @@ void CDOTAUserMsg_FoundNeutralItem::InternalSwap(CDOTAUserMsg_FoundNeutralItem* 
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_FoundNeutralItem, _impl_.tier_item_count_)
       + sizeof(CDOTAUserMsg_FoundNeutralItem::_impl_.tier_item_count_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_FoundNeutralItem, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_FoundNeutralItem, _impl_.item_tier_)>(
+          reinterpret_cast<char*>(&_impl_.item_tier_),
+          reinterpret_cast<char*>(&other->_impl_.item_tier_));
+  swap(_impl_.player_id_, other->_impl_.player_id_);
+  swap(_impl_.item_ability_id_, other->_impl_.item_ability_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_FoundNeutralItem::GetMetadata() const {
@@ -51416,10 +51488,10 @@ class CDOTAUserMsg_OutpostCaptured::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_OutpostCaptured>()._impl_._has_bits_);
   static void set_has_outpost_entindex(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_team_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -51435,13 +51507,13 @@ CDOTAUserMsg_OutpostCaptured::CDOTAUserMsg_OutpostCaptured(const CDOTAUserMsg_Ou
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.outpost_entindex_){}
-    , decltype(_impl_.team_id_){}};
+    , decltype(_impl_.team_id_){}
+    , decltype(_impl_.outpost_entindex_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.outpost_entindex_, &from._impl_.outpost_entindex_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.team_id_) -
-    reinterpret_cast<char*>(&_impl_.outpost_entindex_)) + sizeof(_impl_.team_id_));
+  ::memcpy(&_impl_.team_id_, &from._impl_.team_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.outpost_entindex_) -
+    reinterpret_cast<char*>(&_impl_.team_id_)) + sizeof(_impl_.outpost_entindex_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_OutpostCaptured)
 }
 
@@ -51452,8 +51524,8 @@ inline void CDOTAUserMsg_OutpostCaptured::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.outpost_entindex_){0}
     , decltype(_impl_.team_id_){0u}
+    , decltype(_impl_.outpost_entindex_){-1}
   };
 }
 
@@ -51482,9 +51554,8 @@ void CDOTAUserMsg_OutpostCaptured::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    ::memset(&_impl_.outpost_entindex_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.team_id_) -
-        reinterpret_cast<char*>(&_impl_.outpost_entindex_)) + sizeof(_impl_.team_id_));
+    _impl_.team_id_ = 0u;
+    _impl_.outpost_entindex_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -51497,7 +51568,7 @@ const char* CDOTAUserMsg_OutpostCaptured::_InternalParse(const char* ptr, ::_pbi
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 outpost_entindex = 1;
+      // optional int32 outpost_entindex = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_outpost_entindex(&has_bits);
@@ -51546,14 +51617,14 @@ uint8_t* CDOTAUserMsg_OutpostCaptured::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 outpost_entindex = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 outpost_entindex = 1 [default = -1];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_outpost_entindex(), target);
   }
 
   // optional uint32 team_id = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_team_id(), target);
   }
@@ -51576,14 +51647,14 @@ size_t CDOTAUserMsg_OutpostCaptured::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional int32 outpost_entindex = 1;
+    // optional uint32 team_id = 2;
     if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_outpost_entindex());
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_team_id());
     }
 
-    // optional uint32 team_id = 2;
+    // optional int32 outpost_entindex = 1 [default = -1];
     if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_team_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_outpost_entindex());
     }
 
   }
@@ -51608,10 +51679,10 @@ void CDOTAUserMsg_OutpostCaptured::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& t
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.outpost_entindex_ = from._impl_.outpost_entindex_;
+      _this->_impl_.team_id_ = from._impl_.team_id_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.team_id_ = from._impl_.team_id_;
+      _this->_impl_.outpost_entindex_ = from._impl_.outpost_entindex_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -51633,12 +51704,8 @@ void CDOTAUserMsg_OutpostCaptured::InternalSwap(CDOTAUserMsg_OutpostCaptured* ot
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_OutpostCaptured, _impl_.team_id_)
-      + sizeof(CDOTAUserMsg_OutpostCaptured::_impl_.team_id_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_OutpostCaptured, _impl_.outpost_entindex_)>(
-          reinterpret_cast<char*>(&_impl_.outpost_entindex_),
-          reinterpret_cast<char*>(&other->_impl_.outpost_entindex_));
+  swap(_impl_.team_id_, other->_impl_.team_id_);
+  swap(_impl_.outpost_entindex_, other->_impl_.outpost_entindex_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_OutpostCaptured::GetMetadata() const {
@@ -51920,7 +51987,7 @@ inline void CDOTAUserMsg_MoveCameraToUnit::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.unit_ehandle_){0u}
+    , decltype(_impl_.unit_ehandle_){16777215u}
   };
 }
 
@@ -51947,7 +52014,7 @@ void CDOTAUserMsg_MoveCameraToUnit::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.unit_ehandle_ = 0u;
+  _impl_.unit_ehandle_ = 16777215u;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -51959,7 +52026,7 @@ const char* CDOTAUserMsg_MoveCameraToUnit::_InternalParse(const char* ptr, ::_pb
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 unit_ehandle = 1;
+      // optional uint32 unit_ehandle = 1 [default = 16777215];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_unit_ehandle(&has_bits);
@@ -51999,7 +52066,7 @@ uint8_t* CDOTAUserMsg_MoveCameraToUnit::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 unit_ehandle = 1;
+  // optional uint32 unit_ehandle = 1 [default = 16777215];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_unit_ehandle(), target);
@@ -52021,7 +52088,7 @@ size_t CDOTAUserMsg_MoveCameraToUnit::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional uint32 unit_ehandle = 1;
+  // optional uint32 unit_ehandle = 1 [default = 16777215];
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_unit_ehandle());
@@ -52618,7 +52685,7 @@ inline void CDOTAUserMsg_VersusScene_PlayerBehavior::SharedCtor(
     , decltype(_impl_.play_activity_){nullptr}
     , decltype(_impl_.chat_wheel_){nullptr}
     , decltype(_impl_.playback_rate_){nullptr}
-    , decltype(_impl_.player_id_){0}
+    , decltype(_impl_.player_id_){-1}
     , decltype(_impl_.behavior_){1}
   };
 }
@@ -52650,7 +52717,7 @@ void CDOTAUserMsg_VersusScene_PlayerBehavior::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
       GOOGLE_DCHECK(_impl_.play_activity_ != nullptr);
       _impl_.play_activity_->Clear();
@@ -52663,9 +52730,7 @@ void CDOTAUserMsg_VersusScene_PlayerBehavior::Clear() {
       GOOGLE_DCHECK(_impl_.playback_rate_ != nullptr);
       _impl_.playback_rate_->Clear();
     }
-  }
-  if (cached_has_bits & 0x00000018u) {
-    _impl_.player_id_ = 0;
+    _impl_.player_id_ = -1;
     _impl_.behavior_ = 1;
   }
   _impl_._has_bits_.Clear();
@@ -52679,7 +52744,7 @@ const char* CDOTAUserMsg_VersusScene_PlayerBehavior::_InternalParse(const char* 
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -52756,7 +52821,7 @@ uint8_t* CDOTAUserMsg_VersusScene_PlayerBehavior::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
@@ -52829,7 +52894,7 @@ size_t CDOTAUserMsg_VersusScene_PlayerBehavior::ByteSizeLong() const {
           *_impl_.playback_rate_);
     }
 
-    // optional int32 player_id = 1;
+    // optional int32 player_id = 1 [default = -1];
     if (cached_has_bits & 0x00000008u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
@@ -52900,11 +52965,12 @@ void CDOTAUserMsg_VersusScene_PlayerBehavior::InternalSwap(CDOTAUserMsg_VersusSc
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_VersusScene_PlayerBehavior, _impl_.player_id_)
-      + sizeof(CDOTAUserMsg_VersusScene_PlayerBehavior::_impl_.player_id_)
+      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_VersusScene_PlayerBehavior, _impl_.playback_rate_)
+      + sizeof(CDOTAUserMsg_VersusScene_PlayerBehavior::_impl_.playback_rate_)
       - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_VersusScene_PlayerBehavior, _impl_.play_activity_)>(
           reinterpret_cast<char*>(&_impl_.play_activity_),
           reinterpret_cast<char*>(&other->_impl_.play_activity_));
+  swap(_impl_.player_id_, other->_impl_.player_id_);
   swap(_impl_.behavior_, other->_impl_.behavior_);
 }
 
@@ -52920,16 +52986,16 @@ class CDOTAUserMsg_QoP_ArcanaSummary::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_QoP_ArcanaSummary>()._impl_._has_bits_);
   static void set_has_ehandle(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_arcana_level(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_players_hit(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_players_killed(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
 };
 
@@ -52945,15 +53011,15 @@ CDOTAUserMsg_QoP_ArcanaSummary::CDOTAUserMsg_QoP_ArcanaSummary(const CDOTAUserMs
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.ehandle_){}
     , decltype(_impl_.arcana_level_){}
     , decltype(_impl_.players_hit_){}
-    , decltype(_impl_.players_killed_){}};
+    , decltype(_impl_.players_killed_){}
+    , decltype(_impl_.ehandle_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.ehandle_, &from._impl_.ehandle_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.players_killed_) -
-    reinterpret_cast<char*>(&_impl_.ehandle_)) + sizeof(_impl_.players_killed_));
+  ::memcpy(&_impl_.arcana_level_, &from._impl_.arcana_level_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.ehandle_) -
+    reinterpret_cast<char*>(&_impl_.arcana_level_)) + sizeof(_impl_.ehandle_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_QoP_ArcanaSummary)
 }
 
@@ -52964,10 +53030,10 @@ inline void CDOTAUserMsg_QoP_ArcanaSummary::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.ehandle_){0u}
     , decltype(_impl_.arcana_level_){0u}
     , decltype(_impl_.players_hit_){0u}
     , decltype(_impl_.players_killed_){0u}
+    , decltype(_impl_.ehandle_){16777215u}
   };
 }
 
@@ -52996,9 +53062,10 @@ void CDOTAUserMsg_QoP_ArcanaSummary::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    ::memset(&_impl_.ehandle_, 0, static_cast<size_t>(
+    ::memset(&_impl_.arcana_level_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.players_killed_) -
-        reinterpret_cast<char*>(&_impl_.ehandle_)) + sizeof(_impl_.players_killed_));
+        reinterpret_cast<char*>(&_impl_.arcana_level_)) + sizeof(_impl_.players_killed_));
+    _impl_.ehandle_ = 16777215u;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -53011,7 +53078,7 @@ const char* CDOTAUserMsg_QoP_ArcanaSummary::_InternalParse(const char* ptr, ::_p
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 ehandle = 1;
+      // optional uint32 ehandle = 1 [default = 16777215];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_ehandle(&has_bits);
@@ -53078,26 +53145,26 @@ uint8_t* CDOTAUserMsg_QoP_ArcanaSummary::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 ehandle = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional uint32 ehandle = 1 [default = 16777215];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_ehandle(), target);
   }
 
   // optional uint32 arcana_level = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_arcana_level(), target);
   }
 
   // optional uint32 players_hit = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_players_hit(), target);
   }
 
   // optional uint32 players_killed = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_players_killed(), target);
   }
@@ -53120,24 +53187,24 @@ size_t CDOTAUserMsg_QoP_ArcanaSummary::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional uint32 ehandle = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ehandle());
-    }
-
     // optional uint32 arcana_level = 2;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_arcana_level());
     }
 
     // optional uint32 players_hit = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_players_hit());
     }
 
     // optional uint32 players_killed = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_players_killed());
+    }
+
+    // optional uint32 ehandle = 1 [default = 16777215];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ehandle());
     }
 
   }
@@ -53162,16 +53229,16 @@ void CDOTAUserMsg_QoP_ArcanaSummary::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message&
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.ehandle_ = from._impl_.ehandle_;
-    }
-    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.arcana_level_ = from._impl_.arcana_level_;
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.players_hit_ = from._impl_.players_hit_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.players_killed_ = from._impl_.players_killed_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.ehandle_ = from._impl_.ehandle_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -53196,9 +53263,10 @@ void CDOTAUserMsg_QoP_ArcanaSummary::InternalSwap(CDOTAUserMsg_QoP_ArcanaSummary
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_QoP_ArcanaSummary, _impl_.players_killed_)
       + sizeof(CDOTAUserMsg_QoP_ArcanaSummary::_impl_.players_killed_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_QoP_ArcanaSummary, _impl_.ehandle_)>(
-          reinterpret_cast<char*>(&_impl_.ehandle_),
-          reinterpret_cast<char*>(&other->_impl_.ehandle_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_QoP_ArcanaSummary, _impl_.arcana_level_)>(
+          reinterpret_cast<char*>(&_impl_.arcana_level_),
+          reinterpret_cast<char*>(&other->_impl_.arcana_level_));
+  swap(_impl_.ehandle_, other->_impl_.ehandle_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_QoP_ArcanaSummary::GetMetadata() const {
@@ -53249,8 +53317,8 @@ inline void CDOTAUserMsg_HotPotato_Created::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_1_){0}
-    , decltype(_impl_.player_id_2_){0}
+    , decltype(_impl_.player_id_1_){-1}
+    , decltype(_impl_.player_id_2_){-1}
   };
 }
 
@@ -53279,9 +53347,8 @@ void CDOTAUserMsg_HotPotato_Created::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    ::memset(&_impl_.player_id_1_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.player_id_2_) -
-        reinterpret_cast<char*>(&_impl_.player_id_1_)) + sizeof(_impl_.player_id_2_));
+    _impl_.player_id_1_ = -1;
+    _impl_.player_id_2_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -53294,7 +53361,7 @@ const char* CDOTAUserMsg_HotPotato_Created::_InternalParse(const char* ptr, ::_p
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id_1 = 1;
+      // optional int32 player_id_1 = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id_1(&has_bits);
@@ -53303,7 +53370,7 @@ const char* CDOTAUserMsg_HotPotato_Created::_InternalParse(const char* ptr, ::_p
         } else
           goto handle_unusual;
         continue;
-      // optional int32 player_id_2 = 2;
+      // optional int32 player_id_2 = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_player_id_2(&has_bits);
@@ -53343,13 +53410,13 @@ uint8_t* CDOTAUserMsg_HotPotato_Created::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id_1 = 1;
+  // optional int32 player_id_1 = 1 [default = -1];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id_1(), target);
   }
 
-  // optional int32 player_id_2 = 2;
+  // optional int32 player_id_2 = 2 [default = -1];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_player_id_2(), target);
@@ -53373,12 +53440,12 @@ size_t CDOTAUserMsg_HotPotato_Created::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional int32 player_id_1 = 1;
+    // optional int32 player_id_1 = 1 [default = -1];
     if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id_1());
     }
 
-    // optional int32 player_id_2 = 2;
+    // optional int32 player_id_2 = 2 [default = -1];
     if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id_2());
     }
@@ -53430,12 +53497,8 @@ void CDOTAUserMsg_HotPotato_Created::InternalSwap(CDOTAUserMsg_HotPotato_Created
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_HotPotato_Created, _impl_.player_id_2_)
-      + sizeof(CDOTAUserMsg_HotPotato_Created::_impl_.player_id_2_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_HotPotato_Created, _impl_.player_id_1_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_1_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_1_));
+  swap(_impl_.player_id_1_, other->_impl_.player_id_1_);
+  swap(_impl_.player_id_2_, other->_impl_.player_id_2_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_HotPotato_Created::GetMetadata() const {
@@ -53480,7 +53543,7 @@ inline void CDOTAUserMsg_HotPotato_Exploded::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -53507,7 +53570,7 @@ void CDOTAUserMsg_HotPotato_Exploded::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.player_id_ = 0;
+  _impl_.player_id_ = -1;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -53519,7 +53582,7 @@ const char* CDOTAUserMsg_HotPotato_Exploded::_InternalParse(const char* ptr, ::_
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -53559,7 +53622,7 @@ uint8_t* CDOTAUserMsg_HotPotato_Exploded::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
@@ -53581,7 +53644,7 @@ size_t CDOTAUserMsg_HotPotato_Exploded::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
@@ -53641,13 +53704,13 @@ class CDOTAUserMsg_WK_Arcana_Progress::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_WK_Arcana_Progress>()._impl_._has_bits_);
   static void set_has_ehandle(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_arcana_level(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_hero_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
 };
 
@@ -53663,14 +53726,14 @@ CDOTAUserMsg_WK_Arcana_Progress::CDOTAUserMsg_WK_Arcana_Progress(const CDOTAUser
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.ehandle_){}
     , decltype(_impl_.arcana_level_){}
-    , decltype(_impl_.hero_id_){}};
+    , decltype(_impl_.hero_id_){}
+    , decltype(_impl_.ehandle_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.ehandle_, &from._impl_.ehandle_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.hero_id_) -
-    reinterpret_cast<char*>(&_impl_.ehandle_)) + sizeof(_impl_.hero_id_));
+  ::memcpy(&_impl_.arcana_level_, &from._impl_.arcana_level_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.ehandle_) -
+    reinterpret_cast<char*>(&_impl_.arcana_level_)) + sizeof(_impl_.ehandle_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_WK_Arcana_Progress)
 }
 
@@ -53681,9 +53744,9 @@ inline void CDOTAUserMsg_WK_Arcana_Progress::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.ehandle_){0u}
     , decltype(_impl_.arcana_level_){0u}
     , decltype(_impl_.hero_id_){0u}
+    , decltype(_impl_.ehandle_){16777215u}
   };
 }
 
@@ -53712,9 +53775,10 @@ void CDOTAUserMsg_WK_Arcana_Progress::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    ::memset(&_impl_.ehandle_, 0, static_cast<size_t>(
+    ::memset(&_impl_.arcana_level_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.hero_id_) -
-        reinterpret_cast<char*>(&_impl_.ehandle_)) + sizeof(_impl_.hero_id_));
+        reinterpret_cast<char*>(&_impl_.arcana_level_)) + sizeof(_impl_.hero_id_));
+    _impl_.ehandle_ = 16777215u;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -53727,7 +53791,7 @@ const char* CDOTAUserMsg_WK_Arcana_Progress::_InternalParse(const char* ptr, ::_
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 ehandle = 1;
+      // optional uint32 ehandle = 1 [default = 16777215];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_ehandle(&has_bits);
@@ -53785,20 +53849,20 @@ uint8_t* CDOTAUserMsg_WK_Arcana_Progress::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 ehandle = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional uint32 ehandle = 1 [default = 16777215];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_ehandle(), target);
   }
 
   // optional uint32 arcana_level = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_arcana_level(), target);
   }
 
   // optional uint32 hero_id = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_hero_id(), target);
   }
@@ -53821,19 +53885,19 @@ size_t CDOTAUserMsg_WK_Arcana_Progress::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional uint32 ehandle = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ehandle());
-    }
-
     // optional uint32 arcana_level = 2;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_arcana_level());
     }
 
     // optional uint32 hero_id = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_hero_id());
+    }
+
+    // optional uint32 ehandle = 1 [default = 16777215];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ehandle());
     }
 
   }
@@ -53858,13 +53922,13 @@ void CDOTAUserMsg_WK_Arcana_Progress::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.ehandle_ = from._impl_.ehandle_;
-    }
-    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.arcana_level_ = from._impl_.arcana_level_;
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.hero_id_ = from._impl_.hero_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.ehandle_ = from._impl_.ehandle_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -53889,9 +53953,10 @@ void CDOTAUserMsg_WK_Arcana_Progress::InternalSwap(CDOTAUserMsg_WK_Arcana_Progre
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_WK_Arcana_Progress, _impl_.hero_id_)
       + sizeof(CDOTAUserMsg_WK_Arcana_Progress::_impl_.hero_id_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_WK_Arcana_Progress, _impl_.ehandle_)>(
-          reinterpret_cast<char*>(&_impl_.ehandle_),
-          reinterpret_cast<char*>(&other->_impl_.ehandle_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_WK_Arcana_Progress, _impl_.arcana_level_)>(
+          reinterpret_cast<char*>(&_impl_.arcana_level_),
+          reinterpret_cast<char*>(&other->_impl_.arcana_level_));
+  swap(_impl_.ehandle_, other->_impl_.ehandle_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_WK_Arcana_Progress::GetMetadata() const {
@@ -53906,10 +53971,10 @@ class CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_progress(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -53925,13 +53990,13 @@ CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::CDOTAUserMsg_GuildChallenge
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){}
-    , decltype(_impl_.progress_){}};
+    , decltype(_impl_.progress_){}
+    , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_, &from._impl_.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.progress_) -
-    reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.progress_));
+  ::memcpy(&_impl_.progress_, &from._impl_.progress_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.progress_)) + sizeof(_impl_.player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_GuildChallenge_Progress.PlayerProgress)
 }
 
@@ -53942,8 +54007,8 @@ inline void CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_){0}
     , decltype(_impl_.progress_){0u}
+    , decltype(_impl_.player_id_){-1}
   };
 }
 
@@ -53972,9 +54037,8 @@ void CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    ::memset(&_impl_.player_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.progress_) -
-        reinterpret_cast<char*>(&_impl_.player_id_)) + sizeof(_impl_.progress_));
+    _impl_.progress_ = 0u;
+    _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -53987,7 +54051,7 @@ const char* CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::_InternalParse(
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1;
+      // optional int32 player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -54036,14 +54100,14 @@ uint8_t* CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::_InternalSerialize
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
   // optional uint32 progress = 6;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_progress(), target);
   }
@@ -54066,14 +54130,14 @@ size_t CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::ByteSizeLong() const
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional int32 player_id = 1;
+    // optional uint32 progress = 6;
     if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_progress());
     }
 
-    // optional uint32 progress = 6;
+    // optional int32 player_id = 1 [default = -1];
     if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_progress());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
   }
@@ -54098,10 +54162,10 @@ void CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::MergeImpl(::PROTOBUF_N
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
+      _this->_impl_.progress_ = from._impl_.progress_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.progress_ = from._impl_.progress_;
+      _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -54123,12 +54187,8 @@ void CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::InternalSwap(CDOTAUser
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress, _impl_.progress_)
-      + sizeof(CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::_impl_.progress_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress, _impl_.player_id_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_));
+  swap(_impl_.progress_, other->_impl_.progress_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::GetMetadata() const {
@@ -54532,25 +54592,25 @@ class CDOTAUserMsg_WRArcanaProgress::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_WRArcanaProgress>()._impl_._has_bits_);
   static void set_has_ehandle(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_target_ehandle(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_arrows_landed(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_damage_dealt(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-  static void set_has_target_hp(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
-  }
-  static void set_has_target_max_hp(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
   }
-  static void set_has_arcana_level(HasBits* has_bits) {
+  static void set_has_target_ehandle(HasBits* has_bits) {
     (*has_bits)[0] |= 64u;
+  }
+  static void set_has_arrows_landed(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_damage_dealt(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_target_hp(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_target_max_hp(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_arcana_level(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
   }
 };
 
@@ -54566,18 +54626,18 @@ CDOTAUserMsg_WRArcanaProgress::CDOTAUserMsg_WRArcanaProgress(const CDOTAUserMsg_
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.ehandle_){}
-    , decltype(_impl_.target_ehandle_){}
     , decltype(_impl_.arrows_landed_){}
     , decltype(_impl_.damage_dealt_){}
     , decltype(_impl_.target_hp_){}
     , decltype(_impl_.target_max_hp_){}
-    , decltype(_impl_.arcana_level_){}};
+    , decltype(_impl_.arcana_level_){}
+    , decltype(_impl_.ehandle_){}
+    , decltype(_impl_.target_ehandle_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.ehandle_, &from._impl_.ehandle_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.arcana_level_) -
-    reinterpret_cast<char*>(&_impl_.ehandle_)) + sizeof(_impl_.arcana_level_));
+  ::memcpy(&_impl_.arrows_landed_, &from._impl_.arrows_landed_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.target_ehandle_) -
+    reinterpret_cast<char*>(&_impl_.arrows_landed_)) + sizeof(_impl_.target_ehandle_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_WRArcanaProgress)
 }
 
@@ -54588,13 +54648,13 @@ inline void CDOTAUserMsg_WRArcanaProgress::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.ehandle_){0u}
-    , decltype(_impl_.target_ehandle_){0u}
     , decltype(_impl_.arrows_landed_){0u}
     , decltype(_impl_.damage_dealt_){0u}
     , decltype(_impl_.target_hp_){0u}
     , decltype(_impl_.target_max_hp_){0u}
     , decltype(_impl_.arcana_level_){0u}
+    , decltype(_impl_.ehandle_){16777215u}
+    , decltype(_impl_.target_ehandle_){16777215u}
   };
 }
 
@@ -54623,9 +54683,11 @@ void CDOTAUserMsg_WRArcanaProgress::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
-    ::memset(&_impl_.ehandle_, 0, static_cast<size_t>(
+    ::memset(&_impl_.arrows_landed_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.arcana_level_) -
-        reinterpret_cast<char*>(&_impl_.ehandle_)) + sizeof(_impl_.arcana_level_));
+        reinterpret_cast<char*>(&_impl_.arrows_landed_)) + sizeof(_impl_.arcana_level_));
+    _impl_.ehandle_ = 16777215u;
+    _impl_.target_ehandle_ = 16777215u;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -54638,7 +54700,7 @@ const char* CDOTAUserMsg_WRArcanaProgress::_InternalParse(const char* ptr, ::_pb
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 ehandle = 1;
+      // optional uint32 ehandle = 1 [default = 16777215];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_ehandle(&has_bits);
@@ -54647,7 +54709,7 @@ const char* CDOTAUserMsg_WRArcanaProgress::_InternalParse(const char* ptr, ::_pb
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 target_ehandle = 2;
+      // optional uint32 target_ehandle = 2 [default = 16777215];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_target_ehandle(&has_bits);
@@ -54732,44 +54794,44 @@ uint8_t* CDOTAUserMsg_WRArcanaProgress::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 ehandle = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional uint32 ehandle = 1 [default = 16777215];
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_ehandle(), target);
   }
 
-  // optional uint32 target_ehandle = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional uint32 target_ehandle = 2 [default = 16777215];
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_target_ehandle(), target);
   }
 
   // optional uint32 arrows_landed = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_arrows_landed(), target);
   }
 
   // optional uint32 damage_dealt = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_damage_dealt(), target);
   }
 
   // optional uint32 target_hp = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_target_hp(), target);
   }
 
   // optional uint32 target_max_hp = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_target_max_hp(), target);
   }
 
   // optional uint32 arcana_level = 7;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(7, this->_internal_arcana_level(), target);
   }
@@ -54792,39 +54854,39 @@ size_t CDOTAUserMsg_WRArcanaProgress::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
-    // optional uint32 ehandle = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ehandle());
-    }
-
-    // optional uint32 target_ehandle = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_target_ehandle());
-    }
-
     // optional uint32 arrows_landed = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_arrows_landed());
     }
 
     // optional uint32 damage_dealt = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_damage_dealt());
     }
 
     // optional uint32 target_hp = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_target_hp());
     }
 
     // optional uint32 target_max_hp = 6;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_target_max_hp());
     }
 
     // optional uint32 arcana_level = 7;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_arcana_level());
+    }
+
+    // optional uint32 ehandle = 1 [default = 16777215];
+    if (cached_has_bits & 0x00000020u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ehandle());
+    }
+
+    // optional uint32 target_ehandle = 2 [default = 16777215];
+    if (cached_has_bits & 0x00000040u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_target_ehandle());
     }
 
   }
@@ -54849,25 +54911,25 @@ void CDOTAUserMsg_WRArcanaProgress::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& 
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.ehandle_ = from._impl_.ehandle_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.target_ehandle_ = from._impl_.target_ehandle_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.arrows_landed_ = from._impl_.arrows_landed_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.damage_dealt_ = from._impl_.damage_dealt_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.target_hp_ = from._impl_.target_hp_;
     }
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.target_max_hp_ = from._impl_.target_max_hp_;
     }
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000010u) {
       _this->_impl_.arcana_level_ = from._impl_.arcana_level_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      _this->_impl_.ehandle_ = from._impl_.ehandle_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      _this->_impl_.target_ehandle_ = from._impl_.target_ehandle_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -54892,9 +54954,11 @@ void CDOTAUserMsg_WRArcanaProgress::InternalSwap(CDOTAUserMsg_WRArcanaProgress* 
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_WRArcanaProgress, _impl_.arcana_level_)
       + sizeof(CDOTAUserMsg_WRArcanaProgress::_impl_.arcana_level_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_WRArcanaProgress, _impl_.ehandle_)>(
-          reinterpret_cast<char*>(&_impl_.ehandle_),
-          reinterpret_cast<char*>(&other->_impl_.ehandle_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_WRArcanaProgress, _impl_.arrows_landed_)>(
+          reinterpret_cast<char*>(&_impl_.arrows_landed_),
+          reinterpret_cast<char*>(&other->_impl_.arrows_landed_));
+  swap(_impl_.ehandle_, other->_impl_.ehandle_);
+  swap(_impl_.target_ehandle_, other->_impl_.target_ehandle_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_WRArcanaProgress::GetMetadata() const {
@@ -54909,28 +54973,28 @@ class CDOTAUserMsg_WRArcanaSummary::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_WRArcanaSummary>()._impl_._has_bits_);
   static void set_has_ehandle(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_target_ehandle(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_arrows_landed(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_damage_dealt(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-  static void set_has_target_hp(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
-  }
-  static void set_has_target_max_hp(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
-  }
-  static void set_has_arcana_level(HasBits* has_bits) {
     (*has_bits)[0] |= 64u;
   }
-  static void set_has_success(HasBits* has_bits) {
+  static void set_has_target_ehandle(HasBits* has_bits) {
     (*has_bits)[0] |= 128u;
+  }
+  static void set_has_arrows_landed(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_damage_dealt(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_target_hp(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_target_max_hp(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_arcana_level(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_success(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
   }
 };
 
@@ -54946,19 +55010,19 @@ CDOTAUserMsg_WRArcanaSummary::CDOTAUserMsg_WRArcanaSummary(const CDOTAUserMsg_WR
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.ehandle_){}
-    , decltype(_impl_.target_ehandle_){}
     , decltype(_impl_.arrows_landed_){}
     , decltype(_impl_.damage_dealt_){}
     , decltype(_impl_.target_hp_){}
     , decltype(_impl_.target_max_hp_){}
     , decltype(_impl_.arcana_level_){}
-    , decltype(_impl_.success_){}};
+    , decltype(_impl_.success_){}
+    , decltype(_impl_.ehandle_){}
+    , decltype(_impl_.target_ehandle_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.ehandle_, &from._impl_.ehandle_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.success_) -
-    reinterpret_cast<char*>(&_impl_.ehandle_)) + sizeof(_impl_.success_));
+  ::memcpy(&_impl_.arrows_landed_, &from._impl_.arrows_landed_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.target_ehandle_) -
+    reinterpret_cast<char*>(&_impl_.arrows_landed_)) + sizeof(_impl_.target_ehandle_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_WRArcanaSummary)
 }
 
@@ -54969,14 +55033,14 @@ inline void CDOTAUserMsg_WRArcanaSummary::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.ehandle_){0u}
-    , decltype(_impl_.target_ehandle_){0u}
     , decltype(_impl_.arrows_landed_){0u}
     , decltype(_impl_.damage_dealt_){0u}
     , decltype(_impl_.target_hp_){0u}
     , decltype(_impl_.target_max_hp_){0u}
     , decltype(_impl_.arcana_level_){0u}
     , decltype(_impl_.success_){false}
+    , decltype(_impl_.ehandle_){16777215u}
+    , decltype(_impl_.target_ehandle_){16777215u}
   };
 }
 
@@ -55005,9 +55069,11 @@ void CDOTAUserMsg_WRArcanaSummary::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    ::memset(&_impl_.ehandle_, 0, static_cast<size_t>(
+    ::memset(&_impl_.arrows_landed_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.success_) -
-        reinterpret_cast<char*>(&_impl_.ehandle_)) + sizeof(_impl_.success_));
+        reinterpret_cast<char*>(&_impl_.arrows_landed_)) + sizeof(_impl_.success_));
+    _impl_.ehandle_ = 16777215u;
+    _impl_.target_ehandle_ = 16777215u;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -55020,7 +55086,7 @@ const char* CDOTAUserMsg_WRArcanaSummary::_InternalParse(const char* ptr, ::_pbi
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 ehandle = 1;
+      // optional uint32 ehandle = 1 [default = 16777215];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_ehandle(&has_bits);
@@ -55029,7 +55095,7 @@ const char* CDOTAUserMsg_WRArcanaSummary::_InternalParse(const char* ptr, ::_pbi
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 target_ehandle = 2;
+      // optional uint32 target_ehandle = 2 [default = 16777215];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_target_ehandle(&has_bits);
@@ -55123,50 +55189,50 @@ uint8_t* CDOTAUserMsg_WRArcanaSummary::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 ehandle = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional uint32 ehandle = 1 [default = 16777215];
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_ehandle(), target);
   }
 
-  // optional uint32 target_ehandle = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional uint32 target_ehandle = 2 [default = 16777215];
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_target_ehandle(), target);
   }
 
   // optional uint32 arrows_landed = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_arrows_landed(), target);
   }
 
   // optional uint32 damage_dealt = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_damage_dealt(), target);
   }
 
   // optional uint32 target_hp = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_target_hp(), target);
   }
 
   // optional uint32 target_max_hp = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_target_max_hp(), target);
   }
 
   // optional uint32 arcana_level = 7;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(7, this->_internal_arcana_level(), target);
   }
 
   // optional bool success = 8;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(8, this->_internal_success(), target);
   }
@@ -55189,44 +55255,44 @@ size_t CDOTAUserMsg_WRArcanaSummary::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional uint32 ehandle = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ehandle());
-    }
-
-    // optional uint32 target_ehandle = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_target_ehandle());
-    }
-
     // optional uint32 arrows_landed = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_arrows_landed());
     }
 
     // optional uint32 damage_dealt = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_damage_dealt());
     }
 
     // optional uint32 target_hp = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_target_hp());
     }
 
     // optional uint32 target_max_hp = 6;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_target_max_hp());
     }
 
     // optional uint32 arcana_level = 7;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_arcana_level());
     }
 
     // optional bool success = 8;
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 1;
+    }
+
+    // optional uint32 ehandle = 1 [default = 16777215];
+    if (cached_has_bits & 0x00000040u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ehandle());
+    }
+
+    // optional uint32 target_ehandle = 2 [default = 16777215];
+    if (cached_has_bits & 0x00000080u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_target_ehandle());
     }
 
   }
@@ -55251,28 +55317,28 @@ void CDOTAUserMsg_WRArcanaSummary::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& t
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.ehandle_ = from._impl_.ehandle_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.target_ehandle_ = from._impl_.target_ehandle_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.arrows_landed_ = from._impl_.arrows_landed_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.damage_dealt_ = from._impl_.damage_dealt_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.target_hp_ = from._impl_.target_hp_;
     }
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.target_max_hp_ = from._impl_.target_max_hp_;
     }
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000010u) {
       _this->_impl_.arcana_level_ = from._impl_.arcana_level_;
     }
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000020u) {
       _this->_impl_.success_ = from._impl_.success_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      _this->_impl_.ehandle_ = from._impl_.ehandle_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      _this->_impl_.target_ehandle_ = from._impl_.target_ehandle_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -55297,9 +55363,11 @@ void CDOTAUserMsg_WRArcanaSummary::InternalSwap(CDOTAUserMsg_WRArcanaSummary* ot
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_WRArcanaSummary, _impl_.success_)
       + sizeof(CDOTAUserMsg_WRArcanaSummary::_impl_.success_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_WRArcanaSummary, _impl_.ehandle_)>(
-          reinterpret_cast<char*>(&_impl_.ehandle_),
-          reinterpret_cast<char*>(&other->_impl_.ehandle_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_WRArcanaSummary, _impl_.arrows_landed_)>(
+          reinterpret_cast<char*>(&_impl_.arrows_landed_),
+          reinterpret_cast<char*>(&other->_impl_.arrows_landed_));
+  swap(_impl_.ehandle_, other->_impl_.ehandle_);
+  swap(_impl_.target_ehandle_, other->_impl_.target_ehandle_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_WRArcanaSummary::GetMetadata() const {
@@ -55314,16 +55382,16 @@ class CDOTAUserMsg_EmptyItemSlotAlert::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_EmptyItemSlotAlert>()._impl_._has_bits_);
   static void set_has_source_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_target_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_slot_index(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
-  static void set_has_cooldown_seconds(HasBits* has_bits) {
+  static void set_has_target_player_id(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
+  }
+  static void set_has_slot_index(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_cooldown_seconds(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
   }
 };
 
@@ -55339,15 +55407,15 @@ CDOTAUserMsg_EmptyItemSlotAlert::CDOTAUserMsg_EmptyItemSlotAlert(const CDOTAUser
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.source_player_id_){}
-    , decltype(_impl_.target_player_id_){}
     , decltype(_impl_.slot_index_){}
-    , decltype(_impl_.cooldown_seconds_){}};
+    , decltype(_impl_.cooldown_seconds_){}
+    , decltype(_impl_.source_player_id_){}
+    , decltype(_impl_.target_player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.source_player_id_, &from._impl_.source_player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.cooldown_seconds_) -
-    reinterpret_cast<char*>(&_impl_.source_player_id_)) + sizeof(_impl_.cooldown_seconds_));
+  ::memcpy(&_impl_.slot_index_, &from._impl_.slot_index_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.target_player_id_) -
+    reinterpret_cast<char*>(&_impl_.slot_index_)) + sizeof(_impl_.target_player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_EmptyItemSlotAlert)
 }
 
@@ -55358,10 +55426,10 @@ inline void CDOTAUserMsg_EmptyItemSlotAlert::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.source_player_id_){0}
-    , decltype(_impl_.target_player_id_){0}
     , decltype(_impl_.slot_index_){0}
     , decltype(_impl_.cooldown_seconds_){0}
+    , decltype(_impl_.source_player_id_){-1}
+    , decltype(_impl_.target_player_id_){-1}
   };
 }
 
@@ -55390,9 +55458,11 @@ void CDOTAUserMsg_EmptyItemSlotAlert::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    ::memset(&_impl_.source_player_id_, 0, static_cast<size_t>(
+    ::memset(&_impl_.slot_index_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.cooldown_seconds_) -
-        reinterpret_cast<char*>(&_impl_.source_player_id_)) + sizeof(_impl_.cooldown_seconds_));
+        reinterpret_cast<char*>(&_impl_.slot_index_)) + sizeof(_impl_.cooldown_seconds_));
+    _impl_.source_player_id_ = -1;
+    _impl_.target_player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -55405,7 +55475,7 @@ const char* CDOTAUserMsg_EmptyItemSlotAlert::_InternalParse(const char* ptr, ::_
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 source_player_id = 1;
+      // optional int32 source_player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_source_player_id(&has_bits);
@@ -55414,7 +55484,7 @@ const char* CDOTAUserMsg_EmptyItemSlotAlert::_InternalParse(const char* ptr, ::_
         } else
           goto handle_unusual;
         continue;
-      // optional int32 target_player_id = 2;
+      // optional int32 target_player_id = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_target_player_id(&has_bits);
@@ -55472,26 +55542,26 @@ uint8_t* CDOTAUserMsg_EmptyItemSlotAlert::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 source_player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 source_player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_source_player_id(), target);
   }
 
-  // optional int32 target_player_id = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 target_player_id = 2 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_target_player_id(), target);
   }
 
   // optional int32 slot_index = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_slot_index(), target);
   }
 
   // optional int32 cooldown_seconds = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_cooldown_seconds(), target);
   }
@@ -55514,24 +55584,24 @@ size_t CDOTAUserMsg_EmptyItemSlotAlert::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional int32 source_player_id = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_source_player_id());
-    }
-
-    // optional int32 target_player_id = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_player_id());
-    }
-
     // optional int32 slot_index = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_slot_index());
     }
 
     // optional int32 cooldown_seconds = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_cooldown_seconds());
+    }
+
+    // optional int32 source_player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_source_player_id());
+    }
+
+    // optional int32 target_player_id = 2 [default = -1];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_player_id());
     }
 
   }
@@ -55556,16 +55626,16 @@ void CDOTAUserMsg_EmptyItemSlotAlert::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.source_player_id_ = from._impl_.source_player_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.target_player_id_ = from._impl_.target_player_id_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.slot_index_ = from._impl_.slot_index_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.cooldown_seconds_ = from._impl_.cooldown_seconds_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.source_player_id_ = from._impl_.source_player_id_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.target_player_id_ = from._impl_.target_player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -55590,9 +55660,11 @@ void CDOTAUserMsg_EmptyItemSlotAlert::InternalSwap(CDOTAUserMsg_EmptyItemSlotAle
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_EmptyItemSlotAlert, _impl_.cooldown_seconds_)
       + sizeof(CDOTAUserMsg_EmptyItemSlotAlert::_impl_.cooldown_seconds_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_EmptyItemSlotAlert, _impl_.source_player_id_)>(
-          reinterpret_cast<char*>(&_impl_.source_player_id_),
-          reinterpret_cast<char*>(&other->_impl_.source_player_id_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_EmptyItemSlotAlert, _impl_.slot_index_)>(
+          reinterpret_cast<char*>(&_impl_.slot_index_),
+          reinterpret_cast<char*>(&other->_impl_.slot_index_));
+  swap(_impl_.source_player_id_, other->_impl_.source_player_id_);
+  swap(_impl_.target_player_id_, other->_impl_.target_player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_EmptyItemSlotAlert::GetMetadata() const {
@@ -55607,22 +55679,22 @@ class CDOTAUserMsg_AghsStatusAlert::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_AghsStatusAlert>()._impl_._has_bits_);
   static void set_has_source_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_target_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_target_entindex(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_alert_type(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-  static void set_has_has_scepter(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
   }
-  static void set_has_has_shard(HasBits* has_bits) {
+  static void set_has_target_player_id(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
+  }
+  static void set_has_target_entindex(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_alert_type(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_has_scepter(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_has_shard(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
   }
 };
 
@@ -55638,17 +55710,17 @@ CDOTAUserMsg_AghsStatusAlert::CDOTAUserMsg_AghsStatusAlert(const CDOTAUserMsg_Ag
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.source_player_id_){}
-    , decltype(_impl_.target_player_id_){}
-    , decltype(_impl_.target_entindex_){}
     , decltype(_impl_.alert_type_){}
     , decltype(_impl_.has_scepter_){}
-    , decltype(_impl_.has_shard_){}};
+    , decltype(_impl_.has_shard_){}
+    , decltype(_impl_.target_entindex_){}
+    , decltype(_impl_.source_player_id_){}
+    , decltype(_impl_.target_player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.source_player_id_, &from._impl_.source_player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.has_shard_) -
-    reinterpret_cast<char*>(&_impl_.source_player_id_)) + sizeof(_impl_.has_shard_));
+  ::memcpy(&_impl_.alert_type_, &from._impl_.alert_type_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.target_player_id_) -
+    reinterpret_cast<char*>(&_impl_.alert_type_)) + sizeof(_impl_.target_player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_AghsStatusAlert)
 }
 
@@ -55659,12 +55731,12 @@ inline void CDOTAUserMsg_AghsStatusAlert::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.source_player_id_){0}
-    , decltype(_impl_.target_player_id_){0}
-    , decltype(_impl_.target_entindex_){0}
     , decltype(_impl_.alert_type_){0u}
     , decltype(_impl_.has_scepter_){false}
     , decltype(_impl_.has_shard_){false}
+    , decltype(_impl_.target_entindex_){-1}
+    , decltype(_impl_.source_player_id_){-1}
+    , decltype(_impl_.target_player_id_){-1}
   };
 }
 
@@ -55693,9 +55765,12 @@ void CDOTAUserMsg_AghsStatusAlert::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
-    ::memset(&_impl_.source_player_id_, 0, static_cast<size_t>(
+    ::memset(&_impl_.alert_type_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.has_shard_) -
-        reinterpret_cast<char*>(&_impl_.source_player_id_)) + sizeof(_impl_.has_shard_));
+        reinterpret_cast<char*>(&_impl_.alert_type_)) + sizeof(_impl_.has_shard_));
+    _impl_.target_entindex_ = -1;
+    _impl_.source_player_id_ = -1;
+    _impl_.target_player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -55708,7 +55783,7 @@ const char* CDOTAUserMsg_AghsStatusAlert::_InternalParse(const char* ptr, ::_pbi
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 source_player_id = 1;
+      // optional int32 source_player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_source_player_id(&has_bits);
@@ -55717,7 +55792,7 @@ const char* CDOTAUserMsg_AghsStatusAlert::_InternalParse(const char* ptr, ::_pbi
         } else
           goto handle_unusual;
         continue;
-      // optional int32 target_player_id = 2;
+      // optional int32 target_player_id = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_target_player_id(&has_bits);
@@ -55726,7 +55801,7 @@ const char* CDOTAUserMsg_AghsStatusAlert::_InternalParse(const char* ptr, ::_pbi
         } else
           goto handle_unusual;
         continue;
-      // optional int32 target_entindex = 3;
+      // optional int32 target_entindex = 3 [default = -1];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_target_entindex(&has_bits);
@@ -55793,38 +55868,38 @@ uint8_t* CDOTAUserMsg_AghsStatusAlert::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 source_player_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 source_player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_source_player_id(), target);
   }
 
-  // optional int32 target_player_id = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 target_player_id = 2 [default = -1];
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_target_player_id(), target);
   }
 
-  // optional int32 target_entindex = 3;
-  if (cached_has_bits & 0x00000004u) {
+  // optional int32 target_entindex = 3 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_target_entindex(), target);
   }
 
   // optional uint32 alert_type = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_alert_type(), target);
   }
 
   // optional bool has_scepter = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(5, this->_internal_has_scepter(), target);
   }
 
   // optional bool has_shard = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(6, this->_internal_has_shard(), target);
   }
@@ -55847,34 +55922,34 @@ size_t CDOTAUserMsg_AghsStatusAlert::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
-    // optional int32 source_player_id = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_source_player_id());
-    }
-
-    // optional int32 target_player_id = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_player_id());
-    }
-
-    // optional int32 target_entindex = 3;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_entindex());
-    }
-
     // optional uint32 alert_type = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_alert_type());
     }
 
     // optional bool has_scepter = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
 
     // optional bool has_shard = 6;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
+    }
+
+    // optional int32 target_entindex = 3 [default = -1];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_entindex());
+    }
+
+    // optional int32 source_player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_source_player_id());
+    }
+
+    // optional int32 target_player_id = 2 [default = -1];
+    if (cached_has_bits & 0x00000020u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_player_id());
     }
 
   }
@@ -55899,22 +55974,22 @@ void CDOTAUserMsg_AghsStatusAlert::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& t
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.source_player_id_ = from._impl_.source_player_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.target_player_id_ = from._impl_.target_player_id_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.target_entindex_ = from._impl_.target_entindex_;
-    }
-    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.alert_type_ = from._impl_.alert_type_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.has_scepter_ = from._impl_.has_scepter_;
     }
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.has_shard_ = from._impl_.has_shard_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.target_entindex_ = from._impl_.target_entindex_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.source_player_id_ = from._impl_.source_player_id_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      _this->_impl_.target_player_id_ = from._impl_.target_player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -55939,9 +56014,12 @@ void CDOTAUserMsg_AghsStatusAlert::InternalSwap(CDOTAUserMsg_AghsStatusAlert* ot
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_AghsStatusAlert, _impl_.has_shard_)
       + sizeof(CDOTAUserMsg_AghsStatusAlert::_impl_.has_shard_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_AghsStatusAlert, _impl_.source_player_id_)>(
-          reinterpret_cast<char*>(&_impl_.source_player_id_),
-          reinterpret_cast<char*>(&other->_impl_.source_player_id_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_AghsStatusAlert, _impl_.alert_type_)>(
+          reinterpret_cast<char*>(&_impl_.alert_type_),
+          reinterpret_cast<char*>(&other->_impl_.alert_type_));
+  swap(_impl_.target_entindex_, other->_impl_.target_entindex_);
+  swap(_impl_.source_player_id_, other->_impl_.source_player_id_);
+  swap(_impl_.target_player_id_, other->_impl_.target_player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_AghsStatusAlert::GetMetadata() const {
@@ -56980,10 +57058,10 @@ class CDOTAUserMsg_ChatMessage::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_ChatMessage>()._impl_._has_bits_);
   static void set_has_source_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_channel_type(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_message_text(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
@@ -57003,8 +57081,8 @@ CDOTAUserMsg_ChatMessage::CDOTAUserMsg_ChatMessage(const CDOTAUserMsg_ChatMessag
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.message_text_){}
-    , decltype(_impl_.source_player_id_){}
-    , decltype(_impl_.channel_type_){}};
+    , decltype(_impl_.channel_type_){}
+    , decltype(_impl_.source_player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _impl_.message_text_.InitDefault();
@@ -57015,9 +57093,9 @@ CDOTAUserMsg_ChatMessage::CDOTAUserMsg_ChatMessage(const CDOTAUserMsg_ChatMessag
     _this->_impl_.message_text_.Set(from._internal_message_text(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.source_player_id_, &from._impl_.source_player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.channel_type_) -
-    reinterpret_cast<char*>(&_impl_.source_player_id_)) + sizeof(_impl_.channel_type_));
+  ::memcpy(&_impl_.channel_type_, &from._impl_.channel_type_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.source_player_id_) -
+    reinterpret_cast<char*>(&_impl_.channel_type_)) + sizeof(_impl_.source_player_id_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_ChatMessage)
 }
 
@@ -57029,8 +57107,8 @@ inline void CDOTAUserMsg_ChatMessage::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.message_text_){}
-    , decltype(_impl_.source_player_id_){0}
     , decltype(_impl_.channel_type_){0u}
+    , decltype(_impl_.source_player_id_){-1}
   };
   _impl_.message_text_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -57067,9 +57145,8 @@ void CDOTAUserMsg_ChatMessage::Clear() {
     _impl_.message_text_.ClearNonDefaultToEmpty();
   }
   if (cached_has_bits & 0x00000006u) {
-    ::memset(&_impl_.source_player_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.channel_type_) -
-        reinterpret_cast<char*>(&_impl_.source_player_id_)) + sizeof(_impl_.channel_type_));
+    _impl_.channel_type_ = 0u;
+    _impl_.source_player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -57082,7 +57159,7 @@ const char* CDOTAUserMsg_ChatMessage::_InternalParse(const char* ptr, ::_pbi::Pa
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 source_player_id = 1;
+      // optional int32 source_player_id = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_source_player_id(&has_bits);
@@ -57143,14 +57220,14 @@ uint8_t* CDOTAUserMsg_ChatMessage::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 source_player_id = 1;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 source_player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_source_player_id(), target);
   }
 
   // optional uint32 channel_type = 2;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_channel_type(), target);
   }
@@ -57190,14 +57267,14 @@ size_t CDOTAUserMsg_ChatMessage::ByteSizeLong() const {
           this->_internal_message_text());
     }
 
-    // optional int32 source_player_id = 1;
+    // optional uint32 channel_type = 2;
     if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_source_player_id());
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_channel_type());
     }
 
-    // optional uint32 channel_type = 2;
+    // optional int32 source_player_id = 1 [default = -1];
     if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_channel_type());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_source_player_id());
     }
 
   }
@@ -57225,10 +57302,10 @@ void CDOTAUserMsg_ChatMessage::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_ms
       _this->_internal_set_message_text(from._internal_message_text());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.source_player_id_ = from._impl_.source_player_id_;
+      _this->_impl_.channel_type_ = from._impl_.channel_type_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.channel_type_ = from._impl_.channel_type_;
+      _this->_impl_.source_player_id_ = from._impl_.source_player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -57256,12 +57333,8 @@ void CDOTAUserMsg_ChatMessage::InternalSwap(CDOTAUserMsg_ChatMessage* other) {
       &_impl_.message_text_, lhs_arena,
       &other->_impl_.message_text_, rhs_arena
   );
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ChatMessage, _impl_.channel_type_)
-      + sizeof(CDOTAUserMsg_ChatMessage::_impl_.channel_type_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_ChatMessage, _impl_.source_player_id_)>(
-          reinterpret_cast<char*>(&_impl_.source_player_id_),
-          reinterpret_cast<char*>(&other->_impl_.source_player_id_));
+  swap(_impl_.channel_type_, other->_impl_.channel_type_);
+  swap(_impl_.source_player_id_, other->_impl_.source_player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_ChatMessage::GetMetadata() const {
@@ -57312,8 +57385,8 @@ inline void CDOTAUserMsg_RockPaperScissorsStarted::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_source_){0}
-    , decltype(_impl_.player_id_target_){0}
+    , decltype(_impl_.player_id_source_){-1}
+    , decltype(_impl_.player_id_target_){-1}
   };
 }
 
@@ -57342,9 +57415,8 @@ void CDOTAUserMsg_RockPaperScissorsStarted::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    ::memset(&_impl_.player_id_source_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.player_id_target_) -
-        reinterpret_cast<char*>(&_impl_.player_id_source_)) + sizeof(_impl_.player_id_target_));
+    _impl_.player_id_source_ = -1;
+    _impl_.player_id_target_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -57357,7 +57429,7 @@ const char* CDOTAUserMsg_RockPaperScissorsStarted::_InternalParse(const char* pt
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id_source = 1;
+      // optional int32 player_id_source = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id_source(&has_bits);
@@ -57366,7 +57438,7 @@ const char* CDOTAUserMsg_RockPaperScissorsStarted::_InternalParse(const char* pt
         } else
           goto handle_unusual;
         continue;
-      // optional int32 player_id_target = 2;
+      // optional int32 player_id_target = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_player_id_target(&has_bits);
@@ -57406,13 +57478,13 @@ uint8_t* CDOTAUserMsg_RockPaperScissorsStarted::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id_source = 1;
+  // optional int32 player_id_source = 1 [default = -1];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id_source(), target);
   }
 
-  // optional int32 player_id_target = 2;
+  // optional int32 player_id_target = 2 [default = -1];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_player_id_target(), target);
@@ -57436,12 +57508,12 @@ size_t CDOTAUserMsg_RockPaperScissorsStarted::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional int32 player_id_source = 1;
+    // optional int32 player_id_source = 1 [default = -1];
     if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id_source());
     }
 
-    // optional int32 player_id_target = 2;
+    // optional int32 player_id_target = 2 [default = -1];
     if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id_target());
     }
@@ -57493,12 +57565,8 @@ void CDOTAUserMsg_RockPaperScissorsStarted::InternalSwap(CDOTAUserMsg_RockPaperS
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_RockPaperScissorsStarted, _impl_.player_id_target_)
-      + sizeof(CDOTAUserMsg_RockPaperScissorsStarted::_impl_.player_id_target_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_RockPaperScissorsStarted, _impl_.player_id_source_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_source_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_source_));
+  swap(_impl_.player_id_source_, other->_impl_.player_id_source_);
+  swap(_impl_.player_id_target_, other->_impl_.player_id_target_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_RockPaperScissorsStarted::GetMetadata() const {
@@ -57513,16 +57581,16 @@ class CDOTAUserMsg_RockPaperScissorsFinished::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_RockPaperScissorsFinished>()._impl_._has_bits_);
   static void set_has_player_id_1(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_player_id_2(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_player_1_choice(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
-  static void set_has_player_2_choice(HasBits* has_bits) {
+  static void set_has_player_id_2(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
+  }
+  static void set_has_player_1_choice(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_player_2_choice(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
   }
 };
 
@@ -57538,15 +57606,15 @@ CDOTAUserMsg_RockPaperScissorsFinished::CDOTAUserMsg_RockPaperScissorsFinished(c
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_1_){}
-    , decltype(_impl_.player_id_2_){}
     , decltype(_impl_.player_1_choice_){}
-    , decltype(_impl_.player_2_choice_){}};
+    , decltype(_impl_.player_2_choice_){}
+    , decltype(_impl_.player_id_1_){}
+    , decltype(_impl_.player_id_2_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.player_id_1_, &from._impl_.player_id_1_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_2_choice_) -
-    reinterpret_cast<char*>(&_impl_.player_id_1_)) + sizeof(_impl_.player_2_choice_));
+  ::memcpy(&_impl_.player_1_choice_, &from._impl_.player_1_choice_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_2_) -
+    reinterpret_cast<char*>(&_impl_.player_1_choice_)) + sizeof(_impl_.player_id_2_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_RockPaperScissorsFinished)
 }
 
@@ -57557,10 +57625,10 @@ inline void CDOTAUserMsg_RockPaperScissorsFinished::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_1_){0}
-    , decltype(_impl_.player_id_2_){0}
     , decltype(_impl_.player_1_choice_){0}
     , decltype(_impl_.player_2_choice_){0}
+    , decltype(_impl_.player_id_1_){-1}
+    , decltype(_impl_.player_id_2_){-1}
   };
 }
 
@@ -57589,9 +57657,11 @@ void CDOTAUserMsg_RockPaperScissorsFinished::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    ::memset(&_impl_.player_id_1_, 0, static_cast<size_t>(
+    ::memset(&_impl_.player_1_choice_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.player_2_choice_) -
-        reinterpret_cast<char*>(&_impl_.player_id_1_)) + sizeof(_impl_.player_2_choice_));
+        reinterpret_cast<char*>(&_impl_.player_1_choice_)) + sizeof(_impl_.player_2_choice_));
+    _impl_.player_id_1_ = -1;
+    _impl_.player_id_2_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -57604,7 +57674,7 @@ const char* CDOTAUserMsg_RockPaperScissorsFinished::_InternalParse(const char* p
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id_1 = 1;
+      // optional int32 player_id_1 = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id_1(&has_bits);
@@ -57613,7 +57683,7 @@ const char* CDOTAUserMsg_RockPaperScissorsFinished::_InternalParse(const char* p
         } else
           goto handle_unusual;
         continue;
-      // optional int32 player_id_2 = 2;
+      // optional int32 player_id_2 = 2 [default = -1];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_player_id_2(&has_bits);
@@ -57671,26 +57741,26 @@ uint8_t* CDOTAUserMsg_RockPaperScissorsFinished::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id_1 = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // optional int32 player_id_1 = 1 [default = -1];
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id_1(), target);
   }
 
-  // optional int32 player_id_2 = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // optional int32 player_id_2 = 2 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_player_id_2(), target);
   }
 
   // optional int32 player_1_choice = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_player_1_choice(), target);
   }
 
   // optional int32 player_2_choice = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_player_2_choice(), target);
   }
@@ -57713,24 +57783,24 @@ size_t CDOTAUserMsg_RockPaperScissorsFinished::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional int32 player_id_1 = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id_1());
-    }
-
-    // optional int32 player_id_2 = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id_2());
-    }
-
     // optional int32 player_1_choice = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_1_choice());
     }
 
     // optional int32 player_2_choice = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_2_choice());
+    }
+
+    // optional int32 player_id_1 = 1 [default = -1];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id_1());
+    }
+
+    // optional int32 player_id_2 = 2 [default = -1];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id_2());
     }
 
   }
@@ -57755,16 +57825,16 @@ void CDOTAUserMsg_RockPaperScissorsFinished::MergeImpl(::PROTOBUF_NAMESPACE_ID::
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.player_id_1_ = from._impl_.player_id_1_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.player_id_2_ = from._impl_.player_id_2_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.player_1_choice_ = from._impl_.player_1_choice_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.player_2_choice_ = from._impl_.player_2_choice_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.player_id_1_ = from._impl_.player_id_1_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.player_id_2_ = from._impl_.player_id_2_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -57789,9 +57859,11 @@ void CDOTAUserMsg_RockPaperScissorsFinished::InternalSwap(CDOTAUserMsg_RockPaper
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_RockPaperScissorsFinished, _impl_.player_2_choice_)
       + sizeof(CDOTAUserMsg_RockPaperScissorsFinished::_impl_.player_2_choice_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_RockPaperScissorsFinished, _impl_.player_id_1_)>(
-          reinterpret_cast<char*>(&_impl_.player_id_1_),
-          reinterpret_cast<char*>(&other->_impl_.player_id_1_));
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_RockPaperScissorsFinished, _impl_.player_1_choice_)>(
+          reinterpret_cast<char*>(&_impl_.player_1_choice_),
+          reinterpret_cast<char*>(&other->_impl_.player_1_choice_));
+  swap(_impl_.player_id_1_, other->_impl_.player_id_1_);
+  swap(_impl_.player_id_2_, other->_impl_.player_id_2_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_RockPaperScissorsFinished::GetMetadata() const {
@@ -58310,7 +58382,7 @@ inline void CDOTAUserMsg_DuelRequested::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.player_id_requestor_){0}
+    , decltype(_impl_.player_id_requestor_){-1}
   };
 }
 
@@ -58337,7 +58409,7 @@ void CDOTAUserMsg_DuelRequested::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.player_id_requestor_ = 0;
+  _impl_.player_id_requestor_ = -1;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -58349,7 +58421,7 @@ const char* CDOTAUserMsg_DuelRequested::_InternalParse(const char* ptr, ::_pbi::
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id_requestor = 1;
+      // optional int32 player_id_requestor = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id_requestor(&has_bits);
@@ -58389,7 +58461,7 @@ uint8_t* CDOTAUserMsg_DuelRequested::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id_requestor = 1;
+  // optional int32 player_id_requestor = 1 [default = -1];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id_requestor(), target);
@@ -58411,7 +58483,7 @@ size_t CDOTAUserMsg_DuelRequested::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional int32 player_id_requestor = 1;
+  // optional int32 player_id_requestor = 1 [default = -1];
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id_requestor());
@@ -58463,6 +58535,357 @@ void CDOTAUserMsg_DuelRequested::InternalSwap(CDOTAUserMsg_DuelRequested* other)
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
       file_level_metadata_dota_5fusermessages_2eproto[176]);
+}
+
+// ===================================================================
+
+class CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled>()._impl_._has_bits_);
+  static void set_has_player_id_killer(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_player_id_target(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_points(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_points_total(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_last_hit(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static bool MissingRequiredFields(const HasBits& has_bits) {
+    return ((has_bits[0] & 0x0000001f) ^ 0x0000001f) != 0;
+  }
+};
+
+CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled)
+}
+CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled(const CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.points_){}
+    , decltype(_impl_.points_total_){}
+    , decltype(_impl_.last_hit_){}
+    , decltype(_impl_.player_id_killer_){}
+    , decltype(_impl_.player_id_target_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.points_, &from._impl_.points_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_target_) -
+    reinterpret_cast<char*>(&_impl_.points_)) + sizeof(_impl_.player_id_target_));
+  // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled)
+}
+
+inline void CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.points_){0}
+    , decltype(_impl_.points_total_){0}
+    , decltype(_impl_.last_hit_){false}
+    , decltype(_impl_.player_id_killer_){-1}
+    , decltype(_impl_.player_id_target_){-1}
+  };
+}
+
+CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::~CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled() {
+  // @@protoc_insertion_point(destructor:CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::Clear() {
+// @@protoc_insertion_point(message_clear_start:CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000001fu) {
+    ::memset(&_impl_.points_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.last_hit_) -
+        reinterpret_cast<char*>(&_impl_.points_)) + sizeof(_impl_.last_hit_));
+    _impl_.player_id_killer_ = -1;
+    _impl_.player_id_target_ = -1;
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // required int32 player_id_killer = 1 [default = -1];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_player_id_killer(&has_bits);
+          _impl_.player_id_killer_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // required int32 player_id_target = 2 [default = -1];
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_player_id_target(&has_bits);
+          _impl_.player_id_target_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // required int32 points = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_points(&has_bits);
+          _impl_.points_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // required int32 points_total = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _Internal::set_has_points_total(&has_bits);
+          _impl_.points_total_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // required bool last_hit = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          _Internal::set_has_last_hit(&has_bits);
+          _impl_.last_hit_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // required int32 player_id_killer = 1 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id_killer(), target);
+  }
+
+  // required int32 player_id_target = 2 [default = -1];
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_player_id_target(), target);
+  }
+
+  // required int32 points = 3;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_points(), target);
+  }
+
+  // required int32 points_total = 4;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_points_total(), target);
+  }
+
+  // required bool last_hit = 5;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(5, this->_internal_last_hit(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled)
+  return target;
+}
+
+size_t CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled)
+  size_t total_size = 0;
+
+  if (_internal_has_points()) {
+    // required int32 points = 3;
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_points());
+  }
+
+  if (_internal_has_points_total()) {
+    // required int32 points_total = 4;
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_points_total());
+  }
+
+  if (_internal_has_last_hit()) {
+    // required bool last_hit = 5;
+    total_size += 1 + 1;
+  }
+
+  if (_internal_has_player_id_killer()) {
+    // required int32 player_id_killer = 1 [default = -1];
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id_killer());
+  }
+
+  if (_internal_has_player_id_target()) {
+    // required int32 player_id_target = 2 [default = -1];
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id_target());
+  }
+
+  return total_size;
+}
+size_t CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled)
+  size_t total_size = 0;
+
+  if (((_impl_._has_bits_[0] & 0x0000001f) ^ 0x0000001f) == 0) {  // All required fields are present.
+    // required int32 points = 3;
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_points());
+
+    // required int32 points_total = 4;
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_points_total());
+
+    // required bool last_hit = 5;
+    total_size += 1 + 1;
+
+    // required int32 player_id_killer = 1 [default = -1];
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id_killer());
+
+    // required int32 player_id_target = 2 [default = -1];
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id_target());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::GetClassData() const { return &_class_data_; }
+
+
+void CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled*>(&to_msg);
+  auto& from = static_cast<const CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000001fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.points_ = from._impl_.points_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.points_total_ = from._impl_.points_total_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.last_hit_ = from._impl_.last_hit_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.player_id_killer_ = from._impl_.player_id_killer_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.player_id_target_ = from._impl_.player_id_target_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::CopyFrom(const CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::IsInitialized() const {
+  if (_Internal::MissingRequiredFields(_impl_._has_bits_)) return false;
+  return true;
+}
+
+void CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::InternalSwap(CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled, _impl_.last_hit_)
+      + sizeof(CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::_impl_.last_hit_)
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled, _impl_.points_)>(
+          reinterpret_cast<char*>(&_impl_.points_),
+          reinterpret_cast<char*>(&other->_impl_.points_));
+  swap(_impl_.player_id_killer_, other->_impl_.player_id_killer_);
+  swap(_impl_.player_id_target_, other->_impl_.player_id_target_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
+      file_level_metadata_dota_5fusermessages_2eproto[177]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -59174,6 +59597,10 @@ Arena::CreateMaybeMessage< ::CDOTAUserMsg_DuelAccepted >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::CDOTAUserMsg_DuelRequested*
 Arena::CreateMaybeMessage< ::CDOTAUserMsg_DuelRequested >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CDOTAUserMsg_DuelRequested >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled*
+Arena::CreateMaybeMessage< ::CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

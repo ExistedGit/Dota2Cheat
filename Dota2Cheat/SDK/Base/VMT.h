@@ -7,9 +7,9 @@
 class VMT;
 inline std::vector<VMT*> createdVMTs;
 
-inline uint32_t CountVMs(void* interface)
+inline uint32_t CountVMs(void* Interface)
 {
-	auto** vmt = reinterpret_cast<uintptr_t**>(interface);
+	auto** vmt = reinterpret_cast<uintptr_t**>(Interface);
 
 	uint32_t methodCount = 0;
 
@@ -23,7 +23,7 @@ class VMT
 {
 public:
 	uintptr_t* vmt;
-	uintptr_t** interface = nullptr;
+	uintptr_t** Interface = nullptr;
 	uintptr_t* original_vmt = nullptr;
 	size_t method_count = 0;
 	bool hasRTTI = false;
@@ -35,13 +35,13 @@ public:
 		delete[] vmt;
 	}
 	// rttiPrefix 2??? Wtf? Yeah read this: https://web.archive.org/web/20170701021444/https://spockwangs.github.io/2011/01/31/cpp-object-model.html
-	explicit VMT(void* interface, bool copyRTTI = true, int32_t rttiPrefixAmount = 2)
+	explicit VMT(void* Interface, bool copyRTTI = true, int32_t rttiPrefixAmount = 2)
 	{
-		this->interface = reinterpret_cast<uintptr_t**>(interface);
+		this->Interface = reinterpret_cast<uintptr_t**>(Interface);
 
-		method_count = CountVMs(interface) + 2 + rttiPrefixAmount;
+		method_count = CountVMs(Interface) + 2 + rttiPrefixAmount;
 
-		original_vmt = *this->interface;
+		original_vmt = *this->Interface;
 
 		// Copy the Original Vtable.
 		if (copyRTTI) {
@@ -77,19 +77,19 @@ public:
 	void ApplyVMT()
 	{
 		if (hasRTTI) {
-			*this->interface = &vmt[rttiPrefix];
+			*this->Interface = &vmt[rttiPrefix];
 		}
 		else {
-			*this->interface = vmt;
+			*this->Interface = vmt;
 		}
-		applied_vmt = *this->interface;
+		applied_vmt = *this->Interface;
 	}
 
 	void ReleaseVMT()
 	{
 		/* Check if vtable is still set to ours. If it's not, something changed in memory and we should just leave it alone */
-		if (this->interface && *this->interface == applied_vmt) {
-			*this->interface = original_vmt;
+		if (this->Interface && *this->Interface == applied_vmt) {
+			*this->Interface = original_vmt;
 		}
 	}
 };

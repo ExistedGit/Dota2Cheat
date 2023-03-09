@@ -301,6 +301,9 @@ extern CDOTAUserMsg_ModifierAlertDefaultTypeInternal _CDOTAUserMsg_ModifierAlert
 class CDOTAUserMsg_MoveCameraToUnit;
 struct CDOTAUserMsg_MoveCameraToUnitDefaultTypeInternal;
 extern CDOTAUserMsg_MoveCameraToUnitDefaultTypeInternal _CDOTAUserMsg_MoveCameraToUnit_default_instance_;
+class CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled;
+struct CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilledDefaultTypeInternal;
+extern CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilledDefaultTypeInternal _CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled_default_instance_;
 class CDOTAUserMsg_MutedPlayers;
 struct CDOTAUserMsg_MutedPlayersDefaultTypeInternal;
 extern CDOTAUserMsg_MutedPlayersDefaultTypeInternal _CDOTAUserMsg_MutedPlayers_default_instance_;
@@ -665,6 +668,7 @@ template<> ::CDOTAUserMsg_MinimapDebugPoint* Arena::CreateMaybeMessage<::CDOTAUs
 template<> ::CDOTAUserMsg_MinimapEvent* Arena::CreateMaybeMessage<::CDOTAUserMsg_MinimapEvent>(Arena*);
 template<> ::CDOTAUserMsg_ModifierAlert* Arena::CreateMaybeMessage<::CDOTAUserMsg_ModifierAlert>(Arena*);
 template<> ::CDOTAUserMsg_MoveCameraToUnit* Arena::CreateMaybeMessage<::CDOTAUserMsg_MoveCameraToUnit>(Arena*);
+template<> ::CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled* Arena::CreateMaybeMessage<::CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled>(Arena*);
 template<> ::CDOTAUserMsg_MutedPlayers* Arena::CreateMaybeMessage<::CDOTAUserMsg_MutedPlayers>(Arena*);
 template<> ::CDOTAUserMsg_NeutralCampAlert* Arena::CreateMaybeMessage<::CDOTAUserMsg_NeutralCampAlert>(Arena*);
 template<> ::CDOTAUserMsg_NevermoreRequiem* Arena::CreateMaybeMessage<::CDOTAUserMsg_NevermoreRequiem>(Arena*);
@@ -985,11 +989,12 @@ enum EDotaUserMessages : int {
   DOTA_UM_RockPaperScissorsFinished = 615,
   DOTA_UM_DuelOpponentKilled = 616,
   DOTA_UM_DuelAccepted = 617,
-  DOTA_UM_DuelRequested = 618
+  DOTA_UM_DuelRequested = 618,
+  DOTA_UM_MuertaReleaseEvent_AssignedTargetKilled = 619
 };
 bool EDotaUserMessages_IsValid(int value);
 constexpr EDotaUserMessages EDotaUserMessages_MIN = DOTA_UM_AddUnitToSelection;
-constexpr EDotaUserMessages EDotaUserMessages_MAX = DOTA_UM_DuelRequested;
+constexpr EDotaUserMessages EDotaUserMessages_MAX = DOTA_UM_MuertaReleaseEvent_AssignedTargetKilled;
 constexpr int EDotaUserMessages_ARRAYSIZE = EDotaUserMessages_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EDotaUserMessages_descriptor();
@@ -1991,7 +1996,7 @@ class CDOTAUserMsg_SwapVerify final :
   enum : int {
     kPlayerIdFieldNumber = 1,
   };
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   bool has_player_id() const;
   private:
   bool _internal_has_player_id() const;
@@ -2446,8 +2451,8 @@ class CDOTAUserMsg_BotChat final :
   enum : int {
     kMessageFieldNumber = 3,
     kTargetFieldNumber = 4,
-    kPlayerIdFieldNumber = 1,
     kTeamOnlyFieldNumber = 5,
+    kPlayerIdFieldNumber = 1,
   };
   // optional string message = 3;
   bool has_message() const;
@@ -2485,19 +2490,6 @@ class CDOTAUserMsg_BotChat final :
   std::string* _internal_mutable_target();
   public:
 
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
   // optional bool team_only = 5;
   bool has_team_only() const;
   private:
@@ -2509,6 +2501,19 @@ class CDOTAUserMsg_BotChat final :
   private:
   bool _internal_team_only() const;
   void _internal_set_team_only(bool value);
+  public:
+
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_BotChat)
@@ -2523,8 +2528,8 @@ class CDOTAUserMsg_BotChat final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr message_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr target_;
-    int32_t player_id_;
     bool team_only_;
+    int32_t player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -2872,8 +2877,8 @@ class CDOTAUserMsg_CombatLogBulkData final :
     kCombatEntriesFieldNumber = 1,
     kTimestampFieldNumber = 2,
     kDurationFieldNumber = 3,
-    kPlayerIdFieldNumber = 4,
     kRequestTimeFieldNumber = 5,
+    kPlayerIdFieldNumber = 4,
   };
   // repeated .CMsgDOTACombatLogEntry combat_entries = 1;
   int combat_entries_size() const;
@@ -2919,19 +2924,6 @@ class CDOTAUserMsg_CombatLogBulkData final :
   void _internal_set_duration(float value);
   public:
 
-  // optional int32 player_id = 4;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
   // optional float request_time = 5;
   bool has_request_time() const;
   private:
@@ -2943,6 +2935,19 @@ class CDOTAUserMsg_CombatLogBulkData final :
   private:
   float _internal_request_time() const;
   void _internal_set_request_time(float value);
+  public:
+
+  // optional int32 player_id = 4 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_CombatLogBulkData)
@@ -2958,8 +2963,8 @@ class CDOTAUserMsg_CombatLogBulkData final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgDOTACombatLogEntry > combat_entries_;
     float timestamp_;
     float duration_;
-    int32_t player_id_;
     float request_time_;
+    int32_t player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -3274,22 +3279,9 @@ class CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kAbilityIdFieldNumber = 1,
     kDamageFieldNumber = 2,
+    kAbilityIdFieldNumber = 1,
   };
-  // optional uint32 ability_id = 1;
-  bool has_ability_id() const;
-  private:
-  bool _internal_has_ability_id() const;
-  public:
-  void clear_ability_id();
-  uint32_t ability_id() const;
-  void set_ability_id(uint32_t value);
-  private:
-  uint32_t _internal_ability_id() const;
-  void _internal_set_ability_id(uint32_t value);
-  public:
-
   // optional int32 damage = 2;
   bool has_damage() const;
   private:
@@ -3303,6 +3295,19 @@ class CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability final :
   void _internal_set_damage(int32_t value);
   public:
 
+  // optional int32 ability_id = 1 [default = -1];
+  bool has_ability_id() const;
+  private:
+  bool _internal_has_ability_id() const;
+  public:
+  void clear_ability_id();
+  int32_t ability_id() const;
+  void set_ability_id(int32_t value);
+  private:
+  int32_t _internal_ability_id() const;
+  void _internal_set_ability_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_MiniKillCamInfo.Attacker.Ability)
  private:
   class _Internal;
@@ -3313,8 +3318,8 @@ class CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t ability_id_;
     int32_t damage_;
+    int32_t ability_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -3453,8 +3458,8 @@ class CDOTAUserMsg_MiniKillCamInfo_Attacker final :
   enum : int {
     kAbilitiesFieldNumber = 3,
     kAttackerNameFieldNumber = 4,
-    kAttackerFieldNumber = 1,
     kTotalDamageFieldNumber = 2,
+    kAttackerFieldNumber = 1,
   };
   // repeated .CDOTAUserMsg_MiniKillCamInfo.Attacker.Ability abilities = 3;
   int abilities_size() const;
@@ -3492,19 +3497,6 @@ class CDOTAUserMsg_MiniKillCamInfo_Attacker final :
   std::string* _internal_mutable_attacker_name();
   public:
 
-  // optional uint32 attacker = 1;
-  bool has_attacker() const;
-  private:
-  bool _internal_has_attacker() const;
-  public:
-  void clear_attacker();
-  uint32_t attacker() const;
-  void set_attacker(uint32_t value);
-  private:
-  uint32_t _internal_attacker() const;
-  void _internal_set_attacker(uint32_t value);
-  public:
-
   // optional int32 total_damage = 2;
   bool has_total_damage() const;
   private:
@@ -3516,6 +3508,19 @@ class CDOTAUserMsg_MiniKillCamInfo_Attacker final :
   private:
   int32_t _internal_total_damage() const;
   void _internal_set_total_damage(int32_t value);
+  public:
+
+  // optional uint32 attacker = 1 [default = 16777215];
+  bool has_attacker() const;
+  private:
+  bool _internal_has_attacker() const;
+  public:
+  void clear_attacker();
+  uint32_t attacker() const;
+  void set_attacker(uint32_t value);
+  private:
+  uint32_t _internal_attacker() const;
+  void _internal_set_attacker(uint32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_MiniKillCamInfo.Attacker)
@@ -3530,8 +3535,8 @@ class CDOTAUserMsg_MiniKillCamInfo_Attacker final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability > abilities_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr attacker_name_;
-    uint32_t attacker_;
     int32_t total_damage_;
+    uint32_t attacker_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -4208,7 +4213,7 @@ class CDOTAUserMsg_LocationPing final :
       ::CDOTAMsg_LocationPing* location_ping);
   ::CDOTAMsg_LocationPing* unsafe_arena_release_location_ping();
 
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   bool has_player_id() const;
   private:
   bool _internal_has_player_id() const;
@@ -4368,9 +4373,9 @@ class CDOTAUserMsg_PingConfirmation final :
 
   enum : int {
     kLocationFieldNumber = 4,
-    kPlayerIdOfOriginalPingerFieldNumber = 1,
     kEntityIndexFieldNumber = 2,
     kIconTypeFieldNumber = 3,
+    kPlayerIdOfOriginalPingerFieldNumber = 1,
   };
   // optional .CMsgVector location = 4;
   bool has_location() const;
@@ -4389,19 +4394,6 @@ class CDOTAUserMsg_PingConfirmation final :
   void unsafe_arena_set_allocated_location(
       ::CMsgVector* location);
   ::CMsgVector* unsafe_arena_release_location();
-
-  // optional int32 player_id_of_original_pinger = 1;
-  bool has_player_id_of_original_pinger() const;
-  private:
-  bool _internal_has_player_id_of_original_pinger() const;
-  public:
-  void clear_player_id_of_original_pinger();
-  int32_t player_id_of_original_pinger() const;
-  void set_player_id_of_original_pinger(int32_t value);
-  private:
-  int32_t _internal_player_id_of_original_pinger() const;
-  void _internal_set_player_id_of_original_pinger(int32_t value);
-  public:
 
   // optional uint32 entity_index = 2;
   bool has_entity_index() const;
@@ -4429,6 +4421,19 @@ class CDOTAUserMsg_PingConfirmation final :
   void _internal_set_icon_type(uint32_t value);
   public:
 
+  // optional int32 player_id_of_original_pinger = 1 [default = -1];
+  bool has_player_id_of_original_pinger() const;
+  private:
+  bool _internal_has_player_id_of_original_pinger() const;
+  public:
+  void clear_player_id_of_original_pinger();
+  int32_t player_id_of_original_pinger() const;
+  void set_player_id_of_original_pinger(int32_t value);
+  private:
+  int32_t _internal_player_id_of_original_pinger() const;
+  void _internal_set_player_id_of_original_pinger(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_PingConfirmation)
  private:
   class _Internal;
@@ -4440,9 +4445,9 @@ class CDOTAUserMsg_PingConfirmation final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::CMsgVector* location_;
-    int32_t player_id_of_original_pinger_;
     uint32_t entity_index_;
     uint32_t icon_type_;
+    int32_t player_id_of_original_pinger_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -4598,7 +4603,7 @@ class CDOTAUserMsg_ItemAlert final :
       ::CDOTAMsg_ItemAlert* item_alert);
   ::CDOTAMsg_ItemAlert* unsafe_arena_release_item_alert();
 
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   bool has_player_id() const;
   private:
   bool _internal_has_player_id() const;
@@ -4757,16 +4762,42 @@ class CDOTAUserMsg_EnemyItemAlert final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kEntityIdFieldNumber = 5,
+    kSecondaryChargesFieldNumber = 8,
     kPlayerIdFieldNumber = 1,
     kTargetPlayerIdFieldNumber = 2,
     kItemAbilityIdFieldNumber = 3,
-    kEntityIdFieldNumber = 5,
     kRuneTypeFieldNumber = 4,
     kItemLevelFieldNumber = 6,
     kPrimaryChargesFieldNumber = 7,
-    kSecondaryChargesFieldNumber = 8,
   };
-  // optional int32 player_id = 1;
+  // optional int32 entity_id = 5;
+  bool has_entity_id() const;
+  private:
+  bool _internal_has_entity_id() const;
+  public:
+  void clear_entity_id();
+  int32_t entity_id() const;
+  void set_entity_id(int32_t value);
+  private:
+  int32_t _internal_entity_id() const;
+  void _internal_set_entity_id(int32_t value);
+  public:
+
+  // optional int32 secondary_charges = 8 [default = -1];
+  bool has_secondary_charges() const;
+  private:
+  bool _internal_has_secondary_charges() const;
+  public:
+  void clear_secondary_charges();
+  int32_t secondary_charges() const;
+  void set_secondary_charges(int32_t value);
+  private:
+  int32_t _internal_secondary_charges() const;
+  void _internal_set_secondary_charges(int32_t value);
+  public:
+
+  // optional int32 player_id = 1 [default = -1];
   bool has_player_id() const;
   private:
   bool _internal_has_player_id() const;
@@ -4779,7 +4810,7 @@ class CDOTAUserMsg_EnemyItemAlert final :
   void _internal_set_player_id(int32_t value);
   public:
 
-  // optional int32 target_player_id = 2;
+  // optional int32 target_player_id = 2 [default = -1];
   bool has_target_player_id() const;
   private:
   bool _internal_has_target_player_id() const;
@@ -4792,7 +4823,7 @@ class CDOTAUserMsg_EnemyItemAlert final :
   void _internal_set_target_player_id(int32_t value);
   public:
 
-  // optional int32 item_ability_id = 3;
+  // optional int32 item_ability_id = 3 [default = -1];
   bool has_item_ability_id() const;
   private:
   bool _internal_has_item_ability_id() const;
@@ -4803,19 +4834,6 @@ class CDOTAUserMsg_EnemyItemAlert final :
   private:
   int32_t _internal_item_ability_id() const;
   void _internal_set_item_ability_id(int32_t value);
-  public:
-
-  // optional int32 entity_id = 5;
-  bool has_entity_id() const;
-  private:
-  bool _internal_has_entity_id() const;
-  public:
-  void clear_entity_id();
-  int32_t entity_id() const;
-  void set_entity_id(int32_t value);
-  private:
-  int32_t _internal_entity_id() const;
-  void _internal_set_entity_id(int32_t value);
   public:
 
   // optional int32 rune_type = 4 [default = -1];
@@ -4857,19 +4875,6 @@ class CDOTAUserMsg_EnemyItemAlert final :
   void _internal_set_primary_charges(int32_t value);
   public:
 
-  // optional int32 secondary_charges = 8 [default = -1];
-  bool has_secondary_charges() const;
-  private:
-  bool _internal_has_secondary_charges() const;
-  public:
-  void clear_secondary_charges();
-  int32_t secondary_charges() const;
-  void set_secondary_charges(int32_t value);
-  private:
-  int32_t _internal_secondary_charges() const;
-  void _internal_set_secondary_charges(int32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_EnemyItemAlert)
  private:
   class _Internal;
@@ -4880,14 +4885,14 @@ class CDOTAUserMsg_EnemyItemAlert final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    int32_t entity_id_;
+    int32_t secondary_charges_;
     int32_t player_id_;
     int32_t target_player_id_;
     int32_t item_ability_id_;
-    int32_t entity_id_;
     int32_t rune_type_;
     int32_t item_level_;
     int32_t primary_charges_;
-    int32_t secondary_charges_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -5023,11 +5028,11 @@ class CDOTAUserMsg_ModifierAlert final :
 
   enum : int {
     kClassNameFieldNumber = 2,
-    kPlayerIdFieldNumber = 1,
     kStackCountFieldNumber = 3,
     kIsDebuffFieldNumber = 4,
-    kTargetEntindexFieldNumber = 5,
     kSecondsRemainingFieldNumber = 6,
+    kPlayerIdFieldNumber = 1,
+    kTargetEntindexFieldNumber = 5,
   };
   // optional string class_name = 2;
   bool has_class_name() const;
@@ -5045,19 +5050,6 @@ class CDOTAUserMsg_ModifierAlert final :
   const std::string& _internal_class_name() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_class_name(const std::string& value);
   std::string* _internal_mutable_class_name();
-  public:
-
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
   public:
 
   // optional uint32 stack_count = 3;
@@ -5086,19 +5078,6 @@ class CDOTAUserMsg_ModifierAlert final :
   void _internal_set_is_debuff(bool value);
   public:
 
-  // optional int32 target_entindex = 5;
-  bool has_target_entindex() const;
-  private:
-  bool _internal_has_target_entindex() const;
-  public:
-  void clear_target_entindex();
-  int32_t target_entindex() const;
-  void set_target_entindex(int32_t value);
-  private:
-  int32_t _internal_target_entindex() const;
-  void _internal_set_target_entindex(int32_t value);
-  public:
-
   // optional float seconds_remaining = 6;
   bool has_seconds_remaining() const;
   private:
@@ -5112,6 +5091,32 @@ class CDOTAUserMsg_ModifierAlert final :
   void _internal_set_seconds_remaining(float value);
   public:
 
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
+  // optional int32 target_entindex = 5 [default = -1];
+  bool has_target_entindex() const;
+  private:
+  bool _internal_has_target_entindex() const;
+  public:
+  void clear_target_entindex();
+  int32_t target_entindex() const;
+  void set_target_entindex(int32_t value);
+  private:
+  int32_t _internal_target_entindex() const;
+  void _internal_set_target_entindex(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_ModifierAlert)
  private:
   class _Internal;
@@ -5123,11 +5128,11 @@ class CDOTAUserMsg_ModifierAlert final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr class_name_;
-    int32_t player_id_;
     uint32_t stack_count_;
     bool is_debuff_;
-    int32_t target_entindex_;
     float seconds_remaining_;
+    int32_t player_id_;
+    int32_t target_entindex_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -5262,36 +5267,10 @@ class CDOTAUserMsg_HPManaAlert final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kShowRawValuesFieldNumber = 3,
     kPlayerIdFieldNumber = 1,
     kTargetEntindexFieldNumber = 2,
-    kShowRawValuesFieldNumber = 3,
   };
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
-  // optional int32 target_entindex = 2;
-  bool has_target_entindex() const;
-  private:
-  bool _internal_has_target_entindex() const;
-  public:
-  void clear_target_entindex();
-  int32_t target_entindex() const;
-  void set_target_entindex(int32_t value);
-  private:
-  int32_t _internal_target_entindex() const;
-  void _internal_set_target_entindex(int32_t value);
-  public:
-
   // optional bool show_raw_values = 3;
   bool has_show_raw_values() const;
   private:
@@ -5305,6 +5284,32 @@ class CDOTAUserMsg_HPManaAlert final :
   void _internal_set_show_raw_values(bool value);
   public:
 
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
+  // optional int32 target_entindex = 2 [default = -1];
+  bool has_target_entindex() const;
+  private:
+  bool _internal_has_target_entindex() const;
+  public:
+  void clear_target_entindex();
+  int32_t target_entindex() const;
+  void set_target_entindex(int32_t value);
+  private:
+  int32_t _internal_target_entindex() const;
+  void _internal_set_target_entindex(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_HPManaAlert)
  private:
   class _Internal;
@@ -5315,9 +5320,9 @@ class CDOTAUserMsg_HPManaAlert final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    bool show_raw_values_;
     int32_t player_id_;
     int32_t target_entindex_;
-    bool show_raw_values_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -5452,53 +5457,14 @@ class CDOTAUserMsg_NeutralCampAlert final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 1,
-    kSpawnerEntindexFieldNumber = 2,
-    kUnitEntindexFieldNumber = 3,
     kStackCountFieldNumber = 4,
     kCampTypeFieldNumber = 5,
     kStackRequestFieldNumber = 6,
     kStackIntentionFieldNumber = 7,
+    kUnitEntindexFieldNumber = 3,
+    kPlayerIdFieldNumber = 1,
+    kSpawnerEntindexFieldNumber = 2,
   };
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
-  // optional int32 spawner_entindex = 2;
-  bool has_spawner_entindex() const;
-  private:
-  bool _internal_has_spawner_entindex() const;
-  public:
-  void clear_spawner_entindex();
-  int32_t spawner_entindex() const;
-  void set_spawner_entindex(int32_t value);
-  private:
-  int32_t _internal_spawner_entindex() const;
-  void _internal_set_spawner_entindex(int32_t value);
-  public:
-
-  // optional int32 unit_entindex = 3;
-  bool has_unit_entindex() const;
-  private:
-  bool _internal_has_unit_entindex() const;
-  public:
-  void clear_unit_entindex();
-  int32_t unit_entindex() const;
-  void set_unit_entindex(int32_t value);
-  private:
-  int32_t _internal_unit_entindex() const;
-  void _internal_set_unit_entindex(int32_t value);
-  public:
-
   // optional int32 stack_count = 4;
   bool has_stack_count() const;
   private:
@@ -5551,6 +5517,45 @@ class CDOTAUserMsg_NeutralCampAlert final :
   void _internal_set_stack_intention(bool value);
   public:
 
+  // optional int32 unit_entindex = 3 [default = -1];
+  bool has_unit_entindex() const;
+  private:
+  bool _internal_has_unit_entindex() const;
+  public:
+  void clear_unit_entindex();
+  int32_t unit_entindex() const;
+  void set_unit_entindex(int32_t value);
+  private:
+  int32_t _internal_unit_entindex() const;
+  void _internal_set_unit_entindex(int32_t value);
+  public:
+
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
+  // optional int32 spawner_entindex = 2 [default = -1];
+  bool has_spawner_entindex() const;
+  private:
+  bool _internal_has_spawner_entindex() const;
+  public:
+  void clear_spawner_entindex();
+  int32_t spawner_entindex() const;
+  void set_spawner_entindex(int32_t value);
+  private:
+  int32_t _internal_spawner_entindex() const;
+  void _internal_set_spawner_entindex(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_NeutralCampAlert)
  private:
   class _Internal;
@@ -5561,13 +5566,13 @@ class CDOTAUserMsg_NeutralCampAlert final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_;
-    int32_t spawner_entindex_;
-    int32_t unit_entindex_;
     int32_t stack_count_;
     int32_t camp_type_;
     bool stack_request_;
     bool stack_intention_;
+    int32_t unit_entindex_;
+    int32_t player_id_;
+    int32_t spawner_entindex_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -5702,22 +5707,9 @@ class CDOTAUserMsg_GlyphAlert final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 1,
     kNegativeFieldNumber = 2,
+    kPlayerIdFieldNumber = 1,
   };
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
   // optional bool negative = 2;
   bool has_negative() const;
   private:
@@ -5731,6 +5723,19 @@ class CDOTAUserMsg_GlyphAlert final :
   void _internal_set_negative(bool value);
   public:
 
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_GlyphAlert)
  private:
   class _Internal;
@@ -5741,8 +5746,8 @@ class CDOTAUserMsg_GlyphAlert final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_;
     bool negative_;
+    int32_t player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -5877,22 +5882,9 @@ class CDOTAUserMsg_RadarAlert final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 1,
     kNegativeFieldNumber = 2,
+    kPlayerIdFieldNumber = 1,
   };
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
   // optional bool negative = 2;
   bool has_negative() const;
   private:
@@ -5906,6 +5898,19 @@ class CDOTAUserMsg_RadarAlert final :
   void _internal_set_negative(bool value);
   public:
 
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_RadarAlert)
  private:
   class _Internal;
@@ -5916,8 +5921,8 @@ class CDOTAUserMsg_RadarAlert final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_;
     bool negative_;
+    int32_t player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -6052,37 +6057,11 @@ class CDOTAUserMsg_WillPurchaseAlert final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kItemAbilityIdFieldNumber = 1,
-    kPlayerIdFieldNumber = 2,
     kGoldRemainingFieldNumber = 3,
     kSuggestionPlayerIdFieldNumber = 4,
+    kItemAbilityIdFieldNumber = 1,
+    kPlayerIdFieldNumber = 2,
   };
-  // optional int32 item_ability_id = 1;
-  bool has_item_ability_id() const;
-  private:
-  bool _internal_has_item_ability_id() const;
-  public:
-  void clear_item_ability_id();
-  int32_t item_ability_id() const;
-  void set_item_ability_id(int32_t value);
-  private:
-  int32_t _internal_item_ability_id() const;
-  void _internal_set_item_ability_id(int32_t value);
-  public:
-
-  // optional int32 player_id = 2;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
   // optional uint32 gold_remaining = 3;
   bool has_gold_remaining() const;
   private:
@@ -6096,7 +6075,7 @@ class CDOTAUserMsg_WillPurchaseAlert final :
   void _internal_set_gold_remaining(uint32_t value);
   public:
 
-  // optional int32 suggestion_player_id = 4;
+  // optional int32 suggestion_player_id = 4 [default = -1];
   bool has_suggestion_player_id() const;
   private:
   bool _internal_has_suggestion_player_id() const;
@@ -6109,6 +6088,32 @@ class CDOTAUserMsg_WillPurchaseAlert final :
   void _internal_set_suggestion_player_id(int32_t value);
   public:
 
+  // optional int32 item_ability_id = 1 [default = -1];
+  bool has_item_ability_id() const;
+  private:
+  bool _internal_has_item_ability_id() const;
+  public:
+  void clear_item_ability_id();
+  int32_t item_ability_id() const;
+  void set_item_ability_id(int32_t value);
+  private:
+  int32_t _internal_item_ability_id() const;
+  void _internal_set_item_ability_id(int32_t value);
+  public:
+
+  // optional int32 player_id = 2 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_WillPurchaseAlert)
  private:
   class _Internal;
@@ -6119,10 +6124,10 @@ class CDOTAUserMsg_WillPurchaseAlert final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t item_ability_id_;
-    int32_t player_id_;
     uint32_t gold_remaining_;
     int32_t suggestion_player_id_;
+    int32_t item_ability_id_;
+    int32_t player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -6257,36 +6262,10 @@ class CDOTAUserMsg_EmptyTeleportAlert final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kCooldownSecondsFieldNumber = 3,
     kSourcePlayerIdFieldNumber = 1,
     kTargetPlayerIdFieldNumber = 2,
-    kCooldownSecondsFieldNumber = 3,
   };
-  // optional int32 source_player_id = 1;
-  bool has_source_player_id() const;
-  private:
-  bool _internal_has_source_player_id() const;
-  public:
-  void clear_source_player_id();
-  int32_t source_player_id() const;
-  void set_source_player_id(int32_t value);
-  private:
-  int32_t _internal_source_player_id() const;
-  void _internal_set_source_player_id(int32_t value);
-  public:
-
-  // optional int32 target_player_id = 2;
-  bool has_target_player_id() const;
-  private:
-  bool _internal_has_target_player_id() const;
-  public:
-  void clear_target_player_id();
-  int32_t target_player_id() const;
-  void set_target_player_id(int32_t value);
-  private:
-  int32_t _internal_target_player_id() const;
-  void _internal_set_target_player_id(int32_t value);
-  public:
-
   // optional int32 cooldown_seconds = 3;
   bool has_cooldown_seconds() const;
   private:
@@ -6300,6 +6279,32 @@ class CDOTAUserMsg_EmptyTeleportAlert final :
   void _internal_set_cooldown_seconds(int32_t value);
   public:
 
+  // optional int32 source_player_id = 1 [default = -1];
+  bool has_source_player_id() const;
+  private:
+  bool _internal_has_source_player_id() const;
+  public:
+  void clear_source_player_id();
+  int32_t source_player_id() const;
+  void set_source_player_id(int32_t value);
+  private:
+  int32_t _internal_source_player_id() const;
+  void _internal_set_source_player_id(int32_t value);
+  public:
+
+  // optional int32 target_player_id = 2 [default = -1];
+  bool has_target_player_id() const;
+  private:
+  bool _internal_has_target_player_id() const;
+  public:
+  void clear_target_player_id();
+  int32_t target_player_id() const;
+  void set_target_player_id(int32_t value);
+  private:
+  int32_t _internal_target_player_id() const;
+  void _internal_set_target_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_EmptyTeleportAlert)
  private:
   class _Internal;
@@ -6310,9 +6315,9 @@ class CDOTAUserMsg_EmptyTeleportAlert final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    int32_t cooldown_seconds_;
     int32_t source_player_id_;
     int32_t target_player_id_;
-    int32_t cooldown_seconds_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -6447,36 +6452,10 @@ class CDOTAUserMsg_MarsArenaOfBloodAttack final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kWarriorIndexFieldNumber = 3,
     kSourceEhandleFieldNumber = 1,
     kTargetEhandleFieldNumber = 2,
-    kWarriorIndexFieldNumber = 3,
   };
-  // optional uint32 source_ehandle = 1;
-  bool has_source_ehandle() const;
-  private:
-  bool _internal_has_source_ehandle() const;
-  public:
-  void clear_source_ehandle();
-  uint32_t source_ehandle() const;
-  void set_source_ehandle(uint32_t value);
-  private:
-  uint32_t _internal_source_ehandle() const;
-  void _internal_set_source_ehandle(uint32_t value);
-  public:
-
-  // optional uint32 target_ehandle = 2;
-  bool has_target_ehandle() const;
-  private:
-  bool _internal_has_target_ehandle() const;
-  public:
-  void clear_target_ehandle();
-  uint32_t target_ehandle() const;
-  void set_target_ehandle(uint32_t value);
-  private:
-  uint32_t _internal_target_ehandle() const;
-  void _internal_set_target_ehandle(uint32_t value);
-  public:
-
   // optional int32 warrior_index = 3;
   bool has_warrior_index() const;
   private:
@@ -6490,6 +6469,32 @@ class CDOTAUserMsg_MarsArenaOfBloodAttack final :
   void _internal_set_warrior_index(int32_t value);
   public:
 
+  // optional uint32 source_ehandle = 1 [default = 16777215];
+  bool has_source_ehandle() const;
+  private:
+  bool _internal_has_source_ehandle() const;
+  public:
+  void clear_source_ehandle();
+  uint32_t source_ehandle() const;
+  void set_source_ehandle(uint32_t value);
+  private:
+  uint32_t _internal_source_ehandle() const;
+  void _internal_set_source_ehandle(uint32_t value);
+  public:
+
+  // optional uint32 target_ehandle = 2 [default = 16777215];
+  bool has_target_ehandle() const;
+  private:
+  bool _internal_has_target_ehandle() const;
+  public:
+  void clear_target_ehandle();
+  uint32_t target_ehandle() const;
+  void set_target_ehandle(uint32_t value);
+  private:
+  uint32_t _internal_target_ehandle() const;
+  void _internal_set_target_ehandle(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_MarsArenaOfBloodAttack)
  private:
   class _Internal;
@@ -6500,9 +6505,9 @@ class CDOTAUserMsg_MarsArenaOfBloodAttack final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    int32_t warrior_index_;
     uint32_t source_ehandle_;
     uint32_t target_ehandle_;
-    int32_t warrior_index_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -6819,7 +6824,7 @@ class CDOTAUserMsg_BuyBackStateAlert final :
   enum : int {
     kPlayerIdFieldNumber = 1,
   };
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   bool has_player_id() const;
   private:
   bool _internal_has_player_id() const;
@@ -6977,38 +6982,12 @@ class CDOTAUserMsg_QuickBuyAlert final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 1,
-    kItemAbilityIdFieldNumber = 2,
     kGoldCostFieldNumber = 3,
     kItemCooldownSecondsFieldNumber = 4,
     kShowBuybackFieldNumber = 5,
+    kPlayerIdFieldNumber = 1,
+    kItemAbilityIdFieldNumber = 2,
   };
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
-  // optional int32 item_ability_id = 2;
-  bool has_item_ability_id() const;
-  private:
-  bool _internal_has_item_ability_id() const;
-  public:
-  void clear_item_ability_id();
-  int32_t item_ability_id() const;
-  void set_item_ability_id(int32_t value);
-  private:
-  int32_t _internal_item_ability_id() const;
-  void _internal_set_item_ability_id(int32_t value);
-  public:
-
   // optional int32 gold_cost = 3;
   bool has_gold_cost() const;
   private:
@@ -7048,6 +7027,32 @@ class CDOTAUserMsg_QuickBuyAlert final :
   void _internal_set_show_buyback(bool value);
   public:
 
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
+  // optional int32 item_ability_id = 2 [default = -1];
+  bool has_item_ability_id() const;
+  private:
+  bool _internal_has_item_ability_id() const;
+  public:
+  void clear_item_ability_id();
+  int32_t item_ability_id() const;
+  void set_item_ability_id(int32_t value);
+  private:
+  int32_t _internal_item_ability_id() const;
+  void _internal_set_item_ability_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_QuickBuyAlert)
  private:
   class _Internal;
@@ -7058,11 +7063,11 @@ class CDOTAUserMsg_QuickBuyAlert final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_;
-    int32_t item_ability_id_;
     int32_t gold_cost_;
     int32_t item_cooldown_seconds_;
     bool show_buyback_;
+    int32_t player_id_;
+    int32_t item_ability_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -7197,22 +7202,9 @@ class CDOTAUserMsg_CourierKilledAlert_LostItem final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kItemAbilityIdFieldNumber = 1,
     kQuantityFieldNumber = 2,
+    kItemAbilityIdFieldNumber = 1,
   };
-  // optional int32 item_ability_id = 1;
-  bool has_item_ability_id() const;
-  private:
-  bool _internal_has_item_ability_id() const;
-  public:
-  void clear_item_ability_id();
-  int32_t item_ability_id() const;
-  void set_item_ability_id(int32_t value);
-  private:
-  int32_t _internal_item_ability_id() const;
-  void _internal_set_item_ability_id(int32_t value);
-  public:
-
   // optional uint32 quantity = 2;
   bool has_quantity() const;
   private:
@@ -7226,6 +7218,19 @@ class CDOTAUserMsg_CourierKilledAlert_LostItem final :
   void _internal_set_quantity(uint32_t value);
   public:
 
+  // optional int32 item_ability_id = 1 [default = -1];
+  bool has_item_ability_id() const;
+  private:
+  bool _internal_has_item_ability_id() const;
+  public:
+  void clear_item_ability_id();
+  int32_t item_ability_id() const;
+  void set_item_ability_id(int32_t value);
+  private:
+  int32_t _internal_item_ability_id() const;
+  void _internal_set_item_ability_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_CourierKilledAlert.LostItem)
  private:
   class _Internal;
@@ -7236,8 +7241,8 @@ class CDOTAUserMsg_CourierKilledAlert_LostItem final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t item_ability_id_;
     uint32_t quantity_;
+    int32_t item_ability_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -7377,10 +7382,10 @@ class CDOTAUserMsg_CourierKilledAlert final :
     kLostItemsFieldNumber = 5,
     kTeamFieldNumber = 1,
     kGoldValueFieldNumber = 2,
-    kEntityHandleFieldNumber = 3,
     kTimestampFieldNumber = 4,
-    kKillerPlayerIdFieldNumber = 6,
     kOwningPlayerIdFieldNumber = 7,
+    kEntityHandleFieldNumber = 3,
+    kKillerPlayerIdFieldNumber = 6,
   };
   // repeated .CDOTAUserMsg_CourierKilledAlert.LostItem lost_items = 5;
   int lost_items_size() const;
@@ -7426,19 +7431,6 @@ class CDOTAUserMsg_CourierKilledAlert final :
   void _internal_set_gold_value(uint32_t value);
   public:
 
-  // optional uint32 entity_handle = 3;
-  bool has_entity_handle() const;
-  private:
-  bool _internal_has_entity_handle() const;
-  public:
-  void clear_entity_handle();
-  uint32_t entity_handle() const;
-  void set_entity_handle(uint32_t value);
-  private:
-  uint32_t _internal_entity_handle() const;
-  void _internal_set_entity_handle(uint32_t value);
-  public:
-
   // optional int32 timestamp = 4;
   bool has_timestamp() const;
   private:
@@ -7452,20 +7444,7 @@ class CDOTAUserMsg_CourierKilledAlert final :
   void _internal_set_timestamp(int32_t value);
   public:
 
-  // optional int32 killer_player_id = 6;
-  bool has_killer_player_id() const;
-  private:
-  bool _internal_has_killer_player_id() const;
-  public:
-  void clear_killer_player_id();
-  int32_t killer_player_id() const;
-  void set_killer_player_id(int32_t value);
-  private:
-  int32_t _internal_killer_player_id() const;
-  void _internal_set_killer_player_id(int32_t value);
-  public:
-
-  // optional int32 owning_player_id = 7;
+  // optional int32 owning_player_id = 7 [default = -1];
   bool has_owning_player_id() const;
   private:
   bool _internal_has_owning_player_id() const;
@@ -7476,6 +7455,32 @@ class CDOTAUserMsg_CourierKilledAlert final :
   private:
   int32_t _internal_owning_player_id() const;
   void _internal_set_owning_player_id(int32_t value);
+  public:
+
+  // optional uint32 entity_handle = 3 [default = 16777215];
+  bool has_entity_handle() const;
+  private:
+  bool _internal_has_entity_handle() const;
+  public:
+  void clear_entity_handle();
+  uint32_t entity_handle() const;
+  void set_entity_handle(uint32_t value);
+  private:
+  uint32_t _internal_entity_handle() const;
+  void _internal_set_entity_handle(uint32_t value);
+  public:
+
+  // optional int32 killer_player_id = 6 [default = -1];
+  bool has_killer_player_id() const;
+  private:
+  bool _internal_has_killer_player_id() const;
+  public:
+  void clear_killer_player_id();
+  int32_t killer_player_id() const;
+  void set_killer_player_id(int32_t value);
+  private:
+  int32_t _internal_killer_player_id() const;
+  void _internal_set_killer_player_id(int32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_CourierKilledAlert)
@@ -7491,10 +7496,10 @@ class CDOTAUserMsg_CourierKilledAlert final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAUserMsg_CourierKilledAlert_LostItem > lost_items_;
     uint32_t team_;
     uint32_t gold_value_;
-    uint32_t entity_handle_;
     int32_t timestamp_;
-    int32_t killer_player_id_;
     int32_t owning_player_id_;
+    uint32_t entity_handle_;
+    int32_t killer_player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -7630,10 +7635,10 @@ class CDOTAUserMsg_MinimapEvent final :
 
   enum : int {
     kEventTypeFieldNumber = 1,
-    kEntityHandleFieldNumber = 2,
     kXFieldNumber = 3,
     kYFieldNumber = 4,
     kDurationFieldNumber = 5,
+    kEntityHandleFieldNumber = 2,
     kTargetEntityHandleFieldNumber = 6,
   };
   // optional int32 event_type = 1;
@@ -7647,19 +7652,6 @@ class CDOTAUserMsg_MinimapEvent final :
   private:
   int32_t _internal_event_type() const;
   void _internal_set_event_type(int32_t value);
-  public:
-
-  // optional uint32 entity_handle = 2;
-  bool has_entity_handle() const;
-  private:
-  bool _internal_has_entity_handle() const;
-  public:
-  void clear_entity_handle();
-  uint32_t entity_handle() const;
-  void set_entity_handle(uint32_t value);
-  private:
-  uint32_t _internal_entity_handle() const;
-  void _internal_set_entity_handle(uint32_t value);
   public:
 
   // optional int32 x = 3;
@@ -7701,7 +7693,20 @@ class CDOTAUserMsg_MinimapEvent final :
   void _internal_set_duration(int32_t value);
   public:
 
-  // optional uint32 target_entity_handle = 6;
+  // optional uint32 entity_handle = 2 [default = 16777215];
+  bool has_entity_handle() const;
+  private:
+  bool _internal_has_entity_handle() const;
+  public:
+  void clear_entity_handle();
+  uint32_t entity_handle() const;
+  void set_entity_handle(uint32_t value);
+  private:
+  uint32_t _internal_entity_handle() const;
+  void _internal_set_entity_handle(uint32_t value);
+  public:
+
+  // optional uint32 target_entity_handle = 6 [default = 16777215];
   bool has_target_entity_handle() const;
   private:
   bool _internal_has_target_entity_handle() const;
@@ -7725,10 +7730,10 @@ class CDOTAUserMsg_MinimapEvent final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     int32_t event_type_;
-    uint32_t entity_handle_;
     int32_t x_;
     int32_t y_;
     int32_t duration_;
+    uint32_t entity_handle_;
     uint32_t target_entity_handle_;
   };
   union { Impl_ _impl_; };
@@ -7885,7 +7890,7 @@ class CDOTAUserMsg_MapLine final :
       ::CDOTAMsg_MapLine* mapline);
   ::CDOTAMsg_MapLine* unsafe_arena_release_mapline();
 
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   bool has_player_id() const;
   private:
   bool _internal_has_player_id() const;
@@ -8274,13 +8279,13 @@ class CDOTAUserMsg_CreateLinearProjectile final :
     kVelocityFieldNumber = 2,
     kAccelerationFieldNumber = 7,
     kParticleIndexFieldNumber = 5,
-    kEntindexFieldNumber = 4,
     kHandleFieldNumber = 6,
     kMaxSpeedFieldNumber = 8,
     kFowRadiusFieldNumber = 9,
     kStickyFowRevealFieldNumber = 10,
     kDistanceFieldNumber = 11,
     kColorgemcolorFieldNumber = 12,
+    kEntindexFieldNumber = 4,
   };
   // repeated .CDOTAUserMsg_ProjectileParticleCPData particle_cp_data = 13;
   int particle_cp_data_size() const;
@@ -8367,19 +8372,6 @@ class CDOTAUserMsg_CreateLinearProjectile final :
   void _internal_set_particle_index(uint64_t value);
   public:
 
-  // optional int32 entindex = 4;
-  bool has_entindex() const;
-  private:
-  bool _internal_has_entindex() const;
-  public:
-  void clear_entindex();
-  int32_t entindex() const;
-  void set_entindex(int32_t value);
-  private:
-  int32_t _internal_entindex() const;
-  void _internal_set_entindex(int32_t value);
-  public:
-
   // optional int32 handle = 6;
   bool has_handle() const;
   private:
@@ -8458,6 +8450,19 @@ class CDOTAUserMsg_CreateLinearProjectile final :
   void _internal_set_colorgemcolor(uint32_t value);
   public:
 
+  // optional int32 entindex = 4 [default = -1];
+  bool has_entindex() const;
+  private:
+  bool _internal_has_entindex() const;
+  public:
+  void clear_entindex();
+  int32_t entindex() const;
+  void set_entindex(int32_t value);
+  private:
+  int32_t _internal_entindex() const;
+  void _internal_set_entindex(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_CreateLinearProjectile)
  private:
   class _Internal;
@@ -8473,13 +8478,13 @@ class CDOTAUserMsg_CreateLinearProjectile final :
     ::CMsgVector2D* velocity_;
     ::CMsgVector2D* acceleration_;
     uint64_t particle_index_;
-    int32_t entindex_;
     int32_t handle_;
     float max_speed_;
     float fow_radius_;
     bool sticky_fow_reveal_;
     float distance_;
     uint32_t colorgemcolor_;
+    int32_t entindex_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -8774,22 +8779,9 @@ class CDOTAUserMsg_DodgeTrackingProjectiles final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kEntindexFieldNumber = 1,
     kAttacksOnlyFieldNumber = 2,
+    kEntindexFieldNumber = 1,
   };
-  // required int32 entindex = 1;
-  bool has_entindex() const;
-  private:
-  bool _internal_has_entindex() const;
-  public:
-  void clear_entindex();
-  int32_t entindex() const;
-  void set_entindex(int32_t value);
-  private:
-  int32_t _internal_entindex() const;
-  void _internal_set_entindex(int32_t value);
-  public:
-
   // optional bool attacks_only = 2;
   bool has_attacks_only() const;
   private:
@@ -8803,6 +8795,19 @@ class CDOTAUserMsg_DodgeTrackingProjectiles final :
   void _internal_set_attacks_only(bool value);
   public:
 
+  // required int32 entindex = 1 [default = -1];
+  bool has_entindex() const;
+  private:
+  bool _internal_has_entindex() const;
+  public:
+  void clear_entindex();
+  int32_t entindex() const;
+  void set_entindex(int32_t value);
+  private:
+  int32_t _internal_entindex() const;
+  void _internal_set_entindex(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_DodgeTrackingProjectiles)
  private:
   class _Internal;
@@ -8813,8 +8818,8 @@ class CDOTAUserMsg_DodgeTrackingProjectiles final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t entindex_;
     bool attacks_only_;
+    int32_t entindex_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -8949,23 +8954,10 @@ class CDOTAUserMsg_SpectatorPlayerClick final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kEntindexFieldNumber = 1,
     kOrderTypeFieldNumber = 2,
     kTargetIndexFieldNumber = 3,
+    kEntindexFieldNumber = 1,
   };
-  // required int32 entindex = 1;
-  bool has_entindex() const;
-  private:
-  bool _internal_has_entindex() const;
-  public:
-  void clear_entindex();
-  int32_t entindex() const;
-  void set_entindex(int32_t value);
-  private:
-  int32_t _internal_entindex() const;
-  void _internal_set_entindex(int32_t value);
-  public:
-
   // optional int32 order_type = 2;
   bool has_order_type() const;
   private:
@@ -8979,7 +8971,7 @@ class CDOTAUserMsg_SpectatorPlayerClick final :
   void _internal_set_order_type(int32_t value);
   public:
 
-  // optional int32 target_index = 3;
+  // optional int32 target_index = 3 [default = 0];
   bool has_target_index() const;
   private:
   bool _internal_has_target_index() const;
@@ -8992,6 +8984,19 @@ class CDOTAUserMsg_SpectatorPlayerClick final :
   void _internal_set_target_index(int32_t value);
   public:
 
+  // required int32 entindex = 1 [default = -1];
+  bool has_entindex() const;
+  private:
+  bool _internal_has_entindex() const;
+  public:
+  void clear_entindex();
+  int32_t entindex() const;
+  void set_entindex(int32_t value);
+  private:
+  int32_t _internal_entindex() const;
+  void _internal_set_entindex(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_SpectatorPlayerClick)
  private:
   class _Internal;
@@ -9002,9 +9007,9 @@ class CDOTAUserMsg_SpectatorPlayerClick final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t entindex_;
     int32_t order_type_;
     int32_t target_index_;
+    int32_t entindex_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -9141,13 +9146,13 @@ class CDOTAUserMsg_SpectatorPlayerUnitOrders final :
   enum : int {
     kUnitsFieldNumber = 3,
     kPositionFieldNumber = 6,
-    kEntindexFieldNumber = 1,
     kOrderTypeFieldNumber = 2,
     kTargetIndexFieldNumber = 4,
-    kAbilityIdFieldNumber = 5,
     kQueueFieldNumber = 7,
     kSequenceNumberFieldNumber = 8,
     kFlagsFieldNumber = 9,
+    kEntindexFieldNumber = 1,
+    kAbilityIdFieldNumber = 5,
   };
   // repeated int32 units = 3;
   int units_size() const;
@@ -9189,19 +9194,6 @@ class CDOTAUserMsg_SpectatorPlayerUnitOrders final :
       ::CMsgVector* position);
   ::CMsgVector* unsafe_arena_release_position();
 
-  // optional int32 entindex = 1;
-  bool has_entindex() const;
-  private:
-  bool _internal_has_entindex() const;
-  public:
-  void clear_entindex();
-  int32_t entindex() const;
-  void set_entindex(int32_t value);
-  private:
-  int32_t _internal_entindex() const;
-  void _internal_set_entindex(int32_t value);
-  public:
-
   // optional int32 order_type = 2;
   bool has_order_type() const;
   private:
@@ -9215,7 +9207,7 @@ class CDOTAUserMsg_SpectatorPlayerUnitOrders final :
   void _internal_set_order_type(int32_t value);
   public:
 
-  // optional int32 target_index = 4;
+  // optional int32 target_index = 4 [default = 0];
   bool has_target_index() const;
   private:
   bool _internal_has_target_index() const;
@@ -9226,19 +9218,6 @@ class CDOTAUserMsg_SpectatorPlayerUnitOrders final :
   private:
   int32_t _internal_target_index() const;
   void _internal_set_target_index(int32_t value);
-  public:
-
-  // optional int32 ability_id = 5;
-  bool has_ability_id() const;
-  private:
-  bool _internal_has_ability_id() const;
-  public:
-  void clear_ability_id();
-  int32_t ability_id() const;
-  void set_ability_id(int32_t value);
-  private:
-  int32_t _internal_ability_id() const;
-  void _internal_set_ability_id(int32_t value);
   public:
 
   // optional bool queue = 7;
@@ -9280,6 +9259,32 @@ class CDOTAUserMsg_SpectatorPlayerUnitOrders final :
   void _internal_set_flags(uint32_t value);
   public:
 
+  // optional int32 entindex = 1 [default = -1];
+  bool has_entindex() const;
+  private:
+  bool _internal_has_entindex() const;
+  public:
+  void clear_entindex();
+  int32_t entindex() const;
+  void set_entindex(int32_t value);
+  private:
+  int32_t _internal_entindex() const;
+  void _internal_set_entindex(int32_t value);
+  public:
+
+  // optional int32 ability_id = 5 [default = -1];
+  bool has_ability_id() const;
+  private:
+  bool _internal_has_ability_id() const;
+  public:
+  void clear_ability_id();
+  int32_t ability_id() const;
+  void set_ability_id(int32_t value);
+  private:
+  int32_t _internal_ability_id() const;
+  void _internal_set_ability_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_SpectatorPlayerUnitOrders)
  private:
   class _Internal;
@@ -9292,13 +9297,13 @@ class CDOTAUserMsg_SpectatorPlayerUnitOrders final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > units_;
     ::CMsgVector* position_;
-    int32_t entindex_;
     int32_t order_type_;
     int32_t target_index_;
-    int32_t ability_id_;
     bool queue_;
     int32_t sequence_number_;
     uint32_t flags_;
+    int32_t entindex_;
+    int32_t ability_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -9434,9 +9439,9 @@ class CDOTAUserMsg_NevermoreRequiem final :
 
   enum : int {
     kOriginFieldNumber = 3,
-    kEntityHandleFieldNumber = 1,
     kLinesFieldNumber = 2,
     kReverseFieldNumber = 4,
+    kEntityHandleFieldNumber = 1,
   };
   // optional .CMsgVector origin = 3;
   bool has_origin() const;
@@ -9455,19 +9460,6 @@ class CDOTAUserMsg_NevermoreRequiem final :
   void unsafe_arena_set_allocated_origin(
       ::CMsgVector* origin);
   ::CMsgVector* unsafe_arena_release_origin();
-
-  // optional uint32 entity_handle = 1;
-  bool has_entity_handle() const;
-  private:
-  bool _internal_has_entity_handle() const;
-  public:
-  void clear_entity_handle();
-  uint32_t entity_handle() const;
-  void set_entity_handle(uint32_t value);
-  private:
-  uint32_t _internal_entity_handle() const;
-  void _internal_set_entity_handle(uint32_t value);
-  public:
 
   // optional int32 lines = 2;
   bool has_lines() const;
@@ -9495,6 +9487,19 @@ class CDOTAUserMsg_NevermoreRequiem final :
   void _internal_set_reverse(bool value);
   public:
 
+  // optional uint32 entity_handle = 1 [default = 16777215];
+  bool has_entity_handle() const;
+  private:
+  bool _internal_has_entity_handle() const;
+  public:
+  void clear_entity_handle();
+  uint32_t entity_handle() const;
+  void set_entity_handle(uint32_t value);
+  private:
+  uint32_t _internal_entity_handle() const;
+  void _internal_set_entity_handle(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_NevermoreRequiem)
  private:
   class _Internal;
@@ -9506,9 +9511,9 @@ class CDOTAUserMsg_NevermoreRequiem final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::CMsgVector* origin_;
-    uint32_t entity_handle_;
     int32_t lines_;
     bool reverse_;
+    uint32_t entity_handle_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -9999,9 +10004,9 @@ class CDOTAUserMsg_SharedCooldown final :
 
   enum : int {
     kNameFieldNumber = 2,
-    kEntindexFieldNumber = 1,
     kCooldownFieldNumber = 3,
     kNameIndexFieldNumber = 4,
+    kEntindexFieldNumber = 1,
   };
   // optional string name = 2;
   bool has_name() const;
@@ -10019,19 +10024,6 @@ class CDOTAUserMsg_SharedCooldown final :
   const std::string& _internal_name() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
   std::string* _internal_mutable_name();
-  public:
-
-  // optional int32 entindex = 1;
-  bool has_entindex() const;
-  private:
-  bool _internal_has_entindex() const;
-  public:
-  void clear_entindex();
-  int32_t entindex() const;
-  void set_entindex(int32_t value);
-  private:
-  int32_t _internal_entindex() const;
-  void _internal_set_entindex(int32_t value);
   public:
 
   // optional float cooldown = 3;
@@ -10060,6 +10052,19 @@ class CDOTAUserMsg_SharedCooldown final :
   void _internal_set_name_index(int32_t value);
   public:
 
+  // optional int32 entindex = 1 [default = -1];
+  bool has_entindex() const;
+  private:
+  bool _internal_has_entindex() const;
+  public:
+  void clear_entindex();
+  int32_t entindex() const;
+  void set_entindex(int32_t value);
+  private:
+  int32_t _internal_entindex() const;
+  void _internal_set_entindex(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_SharedCooldown)
  private:
   class _Internal;
@@ -10071,9 +10076,9 @@ class CDOTAUserMsg_SharedCooldown final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
-    int32_t entindex_;
     float cooldown_;
     int32_t name_index_;
+    int32_t entindex_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -11884,7 +11889,6 @@ class CDOTAUserMsg_UnitEvent_Speech final :
     kPredelayFieldNumber = 6,
     kSpeechConceptFieldNumber = 1,
     kRecipientTypeFieldNumber = 3,
-    kLevelFieldNumber = 4,
     kMuteableFieldNumber = 5,
     kFlagsFieldNumber = 7,
   };
@@ -11950,19 +11954,6 @@ class CDOTAUserMsg_UnitEvent_Speech final :
   void _internal_set_recipient_type(int32_t value);
   public:
 
-  // optional int32 level = 4;
-  bool has_level() const;
-  private:
-  bool _internal_has_level() const;
-  public:
-  void clear_level();
-  int32_t level() const;
-  void set_level(int32_t value);
-  private:
-  int32_t _internal_level() const;
-  void _internal_set_level(int32_t value);
-  public:
-
   // optional bool muteable = 5 [default = false];
   bool has_muteable() const;
   private:
@@ -12003,7 +11994,6 @@ class CDOTAUserMsg_UnitEvent_Speech final :
     ::CDOTAUserMsg_UnitEvent_Interval* predelay_;
     int32_t speech_concept_;
     int32_t recipient_type_;
-    int32_t level_;
     bool muteable_;
     uint32_t flags_;
   };
@@ -13373,7 +13363,7 @@ class CDOTAUserMsg_ItemPurchased final :
   enum : int {
     kItemAbilityIdFieldNumber = 1,
   };
-  // optional int32 item_ability_id = 1;
+  // optional int32 item_ability_id = 1 [default = -1];
   bool has_item_ability_id() const;
   private:
   bool _internal_has_item_ability_id() const;
@@ -13533,7 +13523,7 @@ class CDOTAUserMsg_ItemSold final :
   enum : int {
     kItemAbilityIdFieldNumber = 1,
   };
-  // optional int32 item_ability_id = 1;
+  // optional int32 item_ability_id = 1 [default = -1];
   bool has_item_ability_id() const;
   private:
   bool _internal_has_item_ability_id() const;
@@ -13691,25 +13681,12 @@ class CDOTAUserMsg_ItemFound final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerFieldNumber = 1,
     kQualityFieldNumber = 2,
     kRarityFieldNumber = 3,
     kMethodFieldNumber = 4,
     kItemdefFieldNumber = 5,
+    kPlayerFieldNumber = 1,
   };
-  // optional int32 player = 1;
-  bool has_player() const;
-  private:
-  bool _internal_has_player() const;
-  public:
-  void clear_player();
-  int32_t player() const;
-  void set_player(int32_t value);
-  private:
-  int32_t _internal_player() const;
-  void _internal_set_player(int32_t value);
-  public:
-
   // optional int32 quality = 2;
   bool has_quality() const;
   private:
@@ -13762,6 +13739,19 @@ class CDOTAUserMsg_ItemFound final :
   void _internal_set_itemdef(uint32_t value);
   public:
 
+  // optional int32 player = 1 [default = -1];
+  bool has_player() const;
+  private:
+  bool _internal_has_player() const;
+  public:
+  void clear_player();
+  int32_t player() const;
+  void set_player(int32_t value);
+  private:
+  int32_t _internal_player() const;
+  void _internal_set_player(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_ItemFound)
  private:
   class _Internal;
@@ -13772,11 +13762,11 @@ class CDOTAUserMsg_ItemFound final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_;
     int32_t quality_;
     int32_t rarity_;
     int32_t method_;
     uint32_t itemdef_;
+    int32_t player_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -13913,9 +13903,9 @@ class CDOTAUserMsg_OverheadEvent final :
   enum : int {
     kMessageTypeFieldNumber = 1,
     kValueFieldNumber = 2,
+    kSourcePlayerEntindexFieldNumber = 5,
     kTargetPlayerEntindexFieldNumber = 3,
     kTargetEntindexFieldNumber = 4,
-    kSourcePlayerEntindexFieldNumber = 5,
   };
   // required .DOTA_OVERHEAD_ALERT message_type = 1 [default = OVERHEAD_ALERT_GOLD];
   bool has_message_type() const;
@@ -13943,7 +13933,20 @@ class CDOTAUserMsg_OverheadEvent final :
   void _internal_set_value(int32_t value);
   public:
 
-  // optional int32 target_player_entindex = 3;
+  // optional int32 source_player_entindex = 5 [default = -1];
+  bool has_source_player_entindex() const;
+  private:
+  bool _internal_has_source_player_entindex() const;
+  public:
+  void clear_source_player_entindex();
+  int32_t source_player_entindex() const;
+  void set_source_player_entindex(int32_t value);
+  private:
+  int32_t _internal_source_player_entindex() const;
+  void _internal_set_source_player_entindex(int32_t value);
+  public:
+
+  // optional int32 target_player_entindex = 3 [default = -1];
   bool has_target_player_entindex() const;
   private:
   bool _internal_has_target_player_entindex() const;
@@ -13956,7 +13959,7 @@ class CDOTAUserMsg_OverheadEvent final :
   void _internal_set_target_player_entindex(int32_t value);
   public:
 
-  // optional int32 target_entindex = 4;
+  // optional int32 target_entindex = 4 [default = -1];
   bool has_target_entindex() const;
   private:
   bool _internal_has_target_entindex() const;
@@ -13967,19 +13970,6 @@ class CDOTAUserMsg_OverheadEvent final :
   private:
   int32_t _internal_target_entindex() const;
   void _internal_set_target_entindex(int32_t value);
-  public:
-
-  // optional int32 source_player_entindex = 5;
-  bool has_source_player_entindex() const;
-  private:
-  bool _internal_has_source_player_entindex() const;
-  public:
-  void clear_source_player_entindex();
-  int32_t source_player_entindex() const;
-  void set_source_player_entindex(int32_t value);
-  private:
-  int32_t _internal_source_player_entindex() const;
-  void _internal_set_source_player_entindex(int32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_OverheadEvent)
@@ -13994,9 +13984,9 @@ class CDOTAUserMsg_OverheadEvent final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     int message_type_;
     int32_t value_;
+    int32_t source_player_entindex_;
     int32_t target_player_entindex_;
     int32_t target_entindex_;
-    int32_t source_player_entindex_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -14892,7 +14882,7 @@ class CDOTAUserMsg_WorldLine final :
       ::CDOTAMsg_WorldLine* worldline);
   ::CDOTAMsg_WorldLine* unsafe_arena_release_worldline();
 
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   bool has_player_id() const;
   private:
   bool _internal_has_player_id() const;
@@ -15051,38 +15041,12 @@ class CDOTAUserMsg_ChatWheel final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kChatMessageIdFieldNumber = 1,
-    kPlayerIdFieldNumber = 2,
     kAccountIdFieldNumber = 3,
     kParamHeroIdFieldNumber = 4,
     kEmoticonIdFieldNumber = 5,
+    kChatMessageIdFieldNumber = 1,
+    kPlayerIdFieldNumber = 2,
   };
-  // optional uint32 chat_message_id = 1;
-  bool has_chat_message_id() const;
-  private:
-  bool _internal_has_chat_message_id() const;
-  public:
-  void clear_chat_message_id();
-  uint32_t chat_message_id() const;
-  void set_chat_message_id(uint32_t value);
-  private:
-  uint32_t _internal_chat_message_id() const;
-  void _internal_set_chat_message_id(uint32_t value);
-  public:
-
-  // optional int32 player_id = 2;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
   // optional uint32 account_id = 3;
   bool has_account_id() const;
   private:
@@ -15122,6 +15086,32 @@ class CDOTAUserMsg_ChatWheel final :
   void _internal_set_emoticon_id(uint32_t value);
   public:
 
+  // optional uint32 chat_message_id = 1 [default = 4294967295];
+  bool has_chat_message_id() const;
+  private:
+  bool _internal_has_chat_message_id() const;
+  public:
+  void clear_chat_message_id();
+  uint32_t chat_message_id() const;
+  void set_chat_message_id(uint32_t value);
+  private:
+  uint32_t _internal_chat_message_id() const;
+  void _internal_set_chat_message_id(uint32_t value);
+  public:
+
+  // optional int32 player_id = 2 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_ChatWheel)
  private:
   class _Internal;
@@ -15132,11 +15122,11 @@ class CDOTAUserMsg_ChatWheel final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t chat_message_id_;
-    int32_t player_id_;
     uint32_t account_id_;
     uint32_t param_hero_id_;
     uint32_t emoticon_id_;
+    uint32_t chat_message_id_;
+    int32_t player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -15272,8 +15262,8 @@ class CDOTAUserMsg_ReceivedXmasGift final :
 
   enum : int {
     kItemNameFieldNumber = 2,
-    kPlayerIdFieldNumber = 1,
     kInventorySlotFieldNumber = 3,
+    kPlayerIdFieldNumber = 1,
   };
   // optional string item_name = 2;
   bool has_item_name() const;
@@ -15293,19 +15283,6 @@ class CDOTAUserMsg_ReceivedXmasGift final :
   std::string* _internal_mutable_item_name();
   public:
 
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
   // optional int32 inventory_slot = 3;
   bool has_inventory_slot() const;
   private:
@@ -15319,6 +15296,19 @@ class CDOTAUserMsg_ReceivedXmasGift final :
   void _internal_set_inventory_slot(int32_t value);
   public:
 
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_ReceivedXmasGift)
  private:
   class _Internal;
@@ -15330,8 +15320,8 @@ class CDOTAUserMsg_ReceivedXmasGift final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr item_name_;
-    int32_t player_id_;
     int32_t inventory_slot_;
+    int32_t player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -16156,25 +16146,12 @@ class CDOTAUserMsg_TutorialPingMinimap final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 1,
     kPosXFieldNumber = 2,
     kPosYFieldNumber = 3,
     kPosZFieldNumber = 4,
     kEntityIndexFieldNumber = 5,
+    kPlayerIdFieldNumber = 1,
   };
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
   // optional float pos_x = 2;
   bool has_pos_x() const;
   private:
@@ -16227,6 +16204,19 @@ class CDOTAUserMsg_TutorialPingMinimap final :
   void _internal_set_entity_index(int32_t value);
   public:
 
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_TutorialPingMinimap)
  private:
   class _Internal;
@@ -16237,11 +16227,11 @@ class CDOTAUserMsg_TutorialPingMinimap final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_;
     float pos_x_;
     float pos_y_;
     float pos_z_;
     int32_t entity_index_;
+    int32_t player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -16742,7 +16732,7 @@ class CDOTAUserMsg_SendStatPopup final :
       ::CDOTAMsg_SendStatPopup* statpopup);
   ::CDOTAMsg_SendStatPopup* unsafe_arena_release_statpopup();
 
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   bool has_player_id() const;
   private:
   bool _internal_has_player_id() const;
@@ -17624,8 +17614,8 @@ class CDOTAUserMsg_CustomMsg final :
 
   enum : int {
     kMessageFieldNumber = 1,
-    kPlayerIdFieldNumber = 2,
     kValueFieldNumber = 3,
+    kPlayerIdFieldNumber = 2,
   };
   // optional string message = 1;
   bool has_message() const;
@@ -17645,19 +17635,6 @@ class CDOTAUserMsg_CustomMsg final :
   std::string* _internal_mutable_message();
   public:
 
-  // optional int32 player_id = 2;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
   // optional int32 value = 3;
   bool has_value() const;
   private:
@@ -17671,6 +17648,19 @@ class CDOTAUserMsg_CustomMsg final :
   void _internal_set_value(int32_t value);
   public:
 
+  // optional int32 player_id = 2 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_CustomMsg)
  private:
   class _Internal;
@@ -17682,8 +17672,8 @@ class CDOTAUserMsg_CustomMsg final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr message_;
-    int32_t player_id_;
     int32_t value_;
+    int32_t player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -17839,7 +17829,7 @@ class CDOTAUserMsg_CoachHUDPing final :
       ::CDOTAMsg_CoachHUDPing* hud_ping);
   ::CDOTAMsg_CoachHUDPing* unsafe_arena_release_hud_ping();
 
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   bool has_player_id() const;
   private:
   bool _internal_has_player_id() const;
@@ -18125,8 +18115,6 @@ class CDOTAUserMsg_TE_Projectile final :
   enum : int {
     kParticleCpDataFieldNumber = 15,
     kTargetLocFieldNumber = 14,
-    kSourceFieldNumber = 1,
-    kTargetFieldNumber = 2,
     kMoveSpeedFieldNumber = 3,
     kSourceAttachmentFieldNumber = 4,
     kParticleSystemHandleFieldNumber = 5,
@@ -18138,6 +18126,8 @@ class CDOTAUserMsg_TE_Projectile final :
     kLaunchTickFieldNumber = 12,
     kHandleFieldNumber = 13,
     kAdditionalParticleSystemHandleFieldNumber = 16,
+    kSourceFieldNumber = 1,
+    kTargetFieldNumber = 2,
   };
   // repeated .CDOTAUserMsg_ProjectileParticleCPData particle_cp_data = 15;
   int particle_cp_data_size() const;
@@ -18174,32 +18164,6 @@ class CDOTAUserMsg_TE_Projectile final :
   void unsafe_arena_set_allocated_target_loc(
       ::CMsgVector* target_loc);
   ::CMsgVector* unsafe_arena_release_target_loc();
-
-  // optional uint32 source = 1;
-  bool has_source() const;
-  private:
-  bool _internal_has_source() const;
-  public:
-  void clear_source();
-  uint32_t source() const;
-  void set_source(uint32_t value);
-  private:
-  uint32_t _internal_source() const;
-  void _internal_set_source(uint32_t value);
-  public:
-
-  // optional uint32 target = 2;
-  bool has_target() const;
-  private:
-  bool _internal_has_target() const;
-  public:
-  void clear_target();
-  uint32_t target() const;
-  void set_target(uint32_t value);
-  private:
-  uint32_t _internal_target() const;
-  void _internal_set_target(uint32_t value);
-  public:
 
   // optional int32 move_speed = 3;
   bool has_move_speed() const;
@@ -18344,6 +18308,32 @@ class CDOTAUserMsg_TE_Projectile final :
   void _internal_set_additional_particle_system_handle(int64_t value);
   public:
 
+  // optional uint32 source = 1 [default = 16777215];
+  bool has_source() const;
+  private:
+  bool _internal_has_source() const;
+  public:
+  void clear_source();
+  uint32_t source() const;
+  void set_source(uint32_t value);
+  private:
+  uint32_t _internal_source() const;
+  void _internal_set_source(uint32_t value);
+  public:
+
+  // optional uint32 target = 2 [default = 16777215];
+  bool has_target() const;
+  private:
+  bool _internal_has_target() const;
+  public:
+  void clear_target();
+  uint32_t target() const;
+  void set_target(uint32_t value);
+  private:
+  uint32_t _internal_target() const;
+  void _internal_set_target(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_TE_Projectile)
  private:
   class _Internal;
@@ -18356,8 +18346,6 @@ class CDOTAUserMsg_TE_Projectile final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAUserMsg_ProjectileParticleCPData > particle_cp_data_;
     ::CMsgVector* target_loc_;
-    uint32_t source_;
-    uint32_t target_;
     int32_t move_speed_;
     int32_t source_attachment_;
     int64_t particle_system_handle_;
@@ -18369,6 +18357,8 @@ class CDOTAUserMsg_TE_Projectile final :
     int32_t launch_tick_;
     int32_t handle_;
     int64_t additional_particle_system_handle_;
+    uint32_t source_;
+    uint32_t target_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -18506,18 +18496,18 @@ class CDOTAUserMsg_TE_ProjectileLoc final :
     kParticleCpDataFieldNumber = 16,
     kSourceLocFieldNumber = 1,
     kTargetLocFieldNumber = 10,
-    kTargetFieldNumber = 2,
-    kMoveSpeedFieldNumber = 3,
     kParticleSystemHandleFieldNumber = 4,
+    kMoveSpeedFieldNumber = 3,
     kDodgeableFieldNumber = 5,
     kIsAttackFieldNumber = 6,
     kExpireTimeFieldNumber = 9,
     kColorgemcolorFieldNumber = 11,
     kLaunchTickFieldNumber = 12,
     kHandleFieldNumber = 13,
-    kSourceFieldNumber = 14,
     kAdditionalParticleSystemHandleFieldNumber = 17,
     kSourceAttachmentFieldNumber = 15,
+    kTargetFieldNumber = 2,
+    kSourceFieldNumber = 14,
   };
   // repeated .CDOTAUserMsg_ProjectileParticleCPData particle_cp_data = 16;
   int particle_cp_data_size() const;
@@ -18573,17 +18563,17 @@ class CDOTAUserMsg_TE_ProjectileLoc final :
       ::CMsgVector* target_loc);
   ::CMsgVector* unsafe_arena_release_target_loc();
 
-  // optional uint32 target = 2;
-  bool has_target() const;
+  // optional int64 particle_system_handle = 4;
+  bool has_particle_system_handle() const;
   private:
-  bool _internal_has_target() const;
+  bool _internal_has_particle_system_handle() const;
   public:
-  void clear_target();
-  uint32_t target() const;
-  void set_target(uint32_t value);
+  void clear_particle_system_handle();
+  int64_t particle_system_handle() const;
+  void set_particle_system_handle(int64_t value);
   private:
-  uint32_t _internal_target() const;
-  void _internal_set_target(uint32_t value);
+  int64_t _internal_particle_system_handle() const;
+  void _internal_set_particle_system_handle(int64_t value);
   public:
 
   // optional int32 move_speed = 3;
@@ -18597,19 +18587,6 @@ class CDOTAUserMsg_TE_ProjectileLoc final :
   private:
   int32_t _internal_move_speed() const;
   void _internal_set_move_speed(int32_t value);
-  public:
-
-  // optional int64 particle_system_handle = 4;
-  bool has_particle_system_handle() const;
-  private:
-  bool _internal_has_particle_system_handle() const;
-  public:
-  void clear_particle_system_handle();
-  int64_t particle_system_handle() const;
-  void set_particle_system_handle(int64_t value);
-  private:
-  int64_t _internal_particle_system_handle() const;
-  void _internal_set_particle_system_handle(int64_t value);
   public:
 
   // optional bool dodgeable = 5;
@@ -18690,19 +18667,6 @@ class CDOTAUserMsg_TE_ProjectileLoc final :
   void _internal_set_handle(int32_t value);
   public:
 
-  // optional uint32 source = 14;
-  bool has_source() const;
-  private:
-  bool _internal_has_source() const;
-  public:
-  void clear_source();
-  uint32_t source() const;
-  void set_source(uint32_t value);
-  private:
-  uint32_t _internal_source() const;
-  void _internal_set_source(uint32_t value);
-  public:
-
   // optional int64 additional_particle_system_handle = 17;
   bool has_additional_particle_system_handle() const;
   private:
@@ -18729,6 +18693,32 @@ class CDOTAUserMsg_TE_ProjectileLoc final :
   void _internal_set_source_attachment(int32_t value);
   public:
 
+  // optional uint32 target = 2 [default = 16777215];
+  bool has_target() const;
+  private:
+  bool _internal_has_target() const;
+  public:
+  void clear_target();
+  uint32_t target() const;
+  void set_target(uint32_t value);
+  private:
+  uint32_t _internal_target() const;
+  void _internal_set_target(uint32_t value);
+  public:
+
+  // optional uint32 source = 14 [default = 16777215];
+  bool has_source() const;
+  private:
+  bool _internal_has_source() const;
+  public:
+  void clear_source();
+  uint32_t source() const;
+  void set_source(uint32_t value);
+  private:
+  uint32_t _internal_source() const;
+  void _internal_set_source(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_TE_ProjectileLoc)
  private:
   class _Internal;
@@ -18742,18 +18732,18 @@ class CDOTAUserMsg_TE_ProjectileLoc final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAUserMsg_ProjectileParticleCPData > particle_cp_data_;
     ::CMsgVector* source_loc_;
     ::CMsgVector* target_loc_;
-    uint32_t target_;
-    int32_t move_speed_;
     int64_t particle_system_handle_;
+    int32_t move_speed_;
     bool dodgeable_;
     bool is_attack_;
     float expire_time_;
     uint32_t colorgemcolor_;
     int32_t launch_tick_;
     int32_t handle_;
-    uint32_t source_;
     int64_t additional_particle_system_handle_;
     int32_t source_attachment_;
+    uint32_t target_;
+    uint32_t source_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -19048,24 +19038,11 @@ class CDOTAUserMsg_TE_DotaBloodImpact final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kEntityFieldNumber = 1,
     kScaleFieldNumber = 2,
     kXnormalFieldNumber = 3,
     kYnormalFieldNumber = 4,
+    kEntityFieldNumber = 1,
   };
-  // optional uint32 entity = 1;
-  bool has_entity() const;
-  private:
-  bool _internal_has_entity() const;
-  public:
-  void clear_entity();
-  uint32_t entity() const;
-  void set_entity(uint32_t value);
-  private:
-  uint32_t _internal_entity() const;
-  void _internal_set_entity(uint32_t value);
-  public:
-
   // optional float scale = 2;
   bool has_scale() const;
   private:
@@ -19105,6 +19082,19 @@ class CDOTAUserMsg_TE_DotaBloodImpact final :
   void _internal_set_ynormal(float value);
   public:
 
+  // optional uint32 entity = 1 [default = 16777215];
+  bool has_entity() const;
+  private:
+  bool _internal_has_entity() const;
+  public:
+  void clear_entity();
+  uint32_t entity() const;
+  void set_entity(uint32_t value);
+  private:
+  uint32_t _internal_entity() const;
+  void _internal_set_entity(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_TE_DotaBloodImpact)
  private:
   class _Internal;
@@ -19115,10 +19105,10 @@ class CDOTAUserMsg_TE_DotaBloodImpact final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t entity_;
     float scale_;
     float xnormal_;
     float ynormal_;
+    uint32_t entity_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -19253,8 +19243,6 @@ class CDOTAUserMsg_AbilityPing final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 1,
-    kAbilityIdFieldNumber = 2,
     kCooldownSecondsFieldNumber = 4,
     kLevelFieldNumber = 5,
     kManaNeededFieldNumber = 7,
@@ -19265,33 +19253,9 @@ class CDOTAUserMsg_AbilityPing final :
     kSecondaryChargesFieldNumber = 10,
     kReclaimTimeFieldNumber = 13,
     kTypeFieldNumber = 3,
+    kPlayerIdFieldNumber = 1,
+    kAbilityIdFieldNumber = 2,
   };
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
-  // optional uint32 ability_id = 2;
-  bool has_ability_id() const;
-  private:
-  bool _internal_has_ability_id() const;
-  public:
-  void clear_ability_id();
-  uint32_t ability_id() const;
-  void set_ability_id(uint32_t value);
-  private:
-  uint32_t _internal_ability_id() const;
-  void _internal_set_ability_id(uint32_t value);
-  public:
-
   // optional uint32 cooldown_seconds = 4;
   bool has_cooldown_seconds() const;
   private:
@@ -19422,6 +19386,32 @@ class CDOTAUserMsg_AbilityPing final :
   void _internal_set_type(::DOTA_ABILITY_PING_TYPE value);
   public:
 
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
+  // optional int32 ability_id = 2 [default = -1];
+  bool has_ability_id() const;
+  private:
+  bool _internal_has_ability_id() const;
+  public:
+  void clear_ability_id();
+  int32_t ability_id() const;
+  void set_ability_id(int32_t value);
+  private:
+  int32_t _internal_ability_id() const;
+  void _internal_set_ability_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_AbilityPing)
  private:
   class _Internal;
@@ -19432,8 +19422,6 @@ class CDOTAUserMsg_AbilityPing final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_;
-    uint32_t ability_id_;
     uint32_t cooldown_seconds_;
     uint32_t level_;
     uint32_t mana_needed_;
@@ -19444,6 +19432,8 @@ class CDOTAUserMsg_AbilityPing final :
     int32_t secondary_charges_;
     float reclaim_time_;
     int type_;
+    int32_t player_id_;
+    int32_t ability_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -19578,27 +19568,14 @@ class CDOTAUserMsg_TE_UnitAnimation final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kEntityFieldNumber = 1,
     kSequenceVariantFieldNumber = 2,
     kPlaybackrateFieldNumber = 3,
     kCastpointFieldNumber = 4,
     kTypeFieldNumber = 5,
     kActivityFieldNumber = 6,
     kLagCompensationTimeFieldNumber = 7,
+    kEntityFieldNumber = 1,
   };
-  // optional uint32 entity = 1;
-  bool has_entity() const;
-  private:
-  bool _internal_has_entity() const;
-  public:
-  void clear_entity();
-  uint32_t entity() const;
-  void set_entity(uint32_t value);
-  private:
-  uint32_t _internal_entity() const;
-  void _internal_set_entity(uint32_t value);
-  public:
-
   // optional int32 sequence_variant = 2;
   bool has_sequence_variant() const;
   private:
@@ -19677,6 +19654,19 @@ class CDOTAUserMsg_TE_UnitAnimation final :
   void _internal_set_lag_compensation_time(float value);
   public:
 
+  // optional uint32 entity = 1 [default = 16777215];
+  bool has_entity() const;
+  private:
+  bool _internal_has_entity() const;
+  public:
+  void clear_entity();
+  uint32_t entity() const;
+  void set_entity(uint32_t value);
+  private:
+  uint32_t _internal_entity() const;
+  void _internal_set_entity(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_TE_UnitAnimation)
  private:
   class _Internal;
@@ -19687,13 +19677,13 @@ class CDOTAUserMsg_TE_UnitAnimation final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t entity_;
     int32_t sequence_variant_;
     float playbackrate_;
     float castpoint_;
     int32_t type_;
     int32_t activity_;
     float lag_compensation_time_;
+    uint32_t entity_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -19828,22 +19818,9 @@ class CDOTAUserMsg_TE_UnitAnimationEnd final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kEntityFieldNumber = 1,
     kSnapFieldNumber = 2,
+    kEntityFieldNumber = 1,
   };
-  // optional uint32 entity = 1;
-  bool has_entity() const;
-  private:
-  bool _internal_has_entity() const;
-  public:
-  void clear_entity();
-  uint32_t entity() const;
-  void set_entity(uint32_t value);
-  private:
-  uint32_t _internal_entity() const;
-  void _internal_set_entity(uint32_t value);
-  public:
-
   // optional bool snap = 2;
   bool has_snap() const;
   private:
@@ -19857,6 +19834,19 @@ class CDOTAUserMsg_TE_UnitAnimationEnd final :
   void _internal_set_snap(bool value);
   public:
 
+  // optional uint32 entity = 1 [default = 16777215];
+  bool has_entity() const;
+  private:
+  bool _internal_has_entity() const;
+  public:
+  void clear_entity();
+  uint32_t entity() const;
+  void set_entity(uint32_t value);
+  private:
+  uint32_t _internal_entity() const;
+  void _internal_set_entity(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_TE_UnitAnimationEnd)
  private:
   class _Internal;
@@ -19867,8 +19857,8 @@ class CDOTAUserMsg_TE_UnitAnimationEnd final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t entity_;
     bool snap_;
+    uint32_t entity_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -20810,25 +20800,12 @@ class CDOTAUserMsg_BoosterStatePlayer final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 1,
     kBonusFieldNumber = 2,
     kEventBonusFieldNumber = 3,
     kBonusItemIdFieldNumber = 4,
     kEventBonusItemIdFieldNumber = 5,
+    kPlayerIdFieldNumber = 1,
   };
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
   // optional float bonus = 2;
   bool has_bonus() const;
   private:
@@ -20881,6 +20858,19 @@ class CDOTAUserMsg_BoosterStatePlayer final :
   void _internal_set_event_bonus_item_id(uint32_t value);
   public:
 
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_BoosterStatePlayer)
  private:
   class _Internal;
@@ -20891,11 +20881,11 @@ class CDOTAUserMsg_BoosterStatePlayer final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_;
     float bonus_;
     float event_bonus_;
     uint32_t bonus_item_id_;
     uint32_t event_bonus_item_id_;
+    int32_t player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -21363,36 +21353,10 @@ class CDOTAUserMsg_AbilitySteal final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kAbilityLevelFieldNumber = 3,
     kPlayerIdFieldNumber = 1,
     kAbilityIdFieldNumber = 2,
-    kAbilityLevelFieldNumber = 3,
   };
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
-  // optional uint32 ability_id = 2;
-  bool has_ability_id() const;
-  private:
-  bool _internal_has_ability_id() const;
-  public:
-  void clear_ability_id();
-  uint32_t ability_id() const;
-  void set_ability_id(uint32_t value);
-  private:
-  uint32_t _internal_ability_id() const;
-  void _internal_set_ability_id(uint32_t value);
-  public:
-
   // optional uint32 ability_level = 3;
   bool has_ability_level() const;
   private:
@@ -21406,6 +21370,32 @@ class CDOTAUserMsg_AbilitySteal final :
   void _internal_set_ability_level(uint32_t value);
   public:
 
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
+  // optional int32 ability_id = 2 [default = -1];
+  bool has_ability_id() const;
+  private:
+  bool _internal_has_ability_id() const;
+  public:
+  void clear_ability_id();
+  int32_t ability_id() const;
+  void set_ability_id(int32_t value);
+  private:
+  int32_t _internal_ability_id() const;
+  void _internal_set_ability_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_AbilitySteal)
  private:
   class _Internal;
@@ -21416,9 +21406,9 @@ class CDOTAUserMsg_AbilitySteal final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_;
-    uint32_t ability_id_;
     uint32_t ability_level_;
+    int32_t player_id_;
+    int32_t ability_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -21555,8 +21545,8 @@ class CDOTAUserMsg_StatsHeroLookup final :
   enum : int {
     kHeroNameFieldNumber = 3,
     kPersonaFieldNumber = 4,
-    kPlayerIdFieldNumber = 1,
     kHeroIdFieldNumber = 2,
+    kPlayerIdFieldNumber = 1,
   };
   // optional string hero_name = 3;
   bool has_hero_name() const;
@@ -21594,19 +21584,6 @@ class CDOTAUserMsg_StatsHeroLookup final :
   std::string* _internal_mutable_persona();
   public:
 
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
   // optional int32 hero_id = 2;
   bool has_hero_id() const;
   private:
@@ -21618,6 +21595,19 @@ class CDOTAUserMsg_StatsHeroLookup final :
   private:
   int32_t _internal_hero_id() const;
   void _internal_set_hero_id(int32_t value);
+  public:
+
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_StatsHeroLookup)
@@ -21632,8 +21622,8 @@ class CDOTAUserMsg_StatsHeroLookup final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr hero_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr persona_;
-    int32_t player_id_;
     int32_t hero_id_;
+    int32_t player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -23024,26 +23014,13 @@ class CDOTAUserMsg_StatsPlayerKillShare final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 1,
     kKillSharePercentFieldNumber = 2,
     kPlayerLocXFieldNumber = 3,
     kPlayerLocYFieldNumber = 4,
     kHealthPercentFieldNumber = 5,
     kManaPercentFieldNumber = 6,
+    kPlayerIdFieldNumber = 1,
   };
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
   // optional float kill_share_percent = 2;
   bool has_kill_share_percent() const;
   private:
@@ -23109,6 +23086,19 @@ class CDOTAUserMsg_StatsPlayerKillShare final :
   void _internal_set_mana_percent(float value);
   public:
 
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_StatsPlayerKillShare)
  private:
   class _Internal;
@@ -23119,12 +23109,12 @@ class CDOTAUserMsg_StatsPlayerKillShare final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_;
     float kill_share_percent_;
     float player_loc_x_;
     float player_loc_y_;
     float health_percent_;
     float mana_percent_;
+    int32_t player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -23260,10 +23250,10 @@ class CDOTAUserMsg_StatsKillDetails final :
 
   enum : int {
     kKillSharesFieldNumber = 2,
-    kVictimIdFieldNumber = 1,
     kDamageToKillFieldNumber = 3,
     kEffectiveHealthFieldNumber = 4,
     kDeathTimeFieldNumber = 5,
+    kVictimIdFieldNumber = 1,
     kKillerIdFieldNumber = 6,
   };
   // repeated .CDOTAUserMsg_StatsPlayerKillShare kill_shares = 2;
@@ -23283,19 +23273,6 @@ class CDOTAUserMsg_StatsKillDetails final :
   ::CDOTAUserMsg_StatsPlayerKillShare* add_kill_shares();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAUserMsg_StatsPlayerKillShare >&
       kill_shares() const;
-
-  // optional int32 victim_id = 1;
-  bool has_victim_id() const;
-  private:
-  bool _internal_has_victim_id() const;
-  public:
-  void clear_victim_id();
-  int32_t victim_id() const;
-  void set_victim_id(int32_t value);
-  private:
-  int32_t _internal_victim_id() const;
-  void _internal_set_victim_id(int32_t value);
-  public:
 
   // optional uint32 damage_to_kill = 3;
   bool has_damage_to_kill() const;
@@ -23336,7 +23313,20 @@ class CDOTAUserMsg_StatsKillDetails final :
   void _internal_set_death_time(float value);
   public:
 
-  // optional int32 killer_id = 6;
+  // optional int32 victim_id = 1 [default = -1];
+  bool has_victim_id() const;
+  private:
+  bool _internal_has_victim_id() const;
+  public:
+  void clear_victim_id();
+  int32_t victim_id() const;
+  void set_victim_id(int32_t value);
+  private:
+  int32_t _internal_victim_id() const;
+  void _internal_set_victim_id(int32_t value);
+  public:
+
+  // optional int32 killer_id = 6 [default = -1];
   bool has_killer_id() const;
   private:
   bool _internal_has_killer_id() const;
@@ -23360,10 +23350,10 @@ class CDOTAUserMsg_StatsKillDetails final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAUserMsg_StatsPlayerKillShare > kill_shares_;
-    int32_t victim_id_;
     uint32_t damage_to_kill_;
     uint32_t effective_health_;
     float death_time_;
+    int32_t victim_id_;
     int32_t killer_id_;
   };
   union { Impl_ _impl_; };
@@ -24206,7 +24196,7 @@ class CDOTAUserMsg_MiniTaunt final :
   enum : int {
     kTauntingPlayerIdFieldNumber = 1,
   };
-  // optional int32 taunting_player_id = 1;
+  // optional int32 taunting_player_id = 1 [default = -1];
   bool has_taunting_player_id() const;
   private:
   bool _internal_has_taunting_player_id() const;
@@ -24525,9 +24515,9 @@ class CDOTAUserMsg_CustomHeaderMessage final :
 
   enum : int {
     kMessageFieldNumber = 3,
-    kPlayerIdFieldNumber = 1,
     kDurationFieldNumber = 2,
     kValueFieldNumber = 4,
+    kPlayerIdFieldNumber = 1,
   };
   // optional string message = 3;
   bool has_message() const;
@@ -24545,19 +24535,6 @@ class CDOTAUserMsg_CustomHeaderMessage final :
   const std::string& _internal_message() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_message(const std::string& value);
   std::string* _internal_mutable_message();
-  public:
-
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
   public:
 
   // optional float duration = 2;
@@ -24586,6 +24563,19 @@ class CDOTAUserMsg_CustomHeaderMessage final :
   void _internal_set_value(int32_t value);
   public:
 
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_CustomHeaderMessage)
  private:
   class _Internal;
@@ -24597,9 +24587,9 @@ class CDOTAUserMsg_CustomHeaderMessage final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr message_;
-    int32_t player_id_;
     float duration_;
     int32_t value_;
+    int32_t player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -26074,22 +26064,9 @@ class CDOTAUserMsg_CompendiumStatePlayer final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 1,
     kLevelFieldNumber = 2,
+    kPlayerIdFieldNumber = 1,
   };
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
   // optional uint32 level = 2;
   bool has_level() const;
   private:
@@ -26103,6 +26080,19 @@ class CDOTAUserMsg_CompendiumStatePlayer final :
   void _internal_set_level(uint32_t value);
   public:
 
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_CompendiumStatePlayer)
  private:
   class _Internal;
@@ -26113,8 +26103,8 @@ class CDOTAUserMsg_CompendiumStatePlayer final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_;
     uint32_t level_;
+    int32_t player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -26414,13 +26404,13 @@ class CDOTAUserMsg_ProjectionAbility final :
 
   enum : int {
     kOriginFieldNumber = 5,
-    kAbilityIdFieldNumber = 1,
-    kCasterEntIndexFieldNumber = 2,
     kCasterTeamFieldNumber = 3,
     kChannelEndFieldNumber = 4,
     kTrackCasterOnlyFieldNumber = 6,
     kEndTimeFieldNumber = 7,
     kVictimEntIndexFieldNumber = 8,
+    kAbilityIdFieldNumber = 1,
+    kCasterEntIndexFieldNumber = 2,
   };
   // optional .CMsgVector origin = 5;
   bool has_origin() const;
@@ -26439,32 +26429,6 @@ class CDOTAUserMsg_ProjectionAbility final :
   void unsafe_arena_set_allocated_origin(
       ::CMsgVector* origin);
   ::CMsgVector* unsafe_arena_release_origin();
-
-  // optional uint32 ability_id = 1;
-  bool has_ability_id() const;
-  private:
-  bool _internal_has_ability_id() const;
-  public:
-  void clear_ability_id();
-  uint32_t ability_id() const;
-  void set_ability_id(uint32_t value);
-  private:
-  uint32_t _internal_ability_id() const;
-  void _internal_set_ability_id(uint32_t value);
-  public:
-
-  // optional int32 caster_ent_index = 2;
-  bool has_caster_ent_index() const;
-  private:
-  bool _internal_has_caster_ent_index() const;
-  public:
-  void clear_caster_ent_index();
-  int32_t caster_ent_index() const;
-  void set_caster_ent_index(int32_t value);
-  private:
-  int32_t _internal_caster_ent_index() const;
-  void _internal_set_caster_ent_index(int32_t value);
-  public:
 
   // optional int32 caster_team = 3;
   bool has_caster_team() const;
@@ -26518,7 +26482,7 @@ class CDOTAUserMsg_ProjectionAbility final :
   void _internal_set_end_time(float value);
   public:
 
-  // optional int32 victim_ent_index = 8;
+  // optional int32 victim_ent_index = 8 [default = -1];
   bool has_victim_ent_index() const;
   private:
   bool _internal_has_victim_ent_index() const;
@@ -26529,6 +26493,32 @@ class CDOTAUserMsg_ProjectionAbility final :
   private:
   int32_t _internal_victim_ent_index() const;
   void _internal_set_victim_ent_index(int32_t value);
+  public:
+
+  // optional int32 ability_id = 1 [default = -1];
+  bool has_ability_id() const;
+  private:
+  bool _internal_has_ability_id() const;
+  public:
+  void clear_ability_id();
+  int32_t ability_id() const;
+  void set_ability_id(int32_t value);
+  private:
+  int32_t _internal_ability_id() const;
+  void _internal_set_ability_id(int32_t value);
+  public:
+
+  // optional int32 caster_ent_index = 2 [default = -1];
+  bool has_caster_ent_index() const;
+  private:
+  bool _internal_has_caster_ent_index() const;
+  public:
+  void clear_caster_ent_index();
+  int32_t caster_ent_index() const;
+  void set_caster_ent_index(int32_t value);
+  private:
+  int32_t _internal_caster_ent_index() const;
+  void _internal_set_caster_ent_index(int32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_ProjectionAbility)
@@ -26542,13 +26532,13 @@ class CDOTAUserMsg_ProjectionAbility final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::CMsgVector* origin_;
-    uint32_t ability_id_;
-    int32_t caster_ent_index_;
     int32_t caster_team_;
     bool channel_end_;
     bool track_caster_only_;
     float end_time_;
     int32_t victim_ent_index_;
+    int32_t ability_id_;
+    int32_t caster_ent_index_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -26861,7 +26851,7 @@ class CDOTAUserMsg_XPAlert final :
     kPlayerIdFieldNumber = 1,
     kTargetEntindexFieldNumber = 2,
   };
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   bool has_player_id() const;
   private:
   bool _internal_has_player_id() const;
@@ -26874,7 +26864,7 @@ class CDOTAUserMsg_XPAlert final :
   void _internal_set_player_id(int32_t value);
   public:
 
-  // optional int32 target_entindex = 2;
+  // optional int32 target_entindex = 2 [default = -1];
   bool has_target_entindex() const;
   private:
   bool _internal_has_target_entindex() const;
@@ -27033,51 +27023,12 @@ class CDOTAUserMsg_TalentTreeAlert final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 1,
-    kTargetEntindexFieldNumber = 2,
-    kAbilityIdFieldNumber = 3,
     kSlotFieldNumber = 4,
     kLearnedFieldNumber = 5,
+    kAbilityIdFieldNumber = 3,
+    kPlayerIdFieldNumber = 1,
+    kTargetEntindexFieldNumber = 2,
   };
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
-  // optional int32 target_entindex = 2;
-  bool has_target_entindex() const;
-  private:
-  bool _internal_has_target_entindex() const;
-  public:
-  void clear_target_entindex();
-  int32_t target_entindex() const;
-  void set_target_entindex(int32_t value);
-  private:
-  int32_t _internal_target_entindex() const;
-  void _internal_set_target_entindex(int32_t value);
-  public:
-
-  // optional int32 ability_id = 3;
-  bool has_ability_id() const;
-  private:
-  bool _internal_has_ability_id() const;
-  public:
-  void clear_ability_id();
-  int32_t ability_id() const;
-  void set_ability_id(int32_t value);
-  private:
-  int32_t _internal_ability_id() const;
-  void _internal_set_ability_id(int32_t value);
-  public:
-
   // optional int32 slot = 4;
   bool has_slot() const;
   private:
@@ -27104,6 +27055,45 @@ class CDOTAUserMsg_TalentTreeAlert final :
   void _internal_set_learned(bool value);
   public:
 
+  // optional int32 ability_id = 3 [default = -1];
+  bool has_ability_id() const;
+  private:
+  bool _internal_has_ability_id() const;
+  public:
+  void clear_ability_id();
+  int32_t ability_id() const;
+  void set_ability_id(int32_t value);
+  private:
+  int32_t _internal_ability_id() const;
+  void _internal_set_ability_id(int32_t value);
+  public:
+
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
+  // optional int32 target_entindex = 2 [default = -1];
+  bool has_target_entindex() const;
+  private:
+  bool _internal_has_target_entindex() const;
+  public:
+  void clear_target_entindex();
+  int32_t target_entindex() const;
+  void set_target_entindex(int32_t value);
+  private:
+  int32_t _internal_target_entindex() const;
+  void _internal_set_target_entindex(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_TalentTreeAlert)
  private:
   class _Internal;
@@ -27114,11 +27104,11 @@ class CDOTAUserMsg_TalentTreeAlert final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_;
-    int32_t target_entindex_;
-    int32_t ability_id_;
     int32_t slot_;
     bool learned_;
+    int32_t ability_id_;
+    int32_t player_id_;
+    int32_t target_entindex_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -27378,28 +27368,15 @@ class CDOTAUserMsg_QuestStatus final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 1,
     kQuestIdFieldNumber = 2,
     kChallengeIdFieldNumber = 3,
     kProgressFieldNumber = 4,
     kGoalFieldNumber = 5,
     kQueryFieldNumber = 6,
     kFailGametimeFieldNumber = 7,
+    kPlayerIdFieldNumber = 1,
     kItemAbilityIdFieldNumber = 8,
   };
-  // required int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
   // optional uint32 quest_id = 2;
   bool has_quest_id() const;
   private:
@@ -27478,17 +27455,30 @@ class CDOTAUserMsg_QuestStatus final :
   void _internal_set_fail_gametime(float value);
   public:
 
-  // optional uint32 item_ability_id = 8;
+  // required int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
+  // optional int32 item_ability_id = 8 [default = -1];
   bool has_item_ability_id() const;
   private:
   bool _internal_has_item_ability_id() const;
   public:
   void clear_item_ability_id();
-  uint32_t item_ability_id() const;
-  void set_item_ability_id(uint32_t value);
+  int32_t item_ability_id() const;
+  void set_item_ability_id(int32_t value);
   private:
-  uint32_t _internal_item_ability_id() const;
-  void _internal_set_item_ability_id(uint32_t value);
+  int32_t _internal_item_ability_id() const;
+  void _internal_set_item_ability_id(int32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_QuestStatus)
@@ -27501,14 +27491,14 @@ class CDOTAUserMsg_QuestStatus final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_;
     uint32_t quest_id_;
     uint32_t challenge_id_;
     uint32_t progress_;
     uint32_t goal_;
     uint32_t query_;
     float fail_gametime_;
-    uint32_t item_ability_id_;
+    int32_t player_id_;
+    int32_t item_ability_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -27643,23 +27633,10 @@ class CDOTAUserMsg_SuggestHeroPick final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 1,
     kHeroIdFieldNumber = 2,
     kBanFieldNumber = 3,
+    kPlayerIdFieldNumber = 1,
   };
-  // required int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
   // optional uint32 hero_id = 2;
   bool has_hero_id() const;
   private:
@@ -27686,6 +27663,19 @@ class CDOTAUserMsg_SuggestHeroPick final :
   void _internal_set_ban(bool value);
   public:
 
+  // required int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_SuggestHeroPick)
  private:
   class _Internal;
@@ -27696,9 +27686,9 @@ class CDOTAUserMsg_SuggestHeroPick final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_;
     uint32_t hero_id_;
     bool ban_;
+    int32_t player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -27854,7 +27844,7 @@ class CDOTAUserMsg_SuggestHeroRole final :
   std::string* _internal_mutable_hero_role();
   public:
 
-  // required int32 player_id = 1;
+  // required int32 player_id = 1 [default = -1];
   bool has_player_id() const;
   private:
   bool _internal_has_player_id() const;
@@ -28015,9 +28005,9 @@ class CDOTAUserMsg_KillcamDamageTaken final :
   enum : int {
     kHeroNameFieldNumber = 5,
     kDamageColorFieldNumber = 6,
-    kPlayerIdFieldNumber = 1,
     kDamageTakenFieldNumber = 2,
     kItemTypeFieldNumber = 3,
+    kPlayerIdFieldNumber = 1,
     kItemAbilityIdFieldNumber = 4,
   };
   // optional string hero_name = 5;
@@ -28056,19 +28046,6 @@ class CDOTAUserMsg_KillcamDamageTaken final :
   std::string* _internal_mutable_damage_color();
   public:
 
-  // required int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
   // optional uint32 damage_taken = 2;
   bool has_damage_taken() const;
   private:
@@ -28095,17 +28072,30 @@ class CDOTAUserMsg_KillcamDamageTaken final :
   void _internal_set_item_type(uint32_t value);
   public:
 
-  // optional uint32 item_ability_id = 4;
+  // required int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
+  // optional int32 item_ability_id = 4 [default = -1];
   bool has_item_ability_id() const;
   private:
   bool _internal_has_item_ability_id() const;
   public:
   void clear_item_ability_id();
-  uint32_t item_ability_id() const;
-  void set_item_ability_id(uint32_t value);
+  int32_t item_ability_id() const;
+  void set_item_ability_id(int32_t value);
   private:
-  uint32_t _internal_item_ability_id() const;
-  void _internal_set_item_ability_id(uint32_t value);
+  int32_t _internal_item_ability_id() const;
+  void _internal_set_item_ability_id(int32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_KillcamDamageTaken)
@@ -28120,10 +28110,10 @@ class CDOTAUserMsg_KillcamDamageTaken final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr hero_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr damage_color_;
-    int32_t player_id_;
     uint32_t damage_taken_;
     uint32_t item_type_;
-    uint32_t item_ability_id_;
+    int32_t player_id_;
+    int32_t item_ability_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -28258,22 +28248,9 @@ class CDOTAUserMsg_SelectPenaltyGold final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 1,
     kCostFieldNumber = 2,
+    kPlayerIdFieldNumber = 1,
   };
-  // required int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
   // optional sint32 cost = 2;
   bool has_cost() const;
   private:
@@ -28287,6 +28264,19 @@ class CDOTAUserMsg_SelectPenaltyGold final :
   void _internal_set_cost(int32_t value);
   public:
 
+  // required int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_SelectPenaltyGold)
  private:
   class _Internal;
@@ -28297,8 +28287,8 @@ class CDOTAUserMsg_SelectPenaltyGold final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_;
     int32_t cost_;
+    int32_t player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -28433,25 +28423,12 @@ class CDOTAUserMsg_RollDiceResult final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 1,
     kChannelTypeFieldNumber = 2,
     kRollMinFieldNumber = 3,
     kRollMaxFieldNumber = 4,
     kResultFieldNumber = 5,
+    kPlayerIdFieldNumber = 1,
   };
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
   // optional uint32 channel_type = 2;
   bool has_channel_type() const;
   private:
@@ -28504,6 +28481,19 @@ class CDOTAUserMsg_RollDiceResult final :
   void _internal_set_result(uint32_t value);
   public:
 
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_RollDiceResult)
  private:
   class _Internal;
@@ -28514,11 +28504,11 @@ class CDOTAUserMsg_RollDiceResult final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_;
     uint32_t channel_type_;
     uint32_t roll_min_;
     uint32_t roll_max_;
     uint32_t result_;
+    int32_t player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -28653,23 +28643,10 @@ class CDOTAUserMsg_FlipCoinResult final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 1,
     kChannelTypeFieldNumber = 2,
     kResultFieldNumber = 3,
+    kPlayerIdFieldNumber = 1,
   };
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
   // optional uint32 channel_type = 2;
   bool has_channel_type() const;
   private:
@@ -28696,6 +28673,19 @@ class CDOTAUserMsg_FlipCoinResult final :
   void _internal_set_result(bool value);
   public:
 
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_FlipCoinResult)
  private:
   class _Internal;
@@ -28706,9 +28696,9 @@ class CDOTAUserMsg_FlipCoinResult final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_;
     uint32_t channel_type_;
     bool result_;
+    int32_t player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -28845,7 +28835,7 @@ class CDOTAUserMessage_RequestItemSuggestions final :
   enum : int {
     kPlayerIdFieldNumber = 1,
   };
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   bool has_player_id() const;
   private:
   bool _internal_has_player_id() const;
@@ -29019,7 +29009,7 @@ class CDOTAUserMessage_TeamCaptainChanged final :
   void _internal_set_team(uint32_t value);
   public:
 
-  // optional int32 captain_player_id = 2;
+  // optional int32 captain_player_id = 2 [default = -1];
   bool has_captain_player_id() const;
   private:
   bool _internal_has_captain_player_id() const;
@@ -29178,22 +29168,9 @@ class CDOTAUserMsg_ChatWheelCooldown final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kMessageIdFieldNumber = 1,
     kCooldownRemainingFieldNumber = 2,
+    kMessageIdFieldNumber = 1,
   };
-  // optional uint32 message_id = 1;
-  bool has_message_id() const;
-  private:
-  bool _internal_has_message_id() const;
-  public:
-  void clear_message_id();
-  uint32_t message_id() const;
-  void set_message_id(uint32_t value);
-  private:
-  uint32_t _internal_message_id() const;
-  void _internal_set_message_id(uint32_t value);
-  public:
-
   // optional float cooldown_remaining = 2;
   bool has_cooldown_remaining() const;
   private:
@@ -29207,6 +29184,19 @@ class CDOTAUserMsg_ChatWheelCooldown final :
   void _internal_set_cooldown_remaining(float value);
   public:
 
+  // optional uint32 message_id = 1 [default = 4294967295];
+  bool has_message_id() const;
+  private:
+  bool _internal_has_message_id() const;
+  public:
+  void clear_message_id();
+  uint32_t message_id() const;
+  void set_message_id(uint32_t value);
+  private:
+  uint32_t _internal_message_id() const;
+  void _internal_set_message_id(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_ChatWheelCooldown)
  private:
   class _Internal;
@@ -29217,8 +29207,8 @@ class CDOTAUserMsg_ChatWheelCooldown final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t message_id_;
     float cooldown_remaining_;
+    uint32_t message_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -29355,9 +29345,9 @@ class CDOTAUserMsg_HeroRelicProgress final :
   enum : int {
     kHeroRelicTypeFieldNumber = 1,
     kValueFieldNumber = 2,
-    kEhandleFieldNumber = 3,
     kEventIdFieldNumber = 4,
     kValueDisplayFieldNumber = 5,
+    kEhandleFieldNumber = 3,
   };
   // optional uint32 hero_relic_type = 1;
   bool has_hero_relic_type() const;
@@ -29383,19 +29373,6 @@ class CDOTAUserMsg_HeroRelicProgress final :
   private:
   uint32_t _internal_value() const;
   void _internal_set_value(uint32_t value);
-  public:
-
-  // optional uint32 ehandle = 3;
-  bool has_ehandle() const;
-  private:
-  bool _internal_has_ehandle() const;
-  public:
-  void clear_ehandle();
-  uint32_t ehandle() const;
-  void set_ehandle(uint32_t value);
-  private:
-  uint32_t _internal_ehandle() const;
-  void _internal_set_ehandle(uint32_t value);
   public:
 
   // optional uint32 event_id = 4;
@@ -29424,6 +29401,19 @@ class CDOTAUserMsg_HeroRelicProgress final :
   void _internal_set_value_display(float value);
   public:
 
+  // optional uint32 ehandle = 3 [default = 16777215];
+  bool has_ehandle() const;
+  private:
+  bool _internal_has_ehandle() const;
+  public:
+  void clear_ehandle();
+  uint32_t ehandle() const;
+  void set_ehandle(uint32_t value);
+  private:
+  uint32_t _internal_ehandle() const;
+  void _internal_set_ehandle(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_HeroRelicProgress)
  private:
   class _Internal;
@@ -29436,9 +29426,9 @@ class CDOTAUserMsg_HeroRelicProgress final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t hero_relic_type_;
     uint32_t value_;
-    uint32_t ehandle_;
     uint32_t event_id_;
     float value_display_;
+    uint32_t ehandle_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -29573,36 +29563,10 @@ class CDOTAUserMsg_AbilityDraftRequestAbility final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kCtrlIsDownFieldNumber = 3,
     kPlayerIdFieldNumber = 1,
     kRequestedAbilityIdFieldNumber = 2,
-    kCtrlIsDownFieldNumber = 3,
   };
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
-  // optional uint32 requested_ability_id = 2;
-  bool has_requested_ability_id() const;
-  private:
-  bool _internal_has_requested_ability_id() const;
-  public:
-  void clear_requested_ability_id();
-  uint32_t requested_ability_id() const;
-  void set_requested_ability_id(uint32_t value);
-  private:
-  uint32_t _internal_requested_ability_id() const;
-  void _internal_set_requested_ability_id(uint32_t value);
-  public:
-
   // optional bool ctrl_is_down = 3;
   bool has_ctrl_is_down() const;
   private:
@@ -29616,6 +29580,32 @@ class CDOTAUserMsg_AbilityDraftRequestAbility final :
   void _internal_set_ctrl_is_down(bool value);
   public:
 
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
+  // optional int32 requested_ability_id = 2 [default = -1];
+  bool has_requested_ability_id() const;
+  private:
+  bool _internal_has_requested_ability_id() const;
+  public:
+  void clear_requested_ability_id();
+  int32_t requested_ability_id() const;
+  void set_requested_ability_id(int32_t value);
+  private:
+  int32_t _internal_requested_ability_id() const;
+  void _internal_set_requested_ability_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_AbilityDraftRequestAbility)
  private:
   class _Internal;
@@ -29626,9 +29616,9 @@ class CDOTAUserMsg_AbilityDraftRequestAbility final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_;
-    uint32_t requested_ability_id_;
     bool ctrl_is_down_;
+    int32_t player_id_;
+    int32_t requested_ability_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -29763,25 +29753,12 @@ class CDOTAUserMsg_DamageReport final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 1,
     kTargetHeroIdFieldNumber = 2,
     kSourceHeroIdFieldNumber = 3,
     kDamageAmountFieldNumber = 4,
     kBroadcastFieldNumber = 5,
+    kPlayerIdFieldNumber = 1,
   };
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
   // optional uint32 target_hero_id = 2;
   bool has_target_hero_id() const;
   private:
@@ -29834,6 +29811,19 @@ class CDOTAUserMsg_DamageReport final :
   void _internal_set_broadcast(bool value);
   public:
 
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_DamageReport)
  private:
   class _Internal;
@@ -29844,11 +29834,11 @@ class CDOTAUserMsg_DamageReport final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_;
     uint32_t target_hero_id_;
     uint32_t source_hero_id_;
     int32_t damage_amount_;
     bool broadcast_;
+    int32_t player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -29984,10 +29974,11 @@ class CDOTAUserMsg_SalutePlayer final :
 
   enum : int {
     kCustomTipStyleFieldNumber = 5,
-    kSourcePlayerIdFieldNumber = 1,
-    kTargetPlayerIdFieldNumber = 2,
     kTipAmountFieldNumber = 3,
     kEventIdFieldNumber = 4,
+    kNumRecentTipsFieldNumber = 6,
+    kSourcePlayerIdFieldNumber = 1,
+    kTargetPlayerIdFieldNumber = 2,
   };
   // optional string custom_tip_style = 5;
   bool has_custom_tip_style() const;
@@ -30005,32 +29996,6 @@ class CDOTAUserMsg_SalutePlayer final :
   const std::string& _internal_custom_tip_style() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_custom_tip_style(const std::string& value);
   std::string* _internal_mutable_custom_tip_style();
-  public:
-
-  // optional int32 source_player_id = 1;
-  bool has_source_player_id() const;
-  private:
-  bool _internal_has_source_player_id() const;
-  public:
-  void clear_source_player_id();
-  int32_t source_player_id() const;
-  void set_source_player_id(int32_t value);
-  private:
-  int32_t _internal_source_player_id() const;
-  void _internal_set_source_player_id(int32_t value);
-  public:
-
-  // optional int32 target_player_id = 2;
-  bool has_target_player_id() const;
-  private:
-  bool _internal_has_target_player_id() const;
-  public:
-  void clear_target_player_id();
-  int32_t target_player_id() const;
-  void set_target_player_id(int32_t value);
-  private:
-  int32_t _internal_target_player_id() const;
-  void _internal_set_target_player_id(int32_t value);
   public:
 
   // optional uint32 tip_amount = 3;
@@ -30059,6 +30024,45 @@ class CDOTAUserMsg_SalutePlayer final :
   void _internal_set_event_id(uint32_t value);
   public:
 
+  // optional uint32 num_recent_tips = 6;
+  bool has_num_recent_tips() const;
+  private:
+  bool _internal_has_num_recent_tips() const;
+  public:
+  void clear_num_recent_tips();
+  uint32_t num_recent_tips() const;
+  void set_num_recent_tips(uint32_t value);
+  private:
+  uint32_t _internal_num_recent_tips() const;
+  void _internal_set_num_recent_tips(uint32_t value);
+  public:
+
+  // optional int32 source_player_id = 1 [default = -1];
+  bool has_source_player_id() const;
+  private:
+  bool _internal_has_source_player_id() const;
+  public:
+  void clear_source_player_id();
+  int32_t source_player_id() const;
+  void set_source_player_id(int32_t value);
+  private:
+  int32_t _internal_source_player_id() const;
+  void _internal_set_source_player_id(int32_t value);
+  public:
+
+  // optional int32 target_player_id = 2 [default = -1];
+  bool has_target_player_id() const;
+  private:
+  bool _internal_has_target_player_id() const;
+  public:
+  void clear_target_player_id();
+  int32_t target_player_id() const;
+  void set_target_player_id(int32_t value);
+  private:
+  int32_t _internal_target_player_id() const;
+  void _internal_set_target_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_SalutePlayer)
  private:
   class _Internal;
@@ -30070,10 +30074,11 @@ class CDOTAUserMsg_SalutePlayer final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr custom_tip_style_;
-    int32_t source_player_id_;
-    int32_t target_player_id_;
     uint32_t tip_amount_;
     uint32_t event_id_;
+    uint32_t num_recent_tips_;
+    int32_t source_player_id_;
+    int32_t target_player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -30229,7 +30234,7 @@ class CDOTAUserMsg_TipAlert final :
   std::string* _internal_mutable_tip_text();
   public:
 
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   bool has_player_id() const;
   private:
   bool _internal_has_player_id() const;
@@ -30388,37 +30393,11 @@ class CDOTAUserMsg_ReplaceQueryUnit final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kTargetEntindexFieldNumber = 3,
     kPlayerIdFieldNumber = 1,
     kSourceEntindexFieldNumber = 2,
-    kTargetEntindexFieldNumber = 3,
   };
-  // required int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
-  // optional int32 source_entindex = 2;
-  bool has_source_entindex() const;
-  private:
-  bool _internal_has_source_entindex() const;
-  public:
-  void clear_source_entindex();
-  int32_t source_entindex() const;
-  void set_source_entindex(int32_t value);
-  private:
-  int32_t _internal_source_entindex() const;
-  void _internal_set_source_entindex(int32_t value);
-  public:
-
-  // optional int32 target_entindex = 3;
+  // optional int32 target_entindex = 3 [default = -1];
   bool has_target_entindex() const;
   private:
   bool _internal_has_target_entindex() const;
@@ -30431,6 +30410,32 @@ class CDOTAUserMsg_ReplaceQueryUnit final :
   void _internal_set_target_entindex(int32_t value);
   public:
 
+  // required int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
+  // optional int32 source_entindex = 2 [default = -1];
+  bool has_source_entindex() const;
+  private:
+  bool _internal_has_source_entindex() const;
+  public:
+  void clear_source_entindex();
+  int32_t source_entindex() const;
+  void set_source_entindex(int32_t value);
+  private:
+  int32_t _internal_source_entindex() const;
+  void _internal_set_source_entindex(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_ReplaceQueryUnit)
  private:
   class _Internal;
@@ -30441,9 +30446,9 @@ class CDOTAUserMsg_ReplaceQueryUnit final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    int32_t target_entindex_;
     int32_t player_id_;
     int32_t source_entindex_;
-    int32_t target_entindex_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -30578,23 +30583,10 @@ class CDOTAUserMsg_ESArcanaCombo final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kEhandleFieldNumber = 1,
     kComboCountFieldNumber = 2,
     kArcanaLevelFieldNumber = 3,
+    kEhandleFieldNumber = 1,
   };
-  // optional uint32 ehandle = 1;
-  bool has_ehandle() const;
-  private:
-  bool _internal_has_ehandle() const;
-  public:
-  void clear_ehandle();
-  uint32_t ehandle() const;
-  void set_ehandle(uint32_t value);
-  private:
-  uint32_t _internal_ehandle() const;
-  void _internal_set_ehandle(uint32_t value);
-  public:
-
   // optional uint32 combo_count = 2;
   bool has_combo_count() const;
   private:
@@ -30621,6 +30613,19 @@ class CDOTAUserMsg_ESArcanaCombo final :
   void _internal_set_arcana_level(uint32_t value);
   public:
 
+  // optional uint32 ehandle = 1 [default = 16777215];
+  bool has_ehandle() const;
+  private:
+  bool _internal_has_ehandle() const;
+  public:
+  void clear_ehandle();
+  uint32_t ehandle() const;
+  void set_ehandle(uint32_t value);
+  private:
+  uint32_t _internal_ehandle() const;
+  void _internal_set_ehandle(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_ESArcanaCombo)
  private:
   class _Internal;
@@ -30631,9 +30636,9 @@ class CDOTAUserMsg_ESArcanaCombo final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t ehandle_;
     uint32_t combo_count_;
     uint32_t arcana_level_;
+    uint32_t ehandle_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -30768,23 +30773,10 @@ class CDOTAUserMsg_ESArcanaComboSummary final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kEhandleFieldNumber = 1,
     kComboCountFieldNumber = 2,
     kDamageAmountFieldNumber = 3,
+    kEhandleFieldNumber = 1,
   };
-  // optional uint32 ehandle = 1;
-  bool has_ehandle() const;
-  private:
-  bool _internal_has_ehandle() const;
-  public:
-  void clear_ehandle();
-  uint32_t ehandle() const;
-  void set_ehandle(uint32_t value);
-  private:
-  uint32_t _internal_ehandle() const;
-  void _internal_set_ehandle(uint32_t value);
-  public:
-
   // optional uint32 combo_count = 2;
   bool has_combo_count() const;
   private:
@@ -30811,6 +30803,19 @@ class CDOTAUserMsg_ESArcanaComboSummary final :
   void _internal_set_damage_amount(uint32_t value);
   public:
 
+  // optional uint32 ehandle = 1 [default = 16777215];
+  bool has_ehandle() const;
+  private:
+  bool _internal_has_ehandle() const;
+  public:
+  void clear_ehandle();
+  uint32_t ehandle() const;
+  void set_ehandle(uint32_t value);
+  private:
+  uint32_t _internal_ehandle() const;
+  void _internal_set_ehandle(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_ESArcanaComboSummary)
  private:
   class _Internal;
@@ -30821,9 +30826,9 @@ class CDOTAUserMsg_ESArcanaComboSummary final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t ehandle_;
     uint32_t combo_count_;
     uint32_t damage_amount_;
+    uint32_t ehandle_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -30958,24 +30963,11 @@ class CDOTAUserMsg_OMArcanaCombo final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kEhandleFieldNumber = 1,
     kMulticastAmountFieldNumber = 2,
     kArcanaLevelFieldNumber = 3,
     kMulticastChanceFieldNumber = 4,
+    kEhandleFieldNumber = 1,
   };
-  // optional uint32 ehandle = 1;
-  bool has_ehandle() const;
-  private:
-  bool _internal_has_ehandle() const;
-  public:
-  void clear_ehandle();
-  uint32_t ehandle() const;
-  void set_ehandle(uint32_t value);
-  private:
-  uint32_t _internal_ehandle() const;
-  void _internal_set_ehandle(uint32_t value);
-  public:
-
   // optional uint32 multicast_amount = 2;
   bool has_multicast_amount() const;
   private:
@@ -31015,6 +31007,19 @@ class CDOTAUserMsg_OMArcanaCombo final :
   void _internal_set_multicast_chance(uint32_t value);
   public:
 
+  // optional uint32 ehandle = 1 [default = 16777215];
+  bool has_ehandle() const;
+  private:
+  bool _internal_has_ehandle() const;
+  public:
+  void clear_ehandle();
+  uint32_t ehandle() const;
+  void set_ehandle(uint32_t value);
+  private:
+  uint32_t _internal_ehandle() const;
+  void _internal_set_ehandle(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_OMArcanaCombo)
  private:
   class _Internal;
@@ -31025,10 +31030,10 @@ class CDOTAUserMsg_OMArcanaCombo final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t ehandle_;
     uint32_t multicast_amount_;
     uint32_t arcana_level_;
     uint32_t multicast_chance_;
+    uint32_t ehandle_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -31163,37 +31168,11 @@ class CDOTAUserMsg_HighFiveCompleted final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerId1FieldNumber = 1,
-    kPlayerId2FieldNumber = 2,
     kSpecialHighFiveFieldNumber = 3,
     kSpecialEntindexFieldNumber = 4,
+    kPlayerId1FieldNumber = 1,
+    kPlayerId2FieldNumber = 2,
   };
-  // optional int32 player_id_1 = 1;
-  bool has_player_id_1() const;
-  private:
-  bool _internal_has_player_id_1() const;
-  public:
-  void clear_player_id_1();
-  int32_t player_id_1() const;
-  void set_player_id_1(int32_t value);
-  private:
-  int32_t _internal_player_id_1() const;
-  void _internal_set_player_id_1(int32_t value);
-  public:
-
-  // optional int32 player_id_2 = 2;
-  bool has_player_id_2() const;
-  private:
-  bool _internal_has_player_id_2() const;
-  public:
-  void clear_player_id_2();
-  int32_t player_id_2() const;
-  void set_player_id_2(int32_t value);
-  private:
-  int32_t _internal_player_id_2() const;
-  void _internal_set_player_id_2(int32_t value);
-  public:
-
   // optional bool special_high_five = 3;
   bool has_special_high_five() const;
   private:
@@ -31207,7 +31186,7 @@ class CDOTAUserMsg_HighFiveCompleted final :
   void _internal_set_special_high_five(bool value);
   public:
 
-  // optional int32 special_entindex = 4;
+  // optional int32 special_entindex = 4 [default = -1];
   bool has_special_entindex() const;
   private:
   bool _internal_has_special_entindex() const;
@@ -31220,6 +31199,32 @@ class CDOTAUserMsg_HighFiveCompleted final :
   void _internal_set_special_entindex(int32_t value);
   public:
 
+  // optional int32 player_id_1 = 1 [default = -1];
+  bool has_player_id_1() const;
+  private:
+  bool _internal_has_player_id_1() const;
+  public:
+  void clear_player_id_1();
+  int32_t player_id_1() const;
+  void set_player_id_1(int32_t value);
+  private:
+  int32_t _internal_player_id_1() const;
+  void _internal_set_player_id_1(int32_t value);
+  public:
+
+  // optional int32 player_id_2 = 2 [default = -1];
+  bool has_player_id_2() const;
+  private:
+  bool _internal_has_player_id_2() const;
+  public:
+  void clear_player_id_2();
+  int32_t player_id_2() const;
+  void set_player_id_2(int32_t value);
+  private:
+  int32_t _internal_player_id_2() const;
+  void _internal_set_player_id_2(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_HighFiveCompleted)
  private:
   class _Internal;
@@ -31230,10 +31235,10 @@ class CDOTAUserMsg_HighFiveCompleted final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_1_;
-    int32_t player_id_2_;
     bool special_high_five_;
     int32_t special_entindex_;
+    int32_t player_id_1_;
+    int32_t player_id_2_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -31370,7 +31375,7 @@ class CDOTAUserMsg_HighFiveLeftHanging final :
   enum : int {
     kPlayerIdFieldNumber = 1,
   };
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   bool has_player_id() const;
   private:
   bool _internal_has_player_id() const;
@@ -31529,9 +31534,9 @@ class CDOTAUserMsg_ShovelUnearth final :
 
   enum : int {
     kLocstringFieldNumber = 3,
-    kPlayerIdFieldNumber = 1,
     kAllChatFieldNumber = 2,
     kQuantityFieldNumber = 4,
+    kPlayerIdFieldNumber = 1,
   };
   // optional string locstring = 3;
   bool has_locstring() const;
@@ -31549,19 +31554,6 @@ class CDOTAUserMsg_ShovelUnearth final :
   const std::string& _internal_locstring() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_locstring(const std::string& value);
   std::string* _internal_mutable_locstring();
-  public:
-
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
   public:
 
   // optional bool all_chat = 2;
@@ -31590,6 +31582,19 @@ class CDOTAUserMsg_ShovelUnearth final :
   void _internal_set_quantity(uint32_t value);
   public:
 
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_ShovelUnearth)
  private:
   class _Internal;
@@ -31601,9 +31606,9 @@ class CDOTAUserMsg_ShovelUnearth final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr locstring_;
-    int32_t player_id_;
     bool all_chat_;
     uint32_t quantity_;
+    int32_t player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -31738,22 +31743,9 @@ class CDOTAUserMsg_AllStarEvent_PlayerScore final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 1,
     kScoreSansKdaFieldNumber = 2,
+    kPlayerIdFieldNumber = 1,
   };
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
   // optional uint32 score_sans_kda = 2;
   bool has_score_sans_kda() const;
   private:
@@ -31767,6 +31759,19 @@ class CDOTAUserMsg_AllStarEvent_PlayerScore final :
   void _internal_set_score_sans_kda(uint32_t value);
   public:
 
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_AllStarEvent.PlayerScore)
  private:
   class _Internal;
@@ -31777,8 +31782,8 @@ class CDOTAUserMsg_AllStarEvent_PlayerScore final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_;
     uint32_t score_sans_kda_;
+    int32_t player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -31916,10 +31921,10 @@ class CDOTAUserMsg_AllStarEvent final :
 
   enum : int {
     kPlayerScoresFieldNumber = 5,
-    kSourcePlayerIdFieldNumber = 1,
-    kTargetPlayerIdFieldNumber = 2,
     kPointAmountFieldNumber = 3,
     kEventIdFieldNumber = 4,
+    kSourcePlayerIdFieldNumber = 1,
+    kTargetPlayerIdFieldNumber = 2,
   };
   // repeated .CDOTAUserMsg_AllStarEvent.PlayerScore player_scores = 5;
   int player_scores_size() const;
@@ -31938,32 +31943,6 @@ class CDOTAUserMsg_AllStarEvent final :
   ::CDOTAUserMsg_AllStarEvent_PlayerScore* add_player_scores();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAUserMsg_AllStarEvent_PlayerScore >&
       player_scores() const;
-
-  // optional int32 source_player_id = 1;
-  bool has_source_player_id() const;
-  private:
-  bool _internal_has_source_player_id() const;
-  public:
-  void clear_source_player_id();
-  int32_t source_player_id() const;
-  void set_source_player_id(int32_t value);
-  private:
-  int32_t _internal_source_player_id() const;
-  void _internal_set_source_player_id(int32_t value);
-  public:
-
-  // optional int32 target_player_id = 2;
-  bool has_target_player_id() const;
-  private:
-  bool _internal_has_target_player_id() const;
-  public:
-  void clear_target_player_id();
-  int32_t target_player_id() const;
-  void set_target_player_id(int32_t value);
-  private:
-  int32_t _internal_target_player_id() const;
-  void _internal_set_target_player_id(int32_t value);
-  public:
 
   // optional uint32 point_amount = 3;
   bool has_point_amount() const;
@@ -31991,6 +31970,32 @@ class CDOTAUserMsg_AllStarEvent final :
   void _internal_set_event_id(uint32_t value);
   public:
 
+  // optional int32 source_player_id = 1 [default = -1];
+  bool has_source_player_id() const;
+  private:
+  bool _internal_has_source_player_id() const;
+  public:
+  void clear_source_player_id();
+  int32_t source_player_id() const;
+  void set_source_player_id(int32_t value);
+  private:
+  int32_t _internal_source_player_id() const;
+  void _internal_set_source_player_id(int32_t value);
+  public:
+
+  // optional int32 target_player_id = 2 [default = -1];
+  bool has_target_player_id() const;
+  private:
+  bool _internal_has_target_player_id() const;
+  public:
+  void clear_target_player_id();
+  int32_t target_player_id() const;
+  void set_target_player_id(int32_t value);
+  private:
+  int32_t _internal_target_player_id() const;
+  void _internal_set_target_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_AllStarEvent)
  private:
   class _Internal;
@@ -32002,10 +32007,10 @@ class CDOTAUserMsg_AllStarEvent final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAUserMsg_AllStarEvent_PlayerScore > player_scores_;
-    int32_t source_player_id_;
-    int32_t target_player_id_;
     uint32_t point_amount_;
     uint32_t event_id_;
+    int32_t source_player_id_;
+    int32_t target_player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -32561,37 +32566,11 @@ class CDOTAUserMsg_FoundNeutralItem final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 1,
-    kItemAbilityIdFieldNumber = 2,
     kItemTierFieldNumber = 3,
     kTierItemCountFieldNumber = 4,
+    kPlayerIdFieldNumber = 1,
+    kItemAbilityIdFieldNumber = 2,
   };
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
-  // optional uint32 item_ability_id = 2;
-  bool has_item_ability_id() const;
-  private:
-  bool _internal_has_item_ability_id() const;
-  public:
-  void clear_item_ability_id();
-  uint32_t item_ability_id() const;
-  void set_item_ability_id(uint32_t value);
-  private:
-  uint32_t _internal_item_ability_id() const;
-  void _internal_set_item_ability_id(uint32_t value);
-  public:
-
   // optional uint32 item_tier = 3;
   bool has_item_tier() const;
   private:
@@ -32618,6 +32597,32 @@ class CDOTAUserMsg_FoundNeutralItem final :
   void _internal_set_tier_item_count(uint32_t value);
   public:
 
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
+  // optional int32 item_ability_id = 2 [default = -1];
+  bool has_item_ability_id() const;
+  private:
+  bool _internal_has_item_ability_id() const;
+  public:
+  void clear_item_ability_id();
+  int32_t item_ability_id() const;
+  void set_item_ability_id(int32_t value);
+  private:
+  int32_t _internal_item_ability_id() const;
+  void _internal_set_item_ability_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_FoundNeutralItem)
  private:
   class _Internal;
@@ -32628,10 +32633,10 @@ class CDOTAUserMsg_FoundNeutralItem final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_;
-    uint32_t item_ability_id_;
     uint32_t item_tier_;
     uint32_t tier_item_count_;
+    int32_t player_id_;
+    int32_t item_ability_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -32766,22 +32771,9 @@ class CDOTAUserMsg_OutpostCaptured final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kOutpostEntindexFieldNumber = 1,
     kTeamIdFieldNumber = 2,
+    kOutpostEntindexFieldNumber = 1,
   };
-  // optional int32 outpost_entindex = 1;
-  bool has_outpost_entindex() const;
-  private:
-  bool _internal_has_outpost_entindex() const;
-  public:
-  void clear_outpost_entindex();
-  int32_t outpost_entindex() const;
-  void set_outpost_entindex(int32_t value);
-  private:
-  int32_t _internal_outpost_entindex() const;
-  void _internal_set_outpost_entindex(int32_t value);
-  public:
-
   // optional uint32 team_id = 2;
   bool has_team_id() const;
   private:
@@ -32795,6 +32787,19 @@ class CDOTAUserMsg_OutpostCaptured final :
   void _internal_set_team_id(uint32_t value);
   public:
 
+  // optional int32 outpost_entindex = 1 [default = -1];
+  bool has_outpost_entindex() const;
+  private:
+  bool _internal_has_outpost_entindex() const;
+  public:
+  void clear_outpost_entindex();
+  int32_t outpost_entindex() const;
+  void set_outpost_entindex(int32_t value);
+  private:
+  int32_t _internal_outpost_entindex() const;
+  void _internal_set_outpost_entindex(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_OutpostCaptured)
  private:
   class _Internal;
@@ -32805,8 +32810,8 @@ class CDOTAUserMsg_OutpostCaptured final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t outpost_entindex_;
     uint32_t team_id_;
+    int32_t outpost_entindex_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -33118,7 +33123,7 @@ class CDOTAUserMsg_MoveCameraToUnit final :
   enum : int {
     kUnitEhandleFieldNumber = 1,
   };
-  // optional uint32 unit_ehandle = 1;
+  // optional uint32 unit_ehandle = 1 [default = 16777215];
   bool has_unit_ehandle() const;
   private:
   bool _internal_has_unit_ehandle() const;
@@ -33692,7 +33697,7 @@ class CDOTAUserMsg_VersusScene_PlayerBehavior final :
       ::VersusScene_PlaybackRate* playback_rate);
   ::VersusScene_PlaybackRate* unsafe_arena_release_playback_rate();
 
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   bool has_player_id() const;
   private:
   bool _internal_has_player_id() const;
@@ -33867,24 +33872,11 @@ class CDOTAUserMsg_QoP_ArcanaSummary final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kEhandleFieldNumber = 1,
     kArcanaLevelFieldNumber = 2,
     kPlayersHitFieldNumber = 3,
     kPlayersKilledFieldNumber = 4,
+    kEhandleFieldNumber = 1,
   };
-  // optional uint32 ehandle = 1;
-  bool has_ehandle() const;
-  private:
-  bool _internal_has_ehandle() const;
-  public:
-  void clear_ehandle();
-  uint32_t ehandle() const;
-  void set_ehandle(uint32_t value);
-  private:
-  uint32_t _internal_ehandle() const;
-  void _internal_set_ehandle(uint32_t value);
-  public:
-
   // optional uint32 arcana_level = 2;
   bool has_arcana_level() const;
   private:
@@ -33924,6 +33916,19 @@ class CDOTAUserMsg_QoP_ArcanaSummary final :
   void _internal_set_players_killed(uint32_t value);
   public:
 
+  // optional uint32 ehandle = 1 [default = 16777215];
+  bool has_ehandle() const;
+  private:
+  bool _internal_has_ehandle() const;
+  public:
+  void clear_ehandle();
+  uint32_t ehandle() const;
+  void set_ehandle(uint32_t value);
+  private:
+  uint32_t _internal_ehandle() const;
+  void _internal_set_ehandle(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_QoP_ArcanaSummary)
  private:
   class _Internal;
@@ -33934,10 +33939,10 @@ class CDOTAUserMsg_QoP_ArcanaSummary final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t ehandle_;
     uint32_t arcana_level_;
     uint32_t players_hit_;
     uint32_t players_killed_;
+    uint32_t ehandle_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -34075,7 +34080,7 @@ class CDOTAUserMsg_HotPotato_Created final :
     kPlayerId1FieldNumber = 1,
     kPlayerId2FieldNumber = 2,
   };
-  // optional int32 player_id_1 = 1;
+  // optional int32 player_id_1 = 1 [default = -1];
   bool has_player_id_1() const;
   private:
   bool _internal_has_player_id_1() const;
@@ -34088,7 +34093,7 @@ class CDOTAUserMsg_HotPotato_Created final :
   void _internal_set_player_id_1(int32_t value);
   public:
 
-  // optional int32 player_id_2 = 2;
+  // optional int32 player_id_2 = 2 [default = -1];
   bool has_player_id_2() const;
   private:
   bool _internal_has_player_id_2() const;
@@ -34249,7 +34254,7 @@ class CDOTAUserMsg_HotPotato_Exploded final :
   enum : int {
     kPlayerIdFieldNumber = 1,
   };
-  // optional int32 player_id = 1;
+  // optional int32 player_id = 1 [default = -1];
   bool has_player_id() const;
   private:
   bool _internal_has_player_id() const;
@@ -34407,23 +34412,10 @@ class CDOTAUserMsg_WK_Arcana_Progress final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kEhandleFieldNumber = 1,
     kArcanaLevelFieldNumber = 2,
     kHeroIdFieldNumber = 3,
+    kEhandleFieldNumber = 1,
   };
-  // optional uint32 ehandle = 1;
-  bool has_ehandle() const;
-  private:
-  bool _internal_has_ehandle() const;
-  public:
-  void clear_ehandle();
-  uint32_t ehandle() const;
-  void set_ehandle(uint32_t value);
-  private:
-  uint32_t _internal_ehandle() const;
-  void _internal_set_ehandle(uint32_t value);
-  public:
-
   // optional uint32 arcana_level = 2;
   bool has_arcana_level() const;
   private:
@@ -34450,6 +34442,19 @@ class CDOTAUserMsg_WK_Arcana_Progress final :
   void _internal_set_hero_id(uint32_t value);
   public:
 
+  // optional uint32 ehandle = 1 [default = 16777215];
+  bool has_ehandle() const;
+  private:
+  bool _internal_has_ehandle() const;
+  public:
+  void clear_ehandle();
+  uint32_t ehandle() const;
+  void set_ehandle(uint32_t value);
+  private:
+  uint32_t _internal_ehandle() const;
+  void _internal_set_ehandle(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_WK_Arcana_Progress)
  private:
   class _Internal;
@@ -34460,9 +34465,9 @@ class CDOTAUserMsg_WK_Arcana_Progress final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t ehandle_;
     uint32_t arcana_level_;
     uint32_t hero_id_;
+    uint32_t ehandle_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -34597,22 +34602,9 @@ class CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 1,
     kProgressFieldNumber = 6,
+    kPlayerIdFieldNumber = 1,
   };
-  // optional int32 player_id = 1;
-  bool has_player_id() const;
-  private:
-  bool _internal_has_player_id() const;
-  public:
-  void clear_player_id();
-  int32_t player_id() const;
-  void set_player_id(int32_t value);
-  private:
-  int32_t _internal_player_id() const;
-  void _internal_set_player_id(int32_t value);
-  public:
-
   // optional uint32 progress = 6;
   bool has_progress() const;
   private:
@@ -34626,6 +34618,19 @@ class CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress final :
   void _internal_set_progress(uint32_t value);
   public:
 
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_GuildChallenge_Progress.PlayerProgress)
  private:
   class _Internal;
@@ -34636,8 +34641,8 @@ class CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_;
     uint32_t progress_;
+    int32_t player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -35061,40 +35066,14 @@ class CDOTAUserMsg_WRArcanaProgress final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kEhandleFieldNumber = 1,
-    kTargetEhandleFieldNumber = 2,
     kArrowsLandedFieldNumber = 3,
     kDamageDealtFieldNumber = 4,
     kTargetHpFieldNumber = 5,
     kTargetMaxHpFieldNumber = 6,
     kArcanaLevelFieldNumber = 7,
+    kEhandleFieldNumber = 1,
+    kTargetEhandleFieldNumber = 2,
   };
-  // optional uint32 ehandle = 1;
-  bool has_ehandle() const;
-  private:
-  bool _internal_has_ehandle() const;
-  public:
-  void clear_ehandle();
-  uint32_t ehandle() const;
-  void set_ehandle(uint32_t value);
-  private:
-  uint32_t _internal_ehandle() const;
-  void _internal_set_ehandle(uint32_t value);
-  public:
-
-  // optional uint32 target_ehandle = 2;
-  bool has_target_ehandle() const;
-  private:
-  bool _internal_has_target_ehandle() const;
-  public:
-  void clear_target_ehandle();
-  uint32_t target_ehandle() const;
-  void set_target_ehandle(uint32_t value);
-  private:
-  uint32_t _internal_target_ehandle() const;
-  void _internal_set_target_ehandle(uint32_t value);
-  public:
-
   // optional uint32 arrows_landed = 3;
   bool has_arrows_landed() const;
   private:
@@ -35160,6 +35139,32 @@ class CDOTAUserMsg_WRArcanaProgress final :
   void _internal_set_arcana_level(uint32_t value);
   public:
 
+  // optional uint32 ehandle = 1 [default = 16777215];
+  bool has_ehandle() const;
+  private:
+  bool _internal_has_ehandle() const;
+  public:
+  void clear_ehandle();
+  uint32_t ehandle() const;
+  void set_ehandle(uint32_t value);
+  private:
+  uint32_t _internal_ehandle() const;
+  void _internal_set_ehandle(uint32_t value);
+  public:
+
+  // optional uint32 target_ehandle = 2 [default = 16777215];
+  bool has_target_ehandle() const;
+  private:
+  bool _internal_has_target_ehandle() const;
+  public:
+  void clear_target_ehandle();
+  uint32_t target_ehandle() const;
+  void set_target_ehandle(uint32_t value);
+  private:
+  uint32_t _internal_target_ehandle() const;
+  void _internal_set_target_ehandle(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_WRArcanaProgress)
  private:
   class _Internal;
@@ -35170,13 +35175,13 @@ class CDOTAUserMsg_WRArcanaProgress final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t ehandle_;
-    uint32_t target_ehandle_;
     uint32_t arrows_landed_;
     uint32_t damage_dealt_;
     uint32_t target_hp_;
     uint32_t target_max_hp_;
     uint32_t arcana_level_;
+    uint32_t ehandle_;
+    uint32_t target_ehandle_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -35311,41 +35316,15 @@ class CDOTAUserMsg_WRArcanaSummary final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kEhandleFieldNumber = 1,
-    kTargetEhandleFieldNumber = 2,
     kArrowsLandedFieldNumber = 3,
     kDamageDealtFieldNumber = 4,
     kTargetHpFieldNumber = 5,
     kTargetMaxHpFieldNumber = 6,
     kArcanaLevelFieldNumber = 7,
     kSuccessFieldNumber = 8,
+    kEhandleFieldNumber = 1,
+    kTargetEhandleFieldNumber = 2,
   };
-  // optional uint32 ehandle = 1;
-  bool has_ehandle() const;
-  private:
-  bool _internal_has_ehandle() const;
-  public:
-  void clear_ehandle();
-  uint32_t ehandle() const;
-  void set_ehandle(uint32_t value);
-  private:
-  uint32_t _internal_ehandle() const;
-  void _internal_set_ehandle(uint32_t value);
-  public:
-
-  // optional uint32 target_ehandle = 2;
-  bool has_target_ehandle() const;
-  private:
-  bool _internal_has_target_ehandle() const;
-  public:
-  void clear_target_ehandle();
-  uint32_t target_ehandle() const;
-  void set_target_ehandle(uint32_t value);
-  private:
-  uint32_t _internal_target_ehandle() const;
-  void _internal_set_target_ehandle(uint32_t value);
-  public:
-
   // optional uint32 arrows_landed = 3;
   bool has_arrows_landed() const;
   private:
@@ -35424,6 +35403,32 @@ class CDOTAUserMsg_WRArcanaSummary final :
   void _internal_set_success(bool value);
   public:
 
+  // optional uint32 ehandle = 1 [default = 16777215];
+  bool has_ehandle() const;
+  private:
+  bool _internal_has_ehandle() const;
+  public:
+  void clear_ehandle();
+  uint32_t ehandle() const;
+  void set_ehandle(uint32_t value);
+  private:
+  uint32_t _internal_ehandle() const;
+  void _internal_set_ehandle(uint32_t value);
+  public:
+
+  // optional uint32 target_ehandle = 2 [default = 16777215];
+  bool has_target_ehandle() const;
+  private:
+  bool _internal_has_target_ehandle() const;
+  public:
+  void clear_target_ehandle();
+  uint32_t target_ehandle() const;
+  void set_target_ehandle(uint32_t value);
+  private:
+  uint32_t _internal_target_ehandle() const;
+  void _internal_set_target_ehandle(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_WRArcanaSummary)
  private:
   class _Internal;
@@ -35434,14 +35439,14 @@ class CDOTAUserMsg_WRArcanaSummary final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t ehandle_;
-    uint32_t target_ehandle_;
     uint32_t arrows_landed_;
     uint32_t damage_dealt_;
     uint32_t target_hp_;
     uint32_t target_max_hp_;
     uint32_t arcana_level_;
     bool success_;
+    uint32_t ehandle_;
+    uint32_t target_ehandle_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -35576,37 +35581,11 @@ class CDOTAUserMsg_EmptyItemSlotAlert final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kSourcePlayerIdFieldNumber = 1,
-    kTargetPlayerIdFieldNumber = 2,
     kSlotIndexFieldNumber = 3,
     kCooldownSecondsFieldNumber = 4,
+    kSourcePlayerIdFieldNumber = 1,
+    kTargetPlayerIdFieldNumber = 2,
   };
-  // optional int32 source_player_id = 1;
-  bool has_source_player_id() const;
-  private:
-  bool _internal_has_source_player_id() const;
-  public:
-  void clear_source_player_id();
-  int32_t source_player_id() const;
-  void set_source_player_id(int32_t value);
-  private:
-  int32_t _internal_source_player_id() const;
-  void _internal_set_source_player_id(int32_t value);
-  public:
-
-  // optional int32 target_player_id = 2;
-  bool has_target_player_id() const;
-  private:
-  bool _internal_has_target_player_id() const;
-  public:
-  void clear_target_player_id();
-  int32_t target_player_id() const;
-  void set_target_player_id(int32_t value);
-  private:
-  int32_t _internal_target_player_id() const;
-  void _internal_set_target_player_id(int32_t value);
-  public:
-
   // optional int32 slot_index = 3;
   bool has_slot_index() const;
   private:
@@ -35633,6 +35612,32 @@ class CDOTAUserMsg_EmptyItemSlotAlert final :
   void _internal_set_cooldown_seconds(int32_t value);
   public:
 
+  // optional int32 source_player_id = 1 [default = -1];
+  bool has_source_player_id() const;
+  private:
+  bool _internal_has_source_player_id() const;
+  public:
+  void clear_source_player_id();
+  int32_t source_player_id() const;
+  void set_source_player_id(int32_t value);
+  private:
+  int32_t _internal_source_player_id() const;
+  void _internal_set_source_player_id(int32_t value);
+  public:
+
+  // optional int32 target_player_id = 2 [default = -1];
+  bool has_target_player_id() const;
+  private:
+  bool _internal_has_target_player_id() const;
+  public:
+  void clear_target_player_id();
+  int32_t target_player_id() const;
+  void set_target_player_id(int32_t value);
+  private:
+  int32_t _internal_target_player_id() const;
+  void _internal_set_target_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_EmptyItemSlotAlert)
  private:
   class _Internal;
@@ -35643,10 +35648,10 @@ class CDOTAUserMsg_EmptyItemSlotAlert final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t source_player_id_;
-    int32_t target_player_id_;
     int32_t slot_index_;
     int32_t cooldown_seconds_;
+    int32_t source_player_id_;
+    int32_t target_player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -35781,52 +35786,13 @@ class CDOTAUserMsg_AghsStatusAlert final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kSourcePlayerIdFieldNumber = 1,
-    kTargetPlayerIdFieldNumber = 2,
-    kTargetEntindexFieldNumber = 3,
     kAlertTypeFieldNumber = 4,
     kHasScepterFieldNumber = 5,
     kHasShardFieldNumber = 6,
+    kTargetEntindexFieldNumber = 3,
+    kSourcePlayerIdFieldNumber = 1,
+    kTargetPlayerIdFieldNumber = 2,
   };
-  // optional int32 source_player_id = 1;
-  bool has_source_player_id() const;
-  private:
-  bool _internal_has_source_player_id() const;
-  public:
-  void clear_source_player_id();
-  int32_t source_player_id() const;
-  void set_source_player_id(int32_t value);
-  private:
-  int32_t _internal_source_player_id() const;
-  void _internal_set_source_player_id(int32_t value);
-  public:
-
-  // optional int32 target_player_id = 2;
-  bool has_target_player_id() const;
-  private:
-  bool _internal_has_target_player_id() const;
-  public:
-  void clear_target_player_id();
-  int32_t target_player_id() const;
-  void set_target_player_id(int32_t value);
-  private:
-  int32_t _internal_target_player_id() const;
-  void _internal_set_target_player_id(int32_t value);
-  public:
-
-  // optional int32 target_entindex = 3;
-  bool has_target_entindex() const;
-  private:
-  bool _internal_has_target_entindex() const;
-  public:
-  void clear_target_entindex();
-  int32_t target_entindex() const;
-  void set_target_entindex(int32_t value);
-  private:
-  int32_t _internal_target_entindex() const;
-  void _internal_set_target_entindex(int32_t value);
-  public:
-
   // optional uint32 alert_type = 4;
   bool has_alert_type() const;
   private:
@@ -35866,6 +35832,45 @@ class CDOTAUserMsg_AghsStatusAlert final :
   void _internal_set_has_shard(bool value);
   public:
 
+  // optional int32 target_entindex = 3 [default = -1];
+  bool has_target_entindex() const;
+  private:
+  bool _internal_has_target_entindex() const;
+  public:
+  void clear_target_entindex();
+  int32_t target_entindex() const;
+  void set_target_entindex(int32_t value);
+  private:
+  int32_t _internal_target_entindex() const;
+  void _internal_set_target_entindex(int32_t value);
+  public:
+
+  // optional int32 source_player_id = 1 [default = -1];
+  bool has_source_player_id() const;
+  private:
+  bool _internal_has_source_player_id() const;
+  public:
+  void clear_source_player_id();
+  int32_t source_player_id() const;
+  void set_source_player_id(int32_t value);
+  private:
+  int32_t _internal_source_player_id() const;
+  void _internal_set_source_player_id(int32_t value);
+  public:
+
+  // optional int32 target_player_id = 2 [default = -1];
+  bool has_target_player_id() const;
+  private:
+  bool _internal_has_target_player_id() const;
+  public:
+  void clear_target_player_id();
+  int32_t target_player_id() const;
+  void set_target_player_id(int32_t value);
+  private:
+  int32_t _internal_target_player_id() const;
+  void _internal_set_target_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_AghsStatusAlert)
  private:
   class _Internal;
@@ -35876,12 +35881,12 @@ class CDOTAUserMsg_AghsStatusAlert final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t source_player_id_;
-    int32_t target_player_id_;
-    int32_t target_entindex_;
     uint32_t alert_type_;
     bool has_scepter_;
     bool has_shard_;
+    int32_t target_entindex_;
+    int32_t source_player_id_;
+    int32_t target_player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -36637,8 +36642,8 @@ class CDOTAUserMsg_ChatMessage final :
 
   enum : int {
     kMessageTextFieldNumber = 3,
-    kSourcePlayerIdFieldNumber = 1,
     kChannelTypeFieldNumber = 2,
+    kSourcePlayerIdFieldNumber = 1,
   };
   // optional string message_text = 3;
   bool has_message_text() const;
@@ -36658,19 +36663,6 @@ class CDOTAUserMsg_ChatMessage final :
   std::string* _internal_mutable_message_text();
   public:
 
-  // optional int32 source_player_id = 1;
-  bool has_source_player_id() const;
-  private:
-  bool _internal_has_source_player_id() const;
-  public:
-  void clear_source_player_id();
-  int32_t source_player_id() const;
-  void set_source_player_id(int32_t value);
-  private:
-  int32_t _internal_source_player_id() const;
-  void _internal_set_source_player_id(int32_t value);
-  public:
-
   // optional uint32 channel_type = 2;
   bool has_channel_type() const;
   private:
@@ -36684,6 +36676,19 @@ class CDOTAUserMsg_ChatMessage final :
   void _internal_set_channel_type(uint32_t value);
   public:
 
+  // optional int32 source_player_id = 1 [default = -1];
+  bool has_source_player_id() const;
+  private:
+  bool _internal_has_source_player_id() const;
+  public:
+  void clear_source_player_id();
+  int32_t source_player_id() const;
+  void set_source_player_id(int32_t value);
+  private:
+  int32_t _internal_source_player_id() const;
+  void _internal_set_source_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_ChatMessage)
  private:
   class _Internal;
@@ -36695,8 +36700,8 @@ class CDOTAUserMsg_ChatMessage final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr message_text_;
-    int32_t source_player_id_;
     uint32_t channel_type_;
+    int32_t source_player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -36834,7 +36839,7 @@ class CDOTAUserMsg_RockPaperScissorsStarted final :
     kPlayerIdSourceFieldNumber = 1,
     kPlayerIdTargetFieldNumber = 2,
   };
-  // optional int32 player_id_source = 1;
+  // optional int32 player_id_source = 1 [default = -1];
   bool has_player_id_source() const;
   private:
   bool _internal_has_player_id_source() const;
@@ -36847,7 +36852,7 @@ class CDOTAUserMsg_RockPaperScissorsStarted final :
   void _internal_set_player_id_source(int32_t value);
   public:
 
-  // optional int32 player_id_target = 2;
+  // optional int32 player_id_target = 2 [default = -1];
   bool has_player_id_target() const;
   private:
   bool _internal_has_player_id_target() const;
@@ -37006,37 +37011,11 @@ class CDOTAUserMsg_RockPaperScissorsFinished final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerId1FieldNumber = 1,
-    kPlayerId2FieldNumber = 2,
     kPlayer1ChoiceFieldNumber = 3,
     kPlayer2ChoiceFieldNumber = 4,
+    kPlayerId1FieldNumber = 1,
+    kPlayerId2FieldNumber = 2,
   };
-  // optional int32 player_id_1 = 1;
-  bool has_player_id_1() const;
-  private:
-  bool _internal_has_player_id_1() const;
-  public:
-  void clear_player_id_1();
-  int32_t player_id_1() const;
-  void set_player_id_1(int32_t value);
-  private:
-  int32_t _internal_player_id_1() const;
-  void _internal_set_player_id_1(int32_t value);
-  public:
-
-  // optional int32 player_id_2 = 2;
-  bool has_player_id_2() const;
-  private:
-  bool _internal_has_player_id_2() const;
-  public:
-  void clear_player_id_2();
-  int32_t player_id_2() const;
-  void set_player_id_2(int32_t value);
-  private:
-  int32_t _internal_player_id_2() const;
-  void _internal_set_player_id_2(int32_t value);
-  public:
-
   // optional int32 player_1_choice = 3;
   bool has_player_1_choice() const;
   private:
@@ -37063,6 +37042,32 @@ class CDOTAUserMsg_RockPaperScissorsFinished final :
   void _internal_set_player_2_choice(int32_t value);
   public:
 
+  // optional int32 player_id_1 = 1 [default = -1];
+  bool has_player_id_1() const;
+  private:
+  bool _internal_has_player_id_1() const;
+  public:
+  void clear_player_id_1();
+  int32_t player_id_1() const;
+  void set_player_id_1(int32_t value);
+  private:
+  int32_t _internal_player_id_1() const;
+  void _internal_set_player_id_1(int32_t value);
+  public:
+
+  // optional int32 player_id_2 = 2 [default = -1];
+  bool has_player_id_2() const;
+  private:
+  bool _internal_has_player_id_2() const;
+  public:
+  void clear_player_id_2();
+  int32_t player_id_2() const;
+  void set_player_id_2(int32_t value);
+  private:
+  int32_t _internal_player_id_2() const;
+  void _internal_set_player_id_2(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_RockPaperScissorsFinished)
  private:
   class _Internal;
@@ -37073,10 +37078,10 @@ class CDOTAUserMsg_RockPaperScissorsFinished final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t player_id_1_;
-    int32_t player_id_2_;
     int32_t player_1_choice_;
     int32_t player_2_choice_;
+    int32_t player_id_1_;
+    int32_t player_id_2_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -37563,7 +37568,7 @@ class CDOTAUserMsg_DuelRequested final :
   enum : int {
     kPlayerIdRequestorFieldNumber = 1,
   };
-  // optional int32 player_id_requestor = 1;
+  // optional int32 player_id_requestor = 1 [default = -1];
   bool has_player_id_requestor() const;
   private:
   bool _internal_has_player_id_requestor() const;
@@ -37587,6 +37592,229 @@ class CDOTAUserMsg_DuelRequested final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     int32_t player_id_requestor_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fusermessages_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled) */ {
+ public:
+  inline CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled() : CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled(nullptr) {}
+  ~CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled() override;
+  explicit PROTOBUF_CONSTEXPR CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled(const CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled& from);
+  CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled(CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled&& from) noexcept
+    : CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled() {
+    *this = ::std::move(from);
+  }
+
+  inline CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled& operator=(const CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled& operator=(CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled* internal_default_instance() {
+    return reinterpret_cast<const CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled*>(
+               &_CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    177;
+
+  friend void swap(CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled& a, CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled& from) {
+    CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled";
+  }
+  protected:
+  explicit CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPointsFieldNumber = 3,
+    kPointsTotalFieldNumber = 4,
+    kLastHitFieldNumber = 5,
+    kPlayerIdKillerFieldNumber = 1,
+    kPlayerIdTargetFieldNumber = 2,
+  };
+  // required int32 points = 3;
+  bool has_points() const;
+  private:
+  bool _internal_has_points() const;
+  public:
+  void clear_points();
+  int32_t points() const;
+  void set_points(int32_t value);
+  private:
+  int32_t _internal_points() const;
+  void _internal_set_points(int32_t value);
+  public:
+
+  // required int32 points_total = 4;
+  bool has_points_total() const;
+  private:
+  bool _internal_has_points_total() const;
+  public:
+  void clear_points_total();
+  int32_t points_total() const;
+  void set_points_total(int32_t value);
+  private:
+  int32_t _internal_points_total() const;
+  void _internal_set_points_total(int32_t value);
+  public:
+
+  // required bool last_hit = 5;
+  bool has_last_hit() const;
+  private:
+  bool _internal_has_last_hit() const;
+  public:
+  void clear_last_hit();
+  bool last_hit() const;
+  void set_last_hit(bool value);
+  private:
+  bool _internal_last_hit() const;
+  void _internal_set_last_hit(bool value);
+  public:
+
+  // required int32 player_id_killer = 1 [default = -1];
+  bool has_player_id_killer() const;
+  private:
+  bool _internal_has_player_id_killer() const;
+  public:
+  void clear_player_id_killer();
+  int32_t player_id_killer() const;
+  void set_player_id_killer(int32_t value);
+  private:
+  int32_t _internal_player_id_killer() const;
+  void _internal_set_player_id_killer(int32_t value);
+  public:
+
+  // required int32 player_id_target = 2 [default = -1];
+  bool has_player_id_target() const;
+  private:
+  bool _internal_has_player_id_target() const;
+  public:
+  void clear_player_id_target();
+  int32_t player_id_target() const;
+  void set_player_id_target(int32_t value);
+  private:
+  int32_t _internal_player_id_target() const;
+  void _internal_set_player_id_target(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled)
+ private:
+  class _Internal;
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    int32_t points_;
+    int32_t points_total_;
+    bool last_hit_;
+    int32_t player_id_killer_;
+    int32_t player_id_target_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -37734,7 +37962,7 @@ inline void CDOTAUserMsg_Ping::set_loss(uint32_t value) {
 
 // CDOTAUserMsg_SwapVerify
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_SwapVerify::_internal_has_player_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -37743,7 +37971,7 @@ inline bool CDOTAUserMsg_SwapVerify::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_SwapVerify::clear_player_id() {
-  _impl_.player_id_ = 0;
+  _impl_.player_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_SwapVerify::_internal_player_id() const {
@@ -38051,17 +38279,17 @@ inline void CDOTAUserMsg_ChatEvent::set_value3(uint32_t value) {
 
 // CDOTAUserMsg_BotChat
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_BotChat::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_BotChat::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_BotChat::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_BotChat::_internal_player_id() const {
   return _impl_.player_id_;
@@ -38071,7 +38299,7 @@ inline int32_t CDOTAUserMsg_BotChat::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_BotChat::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_BotChat::set_player_id(int32_t value) {
@@ -38217,7 +38445,7 @@ inline void CDOTAUserMsg_BotChat::set_allocated_target(std::string* target) {
 
 // optional bool team_only = 5;
 inline bool CDOTAUserMsg_BotChat::_internal_has_team_only() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_BotChat::has_team_only() const {
@@ -38225,7 +38453,7 @@ inline bool CDOTAUserMsg_BotChat::has_team_only() const {
 }
 inline void CDOTAUserMsg_BotChat::clear_team_only() {
   _impl_.team_only_ = false;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline bool CDOTAUserMsg_BotChat::_internal_team_only() const {
   return _impl_.team_only_;
@@ -38235,7 +38463,7 @@ inline bool CDOTAUserMsg_BotChat::team_only() const {
   return _internal_team_only();
 }
 inline void CDOTAUserMsg_BotChat::_internal_set_team_only(bool value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.team_only_ = value;
 }
 inline void CDOTAUserMsg_BotChat::set_team_only(bool value) {
@@ -38515,17 +38743,17 @@ inline void CDOTAUserMsg_CombatLogBulkData::set_duration(float value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_CombatLogBulkData.duration)
 }
 
-// optional int32 player_id = 4;
+// optional int32 player_id = 4 [default = -1];
 inline bool CDOTAUserMsg_CombatLogBulkData::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_CombatLogBulkData::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_CombatLogBulkData::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_CombatLogBulkData::_internal_player_id() const {
   return _impl_.player_id_;
@@ -38535,7 +38763,7 @@ inline int32_t CDOTAUserMsg_CombatLogBulkData::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_CombatLogBulkData::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_CombatLogBulkData::set_player_id(int32_t value) {
@@ -38545,7 +38773,7 @@ inline void CDOTAUserMsg_CombatLogBulkData::set_player_id(int32_t value) {
 
 // optional float request_time = 5;
 inline bool CDOTAUserMsg_CombatLogBulkData::_internal_has_request_time() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_CombatLogBulkData::has_request_time() const {
@@ -38553,7 +38781,7 @@ inline bool CDOTAUserMsg_CombatLogBulkData::has_request_time() const {
 }
 inline void CDOTAUserMsg_CombatLogBulkData::clear_request_time() {
   _impl_.request_time_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline float CDOTAUserMsg_CombatLogBulkData::_internal_request_time() const {
   return _impl_.request_time_;
@@ -38563,7 +38791,7 @@ inline float CDOTAUserMsg_CombatLogBulkData::request_time() const {
   return _internal_request_time();
 }
 inline void CDOTAUserMsg_CombatLogBulkData::_internal_set_request_time(float value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.request_time_ = value;
 }
 inline void CDOTAUserMsg_CombatLogBulkData::set_request_time(float value) {
@@ -38694,37 +38922,37 @@ inline void CDOTAUserMsg_ProjectileParticleCPData::set_allocated_vector(::CMsgVe
 
 // CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability
 
-// optional uint32 ability_id = 1;
+// optional int32 ability_id = 1 [default = -1];
 inline bool CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::_internal_has_ability_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::has_ability_id() const {
   return _internal_has_ability_id();
 }
 inline void CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::clear_ability_id() {
-  _impl_.ability_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.ability_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::_internal_ability_id() const {
+inline int32_t CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::_internal_ability_id() const {
   return _impl_.ability_id_;
 }
-inline uint32_t CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::ability_id() const {
+inline int32_t CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::ability_id() const {
   // @@protoc_insertion_point(field_get:CDOTAUserMsg_MiniKillCamInfo.Attacker.Ability.ability_id)
   return _internal_ability_id();
 }
-inline void CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::_internal_set_ability_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+inline void CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::_internal_set_ability_id(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.ability_id_ = value;
 }
-inline void CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::set_ability_id(uint32_t value) {
+inline void CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::set_ability_id(int32_t value) {
   _internal_set_ability_id(value);
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_MiniKillCamInfo.Attacker.Ability.ability_id)
 }
 
 // optional int32 damage = 2;
 inline bool CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::_internal_has_damage() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::has_damage() const {
@@ -38732,7 +38960,7 @@ inline bool CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::has_damage() const {
 }
 inline void CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::clear_damage() {
   _impl_.damage_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::_internal_damage() const {
   return _impl_.damage_;
@@ -38742,7 +38970,7 @@ inline int32_t CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::damage() const {
   return _internal_damage();
 }
 inline void CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::_internal_set_damage(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.damage_ = value;
 }
 inline void CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::set_damage(int32_t value) {
@@ -38754,17 +38982,17 @@ inline void CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::set_damage(int32_t va
 
 // CDOTAUserMsg_MiniKillCamInfo_Attacker
 
-// optional uint32 attacker = 1;
+// optional uint32 attacker = 1 [default = 16777215];
 inline bool CDOTAUserMsg_MiniKillCamInfo_Attacker::_internal_has_attacker() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_MiniKillCamInfo_Attacker::has_attacker() const {
   return _internal_has_attacker();
 }
 inline void CDOTAUserMsg_MiniKillCamInfo_Attacker::clear_attacker() {
-  _impl_.attacker_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.attacker_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CDOTAUserMsg_MiniKillCamInfo_Attacker::_internal_attacker() const {
   return _impl_.attacker_;
@@ -38774,7 +39002,7 @@ inline uint32_t CDOTAUserMsg_MiniKillCamInfo_Attacker::attacker() const {
   return _internal_attacker();
 }
 inline void CDOTAUserMsg_MiniKillCamInfo_Attacker::_internal_set_attacker(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.attacker_ = value;
 }
 inline void CDOTAUserMsg_MiniKillCamInfo_Attacker::set_attacker(uint32_t value) {
@@ -38784,7 +39012,7 @@ inline void CDOTAUserMsg_MiniKillCamInfo_Attacker::set_attacker(uint32_t value) 
 
 // optional int32 total_damage = 2;
 inline bool CDOTAUserMsg_MiniKillCamInfo_Attacker::_internal_has_total_damage() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_MiniKillCamInfo_Attacker::has_total_damage() const {
@@ -38792,7 +39020,7 @@ inline bool CDOTAUserMsg_MiniKillCamInfo_Attacker::has_total_damage() const {
 }
 inline void CDOTAUserMsg_MiniKillCamInfo_Attacker::clear_total_damage() {
   _impl_.total_damage_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_MiniKillCamInfo_Attacker::_internal_total_damage() const {
   return _impl_.total_damage_;
@@ -38802,7 +39030,7 @@ inline int32_t CDOTAUserMsg_MiniKillCamInfo_Attacker::total_damage() const {
   return _internal_total_damage();
 }
 inline void CDOTAUserMsg_MiniKillCamInfo_Attacker::_internal_set_total_damage(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.total_damage_ = value;
 }
 inline void CDOTAUserMsg_MiniKillCamInfo_Attacker::set_total_damage(int32_t value) {
@@ -39145,7 +39373,7 @@ inline void CDOTAUserMsg_GlobalLightDirection::set_duration(float value) {
 
 // CDOTAUserMsg_LocationPing
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_LocationPing::_internal_has_player_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -39154,7 +39382,7 @@ inline bool CDOTAUserMsg_LocationPing::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_LocationPing::clear_player_id() {
-  _impl_.player_id_ = 0;
+  _impl_.player_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_LocationPing::_internal_player_id() const {
@@ -39264,17 +39492,17 @@ inline void CDOTAUserMsg_LocationPing::set_allocated_location_ping(::CDOTAMsg_Lo
 
 // CDOTAUserMsg_PingConfirmation
 
-// optional int32 player_id_of_original_pinger = 1;
+// optional int32 player_id_of_original_pinger = 1 [default = -1];
 inline bool CDOTAUserMsg_PingConfirmation::_internal_has_player_id_of_original_pinger() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_PingConfirmation::has_player_id_of_original_pinger() const {
   return _internal_has_player_id_of_original_pinger();
 }
 inline void CDOTAUserMsg_PingConfirmation::clear_player_id_of_original_pinger() {
-  _impl_.player_id_of_original_pinger_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.player_id_of_original_pinger_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_PingConfirmation::_internal_player_id_of_original_pinger() const {
   return _impl_.player_id_of_original_pinger_;
@@ -39284,7 +39512,7 @@ inline int32_t CDOTAUserMsg_PingConfirmation::player_id_of_original_pinger() con
   return _internal_player_id_of_original_pinger();
 }
 inline void CDOTAUserMsg_PingConfirmation::_internal_set_player_id_of_original_pinger(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.player_id_of_original_pinger_ = value;
 }
 inline void CDOTAUserMsg_PingConfirmation::set_player_id_of_original_pinger(int32_t value) {
@@ -39294,7 +39522,7 @@ inline void CDOTAUserMsg_PingConfirmation::set_player_id_of_original_pinger(int3
 
 // optional uint32 entity_index = 2;
 inline bool CDOTAUserMsg_PingConfirmation::_internal_has_entity_index() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_PingConfirmation::has_entity_index() const {
@@ -39302,7 +39530,7 @@ inline bool CDOTAUserMsg_PingConfirmation::has_entity_index() const {
 }
 inline void CDOTAUserMsg_PingConfirmation::clear_entity_index() {
   _impl_.entity_index_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CDOTAUserMsg_PingConfirmation::_internal_entity_index() const {
   return _impl_.entity_index_;
@@ -39312,7 +39540,7 @@ inline uint32_t CDOTAUserMsg_PingConfirmation::entity_index() const {
   return _internal_entity_index();
 }
 inline void CDOTAUserMsg_PingConfirmation::_internal_set_entity_index(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.entity_index_ = value;
 }
 inline void CDOTAUserMsg_PingConfirmation::set_entity_index(uint32_t value) {
@@ -39322,7 +39550,7 @@ inline void CDOTAUserMsg_PingConfirmation::set_entity_index(uint32_t value) {
 
 // optional uint32 icon_type = 3;
 inline bool CDOTAUserMsg_PingConfirmation::_internal_has_icon_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_PingConfirmation::has_icon_type() const {
@@ -39330,7 +39558,7 @@ inline bool CDOTAUserMsg_PingConfirmation::has_icon_type() const {
 }
 inline void CDOTAUserMsg_PingConfirmation::clear_icon_type() {
   _impl_.icon_type_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CDOTAUserMsg_PingConfirmation::_internal_icon_type() const {
   return _impl_.icon_type_;
@@ -39340,7 +39568,7 @@ inline uint32_t CDOTAUserMsg_PingConfirmation::icon_type() const {
   return _internal_icon_type();
 }
 inline void CDOTAUserMsg_PingConfirmation::_internal_set_icon_type(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.icon_type_ = value;
 }
 inline void CDOTAUserMsg_PingConfirmation::set_icon_type(uint32_t value) {
@@ -39439,7 +39667,7 @@ inline void CDOTAUserMsg_PingConfirmation::set_allocated_location(::CMsgVector* 
 
 // CDOTAUserMsg_ItemAlert
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_ItemAlert::_internal_has_player_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -39448,7 +39676,7 @@ inline bool CDOTAUserMsg_ItemAlert::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_ItemAlert::clear_player_id() {
-  _impl_.player_id_ = 0;
+  _impl_.player_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_ItemAlert::_internal_player_id() const {
@@ -39558,17 +39786,17 @@ inline void CDOTAUserMsg_ItemAlert::set_allocated_item_alert(::CDOTAMsg_ItemAler
 
 // CDOTAUserMsg_EnemyItemAlert
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_EnemyItemAlert::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_EnemyItemAlert::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_EnemyItemAlert::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_EnemyItemAlert::_internal_player_id() const {
   return _impl_.player_id_;
@@ -39578,7 +39806,7 @@ inline int32_t CDOTAUserMsg_EnemyItemAlert::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_EnemyItemAlert::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_EnemyItemAlert::set_player_id(int32_t value) {
@@ -39586,17 +39814,17 @@ inline void CDOTAUserMsg_EnemyItemAlert::set_player_id(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_EnemyItemAlert.player_id)
 }
 
-// optional int32 target_player_id = 2;
+// optional int32 target_player_id = 2 [default = -1];
 inline bool CDOTAUserMsg_EnemyItemAlert::_internal_has_target_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_EnemyItemAlert::has_target_player_id() const {
   return _internal_has_target_player_id();
 }
 inline void CDOTAUserMsg_EnemyItemAlert::clear_target_player_id() {
-  _impl_.target_player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.target_player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_EnemyItemAlert::_internal_target_player_id() const {
   return _impl_.target_player_id_;
@@ -39606,7 +39834,7 @@ inline int32_t CDOTAUserMsg_EnemyItemAlert::target_player_id() const {
   return _internal_target_player_id();
 }
 inline void CDOTAUserMsg_EnemyItemAlert::_internal_set_target_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.target_player_id_ = value;
 }
 inline void CDOTAUserMsg_EnemyItemAlert::set_target_player_id(int32_t value) {
@@ -39614,17 +39842,17 @@ inline void CDOTAUserMsg_EnemyItemAlert::set_target_player_id(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_EnemyItemAlert.target_player_id)
 }
 
-// optional int32 item_ability_id = 3;
+// optional int32 item_ability_id = 3 [default = -1];
 inline bool CDOTAUserMsg_EnemyItemAlert::_internal_has_item_ability_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_EnemyItemAlert::has_item_ability_id() const {
   return _internal_has_item_ability_id();
 }
 inline void CDOTAUserMsg_EnemyItemAlert::clear_item_ability_id() {
-  _impl_.item_ability_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.item_ability_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CDOTAUserMsg_EnemyItemAlert::_internal_item_ability_id() const {
   return _impl_.item_ability_id_;
@@ -39634,7 +39862,7 @@ inline int32_t CDOTAUserMsg_EnemyItemAlert::item_ability_id() const {
   return _internal_item_ability_id();
 }
 inline void CDOTAUserMsg_EnemyItemAlert::_internal_set_item_ability_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.item_ability_id_ = value;
 }
 inline void CDOTAUserMsg_EnemyItemAlert::set_item_ability_id(int32_t value) {
@@ -39644,7 +39872,7 @@ inline void CDOTAUserMsg_EnemyItemAlert::set_item_ability_id(int32_t value) {
 
 // optional int32 rune_type = 4 [default = -1];
 inline bool CDOTAUserMsg_EnemyItemAlert::_internal_has_rune_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_EnemyItemAlert::has_rune_type() const {
@@ -39652,7 +39880,7 @@ inline bool CDOTAUserMsg_EnemyItemAlert::has_rune_type() const {
 }
 inline void CDOTAUserMsg_EnemyItemAlert::clear_rune_type() {
   _impl_.rune_type_ = -1;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline int32_t CDOTAUserMsg_EnemyItemAlert::_internal_rune_type() const {
   return _impl_.rune_type_;
@@ -39662,7 +39890,7 @@ inline int32_t CDOTAUserMsg_EnemyItemAlert::rune_type() const {
   return _internal_rune_type();
 }
 inline void CDOTAUserMsg_EnemyItemAlert::_internal_set_rune_type(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.rune_type_ = value;
 }
 inline void CDOTAUserMsg_EnemyItemAlert::set_rune_type(int32_t value) {
@@ -39672,7 +39900,7 @@ inline void CDOTAUserMsg_EnemyItemAlert::set_rune_type(int32_t value) {
 
 // optional int32 entity_id = 5;
 inline bool CDOTAUserMsg_EnemyItemAlert::_internal_has_entity_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_EnemyItemAlert::has_entity_id() const {
@@ -39680,7 +39908,7 @@ inline bool CDOTAUserMsg_EnemyItemAlert::has_entity_id() const {
 }
 inline void CDOTAUserMsg_EnemyItemAlert::clear_entity_id() {
   _impl_.entity_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_EnemyItemAlert::_internal_entity_id() const {
   return _impl_.entity_id_;
@@ -39690,7 +39918,7 @@ inline int32_t CDOTAUserMsg_EnemyItemAlert::entity_id() const {
   return _internal_entity_id();
 }
 inline void CDOTAUserMsg_EnemyItemAlert::_internal_set_entity_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.entity_id_ = value;
 }
 inline void CDOTAUserMsg_EnemyItemAlert::set_entity_id(int32_t value) {
@@ -39700,7 +39928,7 @@ inline void CDOTAUserMsg_EnemyItemAlert::set_entity_id(int32_t value) {
 
 // optional int32 item_level = 6 [default = -1];
 inline bool CDOTAUserMsg_EnemyItemAlert::_internal_has_item_level() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_EnemyItemAlert::has_item_level() const {
@@ -39708,7 +39936,7 @@ inline bool CDOTAUserMsg_EnemyItemAlert::has_item_level() const {
 }
 inline void CDOTAUserMsg_EnemyItemAlert::clear_item_level() {
   _impl_.item_level_ = -1;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline int32_t CDOTAUserMsg_EnemyItemAlert::_internal_item_level() const {
   return _impl_.item_level_;
@@ -39718,7 +39946,7 @@ inline int32_t CDOTAUserMsg_EnemyItemAlert::item_level() const {
   return _internal_item_level();
 }
 inline void CDOTAUserMsg_EnemyItemAlert::_internal_set_item_level(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.item_level_ = value;
 }
 inline void CDOTAUserMsg_EnemyItemAlert::set_item_level(int32_t value) {
@@ -39728,7 +39956,7 @@ inline void CDOTAUserMsg_EnemyItemAlert::set_item_level(int32_t value) {
 
 // optional int32 primary_charges = 7 [default = -1];
 inline bool CDOTAUserMsg_EnemyItemAlert::_internal_has_primary_charges() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_EnemyItemAlert::has_primary_charges() const {
@@ -39736,7 +39964,7 @@ inline bool CDOTAUserMsg_EnemyItemAlert::has_primary_charges() const {
 }
 inline void CDOTAUserMsg_EnemyItemAlert::clear_primary_charges() {
   _impl_.primary_charges_ = -1;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
 inline int32_t CDOTAUserMsg_EnemyItemAlert::_internal_primary_charges() const {
   return _impl_.primary_charges_;
@@ -39746,7 +39974,7 @@ inline int32_t CDOTAUserMsg_EnemyItemAlert::primary_charges() const {
   return _internal_primary_charges();
 }
 inline void CDOTAUserMsg_EnemyItemAlert::_internal_set_primary_charges(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.primary_charges_ = value;
 }
 inline void CDOTAUserMsg_EnemyItemAlert::set_primary_charges(int32_t value) {
@@ -39756,7 +39984,7 @@ inline void CDOTAUserMsg_EnemyItemAlert::set_primary_charges(int32_t value) {
 
 // optional int32 secondary_charges = 8 [default = -1];
 inline bool CDOTAUserMsg_EnemyItemAlert::_internal_has_secondary_charges() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_EnemyItemAlert::has_secondary_charges() const {
@@ -39764,7 +39992,7 @@ inline bool CDOTAUserMsg_EnemyItemAlert::has_secondary_charges() const {
 }
 inline void CDOTAUserMsg_EnemyItemAlert::clear_secondary_charges() {
   _impl_.secondary_charges_ = -1;
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_EnemyItemAlert::_internal_secondary_charges() const {
   return _impl_.secondary_charges_;
@@ -39774,7 +40002,7 @@ inline int32_t CDOTAUserMsg_EnemyItemAlert::secondary_charges() const {
   return _internal_secondary_charges();
 }
 inline void CDOTAUserMsg_EnemyItemAlert::_internal_set_secondary_charges(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.secondary_charges_ = value;
 }
 inline void CDOTAUserMsg_EnemyItemAlert::set_secondary_charges(int32_t value) {
@@ -39786,17 +40014,17 @@ inline void CDOTAUserMsg_EnemyItemAlert::set_secondary_charges(int32_t value) {
 
 // CDOTAUserMsg_ModifierAlert
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_ModifierAlert::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ModifierAlert::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_ModifierAlert::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CDOTAUserMsg_ModifierAlert::_internal_player_id() const {
   return _impl_.player_id_;
@@ -39806,7 +40034,7 @@ inline int32_t CDOTAUserMsg_ModifierAlert::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_ModifierAlert::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_ModifierAlert::set_player_id(int32_t value) {
@@ -39884,7 +40112,7 @@ inline void CDOTAUserMsg_ModifierAlert::set_allocated_class_name(std::string* cl
 
 // optional uint32 stack_count = 3;
 inline bool CDOTAUserMsg_ModifierAlert::_internal_has_stack_count() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ModifierAlert::has_stack_count() const {
@@ -39892,7 +40120,7 @@ inline bool CDOTAUserMsg_ModifierAlert::has_stack_count() const {
 }
 inline void CDOTAUserMsg_ModifierAlert::clear_stack_count() {
   _impl_.stack_count_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CDOTAUserMsg_ModifierAlert::_internal_stack_count() const {
   return _impl_.stack_count_;
@@ -39902,7 +40130,7 @@ inline uint32_t CDOTAUserMsg_ModifierAlert::stack_count() const {
   return _internal_stack_count();
 }
 inline void CDOTAUserMsg_ModifierAlert::_internal_set_stack_count(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.stack_count_ = value;
 }
 inline void CDOTAUserMsg_ModifierAlert::set_stack_count(uint32_t value) {
@@ -39912,7 +40140,7 @@ inline void CDOTAUserMsg_ModifierAlert::set_stack_count(uint32_t value) {
 
 // optional bool is_debuff = 4;
 inline bool CDOTAUserMsg_ModifierAlert::_internal_has_is_debuff() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ModifierAlert::has_is_debuff() const {
@@ -39920,7 +40148,7 @@ inline bool CDOTAUserMsg_ModifierAlert::has_is_debuff() const {
 }
 inline void CDOTAUserMsg_ModifierAlert::clear_is_debuff() {
   _impl_.is_debuff_ = false;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline bool CDOTAUserMsg_ModifierAlert::_internal_is_debuff() const {
   return _impl_.is_debuff_;
@@ -39930,7 +40158,7 @@ inline bool CDOTAUserMsg_ModifierAlert::is_debuff() const {
   return _internal_is_debuff();
 }
 inline void CDOTAUserMsg_ModifierAlert::_internal_set_is_debuff(bool value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.is_debuff_ = value;
 }
 inline void CDOTAUserMsg_ModifierAlert::set_is_debuff(bool value) {
@@ -39938,17 +40166,17 @@ inline void CDOTAUserMsg_ModifierAlert::set_is_debuff(bool value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_ModifierAlert.is_debuff)
 }
 
-// optional int32 target_entindex = 5;
+// optional int32 target_entindex = 5 [default = -1];
 inline bool CDOTAUserMsg_ModifierAlert::_internal_has_target_entindex() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ModifierAlert::has_target_entindex() const {
   return _internal_has_target_entindex();
 }
 inline void CDOTAUserMsg_ModifierAlert::clear_target_entindex() {
-  _impl_.target_entindex_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_.target_entindex_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline int32_t CDOTAUserMsg_ModifierAlert::_internal_target_entindex() const {
   return _impl_.target_entindex_;
@@ -39958,7 +40186,7 @@ inline int32_t CDOTAUserMsg_ModifierAlert::target_entindex() const {
   return _internal_target_entindex();
 }
 inline void CDOTAUserMsg_ModifierAlert::_internal_set_target_entindex(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.target_entindex_ = value;
 }
 inline void CDOTAUserMsg_ModifierAlert::set_target_entindex(int32_t value) {
@@ -39968,7 +40196,7 @@ inline void CDOTAUserMsg_ModifierAlert::set_target_entindex(int32_t value) {
 
 // optional float seconds_remaining = 6;
 inline bool CDOTAUserMsg_ModifierAlert::_internal_has_seconds_remaining() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ModifierAlert::has_seconds_remaining() const {
@@ -39976,7 +40204,7 @@ inline bool CDOTAUserMsg_ModifierAlert::has_seconds_remaining() const {
 }
 inline void CDOTAUserMsg_ModifierAlert::clear_seconds_remaining() {
   _impl_.seconds_remaining_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline float CDOTAUserMsg_ModifierAlert::_internal_seconds_remaining() const {
   return _impl_.seconds_remaining_;
@@ -39986,7 +40214,7 @@ inline float CDOTAUserMsg_ModifierAlert::seconds_remaining() const {
   return _internal_seconds_remaining();
 }
 inline void CDOTAUserMsg_ModifierAlert::_internal_set_seconds_remaining(float value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.seconds_remaining_ = value;
 }
 inline void CDOTAUserMsg_ModifierAlert::set_seconds_remaining(float value) {
@@ -39998,17 +40226,17 @@ inline void CDOTAUserMsg_ModifierAlert::set_seconds_remaining(float value) {
 
 // CDOTAUserMsg_HPManaAlert
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_HPManaAlert::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_HPManaAlert::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_HPManaAlert::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_HPManaAlert::_internal_player_id() const {
   return _impl_.player_id_;
@@ -40018,7 +40246,7 @@ inline int32_t CDOTAUserMsg_HPManaAlert::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_HPManaAlert::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_HPManaAlert::set_player_id(int32_t value) {
@@ -40026,17 +40254,17 @@ inline void CDOTAUserMsg_HPManaAlert::set_player_id(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_HPManaAlert.player_id)
 }
 
-// optional int32 target_entindex = 2;
+// optional int32 target_entindex = 2 [default = -1];
 inline bool CDOTAUserMsg_HPManaAlert::_internal_has_target_entindex() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_HPManaAlert::has_target_entindex() const {
   return _internal_has_target_entindex();
 }
 inline void CDOTAUserMsg_HPManaAlert::clear_target_entindex() {
-  _impl_.target_entindex_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.target_entindex_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_HPManaAlert::_internal_target_entindex() const {
   return _impl_.target_entindex_;
@@ -40046,7 +40274,7 @@ inline int32_t CDOTAUserMsg_HPManaAlert::target_entindex() const {
   return _internal_target_entindex();
 }
 inline void CDOTAUserMsg_HPManaAlert::_internal_set_target_entindex(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.target_entindex_ = value;
 }
 inline void CDOTAUserMsg_HPManaAlert::set_target_entindex(int32_t value) {
@@ -40056,7 +40284,7 @@ inline void CDOTAUserMsg_HPManaAlert::set_target_entindex(int32_t value) {
 
 // optional bool show_raw_values = 3;
 inline bool CDOTAUserMsg_HPManaAlert::_internal_has_show_raw_values() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_HPManaAlert::has_show_raw_values() const {
@@ -40064,7 +40292,7 @@ inline bool CDOTAUserMsg_HPManaAlert::has_show_raw_values() const {
 }
 inline void CDOTAUserMsg_HPManaAlert::clear_show_raw_values() {
   _impl_.show_raw_values_ = false;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline bool CDOTAUserMsg_HPManaAlert::_internal_show_raw_values() const {
   return _impl_.show_raw_values_;
@@ -40074,7 +40302,7 @@ inline bool CDOTAUserMsg_HPManaAlert::show_raw_values() const {
   return _internal_show_raw_values();
 }
 inline void CDOTAUserMsg_HPManaAlert::_internal_set_show_raw_values(bool value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.show_raw_values_ = value;
 }
 inline void CDOTAUserMsg_HPManaAlert::set_show_raw_values(bool value) {
@@ -40086,17 +40314,17 @@ inline void CDOTAUserMsg_HPManaAlert::set_show_raw_values(bool value) {
 
 // CDOTAUserMsg_NeutralCampAlert
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_NeutralCampAlert::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_NeutralCampAlert::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_NeutralCampAlert::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline int32_t CDOTAUserMsg_NeutralCampAlert::_internal_player_id() const {
   return _impl_.player_id_;
@@ -40106,7 +40334,7 @@ inline int32_t CDOTAUserMsg_NeutralCampAlert::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_NeutralCampAlert::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_NeutralCampAlert::set_player_id(int32_t value) {
@@ -40114,17 +40342,17 @@ inline void CDOTAUserMsg_NeutralCampAlert::set_player_id(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_NeutralCampAlert.player_id)
 }
 
-// optional int32 spawner_entindex = 2;
+// optional int32 spawner_entindex = 2 [default = -1];
 inline bool CDOTAUserMsg_NeutralCampAlert::_internal_has_spawner_entindex() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_NeutralCampAlert::has_spawner_entindex() const {
   return _internal_has_spawner_entindex();
 }
 inline void CDOTAUserMsg_NeutralCampAlert::clear_spawner_entindex() {
-  _impl_.spawner_entindex_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.spawner_entindex_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline int32_t CDOTAUserMsg_NeutralCampAlert::_internal_spawner_entindex() const {
   return _impl_.spawner_entindex_;
@@ -40134,7 +40362,7 @@ inline int32_t CDOTAUserMsg_NeutralCampAlert::spawner_entindex() const {
   return _internal_spawner_entindex();
 }
 inline void CDOTAUserMsg_NeutralCampAlert::_internal_set_spawner_entindex(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.spawner_entindex_ = value;
 }
 inline void CDOTAUserMsg_NeutralCampAlert::set_spawner_entindex(int32_t value) {
@@ -40142,17 +40370,17 @@ inline void CDOTAUserMsg_NeutralCampAlert::set_spawner_entindex(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_NeutralCampAlert.spawner_entindex)
 }
 
-// optional int32 unit_entindex = 3;
+// optional int32 unit_entindex = 3 [default = -1];
 inline bool CDOTAUserMsg_NeutralCampAlert::_internal_has_unit_entindex() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_NeutralCampAlert::has_unit_entindex() const {
   return _internal_has_unit_entindex();
 }
 inline void CDOTAUserMsg_NeutralCampAlert::clear_unit_entindex() {
-  _impl_.unit_entindex_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.unit_entindex_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CDOTAUserMsg_NeutralCampAlert::_internal_unit_entindex() const {
   return _impl_.unit_entindex_;
@@ -40162,7 +40390,7 @@ inline int32_t CDOTAUserMsg_NeutralCampAlert::unit_entindex() const {
   return _internal_unit_entindex();
 }
 inline void CDOTAUserMsg_NeutralCampAlert::_internal_set_unit_entindex(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.unit_entindex_ = value;
 }
 inline void CDOTAUserMsg_NeutralCampAlert::set_unit_entindex(int32_t value) {
@@ -40172,7 +40400,7 @@ inline void CDOTAUserMsg_NeutralCampAlert::set_unit_entindex(int32_t value) {
 
 // optional int32 stack_count = 4;
 inline bool CDOTAUserMsg_NeutralCampAlert::_internal_has_stack_count() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_NeutralCampAlert::has_stack_count() const {
@@ -40180,7 +40408,7 @@ inline bool CDOTAUserMsg_NeutralCampAlert::has_stack_count() const {
 }
 inline void CDOTAUserMsg_NeutralCampAlert::clear_stack_count() {
   _impl_.stack_count_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_NeutralCampAlert::_internal_stack_count() const {
   return _impl_.stack_count_;
@@ -40190,7 +40418,7 @@ inline int32_t CDOTAUserMsg_NeutralCampAlert::stack_count() const {
   return _internal_stack_count();
 }
 inline void CDOTAUserMsg_NeutralCampAlert::_internal_set_stack_count(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.stack_count_ = value;
 }
 inline void CDOTAUserMsg_NeutralCampAlert::set_stack_count(int32_t value) {
@@ -40200,7 +40428,7 @@ inline void CDOTAUserMsg_NeutralCampAlert::set_stack_count(int32_t value) {
 
 // optional int32 camp_type = 5;
 inline bool CDOTAUserMsg_NeutralCampAlert::_internal_has_camp_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_NeutralCampAlert::has_camp_type() const {
@@ -40208,7 +40436,7 @@ inline bool CDOTAUserMsg_NeutralCampAlert::has_camp_type() const {
 }
 inline void CDOTAUserMsg_NeutralCampAlert::clear_camp_type() {
   _impl_.camp_type_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_NeutralCampAlert::_internal_camp_type() const {
   return _impl_.camp_type_;
@@ -40218,7 +40446,7 @@ inline int32_t CDOTAUserMsg_NeutralCampAlert::camp_type() const {
   return _internal_camp_type();
 }
 inline void CDOTAUserMsg_NeutralCampAlert::_internal_set_camp_type(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.camp_type_ = value;
 }
 inline void CDOTAUserMsg_NeutralCampAlert::set_camp_type(int32_t value) {
@@ -40228,7 +40456,7 @@ inline void CDOTAUserMsg_NeutralCampAlert::set_camp_type(int32_t value) {
 
 // optional bool stack_request = 6;
 inline bool CDOTAUserMsg_NeutralCampAlert::_internal_has_stack_request() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_NeutralCampAlert::has_stack_request() const {
@@ -40236,7 +40464,7 @@ inline bool CDOTAUserMsg_NeutralCampAlert::has_stack_request() const {
 }
 inline void CDOTAUserMsg_NeutralCampAlert::clear_stack_request() {
   _impl_.stack_request_ = false;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline bool CDOTAUserMsg_NeutralCampAlert::_internal_stack_request() const {
   return _impl_.stack_request_;
@@ -40246,7 +40474,7 @@ inline bool CDOTAUserMsg_NeutralCampAlert::stack_request() const {
   return _internal_stack_request();
 }
 inline void CDOTAUserMsg_NeutralCampAlert::_internal_set_stack_request(bool value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.stack_request_ = value;
 }
 inline void CDOTAUserMsg_NeutralCampAlert::set_stack_request(bool value) {
@@ -40256,7 +40484,7 @@ inline void CDOTAUserMsg_NeutralCampAlert::set_stack_request(bool value) {
 
 // optional bool stack_intention = 7;
 inline bool CDOTAUserMsg_NeutralCampAlert::_internal_has_stack_intention() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_NeutralCampAlert::has_stack_intention() const {
@@ -40264,7 +40492,7 @@ inline bool CDOTAUserMsg_NeutralCampAlert::has_stack_intention() const {
 }
 inline void CDOTAUserMsg_NeutralCampAlert::clear_stack_intention() {
   _impl_.stack_intention_ = false;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline bool CDOTAUserMsg_NeutralCampAlert::_internal_stack_intention() const {
   return _impl_.stack_intention_;
@@ -40274,7 +40502,7 @@ inline bool CDOTAUserMsg_NeutralCampAlert::stack_intention() const {
   return _internal_stack_intention();
 }
 inline void CDOTAUserMsg_NeutralCampAlert::_internal_set_stack_intention(bool value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.stack_intention_ = value;
 }
 inline void CDOTAUserMsg_NeutralCampAlert::set_stack_intention(bool value) {
@@ -40286,17 +40514,17 @@ inline void CDOTAUserMsg_NeutralCampAlert::set_stack_intention(bool value) {
 
 // CDOTAUserMsg_GlyphAlert
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_GlyphAlert::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_GlyphAlert::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_GlyphAlert::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_GlyphAlert::_internal_player_id() const {
   return _impl_.player_id_;
@@ -40306,7 +40534,7 @@ inline int32_t CDOTAUserMsg_GlyphAlert::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_GlyphAlert::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_GlyphAlert::set_player_id(int32_t value) {
@@ -40316,7 +40544,7 @@ inline void CDOTAUserMsg_GlyphAlert::set_player_id(int32_t value) {
 
 // optional bool negative = 2;
 inline bool CDOTAUserMsg_GlyphAlert::_internal_has_negative() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_GlyphAlert::has_negative() const {
@@ -40324,7 +40552,7 @@ inline bool CDOTAUserMsg_GlyphAlert::has_negative() const {
 }
 inline void CDOTAUserMsg_GlyphAlert::clear_negative() {
   _impl_.negative_ = false;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline bool CDOTAUserMsg_GlyphAlert::_internal_negative() const {
   return _impl_.negative_;
@@ -40334,7 +40562,7 @@ inline bool CDOTAUserMsg_GlyphAlert::negative() const {
   return _internal_negative();
 }
 inline void CDOTAUserMsg_GlyphAlert::_internal_set_negative(bool value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.negative_ = value;
 }
 inline void CDOTAUserMsg_GlyphAlert::set_negative(bool value) {
@@ -40346,17 +40574,17 @@ inline void CDOTAUserMsg_GlyphAlert::set_negative(bool value) {
 
 // CDOTAUserMsg_RadarAlert
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_RadarAlert::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_RadarAlert::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_RadarAlert::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_RadarAlert::_internal_player_id() const {
   return _impl_.player_id_;
@@ -40366,7 +40594,7 @@ inline int32_t CDOTAUserMsg_RadarAlert::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_RadarAlert::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_RadarAlert::set_player_id(int32_t value) {
@@ -40376,7 +40604,7 @@ inline void CDOTAUserMsg_RadarAlert::set_player_id(int32_t value) {
 
 // optional bool negative = 2;
 inline bool CDOTAUserMsg_RadarAlert::_internal_has_negative() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_RadarAlert::has_negative() const {
@@ -40384,7 +40612,7 @@ inline bool CDOTAUserMsg_RadarAlert::has_negative() const {
 }
 inline void CDOTAUserMsg_RadarAlert::clear_negative() {
   _impl_.negative_ = false;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline bool CDOTAUserMsg_RadarAlert::_internal_negative() const {
   return _impl_.negative_;
@@ -40394,7 +40622,7 @@ inline bool CDOTAUserMsg_RadarAlert::negative() const {
   return _internal_negative();
 }
 inline void CDOTAUserMsg_RadarAlert::_internal_set_negative(bool value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.negative_ = value;
 }
 inline void CDOTAUserMsg_RadarAlert::set_negative(bool value) {
@@ -40406,17 +40634,17 @@ inline void CDOTAUserMsg_RadarAlert::set_negative(bool value) {
 
 // CDOTAUserMsg_WillPurchaseAlert
 
-// optional int32 item_ability_id = 1;
+// optional int32 item_ability_id = 1 [default = -1];
 inline bool CDOTAUserMsg_WillPurchaseAlert::_internal_has_item_ability_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_WillPurchaseAlert::has_item_ability_id() const {
   return _internal_has_item_ability_id();
 }
 inline void CDOTAUserMsg_WillPurchaseAlert::clear_item_ability_id() {
-  _impl_.item_ability_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.item_ability_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_WillPurchaseAlert::_internal_item_ability_id() const {
   return _impl_.item_ability_id_;
@@ -40426,7 +40654,7 @@ inline int32_t CDOTAUserMsg_WillPurchaseAlert::item_ability_id() const {
   return _internal_item_ability_id();
 }
 inline void CDOTAUserMsg_WillPurchaseAlert::_internal_set_item_ability_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.item_ability_id_ = value;
 }
 inline void CDOTAUserMsg_WillPurchaseAlert::set_item_ability_id(int32_t value) {
@@ -40434,17 +40662,17 @@ inline void CDOTAUserMsg_WillPurchaseAlert::set_item_ability_id(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_WillPurchaseAlert.item_ability_id)
 }
 
-// optional int32 player_id = 2;
+// optional int32 player_id = 2 [default = -1];
 inline bool CDOTAUserMsg_WillPurchaseAlert::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_WillPurchaseAlert::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_WillPurchaseAlert::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_WillPurchaseAlert::_internal_player_id() const {
   return _impl_.player_id_;
@@ -40454,7 +40682,7 @@ inline int32_t CDOTAUserMsg_WillPurchaseAlert::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_WillPurchaseAlert::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_WillPurchaseAlert::set_player_id(int32_t value) {
@@ -40464,7 +40692,7 @@ inline void CDOTAUserMsg_WillPurchaseAlert::set_player_id(int32_t value) {
 
 // optional uint32 gold_remaining = 3;
 inline bool CDOTAUserMsg_WillPurchaseAlert::_internal_has_gold_remaining() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_WillPurchaseAlert::has_gold_remaining() const {
@@ -40472,7 +40700,7 @@ inline bool CDOTAUserMsg_WillPurchaseAlert::has_gold_remaining() const {
 }
 inline void CDOTAUserMsg_WillPurchaseAlert::clear_gold_remaining() {
   _impl_.gold_remaining_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_WillPurchaseAlert::_internal_gold_remaining() const {
   return _impl_.gold_remaining_;
@@ -40482,7 +40710,7 @@ inline uint32_t CDOTAUserMsg_WillPurchaseAlert::gold_remaining() const {
   return _internal_gold_remaining();
 }
 inline void CDOTAUserMsg_WillPurchaseAlert::_internal_set_gold_remaining(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.gold_remaining_ = value;
 }
 inline void CDOTAUserMsg_WillPurchaseAlert::set_gold_remaining(uint32_t value) {
@@ -40490,17 +40718,17 @@ inline void CDOTAUserMsg_WillPurchaseAlert::set_gold_remaining(uint32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_WillPurchaseAlert.gold_remaining)
 }
 
-// optional int32 suggestion_player_id = 4;
+// optional int32 suggestion_player_id = 4 [default = -1];
 inline bool CDOTAUserMsg_WillPurchaseAlert::_internal_has_suggestion_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_WillPurchaseAlert::has_suggestion_player_id() const {
   return _internal_has_suggestion_player_id();
 }
 inline void CDOTAUserMsg_WillPurchaseAlert::clear_suggestion_player_id() {
-  _impl_.suggestion_player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_.suggestion_player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_WillPurchaseAlert::_internal_suggestion_player_id() const {
   return _impl_.suggestion_player_id_;
@@ -40510,7 +40738,7 @@ inline int32_t CDOTAUserMsg_WillPurchaseAlert::suggestion_player_id() const {
   return _internal_suggestion_player_id();
 }
 inline void CDOTAUserMsg_WillPurchaseAlert::_internal_set_suggestion_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.suggestion_player_id_ = value;
 }
 inline void CDOTAUserMsg_WillPurchaseAlert::set_suggestion_player_id(int32_t value) {
@@ -40522,17 +40750,17 @@ inline void CDOTAUserMsg_WillPurchaseAlert::set_suggestion_player_id(int32_t val
 
 // CDOTAUserMsg_EmptyTeleportAlert
 
-// optional int32 source_player_id = 1;
+// optional int32 source_player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_EmptyTeleportAlert::_internal_has_source_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_EmptyTeleportAlert::has_source_player_id() const {
   return _internal_has_source_player_id();
 }
 inline void CDOTAUserMsg_EmptyTeleportAlert::clear_source_player_id() {
-  _impl_.source_player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.source_player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_EmptyTeleportAlert::_internal_source_player_id() const {
   return _impl_.source_player_id_;
@@ -40542,7 +40770,7 @@ inline int32_t CDOTAUserMsg_EmptyTeleportAlert::source_player_id() const {
   return _internal_source_player_id();
 }
 inline void CDOTAUserMsg_EmptyTeleportAlert::_internal_set_source_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.source_player_id_ = value;
 }
 inline void CDOTAUserMsg_EmptyTeleportAlert::set_source_player_id(int32_t value) {
@@ -40550,17 +40778,17 @@ inline void CDOTAUserMsg_EmptyTeleportAlert::set_source_player_id(int32_t value)
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_EmptyTeleportAlert.source_player_id)
 }
 
-// optional int32 target_player_id = 2;
+// optional int32 target_player_id = 2 [default = -1];
 inline bool CDOTAUserMsg_EmptyTeleportAlert::_internal_has_target_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_EmptyTeleportAlert::has_target_player_id() const {
   return _internal_has_target_player_id();
 }
 inline void CDOTAUserMsg_EmptyTeleportAlert::clear_target_player_id() {
-  _impl_.target_player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.target_player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_EmptyTeleportAlert::_internal_target_player_id() const {
   return _impl_.target_player_id_;
@@ -40570,7 +40798,7 @@ inline int32_t CDOTAUserMsg_EmptyTeleportAlert::target_player_id() const {
   return _internal_target_player_id();
 }
 inline void CDOTAUserMsg_EmptyTeleportAlert::_internal_set_target_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.target_player_id_ = value;
 }
 inline void CDOTAUserMsg_EmptyTeleportAlert::set_target_player_id(int32_t value) {
@@ -40580,7 +40808,7 @@ inline void CDOTAUserMsg_EmptyTeleportAlert::set_target_player_id(int32_t value)
 
 // optional int32 cooldown_seconds = 3;
 inline bool CDOTAUserMsg_EmptyTeleportAlert::_internal_has_cooldown_seconds() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_EmptyTeleportAlert::has_cooldown_seconds() const {
@@ -40588,7 +40816,7 @@ inline bool CDOTAUserMsg_EmptyTeleportAlert::has_cooldown_seconds() const {
 }
 inline void CDOTAUserMsg_EmptyTeleportAlert::clear_cooldown_seconds() {
   _impl_.cooldown_seconds_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_EmptyTeleportAlert::_internal_cooldown_seconds() const {
   return _impl_.cooldown_seconds_;
@@ -40598,7 +40826,7 @@ inline int32_t CDOTAUserMsg_EmptyTeleportAlert::cooldown_seconds() const {
   return _internal_cooldown_seconds();
 }
 inline void CDOTAUserMsg_EmptyTeleportAlert::_internal_set_cooldown_seconds(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.cooldown_seconds_ = value;
 }
 inline void CDOTAUserMsg_EmptyTeleportAlert::set_cooldown_seconds(int32_t value) {
@@ -40610,17 +40838,17 @@ inline void CDOTAUserMsg_EmptyTeleportAlert::set_cooldown_seconds(int32_t value)
 
 // CDOTAUserMsg_MarsArenaOfBloodAttack
 
-// optional uint32 source_ehandle = 1;
+// optional uint32 source_ehandle = 1 [default = 16777215];
 inline bool CDOTAUserMsg_MarsArenaOfBloodAttack::_internal_has_source_ehandle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_MarsArenaOfBloodAttack::has_source_ehandle() const {
   return _internal_has_source_ehandle();
 }
 inline void CDOTAUserMsg_MarsArenaOfBloodAttack::clear_source_ehandle() {
-  _impl_.source_ehandle_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.source_ehandle_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CDOTAUserMsg_MarsArenaOfBloodAttack::_internal_source_ehandle() const {
   return _impl_.source_ehandle_;
@@ -40630,7 +40858,7 @@ inline uint32_t CDOTAUserMsg_MarsArenaOfBloodAttack::source_ehandle() const {
   return _internal_source_ehandle();
 }
 inline void CDOTAUserMsg_MarsArenaOfBloodAttack::_internal_set_source_ehandle(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.source_ehandle_ = value;
 }
 inline void CDOTAUserMsg_MarsArenaOfBloodAttack::set_source_ehandle(uint32_t value) {
@@ -40638,17 +40866,17 @@ inline void CDOTAUserMsg_MarsArenaOfBloodAttack::set_source_ehandle(uint32_t val
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_MarsArenaOfBloodAttack.source_ehandle)
 }
 
-// optional uint32 target_ehandle = 2;
+// optional uint32 target_ehandle = 2 [default = 16777215];
 inline bool CDOTAUserMsg_MarsArenaOfBloodAttack::_internal_has_target_ehandle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_MarsArenaOfBloodAttack::has_target_ehandle() const {
   return _internal_has_target_ehandle();
 }
 inline void CDOTAUserMsg_MarsArenaOfBloodAttack::clear_target_ehandle() {
-  _impl_.target_ehandle_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.target_ehandle_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CDOTAUserMsg_MarsArenaOfBloodAttack::_internal_target_ehandle() const {
   return _impl_.target_ehandle_;
@@ -40658,7 +40886,7 @@ inline uint32_t CDOTAUserMsg_MarsArenaOfBloodAttack::target_ehandle() const {
   return _internal_target_ehandle();
 }
 inline void CDOTAUserMsg_MarsArenaOfBloodAttack::_internal_set_target_ehandle(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.target_ehandle_ = value;
 }
 inline void CDOTAUserMsg_MarsArenaOfBloodAttack::set_target_ehandle(uint32_t value) {
@@ -40668,7 +40896,7 @@ inline void CDOTAUserMsg_MarsArenaOfBloodAttack::set_target_ehandle(uint32_t val
 
 // optional int32 warrior_index = 3;
 inline bool CDOTAUserMsg_MarsArenaOfBloodAttack::_internal_has_warrior_index() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_MarsArenaOfBloodAttack::has_warrior_index() const {
@@ -40676,7 +40904,7 @@ inline bool CDOTAUserMsg_MarsArenaOfBloodAttack::has_warrior_index() const {
 }
 inline void CDOTAUserMsg_MarsArenaOfBloodAttack::clear_warrior_index() {
   _impl_.warrior_index_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_MarsArenaOfBloodAttack::_internal_warrior_index() const {
   return _impl_.warrior_index_;
@@ -40686,7 +40914,7 @@ inline int32_t CDOTAUserMsg_MarsArenaOfBloodAttack::warrior_index() const {
   return _internal_warrior_index();
 }
 inline void CDOTAUserMsg_MarsArenaOfBloodAttack::_internal_set_warrior_index(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.warrior_index_ = value;
 }
 inline void CDOTAUserMsg_MarsArenaOfBloodAttack::set_warrior_index(int32_t value) {
@@ -40817,7 +41045,7 @@ inline void CDOTAEntityMsg_InvokerSpellCast::set_cast_activity(int32_t value) {
 
 // CDOTAUserMsg_BuyBackStateAlert
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_BuyBackStateAlert::_internal_has_player_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -40826,7 +41054,7 @@ inline bool CDOTAUserMsg_BuyBackStateAlert::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_BuyBackStateAlert::clear_player_id() {
-  _impl_.player_id_ = 0;
+  _impl_.player_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_BuyBackStateAlert::_internal_player_id() const {
@@ -40849,17 +41077,17 @@ inline void CDOTAUserMsg_BuyBackStateAlert::set_player_id(int32_t value) {
 
 // CDOTAUserMsg_QuickBuyAlert
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_QuickBuyAlert::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_QuickBuyAlert::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_QuickBuyAlert::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_QuickBuyAlert::_internal_player_id() const {
   return _impl_.player_id_;
@@ -40869,7 +41097,7 @@ inline int32_t CDOTAUserMsg_QuickBuyAlert::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_QuickBuyAlert::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_QuickBuyAlert::set_player_id(int32_t value) {
@@ -40877,17 +41105,17 @@ inline void CDOTAUserMsg_QuickBuyAlert::set_player_id(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_QuickBuyAlert.player_id)
 }
 
-// optional int32 item_ability_id = 2;
+// optional int32 item_ability_id = 2 [default = -1];
 inline bool CDOTAUserMsg_QuickBuyAlert::_internal_has_item_ability_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_QuickBuyAlert::has_item_ability_id() const {
   return _internal_has_item_ability_id();
 }
 inline void CDOTAUserMsg_QuickBuyAlert::clear_item_ability_id() {
-  _impl_.item_ability_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.item_ability_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CDOTAUserMsg_QuickBuyAlert::_internal_item_ability_id() const {
   return _impl_.item_ability_id_;
@@ -40897,7 +41125,7 @@ inline int32_t CDOTAUserMsg_QuickBuyAlert::item_ability_id() const {
   return _internal_item_ability_id();
 }
 inline void CDOTAUserMsg_QuickBuyAlert::_internal_set_item_ability_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.item_ability_id_ = value;
 }
 inline void CDOTAUserMsg_QuickBuyAlert::set_item_ability_id(int32_t value) {
@@ -40907,7 +41135,7 @@ inline void CDOTAUserMsg_QuickBuyAlert::set_item_ability_id(int32_t value) {
 
 // optional int32 gold_cost = 3;
 inline bool CDOTAUserMsg_QuickBuyAlert::_internal_has_gold_cost() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_QuickBuyAlert::has_gold_cost() const {
@@ -40915,7 +41143,7 @@ inline bool CDOTAUserMsg_QuickBuyAlert::has_gold_cost() const {
 }
 inline void CDOTAUserMsg_QuickBuyAlert::clear_gold_cost() {
   _impl_.gold_cost_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_QuickBuyAlert::_internal_gold_cost() const {
   return _impl_.gold_cost_;
@@ -40925,7 +41153,7 @@ inline int32_t CDOTAUserMsg_QuickBuyAlert::gold_cost() const {
   return _internal_gold_cost();
 }
 inline void CDOTAUserMsg_QuickBuyAlert::_internal_set_gold_cost(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.gold_cost_ = value;
 }
 inline void CDOTAUserMsg_QuickBuyAlert::set_gold_cost(int32_t value) {
@@ -40935,7 +41163,7 @@ inline void CDOTAUserMsg_QuickBuyAlert::set_gold_cost(int32_t value) {
 
 // optional int32 item_cooldown_seconds = 4;
 inline bool CDOTAUserMsg_QuickBuyAlert::_internal_has_item_cooldown_seconds() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_QuickBuyAlert::has_item_cooldown_seconds() const {
@@ -40943,7 +41171,7 @@ inline bool CDOTAUserMsg_QuickBuyAlert::has_item_cooldown_seconds() const {
 }
 inline void CDOTAUserMsg_QuickBuyAlert::clear_item_cooldown_seconds() {
   _impl_.item_cooldown_seconds_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_QuickBuyAlert::_internal_item_cooldown_seconds() const {
   return _impl_.item_cooldown_seconds_;
@@ -40953,7 +41181,7 @@ inline int32_t CDOTAUserMsg_QuickBuyAlert::item_cooldown_seconds() const {
   return _internal_item_cooldown_seconds();
 }
 inline void CDOTAUserMsg_QuickBuyAlert::_internal_set_item_cooldown_seconds(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.item_cooldown_seconds_ = value;
 }
 inline void CDOTAUserMsg_QuickBuyAlert::set_item_cooldown_seconds(int32_t value) {
@@ -40963,7 +41191,7 @@ inline void CDOTAUserMsg_QuickBuyAlert::set_item_cooldown_seconds(int32_t value)
 
 // optional bool show_buyback = 5;
 inline bool CDOTAUserMsg_QuickBuyAlert::_internal_has_show_buyback() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_QuickBuyAlert::has_show_buyback() const {
@@ -40971,7 +41199,7 @@ inline bool CDOTAUserMsg_QuickBuyAlert::has_show_buyback() const {
 }
 inline void CDOTAUserMsg_QuickBuyAlert::clear_show_buyback() {
   _impl_.show_buyback_ = false;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline bool CDOTAUserMsg_QuickBuyAlert::_internal_show_buyback() const {
   return _impl_.show_buyback_;
@@ -40981,7 +41209,7 @@ inline bool CDOTAUserMsg_QuickBuyAlert::show_buyback() const {
   return _internal_show_buyback();
 }
 inline void CDOTAUserMsg_QuickBuyAlert::_internal_set_show_buyback(bool value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.show_buyback_ = value;
 }
 inline void CDOTAUserMsg_QuickBuyAlert::set_show_buyback(bool value) {
@@ -40993,17 +41221,17 @@ inline void CDOTAUserMsg_QuickBuyAlert::set_show_buyback(bool value) {
 
 // CDOTAUserMsg_CourierKilledAlert_LostItem
 
-// optional int32 item_ability_id = 1;
+// optional int32 item_ability_id = 1 [default = -1];
 inline bool CDOTAUserMsg_CourierKilledAlert_LostItem::_internal_has_item_ability_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_CourierKilledAlert_LostItem::has_item_ability_id() const {
   return _internal_has_item_ability_id();
 }
 inline void CDOTAUserMsg_CourierKilledAlert_LostItem::clear_item_ability_id() {
-  _impl_.item_ability_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.item_ability_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_CourierKilledAlert_LostItem::_internal_item_ability_id() const {
   return _impl_.item_ability_id_;
@@ -41013,7 +41241,7 @@ inline int32_t CDOTAUserMsg_CourierKilledAlert_LostItem::item_ability_id() const
   return _internal_item_ability_id();
 }
 inline void CDOTAUserMsg_CourierKilledAlert_LostItem::_internal_set_item_ability_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.item_ability_id_ = value;
 }
 inline void CDOTAUserMsg_CourierKilledAlert_LostItem::set_item_ability_id(int32_t value) {
@@ -41023,7 +41251,7 @@ inline void CDOTAUserMsg_CourierKilledAlert_LostItem::set_item_ability_id(int32_
 
 // optional uint32 quantity = 2;
 inline bool CDOTAUserMsg_CourierKilledAlert_LostItem::_internal_has_quantity() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_CourierKilledAlert_LostItem::has_quantity() const {
@@ -41031,7 +41259,7 @@ inline bool CDOTAUserMsg_CourierKilledAlert_LostItem::has_quantity() const {
 }
 inline void CDOTAUserMsg_CourierKilledAlert_LostItem::clear_quantity() {
   _impl_.quantity_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_CourierKilledAlert_LostItem::_internal_quantity() const {
   return _impl_.quantity_;
@@ -41041,7 +41269,7 @@ inline uint32_t CDOTAUserMsg_CourierKilledAlert_LostItem::quantity() const {
   return _internal_quantity();
 }
 inline void CDOTAUserMsg_CourierKilledAlert_LostItem::_internal_set_quantity(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.quantity_ = value;
 }
 inline void CDOTAUserMsg_CourierKilledAlert_LostItem::set_quantity(uint32_t value) {
@@ -41109,17 +41337,17 @@ inline void CDOTAUserMsg_CourierKilledAlert::set_gold_value(uint32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_CourierKilledAlert.gold_value)
 }
 
-// optional uint32 entity_handle = 3;
+// optional uint32 entity_handle = 3 [default = 16777215];
 inline bool CDOTAUserMsg_CourierKilledAlert::_internal_has_entity_handle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_CourierKilledAlert::has_entity_handle() const {
   return _internal_has_entity_handle();
 }
 inline void CDOTAUserMsg_CourierKilledAlert::clear_entity_handle() {
-  _impl_.entity_handle_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.entity_handle_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline uint32_t CDOTAUserMsg_CourierKilledAlert::_internal_entity_handle() const {
   return _impl_.entity_handle_;
@@ -41129,7 +41357,7 @@ inline uint32_t CDOTAUserMsg_CourierKilledAlert::entity_handle() const {
   return _internal_entity_handle();
 }
 inline void CDOTAUserMsg_CourierKilledAlert::_internal_set_entity_handle(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.entity_handle_ = value;
 }
 inline void CDOTAUserMsg_CourierKilledAlert::set_entity_handle(uint32_t value) {
@@ -41139,7 +41367,7 @@ inline void CDOTAUserMsg_CourierKilledAlert::set_entity_handle(uint32_t value) {
 
 // optional int32 timestamp = 4;
 inline bool CDOTAUserMsg_CourierKilledAlert::_internal_has_timestamp() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_CourierKilledAlert::has_timestamp() const {
@@ -41147,7 +41375,7 @@ inline bool CDOTAUserMsg_CourierKilledAlert::has_timestamp() const {
 }
 inline void CDOTAUserMsg_CourierKilledAlert::clear_timestamp() {
   _impl_.timestamp_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_CourierKilledAlert::_internal_timestamp() const {
   return _impl_.timestamp_;
@@ -41157,7 +41385,7 @@ inline int32_t CDOTAUserMsg_CourierKilledAlert::timestamp() const {
   return _internal_timestamp();
 }
 inline void CDOTAUserMsg_CourierKilledAlert::_internal_set_timestamp(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.timestamp_ = value;
 }
 inline void CDOTAUserMsg_CourierKilledAlert::set_timestamp(int32_t value) {
@@ -41205,17 +41433,17 @@ CDOTAUserMsg_CourierKilledAlert::lost_items() const {
   return _impl_.lost_items_;
 }
 
-// optional int32 killer_player_id = 6;
+// optional int32 killer_player_id = 6 [default = -1];
 inline bool CDOTAUserMsg_CourierKilledAlert::_internal_has_killer_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_CourierKilledAlert::has_killer_player_id() const {
   return _internal_has_killer_player_id();
 }
 inline void CDOTAUserMsg_CourierKilledAlert::clear_killer_player_id() {
-  _impl_.killer_player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_.killer_player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline int32_t CDOTAUserMsg_CourierKilledAlert::_internal_killer_player_id() const {
   return _impl_.killer_player_id_;
@@ -41225,7 +41453,7 @@ inline int32_t CDOTAUserMsg_CourierKilledAlert::killer_player_id() const {
   return _internal_killer_player_id();
 }
 inline void CDOTAUserMsg_CourierKilledAlert::_internal_set_killer_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.killer_player_id_ = value;
 }
 inline void CDOTAUserMsg_CourierKilledAlert::set_killer_player_id(int32_t value) {
@@ -41233,17 +41461,17 @@ inline void CDOTAUserMsg_CourierKilledAlert::set_killer_player_id(int32_t value)
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_CourierKilledAlert.killer_player_id)
 }
 
-// optional int32 owning_player_id = 7;
+// optional int32 owning_player_id = 7 [default = -1];
 inline bool CDOTAUserMsg_CourierKilledAlert::_internal_has_owning_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_CourierKilledAlert::has_owning_player_id() const {
   return _internal_has_owning_player_id();
 }
 inline void CDOTAUserMsg_CourierKilledAlert::clear_owning_player_id() {
-  _impl_.owning_player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_.owning_player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_CourierKilledAlert::_internal_owning_player_id() const {
   return _impl_.owning_player_id_;
@@ -41253,7 +41481,7 @@ inline int32_t CDOTAUserMsg_CourierKilledAlert::owning_player_id() const {
   return _internal_owning_player_id();
 }
 inline void CDOTAUserMsg_CourierKilledAlert::_internal_set_owning_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.owning_player_id_ = value;
 }
 inline void CDOTAUserMsg_CourierKilledAlert::set_owning_player_id(int32_t value) {
@@ -41293,17 +41521,17 @@ inline void CDOTAUserMsg_MinimapEvent::set_event_type(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_MinimapEvent.event_type)
 }
 
-// optional uint32 entity_handle = 2;
+// optional uint32 entity_handle = 2 [default = 16777215];
 inline bool CDOTAUserMsg_MinimapEvent::_internal_has_entity_handle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_MinimapEvent::has_entity_handle() const {
   return _internal_has_entity_handle();
 }
 inline void CDOTAUserMsg_MinimapEvent::clear_entity_handle() {
-  _impl_.entity_handle_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.entity_handle_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline uint32_t CDOTAUserMsg_MinimapEvent::_internal_entity_handle() const {
   return _impl_.entity_handle_;
@@ -41313,7 +41541,7 @@ inline uint32_t CDOTAUserMsg_MinimapEvent::entity_handle() const {
   return _internal_entity_handle();
 }
 inline void CDOTAUserMsg_MinimapEvent::_internal_set_entity_handle(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.entity_handle_ = value;
 }
 inline void CDOTAUserMsg_MinimapEvent::set_entity_handle(uint32_t value) {
@@ -41323,7 +41551,7 @@ inline void CDOTAUserMsg_MinimapEvent::set_entity_handle(uint32_t value) {
 
 // optional int32 x = 3;
 inline bool CDOTAUserMsg_MinimapEvent::_internal_has_x() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_MinimapEvent::has_x() const {
@@ -41331,7 +41559,7 @@ inline bool CDOTAUserMsg_MinimapEvent::has_x() const {
 }
 inline void CDOTAUserMsg_MinimapEvent::clear_x() {
   _impl_.x_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_MinimapEvent::_internal_x() const {
   return _impl_.x_;
@@ -41341,7 +41569,7 @@ inline int32_t CDOTAUserMsg_MinimapEvent::x() const {
   return _internal_x();
 }
 inline void CDOTAUserMsg_MinimapEvent::_internal_set_x(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.x_ = value;
 }
 inline void CDOTAUserMsg_MinimapEvent::set_x(int32_t value) {
@@ -41351,7 +41579,7 @@ inline void CDOTAUserMsg_MinimapEvent::set_x(int32_t value) {
 
 // optional int32 y = 4;
 inline bool CDOTAUserMsg_MinimapEvent::_internal_has_y() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_MinimapEvent::has_y() const {
@@ -41359,7 +41587,7 @@ inline bool CDOTAUserMsg_MinimapEvent::has_y() const {
 }
 inline void CDOTAUserMsg_MinimapEvent::clear_y() {
   _impl_.y_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_MinimapEvent::_internal_y() const {
   return _impl_.y_;
@@ -41369,7 +41597,7 @@ inline int32_t CDOTAUserMsg_MinimapEvent::y() const {
   return _internal_y();
 }
 inline void CDOTAUserMsg_MinimapEvent::_internal_set_y(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.y_ = value;
 }
 inline void CDOTAUserMsg_MinimapEvent::set_y(int32_t value) {
@@ -41379,7 +41607,7 @@ inline void CDOTAUserMsg_MinimapEvent::set_y(int32_t value) {
 
 // optional int32 duration = 5;
 inline bool CDOTAUserMsg_MinimapEvent::_internal_has_duration() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_MinimapEvent::has_duration() const {
@@ -41387,7 +41615,7 @@ inline bool CDOTAUserMsg_MinimapEvent::has_duration() const {
 }
 inline void CDOTAUserMsg_MinimapEvent::clear_duration() {
   _impl_.duration_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_MinimapEvent::_internal_duration() const {
   return _impl_.duration_;
@@ -41397,7 +41625,7 @@ inline int32_t CDOTAUserMsg_MinimapEvent::duration() const {
   return _internal_duration();
 }
 inline void CDOTAUserMsg_MinimapEvent::_internal_set_duration(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.duration_ = value;
 }
 inline void CDOTAUserMsg_MinimapEvent::set_duration(int32_t value) {
@@ -41405,7 +41633,7 @@ inline void CDOTAUserMsg_MinimapEvent::set_duration(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_MinimapEvent.duration)
 }
 
-// optional uint32 target_entity_handle = 6;
+// optional uint32 target_entity_handle = 6 [default = 16777215];
 inline bool CDOTAUserMsg_MinimapEvent::_internal_has_target_entity_handle() const {
   bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -41414,7 +41642,7 @@ inline bool CDOTAUserMsg_MinimapEvent::has_target_entity_handle() const {
   return _internal_has_target_entity_handle();
 }
 inline void CDOTAUserMsg_MinimapEvent::clear_target_entity_handle() {
-  _impl_.target_entity_handle_ = 0u;
+  _impl_.target_entity_handle_ = 16777215u;
   _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline uint32_t CDOTAUserMsg_MinimapEvent::_internal_target_entity_handle() const {
@@ -41437,7 +41665,7 @@ inline void CDOTAUserMsg_MinimapEvent::set_target_entity_handle(uint32_t value) 
 
 // CDOTAUserMsg_MapLine
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_MapLine::_internal_has_player_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -41446,7 +41674,7 @@ inline bool CDOTAUserMsg_MapLine::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_MapLine::clear_player_id() {
-  _impl_.player_id_ = 0;
+  _impl_.player_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_MapLine::_internal_player_id() const {
@@ -41933,17 +42161,17 @@ inline void CDOTAUserMsg_CreateLinearProjectile::set_allocated_velocity(::CMsgVe
   // @@protoc_insertion_point(field_set_allocated:CDOTAUserMsg_CreateLinearProjectile.velocity)
 }
 
-// optional int32 entindex = 4;
+// optional int32 entindex = 4 [default = -1];
 inline bool CDOTAUserMsg_CreateLinearProjectile::_internal_has_entindex() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_CreateLinearProjectile::has_entindex() const {
   return _internal_has_entindex();
 }
 inline void CDOTAUserMsg_CreateLinearProjectile::clear_entindex() {
-  _impl_.entindex_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_.entindex_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000400u;
 }
 inline int32_t CDOTAUserMsg_CreateLinearProjectile::_internal_entindex() const {
   return _impl_.entindex_;
@@ -41953,7 +42181,7 @@ inline int32_t CDOTAUserMsg_CreateLinearProjectile::entindex() const {
   return _internal_entindex();
 }
 inline void CDOTAUserMsg_CreateLinearProjectile::_internal_set_entindex(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000400u;
   _impl_.entindex_ = value;
 }
 inline void CDOTAUserMsg_CreateLinearProjectile::set_entindex(int32_t value) {
@@ -41991,7 +42219,7 @@ inline void CDOTAUserMsg_CreateLinearProjectile::set_particle_index(uint64_t val
 
 // optional int32 handle = 6;
 inline bool CDOTAUserMsg_CreateLinearProjectile::_internal_has_handle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_CreateLinearProjectile::has_handle() const {
@@ -41999,7 +42227,7 @@ inline bool CDOTAUserMsg_CreateLinearProjectile::has_handle() const {
 }
 inline void CDOTAUserMsg_CreateLinearProjectile::clear_handle() {
   _impl_.handle_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CDOTAUserMsg_CreateLinearProjectile::_internal_handle() const {
   return _impl_.handle_;
@@ -42009,7 +42237,7 @@ inline int32_t CDOTAUserMsg_CreateLinearProjectile::handle() const {
   return _internal_handle();
 }
 inline void CDOTAUserMsg_CreateLinearProjectile::_internal_set_handle(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.handle_ = value;
 }
 inline void CDOTAUserMsg_CreateLinearProjectile::set_handle(int32_t value) {
@@ -42106,7 +42334,7 @@ inline void CDOTAUserMsg_CreateLinearProjectile::set_allocated_acceleration(::CM
 
 // optional float max_speed = 8;
 inline bool CDOTAUserMsg_CreateLinearProjectile::_internal_has_max_speed() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_CreateLinearProjectile::has_max_speed() const {
@@ -42114,7 +42342,7 @@ inline bool CDOTAUserMsg_CreateLinearProjectile::has_max_speed() const {
 }
 inline void CDOTAUserMsg_CreateLinearProjectile::clear_max_speed() {
   _impl_.max_speed_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline float CDOTAUserMsg_CreateLinearProjectile::_internal_max_speed() const {
   return _impl_.max_speed_;
@@ -42124,7 +42352,7 @@ inline float CDOTAUserMsg_CreateLinearProjectile::max_speed() const {
   return _internal_max_speed();
 }
 inline void CDOTAUserMsg_CreateLinearProjectile::_internal_set_max_speed(float value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.max_speed_ = value;
 }
 inline void CDOTAUserMsg_CreateLinearProjectile::set_max_speed(float value) {
@@ -42134,7 +42362,7 @@ inline void CDOTAUserMsg_CreateLinearProjectile::set_max_speed(float value) {
 
 // optional float fow_radius = 9;
 inline bool CDOTAUserMsg_CreateLinearProjectile::_internal_has_fow_radius() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_CreateLinearProjectile::has_fow_radius() const {
@@ -42142,7 +42370,7 @@ inline bool CDOTAUserMsg_CreateLinearProjectile::has_fow_radius() const {
 }
 inline void CDOTAUserMsg_CreateLinearProjectile::clear_fow_radius() {
   _impl_.fow_radius_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline float CDOTAUserMsg_CreateLinearProjectile::_internal_fow_radius() const {
   return _impl_.fow_radius_;
@@ -42152,7 +42380,7 @@ inline float CDOTAUserMsg_CreateLinearProjectile::fow_radius() const {
   return _internal_fow_radius();
 }
 inline void CDOTAUserMsg_CreateLinearProjectile::_internal_set_fow_radius(float value) {
-  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.fow_radius_ = value;
 }
 inline void CDOTAUserMsg_CreateLinearProjectile::set_fow_radius(float value) {
@@ -42162,7 +42390,7 @@ inline void CDOTAUserMsg_CreateLinearProjectile::set_fow_radius(float value) {
 
 // optional bool sticky_fow_reveal = 10;
 inline bool CDOTAUserMsg_CreateLinearProjectile::_internal_has_sticky_fow_reveal() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_CreateLinearProjectile::has_sticky_fow_reveal() const {
@@ -42170,7 +42398,7 @@ inline bool CDOTAUserMsg_CreateLinearProjectile::has_sticky_fow_reveal() const {
 }
 inline void CDOTAUserMsg_CreateLinearProjectile::clear_sticky_fow_reveal() {
   _impl_.sticky_fow_reveal_ = false;
-  _impl_._has_bits_[0] &= ~0x00000100u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
 inline bool CDOTAUserMsg_CreateLinearProjectile::_internal_sticky_fow_reveal() const {
   return _impl_.sticky_fow_reveal_;
@@ -42180,7 +42408,7 @@ inline bool CDOTAUserMsg_CreateLinearProjectile::sticky_fow_reveal() const {
   return _internal_sticky_fow_reveal();
 }
 inline void CDOTAUserMsg_CreateLinearProjectile::_internal_set_sticky_fow_reveal(bool value) {
-  _impl_._has_bits_[0] |= 0x00000100u;
+  _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.sticky_fow_reveal_ = value;
 }
 inline void CDOTAUserMsg_CreateLinearProjectile::set_sticky_fow_reveal(bool value) {
@@ -42190,7 +42418,7 @@ inline void CDOTAUserMsg_CreateLinearProjectile::set_sticky_fow_reveal(bool valu
 
 // optional float distance = 11;
 inline bool CDOTAUserMsg_CreateLinearProjectile::_internal_has_distance() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_CreateLinearProjectile::has_distance() const {
@@ -42198,7 +42426,7 @@ inline bool CDOTAUserMsg_CreateLinearProjectile::has_distance() const {
 }
 inline void CDOTAUserMsg_CreateLinearProjectile::clear_distance() {
   _impl_.distance_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000200u;
+  _impl_._has_bits_[0] &= ~0x00000100u;
 }
 inline float CDOTAUserMsg_CreateLinearProjectile::_internal_distance() const {
   return _impl_.distance_;
@@ -42208,7 +42436,7 @@ inline float CDOTAUserMsg_CreateLinearProjectile::distance() const {
   return _internal_distance();
 }
 inline void CDOTAUserMsg_CreateLinearProjectile::_internal_set_distance(float value) {
-  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_._has_bits_[0] |= 0x00000100u;
   _impl_.distance_ = value;
 }
 inline void CDOTAUserMsg_CreateLinearProjectile::set_distance(float value) {
@@ -42218,7 +42446,7 @@ inline void CDOTAUserMsg_CreateLinearProjectile::set_distance(float value) {
 
 // optional fixed32 colorgemcolor = 12;
 inline bool CDOTAUserMsg_CreateLinearProjectile::_internal_has_colorgemcolor() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_CreateLinearProjectile::has_colorgemcolor() const {
@@ -42226,7 +42454,7 @@ inline bool CDOTAUserMsg_CreateLinearProjectile::has_colorgemcolor() const {
 }
 inline void CDOTAUserMsg_CreateLinearProjectile::clear_colorgemcolor() {
   _impl_.colorgemcolor_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000400u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
 }
 inline uint32_t CDOTAUserMsg_CreateLinearProjectile::_internal_colorgemcolor() const {
   return _impl_.colorgemcolor_;
@@ -42236,7 +42464,7 @@ inline uint32_t CDOTAUserMsg_CreateLinearProjectile::colorgemcolor() const {
   return _internal_colorgemcolor();
 }
 inline void CDOTAUserMsg_CreateLinearProjectile::_internal_set_colorgemcolor(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000400u;
+  _impl_._has_bits_[0] |= 0x00000200u;
   _impl_.colorgemcolor_ = value;
 }
 inline void CDOTAUserMsg_CreateLinearProjectile::set_colorgemcolor(uint32_t value) {
@@ -42320,17 +42548,17 @@ inline void CDOTAUserMsg_DestroyLinearProjectile::set_handle(int32_t value) {
 
 // CDOTAUserMsg_DodgeTrackingProjectiles
 
-// required int32 entindex = 1;
+// required int32 entindex = 1 [default = -1];
 inline bool CDOTAUserMsg_DodgeTrackingProjectiles::_internal_has_entindex() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_DodgeTrackingProjectiles::has_entindex() const {
   return _internal_has_entindex();
 }
 inline void CDOTAUserMsg_DodgeTrackingProjectiles::clear_entindex() {
-  _impl_.entindex_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.entindex_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_DodgeTrackingProjectiles::_internal_entindex() const {
   return _impl_.entindex_;
@@ -42340,7 +42568,7 @@ inline int32_t CDOTAUserMsg_DodgeTrackingProjectiles::entindex() const {
   return _internal_entindex();
 }
 inline void CDOTAUserMsg_DodgeTrackingProjectiles::_internal_set_entindex(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.entindex_ = value;
 }
 inline void CDOTAUserMsg_DodgeTrackingProjectiles::set_entindex(int32_t value) {
@@ -42350,7 +42578,7 @@ inline void CDOTAUserMsg_DodgeTrackingProjectiles::set_entindex(int32_t value) {
 
 // optional bool attacks_only = 2;
 inline bool CDOTAUserMsg_DodgeTrackingProjectiles::_internal_has_attacks_only() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_DodgeTrackingProjectiles::has_attacks_only() const {
@@ -42358,7 +42586,7 @@ inline bool CDOTAUserMsg_DodgeTrackingProjectiles::has_attacks_only() const {
 }
 inline void CDOTAUserMsg_DodgeTrackingProjectiles::clear_attacks_only() {
   _impl_.attacks_only_ = false;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline bool CDOTAUserMsg_DodgeTrackingProjectiles::_internal_attacks_only() const {
   return _impl_.attacks_only_;
@@ -42368,7 +42596,7 @@ inline bool CDOTAUserMsg_DodgeTrackingProjectiles::attacks_only() const {
   return _internal_attacks_only();
 }
 inline void CDOTAUserMsg_DodgeTrackingProjectiles::_internal_set_attacks_only(bool value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.attacks_only_ = value;
 }
 inline void CDOTAUserMsg_DodgeTrackingProjectiles::set_attacks_only(bool value) {
@@ -42380,17 +42608,17 @@ inline void CDOTAUserMsg_DodgeTrackingProjectiles::set_attacks_only(bool value) 
 
 // CDOTAUserMsg_SpectatorPlayerClick
 
-// required int32 entindex = 1;
+// required int32 entindex = 1 [default = -1];
 inline bool CDOTAUserMsg_SpectatorPlayerClick::_internal_has_entindex() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SpectatorPlayerClick::has_entindex() const {
   return _internal_has_entindex();
 }
 inline void CDOTAUserMsg_SpectatorPlayerClick::clear_entindex() {
-  _impl_.entindex_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.entindex_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_SpectatorPlayerClick::_internal_entindex() const {
   return _impl_.entindex_;
@@ -42400,7 +42628,7 @@ inline int32_t CDOTAUserMsg_SpectatorPlayerClick::entindex() const {
   return _internal_entindex();
 }
 inline void CDOTAUserMsg_SpectatorPlayerClick::_internal_set_entindex(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.entindex_ = value;
 }
 inline void CDOTAUserMsg_SpectatorPlayerClick::set_entindex(int32_t value) {
@@ -42410,7 +42638,7 @@ inline void CDOTAUserMsg_SpectatorPlayerClick::set_entindex(int32_t value) {
 
 // optional int32 order_type = 2;
 inline bool CDOTAUserMsg_SpectatorPlayerClick::_internal_has_order_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SpectatorPlayerClick::has_order_type() const {
@@ -42418,7 +42646,7 @@ inline bool CDOTAUserMsg_SpectatorPlayerClick::has_order_type() const {
 }
 inline void CDOTAUserMsg_SpectatorPlayerClick::clear_order_type() {
   _impl_.order_type_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_SpectatorPlayerClick::_internal_order_type() const {
   return _impl_.order_type_;
@@ -42428,7 +42656,7 @@ inline int32_t CDOTAUserMsg_SpectatorPlayerClick::order_type() const {
   return _internal_order_type();
 }
 inline void CDOTAUserMsg_SpectatorPlayerClick::_internal_set_order_type(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.order_type_ = value;
 }
 inline void CDOTAUserMsg_SpectatorPlayerClick::set_order_type(int32_t value) {
@@ -42436,9 +42664,9 @@ inline void CDOTAUserMsg_SpectatorPlayerClick::set_order_type(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_SpectatorPlayerClick.order_type)
 }
 
-// optional int32 target_index = 3;
+// optional int32 target_index = 3 [default = 0];
 inline bool CDOTAUserMsg_SpectatorPlayerClick::_internal_has_target_index() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SpectatorPlayerClick::has_target_index() const {
@@ -42446,7 +42674,7 @@ inline bool CDOTAUserMsg_SpectatorPlayerClick::has_target_index() const {
 }
 inline void CDOTAUserMsg_SpectatorPlayerClick::clear_target_index() {
   _impl_.target_index_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_SpectatorPlayerClick::_internal_target_index() const {
   return _impl_.target_index_;
@@ -42456,7 +42684,7 @@ inline int32_t CDOTAUserMsg_SpectatorPlayerClick::target_index() const {
   return _internal_target_index();
 }
 inline void CDOTAUserMsg_SpectatorPlayerClick::_internal_set_target_index(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.target_index_ = value;
 }
 inline void CDOTAUserMsg_SpectatorPlayerClick::set_target_index(int32_t value) {
@@ -42468,17 +42696,17 @@ inline void CDOTAUserMsg_SpectatorPlayerClick::set_target_index(int32_t value) {
 
 // CDOTAUserMsg_SpectatorPlayerUnitOrders
 
-// optional int32 entindex = 1;
+// optional int32 entindex = 1 [default = -1];
 inline bool CDOTAUserMsg_SpectatorPlayerUnitOrders::_internal_has_entindex() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SpectatorPlayerUnitOrders::has_entindex() const {
   return _internal_has_entindex();
 }
 inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::clear_entindex() {
-  _impl_.entindex_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.entindex_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline int32_t CDOTAUserMsg_SpectatorPlayerUnitOrders::_internal_entindex() const {
   return _impl_.entindex_;
@@ -42488,7 +42716,7 @@ inline int32_t CDOTAUserMsg_SpectatorPlayerUnitOrders::entindex() const {
   return _internal_entindex();
 }
 inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::_internal_set_entindex(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.entindex_ = value;
 }
 inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::set_entindex(int32_t value) {
@@ -42498,7 +42726,7 @@ inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::set_entindex(int32_t value) 
 
 // optional int32 order_type = 2;
 inline bool CDOTAUserMsg_SpectatorPlayerUnitOrders::_internal_has_order_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SpectatorPlayerUnitOrders::has_order_type() const {
@@ -42506,7 +42734,7 @@ inline bool CDOTAUserMsg_SpectatorPlayerUnitOrders::has_order_type() const {
 }
 inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::clear_order_type() {
   _impl_.order_type_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_SpectatorPlayerUnitOrders::_internal_order_type() const {
   return _impl_.order_type_;
@@ -42516,7 +42744,7 @@ inline int32_t CDOTAUserMsg_SpectatorPlayerUnitOrders::order_type() const {
   return _internal_order_type();
 }
 inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::_internal_set_order_type(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.order_type_ = value;
 }
 inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::set_order_type(int32_t value) {
@@ -42571,9 +42799,9 @@ CDOTAUserMsg_SpectatorPlayerUnitOrders::mutable_units() {
   return _internal_mutable_units();
 }
 
-// optional int32 target_index = 4;
+// optional int32 target_index = 4 [default = 0];
 inline bool CDOTAUserMsg_SpectatorPlayerUnitOrders::_internal_has_target_index() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SpectatorPlayerUnitOrders::has_target_index() const {
@@ -42581,7 +42809,7 @@ inline bool CDOTAUserMsg_SpectatorPlayerUnitOrders::has_target_index() const {
 }
 inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::clear_target_index() {
   _impl_.target_index_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_SpectatorPlayerUnitOrders::_internal_target_index() const {
   return _impl_.target_index_;
@@ -42591,7 +42819,7 @@ inline int32_t CDOTAUserMsg_SpectatorPlayerUnitOrders::target_index() const {
   return _internal_target_index();
 }
 inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::_internal_set_target_index(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.target_index_ = value;
 }
 inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::set_target_index(int32_t value) {
@@ -42599,17 +42827,17 @@ inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::set_target_index(int32_t val
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_SpectatorPlayerUnitOrders.target_index)
 }
 
-// optional int32 ability_id = 5;
+// optional int32 ability_id = 5 [default = -1];
 inline bool CDOTAUserMsg_SpectatorPlayerUnitOrders::_internal_has_ability_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SpectatorPlayerUnitOrders::has_ability_id() const {
   return _internal_has_ability_id();
 }
 inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::clear_ability_id() {
-  _impl_.ability_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_.ability_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
 inline int32_t CDOTAUserMsg_SpectatorPlayerUnitOrders::_internal_ability_id() const {
   return _impl_.ability_id_;
@@ -42619,7 +42847,7 @@ inline int32_t CDOTAUserMsg_SpectatorPlayerUnitOrders::ability_id() const {
   return _internal_ability_id();
 }
 inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::_internal_set_ability_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.ability_id_ = value;
 }
 inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::set_ability_id(int32_t value) {
@@ -42716,7 +42944,7 @@ inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::set_allocated_position(::CMs
 
 // optional bool queue = 7;
 inline bool CDOTAUserMsg_SpectatorPlayerUnitOrders::_internal_has_queue() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SpectatorPlayerUnitOrders::has_queue() const {
@@ -42724,7 +42952,7 @@ inline bool CDOTAUserMsg_SpectatorPlayerUnitOrders::has_queue() const {
 }
 inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::clear_queue() {
   _impl_.queue_ = false;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline bool CDOTAUserMsg_SpectatorPlayerUnitOrders::_internal_queue() const {
   return _impl_.queue_;
@@ -42734,7 +42962,7 @@ inline bool CDOTAUserMsg_SpectatorPlayerUnitOrders::queue() const {
   return _internal_queue();
 }
 inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::_internal_set_queue(bool value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.queue_ = value;
 }
 inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::set_queue(bool value) {
@@ -42744,7 +42972,7 @@ inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::set_queue(bool value) {
 
 // optional int32 sequence_number = 8;
 inline bool CDOTAUserMsg_SpectatorPlayerUnitOrders::_internal_has_sequence_number() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SpectatorPlayerUnitOrders::has_sequence_number() const {
@@ -42752,7 +42980,7 @@ inline bool CDOTAUserMsg_SpectatorPlayerUnitOrders::has_sequence_number() const 
 }
 inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::clear_sequence_number() {
   _impl_.sequence_number_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CDOTAUserMsg_SpectatorPlayerUnitOrders::_internal_sequence_number() const {
   return _impl_.sequence_number_;
@@ -42762,7 +42990,7 @@ inline int32_t CDOTAUserMsg_SpectatorPlayerUnitOrders::sequence_number() const {
   return _internal_sequence_number();
 }
 inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::_internal_set_sequence_number(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.sequence_number_ = value;
 }
 inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::set_sequence_number(int32_t value) {
@@ -42772,7 +43000,7 @@ inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::set_sequence_number(int32_t 
 
 // optional uint32 flags = 9;
 inline bool CDOTAUserMsg_SpectatorPlayerUnitOrders::_internal_has_flags() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SpectatorPlayerUnitOrders::has_flags() const {
@@ -42780,7 +43008,7 @@ inline bool CDOTAUserMsg_SpectatorPlayerUnitOrders::has_flags() const {
 }
 inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::clear_flags() {
   _impl_.flags_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline uint32_t CDOTAUserMsg_SpectatorPlayerUnitOrders::_internal_flags() const {
   return _impl_.flags_;
@@ -42790,7 +43018,7 @@ inline uint32_t CDOTAUserMsg_SpectatorPlayerUnitOrders::flags() const {
   return _internal_flags();
 }
 inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::_internal_set_flags(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.flags_ = value;
 }
 inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::set_flags(uint32_t value) {
@@ -42802,17 +43030,17 @@ inline void CDOTAUserMsg_SpectatorPlayerUnitOrders::set_flags(uint32_t value) {
 
 // CDOTAUserMsg_NevermoreRequiem
 
-// optional uint32 entity_handle = 1;
+// optional uint32 entity_handle = 1 [default = 16777215];
 inline bool CDOTAUserMsg_NevermoreRequiem::_internal_has_entity_handle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_NevermoreRequiem::has_entity_handle() const {
   return _internal_has_entity_handle();
 }
 inline void CDOTAUserMsg_NevermoreRequiem::clear_entity_handle() {
-  _impl_.entity_handle_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.entity_handle_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CDOTAUserMsg_NevermoreRequiem::_internal_entity_handle() const {
   return _impl_.entity_handle_;
@@ -42822,7 +43050,7 @@ inline uint32_t CDOTAUserMsg_NevermoreRequiem::entity_handle() const {
   return _internal_entity_handle();
 }
 inline void CDOTAUserMsg_NevermoreRequiem::_internal_set_entity_handle(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.entity_handle_ = value;
 }
 inline void CDOTAUserMsg_NevermoreRequiem::set_entity_handle(uint32_t value) {
@@ -42832,7 +43060,7 @@ inline void CDOTAUserMsg_NevermoreRequiem::set_entity_handle(uint32_t value) {
 
 // optional int32 lines = 2;
 inline bool CDOTAUserMsg_NevermoreRequiem::_internal_has_lines() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_NevermoreRequiem::has_lines() const {
@@ -42840,7 +43068,7 @@ inline bool CDOTAUserMsg_NevermoreRequiem::has_lines() const {
 }
 inline void CDOTAUserMsg_NevermoreRequiem::clear_lines() {
   _impl_.lines_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_NevermoreRequiem::_internal_lines() const {
   return _impl_.lines_;
@@ -42850,7 +43078,7 @@ inline int32_t CDOTAUserMsg_NevermoreRequiem::lines() const {
   return _internal_lines();
 }
 inline void CDOTAUserMsg_NevermoreRequiem::_internal_set_lines(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.lines_ = value;
 }
 inline void CDOTAUserMsg_NevermoreRequiem::set_lines(int32_t value) {
@@ -42947,7 +43175,7 @@ inline void CDOTAUserMsg_NevermoreRequiem::set_allocated_origin(::CMsgVector* or
 
 // optional bool reverse = 4;
 inline bool CDOTAUserMsg_NevermoreRequiem::_internal_has_reverse() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_NevermoreRequiem::has_reverse() const {
@@ -42955,7 +43183,7 @@ inline bool CDOTAUserMsg_NevermoreRequiem::has_reverse() const {
 }
 inline void CDOTAUserMsg_NevermoreRequiem::clear_reverse() {
   _impl_.reverse_ = false;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline bool CDOTAUserMsg_NevermoreRequiem::_internal_reverse() const {
   return _impl_.reverse_;
@@ -42965,7 +43193,7 @@ inline bool CDOTAUserMsg_NevermoreRequiem::reverse() const {
   return _internal_reverse();
 }
 inline void CDOTAUserMsg_NevermoreRequiem::_internal_set_reverse(bool value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.reverse_ = value;
 }
 inline void CDOTAUserMsg_NevermoreRequiem::set_reverse(bool value) {
@@ -43137,17 +43365,17 @@ inline void CDOTAUserMsg_HudError::set_sequence_number(int32_t value) {
 
 // CDOTAUserMsg_SharedCooldown
 
-// optional int32 entindex = 1;
+// optional int32 entindex = 1 [default = -1];
 inline bool CDOTAUserMsg_SharedCooldown::_internal_has_entindex() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SharedCooldown::has_entindex() const {
   return _internal_has_entindex();
 }
 inline void CDOTAUserMsg_SharedCooldown::clear_entindex() {
-  _impl_.entindex_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.entindex_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_SharedCooldown::_internal_entindex() const {
   return _impl_.entindex_;
@@ -43157,7 +43385,7 @@ inline int32_t CDOTAUserMsg_SharedCooldown::entindex() const {
   return _internal_entindex();
 }
 inline void CDOTAUserMsg_SharedCooldown::_internal_set_entindex(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.entindex_ = value;
 }
 inline void CDOTAUserMsg_SharedCooldown::set_entindex(int32_t value) {
@@ -43235,7 +43463,7 @@ inline void CDOTAUserMsg_SharedCooldown::set_allocated_name(std::string* name) {
 
 // optional float cooldown = 3;
 inline bool CDOTAUserMsg_SharedCooldown::_internal_has_cooldown() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SharedCooldown::has_cooldown() const {
@@ -43243,7 +43471,7 @@ inline bool CDOTAUserMsg_SharedCooldown::has_cooldown() const {
 }
 inline void CDOTAUserMsg_SharedCooldown::clear_cooldown() {
   _impl_.cooldown_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline float CDOTAUserMsg_SharedCooldown::_internal_cooldown() const {
   return _impl_.cooldown_;
@@ -43253,7 +43481,7 @@ inline float CDOTAUserMsg_SharedCooldown::cooldown() const {
   return _internal_cooldown();
 }
 inline void CDOTAUserMsg_SharedCooldown::_internal_set_cooldown(float value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.cooldown_ = value;
 }
 inline void CDOTAUserMsg_SharedCooldown::set_cooldown(float value) {
@@ -43263,7 +43491,7 @@ inline void CDOTAUserMsg_SharedCooldown::set_cooldown(float value) {
 
 // optional int32 name_index = 4;
 inline bool CDOTAUserMsg_SharedCooldown::_internal_has_name_index() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SharedCooldown::has_name_index() const {
@@ -43271,7 +43499,7 @@ inline bool CDOTAUserMsg_SharedCooldown::has_name_index() const {
 }
 inline void CDOTAUserMsg_SharedCooldown::clear_name_index() {
   _impl_.name_index_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_SharedCooldown::_internal_name_index() const {
   return _impl_.name_index_;
@@ -43281,7 +43509,7 @@ inline int32_t CDOTAUserMsg_SharedCooldown::name_index() const {
   return _internal_name_index();
 }
 inline void CDOTAUserMsg_SharedCooldown::_internal_set_name_index(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.name_index_ = value;
 }
 inline void CDOTAUserMsg_SharedCooldown::set_name_index(int32_t value) {
@@ -44402,37 +44630,9 @@ inline void CDOTAUserMsg_UnitEvent_Speech::set_recipient_type(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_UnitEvent.Speech.recipient_type)
 }
 
-// optional int32 level = 4;
-inline bool CDOTAUserMsg_UnitEvent_Speech::_internal_has_level() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
-  return value;
-}
-inline bool CDOTAUserMsg_UnitEvent_Speech::has_level() const {
-  return _internal_has_level();
-}
-inline void CDOTAUserMsg_UnitEvent_Speech::clear_level() {
-  _impl_.level_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010u;
-}
-inline int32_t CDOTAUserMsg_UnitEvent_Speech::_internal_level() const {
-  return _impl_.level_;
-}
-inline int32_t CDOTAUserMsg_UnitEvent_Speech::level() const {
-  // @@protoc_insertion_point(field_get:CDOTAUserMsg_UnitEvent.Speech.level)
-  return _internal_level();
-}
-inline void CDOTAUserMsg_UnitEvent_Speech::_internal_set_level(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
-  _impl_.level_ = value;
-}
-inline void CDOTAUserMsg_UnitEvent_Speech::set_level(int32_t value) {
-  _internal_set_level(value);
-  // @@protoc_insertion_point(field_set:CDOTAUserMsg_UnitEvent.Speech.level)
-}
-
 // optional bool muteable = 5 [default = false];
 inline bool CDOTAUserMsg_UnitEvent_Speech::_internal_has_muteable() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_UnitEvent_Speech::has_muteable() const {
@@ -44440,7 +44640,7 @@ inline bool CDOTAUserMsg_UnitEvent_Speech::has_muteable() const {
 }
 inline void CDOTAUserMsg_UnitEvent_Speech::clear_muteable() {
   _impl_.muteable_ = false;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline bool CDOTAUserMsg_UnitEvent_Speech::_internal_muteable() const {
   return _impl_.muteable_;
@@ -44450,7 +44650,7 @@ inline bool CDOTAUserMsg_UnitEvent_Speech::muteable() const {
   return _internal_muteable();
 }
 inline void CDOTAUserMsg_UnitEvent_Speech::_internal_set_muteable(bool value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.muteable_ = value;
 }
 inline void CDOTAUserMsg_UnitEvent_Speech::set_muteable(bool value) {
@@ -44550,7 +44750,7 @@ inline void CDOTAUserMsg_UnitEvent_Speech::set_allocated_predelay(::CDOTAUserMsg
 
 // optional uint32 flags = 7;
 inline bool CDOTAUserMsg_UnitEvent_Speech::_internal_has_flags() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_UnitEvent_Speech::has_flags() const {
@@ -44558,7 +44758,7 @@ inline bool CDOTAUserMsg_UnitEvent_Speech::has_flags() const {
 }
 inline void CDOTAUserMsg_UnitEvent_Speech::clear_flags() {
   _impl_.flags_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline uint32_t CDOTAUserMsg_UnitEvent_Speech::_internal_flags() const {
   return _impl_.flags_;
@@ -44568,7 +44768,7 @@ inline uint32_t CDOTAUserMsg_UnitEvent_Speech::flags() const {
   return _internal_flags();
 }
 inline void CDOTAUserMsg_UnitEvent_Speech::_internal_set_flags(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.flags_ = value;
 }
 inline void CDOTAUserMsg_UnitEvent_Speech::set_flags(uint32_t value) {
@@ -45627,7 +45827,7 @@ inline void CDOTAUserMsg_UnitEvent::set_allocated_speech_match_on_client(::CDOTA
 
 // CDOTAUserMsg_ItemPurchased
 
-// optional int32 item_ability_id = 1;
+// optional int32 item_ability_id = 1 [default = -1];
 inline bool CDOTAUserMsg_ItemPurchased::_internal_has_item_ability_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -45636,7 +45836,7 @@ inline bool CDOTAUserMsg_ItemPurchased::has_item_ability_id() const {
   return _internal_has_item_ability_id();
 }
 inline void CDOTAUserMsg_ItemPurchased::clear_item_ability_id() {
-  _impl_.item_ability_id_ = 0;
+  _impl_.item_ability_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_ItemPurchased::_internal_item_ability_id() const {
@@ -45659,7 +45859,7 @@ inline void CDOTAUserMsg_ItemPurchased::set_item_ability_id(int32_t value) {
 
 // CDOTAUserMsg_ItemSold
 
-// optional int32 item_ability_id = 1;
+// optional int32 item_ability_id = 1 [default = -1];
 inline bool CDOTAUserMsg_ItemSold::_internal_has_item_ability_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -45668,7 +45868,7 @@ inline bool CDOTAUserMsg_ItemSold::has_item_ability_id() const {
   return _internal_has_item_ability_id();
 }
 inline void CDOTAUserMsg_ItemSold::clear_item_ability_id() {
-  _impl_.item_ability_id_ = 0;
+  _impl_.item_ability_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_ItemSold::_internal_item_ability_id() const {
@@ -45691,17 +45891,17 @@ inline void CDOTAUserMsg_ItemSold::set_item_ability_id(int32_t value) {
 
 // CDOTAUserMsg_ItemFound
 
-// optional int32 player = 1;
+// optional int32 player = 1 [default = -1];
 inline bool CDOTAUserMsg_ItemFound::_internal_has_player() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ItemFound::has_player() const {
   return _internal_has_player();
 }
 inline void CDOTAUserMsg_ItemFound::clear_player() {
-  _impl_.player_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CDOTAUserMsg_ItemFound::_internal_player() const {
   return _impl_.player_;
@@ -45711,7 +45911,7 @@ inline int32_t CDOTAUserMsg_ItemFound::player() const {
   return _internal_player();
 }
 inline void CDOTAUserMsg_ItemFound::_internal_set_player(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.player_ = value;
 }
 inline void CDOTAUserMsg_ItemFound::set_player(int32_t value) {
@@ -45721,7 +45921,7 @@ inline void CDOTAUserMsg_ItemFound::set_player(int32_t value) {
 
 // optional int32 quality = 2;
 inline bool CDOTAUserMsg_ItemFound::_internal_has_quality() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ItemFound::has_quality() const {
@@ -45729,7 +45929,7 @@ inline bool CDOTAUserMsg_ItemFound::has_quality() const {
 }
 inline void CDOTAUserMsg_ItemFound::clear_quality() {
   _impl_.quality_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_ItemFound::_internal_quality() const {
   return _impl_.quality_;
@@ -45739,7 +45939,7 @@ inline int32_t CDOTAUserMsg_ItemFound::quality() const {
   return _internal_quality();
 }
 inline void CDOTAUserMsg_ItemFound::_internal_set_quality(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.quality_ = value;
 }
 inline void CDOTAUserMsg_ItemFound::set_quality(int32_t value) {
@@ -45749,7 +45949,7 @@ inline void CDOTAUserMsg_ItemFound::set_quality(int32_t value) {
 
 // optional int32 rarity = 3;
 inline bool CDOTAUserMsg_ItemFound::_internal_has_rarity() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ItemFound::has_rarity() const {
@@ -45757,7 +45957,7 @@ inline bool CDOTAUserMsg_ItemFound::has_rarity() const {
 }
 inline void CDOTAUserMsg_ItemFound::clear_rarity() {
   _impl_.rarity_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_ItemFound::_internal_rarity() const {
   return _impl_.rarity_;
@@ -45767,7 +45967,7 @@ inline int32_t CDOTAUserMsg_ItemFound::rarity() const {
   return _internal_rarity();
 }
 inline void CDOTAUserMsg_ItemFound::_internal_set_rarity(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.rarity_ = value;
 }
 inline void CDOTAUserMsg_ItemFound::set_rarity(int32_t value) {
@@ -45777,7 +45977,7 @@ inline void CDOTAUserMsg_ItemFound::set_rarity(int32_t value) {
 
 // optional int32 method = 4;
 inline bool CDOTAUserMsg_ItemFound::_internal_has_method() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ItemFound::has_method() const {
@@ -45785,7 +45985,7 @@ inline bool CDOTAUserMsg_ItemFound::has_method() const {
 }
 inline void CDOTAUserMsg_ItemFound::clear_method() {
   _impl_.method_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_ItemFound::_internal_method() const {
   return _impl_.method_;
@@ -45795,7 +45995,7 @@ inline int32_t CDOTAUserMsg_ItemFound::method() const {
   return _internal_method();
 }
 inline void CDOTAUserMsg_ItemFound::_internal_set_method(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.method_ = value;
 }
 inline void CDOTAUserMsg_ItemFound::set_method(int32_t value) {
@@ -45805,7 +46005,7 @@ inline void CDOTAUserMsg_ItemFound::set_method(int32_t value) {
 
 // optional uint32 itemdef = 5;
 inline bool CDOTAUserMsg_ItemFound::_internal_has_itemdef() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ItemFound::has_itemdef() const {
@@ -45813,7 +46013,7 @@ inline bool CDOTAUserMsg_ItemFound::has_itemdef() const {
 }
 inline void CDOTAUserMsg_ItemFound::clear_itemdef() {
   _impl_.itemdef_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CDOTAUserMsg_ItemFound::_internal_itemdef() const {
   return _impl_.itemdef_;
@@ -45823,7 +46023,7 @@ inline uint32_t CDOTAUserMsg_ItemFound::itemdef() const {
   return _internal_itemdef();
 }
 inline void CDOTAUserMsg_ItemFound::_internal_set_itemdef(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.itemdef_ = value;
 }
 inline void CDOTAUserMsg_ItemFound::set_itemdef(uint32_t value) {
@@ -45892,17 +46092,17 @@ inline void CDOTAUserMsg_OverheadEvent::set_value(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_OverheadEvent.value)
 }
 
-// optional int32 target_player_entindex = 3;
+// optional int32 target_player_entindex = 3 [default = -1];
 inline bool CDOTAUserMsg_OverheadEvent::_internal_has_target_player_entindex() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_OverheadEvent::has_target_player_entindex() const {
   return _internal_has_target_player_entindex();
 }
 inline void CDOTAUserMsg_OverheadEvent::clear_target_player_entindex() {
-  _impl_.target_player_entindex_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.target_player_entindex_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_OverheadEvent::_internal_target_player_entindex() const {
   return _impl_.target_player_entindex_;
@@ -45912,7 +46112,7 @@ inline int32_t CDOTAUserMsg_OverheadEvent::target_player_entindex() const {
   return _internal_target_player_entindex();
 }
 inline void CDOTAUserMsg_OverheadEvent::_internal_set_target_player_entindex(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.target_player_entindex_ = value;
 }
 inline void CDOTAUserMsg_OverheadEvent::set_target_player_entindex(int32_t value) {
@@ -45920,17 +46120,17 @@ inline void CDOTAUserMsg_OverheadEvent::set_target_player_entindex(int32_t value
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_OverheadEvent.target_player_entindex)
 }
 
-// optional int32 target_entindex = 4;
+// optional int32 target_entindex = 4 [default = -1];
 inline bool CDOTAUserMsg_OverheadEvent::_internal_has_target_entindex() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_OverheadEvent::has_target_entindex() const {
   return _internal_has_target_entindex();
 }
 inline void CDOTAUserMsg_OverheadEvent::clear_target_entindex() {
-  _impl_.target_entindex_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_.target_entindex_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CDOTAUserMsg_OverheadEvent::_internal_target_entindex() const {
   return _impl_.target_entindex_;
@@ -45940,7 +46140,7 @@ inline int32_t CDOTAUserMsg_OverheadEvent::target_entindex() const {
   return _internal_target_entindex();
 }
 inline void CDOTAUserMsg_OverheadEvent::_internal_set_target_entindex(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.target_entindex_ = value;
 }
 inline void CDOTAUserMsg_OverheadEvent::set_target_entindex(int32_t value) {
@@ -45948,17 +46148,17 @@ inline void CDOTAUserMsg_OverheadEvent::set_target_entindex(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_OverheadEvent.target_entindex)
 }
 
-// optional int32 source_player_entindex = 5;
+// optional int32 source_player_entindex = 5 [default = -1];
 inline bool CDOTAUserMsg_OverheadEvent::_internal_has_source_player_entindex() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_OverheadEvent::has_source_player_entindex() const {
   return _internal_has_source_player_entindex();
 }
 inline void CDOTAUserMsg_OverheadEvent::clear_source_player_entindex() {
-  _impl_.source_player_entindex_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_.source_player_entindex_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_OverheadEvent::_internal_source_player_entindex() const {
   return _impl_.source_player_entindex_;
@@ -45968,7 +46168,7 @@ inline int32_t CDOTAUserMsg_OverheadEvent::source_player_entindex() const {
   return _internal_source_player_entindex();
 }
 inline void CDOTAUserMsg_OverheadEvent::_internal_set_source_player_entindex(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.source_player_entindex_ = value;
 }
 inline void CDOTAUserMsg_OverheadEvent::set_source_player_entindex(int32_t value) {
@@ -46516,7 +46716,7 @@ inline void CDOTAUserMsg_SendGenericToolTip::set_close(bool value) {
 
 // CDOTAUserMsg_WorldLine
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_WorldLine::_internal_has_player_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -46525,7 +46725,7 @@ inline bool CDOTAUserMsg_WorldLine::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_WorldLine::clear_player_id() {
-  _impl_.player_id_ = 0;
+  _impl_.player_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_WorldLine::_internal_player_id() const {
@@ -46635,17 +46835,17 @@ inline void CDOTAUserMsg_WorldLine::set_allocated_worldline(::CDOTAMsg_WorldLine
 
 // CDOTAUserMsg_ChatWheel
 
-// optional uint32 chat_message_id = 1;
+// optional uint32 chat_message_id = 1 [default = 4294967295];
 inline bool CDOTAUserMsg_ChatWheel::_internal_has_chat_message_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ChatWheel::has_chat_message_id() const {
   return _internal_has_chat_message_id();
 }
 inline void CDOTAUserMsg_ChatWheel::clear_chat_message_id() {
-  _impl_.chat_message_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.chat_message_id_ = 4294967295u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CDOTAUserMsg_ChatWheel::_internal_chat_message_id() const {
   return _impl_.chat_message_id_;
@@ -46655,7 +46855,7 @@ inline uint32_t CDOTAUserMsg_ChatWheel::chat_message_id() const {
   return _internal_chat_message_id();
 }
 inline void CDOTAUserMsg_ChatWheel::_internal_set_chat_message_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.chat_message_id_ = value;
 }
 inline void CDOTAUserMsg_ChatWheel::set_chat_message_id(uint32_t value) {
@@ -46663,17 +46863,17 @@ inline void CDOTAUserMsg_ChatWheel::set_chat_message_id(uint32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_ChatWheel.chat_message_id)
 }
 
-// optional int32 player_id = 2;
+// optional int32 player_id = 2 [default = -1];
 inline bool CDOTAUserMsg_ChatWheel::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ChatWheel::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_ChatWheel::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CDOTAUserMsg_ChatWheel::_internal_player_id() const {
   return _impl_.player_id_;
@@ -46683,7 +46883,7 @@ inline int32_t CDOTAUserMsg_ChatWheel::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_ChatWheel::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_ChatWheel::set_player_id(int32_t value) {
@@ -46693,7 +46893,7 @@ inline void CDOTAUserMsg_ChatWheel::set_player_id(int32_t value) {
 
 // optional uint32 account_id = 3;
 inline bool CDOTAUserMsg_ChatWheel::_internal_has_account_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ChatWheel::has_account_id() const {
@@ -46701,7 +46901,7 @@ inline bool CDOTAUserMsg_ChatWheel::has_account_id() const {
 }
 inline void CDOTAUserMsg_ChatWheel::clear_account_id() {
   _impl_.account_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_ChatWheel::_internal_account_id() const {
   return _impl_.account_id_;
@@ -46711,7 +46911,7 @@ inline uint32_t CDOTAUserMsg_ChatWheel::account_id() const {
   return _internal_account_id();
 }
 inline void CDOTAUserMsg_ChatWheel::_internal_set_account_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.account_id_ = value;
 }
 inline void CDOTAUserMsg_ChatWheel::set_account_id(uint32_t value) {
@@ -46721,7 +46921,7 @@ inline void CDOTAUserMsg_ChatWheel::set_account_id(uint32_t value) {
 
 // optional uint32 param_hero_id = 4;
 inline bool CDOTAUserMsg_ChatWheel::_internal_has_param_hero_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ChatWheel::has_param_hero_id() const {
@@ -46729,7 +46929,7 @@ inline bool CDOTAUserMsg_ChatWheel::has_param_hero_id() const {
 }
 inline void CDOTAUserMsg_ChatWheel::clear_param_hero_id() {
   _impl_.param_hero_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CDOTAUserMsg_ChatWheel::_internal_param_hero_id() const {
   return _impl_.param_hero_id_;
@@ -46739,7 +46939,7 @@ inline uint32_t CDOTAUserMsg_ChatWheel::param_hero_id() const {
   return _internal_param_hero_id();
 }
 inline void CDOTAUserMsg_ChatWheel::_internal_set_param_hero_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.param_hero_id_ = value;
 }
 inline void CDOTAUserMsg_ChatWheel::set_param_hero_id(uint32_t value) {
@@ -46749,7 +46949,7 @@ inline void CDOTAUserMsg_ChatWheel::set_param_hero_id(uint32_t value) {
 
 // optional uint32 emoticon_id = 5;
 inline bool CDOTAUserMsg_ChatWheel::_internal_has_emoticon_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ChatWheel::has_emoticon_id() const {
@@ -46757,7 +46957,7 @@ inline bool CDOTAUserMsg_ChatWheel::has_emoticon_id() const {
 }
 inline void CDOTAUserMsg_ChatWheel::clear_emoticon_id() {
   _impl_.emoticon_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CDOTAUserMsg_ChatWheel::_internal_emoticon_id() const {
   return _impl_.emoticon_id_;
@@ -46767,7 +46967,7 @@ inline uint32_t CDOTAUserMsg_ChatWheel::emoticon_id() const {
   return _internal_emoticon_id();
 }
 inline void CDOTAUserMsg_ChatWheel::_internal_set_emoticon_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.emoticon_id_ = value;
 }
 inline void CDOTAUserMsg_ChatWheel::set_emoticon_id(uint32_t value) {
@@ -46779,17 +46979,17 @@ inline void CDOTAUserMsg_ChatWheel::set_emoticon_id(uint32_t value) {
 
 // CDOTAUserMsg_ReceivedXmasGift
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_ReceivedXmasGift::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ReceivedXmasGift::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_ReceivedXmasGift::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_ReceivedXmasGift::_internal_player_id() const {
   return _impl_.player_id_;
@@ -46799,7 +46999,7 @@ inline int32_t CDOTAUserMsg_ReceivedXmasGift::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_ReceivedXmasGift::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_ReceivedXmasGift::set_player_id(int32_t value) {
@@ -46877,7 +47077,7 @@ inline void CDOTAUserMsg_ReceivedXmasGift::set_allocated_item_name(std::string* 
 
 // optional int32 inventory_slot = 3;
 inline bool CDOTAUserMsg_ReceivedXmasGift::_internal_has_inventory_slot() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ReceivedXmasGift::has_inventory_slot() const {
@@ -46885,7 +47085,7 @@ inline bool CDOTAUserMsg_ReceivedXmasGift::has_inventory_slot() const {
 }
 inline void CDOTAUserMsg_ReceivedXmasGift::clear_inventory_slot() {
   _impl_.inventory_slot_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_ReceivedXmasGift::_internal_inventory_slot() const {
   return _impl_.inventory_slot_;
@@ -46895,7 +47095,7 @@ inline int32_t CDOTAUserMsg_ReceivedXmasGift::inventory_slot() const {
   return _internal_inventory_slot();
 }
 inline void CDOTAUserMsg_ReceivedXmasGift::_internal_set_inventory_slot(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.inventory_slot_ = value;
 }
 inline void CDOTAUserMsg_ReceivedXmasGift::set_inventory_slot(int32_t value) {
@@ -47227,17 +47427,17 @@ inline void CDOTAUserMsg_TutorialFade::set_tgt_alpha(int32_t value) {
 
 // CDOTAUserMsg_TutorialPingMinimap
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_TutorialPingMinimap::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TutorialPingMinimap::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_TutorialPingMinimap::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CDOTAUserMsg_TutorialPingMinimap::_internal_player_id() const {
   return _impl_.player_id_;
@@ -47247,7 +47447,7 @@ inline int32_t CDOTAUserMsg_TutorialPingMinimap::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_TutorialPingMinimap::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_TutorialPingMinimap::set_player_id(int32_t value) {
@@ -47257,7 +47457,7 @@ inline void CDOTAUserMsg_TutorialPingMinimap::set_player_id(int32_t value) {
 
 // optional float pos_x = 2;
 inline bool CDOTAUserMsg_TutorialPingMinimap::_internal_has_pos_x() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TutorialPingMinimap::has_pos_x() const {
@@ -47265,7 +47465,7 @@ inline bool CDOTAUserMsg_TutorialPingMinimap::has_pos_x() const {
 }
 inline void CDOTAUserMsg_TutorialPingMinimap::clear_pos_x() {
   _impl_.pos_x_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline float CDOTAUserMsg_TutorialPingMinimap::_internal_pos_x() const {
   return _impl_.pos_x_;
@@ -47275,7 +47475,7 @@ inline float CDOTAUserMsg_TutorialPingMinimap::pos_x() const {
   return _internal_pos_x();
 }
 inline void CDOTAUserMsg_TutorialPingMinimap::_internal_set_pos_x(float value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.pos_x_ = value;
 }
 inline void CDOTAUserMsg_TutorialPingMinimap::set_pos_x(float value) {
@@ -47285,7 +47485,7 @@ inline void CDOTAUserMsg_TutorialPingMinimap::set_pos_x(float value) {
 
 // optional float pos_y = 3;
 inline bool CDOTAUserMsg_TutorialPingMinimap::_internal_has_pos_y() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TutorialPingMinimap::has_pos_y() const {
@@ -47293,7 +47493,7 @@ inline bool CDOTAUserMsg_TutorialPingMinimap::has_pos_y() const {
 }
 inline void CDOTAUserMsg_TutorialPingMinimap::clear_pos_y() {
   _impl_.pos_y_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline float CDOTAUserMsg_TutorialPingMinimap::_internal_pos_y() const {
   return _impl_.pos_y_;
@@ -47303,7 +47503,7 @@ inline float CDOTAUserMsg_TutorialPingMinimap::pos_y() const {
   return _internal_pos_y();
 }
 inline void CDOTAUserMsg_TutorialPingMinimap::_internal_set_pos_y(float value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.pos_y_ = value;
 }
 inline void CDOTAUserMsg_TutorialPingMinimap::set_pos_y(float value) {
@@ -47313,7 +47513,7 @@ inline void CDOTAUserMsg_TutorialPingMinimap::set_pos_y(float value) {
 
 // optional float pos_z = 4;
 inline bool CDOTAUserMsg_TutorialPingMinimap::_internal_has_pos_z() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TutorialPingMinimap::has_pos_z() const {
@@ -47321,7 +47521,7 @@ inline bool CDOTAUserMsg_TutorialPingMinimap::has_pos_z() const {
 }
 inline void CDOTAUserMsg_TutorialPingMinimap::clear_pos_z() {
   _impl_.pos_z_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline float CDOTAUserMsg_TutorialPingMinimap::_internal_pos_z() const {
   return _impl_.pos_z_;
@@ -47331,7 +47531,7 @@ inline float CDOTAUserMsg_TutorialPingMinimap::pos_z() const {
   return _internal_pos_z();
 }
 inline void CDOTAUserMsg_TutorialPingMinimap::_internal_set_pos_z(float value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.pos_z_ = value;
 }
 inline void CDOTAUserMsg_TutorialPingMinimap::set_pos_z(float value) {
@@ -47341,7 +47541,7 @@ inline void CDOTAUserMsg_TutorialPingMinimap::set_pos_z(float value) {
 
 // optional int32 entity_index = 5;
 inline bool CDOTAUserMsg_TutorialPingMinimap::_internal_has_entity_index() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TutorialPingMinimap::has_entity_index() const {
@@ -47349,7 +47549,7 @@ inline bool CDOTAUserMsg_TutorialPingMinimap::has_entity_index() const {
 }
 inline void CDOTAUserMsg_TutorialPingMinimap::clear_entity_index() {
   _impl_.entity_index_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_TutorialPingMinimap::_internal_entity_index() const {
   return _impl_.entity_index_;
@@ -47359,7 +47559,7 @@ inline int32_t CDOTAUserMsg_TutorialPingMinimap::entity_index() const {
   return _internal_entity_index();
 }
 inline void CDOTAUserMsg_TutorialPingMinimap::_internal_set_entity_index(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.entity_index_ = value;
 }
 inline void CDOTAUserMsg_TutorialPingMinimap::set_entity_index(int32_t value) {
@@ -47543,7 +47743,7 @@ inline void CDOTAUserMsg_AddQuestLogEntry::set_allocated_npc_dialog(std::string*
 
 // CDOTAUserMsg_SendStatPopup
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_SendStatPopup::_internal_has_player_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -47552,7 +47752,7 @@ inline bool CDOTAUserMsg_SendStatPopup::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_SendStatPopup::clear_player_id() {
-  _impl_.player_id_ = 0;
+  _impl_.player_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_SendStatPopup::_internal_player_id() const {
@@ -48068,17 +48268,17 @@ inline void CDOTAUserMsg_CustomMsg::set_allocated_message(std::string* message) 
   // @@protoc_insertion_point(field_set_allocated:CDOTAUserMsg_CustomMsg.message)
 }
 
-// optional int32 player_id = 2;
+// optional int32 player_id = 2 [default = -1];
 inline bool CDOTAUserMsg_CustomMsg::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_CustomMsg::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_CustomMsg::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_CustomMsg::_internal_player_id() const {
   return _impl_.player_id_;
@@ -48088,7 +48288,7 @@ inline int32_t CDOTAUserMsg_CustomMsg::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_CustomMsg::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_CustomMsg::set_player_id(int32_t value) {
@@ -48098,7 +48298,7 @@ inline void CDOTAUserMsg_CustomMsg::set_player_id(int32_t value) {
 
 // optional int32 value = 3;
 inline bool CDOTAUserMsg_CustomMsg::_internal_has_value() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_CustomMsg::has_value() const {
@@ -48106,7 +48306,7 @@ inline bool CDOTAUserMsg_CustomMsg::has_value() const {
 }
 inline void CDOTAUserMsg_CustomMsg::clear_value() {
   _impl_.value_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_CustomMsg::_internal_value() const {
   return _impl_.value_;
@@ -48116,7 +48316,7 @@ inline int32_t CDOTAUserMsg_CustomMsg::value() const {
   return _internal_value();
 }
 inline void CDOTAUserMsg_CustomMsg::_internal_set_value(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.value_ = value;
 }
 inline void CDOTAUserMsg_CustomMsg::set_value(int32_t value) {
@@ -48128,7 +48328,7 @@ inline void CDOTAUserMsg_CustomMsg::set_value(int32_t value) {
 
 // CDOTAUserMsg_CoachHUDPing
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_CoachHUDPing::_internal_has_player_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -48137,7 +48337,7 @@ inline bool CDOTAUserMsg_CoachHUDPing::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_CoachHUDPing::clear_player_id() {
-  _impl_.player_id_ = 0;
+  _impl_.player_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_CoachHUDPing::_internal_player_id() const {
@@ -48251,17 +48451,17 @@ inline void CDOTAUserMsg_CoachHUDPing::set_allocated_hud_ping(::CDOTAMsg_CoachHU
 
 // CDOTAUserMsg_TE_Projectile
 
-// optional uint32 source = 1;
+// optional uint32 source = 1 [default = 16777215];
 inline bool CDOTAUserMsg_TE_Projectile::_internal_has_source() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_Projectile::has_source() const {
   return _internal_has_source();
 }
 inline void CDOTAUserMsg_TE_Projectile::clear_source() {
-  _impl_.source_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.source_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00001000u;
 }
 inline uint32_t CDOTAUserMsg_TE_Projectile::_internal_source() const {
   return _impl_.source_;
@@ -48271,7 +48471,7 @@ inline uint32_t CDOTAUserMsg_TE_Projectile::source() const {
   return _internal_source();
 }
 inline void CDOTAUserMsg_TE_Projectile::_internal_set_source(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00001000u;
   _impl_.source_ = value;
 }
 inline void CDOTAUserMsg_TE_Projectile::set_source(uint32_t value) {
@@ -48279,17 +48479,17 @@ inline void CDOTAUserMsg_TE_Projectile::set_source(uint32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_TE_Projectile.source)
 }
 
-// optional uint32 target = 2;
+// optional uint32 target = 2 [default = 16777215];
 inline bool CDOTAUserMsg_TE_Projectile::_internal_has_target() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_Projectile::has_target() const {
   return _internal_has_target();
 }
 inline void CDOTAUserMsg_TE_Projectile::clear_target() {
-  _impl_.target_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.target_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00002000u;
 }
 inline uint32_t CDOTAUserMsg_TE_Projectile::_internal_target() const {
   return _impl_.target_;
@@ -48299,7 +48499,7 @@ inline uint32_t CDOTAUserMsg_TE_Projectile::target() const {
   return _internal_target();
 }
 inline void CDOTAUserMsg_TE_Projectile::_internal_set_target(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00002000u;
   _impl_.target_ = value;
 }
 inline void CDOTAUserMsg_TE_Projectile::set_target(uint32_t value) {
@@ -48309,7 +48509,7 @@ inline void CDOTAUserMsg_TE_Projectile::set_target(uint32_t value) {
 
 // optional int32 move_speed = 3;
 inline bool CDOTAUserMsg_TE_Projectile::_internal_has_move_speed() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_Projectile::has_move_speed() const {
@@ -48317,7 +48517,7 @@ inline bool CDOTAUserMsg_TE_Projectile::has_move_speed() const {
 }
 inline void CDOTAUserMsg_TE_Projectile::clear_move_speed() {
   _impl_.move_speed_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_TE_Projectile::_internal_move_speed() const {
   return _impl_.move_speed_;
@@ -48327,7 +48527,7 @@ inline int32_t CDOTAUserMsg_TE_Projectile::move_speed() const {
   return _internal_move_speed();
 }
 inline void CDOTAUserMsg_TE_Projectile::_internal_set_move_speed(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.move_speed_ = value;
 }
 inline void CDOTAUserMsg_TE_Projectile::set_move_speed(int32_t value) {
@@ -48337,7 +48537,7 @@ inline void CDOTAUserMsg_TE_Projectile::set_move_speed(int32_t value) {
 
 // optional int32 source_attachment = 4;
 inline bool CDOTAUserMsg_TE_Projectile::_internal_has_source_attachment() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_Projectile::has_source_attachment() const {
@@ -48345,7 +48545,7 @@ inline bool CDOTAUserMsg_TE_Projectile::has_source_attachment() const {
 }
 inline void CDOTAUserMsg_TE_Projectile::clear_source_attachment() {
   _impl_.source_attachment_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_TE_Projectile::_internal_source_attachment() const {
   return _impl_.source_attachment_;
@@ -48355,7 +48555,7 @@ inline int32_t CDOTAUserMsg_TE_Projectile::source_attachment() const {
   return _internal_source_attachment();
 }
 inline void CDOTAUserMsg_TE_Projectile::_internal_set_source_attachment(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.source_attachment_ = value;
 }
 inline void CDOTAUserMsg_TE_Projectile::set_source_attachment(int32_t value) {
@@ -48365,7 +48565,7 @@ inline void CDOTAUserMsg_TE_Projectile::set_source_attachment(int32_t value) {
 
 // optional int64 particle_system_handle = 5;
 inline bool CDOTAUserMsg_TE_Projectile::_internal_has_particle_system_handle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_Projectile::has_particle_system_handle() const {
@@ -48373,7 +48573,7 @@ inline bool CDOTAUserMsg_TE_Projectile::has_particle_system_handle() const {
 }
 inline void CDOTAUserMsg_TE_Projectile::clear_particle_system_handle() {
   _impl_.particle_system_handle_ = int64_t{0};
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int64_t CDOTAUserMsg_TE_Projectile::_internal_particle_system_handle() const {
   return _impl_.particle_system_handle_;
@@ -48383,7 +48583,7 @@ inline int64_t CDOTAUserMsg_TE_Projectile::particle_system_handle() const {
   return _internal_particle_system_handle();
 }
 inline void CDOTAUserMsg_TE_Projectile::_internal_set_particle_system_handle(int64_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.particle_system_handle_ = value;
 }
 inline void CDOTAUserMsg_TE_Projectile::set_particle_system_handle(int64_t value) {
@@ -48393,7 +48593,7 @@ inline void CDOTAUserMsg_TE_Projectile::set_particle_system_handle(int64_t value
 
 // optional bool dodgeable = 6;
 inline bool CDOTAUserMsg_TE_Projectile::_internal_has_dodgeable() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_Projectile::has_dodgeable() const {
@@ -48401,7 +48601,7 @@ inline bool CDOTAUserMsg_TE_Projectile::has_dodgeable() const {
 }
 inline void CDOTAUserMsg_TE_Projectile::clear_dodgeable() {
   _impl_.dodgeable_ = false;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline bool CDOTAUserMsg_TE_Projectile::_internal_dodgeable() const {
   return _impl_.dodgeable_;
@@ -48411,7 +48611,7 @@ inline bool CDOTAUserMsg_TE_Projectile::dodgeable() const {
   return _internal_dodgeable();
 }
 inline void CDOTAUserMsg_TE_Projectile::_internal_set_dodgeable(bool value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.dodgeable_ = value;
 }
 inline void CDOTAUserMsg_TE_Projectile::set_dodgeable(bool value) {
@@ -48421,7 +48621,7 @@ inline void CDOTAUserMsg_TE_Projectile::set_dodgeable(bool value) {
 
 // optional bool is_attack = 7;
 inline bool CDOTAUserMsg_TE_Projectile::_internal_has_is_attack() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_Projectile::has_is_attack() const {
@@ -48429,7 +48629,7 @@ inline bool CDOTAUserMsg_TE_Projectile::has_is_attack() const {
 }
 inline void CDOTAUserMsg_TE_Projectile::clear_is_attack() {
   _impl_.is_attack_ = false;
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline bool CDOTAUserMsg_TE_Projectile::_internal_is_attack() const {
   return _impl_.is_attack_;
@@ -48439,7 +48639,7 @@ inline bool CDOTAUserMsg_TE_Projectile::is_attack() const {
   return _internal_is_attack();
 }
 inline void CDOTAUserMsg_TE_Projectile::_internal_set_is_attack(bool value) {
-  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.is_attack_ = value;
 }
 inline void CDOTAUserMsg_TE_Projectile::set_is_attack(bool value) {
@@ -48449,7 +48649,7 @@ inline void CDOTAUserMsg_TE_Projectile::set_is_attack(bool value) {
 
 // optional float expire_time = 9;
 inline bool CDOTAUserMsg_TE_Projectile::_internal_has_expire_time() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_Projectile::has_expire_time() const {
@@ -48457,7 +48657,7 @@ inline bool CDOTAUserMsg_TE_Projectile::has_expire_time() const {
 }
 inline void CDOTAUserMsg_TE_Projectile::clear_expire_time() {
   _impl_.expire_time_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000100u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline float CDOTAUserMsg_TE_Projectile::_internal_expire_time() const {
   return _impl_.expire_time_;
@@ -48467,7 +48667,7 @@ inline float CDOTAUserMsg_TE_Projectile::expire_time() const {
   return _internal_expire_time();
 }
 inline void CDOTAUserMsg_TE_Projectile::_internal_set_expire_time(float value) {
-  _impl_._has_bits_[0] |= 0x00000100u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.expire_time_ = value;
 }
 inline void CDOTAUserMsg_TE_Projectile::set_expire_time(float value) {
@@ -48477,7 +48677,7 @@ inline void CDOTAUserMsg_TE_Projectile::set_expire_time(float value) {
 
 // optional float maximpacttime = 10;
 inline bool CDOTAUserMsg_TE_Projectile::_internal_has_maximpacttime() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_Projectile::has_maximpacttime() const {
@@ -48485,7 +48685,7 @@ inline bool CDOTAUserMsg_TE_Projectile::has_maximpacttime() const {
 }
 inline void CDOTAUserMsg_TE_Projectile::clear_maximpacttime() {
   _impl_.maximpacttime_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000200u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
 inline float CDOTAUserMsg_TE_Projectile::_internal_maximpacttime() const {
   return _impl_.maximpacttime_;
@@ -48495,7 +48695,7 @@ inline float CDOTAUserMsg_TE_Projectile::maximpacttime() const {
   return _internal_maximpacttime();
 }
 inline void CDOTAUserMsg_TE_Projectile::_internal_set_maximpacttime(float value) {
-  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.maximpacttime_ = value;
 }
 inline void CDOTAUserMsg_TE_Projectile::set_maximpacttime(float value) {
@@ -48505,7 +48705,7 @@ inline void CDOTAUserMsg_TE_Projectile::set_maximpacttime(float value) {
 
 // optional fixed32 colorgemcolor = 11;
 inline bool CDOTAUserMsg_TE_Projectile::_internal_has_colorgemcolor() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_Projectile::has_colorgemcolor() const {
@@ -48513,7 +48713,7 @@ inline bool CDOTAUserMsg_TE_Projectile::has_colorgemcolor() const {
 }
 inline void CDOTAUserMsg_TE_Projectile::clear_colorgemcolor() {
   _impl_.colorgemcolor_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000400u;
+  _impl_._has_bits_[0] &= ~0x00000100u;
 }
 inline uint32_t CDOTAUserMsg_TE_Projectile::_internal_colorgemcolor() const {
   return _impl_.colorgemcolor_;
@@ -48523,7 +48723,7 @@ inline uint32_t CDOTAUserMsg_TE_Projectile::colorgemcolor() const {
   return _internal_colorgemcolor();
 }
 inline void CDOTAUserMsg_TE_Projectile::_internal_set_colorgemcolor(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000400u;
+  _impl_._has_bits_[0] |= 0x00000100u;
   _impl_.colorgemcolor_ = value;
 }
 inline void CDOTAUserMsg_TE_Projectile::set_colorgemcolor(uint32_t value) {
@@ -48533,7 +48733,7 @@ inline void CDOTAUserMsg_TE_Projectile::set_colorgemcolor(uint32_t value) {
 
 // optional int32 launch_tick = 12;
 inline bool CDOTAUserMsg_TE_Projectile::_internal_has_launch_tick() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_Projectile::has_launch_tick() const {
@@ -48541,7 +48741,7 @@ inline bool CDOTAUserMsg_TE_Projectile::has_launch_tick() const {
 }
 inline void CDOTAUserMsg_TE_Projectile::clear_launch_tick() {
   _impl_.launch_tick_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000800u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
 }
 inline int32_t CDOTAUserMsg_TE_Projectile::_internal_launch_tick() const {
   return _impl_.launch_tick_;
@@ -48551,7 +48751,7 @@ inline int32_t CDOTAUserMsg_TE_Projectile::launch_tick() const {
   return _internal_launch_tick();
 }
 inline void CDOTAUserMsg_TE_Projectile::_internal_set_launch_tick(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000800u;
+  _impl_._has_bits_[0] |= 0x00000200u;
   _impl_.launch_tick_ = value;
 }
 inline void CDOTAUserMsg_TE_Projectile::set_launch_tick(int32_t value) {
@@ -48561,7 +48761,7 @@ inline void CDOTAUserMsg_TE_Projectile::set_launch_tick(int32_t value) {
 
 // optional int32 handle = 13;
 inline bool CDOTAUserMsg_TE_Projectile::_internal_has_handle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_Projectile::has_handle() const {
@@ -48569,7 +48769,7 @@ inline bool CDOTAUserMsg_TE_Projectile::has_handle() const {
 }
 inline void CDOTAUserMsg_TE_Projectile::clear_handle() {
   _impl_.handle_ = 0;
-  _impl_._has_bits_[0] &= ~0x00001000u;
+  _impl_._has_bits_[0] &= ~0x00000400u;
 }
 inline int32_t CDOTAUserMsg_TE_Projectile::_internal_handle() const {
   return _impl_.handle_;
@@ -48579,7 +48779,7 @@ inline int32_t CDOTAUserMsg_TE_Projectile::handle() const {
   return _internal_handle();
 }
 inline void CDOTAUserMsg_TE_Projectile::_internal_set_handle(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00001000u;
+  _impl_._has_bits_[0] |= 0x00000400u;
   _impl_.handle_ = value;
 }
 inline void CDOTAUserMsg_TE_Projectile::set_handle(int32_t value) {
@@ -48716,7 +48916,7 @@ CDOTAUserMsg_TE_Projectile::particle_cp_data() const {
 
 // optional int64 additional_particle_system_handle = 16;
 inline bool CDOTAUserMsg_TE_Projectile::_internal_has_additional_particle_system_handle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_Projectile::has_additional_particle_system_handle() const {
@@ -48724,7 +48924,7 @@ inline bool CDOTAUserMsg_TE_Projectile::has_additional_particle_system_handle() 
 }
 inline void CDOTAUserMsg_TE_Projectile::clear_additional_particle_system_handle() {
   _impl_.additional_particle_system_handle_ = int64_t{0};
-  _impl_._has_bits_[0] &= ~0x00002000u;
+  _impl_._has_bits_[0] &= ~0x00000800u;
 }
 inline int64_t CDOTAUserMsg_TE_Projectile::_internal_additional_particle_system_handle() const {
   return _impl_.additional_particle_system_handle_;
@@ -48734,7 +48934,7 @@ inline int64_t CDOTAUserMsg_TE_Projectile::additional_particle_system_handle() c
   return _internal_additional_particle_system_handle();
 }
 inline void CDOTAUserMsg_TE_Projectile::_internal_set_additional_particle_system_handle(int64_t value) {
-  _impl_._has_bits_[0] |= 0x00002000u;
+  _impl_._has_bits_[0] |= 0x00000800u;
   _impl_.additional_particle_system_handle_ = value;
 }
 inline void CDOTAUserMsg_TE_Projectile::set_additional_particle_system_handle(int64_t value) {
@@ -48833,17 +49033,17 @@ inline void CDOTAUserMsg_TE_ProjectileLoc::set_allocated_source_loc(::CMsgVector
   // @@protoc_insertion_point(field_set_allocated:CDOTAUserMsg_TE_ProjectileLoc.source_loc)
 }
 
-// optional uint32 target = 2;
+// optional uint32 target = 2 [default = 16777215];
 inline bool CDOTAUserMsg_TE_ProjectileLoc::_internal_has_target() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_ProjectileLoc::has_target() const {
   return _internal_has_target();
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::clear_target() {
-  _impl_.target_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.target_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00001000u;
 }
 inline uint32_t CDOTAUserMsg_TE_ProjectileLoc::_internal_target() const {
   return _impl_.target_;
@@ -48853,7 +49053,7 @@ inline uint32_t CDOTAUserMsg_TE_ProjectileLoc::target() const {
   return _internal_target();
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::_internal_set_target(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00001000u;
   _impl_.target_ = value;
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::set_target(uint32_t value) {
@@ -48891,7 +49091,7 @@ inline void CDOTAUserMsg_TE_ProjectileLoc::set_move_speed(int32_t value) {
 
 // optional int64 particle_system_handle = 4;
 inline bool CDOTAUserMsg_TE_ProjectileLoc::_internal_has_particle_system_handle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_ProjectileLoc::has_particle_system_handle() const {
@@ -48899,7 +49099,7 @@ inline bool CDOTAUserMsg_TE_ProjectileLoc::has_particle_system_handle() const {
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::clear_particle_system_handle() {
   _impl_.particle_system_handle_ = int64_t{0};
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int64_t CDOTAUserMsg_TE_ProjectileLoc::_internal_particle_system_handle() const {
   return _impl_.particle_system_handle_;
@@ -48909,7 +49109,7 @@ inline int64_t CDOTAUserMsg_TE_ProjectileLoc::particle_system_handle() const {
   return _internal_particle_system_handle();
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::_internal_set_particle_system_handle(int64_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.particle_system_handle_ = value;
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::set_particle_system_handle(int64_t value) {
@@ -48919,7 +49119,7 @@ inline void CDOTAUserMsg_TE_ProjectileLoc::set_particle_system_handle(int64_t va
 
 // optional bool dodgeable = 5;
 inline bool CDOTAUserMsg_TE_ProjectileLoc::_internal_has_dodgeable() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_ProjectileLoc::has_dodgeable() const {
@@ -48927,7 +49127,7 @@ inline bool CDOTAUserMsg_TE_ProjectileLoc::has_dodgeable() const {
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::clear_dodgeable() {
   _impl_.dodgeable_ = false;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline bool CDOTAUserMsg_TE_ProjectileLoc::_internal_dodgeable() const {
   return _impl_.dodgeable_;
@@ -48937,7 +49137,7 @@ inline bool CDOTAUserMsg_TE_ProjectileLoc::dodgeable() const {
   return _internal_dodgeable();
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::_internal_set_dodgeable(bool value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.dodgeable_ = value;
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::set_dodgeable(bool value) {
@@ -48947,7 +49147,7 @@ inline void CDOTAUserMsg_TE_ProjectileLoc::set_dodgeable(bool value) {
 
 // optional bool is_attack = 6;
 inline bool CDOTAUserMsg_TE_ProjectileLoc::_internal_has_is_attack() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_ProjectileLoc::has_is_attack() const {
@@ -48955,7 +49155,7 @@ inline bool CDOTAUserMsg_TE_ProjectileLoc::has_is_attack() const {
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::clear_is_attack() {
   _impl_.is_attack_ = false;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline bool CDOTAUserMsg_TE_ProjectileLoc::_internal_is_attack() const {
   return _impl_.is_attack_;
@@ -48965,7 +49165,7 @@ inline bool CDOTAUserMsg_TE_ProjectileLoc::is_attack() const {
   return _internal_is_attack();
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::_internal_set_is_attack(bool value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.is_attack_ = value;
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::set_is_attack(bool value) {
@@ -48975,7 +49175,7 @@ inline void CDOTAUserMsg_TE_ProjectileLoc::set_is_attack(bool value) {
 
 // optional float expire_time = 9;
 inline bool CDOTAUserMsg_TE_ProjectileLoc::_internal_has_expire_time() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_ProjectileLoc::has_expire_time() const {
@@ -48983,7 +49183,7 @@ inline bool CDOTAUserMsg_TE_ProjectileLoc::has_expire_time() const {
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::clear_expire_time() {
   _impl_.expire_time_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline float CDOTAUserMsg_TE_ProjectileLoc::_internal_expire_time() const {
   return _impl_.expire_time_;
@@ -48993,7 +49193,7 @@ inline float CDOTAUserMsg_TE_ProjectileLoc::expire_time() const {
   return _internal_expire_time();
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::_internal_set_expire_time(float value) {
-  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.expire_time_ = value;
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::set_expire_time(float value) {
@@ -49090,7 +49290,7 @@ inline void CDOTAUserMsg_TE_ProjectileLoc::set_allocated_target_loc(::CMsgVector
 
 // optional fixed32 colorgemcolor = 11;
 inline bool CDOTAUserMsg_TE_ProjectileLoc::_internal_has_colorgemcolor() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_ProjectileLoc::has_colorgemcolor() const {
@@ -49098,7 +49298,7 @@ inline bool CDOTAUserMsg_TE_ProjectileLoc::has_colorgemcolor() const {
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::clear_colorgemcolor() {
   _impl_.colorgemcolor_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000100u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
 inline uint32_t CDOTAUserMsg_TE_ProjectileLoc::_internal_colorgemcolor() const {
   return _impl_.colorgemcolor_;
@@ -49108,7 +49308,7 @@ inline uint32_t CDOTAUserMsg_TE_ProjectileLoc::colorgemcolor() const {
   return _internal_colorgemcolor();
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::_internal_set_colorgemcolor(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000100u;
+  _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.colorgemcolor_ = value;
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::set_colorgemcolor(uint32_t value) {
@@ -49118,7 +49318,7 @@ inline void CDOTAUserMsg_TE_ProjectileLoc::set_colorgemcolor(uint32_t value) {
 
 // optional int32 launch_tick = 12;
 inline bool CDOTAUserMsg_TE_ProjectileLoc::_internal_has_launch_tick() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_ProjectileLoc::has_launch_tick() const {
@@ -49126,7 +49326,7 @@ inline bool CDOTAUserMsg_TE_ProjectileLoc::has_launch_tick() const {
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::clear_launch_tick() {
   _impl_.launch_tick_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000200u;
+  _impl_._has_bits_[0] &= ~0x00000100u;
 }
 inline int32_t CDOTAUserMsg_TE_ProjectileLoc::_internal_launch_tick() const {
   return _impl_.launch_tick_;
@@ -49136,7 +49336,7 @@ inline int32_t CDOTAUserMsg_TE_ProjectileLoc::launch_tick() const {
   return _internal_launch_tick();
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::_internal_set_launch_tick(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_._has_bits_[0] |= 0x00000100u;
   _impl_.launch_tick_ = value;
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::set_launch_tick(int32_t value) {
@@ -49146,7 +49346,7 @@ inline void CDOTAUserMsg_TE_ProjectileLoc::set_launch_tick(int32_t value) {
 
 // optional int32 handle = 13;
 inline bool CDOTAUserMsg_TE_ProjectileLoc::_internal_has_handle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_ProjectileLoc::has_handle() const {
@@ -49154,7 +49354,7 @@ inline bool CDOTAUserMsg_TE_ProjectileLoc::has_handle() const {
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::clear_handle() {
   _impl_.handle_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000400u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
 }
 inline int32_t CDOTAUserMsg_TE_ProjectileLoc::_internal_handle() const {
   return _impl_.handle_;
@@ -49164,7 +49364,7 @@ inline int32_t CDOTAUserMsg_TE_ProjectileLoc::handle() const {
   return _internal_handle();
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::_internal_set_handle(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000400u;
+  _impl_._has_bits_[0] |= 0x00000200u;
   _impl_.handle_ = value;
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::set_handle(int32_t value) {
@@ -49172,17 +49372,17 @@ inline void CDOTAUserMsg_TE_ProjectileLoc::set_handle(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_TE_ProjectileLoc.handle)
 }
 
-// optional uint32 source = 14;
+// optional uint32 source = 14 [default = 16777215];
 inline bool CDOTAUserMsg_TE_ProjectileLoc::_internal_has_source() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_ProjectileLoc::has_source() const {
   return _internal_has_source();
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::clear_source() {
-  _impl_.source_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000800u;
+  _impl_.source_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00002000u;
 }
 inline uint32_t CDOTAUserMsg_TE_ProjectileLoc::_internal_source() const {
   return _impl_.source_;
@@ -49192,7 +49392,7 @@ inline uint32_t CDOTAUserMsg_TE_ProjectileLoc::source() const {
   return _internal_source();
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::_internal_set_source(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000800u;
+  _impl_._has_bits_[0] |= 0x00002000u;
   _impl_.source_ = value;
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::set_source(uint32_t value) {
@@ -49202,7 +49402,7 @@ inline void CDOTAUserMsg_TE_ProjectileLoc::set_source(uint32_t value) {
 
 // optional int32 source_attachment = 15;
 inline bool CDOTAUserMsg_TE_ProjectileLoc::_internal_has_source_attachment() const {
-  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_ProjectileLoc::has_source_attachment() const {
@@ -49210,7 +49410,7 @@ inline bool CDOTAUserMsg_TE_ProjectileLoc::has_source_attachment() const {
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::clear_source_attachment() {
   _impl_.source_attachment_ = 0;
-  _impl_._has_bits_[0] &= ~0x00002000u;
+  _impl_._has_bits_[0] &= ~0x00000800u;
 }
 inline int32_t CDOTAUserMsg_TE_ProjectileLoc::_internal_source_attachment() const {
   return _impl_.source_attachment_;
@@ -49220,7 +49420,7 @@ inline int32_t CDOTAUserMsg_TE_ProjectileLoc::source_attachment() const {
   return _internal_source_attachment();
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::_internal_set_source_attachment(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00002000u;
+  _impl_._has_bits_[0] |= 0x00000800u;
   _impl_.source_attachment_ = value;
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::set_source_attachment(int32_t value) {
@@ -49270,7 +49470,7 @@ CDOTAUserMsg_TE_ProjectileLoc::particle_cp_data() const {
 
 // optional int64 additional_particle_system_handle = 17;
 inline bool CDOTAUserMsg_TE_ProjectileLoc::_internal_has_additional_particle_system_handle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_ProjectileLoc::has_additional_particle_system_handle() const {
@@ -49278,7 +49478,7 @@ inline bool CDOTAUserMsg_TE_ProjectileLoc::has_additional_particle_system_handle
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::clear_additional_particle_system_handle() {
   _impl_.additional_particle_system_handle_ = int64_t{0};
-  _impl_._has_bits_[0] &= ~0x00001000u;
+  _impl_._has_bits_[0] &= ~0x00000400u;
 }
 inline int64_t CDOTAUserMsg_TE_ProjectileLoc::_internal_additional_particle_system_handle() const {
   return _impl_.additional_particle_system_handle_;
@@ -49288,7 +49488,7 @@ inline int64_t CDOTAUserMsg_TE_ProjectileLoc::additional_particle_system_handle(
   return _internal_additional_particle_system_handle();
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::_internal_set_additional_particle_system_handle(int64_t value) {
-  _impl_._has_bits_[0] |= 0x00001000u;
+  _impl_._has_bits_[0] |= 0x00000400u;
   _impl_.additional_particle_system_handle_ = value;
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::set_additional_particle_system_handle(int64_t value) {
@@ -49332,17 +49532,17 @@ inline void CDOTAUserMsg_TE_DestroyProjectile::set_handle(int32_t value) {
 
 // CDOTAUserMsg_TE_DotaBloodImpact
 
-// optional uint32 entity = 1;
+// optional uint32 entity = 1 [default = 16777215];
 inline bool CDOTAUserMsg_TE_DotaBloodImpact::_internal_has_entity() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_DotaBloodImpact::has_entity() const {
   return _internal_has_entity();
 }
 inline void CDOTAUserMsg_TE_DotaBloodImpact::clear_entity() {
-  _impl_.entity_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.entity_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CDOTAUserMsg_TE_DotaBloodImpact::_internal_entity() const {
   return _impl_.entity_;
@@ -49352,7 +49552,7 @@ inline uint32_t CDOTAUserMsg_TE_DotaBloodImpact::entity() const {
   return _internal_entity();
 }
 inline void CDOTAUserMsg_TE_DotaBloodImpact::_internal_set_entity(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.entity_ = value;
 }
 inline void CDOTAUserMsg_TE_DotaBloodImpact::set_entity(uint32_t value) {
@@ -49362,7 +49562,7 @@ inline void CDOTAUserMsg_TE_DotaBloodImpact::set_entity(uint32_t value) {
 
 // optional float scale = 2;
 inline bool CDOTAUserMsg_TE_DotaBloodImpact::_internal_has_scale() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_DotaBloodImpact::has_scale() const {
@@ -49370,7 +49570,7 @@ inline bool CDOTAUserMsg_TE_DotaBloodImpact::has_scale() const {
 }
 inline void CDOTAUserMsg_TE_DotaBloodImpact::clear_scale() {
   _impl_.scale_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline float CDOTAUserMsg_TE_DotaBloodImpact::_internal_scale() const {
   return _impl_.scale_;
@@ -49380,7 +49580,7 @@ inline float CDOTAUserMsg_TE_DotaBloodImpact::scale() const {
   return _internal_scale();
 }
 inline void CDOTAUserMsg_TE_DotaBloodImpact::_internal_set_scale(float value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.scale_ = value;
 }
 inline void CDOTAUserMsg_TE_DotaBloodImpact::set_scale(float value) {
@@ -49390,7 +49590,7 @@ inline void CDOTAUserMsg_TE_DotaBloodImpact::set_scale(float value) {
 
 // optional float xnormal = 3;
 inline bool CDOTAUserMsg_TE_DotaBloodImpact::_internal_has_xnormal() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_DotaBloodImpact::has_xnormal() const {
@@ -49398,7 +49598,7 @@ inline bool CDOTAUserMsg_TE_DotaBloodImpact::has_xnormal() const {
 }
 inline void CDOTAUserMsg_TE_DotaBloodImpact::clear_xnormal() {
   _impl_.xnormal_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline float CDOTAUserMsg_TE_DotaBloodImpact::_internal_xnormal() const {
   return _impl_.xnormal_;
@@ -49408,7 +49608,7 @@ inline float CDOTAUserMsg_TE_DotaBloodImpact::xnormal() const {
   return _internal_xnormal();
 }
 inline void CDOTAUserMsg_TE_DotaBloodImpact::_internal_set_xnormal(float value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.xnormal_ = value;
 }
 inline void CDOTAUserMsg_TE_DotaBloodImpact::set_xnormal(float value) {
@@ -49418,7 +49618,7 @@ inline void CDOTAUserMsg_TE_DotaBloodImpact::set_xnormal(float value) {
 
 // optional float ynormal = 4;
 inline bool CDOTAUserMsg_TE_DotaBloodImpact::_internal_has_ynormal() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_DotaBloodImpact::has_ynormal() const {
@@ -49426,7 +49626,7 @@ inline bool CDOTAUserMsg_TE_DotaBloodImpact::has_ynormal() const {
 }
 inline void CDOTAUserMsg_TE_DotaBloodImpact::clear_ynormal() {
   _impl_.ynormal_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline float CDOTAUserMsg_TE_DotaBloodImpact::_internal_ynormal() const {
   return _impl_.ynormal_;
@@ -49436,7 +49636,7 @@ inline float CDOTAUserMsg_TE_DotaBloodImpact::ynormal() const {
   return _internal_ynormal();
 }
 inline void CDOTAUserMsg_TE_DotaBloodImpact::_internal_set_ynormal(float value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.ynormal_ = value;
 }
 inline void CDOTAUserMsg_TE_DotaBloodImpact::set_ynormal(float value) {
@@ -49448,17 +49648,17 @@ inline void CDOTAUserMsg_TE_DotaBloodImpact::set_ynormal(float value) {
 
 // CDOTAUserMsg_AbilityPing
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_AbilityPing::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AbilityPing::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_AbilityPing::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000400u;
 }
 inline int32_t CDOTAUserMsg_AbilityPing::_internal_player_id() const {
   return _impl_.player_id_;
@@ -49468,7 +49668,7 @@ inline int32_t CDOTAUserMsg_AbilityPing::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_AbilityPing::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000400u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_AbilityPing::set_player_id(int32_t value) {
@@ -49476,37 +49676,37 @@ inline void CDOTAUserMsg_AbilityPing::set_player_id(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_AbilityPing.player_id)
 }
 
-// optional uint32 ability_id = 2;
+// optional int32 ability_id = 2 [default = -1];
 inline bool CDOTAUserMsg_AbilityPing::_internal_has_ability_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AbilityPing::has_ability_id() const {
   return _internal_has_ability_id();
 }
 inline void CDOTAUserMsg_AbilityPing::clear_ability_id() {
-  _impl_.ability_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.ability_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000800u;
 }
-inline uint32_t CDOTAUserMsg_AbilityPing::_internal_ability_id() const {
+inline int32_t CDOTAUserMsg_AbilityPing::_internal_ability_id() const {
   return _impl_.ability_id_;
 }
-inline uint32_t CDOTAUserMsg_AbilityPing::ability_id() const {
+inline int32_t CDOTAUserMsg_AbilityPing::ability_id() const {
   // @@protoc_insertion_point(field_get:CDOTAUserMsg_AbilityPing.ability_id)
   return _internal_ability_id();
 }
-inline void CDOTAUserMsg_AbilityPing::_internal_set_ability_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+inline void CDOTAUserMsg_AbilityPing::_internal_set_ability_id(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000800u;
   _impl_.ability_id_ = value;
 }
-inline void CDOTAUserMsg_AbilityPing::set_ability_id(uint32_t value) {
+inline void CDOTAUserMsg_AbilityPing::set_ability_id(int32_t value) {
   _internal_set_ability_id(value);
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_AbilityPing.ability_id)
 }
 
 // optional .DOTA_ABILITY_PING_TYPE type = 3 [default = ABILITY_PING_READY];
 inline bool CDOTAUserMsg_AbilityPing::_internal_has_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AbilityPing::has_type() const {
@@ -49514,7 +49714,7 @@ inline bool CDOTAUserMsg_AbilityPing::has_type() const {
 }
 inline void CDOTAUserMsg_AbilityPing::clear_type() {
   _impl_.type_ = 1;
-  _impl_._has_bits_[0] &= ~0x00000800u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
 }
 inline ::DOTA_ABILITY_PING_TYPE CDOTAUserMsg_AbilityPing::_internal_type() const {
   return static_cast< ::DOTA_ABILITY_PING_TYPE >(_impl_.type_);
@@ -49525,7 +49725,7 @@ inline ::DOTA_ABILITY_PING_TYPE CDOTAUserMsg_AbilityPing::type() const {
 }
 inline void CDOTAUserMsg_AbilityPing::_internal_set_type(::DOTA_ABILITY_PING_TYPE value) {
   assert(::DOTA_ABILITY_PING_TYPE_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00000800u;
+  _impl_._has_bits_[0] |= 0x00000200u;
   _impl_.type_ = value;
 }
 inline void CDOTAUserMsg_AbilityPing::set_type(::DOTA_ABILITY_PING_TYPE value) {
@@ -49535,7 +49735,7 @@ inline void CDOTAUserMsg_AbilityPing::set_type(::DOTA_ABILITY_PING_TYPE value) {
 
 // optional uint32 cooldown_seconds = 4;
 inline bool CDOTAUserMsg_AbilityPing::_internal_has_cooldown_seconds() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AbilityPing::has_cooldown_seconds() const {
@@ -49543,7 +49743,7 @@ inline bool CDOTAUserMsg_AbilityPing::has_cooldown_seconds() const {
 }
 inline void CDOTAUserMsg_AbilityPing::clear_cooldown_seconds() {
   _impl_.cooldown_seconds_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_AbilityPing::_internal_cooldown_seconds() const {
   return _impl_.cooldown_seconds_;
@@ -49553,7 +49753,7 @@ inline uint32_t CDOTAUserMsg_AbilityPing::cooldown_seconds() const {
   return _internal_cooldown_seconds();
 }
 inline void CDOTAUserMsg_AbilityPing::_internal_set_cooldown_seconds(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.cooldown_seconds_ = value;
 }
 inline void CDOTAUserMsg_AbilityPing::set_cooldown_seconds(uint32_t value) {
@@ -49563,7 +49763,7 @@ inline void CDOTAUserMsg_AbilityPing::set_cooldown_seconds(uint32_t value) {
 
 // optional uint32 level = 5;
 inline bool CDOTAUserMsg_AbilityPing::_internal_has_level() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AbilityPing::has_level() const {
@@ -49571,7 +49771,7 @@ inline bool CDOTAUserMsg_AbilityPing::has_level() const {
 }
 inline void CDOTAUserMsg_AbilityPing::clear_level() {
   _impl_.level_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CDOTAUserMsg_AbilityPing::_internal_level() const {
   return _impl_.level_;
@@ -49581,7 +49781,7 @@ inline uint32_t CDOTAUserMsg_AbilityPing::level() const {
   return _internal_level();
 }
 inline void CDOTAUserMsg_AbilityPing::_internal_set_level(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.level_ = value;
 }
 inline void CDOTAUserMsg_AbilityPing::set_level(uint32_t value) {
@@ -49591,7 +49791,7 @@ inline void CDOTAUserMsg_AbilityPing::set_level(uint32_t value) {
 
 // optional bool passive = 6;
 inline bool CDOTAUserMsg_AbilityPing::_internal_has_passive() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AbilityPing::has_passive() const {
@@ -49599,7 +49799,7 @@ inline bool CDOTAUserMsg_AbilityPing::has_passive() const {
 }
 inline void CDOTAUserMsg_AbilityPing::clear_passive() {
   _impl_.passive_ = false;
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline bool CDOTAUserMsg_AbilityPing::_internal_passive() const {
   return _impl_.passive_;
@@ -49609,7 +49809,7 @@ inline bool CDOTAUserMsg_AbilityPing::passive() const {
   return _internal_passive();
 }
 inline void CDOTAUserMsg_AbilityPing::_internal_set_passive(bool value) {
-  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.passive_ = value;
 }
 inline void CDOTAUserMsg_AbilityPing::set_passive(bool value) {
@@ -49619,7 +49819,7 @@ inline void CDOTAUserMsg_AbilityPing::set_passive(bool value) {
 
 // optional uint32 mana_needed = 7;
 inline bool CDOTAUserMsg_AbilityPing::_internal_has_mana_needed() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AbilityPing::has_mana_needed() const {
@@ -49627,7 +49827,7 @@ inline bool CDOTAUserMsg_AbilityPing::has_mana_needed() const {
 }
 inline void CDOTAUserMsg_AbilityPing::clear_mana_needed() {
   _impl_.mana_needed_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CDOTAUserMsg_AbilityPing::_internal_mana_needed() const {
   return _impl_.mana_needed_;
@@ -49637,7 +49837,7 @@ inline uint32_t CDOTAUserMsg_AbilityPing::mana_needed() const {
   return _internal_mana_needed();
 }
 inline void CDOTAUserMsg_AbilityPing::_internal_set_mana_needed(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.mana_needed_ = value;
 }
 inline void CDOTAUserMsg_AbilityPing::set_mana_needed(uint32_t value) {
@@ -49647,7 +49847,7 @@ inline void CDOTAUserMsg_AbilityPing::set_mana_needed(uint32_t value) {
 
 // optional uint32 entity_id = 8;
 inline bool CDOTAUserMsg_AbilityPing::_internal_has_entity_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AbilityPing::has_entity_id() const {
@@ -49655,7 +49855,7 @@ inline bool CDOTAUserMsg_AbilityPing::has_entity_id() const {
 }
 inline void CDOTAUserMsg_AbilityPing::clear_entity_id() {
   _impl_.entity_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CDOTAUserMsg_AbilityPing::_internal_entity_id() const {
   return _impl_.entity_id_;
@@ -49665,7 +49865,7 @@ inline uint32_t CDOTAUserMsg_AbilityPing::entity_id() const {
   return _internal_entity_id();
 }
 inline void CDOTAUserMsg_AbilityPing::_internal_set_entity_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.entity_id_ = value;
 }
 inline void CDOTAUserMsg_AbilityPing::set_entity_id(uint32_t value) {
@@ -49675,7 +49875,7 @@ inline void CDOTAUserMsg_AbilityPing::set_entity_id(uint32_t value) {
 
 // optional int32 primary_charges = 9;
 inline bool CDOTAUserMsg_AbilityPing::_internal_has_primary_charges() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AbilityPing::has_primary_charges() const {
@@ -49683,7 +49883,7 @@ inline bool CDOTAUserMsg_AbilityPing::has_primary_charges() const {
 }
 inline void CDOTAUserMsg_AbilityPing::clear_primary_charges() {
   _impl_.primary_charges_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CDOTAUserMsg_AbilityPing::_internal_primary_charges() const {
   return _impl_.primary_charges_;
@@ -49693,7 +49893,7 @@ inline int32_t CDOTAUserMsg_AbilityPing::primary_charges() const {
   return _internal_primary_charges();
 }
 inline void CDOTAUserMsg_AbilityPing::_internal_set_primary_charges(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.primary_charges_ = value;
 }
 inline void CDOTAUserMsg_AbilityPing::set_primary_charges(int32_t value) {
@@ -49703,7 +49903,7 @@ inline void CDOTAUserMsg_AbilityPing::set_primary_charges(int32_t value) {
 
 // optional int32 secondary_charges = 10;
 inline bool CDOTAUserMsg_AbilityPing::_internal_has_secondary_charges() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AbilityPing::has_secondary_charges() const {
@@ -49711,7 +49911,7 @@ inline bool CDOTAUserMsg_AbilityPing::has_secondary_charges() const {
 }
 inline void CDOTAUserMsg_AbilityPing::clear_secondary_charges() {
   _impl_.secondary_charges_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000200u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
 inline int32_t CDOTAUserMsg_AbilityPing::_internal_secondary_charges() const {
   return _impl_.secondary_charges_;
@@ -49721,7 +49921,7 @@ inline int32_t CDOTAUserMsg_AbilityPing::secondary_charges() const {
   return _internal_secondary_charges();
 }
 inline void CDOTAUserMsg_AbilityPing::_internal_set_secondary_charges(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.secondary_charges_ = value;
 }
 inline void CDOTAUserMsg_AbilityPing::set_secondary_charges(int32_t value) {
@@ -49731,7 +49931,7 @@ inline void CDOTAUserMsg_AbilityPing::set_secondary_charges(int32_t value) {
 
 // optional bool ctrl_held = 12;
 inline bool CDOTAUserMsg_AbilityPing::_internal_has_ctrl_held() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AbilityPing::has_ctrl_held() const {
@@ -49739,7 +49939,7 @@ inline bool CDOTAUserMsg_AbilityPing::has_ctrl_held() const {
 }
 inline void CDOTAUserMsg_AbilityPing::clear_ctrl_held() {
   _impl_.ctrl_held_ = false;
-  _impl_._has_bits_[0] &= ~0x00000100u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline bool CDOTAUserMsg_AbilityPing::_internal_ctrl_held() const {
   return _impl_.ctrl_held_;
@@ -49749,7 +49949,7 @@ inline bool CDOTAUserMsg_AbilityPing::ctrl_held() const {
   return _internal_ctrl_held();
 }
 inline void CDOTAUserMsg_AbilityPing::_internal_set_ctrl_held(bool value) {
-  _impl_._has_bits_[0] |= 0x00000100u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.ctrl_held_ = value;
 }
 inline void CDOTAUserMsg_AbilityPing::set_ctrl_held(bool value) {
@@ -49759,7 +49959,7 @@ inline void CDOTAUserMsg_AbilityPing::set_ctrl_held(bool value) {
 
 // optional float reclaim_time = 13;
 inline bool CDOTAUserMsg_AbilityPing::_internal_has_reclaim_time() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AbilityPing::has_reclaim_time() const {
@@ -49767,7 +49967,7 @@ inline bool CDOTAUserMsg_AbilityPing::has_reclaim_time() const {
 }
 inline void CDOTAUserMsg_AbilityPing::clear_reclaim_time() {
   _impl_.reclaim_time_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000400u;
+  _impl_._has_bits_[0] &= ~0x00000100u;
 }
 inline float CDOTAUserMsg_AbilityPing::_internal_reclaim_time() const {
   return _impl_.reclaim_time_;
@@ -49777,7 +49977,7 @@ inline float CDOTAUserMsg_AbilityPing::reclaim_time() const {
   return _internal_reclaim_time();
 }
 inline void CDOTAUserMsg_AbilityPing::_internal_set_reclaim_time(float value) {
-  _impl_._has_bits_[0] |= 0x00000400u;
+  _impl_._has_bits_[0] |= 0x00000100u;
   _impl_.reclaim_time_ = value;
 }
 inline void CDOTAUserMsg_AbilityPing::set_reclaim_time(float value) {
@@ -49789,17 +49989,17 @@ inline void CDOTAUserMsg_AbilityPing::set_reclaim_time(float value) {
 
 // CDOTAUserMsg_TE_UnitAnimation
 
-// optional uint32 entity = 1;
+// optional uint32 entity = 1 [default = 16777215];
 inline bool CDOTAUserMsg_TE_UnitAnimation::_internal_has_entity() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_UnitAnimation::has_entity() const {
   return _internal_has_entity();
 }
 inline void CDOTAUserMsg_TE_UnitAnimation::clear_entity() {
-  _impl_.entity_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.entity_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline uint32_t CDOTAUserMsg_TE_UnitAnimation::_internal_entity() const {
   return _impl_.entity_;
@@ -49809,7 +50009,7 @@ inline uint32_t CDOTAUserMsg_TE_UnitAnimation::entity() const {
   return _internal_entity();
 }
 inline void CDOTAUserMsg_TE_UnitAnimation::_internal_set_entity(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.entity_ = value;
 }
 inline void CDOTAUserMsg_TE_UnitAnimation::set_entity(uint32_t value) {
@@ -49819,7 +50019,7 @@ inline void CDOTAUserMsg_TE_UnitAnimation::set_entity(uint32_t value) {
 
 // optional int32 sequence_variant = 2;
 inline bool CDOTAUserMsg_TE_UnitAnimation::_internal_has_sequence_variant() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_UnitAnimation::has_sequence_variant() const {
@@ -49827,7 +50027,7 @@ inline bool CDOTAUserMsg_TE_UnitAnimation::has_sequence_variant() const {
 }
 inline void CDOTAUserMsg_TE_UnitAnimation::clear_sequence_variant() {
   _impl_.sequence_variant_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_TE_UnitAnimation::_internal_sequence_variant() const {
   return _impl_.sequence_variant_;
@@ -49837,7 +50037,7 @@ inline int32_t CDOTAUserMsg_TE_UnitAnimation::sequence_variant() const {
   return _internal_sequence_variant();
 }
 inline void CDOTAUserMsg_TE_UnitAnimation::_internal_set_sequence_variant(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.sequence_variant_ = value;
 }
 inline void CDOTAUserMsg_TE_UnitAnimation::set_sequence_variant(int32_t value) {
@@ -49847,7 +50047,7 @@ inline void CDOTAUserMsg_TE_UnitAnimation::set_sequence_variant(int32_t value) {
 
 // optional float playbackrate = 3;
 inline bool CDOTAUserMsg_TE_UnitAnimation::_internal_has_playbackrate() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_UnitAnimation::has_playbackrate() const {
@@ -49855,7 +50055,7 @@ inline bool CDOTAUserMsg_TE_UnitAnimation::has_playbackrate() const {
 }
 inline void CDOTAUserMsg_TE_UnitAnimation::clear_playbackrate() {
   _impl_.playbackrate_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline float CDOTAUserMsg_TE_UnitAnimation::_internal_playbackrate() const {
   return _impl_.playbackrate_;
@@ -49865,7 +50065,7 @@ inline float CDOTAUserMsg_TE_UnitAnimation::playbackrate() const {
   return _internal_playbackrate();
 }
 inline void CDOTAUserMsg_TE_UnitAnimation::_internal_set_playbackrate(float value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.playbackrate_ = value;
 }
 inline void CDOTAUserMsg_TE_UnitAnimation::set_playbackrate(float value) {
@@ -49875,7 +50075,7 @@ inline void CDOTAUserMsg_TE_UnitAnimation::set_playbackrate(float value) {
 
 // optional float castpoint = 4;
 inline bool CDOTAUserMsg_TE_UnitAnimation::_internal_has_castpoint() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_UnitAnimation::has_castpoint() const {
@@ -49883,7 +50083,7 @@ inline bool CDOTAUserMsg_TE_UnitAnimation::has_castpoint() const {
 }
 inline void CDOTAUserMsg_TE_UnitAnimation::clear_castpoint() {
   _impl_.castpoint_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline float CDOTAUserMsg_TE_UnitAnimation::_internal_castpoint() const {
   return _impl_.castpoint_;
@@ -49893,7 +50093,7 @@ inline float CDOTAUserMsg_TE_UnitAnimation::castpoint() const {
   return _internal_castpoint();
 }
 inline void CDOTAUserMsg_TE_UnitAnimation::_internal_set_castpoint(float value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.castpoint_ = value;
 }
 inline void CDOTAUserMsg_TE_UnitAnimation::set_castpoint(float value) {
@@ -49903,7 +50103,7 @@ inline void CDOTAUserMsg_TE_UnitAnimation::set_castpoint(float value) {
 
 // optional int32 type = 5;
 inline bool CDOTAUserMsg_TE_UnitAnimation::_internal_has_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_UnitAnimation::has_type() const {
@@ -49911,7 +50111,7 @@ inline bool CDOTAUserMsg_TE_UnitAnimation::has_type() const {
 }
 inline void CDOTAUserMsg_TE_UnitAnimation::clear_type() {
   _impl_.type_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_TE_UnitAnimation::_internal_type() const {
   return _impl_.type_;
@@ -49921,7 +50121,7 @@ inline int32_t CDOTAUserMsg_TE_UnitAnimation::type() const {
   return _internal_type();
 }
 inline void CDOTAUserMsg_TE_UnitAnimation::_internal_set_type(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.type_ = value;
 }
 inline void CDOTAUserMsg_TE_UnitAnimation::set_type(int32_t value) {
@@ -49931,7 +50131,7 @@ inline void CDOTAUserMsg_TE_UnitAnimation::set_type(int32_t value) {
 
 // optional int32 activity = 6;
 inline bool CDOTAUserMsg_TE_UnitAnimation::_internal_has_activity() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_UnitAnimation::has_activity() const {
@@ -49939,7 +50139,7 @@ inline bool CDOTAUserMsg_TE_UnitAnimation::has_activity() const {
 }
 inline void CDOTAUserMsg_TE_UnitAnimation::clear_activity() {
   _impl_.activity_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CDOTAUserMsg_TE_UnitAnimation::_internal_activity() const {
   return _impl_.activity_;
@@ -49949,7 +50149,7 @@ inline int32_t CDOTAUserMsg_TE_UnitAnimation::activity() const {
   return _internal_activity();
 }
 inline void CDOTAUserMsg_TE_UnitAnimation::_internal_set_activity(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.activity_ = value;
 }
 inline void CDOTAUserMsg_TE_UnitAnimation::set_activity(int32_t value) {
@@ -49959,7 +50159,7 @@ inline void CDOTAUserMsg_TE_UnitAnimation::set_activity(int32_t value) {
 
 // optional float lag_compensation_time = 7;
 inline bool CDOTAUserMsg_TE_UnitAnimation::_internal_has_lag_compensation_time() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_UnitAnimation::has_lag_compensation_time() const {
@@ -49967,7 +50167,7 @@ inline bool CDOTAUserMsg_TE_UnitAnimation::has_lag_compensation_time() const {
 }
 inline void CDOTAUserMsg_TE_UnitAnimation::clear_lag_compensation_time() {
   _impl_.lag_compensation_time_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline float CDOTAUserMsg_TE_UnitAnimation::_internal_lag_compensation_time() const {
   return _impl_.lag_compensation_time_;
@@ -49977,7 +50177,7 @@ inline float CDOTAUserMsg_TE_UnitAnimation::lag_compensation_time() const {
   return _internal_lag_compensation_time();
 }
 inline void CDOTAUserMsg_TE_UnitAnimation::_internal_set_lag_compensation_time(float value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.lag_compensation_time_ = value;
 }
 inline void CDOTAUserMsg_TE_UnitAnimation::set_lag_compensation_time(float value) {
@@ -49989,17 +50189,17 @@ inline void CDOTAUserMsg_TE_UnitAnimation::set_lag_compensation_time(float value
 
 // CDOTAUserMsg_TE_UnitAnimationEnd
 
-// optional uint32 entity = 1;
+// optional uint32 entity = 1 [default = 16777215];
 inline bool CDOTAUserMsg_TE_UnitAnimationEnd::_internal_has_entity() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_UnitAnimationEnd::has_entity() const {
   return _internal_has_entity();
 }
 inline void CDOTAUserMsg_TE_UnitAnimationEnd::clear_entity() {
-  _impl_.entity_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.entity_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CDOTAUserMsg_TE_UnitAnimationEnd::_internal_entity() const {
   return _impl_.entity_;
@@ -50009,7 +50209,7 @@ inline uint32_t CDOTAUserMsg_TE_UnitAnimationEnd::entity() const {
   return _internal_entity();
 }
 inline void CDOTAUserMsg_TE_UnitAnimationEnd::_internal_set_entity(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.entity_ = value;
 }
 inline void CDOTAUserMsg_TE_UnitAnimationEnd::set_entity(uint32_t value) {
@@ -50019,7 +50219,7 @@ inline void CDOTAUserMsg_TE_UnitAnimationEnd::set_entity(uint32_t value) {
 
 // optional bool snap = 2;
 inline bool CDOTAUserMsg_TE_UnitAnimationEnd::_internal_has_snap() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_UnitAnimationEnd::has_snap() const {
@@ -50027,7 +50227,7 @@ inline bool CDOTAUserMsg_TE_UnitAnimationEnd::has_snap() const {
 }
 inline void CDOTAUserMsg_TE_UnitAnimationEnd::clear_snap() {
   _impl_.snap_ = false;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline bool CDOTAUserMsg_TE_UnitAnimationEnd::_internal_snap() const {
   return _impl_.snap_;
@@ -50037,7 +50237,7 @@ inline bool CDOTAUserMsg_TE_UnitAnimationEnd::snap() const {
   return _internal_snap();
 }
 inline void CDOTAUserMsg_TE_UnitAnimationEnd::_internal_set_snap(bool value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.snap_ = value;
 }
 inline void CDOTAUserMsg_TE_UnitAnimationEnd::set_snap(bool value) {
@@ -50667,17 +50867,17 @@ inline void CDOTAUserMsg_VoteEnd::set_selected_choice(int32_t value) {
 
 // CDOTAUserMsg_BoosterStatePlayer
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_BoosterStatePlayer::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_BoosterStatePlayer::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_BoosterStatePlayer::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CDOTAUserMsg_BoosterStatePlayer::_internal_player_id() const {
   return _impl_.player_id_;
@@ -50687,7 +50887,7 @@ inline int32_t CDOTAUserMsg_BoosterStatePlayer::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_BoosterStatePlayer::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_BoosterStatePlayer::set_player_id(int32_t value) {
@@ -50697,7 +50897,7 @@ inline void CDOTAUserMsg_BoosterStatePlayer::set_player_id(int32_t value) {
 
 // optional float bonus = 2;
 inline bool CDOTAUserMsg_BoosterStatePlayer::_internal_has_bonus() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_BoosterStatePlayer::has_bonus() const {
@@ -50705,7 +50905,7 @@ inline bool CDOTAUserMsg_BoosterStatePlayer::has_bonus() const {
 }
 inline void CDOTAUserMsg_BoosterStatePlayer::clear_bonus() {
   _impl_.bonus_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline float CDOTAUserMsg_BoosterStatePlayer::_internal_bonus() const {
   return _impl_.bonus_;
@@ -50715,7 +50915,7 @@ inline float CDOTAUserMsg_BoosterStatePlayer::bonus() const {
   return _internal_bonus();
 }
 inline void CDOTAUserMsg_BoosterStatePlayer::_internal_set_bonus(float value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.bonus_ = value;
 }
 inline void CDOTAUserMsg_BoosterStatePlayer::set_bonus(float value) {
@@ -50725,7 +50925,7 @@ inline void CDOTAUserMsg_BoosterStatePlayer::set_bonus(float value) {
 
 // optional float event_bonus = 3;
 inline bool CDOTAUserMsg_BoosterStatePlayer::_internal_has_event_bonus() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_BoosterStatePlayer::has_event_bonus() const {
@@ -50733,7 +50933,7 @@ inline bool CDOTAUserMsg_BoosterStatePlayer::has_event_bonus() const {
 }
 inline void CDOTAUserMsg_BoosterStatePlayer::clear_event_bonus() {
   _impl_.event_bonus_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline float CDOTAUserMsg_BoosterStatePlayer::_internal_event_bonus() const {
   return _impl_.event_bonus_;
@@ -50743,7 +50943,7 @@ inline float CDOTAUserMsg_BoosterStatePlayer::event_bonus() const {
   return _internal_event_bonus();
 }
 inline void CDOTAUserMsg_BoosterStatePlayer::_internal_set_event_bonus(float value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.event_bonus_ = value;
 }
 inline void CDOTAUserMsg_BoosterStatePlayer::set_event_bonus(float value) {
@@ -50753,7 +50953,7 @@ inline void CDOTAUserMsg_BoosterStatePlayer::set_event_bonus(float value) {
 
 // optional uint32 bonus_item_id = 4;
 inline bool CDOTAUserMsg_BoosterStatePlayer::_internal_has_bonus_item_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_BoosterStatePlayer::has_bonus_item_id() const {
@@ -50761,7 +50961,7 @@ inline bool CDOTAUserMsg_BoosterStatePlayer::has_bonus_item_id() const {
 }
 inline void CDOTAUserMsg_BoosterStatePlayer::clear_bonus_item_id() {
   _impl_.bonus_item_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CDOTAUserMsg_BoosterStatePlayer::_internal_bonus_item_id() const {
   return _impl_.bonus_item_id_;
@@ -50771,7 +50971,7 @@ inline uint32_t CDOTAUserMsg_BoosterStatePlayer::bonus_item_id() const {
   return _internal_bonus_item_id();
 }
 inline void CDOTAUserMsg_BoosterStatePlayer::_internal_set_bonus_item_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.bonus_item_id_ = value;
 }
 inline void CDOTAUserMsg_BoosterStatePlayer::set_bonus_item_id(uint32_t value) {
@@ -50781,7 +50981,7 @@ inline void CDOTAUserMsg_BoosterStatePlayer::set_bonus_item_id(uint32_t value) {
 
 // optional uint32 event_bonus_item_id = 5;
 inline bool CDOTAUserMsg_BoosterStatePlayer::_internal_has_event_bonus_item_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_BoosterStatePlayer::has_event_bonus_item_id() const {
@@ -50789,7 +50989,7 @@ inline bool CDOTAUserMsg_BoosterStatePlayer::has_event_bonus_item_id() const {
 }
 inline void CDOTAUserMsg_BoosterStatePlayer::clear_event_bonus_item_id() {
   _impl_.event_bonus_item_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CDOTAUserMsg_BoosterStatePlayer::_internal_event_bonus_item_id() const {
   return _impl_.event_bonus_item_id_;
@@ -50799,7 +50999,7 @@ inline uint32_t CDOTAUserMsg_BoosterStatePlayer::event_bonus_item_id() const {
   return _internal_event_bonus_item_id();
 }
 inline void CDOTAUserMsg_BoosterStatePlayer::_internal_set_event_bonus_item_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.event_bonus_item_id_ = value;
 }
 inline void CDOTAUserMsg_BoosterStatePlayer::set_event_bonus_item_id(uint32_t value) {
@@ -50906,17 +51106,17 @@ CDOTAUserMsg_PlayerMMR::mutable_mmr() {
 
 // CDOTAUserMsg_AbilitySteal
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_AbilitySteal::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AbilitySteal::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_AbilitySteal::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_AbilitySteal::_internal_player_id() const {
   return _impl_.player_id_;
@@ -50926,7 +51126,7 @@ inline int32_t CDOTAUserMsg_AbilitySteal::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_AbilitySteal::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_AbilitySteal::set_player_id(int32_t value) {
@@ -50934,37 +51134,37 @@ inline void CDOTAUserMsg_AbilitySteal::set_player_id(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_AbilitySteal.player_id)
 }
 
-// optional uint32 ability_id = 2;
+// optional int32 ability_id = 2 [default = -1];
 inline bool CDOTAUserMsg_AbilitySteal::_internal_has_ability_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AbilitySteal::has_ability_id() const {
   return _internal_has_ability_id();
 }
 inline void CDOTAUserMsg_AbilitySteal::clear_ability_id() {
-  _impl_.ability_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.ability_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint32_t CDOTAUserMsg_AbilitySteal::_internal_ability_id() const {
+inline int32_t CDOTAUserMsg_AbilitySteal::_internal_ability_id() const {
   return _impl_.ability_id_;
 }
-inline uint32_t CDOTAUserMsg_AbilitySteal::ability_id() const {
+inline int32_t CDOTAUserMsg_AbilitySteal::ability_id() const {
   // @@protoc_insertion_point(field_get:CDOTAUserMsg_AbilitySteal.ability_id)
   return _internal_ability_id();
 }
-inline void CDOTAUserMsg_AbilitySteal::_internal_set_ability_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+inline void CDOTAUserMsg_AbilitySteal::_internal_set_ability_id(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.ability_id_ = value;
 }
-inline void CDOTAUserMsg_AbilitySteal::set_ability_id(uint32_t value) {
+inline void CDOTAUserMsg_AbilitySteal::set_ability_id(int32_t value) {
   _internal_set_ability_id(value);
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_AbilitySteal.ability_id)
 }
 
 // optional uint32 ability_level = 3;
 inline bool CDOTAUserMsg_AbilitySteal::_internal_has_ability_level() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AbilitySteal::has_ability_level() const {
@@ -50972,7 +51172,7 @@ inline bool CDOTAUserMsg_AbilitySteal::has_ability_level() const {
 }
 inline void CDOTAUserMsg_AbilitySteal::clear_ability_level() {
   _impl_.ability_level_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_AbilitySteal::_internal_ability_level() const {
   return _impl_.ability_level_;
@@ -50982,7 +51182,7 @@ inline uint32_t CDOTAUserMsg_AbilitySteal::ability_level() const {
   return _internal_ability_level();
 }
 inline void CDOTAUserMsg_AbilitySteal::_internal_set_ability_level(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.ability_level_ = value;
 }
 inline void CDOTAUserMsg_AbilitySteal::set_ability_level(uint32_t value) {
@@ -50994,17 +51194,17 @@ inline void CDOTAUserMsg_AbilitySteal::set_ability_level(uint32_t value) {
 
 // CDOTAUserMsg_StatsHeroLookup
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_StatsHeroLookup::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_StatsHeroLookup::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_StatsHeroLookup::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_StatsHeroLookup::_internal_player_id() const {
   return _impl_.player_id_;
@@ -51014,7 +51214,7 @@ inline int32_t CDOTAUserMsg_StatsHeroLookup::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_StatsHeroLookup::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_StatsHeroLookup::set_player_id(int32_t value) {
@@ -51024,7 +51224,7 @@ inline void CDOTAUserMsg_StatsHeroLookup::set_player_id(int32_t value) {
 
 // optional int32 hero_id = 2;
 inline bool CDOTAUserMsg_StatsHeroLookup::_internal_has_hero_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_StatsHeroLookup::has_hero_id() const {
@@ -51032,7 +51232,7 @@ inline bool CDOTAUserMsg_StatsHeroLookup::has_hero_id() const {
 }
 inline void CDOTAUserMsg_StatsHeroLookup::clear_hero_id() {
   _impl_.hero_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_StatsHeroLookup::_internal_hero_id() const {
   return _impl_.hero_id_;
@@ -51042,7 +51242,7 @@ inline int32_t CDOTAUserMsg_StatsHeroLookup::hero_id() const {
   return _internal_hero_id();
 }
 inline void CDOTAUserMsg_StatsHeroLookup::_internal_set_hero_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.hero_id_ = value;
 }
 inline void CDOTAUserMsg_StatsHeroLookup::set_hero_id(int32_t value) {
@@ -52262,17 +52462,17 @@ CDOTAUserMsg_StatsTeamMinuteDetails::lane_performance() const {
 
 // CDOTAUserMsg_StatsPlayerKillShare
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_StatsPlayerKillShare::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_StatsPlayerKillShare::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_StatsPlayerKillShare::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline int32_t CDOTAUserMsg_StatsPlayerKillShare::_internal_player_id() const {
   return _impl_.player_id_;
@@ -52282,7 +52482,7 @@ inline int32_t CDOTAUserMsg_StatsPlayerKillShare::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_StatsPlayerKillShare::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_StatsPlayerKillShare::set_player_id(int32_t value) {
@@ -52292,7 +52492,7 @@ inline void CDOTAUserMsg_StatsPlayerKillShare::set_player_id(int32_t value) {
 
 // optional float kill_share_percent = 2;
 inline bool CDOTAUserMsg_StatsPlayerKillShare::_internal_has_kill_share_percent() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_StatsPlayerKillShare::has_kill_share_percent() const {
@@ -52300,7 +52500,7 @@ inline bool CDOTAUserMsg_StatsPlayerKillShare::has_kill_share_percent() const {
 }
 inline void CDOTAUserMsg_StatsPlayerKillShare::clear_kill_share_percent() {
   _impl_.kill_share_percent_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline float CDOTAUserMsg_StatsPlayerKillShare::_internal_kill_share_percent() const {
   return _impl_.kill_share_percent_;
@@ -52310,7 +52510,7 @@ inline float CDOTAUserMsg_StatsPlayerKillShare::kill_share_percent() const {
   return _internal_kill_share_percent();
 }
 inline void CDOTAUserMsg_StatsPlayerKillShare::_internal_set_kill_share_percent(float value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.kill_share_percent_ = value;
 }
 inline void CDOTAUserMsg_StatsPlayerKillShare::set_kill_share_percent(float value) {
@@ -52320,7 +52520,7 @@ inline void CDOTAUserMsg_StatsPlayerKillShare::set_kill_share_percent(float valu
 
 // optional float player_loc_x = 3;
 inline bool CDOTAUserMsg_StatsPlayerKillShare::_internal_has_player_loc_x() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_StatsPlayerKillShare::has_player_loc_x() const {
@@ -52328,7 +52528,7 @@ inline bool CDOTAUserMsg_StatsPlayerKillShare::has_player_loc_x() const {
 }
 inline void CDOTAUserMsg_StatsPlayerKillShare::clear_player_loc_x() {
   _impl_.player_loc_x_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline float CDOTAUserMsg_StatsPlayerKillShare::_internal_player_loc_x() const {
   return _impl_.player_loc_x_;
@@ -52338,7 +52538,7 @@ inline float CDOTAUserMsg_StatsPlayerKillShare::player_loc_x() const {
   return _internal_player_loc_x();
 }
 inline void CDOTAUserMsg_StatsPlayerKillShare::_internal_set_player_loc_x(float value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.player_loc_x_ = value;
 }
 inline void CDOTAUserMsg_StatsPlayerKillShare::set_player_loc_x(float value) {
@@ -52348,7 +52548,7 @@ inline void CDOTAUserMsg_StatsPlayerKillShare::set_player_loc_x(float value) {
 
 // optional float player_loc_y = 4;
 inline bool CDOTAUserMsg_StatsPlayerKillShare::_internal_has_player_loc_y() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_StatsPlayerKillShare::has_player_loc_y() const {
@@ -52356,7 +52556,7 @@ inline bool CDOTAUserMsg_StatsPlayerKillShare::has_player_loc_y() const {
 }
 inline void CDOTAUserMsg_StatsPlayerKillShare::clear_player_loc_y() {
   _impl_.player_loc_y_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline float CDOTAUserMsg_StatsPlayerKillShare::_internal_player_loc_y() const {
   return _impl_.player_loc_y_;
@@ -52366,7 +52566,7 @@ inline float CDOTAUserMsg_StatsPlayerKillShare::player_loc_y() const {
   return _internal_player_loc_y();
 }
 inline void CDOTAUserMsg_StatsPlayerKillShare::_internal_set_player_loc_y(float value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.player_loc_y_ = value;
 }
 inline void CDOTAUserMsg_StatsPlayerKillShare::set_player_loc_y(float value) {
@@ -52376,7 +52576,7 @@ inline void CDOTAUserMsg_StatsPlayerKillShare::set_player_loc_y(float value) {
 
 // optional float health_percent = 5;
 inline bool CDOTAUserMsg_StatsPlayerKillShare::_internal_has_health_percent() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_StatsPlayerKillShare::has_health_percent() const {
@@ -52384,7 +52584,7 @@ inline bool CDOTAUserMsg_StatsPlayerKillShare::has_health_percent() const {
 }
 inline void CDOTAUserMsg_StatsPlayerKillShare::clear_health_percent() {
   _impl_.health_percent_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline float CDOTAUserMsg_StatsPlayerKillShare::_internal_health_percent() const {
   return _impl_.health_percent_;
@@ -52394,7 +52594,7 @@ inline float CDOTAUserMsg_StatsPlayerKillShare::health_percent() const {
   return _internal_health_percent();
 }
 inline void CDOTAUserMsg_StatsPlayerKillShare::_internal_set_health_percent(float value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.health_percent_ = value;
 }
 inline void CDOTAUserMsg_StatsPlayerKillShare::set_health_percent(float value) {
@@ -52404,7 +52604,7 @@ inline void CDOTAUserMsg_StatsPlayerKillShare::set_health_percent(float value) {
 
 // optional float mana_percent = 6;
 inline bool CDOTAUserMsg_StatsPlayerKillShare::_internal_has_mana_percent() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_StatsPlayerKillShare::has_mana_percent() const {
@@ -52412,7 +52612,7 @@ inline bool CDOTAUserMsg_StatsPlayerKillShare::has_mana_percent() const {
 }
 inline void CDOTAUserMsg_StatsPlayerKillShare::clear_mana_percent() {
   _impl_.mana_percent_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline float CDOTAUserMsg_StatsPlayerKillShare::_internal_mana_percent() const {
   return _impl_.mana_percent_;
@@ -52422,7 +52622,7 @@ inline float CDOTAUserMsg_StatsPlayerKillShare::mana_percent() const {
   return _internal_mana_percent();
 }
 inline void CDOTAUserMsg_StatsPlayerKillShare::_internal_set_mana_percent(float value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.mana_percent_ = value;
 }
 inline void CDOTAUserMsg_StatsPlayerKillShare::set_mana_percent(float value) {
@@ -52434,17 +52634,17 @@ inline void CDOTAUserMsg_StatsPlayerKillShare::set_mana_percent(float value) {
 
 // CDOTAUserMsg_StatsKillDetails
 
-// optional int32 victim_id = 1;
+// optional int32 victim_id = 1 [default = -1];
 inline bool CDOTAUserMsg_StatsKillDetails::_internal_has_victim_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_StatsKillDetails::has_victim_id() const {
   return _internal_has_victim_id();
 }
 inline void CDOTAUserMsg_StatsKillDetails::clear_victim_id() {
-  _impl_.victim_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.victim_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_StatsKillDetails::_internal_victim_id() const {
   return _impl_.victim_id_;
@@ -52454,7 +52654,7 @@ inline int32_t CDOTAUserMsg_StatsKillDetails::victim_id() const {
   return _internal_victim_id();
 }
 inline void CDOTAUserMsg_StatsKillDetails::_internal_set_victim_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.victim_id_ = value;
 }
 inline void CDOTAUserMsg_StatsKillDetails::set_victim_id(int32_t value) {
@@ -52504,7 +52704,7 @@ CDOTAUserMsg_StatsKillDetails::kill_shares() const {
 
 // optional uint32 damage_to_kill = 3;
 inline bool CDOTAUserMsg_StatsKillDetails::_internal_has_damage_to_kill() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_StatsKillDetails::has_damage_to_kill() const {
@@ -52512,7 +52712,7 @@ inline bool CDOTAUserMsg_StatsKillDetails::has_damage_to_kill() const {
 }
 inline void CDOTAUserMsg_StatsKillDetails::clear_damage_to_kill() {
   _impl_.damage_to_kill_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_StatsKillDetails::_internal_damage_to_kill() const {
   return _impl_.damage_to_kill_;
@@ -52522,7 +52722,7 @@ inline uint32_t CDOTAUserMsg_StatsKillDetails::damage_to_kill() const {
   return _internal_damage_to_kill();
 }
 inline void CDOTAUserMsg_StatsKillDetails::_internal_set_damage_to_kill(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.damage_to_kill_ = value;
 }
 inline void CDOTAUserMsg_StatsKillDetails::set_damage_to_kill(uint32_t value) {
@@ -52532,7 +52732,7 @@ inline void CDOTAUserMsg_StatsKillDetails::set_damage_to_kill(uint32_t value) {
 
 // optional uint32 effective_health = 4;
 inline bool CDOTAUserMsg_StatsKillDetails::_internal_has_effective_health() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_StatsKillDetails::has_effective_health() const {
@@ -52540,7 +52740,7 @@ inline bool CDOTAUserMsg_StatsKillDetails::has_effective_health() const {
 }
 inline void CDOTAUserMsg_StatsKillDetails::clear_effective_health() {
   _impl_.effective_health_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CDOTAUserMsg_StatsKillDetails::_internal_effective_health() const {
   return _impl_.effective_health_;
@@ -52550,7 +52750,7 @@ inline uint32_t CDOTAUserMsg_StatsKillDetails::effective_health() const {
   return _internal_effective_health();
 }
 inline void CDOTAUserMsg_StatsKillDetails::_internal_set_effective_health(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.effective_health_ = value;
 }
 inline void CDOTAUserMsg_StatsKillDetails::set_effective_health(uint32_t value) {
@@ -52560,7 +52760,7 @@ inline void CDOTAUserMsg_StatsKillDetails::set_effective_health(uint32_t value) 
 
 // optional float death_time = 5;
 inline bool CDOTAUserMsg_StatsKillDetails::_internal_has_death_time() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_StatsKillDetails::has_death_time() const {
@@ -52568,7 +52768,7 @@ inline bool CDOTAUserMsg_StatsKillDetails::has_death_time() const {
 }
 inline void CDOTAUserMsg_StatsKillDetails::clear_death_time() {
   _impl_.death_time_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline float CDOTAUserMsg_StatsKillDetails::_internal_death_time() const {
   return _impl_.death_time_;
@@ -52578,7 +52778,7 @@ inline float CDOTAUserMsg_StatsKillDetails::death_time() const {
   return _internal_death_time();
 }
 inline void CDOTAUserMsg_StatsKillDetails::_internal_set_death_time(float value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.death_time_ = value;
 }
 inline void CDOTAUserMsg_StatsKillDetails::set_death_time(float value) {
@@ -52586,7 +52786,7 @@ inline void CDOTAUserMsg_StatsKillDetails::set_death_time(float value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_StatsKillDetails.death_time)
 }
 
-// optional int32 killer_id = 6;
+// optional int32 killer_id = 6 [default = -1];
 inline bool CDOTAUserMsg_StatsKillDetails::_internal_has_killer_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -52595,7 +52795,7 @@ inline bool CDOTAUserMsg_StatsKillDetails::has_killer_id() const {
   return _internal_has_killer_id();
 }
 inline void CDOTAUserMsg_StatsKillDetails::clear_killer_id() {
-  _impl_.killer_id_ = 0;
+  _impl_.killer_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CDOTAUserMsg_StatsKillDetails::_internal_killer_id() const {
@@ -53256,7 +53456,7 @@ CDOTAUserMsg_StatsMatchDetails::fight_details() const {
 
 // CDOTAUserMsg_MiniTaunt
 
-// optional int32 taunting_player_id = 1;
+// optional int32 taunting_player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_MiniTaunt::_internal_has_taunting_player_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -53265,7 +53465,7 @@ inline bool CDOTAUserMsg_MiniTaunt::has_taunting_player_id() const {
   return _internal_has_taunting_player_id();
 }
 inline void CDOTAUserMsg_MiniTaunt::clear_taunting_player_id() {
-  _impl_.taunting_player_id_ = 0;
+  _impl_.taunting_player_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_MiniTaunt::_internal_taunting_player_id() const {
@@ -53320,17 +53520,17 @@ inline void CDOTAUserMsg_SpeechBubble::set_destroy_all(bool value) {
 
 // CDOTAUserMsg_CustomHeaderMessage
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_CustomHeaderMessage::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_CustomHeaderMessage::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_CustomHeaderMessage::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_CustomHeaderMessage::_internal_player_id() const {
   return _impl_.player_id_;
@@ -53340,7 +53540,7 @@ inline int32_t CDOTAUserMsg_CustomHeaderMessage::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_CustomHeaderMessage::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_CustomHeaderMessage::set_player_id(int32_t value) {
@@ -53350,7 +53550,7 @@ inline void CDOTAUserMsg_CustomHeaderMessage::set_player_id(int32_t value) {
 
 // optional float duration = 2;
 inline bool CDOTAUserMsg_CustomHeaderMessage::_internal_has_duration() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_CustomHeaderMessage::has_duration() const {
@@ -53358,7 +53558,7 @@ inline bool CDOTAUserMsg_CustomHeaderMessage::has_duration() const {
 }
 inline void CDOTAUserMsg_CustomHeaderMessage::clear_duration() {
   _impl_.duration_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline float CDOTAUserMsg_CustomHeaderMessage::_internal_duration() const {
   return _impl_.duration_;
@@ -53368,7 +53568,7 @@ inline float CDOTAUserMsg_CustomHeaderMessage::duration() const {
   return _internal_duration();
 }
 inline void CDOTAUserMsg_CustomHeaderMessage::_internal_set_duration(float value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.duration_ = value;
 }
 inline void CDOTAUserMsg_CustomHeaderMessage::set_duration(float value) {
@@ -53446,7 +53646,7 @@ inline void CDOTAUserMsg_CustomHeaderMessage::set_allocated_message(std::string*
 
 // optional int32 value = 4;
 inline bool CDOTAUserMsg_CustomHeaderMessage::_internal_has_value() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_CustomHeaderMessage::has_value() const {
@@ -53454,7 +53654,7 @@ inline bool CDOTAUserMsg_CustomHeaderMessage::has_value() const {
 }
 inline void CDOTAUserMsg_CustomHeaderMessage::clear_value() {
   _impl_.value_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_CustomHeaderMessage::_internal_value() const {
   return _impl_.value_;
@@ -53464,7 +53664,7 @@ inline int32_t CDOTAUserMsg_CustomHeaderMessage::value() const {
   return _internal_value();
 }
 inline void CDOTAUserMsg_CustomHeaderMessage::_internal_set_value(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.value_ = value;
 }
 inline void CDOTAUserMsg_CustomHeaderMessage::set_value(int32_t value) {
@@ -54393,17 +54593,17 @@ inline void CDOTAUserMsg_CustomHudElement_Destroy::set_allocated_element_id(std:
 
 // CDOTAUserMsg_CompendiumStatePlayer
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_CompendiumStatePlayer::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_CompendiumStatePlayer::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_CompendiumStatePlayer::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_CompendiumStatePlayer::_internal_player_id() const {
   return _impl_.player_id_;
@@ -54413,7 +54613,7 @@ inline int32_t CDOTAUserMsg_CompendiumStatePlayer::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_CompendiumStatePlayer::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_CompendiumStatePlayer::set_player_id(int32_t value) {
@@ -54423,7 +54623,7 @@ inline void CDOTAUserMsg_CompendiumStatePlayer::set_player_id(int32_t value) {
 
 // optional uint32 level = 2;
 inline bool CDOTAUserMsg_CompendiumStatePlayer::_internal_has_level() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_CompendiumStatePlayer::has_level() const {
@@ -54431,7 +54631,7 @@ inline bool CDOTAUserMsg_CompendiumStatePlayer::has_level() const {
 }
 inline void CDOTAUserMsg_CompendiumStatePlayer::clear_level() {
   _impl_.level_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_CompendiumStatePlayer::_internal_level() const {
   return _impl_.level_;
@@ -54441,7 +54641,7 @@ inline uint32_t CDOTAUserMsg_CompendiumStatePlayer::level() const {
   return _internal_level();
 }
 inline void CDOTAUserMsg_CompendiumStatePlayer::_internal_set_level(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.level_ = value;
 }
 inline void CDOTAUserMsg_CompendiumStatePlayer::set_level(uint32_t value) {
@@ -54497,45 +54697,45 @@ CDOTAUserMsg_CompendiumState::compendium_players() const {
 
 // CDOTAUserMsg_ProjectionAbility
 
-// optional uint32 ability_id = 1;
+// optional int32 ability_id = 1 [default = -1];
 inline bool CDOTAUserMsg_ProjectionAbility::_internal_has_ability_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ProjectionAbility::has_ability_id() const {
   return _internal_has_ability_id();
 }
 inline void CDOTAUserMsg_ProjectionAbility::clear_ability_id() {
-  _impl_.ability_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.ability_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
-inline uint32_t CDOTAUserMsg_ProjectionAbility::_internal_ability_id() const {
+inline int32_t CDOTAUserMsg_ProjectionAbility::_internal_ability_id() const {
   return _impl_.ability_id_;
 }
-inline uint32_t CDOTAUserMsg_ProjectionAbility::ability_id() const {
+inline int32_t CDOTAUserMsg_ProjectionAbility::ability_id() const {
   // @@protoc_insertion_point(field_get:CDOTAUserMsg_ProjectionAbility.ability_id)
   return _internal_ability_id();
 }
-inline void CDOTAUserMsg_ProjectionAbility::_internal_set_ability_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+inline void CDOTAUserMsg_ProjectionAbility::_internal_set_ability_id(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.ability_id_ = value;
 }
-inline void CDOTAUserMsg_ProjectionAbility::set_ability_id(uint32_t value) {
+inline void CDOTAUserMsg_ProjectionAbility::set_ability_id(int32_t value) {
   _internal_set_ability_id(value);
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_ProjectionAbility.ability_id)
 }
 
-// optional int32 caster_ent_index = 2;
+// optional int32 caster_ent_index = 2 [default = -1];
 inline bool CDOTAUserMsg_ProjectionAbility::_internal_has_caster_ent_index() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ProjectionAbility::has_caster_ent_index() const {
   return _internal_has_caster_ent_index();
 }
 inline void CDOTAUserMsg_ProjectionAbility::clear_caster_ent_index() {
-  _impl_.caster_ent_index_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.caster_ent_index_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
 inline int32_t CDOTAUserMsg_ProjectionAbility::_internal_caster_ent_index() const {
   return _impl_.caster_ent_index_;
@@ -54545,7 +54745,7 @@ inline int32_t CDOTAUserMsg_ProjectionAbility::caster_ent_index() const {
   return _internal_caster_ent_index();
 }
 inline void CDOTAUserMsg_ProjectionAbility::_internal_set_caster_ent_index(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.caster_ent_index_ = value;
 }
 inline void CDOTAUserMsg_ProjectionAbility::set_caster_ent_index(int32_t value) {
@@ -54555,7 +54755,7 @@ inline void CDOTAUserMsg_ProjectionAbility::set_caster_ent_index(int32_t value) 
 
 // optional int32 caster_team = 3;
 inline bool CDOTAUserMsg_ProjectionAbility::_internal_has_caster_team() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ProjectionAbility::has_caster_team() const {
@@ -54563,7 +54763,7 @@ inline bool CDOTAUserMsg_ProjectionAbility::has_caster_team() const {
 }
 inline void CDOTAUserMsg_ProjectionAbility::clear_caster_team() {
   _impl_.caster_team_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_ProjectionAbility::_internal_caster_team() const {
   return _impl_.caster_team_;
@@ -54573,7 +54773,7 @@ inline int32_t CDOTAUserMsg_ProjectionAbility::caster_team() const {
   return _internal_caster_team();
 }
 inline void CDOTAUserMsg_ProjectionAbility::_internal_set_caster_team(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.caster_team_ = value;
 }
 inline void CDOTAUserMsg_ProjectionAbility::set_caster_team(int32_t value) {
@@ -54583,7 +54783,7 @@ inline void CDOTAUserMsg_ProjectionAbility::set_caster_team(int32_t value) {
 
 // optional bool channel_end = 4;
 inline bool CDOTAUserMsg_ProjectionAbility::_internal_has_channel_end() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ProjectionAbility::has_channel_end() const {
@@ -54591,7 +54791,7 @@ inline bool CDOTAUserMsg_ProjectionAbility::has_channel_end() const {
 }
 inline void CDOTAUserMsg_ProjectionAbility::clear_channel_end() {
   _impl_.channel_end_ = false;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline bool CDOTAUserMsg_ProjectionAbility::_internal_channel_end() const {
   return _impl_.channel_end_;
@@ -54601,7 +54801,7 @@ inline bool CDOTAUserMsg_ProjectionAbility::channel_end() const {
   return _internal_channel_end();
 }
 inline void CDOTAUserMsg_ProjectionAbility::_internal_set_channel_end(bool value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.channel_end_ = value;
 }
 inline void CDOTAUserMsg_ProjectionAbility::set_channel_end(bool value) {
@@ -54698,7 +54898,7 @@ inline void CDOTAUserMsg_ProjectionAbility::set_allocated_origin(::CMsgVector* o
 
 // optional bool track_caster_only = 6;
 inline bool CDOTAUserMsg_ProjectionAbility::_internal_has_track_caster_only() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ProjectionAbility::has_track_caster_only() const {
@@ -54706,7 +54906,7 @@ inline bool CDOTAUserMsg_ProjectionAbility::has_track_caster_only() const {
 }
 inline void CDOTAUserMsg_ProjectionAbility::clear_track_caster_only() {
   _impl_.track_caster_only_ = false;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline bool CDOTAUserMsg_ProjectionAbility::_internal_track_caster_only() const {
   return _impl_.track_caster_only_;
@@ -54716,7 +54916,7 @@ inline bool CDOTAUserMsg_ProjectionAbility::track_caster_only() const {
   return _internal_track_caster_only();
 }
 inline void CDOTAUserMsg_ProjectionAbility::_internal_set_track_caster_only(bool value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.track_caster_only_ = value;
 }
 inline void CDOTAUserMsg_ProjectionAbility::set_track_caster_only(bool value) {
@@ -54726,7 +54926,7 @@ inline void CDOTAUserMsg_ProjectionAbility::set_track_caster_only(bool value) {
 
 // optional float end_time = 7;
 inline bool CDOTAUserMsg_ProjectionAbility::_internal_has_end_time() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ProjectionAbility::has_end_time() const {
@@ -54734,7 +54934,7 @@ inline bool CDOTAUserMsg_ProjectionAbility::has_end_time() const {
 }
 inline void CDOTAUserMsg_ProjectionAbility::clear_end_time() {
   _impl_.end_time_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline float CDOTAUserMsg_ProjectionAbility::_internal_end_time() const {
   return _impl_.end_time_;
@@ -54744,7 +54944,7 @@ inline float CDOTAUserMsg_ProjectionAbility::end_time() const {
   return _internal_end_time();
 }
 inline void CDOTAUserMsg_ProjectionAbility::_internal_set_end_time(float value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.end_time_ = value;
 }
 inline void CDOTAUserMsg_ProjectionAbility::set_end_time(float value) {
@@ -54752,17 +54952,17 @@ inline void CDOTAUserMsg_ProjectionAbility::set_end_time(float value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_ProjectionAbility.end_time)
 }
 
-// optional int32 victim_ent_index = 8;
+// optional int32 victim_ent_index = 8 [default = -1];
 inline bool CDOTAUserMsg_ProjectionAbility::_internal_has_victim_ent_index() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ProjectionAbility::has_victim_ent_index() const {
   return _internal_has_victim_ent_index();
 }
 inline void CDOTAUserMsg_ProjectionAbility::clear_victim_ent_index() {
-  _impl_.victim_ent_index_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_.victim_ent_index_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline int32_t CDOTAUserMsg_ProjectionAbility::_internal_victim_ent_index() const {
   return _impl_.victim_ent_index_;
@@ -54772,7 +54972,7 @@ inline int32_t CDOTAUserMsg_ProjectionAbility::victim_ent_index() const {
   return _internal_victim_ent_index();
 }
 inline void CDOTAUserMsg_ProjectionAbility::_internal_set_victim_ent_index(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.victim_ent_index_ = value;
 }
 inline void CDOTAUserMsg_ProjectionAbility::set_victim_ent_index(int32_t value) {
@@ -54845,7 +55045,7 @@ inline void CDOTAUserMsg_ProjectionEvent::set_team(uint32_t value) {
 
 // CDOTAUserMsg_XPAlert
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_XPAlert::_internal_has_player_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -54854,7 +55054,7 @@ inline bool CDOTAUserMsg_XPAlert::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_XPAlert::clear_player_id() {
-  _impl_.player_id_ = 0;
+  _impl_.player_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_XPAlert::_internal_player_id() const {
@@ -54873,7 +55073,7 @@ inline void CDOTAUserMsg_XPAlert::set_player_id(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_XPAlert.player_id)
 }
 
-// optional int32 target_entindex = 2;
+// optional int32 target_entindex = 2 [default = -1];
 inline bool CDOTAUserMsg_XPAlert::_internal_has_target_entindex() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -54882,7 +55082,7 @@ inline bool CDOTAUserMsg_XPAlert::has_target_entindex() const {
   return _internal_has_target_entindex();
 }
 inline void CDOTAUserMsg_XPAlert::clear_target_entindex() {
-  _impl_.target_entindex_ = 0;
+  _impl_.target_entindex_ = -1;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_XPAlert::_internal_target_entindex() const {
@@ -54905,17 +55105,17 @@ inline void CDOTAUserMsg_XPAlert::set_target_entindex(int32_t value) {
 
 // CDOTAUserMsg_TalentTreeAlert
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_TalentTreeAlert::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TalentTreeAlert::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_TalentTreeAlert::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_TalentTreeAlert::_internal_player_id() const {
   return _impl_.player_id_;
@@ -54925,7 +55125,7 @@ inline int32_t CDOTAUserMsg_TalentTreeAlert::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_TalentTreeAlert::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_TalentTreeAlert::set_player_id(int32_t value) {
@@ -54933,17 +55133,17 @@ inline void CDOTAUserMsg_TalentTreeAlert::set_player_id(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_TalentTreeAlert.player_id)
 }
 
-// optional int32 target_entindex = 2;
+// optional int32 target_entindex = 2 [default = -1];
 inline bool CDOTAUserMsg_TalentTreeAlert::_internal_has_target_entindex() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TalentTreeAlert::has_target_entindex() const {
   return _internal_has_target_entindex();
 }
 inline void CDOTAUserMsg_TalentTreeAlert::clear_target_entindex() {
-  _impl_.target_entindex_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.target_entindex_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CDOTAUserMsg_TalentTreeAlert::_internal_target_entindex() const {
   return _impl_.target_entindex_;
@@ -54953,7 +55153,7 @@ inline int32_t CDOTAUserMsg_TalentTreeAlert::target_entindex() const {
   return _internal_target_entindex();
 }
 inline void CDOTAUserMsg_TalentTreeAlert::_internal_set_target_entindex(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.target_entindex_ = value;
 }
 inline void CDOTAUserMsg_TalentTreeAlert::set_target_entindex(int32_t value) {
@@ -54961,7 +55161,7 @@ inline void CDOTAUserMsg_TalentTreeAlert::set_target_entindex(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_TalentTreeAlert.target_entindex)
 }
 
-// optional int32 ability_id = 3;
+// optional int32 ability_id = 3 [default = -1];
 inline bool CDOTAUserMsg_TalentTreeAlert::_internal_has_ability_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -54970,7 +55170,7 @@ inline bool CDOTAUserMsg_TalentTreeAlert::has_ability_id() const {
   return _internal_has_ability_id();
 }
 inline void CDOTAUserMsg_TalentTreeAlert::clear_ability_id() {
-  _impl_.ability_id_ = 0;
+  _impl_.ability_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_TalentTreeAlert::_internal_ability_id() const {
@@ -54991,7 +55191,7 @@ inline void CDOTAUserMsg_TalentTreeAlert::set_ability_id(int32_t value) {
 
 // optional int32 slot = 4;
 inline bool CDOTAUserMsg_TalentTreeAlert::_internal_has_slot() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TalentTreeAlert::has_slot() const {
@@ -54999,7 +55199,7 @@ inline bool CDOTAUserMsg_TalentTreeAlert::has_slot() const {
 }
 inline void CDOTAUserMsg_TalentTreeAlert::clear_slot() {
   _impl_.slot_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_TalentTreeAlert::_internal_slot() const {
   return _impl_.slot_;
@@ -55009,7 +55209,7 @@ inline int32_t CDOTAUserMsg_TalentTreeAlert::slot() const {
   return _internal_slot();
 }
 inline void CDOTAUserMsg_TalentTreeAlert::_internal_set_slot(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.slot_ = value;
 }
 inline void CDOTAUserMsg_TalentTreeAlert::set_slot(int32_t value) {
@@ -55019,7 +55219,7 @@ inline void CDOTAUserMsg_TalentTreeAlert::set_slot(int32_t value) {
 
 // optional bool learned = 5;
 inline bool CDOTAUserMsg_TalentTreeAlert::_internal_has_learned() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TalentTreeAlert::has_learned() const {
@@ -55027,7 +55227,7 @@ inline bool CDOTAUserMsg_TalentTreeAlert::has_learned() const {
 }
 inline void CDOTAUserMsg_TalentTreeAlert::clear_learned() {
   _impl_.learned_ = false;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline bool CDOTAUserMsg_TalentTreeAlert::_internal_learned() const {
   return _impl_.learned_;
@@ -55037,7 +55237,7 @@ inline bool CDOTAUserMsg_TalentTreeAlert::learned() const {
   return _internal_learned();
 }
 inline void CDOTAUserMsg_TalentTreeAlert::_internal_set_learned(bool value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.learned_ = value;
 }
 inline void CDOTAUserMsg_TalentTreeAlert::set_learned(bool value) {
@@ -55053,17 +55253,17 @@ inline void CDOTAUserMsg_TalentTreeAlert::set_learned(bool value) {
 
 // CDOTAUserMsg_QuestStatus
 
-// required int32 player_id = 1;
+// required int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_QuestStatus::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_QuestStatus::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_QuestStatus::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline int32_t CDOTAUserMsg_QuestStatus::_internal_player_id() const {
   return _impl_.player_id_;
@@ -55073,7 +55273,7 @@ inline int32_t CDOTAUserMsg_QuestStatus::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_QuestStatus::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_QuestStatus::set_player_id(int32_t value) {
@@ -55083,7 +55283,7 @@ inline void CDOTAUserMsg_QuestStatus::set_player_id(int32_t value) {
 
 // optional uint32 quest_id = 2;
 inline bool CDOTAUserMsg_QuestStatus::_internal_has_quest_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_QuestStatus::has_quest_id() const {
@@ -55091,7 +55291,7 @@ inline bool CDOTAUserMsg_QuestStatus::has_quest_id() const {
 }
 inline void CDOTAUserMsg_QuestStatus::clear_quest_id() {
   _impl_.quest_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_QuestStatus::_internal_quest_id() const {
   return _impl_.quest_id_;
@@ -55101,7 +55301,7 @@ inline uint32_t CDOTAUserMsg_QuestStatus::quest_id() const {
   return _internal_quest_id();
 }
 inline void CDOTAUserMsg_QuestStatus::_internal_set_quest_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.quest_id_ = value;
 }
 inline void CDOTAUserMsg_QuestStatus::set_quest_id(uint32_t value) {
@@ -55111,7 +55311,7 @@ inline void CDOTAUserMsg_QuestStatus::set_quest_id(uint32_t value) {
 
 // optional uint32 challenge_id = 3;
 inline bool CDOTAUserMsg_QuestStatus::_internal_has_challenge_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_QuestStatus::has_challenge_id() const {
@@ -55119,7 +55319,7 @@ inline bool CDOTAUserMsg_QuestStatus::has_challenge_id() const {
 }
 inline void CDOTAUserMsg_QuestStatus::clear_challenge_id() {
   _impl_.challenge_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CDOTAUserMsg_QuestStatus::_internal_challenge_id() const {
   return _impl_.challenge_id_;
@@ -55129,7 +55329,7 @@ inline uint32_t CDOTAUserMsg_QuestStatus::challenge_id() const {
   return _internal_challenge_id();
 }
 inline void CDOTAUserMsg_QuestStatus::_internal_set_challenge_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.challenge_id_ = value;
 }
 inline void CDOTAUserMsg_QuestStatus::set_challenge_id(uint32_t value) {
@@ -55139,7 +55339,7 @@ inline void CDOTAUserMsg_QuestStatus::set_challenge_id(uint32_t value) {
 
 // optional uint32 progress = 4;
 inline bool CDOTAUserMsg_QuestStatus::_internal_has_progress() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_QuestStatus::has_progress() const {
@@ -55147,7 +55347,7 @@ inline bool CDOTAUserMsg_QuestStatus::has_progress() const {
 }
 inline void CDOTAUserMsg_QuestStatus::clear_progress() {
   _impl_.progress_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CDOTAUserMsg_QuestStatus::_internal_progress() const {
   return _impl_.progress_;
@@ -55157,7 +55357,7 @@ inline uint32_t CDOTAUserMsg_QuestStatus::progress() const {
   return _internal_progress();
 }
 inline void CDOTAUserMsg_QuestStatus::_internal_set_progress(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.progress_ = value;
 }
 inline void CDOTAUserMsg_QuestStatus::set_progress(uint32_t value) {
@@ -55167,7 +55367,7 @@ inline void CDOTAUserMsg_QuestStatus::set_progress(uint32_t value) {
 
 // optional uint32 goal = 5;
 inline bool CDOTAUserMsg_QuestStatus::_internal_has_goal() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_QuestStatus::has_goal() const {
@@ -55175,7 +55375,7 @@ inline bool CDOTAUserMsg_QuestStatus::has_goal() const {
 }
 inline void CDOTAUserMsg_QuestStatus::clear_goal() {
   _impl_.goal_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CDOTAUserMsg_QuestStatus::_internal_goal() const {
   return _impl_.goal_;
@@ -55185,7 +55385,7 @@ inline uint32_t CDOTAUserMsg_QuestStatus::goal() const {
   return _internal_goal();
 }
 inline void CDOTAUserMsg_QuestStatus::_internal_set_goal(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.goal_ = value;
 }
 inline void CDOTAUserMsg_QuestStatus::set_goal(uint32_t value) {
@@ -55195,7 +55395,7 @@ inline void CDOTAUserMsg_QuestStatus::set_goal(uint32_t value) {
 
 // optional uint32 query = 6;
 inline bool CDOTAUserMsg_QuestStatus::_internal_has_query() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_QuestStatus::has_query() const {
@@ -55203,7 +55403,7 @@ inline bool CDOTAUserMsg_QuestStatus::has_query() const {
 }
 inline void CDOTAUserMsg_QuestStatus::clear_query() {
   _impl_.query_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline uint32_t CDOTAUserMsg_QuestStatus::_internal_query() const {
   return _impl_.query_;
@@ -55213,7 +55413,7 @@ inline uint32_t CDOTAUserMsg_QuestStatus::query() const {
   return _internal_query();
 }
 inline void CDOTAUserMsg_QuestStatus::_internal_set_query(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.query_ = value;
 }
 inline void CDOTAUserMsg_QuestStatus::set_query(uint32_t value) {
@@ -55223,7 +55423,7 @@ inline void CDOTAUserMsg_QuestStatus::set_query(uint32_t value) {
 
 // optional float fail_gametime = 7;
 inline bool CDOTAUserMsg_QuestStatus::_internal_has_fail_gametime() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_QuestStatus::has_fail_gametime() const {
@@ -55231,7 +55431,7 @@ inline bool CDOTAUserMsg_QuestStatus::has_fail_gametime() const {
 }
 inline void CDOTAUserMsg_QuestStatus::clear_fail_gametime() {
   _impl_.fail_gametime_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline float CDOTAUserMsg_QuestStatus::_internal_fail_gametime() const {
   return _impl_.fail_gametime_;
@@ -55241,7 +55441,7 @@ inline float CDOTAUserMsg_QuestStatus::fail_gametime() const {
   return _internal_fail_gametime();
 }
 inline void CDOTAUserMsg_QuestStatus::_internal_set_fail_gametime(float value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.fail_gametime_ = value;
 }
 inline void CDOTAUserMsg_QuestStatus::set_fail_gametime(float value) {
@@ -55249,7 +55449,7 @@ inline void CDOTAUserMsg_QuestStatus::set_fail_gametime(float value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_QuestStatus.fail_gametime)
 }
 
-// optional uint32 item_ability_id = 8;
+// optional int32 item_ability_id = 8 [default = -1];
 inline bool CDOTAUserMsg_QuestStatus::_internal_has_item_ability_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -55258,21 +55458,21 @@ inline bool CDOTAUserMsg_QuestStatus::has_item_ability_id() const {
   return _internal_has_item_ability_id();
 }
 inline void CDOTAUserMsg_QuestStatus::clear_item_ability_id() {
-  _impl_.item_ability_id_ = 0u;
+  _impl_.item_ability_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000080u;
 }
-inline uint32_t CDOTAUserMsg_QuestStatus::_internal_item_ability_id() const {
+inline int32_t CDOTAUserMsg_QuestStatus::_internal_item_ability_id() const {
   return _impl_.item_ability_id_;
 }
-inline uint32_t CDOTAUserMsg_QuestStatus::item_ability_id() const {
+inline int32_t CDOTAUserMsg_QuestStatus::item_ability_id() const {
   // @@protoc_insertion_point(field_get:CDOTAUserMsg_QuestStatus.item_ability_id)
   return _internal_item_ability_id();
 }
-inline void CDOTAUserMsg_QuestStatus::_internal_set_item_ability_id(uint32_t value) {
+inline void CDOTAUserMsg_QuestStatus::_internal_set_item_ability_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.item_ability_id_ = value;
 }
-inline void CDOTAUserMsg_QuestStatus::set_item_ability_id(uint32_t value) {
+inline void CDOTAUserMsg_QuestStatus::set_item_ability_id(int32_t value) {
   _internal_set_item_ability_id(value);
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_QuestStatus.item_ability_id)
 }
@@ -55281,17 +55481,17 @@ inline void CDOTAUserMsg_QuestStatus::set_item_ability_id(uint32_t value) {
 
 // CDOTAUserMsg_SuggestHeroPick
 
-// required int32 player_id = 1;
+// required int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_SuggestHeroPick::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SuggestHeroPick::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_SuggestHeroPick::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_SuggestHeroPick::_internal_player_id() const {
   return _impl_.player_id_;
@@ -55301,7 +55501,7 @@ inline int32_t CDOTAUserMsg_SuggestHeroPick::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_SuggestHeroPick::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_SuggestHeroPick::set_player_id(int32_t value) {
@@ -55311,7 +55511,7 @@ inline void CDOTAUserMsg_SuggestHeroPick::set_player_id(int32_t value) {
 
 // optional uint32 hero_id = 2;
 inline bool CDOTAUserMsg_SuggestHeroPick::_internal_has_hero_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SuggestHeroPick::has_hero_id() const {
@@ -55319,7 +55519,7 @@ inline bool CDOTAUserMsg_SuggestHeroPick::has_hero_id() const {
 }
 inline void CDOTAUserMsg_SuggestHeroPick::clear_hero_id() {
   _impl_.hero_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_SuggestHeroPick::_internal_hero_id() const {
   return _impl_.hero_id_;
@@ -55329,7 +55529,7 @@ inline uint32_t CDOTAUserMsg_SuggestHeroPick::hero_id() const {
   return _internal_hero_id();
 }
 inline void CDOTAUserMsg_SuggestHeroPick::_internal_set_hero_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.hero_id_ = value;
 }
 inline void CDOTAUserMsg_SuggestHeroPick::set_hero_id(uint32_t value) {
@@ -55339,7 +55539,7 @@ inline void CDOTAUserMsg_SuggestHeroPick::set_hero_id(uint32_t value) {
 
 // optional bool ban = 3;
 inline bool CDOTAUserMsg_SuggestHeroPick::_internal_has_ban() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SuggestHeroPick::has_ban() const {
@@ -55347,7 +55547,7 @@ inline bool CDOTAUserMsg_SuggestHeroPick::has_ban() const {
 }
 inline void CDOTAUserMsg_SuggestHeroPick::clear_ban() {
   _impl_.ban_ = false;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline bool CDOTAUserMsg_SuggestHeroPick::_internal_ban() const {
   return _impl_.ban_;
@@ -55357,7 +55557,7 @@ inline bool CDOTAUserMsg_SuggestHeroPick::ban() const {
   return _internal_ban();
 }
 inline void CDOTAUserMsg_SuggestHeroPick::_internal_set_ban(bool value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.ban_ = value;
 }
 inline void CDOTAUserMsg_SuggestHeroPick::set_ban(bool value) {
@@ -55369,7 +55569,7 @@ inline void CDOTAUserMsg_SuggestHeroPick::set_ban(bool value) {
 
 // CDOTAUserMsg_SuggestHeroRole
 
-// required int32 player_id = 1;
+// required int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_SuggestHeroRole::_internal_has_player_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -55378,7 +55578,7 @@ inline bool CDOTAUserMsg_SuggestHeroRole::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_SuggestHeroRole::clear_player_id() {
-  _impl_.player_id_ = 0;
+  _impl_.player_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_SuggestHeroRole::_internal_player_id() const {
@@ -55469,17 +55669,17 @@ inline void CDOTAUserMsg_SuggestHeroRole::set_allocated_hero_role(std::string* h
 
 // CDOTAUserMsg_KillcamDamageTaken
 
-// required int32 player_id = 1;
+// required int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_KillcamDamageTaken::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_KillcamDamageTaken::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_KillcamDamageTaken::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CDOTAUserMsg_KillcamDamageTaken::_internal_player_id() const {
   return _impl_.player_id_;
@@ -55489,7 +55689,7 @@ inline int32_t CDOTAUserMsg_KillcamDamageTaken::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_KillcamDamageTaken::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_KillcamDamageTaken::set_player_id(int32_t value) {
@@ -55499,7 +55699,7 @@ inline void CDOTAUserMsg_KillcamDamageTaken::set_player_id(int32_t value) {
 
 // optional uint32 damage_taken = 2;
 inline bool CDOTAUserMsg_KillcamDamageTaken::_internal_has_damage_taken() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_KillcamDamageTaken::has_damage_taken() const {
@@ -55507,7 +55707,7 @@ inline bool CDOTAUserMsg_KillcamDamageTaken::has_damage_taken() const {
 }
 inline void CDOTAUserMsg_KillcamDamageTaken::clear_damage_taken() {
   _impl_.damage_taken_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CDOTAUserMsg_KillcamDamageTaken::_internal_damage_taken() const {
   return _impl_.damage_taken_;
@@ -55517,7 +55717,7 @@ inline uint32_t CDOTAUserMsg_KillcamDamageTaken::damage_taken() const {
   return _internal_damage_taken();
 }
 inline void CDOTAUserMsg_KillcamDamageTaken::_internal_set_damage_taken(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.damage_taken_ = value;
 }
 inline void CDOTAUserMsg_KillcamDamageTaken::set_damage_taken(uint32_t value) {
@@ -55527,7 +55727,7 @@ inline void CDOTAUserMsg_KillcamDamageTaken::set_damage_taken(uint32_t value) {
 
 // optional uint32 item_type = 3;
 inline bool CDOTAUserMsg_KillcamDamageTaken::_internal_has_item_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_KillcamDamageTaken::has_item_type() const {
@@ -55535,7 +55735,7 @@ inline bool CDOTAUserMsg_KillcamDamageTaken::has_item_type() const {
 }
 inline void CDOTAUserMsg_KillcamDamageTaken::clear_item_type() {
   _impl_.item_type_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CDOTAUserMsg_KillcamDamageTaken::_internal_item_type() const {
   return _impl_.item_type_;
@@ -55545,7 +55745,7 @@ inline uint32_t CDOTAUserMsg_KillcamDamageTaken::item_type() const {
   return _internal_item_type();
 }
 inline void CDOTAUserMsg_KillcamDamageTaken::_internal_set_item_type(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.item_type_ = value;
 }
 inline void CDOTAUserMsg_KillcamDamageTaken::set_item_type(uint32_t value) {
@@ -55553,7 +55753,7 @@ inline void CDOTAUserMsg_KillcamDamageTaken::set_item_type(uint32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_KillcamDamageTaken.item_type)
 }
 
-// optional uint32 item_ability_id = 4;
+// optional int32 item_ability_id = 4 [default = -1];
 inline bool CDOTAUserMsg_KillcamDamageTaken::_internal_has_item_ability_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -55562,21 +55762,21 @@ inline bool CDOTAUserMsg_KillcamDamageTaken::has_item_ability_id() const {
   return _internal_has_item_ability_id();
 }
 inline void CDOTAUserMsg_KillcamDamageTaken::clear_item_ability_id() {
-  _impl_.item_ability_id_ = 0u;
+  _impl_.item_ability_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000020u;
 }
-inline uint32_t CDOTAUserMsg_KillcamDamageTaken::_internal_item_ability_id() const {
+inline int32_t CDOTAUserMsg_KillcamDamageTaken::_internal_item_ability_id() const {
   return _impl_.item_ability_id_;
 }
-inline uint32_t CDOTAUserMsg_KillcamDamageTaken::item_ability_id() const {
+inline int32_t CDOTAUserMsg_KillcamDamageTaken::item_ability_id() const {
   // @@protoc_insertion_point(field_get:CDOTAUserMsg_KillcamDamageTaken.item_ability_id)
   return _internal_item_ability_id();
 }
-inline void CDOTAUserMsg_KillcamDamageTaken::_internal_set_item_ability_id(uint32_t value) {
+inline void CDOTAUserMsg_KillcamDamageTaken::_internal_set_item_ability_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.item_ability_id_ = value;
 }
-inline void CDOTAUserMsg_KillcamDamageTaken::set_item_ability_id(uint32_t value) {
+inline void CDOTAUserMsg_KillcamDamageTaken::set_item_ability_id(int32_t value) {
   _internal_set_item_ability_id(value);
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_KillcamDamageTaken.item_ability_id)
 }
@@ -55721,17 +55921,17 @@ inline void CDOTAUserMsg_KillcamDamageTaken::set_allocated_damage_color(std::str
 
 // CDOTAUserMsg_SelectPenaltyGold
 
-// required int32 player_id = 1;
+// required int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_SelectPenaltyGold::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SelectPenaltyGold::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_SelectPenaltyGold::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_SelectPenaltyGold::_internal_player_id() const {
   return _impl_.player_id_;
@@ -55741,7 +55941,7 @@ inline int32_t CDOTAUserMsg_SelectPenaltyGold::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_SelectPenaltyGold::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_SelectPenaltyGold::set_player_id(int32_t value) {
@@ -55751,7 +55951,7 @@ inline void CDOTAUserMsg_SelectPenaltyGold::set_player_id(int32_t value) {
 
 // optional sint32 cost = 2;
 inline bool CDOTAUserMsg_SelectPenaltyGold::_internal_has_cost() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SelectPenaltyGold::has_cost() const {
@@ -55759,7 +55959,7 @@ inline bool CDOTAUserMsg_SelectPenaltyGold::has_cost() const {
 }
 inline void CDOTAUserMsg_SelectPenaltyGold::clear_cost() {
   _impl_.cost_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_SelectPenaltyGold::_internal_cost() const {
   return _impl_.cost_;
@@ -55769,7 +55969,7 @@ inline int32_t CDOTAUserMsg_SelectPenaltyGold::cost() const {
   return _internal_cost();
 }
 inline void CDOTAUserMsg_SelectPenaltyGold::_internal_set_cost(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.cost_ = value;
 }
 inline void CDOTAUserMsg_SelectPenaltyGold::set_cost(int32_t value) {
@@ -55781,17 +55981,17 @@ inline void CDOTAUserMsg_SelectPenaltyGold::set_cost(int32_t value) {
 
 // CDOTAUserMsg_RollDiceResult
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_RollDiceResult::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_RollDiceResult::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_RollDiceResult::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CDOTAUserMsg_RollDiceResult::_internal_player_id() const {
   return _impl_.player_id_;
@@ -55801,7 +56001,7 @@ inline int32_t CDOTAUserMsg_RollDiceResult::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_RollDiceResult::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_RollDiceResult::set_player_id(int32_t value) {
@@ -55811,7 +56011,7 @@ inline void CDOTAUserMsg_RollDiceResult::set_player_id(int32_t value) {
 
 // optional uint32 channel_type = 2;
 inline bool CDOTAUserMsg_RollDiceResult::_internal_has_channel_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_RollDiceResult::has_channel_type() const {
@@ -55819,7 +56019,7 @@ inline bool CDOTAUserMsg_RollDiceResult::has_channel_type() const {
 }
 inline void CDOTAUserMsg_RollDiceResult::clear_channel_type() {
   _impl_.channel_type_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_RollDiceResult::_internal_channel_type() const {
   return _impl_.channel_type_;
@@ -55829,7 +56029,7 @@ inline uint32_t CDOTAUserMsg_RollDiceResult::channel_type() const {
   return _internal_channel_type();
 }
 inline void CDOTAUserMsg_RollDiceResult::_internal_set_channel_type(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.channel_type_ = value;
 }
 inline void CDOTAUserMsg_RollDiceResult::set_channel_type(uint32_t value) {
@@ -55839,7 +56039,7 @@ inline void CDOTAUserMsg_RollDiceResult::set_channel_type(uint32_t value) {
 
 // optional uint32 roll_min = 3;
 inline bool CDOTAUserMsg_RollDiceResult::_internal_has_roll_min() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_RollDiceResult::has_roll_min() const {
@@ -55847,7 +56047,7 @@ inline bool CDOTAUserMsg_RollDiceResult::has_roll_min() const {
 }
 inline void CDOTAUserMsg_RollDiceResult::clear_roll_min() {
   _impl_.roll_min_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CDOTAUserMsg_RollDiceResult::_internal_roll_min() const {
   return _impl_.roll_min_;
@@ -55857,7 +56057,7 @@ inline uint32_t CDOTAUserMsg_RollDiceResult::roll_min() const {
   return _internal_roll_min();
 }
 inline void CDOTAUserMsg_RollDiceResult::_internal_set_roll_min(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.roll_min_ = value;
 }
 inline void CDOTAUserMsg_RollDiceResult::set_roll_min(uint32_t value) {
@@ -55867,7 +56067,7 @@ inline void CDOTAUserMsg_RollDiceResult::set_roll_min(uint32_t value) {
 
 // optional uint32 roll_max = 4;
 inline bool CDOTAUserMsg_RollDiceResult::_internal_has_roll_max() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_RollDiceResult::has_roll_max() const {
@@ -55875,7 +56075,7 @@ inline bool CDOTAUserMsg_RollDiceResult::has_roll_max() const {
 }
 inline void CDOTAUserMsg_RollDiceResult::clear_roll_max() {
   _impl_.roll_max_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CDOTAUserMsg_RollDiceResult::_internal_roll_max() const {
   return _impl_.roll_max_;
@@ -55885,7 +56085,7 @@ inline uint32_t CDOTAUserMsg_RollDiceResult::roll_max() const {
   return _internal_roll_max();
 }
 inline void CDOTAUserMsg_RollDiceResult::_internal_set_roll_max(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.roll_max_ = value;
 }
 inline void CDOTAUserMsg_RollDiceResult::set_roll_max(uint32_t value) {
@@ -55895,7 +56095,7 @@ inline void CDOTAUserMsg_RollDiceResult::set_roll_max(uint32_t value) {
 
 // optional uint32 result = 5;
 inline bool CDOTAUserMsg_RollDiceResult::_internal_has_result() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_RollDiceResult::has_result() const {
@@ -55903,7 +56103,7 @@ inline bool CDOTAUserMsg_RollDiceResult::has_result() const {
 }
 inline void CDOTAUserMsg_RollDiceResult::clear_result() {
   _impl_.result_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CDOTAUserMsg_RollDiceResult::_internal_result() const {
   return _impl_.result_;
@@ -55913,7 +56113,7 @@ inline uint32_t CDOTAUserMsg_RollDiceResult::result() const {
   return _internal_result();
 }
 inline void CDOTAUserMsg_RollDiceResult::_internal_set_result(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.result_ = value;
 }
 inline void CDOTAUserMsg_RollDiceResult::set_result(uint32_t value) {
@@ -55925,17 +56125,17 @@ inline void CDOTAUserMsg_RollDiceResult::set_result(uint32_t value) {
 
 // CDOTAUserMsg_FlipCoinResult
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_FlipCoinResult::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_FlipCoinResult::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_FlipCoinResult::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_FlipCoinResult::_internal_player_id() const {
   return _impl_.player_id_;
@@ -55945,7 +56145,7 @@ inline int32_t CDOTAUserMsg_FlipCoinResult::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_FlipCoinResult::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_FlipCoinResult::set_player_id(int32_t value) {
@@ -55955,7 +56155,7 @@ inline void CDOTAUserMsg_FlipCoinResult::set_player_id(int32_t value) {
 
 // optional uint32 channel_type = 2;
 inline bool CDOTAUserMsg_FlipCoinResult::_internal_has_channel_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_FlipCoinResult::has_channel_type() const {
@@ -55963,7 +56163,7 @@ inline bool CDOTAUserMsg_FlipCoinResult::has_channel_type() const {
 }
 inline void CDOTAUserMsg_FlipCoinResult::clear_channel_type() {
   _impl_.channel_type_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_FlipCoinResult::_internal_channel_type() const {
   return _impl_.channel_type_;
@@ -55973,7 +56173,7 @@ inline uint32_t CDOTAUserMsg_FlipCoinResult::channel_type() const {
   return _internal_channel_type();
 }
 inline void CDOTAUserMsg_FlipCoinResult::_internal_set_channel_type(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.channel_type_ = value;
 }
 inline void CDOTAUserMsg_FlipCoinResult::set_channel_type(uint32_t value) {
@@ -55983,7 +56183,7 @@ inline void CDOTAUserMsg_FlipCoinResult::set_channel_type(uint32_t value) {
 
 // optional bool result = 3;
 inline bool CDOTAUserMsg_FlipCoinResult::_internal_has_result() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_FlipCoinResult::has_result() const {
@@ -55991,7 +56191,7 @@ inline bool CDOTAUserMsg_FlipCoinResult::has_result() const {
 }
 inline void CDOTAUserMsg_FlipCoinResult::clear_result() {
   _impl_.result_ = false;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline bool CDOTAUserMsg_FlipCoinResult::_internal_result() const {
   return _impl_.result_;
@@ -56001,7 +56201,7 @@ inline bool CDOTAUserMsg_FlipCoinResult::result() const {
   return _internal_result();
 }
 inline void CDOTAUserMsg_FlipCoinResult::_internal_set_result(bool value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.result_ = value;
 }
 inline void CDOTAUserMsg_FlipCoinResult::set_result(bool value) {
@@ -56013,7 +56213,7 @@ inline void CDOTAUserMsg_FlipCoinResult::set_result(bool value) {
 
 // CDOTAUserMessage_RequestItemSuggestions
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMessage_RequestItemSuggestions::_internal_has_player_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -56022,7 +56222,7 @@ inline bool CDOTAUserMessage_RequestItemSuggestions::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMessage_RequestItemSuggestions::clear_player_id() {
-  _impl_.player_id_ = 0;
+  _impl_.player_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMessage_RequestItemSuggestions::_internal_player_id() const {
@@ -56073,7 +56273,7 @@ inline void CDOTAUserMessage_TeamCaptainChanged::set_team(uint32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMessage_TeamCaptainChanged.team)
 }
 
-// optional int32 captain_player_id = 2;
+// optional int32 captain_player_id = 2 [default = -1];
 inline bool CDOTAUserMessage_TeamCaptainChanged::_internal_has_captain_player_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -56082,7 +56282,7 @@ inline bool CDOTAUserMessage_TeamCaptainChanged::has_captain_player_id() const {
   return _internal_has_captain_player_id();
 }
 inline void CDOTAUserMessage_TeamCaptainChanged::clear_captain_player_id() {
-  _impl_.captain_player_id_ = 0;
+  _impl_.captain_player_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMessage_TeamCaptainChanged::_internal_captain_player_id() const {
@@ -56105,17 +56305,17 @@ inline void CDOTAUserMessage_TeamCaptainChanged::set_captain_player_id(int32_t v
 
 // CDOTAUserMsg_ChatWheelCooldown
 
-// optional uint32 message_id = 1;
+// optional uint32 message_id = 1 [default = 4294967295];
 inline bool CDOTAUserMsg_ChatWheelCooldown::_internal_has_message_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ChatWheelCooldown::has_message_id() const {
   return _internal_has_message_id();
 }
 inline void CDOTAUserMsg_ChatWheelCooldown::clear_message_id() {
-  _impl_.message_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.message_id_ = 4294967295u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CDOTAUserMsg_ChatWheelCooldown::_internal_message_id() const {
   return _impl_.message_id_;
@@ -56125,7 +56325,7 @@ inline uint32_t CDOTAUserMsg_ChatWheelCooldown::message_id() const {
   return _internal_message_id();
 }
 inline void CDOTAUserMsg_ChatWheelCooldown::_internal_set_message_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.message_id_ = value;
 }
 inline void CDOTAUserMsg_ChatWheelCooldown::set_message_id(uint32_t value) {
@@ -56135,7 +56335,7 @@ inline void CDOTAUserMsg_ChatWheelCooldown::set_message_id(uint32_t value) {
 
 // optional float cooldown_remaining = 2;
 inline bool CDOTAUserMsg_ChatWheelCooldown::_internal_has_cooldown_remaining() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ChatWheelCooldown::has_cooldown_remaining() const {
@@ -56143,7 +56343,7 @@ inline bool CDOTAUserMsg_ChatWheelCooldown::has_cooldown_remaining() const {
 }
 inline void CDOTAUserMsg_ChatWheelCooldown::clear_cooldown_remaining() {
   _impl_.cooldown_remaining_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline float CDOTAUserMsg_ChatWheelCooldown::_internal_cooldown_remaining() const {
   return _impl_.cooldown_remaining_;
@@ -56153,7 +56353,7 @@ inline float CDOTAUserMsg_ChatWheelCooldown::cooldown_remaining() const {
   return _internal_cooldown_remaining();
 }
 inline void CDOTAUserMsg_ChatWheelCooldown::_internal_set_cooldown_remaining(float value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.cooldown_remaining_ = value;
 }
 inline void CDOTAUserMsg_ChatWheelCooldown::set_cooldown_remaining(float value) {
@@ -56221,17 +56421,17 @@ inline void CDOTAUserMsg_HeroRelicProgress::set_value(uint32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_HeroRelicProgress.value)
 }
 
-// optional uint32 ehandle = 3;
+// optional uint32 ehandle = 3 [default = 16777215];
 inline bool CDOTAUserMsg_HeroRelicProgress::_internal_has_ehandle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_HeroRelicProgress::has_ehandle() const {
   return _internal_has_ehandle();
 }
 inline void CDOTAUserMsg_HeroRelicProgress::clear_ehandle() {
-  _impl_.ehandle_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.ehandle_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline uint32_t CDOTAUserMsg_HeroRelicProgress::_internal_ehandle() const {
   return _impl_.ehandle_;
@@ -56241,7 +56441,7 @@ inline uint32_t CDOTAUserMsg_HeroRelicProgress::ehandle() const {
   return _internal_ehandle();
 }
 inline void CDOTAUserMsg_HeroRelicProgress::_internal_set_ehandle(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.ehandle_ = value;
 }
 inline void CDOTAUserMsg_HeroRelicProgress::set_ehandle(uint32_t value) {
@@ -56251,7 +56451,7 @@ inline void CDOTAUserMsg_HeroRelicProgress::set_ehandle(uint32_t value) {
 
 // optional uint32 event_id = 4;
 inline bool CDOTAUserMsg_HeroRelicProgress::_internal_has_event_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_HeroRelicProgress::has_event_id() const {
@@ -56259,7 +56459,7 @@ inline bool CDOTAUserMsg_HeroRelicProgress::has_event_id() const {
 }
 inline void CDOTAUserMsg_HeroRelicProgress::clear_event_id() {
   _impl_.event_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CDOTAUserMsg_HeroRelicProgress::_internal_event_id() const {
   return _impl_.event_id_;
@@ -56269,7 +56469,7 @@ inline uint32_t CDOTAUserMsg_HeroRelicProgress::event_id() const {
   return _internal_event_id();
 }
 inline void CDOTAUserMsg_HeroRelicProgress::_internal_set_event_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.event_id_ = value;
 }
 inline void CDOTAUserMsg_HeroRelicProgress::set_event_id(uint32_t value) {
@@ -56279,7 +56479,7 @@ inline void CDOTAUserMsg_HeroRelicProgress::set_event_id(uint32_t value) {
 
 // optional float value_display = 5;
 inline bool CDOTAUserMsg_HeroRelicProgress::_internal_has_value_display() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_HeroRelicProgress::has_value_display() const {
@@ -56287,7 +56487,7 @@ inline bool CDOTAUserMsg_HeroRelicProgress::has_value_display() const {
 }
 inline void CDOTAUserMsg_HeroRelicProgress::clear_value_display() {
   _impl_.value_display_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline float CDOTAUserMsg_HeroRelicProgress::_internal_value_display() const {
   return _impl_.value_display_;
@@ -56297,7 +56497,7 @@ inline float CDOTAUserMsg_HeroRelicProgress::value_display() const {
   return _internal_value_display();
 }
 inline void CDOTAUserMsg_HeroRelicProgress::_internal_set_value_display(float value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.value_display_ = value;
 }
 inline void CDOTAUserMsg_HeroRelicProgress::set_value_display(float value) {
@@ -56309,17 +56509,17 @@ inline void CDOTAUserMsg_HeroRelicProgress::set_value_display(float value) {
 
 // CDOTAUserMsg_AbilityDraftRequestAbility
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_AbilityDraftRequestAbility::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AbilityDraftRequestAbility::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_AbilityDraftRequestAbility::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_AbilityDraftRequestAbility::_internal_player_id() const {
   return _impl_.player_id_;
@@ -56329,7 +56529,7 @@ inline int32_t CDOTAUserMsg_AbilityDraftRequestAbility::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_AbilityDraftRequestAbility::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_AbilityDraftRequestAbility::set_player_id(int32_t value) {
@@ -56337,37 +56537,37 @@ inline void CDOTAUserMsg_AbilityDraftRequestAbility::set_player_id(int32_t value
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_AbilityDraftRequestAbility.player_id)
 }
 
-// optional uint32 requested_ability_id = 2;
+// optional int32 requested_ability_id = 2 [default = -1];
 inline bool CDOTAUserMsg_AbilityDraftRequestAbility::_internal_has_requested_ability_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AbilityDraftRequestAbility::has_requested_ability_id() const {
   return _internal_has_requested_ability_id();
 }
 inline void CDOTAUserMsg_AbilityDraftRequestAbility::clear_requested_ability_id() {
-  _impl_.requested_ability_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.requested_ability_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint32_t CDOTAUserMsg_AbilityDraftRequestAbility::_internal_requested_ability_id() const {
+inline int32_t CDOTAUserMsg_AbilityDraftRequestAbility::_internal_requested_ability_id() const {
   return _impl_.requested_ability_id_;
 }
-inline uint32_t CDOTAUserMsg_AbilityDraftRequestAbility::requested_ability_id() const {
+inline int32_t CDOTAUserMsg_AbilityDraftRequestAbility::requested_ability_id() const {
   // @@protoc_insertion_point(field_get:CDOTAUserMsg_AbilityDraftRequestAbility.requested_ability_id)
   return _internal_requested_ability_id();
 }
-inline void CDOTAUserMsg_AbilityDraftRequestAbility::_internal_set_requested_ability_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+inline void CDOTAUserMsg_AbilityDraftRequestAbility::_internal_set_requested_ability_id(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.requested_ability_id_ = value;
 }
-inline void CDOTAUserMsg_AbilityDraftRequestAbility::set_requested_ability_id(uint32_t value) {
+inline void CDOTAUserMsg_AbilityDraftRequestAbility::set_requested_ability_id(int32_t value) {
   _internal_set_requested_ability_id(value);
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_AbilityDraftRequestAbility.requested_ability_id)
 }
 
 // optional bool ctrl_is_down = 3;
 inline bool CDOTAUserMsg_AbilityDraftRequestAbility::_internal_has_ctrl_is_down() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AbilityDraftRequestAbility::has_ctrl_is_down() const {
@@ -56375,7 +56575,7 @@ inline bool CDOTAUserMsg_AbilityDraftRequestAbility::has_ctrl_is_down() const {
 }
 inline void CDOTAUserMsg_AbilityDraftRequestAbility::clear_ctrl_is_down() {
   _impl_.ctrl_is_down_ = false;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline bool CDOTAUserMsg_AbilityDraftRequestAbility::_internal_ctrl_is_down() const {
   return _impl_.ctrl_is_down_;
@@ -56385,7 +56585,7 @@ inline bool CDOTAUserMsg_AbilityDraftRequestAbility::ctrl_is_down() const {
   return _internal_ctrl_is_down();
 }
 inline void CDOTAUserMsg_AbilityDraftRequestAbility::_internal_set_ctrl_is_down(bool value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.ctrl_is_down_ = value;
 }
 inline void CDOTAUserMsg_AbilityDraftRequestAbility::set_ctrl_is_down(bool value) {
@@ -56397,17 +56597,17 @@ inline void CDOTAUserMsg_AbilityDraftRequestAbility::set_ctrl_is_down(bool value
 
 // CDOTAUserMsg_DamageReport
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_DamageReport::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_DamageReport::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_DamageReport::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CDOTAUserMsg_DamageReport::_internal_player_id() const {
   return _impl_.player_id_;
@@ -56417,7 +56617,7 @@ inline int32_t CDOTAUserMsg_DamageReport::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_DamageReport::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_DamageReport::set_player_id(int32_t value) {
@@ -56427,7 +56627,7 @@ inline void CDOTAUserMsg_DamageReport::set_player_id(int32_t value) {
 
 // optional uint32 target_hero_id = 2;
 inline bool CDOTAUserMsg_DamageReport::_internal_has_target_hero_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_DamageReport::has_target_hero_id() const {
@@ -56435,7 +56635,7 @@ inline bool CDOTAUserMsg_DamageReport::has_target_hero_id() const {
 }
 inline void CDOTAUserMsg_DamageReport::clear_target_hero_id() {
   _impl_.target_hero_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_DamageReport::_internal_target_hero_id() const {
   return _impl_.target_hero_id_;
@@ -56445,7 +56645,7 @@ inline uint32_t CDOTAUserMsg_DamageReport::target_hero_id() const {
   return _internal_target_hero_id();
 }
 inline void CDOTAUserMsg_DamageReport::_internal_set_target_hero_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.target_hero_id_ = value;
 }
 inline void CDOTAUserMsg_DamageReport::set_target_hero_id(uint32_t value) {
@@ -56455,7 +56655,7 @@ inline void CDOTAUserMsg_DamageReport::set_target_hero_id(uint32_t value) {
 
 // optional uint32 source_hero_id = 3;
 inline bool CDOTAUserMsg_DamageReport::_internal_has_source_hero_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_DamageReport::has_source_hero_id() const {
@@ -56463,7 +56663,7 @@ inline bool CDOTAUserMsg_DamageReport::has_source_hero_id() const {
 }
 inline void CDOTAUserMsg_DamageReport::clear_source_hero_id() {
   _impl_.source_hero_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CDOTAUserMsg_DamageReport::_internal_source_hero_id() const {
   return _impl_.source_hero_id_;
@@ -56473,7 +56673,7 @@ inline uint32_t CDOTAUserMsg_DamageReport::source_hero_id() const {
   return _internal_source_hero_id();
 }
 inline void CDOTAUserMsg_DamageReport::_internal_set_source_hero_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.source_hero_id_ = value;
 }
 inline void CDOTAUserMsg_DamageReport::set_source_hero_id(uint32_t value) {
@@ -56483,7 +56683,7 @@ inline void CDOTAUserMsg_DamageReport::set_source_hero_id(uint32_t value) {
 
 // optional int32 damage_amount = 4;
 inline bool CDOTAUserMsg_DamageReport::_internal_has_damage_amount() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_DamageReport::has_damage_amount() const {
@@ -56491,7 +56691,7 @@ inline bool CDOTAUserMsg_DamageReport::has_damage_amount() const {
 }
 inline void CDOTAUserMsg_DamageReport::clear_damage_amount() {
   _impl_.damage_amount_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_DamageReport::_internal_damage_amount() const {
   return _impl_.damage_amount_;
@@ -56501,7 +56701,7 @@ inline int32_t CDOTAUserMsg_DamageReport::damage_amount() const {
   return _internal_damage_amount();
 }
 inline void CDOTAUserMsg_DamageReport::_internal_set_damage_amount(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.damage_amount_ = value;
 }
 inline void CDOTAUserMsg_DamageReport::set_damage_amount(int32_t value) {
@@ -56511,7 +56711,7 @@ inline void CDOTAUserMsg_DamageReport::set_damage_amount(int32_t value) {
 
 // optional bool broadcast = 5;
 inline bool CDOTAUserMsg_DamageReport::_internal_has_broadcast() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_DamageReport::has_broadcast() const {
@@ -56519,7 +56719,7 @@ inline bool CDOTAUserMsg_DamageReport::has_broadcast() const {
 }
 inline void CDOTAUserMsg_DamageReport::clear_broadcast() {
   _impl_.broadcast_ = false;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline bool CDOTAUserMsg_DamageReport::_internal_broadcast() const {
   return _impl_.broadcast_;
@@ -56529,7 +56729,7 @@ inline bool CDOTAUserMsg_DamageReport::broadcast() const {
   return _internal_broadcast();
 }
 inline void CDOTAUserMsg_DamageReport::_internal_set_broadcast(bool value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.broadcast_ = value;
 }
 inline void CDOTAUserMsg_DamageReport::set_broadcast(bool value) {
@@ -56541,17 +56741,17 @@ inline void CDOTAUserMsg_DamageReport::set_broadcast(bool value) {
 
 // CDOTAUserMsg_SalutePlayer
 
-// optional int32 source_player_id = 1;
+// optional int32 source_player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_SalutePlayer::_internal_has_source_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SalutePlayer::has_source_player_id() const {
   return _internal_has_source_player_id();
 }
 inline void CDOTAUserMsg_SalutePlayer::clear_source_player_id() {
-  _impl_.source_player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.source_player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CDOTAUserMsg_SalutePlayer::_internal_source_player_id() const {
   return _impl_.source_player_id_;
@@ -56561,7 +56761,7 @@ inline int32_t CDOTAUserMsg_SalutePlayer::source_player_id() const {
   return _internal_source_player_id();
 }
 inline void CDOTAUserMsg_SalutePlayer::_internal_set_source_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.source_player_id_ = value;
 }
 inline void CDOTAUserMsg_SalutePlayer::set_source_player_id(int32_t value) {
@@ -56569,17 +56769,17 @@ inline void CDOTAUserMsg_SalutePlayer::set_source_player_id(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_SalutePlayer.source_player_id)
 }
 
-// optional int32 target_player_id = 2;
+// optional int32 target_player_id = 2 [default = -1];
 inline bool CDOTAUserMsg_SalutePlayer::_internal_has_target_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SalutePlayer::has_target_player_id() const {
   return _internal_has_target_player_id();
 }
 inline void CDOTAUserMsg_SalutePlayer::clear_target_player_id() {
-  _impl_.target_player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.target_player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline int32_t CDOTAUserMsg_SalutePlayer::_internal_target_player_id() const {
   return _impl_.target_player_id_;
@@ -56589,7 +56789,7 @@ inline int32_t CDOTAUserMsg_SalutePlayer::target_player_id() const {
   return _internal_target_player_id();
 }
 inline void CDOTAUserMsg_SalutePlayer::_internal_set_target_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.target_player_id_ = value;
 }
 inline void CDOTAUserMsg_SalutePlayer::set_target_player_id(int32_t value) {
@@ -56599,7 +56799,7 @@ inline void CDOTAUserMsg_SalutePlayer::set_target_player_id(int32_t value) {
 
 // optional uint32 tip_amount = 3;
 inline bool CDOTAUserMsg_SalutePlayer::_internal_has_tip_amount() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SalutePlayer::has_tip_amount() const {
@@ -56607,7 +56807,7 @@ inline bool CDOTAUserMsg_SalutePlayer::has_tip_amount() const {
 }
 inline void CDOTAUserMsg_SalutePlayer::clear_tip_amount() {
   _impl_.tip_amount_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CDOTAUserMsg_SalutePlayer::_internal_tip_amount() const {
   return _impl_.tip_amount_;
@@ -56617,7 +56817,7 @@ inline uint32_t CDOTAUserMsg_SalutePlayer::tip_amount() const {
   return _internal_tip_amount();
 }
 inline void CDOTAUserMsg_SalutePlayer::_internal_set_tip_amount(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.tip_amount_ = value;
 }
 inline void CDOTAUserMsg_SalutePlayer::set_tip_amount(uint32_t value) {
@@ -56627,7 +56827,7 @@ inline void CDOTAUserMsg_SalutePlayer::set_tip_amount(uint32_t value) {
 
 // optional uint32 event_id = 4;
 inline bool CDOTAUserMsg_SalutePlayer::_internal_has_event_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SalutePlayer::has_event_id() const {
@@ -56635,7 +56835,7 @@ inline bool CDOTAUserMsg_SalutePlayer::has_event_id() const {
 }
 inline void CDOTAUserMsg_SalutePlayer::clear_event_id() {
   _impl_.event_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CDOTAUserMsg_SalutePlayer::_internal_event_id() const {
   return _impl_.event_id_;
@@ -56645,7 +56845,7 @@ inline uint32_t CDOTAUserMsg_SalutePlayer::event_id() const {
   return _internal_event_id();
 }
 inline void CDOTAUserMsg_SalutePlayer::_internal_set_event_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.event_id_ = value;
 }
 inline void CDOTAUserMsg_SalutePlayer::set_event_id(uint32_t value) {
@@ -56721,11 +56921,39 @@ inline void CDOTAUserMsg_SalutePlayer::set_allocated_custom_tip_style(std::strin
   // @@protoc_insertion_point(field_set_allocated:CDOTAUserMsg_SalutePlayer.custom_tip_style)
 }
 
+// optional uint32 num_recent_tips = 6;
+inline bool CDOTAUserMsg_SalutePlayer::_internal_has_num_recent_tips() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_SalutePlayer::has_num_recent_tips() const {
+  return _internal_has_num_recent_tips();
+}
+inline void CDOTAUserMsg_SalutePlayer::clear_num_recent_tips() {
+  _impl_.num_recent_tips_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline uint32_t CDOTAUserMsg_SalutePlayer::_internal_num_recent_tips() const {
+  return _impl_.num_recent_tips_;
+}
+inline uint32_t CDOTAUserMsg_SalutePlayer::num_recent_tips() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_SalutePlayer.num_recent_tips)
+  return _internal_num_recent_tips();
+}
+inline void CDOTAUserMsg_SalutePlayer::_internal_set_num_recent_tips(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.num_recent_tips_ = value;
+}
+inline void CDOTAUserMsg_SalutePlayer::set_num_recent_tips(uint32_t value) {
+  _internal_set_num_recent_tips(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_SalutePlayer.num_recent_tips)
+}
+
 // -------------------------------------------------------------------
 
 // CDOTAUserMsg_TipAlert
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_TipAlert::_internal_has_player_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -56734,7 +56962,7 @@ inline bool CDOTAUserMsg_TipAlert::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_TipAlert::clear_player_id() {
-  _impl_.player_id_ = 0;
+  _impl_.player_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_TipAlert::_internal_player_id() const {
@@ -56825,17 +57053,17 @@ inline void CDOTAUserMsg_TipAlert::set_allocated_tip_text(std::string* tip_text)
 
 // CDOTAUserMsg_ReplaceQueryUnit
 
-// required int32 player_id = 1;
+// required int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_ReplaceQueryUnit::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ReplaceQueryUnit::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_ReplaceQueryUnit::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_ReplaceQueryUnit::_internal_player_id() const {
   return _impl_.player_id_;
@@ -56845,7 +57073,7 @@ inline int32_t CDOTAUserMsg_ReplaceQueryUnit::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_ReplaceQueryUnit::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_ReplaceQueryUnit::set_player_id(int32_t value) {
@@ -56853,17 +57081,17 @@ inline void CDOTAUserMsg_ReplaceQueryUnit::set_player_id(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_ReplaceQueryUnit.player_id)
 }
 
-// optional int32 source_entindex = 2;
+// optional int32 source_entindex = 2 [default = -1];
 inline bool CDOTAUserMsg_ReplaceQueryUnit::_internal_has_source_entindex() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ReplaceQueryUnit::has_source_entindex() const {
   return _internal_has_source_entindex();
 }
 inline void CDOTAUserMsg_ReplaceQueryUnit::clear_source_entindex() {
-  _impl_.source_entindex_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.source_entindex_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_ReplaceQueryUnit::_internal_source_entindex() const {
   return _impl_.source_entindex_;
@@ -56873,7 +57101,7 @@ inline int32_t CDOTAUserMsg_ReplaceQueryUnit::source_entindex() const {
   return _internal_source_entindex();
 }
 inline void CDOTAUserMsg_ReplaceQueryUnit::_internal_set_source_entindex(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.source_entindex_ = value;
 }
 inline void CDOTAUserMsg_ReplaceQueryUnit::set_source_entindex(int32_t value) {
@@ -56881,17 +57109,17 @@ inline void CDOTAUserMsg_ReplaceQueryUnit::set_source_entindex(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_ReplaceQueryUnit.source_entindex)
 }
 
-// optional int32 target_entindex = 3;
+// optional int32 target_entindex = 3 [default = -1];
 inline bool CDOTAUserMsg_ReplaceQueryUnit::_internal_has_target_entindex() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ReplaceQueryUnit::has_target_entindex() const {
   return _internal_has_target_entindex();
 }
 inline void CDOTAUserMsg_ReplaceQueryUnit::clear_target_entindex() {
-  _impl_.target_entindex_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.target_entindex_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_ReplaceQueryUnit::_internal_target_entindex() const {
   return _impl_.target_entindex_;
@@ -56901,7 +57129,7 @@ inline int32_t CDOTAUserMsg_ReplaceQueryUnit::target_entindex() const {
   return _internal_target_entindex();
 }
 inline void CDOTAUserMsg_ReplaceQueryUnit::_internal_set_target_entindex(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.target_entindex_ = value;
 }
 inline void CDOTAUserMsg_ReplaceQueryUnit::set_target_entindex(int32_t value) {
@@ -56913,17 +57141,17 @@ inline void CDOTAUserMsg_ReplaceQueryUnit::set_target_entindex(int32_t value) {
 
 // CDOTAUserMsg_ESArcanaCombo
 
-// optional uint32 ehandle = 1;
+// optional uint32 ehandle = 1 [default = 16777215];
 inline bool CDOTAUserMsg_ESArcanaCombo::_internal_has_ehandle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ESArcanaCombo::has_ehandle() const {
   return _internal_has_ehandle();
 }
 inline void CDOTAUserMsg_ESArcanaCombo::clear_ehandle() {
-  _impl_.ehandle_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.ehandle_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CDOTAUserMsg_ESArcanaCombo::_internal_ehandle() const {
   return _impl_.ehandle_;
@@ -56933,7 +57161,7 @@ inline uint32_t CDOTAUserMsg_ESArcanaCombo::ehandle() const {
   return _internal_ehandle();
 }
 inline void CDOTAUserMsg_ESArcanaCombo::_internal_set_ehandle(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.ehandle_ = value;
 }
 inline void CDOTAUserMsg_ESArcanaCombo::set_ehandle(uint32_t value) {
@@ -56943,7 +57171,7 @@ inline void CDOTAUserMsg_ESArcanaCombo::set_ehandle(uint32_t value) {
 
 // optional uint32 combo_count = 2;
 inline bool CDOTAUserMsg_ESArcanaCombo::_internal_has_combo_count() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ESArcanaCombo::has_combo_count() const {
@@ -56951,7 +57179,7 @@ inline bool CDOTAUserMsg_ESArcanaCombo::has_combo_count() const {
 }
 inline void CDOTAUserMsg_ESArcanaCombo::clear_combo_count() {
   _impl_.combo_count_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_ESArcanaCombo::_internal_combo_count() const {
   return _impl_.combo_count_;
@@ -56961,7 +57189,7 @@ inline uint32_t CDOTAUserMsg_ESArcanaCombo::combo_count() const {
   return _internal_combo_count();
 }
 inline void CDOTAUserMsg_ESArcanaCombo::_internal_set_combo_count(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.combo_count_ = value;
 }
 inline void CDOTAUserMsg_ESArcanaCombo::set_combo_count(uint32_t value) {
@@ -56971,7 +57199,7 @@ inline void CDOTAUserMsg_ESArcanaCombo::set_combo_count(uint32_t value) {
 
 // optional uint32 arcana_level = 3;
 inline bool CDOTAUserMsg_ESArcanaCombo::_internal_has_arcana_level() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ESArcanaCombo::has_arcana_level() const {
@@ -56979,7 +57207,7 @@ inline bool CDOTAUserMsg_ESArcanaCombo::has_arcana_level() const {
 }
 inline void CDOTAUserMsg_ESArcanaCombo::clear_arcana_level() {
   _impl_.arcana_level_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CDOTAUserMsg_ESArcanaCombo::_internal_arcana_level() const {
   return _impl_.arcana_level_;
@@ -56989,7 +57217,7 @@ inline uint32_t CDOTAUserMsg_ESArcanaCombo::arcana_level() const {
   return _internal_arcana_level();
 }
 inline void CDOTAUserMsg_ESArcanaCombo::_internal_set_arcana_level(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.arcana_level_ = value;
 }
 inline void CDOTAUserMsg_ESArcanaCombo::set_arcana_level(uint32_t value) {
@@ -57001,17 +57229,17 @@ inline void CDOTAUserMsg_ESArcanaCombo::set_arcana_level(uint32_t value) {
 
 // CDOTAUserMsg_ESArcanaComboSummary
 
-// optional uint32 ehandle = 1;
+// optional uint32 ehandle = 1 [default = 16777215];
 inline bool CDOTAUserMsg_ESArcanaComboSummary::_internal_has_ehandle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ESArcanaComboSummary::has_ehandle() const {
   return _internal_has_ehandle();
 }
 inline void CDOTAUserMsg_ESArcanaComboSummary::clear_ehandle() {
-  _impl_.ehandle_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.ehandle_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CDOTAUserMsg_ESArcanaComboSummary::_internal_ehandle() const {
   return _impl_.ehandle_;
@@ -57021,7 +57249,7 @@ inline uint32_t CDOTAUserMsg_ESArcanaComboSummary::ehandle() const {
   return _internal_ehandle();
 }
 inline void CDOTAUserMsg_ESArcanaComboSummary::_internal_set_ehandle(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.ehandle_ = value;
 }
 inline void CDOTAUserMsg_ESArcanaComboSummary::set_ehandle(uint32_t value) {
@@ -57031,7 +57259,7 @@ inline void CDOTAUserMsg_ESArcanaComboSummary::set_ehandle(uint32_t value) {
 
 // optional uint32 combo_count = 2;
 inline bool CDOTAUserMsg_ESArcanaComboSummary::_internal_has_combo_count() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ESArcanaComboSummary::has_combo_count() const {
@@ -57039,7 +57267,7 @@ inline bool CDOTAUserMsg_ESArcanaComboSummary::has_combo_count() const {
 }
 inline void CDOTAUserMsg_ESArcanaComboSummary::clear_combo_count() {
   _impl_.combo_count_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_ESArcanaComboSummary::_internal_combo_count() const {
   return _impl_.combo_count_;
@@ -57049,7 +57277,7 @@ inline uint32_t CDOTAUserMsg_ESArcanaComboSummary::combo_count() const {
   return _internal_combo_count();
 }
 inline void CDOTAUserMsg_ESArcanaComboSummary::_internal_set_combo_count(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.combo_count_ = value;
 }
 inline void CDOTAUserMsg_ESArcanaComboSummary::set_combo_count(uint32_t value) {
@@ -57059,7 +57287,7 @@ inline void CDOTAUserMsg_ESArcanaComboSummary::set_combo_count(uint32_t value) {
 
 // optional uint32 damage_amount = 3;
 inline bool CDOTAUserMsg_ESArcanaComboSummary::_internal_has_damage_amount() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ESArcanaComboSummary::has_damage_amount() const {
@@ -57067,7 +57295,7 @@ inline bool CDOTAUserMsg_ESArcanaComboSummary::has_damage_amount() const {
 }
 inline void CDOTAUserMsg_ESArcanaComboSummary::clear_damage_amount() {
   _impl_.damage_amount_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CDOTAUserMsg_ESArcanaComboSummary::_internal_damage_amount() const {
   return _impl_.damage_amount_;
@@ -57077,7 +57305,7 @@ inline uint32_t CDOTAUserMsg_ESArcanaComboSummary::damage_amount() const {
   return _internal_damage_amount();
 }
 inline void CDOTAUserMsg_ESArcanaComboSummary::_internal_set_damage_amount(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.damage_amount_ = value;
 }
 inline void CDOTAUserMsg_ESArcanaComboSummary::set_damage_amount(uint32_t value) {
@@ -57089,17 +57317,17 @@ inline void CDOTAUserMsg_ESArcanaComboSummary::set_damage_amount(uint32_t value)
 
 // CDOTAUserMsg_OMArcanaCombo
 
-// optional uint32 ehandle = 1;
+// optional uint32 ehandle = 1 [default = 16777215];
 inline bool CDOTAUserMsg_OMArcanaCombo::_internal_has_ehandle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_OMArcanaCombo::has_ehandle() const {
   return _internal_has_ehandle();
 }
 inline void CDOTAUserMsg_OMArcanaCombo::clear_ehandle() {
-  _impl_.ehandle_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.ehandle_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CDOTAUserMsg_OMArcanaCombo::_internal_ehandle() const {
   return _impl_.ehandle_;
@@ -57109,7 +57337,7 @@ inline uint32_t CDOTAUserMsg_OMArcanaCombo::ehandle() const {
   return _internal_ehandle();
 }
 inline void CDOTAUserMsg_OMArcanaCombo::_internal_set_ehandle(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.ehandle_ = value;
 }
 inline void CDOTAUserMsg_OMArcanaCombo::set_ehandle(uint32_t value) {
@@ -57119,7 +57347,7 @@ inline void CDOTAUserMsg_OMArcanaCombo::set_ehandle(uint32_t value) {
 
 // optional uint32 multicast_amount = 2;
 inline bool CDOTAUserMsg_OMArcanaCombo::_internal_has_multicast_amount() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_OMArcanaCombo::has_multicast_amount() const {
@@ -57127,7 +57355,7 @@ inline bool CDOTAUserMsg_OMArcanaCombo::has_multicast_amount() const {
 }
 inline void CDOTAUserMsg_OMArcanaCombo::clear_multicast_amount() {
   _impl_.multicast_amount_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_OMArcanaCombo::_internal_multicast_amount() const {
   return _impl_.multicast_amount_;
@@ -57137,7 +57365,7 @@ inline uint32_t CDOTAUserMsg_OMArcanaCombo::multicast_amount() const {
   return _internal_multicast_amount();
 }
 inline void CDOTAUserMsg_OMArcanaCombo::_internal_set_multicast_amount(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.multicast_amount_ = value;
 }
 inline void CDOTAUserMsg_OMArcanaCombo::set_multicast_amount(uint32_t value) {
@@ -57147,7 +57375,7 @@ inline void CDOTAUserMsg_OMArcanaCombo::set_multicast_amount(uint32_t value) {
 
 // optional uint32 arcana_level = 3;
 inline bool CDOTAUserMsg_OMArcanaCombo::_internal_has_arcana_level() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_OMArcanaCombo::has_arcana_level() const {
@@ -57155,7 +57383,7 @@ inline bool CDOTAUserMsg_OMArcanaCombo::has_arcana_level() const {
 }
 inline void CDOTAUserMsg_OMArcanaCombo::clear_arcana_level() {
   _impl_.arcana_level_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CDOTAUserMsg_OMArcanaCombo::_internal_arcana_level() const {
   return _impl_.arcana_level_;
@@ -57165,7 +57393,7 @@ inline uint32_t CDOTAUserMsg_OMArcanaCombo::arcana_level() const {
   return _internal_arcana_level();
 }
 inline void CDOTAUserMsg_OMArcanaCombo::_internal_set_arcana_level(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.arcana_level_ = value;
 }
 inline void CDOTAUserMsg_OMArcanaCombo::set_arcana_level(uint32_t value) {
@@ -57175,7 +57403,7 @@ inline void CDOTAUserMsg_OMArcanaCombo::set_arcana_level(uint32_t value) {
 
 // optional uint32 multicast_chance = 4;
 inline bool CDOTAUserMsg_OMArcanaCombo::_internal_has_multicast_chance() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_OMArcanaCombo::has_multicast_chance() const {
@@ -57183,7 +57411,7 @@ inline bool CDOTAUserMsg_OMArcanaCombo::has_multicast_chance() const {
 }
 inline void CDOTAUserMsg_OMArcanaCombo::clear_multicast_chance() {
   _impl_.multicast_chance_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CDOTAUserMsg_OMArcanaCombo::_internal_multicast_chance() const {
   return _impl_.multicast_chance_;
@@ -57193,7 +57421,7 @@ inline uint32_t CDOTAUserMsg_OMArcanaCombo::multicast_chance() const {
   return _internal_multicast_chance();
 }
 inline void CDOTAUserMsg_OMArcanaCombo::_internal_set_multicast_chance(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.multicast_chance_ = value;
 }
 inline void CDOTAUserMsg_OMArcanaCombo::set_multicast_chance(uint32_t value) {
@@ -57205,17 +57433,17 @@ inline void CDOTAUserMsg_OMArcanaCombo::set_multicast_chance(uint32_t value) {
 
 // CDOTAUserMsg_HighFiveCompleted
 
-// optional int32 player_id_1 = 1;
+// optional int32 player_id_1 = 1 [default = -1];
 inline bool CDOTAUserMsg_HighFiveCompleted::_internal_has_player_id_1() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_HighFiveCompleted::has_player_id_1() const {
   return _internal_has_player_id_1();
 }
 inline void CDOTAUserMsg_HighFiveCompleted::clear_player_id_1() {
-  _impl_.player_id_1_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_1_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_HighFiveCompleted::_internal_player_id_1() const {
   return _impl_.player_id_1_;
@@ -57225,7 +57453,7 @@ inline int32_t CDOTAUserMsg_HighFiveCompleted::player_id_1() const {
   return _internal_player_id_1();
 }
 inline void CDOTAUserMsg_HighFiveCompleted::_internal_set_player_id_1(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.player_id_1_ = value;
 }
 inline void CDOTAUserMsg_HighFiveCompleted::set_player_id_1(int32_t value) {
@@ -57233,17 +57461,17 @@ inline void CDOTAUserMsg_HighFiveCompleted::set_player_id_1(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_HighFiveCompleted.player_id_1)
 }
 
-// optional int32 player_id_2 = 2;
+// optional int32 player_id_2 = 2 [default = -1];
 inline bool CDOTAUserMsg_HighFiveCompleted::_internal_has_player_id_2() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_HighFiveCompleted::has_player_id_2() const {
   return _internal_has_player_id_2();
 }
 inline void CDOTAUserMsg_HighFiveCompleted::clear_player_id_2() {
-  _impl_.player_id_2_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.player_id_2_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_HighFiveCompleted::_internal_player_id_2() const {
   return _impl_.player_id_2_;
@@ -57253,7 +57481,7 @@ inline int32_t CDOTAUserMsg_HighFiveCompleted::player_id_2() const {
   return _internal_player_id_2();
 }
 inline void CDOTAUserMsg_HighFiveCompleted::_internal_set_player_id_2(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.player_id_2_ = value;
 }
 inline void CDOTAUserMsg_HighFiveCompleted::set_player_id_2(int32_t value) {
@@ -57263,7 +57491,7 @@ inline void CDOTAUserMsg_HighFiveCompleted::set_player_id_2(int32_t value) {
 
 // optional bool special_high_five = 3;
 inline bool CDOTAUserMsg_HighFiveCompleted::_internal_has_special_high_five() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_HighFiveCompleted::has_special_high_five() const {
@@ -57271,7 +57499,7 @@ inline bool CDOTAUserMsg_HighFiveCompleted::has_special_high_five() const {
 }
 inline void CDOTAUserMsg_HighFiveCompleted::clear_special_high_five() {
   _impl_.special_high_five_ = false;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline bool CDOTAUserMsg_HighFiveCompleted::_internal_special_high_five() const {
   return _impl_.special_high_five_;
@@ -57281,7 +57509,7 @@ inline bool CDOTAUserMsg_HighFiveCompleted::special_high_five() const {
   return _internal_special_high_five();
 }
 inline void CDOTAUserMsg_HighFiveCompleted::_internal_set_special_high_five(bool value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.special_high_five_ = value;
 }
 inline void CDOTAUserMsg_HighFiveCompleted::set_special_high_five(bool value) {
@@ -57289,17 +57517,17 @@ inline void CDOTAUserMsg_HighFiveCompleted::set_special_high_five(bool value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_HighFiveCompleted.special_high_five)
 }
 
-// optional int32 special_entindex = 4;
+// optional int32 special_entindex = 4 [default = -1];
 inline bool CDOTAUserMsg_HighFiveCompleted::_internal_has_special_entindex() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_HighFiveCompleted::has_special_entindex() const {
   return _internal_has_special_entindex();
 }
 inline void CDOTAUserMsg_HighFiveCompleted::clear_special_entindex() {
-  _impl_.special_entindex_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_.special_entindex_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_HighFiveCompleted::_internal_special_entindex() const {
   return _impl_.special_entindex_;
@@ -57309,7 +57537,7 @@ inline int32_t CDOTAUserMsg_HighFiveCompleted::special_entindex() const {
   return _internal_special_entindex();
 }
 inline void CDOTAUserMsg_HighFiveCompleted::_internal_set_special_entindex(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.special_entindex_ = value;
 }
 inline void CDOTAUserMsg_HighFiveCompleted::set_special_entindex(int32_t value) {
@@ -57321,7 +57549,7 @@ inline void CDOTAUserMsg_HighFiveCompleted::set_special_entindex(int32_t value) 
 
 // CDOTAUserMsg_HighFiveLeftHanging
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_HighFiveLeftHanging::_internal_has_player_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -57330,7 +57558,7 @@ inline bool CDOTAUserMsg_HighFiveLeftHanging::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_HighFiveLeftHanging::clear_player_id() {
-  _impl_.player_id_ = 0;
+  _impl_.player_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_HighFiveLeftHanging::_internal_player_id() const {
@@ -57353,17 +57581,17 @@ inline void CDOTAUserMsg_HighFiveLeftHanging::set_player_id(int32_t value) {
 
 // CDOTAUserMsg_ShovelUnearth
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_ShovelUnearth::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ShovelUnearth::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_ShovelUnearth::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_ShovelUnearth::_internal_player_id() const {
   return _impl_.player_id_;
@@ -57373,7 +57601,7 @@ inline int32_t CDOTAUserMsg_ShovelUnearth::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_ShovelUnearth::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_ShovelUnearth::set_player_id(int32_t value) {
@@ -57383,7 +57611,7 @@ inline void CDOTAUserMsg_ShovelUnearth::set_player_id(int32_t value) {
 
 // optional bool all_chat = 2;
 inline bool CDOTAUserMsg_ShovelUnearth::_internal_has_all_chat() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ShovelUnearth::has_all_chat() const {
@@ -57391,7 +57619,7 @@ inline bool CDOTAUserMsg_ShovelUnearth::has_all_chat() const {
 }
 inline void CDOTAUserMsg_ShovelUnearth::clear_all_chat() {
   _impl_.all_chat_ = false;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline bool CDOTAUserMsg_ShovelUnearth::_internal_all_chat() const {
   return _impl_.all_chat_;
@@ -57401,7 +57629,7 @@ inline bool CDOTAUserMsg_ShovelUnearth::all_chat() const {
   return _internal_all_chat();
 }
 inline void CDOTAUserMsg_ShovelUnearth::_internal_set_all_chat(bool value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.all_chat_ = value;
 }
 inline void CDOTAUserMsg_ShovelUnearth::set_all_chat(bool value) {
@@ -57479,7 +57707,7 @@ inline void CDOTAUserMsg_ShovelUnearth::set_allocated_locstring(std::string* loc
 
 // optional uint32 quantity = 4;
 inline bool CDOTAUserMsg_ShovelUnearth::_internal_has_quantity() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ShovelUnearth::has_quantity() const {
@@ -57487,7 +57715,7 @@ inline bool CDOTAUserMsg_ShovelUnearth::has_quantity() const {
 }
 inline void CDOTAUserMsg_ShovelUnearth::clear_quantity() {
   _impl_.quantity_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CDOTAUserMsg_ShovelUnearth::_internal_quantity() const {
   return _impl_.quantity_;
@@ -57497,7 +57725,7 @@ inline uint32_t CDOTAUserMsg_ShovelUnearth::quantity() const {
   return _internal_quantity();
 }
 inline void CDOTAUserMsg_ShovelUnearth::_internal_set_quantity(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.quantity_ = value;
 }
 inline void CDOTAUserMsg_ShovelUnearth::set_quantity(uint32_t value) {
@@ -57509,17 +57737,17 @@ inline void CDOTAUserMsg_ShovelUnearth::set_quantity(uint32_t value) {
 
 // CDOTAUserMsg_AllStarEvent_PlayerScore
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_AllStarEvent_PlayerScore::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AllStarEvent_PlayerScore::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_AllStarEvent_PlayerScore::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_AllStarEvent_PlayerScore::_internal_player_id() const {
   return _impl_.player_id_;
@@ -57529,7 +57757,7 @@ inline int32_t CDOTAUserMsg_AllStarEvent_PlayerScore::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_AllStarEvent_PlayerScore::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_AllStarEvent_PlayerScore::set_player_id(int32_t value) {
@@ -57539,7 +57767,7 @@ inline void CDOTAUserMsg_AllStarEvent_PlayerScore::set_player_id(int32_t value) 
 
 // optional uint32 score_sans_kda = 2;
 inline bool CDOTAUserMsg_AllStarEvent_PlayerScore::_internal_has_score_sans_kda() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AllStarEvent_PlayerScore::has_score_sans_kda() const {
@@ -57547,7 +57775,7 @@ inline bool CDOTAUserMsg_AllStarEvent_PlayerScore::has_score_sans_kda() const {
 }
 inline void CDOTAUserMsg_AllStarEvent_PlayerScore::clear_score_sans_kda() {
   _impl_.score_sans_kda_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_AllStarEvent_PlayerScore::_internal_score_sans_kda() const {
   return _impl_.score_sans_kda_;
@@ -57557,7 +57785,7 @@ inline uint32_t CDOTAUserMsg_AllStarEvent_PlayerScore::score_sans_kda() const {
   return _internal_score_sans_kda();
 }
 inline void CDOTAUserMsg_AllStarEvent_PlayerScore::_internal_set_score_sans_kda(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.score_sans_kda_ = value;
 }
 inline void CDOTAUserMsg_AllStarEvent_PlayerScore::set_score_sans_kda(uint32_t value) {
@@ -57569,17 +57797,17 @@ inline void CDOTAUserMsg_AllStarEvent_PlayerScore::set_score_sans_kda(uint32_t v
 
 // CDOTAUserMsg_AllStarEvent
 
-// optional int32 source_player_id = 1;
+// optional int32 source_player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_AllStarEvent::_internal_has_source_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AllStarEvent::has_source_player_id() const {
   return _internal_has_source_player_id();
 }
 inline void CDOTAUserMsg_AllStarEvent::clear_source_player_id() {
-  _impl_.source_player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.source_player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_AllStarEvent::_internal_source_player_id() const {
   return _impl_.source_player_id_;
@@ -57589,7 +57817,7 @@ inline int32_t CDOTAUserMsg_AllStarEvent::source_player_id() const {
   return _internal_source_player_id();
 }
 inline void CDOTAUserMsg_AllStarEvent::_internal_set_source_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.source_player_id_ = value;
 }
 inline void CDOTAUserMsg_AllStarEvent::set_source_player_id(int32_t value) {
@@ -57597,17 +57825,17 @@ inline void CDOTAUserMsg_AllStarEvent::set_source_player_id(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_AllStarEvent.source_player_id)
 }
 
-// optional int32 target_player_id = 2;
+// optional int32 target_player_id = 2 [default = -1];
 inline bool CDOTAUserMsg_AllStarEvent::_internal_has_target_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AllStarEvent::has_target_player_id() const {
   return _internal_has_target_player_id();
 }
 inline void CDOTAUserMsg_AllStarEvent::clear_target_player_id() {
-  _impl_.target_player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.target_player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_AllStarEvent::_internal_target_player_id() const {
   return _impl_.target_player_id_;
@@ -57617,7 +57845,7 @@ inline int32_t CDOTAUserMsg_AllStarEvent::target_player_id() const {
   return _internal_target_player_id();
 }
 inline void CDOTAUserMsg_AllStarEvent::_internal_set_target_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.target_player_id_ = value;
 }
 inline void CDOTAUserMsg_AllStarEvent::set_target_player_id(int32_t value) {
@@ -57627,7 +57855,7 @@ inline void CDOTAUserMsg_AllStarEvent::set_target_player_id(int32_t value) {
 
 // optional uint32 point_amount = 3;
 inline bool CDOTAUserMsg_AllStarEvent::_internal_has_point_amount() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AllStarEvent::has_point_amount() const {
@@ -57635,7 +57863,7 @@ inline bool CDOTAUserMsg_AllStarEvent::has_point_amount() const {
 }
 inline void CDOTAUserMsg_AllStarEvent::clear_point_amount() {
   _impl_.point_amount_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_AllStarEvent::_internal_point_amount() const {
   return _impl_.point_amount_;
@@ -57645,7 +57873,7 @@ inline uint32_t CDOTAUserMsg_AllStarEvent::point_amount() const {
   return _internal_point_amount();
 }
 inline void CDOTAUserMsg_AllStarEvent::_internal_set_point_amount(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.point_amount_ = value;
 }
 inline void CDOTAUserMsg_AllStarEvent::set_point_amount(uint32_t value) {
@@ -57655,7 +57883,7 @@ inline void CDOTAUserMsg_AllStarEvent::set_point_amount(uint32_t value) {
 
 // optional uint32 event_id = 4;
 inline bool CDOTAUserMsg_AllStarEvent::_internal_has_event_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AllStarEvent::has_event_id() const {
@@ -57663,7 +57891,7 @@ inline bool CDOTAUserMsg_AllStarEvent::has_event_id() const {
 }
 inline void CDOTAUserMsg_AllStarEvent::clear_event_id() {
   _impl_.event_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CDOTAUserMsg_AllStarEvent::_internal_event_id() const {
   return _impl_.event_id_;
@@ -57673,7 +57901,7 @@ inline uint32_t CDOTAUserMsg_AllStarEvent::event_id() const {
   return _internal_event_id();
 }
 inline void CDOTAUserMsg_AllStarEvent::_internal_set_event_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.event_id_ = value;
 }
 inline void CDOTAUserMsg_AllStarEvent::set_event_id(uint32_t value) {
@@ -57976,17 +58204,17 @@ inline void CDOTAUserMsg_DebugChallenge::set_challenge_max_rank(uint32_t value) 
 
 // CDOTAUserMsg_FoundNeutralItem
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_FoundNeutralItem::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_FoundNeutralItem::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_FoundNeutralItem::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_FoundNeutralItem::_internal_player_id() const {
   return _impl_.player_id_;
@@ -57996,7 +58224,7 @@ inline int32_t CDOTAUserMsg_FoundNeutralItem::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_FoundNeutralItem::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_FoundNeutralItem::set_player_id(int32_t value) {
@@ -58004,37 +58232,37 @@ inline void CDOTAUserMsg_FoundNeutralItem::set_player_id(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_FoundNeutralItem.player_id)
 }
 
-// optional uint32 item_ability_id = 2;
+// optional int32 item_ability_id = 2 [default = -1];
 inline bool CDOTAUserMsg_FoundNeutralItem::_internal_has_item_ability_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_FoundNeutralItem::has_item_ability_id() const {
   return _internal_has_item_ability_id();
 }
 inline void CDOTAUserMsg_FoundNeutralItem::clear_item_ability_id() {
-  _impl_.item_ability_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.item_ability_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
-inline uint32_t CDOTAUserMsg_FoundNeutralItem::_internal_item_ability_id() const {
+inline int32_t CDOTAUserMsg_FoundNeutralItem::_internal_item_ability_id() const {
   return _impl_.item_ability_id_;
 }
-inline uint32_t CDOTAUserMsg_FoundNeutralItem::item_ability_id() const {
+inline int32_t CDOTAUserMsg_FoundNeutralItem::item_ability_id() const {
   // @@protoc_insertion_point(field_get:CDOTAUserMsg_FoundNeutralItem.item_ability_id)
   return _internal_item_ability_id();
 }
-inline void CDOTAUserMsg_FoundNeutralItem::_internal_set_item_ability_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+inline void CDOTAUserMsg_FoundNeutralItem::_internal_set_item_ability_id(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.item_ability_id_ = value;
 }
-inline void CDOTAUserMsg_FoundNeutralItem::set_item_ability_id(uint32_t value) {
+inline void CDOTAUserMsg_FoundNeutralItem::set_item_ability_id(int32_t value) {
   _internal_set_item_ability_id(value);
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_FoundNeutralItem.item_ability_id)
 }
 
 // optional uint32 item_tier = 3;
 inline bool CDOTAUserMsg_FoundNeutralItem::_internal_has_item_tier() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_FoundNeutralItem::has_item_tier() const {
@@ -58042,7 +58270,7 @@ inline bool CDOTAUserMsg_FoundNeutralItem::has_item_tier() const {
 }
 inline void CDOTAUserMsg_FoundNeutralItem::clear_item_tier() {
   _impl_.item_tier_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_FoundNeutralItem::_internal_item_tier() const {
   return _impl_.item_tier_;
@@ -58052,7 +58280,7 @@ inline uint32_t CDOTAUserMsg_FoundNeutralItem::item_tier() const {
   return _internal_item_tier();
 }
 inline void CDOTAUserMsg_FoundNeutralItem::_internal_set_item_tier(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.item_tier_ = value;
 }
 inline void CDOTAUserMsg_FoundNeutralItem::set_item_tier(uint32_t value) {
@@ -58062,7 +58290,7 @@ inline void CDOTAUserMsg_FoundNeutralItem::set_item_tier(uint32_t value) {
 
 // optional uint32 tier_item_count = 4;
 inline bool CDOTAUserMsg_FoundNeutralItem::_internal_has_tier_item_count() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_FoundNeutralItem::has_tier_item_count() const {
@@ -58070,7 +58298,7 @@ inline bool CDOTAUserMsg_FoundNeutralItem::has_tier_item_count() const {
 }
 inline void CDOTAUserMsg_FoundNeutralItem::clear_tier_item_count() {
   _impl_.tier_item_count_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CDOTAUserMsg_FoundNeutralItem::_internal_tier_item_count() const {
   return _impl_.tier_item_count_;
@@ -58080,7 +58308,7 @@ inline uint32_t CDOTAUserMsg_FoundNeutralItem::tier_item_count() const {
   return _internal_tier_item_count();
 }
 inline void CDOTAUserMsg_FoundNeutralItem::_internal_set_tier_item_count(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.tier_item_count_ = value;
 }
 inline void CDOTAUserMsg_FoundNeutralItem::set_tier_item_count(uint32_t value) {
@@ -58092,17 +58320,17 @@ inline void CDOTAUserMsg_FoundNeutralItem::set_tier_item_count(uint32_t value) {
 
 // CDOTAUserMsg_OutpostCaptured
 
-// optional int32 outpost_entindex = 1;
+// optional int32 outpost_entindex = 1 [default = -1];
 inline bool CDOTAUserMsg_OutpostCaptured::_internal_has_outpost_entindex() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_OutpostCaptured::has_outpost_entindex() const {
   return _internal_has_outpost_entindex();
 }
 inline void CDOTAUserMsg_OutpostCaptured::clear_outpost_entindex() {
-  _impl_.outpost_entindex_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.outpost_entindex_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_OutpostCaptured::_internal_outpost_entindex() const {
   return _impl_.outpost_entindex_;
@@ -58112,7 +58340,7 @@ inline int32_t CDOTAUserMsg_OutpostCaptured::outpost_entindex() const {
   return _internal_outpost_entindex();
 }
 inline void CDOTAUserMsg_OutpostCaptured::_internal_set_outpost_entindex(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.outpost_entindex_ = value;
 }
 inline void CDOTAUserMsg_OutpostCaptured::set_outpost_entindex(int32_t value) {
@@ -58122,7 +58350,7 @@ inline void CDOTAUserMsg_OutpostCaptured::set_outpost_entindex(int32_t value) {
 
 // optional uint32 team_id = 2;
 inline bool CDOTAUserMsg_OutpostCaptured::_internal_has_team_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_OutpostCaptured::has_team_id() const {
@@ -58130,7 +58358,7 @@ inline bool CDOTAUserMsg_OutpostCaptured::has_team_id() const {
 }
 inline void CDOTAUserMsg_OutpostCaptured::clear_team_id() {
   _impl_.team_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_OutpostCaptured::_internal_team_id() const {
   return _impl_.team_id_;
@@ -58140,7 +58368,7 @@ inline uint32_t CDOTAUserMsg_OutpostCaptured::team_id() const {
   return _internal_team_id();
 }
 inline void CDOTAUserMsg_OutpostCaptured::_internal_set_team_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.team_id_ = value;
 }
 inline void CDOTAUserMsg_OutpostCaptured::set_team_id(uint32_t value) {
@@ -58212,7 +58440,7 @@ inline void CDOTAUserMsg_OutpostGrantedXP::set_xp_amount(uint32_t value) {
 
 // CDOTAUserMsg_MoveCameraToUnit
 
-// optional uint32 unit_ehandle = 1;
+// optional uint32 unit_ehandle = 1 [default = 16777215];
 inline bool CDOTAUserMsg_MoveCameraToUnit::_internal_has_unit_ehandle() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -58221,7 +58449,7 @@ inline bool CDOTAUserMsg_MoveCameraToUnit::has_unit_ehandle() const {
   return _internal_has_unit_ehandle();
 }
 inline void CDOTAUserMsg_MoveCameraToUnit::clear_unit_ehandle() {
-  _impl_.unit_ehandle_ = 0u;
+  _impl_.unit_ehandle_ = 16777215u;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_MoveCameraToUnit::_internal_unit_ehandle() const {
@@ -58376,7 +58604,7 @@ CDOTAUserMsg_PauseMinigameData::data_bits() const {
 
 // CDOTAUserMsg_VersusScene_PlayerBehavior
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_VersusScene_PlayerBehavior::_internal_has_player_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -58385,7 +58613,7 @@ inline bool CDOTAUserMsg_VersusScene_PlayerBehavior::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_VersusScene_PlayerBehavior::clear_player_id() {
-  _impl_.player_id_ = 0;
+  _impl_.player_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_VersusScene_PlayerBehavior::_internal_player_id() const {
@@ -58698,17 +58926,17 @@ inline void CDOTAUserMsg_VersusScene_PlayerBehavior::set_allocated_playback_rate
 
 // CDOTAUserMsg_QoP_ArcanaSummary
 
-// optional uint32 ehandle = 1;
+// optional uint32 ehandle = 1 [default = 16777215];
 inline bool CDOTAUserMsg_QoP_ArcanaSummary::_internal_has_ehandle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_QoP_ArcanaSummary::has_ehandle() const {
   return _internal_has_ehandle();
 }
 inline void CDOTAUserMsg_QoP_ArcanaSummary::clear_ehandle() {
-  _impl_.ehandle_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.ehandle_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CDOTAUserMsg_QoP_ArcanaSummary::_internal_ehandle() const {
   return _impl_.ehandle_;
@@ -58718,7 +58946,7 @@ inline uint32_t CDOTAUserMsg_QoP_ArcanaSummary::ehandle() const {
   return _internal_ehandle();
 }
 inline void CDOTAUserMsg_QoP_ArcanaSummary::_internal_set_ehandle(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.ehandle_ = value;
 }
 inline void CDOTAUserMsg_QoP_ArcanaSummary::set_ehandle(uint32_t value) {
@@ -58728,7 +58956,7 @@ inline void CDOTAUserMsg_QoP_ArcanaSummary::set_ehandle(uint32_t value) {
 
 // optional uint32 arcana_level = 2;
 inline bool CDOTAUserMsg_QoP_ArcanaSummary::_internal_has_arcana_level() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_QoP_ArcanaSummary::has_arcana_level() const {
@@ -58736,7 +58964,7 @@ inline bool CDOTAUserMsg_QoP_ArcanaSummary::has_arcana_level() const {
 }
 inline void CDOTAUserMsg_QoP_ArcanaSummary::clear_arcana_level() {
   _impl_.arcana_level_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_QoP_ArcanaSummary::_internal_arcana_level() const {
   return _impl_.arcana_level_;
@@ -58746,7 +58974,7 @@ inline uint32_t CDOTAUserMsg_QoP_ArcanaSummary::arcana_level() const {
   return _internal_arcana_level();
 }
 inline void CDOTAUserMsg_QoP_ArcanaSummary::_internal_set_arcana_level(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.arcana_level_ = value;
 }
 inline void CDOTAUserMsg_QoP_ArcanaSummary::set_arcana_level(uint32_t value) {
@@ -58756,7 +58984,7 @@ inline void CDOTAUserMsg_QoP_ArcanaSummary::set_arcana_level(uint32_t value) {
 
 // optional uint32 players_hit = 3;
 inline bool CDOTAUserMsg_QoP_ArcanaSummary::_internal_has_players_hit() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_QoP_ArcanaSummary::has_players_hit() const {
@@ -58764,7 +58992,7 @@ inline bool CDOTAUserMsg_QoP_ArcanaSummary::has_players_hit() const {
 }
 inline void CDOTAUserMsg_QoP_ArcanaSummary::clear_players_hit() {
   _impl_.players_hit_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CDOTAUserMsg_QoP_ArcanaSummary::_internal_players_hit() const {
   return _impl_.players_hit_;
@@ -58774,7 +59002,7 @@ inline uint32_t CDOTAUserMsg_QoP_ArcanaSummary::players_hit() const {
   return _internal_players_hit();
 }
 inline void CDOTAUserMsg_QoP_ArcanaSummary::_internal_set_players_hit(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.players_hit_ = value;
 }
 inline void CDOTAUserMsg_QoP_ArcanaSummary::set_players_hit(uint32_t value) {
@@ -58784,7 +59012,7 @@ inline void CDOTAUserMsg_QoP_ArcanaSummary::set_players_hit(uint32_t value) {
 
 // optional uint32 players_killed = 4;
 inline bool CDOTAUserMsg_QoP_ArcanaSummary::_internal_has_players_killed() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_QoP_ArcanaSummary::has_players_killed() const {
@@ -58792,7 +59020,7 @@ inline bool CDOTAUserMsg_QoP_ArcanaSummary::has_players_killed() const {
 }
 inline void CDOTAUserMsg_QoP_ArcanaSummary::clear_players_killed() {
   _impl_.players_killed_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CDOTAUserMsg_QoP_ArcanaSummary::_internal_players_killed() const {
   return _impl_.players_killed_;
@@ -58802,7 +59030,7 @@ inline uint32_t CDOTAUserMsg_QoP_ArcanaSummary::players_killed() const {
   return _internal_players_killed();
 }
 inline void CDOTAUserMsg_QoP_ArcanaSummary::_internal_set_players_killed(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.players_killed_ = value;
 }
 inline void CDOTAUserMsg_QoP_ArcanaSummary::set_players_killed(uint32_t value) {
@@ -58814,7 +59042,7 @@ inline void CDOTAUserMsg_QoP_ArcanaSummary::set_players_killed(uint32_t value) {
 
 // CDOTAUserMsg_HotPotato_Created
 
-// optional int32 player_id_1 = 1;
+// optional int32 player_id_1 = 1 [default = -1];
 inline bool CDOTAUserMsg_HotPotato_Created::_internal_has_player_id_1() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -58823,7 +59051,7 @@ inline bool CDOTAUserMsg_HotPotato_Created::has_player_id_1() const {
   return _internal_has_player_id_1();
 }
 inline void CDOTAUserMsg_HotPotato_Created::clear_player_id_1() {
-  _impl_.player_id_1_ = 0;
+  _impl_.player_id_1_ = -1;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_HotPotato_Created::_internal_player_id_1() const {
@@ -58842,7 +59070,7 @@ inline void CDOTAUserMsg_HotPotato_Created::set_player_id_1(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_HotPotato_Created.player_id_1)
 }
 
-// optional int32 player_id_2 = 2;
+// optional int32 player_id_2 = 2 [default = -1];
 inline bool CDOTAUserMsg_HotPotato_Created::_internal_has_player_id_2() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -58851,7 +59079,7 @@ inline bool CDOTAUserMsg_HotPotato_Created::has_player_id_2() const {
   return _internal_has_player_id_2();
 }
 inline void CDOTAUserMsg_HotPotato_Created::clear_player_id_2() {
-  _impl_.player_id_2_ = 0;
+  _impl_.player_id_2_ = -1;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_HotPotato_Created::_internal_player_id_2() const {
@@ -58874,7 +59102,7 @@ inline void CDOTAUserMsg_HotPotato_Created::set_player_id_2(int32_t value) {
 
 // CDOTAUserMsg_HotPotato_Exploded
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_HotPotato_Exploded::_internal_has_player_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -58883,7 +59111,7 @@ inline bool CDOTAUserMsg_HotPotato_Exploded::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_HotPotato_Exploded::clear_player_id() {
-  _impl_.player_id_ = 0;
+  _impl_.player_id_ = -1;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_HotPotato_Exploded::_internal_player_id() const {
@@ -58906,17 +59134,17 @@ inline void CDOTAUserMsg_HotPotato_Exploded::set_player_id(int32_t value) {
 
 // CDOTAUserMsg_WK_Arcana_Progress
 
-// optional uint32 ehandle = 1;
+// optional uint32 ehandle = 1 [default = 16777215];
 inline bool CDOTAUserMsg_WK_Arcana_Progress::_internal_has_ehandle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_WK_Arcana_Progress::has_ehandle() const {
   return _internal_has_ehandle();
 }
 inline void CDOTAUserMsg_WK_Arcana_Progress::clear_ehandle() {
-  _impl_.ehandle_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.ehandle_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CDOTAUserMsg_WK_Arcana_Progress::_internal_ehandle() const {
   return _impl_.ehandle_;
@@ -58926,7 +59154,7 @@ inline uint32_t CDOTAUserMsg_WK_Arcana_Progress::ehandle() const {
   return _internal_ehandle();
 }
 inline void CDOTAUserMsg_WK_Arcana_Progress::_internal_set_ehandle(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.ehandle_ = value;
 }
 inline void CDOTAUserMsg_WK_Arcana_Progress::set_ehandle(uint32_t value) {
@@ -58936,7 +59164,7 @@ inline void CDOTAUserMsg_WK_Arcana_Progress::set_ehandle(uint32_t value) {
 
 // optional uint32 arcana_level = 2;
 inline bool CDOTAUserMsg_WK_Arcana_Progress::_internal_has_arcana_level() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_WK_Arcana_Progress::has_arcana_level() const {
@@ -58944,7 +59172,7 @@ inline bool CDOTAUserMsg_WK_Arcana_Progress::has_arcana_level() const {
 }
 inline void CDOTAUserMsg_WK_Arcana_Progress::clear_arcana_level() {
   _impl_.arcana_level_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_WK_Arcana_Progress::_internal_arcana_level() const {
   return _impl_.arcana_level_;
@@ -58954,7 +59182,7 @@ inline uint32_t CDOTAUserMsg_WK_Arcana_Progress::arcana_level() const {
   return _internal_arcana_level();
 }
 inline void CDOTAUserMsg_WK_Arcana_Progress::_internal_set_arcana_level(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.arcana_level_ = value;
 }
 inline void CDOTAUserMsg_WK_Arcana_Progress::set_arcana_level(uint32_t value) {
@@ -58964,7 +59192,7 @@ inline void CDOTAUserMsg_WK_Arcana_Progress::set_arcana_level(uint32_t value) {
 
 // optional uint32 hero_id = 3;
 inline bool CDOTAUserMsg_WK_Arcana_Progress::_internal_has_hero_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_WK_Arcana_Progress::has_hero_id() const {
@@ -58972,7 +59200,7 @@ inline bool CDOTAUserMsg_WK_Arcana_Progress::has_hero_id() const {
 }
 inline void CDOTAUserMsg_WK_Arcana_Progress::clear_hero_id() {
   _impl_.hero_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CDOTAUserMsg_WK_Arcana_Progress::_internal_hero_id() const {
   return _impl_.hero_id_;
@@ -58982,7 +59210,7 @@ inline uint32_t CDOTAUserMsg_WK_Arcana_Progress::hero_id() const {
   return _internal_hero_id();
 }
 inline void CDOTAUserMsg_WK_Arcana_Progress::_internal_set_hero_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.hero_id_ = value;
 }
 inline void CDOTAUserMsg_WK_Arcana_Progress::set_hero_id(uint32_t value) {
@@ -58994,17 +59222,17 @@ inline void CDOTAUserMsg_WK_Arcana_Progress::set_hero_id(uint32_t value) {
 
 // CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress
 
-// optional int32 player_id = 1;
+// optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::has_player_id() const {
   return _internal_has_player_id();
 }
 inline void CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::clear_player_id() {
-  _impl_.player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::_internal_player_id() const {
   return _impl_.player_id_;
@@ -59014,7 +59242,7 @@ inline int32_t CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::player_id() 
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::set_player_id(int32_t value) {
@@ -59024,7 +59252,7 @@ inline void CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::set_player_id(i
 
 // optional uint32 progress = 6;
 inline bool CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::_internal_has_progress() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::has_progress() const {
@@ -59032,7 +59260,7 @@ inline bool CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::has_progress() 
 }
 inline void CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::clear_progress() {
   _impl_.progress_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::_internal_progress() const {
   return _impl_.progress_;
@@ -59042,7 +59270,7 @@ inline uint32_t CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::progress() 
   return _internal_progress();
 }
 inline void CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::_internal_set_progress(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.progress_ = value;
 }
 inline void CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress::set_progress(uint32_t value) {
@@ -59267,17 +59495,17 @@ inline void CDOTAUserMsg_GuildChallenge_Progress::set_complete(bool value) {
 
 // CDOTAUserMsg_WRArcanaProgress
 
-// optional uint32 ehandle = 1;
+// optional uint32 ehandle = 1 [default = 16777215];
 inline bool CDOTAUserMsg_WRArcanaProgress::_internal_has_ehandle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_WRArcanaProgress::has_ehandle() const {
   return _internal_has_ehandle();
 }
 inline void CDOTAUserMsg_WRArcanaProgress::clear_ehandle() {
-  _impl_.ehandle_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.ehandle_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline uint32_t CDOTAUserMsg_WRArcanaProgress::_internal_ehandle() const {
   return _impl_.ehandle_;
@@ -59287,7 +59515,7 @@ inline uint32_t CDOTAUserMsg_WRArcanaProgress::ehandle() const {
   return _internal_ehandle();
 }
 inline void CDOTAUserMsg_WRArcanaProgress::_internal_set_ehandle(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.ehandle_ = value;
 }
 inline void CDOTAUserMsg_WRArcanaProgress::set_ehandle(uint32_t value) {
@@ -59295,17 +59523,17 @@ inline void CDOTAUserMsg_WRArcanaProgress::set_ehandle(uint32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_WRArcanaProgress.ehandle)
 }
 
-// optional uint32 target_ehandle = 2;
+// optional uint32 target_ehandle = 2 [default = 16777215];
 inline bool CDOTAUserMsg_WRArcanaProgress::_internal_has_target_ehandle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_WRArcanaProgress::has_target_ehandle() const {
   return _internal_has_target_ehandle();
 }
 inline void CDOTAUserMsg_WRArcanaProgress::clear_target_ehandle() {
-  _impl_.target_ehandle_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.target_ehandle_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline uint32_t CDOTAUserMsg_WRArcanaProgress::_internal_target_ehandle() const {
   return _impl_.target_ehandle_;
@@ -59315,7 +59543,7 @@ inline uint32_t CDOTAUserMsg_WRArcanaProgress::target_ehandle() const {
   return _internal_target_ehandle();
 }
 inline void CDOTAUserMsg_WRArcanaProgress::_internal_set_target_ehandle(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.target_ehandle_ = value;
 }
 inline void CDOTAUserMsg_WRArcanaProgress::set_target_ehandle(uint32_t value) {
@@ -59325,7 +59553,7 @@ inline void CDOTAUserMsg_WRArcanaProgress::set_target_ehandle(uint32_t value) {
 
 // optional uint32 arrows_landed = 3;
 inline bool CDOTAUserMsg_WRArcanaProgress::_internal_has_arrows_landed() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_WRArcanaProgress::has_arrows_landed() const {
@@ -59333,7 +59561,7 @@ inline bool CDOTAUserMsg_WRArcanaProgress::has_arrows_landed() const {
 }
 inline void CDOTAUserMsg_WRArcanaProgress::clear_arrows_landed() {
   _impl_.arrows_landed_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_WRArcanaProgress::_internal_arrows_landed() const {
   return _impl_.arrows_landed_;
@@ -59343,7 +59571,7 @@ inline uint32_t CDOTAUserMsg_WRArcanaProgress::arrows_landed() const {
   return _internal_arrows_landed();
 }
 inline void CDOTAUserMsg_WRArcanaProgress::_internal_set_arrows_landed(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.arrows_landed_ = value;
 }
 inline void CDOTAUserMsg_WRArcanaProgress::set_arrows_landed(uint32_t value) {
@@ -59353,7 +59581,7 @@ inline void CDOTAUserMsg_WRArcanaProgress::set_arrows_landed(uint32_t value) {
 
 // optional uint32 damage_dealt = 4;
 inline bool CDOTAUserMsg_WRArcanaProgress::_internal_has_damage_dealt() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_WRArcanaProgress::has_damage_dealt() const {
@@ -59361,7 +59589,7 @@ inline bool CDOTAUserMsg_WRArcanaProgress::has_damage_dealt() const {
 }
 inline void CDOTAUserMsg_WRArcanaProgress::clear_damage_dealt() {
   _impl_.damage_dealt_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CDOTAUserMsg_WRArcanaProgress::_internal_damage_dealt() const {
   return _impl_.damage_dealt_;
@@ -59371,7 +59599,7 @@ inline uint32_t CDOTAUserMsg_WRArcanaProgress::damage_dealt() const {
   return _internal_damage_dealt();
 }
 inline void CDOTAUserMsg_WRArcanaProgress::_internal_set_damage_dealt(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.damage_dealt_ = value;
 }
 inline void CDOTAUserMsg_WRArcanaProgress::set_damage_dealt(uint32_t value) {
@@ -59381,7 +59609,7 @@ inline void CDOTAUserMsg_WRArcanaProgress::set_damage_dealt(uint32_t value) {
 
 // optional uint32 target_hp = 5;
 inline bool CDOTAUserMsg_WRArcanaProgress::_internal_has_target_hp() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_WRArcanaProgress::has_target_hp() const {
@@ -59389,7 +59617,7 @@ inline bool CDOTAUserMsg_WRArcanaProgress::has_target_hp() const {
 }
 inline void CDOTAUserMsg_WRArcanaProgress::clear_target_hp() {
   _impl_.target_hp_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CDOTAUserMsg_WRArcanaProgress::_internal_target_hp() const {
   return _impl_.target_hp_;
@@ -59399,7 +59627,7 @@ inline uint32_t CDOTAUserMsg_WRArcanaProgress::target_hp() const {
   return _internal_target_hp();
 }
 inline void CDOTAUserMsg_WRArcanaProgress::_internal_set_target_hp(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.target_hp_ = value;
 }
 inline void CDOTAUserMsg_WRArcanaProgress::set_target_hp(uint32_t value) {
@@ -59409,7 +59637,7 @@ inline void CDOTAUserMsg_WRArcanaProgress::set_target_hp(uint32_t value) {
 
 // optional uint32 target_max_hp = 6;
 inline bool CDOTAUserMsg_WRArcanaProgress::_internal_has_target_max_hp() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_WRArcanaProgress::has_target_max_hp() const {
@@ -59417,7 +59645,7 @@ inline bool CDOTAUserMsg_WRArcanaProgress::has_target_max_hp() const {
 }
 inline void CDOTAUserMsg_WRArcanaProgress::clear_target_max_hp() {
   _impl_.target_max_hp_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CDOTAUserMsg_WRArcanaProgress::_internal_target_max_hp() const {
   return _impl_.target_max_hp_;
@@ -59427,7 +59655,7 @@ inline uint32_t CDOTAUserMsg_WRArcanaProgress::target_max_hp() const {
   return _internal_target_max_hp();
 }
 inline void CDOTAUserMsg_WRArcanaProgress::_internal_set_target_max_hp(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.target_max_hp_ = value;
 }
 inline void CDOTAUserMsg_WRArcanaProgress::set_target_max_hp(uint32_t value) {
@@ -59437,7 +59665,7 @@ inline void CDOTAUserMsg_WRArcanaProgress::set_target_max_hp(uint32_t value) {
 
 // optional uint32 arcana_level = 7;
 inline bool CDOTAUserMsg_WRArcanaProgress::_internal_has_arcana_level() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_WRArcanaProgress::has_arcana_level() const {
@@ -59445,7 +59673,7 @@ inline bool CDOTAUserMsg_WRArcanaProgress::has_arcana_level() const {
 }
 inline void CDOTAUserMsg_WRArcanaProgress::clear_arcana_level() {
   _impl_.arcana_level_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline uint32_t CDOTAUserMsg_WRArcanaProgress::_internal_arcana_level() const {
   return _impl_.arcana_level_;
@@ -59455,7 +59683,7 @@ inline uint32_t CDOTAUserMsg_WRArcanaProgress::arcana_level() const {
   return _internal_arcana_level();
 }
 inline void CDOTAUserMsg_WRArcanaProgress::_internal_set_arcana_level(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.arcana_level_ = value;
 }
 inline void CDOTAUserMsg_WRArcanaProgress::set_arcana_level(uint32_t value) {
@@ -59467,17 +59695,17 @@ inline void CDOTAUserMsg_WRArcanaProgress::set_arcana_level(uint32_t value) {
 
 // CDOTAUserMsg_WRArcanaSummary
 
-// optional uint32 ehandle = 1;
+// optional uint32 ehandle = 1 [default = 16777215];
 inline bool CDOTAUserMsg_WRArcanaSummary::_internal_has_ehandle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_WRArcanaSummary::has_ehandle() const {
   return _internal_has_ehandle();
 }
 inline void CDOTAUserMsg_WRArcanaSummary::clear_ehandle() {
-  _impl_.ehandle_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.ehandle_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline uint32_t CDOTAUserMsg_WRArcanaSummary::_internal_ehandle() const {
   return _impl_.ehandle_;
@@ -59487,7 +59715,7 @@ inline uint32_t CDOTAUserMsg_WRArcanaSummary::ehandle() const {
   return _internal_ehandle();
 }
 inline void CDOTAUserMsg_WRArcanaSummary::_internal_set_ehandle(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.ehandle_ = value;
 }
 inline void CDOTAUserMsg_WRArcanaSummary::set_ehandle(uint32_t value) {
@@ -59495,17 +59723,17 @@ inline void CDOTAUserMsg_WRArcanaSummary::set_ehandle(uint32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_WRArcanaSummary.ehandle)
 }
 
-// optional uint32 target_ehandle = 2;
+// optional uint32 target_ehandle = 2 [default = 16777215];
 inline bool CDOTAUserMsg_WRArcanaSummary::_internal_has_target_ehandle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_WRArcanaSummary::has_target_ehandle() const {
   return _internal_has_target_ehandle();
 }
 inline void CDOTAUserMsg_WRArcanaSummary::clear_target_ehandle() {
-  _impl_.target_ehandle_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.target_ehandle_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
 inline uint32_t CDOTAUserMsg_WRArcanaSummary::_internal_target_ehandle() const {
   return _impl_.target_ehandle_;
@@ -59515,7 +59743,7 @@ inline uint32_t CDOTAUserMsg_WRArcanaSummary::target_ehandle() const {
   return _internal_target_ehandle();
 }
 inline void CDOTAUserMsg_WRArcanaSummary::_internal_set_target_ehandle(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.target_ehandle_ = value;
 }
 inline void CDOTAUserMsg_WRArcanaSummary::set_target_ehandle(uint32_t value) {
@@ -59525,7 +59753,7 @@ inline void CDOTAUserMsg_WRArcanaSummary::set_target_ehandle(uint32_t value) {
 
 // optional uint32 arrows_landed = 3;
 inline bool CDOTAUserMsg_WRArcanaSummary::_internal_has_arrows_landed() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_WRArcanaSummary::has_arrows_landed() const {
@@ -59533,7 +59761,7 @@ inline bool CDOTAUserMsg_WRArcanaSummary::has_arrows_landed() const {
 }
 inline void CDOTAUserMsg_WRArcanaSummary::clear_arrows_landed() {
   _impl_.arrows_landed_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_WRArcanaSummary::_internal_arrows_landed() const {
   return _impl_.arrows_landed_;
@@ -59543,7 +59771,7 @@ inline uint32_t CDOTAUserMsg_WRArcanaSummary::arrows_landed() const {
   return _internal_arrows_landed();
 }
 inline void CDOTAUserMsg_WRArcanaSummary::_internal_set_arrows_landed(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.arrows_landed_ = value;
 }
 inline void CDOTAUserMsg_WRArcanaSummary::set_arrows_landed(uint32_t value) {
@@ -59553,7 +59781,7 @@ inline void CDOTAUserMsg_WRArcanaSummary::set_arrows_landed(uint32_t value) {
 
 // optional uint32 damage_dealt = 4;
 inline bool CDOTAUserMsg_WRArcanaSummary::_internal_has_damage_dealt() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_WRArcanaSummary::has_damage_dealt() const {
@@ -59561,7 +59789,7 @@ inline bool CDOTAUserMsg_WRArcanaSummary::has_damage_dealt() const {
 }
 inline void CDOTAUserMsg_WRArcanaSummary::clear_damage_dealt() {
   _impl_.damage_dealt_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CDOTAUserMsg_WRArcanaSummary::_internal_damage_dealt() const {
   return _impl_.damage_dealt_;
@@ -59571,7 +59799,7 @@ inline uint32_t CDOTAUserMsg_WRArcanaSummary::damage_dealt() const {
   return _internal_damage_dealt();
 }
 inline void CDOTAUserMsg_WRArcanaSummary::_internal_set_damage_dealt(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.damage_dealt_ = value;
 }
 inline void CDOTAUserMsg_WRArcanaSummary::set_damage_dealt(uint32_t value) {
@@ -59581,7 +59809,7 @@ inline void CDOTAUserMsg_WRArcanaSummary::set_damage_dealt(uint32_t value) {
 
 // optional uint32 target_hp = 5;
 inline bool CDOTAUserMsg_WRArcanaSummary::_internal_has_target_hp() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_WRArcanaSummary::has_target_hp() const {
@@ -59589,7 +59817,7 @@ inline bool CDOTAUserMsg_WRArcanaSummary::has_target_hp() const {
 }
 inline void CDOTAUserMsg_WRArcanaSummary::clear_target_hp() {
   _impl_.target_hp_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CDOTAUserMsg_WRArcanaSummary::_internal_target_hp() const {
   return _impl_.target_hp_;
@@ -59599,7 +59827,7 @@ inline uint32_t CDOTAUserMsg_WRArcanaSummary::target_hp() const {
   return _internal_target_hp();
 }
 inline void CDOTAUserMsg_WRArcanaSummary::_internal_set_target_hp(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.target_hp_ = value;
 }
 inline void CDOTAUserMsg_WRArcanaSummary::set_target_hp(uint32_t value) {
@@ -59609,7 +59837,7 @@ inline void CDOTAUserMsg_WRArcanaSummary::set_target_hp(uint32_t value) {
 
 // optional uint32 target_max_hp = 6;
 inline bool CDOTAUserMsg_WRArcanaSummary::_internal_has_target_max_hp() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_WRArcanaSummary::has_target_max_hp() const {
@@ -59617,7 +59845,7 @@ inline bool CDOTAUserMsg_WRArcanaSummary::has_target_max_hp() const {
 }
 inline void CDOTAUserMsg_WRArcanaSummary::clear_target_max_hp() {
   _impl_.target_max_hp_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CDOTAUserMsg_WRArcanaSummary::_internal_target_max_hp() const {
   return _impl_.target_max_hp_;
@@ -59627,7 +59855,7 @@ inline uint32_t CDOTAUserMsg_WRArcanaSummary::target_max_hp() const {
   return _internal_target_max_hp();
 }
 inline void CDOTAUserMsg_WRArcanaSummary::_internal_set_target_max_hp(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.target_max_hp_ = value;
 }
 inline void CDOTAUserMsg_WRArcanaSummary::set_target_max_hp(uint32_t value) {
@@ -59637,7 +59865,7 @@ inline void CDOTAUserMsg_WRArcanaSummary::set_target_max_hp(uint32_t value) {
 
 // optional uint32 arcana_level = 7;
 inline bool CDOTAUserMsg_WRArcanaSummary::_internal_has_arcana_level() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_WRArcanaSummary::has_arcana_level() const {
@@ -59645,7 +59873,7 @@ inline bool CDOTAUserMsg_WRArcanaSummary::has_arcana_level() const {
 }
 inline void CDOTAUserMsg_WRArcanaSummary::clear_arcana_level() {
   _impl_.arcana_level_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline uint32_t CDOTAUserMsg_WRArcanaSummary::_internal_arcana_level() const {
   return _impl_.arcana_level_;
@@ -59655,7 +59883,7 @@ inline uint32_t CDOTAUserMsg_WRArcanaSummary::arcana_level() const {
   return _internal_arcana_level();
 }
 inline void CDOTAUserMsg_WRArcanaSummary::_internal_set_arcana_level(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.arcana_level_ = value;
 }
 inline void CDOTAUserMsg_WRArcanaSummary::set_arcana_level(uint32_t value) {
@@ -59665,7 +59893,7 @@ inline void CDOTAUserMsg_WRArcanaSummary::set_arcana_level(uint32_t value) {
 
 // optional bool success = 8;
 inline bool CDOTAUserMsg_WRArcanaSummary::_internal_has_success() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_WRArcanaSummary::has_success() const {
@@ -59673,7 +59901,7 @@ inline bool CDOTAUserMsg_WRArcanaSummary::has_success() const {
 }
 inline void CDOTAUserMsg_WRArcanaSummary::clear_success() {
   _impl_.success_ = false;
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline bool CDOTAUserMsg_WRArcanaSummary::_internal_success() const {
   return _impl_.success_;
@@ -59683,7 +59911,7 @@ inline bool CDOTAUserMsg_WRArcanaSummary::success() const {
   return _internal_success();
 }
 inline void CDOTAUserMsg_WRArcanaSummary::_internal_set_success(bool value) {
-  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.success_ = value;
 }
 inline void CDOTAUserMsg_WRArcanaSummary::set_success(bool value) {
@@ -59695,17 +59923,17 @@ inline void CDOTAUserMsg_WRArcanaSummary::set_success(bool value) {
 
 // CDOTAUserMsg_EmptyItemSlotAlert
 
-// optional int32 source_player_id = 1;
+// optional int32 source_player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_EmptyItemSlotAlert::_internal_has_source_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_EmptyItemSlotAlert::has_source_player_id() const {
   return _internal_has_source_player_id();
 }
 inline void CDOTAUserMsg_EmptyItemSlotAlert::clear_source_player_id() {
-  _impl_.source_player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.source_player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_EmptyItemSlotAlert::_internal_source_player_id() const {
   return _impl_.source_player_id_;
@@ -59715,7 +59943,7 @@ inline int32_t CDOTAUserMsg_EmptyItemSlotAlert::source_player_id() const {
   return _internal_source_player_id();
 }
 inline void CDOTAUserMsg_EmptyItemSlotAlert::_internal_set_source_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.source_player_id_ = value;
 }
 inline void CDOTAUserMsg_EmptyItemSlotAlert::set_source_player_id(int32_t value) {
@@ -59723,17 +59951,17 @@ inline void CDOTAUserMsg_EmptyItemSlotAlert::set_source_player_id(int32_t value)
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_EmptyItemSlotAlert.source_player_id)
 }
 
-// optional int32 target_player_id = 2;
+// optional int32 target_player_id = 2 [default = -1];
 inline bool CDOTAUserMsg_EmptyItemSlotAlert::_internal_has_target_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_EmptyItemSlotAlert::has_target_player_id() const {
   return _internal_has_target_player_id();
 }
 inline void CDOTAUserMsg_EmptyItemSlotAlert::clear_target_player_id() {
-  _impl_.target_player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.target_player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_EmptyItemSlotAlert::_internal_target_player_id() const {
   return _impl_.target_player_id_;
@@ -59743,7 +59971,7 @@ inline int32_t CDOTAUserMsg_EmptyItemSlotAlert::target_player_id() const {
   return _internal_target_player_id();
 }
 inline void CDOTAUserMsg_EmptyItemSlotAlert::_internal_set_target_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.target_player_id_ = value;
 }
 inline void CDOTAUserMsg_EmptyItemSlotAlert::set_target_player_id(int32_t value) {
@@ -59753,7 +59981,7 @@ inline void CDOTAUserMsg_EmptyItemSlotAlert::set_target_player_id(int32_t value)
 
 // optional int32 slot_index = 3;
 inline bool CDOTAUserMsg_EmptyItemSlotAlert::_internal_has_slot_index() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_EmptyItemSlotAlert::has_slot_index() const {
@@ -59761,7 +59989,7 @@ inline bool CDOTAUserMsg_EmptyItemSlotAlert::has_slot_index() const {
 }
 inline void CDOTAUserMsg_EmptyItemSlotAlert::clear_slot_index() {
   _impl_.slot_index_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_EmptyItemSlotAlert::_internal_slot_index() const {
   return _impl_.slot_index_;
@@ -59771,7 +59999,7 @@ inline int32_t CDOTAUserMsg_EmptyItemSlotAlert::slot_index() const {
   return _internal_slot_index();
 }
 inline void CDOTAUserMsg_EmptyItemSlotAlert::_internal_set_slot_index(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.slot_index_ = value;
 }
 inline void CDOTAUserMsg_EmptyItemSlotAlert::set_slot_index(int32_t value) {
@@ -59781,7 +60009,7 @@ inline void CDOTAUserMsg_EmptyItemSlotAlert::set_slot_index(int32_t value) {
 
 // optional int32 cooldown_seconds = 4;
 inline bool CDOTAUserMsg_EmptyItemSlotAlert::_internal_has_cooldown_seconds() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_EmptyItemSlotAlert::has_cooldown_seconds() const {
@@ -59789,7 +60017,7 @@ inline bool CDOTAUserMsg_EmptyItemSlotAlert::has_cooldown_seconds() const {
 }
 inline void CDOTAUserMsg_EmptyItemSlotAlert::clear_cooldown_seconds() {
   _impl_.cooldown_seconds_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_EmptyItemSlotAlert::_internal_cooldown_seconds() const {
   return _impl_.cooldown_seconds_;
@@ -59799,7 +60027,7 @@ inline int32_t CDOTAUserMsg_EmptyItemSlotAlert::cooldown_seconds() const {
   return _internal_cooldown_seconds();
 }
 inline void CDOTAUserMsg_EmptyItemSlotAlert::_internal_set_cooldown_seconds(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.cooldown_seconds_ = value;
 }
 inline void CDOTAUserMsg_EmptyItemSlotAlert::set_cooldown_seconds(int32_t value) {
@@ -59811,17 +60039,17 @@ inline void CDOTAUserMsg_EmptyItemSlotAlert::set_cooldown_seconds(int32_t value)
 
 // CDOTAUserMsg_AghsStatusAlert
 
-// optional int32 source_player_id = 1;
+// optional int32 source_player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_AghsStatusAlert::_internal_has_source_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AghsStatusAlert::has_source_player_id() const {
   return _internal_has_source_player_id();
 }
 inline void CDOTAUserMsg_AghsStatusAlert::clear_source_player_id() {
-  _impl_.source_player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.source_player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CDOTAUserMsg_AghsStatusAlert::_internal_source_player_id() const {
   return _impl_.source_player_id_;
@@ -59831,7 +60059,7 @@ inline int32_t CDOTAUserMsg_AghsStatusAlert::source_player_id() const {
   return _internal_source_player_id();
 }
 inline void CDOTAUserMsg_AghsStatusAlert::_internal_set_source_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.source_player_id_ = value;
 }
 inline void CDOTAUserMsg_AghsStatusAlert::set_source_player_id(int32_t value) {
@@ -59839,17 +60067,17 @@ inline void CDOTAUserMsg_AghsStatusAlert::set_source_player_id(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_AghsStatusAlert.source_player_id)
 }
 
-// optional int32 target_player_id = 2;
+// optional int32 target_player_id = 2 [default = -1];
 inline bool CDOTAUserMsg_AghsStatusAlert::_internal_has_target_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AghsStatusAlert::has_target_player_id() const {
   return _internal_has_target_player_id();
 }
 inline void CDOTAUserMsg_AghsStatusAlert::clear_target_player_id() {
-  _impl_.target_player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.target_player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline int32_t CDOTAUserMsg_AghsStatusAlert::_internal_target_player_id() const {
   return _impl_.target_player_id_;
@@ -59859,7 +60087,7 @@ inline int32_t CDOTAUserMsg_AghsStatusAlert::target_player_id() const {
   return _internal_target_player_id();
 }
 inline void CDOTAUserMsg_AghsStatusAlert::_internal_set_target_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.target_player_id_ = value;
 }
 inline void CDOTAUserMsg_AghsStatusAlert::set_target_player_id(int32_t value) {
@@ -59867,17 +60095,17 @@ inline void CDOTAUserMsg_AghsStatusAlert::set_target_player_id(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_AghsStatusAlert.target_player_id)
 }
 
-// optional int32 target_entindex = 3;
+// optional int32 target_entindex = 3 [default = -1];
 inline bool CDOTAUserMsg_AghsStatusAlert::_internal_has_target_entindex() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AghsStatusAlert::has_target_entindex() const {
   return _internal_has_target_entindex();
 }
 inline void CDOTAUserMsg_AghsStatusAlert::clear_target_entindex() {
-  _impl_.target_entindex_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.target_entindex_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_AghsStatusAlert::_internal_target_entindex() const {
   return _impl_.target_entindex_;
@@ -59887,7 +60115,7 @@ inline int32_t CDOTAUserMsg_AghsStatusAlert::target_entindex() const {
   return _internal_target_entindex();
 }
 inline void CDOTAUserMsg_AghsStatusAlert::_internal_set_target_entindex(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.target_entindex_ = value;
 }
 inline void CDOTAUserMsg_AghsStatusAlert::set_target_entindex(int32_t value) {
@@ -59897,7 +60125,7 @@ inline void CDOTAUserMsg_AghsStatusAlert::set_target_entindex(int32_t value) {
 
 // optional uint32 alert_type = 4;
 inline bool CDOTAUserMsg_AghsStatusAlert::_internal_has_alert_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AghsStatusAlert::has_alert_type() const {
@@ -59905,7 +60133,7 @@ inline bool CDOTAUserMsg_AghsStatusAlert::has_alert_type() const {
 }
 inline void CDOTAUserMsg_AghsStatusAlert::clear_alert_type() {
   _impl_.alert_type_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CDOTAUserMsg_AghsStatusAlert::_internal_alert_type() const {
   return _impl_.alert_type_;
@@ -59915,7 +60143,7 @@ inline uint32_t CDOTAUserMsg_AghsStatusAlert::alert_type() const {
   return _internal_alert_type();
 }
 inline void CDOTAUserMsg_AghsStatusAlert::_internal_set_alert_type(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.alert_type_ = value;
 }
 inline void CDOTAUserMsg_AghsStatusAlert::set_alert_type(uint32_t value) {
@@ -59925,7 +60153,7 @@ inline void CDOTAUserMsg_AghsStatusAlert::set_alert_type(uint32_t value) {
 
 // optional bool has_scepter = 5;
 inline bool CDOTAUserMsg_AghsStatusAlert::_internal_has_has_scepter() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AghsStatusAlert::has_has_scepter() const {
@@ -59933,7 +60161,7 @@ inline bool CDOTAUserMsg_AghsStatusAlert::has_has_scepter() const {
 }
 inline void CDOTAUserMsg_AghsStatusAlert::clear_has_scepter() {
   _impl_.has_scepter_ = false;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline bool CDOTAUserMsg_AghsStatusAlert::_internal_has_scepter() const {
   return _impl_.has_scepter_;
@@ -59943,7 +60171,7 @@ inline bool CDOTAUserMsg_AghsStatusAlert::has_scepter() const {
   return _internal_has_scepter();
 }
 inline void CDOTAUserMsg_AghsStatusAlert::_internal_set_has_scepter(bool value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.has_scepter_ = value;
 }
 inline void CDOTAUserMsg_AghsStatusAlert::set_has_scepter(bool value) {
@@ -59953,7 +60181,7 @@ inline void CDOTAUserMsg_AghsStatusAlert::set_has_scepter(bool value) {
 
 // optional bool has_shard = 6;
 inline bool CDOTAUserMsg_AghsStatusAlert::_internal_has_has_shard() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AghsStatusAlert::has_has_shard() const {
@@ -59961,7 +60189,7 @@ inline bool CDOTAUserMsg_AghsStatusAlert::has_has_shard() const {
 }
 inline void CDOTAUserMsg_AghsStatusAlert::clear_has_shard() {
   _impl_.has_shard_ = false;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline bool CDOTAUserMsg_AghsStatusAlert::_internal_has_shard() const {
   return _impl_.has_shard_;
@@ -59971,7 +60199,7 @@ inline bool CDOTAUserMsg_AghsStatusAlert::has_shard() const {
   return _internal_has_shard();
 }
 inline void CDOTAUserMsg_AghsStatusAlert::_internal_set_has_shard(bool value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.has_shard_ = value;
 }
 inline void CDOTAUserMsg_AghsStatusAlert::set_has_shard(bool value) {
@@ -60846,17 +61074,17 @@ inline void CDOTAUserMsg_ContextualTip::set_allocated_panorama_snippet(std::stri
 
 // CDOTAUserMsg_ChatMessage
 
-// optional int32 source_player_id = 1;
+// optional int32 source_player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_ChatMessage::_internal_has_source_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ChatMessage::has_source_player_id() const {
   return _internal_has_source_player_id();
 }
 inline void CDOTAUserMsg_ChatMessage::clear_source_player_id() {
-  _impl_.source_player_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.source_player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_ChatMessage::_internal_source_player_id() const {
   return _impl_.source_player_id_;
@@ -60866,7 +61094,7 @@ inline int32_t CDOTAUserMsg_ChatMessage::source_player_id() const {
   return _internal_source_player_id();
 }
 inline void CDOTAUserMsg_ChatMessage::_internal_set_source_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.source_player_id_ = value;
 }
 inline void CDOTAUserMsg_ChatMessage::set_source_player_id(int32_t value) {
@@ -60876,7 +61104,7 @@ inline void CDOTAUserMsg_ChatMessage::set_source_player_id(int32_t value) {
 
 // optional uint32 channel_type = 2;
 inline bool CDOTAUserMsg_ChatMessage::_internal_has_channel_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_ChatMessage::has_channel_type() const {
@@ -60884,7 +61112,7 @@ inline bool CDOTAUserMsg_ChatMessage::has_channel_type() const {
 }
 inline void CDOTAUserMsg_ChatMessage::clear_channel_type() {
   _impl_.channel_type_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CDOTAUserMsg_ChatMessage::_internal_channel_type() const {
   return _impl_.channel_type_;
@@ -60894,7 +61122,7 @@ inline uint32_t CDOTAUserMsg_ChatMessage::channel_type() const {
   return _internal_channel_type();
 }
 inline void CDOTAUserMsg_ChatMessage::_internal_set_channel_type(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.channel_type_ = value;
 }
 inline void CDOTAUserMsg_ChatMessage::set_channel_type(uint32_t value) {
@@ -60974,7 +61202,7 @@ inline void CDOTAUserMsg_ChatMessage::set_allocated_message_text(std::string* me
 
 // CDOTAUserMsg_RockPaperScissorsStarted
 
-// optional int32 player_id_source = 1;
+// optional int32 player_id_source = 1 [default = -1];
 inline bool CDOTAUserMsg_RockPaperScissorsStarted::_internal_has_player_id_source() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -60983,7 +61211,7 @@ inline bool CDOTAUserMsg_RockPaperScissorsStarted::has_player_id_source() const 
   return _internal_has_player_id_source();
 }
 inline void CDOTAUserMsg_RockPaperScissorsStarted::clear_player_id_source() {
-  _impl_.player_id_source_ = 0;
+  _impl_.player_id_source_ = -1;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_RockPaperScissorsStarted::_internal_player_id_source() const {
@@ -61002,7 +61230,7 @@ inline void CDOTAUserMsg_RockPaperScissorsStarted::set_player_id_source(int32_t 
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_RockPaperScissorsStarted.player_id_source)
 }
 
-// optional int32 player_id_target = 2;
+// optional int32 player_id_target = 2 [default = -1];
 inline bool CDOTAUserMsg_RockPaperScissorsStarted::_internal_has_player_id_target() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -61011,7 +61239,7 @@ inline bool CDOTAUserMsg_RockPaperScissorsStarted::has_player_id_target() const 
   return _internal_has_player_id_target();
 }
 inline void CDOTAUserMsg_RockPaperScissorsStarted::clear_player_id_target() {
-  _impl_.player_id_target_ = 0;
+  _impl_.player_id_target_ = -1;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_RockPaperScissorsStarted::_internal_player_id_target() const {
@@ -61034,17 +61262,17 @@ inline void CDOTAUserMsg_RockPaperScissorsStarted::set_player_id_target(int32_t 
 
 // CDOTAUserMsg_RockPaperScissorsFinished
 
-// optional int32 player_id_1 = 1;
+// optional int32 player_id_1 = 1 [default = -1];
 inline bool CDOTAUserMsg_RockPaperScissorsFinished::_internal_has_player_id_1() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_RockPaperScissorsFinished::has_player_id_1() const {
   return _internal_has_player_id_1();
 }
 inline void CDOTAUserMsg_RockPaperScissorsFinished::clear_player_id_1() {
-  _impl_.player_id_1_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_.player_id_1_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CDOTAUserMsg_RockPaperScissorsFinished::_internal_player_id_1() const {
   return _impl_.player_id_1_;
@@ -61054,7 +61282,7 @@ inline int32_t CDOTAUserMsg_RockPaperScissorsFinished::player_id_1() const {
   return _internal_player_id_1();
 }
 inline void CDOTAUserMsg_RockPaperScissorsFinished::_internal_set_player_id_1(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.player_id_1_ = value;
 }
 inline void CDOTAUserMsg_RockPaperScissorsFinished::set_player_id_1(int32_t value) {
@@ -61062,17 +61290,17 @@ inline void CDOTAUserMsg_RockPaperScissorsFinished::set_player_id_1(int32_t valu
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_RockPaperScissorsFinished.player_id_1)
 }
 
-// optional int32 player_id_2 = 2;
+// optional int32 player_id_2 = 2 [default = -1];
 inline bool CDOTAUserMsg_RockPaperScissorsFinished::_internal_has_player_id_2() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_RockPaperScissorsFinished::has_player_id_2() const {
   return _internal_has_player_id_2();
 }
 inline void CDOTAUserMsg_RockPaperScissorsFinished::clear_player_id_2() {
-  _impl_.player_id_2_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.player_id_2_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_RockPaperScissorsFinished::_internal_player_id_2() const {
   return _impl_.player_id_2_;
@@ -61082,7 +61310,7 @@ inline int32_t CDOTAUserMsg_RockPaperScissorsFinished::player_id_2() const {
   return _internal_player_id_2();
 }
 inline void CDOTAUserMsg_RockPaperScissorsFinished::_internal_set_player_id_2(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.player_id_2_ = value;
 }
 inline void CDOTAUserMsg_RockPaperScissorsFinished::set_player_id_2(int32_t value) {
@@ -61092,7 +61320,7 @@ inline void CDOTAUserMsg_RockPaperScissorsFinished::set_player_id_2(int32_t valu
 
 // optional int32 player_1_choice = 3;
 inline bool CDOTAUserMsg_RockPaperScissorsFinished::_internal_has_player_1_choice() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_RockPaperScissorsFinished::has_player_1_choice() const {
@@ -61100,7 +61328,7 @@ inline bool CDOTAUserMsg_RockPaperScissorsFinished::has_player_1_choice() const 
 }
 inline void CDOTAUserMsg_RockPaperScissorsFinished::clear_player_1_choice() {
   _impl_.player_1_choice_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_RockPaperScissorsFinished::_internal_player_1_choice() const {
   return _impl_.player_1_choice_;
@@ -61110,7 +61338,7 @@ inline int32_t CDOTAUserMsg_RockPaperScissorsFinished::player_1_choice() const {
   return _internal_player_1_choice();
 }
 inline void CDOTAUserMsg_RockPaperScissorsFinished::_internal_set_player_1_choice(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.player_1_choice_ = value;
 }
 inline void CDOTAUserMsg_RockPaperScissorsFinished::set_player_1_choice(int32_t value) {
@@ -61120,7 +61348,7 @@ inline void CDOTAUserMsg_RockPaperScissorsFinished::set_player_1_choice(int32_t 
 
 // optional int32 player_2_choice = 4;
 inline bool CDOTAUserMsg_RockPaperScissorsFinished::_internal_has_player_2_choice() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_RockPaperScissorsFinished::has_player_2_choice() const {
@@ -61128,7 +61356,7 @@ inline bool CDOTAUserMsg_RockPaperScissorsFinished::has_player_2_choice() const 
 }
 inline void CDOTAUserMsg_RockPaperScissorsFinished::clear_player_2_choice() {
   _impl_.player_2_choice_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CDOTAUserMsg_RockPaperScissorsFinished::_internal_player_2_choice() const {
   return _impl_.player_2_choice_;
@@ -61138,7 +61366,7 @@ inline int32_t CDOTAUserMsg_RockPaperScissorsFinished::player_2_choice() const {
   return _internal_player_2_choice();
 }
 inline void CDOTAUserMsg_RockPaperScissorsFinished::_internal_set_player_2_choice(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.player_2_choice_ = value;
 }
 inline void CDOTAUserMsg_RockPaperScissorsFinished::set_player_2_choice(int32_t value) {
@@ -61270,7 +61498,7 @@ inline void CDOTAUserMsg_DuelAccepted::set_player_id_2(int32_t value) {
 
 // CDOTAUserMsg_DuelRequested
 
-// optional int32 player_id_requestor = 1;
+// optional int32 player_id_requestor = 1 [default = -1];
 inline bool CDOTAUserMsg_DuelRequested::_internal_has_player_id_requestor() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -61279,7 +61507,7 @@ inline bool CDOTAUserMsg_DuelRequested::has_player_id_requestor() const {
   return _internal_has_player_id_requestor();
 }
 inline void CDOTAUserMsg_DuelRequested::clear_player_id_requestor() {
-  _impl_.player_id_requestor_ = 0;
+  _impl_.player_id_requestor_ = -1;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline int32_t CDOTAUserMsg_DuelRequested::_internal_player_id_requestor() const {
@@ -61298,9 +61526,155 @@ inline void CDOTAUserMsg_DuelRequested::set_player_id_requestor(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_DuelRequested.player_id_requestor)
 }
 
+// -------------------------------------------------------------------
+
+// CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled
+
+// required int32 player_id_killer = 1 [default = -1];
+inline bool CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::_internal_has_player_id_killer() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::has_player_id_killer() const {
+  return _internal_has_player_id_killer();
+}
+inline void CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::clear_player_id_killer() {
+  _impl_.player_id_killer_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline int32_t CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::_internal_player_id_killer() const {
+  return _impl_.player_id_killer_;
+}
+inline int32_t CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::player_id_killer() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled.player_id_killer)
+  return _internal_player_id_killer();
+}
+inline void CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::_internal_set_player_id_killer(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.player_id_killer_ = value;
+}
+inline void CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::set_player_id_killer(int32_t value) {
+  _internal_set_player_id_killer(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled.player_id_killer)
+}
+
+// required int32 player_id_target = 2 [default = -1];
+inline bool CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::_internal_has_player_id_target() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::has_player_id_target() const {
+  return _internal_has_player_id_target();
+}
+inline void CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::clear_player_id_target() {
+  _impl_.player_id_target_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline int32_t CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::_internal_player_id_target() const {
+  return _impl_.player_id_target_;
+}
+inline int32_t CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::player_id_target() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled.player_id_target)
+  return _internal_player_id_target();
+}
+inline void CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::_internal_set_player_id_target(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.player_id_target_ = value;
+}
+inline void CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::set_player_id_target(int32_t value) {
+  _internal_set_player_id_target(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled.player_id_target)
+}
+
+// required int32 points = 3;
+inline bool CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::_internal_has_points() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::has_points() const {
+  return _internal_has_points();
+}
+inline void CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::clear_points() {
+  _impl_.points_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline int32_t CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::_internal_points() const {
+  return _impl_.points_;
+}
+inline int32_t CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::points() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled.points)
+  return _internal_points();
+}
+inline void CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::_internal_set_points(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.points_ = value;
+}
+inline void CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::set_points(int32_t value) {
+  _internal_set_points(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled.points)
+}
+
+// required int32 points_total = 4;
+inline bool CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::_internal_has_points_total() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::has_points_total() const {
+  return _internal_has_points_total();
+}
+inline void CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::clear_points_total() {
+  _impl_.points_total_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline int32_t CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::_internal_points_total() const {
+  return _impl_.points_total_;
+}
+inline int32_t CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::points_total() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled.points_total)
+  return _internal_points_total();
+}
+inline void CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::_internal_set_points_total(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.points_total_ = value;
+}
+inline void CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::set_points_total(int32_t value) {
+  _internal_set_points_total(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled.points_total)
+}
+
+// required bool last_hit = 5;
+inline bool CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::_internal_has_last_hit() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::has_last_hit() const {
+  return _internal_has_last_hit();
+}
+inline void CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::clear_last_hit() {
+  _impl_.last_hit_ = false;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline bool CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::_internal_last_hit() const {
+  return _impl_.last_hit_;
+}
+inline bool CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::last_hit() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled.last_hit)
+  return _internal_last_hit();
+}
+inline void CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::_internal_set_last_hit(bool value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.last_hit_ = value;
+}
+inline void CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled::set_last_hit(bool value) {
+  _internal_set_last_hit(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled.last_hit)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

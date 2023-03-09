@@ -88,11 +88,11 @@ const char descriptor_table_protodef_econ_5fshared_5fenums_2eproto[] PROTOBUF_SE
   "Response_EmoticonUnlock_NoNew\020\013\0223\n/k_EGC"
   "MsgUseItemResponse_EmoticonUnlock_Comple"
   "te\020\014\022/\n+k_EGCMsgUseItemResponse_ItemUsed"
-  "_Compendium\020\rB\005H\001\200\001\000"
+  "_Compendium\020\r"
   ;
 static ::_pbi::once_flag descriptor_table_econ_5fshared_5fenums_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_econ_5fshared_5fenums_2eproto = {
-    false, false, 1140, descriptor_table_protodef_econ_5fshared_5fenums_2eproto,
+    false, false, 1133, descriptor_table_protodef_econ_5fshared_5fenums_2eproto,
     "econ_shared_enums.proto",
     &descriptor_table_econ_5fshared_5fenums_2eproto_once, nullptr, 0, 1,
     schemas, file_default_instances, TableStruct_econ_5fshared_5fenums_2eproto::offsets,

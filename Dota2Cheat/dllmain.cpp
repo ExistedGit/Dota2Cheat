@@ -1,7 +1,4 @@
-﻿// dllmain.cpp : Определяет точку входа для приложения DLL.
-#pragma once
-#include "pch.h"
-
+﻿#pragma once
 #include <cstdio>
 #include <iostream>
 #include "MatchStateHandling.h"
@@ -13,8 +10,6 @@
 #include "imgui/imgui_impl_glfw.h"
 #include "imgui/imgui_impl_opengl3.h"
 
-#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
 #include <GL/glew.h>
 #include <GLFW/glfw3.h> // Will drag system OpenGL headers
 
@@ -86,10 +81,13 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Lua::InitInterfaces(ctx.lua);
 	Lua::LoadScriptFiles(ctx.lua);
 
+//	Panorama::CSource2UITexture* texture{};
+//	Signatures::LoadUITexture(nullptr, (void**)&texture, "panorama\\images\\hero_badges\\hero_badge_rank_1_png.vtex");
+
 	glfwSetErrorCallback(glfw_error_callback);
 	if (!glfwInit())
 		return 1;
-	
+
 	// GL 3.0 + GLSL 130
 	constexpr const char* glsl_version = "#version 130";
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);

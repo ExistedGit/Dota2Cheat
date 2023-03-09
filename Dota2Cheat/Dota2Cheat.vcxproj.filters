@@ -51,7 +51,7 @@
     <ClCompile Include="dllmain.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
-    <ClCompile Include="pch.cpp">
+    <ClCompile Include="SDK\pch.cpp">
       <Filter>Header files</Filter>
     </ClCompile>
     <ClCompile Include="SDK\SigScan\patterscan.cpp">
@@ -129,6 +129,75 @@
     <ClCompile Include="SDK\Protobufs\steammessages.pb.cc">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="Hooks\PrepareUnitOrders.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooks\RunFrame.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooks\ModifierEvents.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modules\Hacks\ParticleAbilityWarner.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooks\ParticleRendering.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooks\EntitySystemEvents.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modules\Hacks\LinearProjectileWarner.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modules\Hacks\PerfectBlink.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modules\Hacks\TargetedSpellHighlighter.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modules\Hacks\ShakerAttackAnimFix.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modules\Hacks\RiverPaint.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modules\Hacks\AutoBuyTome.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modules\Hacks\AutoDodge.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modules\Hacks\AutoPick.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modules\Hacks\AutoPing.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modules\Hacks\BadCastPrevention.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modules\Hacks\CastRedirection.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modules\Hacks\EnemySpellHighlight.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modules\Hacks\IllusionColoring.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Interfaces\CGCClient.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Interfaces\CVarSystem.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="HookHelper.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modules\Utility\ParticleGC.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h">
@@ -188,9 +257,6 @@
     <ClInclude Include="SDK\GameSystems\CDOTAParticleManager.h">
       <Filter>Header files\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="include.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
     <ClInclude Include="SDK\GameSystems\CGameEventManager.h">
       <Filter>Header files\Interfaces</Filter>
     </ClInclude>
@@ -208,9 +274,6 @@
     </ClInclude>
     <ClInclude Include="EventListeners.h">
       <Filter>Header files\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\VBE.h">
-      <Filter>Header files\Hacks</Filter>
     </ClInclude>
     <ClInclude Include="Modules\Hacks\IllusionColoring.h">
       <Filter>Header files\Hacks</Filter>
@@ -251,7 +314,7 @@
     <ClInclude Include="Hooks\PrepareUnitOrders.h">
       <Filter>Header files\Hooks</Filter>
     </ClInclude>
-    <ClInclude Include="pch.h">
+    <ClInclude Include="SDK\pch.h">
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="Hooks\EntitySystemEvents.h">
@@ -319,9 +382,6 @@
     </ClInclude>
     <ClInclude Include="SDK\Protobufs\network_connection.pb.h">
       <Filter>Header files\Protobuf Messages</Filter>
-    </ClInclude>
-    <ClInclude Include="stb_image.h">
-      <Filter>Header files\Utils</Filter>
     </ClInclude>
     <ClInclude Include="SDK\Interfaces\Panorama.h">
       <Filter>Header files</Filter>
@@ -440,9 +500,6 @@
     <ClInclude Include="SDK\Interfaces\Network\CNetworkMessages.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\include.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
     <ClInclude Include="SDK\Interfaces\Network\INetChannel.h">
       <Filter>Header files</Filter>
     </ClInclude>
@@ -450,6 +507,15 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="SDK\Entities\CDOTAItem.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="include.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\VTableIndexes.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Protobufs\steammessages.pb.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>

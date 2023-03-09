@@ -1,5 +1,6 @@
 #pragma once
-#include "../../SDK/include.h"
+#include "../../SDK/pch.h"
+#include "../../Config.h"
 #include "../Utility/ParticleGC.h"
 
 namespace Hacks {
@@ -44,32 +45,9 @@ namespace Hacks {
 			}
 		};
 	public:
-		void DrawParticleAt(Vector pos, ParticleCreationInfo info) {
-			auto particleWrap = GameSystems::ParticleManager->CreateParticle(
-				info.particleName,
-				PATTACH_WORLDORIGIN,
-				nullptr);
-			particleWrap.particle
-				->SetControlPoint(0, &pos);
-			for (auto& [idx, val] : info.controlPoints)
-				particleWrap.particle->SetControlPoint(idx, &val);
+		void DrawParticleAt(Vector pos, ParticleCreationInfo info);
 
-			if (info.dieTime)
-				Modules::ParticleGC.SetDieTime(particleWrap, info.dieTime);
-		}
-
-		void RenderIfThinkerModifier(CDOTAModifier* modifier) {
-			if (!Config::ShowEnemyPointSpells)
-				return;
-
-			if (ModifierParticles.count(modifier->GetName())) {
-				auto thinker = modifier->GetOwner();
-				if (thinker->GetTeam() != ctx.assignedHero->GetTeam()) {
-
-					DrawParticleAt(thinker->GetPos(), ModifierParticles[modifier->GetName()]);
-				}
-			}
-		}
+		void RenderIfThinkerModifier(CDOTAModifier* modifier);
 	};
 }
 namespace Modules {

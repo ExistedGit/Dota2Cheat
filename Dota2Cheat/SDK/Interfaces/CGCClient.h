@@ -15,38 +15,26 @@ public:
 
 class IMsgNetPacket : public VClass {
 public:
-	EDOTAGCMsg GetEMsg() {
-		return Member<EDOTAGCMsg>(0x78);
-	}
+	EDOTAGCMsg GetEMsg();
 };
 
 class CProtobufSharedObjectBase : public VClass {
 public:
-	google::protobuf::Message* GetPObject() {
-		return CallVFunc<9, google::protobuf::Message*>();
-	}
+	google::protobuf::Message* GetPObject();
 };
 
 class CGCClientSharedObjectTypeCache : public VClass {
 public:
-	CProtobufSharedObjectBase* GetProtobufSO() {
-		return *Member< CProtobufSharedObjectBase**>(0x10);
-	}
+	CProtobufSharedObjectBase* GetProtobufSO();
 };
 class CGCClientSharedObjectCache : public VClass {
 public:
 
-	CUtlVector<CGCClientSharedObjectTypeCache*> GetTypeCacheList() {
-		return Member<CUtlVector<CGCClientSharedObjectTypeCache*>>(0x10);
-	}
+	CUtlVector<CGCClientSharedObjectTypeCache*> GetTypeCacheList();
 };
 
 class CGCClient : public VClass {
 public:
-	CGCClientSharedObjectCache* GetObjCache() {
-		return Member<CGCClientSharedObjectCache*>(0x450);
-	}
-	VClass* GetGCClientSystem() {
-		return Member<VClass*>(0x768);
-	}
+	CGCClientSharedObjectCache* GetObjCache();
+	VClass* GetGCClientSystem();
 };

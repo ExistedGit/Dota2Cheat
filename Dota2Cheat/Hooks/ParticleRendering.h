@@ -10,25 +10,9 @@ namespace Hooks {
 
 	typedef void(*SetRenderingEnabledFn)(CParticleCollection*, bool);
 	inline SetRenderingEnabledFn oSetRenderingEnabled;
-	void hkSetRenderingEnabled(CParticleCollection* thisptr, bool state) {
-		bool FakeState = state;
-
-		if (Config::RenderAllParticles)
-			FakeState = true;
-
-		oSetRenderingEnabled(thisptr, FakeState);
-	}
+	void hkSetRenderingEnabled(CParticleCollection* thisptr, bool state);
 
 	inline void* SetRenderingEnabled = nullptr;
-	CParticleCollection* hkCreateParticleCollection(CNewParticleEffect* thisptr, void* particleMgr, void* unk, void* query, bool bUnk, float fUnk, int particleIndex) {
-		CParticleCollection* Ret = oCreateParticleCollection(thisptr, particleMgr, unk, query, bUnk, fUnk, particleIndex);
-
-		if (!SetRenderingEnabled) {
-			SetRenderingEnabled = getvfunc(thisptr->Member<VClass*>(0x20), 95).ptr;
-			HookFunc(SetRenderingEnabled, hkSetRenderingEnabled, &oSetRenderingEnabled, "SetRenderingEnabled");
-		}
-
-		return Ret;
-	}
+	CParticleCollection* hkCreateParticleCollection(CNewParticleEffect* thisptr, void* particleMgr, void* unk, void* query, bool bUnk, float fUnk, int particleIndex);
 
 }

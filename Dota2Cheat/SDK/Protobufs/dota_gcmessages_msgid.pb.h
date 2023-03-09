@@ -851,16 +851,20 @@ enum EDOTAGCMsg : int {
   k_EMsgClientToGCCandyShopDevShuffleExchangeResponse = 8866,
   k_EMsgClientToGCCandyShopDevGrantRerollCharges = 8867,
   k_EMsgClientToGCCandyShopDevGrantRerollChargesResponse = 8868,
+  k_EMsgLobbyAdditionalAccountData = 8869,
+  k_EMsgServerToGCLobbyInitialized = 8870,
   k_EMsgClientToGCCollectorsCacheAvailableDataRequest = 8871,
   k_EMsgGCToClientCollectorsCacheAvailableDataResponse = 8872,
   k_EMsgClientToGCUploadMatchClip = 8873,
   k_EMsgGCToClientUploadMatchClipResponse = 8874,
   k_EMsgGCToServerSetSteamLearnDisable = 8875,
-  k_EMsgGCToServerSetSteamLearnKeysChanged = 8876
+  k_EMsgGCToServerSetSteamLearnKeysChanged = 8876,
+  k_EMsgSignOutMuertaMinigame = 8877,
+  k_EMsgGCToServerLobbyHeroRoleStats = 8878
 };
 bool EDOTAGCMsg_IsValid(int value);
 constexpr EDOTAGCMsg EDOTAGCMsg_MIN = k_EMsgGCDOTABase;
-constexpr EDOTAGCMsg EDOTAGCMsg_MAX = k_EMsgGCToServerSetSteamLearnKeysChanged;
+constexpr EDOTAGCMsg EDOTAGCMsg_MAX = k_EMsgGCToServerLobbyHeroRoleStats;
 constexpr int EDOTAGCMsg_ARRAYSIZE = EDOTAGCMsg_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EDOTAGCMsg_descriptor();

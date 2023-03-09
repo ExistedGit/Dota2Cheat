@@ -17,14 +17,15 @@ void CDOTAParticleManager::IncHandle() {
 }
 
 ParticleWrapper CDOTAParticleManager::CreateParticle(const char* name, ParticleAttachment_t attachType, CBaseEntity* ent) {
+	static_assert(sizeof(CreateParticleInfo) == 0x40);
 	CreateParticleInfo info{};
-	info.particleName = name;
-	info.attachType = attachType;
-	info.attachEntity = ent;
+	info.m_szParticleName = name;
+	info.m_particleAttachment = attachType;
+	info.m_pTargetEntity = ent;
 
 	auto h = GetHandle();
 	IncHandle();
-	CallVFunc<7>(h, &info);
+	CallVFunc<VTableIndexes::CDOTAParticleManager::CreateParticle>(h, &info);
 
 	ParticleWrapper result{};
 	result.info = info;

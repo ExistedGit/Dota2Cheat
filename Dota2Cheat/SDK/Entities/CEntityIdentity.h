@@ -1,11 +1,10 @@
 #pragma once
-#include "../base/Definitions.h"
+#include "../Base/Definitions.h"
 #include <sol/sol.hpp>
 
 class CBaseEntity;
 
 class CEntityIdentity {
-
 public:
 	CBaseEntity* entity;
 	void* dunno;
@@ -21,13 +20,13 @@ private:
 	char pad[4];
 	void* unkptr4;
 	void* unkptr5;
-public:
-	CEntityIdentity* prevValid;
-	CEntityIdentity* nextValid;
-private:
 	void* unkptr6;
-	void* unkptr7;
 	void* unkptr8;
+public:
+	CEntityIdentity* m_pPrev;
+	CEntityIdentity* m_pNext;
+	CEntityIdentity* m_pPrevByClass;
+	CEntityIdentity* m_pNextByClass;
 public:
 	const char* GetName() const {
 		return internalName ? internalName : entityName;
@@ -35,15 +34,11 @@ public:
 
 	bool IsDormant() const {
 		return (flags[0] & 0x80);
-	}
+	}	
 
 	static void BindLua(sol::state& lua) {
 		sol::usertype<CEntityIdentity> type = lua.new_usertype<CEntityIdentity>("CEntityIdentity");
-		type["entity"] = &CEntityIdentity::entity;
 		type["entHandle"] = &CEntityIdentity::entHandle;
-		type["internalName"] = &CEntityIdentity::internalName;
-		type["entityName"] = &CEntityIdentity::entityName;
-		type["flags"] = &CEntityIdentity::flags;
 		type["GetName"] = &CEntityIdentity::GetName;
 		type["IsDormant"] = &CEntityIdentity::IsDormant;
 	}

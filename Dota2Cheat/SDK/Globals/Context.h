@@ -1,11 +1,10 @@
 #pragma once
 #include <Windows.h>
 #include <set>
-#include <map>
 #include <sol/sol.hpp>
 
-class CDOTABaseNPC;
 class CBaseEntity;
+class CDOTABaseNPC;
 class CDOTABaseNPC_Hero;
 class CDOTAPlayerController;
 class CDOTABaseAbility;

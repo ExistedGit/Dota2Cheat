@@ -1,5 +1,5 @@
 #pragma once
-#include "../../SDK/include.h"
+#include "../../SDK/pch.h"
 
 namespace Hacks {
 	class AegisAutoPickup {
@@ -9,7 +9,8 @@ namespace Hacks {
 			if (!strstr(className, "Item_Physical"))
 				return false;
 			auto item = Interfaces::EntitySystem->GetEntity(H2IDX(ent->Member<ENT_HANDLE>(0x990)));
-			if (!strstr(item->GetIdentity()->GetName(), "aegis"))
+			if(!item ||
+				!strstr(item->GetIdentity()->GetName(), "aegis"))
 				return false;
 
 			if (IsWithinRadius(ent->GetPos(), ctx.assignedHero->GetPos(), 130)) {

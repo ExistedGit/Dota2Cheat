@@ -1361,7 +1361,7 @@ class CMsgAdjustItemEquippedState final :
   void _internal_set_new_slot(uint32_t value);
   public:
 
-  // optional uint32 style_index = 4;
+  // optional uint32 style_index = 4 [default = 255];
   bool has_style_index() const;
   private:
   bool _internal_has_style_index() const;
@@ -12285,7 +12285,7 @@ class CMsgClientToGCSetItemStyle final :
   void _internal_set_item_id(uint64_t value);
   public:
 
-  // optional uint32 style_index = 2;
+  // optional uint32 style_index = 2 [default = 255];
   bool has_style_index() const;
   private:
   bool _internal_has_style_index() const;
@@ -12675,7 +12675,7 @@ class CMsgClientToGCUnlockItemStyle final :
   void _internal_set_item_to_unlock(uint64_t value);
   public:
 
-  // optional uint32 style_index = 2;
+  // optional uint32 style_index = 2 [default = 255];
   bool has_style_index() const;
   private:
   bool _internal_has_style_index() const;
@@ -12916,7 +12916,7 @@ class CMsgClientToGCUnlockItemStyleResponse final :
   void _internal_set_response(::CMsgClientToGCUnlockItemStyleResponse_EUnlockStyle value);
   public:
 
-  // optional uint32 style_index = 3;
+  // optional uint32 style_index = 3 [default = 255];
   bool has_style_index() const;
   private:
   bool _internal_has_style_index() const;
@@ -12929,7 +12929,7 @@ class CMsgClientToGCUnlockItemStyleResponse final :
   void _internal_set_style_index(uint32_t value);
   public:
 
-  // optional uint32 style_prereq = 4;
+  // optional uint32 style_prereq = 4 [default = 255];
   bool has_style_prereq() const;
   private:
   bool _internal_has_style_prereq() const;
@@ -14797,6 +14797,7 @@ class CAttribute_ItemDynamicRecipeComponent final :
     kItemsFulfilledFieldNumber = 6,
     kItemRarityFieldNumber = 7,
     kFulfilledItemIdFieldNumber = 9,
+    kAssociatedItemDefFieldNumber = 10,
   };
   // optional string attributes_string = 4;
   bool has_attributes_string() const;
@@ -14925,6 +14926,19 @@ class CAttribute_ItemDynamicRecipeComponent final :
   void _internal_set_fulfilled_item_id(uint64_t value);
   public:
 
+  // optional uint32 associated_item_def = 10;
+  bool has_associated_item_def() const;
+  private:
+  bool _internal_has_associated_item_def() const;
+  public:
+  void clear_associated_item_def();
+  uint32_t associated_item_def() const;
+  void set_associated_item_def(uint32_t value);
+  private:
+  uint32_t _internal_associated_item_def() const;
+  void _internal_set_associated_item_def(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CAttribute_ItemDynamicRecipeComponent)
  private:
   class _Internal;
@@ -14944,6 +14958,7 @@ class CAttribute_ItemDynamicRecipeComponent final :
     uint32_t items_fulfilled_;
     uint32_t item_rarity_;
     uint64_t fulfilled_item_id_;
+    uint32_t associated_item_def_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_econ_5fgcmessages_2eproto;
@@ -21585,7 +21600,7 @@ class CMsgGCToGCBroadcastConsoleCommand final :
   void _internal_set_report_output(bool value);
   public:
 
-  // optional int32 sending_gc = 3;
+  // optional int32 sending_gc = 3 [default = -1];
   bool has_sending_gc() const;
   private:
   bool _internal_has_sending_gc() const;
@@ -21930,8 +21945,8 @@ class CMsgGCToGCConsoleOutput final :
   enum : int {
     kMsgsFieldNumber = 3,
     kInitiatorFieldNumber = 1,
-    kSendingGcFieldNumber = 2,
     kIsLastForSourceJobFieldNumber = 4,
+    kSendingGcFieldNumber = 2,
   };
   // repeated .CMsgGCToGCConsoleOutput.OutputLine msgs = 3;
   int msgs_size() const;
@@ -21969,19 +21984,6 @@ class CMsgGCToGCConsoleOutput final :
   std::string* _internal_mutable_initiator();
   public:
 
-  // optional int32 sending_gc = 2;
-  bool has_sending_gc() const;
-  private:
-  bool _internal_has_sending_gc() const;
-  public:
-  void clear_sending_gc();
-  int32_t sending_gc() const;
-  void set_sending_gc(int32_t value);
-  private:
-  int32_t _internal_sending_gc() const;
-  void _internal_set_sending_gc(int32_t value);
-  public:
-
   // optional bool is_last_for_source_job = 4;
   bool has_is_last_for_source_job() const;
   private:
@@ -21993,6 +21995,19 @@ class CMsgGCToGCConsoleOutput final :
   private:
   bool _internal_is_last_for_source_job() const;
   void _internal_set_is_last_for_source_job(bool value);
+  public:
+
+  // optional int32 sending_gc = 2 [default = -1];
+  bool has_sending_gc() const;
+  private:
+  bool _internal_has_sending_gc() const;
+  public:
+  void clear_sending_gc();
+  int32_t sending_gc() const;
+  void set_sending_gc(int32_t value);
+  private:
+  int32_t _internal_sending_gc() const;
+  void _internal_set_sending_gc(int32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:CMsgGCToGCConsoleOutput)
@@ -22007,8 +22022,8 @@ class CMsgGCToGCConsoleOutput final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgGCToGCConsoleOutput_OutputLine > msgs_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr initiator_;
-    int32_t sending_gc_;
     bool is_last_for_source_job_;
+    int32_t sending_gc_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_econ_5fgcmessages_2eproto;
@@ -22486,11 +22501,11 @@ class CMsgGCToGCInternalTestMsg final :
   enum : int {
     kMessageBodyFieldNumber = 5,
     kSenderIdFieldNumber = 2,
-    kSendingGcFieldNumber = 1,
     kContextFieldNumber = 3,
+    kMessageIdFieldNumber = 4,
     kJobIdSourceFieldNumber = 6,
     kJobIdTargetFieldNumber = 7,
-    kMessageIdFieldNumber = 4,
+    kSendingGcFieldNumber = 1,
   };
   // optional bytes message_body = 5;
   bool has_message_body() const;
@@ -22523,19 +22538,6 @@ class CMsgGCToGCInternalTestMsg final :
   void _internal_set_sender_id(uint64_t value);
   public:
 
-  // optional int32 sending_gc = 1;
-  bool has_sending_gc() const;
-  private:
-  bool _internal_has_sending_gc() const;
-  public:
-  void clear_sending_gc();
-  int32_t sending_gc() const;
-  void set_sending_gc(int32_t value);
-  private:
-  int32_t _internal_sending_gc() const;
-  void _internal_set_sending_gc(int32_t value);
-  public:
-
   // optional uint32 context = 3;
   bool has_context() const;
   private:
@@ -22547,6 +22549,19 @@ class CMsgGCToGCInternalTestMsg final :
   private:
   uint32_t _internal_context() const;
   void _internal_set_context(uint32_t value);
+  public:
+
+  // optional uint32 message_id = 4;
+  bool has_message_id() const;
+  private:
+  bool _internal_has_message_id() const;
+  public:
+  void clear_message_id();
+  uint32_t message_id() const;
+  void set_message_id(uint32_t value);
+  private:
+  uint32_t _internal_message_id() const;
+  void _internal_set_message_id(uint32_t value);
   public:
 
   // optional fixed64 job_id_source = 6;
@@ -22575,17 +22590,17 @@ class CMsgGCToGCInternalTestMsg final :
   void _internal_set_job_id_target(uint64_t value);
   public:
 
-  // optional uint32 message_id = 4;
-  bool has_message_id() const;
+  // optional int32 sending_gc = 1 [default = -1];
+  bool has_sending_gc() const;
   private:
-  bool _internal_has_message_id() const;
+  bool _internal_has_sending_gc() const;
   public:
-  void clear_message_id();
-  uint32_t message_id() const;
-  void set_message_id(uint32_t value);
+  void clear_sending_gc();
+  int32_t sending_gc() const;
+  void set_sending_gc(int32_t value);
   private:
-  uint32_t _internal_message_id() const;
-  void _internal_set_message_id(uint32_t value);
+  int32_t _internal_sending_gc() const;
+  void _internal_set_sending_gc(int32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:CMsgGCToGCInternalTestMsg)
@@ -22600,11 +22615,11 @@ class CMsgGCToGCInternalTestMsg final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr message_body_;
     uint64_t sender_id_;
-    int32_t sending_gc_;
     uint32_t context_;
+    uint32_t message_id_;
     uint64_t job_id_source_;
     uint64_t job_id_target_;
-    uint32_t message_id_;
+    int32_t sending_gc_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_econ_5fgcmessages_2eproto;
@@ -25530,7 +25545,7 @@ inline void CMsgAdjustItemEquippedState::set_new_slot(uint32_t value) {
   // @@protoc_insertion_point(field_set:CMsgAdjustItemEquippedState.new_slot)
 }
 
-// optional uint32 style_index = 4;
+// optional uint32 style_index = 4 [default = 255];
 inline bool CMsgAdjustItemEquippedState::_internal_has_style_index() const {
   bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -25539,7 +25554,7 @@ inline bool CMsgAdjustItemEquippedState::has_style_index() const {
   return _internal_has_style_index();
 }
 inline void CMsgAdjustItemEquippedState::clear_style_index() {
-  _impl_.style_index_ = 0u;
+  _impl_.style_index_ = 255u;
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CMsgAdjustItemEquippedState::_internal_style_index() const {
@@ -30761,7 +30776,7 @@ inline void CMsgClientToGCSetItemStyle::set_item_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:CMsgClientToGCSetItemStyle.item_id)
 }
 
-// optional uint32 style_index = 2;
+// optional uint32 style_index = 2 [default = 255];
 inline bool CMsgClientToGCSetItemStyle::_internal_has_style_index() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -30770,7 +30785,7 @@ inline bool CMsgClientToGCSetItemStyle::has_style_index() const {
   return _internal_has_style_index();
 }
 inline void CMsgClientToGCSetItemStyle::clear_style_index() {
-  _impl_.style_index_ = 0u;
+  _impl_.style_index_ = 255u;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CMsgClientToGCSetItemStyle::_internal_style_index() const {
@@ -30854,7 +30869,7 @@ inline void CMsgClientToGCUnlockItemStyle::set_item_to_unlock(uint64_t value) {
   // @@protoc_insertion_point(field_set:CMsgClientToGCUnlockItemStyle.item_to_unlock)
 }
 
-// optional uint32 style_index = 2;
+// optional uint32 style_index = 2 [default = 255];
 inline bool CMsgClientToGCUnlockItemStyle::_internal_has_style_index() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -30863,7 +30878,7 @@ inline bool CMsgClientToGCUnlockItemStyle::has_style_index() const {
   return _internal_has_style_index();
 }
 inline void CMsgClientToGCUnlockItemStyle::clear_style_index() {
-  _impl_.style_index_ = 0u;
+  _impl_.style_index_ = 255u;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CMsgClientToGCUnlockItemStyle::_internal_style_index() const {
@@ -30990,7 +31005,7 @@ inline void CMsgClientToGCUnlockItemStyleResponse::set_item_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:CMsgClientToGCUnlockItemStyleResponse.item_id)
 }
 
-// optional uint32 style_index = 3;
+// optional uint32 style_index = 3 [default = 255];
 inline bool CMsgClientToGCUnlockItemStyleResponse::_internal_has_style_index() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -30999,7 +31014,7 @@ inline bool CMsgClientToGCUnlockItemStyleResponse::has_style_index() const {
   return _internal_has_style_index();
 }
 inline void CMsgClientToGCUnlockItemStyleResponse::clear_style_index() {
-  _impl_.style_index_ = 0u;
+  _impl_.style_index_ = 255u;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CMsgClientToGCUnlockItemStyleResponse::_internal_style_index() const {
@@ -31018,7 +31033,7 @@ inline void CMsgClientToGCUnlockItemStyleResponse::set_style_index(uint32_t valu
   // @@protoc_insertion_point(field_set:CMsgClientToGCUnlockItemStyleResponse.style_index)
 }
 
-// optional uint32 style_prereq = 4;
+// optional uint32 style_prereq = 4 [default = 255];
 inline bool CMsgClientToGCUnlockItemStyleResponse::_internal_has_style_prereq() const {
   bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -31027,7 +31042,7 @@ inline bool CMsgClientToGCUnlockItemStyleResponse::has_style_prereq() const {
   return _internal_has_style_prereq();
 }
 inline void CMsgClientToGCUnlockItemStyleResponse::clear_style_prereq() {
-  _impl_.style_prereq_ = 0u;
+  _impl_.style_prereq_ = 255u;
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CMsgClientToGCUnlockItemStyleResponse::_internal_style_prereq() const {
@@ -32050,6 +32065,34 @@ inline void CAttribute_ItemDynamicRecipeComponent::_internal_set_fulfilled_item_
 inline void CAttribute_ItemDynamicRecipeComponent::set_fulfilled_item_id(uint64_t value) {
   _internal_set_fulfilled_item_id(value);
   // @@protoc_insertion_point(field_set:CAttribute_ItemDynamicRecipeComponent.fulfilled_item_id)
+}
+
+// optional uint32 associated_item_def = 10;
+inline bool CAttribute_ItemDynamicRecipeComponent::_internal_has_associated_item_def() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
+  return value;
+}
+inline bool CAttribute_ItemDynamicRecipeComponent::has_associated_item_def() const {
+  return _internal_has_associated_item_def();
+}
+inline void CAttribute_ItemDynamicRecipeComponent::clear_associated_item_def() {
+  _impl_.associated_item_def_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
+}
+inline uint32_t CAttribute_ItemDynamicRecipeComponent::_internal_associated_item_def() const {
+  return _impl_.associated_item_def_;
+}
+inline uint32_t CAttribute_ItemDynamicRecipeComponent::associated_item_def() const {
+  // @@protoc_insertion_point(field_get:CAttribute_ItemDynamicRecipeComponent.associated_item_def)
+  return _internal_associated_item_def();
+}
+inline void CAttribute_ItemDynamicRecipeComponent::_internal_set_associated_item_def(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_.associated_item_def_ = value;
+}
+inline void CAttribute_ItemDynamicRecipeComponent::set_associated_item_def(uint32_t value) {
+  _internal_set_associated_item_def(value);
+  // @@protoc_insertion_point(field_set:CAttribute_ItemDynamicRecipeComponent.associated_item_def)
 }
 
 // -------------------------------------------------------------------
@@ -36206,7 +36249,7 @@ inline void CMsgGCToGCBroadcastConsoleCommand::set_report_output(bool value) {
   // @@protoc_insertion_point(field_set:CMsgGCToGCBroadcastConsoleCommand.report_output)
 }
 
-// optional int32 sending_gc = 3;
+// optional int32 sending_gc = 3 [default = -1];
 inline bool CMsgGCToGCBroadcastConsoleCommand::_internal_has_sending_gc() const {
   bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -36215,7 +36258,7 @@ inline bool CMsgGCToGCBroadcastConsoleCommand::has_sending_gc() const {
   return _internal_has_sending_gc();
 }
 inline void CMsgGCToGCBroadcastConsoleCommand::clear_sending_gc() {
-  _impl_.sending_gc_ = 0;
+  _impl_.sending_gc_ = -1;
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CMsgGCToGCBroadcastConsoleCommand::_internal_sending_gc() const {
@@ -36474,17 +36517,17 @@ inline void CMsgGCToGCConsoleOutput::set_allocated_initiator(std::string* initia
   // @@protoc_insertion_point(field_set_allocated:CMsgGCToGCConsoleOutput.initiator)
 }
 
-// optional int32 sending_gc = 2;
+// optional int32 sending_gc = 2 [default = -1];
 inline bool CMsgGCToGCConsoleOutput::_internal_has_sending_gc() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgGCToGCConsoleOutput::has_sending_gc() const {
   return _internal_has_sending_gc();
 }
 inline void CMsgGCToGCConsoleOutput::clear_sending_gc() {
-  _impl_.sending_gc_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.sending_gc_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CMsgGCToGCConsoleOutput::_internal_sending_gc() const {
   return _impl_.sending_gc_;
@@ -36494,7 +36537,7 @@ inline int32_t CMsgGCToGCConsoleOutput::sending_gc() const {
   return _internal_sending_gc();
 }
 inline void CMsgGCToGCConsoleOutput::_internal_set_sending_gc(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.sending_gc_ = value;
 }
 inline void CMsgGCToGCConsoleOutput::set_sending_gc(int32_t value) {
@@ -36544,7 +36587,7 @@ CMsgGCToGCConsoleOutput::msgs() const {
 
 // optional bool is_last_for_source_job = 4;
 inline bool CMsgGCToGCConsoleOutput::_internal_has_is_last_for_source_job() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CMsgGCToGCConsoleOutput::has_is_last_for_source_job() const {
@@ -36552,7 +36595,7 @@ inline bool CMsgGCToGCConsoleOutput::has_is_last_for_source_job() const {
 }
 inline void CMsgGCToGCConsoleOutput::clear_is_last_for_source_job() {
   _impl_.is_last_for_source_job_ = false;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline bool CMsgGCToGCConsoleOutput::_internal_is_last_for_source_job() const {
   return _impl_.is_last_for_source_job_;
@@ -36562,7 +36605,7 @@ inline bool CMsgGCToGCConsoleOutput::is_last_for_source_job() const {
   return _internal_is_last_for_source_job();
 }
 inline void CMsgGCToGCConsoleOutput::_internal_set_is_last_for_source_job(bool value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.is_last_for_source_job_ = value;
 }
 inline void CMsgGCToGCConsoleOutput::set_is_last_for_source_job(bool value) {
@@ -36678,17 +36721,17 @@ CMsgItemAges::max_item_id_timestamps() const {
 
 // CMsgGCToGCInternalTestMsg
 
-// optional int32 sending_gc = 1;
+// optional int32 sending_gc = 1 [default = -1];
 inline bool CMsgGCToGCInternalTestMsg::_internal_has_sending_gc() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgGCToGCInternalTestMsg::has_sending_gc() const {
   return _internal_has_sending_gc();
 }
 inline void CMsgGCToGCInternalTestMsg::clear_sending_gc() {
-  _impl_.sending_gc_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.sending_gc_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline int32_t CMsgGCToGCInternalTestMsg::_internal_sending_gc() const {
   return _impl_.sending_gc_;
@@ -36698,7 +36741,7 @@ inline int32_t CMsgGCToGCInternalTestMsg::sending_gc() const {
   return _internal_sending_gc();
 }
 inline void CMsgGCToGCInternalTestMsg::_internal_set_sending_gc(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.sending_gc_ = value;
 }
 inline void CMsgGCToGCInternalTestMsg::set_sending_gc(int32_t value) {
@@ -36736,7 +36779,7 @@ inline void CMsgGCToGCInternalTestMsg::set_sender_id(uint64_t value) {
 
 // optional uint32 context = 3;
 inline bool CMsgGCToGCInternalTestMsg::_internal_has_context() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgGCToGCInternalTestMsg::has_context() const {
@@ -36744,7 +36787,7 @@ inline bool CMsgGCToGCInternalTestMsg::has_context() const {
 }
 inline void CMsgGCToGCInternalTestMsg::clear_context() {
   _impl_.context_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CMsgGCToGCInternalTestMsg::_internal_context() const {
   return _impl_.context_;
@@ -36754,7 +36797,7 @@ inline uint32_t CMsgGCToGCInternalTestMsg::context() const {
   return _internal_context();
 }
 inline void CMsgGCToGCInternalTestMsg::_internal_set_context(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.context_ = value;
 }
 inline void CMsgGCToGCInternalTestMsg::set_context(uint32_t value) {
@@ -36764,7 +36807,7 @@ inline void CMsgGCToGCInternalTestMsg::set_context(uint32_t value) {
 
 // optional uint32 message_id = 4;
 inline bool CMsgGCToGCInternalTestMsg::_internal_has_message_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgGCToGCInternalTestMsg::has_message_id() const {
@@ -36772,7 +36815,7 @@ inline bool CMsgGCToGCInternalTestMsg::has_message_id() const {
 }
 inline void CMsgGCToGCInternalTestMsg::clear_message_id() {
   _impl_.message_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CMsgGCToGCInternalTestMsg::_internal_message_id() const {
   return _impl_.message_id_;
@@ -36782,7 +36825,7 @@ inline uint32_t CMsgGCToGCInternalTestMsg::message_id() const {
   return _internal_message_id();
 }
 inline void CMsgGCToGCInternalTestMsg::_internal_set_message_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.message_id_ = value;
 }
 inline void CMsgGCToGCInternalTestMsg::set_message_id(uint32_t value) {

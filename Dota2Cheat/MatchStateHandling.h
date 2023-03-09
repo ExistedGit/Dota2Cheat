@@ -1,5 +1,5 @@
 #pragma once
-#include "SDK/include.h"
+#include "SDK/pch.h"
 
 #include "EventListeners.h"
 #include "DebugFunctions.h"
@@ -136,13 +136,15 @@ inline void LeftMatch() {
 	//Hooks::NetChan = nullptr;
 
 	Modules::AutoBuyTome.Reset();
-	Modules::VBE.Reset();
 	Modules::TargetedSpellHighlighter.Reset();
 	Modules::AutoPick.Reset();
+	Modules::ParticleGC.Reset();
 
 	GameSystems::PlayerResource = nullptr;
 	GameSystems::GameRules = nullptr;
 	GameSystems::ParticleManager = nullptr;
+	GameSystems::ProjectileManager = nullptr;
+	
 	Lua::ResetGlobals(ctx.lua);
 
 	VMTs::UIEngine.reset();

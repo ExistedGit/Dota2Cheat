@@ -1,5 +1,5 @@
 #pragma once
-#include "../../SDK/include.h"
+#include "../../SDK/pch.h"
 namespace Config {
 	inline bool ArmletAbuse = false;
 }
@@ -31,5 +31,5 @@ namespace Hacks {
 
 }
 namespace Modules {
-	Hacks::ArmletAbuse ArmletAbuse{};
+	inline Hacks::ArmletAbuse ArmletAbuse{};
 }

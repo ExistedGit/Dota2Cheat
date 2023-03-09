@@ -1,6 +1,6 @@
 #pragma once
-#include "../../SDK/include.h"
-
+#include "../../SDK/pch.h"
+#include "../../SDK/Protobufs/dota_usermessages.pb.h"
 
 namespace Hacks {
 	// Changes Shaker's default attack animation to Enchant Totem's one
@@ -9,25 +9,10 @@ namespace Hacks {
 	private:
 		CDOTABaseNPC* shaker = nullptr;
 	public:
-		void SubscribeEntity(CDOTABaseNPC* hero) {
-			if (!strcmp(hero->GetUnitName(), "npc_dota_hero_earthshaker"))
-				shaker = hero;
-		}
-		void Reset() {
-			shaker = nullptr;
-		}
+		void SubscribeEntity(CDOTABaseNPC* hero);
+		void Reset();
 
-		void ChangeAttackAnimIfNeeded(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
-			if (msgHandle->messageID != 521 ||
-				!shaker)
-				return;
-
-			auto animMsg = reinterpret_cast<CDOTAUserMsg_TE_UnitAnimation*>(msg);
-			if (animMsg->activity() == 1503 &&
-				NH2IDX(animMsg->entity()) == shaker->GetIndex())
-				animMsg->set_sequence_variant(3);
-			
-		}
+		void ChangeAttackAnimIfNeeded(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg);
 	};
 }
 namespace Modules {

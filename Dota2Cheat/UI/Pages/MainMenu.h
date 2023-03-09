@@ -1,5 +1,6 @@
 #pragma once
 #include <imgui/imgui.h>
+#include "../../Config.h"
 #include "../../Input.h"
 
 namespace Pages {

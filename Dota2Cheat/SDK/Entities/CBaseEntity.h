@@ -92,7 +92,9 @@ public:
 	static void BindLua(sol::state& lua) {
 		sol::usertype<CBaseEntity> type = lua.new_usertype<CBaseEntity>("CBaseEntity");
 		type["GetSchemaBinding"] = &CBaseEntity::SchemaBinding;
+
 		type["GetIdentity"] = &CBaseEntity::GetIdentity;
+
 		type["SetColor"] = &CBaseEntity::SetColor;
 		type["GetOwnerEntityHandle"] = &CBaseEntity::GetOwnerEntityHandle;
 		type["GetPos"] = &CBaseEntity::GetPos;
