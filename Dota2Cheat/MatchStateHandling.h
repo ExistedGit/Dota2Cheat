@@ -138,10 +138,13 @@ inline void LeftMatch() {
 	Modules::AutoBuyTome.Reset();
 	Modules::TargetedSpellHighlighter.Reset();
 	Modules::AutoPick.Reset();
+	Modules::ParticleGC.Reset();
 
 	GameSystems::PlayerResource = nullptr;
 	GameSystems::GameRules = nullptr;
 	GameSystems::ParticleManager = nullptr;
+	GameSystems::ProjectileManager = nullptr;
+	
 	Lua::ResetGlobals(ctx.lua);
 
 	VMTs::UIEngine.reset();

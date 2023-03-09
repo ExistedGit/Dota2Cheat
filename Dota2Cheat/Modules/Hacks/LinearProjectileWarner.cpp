@@ -8,7 +8,7 @@ ParticleWrapper Hacks::LinearProjectileWarner::DrawTrajectory(Vector begin, Vect
 	auto pw = GameSystems::ParticleManager->CreateParticle(
 		"particles/ui_mouseactions/range_finder_tower_line.vpcf",
 		PATTACH_WORLDORIGIN,
-		ctx.assignedHero
+		nullptr
 	);
 	Vector boolCp{ 1, 0, 0 };
 	pw.particle

@@ -42,23 +42,18 @@ namespace GameSystems {
 			7);
 
 		std::cout << "GameEventManagerPtr: " << GameEventManagerPtr  << '\n';
-		// GetProjectileManager, it's too short and its caller is too generic to be sigged
-		// xref "Spews a list of all client-side projectiles", above it is lea rax, [XXXXXXXX]
-		ProjectileManagerPtr =
-			(decltype(ProjectileManagerPtr))
-			GetAbsoluteAddress(
-				(uintptr_t)GetModuleHandleA("client.dll") + 0x1330380,
-				3,
-				7
-			);
-		std::cout << "ProjectileManagerPtr: " << ProjectileManagerPtr << '\n';
-
+		
 		char funcAddr[60];
 		char funcAddrMask[60];
 
-		ParseCombo("48 89 5C 24 18 48 89 6C 24 20 57 48 83 EC 20 48 8B ? ? ? ? ? 8B DA 48 8B E9 48 85 FF", funcAddr, funcAddrMask);
-		uintptr_t addr = (uintptr_t)PatternScanExModule(ctx.CurProcHandle, ctx.CurProcId, L"client.dll", funcAddr, funcAddrMask) + 0xF;
-		GameRulesPtr = (CDOTAGameRules**)GetAbsoluteAddress(addr, 3, 7);
+		// xref "Spews a list of all client-side projectiles", above it is lea rax, [XXXXXXXX]
+		// right click -> Find references to -> Address: XXXXXXXX
+		ParseCombo("4C 8B F0 48 8B BC 24 58 01 00 00 48 8D ? ? ? ? ? 48 8D ? ? ? ? ? 48 83 38 00", funcAddr, funcAddrMask);
+		uintptr_t addr = (uintptr_t)PatternScanExModule(ctx.CurProcHandle, ctx.CurProcId, L"client.dll", funcAddr, funcAddrMask) ;
+		ProjectileManagerPtr = (C_DOTA_ProjectileManager**)GetAbsoluteAddress(addr + 0x12, 3, 7);
+		std::cout << "ProjectileManagerPtr: " << ProjectileManagerPtr << '\n';
+
+		GameRulesPtr = (decltype(GameRulesPtr))GetAbsoluteAddress((uintptr_t)CDOTAGameRules::GetGameTimeFunc + 0xF, 3, 7);
 		std::cout << "GameRulesPtr: " << GameRulesPtr << '\n';
 
 		ParseCombo("48 8B ? ? ? ? ? 48 85 C9 0F 85 ? ? ? ? B8 FF FF FF FF C3", funcAddr, funcAddrMask);
@@ -87,6 +82,6 @@ namespace GameSystems {
 		std::cout << "[GLOBALS]\n";
 		std::cout << "GameRules: " << GameRules << '\n';
 		std::cout << "Projectile Manager:" << ProjectileManager << '\n';
-		std::cout << "Particle Manager: " << ParticleManager << ' ' << ParticleManager->GetVFunc(7).ptr << "\n";
+		std::cout << "Particle Manager: " << ParticleManager << ' ' << ParticleManager->GetVFunc(9).ptr << "\n";
 	}
 }

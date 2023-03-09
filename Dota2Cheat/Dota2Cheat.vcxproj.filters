@@ -195,6 +195,9 @@
     <ClCompile Include="HookHelper.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="Modules\Utility\ParticleGC.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h">

@@ -200,6 +200,7 @@
     <ClCompile Include="Modules\Hacks\RiverPaint.cpp" />
     <ClCompile Include="Modules\Hacks\ShakerAttackAnimFix.cpp" />
     <ClCompile Include="Modules\Hacks\TargetedSpellHighlighter.cpp" />
+    <ClCompile Include="Modules\Utility\ParticleGC.cpp" />
     <ClCompile Include="SDK\GameSystems\CDOTAParticleManager.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="include\imgui\imgui.cpp" />

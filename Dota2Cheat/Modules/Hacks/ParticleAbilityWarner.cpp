@@ -19,6 +19,19 @@ ParticleWrapper Hacks::ParticleAbilityWarner::DrawTrajectory(Vector begin, Vecto
 	return pw;
 }
 
+ParticleWrapper Hacks::ParticleAbilityWarner::DrawRadius(Vector pos, float radius) {
+	auto pw = GameSystems::ParticleManager->CreateParticle(
+		"particles/units/heroes/hero_snapfire/hero_snapfire_range_finder_aoe.vpcf",
+		PATTACH_WORLDORIGIN,
+		ctx.assignedHero
+	);
+	Vector radiusVec{ radius, 0, 0 };
+	pw.particle
+		->SetControlPoint(0, &pos)
+		->SetControlPoint(1, &radiusVec);
+	return pw;
+}
+
 CDOTABaseNPC_Hero* Hacks::ParticleAbilityWarner::FindParticleOwner(const char* name) {
 	for (auto& hero : ctx.heroes)
 		if (!strcmp(hero->GetUnitName(), name)) {
@@ -90,18 +103,18 @@ void Hacks::ParticleAbilityWarner::ProcessParticleMsg(NetMessageHandle_t* msgHan
 			}
 		}
 		// Here we register the actual trajectory
-		case GAME_PARTICLE_MANAGER_EVENT_UPDATE:
+		case GAME_PARTICLE_MANAGER_EVENT_UPDATE_TRANSFORM:
 		{
 			if (!queuedParticleIndexes.count(msgIndex))
 				break;
 
 
 			auto& info = queuedParticleIndexes[msgIndex];
-			auto cpIdx = pmMsg->update_particle().control_point();
+			auto cpIdx = pmMsg->update_particle_transform().control_point();
 			auto cpVal = Vector{
-				pmMsg->update_particle().position().x(),
-				pmMsg->update_particle().position().y(),
-				pmMsg->update_particle().position().z()
+				pmMsg->update_particle_transform().position().x(),
+				pmMsg->update_particle_transform().position().y(),
+				pmMsg->update_particle_transform().position().z()
 			};
 
 			switch (info.nameIndex) {
@@ -109,8 +122,9 @@ void Hacks::ParticleAbilityWarner::ProcessParticleMsg(NetMessageHandle_t* msgHan
 				// Hook's destination
 				if (cpIdx == 1) {
 					info.end = cpVal;
-					TrackedAbilityParticles[msgIndex] = DrawTrajectory(info.begin, info.end);
-					Modules::ParticleGC.SetDieTime(TrackedAbilityParticles[msgIndex], 3);
+					auto& data = TrackedAbilityParticles[msgIndex];
+					data.trajectory = DrawTrajectory(info.begin, info.end);
+					Modules::ParticleGC.SetDieTime(data.trajectory, 3);
 				}
 				break;
 			case AP_KOTL_ILLUMINATE:
@@ -125,15 +139,15 @@ void Hacks::ParticleAbilityWarner::ProcessParticleMsg(NetMessageHandle_t* msgHan
 							AbilityIndexes.at(info.nameIndex)
 						]->GetEffectiveCastRange();
 
-							if (info.nameIndex == AP_BANSHEE_CRYPT_SWARM)
-								castRange += 390; // hits past its cast range, for some reason
+					if (info.nameIndex == AP_BANSHEE_CRYPT_SWARM)
+						castRange += 390; // hits past its cast range, for some reason
 
-							auto ratio = castRange / cpVal.Length2D();
-							auto enlargedVec = cpVal.To<Vector2D>() * ratio;
-							info.end = info.begin;
-							info.end.x += enlargedVec.x;
-							info.end.y += enlargedVec.y;
-							TrackedAbilityParticles[msgIndex] = DrawTrajectory(info.begin, info.end);
+					auto ratio = castRange / cpVal.Length2D();
+					auto enlargedVec = cpVal.To<Vector2D>() * ratio;
+					info.end = info.begin;
+					info.end.x += enlargedVec.x;
+					info.end.y += enlargedVec.y;
+					TrackedAbilityParticles[msgIndex].trajectory = DrawTrajectory(info.begin, info.end);
 				}
 				break;
 			case AP_MEEPO_EARTHBIND:
@@ -141,8 +155,11 @@ void Hacks::ParticleAbilityWarner::ProcessParticleMsg(NetMessageHandle_t* msgHan
 					info.begin = cpVal;
 				else if (cpIdx == 1) {
 					info.end = cpVal;
-					TrackedAbilityParticles[msgIndex] = DrawTrajectory(info.begin, info.end);
-					Modules::ParticleGC.SetDieTime(TrackedAbilityParticles[msgIndex], 3);
+					auto& data = TrackedAbilityParticles[msgIndex];
+					data.trajectory = DrawTrajectory(info.begin, info.end);
+					data.aoe = DrawRadius(info.end, info.owner->GetAbilities()[0]->GetAOERadius());
+					Modules::ParticleGC.SetDieTime(data.trajectory, 3);
+					Modules::ParticleGC.SetDieTime(data.aoe, 3);
 				}
 			}
 			break;
@@ -150,8 +167,13 @@ void Hacks::ParticleAbilityWarner::ProcessParticleMsg(NetMessageHandle_t* msgHan
 		case GAME_PARTICLE_MANAGER_EVENT_DESTROY: {
 			queuedParticleIndexes.erase(msgIndex);
 			if (TrackedAbilityParticles.count(msgIndex)) {
-				Modules::ParticleGC.RemoveFromGC(TrackedAbilityParticles[msgIndex]);
-				GameSystems::ParticleManager->DestroyParticle(TrackedAbilityParticles[msgIndex]);
+				auto& data = TrackedAbilityParticles[msgIndex];
+				Modules::ParticleGC.RemoveFromGC(data.trajectory);
+				Modules::ParticleGC.RemoveFromGC(data.aoe);
+
+				GameSystems::ParticleManager->DestroyParticle(data.trajectory);
+				GameSystems::ParticleManager->DestroyParticle(data.aoe);
+				
 				TrackedAbilityParticles.erase(msgIndex);
 			}
 			break;

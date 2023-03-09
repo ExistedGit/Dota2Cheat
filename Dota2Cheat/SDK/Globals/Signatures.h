@@ -8,6 +8,7 @@
 #include "../Enums.h"
 #include "../Protobufs/dota_commonmessages.pb.h"
 #include "../GameSystems/CDOTAParticleManager.h"
+#include "../GameSystems/C_DOTAGameRules.h"
 #include "../Interfaces/CGCClient.h"
 #include "../Interfaces/Network/CNetworkMessages.h"
 #include "../Entities/CDOTABaseAbility.h"
@@ -32,25 +33,26 @@ namespace Signatures {
 	typedef bool (*BAsyncSendProtoFn)(CProtobufMsgBase* protobufMsg, IProtoBufSendHandler* handler, google::protobuf::Message* responseMsg, unsigned int respMsgID);
 	typedef bool (*DispatchPacketFn)(void*, IMsgNetPacket*);
 
-	inline CMsgFn CMsg = nullptr;
-	inline ColorMsgFn CMsgColor = nullptr;
+	inline CMsgFn CMsg{};
+	inline ColorMsgFn CMsgColor{};
 
 	using CParticleCollection = void;
 	typedef CParticleCollection* (*CreateParticleCollectionFn)(void* particleSystemMgr, void*, void*, void*, bool, float, int);
 
 	typedef void(*OnAddModifierFn)(CDOTAModifier*, int);
 	typedef void(*OnRemoveModifierFn)(CDOTAModifier*, void*, void*);
+	inline PrepareUnitOrdersFn PrepareUnitOrders{};
+	inline DispatchPacketFn DispatchPacket{};
+	inline BAsyncSendProtoFn BAsyncSendProto{};
 
-	inline PrepareUnitOrdersFn PrepareUnitOrders = nullptr;
-	inline DispatchPacketFn DispatchPacket = nullptr;
-	inline BAsyncSendProtoFn BAsyncSendProto = nullptr;
 
+	inline CreateParticleCollectionFn CreateParticleCollection{};
+	inline OnRemoveModifierFn OnRemoveModifier{};
+	
 
-	inline CreateParticleCollectionFn CreateParticleCollection = nullptr;
-	inline OnRemoveModifierFn OnRemoveModifier = nullptr;
 
 	namespace Scripts {
-		inline WorldToScreenFn WorldToScreen = nullptr;
+		inline WorldToScreenFn WorldToScreen{};
 	}
 
 	// Default signature scan
@@ -88,6 +90,7 @@ namespace Signatures {
 		// It's offset by 9 bytes because it checks for an invalid handle before doing the initial mov
 		SIGSCAN_OFF(CDOTAParticleManager::DestroyParticleFunc, "48 89 6C 24 18 56 48 83 EC 30 48 63 81 80 00 00 00 41 0F B6 E8 48 89 5C 24 40 48 8B F1", L"client.dll", -9);
 		SIGSCAN_OFF(CreateParticleCollection, "41 56 48 83 EC 40 4C 89 41 50 48 8B F1 49 8B 01", L"client.dll", -5);
+		SIGSCAN_LOG(CDOTAGameRules::GetGameTimeFunc, "48 89 5C 24 18 48 89 6C 24 20 57 48 83 EC 20 48 8B ? ? ? ? ? 8B DA", L"client.dll");
 
 		// UnknownCheats wiki -> Dota 2 -> link to Using engine functions
 		SIGSCAN_OFF(Scripts::WorldToScreen, "56 57 41 56 48 83 EC 60 49 8B F0 4C 8B F2 48 8B F9 4D 85 C9", L"client.dll", -5);
