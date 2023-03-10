@@ -1,45 +1,38 @@
 #pragma once
-#include <map>
 #include "../SDK/pch.h"
-namespace Hacks {
-	struct AbilityInfo {
-		CDOTABaseAbility* ability{};
-		const char* iconPath{};
+#include "../../Utils/Drawing.h"
+#include "../../Config.h"
+#include <map>
 
-		float lastActiveTime{};
-		float lastActiveCooldown{};
-		float currentCooldown{};
+namespace Config {
+	inline bool AbilityESPEnabled = true;
+	inline bool AbilityESPShowAllies = true;
+	inline float AbilityESPIconScale = 1.0f;
+}
+
+namespace ESP {
+	class AbilityESP {
+	public:
+		struct AbilityData {
+			CDOTABaseAbility* ability{};
+			TextureData icon{};
+
+			float lastActiveTime{};
+			float lastActiveCooldown{};
+			float currentCooldown{};
+		};
+		int DefaultIconSize = 40;
+		bool Initialized = false;
+		static inline std::map<CDOTABaseNPC*, std::vector<AbilityData>> EnemyAbilities{};
+		std::string assetsPath = "C:\\Users\\user\\Documents\\Dota2Cheat\\assets\\spellicons\\";
+
+		void SubscribeHeroes();
+		void Reset();
+		void UpdateAbilities();
+		void DrawAbilities(ImFont* textFont);
+		void FrameBasedLogic(ImFont* textFont);
 	};
-
-	inline std::map<CDOTABaseNPC*, std::vector<AbilityInfo>> EnemyAbilities{};
-
-	void Init() {
-		for (auto& hero : ctx.heroes) {
-			if (hero->GetTeam() == ctx.assignedHero->GetTeam())
-				continue;
-			EnemyAbilities[hero].reserve(6);
-		}
-	}
-	std::string assetsPath = "C:\\Users\\user\\Documents\\Dota2Cheat\\assets\\abilityIcons\\";
-	void FrameBasedLogic() {
-		for (auto& hero : ctx.heroes) {
-			if (hero->GetTeam() == ctx.assignedHero->GetTeam())
-				continue;
-			for (int i = 0; i < 5; i++) {
-				auto ability = hero->GetAbilities()[i];
-				if (EnemyAbilities[hero][i].ability == ability)
-					continue;
-
-				if (ability->IsHidden())
-					continue;
-				EnemyAbilities[hero][i] = AbilityInfo{
-					.ability = ability,
-					.iconPath = (assetsPath + ability->GetIdentity()->GetName()).c_str(),
-					.lastActiveTime = GameSystems::GameRules->GetGameTime(),
-					.lastActiveCooldown = ability->GetCooldown(),
-					.currentCooldown = ability->GetCooldown()
-				};
-			}
-		}
-	}
+}
+namespace Modules {
+	inline ESP::AbilityESP AbilityESP{};
 }

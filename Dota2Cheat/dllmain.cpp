@@ -1,7 +1,7 @@
 ﻿#pragma once
+#define STB_IMAGE_IMPLEMENTATION
 #include <cstdio>
 #include <iostream>
-#include "MatchStateHandling.h"
 #include "HookHelper.h"
 #include "Input.h"
 #include "UIState.h"
@@ -18,17 +18,12 @@
 
 #include "Hooks/EntitySystemEvents.h"
 
-#include "Drawing.h"
+#include "Utils/Drawing.h"
 
 #include "Lua/LuaModules.h"
 #include "Lua/LuaInitialization.h"
 
-#include "SDK/Base/Vector.h"
-#include <MinHook.h>
-#include "SDK/Globals/Interfaces.h"
-#include "SDK/Globals/Signatures.h"
-#include "SDK/Globals/GameSystems.h"
-#include "SDK/Globals/Context.h"
+#include "MatchStateHandling.h"
 #include "UI/Pages/MainMenu.h"
 
 #pragma region Static variables
@@ -79,10 +74,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Lua::InitEnums(ctx.lua);
 	Lua::InitClasses(ctx.lua);
 	Lua::InitInterfaces(ctx.lua);
-	Lua::LoadScriptFiles(ctx.lua);
+//	Lua::LoadScriptFiles(ctx.lua);
 
-//	Panorama::CSource2UITexture* texture{};
-//	Signatures::LoadUITexture(nullptr, (void**)&texture, "panorama\\images\\hero_badges\\hero_badge_rank_1_png.vtex");
+	//	Panorama::CSource2UITexture* texture{};
+	//	Signatures::LoadUITexture(nullptr, (void**)&texture, "panorama\\images\\hero_badges\\hero_badge_rank_1_png.vtex");
 
 	glfwSetErrorCallback(glfw_error_callback);
 	if (!glfwInit())
@@ -101,8 +96,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwWindowHint(GLFW_MAXIMIZED, 1);
 	glfwWindowHint(GLFW_MOUSE_PASSTHROUGH, 1);
 #endif // DEBUG
-
-
 	auto* monitor = glfwGetPrimaryMonitor();
 	if (!monitor)
 		return 0;
@@ -132,8 +125,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	//auto vbeFont = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
 	auto defaultFont = io.Fonts->AddFontDefault();
-
-
 	bool menuVisible = false;
 
 	// Main loop
@@ -149,6 +140,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		ImGui::PushFont(defaultFont);
 		if (menuVisible)
 			Pages::MainMenu::Display(window);
+
+		Modules::AbilityESP.FrameBasedLogic(defaultFont);
 
 		if (IsKeyPressed(VK_INSERT)) {
 			glfwSetWindowAttrib(window, GLFW_MOUSE_PASSTHROUGH, menuVisible);

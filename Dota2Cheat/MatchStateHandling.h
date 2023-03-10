@@ -8,6 +8,7 @@
 #include "Hooks/ModifierEvents.h"
 
 #include "Modules/Hacks/AutoBuyTome.h"
+#include "Modules/Utility/AbilityCooldownTracking.h"
 #include <format>
 #include "Modules/Hacks/AutoPick.h"
 #include "Modules/Hacks/AutoPing.h"
@@ -94,12 +95,13 @@ inline void EnteredInGame() {
 	//Config::AutoPingTarget = ctx.assignedHero;
 	for (auto& modifier : ctx.assignedHero->GetModifierManager()->GetModifierList())
 		Hooks::CacheIfItemModifier(modifier); // for registering important items on reinjection
-	
+
 
 	FillPlayerList();
 
 	Modules::ShakerAttackAnimFix.SubscribeEntity(ctx.assignedHero);
 	Modules::AutoBuyTome.Init();
+	Modules::AbilityESP.SubscribeHeroes();
 
 	std::cout << "Local Player: " << ctx.localPlayer
 		<< "\n\t" << std::dec << "STEAM ID: " << ctx.localPlayer->GetSteamID()
@@ -139,12 +141,13 @@ inline void LeftMatch() {
 	Modules::TargetedSpellHighlighter.Reset();
 	Modules::AutoPick.Reset();
 	Modules::ParticleGC.Reset();
+	Modules::AbilityESP.Reset();
 
 	GameSystems::PlayerResource = nullptr;
 	GameSystems::GameRules = nullptr;
 	GameSystems::ParticleManager = nullptr;
 	GameSystems::ProjectileManager = nullptr;
-	
+
 	Lua::ResetGlobals(ctx.lua);
 
 	VMTs::UIEngine.reset();
@@ -163,8 +166,8 @@ inline void LeftMatch() {
 	std::cout << "LEFT MATCH\n";
 }
 inline void CheckMatchState() {
-	Modules::AutoPick.TryAutoBan();
 	if (Interfaces::Engine->IsInGame()) {
+		//Modules::AutoPick.TryAutoBan();
 		if (ctx.gameStage == Context::GameStage::NONE)
 			EnteredMatch();
 		else if (ctx.gameStage == Context::GameStage::IN_MATCH)

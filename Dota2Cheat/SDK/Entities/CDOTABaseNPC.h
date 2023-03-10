@@ -19,12 +19,8 @@ public:
 	bool IsTargetable() {
 		return !GetIdentity()->IsDormant() && GetLifeState() == 0 && !IsWaitingToSpawn();
 	}
-	bool IsWaitingToSpawn() {
-		return Member<bool>(Netvars::C_DOTA_BaseNPC::m_bIsWaitingToSpawn);
-	}
-	bool IsAncient() {
-		return Member<bool>(Netvars::C_DOTA_BaseNPC::m_bIsAncient);
-	}
+	GETTER(bool, IsWaitingToSpawn, Netvars::C_DOTA_BaseNPC::m_bIsWaitingToSpawn);
+	GETTER(bool, IsAncient, Netvars::C_DOTA_BaseNPC::m_bIsAncient);
 
 	//Implemented as a method returning a bool rather than a field
 	//Is inside some kind of structure on offset BE8
@@ -36,24 +32,19 @@ public:
 		return Member<int>(Netvars::C_DOTA_BaseNPC::m_iDamageMin)
 			+ Member<int>(Netvars::C_DOTA_BaseNPC::m_iDamageBonus);
 	}
-	float GetArmor() {
-		return Member<float>(Netvars::C_DOTA_BaseNPC::m_flPhysicalArmorValue);
-	}
 
-	int GetAttackRange() {
-		return Member<int>(Netvars::C_DOTA_BaseNPC::m_iAttackRange);
-	}
+	GETTER(float, GetArmor, Netvars::C_DOTA_BaseNPC::m_flPhysicalArmorValue); 
+	GETTER(int, GetAttackRange, Netvars::C_DOTA_BaseNPC::m_iAttackRange); 
+	GETTER(ENT_HANDLE, GoalEntity, Netvars::C_DOTA_BaseNPC::m_hGoalEntity); 
+	GETTER(const char*, GetUnitName, Netvars::C_DOTA_BaseNPC::m_iszUnitName);
 
-	float GetSSC() {
-		return Member<float>(Netvars::C_DOTA_BaseNPC::m_flStartSequenceCycle);
-	}
-	ENT_HANDLE GoalEntity() {
-		return Member<ENT_HANDLE>(Netvars::C_DOTA_BaseNPC::m_hGoalEntity);
-	}
-	const char* GetUnitName() {
-		return Member<const char*>(Netvars::C_DOTA_BaseNPC::m_iszUnitName);
-	}
-	[[nodiscard]] 
+	GETTER(float, GetMana, Netvars::C_DOTA_BaseNPC::m_flMana);
+	GETTER(float, GetMaxMana, Netvars::C_DOTA_BaseNPC::m_flMaxMana);
+	GETTER(float, GetManaRegen, Netvars::C_DOTA_BaseNPC::m_flManaThinkRegen);
+	GETTER(float, GetBaseAttackTime, Netvars::C_DOTA_BaseNPC::m_flBaseAttackTime);
+	GETTER(float, GetHullRadius, Netvars::C_DOTA_BaseNPC::m_flHullRadius);
+
+	[[nodiscard]]
 	std::vector<CDOTABaseAbility*> GetAbilities() {
 		std::vector<CDOTABaseAbility*> result{};
 		ENT_HANDLE* hAbilities = MemberInline<ENT_HANDLE>(Netvars::C_DOTA_BaseNPC::m_hAbilities);
@@ -75,8 +66,8 @@ public:
 
 		for (const auto& item : GetItems())
 			if (
-				item 
-				&& item->GetIdentity()->GetName() 
+				item
+				&& item->GetIdentity()->GetName()
 				&& strstr(item->GetIdentity()->GetName(), str)
 				)
 				return item;
@@ -87,8 +78,8 @@ public:
 	CDOTAUnitInventory* GetInventory() {
 		return MemberInline<CDOTAUnitInventory>(Netvars::C_DOTA_BaseNPC::m_Inventory);
 	}
-	
-	[[nodiscard]] 
+
+	[[nodiscard]]
 	std::vector<CDOTAItem*> GetItems() {
 		std::vector<CDOTAItem*> result{};
 		CDOTAUnitInventory* inv = GetInventory();
@@ -106,19 +97,8 @@ public:
 		return result;
 	}
 
-	float GetMana() {
-		return Member<float>(Netvars::C_DOTA_BaseNPC::m_flMana);
-	}
-	float GetMaxMana() {
-		return Member<float>(Netvars::C_DOTA_BaseNPC::m_flMaxMana);
-	}
 
-	float GetBaseAttackTime() {
-		return Member<float>(Netvars::C_DOTA_BaseNPC::m_flBaseAttackTime);
-	}
-	float GetHullRadius() {
-		return Member<float>(Netvars::C_DOTA_BaseNPC::m_flHullRadius);
-	}
+
 	float GetAttackSpeed() {
 		return 1 + CallVFunc<295, float>();
 	}
@@ -132,7 +112,6 @@ public:
 		type["IsAncient"] = &CDOTABaseNPC::IsAncient;
 		type["IsRoshan"] = &CDOTABaseNPC::IsRoshan;
 		type["GetAttackRange"] = &CDOTABaseNPC::GetAttackRange;
-		type["GetSSC"] = &CDOTABaseNPC::GetSSC;
 		type["GoalEntity"] = &CDOTABaseNPC::GoalEntity;
 		type["GetUnitName"] = &CDOTABaseNPC::GetUnitName;
 		type["GetAbilities"] = &CDOTABaseNPC::GetAbilities;

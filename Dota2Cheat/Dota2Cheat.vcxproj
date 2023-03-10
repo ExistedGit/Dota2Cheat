@@ -137,7 +137,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <ExceptionHandling>false</ExceptionHandling>
       <AdditionalOptions>/bigobj /FI"pch.h" </AdditionalOptions>
@@ -147,7 +147,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;lua54.lib;dxgi.lib;d3d11.lib;libprotobufd.lib;libprotobuf-lited.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;lua54.lib;libprotobufd.lib;libprotobuf-lited.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)lib\;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -163,7 +163,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <AdditionalOptions>/bigobj /FI"pch.h" </AdditionalOptions>
@@ -175,7 +175,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;lua54.lib;dxgi.lib;d3d11.lib;libprotobuf.lib;libprotobuf-lite.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;lua54.lib;libprotobuf.lib;libprotobuf-lite.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)lib\;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -200,6 +200,7 @@
     <ClCompile Include="Modules\Hacks\RiverPaint.cpp" />
     <ClCompile Include="Modules\Hacks\ShakerAttackAnimFix.cpp" />
     <ClCompile Include="Modules\Hacks\TargetedSpellHighlighter.cpp" />
+    <ClCompile Include="Modules\Utility\AbilityCooldownTracking.cpp" />
     <ClCompile Include="Modules\Utility\ParticleGC.cpp" />
     <ClCompile Include="SDK\GameSystems\CDOTAParticleManager.cpp" />
     <ClCompile Include="dllmain.cpp" />
@@ -235,6 +236,7 @@
     <ClCompile Include="SDK\Protobufs\steammessages_steamlearn.steamworkssdk.pb.cc" />
     <ClCompile Include="SDK\Protobufs\steammessages_unified_base.steamworkssdk.pb.cc" />
     <ClCompile Include="SDK\Protobufs\usermessages.pb.cc" />
+    <ClCompile Include="Utils\Drawing.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include.h" />
@@ -280,7 +282,7 @@
     <ClInclude Include="SDK\Interfaces\CInputService.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="DebugFunctions.h" />
-    <ClInclude Include="Drawing.h" />
+    <ClInclude Include="Utils\Drawing.h" />
     <ClInclude Include="SDK\Globals\Context.h" />
     <ClInclude Include="Hooks\EntitySystemEvents.h" />
     <ClInclude Include="EventListeners.h" />
@@ -328,6 +330,7 @@
     <ClInclude Include="Modules\Hacks\TargetedSpellHighlighter.h" />
     <ClInclude Include="Modules\Hacks\EnemySpellHighlight.h" />
     <ClInclude Include="SDK\VTableIndexes.h" />
+    <ClInclude Include="stb_image.h" />
     <ClInclude Include="UIState.h" />
     <ClInclude Include="SDK\Interfaces\CVarSystem.h" />
     <ClInclude Include="SDK\Base\CUtlVector.h" />
