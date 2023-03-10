@@ -5,7 +5,7 @@
 #include <map>
 
 namespace Config {
-	inline bool AbilityESPEnabled = true;
+	inline bool AbilityESPEnabled = false;
 	inline bool AbilityESPShowAllies = true;
 	inline float AbilityESPIconScale = 1.0f;
 }

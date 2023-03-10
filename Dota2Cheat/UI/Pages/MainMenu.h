@@ -90,12 +90,13 @@ namespace Pages {
 			//	ImGui::Checkbox("Show a circle under the hero when visible", &Config::VBEShowParticle);
 			//	ImGui::TreePop();
 			//}
-			if (ImGui::TreeNode("AbilityESP")) {
-				ImGui::Checkbox("Enable", &Config::AbilityESPEnabled);
-				ImGui::Checkbox("Include allied heroes", &Config::AbilityESPShowAllies);
-				ImGui::SliderFloat("Icon scale", &Config::AbilityESPIconScale, 0.75f, 2.0f, "%.1f");
-				ImGui::TreePop();
-			}
+
+			//if (ImGui::TreeNode("AbilityESP")) {
+			//	ImGui::Checkbox("Enable", &Config::AbilityESPEnabled);
+			//	ImGui::Checkbox("Include allied heroes", &Config::AbilityESPShowAllies);
+			//	ImGui::SliderFloat("Icon scale", &Config::AbilityESPIconScale, 0.75f, 2.0f, "%.1f");
+			//	ImGui::TreePop();
+			//}
 			if (ImGui::TreeNode("Illusion coloring")) {
 				ImGui::Checkbox("Enable", &Config::IllusionColoring);
 				ImGui::ColorEdit3("Color", &Config::IllusionColor.x);
