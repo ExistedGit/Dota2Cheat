@@ -94,7 +94,7 @@ namespace Pages {
 			if (ImGui::TreeNode("AbilityESP")) {
 				ImGui::Checkbox("Enable", &Config::AbilityESPEnabled);
 				ImGui::Checkbox("Include allied heroes", &Config::AbilityESPShowAllies);
-				ImGui::SliderFloat("Icon scale", &Config::AbilityESPIconScale, 0.75f, 2.0f, "%.1f");
+				ImGui::SliderFloat("Icon scale", &Config::AbilityESP_UIScale, 0.75f, 2.0f, "%.1f");
 				ImGui::TreePop();
 			}
 			if (ImGui::TreeNode("Illusion coloring")) {

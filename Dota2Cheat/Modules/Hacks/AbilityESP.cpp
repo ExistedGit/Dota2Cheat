@@ -1,4 +1,4 @@
-#include "AbilityCooldownTracking.h"
+#include "AbilityESP.h"
 #include <format>
 
 void ESP::AbilityESP::SubscribeHeroes() {
@@ -48,7 +48,7 @@ void ESP::AbilityESP::UpdateAbilities() {
 }
 
 void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
-	float iconSize = DefaultIconSize * Config::AbilityESPIconScale;
+	float iconSize = ScaleVar<int>(DefaultIconSize);
 	int outlineThickness = 2;
 	int manaBarThickness = 18;
 	for (auto& [hero, abilities] : EnemyAbilities) {
@@ -125,9 +125,9 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 			if (data.ability->GetCooldown() != 0) {
 				// Darkens the picture
 				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::ColorConvertFloat4ToU32(ImVec4(0, 0, 0, 0.5)));
-				int cdFontSize = 14;
+				int cdFontSize = ScaleVar<int>(14);
 				if (data.ability->GetCooldown() >= 100)
-					cdFontSize = 12;
+					cdFontSize = ScaleVar < int>(12);
 				// Draws the cooldown
 				DrawTextForeground(textFont,
 					std::format("{:.1f}", data.ability->GetCooldown()),
@@ -138,12 +138,13 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 			}
 			float channelTime = data.ability->Member<float>(Netvars::C_DOTABaseAbility::m_flChannelStartTime);
 			if (channelTime != 0) {
-				float indicatorHeight = 4;
+				float indicatorHeight = ScaleVar<int>(4);
 				auto channelLength = data.ability->GetLevelSpecialValueFor("AbilityChannelTime");
+				int fontSize = ScaleVar<int>(18);
 				DrawTextForeground(textFont,
 					std::format("{:.1f}", channelLength - (GameSystems::GameRules->GetGameTime() - channelTime)),
-					ImVec2(imgXY1.x + centeringOffset, imgXY1.y - 20 - indicatorHeight),
-					18,
+					ImVec2(imgXY1.x + centeringOffset, imgXY1.y - fontSize - 2 - indicatorHeight),
+					fontSize,
 					Color(255, 255, 255),
 					true);
 				float indicatorWidth = abs(imgXY2.x - imgXY1.x) * (1 - ((GameSystems::GameRules->GetGameTime() - channelTime) / channelLength));

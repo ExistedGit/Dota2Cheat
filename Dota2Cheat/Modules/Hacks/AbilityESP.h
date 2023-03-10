@@ -7,7 +7,7 @@
 namespace Config {
 	inline bool AbilityESPEnabled = false;
 	inline bool AbilityESPShowAllies = true;
-	inline float AbilityESPIconScale = 1.0f;
+	inline float AbilityESP_UIScale = 1.0f;
 }
 
 namespace ESP {
@@ -21,6 +21,13 @@ namespace ESP {
 			float lastActiveCooldown{};
 			float currentCooldown{};
 		};
+		
+		// Scales a value according to the config parameter
+		template<typename T>
+		T ScaleVar(auto val) {
+			return (T)(val * Config::AbilityESP_UIScale);
+		}
+
 		int DefaultIconSize = 40;
 		bool Initialized = false;
 		static inline std::map<CDOTABaseNPC*, std::vector<AbilityData>> EnemyAbilities{};
