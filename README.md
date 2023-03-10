@@ -15,6 +15,8 @@ also using Google's [Protocol Buffers](https://github.com/protocolbuffers/protob
 
 also using [Lua 5.4](https://www.lua.org/) and [sol2](https://github.com/ThePhD/sol2) for scripting
 
+`assets` folder contents are property of Valve Corporation
+
 ## Building
 Open the project in Visual Studio and build as **Release x64**
 
@@ -23,9 +25,7 @@ You need to have libprotobuf DLLs in your the folder with dota2.exe, get them fr
 
 This cheat can be safely reinjected at any point of the game
 
-I recommend using [Extreme Injector v3.7.2](https://www.unknowncheats.me/forum/downloads.php?do=file&id=21570) with either Thread Hijacking or the default option
-
-This damn injector can apparently suddenly stop working at all(the .exe won't launch) so you can compile the Dota2Loader project from this repo if that ever happens
+Build Dota2Loader and use it to inject
 
 **ABSOLUTELY DETECTABLE BY VAC, FOR USE IN DEMO MODE OR A LOBBY** (Memory Map support WIP)
 
@@ -68,3 +68,9 @@ This list is subject to frequent change as I'm testing new features
   * River painting
 
 I intend to implement most of the usual cheat functionality
+
+# For Developers
+
+Check out the repo's Wiki, I add useful informations about dota-specific cheat things there
+
+Also has a guide on how to update it
