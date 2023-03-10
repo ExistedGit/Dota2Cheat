@@ -7,6 +7,7 @@ namespace Pages {
 	namespace MainMenu {
 
 		inline char scriptBuf[4096]{};
+		inline char addrBuf[4096]{};
 		inline bool scriptMenuVisible = false;
 		inline bool circleMenuVisible = false;
 
@@ -33,6 +34,7 @@ namespace Pages {
 #ifdef _DEBUG
 			ImGui::Begin("Debug functions", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
 
+			
 			if (ImGui::Button("Log Entities")) {
 				LogEntities();
 			}
@@ -46,20 +48,6 @@ namespace Pages {
 				auto selected = ctx.localPlayer->GetSelectedUnits();
 				auto ent = (CDOTABaseNPC*)Interfaces::EntitySystem->GetEntity(selected[0]);
 				LogModifiers(ent);
-			}
-
-			ImGui::InputInt("Entity index", &debugEntIdx, 1, 10);
-			if (ImGui::Button("Log entity by index")) {
-				auto* ent = Interfaces::EntitySystem->GetEntity(debugEntIdx);
-				if (ent) {
-
-					const char* className = ent->SchemaBinding()->binaryName;
-					if (
-						className
-						)
-						std::cout << className << ' ' << debugEntIdx
-						<< " -> " << ent << '\n';
-				}
 			}
 
 			ImGui::End();
@@ -102,6 +90,12 @@ namespace Pages {
 			//	ImGui::Checkbox("Show a circle under the hero when visible", &Config::VBEShowParticle);
 			//	ImGui::TreePop();
 			//}
+			if (ImGui::TreeNode("AbilityESP")) {
+				ImGui::Checkbox("Enable", &Config::AbilityESPEnabled);
+				ImGui::Checkbox("Include allied heroes", &Config::AbilityESPShowAllies);
+				ImGui::SliderFloat("Icon scale", &Config::AbilityESPIconScale, 0.75f, 2.0f, "%.1f");
+				ImGui::TreePop();
+			}
 			if (ImGui::TreeNode("Illusion coloring")) {
 				ImGui::Checkbox("Enable", &Config::IllusionColoring);
 				ImGui::ColorEdit3("Color", &Config::IllusionColor.x);

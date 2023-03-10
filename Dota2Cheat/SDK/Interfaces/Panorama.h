@@ -2,7 +2,7 @@
 #include "../Base/VClass.h"
 #include <span>
 #include <string_view>
-
+//#include <D3DX11.h>
 
 namespace Panorama {
 	class CTextureDx11 : public VClass {

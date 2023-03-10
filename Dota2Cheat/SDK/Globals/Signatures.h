@@ -48,12 +48,11 @@ namespace Signatures {
 
 	inline CreateParticleCollectionFn CreateParticleCollection{};
 	inline OnRemoveModifierFn OnRemoveModifier{};
-	
 
 
-	namespace Scripts {
-		inline WorldToScreenFn WorldToScreen{};
-	}
+
+	inline WorldToScreenFn WorldToScreen{};
+
 
 	// Default signature scan
 #define SIGSCAN(func, sig, dll) ParseCombo(sig, funcAddr, funcAddrMask); \
@@ -93,7 +92,7 @@ namespace Signatures {
 		SIGSCAN_LOG(CDOTAGameRules::GetGameTimeFunc, "48 89 5C 24 18 48 89 6C 24 20 57 48 83 EC 20 48 8B ? ? ? ? ? 8B DA", L"client.dll");
 
 		// UnknownCheats wiki -> Dota 2 -> link to Using engine functions
-		SIGSCAN_OFF(Scripts::WorldToScreen, "56 57 41 56 48 83 EC 60 49 8B F0 4C 8B F2 48 8B F9 4D 85 C9", L"client.dll", -5);
+		SIGSCAN_OFF(WorldToScreen, "56 57 41 56 48 83 EC 60 49 8B F0 4C 8B F2 48 8B F9 4D 85 C9", L"client.dll", -5);
 		SIGSCAN_OFF(CDOTABaseAbility::GetLevelSpecialValueForFunc, "57 48 83 EC 30 48 8B ? ? ? ? ? 41 8B D9 49 8B F8 48 85 C0 74 34", L"client.dll", -5);
 
 		//xref: "You are #%d in line of %d waiting players.\n"
