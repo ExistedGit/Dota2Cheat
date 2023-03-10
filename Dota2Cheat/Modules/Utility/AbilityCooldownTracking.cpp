@@ -125,11 +125,14 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 			if (data.ability->GetCooldown() != 0) {
 				// Darkens the picture
 				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::ColorConvertFloat4ToU32(ImVec4(0, 0, 0, 0.5)));
+				int cdFontSize = 14;
+				if (data.ability->GetCooldown() >= 100)
+					cdFontSize = 12;
 				// Draws the cooldown
 				DrawTextForeground(textFont,
 					std::format("{:.1f}", data.ability->GetCooldown()),
-					ImVec2(imgXY1.x + centeringOffset, imgXY1.y + (iconSize - 12) / 2),
-					12,
+					ImVec2(imgXY1.x + centeringOffset, imgXY1.y + (iconSize - cdFontSize) / 2),
+					cdFontSize,
 					Color(255, 255, 255),
 					true);
 			}
@@ -139,8 +142,8 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 				auto channelLength = data.ability->GetLevelSpecialValueFor("AbilityChannelTime");
 				DrawTextForeground(textFont,
 					std::format("{:.1f}", channelLength - (GameSystems::GameRules->GetGameTime() - channelTime)),
-					ImVec2(imgXY1.x + centeringOffset, imgXY1.y - 14 - indicatorHeight),
-					12,
+					ImVec2(imgXY1.x + centeringOffset, imgXY1.y - 20 - indicatorHeight),
+					18,
 					Color(255, 255, 255),
 					true);
 				float indicatorWidth = abs(imgXY2.x - imgXY1.x) * (1 - ((GameSystems::GameRules->GetGameTime() - channelTime) / channelLength));

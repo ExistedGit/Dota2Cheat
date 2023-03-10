@@ -74,7 +74,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Lua::InitEnums(ctx.lua);
 	Lua::InitClasses(ctx.lua);
 	Lua::InitInterfaces(ctx.lua);
-//	Lua::LoadScriptFiles(ctx.lua);
+	Lua::LoadScriptFiles(ctx.lua);
 
 	//	Panorama::CSource2UITexture* texture{};
 	//	Signatures::LoadUITexture(nullptr, (void**)&texture, "panorama\\images\\hero_badges\\hero_badge_rank_1_png.vtex");
