@@ -1,6 +1,6 @@
 # Dota2Cheat: now with Lua!
 
-![Screenshot_462](https://user-images.githubusercontent.com/66470490/221685025-95ce9474-6eeb-4a1d-aa2b-09b184710173.png)
+![Screenshot_517](https://user-images.githubusercontent.com/66470490/224436497-2e7a5e86-10d8-4d80-94c5-d8eab78b7aef.png)
 
 There weren't many open-source Dota cheats. And so I decided to fix that.
 Written in C++20 with love
