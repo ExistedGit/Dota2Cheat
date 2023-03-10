@@ -52,7 +52,7 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 	int outlineThickness = 2;
 	int manaBarThickness = 18;
 	for (auto& [hero, abilities] : EnemyAbilities) {
-		if (hero->GetIdentity()->IsDormant())
+		if (!hero || hero->GetIdentity()->IsDormant() || hero->IsIllusion())
 			continue;
 		if (!Config::AbilityESPShowAllies && hero->GetTeam() == ctx.assignedHero->GetTeam())
 			continue;
@@ -122,10 +122,14 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 					ImVec2(imgXY2.x + outlineThickness, imgXY2.y + outlineThickness),
 					ImGui::ColorConvertFloat4ToU32(ImVec4(255.0f / 255, 191.0f / 255, 0, 1)));
 			DrawList->AddImage(data.icon.glTex, imgXY1, imgXY2);
-			if (data.ability->GetCooldown() != 0) {
+			if (data.ability->GetLevel() == 0) {
 				// Darkens the picture
 				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::ColorConvertFloat4ToU32(ImVec4(0, 0, 0, 0.5)));
+			}
+			if (data.ability->GetCooldown() != 0) {
 				int cdFontSize = ScaleVar<int>(14);
+				// Darkens the picture
+				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::ColorConvertFloat4ToU32(ImVec4(0, 0, 0, 0.5)));
 				if (data.ability->GetCooldown() >= 100)
 					cdFontSize = ScaleVar < int>(12);
 				// Draws the cooldown
@@ -156,8 +160,15 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 			else if (data.ability->Member<bool>(Netvars::C_DOTABaseAbility::m_bInAbilityPhase)) {
 				auto castPoint = data.ability->GetLevelSpecialValueFor("AbilityCastPoint");
 				float castStartTime = data.ability->Member<float>(Netvars::C_DOTABaseAbility::m_flCastStartTime);
+				int fontSize = ScaleVar<int>(18);
 				float indicatorWidth = abs(imgXY1.x - imgXY2.x) * ((GameSystems::GameRules->GetGameTime() - castStartTime) / castPoint);
 				DrawList->AddRectFilled(imgXY1, ImVec2(imgXY1.x + indicatorWidth, imgXY2.y), ImGui::ColorConvertFloat4ToU32(ImVec4(0, 1, 0, 0.5)));
+				DrawTextForeground(textFont,
+					std::format("{:.1f}", castPoint - (GameSystems::GameRules->GetGameTime() - castStartTime)),
+					ImVec2(imgXY1.x + centeringOffset, imgXY1.y - fontSize - 2),
+					fontSize,
+					Color(0, 255, 60),
+					true);
 			}
 			++idx;
 		}

@@ -9,6 +9,8 @@ public:
 	float GetCooldown() {
 		return Member<float>(Netvars::C_DOTABaseAbility::m_fCooldown);
 	}
+	GETTER(int, GetLevel, Netvars::C_DOTABaseAbility::m_iLevel);
+
 	int GetCharges() {
 		return Member<int>(Netvars::C_DOTABaseAbility::m_nAbilityCurrentCharges);
 	}

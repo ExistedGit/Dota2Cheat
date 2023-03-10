@@ -30,7 +30,7 @@ namespace ESP {
 
 		int DefaultIconSize = 40;
 		bool Initialized = false;
-		static inline std::map<CDOTABaseNPC*, std::vector<AbilityData>> EnemyAbilities{};
+		static inline std::map<CDOTABaseNPC_Hero*, std::vector<AbilityData>> EnemyAbilities{};
 		std::string assetsPath = "C:\\Users\\user\\Documents\\Dota2Cheat\\assets\\spellicons\\";
 
 		void SubscribeHeroes();
