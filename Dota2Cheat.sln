@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dota2Cheat", "Dota2Cheat\Do
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dota2Loader", "Dota2Loader\Dota2Loader.vcxproj", "{ABF71969-1BD2-41E0-88B2-343FD0655F47}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PudgeDumper", "PudgeDumper\TestDll.vcxproj", "{7829BEC0-3818-40A8-B915-961500ED7941}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{ABF71969-1BD2-41E0-88B2-343FD0655F47}.Release|x64.Build.0 = Release|x64
 		{ABF71969-1BD2-41E0-88B2-343FD0655F47}.Release|x86.ActiveCfg = Release|Win32
 		{ABF71969-1BD2-41E0-88B2-343FD0655F47}.Release|x86.Build.0 = Release|Win32
+		{7829BEC0-3818-40A8-B915-961500ED7941}.Debug|x64.ActiveCfg = Debug|x64
+		{7829BEC0-3818-40A8-B915-961500ED7941}.Debug|x64.Build.0 = Debug|x64
+		{7829BEC0-3818-40A8-B915-961500ED7941}.Debug|x86.ActiveCfg = Debug|Win32
+		{7829BEC0-3818-40A8-B915-961500ED7941}.Debug|x86.Build.0 = Debug|Win32
+		{7829BEC0-3818-40A8-B915-961500ED7941}.Release|x64.ActiveCfg = Release|x64
+		{7829BEC0-3818-40A8-B915-961500ED7941}.Release|x64.Build.0 = Release|x64
+		{7829BEC0-3818-40A8-B915-961500ED7941}.Release|x86.ActiveCfg = Release|Win32
+		{7829BEC0-3818-40A8-B915-961500ED7941}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
