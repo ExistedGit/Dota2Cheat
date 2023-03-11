@@ -25,7 +25,7 @@ You need to have libprotobuf DLLs in your the folder with dota2.exe, get them fr
 
 This cheat can be safely reinjected at any point of the game
 
-Build Dota2Loader and use it to inject
+Build Dota2Loader and launch its .exe to inject(not from Visual Studio, it messes up the file paths!)
 
 **ABSOLUTELY DETECTABLE BY VAC, FOR USE IN DEMO MODE OR A LOBBY** (Memory Map support WIP)
 
@@ -45,7 +45,7 @@ This list is subject to frequent change as I'm testing new features
   
 * Information:
   * ~~Visible by Enemy~~ RIP on 21.02.2023, you shall not be forgotten
-  * Roshan — saves his death time and approximates when he will spawn [WIP]
+  * AbilityESP 
   * Draw circles of custom radius around you hero(e. g. to see XP receiving range)
   * Shows point-cast spells(Sunstrike, Torrent, Light Strike Array)
   * Shows target-cast spells(Assassinate, Charge of Darkness)
@@ -53,7 +53,8 @@ This list is subject to frequent change as I'm testing new features
   * Renders any and all possible particles, including in FoW
   * Customizable enemy illusion coloring
   * Shows trajectories of enemy projectiles like Mirana's arrow and non-projectile abilities like Meat Hook
- 
+  * Roshan — saves his death time and approximates when he will spawn [WIP]
+  
 * Convars:
   * `sv_cheats` spoofing
   * customizable `dota_camera_distance` with proper `r_farz` and `fog_enable`(no clipping or blue fog)
