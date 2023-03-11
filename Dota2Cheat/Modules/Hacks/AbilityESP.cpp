@@ -3,7 +3,7 @@
 
 void ESP::AbilityESP::SubscribeHeroes() {
 	for (auto& hero : ctx.heroes) {
-		if (EnemyAbilities.count(hero))
+		if (hero->IsIllusion() || EnemyAbilities.count(hero))
 			continue;
 
 		EnemyAbilities[hero].reserve(6);

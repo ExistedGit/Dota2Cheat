@@ -131,7 +131,8 @@ inline void EnteredInGame() {
 
 inline void LeftMatch() {
 	ctx.gameStage = Context::GameStage::NONE;
-	//Hooks::NetChan = nullptr;
+	
+	GameSystems::ParticleManager->OnExitMatch();
 
 	Modules::AutoBuyTome.Reset();
 	Modules::TargetedSpellHighlighter.Reset();

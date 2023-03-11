@@ -108,6 +108,7 @@ struct ParticleWrapper {
 // mov rax, [rcx]       <- Puts the Particle vtable pointer into rax
 // call [rax + 38h]     <- Calls the vfunc on index 0x38 / 8 = 16
 class CDOTAParticleManager : public VClass {
+	static inline std::vector<ParticleWrapper> particles{};
 public:
 	struct ParticleContainer : NormalClass {
 		inline CNewParticleEffect* GetParticle() {
@@ -127,15 +128,14 @@ public:
 	ParticleWrapper CreateParticle(const char* name, ParticleAttachment_t attachType, CBaseEntity* ent);
 	void DestroyParticle(uint32_t handle);
 	void DestroyParticle(ParticleWrapper& info);
-
+	
+	void OnExitMatch();
+	
 	static void BindLua(sol::state& lua) {
 		auto type = lua.new_usertype<CDOTAParticleManager>(
 			"CDOTAParticleManager"
 			);
 		type["GetParticleCount"] = &CDOTAParticleManager::GetParticleCount;
-		//type["GetParticleArray"] = &CDOTAParticleManager::GetParticleArray;
-		//type["GetHandle"] = &CDOTAParticleManager::GetHandle;
-		//type["IncHandle"] = &CDOTAParticleManager::IncHandle;
 		type["CreateParticle"] = &CDOTAParticleManager::CreateParticle;
 
 		type["DestroyParticleByHandle"] = [](CDOTAParticleManager& thisptr, uint32_t handle) -> void {
@@ -145,7 +145,6 @@ public:
 		type["DestroyParticleWrapper"] = [](CDOTAParticleManager& thisptr, ParticleWrapper& wrapper) -> void {
 			thisptr.DestroyParticle(wrapper);
 		};
-
 	}
 };
 
