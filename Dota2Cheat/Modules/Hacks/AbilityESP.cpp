@@ -2,7 +2,7 @@
 #include <format>
 
 void ESP::AbilityESP::SubscribeHeroes() {
-	
+
 	for (auto it = EnemyAbilities.begin(); it != EnemyAbilities.end(); )
 	{
 		if (!ctx.heroes.count((*it).first))
@@ -45,7 +45,7 @@ void ESP::AbilityESP::UpdateAbilities() {
 			if (ability->IsHidden())
 				continue;
 
-			auto iconPath = assetsPath + ability->GetIdentity()->GetName() + "_png.png";
+			auto iconPath = assetsPath + "\\spellicons\\" + ability->GetIdentity()->GetName() + "_png.png";
 			auto& data = abilities[i] = AbilityData{
 				.ability = ability,
 				.lastActiveTime = GameSystems::GameRules->GetGameTime(),
@@ -144,14 +144,22 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 					ImVec2(imgXY1.x - outlineThickness, imgXY1.y - outlineThickness),
 					ImVec2(imgXY2.x + outlineThickness, imgXY2.y + outlineThickness),
 					ImGui::ColorConvertFloat4ToU32(ImVec4(0x3 / 255.0f, 0xAC / 255.0f, 0x13 / 255.0f, 1)));
+
 			DrawList->AddImage(data.icon.glTex, imgXY1, imgXY2);
+			
 
 
-			if (data.ability->GetLevel() == 0) {
+			if (data.ability->GetLevel() == 0)
 				// Darkens the picture
 				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::ColorConvertFloat4ToU32(ImVec4(0, 0, 0, 0.5)));
-			}
-			if (data.ability->GetCooldown() != 0) {
+
+			if (data.ability->GetCooldown() != 0 ||
+				(data.ability->GetCharges() == 0 &&
+				data.ability->GetChargeRestoreCooldown() > 0)) {
+				auto cd = data.ability->GetCooldown() 
+					? data.ability->GetCooldown()
+					: data.ability->GetChargeRestoreCooldown();
+
 				int cdFontSize = ScaleVar<int>(14);
 				// Darkens the picture
 				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::ColorConvertFloat4ToU32(ImVec4(0, 0, 0, 0.5)));
@@ -159,12 +167,14 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 					cdFontSize = ScaleVar < int>(12);
 				// Draws the cooldown
 				DrawTextForeground(textFont,
-					std::format("{:.1f}", data.ability->GetCooldown()),
+					std::format("{:.1f}", cd),
 					ImVec2(imgXY1.x + centeringOffset, imgXY1.y + (iconSize - cdFontSize) / 2),
 					cdFontSize,
 					Color(255, 255, 255),
 					true);
 			}
+			DrawChargeCounter(data.ability, textFont, imgXY1, ScaleVar<int>(8));
+
 			float channelTime = data.ability->Member<float>(Netvars::C_DOTABaseAbility::m_flChannelStartTime);
 			if (channelTime != 0) {
 				float indicatorHeight = ScaleVar<int>(4);
@@ -212,4 +222,23 @@ void ESP::AbilityESP::DrawESP(ImFont* textFont) {
 void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, ImFont* font, ImVec2 pos) {
 	int lvl = ability->GetLevel();
 	DrawTextForeground(font, std::format("LVL {}", lvl), pos, 12, Color(255, 255, 255, 255), true, false);
+}
+
+void ESP::AbilityESP::DrawChargeCounter(CDOTABaseAbility* ability, ImFont* font, ImVec2 pos, int radius) {
+	if (ability->GetCharges() == 0 &&
+		ability->GetChargeRestoreCooldown() <= 0)
+		return; 
+
+	auto DrawList = ImGui::GetForegroundDrawList();
+
+	DrawList->AddCircleFilled(pos, radius + ScaleVar<int>(2), ImGui::GetColorU32(ImVec4(0x3 / 255.0f, 0xAC / 255.0f, 0x13 / 255.0f, 1)));
+	DrawList->AddCircleFilled(pos, radius, ImGui::GetColorU32(ImVec4(0.2, 0.2, 0.2, 1)));
+
+	DrawTextForeground(
+		font,
+		std::to_string(ability->GetCharges()),
+		ImVec2(pos.x, pos.y - ScaleVar<int>(6)),
+		ScaleVar<int>(12),
+		Color(255, 255, 255, 255),
+		true);
 }
