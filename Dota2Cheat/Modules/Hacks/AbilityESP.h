@@ -5,7 +5,11 @@
 #include <map>
 
 namespace Config {
+#ifdef _DEBUG
+	inline bool AbilityESPEnabled = true;
+#else
 	inline bool AbilityESPEnabled = false;
+#endif
 	inline bool AbilityESPShowAllies = true;
 	inline float AbilityESP_UIScale = 1.0f;
 }

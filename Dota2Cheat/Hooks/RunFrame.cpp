@@ -119,7 +119,8 @@ void Hooks::hkRunFrame(u64 a, u64 b) {
 					<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
 					<< "\n\tAttack Time: " << std::clamp(ent->GetBaseAttackTime() / ent->GetAttackSpeed(), 0.24f, 2.0f)
 					//<< "\n\tIsRoshan: " << ent->IsRoshan()
-					//<< "\n\t" << AttackTargetFinder::GetAttackTarget(ent)
+					<< "\n\tStunned: " << ent->HasState(ModifierState::MODIFIER_STATE_STUNNED)
+					<< "\n\t" << Modules::AttackAnimTracker.WillUnitAttack(ctx.assignedHero, ent, 0.5)
 					<< '\n';
 			}
 			if (IsKeyPressed(VK_NUMPAD3)) {

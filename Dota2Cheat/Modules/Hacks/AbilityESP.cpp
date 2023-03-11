@@ -2,14 +2,21 @@
 #include <format>
 
 void ESP::AbilityESP::SubscribeHeroes() {
+	
+	for (auto it = EnemyAbilities.begin(); it != EnemyAbilities.end(); )
+	{
+		if (!ctx.heroes.count((*it).first))
+			it = EnemyAbilities.erase(it);
+		else ++it;
+	}
 	for (auto& hero : ctx.heroes) {
-		if (hero->IsIllusion() || EnemyAbilities.count(hero))
+		if (hero == ctx.assignedHero || hero->GetIdentity()->IsDormant() || hero->IsIllusion() || EnemyAbilities.count(hero))
 			continue;
 
 		EnemyAbilities[hero].reserve(6);
 		for (int i = 0; i < 6; ++i)
 			EnemyAbilities[hero].push_back(AbilityData());
-		
+
 	}
 	Initialized = true;
 }
@@ -22,9 +29,12 @@ void ESP::AbilityESP::Reset() {
 void ESP::AbilityESP::UpdateAbilities() {
 	SubscribeHeroes();
 	for (auto& hero : ctx.heroes) {
-		if (hero == ctx.assignedHero)
+		if (!EnemyAbilities.count(hero))
 			continue;
 		auto heroAbilities = hero->GetAbilities();
+		if (heroAbilities.empty())
+			continue;
+
 		for (int i = 0; i < 6; ++i) {
 			auto ability = heroAbilities[i];
 			auto& abilities = EnemyAbilities[hero];
@@ -57,6 +67,8 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 		if (!hero || hero->GetIdentity()->IsDormant() || hero->IsIllusion() || hero == ctx.assignedHero)
 			continue;
 		if (!Config::AbilityESPShowAllies && hero->GetTeam() == ctx.assignedHero->GetTeam())
+			continue;
+		if (hero->GetLifeState() != 0)
 			continue;
 
 		int abilityCount = 0;
@@ -127,6 +139,11 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 					ImVec2(imgXY1.x - outlineThickness, imgXY1.y - outlineThickness),
 					ImVec2(imgXY2.x + outlineThickness, imgXY2.y + outlineThickness),
 					ImGui::ColorConvertFloat4ToU32(ImVec4(255.0f / 255, 191.0f / 255, 0, 1)));
+			if (data.ability->IsToggled())
+				DrawList->AddRectFilled(
+					ImVec2(imgXY1.x - outlineThickness, imgXY1.y - outlineThickness),
+					ImVec2(imgXY2.x + outlineThickness, imgXY2.y + outlineThickness),
+					ImGui::ColorConvertFloat4ToU32(ImVec4(0x3 / 255.0f, 0xAC / 255.0f, 0x13 / 255.0f, 1)));
 			DrawList->AddImage(data.icon.glTex, imgXY1, imgXY2);
 
 
@@ -194,5 +211,5 @@ void ESP::AbilityESP::DrawESP(ImFont* textFont) {
 
 void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, ImFont* font, ImVec2 pos) {
 	int lvl = ability->GetLevel();
-	DrawTextForeground(font, std::format("LVL {}", lvl), pos, 12, Color(255,255, 255, 255), true, false);
+	DrawTextForeground(font, std::format("LVL {}", lvl), pos, 12, Color(255, 255, 255, 255), true, false);
 }

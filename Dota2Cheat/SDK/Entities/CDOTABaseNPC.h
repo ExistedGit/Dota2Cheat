@@ -33,11 +33,11 @@ public:
 			+ Member<int>(Netvars::C_DOTA_BaseNPC::m_iDamageBonus);
 	}
 
-	GETTER(float, GetArmor, Netvars::C_DOTA_BaseNPC::m_flPhysicalArmorValue); 
-	GETTER(int, GetAttackRange, Netvars::C_DOTA_BaseNPC::m_iAttackRange); 
-	GETTER(ENT_HANDLE, GoalEntity, Netvars::C_DOTA_BaseNPC::m_hGoalEntity); 
+	GETTER(float, GetArmor, Netvars::C_DOTA_BaseNPC::m_flPhysicalArmorValue);
+	GETTER(int, GetAttackRange, Netvars::C_DOTA_BaseNPC::m_iAttackRange);
+	GETTER(ENT_HANDLE, GoalEntity, Netvars::C_DOTA_BaseNPC::m_hGoalEntity);
 	GETTER(const char*, GetUnitName, Netvars::C_DOTA_BaseNPC::m_iszUnitName);
-
+	GETTER(AttackCapabilities, GetAttackCapabilities, Netvars::C_DOTA_BaseNPC::m_iAttackCapabilities);
 	GETTER(float, GetMana, Netvars::C_DOTA_BaseNPC::m_flMana);
 	GETTER(float, GetMaxMana, Netvars::C_DOTA_BaseNPC::m_flMaxMana);
 	GETTER(float, GetManaRegen, Netvars::C_DOTA_BaseNPC::m_flManaThinkRegen);
@@ -97,7 +97,10 @@ public:
 		return result;
 	}
 
-
+	bool HasState(ModifierState state) {
+		auto unitState = Member<int64>(Netvars::C_DOTA_BaseNPC::m_nUnitDebuffState);
+		return (unitState & ((int)pow(2, (int)state)));
+	}
 
 	float GetAttackSpeed() {
 		return 1 + CallVFunc<295, float>();

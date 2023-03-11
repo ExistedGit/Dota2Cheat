@@ -76,13 +76,13 @@ public:
 	// In degrees from 180 to -180(on 0 it looks right)
 	float GetRotation() {
 		return Member<VClass*>(Netvars::C_BaseEntity::m_pGameSceneNode)
-			->Member<float>(0xf4);
+			->Member<float>(0xBC);
 	}
 
 	// Gets the point in front of the entity at the specified distance
 	Vector GetForwardVector(int dist) {
 		auto pos = GetPos();
-		float rotation = GetRotation() * M_PI_F / 180;
+		float rotation = GetRotation() * M_PI / 180;
 
 		float sine = sinf(rotation), cosine = cosf(rotation);
 		auto forwardVec = Vector(cosine * dist, sine * dist, 0);

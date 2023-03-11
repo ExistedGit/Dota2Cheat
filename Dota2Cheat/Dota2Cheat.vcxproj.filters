@@ -204,6 +204,15 @@
     <ClCompile Include="Modules\Hacks\AbilityESP.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="Modules\Utility\AttackTargetFinder.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooks\NetChannel.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h">
@@ -522,6 +531,9 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="stb_image.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Modules\Utility\AttackAnimTracker.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>
