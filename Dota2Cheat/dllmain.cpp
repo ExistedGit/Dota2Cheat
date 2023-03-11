@@ -65,10 +65,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	GameSystems::FindGameSystems();
 	Hooks::SetUpByteHooks();
-	VMTs::EntitySystem = std::unique_ptr<VMT>(new VMT(Interfaces::EntitySystem));
-	VMTs::EntitySystem->HookVM(Hooks::OnAddEntity, 14);
-	VMTs::EntitySystem->HookVM(Hooks::OnRemoveEntity, 15);
-	VMTs::EntitySystem->ApplyVMT();
 	Hooks::SetUpVirtualHooks(true);
 
 	Lua::InitEnums(ctx.lua);
@@ -123,7 +119,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
-	//auto vbeFont = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
+	auto msTrebuchet = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
 	auto defaultFont = io.Fonts->AddFontDefault();
 	bool menuVisible = false;
 
@@ -141,7 +137,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		if (menuVisible)
 			Pages::MainMenu::Display(window);
 
-		Modules::AbilityESP.FrameBasedLogic(defaultFont);
+		Modules::AbilityESP.DrawESP(msTrebuchet);
+		
 
 		if (IsKeyPressed(VK_INSERT)) {
 			glfwSetWindowAttrib(window, GLFW_MOUSE_PASSTHROUGH, menuVisible);

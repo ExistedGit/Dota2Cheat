@@ -7,16 +7,16 @@ void ESP::AbilityESP::SubscribeHeroes() {
 			continue;
 
 		EnemyAbilities[hero].reserve(6);
-		for (int i = 0; i < 6; ++i) {
+		for (int i = 0; i < 6; ++i)
 			EnemyAbilities[hero].push_back(AbilityData());
-		}
+		
 	}
 	Initialized = true;
 }
 
 void ESP::AbilityESP::Reset() {
-	EnemyAbilities.clear();
 	Initialized = false;
+	EnemyAbilities.clear();
 }
 
 void ESP::AbilityESP::UpdateAbilities() {
@@ -51,8 +51,10 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 	float iconSize = ScaleVar<int>(DefaultIconSize);
 	int outlineThickness = 2;
 	int manaBarThickness = 18;
+	int levelCounterHeight = 8;
+
 	for (auto& [hero, abilities] : EnemyAbilities) {
-		if (!hero || hero->GetIdentity()->IsDormant() || hero->IsIllusion())
+		if (!hero || hero->GetIdentity()->IsDormant() || hero->IsIllusion() || hero == ctx.assignedHero)
 			continue;
 		if (!Config::AbilityESPShowAllies && hero->GetTeam() == ctx.assignedHero->GetTeam())
 			continue;
@@ -71,7 +73,44 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 		y += 30;
 
 		int idx = 0;
-		bool drawOutline = true;
+
+		// Background for the whole panel
+		DrawRect(
+			ImVec2(x - iconSize / 2, y - iconSize / 2),
+			ImVec2(abilityCount * iconSize, iconSize + manaBarThickness + levelCounterHeight + 2),
+#ifdef _DEBUG
+			ImVec4(1, 0, 0, 1)
+#else
+			ImVec4(0.11f, 0.11f, 0.11f, 1)
+#endif // _DEBUG
+		);
+		float manaPercent = hero->GetMana() / hero->GetMaxMana();
+
+		// Black background to better see the bounds of manabar
+		DrawRect(
+			ImVec2(x - iconSize / 2 + outlineThickness, y + iconSize / 2 + outlineThickness + levelCounterHeight + 2),
+			ImVec2((abilityCount * iconSize - outlineThickness * 2), manaBarThickness - outlineThickness * 2),
+			ImVec4(0, 0, 0, 1)
+		);
+		// Manabar
+		DrawRect(
+			ImVec2(x - iconSize / 2 + outlineThickness, y + iconSize / 2 + outlineThickness + levelCounterHeight + 2),
+			ImVec2((abilityCount * iconSize - outlineThickness * 2) * manaPercent, manaBarThickness - outlineThickness * 2),
+			ImVec4(0, 0.4f, 0.9f, 1)
+		);
+		// Mana info: amount percent% +regen
+		DrawTextForeground(
+			textFont,
+			std::format("{} {}% +{:.1f}", (int)hero->GetMana(), int(manaPercent * 100), hero->GetManaRegen()),
+			ImVec2(
+				x - iconSize / 2 + outlineThickness + abilityCount * iconSize / 2,
+				y + iconSize / 2 + outlineThickness + levelCounterHeight + 2
+			),
+			manaBarThickness - 4,
+			Color(255, 255, 255),
+			true
+		);
+
 		for (auto& data : abilities) {
 			ImVec2 imgXY1, imgXY2;
 			int centeringOffset = -outlineThickness + iconSize / 2;
@@ -83,45 +122,14 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 
 			if (!data.ability)
 				continue;
-			if (drawOutline) {
-				DrawRect(
-					ImVec2(x - iconSize / 2, y - iconSize / 2),
-					ImVec2(abilityCount * iconSize, iconSize + manaBarThickness),
-#ifdef _DEBUG
-					ImVec4(1, 0, 0, 1)
-#else
-					ImVec4(0.11f, 0.11f, 0.11f, 1)
-#endif // _DEBUG
-				);
-				float manaPercent = hero->GetMana() / hero->GetMaxMana();
-				// Black background to better see the bounds of manabar
-				DrawRect(
-					ImVec2(x - iconSize / 2 + outlineThickness, y + iconSize / 2 + outlineThickness),
-					ImVec2((abilityCount * iconSize - outlineThickness * 2), manaBarThickness - outlineThickness * 2),
-					ImVec4(0, 0, 0, 1)
-				);
-				// Manabar
-				DrawRect(
-					ImVec2(x - iconSize / 2 + outlineThickness, y + iconSize / 2 + outlineThickness),
-					ImVec2((abilityCount * iconSize - outlineThickness * 2) * manaPercent, manaBarThickness - outlineThickness * 2),
-					ImVec4(0, 0.4f, 0.9f, 1)
-				);
-				// Mana info: amount percent% +regen
-				DrawTextForeground(textFont,
-					std::format("{} {}% +{:.1f}", (int)hero->GetMana(), int(manaPercent * 100), hero->GetManaRegen()),
-					ImVec2(x - iconSize / 2 + outlineThickness + abilityCount * iconSize / 2
-						, y + iconSize / 2 + outlineThickness),
-					manaBarThickness - 4,
-					Color(255, 255, 255),
-					true);
-				drawOutline = false;
-			}
 			if (data.ability->Member<bool>(Netvars::C_DOTABaseAbility::m_bAutoCastState))
 				DrawList->AddRectFilled(
 					ImVec2(imgXY1.x - outlineThickness, imgXY1.y - outlineThickness),
 					ImVec2(imgXY2.x + outlineThickness, imgXY2.y + outlineThickness),
 					ImGui::ColorConvertFloat4ToU32(ImVec4(255.0f / 255, 191.0f / 255, 0, 1)));
 			DrawList->AddImage(data.icon.glTex, imgXY1, imgXY2);
+
+
 			if (data.ability->GetLevel() == 0) {
 				// Darkens the picture
 				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::ColorConvertFloat4ToU32(ImVec4(0, 0, 0, 0.5)));
@@ -170,15 +178,21 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 					Color(0, 255, 60),
 					true);
 			}
+			DrawLevelCounter(data.ability, textFont, ImVec2(imgXY1.x + centeringOffset, imgXY2.y + 1));
 			++idx;
 		}
 	}
 }
 
-void ESP::AbilityESP::FrameBasedLogic(ImFont* textFont) {
+void ESP::AbilityESP::DrawESP(ImFont* textFont) {
 	if (!Initialized || !Config::AbilityESPEnabled)
 		return;
 
 	UpdateAbilities();
 	DrawAbilities(textFont);
+}
+
+void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, ImFont* font, ImVec2 pos) {
+	int lvl = ability->GetLevel();
+	DrawTextForeground(font, std::format("LVL {}", lvl), pos, 12, Color(255,255, 255, 255), true, false);
 }

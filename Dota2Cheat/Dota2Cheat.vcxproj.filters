@@ -326,9 +326,6 @@
     <ClInclude Include="Hooks\EntitySystemEvents.h">
       <Filter>Header files\Hooks</Filter>
     </ClInclude>
-    <ClInclude Include="Hooks\VMT.h">
-      <Filter>Header files\Hooks</Filter>
-    </ClInclude>
     <ClInclude Include="Hooks\NetChannel.h">
       <Filter>Header files\Hooks</Filter>
     </ClInclude>

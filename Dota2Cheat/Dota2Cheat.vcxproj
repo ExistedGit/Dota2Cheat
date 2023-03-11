@@ -301,7 +301,6 @@
     <ClInclude Include="SDK\Netvars.h" />
     <ClInclude Include="Hooks\PrepareUnitOrders.h" />
     <ClInclude Include="Hooks\RunFrame.h" />
-    <ClInclude Include="Hooks\VMT.h" />
     <ClInclude Include="Modules\Hacks\IllusionColoring.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Hooks\ParticleRendering.h" />

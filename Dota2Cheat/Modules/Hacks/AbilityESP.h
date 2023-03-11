@@ -12,7 +12,6 @@ namespace Config {
 
 namespace ESP {
 	class AbilityESP {
-	public:
 		struct AbilityData {
 			CDOTABaseAbility* ability{};
 			TextureData icon{};
@@ -21,7 +20,7 @@ namespace ESP {
 			float lastActiveCooldown{};
 			float currentCooldown{};
 		};
-		
+
 		// Scales a value according to the config parameter
 		template<typename T>
 		T ScaleVar(auto val) {
@@ -33,11 +32,13 @@ namespace ESP {
 		static inline std::map<CDOTABaseNPC_Hero*, std::vector<AbilityData>> EnemyAbilities{};
 		std::string assetsPath = "C:\\Users\\user\\Documents\\Dota2Cheat\\assets\\spellicons\\";
 
+		void DrawAbilities(ImFont* textFont);
+		void DrawLevelCounter(CDOTABaseAbility* ability, ImFont* font, ImVec2 pos);
+	public:
+		void UpdateAbilities();
 		void SubscribeHeroes();
 		void Reset();
-		void UpdateAbilities();
-		void DrawAbilities(ImFont* textFont);
-		void FrameBasedLogic(ImFont* textFont);
+		void DrawESP(ImFont* textFont);
 	};
 }
 namespace Modules {

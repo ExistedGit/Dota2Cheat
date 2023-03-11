@@ -116,10 +116,6 @@ inline void EnteredInGame() {
 	GameSystems::GameEventManager->AddListener(roshanListener, "dota_roshan_kill");
 	GameSystems::GameEventManager->AddListener(hurtListener, "entity_hurt");
 
-	VMTs::UIEngine = std::unique_ptr<VMT>(new VMT(Interfaces::UIEngine));
-	VMTs::UIEngine->HookVM(Hooks::hkRunFrame, 6);
-	VMTs::UIEngine->ApplyVMT();
-
 	GameSystems::LogGameSystems();
 	Lua::InitGlobals(ctx.lua);
 
@@ -149,8 +145,6 @@ inline void LeftMatch() {
 	GameSystems::ProjectileManager = nullptr;
 
 	Lua::ResetGlobals(ctx.lua);
-
-	VMTs::UIEngine.reset();
 
 	for (auto& listener : CGameEventManager::EventListeners)
 		GameSystems::GameEventManager->RemoveListener(listener.get());

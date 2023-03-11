@@ -3,7 +3,6 @@
 #include "../SDK/Interfaces/Network/INetChannel.h"
 
 #include "../SDK/Globals/Signatures.h"
-#include "VMT.h"
 
 #include "../Modules/Hacks/ShakerAttackAnimFix.h"
 #include "../Modules/Hacks/ParticleAbilityWarner.h"

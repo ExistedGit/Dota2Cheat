@@ -1,6 +1,7 @@
 #pragma once
 #include "RunFrame.h"
 #include <format>
+#include "../Modules/Hacks/AbilityESP.h"
 
 void Hooks::EntityIteration() {
 	bool midasUsed = false;
@@ -104,7 +105,7 @@ void Hooks::hkRunFrame(u64 a, u64 b) {
 				Modules::AutoBuyTome.FrameBasedLogic();
 				Modules::RiverPaint.FrameBasedLogic();
 				Modules::ParticleGC.FrameBasedLogic();
-				Modules::TargetedSpellHighlighter.FrameBasedLogic();
+				Modules::TargetedSpellHighlighter.FrameBasedLogic(); 
 				Modules::LinearProjectileWarner.FrameBasedLogic();
 				EntityIteration();
 			}
@@ -147,5 +148,5 @@ void Hooks::hkRunFrame(u64 a, u64 b) {
 #endif
 		}
 	}
-	VMTs::UIEngine->GetOriginalMethod<decltype(&hkRunFrame)>(6)(a, b);
+	oRunFrame(a, b);
 }

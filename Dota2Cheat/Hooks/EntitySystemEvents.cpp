@@ -15,7 +15,7 @@ CBaseEntity* Hooks::OnAddEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HA
 		ctx.entities.insert(ent);
 	}
 
-	return VMTs::EntitySystem->GetOriginalMethod<decltype(&OnAddEntity)>(14)(thisptr, ent, handle);
+	return oOnAddEntity(thisptr, ent, handle);
 }
 
 CBaseEntity* Hooks::OnRemoveEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HANDLE handle) {
@@ -28,5 +28,5 @@ CBaseEntity* Hooks::OnRemoveEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT
 		ctx.importantItems.midas = nullptr;
 
 
-	return VMTs::EntitySystem->GetOriginalMethod<decltype(&OnAddEntity)>(15)(thisptr, ent, handle);
+	return oOnRemoveEntity(thisptr, ent, handle);
 }
