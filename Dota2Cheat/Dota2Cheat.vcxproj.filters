@@ -213,6 +213,24 @@
     <ClCompile Include="Hooks\NetChannel.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="SDK\Entities\CBaseEntity.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Entities\CDOTABaseAbility.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Entities\CDOTABaseNPC.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Entities\CDOTAModifier.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Entities\CDOTAUnitInventory.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Entities\CDOTAPlayerController.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h">

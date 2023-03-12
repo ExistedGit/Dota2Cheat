@@ -205,6 +205,12 @@
     <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp" />
     <ClCompile Include="Modules\Utility\AttackTargetFinder.cpp" />
     <ClCompile Include="Modules\Utility\ParticleGC.cpp" />
+    <ClCompile Include="SDK\Entities\CBaseEntity.cpp" />
+    <ClCompile Include="SDK\Entities\CDOTABaseAbility.cpp" />
+    <ClCompile Include="SDK\Entities\CDOTABaseNPC.cpp" />
+    <ClCompile Include="SDK\Entities\CDOTAModifier.cpp" />
+    <ClCompile Include="SDK\Entities\CDOTAPlayerController.cpp" />
+    <ClCompile Include="SDK\Entities\CDOTAUnitInventory.cpp" />
     <ClCompile Include="SDK\GameSystems\CDOTAParticleManager.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="include\imgui\imgui.cpp" />

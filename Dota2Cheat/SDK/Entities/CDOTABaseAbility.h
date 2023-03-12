@@ -30,35 +30,32 @@ public:
 
 	// xref: "GetCastRange" to lea rcx, above that is lea rax, [XXXXXXXXX]
 	// In the end of the func is a call to [rcx + 0x???] <--- that divided by 8 gives you the index
-	int GetCastRange() {
-		// Still using GetLevelSpecialValueFor because that has clearer usage
-		return GetLevelSpecialValueFor<int>("AbilityCastRange");
-	}
+	int GetCastRange();
+
 	// Goes right after GetCastRange ^
-	int GetCastRangeBonus() {
-		return CallVFunc<VTableIndexes::CDOTABaseAbility::GetCastRangeBonus, int>(nullptr, nullptr, nullptr);
-	}
-
-	int GetEffectiveCastRange() {
-		return GetCastRange() + GetCastRangeBonus();
-	}
-
+	int GetCastRangeBonus();
+	
+	int GetEffectiveCastRange();
+	
+	// Rebuilt by analyzing GetLevelSpecialValueFor logic
 	// Rebuilt by analyzing GetLevelSpecialValueFor logic
 	template<typename T = double>
-	T GetLevelSpecialValueFor(const char* valName, int level = -1) {
-		auto entry = GetKVEntry(this, valName);
-
-		if (level < 0)
-			level = GetLevel();
-		if (level > entry->GetValuesSize() - 1)
-			level = entry->GetValuesSize();
-
-		auto values = entry->GetValues();
-		return (T)values[level - 1];
-	}
-
-	int GetAOERadius() {
-		return GetLevelSpecialValueFor<int>("radius", -1);
-	}
+	T GetLevelSpecialValueFor(const char* valName, int level = -1);
+	
+	int GetAOERadius();
 
 };
+
+// Rebuilt by analyzing GetLevelSpecialValueFor logic
+template<typename T>
+T CDOTABaseAbility::GetLevelSpecialValueFor(const char* valName, int level) {
+	auto entry = GetKVEntry(this, valName);
+
+	if (level < 0)
+		level = GetLevel();
+	if (level > entry->GetValuesSize() - 1)
+		level = entry->GetValuesSize();
+
+	auto values = entry->GetValues();
+	return (T)values[level - 1];
+}
