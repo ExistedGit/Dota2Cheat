@@ -1,10 +1,21 @@
 #pragma once
 #include "CBaseEntity.h"
 
+// Structure that GetKVEntry returns, rebuilt through Reclass
+struct AbilityKVEntry : public NormalClass {
+	GETTER(const char*, GetKey, 0);
+	GETTER(int, GetValuesSize, 0x30);
+
+	auto GetValues() {
+		auto size = GetValuesSize();
+		return std::span{ MemberInline<float>(0x34), uint64_t(size)};
+	}
+};
+
 class CDOTABaseAbility : public CBaseEntity {
 public:
-	typedef double(__fastcall* GetLevelSpecialValueForFn)(void* thisptr, int abilityIndex, const char* value, int level);
-	static inline GetLevelSpecialValueForFn GetLevelSpecialValueForFunc{};
+	typedef AbilityKVEntry*(__fastcall* GetKVEntryFn)(CDOTABaseAbility* thisptr, const char* value);
+	static inline GetKVEntryFn GetKVEntry{};
 
 	// For things like Pudge's Rot or Armlet
 	GETTER(bool, IsToggled, Netvars::C_DOTABaseAbility::m_bToggleState);
@@ -32,9 +43,18 @@ public:
 		return GetCastRange() + GetCastRangeBonus();
 	}
 
+	// Rebuilt by analyzing GetLevelSpecialValueFor logic
 	template<typename T = double>
 	T GetLevelSpecialValueFor(const char* valName, int level = -1) {
-		return (T)GetLevelSpecialValueForFunc(nullptr, GetIndex(), valName, level);
+		auto entry = GetKVEntry(this, valName);
+
+		if (level < 0)
+			level = GetLevel();
+		if (level > entry->GetValuesSize() - 1)
+			level = entry->GetValuesSize();
+
+		auto values = entry->GetValues();
+		return (T)values[level - 1];
 	}
 
 	int GetAOERadius() {

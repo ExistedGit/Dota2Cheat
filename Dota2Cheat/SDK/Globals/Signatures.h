@@ -93,7 +93,8 @@ namespace Signatures {
 
 		// UnknownCheats wiki -> Dota 2 -> link to Using engine functions
 		SIGSCAN_OFF(WorldToScreen, "56 57 41 56 48 83 EC 60 49 8B F0 4C 8B F2 48 8B F9 4D 85 C9", L"client.dll", -5);
-		SIGSCAN_OFF(CDOTABaseAbility::GetLevelSpecialValueForFunc, "57 48 83 EC 30 48 8B ? ? ? ? ? 41 8B D9 49 8B F8 48 85 C0 74 34", L"client.dll", -5);
+		// Second call in JS func GetLevelSpecialValueFor
+		SIGSCAN_LOG(CDOTABaseAbility::GetKVEntry, "40 55 57 41 57 48 83 EC 20 48 8B 81 28 05 00 00 48 8B EA 48 8B F9", L"client.dll");
 
 		//xref: "You are #%d in line of %d waiting players.\n"
 		SIGSCAN_OFF(DispatchPacket, "74 05 48 8B 01 FF 10 48 8B 06 48 8B CE 48 89 BC 24 80 00 00 00", L"client.dll", -0x1B);

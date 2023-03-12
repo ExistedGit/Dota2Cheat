@@ -44,8 +44,10 @@ void ESP::AbilityESP::UpdateAbilities() {
 
 			if (ability->IsHidden())
 				continue;
-
-			auto iconPath = assetsPath + "\\spellicons\\" + ability->GetIdentity()->GetName() + "_png.png";
+			auto abilityName = ability->GetIdentity()->GetName();
+			if (!abilityName)
+				return;
+			auto iconPath = assetsPath + "\\spellicons\\" + abilityName + "_png.png";
 			auto& data = abilities[i] = AbilityData{
 				.ability = ability,
 				.lastActiveTime = GameSystems::GameRules->GetGameTime(),
@@ -58,7 +60,7 @@ void ESP::AbilityESP::UpdateAbilities() {
 }
 
 void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
-	float iconSize = ScaleVar<int>(DefaultIconSize);
+	float iconSize = ScaleVar(DefaultIconSize);
 	int outlineThickness = 2;
 	int manaBarThickness = 18;
 	int levelCounterHeight = 8;
@@ -160,7 +162,7 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 					? data.ability->GetCooldown()
 					: data.ability->GetChargeRestoreCooldown();
 
-				int cdFontSize = ScaleVar<int>(14);
+				int cdFontSize = ScaleVar(14);
 				// Darkens the picture
 				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::ColorConvertFloat4ToU32(ImVec4(0, 0, 0, 0.5)));
 				if (data.ability->GetCooldown() >= 100)
@@ -173,13 +175,13 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 					Color(255, 255, 255),
 					true);
 			}
-			DrawChargeCounter(data.ability, textFont, imgXY1, ScaleVar<int>(8));
+			DrawChargeCounter(data.ability, textFont, imgXY1, ScaleVar(8));
 
 			float channelTime = data.ability->Member<float>(Netvars::C_DOTABaseAbility::m_flChannelStartTime);
 			if (channelTime != 0) {
-				float indicatorHeight = ScaleVar<int>(4);
+				float indicatorHeight = ScaleVar(4);
 				auto channelLength = data.ability->GetLevelSpecialValueFor("AbilityChannelTime");
-				int fontSize = ScaleVar<int>(18);
+				int fontSize = ScaleVar(18);
 				DrawTextForeground(textFont,
 					std::format("{:.1f}", channelLength - (GameSystems::GameRules->GetGameTime() - channelTime)),
 					ImVec2(imgXY1.x + centeringOffset, imgXY1.y - fontSize - 2 - indicatorHeight),
@@ -195,7 +197,7 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 			else if (data.ability->Member<bool>(Netvars::C_DOTABaseAbility::m_bInAbilityPhase)) {
 				auto castPoint = data.ability->GetLevelSpecialValueFor("AbilityCastPoint");
 				float castStartTime = data.ability->Member<float>(Netvars::C_DOTABaseAbility::m_flCastStartTime);
-				int fontSize = ScaleVar<int>(18);
+				int fontSize = ScaleVar(18);
 				float indicatorWidth = abs(imgXY1.x - imgXY2.x) * ((GameSystems::GameRules->GetGameTime() - castStartTime) / castPoint);
 				DrawList->AddRectFilled(imgXY1, ImVec2(imgXY1.x + indicatorWidth, imgXY2.y), ImGui::ColorConvertFloat4ToU32(ImVec4(0, 1, 0, 0.5)));
 				DrawTextForeground(textFont,
@@ -231,14 +233,14 @@ void ESP::AbilityESP::DrawChargeCounter(CDOTABaseAbility* ability, ImFont* font,
 
 	auto DrawList = ImGui::GetForegroundDrawList();
 
-	DrawList->AddCircleFilled(pos, radius + ScaleVar<int>(2), ImGui::GetColorU32(ImVec4(0x3 / 255.0f, 0xAC / 255.0f, 0x13 / 255.0f, 1)));
+	DrawList->AddCircleFilled(pos, radius + ScaleVar(2), ImGui::GetColorU32(ImVec4(0x3 / 255.0f, 0xAC / 255.0f, 0x13 / 255.0f, 1)));
 	DrawList->AddCircleFilled(pos, radius, ImGui::GetColorU32(ImVec4(0.2, 0.2, 0.2, 1)));
 
 	DrawTextForeground(
 		font,
 		std::to_string(ability->GetCharges()),
-		ImVec2(pos.x, pos.y - ScaleVar<int>(6)),
-		ScaleVar<int>(12),
+		ImVec2(pos.x, pos.y - ScaleVar(6)),
+		ScaleVar(12),
 		Color(255, 255, 255, 255),
 		true);
 }

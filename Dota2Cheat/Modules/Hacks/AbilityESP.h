@@ -27,7 +27,7 @@ namespace ESP {
 		};
 
 		// Scales a value according to the config parameter
-		template<typename T>
+		template<typename T = int>
 		T ScaleVar(auto val) {
 			return (T)(val * Config::AbilityESP_UIScale);
 		}
