@@ -184,6 +184,7 @@
     <ClCompile Include="HookHelper.cpp" />
     <ClCompile Include="Hooks\EntitySystemEvents.cpp" />
     <ClCompile Include="Hooks\ModifierEvents.cpp" />
+    <ClCompile Include="Hooks\NetChannel.cpp" />
     <ClCompile Include="Hooks\ParticleRendering.cpp" />
     <ClCompile Include="Hooks\PrepareUnitOrders.cpp" />
     <ClCompile Include="Hooks\RunFrame.cpp" />
@@ -201,8 +202,16 @@
     <ClCompile Include="Modules\Hacks\RiverPaint.cpp" />
     <ClCompile Include="Modules\Hacks\ShakerAttackAnimFix.cpp" />
     <ClCompile Include="Modules\Hacks\TargetedSpellHighlighter.cpp" />
-    <ClCompile Include="Modules\Utility\AbilityCooldownTracking.cpp" />
+    <ClCompile Include="Modules\Hacks\AbilityESP.cpp" />
+    <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp" />
+    <ClCompile Include="Modules\Utility\AttackTargetFinder.cpp" />
     <ClCompile Include="Modules\Utility\ParticleGC.cpp" />
+    <ClCompile Include="SDK\Entities\CBaseEntity.cpp" />
+    <ClCompile Include="SDK\Entities\CDOTABaseAbility.cpp" />
+    <ClCompile Include="SDK\Entities\CDOTABaseNPC.cpp" />
+    <ClCompile Include="SDK\Entities\CDOTAModifier.cpp" />
+    <ClCompile Include="SDK\Entities\CDOTAPlayerController.cpp" />
+    <ClCompile Include="SDK\Entities\CDOTAUnitInventory.cpp" />
     <ClCompile Include="SDK\GameSystems\CDOTAParticleManager.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="include\imgui\imgui.cpp" />
@@ -253,6 +262,7 @@
     <ClInclude Include="Modules\Hacks\AutoUseMagicWand.h" />
     <ClInclude Include="Modules\Hacks\AutoUseMidas.h" />
     <ClInclude Include="Modules\Hacks\BadCastPrevention.h" />
+    <ClInclude Include="Modules\Utility\AttackAnimTracker.h" />
     <ClInclude Include="SDK\Base\Bytehook.h" />
     <ClInclude Include="SDK\Base\Color.h" />
     <ClInclude Include="SDK\Base\Definitions.h" />
@@ -303,7 +313,6 @@
     <ClInclude Include="SDK\Netvars.h" />
     <ClInclude Include="Hooks\PrepareUnitOrders.h" />
     <ClInclude Include="Hooks\RunFrame.h" />
-    <ClInclude Include="Hooks\VMT.h" />
     <ClInclude Include="Modules\Hacks\IllusionColoring.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Hooks\ParticleRendering.h" />

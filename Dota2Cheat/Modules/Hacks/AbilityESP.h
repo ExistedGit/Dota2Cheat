@@ -4,7 +4,6 @@
 #include "../../Config.h"
 #include <map>
 
-
 namespace ESP {
 	class AbilityESP {
 		struct AbilityData {

@@ -8,7 +8,7 @@
 #include "Hooks/ModifierEvents.h"
 
 #include "Modules/Hacks/AutoBuyTome.h"
-#include "Modules/Utility/AbilityCooldownTracking.h"
+#include "Modules/Hacks/AbilityESP.h"
 #include <format>
 #include "Modules/Hacks/AutoPick.h"
 #include "Modules/Hacks/AutoPing.h"
@@ -116,10 +116,6 @@ inline void EnteredInGame() {
 	GameSystems::GameEventManager->AddListener(roshanListener, "dota_roshan_kill");
 	GameSystems::GameEventManager->AddListener(hurtListener, "entity_hurt");
 
-	VMTs::UIEngine = std::unique_ptr<VMT>(new VMT(Interfaces::UIEngine));
-	VMTs::UIEngine->HookVM(Hooks::hkRunFrame, 6);
-	VMTs::UIEngine->ApplyVMT();
-
 	GameSystems::LogGameSystems();
 	Lua::InitGlobals(ctx.lua);
 
@@ -135,7 +131,8 @@ inline void EnteredInGame() {
 
 inline void LeftMatch() {
 	ctx.gameStage = Context::GameStage::NONE;
-	//Hooks::NetChan = nullptr;
+	
+	GameSystems::ParticleManager->OnExitMatch();
 
 	Modules::AutoBuyTome.Reset();
 	Modules::TargetedSpellHighlighter.Reset();
@@ -149,8 +146,6 @@ inline void LeftMatch() {
 	GameSystems::ProjectileManager = nullptr;
 
 	Lua::ResetGlobals(ctx.lua);
-
-	VMTs::UIEngine.reset();
 
 	for (auto& listener : CGameEventManager::EventListeners)
 		GameSystems::GameEventManager->RemoveListener(listener.get());

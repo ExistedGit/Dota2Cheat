@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #define STB_IMAGE_IMPLEMENTATION
 #include <cstdio>
 #include <iostream>
@@ -79,16 +79,12 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	GameSystems::FindGameSystems();
 	Hooks::SetUpByteHooks();
-	VMTs::EntitySystem = std::unique_ptr<VMT>(new VMT(Interfaces::EntitySystem));
-	VMTs::EntitySystem->HookVM(Hooks::OnAddEntity, 14);
-	VMTs::EntitySystem->HookVM(Hooks::OnRemoveEntity, 15);
-	VMTs::EntitySystem->ApplyVMT();
 	Hooks::SetUpVirtualHooks(true);
 
 	Lua::InitEnums(ctx.lua);
 	Lua::InitClasses(ctx.lua);
 	Lua::InitInterfaces(ctx.lua);
-//	Lua::LoadScriptFiles(ctx.lua);
+	Lua::LoadScriptFiles(ctx.lua);
 
 	//	Panorama::CSource2UITexture* texture{};
 	//	Signatures::LoadUITexture(nullptr, (void**)&texture, "panorama\\images\\hero_badges\\hero_badge_rank_1_png.vtex");
@@ -137,8 +133,12 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
+
 	//auto vbeFont = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
 	auto msTrebuchet = io.Fonts->AddFontDefault();
+
+	auto msTrebuchet = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
+	auto defaultFont = io.Fonts->AddFontDefault();
 	bool menuVisible = false;
 
 	// Main loop

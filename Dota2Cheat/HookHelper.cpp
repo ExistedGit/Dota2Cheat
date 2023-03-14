@@ -1,4 +1,5 @@
 #include "HookHelper.h"
+#include "SDK/Base/VMT.h"
 
 void Hooks::SetUpByteHooks() {
 	HOOKFUNC_SIGNATURES(PrepareUnitOrders);
@@ -17,4 +18,15 @@ void Hooks::SetUpVirtualHooks(bool log) {
 	uintptr_t* PostReceivedNetMessage = vtable[86], * SendNetMessage = vtable[69]; // bytehooking through vtables, how's that, Elon Musk?
 	HOOKFUNC(PostReceivedNetMessage);
 	HOOKFUNC(SendNetMessage);
+
+	{
+
+	auto vmt = VMT(Interfaces::EntitySystem);
+	HookFunc(vmt.GetVM<EntSystemEvent>(14), &OnAddEntity, &oOnAddEntity, "OnAddEntity");
+	HookFunc(vmt.GetVM<EntSystemEvent>(15), &OnRemoveEntity, &oOnRemoveEntity, "OnRemoveEntity");
+	}
+	{
+		auto vmt = VMT(Interfaces::UIEngine);
+		HookFunc(vmt.GetVM<RunFrameFn>(6), &hkRunFrame, &oRunFrame, "RunFrame");
+	}
 }

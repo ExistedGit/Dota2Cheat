@@ -68,8 +68,10 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 	for (auto& [hero, abilities] : EnemyAbilities) {
 		if (!hero || hero->GetIdentity()->IsDormant() || hero->IsIllusion() || hero == ctx.assignedHero)
 			continue;
+      
 		if (!Config::AbilityESP::ShowAllies && hero->GetTeam() == ctx.assignedHero->GetTeam())
 			continue;
+      
 		if (hero->GetLifeState() != 0)
 			continue;
 

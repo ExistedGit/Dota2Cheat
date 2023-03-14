@@ -14,7 +14,6 @@
 
 #include "../Modules/Utility/ParticleGC.h"
 
-#include "VMT.h"
 #include "../Input.h"
 #include "../SDK/Entities/CDOTAItemRune.h"
 
@@ -39,5 +38,7 @@ namespace Hooks {
 	void UpdateCameraDistance();
 	void UpdateWeather();
 
+	typedef void(__fastcall* RunFrameFn)(u64 a, u64 b);
+	inline RunFrameFn oRunFrame{};
 	void hkRunFrame(u64 a, u64 b);
 }

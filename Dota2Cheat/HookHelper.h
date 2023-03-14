@@ -1,7 +1,9 @@
 #pragma once
 
 #include "Hooks/PrepareUnitOrders.h"
+#include "Hooks/RunFrame.h"
 #include "Hooks/NetChannel.h"
+#include "Hooks/EntitySystemEvents.h"
 #include "Hooks/ParticleRendering.h"
 #include "Hooks/ModifierEvents.h"
 

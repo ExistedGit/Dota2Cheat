@@ -1,6 +1,7 @@
 #pragma once
 #include <sol/sol.hpp>
 #include <filesystem>
+#include <ShlObj_core.h>
 
 
 using directory_iterator = std::filesystem::directory_iterator;
@@ -12,7 +13,6 @@ namespace Lua {
 
 		lua.create_named_table("Modules");
 		for (auto& file : directory_iterator(ctx.cheatFolderPath + R"(\scripts)")) {
-
 			auto path = file.path();
 			if (path.string().substr(path.string().size() - 3) == "lua") {
 				lua.load_file(path.string())();

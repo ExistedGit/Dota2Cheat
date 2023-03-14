@@ -10,43 +10,14 @@ class CDOTABaseNPC;
 // CDOTA_Buff
 class CDOTAModifier : public VClass {
 public:
-	const char* GetName() {
-		return Member<const char*>(Netvars::CDOTA_Buff::m_name);
-	}
+	GETTER(const char*, GetName, Netvars::CDOTA_Buff::m_name);
+	GETTER(float, GetDuration, Netvars::CDOTA_Buff::m_flDuration);
+	GETTER(float, GetDieTime, Netvars::CDOTA_Buff::m_flDieTime);
+	GETTER(ENT_HANDLE, GetCaster, Netvars::CDOTA_Buff::m_hCaster);
+	GETTER(ENT_HANDLE, GetAbility, Netvars::CDOTA_Buff::m_hAbility);
 
-	float GetDuration() {
-		return Member<float>(Netvars::CDOTA_Buff::m_flDuration);
-	}
+	CDOTABaseNPC* GetOwner();
 
-	float GetDieTime() {
-		return Member<float>(Netvars::CDOTA_Buff::m_flDieTime);
-	}
-
-	ENT_HANDLE GetCaster() {
-		return Member<ENT_HANDLE>(Netvars::CDOTA_Buff::m_hCaster);
-	}
-
-	ENT_HANDLE GetAbility() {
-		return Member<ENT_HANDLE>(Netvars::CDOTA_Buff::m_hAbility);
-	}
-
-	CDOTABaseNPC* GetOwner() {
-		return Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(
-			H2IDX(
-				Member<ENT_HANDLE>(Netvars::CDOTA_Buff::m_hParent)
-			)
-			);
-	}
-
-	static void BindLua(sol::state& lua) {
-		auto type = lua.new_usertype<CDOTAModifier>("CDOTAModifier");
-
-		type["GetName"] = &CDOTAModifier::GetName;
-		type["GetDuration"] = &CDOTAModifier::GetDuration;
-		type["GetDieTime"] = &CDOTAModifier::GetDieTime;
-		type["GetCaster"] = &CDOTAModifier::GetCaster;
-		type["GetAbility"] = &CDOTAModifier::GetAbility;
-		type["GetOwner"] = &CDOTAModifier::GetOwner;
-	}
+	static void BindLua(sol::state& lua);
 };
 

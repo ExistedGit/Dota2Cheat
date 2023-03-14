@@ -1,50 +1,49 @@
 #pragma once
 #include "CBaseEntity.h"
 
+// Structure that GetKVEntry returns, rebuilt through Reclass
+struct AbilityKVEntry : public NormalClass {
+	GETTER(const char*, GetKey, 0);
+	GETTER(int, GetValuesSize, 0x30);
+
+	auto GetValues() {
+		auto size = GetValuesSize();
+		return std::span{ MemberInline<float>(0x34), uint64_t(size)};
+	}
+};
+
 class CDOTABaseAbility : public CBaseEntity {
 public:
-	typedef double(__fastcall* GetLevelSpecialValueForFn)(void* thisptr, int abilityIndex, const char* value, int level);
-	static inline GetLevelSpecialValueForFn GetLevelSpecialValueForFunc{};
+	typedef AbilityKVEntry*(__fastcall* GetKVEntryFn)(CDOTABaseAbility* thisptr, const char* value);
+	static inline GetKVEntryFn GetKVEntry{};
 
-	float GetCooldown() {
-		return Member<float>(Netvars::C_DOTABaseAbility::m_fCooldown);
-	}
-	int GetCharges() {
-		return Member<int>(Netvars::C_DOTABaseAbility::m_nAbilityCurrentCharges);
-	}
-	int GetManaCost() {
-		return Member<int>(Netvars::C_DOTABaseAbility::m_iManaCost);
-	}
+	// For things like Pudge's Rot or Armlet
+	GETTER(bool, IsToggled, Netvars::C_DOTABaseAbility::m_bToggleState);
+	GETTER(bool, IsHidden, Netvars::C_DOTABaseAbility::m_bHidden);
+	GETTER(float, GetCooldown, Netvars::C_DOTABaseAbility::m_fCooldown);
+	GETTER(int, GetLevel, Netvars::C_DOTABaseAbility::m_iLevel);
+	GETTER(int, GetMaxLevel, Netvars::C_DOTABaseAbility::m_iMaxLevel);
+	GETTER(int, GetCharges, Netvars::C_DOTABaseAbility::m_nAbilityCurrentCharges);
+	GETTER(float, GetChargeRestoreCooldown, Netvars::C_DOTABaseAbility::m_fAbilityChargeRestoreTimeRemaining);
+	GETTER(int, GetManaCost, Netvars::C_DOTABaseAbility::m_iManaCost);
 
-	
+
 	// xref: "GetCastRange" to lea rcx, above that is lea rax, [XXXXXXXXX]
 	// In the end of the func is a call to [rcx + 0x???] <--- that divided by 8 gives you the index
-	int GetCastRange() {
-		return GetLevelSpecialValueFor<int>("AbilityCastRange");
-	}
-	// Goes right after GetCastRange
-	int GetCastRangeBonus() {
-		
-		//return Function(0x00007FFE1495DEA0).Execute<int>(nullptr, GetHandle());
-		return CallVFunc<VTableIndexes::CDOTABaseAbility::GetCastRangeBonus, int>(nullptr, nullptr, nullptr);
-	}
+	int GetCastRange();
 
-	int GetEffectiveCastRange() {
-		return GetCastRange() + GetCastRangeBonus();
-	}
-
+	// Goes right after GetCastRange ^
+	int GetCastRangeBonus();
+	
+	int GetEffectiveCastRange();
+	
+	// Rebuilt by analyzing GetLevelSpecialValueFor logic
+	// Rebuilt by analyzing GetLevelSpecialValueFor logic
 	template<typename T = double>
-	T GetLevelSpecialValueFor(const char* valName, int level = -1) {
-		return (T)GetLevelSpecialValueForFunc(nullptr, GetIndex(), valName, level);
-	}
+	T GetLevelSpecialValueFor(const char* valName, int level = -1);
+	
+	int GetAOERadius();
 
-	int GetAOERadius() {
-		return GetLevelSpecialValueFor<int>("radius", -1);
-	}
-
-	bool IsHidden() {
-		return Member<bool>(Netvars::C_DOTABaseAbility::m_bHidden);
-	}
 };
 
 // Rebuilt by analyzing GetLevelSpecialValueFor logic
@@ -52,7 +51,7 @@ template<typename T>
 T CDOTABaseAbility::GetLevelSpecialValueFor(const char* valName, int level) {
 	auto entry = GetKVEntry(this, valName);
 
-	// Clamping th 
+	// Clamping the level value
 	if (level < 0)
 		level = GetLevel();
 	if (level > entry->GetValuesSize() - 1)

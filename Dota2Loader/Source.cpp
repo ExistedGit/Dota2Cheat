@@ -1,10 +1,13 @@
 #include <iostream>
+#include <ShlObj.h>
+
 #include <Windows.h>
 #include <filesystem>
 #include <vector>
 
 using namespace std;
 using std::filesystem::current_path;
+namespace fs = std::filesystem;
 
 int main() {
 	const string curDir = current_path().string();
@@ -23,6 +26,7 @@ int main() {
 		fs::create_directories(cheatFolderPath + "\\assets\\spellicons\\");
 		fs::create_directories(cheatFolderPath + "\\scripts\\");
 		fs::create_directories(cheatFolderPath + "\\config\\");
+
 		
 		fs::copy(curDir + "\\..\\..\\assets", cheatFolderPath + R"(\assets\)", fs::copy_options::recursive | fs::copy_options::skip_existing);
 		

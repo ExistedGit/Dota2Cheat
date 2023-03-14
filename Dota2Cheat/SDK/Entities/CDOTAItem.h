@@ -14,9 +14,4 @@ public:
 	ItemStat_t GetItemStat() {
 		return Member<ItemStat_t>(0x670);
 	}
-
-	// For items like Armlet
-	bool IsToggled() {
-		return Member<bool>(Netvars::C_DOTABaseAbility::m_bToggleState);
-	}
 };

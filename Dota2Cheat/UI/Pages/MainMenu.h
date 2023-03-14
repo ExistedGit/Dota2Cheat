@@ -90,6 +90,7 @@ namespace Pages {
 			//	ImGui::Checkbox("Show a circle under the hero when visible", &Config::VBEShowParticle);
 			//	ImGui::TreePop();
 			//}
+
 			if (ImGui::TreeNode("AbilityESP")) {
 				ImGui::Checkbox("Enable", &Config::AbilityESP::Enabled);
 				ImGui::Checkbox("Include allied heroes", &Config::AbilityESP::ShowAllies);

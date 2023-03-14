@@ -32,6 +32,8 @@ ParticleWrapper CDOTAParticleManager::CreateParticle(const char* name, ParticleA
 	result.particle = GetParticleArray()[GetParticleCount() - 1]->GetParticle();
 	result.handle = h;
 
+	particles.push_back(result);
+
 	return result;
 }
 
@@ -40,7 +42,16 @@ void CDOTAParticleManager::DestroyParticle(uint32_t handle) {
 }
 
 void CDOTAParticleManager::DestroyParticle(ParticleWrapper& particleWrap) {
+	if (!HVALID(particleWrap.handle))
+		return;
 	DestroyParticleFunc(this, particleWrap.handle, 1);
 	particleWrap.Invalidate();
+}
+
+void CDOTAParticleManager::OnExitMatch() {
+	for (auto& pw : particles)
+		DestroyParticle(pw);
+
+	particles.clear();
 }
 
