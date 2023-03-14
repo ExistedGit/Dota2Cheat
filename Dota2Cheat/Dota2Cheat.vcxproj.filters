@@ -234,6 +234,9 @@
     <ClCompile Include="Config.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="MatchStateHandling.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h">

@@ -188,6 +188,7 @@
     <ClCompile Include="Hooks\ParticleRendering.cpp" />
     <ClCompile Include="Hooks\PrepareUnitOrders.cpp" />
     <ClCompile Include="Hooks\RunFrame.cpp" />
+    <ClCompile Include="MatchStateHandling.cpp" />
     <ClCompile Include="Modules\Hacks\AutoBuyTome.cpp" />
     <ClCompile Include="Modules\Hacks\AutoDodge.cpp" />
     <ClCompile Include="Modules\Hacks\AutoPick.cpp" />

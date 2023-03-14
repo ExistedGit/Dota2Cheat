@@ -2,7 +2,7 @@
 #include <format>
 
 void ESP::AbilityESP::SubscribeHeroes() {
-
+	// Clean up anything unneeded
 	for (auto it = EnemyAbilities.begin(); it != EnemyAbilities.end(); )
 	{
 		if (!ctx.heroes.count((*it).first))
@@ -10,13 +10,14 @@ void ESP::AbilityESP::SubscribeHeroes() {
 		else ++it;
 	}
 	for (auto& hero : ctx.heroes) {
-		if (hero == ctx.assignedHero || hero->GetIdentity()->IsDormant() || hero->IsIllusion() || EnemyAbilities.count(hero))
+		if (!CanDraw(hero) 
+			|| EnemyAbilities.count(hero))
 			continue;
 
 		EnemyAbilities[hero].reserve(6);
 		for (int i = 0; i < 6; ++i)
 			EnemyAbilities[hero].push_back(AbilityData());
-
+		EnemyItems[hero] = HeroItemData();
 	}
 	Initialized = true;
 }
@@ -24,55 +25,39 @@ void ESP::AbilityESP::SubscribeHeroes() {
 void ESP::AbilityESP::Reset() {
 	Initialized = false;
 	EnemyAbilities.clear();
+	EnemyItems.clear();
 }
 
-void ESP::AbilityESP::UpdateAbilities() {
+void ESP::AbilityESP::UpdateHeroData() {
 	SubscribeHeroes();
 	for (auto& hero : ctx.heroes) {
-		if (!EnemyAbilities.count(hero))
-			continue;
-		auto heroAbilities = hero->GetAbilities();
-		if (heroAbilities.empty())
-			continue;
+		if (EnemyAbilities.count(hero))
+			UpdateAbilities(hero);
 
-		for (int i = 0; i < 6; ++i) {
-			auto ability = heroAbilities[i];
-			auto& abilities = EnemyAbilities[hero];
-
-			if (abilities[i].ability == ability)
-				continue;
-
-			if (ability->IsHidden())
-				continue;
-			auto abilityName = ability->GetIdentity()->GetName();
-			if (!abilityName)
-				return;
-			auto iconPath = ctx.cheatFolderPath+ "\\assets\\spellicons\\" + abilityName + "_png.png";
-			auto& data = abilities[i] = AbilityData{
-				.ability = ability,
-				.lastActiveTime = GameSystems::GameRules->GetGameTime(),
-				.lastActiveCooldown = ability->GetCooldown(),
-				.currentCooldown = ability->GetCooldown()
-			};
-			LoadTexture(iconPath.c_str(), data.icon);
-		}
+		if (EnemyItems.count(hero))
+			UpdateItems(hero);
 	}
 }
 
+bool ESP::AbilityESP::CanDraw(CDOTABaseNPC_Hero* hero) {
+	bool ret = hero
+		&& !hero->GetIdentity()->IsDormant()
+		&& !hero->IsIllusion()
+		&& hero != ctx.assignedHero && hero->GetLifeState() == 0;
+	if (!Config::AbilityESP::ShowAllies)
+		// I wish they made &&= an operator
+		ret = ret && hero->GetTeam() != ctx.assignedHero->GetTeam();
+	return ret;
+}
+
 void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
-	float iconSize = ScaleVar(DefaultIconSize);
+	float iconSize = ScaleVar(AbilityIconSize);
 	int outlineThickness = 2;
 	int manaBarThickness = 18;
 	int levelCounterHeight = 8;
 
 	for (auto& [hero, abilities] : EnemyAbilities) {
-		if (!hero || hero->GetIdentity()->IsDormant() || hero->IsIllusion() || hero == ctx.assignedHero)
-			continue;
-      
-		if (!Config::AbilityESP::ShowAllies && hero->GetTeam() == ctx.assignedHero->GetTeam())
-			continue;
-      
-		if (hero->GetLifeState() != 0)
+		if (!CanDraw(hero))
 			continue;
 
 		int abilityCount = 0;
@@ -128,6 +113,7 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 		);
 
 		for (auto& data : abilities) {
+			// Top-Left and Bottom-Right points of ability icon
 			ImVec2 imgXY1, imgXY2;
 			int centeringOffset = -outlineThickness + iconSize / 2;
 			{
@@ -150,17 +136,17 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 					ImGui::ColorConvertFloat4ToU32(ImVec4(0x3 / 255.0f, 0xAC / 255.0f, 0x13 / 255.0f, 1)));
 
 			DrawList->AddImage(data.icon.glTex, imgXY1, imgXY2);
-			
-
 
 			if (data.ability->GetLevel() == 0)
 				// Darkens the picture
 				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::ColorConvertFloat4ToU32(ImVec4(0, 0, 0, 0.5)));
 
-			if (data.ability->GetCooldown() != 0 ||
-				(data.ability->GetCharges() == 0 &&
-				data.ability->GetChargeRestoreCooldown() > 0)) {
-				auto cd = data.ability->GetCooldown() 
+			if (
+				data.ability->GetCooldown() != 0 || // if on cooldown
+				(data.ability->GetCharges() == 0 && // or has 0 charges and a charge cooldown
+					data.ability->GetChargeRestoreCooldown() > 0)
+				) {
+				auto cd = data.ability->GetCooldown()
 					? data.ability->GetCooldown()
 					: data.ability->GetChargeRestoreCooldown();
 
@@ -168,7 +154,7 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 				// Darkens the picture
 				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::ColorConvertFloat4ToU32(ImVec4(0, 0, 0, 0.5)));
 				if (data.ability->GetCooldown() >= 100)
-					cdFontSize = ScaleVar < int>(12);
+					cdFontSize = ScaleVar(12);
 				// Draws the cooldown
 				DrawTextForeground(textFont,
 					std::format("{:.1f}", cd),
@@ -215,12 +201,39 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 	}
 }
 
+void ESP::AbilityESP::DrawItems(ImFont* textFont) {
+	for (auto& [hero, data] : EnemyItems) {
+		if (!CanDraw(hero))
+			continue;
+
+		int abilityCount = 0;
+		auto DrawList = ImGui::GetForegroundDrawList();
+		auto drawPos = hero->GetPos();
+		int x, y;
+		Signatures::WorldToScreen(&drawPos, &x, &y, nullptr);
+		x += ScaleVar(40);
+		y += 30 - AbilityIconSize / 2 - ScaleVar(64 / 2) * 2;
+
+		DrawRect(
+			ImVec2(x, y),
+			ImVec2(ScaleVar(88 / 2) * 3, ScaleVar(64 / 2) * 2), // dimensions of item icons
+			ImVec4(0.2, 0.2, 0.2, 1.0f)
+		);
+	}
+}
+
 void ESP::AbilityESP::DrawESP(ImFont* textFont) {
 	if (!Initialized || !Config::AbilityESP::Enabled)
 		return;
 
-	UpdateAbilities();
+	for (auto& [path, data] : loadingQueue)
+		LoadTexture(path.c_str(), *data);
+	
+
+	loadingQueue.clear();
+
 	DrawAbilities(textFont);
+	//DrawItems(textFont);
 }
 
 void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, ImFont* font, ImVec2 pos) {
@@ -231,11 +244,12 @@ void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, ImFont* font, 
 void ESP::AbilityESP::DrawChargeCounter(CDOTABaseAbility* ability, ImFont* font, ImVec2 pos, int radius) {
 	if (ability->GetCharges() == 0 &&
 		ability->GetChargeRestoreCooldown() <= 0)
-		return; 
-
+		return;
 	auto DrawList = ImGui::GetForegroundDrawList();
 
-	DrawList->AddCircleFilled(pos, radius + ScaleVar(2), ImGui::GetColorU32(ImVec4(0x3 / 255.0f, 0xAC / 255.0f, 0x13 / 255.0f, 1)));
+	// Green outline
+	DrawList->AddCircleFilled(pos, radius + ScaleVar(2), ImGui::GetColorU32(ImVec4(135 / 255.0f, 214 / 255.0f, 77 / 255.0f, 1)));
+	// Gray core
 	DrawList->AddCircleFilled(pos, radius, ImGui::GetColorU32(ImVec4(0.2, 0.2, 0.2, 1)));
 
 	DrawTextForeground(
@@ -245,4 +259,81 @@ void ESP::AbilityESP::DrawChargeCounter(CDOTABaseAbility* ability, ImFont* font,
 		ScaleVar(12),
 		Color(255, 255, 255, 255),
 		true);
+}
+
+void ESP::AbilityESP::UpdateAbilities(CDOTABaseNPC_Hero* hero) {
+	auto heroAbilities = hero->GetAbilities();
+	if (heroAbilities.empty())
+		return;
+
+	for (int i = 0; i < 6; ++i) {
+		auto ability = heroAbilities[i];
+		auto& heroAbilities = EnemyAbilities[hero];
+
+		if (heroAbilities[i].ability == ability)
+			continue;
+
+		// If the ability disappears - like if Aghanim's Scepter is dropped
+		if (ability->IsHidden()) {
+			heroAbilities[i] = AbilityData();
+			continue;
+		}
+
+
+		auto abilityName = ability->GetIdentity()->GetName();
+		if (!abilityName)
+			return;
+		auto iconPath = ctx.cheatFolderPath + "\\assets\\spellicons\\" + abilityName + "_png.png";
+		auto& data = heroAbilities[i] = AbilityData{
+			.ability = ability,
+			.lastActiveTime = GameSystems::GameRules->GetGameTime(),
+			.lastActiveCooldown = ability->GetCooldown(),
+			.currentCooldown = ability->GetCooldown()
+		};
+		loadingQueue[iconPath] = &data.icon;
+	}
+
+}
+
+void ESP::AbilityESP::UpdateItems(CDOTABaseNPC_Hero* hero) {
+	auto heroItems = hero->GetInventory()->GetItems();
+	for (int i = 0; i < heroItems.size(); i++) {
+		if (!HVALID(heroItems[i]))
+			continue;
+		auto item = Interfaces::EntitySystem->GetEntity<CDOTAItem>(H2IDX(heroItems[i]));
+		if (!item->GetIdentity()->GetName())
+			continue;
+		auto& entry = EnemyItems[hero];
+
+		// Main 6 items
+		if (i <= 6 && entry.mainItems[i].ability == item)
+			return;
+		// Stash
+		else if (i <= 9 && entry.stash[i].ability == item)
+			return;
+		// TP slot
+		else if (i == 14 && entry.tp.ability == item)
+			return;
+		// Neutral slot
+		else if (i == 15 && entry.neutral.ability == item)
+			return;
+
+		//auto iconPath = ctx.cheatFolderPath + "\\assets\\items\\" + item->GetIdentity()->GetName() + "_png.png";
+		//auto data = AbilityData{
+		//	.ability = item,
+		//	.lastActiveTime = GameSystems::GameRules->GetGameTime(),
+		//	.lastActiveCooldown = item->GetCooldown(),
+		//	.currentCooldown = item->GetCooldown()
+		//};
+		//loadingQueue[iconPath] = &data.icon;
+
+		if (i <= 6)
+			entry.mainItems[i].ability = item;
+		else if (i <= 9)
+			entry.stash[i].ability = item;
+		else if (i == 14)
+			entry.tp.ability = item;
+		else if (i == 15)
+			entry.neutral.ability = item;
+	}
 }
