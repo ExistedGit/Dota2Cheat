@@ -25,6 +25,8 @@ int main() {
 		auto cheatFolderPath = userFolderPath + "\\Documents\\Dota2Cheat";
 		fs::create_directories(cheatFolderPath + "\\assets\\spellicons\\");
 		fs::create_directories(cheatFolderPath + "\\scripts\\");
+		fs::create_directories(cheatFolderPath + "\\config\\");
+
 		
 		fs::copy(curDir + "\\..\\..\\assets", cheatFolderPath + R"(\assets\)", fs::copy_options::recursive | fs::copy_options::skip_existing);
 		

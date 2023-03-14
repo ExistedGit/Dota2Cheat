@@ -51,6 +51,7 @@ template<typename T>
 T CDOTABaseAbility::GetLevelSpecialValueFor(const char* valName, int level) {
 	auto entry = GetKVEntry(this, valName);
 
+	// Clamping the level value
 	if (level < 0)
 		level = GetLevel();
 	if (level > entry->GetValuesSize() - 1)

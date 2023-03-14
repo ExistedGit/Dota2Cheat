@@ -47,7 +47,7 @@ void ESP::AbilityESP::UpdateAbilities() {
 			auto abilityName = ability->GetIdentity()->GetName();
 			if (!abilityName)
 				return;
-			auto iconPath = assetsPath + "\\spellicons\\" + abilityName + "_png.png";
+			auto iconPath = ctx.cheatFolderPath+ "\\assets\\spellicons\\" + abilityName + "_png.png";
 			auto& data = abilities[i] = AbilityData{
 				.ability = ability,
 				.lastActiveTime = GameSystems::GameRules->GetGameTime(),
@@ -68,8 +68,10 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 	for (auto& [hero, abilities] : EnemyAbilities) {
 		if (!hero || hero->GetIdentity()->IsDormant() || hero->IsIllusion() || hero == ctx.assignedHero)
 			continue;
-		if (!Config::AbilityESPShowAllies && hero->GetTeam() == ctx.assignedHero->GetTeam())
+      
+		if (!Config::AbilityESP::ShowAllies && hero->GetTeam() == ctx.assignedHero->GetTeam())
 			continue;
+      
 		if (hero->GetLifeState() != 0)
 			continue;
 
@@ -214,7 +216,7 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 }
 
 void ESP::AbilityESP::DrawESP(ImFont* textFont) {
-	if (!Initialized || !Config::AbilityESPEnabled)
+	if (!Initialized || !Config::AbilityESP::Enabled)
 		return;
 
 	UpdateAbilities();

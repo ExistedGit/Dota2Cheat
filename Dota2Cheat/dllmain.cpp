@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #define STB_IMAGE_IMPLEMENTATION
 #include <cstdio>
 #include <iostream>
@@ -38,6 +38,7 @@ static inline void glfw_error_callback(int error, const char* description)
 	fprintf(stderr, "Glfw Error %d: %s\n", error, description);
 }
 
+
 uintptr_t WINAPI HackThread(HMODULE hModule) {
 	// Initialize MinHook.
 	if (MH_Initialize() != MH_OK)
@@ -46,7 +47,20 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	AllocConsole();
 	FILE* f;
 	freopen_s(&f, "CONOUT$", "w", stdout);
+	Config::cfg.SetupVars();
 
+	{
+		char buf[256];
+		SHGetSpecialFolderPathA(0, buf, CSIDL_PROFILE, false);
+		ctx.cheatFolderPath = buf;
+		ctx.cheatFolderPath += "\\Documents\\Dota2Cheat";
+
+		std::ifstream fin(ctx.cheatFolderPath + "\\config\\base.json");
+		if (fin.is_open()) {
+			Config::cfg.LoadConfig(fin);
+			fin.close();
+		}
+	}
 	ctx.CurProcId = GetCurrentProcessId();
 	ctx.CurProcHandle = OpenProcess(PROCESS_ALL_ACCESS, TRUE, ctx.CurProcId);
 
@@ -119,6 +133,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
+
+	//auto vbeFont = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
+	auto msTrebuchet = io.Fonts->AddFontDefault();
+
 	auto msTrebuchet = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
 	auto defaultFont = io.Fonts->AddFontDefault();
 	bool menuVisible = false;
@@ -137,8 +155,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		if (menuVisible)
 			Pages::MainMenu::Display(window);
 
+		Modules::AbilityESP.FrameBasedLogic(defaultFont);
 		Modules::AbilityESP.DrawESP(msTrebuchet);
-		
 
 		if (IsKeyPressed(VK_INSERT)) {
 			glfwSetWindowAttrib(window, GLFW_MOUSE_PASSTHROUGH, menuVisible);
@@ -159,6 +177,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 		CheckMatchState(); // checking every frame
 	}
+
+	std::ofstream fout(ctx.cheatFolderPath + "\\config\\base.json");
+	Config::cfg.SaveConfig(fout);
+	fout.close();
 
 	// Cleanup
 	ImGui_ImplOpenGL3_Shutdown();

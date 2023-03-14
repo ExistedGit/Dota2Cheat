@@ -1,7 +1,8 @@
+#include "../../SDK/pch.h"
 #include "AutoDodge.h"
 
 void Hacks::AutoDodge::FrameBasedLogic() {
-	if (!Config::AutoDodge)
+	if (!Config::AutoDodge::Enabled)
 		return;
 
 	for (auto& proj : GameSystems::ProjectileManager->GetTrackingProjectiles()) {
@@ -18,9 +19,11 @@ void Hacks::AutoDodge::FrameBasedLogic() {
 
 		//if (counterspell && counterspell->GetCooldown() == 0)
 		//	useTime = 1.2f;
+		
 
-		if (!IsWithinRadius(proj->PredictPos(0.03f), target->GetPos(), target->GetHullRadius()))
+		if (!IsWithinRadius(proj->PredictPos(0.05f), target->GetPos(), 24.0f /*target->GetHullRadius()*/))
 			continue;
+
 
 		auto usedItem = ctx.importantItems.bottle ? ctx.importantItems.bottle : ctx.importantItems.manta;
 		//if (counterspell && counterspell->GetCooldown() == 0)

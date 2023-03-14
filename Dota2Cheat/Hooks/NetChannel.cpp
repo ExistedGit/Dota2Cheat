@@ -1,10 +1,10 @@
 #include "NetChannel.h"
+#include "../Modules/Utility/AttackAnimTracker.h"
 
 bool Hooks::hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandler* handler, google::protobuf::Message* responseMsg, unsigned int respMsgID) {
 #ifdef _DEBUG
 	std::cout << "GCClient Send: " << std::dec << EDOTAGCMsg2String(protobufMsg->msgID) << '\n';
 #endif // _DEBUG
-#include "../Modules/Utility/AttackAnimTracker.h"
 	return oBAsyncSendProto(protobufMsg, handler, responseMsg, respMsgID);
 }
 

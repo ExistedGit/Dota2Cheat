@@ -231,6 +231,9 @@
     <ClCompile Include="SDK\Entities\CDOTAPlayerController.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h">
@@ -552,6 +555,9 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="Modules\Utility\AttackAnimTracker.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="json.hpp">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>

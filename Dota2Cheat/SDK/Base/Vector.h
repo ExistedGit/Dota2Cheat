@@ -607,7 +607,9 @@ public:
 			y > -tolerance && y < tolerance);
 	}
 
-	float	Normalize();
+	Vector2D Normalize() {
+		return (*this) / Length();
+	};
 
 	// Normalize in place and return the old length.
 	float	NormalizeInPlace();
