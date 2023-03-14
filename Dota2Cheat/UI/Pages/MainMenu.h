@@ -91,14 +91,14 @@ namespace Pages {
 			//	ImGui::TreePop();
 			//}
 			if (ImGui::TreeNode("AbilityESP")) {
-				ImGui::Checkbox("Enable", &Config::AbilityESPEnabled);
-				ImGui::Checkbox("Include allied heroes", &Config::AbilityESPShowAllies);
-				ImGui::SliderFloat("Icon scale", &Config::AbilityESPIconScale, 0.75f, 2.0f, "%.1f");
+				ImGui::Checkbox("Enable", &Config::AbilityESP::Enabled);
+				ImGui::Checkbox("Include allied heroes", &Config::AbilityESP::ShowAllies);
+				ImGui::SliderFloat("Icon scale", &Config::AbilityESP::UIScale, 0.75f, 2.0f, "%.1f");
 				ImGui::TreePop();
 			}
 			if (ImGui::TreeNode("Illusion coloring")) {
-				ImGui::Checkbox("Enable", &Config::IllusionColoring);
-				ImGui::ColorEdit3("Color", &Config::IllusionColor.x);
+				ImGui::Checkbox("Enable", &Config::IllusionColoring::Enabled);
+				ImGui::ColorEdit3("Color", &Config::IllusionColoring::Color.x);
 				ImGui::TreePop();
 			}
 			if (ImGui::TreeNode("Show enemy spells")) {
@@ -123,7 +123,7 @@ namespace Pages {
 
 				ImGui::TreePop();
 			}
-			ImGui::Checkbox("AutoDodge", &Config::AutoDodge);
+			ImGui::Checkbox("AutoDodge", &Config::AutoDodge::Enabled);
 			ImGui::SameLine(); HelpMarker("Can use Manta Style, Bottled Illusion Rune and Naga's Mirror Image");
 
 

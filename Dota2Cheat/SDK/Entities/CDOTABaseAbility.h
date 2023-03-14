@@ -46,3 +46,18 @@ public:
 		return Member<bool>(Netvars::C_DOTABaseAbility::m_bHidden);
 	}
 };
+
+// Rebuilt by analyzing GetLevelSpecialValueFor logic
+template<typename T>
+T CDOTABaseAbility::GetLevelSpecialValueFor(const char* valName, int level) {
+	auto entry = GetKVEntry(this, valName);
+
+	// Clamping th 
+	if (level < 0)
+		level = GetLevel();
+	if (level > entry->GetValuesSize() - 1)
+		level = entry->GetValuesSize();
+
+	auto values = entry->GetValues();
+	return (T)values[level - 1];
+}

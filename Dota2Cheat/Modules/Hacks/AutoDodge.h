@@ -1,12 +1,5 @@
 #pragma once
-
-namespace Config {
-#ifdef _DEBUG
-	inline bool AutoDodge = true;
-#else
-	inline bool AutoDodge = false;
-#endif // _DEBUG
-}
+#include "../../Config.h"
 
 namespace Hacks {
 	class AutoDodge {

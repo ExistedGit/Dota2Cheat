@@ -11,6 +11,23 @@ int main() {
 	const vector<string> injectPaths{
 		curDir + "\\Dota2Cheat.dll"
 	};
+	{
+		std::string userFolderPath;
+		{
+			char buf[256];
+			SHGetSpecialFolderPathA(0, buf, CSIDL_PROFILE, false);
+			userFolderPath = buf;
+		}
+		cout << "Updating assets...\n";
+		auto cheatFolderPath = userFolderPath + "\\Documents\\Dota2Cheat";
+		fs::create_directories(cheatFolderPath + "\\assets\\spellicons\\");
+		fs::create_directories(cheatFolderPath + "\\scripts\\");
+		fs::create_directories(cheatFolderPath + "\\config\\");
+		
+		fs::copy(curDir + "\\..\\..\\assets", cheatFolderPath + R"(\assets\)", fs::copy_options::recursive | fs::copy_options::skip_existing);
+		
+		cout << "Successfully updated assets in " << cheatFolderPath << '\n';
+	}
 	auto handle = FindWindow(nullptr, L"Dota 2");
 	if (!handle) {
 		cout << "Dota 2 is not running!";

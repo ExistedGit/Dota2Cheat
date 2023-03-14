@@ -180,6 +180,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Config.cpp" />
     <ClCompile Include="HookHelper.cpp" />
     <ClCompile Include="Hooks\EntitySystemEvents.cpp" />
     <ClCompile Include="Hooks\ModifierEvents.cpp" />
@@ -240,7 +241,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include.h" />
-    <ClInclude Include="Modules\Utility\AbilityCooldownTracking.h" />
+    <ClInclude Include="json.hpp" />
+    <ClInclude Include="Modules\Hacks\AbilityESP.h" />
     <ClInclude Include="Modules\Hacks\AegisAutoPickup.h" />
     <ClInclude Include="Modules\Hacks\ArmletAbuse.h" />
     <ClInclude Include="Modules\Utility\AttackTargetFinder.h" />

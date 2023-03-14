@@ -1,6 +1,7 @@
 #pragma once
 #include <Windows.h>
 #include <set>
+#include <string>
 #include <sol/sol.hpp>
 
 class CBaseEntity;
@@ -24,11 +25,11 @@ struct Context {
 	};
 	GameStage gameStage = GameStage::NONE;
 
-	std::set<CDOTAItemRune*> runes{};
-	std::set<CBaseEntity*> entities{};
-	std::set<CDOTAPlayerController*> players{};
-	std::set<CBaseEntity*> physicalItems{};
-	std::set<CDOTABaseNPC_Hero*> heroes{};
+	std::set<CDOTAItemRune*> runes;
+	std::set<CBaseEntity*> entities;
+	std::set<CDOTAPlayerController*> players;
+	std::set<CBaseEntity*> physicalItems;
+	std::set<CDOTABaseNPC_Hero*> heroes;
 
 	struct ImportantItems {
 		CDOTAItem
@@ -39,6 +40,8 @@ struct Context {
 			*power_treads{},
 			*vambrace;
 	} importantItems{};
+
+	std::string cheatFolderPath;
 	sol::state lua{};
 };
 

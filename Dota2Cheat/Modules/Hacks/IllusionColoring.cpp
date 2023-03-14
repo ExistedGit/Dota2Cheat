@@ -1,7 +1,7 @@
 #include "IllusionColoring.h"
 
 bool Hacks::IllusionColoring::ColorIfIllusion(CBaseEntity* ent) {
-	if (!Config::IllusionColoring ||
+	if (!Config::IllusionColoring::Enabled ||
 		!ctx.heroes.count((CDOTABaseNPC_Hero*)ent))
 		return false;
 
@@ -12,7 +12,8 @@ bool Hacks::IllusionColoring::ColorIfIllusion(CBaseEntity* ent) {
 		hero->IsIllusion() &&
 		!strstr(className, "CDOTA_Unit_Hero_ArcWarden") //Arc's double is replicating his model but is not an illusion
 		) {
-		hero->SetColor(Color(Config::IllusionColor.x * 255, Config::IllusionColor.y * 255, Config::IllusionColor.z * 255));
+		auto c = Config::IllusionColoring::Color;
+		hero->SetColor(Color(c.x * 255, c.y * 255, c.z * 255));
 		return true;
 	}
 
