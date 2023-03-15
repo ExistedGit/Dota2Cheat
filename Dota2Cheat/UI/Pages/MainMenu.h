@@ -92,6 +92,7 @@ namespace Pages {
 			//}
 
 			if (ImGui::TreeNode("AbilityESP")) {
+				ImGui::Text("Hold [Alt] to switch from AbilityESP to ItemESP");
 				ImGui::Checkbox("Enable", &Config::AbilityESP::Enabled);
 				ImGui::Checkbox("Include allied heroes", &Config::AbilityESP::ShowAllies);
 				ImGui::SliderFloat("Icon scale", &Config::AbilityESP::UIScale, 0.75f, 2.0f, "%.1f");

@@ -32,8 +32,9 @@ namespace ESP {
 		bool CanDraw(CDOTABaseNPC_Hero* hero);;
 		void DrawAbilities(ImFont* textFont);
 		void DrawItems(ImFont* textFont);
+		void DrawItemCircle(ImFont* textFont, const AbilityData& data, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius);
 		void DrawLevelCounter(CDOTABaseAbility* ability, ImFont* font, ImVec2 pos);
-		void DrawChargeCounter(CDOTABaseAbility* ability, ImFont* font, ImVec2 pos, int radius);
+		void DrawChargeCounter(ImFont* textFont, int charges, ImVec2 pos, int radius);
 	public:
 		void UpdateAbilities(CDOTABaseNPC_Hero* hero);
 		void UpdateItems(CDOTABaseNPC_Hero* hero);

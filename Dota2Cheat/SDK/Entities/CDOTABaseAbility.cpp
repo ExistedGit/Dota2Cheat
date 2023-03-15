@@ -19,6 +19,6 @@ int CDOTABaseAbility::GetEffectiveCastRange() {
 }
 
 int CDOTABaseAbility::GetAOERadius() {
-	return GetKVValueFor<int>("radius", -1);
+	return GetLevelSpecialValueFor<int>("radius", -1);
 }
 

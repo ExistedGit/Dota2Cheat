@@ -20,8 +20,10 @@ void Signatures::FindSignatures(bool log) {
 
 	// UnknownCheats wiki -> Dota 2 -> link to Using engine functions
 	WorldToScreen = ssctx.Scan("56 57 41 56 48 83 EC 60 49 8B F0 4C 8B F2 48 8B F9 4D 85 C9", L"client.dll").Offset(-5);
+	// JS func
+	CDOTABaseAbility::GetLevelSpecialValueForFunc = ssctx.Scan("40 53 57 41 56 48 83 EC 40 41 8B F8 4C 8B F2", L"client.dll");
 	// Second call in JS func GetLevelSpecialValueFor
-	CDOTABaseAbility::GetKVEntry = ssctx.Scan("40 55 57 41 57 48 83 EC 20 48 8B 81 28 05 00 00 48 8B EA 48 8B F9", L"client.dll");
+	CDOTABaseAbility::GetKVEntry = Address(CDOTABaseAbility::GetLevelSpecialValueForFunc).GetAbsoluteAddress(0x33, 1, 5);
 
 	//xref: "You are #%d in line of %d waiting players.\n"
 	DispatchPacket = ssctx.Scan("74 05 48 8B 01 FF 10 48 8B 06 48 8B CE 48 89 BC 24 80 00 00 00", L"client.dll").Offset(-0x1B);

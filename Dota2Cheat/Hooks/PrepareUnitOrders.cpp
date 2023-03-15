@@ -115,7 +115,7 @@ void Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t o
 
 				double anyBonus = 0;
 				for (auto& bonus : bonusTypes) {
-					anyBonus = item->GetKVValueFor(bonus, -1);
+					anyBonus = item->GetLevelSpecialValueFor(bonus, -1);
 					if (anyBonus > 0)
 						break;
 				}

@@ -86,9 +86,6 @@ void EnteredInGame() {
 
 	//FillPlayerList();
 
-	Modules::ShakerAttackAnimFix.SubscribeEntity(ctx.assignedHero);
-	Modules::AutoBuyTome.Init();
-	Modules::AbilityESP.SubscribeHeroes();
 
 	std::cout << "Local Player: " << ctx.localPlayer
 		<< "\n\t" << std::dec << "STEAM ID: " << ctx.localPlayer->GetSteamID()
@@ -110,6 +107,10 @@ void EnteredInGame() {
 	ctx.lua["localPlayer"] = ctx.localPlayer;
 
 	ReinjectEntIteration();
+
+	Modules::ShakerAttackAnimFix.SubscribeEntity(ctx.assignedHero);
+	Modules::AutoBuyTome.Init();
+	Modules::AbilityESP.SubscribeHeroes();
 
 	ctx.gameStage = Context::GameStage::IN_GAME;
 	std::cout << "ENTERED GAME\n";

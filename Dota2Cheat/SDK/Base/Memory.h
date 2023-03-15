@@ -15,7 +15,7 @@ public:
 	{
 		return (T)ptr;
 	}
-	
+
 	Address Offset(int offset) {
 		return Address(ptr + offset);
 	}
@@ -40,7 +40,7 @@ public:
 
 class SigScanContext {
 	//Split combo pattern into mask/pattern
-	void ParseCombo(const char* combo, char* pattern, char* mask)
+	void ParseCombo(const char* combo, std::string& pattern, std::string& mask)
 	{
 		unsigned int patternLen = (strlen(combo) + 1) / 3;
 		int index = 0;
@@ -53,20 +53,20 @@ class SigScanContext {
 
 			else if (combo[i] == '?')
 			{
-				mask[index] = '?';
-				pattern[index++] = '\x00';
+				mask += '?';
+				pattern += '\x00';
 				i += 1;
 			}
 			else
 			{
 				char byte = (char)strtol(&combo[i], 0, 16);
-				pattern[index] = byte;
-				mask[index++] = 'x';
+				pattern += byte;
+				mask += 'x';
 				i += 2;
 			}
 		}
-		pattern[index] = '\0';
-		mask[index] = '\0';
+		//pattern += '\0';
+		//mask = '\0';
 	}
 public:
 	HANDLE procHandle;
@@ -77,13 +77,15 @@ public:
 	}
 
 	Address Scan(const std::string& signature, const wchar_t* moduleName) {
-		int maskLength = (signature.length() + 1) / 3;
-		char* pattern = new char[maskLength],
-			* mask = new char[maskLength];
+		int maskLength = (signature.length() + 1) / 3 + 1;
+		std::string pattern, mask;
+		pattern.reserve(maskLength);
+		mask.reserve(maskLength);
 
 		ParseCombo(signature.c_str(), pattern, mask);
 
-		return Address(PatternScanExModule(procHandle, pid, moduleName, pattern, mask));
+		Address result(PatternScanExModule(procHandle, pid, moduleName, pattern.c_str(), mask.c_str()));
+		return result;
 	}
 };
 

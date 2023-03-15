@@ -10,8 +10,7 @@ enum class ItemStat_t {
 
 class CDOTAItem : public CDOTABaseAbility {
 public:
+	GETTER(int, GetCurrentCharges, Netvars::C_DOTA_Item::m_iCurrentCharges);
 	// For PT and Vambrace
-	ItemStat_t GetItemStat() {
-		return Member<ItemStat_t>(0x670);
-	}
+	GETTER(ItemStat_t, GetItemStat, 0x670);
 };
