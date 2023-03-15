@@ -15,21 +15,30 @@ namespace ESP {
 			float currentCooldown{};
 		};
 
+		std::map<std::string, TextureData*> loadingQueue;
+
 		// Scales a value according to the config parameter
 		template<typename T = int>
 		T ScaleVar(auto val) {
 			return (T)(val * Config::AbilityESP::UIScale);
 		}
 
-		int DefaultIconSize = 40;
+		int AbilityIconSize = 40;
 		bool Initialized = false;
 		static inline std::map<CDOTABaseNPC_Hero*, std::vector<AbilityData>> EnemyAbilities{};
+		// For each hero there's a map of slot indexes to ability data(for items tho, but they're abilities too)
+		static inline std::map<CDOTABaseNPC_Hero*, std::map<int, AbilityData>> EnemyItems{};
 
+		bool CanDraw(CDOTABaseNPC_Hero* hero);;
 		void DrawAbilities(ImFont* textFont);
+		void DrawItems(ImFont* textFont);
+		void DrawItemCircle(ImFont* textFont, const AbilityData& data, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius);
 		void DrawLevelCounter(CDOTABaseAbility* ability, ImFont* font, ImVec2 pos);
-		void DrawChargeCounter(CDOTABaseAbility* ability, ImFont* font, ImVec2 pos, int radius);
+		void DrawChargeCounter(ImFont* textFont, int charges, ImVec2 pos, int radius);
 	public:
-		void UpdateAbilities();
+		void UpdateAbilities(CDOTABaseNPC_Hero* hero);
+		void UpdateItems(CDOTABaseNPC_Hero* hero);
+		void UpdateHeroData();
 		void SubscribeHeroes();
 		void Reset();
 		void DrawESP(ImFont* textFont);

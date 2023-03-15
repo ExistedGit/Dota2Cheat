@@ -5,7 +5,7 @@
 
 int CDOTABaseAbility::GetCastRange() {
 	// Still using GetLevelSpecialValueFor because that has clearer usage
-	return GetLevelSpecialValueFor<int>("AbilityCastRange");
+	return GetKVValueFor<int>("AbilityCastRange");
 }
 
 // Goes right after GetCastRange ^

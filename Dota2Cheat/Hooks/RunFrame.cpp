@@ -100,6 +100,7 @@ void Hooks::hkRunFrame(u64 a, u64 b) {
 				AutoUseWandCheck(ctx.assignedHero, Config::AutoHealWandHPTreshold, Config::AutoHealWandMinCharges);
 				AutoUseFaerieFireCheck(ctx.assignedHero, Config::AutoHealFaerieFireHPTreshold);
 
+				Modules::AbilityESP.UpdateHeroData();
 				Modules::AutoPing.FrameBasedLogic();
 				Modules::AutoDodge.FrameBasedLogic();
 				Modules::AutoBuyTome.FrameBasedLogic();

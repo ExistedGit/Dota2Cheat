@@ -14,6 +14,13 @@ struct AbilityKVEntry : public NormalClass {
 
 class CDOTABaseAbility : public CBaseEntity {
 public:
+	typedef double(__fastcall* GetLevelSpecialValueForFn)(CDOTABaseAbility* thisptr, const char* value, int level, void* unk, bool noOverride, bool* result);
+	static inline GetLevelSpecialValueForFn GetLevelSpecialValueForFunc{};
+
+	template<typename T = double>
+	T GetLevelSpecialValueFor(const char* value, int level = -1) {
+		return (T)GetLevelSpecialValueForFunc(this, value, level, nullptr, 1, nullptr);
+	}
 	typedef AbilityKVEntry*(__fastcall* GetKVEntryFn)(CDOTABaseAbility* thisptr, const char* value);
 	static inline GetKVEntryFn GetKVEntry{};
 
@@ -36,11 +43,10 @@ public:
 	int GetCastRangeBonus();
 	
 	int GetEffectiveCastRange();
-	
+
 	// Rebuilt by analyzing GetLevelSpecialValueFor logic
-	// Rebuilt by analyzing GetLevelSpecialValueFor logic
-	template<typename T = double>
-	T GetLevelSpecialValueFor(const char* valName, int level = -1);
+	template<typename T = float>
+	T GetKVValueFor(const char* valName, int level = -1);
 	
 	int GetAOERadius();
 
@@ -48,7 +54,7 @@ public:
 
 // Rebuilt by analyzing GetLevelSpecialValueFor logic
 template<typename T>
-T CDOTABaseAbility::GetLevelSpecialValueFor(const char* valName, int level) {
+T CDOTABaseAbility::GetKVValueFor(const char* valName, int level) {
 	auto entry = GetKVEntry(this, valName);
 
 	// Clamping the level value

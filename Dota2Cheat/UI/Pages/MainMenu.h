@@ -34,7 +34,7 @@ namespace Pages {
 #ifdef _DEBUG
 			ImGui::Begin("Debug functions", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
 
-			
+
 			if (ImGui::Button("Log Entities")) {
 				LogEntities();
 			}
@@ -92,9 +92,12 @@ namespace Pages {
 			//}
 
 			if (ImGui::TreeNode("AbilityESP")) {
+				ImGui::Text("Hold [Alt] to switch from AbilityESP to ItemESP");
 				ImGui::Checkbox("Enable", &Config::AbilityESP::Enabled);
 				ImGui::Checkbox("Include allied heroes", &Config::AbilityESP::ShowAllies);
 				ImGui::SliderFloat("Icon scale", &Config::AbilityESP::UIScale, 0.75f, 2.0f, "%.1f");
+				ImGui::Checkbox("Crop stashed icons", &Config::AbilityESP::CropStashItems);
+				ImGui::SameLine(); HelpMarker("Stashed items will be displayed like in Dota itself");
 				ImGui::TreePop();
 			}
 			if (ImGui::TreeNode("Illusion coloring")) {
@@ -184,13 +187,13 @@ namespace Pages {
 
 
 #ifdef _DEBUG
-		//if (ctx.assignedHero) {
-		//	int x = 0, y = 0;
-		//	auto vec = ctx.assignedHero->GetForwardVector(500);
-		//	Signatures::Scripts::WorldToScreen(&vec, &x, &y, nullptr);
-		//	int size = 10;
-		//	DrawRect(window, ImVec2(x - size, y - size), ImVec2(size, size), ImVec4(1, 0, 0, 1));
-		//}
+			//if (ctx.assignedHero) {
+			//	int x = 0, y = 0;
+			//	auto vec = ctx.assignedHero->GetForwardVector(500);
+			//	Signatures::Scripts::WorldToScreen(&vec, &x, &y, nullptr);
+			//	int size = 10;
+			//	DrawRect(window, ImVec2(x - size, y - size), ImVec2(size, size), ImVec4(1, 0, 0, 1));
+			//}
 #endif // _DEBUG
 
 

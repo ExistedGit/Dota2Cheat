@@ -135,8 +135,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 
 	//auto vbeFont = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
-	auto msTrebuchet = io.Fonts->AddFontDefault();
-
 	auto msTrebuchet = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
 	auto defaultFont = io.Fonts->AddFontDefault();
 	bool menuVisible = false;
@@ -155,7 +153,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		if (menuVisible)
 			Pages::MainMenu::Display(window);
 
-		Modules::AbilityESP.FrameBasedLogic(defaultFont);
 		Modules::AbilityESP.DrawESP(msTrebuchet);
 
 		if (IsKeyPressed(VK_INSERT)) {
