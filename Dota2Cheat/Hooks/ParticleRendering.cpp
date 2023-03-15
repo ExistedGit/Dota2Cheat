@@ -10,8 +10,8 @@ void Hooks::hkSetRenderingEnabled(CParticleCollection* thisptr, bool state) {
 	oSetRenderingEnabled(thisptr, FakeState);
 }
 
-CParticleCollection* Hooks::hkCreateParticleCollection(CNewParticleEffect* thisptr, void* particleMgr, void* unk, void* query, bool bUnk, float fUnk, int particleIndex) {
-	CParticleCollection* Ret = oCreateParticleCollection(thisptr, particleMgr, unk, query, bUnk, fUnk, particleIndex);
+CParticleCollection* Hooks::hkCreateParticleCollection(CNewParticleEffect* thisptr, void* particleMgr, void* unk, void** query, int particleIndex) {
+	CParticleCollection* Ret = oCreateParticleCollection(thisptr, particleMgr, unk, query, particleIndex);
 
 	if (!SetRenderingEnabled) {
 		SetRenderingEnabled = getvfunc(thisptr->Member<VClass*>(0x20), 95).ptr;

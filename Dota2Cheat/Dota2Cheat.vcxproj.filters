@@ -54,10 +54,10 @@
     <ClCompile Include="SDK\pch.cpp">
       <Filter>Header files</Filter>
     </ClCompile>
-    <ClCompile Include="SDK\SigScan\patterscan.cpp">
+    <ClCompile Include="SDK\Base\SigScan\patterscan.cpp">
       <Filter>Header files\SigScan</Filter>
     </ClCompile>
-    <ClCompile Include="SDK\SigScan\proc.cpp">
+    <ClCompile Include="SDK\Base\SigScan\proc.cpp">
       <Filter>Header files\SigScan</Filter>
     </ClCompile>
     <ClCompile Include="include\imgui\imgui.cpp">
@@ -237,15 +237,24 @@
     <ClCompile Include="MatchStateHandling.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="SDK\Globals\GameSystems.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Globals\Signatures.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Globals\Interfaces.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\SigScan\patternscan.h">
+    <ClInclude Include="SDK\Base\SigScan\patternscan.h">
       <Filter>Header files\SigScan</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\SigScan\proc.h">
+    <ClInclude Include="SDK\Base\SigScan\proc.h">
       <Filter>Header files\SigScan</Filter>
     </ClInclude>
     <ClInclude Include="SDK\Globals\Signatures.h">

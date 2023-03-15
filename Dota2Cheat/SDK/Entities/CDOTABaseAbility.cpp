@@ -5,7 +5,7 @@
 
 int CDOTABaseAbility::GetCastRange() {
 	// Still using GetLevelSpecialValueFor because that has clearer usage
-	return GetLevelSpecialValueFor<int>("AbilityCastRange");
+	return GetKVValueFor<int>("AbilityCastRange");
 }
 
 // Goes right after GetCastRange ^
@@ -19,6 +19,6 @@ int CDOTABaseAbility::GetEffectiveCastRange() {
 }
 
 int CDOTABaseAbility::GetAOERadius() {
-	return GetLevelSpecialValueFor<int>("radius", -1);
+	return GetKVValueFor<int>("radius", -1);
 }
 

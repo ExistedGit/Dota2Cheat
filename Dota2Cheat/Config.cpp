@@ -53,6 +53,7 @@ void Config::ConfigManager::SetupVars() {
 
 	Config::cfg.AddVar(BOOL, &Config::AbilityESP::Enabled, true, "AbilityESP.Enabled");
 	Config::cfg.AddVar(FLOAT, &Config::AbilityESP::UIScale, 1.0f, "AbilityESP.UIScale");
+	Config::cfg.AddVar(BOOL, &Config::AbilityESP::CropStashItems, false, "AbilityESP.CropStashItems");
 
 	Config::cfg.AddVar(INT, &Config::CircleRadius, 1200, "Circles.Radius");
 	Config::cfg.AddVar(VECTOR, &Config::CircleRGB, { 0, 1, 0 }, "Circles.RGB");

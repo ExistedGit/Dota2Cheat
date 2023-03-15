@@ -84,7 +84,7 @@ void EnteredInGame() {
 		Hooks::CacheIfItemModifier(modifier); // for registering important items on reinjection
 
 
-	FillPlayerList();
+	//FillPlayerList();
 
 	Modules::ShakerAttackAnimFix.SubscribeEntity(ctx.assignedHero);
 	Modules::AutoBuyTome.Init();

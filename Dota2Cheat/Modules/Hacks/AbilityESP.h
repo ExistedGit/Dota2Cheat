@@ -15,21 +15,6 @@ namespace ESP {
 			float currentCooldown{};
 		};
 
-		struct HeroItemData {
-			std::vector<AbilityData> mainItems;
-			std::vector<AbilityData> stash;
-			AbilityData neutral{};
-			AbilityData tp{};
-			HeroItemData() {
-				mainItems.reserve(6);
-				stash.reserve(3);
-				for (int i = 0; i < 6; ++i)
-					mainItems.push_back(AbilityData());
-				for (int i = 0; i < 3; ++i)
-					stash.push_back(AbilityData());
-			}
-		};
-
 		std::map<std::string, TextureData*> loadingQueue;
 
 		// Scales a value according to the config parameter
@@ -41,7 +26,8 @@ namespace ESP {
 		int AbilityIconSize = 40;
 		bool Initialized = false;
 		static inline std::map<CDOTABaseNPC_Hero*, std::vector<AbilityData>> EnemyAbilities{};
-		static inline std::map<CDOTABaseNPC_Hero*, HeroItemData> EnemyItems{};
+		// For each hero there's a map of slot indexes to ability data(for items tho, but they're abilities too)
+		static inline std::map<CDOTABaseNPC_Hero*, std::map<int, AbilityData>> EnemyItems{};
 
 		bool CanDraw(CDOTABaseNPC_Hero* hero);;
 		void DrawAbilities(ImFont* textFont);

@@ -1,4 +1,5 @@
 #include "AbilityESP.h"
+#include "../../Input.h"
 #include <format>
 
 void ESP::AbilityESP::SubscribeHeroes() {
@@ -10,14 +11,17 @@ void ESP::AbilityESP::SubscribeHeroes() {
 		else ++it;
 	}
 	for (auto& hero : ctx.heroes) {
-		if (!CanDraw(hero) 
-			|| EnemyAbilities.count(hero))
+		if (!CanDraw(hero))
 			continue;
 
-		EnemyAbilities[hero].reserve(6);
-		for (int i = 0; i < 6; ++i)
-			EnemyAbilities[hero].push_back(AbilityData());
-		EnemyItems[hero] = HeroItemData();
+		if (!EnemyAbilities.count(hero)) {
+
+			EnemyAbilities[hero].reserve(6);
+			for (int i = 0; i < 6; ++i)
+				EnemyAbilities[hero].push_back(AbilityData());
+		}
+		if (!EnemyItems.count(hero))
+			EnemyItems[hero] = {};
 	}
 	Initialized = true;
 }
@@ -70,7 +74,7 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 
 		int x, y;
 		Signatures::WorldToScreen(&drawPos, &x, &y, nullptr);
-		x -= abilityCount * iconSize / 2;
+		x -= abilityCount * iconSize / 2.0f;
 		y += 30;
 
 		int idx = 0;
@@ -128,31 +132,31 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 				DrawList->AddRectFilled(
 					ImVec2(imgXY1.x - outlineThickness, imgXY1.y - outlineThickness),
 					ImVec2(imgXY2.x + outlineThickness, imgXY2.y + outlineThickness),
-					ImGui::ColorConvertFloat4ToU32(ImVec4(255.0f / 255, 191.0f / 255, 0, 1)));
+					ImGui::GetColorU32(ImVec4(255.0f / 255, 191.0f / 255, 0, 1)));
 			if (data.ability->IsToggled())
 				DrawList->AddRectFilled(
 					ImVec2(imgXY1.x - outlineThickness, imgXY1.y - outlineThickness),
 					ImVec2(imgXY2.x + outlineThickness, imgXY2.y + outlineThickness),
-					ImGui::ColorConvertFloat4ToU32(ImVec4(0x3 / 255.0f, 0xAC / 255.0f, 0x13 / 255.0f, 1)));
+					ImGui::GetColorU32(ImVec4(0x3 / 255.0f, 0xAC / 255.0f, 0x13 / 255.0f, 1)));
 
 			DrawList->AddImage(data.icon.glTex, imgXY1, imgXY2);
 
 			if (data.ability->GetLevel() == 0)
 				// Darkens the picture
-				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::ColorConvertFloat4ToU32(ImVec4(0, 0, 0, 0.5)));
+				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.5)));
 
 			if (
 				data.ability->GetCooldown() != 0 || // if on cooldown
 				(data.ability->GetCharges() == 0 && // or has 0 charges and a charge cooldown
 					data.ability->GetChargeRestoreCooldown() > 0)
 				) {
-				auto cd = data.ability->GetCooldown()
+				auto cd = data.ability->GetCooldown() // choosing either of these cooldonws, since they're mutually exclusive
 					? data.ability->GetCooldown()
 					: data.ability->GetChargeRestoreCooldown();
 
 				int cdFontSize = ScaleVar(14);
 				// Darkens the picture
-				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::ColorConvertFloat4ToU32(ImVec4(0, 0, 0, 0.5)));
+				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.5)));
 				if (data.ability->GetCooldown() >= 100)
 					cdFontSize = ScaleVar(12);
 				// Draws the cooldown
@@ -168,7 +172,7 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 			float channelTime = data.ability->Member<float>(Netvars::C_DOTABaseAbility::m_flChannelStartTime);
 			if (channelTime != 0) {
 				float indicatorHeight = ScaleVar(4);
-				auto channelLength = data.ability->GetLevelSpecialValueFor("AbilityChannelTime");
+				auto channelLength = data.ability->GetKVValueFor("AbilityChannelTime");
 				int fontSize = ScaleVar(18);
 				DrawTextForeground(textFont,
 					std::format("{:.1f}", channelLength - (GameSystems::GameRules->GetGameTime() - channelTime)),
@@ -179,15 +183,15 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 				float indicatorWidth = abs(imgXY2.x - imgXY1.x) * (1 - ((GameSystems::GameRules->GetGameTime() - channelTime) / channelLength));
 				DrawList->AddRectFilled(
 					ImVec2(imgXY1.x, imgXY1.y - indicatorHeight),
-					ImVec2(imgXY1.x + indicatorWidth, imgXY1.y), ImGui::ColorConvertFloat4ToU32(ImVec4(1, 1, 1, 1)));
+					ImVec2(imgXY1.x + indicatorWidth, imgXY1.y), ImGui::GetColorU32(ImVec4(1, 1, 1, 1)));
 			}
 			// If it's being cast
 			else if (data.ability->Member<bool>(Netvars::C_DOTABaseAbility::m_bInAbilityPhase)) {
-				auto castPoint = data.ability->GetLevelSpecialValueFor("AbilityCastPoint");
+				auto castPoint = data.ability->GetKVValueFor("AbilityCastPoint");
 				float castStartTime = data.ability->Member<float>(Netvars::C_DOTABaseAbility::m_flCastStartTime);
 				int fontSize = ScaleVar(18);
 				float indicatorWidth = abs(imgXY1.x - imgXY2.x) * ((GameSystems::GameRules->GetGameTime() - castStartTime) / castPoint);
-				DrawList->AddRectFilled(imgXY1, ImVec2(imgXY1.x + indicatorWidth, imgXY2.y), ImGui::ColorConvertFloat4ToU32(ImVec4(0, 1, 0, 0.5)));
+				DrawList->AddRectFilled(imgXY1, ImVec2(imgXY1.x + indicatorWidth, imgXY2.y), ImGui::GetColorU32(ImVec4(0, 1, 0, 0.5)));
 				DrawTextForeground(textFont,
 					std::format("{:.1f}", castPoint - (GameSystems::GameRules->GetGameTime() - castStartTime)),
 					ImVec2(imgXY1.x + centeringOffset, imgXY1.y - fontSize - 2),
@@ -202,23 +206,67 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 }
 
 void ESP::AbilityESP::DrawItems(ImFont* textFont) {
-	for (auto& [hero, data] : EnemyItems) {
+	for (auto& [hero, inv] : EnemyItems) {
 		if (!CanDraw(hero))
 			continue;
 
-		int abilityCount = 0;
+		const int row = 3, col = 3;
+
+		int gap =4;
 		auto DrawList = ImGui::GetForegroundDrawList();
 		auto drawPos = hero->GetPos();
+		// Scaled dimensions of item icons, half the size by default
+		ImVec2 iconSize = ImVec2(ScaleVar(88 / 2), ScaleVar(64 / 2));
 		int x, y;
 		Signatures::WorldToScreen(&drawPos, &x, &y, nullptr);
-		x += ScaleVar(40);
-		y += 30 - AbilityIconSize / 2 - ScaleVar(64 / 2) * 2;
+		y += 20;
 
+		float cropAmount = 0.2f;
+		auto panelXY1 = ImVec2(x - (iconSize.x + gap) * col / 2.0f, y);
+		auto panelSize = ImVec2((iconSize.x + gap) * col + gap, (iconSize.y + gap) * row + gap);
+		if (Config::AbilityESP::CropStashItems)
+			panelSize.y -= cropAmount * iconSize.y * 2;
+		// Background for the whole panel
 		DrawRect(
-			ImVec2(x, y),
-			ImVec2(ScaleVar(88 / 2) * 3, ScaleVar(64 / 2) * 2), // dimensions of item icons
+			panelXY1,
+			panelSize,
 			ImVec4(0.2, 0.2, 0.2, 1.0f)
 		);
+		for (auto& [slot, itemData] : inv) {
+			if (slot > 9)
+				continue;
+			bool stashSlot = slot > 5;
+			int curRow = slot / 3, curCol = slot % 3;
+			ImVec2 imgXY1{ panelXY1.x + gap + (iconSize.x + gap) * curCol, panelXY1.y + gap + (gap + iconSize.y) * curRow },
+				imgXY2 = ImVec2(imgXY1.x + iconSize.x, imgXY1.y + iconSize.y);
+
+			ImVec2 uvMin{ 0,0 }, uvMax{ 1,1 };
+			if (Config::AbilityESP::CropStashItems && stashSlot) {
+				uvMin.y += cropAmount;
+				uvMax.y -= cropAmount;
+				imgXY2.y -= cropAmount * iconSize.y * 2;
+			}
+			ImVec2 imgCenter = ImVec2((imgXY1.x + imgXY2.x) / 2, (imgXY1.y + imgXY2.y)/2);
+			// glTex not checked intentionally so it draws a black slot
+			DrawList->AddImage(itemData.icon.glTex, imgXY1, imgXY2, uvMin, uvMax);
+
+			bool darkIcon = false;
+			float cd = itemData.ability->GetCooldown();
+			if (stashSlot || cd != 0)
+				darkIcon = true;
+			
+			if (darkIcon)
+				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.5f)));
+			if (cd)
+				DrawTextForeground(
+					textFont,
+					std::format("{:.1f}", cd),
+					ImVec2(imgCenter.x, imgCenter.y - ScaleVar(12/2)),
+					ScaleVar<float>(12),
+					Color(255, 255, 255),
+					true);
+		}
+
 	}
 }
 
@@ -228,12 +276,15 @@ void ESP::AbilityESP::DrawESP(ImFont* textFont) {
 
 	for (auto& [path, data] : loadingQueue)
 		LoadTexture(path.c_str(), *data);
-	
+
 
 	loadingQueue.clear();
 
-	DrawAbilities(textFont);
-	//DrawItems(textFont);
+	// ALT key
+	if (!GetAsyncKeyState(164))
+		DrawAbilities(textFont);
+	else
+		DrawItems(textFont);
 }
 
 void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, ImFont* font, ImVec2 pos) {
@@ -297,43 +348,30 @@ void ESP::AbilityESP::UpdateAbilities(CDOTABaseNPC_Hero* hero) {
 
 void ESP::AbilityESP::UpdateItems(CDOTABaseNPC_Hero* hero) {
 	auto heroItems = hero->GetInventory()->GetItems();
-	for (int i = 0; i < heroItems.size(); i++) {
-		if (!HVALID(heroItems[i]))
+	for (int i = 0; i < heroItems.size(); ++i) {
+		auto& entry = EnemyItems[hero];
+		if (!HVALID(heroItems[i])) {
+			entry.erase(i);
 			continue;
+		}
+
+		if (entry[i].ability && entry[i].ability->GetIdentity() && entry[i].ability->GetHandle() == heroItems[i])
+			continue;
+
 		auto item = Interfaces::EntitySystem->GetEntity<CDOTAItem>(H2IDX(heroItems[i]));
 		if (!item->GetIdentity()->GetName())
 			continue;
-		auto& entry = EnemyItems[hero];
 
-		// Main 6 items
-		if (i <= 6 && entry.mainItems[i].ability == item)
-			return;
-		// Stash
-		else if (i <= 9 && entry.stash[i].ability == item)
-			return;
-		// TP slot
-		else if (i == 14 && entry.tp.ability == item)
-			return;
-		// Neutral slot
-		else if (i == 15 && entry.neutral.ability == item)
-			return;
-
-		//auto iconPath = ctx.cheatFolderPath + "\\assets\\items\\" + item->GetIdentity()->GetName() + "_png.png";
-		//auto data = AbilityData{
-		//	.ability = item,
-		//	.lastActiveTime = GameSystems::GameRules->GetGameTime(),
-		//	.lastActiveCooldown = item->GetCooldown(),
-		//	.currentCooldown = item->GetCooldown()
-		//};
-		//loadingQueue[iconPath] = &data.icon;
-
-		if (i <= 6)
-			entry.mainItems[i].ability = item;
-		else if (i <= 9)
-			entry.stash[i].ability = item;
-		else if (i == 14)
-			entry.tp.ability = item;
-		else if (i == 15)
-			entry.neutral.ability = item;
+		// Image name doesn't use the "item_" prefix
+		std::string itemName = item->GetIdentity()->GetName();
+		auto iconPath = ctx.cheatFolderPath + "\\assets\\items\\" + itemName.substr(5) + "_png.png";
+		auto data = AbilityData{
+			.ability = item,
+			.lastActiveTime = GameSystems::GameRules->GetGameTime(),
+			.lastActiveCooldown = item->GetCooldown(),
+			.currentCooldown = item->GetCooldown()
+		};
+		entry[i] = data;
+		loadingQueue[iconPath] = &entry[i].icon;
 	}
 }

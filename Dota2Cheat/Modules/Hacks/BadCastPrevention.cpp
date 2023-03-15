@@ -44,7 +44,7 @@ bool Hacks::BadCastPrevention::IsBadCast(uint32_t abilityIdx, Vector* pos, CBase
 				// I don't know
 				return !AreEnemyHeroesInArea(caster->GetPos(), ability->GetCastRange());
 			else if (abilityName == "earthshaker_echo_slam")
-				return !AreEnemyHeroesInArea(caster->GetPos(), ability->GetLevelSpecialValueFor("echo_slam_echo_search_range"));
+				return !AreEnemyHeroesInArea(caster->GetPos(), ability->GetKVValueFor("echo_slam_echo_search_range"));
 			else if (abilityName == "ember_spirit_sleight_of_fist") // it's also frequently used on creeps
 				return !AreEnemyUnitsInArea(*pos, ability->GetAOERadius());
 			// can be expanded indefinitely

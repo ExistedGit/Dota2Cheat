@@ -222,16 +222,19 @@
     <ClCompile Include="include\imgui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="include\imgui\imgui_tables.cpp" />
     <ClCompile Include="include\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="SDK\Globals\GameSystems.cpp" />
+    <ClCompile Include="SDK\Globals\Interfaces.cpp" />
+    <ClCompile Include="SDK\Globals\Signatures.cpp" />
     <ClCompile Include="SDK\Interfaces\CGCClient.cpp" />
     <ClCompile Include="SDK\Interfaces\CVarSystem.cpp" />
-    <ClCompile Include="SDK\SigScan\patterscan.cpp" />
+    <ClCompile Include="SDK\Base\SigScan\patterscan.cpp" />
     <ClCompile Include="SDK\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="SDK\SigScan\proc.cpp" />
+    <ClCompile Include="SDK\Base\SigScan\proc.cpp" />
     <ClCompile Include="SDK\Protobufs\dota_clientmessages.pb.cc" />
     <ClCompile Include="SDK\Protobufs\dota_commonmessages.pb.cc" />
     <ClCompile Include="SDK\Protobufs\dota_gcmessages_msgid.pb.cc" />
@@ -351,8 +354,8 @@
     <ClInclude Include="SDK\Interfaces\IEngineClient.h" />
     <ClInclude Include="MatchStateHandling.h" />
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h" />
-    <ClInclude Include="SDK\SigScan\patternscan.h" />
-    <ClInclude Include="SDK\SigScan\proc.h" />
+    <ClInclude Include="SDK\Base\SigScan\patternscan.h" />
+    <ClInclude Include="SDK\Base\SigScan\proc.h" />
     <ClInclude Include="SDK\Globals\Signatures.h" />
     <ClInclude Include="SDK\Entities\CBaseEntity.h" />
     <ClInclude Include="SDK\Entities\CDOTABaseNPC.h" />

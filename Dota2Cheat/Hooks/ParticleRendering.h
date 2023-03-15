@@ -13,6 +13,6 @@ namespace Hooks {
 	void hkSetRenderingEnabled(CParticleCollection* thisptr, bool state);
 
 	inline void* SetRenderingEnabled = nullptr;
-	CParticleCollection* hkCreateParticleCollection(CNewParticleEffect* thisptr, void* particleMgr, void* unk, void* query, bool bUnk, float fUnk, int particleIndex);
+	CParticleCollection* hkCreateParticleCollection(CNewParticleEffect* thisptr, void* particleMgr, void* unk, void** query, int particleIndex);
 
 }

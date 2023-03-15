@@ -38,9 +38,8 @@ public:
 	int GetEffectiveCastRange();
 	
 	// Rebuilt by analyzing GetLevelSpecialValueFor logic
-	// Rebuilt by analyzing GetLevelSpecialValueFor logic
 	template<typename T = double>
-	T GetLevelSpecialValueFor(const char* valName, int level = -1);
+	T GetKVValueFor(const char* valName, int level = -1);
 	
 	int GetAOERadius();
 
@@ -48,7 +47,7 @@ public:
 
 // Rebuilt by analyzing GetLevelSpecialValueFor logic
 template<typename T>
-T CDOTABaseAbility::GetLevelSpecialValueFor(const char* valName, int level) {
+T CDOTABaseAbility::GetKVValueFor(const char* valName, int level) {
 	auto entry = GetKVEntry(this, valName);
 
 	// Clamping the level value
