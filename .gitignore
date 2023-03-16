@@ -11,6 +11,10 @@
 *.sln.docstates
 
 README.md
+libprotobuf.lib
+libprotobufd.lib
+libprotobuf-lite.lib
+libprotobuf-lited.lib
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

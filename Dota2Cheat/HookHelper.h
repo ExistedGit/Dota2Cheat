@@ -11,7 +11,11 @@
 #define HOOKFUNC_SIGNATURES(func) HookFunc(Signatures::##func, &hk##func, &o##func, #func)
 
 namespace Hooks {
+	inline std::set<void*> hooks;
+
 	void SetUpByteHooks();
 
 	void SetUpVirtualHooks(bool log);
+	void DisableHooks();
+	void EnableHooks();
 }

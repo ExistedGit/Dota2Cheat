@@ -76,12 +76,12 @@ void Hooks::hkOnAddModifier(CDOTAModifier* modifier, int unk) {
 	Modules::TargetedSpellHighlighter.DrawParticleIfTargetedSpell(modifier);
 	Modules::EnemySpellHighlighter.RenderIfThinkerModifier(modifier);
 	Modules::LinearProjectileWarner.DrawIfTrajectoryModifier(modifier);
+
 	oOnAddModifier(modifier, unk);
 }
 
 void Hooks::hkOnRemoveModifier(CDOTAModifier* modifier, C_DOTA_PlayerResource* playerResource, void* unk) {
-	if (!HookedOnAddModifier) {
-		HookedOnAddModifier = true;
+	if (!oOnAddModifier) {
 		void* onAddModifier = modifier->GetVFunc(VTableIndexes::CDOTA_Buff::OnAddModifier).ptr;
 		HookFunc(onAddModifier, &hkOnAddModifier, &oOnAddModifier, "OnAddModifier");
 	}
@@ -100,6 +100,7 @@ void Hooks::hkOnRemoveModifier(CDOTAModifier* modifier, C_DOTA_PlayerResource* p
 
 	Modules::TargetedSpellHighlighter.RemoveParticleIfTargetedSpell(modifier);
 	Modules::LinearProjectileWarner.RemoveParticleIfTrajectoryModifier(modifier);
+
 
 	oOnRemoveModifier(modifier, playerResource, unk);
 }

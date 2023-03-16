@@ -1,15 +1,64 @@
 #pragma once
 #include <cstdint>
 namespace Netvars {
-	namespace C_BaseCombatCharacter {
-		constexpr uint32_t m_hMyWearables = 0x958; // C_NetworkUtlVectorBase< CHandle< C_EconWearable > >
-		constexpr uint32_t m_bloodColor = 0x970; // int32
-		constexpr uint32_t m_leftFootAttachment = 0x974; // AttachmentHandle_t
-		constexpr uint32_t m_rightFootAttachment = 0x975; // AttachmentHandle_t
-		constexpr uint32_t m_nWaterWakeMode = 0x978; // C_BaseCombatCharacter::WaterWakeMode_t
-		constexpr uint32_t m_flWaterWorldZ = 0x97c; // float32
-		constexpr uint32_t m_flWaterNextTraceTime = 0x980; // float32
-		constexpr uint32_t m_flFieldOfView = 0x984; // float32
+	namespace C_DOTA_BaseNPC_Hero {
+		constexpr uint32_t m_bBuybackDisabled = 0x0; // bitfield:1
+		constexpr uint32_t m_iCurrentXP = 0x1690; // int32
+		constexpr uint32_t m_iAbilityPoints = 0x1694; // int32
+		constexpr uint32_t m_flRespawnTime = 0x1698; // GameTime_t
+		constexpr uint32_t m_flRespawnTimePenalty = 0x169c; // float32
+		constexpr uint32_t m_flStrength = 0x16a0; // float32
+		constexpr uint32_t m_flAgility = 0x16a4; // float32
+		constexpr uint32_t m_flIntellect = 0x16a8; // float32
+		constexpr uint32_t m_flStrengthTotal = 0x16ac; // float32
+		constexpr uint32_t m_flAgilityTotal = 0x16b0; // float32
+		constexpr uint32_t m_flIntellectTotal = 0x16b4; // float32
+		constexpr uint32_t m_flDeathTime = 0x16b8; // GameTime_t
+		constexpr uint32_t m_iRecentDamage = 0x16bc; // int32
+		constexpr uint32_t m_fPainFactor = 0x16c0; // float32
+		constexpr uint32_t m_fTargetPainFactor = 0x16c4; // float32
+		constexpr uint32_t m_bLifeState = 0x16c8; // bool
+		constexpr uint32_t m_nFXStunIndex = 0x16cc; // ParticleIndex_t
+		constexpr uint32_t m_nFXSilenceIndex = 0x16d0; // ParticleIndex_t
+		constexpr uint32_t m_nFXDeathIndex = 0x16d4; // ParticleIndex_t
+		constexpr uint32_t m_iPlayerID = 0x16f8; // PlayerID_t
+		constexpr uint32_t m_hReplicatingOtherHeroModel = 0x16fc; // CHandle< C_DOTA_BaseNPC_Hero >
+		constexpr uint32_t m_bReincarnating = 0x1700; // bool
+		constexpr uint32_t m_bCustomKillEffect = 0x1701; // bool
+		constexpr uint32_t m_flSpawnedAt = 0x1704; // GameTime_t
+		constexpr uint32_t m_bScriptDisableRespawns = 0x1708; // bool
+		constexpr uint32_t m_iPrimaryAttribute = 0x170c; // int32
+		constexpr uint32_t m_nLastDrawnHealth = 0x1710; // int32
+		constexpr uint32_t m_flHurtAmount = 0x1714; // float32
+		constexpr uint32_t m_flLastHurtTime = 0x1718; // GameTime_t
+		constexpr uint32_t m_flHurtDecayRate = 0x171c; // float32
+		constexpr uint32_t m_flLastHealTime = 0x1720; // GameTime_t
+		constexpr uint32_t m_flLastTreeShakeTime = 0x1724; // GameTime_t
+		constexpr uint32_t m_CenterOnHeroCooldownTimer = 0x1728; // CountdownTimer
+		constexpr uint32_t m_CombinedModels = 0x1948; // CStrongHandle< InfoForResourceTypeCModel >[4]
+		constexpr uint32_t m_nCurrentCombinedModelIndex = 0x1968; // int32
+		constexpr uint32_t m_nPendingCombinedModelIndex = 0x196c; // int32
+		constexpr uint32_t m_iHeroID = 0x1970; // int32
+		constexpr uint32_t m_flCheckLegacyItemsAt = 0x1974; // float32
+		constexpr uint32_t m_bDisplayAdditionalHeroes = 0x1978; // bool
+		constexpr uint32_t m_CombinedParticleModels = 0x1988; // CStrongHandle< InfoForResourceTypeCModel >[4]
+		constexpr uint32_t m_vecAttachedParticleIndeces = 0x19a8; // CUtlVector< ParticleIndex_t >
+		constexpr uint32_t m_hPets = 0x19c0; // CUtlVector< CHandle< C_BaseEntity > >
+		constexpr uint32_t m_nKillStreakFX = 0x19d8; // ParticleIndex_t
+		constexpr uint32_t m_nKillStreakFXTier = 0x19dc; // int32
+	}
+	namespace CEntityIdentity {
+		constexpr uint32_t m_nameStringableIndex = 0x14; // int32
+		constexpr uint32_t m_name = 0x18; // CUtlSymbolLarge
+		constexpr uint32_t m_designerName = 0x20; // CUtlSymbolLarge
+		constexpr uint32_t m_flags = 0x30; // uint32
+		constexpr uint32_t m_worldGroupId = 0x38; // WorldGroupId_t
+		constexpr uint32_t m_fDataObjectTypes = 0x3c; // uint32
+		constexpr uint32_t m_PathIndex = 0x40; // ChangeAccessorFieldPathIndex_t
+		constexpr uint32_t m_pPrev = 0x58; // CEntityIdentity*
+		constexpr uint32_t m_pNext = 0x60; // CEntityIdentity*
+		constexpr uint32_t m_pPrevByClass = 0x68; // CEntityIdentity*
+		constexpr uint32_t m_pNextByClass = 0x70; // CEntityIdentity*
 	}
 	namespace C_BaseEntity {
 		constexpr uint32_t m_CBodyComponent = 0x30; // CBodyComponent*
@@ -424,51 +473,15 @@ namespace Netvars {
 		constexpr uint32_t m_pEntity = 0x10; // CEntityIdentity*
 		constexpr uint32_t m_CScriptComponent = 0x28; // CScriptComponent*
 	}
-	namespace C_DOTA_BaseNPC_Hero {
-		constexpr uint32_t m_bBuybackDisabled = 0x0; // bitfield:1
-		constexpr uint32_t m_iCurrentXP = 0x1690; // int32
-		constexpr uint32_t m_iAbilityPoints = 0x1694; // int32
-		constexpr uint32_t m_flRespawnTime = 0x1698; // GameTime_t
-		constexpr uint32_t m_flRespawnTimePenalty = 0x169c; // float32
-		constexpr uint32_t m_flStrength = 0x16a0; // float32
-		constexpr uint32_t m_flAgility = 0x16a4; // float32
-		constexpr uint32_t m_flIntellect = 0x16a8; // float32
-		constexpr uint32_t m_flStrengthTotal = 0x16ac; // float32
-		constexpr uint32_t m_flAgilityTotal = 0x16b0; // float32
-		constexpr uint32_t m_flIntellectTotal = 0x16b4; // float32
-		constexpr uint32_t m_flDeathTime = 0x16b8; // GameTime_t
-		constexpr uint32_t m_iRecentDamage = 0x16bc; // int32
-		constexpr uint32_t m_fPainFactor = 0x16c0; // float32
-		constexpr uint32_t m_fTargetPainFactor = 0x16c4; // float32
-		constexpr uint32_t m_bLifeState = 0x16c8; // bool
-		constexpr uint32_t m_nFXStunIndex = 0x16cc; // ParticleIndex_t
-		constexpr uint32_t m_nFXSilenceIndex = 0x16d0; // ParticleIndex_t
-		constexpr uint32_t m_nFXDeathIndex = 0x16d4; // ParticleIndex_t
-		constexpr uint32_t m_iPlayerID = 0x16f8; // PlayerID_t
-		constexpr uint32_t m_hReplicatingOtherHeroModel = 0x16fc; // CHandle< C_DOTA_BaseNPC_Hero >
-		constexpr uint32_t m_bReincarnating = 0x1700; // bool
-		constexpr uint32_t m_bCustomKillEffect = 0x1701; // bool
-		constexpr uint32_t m_flSpawnedAt = 0x1704; // GameTime_t
-		constexpr uint32_t m_bScriptDisableRespawns = 0x1708; // bool
-		constexpr uint32_t m_iPrimaryAttribute = 0x170c; // int32
-		constexpr uint32_t m_nLastDrawnHealth = 0x1710; // int32
-		constexpr uint32_t m_flHurtAmount = 0x1714; // float32
-		constexpr uint32_t m_flLastHurtTime = 0x1718; // GameTime_t
-		constexpr uint32_t m_flHurtDecayRate = 0x171c; // float32
-		constexpr uint32_t m_flLastHealTime = 0x1720; // GameTime_t
-		constexpr uint32_t m_flLastTreeShakeTime = 0x1724; // GameTime_t
-		constexpr uint32_t m_CenterOnHeroCooldownTimer = 0x1728; // CountdownTimer
-		constexpr uint32_t m_CombinedModels = 0x1948; // CStrongHandle< InfoForResourceTypeCModel >[4]
-		constexpr uint32_t m_nCurrentCombinedModelIndex = 0x1968; // int32
-		constexpr uint32_t m_nPendingCombinedModelIndex = 0x196c; // int32
-		constexpr uint32_t m_iHeroID = 0x1970; // int32
-		constexpr uint32_t m_flCheckLegacyItemsAt = 0x1974; // float32
-		constexpr uint32_t m_bDisplayAdditionalHeroes = 0x1978; // bool
-		constexpr uint32_t m_CombinedParticleModels = 0x1988; // CStrongHandle< InfoForResourceTypeCModel >[4]
-		constexpr uint32_t m_vecAttachedParticleIndeces = 0x19a8; // CUtlVector< ParticleIndex_t >
-		constexpr uint32_t m_hPets = 0x19c0; // CUtlVector< CHandle< C_BaseEntity > >
-		constexpr uint32_t m_nKillStreakFX = 0x19d8; // ParticleIndex_t
-		constexpr uint32_t m_nKillStreakFXTier = 0x19dc; // int32
+	namespace C_BaseCombatCharacter {
+		constexpr uint32_t m_hMyWearables = 0x958; // C_NetworkUtlVectorBase< CHandle< C_EconWearable > >
+		constexpr uint32_t m_bloodColor = 0x970; // int32
+		constexpr uint32_t m_leftFootAttachment = 0x974; // AttachmentHandle_t
+		constexpr uint32_t m_rightFootAttachment = 0x975; // AttachmentHandle_t
+		constexpr uint32_t m_nWaterWakeMode = 0x978; // C_BaseCombatCharacter::WaterWakeMode_t
+		constexpr uint32_t m_flWaterWorldZ = 0x97c; // float32
+		constexpr uint32_t m_flWaterNextTraceTime = 0x980; // float32
+		constexpr uint32_t m_flFieldOfView = 0x984; // float32
 	}
 	namespace C_BaseFlex {
 		constexpr uint32_t m_flexWeight = 0x7d8; // C_NetworkUtlVectorBase< float32 >
@@ -699,12 +712,87 @@ namespace Netvars {
 		constexpr uint32_t m_nEventPlayerInfo = 0x2db4; // int32
 		constexpr uint32_t m_nInventoryUpdated = 0x2db8; // int32
 	}
+	namespace PlayerResourcePlayerTeamData_t {
+		constexpr uint32_t m_ThreatLevelInfos = 0x30; // C_UtlVectorEmbeddedNetworkVar< DOTAThreatLevelInfo_t >
+		constexpr uint32_t m_nSelectedHeroID = 0x80; // int32
+		constexpr uint32_t m_iKills = 0x84; // int32
+		constexpr uint32_t m_iAssists = 0x88; // int32
+		constexpr uint32_t m_iDeaths = 0x8c; // int32
+		constexpr uint32_t m_iStreak = 0x90; // int32
+		constexpr uint32_t m_iLevel = 0x94; // int32
+		constexpr uint32_t m_iCustomIntParam = 0x98; // int32
+		constexpr uint32_t m_iRespawnSeconds = 0x9c; // int32
+		constexpr uint32_t m_flLastBuybackTime = 0xa0; // GameTime_t
+		constexpr uint32_t m_iLastBuybackTime_Obsolete = 0xa4; // int32
+		constexpr uint32_t m_hSelectedHero = 0xa8; // CHandle< C_BaseEntity >
+		constexpr uint32_t m_bAFK = 0xac; // bool
+		constexpr uint32_t m_nSuggestedHeroes = 0xb0; // int32[4]
+		constexpr uint32_t m_bBanSuggestedHeroes = 0xc0; // bool[4]
+		constexpr uint32_t m_bVoiceChatBanned = 0xc4; // bool
+		constexpr uint32_t m_iTimedRewardDrops = 0xc8; // item_definition_index_t
+		constexpr uint32_t m_iTimedRewardDropOrigins = 0xcc; // int32
+		constexpr uint32_t m_iTimedRewardCrates = 0xd0; // item_definition_index_t
+		constexpr uint32_t m_iTimedRewardEvents = 0xd4; // item_definition_index_t
+		constexpr uint32_t m_unCompendiumLevel = 0xd8; // uint16
+		constexpr uint32_t m_bCanRepick = 0xda; // bool
+		constexpr uint32_t m_bCanEarnRewards = 0xdb; // bool
+		constexpr uint32_t m_bHasRandomed = 0xdc; // bool
+		constexpr uint32_t m_nRandomedHeroID = 0xe0; // int32
+		constexpr uint32_t m_bBattleBonusActive = 0xe4; // bool
+		constexpr uint32_t m_iBattleBonusRate = 0xe6; // uint16
+		constexpr uint32_t m_iCustomBuybackCost = 0xe8; // int32
+		constexpr uint32_t m_CustomPlayerColor = 0xec; // Color
+		constexpr uint32_t m_bQualifiesForPAContractReward = 0xf0; // bool
+		constexpr uint32_t m_bHasPredictedVictory = 0xf1; // bool
+		constexpr uint32_t m_UnitShareMasks = 0xf4; // int32
+		constexpr uint32_t m_iTeamSlot = 0xf8; // int32
+		constexpr uint32_t m_iBattleCupWinStreak = 0xfc; // uint8
+		constexpr uint32_t m_iBattleCupWinDate = 0x100; // uint64
+		constexpr uint32_t m_iBattleCupSkillLevel = 0x108; // uint16
+		constexpr uint32_t m_iBattleCupTeamID = 0x10c; // uint32
+		constexpr uint32_t m_iBattleCupTournamentID = 0x110; // uint32
+		constexpr uint32_t m_iBattleCupDivision = 0x114; // uint8
+		constexpr uint32_t m_flTeamFightParticipation = 0x118; // float32
+		constexpr uint32_t m_iFirstBloodClaimed = 0x11c; // int32
+		constexpr uint32_t m_iFirstBloodGiven = 0x120; // int32
+		constexpr uint32_t m_unPickOrder = 0x124; // uint32
+		constexpr uint32_t m_flTimeOfLastSaluteSent = 0x128; // GameTime_t
+		constexpr uint32_t m_vecPlayerEventData = 0x130; // C_UtlVectorEmbeddedNetworkVar< PlayerResourcePlayerEventData_t >
+		constexpr uint32_t m_unSelectedHeroBadgeXP = 0x180; // uint32
+		constexpr uint32_t m_iBountyRunes = 0x184; // uint8
+		constexpr uint32_t m_iPowerRunes = 0x185; // uint8
+		constexpr uint32_t m_iWaterRunes = 0x186; // uint8
+		constexpr uint32_t m_iOutpostsCaptured = 0x187; // uint8
+		constexpr uint32_t m_unGuildTier = 0x188; // uint8
+		constexpr uint32_t m_unGuildLevel = 0x18a; // uint16
+		constexpr uint32_t m_unGuildPrimaryColor = 0x18c; // uint8
+		constexpr uint32_t m_unGuildSecondaryColor = 0x18d; // uint8
+		constexpr uint32_t m_unGuildPattern = 0x18e; // uint8
+		constexpr uint32_t m_unGuildLogo = 0x190; // uint64
+		constexpr uint32_t m_unGuildFlags = 0x198; // uint32
+		constexpr uint32_t m_bIsPartyGuild = 0x19c; // bool
+		constexpr uint32_t m_unGuildID = 0x1a0; // GuildID_t
+		constexpr uint32_t m_unHeroStickerDefIndex = 0x1a4; // item_definition_index_t
+		constexpr uint32_t m_eHeroStickerQuality = 0x1a8; // uint8
+		constexpr uint32_t m_eLaneSelectionFlags = 0x1a9; // uint8
+		constexpr uint32_t m_iObsoleteEventPoints = 0x1ac; // uint32
+		constexpr uint32_t m_iObsoleteEventPremiumPoints = 0x1b0; // uint32
+		constexpr uint32_t m_iObsoleteEventWagerTokensRemaining = 0x1b4; // uint32
+		constexpr uint32_t m_iObsoleteEventWagerTokensMax = 0x1b8; // uint32
+		constexpr uint32_t m_iObsoleteEventEffectsMask = 0x1bc; // uint32
+		constexpr uint32_t m_iObsoleteEventRanks = 0x1c0; // uint16
+		constexpr uint32_t m_bObsoleteIsEventOwned = 0x1c2; // bool
+		constexpr uint32_t m_iObsoleteRankWagersAvailable = 0x1c4; // uint32
+		constexpr uint32_t m_iObsoleteRankWagersMax = 0x1c8; // uint32
+		constexpr uint32_t m_iObsoleteEventPointAdjustmentsRemaining = 0x1cc; // uint32
+		constexpr uint32_t m_iObsoleteAvailableSalutes = 0x1d0; // uint32
+		constexpr uint32_t m_iObsoleteSaluteAmounts = 0x1d4; // uint32
+	}
 	namespace C_DOTAGamerules {
 		constexpr uint32_t __m_pChainEntity = 0x8; // CNetworkVarChainer
 		constexpr uint32_t m_nTotalPausedTicks = 0x30; // int32
 		constexpr uint32_t m_nPauseStartTick = 0x34; // int32
 		constexpr uint32_t m_bGamePaused = 0x38; // bool
-		constexpr uint32_t m_bGameTimeFrozen = 0x39; // bool
 		constexpr uint32_t m_iMiscHeroPickCounter = 0x3c; // int32
 		constexpr uint32_t m_hEndGameCinematicEntity = 0x40; // CHandle< C_BaseEntity >
 		constexpr uint32_t m_hOverlayHealthBarUnit = 0x44; // CHandle< C_DOTA_BaseNPC >
@@ -939,6 +1027,14 @@ namespace Netvars {
 		constexpr uint32_t m_hierarchyAttachName = 0x130; // CUtlStringToken
 		constexpr uint32_t m_flZOffset = 0x134; // float32
 		constexpr uint32_t m_vRenderOrigin = 0x138; // Vector
+	}
+	namespace C_DOTA_Item_Rune {
+		constexpr uint32_t m_iRuneType = 0x7d0; // int32
+		constexpr uint32_t m_flRuneTime = 0x7d4; // float32
+		constexpr uint32_t m_nMapLocationTeam = 0x7d8; // int32
+		constexpr uint32_t m_szLocation = 0x7dc; // char[512]
+		constexpr uint32_t m_iOldRuneType = 0x9dc; // int32
+		constexpr uint32_t m_bShowingTooltip = 0x9e0; // bool
 	}
 	namespace GameTime_t {
 		constexpr uint32_t m_Value = 0x0; // float32

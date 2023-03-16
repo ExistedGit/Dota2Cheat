@@ -28,6 +28,7 @@ struct TextureData {
 class TextureManager {
 	std::unordered_map<std::string, TextureData> namedTex;
 	std::map<std::string, TextureData*> loadingQueue;
+	bool requiresUnload = false;
 public:
 	TextureData* GetNamedTexture(const std::string& name) {
 		if (!namedTex.count(name))
@@ -37,7 +38,19 @@ public:
 
 	bool LoadTexture(const char* filename, TextureData& data);
 
+	void QueueTextureUnload()
+	{
+		requiresUnload = true;
+	}
 
+	void ExecuteUnloadCycle() {
+		if (!requiresUnload)
+			return;
+
+		for (auto& [_, data] : namedTex)
+			glDeleteTextures(1, (const GLuint*)&data.glTex);
+		namedTex.clear();
+	}
 
 	void QueueForLoading(const std::string& filename, const std::string& texName) {
 		if (!namedTex.count(texName))

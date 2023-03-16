@@ -30,8 +30,6 @@
 
 // from google3/strings/strutil.h
 
-#undef u64
-
 #ifndef GOOGLE_PROTOBUF_STUBS_STRUTIL_H__
 #define GOOGLE_PROTOBUF_STUBS_STRUTIL_H__
 
@@ -42,6 +40,9 @@
 #include <cstring>
 #include <google/protobuf/port_def.inc>
 #include <vector>
+
+#undef u64
+
 
 namespace google {
 namespace protobuf {
@@ -951,4 +952,4 @@ double NoLocaleStrtod(const char* str, char** endptr);
 
 #endif  // GOOGLE_PROTOBUF_STUBS_STRUTIL_H__
 
-#define u64 unsigned long long
+#define u64

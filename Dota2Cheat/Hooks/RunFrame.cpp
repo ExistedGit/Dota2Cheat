@@ -84,7 +84,7 @@ void Hooks::UpdateWeather() {
 	varInfo.var->value.i32 = Config::WeatherListIdx;
 }
 
-void Hooks::hkRunFrame(u64 a, u64 b) {
+void Hooks::hkRunFrame(uintptr_t a, uintptr_t b) {
 	bool isInGame = Interfaces::Engine->IsInGame();
 
 	if (isInGame) {
