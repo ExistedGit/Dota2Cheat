@@ -58,7 +58,7 @@ This list is subject to frequent change as I'm testing new features
   
 * Information:
   * ~~Visible by Enemy~~ RIP on 21.02.2023, you shall not be forgotten
-  * AbilityESP 
+  * [AbilityESP & ItemESP](https://youtu.be/U-ZhxwjEw4k)
   * Draw circles of custom radius around you hero(e. g. to see XP receiving range)
   * Shows point-cast spells(Sunstrike, Torrent, Light Strike Array)
   * Shows target-cast spells(Assassinate, Charge of Darkness)
