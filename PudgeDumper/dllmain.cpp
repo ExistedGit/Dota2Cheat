@@ -113,9 +113,11 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	SchemaDumpToMap("client.dll", "C_DOTABaseAbility");
 	SchemaDumpToMap("server.dll", "CDOTA_Buff");
 	SchemaDumpToMap("client.dll", "C_DOTA_PlayerResource");
+	SchemaDumpToMap("client.dll", "PlayerResourcePlayerTeamData_t");
 	SchemaDumpToMap("client.dll", "PlayerResourcePlayerData_t");
 	SchemaDumpToMap("client.dll", "C_DOTAGamerules");
 	SchemaDumpToMap("client.dll", "CGameSceneNode");
+	SchemaDumpToMap("client.dll", "C_DOTA_Item_Rune");
 	SchemaDumpToMap("client.dll", "GameTime_t");
 	SchemaDumpToMap("client.dll", "C_DOTA_Item_EmptyBottle");
 

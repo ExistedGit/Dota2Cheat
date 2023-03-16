@@ -369,7 +369,6 @@ void ESP::AbilityESP::DrawESP(ImFont* textFont) {
 	if (!Initialized || !Config::AbilityESP::Enabled)
 		return;
 
-
 	// ALT key
 	if (!GetAsyncKeyState(164))
 		DrawAbilities(textFont);
@@ -396,7 +395,8 @@ void ESP::AbilityESP::DrawChargeCounter(ImFont* textFont, int charges, ImVec2 po
 		ImVec2(pos.x, pos.y - (radius - 2)),
 		(radius - 2) * 2,
 		Color(255, 255, 255, 255),
-		true);
+		true,
+		false);
 }
 
 void ESP::AbilityESP::UpdateAbilities(CDOTABaseNPC_Hero* hero) {

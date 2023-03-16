@@ -15,4 +15,7 @@ public:
 	CUtlVector<PlayerResourcePlayerData_t> GetVecPlayerTeamData() {
 		return Member<CUtlVector<PlayerResourcePlayerData_t>>(Netvars::C_DOTA_PlayerResource::m_vecPlayerTeamData);
 	}
+	ENT_HANDLE PlayerSlotToHandle(int slot) {
+		return MemberInline<int>(Netvars::C_DOTA_PlayerResource::m_playerIDToPlayer)[slot];
+	}
 };

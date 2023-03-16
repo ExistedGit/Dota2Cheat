@@ -1,5 +1,5 @@
 #include "MatchStateHandling.h"
-
+#include "HookHelper.h"
 
 void FillPlayerList() {
 	auto vec = GameSystems::PlayerResource->GetVecPlayerTeamData();
@@ -41,7 +41,7 @@ void ReinjectEntIteration() {
 		if (strstr(className, "Item_Physical")) {
 			ctx.physicalItems.insert(ent);
 		}
-		else if (!strcmp(className, "CDOTAItemRune")) {
+		else if (!strcmp(className, "C_DOTA_Item_Rune")) {
 			ctx.runes.insert((CDOTAItemRune*)ent);
 		}
 		else if (strstr(className, "Unit_Hero")) {
@@ -61,7 +61,11 @@ void EnteredMatch() {
 	//	Modules::AutoPick.autoBanHero = "sniper";
 	//	Modules::AutoPick.autoPickHero = "arc_warden";
 
-	ctx.localPlayer = (CDOTAPlayerController*)Interfaces::EntitySystem->GetEntity(Interfaces::Engine->GetLocalPlayerSlot() + 1);
+	ctx.localPlayer = Interfaces::EntitySystem->GetEntity<CDOTAPlayerController>(
+		H2IDX(
+			GameSystems::PlayerResource->PlayerSlotToHandle(Interfaces::Engine->GetLocalPlayerSlot())
+		)
+		);
 	if (!ctx.localPlayer)
 		return;
 
@@ -76,8 +80,12 @@ void EnteredInGame() {
 		return;
 
 	ctx.assignedHero = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(ctx.localPlayer->GetAssignedHeroHandle()));
-	if (!ctx.assignedHero)
+	if (!ctx.assignedHero) {
+		//ctx.localPlayer = Interfaces::EntitySystem->GetEntity<CDOTAPlayerController>(Interfaces::Engine->GetLocalPlayerSlot() + 2);
+		//ctx.assignedHero = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(ctx.localPlayer->GetAssignedHeroHandle()));
+		//if (!ctx.assignedHero)
 		return;
+	}
 
 	//Config::AutoPingTarget = ctx.assignedHero;
 	for (auto& modifier : ctx.assignedHero->GetModifierManager()->GetModifierList())
@@ -113,6 +121,7 @@ void EnteredInGame() {
 	Modules::AbilityESP.SubscribeHeroes();
 
 	ctx.gameStage = Context::GameStage::IN_GAME;
+	Hooks::EnableHooks();
 	std::cout << "ENTERED GAME\n";
 }
 
@@ -144,6 +153,9 @@ void LeftMatch() {
 	ctx.assignedHero = nullptr;
 	ctx.lua["assignedHero"] = nullptr;
 	ctx.lua["localPlayer"] = nullptr;
+	
+	Hooks::DisableHooks();
+	texManager.QueueTextureUnload();
 
 	std::cout << "LEFT MATCH\n";
 }

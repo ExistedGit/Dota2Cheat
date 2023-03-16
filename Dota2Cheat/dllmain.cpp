@@ -153,8 +153,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		if (menuVisible)
 			Pages::MainMenu::Display(window);
 
-		texManager.ExecuteLoadCycle();
-		Modules::AbilityESP.DrawESP(msTrebuchet);
+		if (Interfaces::Engine->IsInGame()) {
+			texManager.ExecuteLoadCycle();
+			Modules::AbilityESP.DrawESP(msTrebuchet);
+		}
 
 		if (IsKeyPressed(VK_INSERT)) {
 			glfwSetWindowAttrib(window, GLFW_MOUSE_PASSTHROUGH, menuVisible);

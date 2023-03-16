@@ -38,7 +38,7 @@ namespace Hooks {
 	void UpdateCameraDistance();
 	void UpdateWeather();
 
-	typedef void(__fastcall* RunFrameFn)(u64 a, u64 b);
+	typedef void(__fastcall* RunFrameFn)(uintptr_t a, uintptr_t b);
 	inline RunFrameFn oRunFrame{};
-	void hkRunFrame(u64 a, u64 b);
+	void hkRunFrame(uintptr_t a, uintptr_t b);
 }

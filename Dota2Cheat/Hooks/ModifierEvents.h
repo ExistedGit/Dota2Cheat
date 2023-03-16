@@ -7,7 +7,6 @@
 namespace Hooks {
 	inline Signatures::OnRemoveModifierFn oOnRemoveModifier = nullptr;
 	inline Signatures::OnAddModifierFn oOnAddModifier = nullptr;
-	inline bool HookedOnAddModifier = false;
 		
 	struct ImportantItemData {
 		const char* itemName{};

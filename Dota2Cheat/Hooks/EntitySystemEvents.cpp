@@ -6,7 +6,7 @@ CBaseEntity* Hooks::OnAddEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HA
 		if (strstr(className, "Item_Physical")) {
 			ctx.physicalItems.insert(ent);
 		}
-		else if (!strcmp(className, "CDOTAItemRune")) {
+		else if (!strcmp(className, "C_DOTA_Item_Rune")) {
 			ctx.runes.insert((CDOTAItemRune*)ent);
 		}
 		else if (strstr(className, "Unit_Hero")) {

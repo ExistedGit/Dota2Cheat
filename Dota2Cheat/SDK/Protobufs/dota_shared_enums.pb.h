@@ -235,11 +235,12 @@ enum EEvent : int {
   EVENT_ID_TEAM_INTERNATIONAL_2022 = 38,
   EVENT_ID_PERMANENT_GRANTS = 39,
   EVENT_ID_MUERTA_RELEASE_SPRING2023 = 40,
-  EVENT_ID_TEAM_2023_TOUR1 = 41
+  EVENT_ID_TEAM_2023_TOUR1 = 41,
+  EVENT_ID_TEAM_2023_TOUR2 = 42
 };
 bool EEvent_IsValid(int value);
 constexpr EEvent EEvent_MIN = EVENT_ID_NONE;
-constexpr EEvent EEvent_MAX = EVENT_ID_TEAM_2023_TOUR1;
+constexpr EEvent EEvent_MAX = EVENT_ID_TEAM_2023_TOUR2;
 constexpr int EEvent_ARRAYSIZE = EEvent_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EEvent_descriptor();
