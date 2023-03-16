@@ -18,8 +18,7 @@ also using [Lua 5.4](https://www.lua.org/) and [sol2](https://github.com/ThePhD/
 `assets` folder contents are property of Valve Corporation
 
 ## Building
-You need to install the protobuf library for it to work. Install [vcpkg](https://vcpkg.io/en/getting-started.html). Navigate to the folder with vcpkg.exe
-Open the console in the folder
+You need to install the protobuf library for it to work. Install [vcpkg](https://vcpkg.io/en/getting-started.html). Navigate to the folder with vcpkg.exe. Open the console in the folder
 
 Here you have two ways:
 
@@ -27,7 +26,7 @@ Here you have two ways:
 or
 `.\vcpkg.exe install protobuf:x64-windows-static-md`
 
-The first one will install the default version of the .lib. You will have to get libprotobuf DLLs from a release in this repo and move them to the folder with dota2.exe
+The first one will install the default version of the lib. You will have to get libprotobuf DLLs from a release in this repo and move them to the folder with dota2.exe
 
 The second one will install the heavier static version which will not require anything.
 
