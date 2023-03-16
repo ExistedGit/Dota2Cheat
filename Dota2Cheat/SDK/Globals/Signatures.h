@@ -20,17 +20,21 @@ namespace Signatures {
 	typedef void(__fastcall* ColorMsgFn)(Color* color, const char* format, ...);
 
 	typedef void(__fastcall* PrepareUnitOrdersFn)(CDOTAPlayerController* player, dotaunitorder_t orderType, uint32_t targetIndex, Vector* position, uint32_t abilityIndex, PlayerOrderIssuer_t orderIssuer, CBaseEntity* issuer, bool queue, bool showEffects);
+	
 	typedef void(__fastcall* WorldToScreenFn)(Vector* coord, int* outX, int* outY, void* offset);
 
+	typedef bool (*LoadUITextureFn)(void* thisptr, void** texturePtr, const char* textureName);
+	
+	typedef bool (*BAsyncSendProtoFn)(CProtobufMsgBase* protobufMsg, IProtoBufSendHandler* handler, google::protobuf::Message* responseMsg, unsigned int respMsgID);
+	typedef bool (*DispatchPacketFn)(void*, IMsgNetPacket*);
+	
+	typedef void(*OnAddModifierFn)(CDOTAModifier*, int);
+	typedef void(*OnRemoveModifierFn)(CDOTAModifier*, void*, void*);
 	//there's actually no point in sigging it
 	//netmessages ftw
 	//typedef CDOTAParticleManager::CNewParticleEffect* (__fastcall* CreateLinearProjectile)(void* thisptr, void* creationInfo);
 
-	typedef bool (*LoadUITextureFn)(void* thisptr, void** texturePtr, const char* textureName);
 	inline LoadUITextureFn LoadUITexture{};
-
-	typedef bool (*BAsyncSendProtoFn)(CProtobufMsgBase* protobufMsg, IProtoBufSendHandler* handler, google::protobuf::Message* responseMsg, unsigned int respMsgID);
-	typedef bool (*DispatchPacketFn)(void*, IMsgNetPacket*);
 
 	inline CMsgFn CMsg{};
 	inline ColorMsgFn CMsgColor{};
@@ -38,20 +42,15 @@ namespace Signatures {
 	using CParticleCollection = void;
 	typedef CParticleCollection* (*CreateParticleCollectionFn)(CNewParticleEffect* thisptr, void* particleMgr, void* unk, void** query, int particleIndex);
 
-	typedef void(*OnAddModifierFn)(CDOTAModifier*, int);
-	typedef void(*OnRemoveModifierFn)(CDOTAModifier*, void*, void*);
+	inline OnRemoveModifierFn OnRemoveModifier{};
+	
 	inline PrepareUnitOrdersFn PrepareUnitOrders{};
+	
 	inline DispatchPacketFn DispatchPacket{};
 	inline BAsyncSendProtoFn BAsyncSendProto{};
 
-
 	inline CreateParticleCollectionFn CreateParticleCollection{};
-	inline OnRemoveModifierFn OnRemoveModifier{};
-
-
 
 	inline WorldToScreenFn WorldToScreen{};
-
-
 	void FindSignatures(bool log);
 }

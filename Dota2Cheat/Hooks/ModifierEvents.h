@@ -11,10 +11,10 @@ namespace Hooks {
 		
 	struct ImportantItemData {
 		const char* itemName{};
-		const char* modifierName{};
-		CDOTAItem** importantItemPtr{};
-		ImportantItemData(const char* itemName, const char* modifierName, CDOTAItem** importantItemPtr)
-			:itemName(itemName), modifierName(modifierName), importantItemPtr(importantItemPtr) { }
+		CDOTAItem** item{};
+		ImportantItemData() {};
+		ImportantItemData(const char* itemName, CDOTAItem** item)
+			:itemName(itemName), item(item) { }
 	};
 	void CacheIfItemModifier(CDOTAModifier* modifier);
 	void hkOnAddModifier(CDOTAModifier* modifier, int unk);

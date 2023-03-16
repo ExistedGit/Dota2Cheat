@@ -106,22 +106,27 @@ void Hooks::hkRunFrame(u64 a, u64 b) {
 				Modules::AutoBuyTome.FrameBasedLogic();
 				Modules::RiverPaint.FrameBasedLogic();
 				Modules::ParticleGC.FrameBasedLogic();
-				Modules::TargetedSpellHighlighter.FrameBasedLogic(); 
+				Modules::TargetedSpellHighlighter.FrameBasedLogic();
 				Modules::LinearProjectileWarner.FrameBasedLogic();
 				EntityIteration();
 			}
 #ifdef _DEBUG
+			if (IsKeyPressed(VK_NUMPAD7)) {
+				for (auto& hero : ctx.heroes)
+					if(hero != ctx.assignedHero)
+						std::cout << Modules::AttackAnimTracker.WillUnitAttack(ctx.assignedHero, hero, 0.5) << '\n';
+
+			}
 			if (IsKeyPressed(VK_NUMPAD8)) {
 				auto selected = ctx.localPlayer->GetSelectedUnits();
-				auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(selected[0]);
-				auto pos = ent->GetPos();
+					auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(selected[0]);
+					auto pos = ent->GetPos();
 
-				std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
+					std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
 					<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
 					<< "\n\tAttack Time: " << std::clamp(ent->GetBaseAttackTime() / ent->GetAttackSpeed(), 0.24f, 2.0f)
 					//<< "\n\tIsRoshan: " << ent->IsRoshan()
 					<< "\n\tStunned: " << ent->HasState(ModifierState::MODIFIER_STATE_STUNNED)
-					<< "\n\t" << Modules::AttackAnimTracker.WillUnitAttack(ctx.assignedHero, ent, 0.5)
 					<< '\n';
 			}
 			if (IsKeyPressed(VK_NUMPAD3)) {

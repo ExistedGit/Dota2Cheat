@@ -2,7 +2,6 @@
 #include <cstdint>
 #include "SigScan/patternscan.h"
 
-
 class Address {
 public:
 	uintptr_t ptr;
@@ -26,9 +25,8 @@ public:
 		return T(opcodeAddr + *(int*)(opcodeAddr + addrOffset) + opcodeSize);
 	}
 
-	Address GetAbsoluteAddress(int opcodeOffset, int addrOffset, int opcodeSize) const {
-		uintptr_t opcodeAddr = ptr + opcodeOffset;
-		return Address(opcodeAddr + *(int*)(opcodeAddr + addrOffset) + opcodeSize);
+	Address GetAbsoluteAddress(int addrOffset, int opcodeSize) const {
+		return Address(ptr + *(int*)(ptr + addrOffset) + opcodeSize);
 	}
 
 	template<typename T>
@@ -39,7 +37,7 @@ public:
 };
 
 class SigScanContext {
-	//Split combo pattern into mask/pattern
+	//Splits IDA pattern into code mask/pattern
 	void ParseCombo(const char* combo, std::string& pattern, std::string& mask)
 	{
 		unsigned int patternLen = (strlen(combo) + 1) / 3;

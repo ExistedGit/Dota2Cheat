@@ -14,6 +14,9 @@ struct AbilityKVEntry : public NormalClass {
 
 class CDOTABaseAbility : public CBaseEntity {
 public:
+	// The problem is that GetLevelSpecialValueFor fails to find a non-special value like AbilityCastRange
+	// Which is why we also need that GetKVEntry thing, thankfully it's inside GetLevelSpecialValueFor
+	
 	typedef double(__fastcall* GetLevelSpecialValueForFn)(CDOTABaseAbility* thisptr, const char* value, int level, void* unk, bool noOverride, bool* result);
 	static inline GetLevelSpecialValueForFn GetLevelSpecialValueForFunc{};
 

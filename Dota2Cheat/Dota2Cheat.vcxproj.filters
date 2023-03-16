@@ -246,6 +246,9 @@
     <ClCompile Include="SDK\Globals\Interfaces.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="SDK\GameSystems\C_DOTAGameRules.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h">
