@@ -18,10 +18,24 @@ also using [Lua 5.4](https://www.lua.org/) and [sol2](https://github.com/ThePhD/
 `assets` folder contents are property of Valve Corporation
 
 ## Building
+You need to install the protobuf library for it to work. Install [vcpkg](https://vcpkg.io/en/getting-started.html). Navigate to the folder with vcpkg.exe
+Open the console in the folder
+
+Here you have two ways:
+
+`.\vcpkg.exe install protobuf:x64-windows`
+or
+`.\vcpkg.exe install protobuf:x64-windows-static-md`
+
+The first one will install the default version of the .lib. You will have to get libprotobuf DLLs from a release in this repo and move them to the folder with dota2.exe
+
+The second one will install the heavier static version which will not require anything.
+
+Once the process completes, go to `installed/x64-windows` or `installed/x64-windows-static-md`, depending on your choice before. Copy libprotobuf.lib and libprotobuf-lite.lib files from /lib to Dota2Cheat/lib. You can also copy the libs with a `d` suffix from debug/lib if you want to compile it in Debug
+
 Open the project in Visual Studio and build as **Release x64**
 
 ## Injecting
-You need to have libprotobuf DLLs in your the folder with dota2.exe, get them from a release in this repo or install protobuf via vcpkg and get them from the vcpkg/installed/x64-windows/bin folder
 
 This cheat can be safely reinjected at any point of the game
 
