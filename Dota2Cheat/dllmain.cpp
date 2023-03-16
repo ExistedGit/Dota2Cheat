@@ -153,6 +153,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		if (menuVisible)
 			Pages::MainMenu::Display(window);
 
+		texManager.ExecuteLoadCycle();
 		Modules::AbilityESP.DrawESP(msTrebuchet);
 
 		if (IsKeyPressed(VK_INSERT)) {

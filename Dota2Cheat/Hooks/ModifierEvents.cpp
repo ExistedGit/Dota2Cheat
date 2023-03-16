@@ -1,53 +1,68 @@
 #include "ModifierEvents.h"
 
-void Hooks::CacheIfItemModifier(CDOTAModifier* modifier) {
-	static const std::vector<ImportantItemData> importantItemNames = {
+inline std::map<std::string_view, Hooks::ImportantItemData> importantItemNames = {
 		{
-			"item_hand_of_midas",
 			"modifier_item_hand_of_midas",
+			{
+			"item_hand_of_midas",
 			&ctx.importantItems.midas
-		},
-			{
-				"item_manta",
-				"modifier_item_manta_style",
-				&ctx.importantItems.manta
-			},
-			{
-				"item_bottle",
-				"modifier_item_empty_bottle",
-				&ctx.importantItems.bottle
-			},
-			{
-				"item_armlet",
-				"modifier_item_armlet",
-				&ctx.importantItems.armlet
-			},
-			{
-				"item_power_treads",
-				"modifier_item_power_treads",
-				&ctx.importantItems.power_treads
-			},
-			{
-				"item_vambrace",
-				"modifier_item_vambrace",
-				&ctx.importantItems.vambrace
 			}
-	};
+		},
+		{
+			"modifier_item_manta_style",
+			{
+			"item_manta",
+			&ctx.importantItems.manta
+			}
+		},
+		{
+			"modifier_item_empty_bottle",
+			{
+			"item_bottle",
+			&ctx.importantItems.bottle
+			}
+		},
+		{
+			"item_armlet",
+			{
+			"modifier_item_armlet",
+			&ctx.importantItems.armlet
+			}
+		},
+		{
+			"modifier_item_power_treads",
+			{
+
+			"item_power_treads",
+			&ctx.importantItems.power_treads
+			}
+		},
+		{
+			"modifier_item_vambrace",
+			{
+			"item_vambrace",
+			&ctx.importantItems.vambrace
+			}
+		}
+};
+
+void Hooks::CacheIfItemModifier(CDOTAModifier* modifier) {
 	std::string_view modName = modifier->GetName();
+	auto itemName = modName.substr(9); // removing the "modifier_" prefix
+
 	if (!modName.starts_with("modifier_item"))
 		return;
 
-	if (modifier->GetOwner() == ctx.assignedHero)
-		for (auto& data : importantItemNames) {
-			if (data.modifierName != modName)
-				continue;
-			auto item = modifier->GetOwner()->FindItemBySubstring(data.itemName);
-			if (!item)
-				break;
+	if (modifier->GetOwner() == ctx.assignedHero
+		&& importantItemNames.count(modName))
+	{
+		auto& data = importantItemNames[modName];
+		auto item = modifier->GetOwner()->FindItemBySubstring(data.itemName);
+		if (!item)
+			return;
+		*data.item = item;
+	}
 
-			*data.importantItemPtr = item;
-		}
-	auto itemName = modName.substr(9); // removing the "modifier_" prefix
 	auto item = modifier->GetOwner()->FindItemBySubstring(itemName.data());
 	if (item) {
 		if (itemName.find("sphere", 0) != -1)
@@ -68,23 +83,19 @@ void Hooks::hkOnRemoveModifier(CDOTAModifier* modifier, C_DOTA_PlayerResource* p
 	if (!HookedOnAddModifier) {
 		HookedOnAddModifier = true;
 		void* onAddModifier = modifier->GetVFunc(VTableIndexes::CDOTA_Buff::OnAddModifier).ptr;
-
-		HookFunc(onAddModifier, &hkOnAddModifier, &oOnAddModifier, "AddModifier");
+		HookFunc(onAddModifier, &hkOnAddModifier, &oOnAddModifier, "OnAddModifier");
 	}
 
-
 	std::string_view modName = modifier->GetName();
-	if (modName.starts_with("modifier_item"))
-	{
-		auto itemName = modName.substr(9); // removing the "modifier_" prefix
-		if (itemName.find("midas", 0) != -1 &&
-			modifier->GetOwner() == ctx.assignedHero) {
-			ctx.importantItems.midas = nullptr;
-		}
-		else if (itemName.find("sphere", 0) != -1) {
-			Modules::TargetedSpellHighlighter.UnsubscribeLinkenRendering(modifier->GetOwner());
-		}
+	auto itemName = modName.substr(9); // removing the "modifier_" prefix
 
+	if (modName.starts_with("modifier_item") && modifier->GetOwner() == ctx.assignedHero)
+	{
+
+		if (modifier->GetOwner() == ctx.assignedHero && importantItemNames.count(modName))
+			*importantItemNames[modName].item = nullptr;
+		else if (itemName.find("sphere", 0) != -1)
+			Modules::TargetedSpellHighlighter.UnsubscribeLinkenRendering(modifier->GetOwner());
 	}
 
 	Modules::TargetedSpellHighlighter.RemoveParticleIfTargetedSpell(modifier);

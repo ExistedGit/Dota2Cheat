@@ -6,15 +6,15 @@
 
 class ItemStockInfo : VClass {
 private:
-	char pad[40]; //idk why tho
+	char pad[0x28];
 public:
-	DOTA_GC_TEAM TeamNumber;
-	int ItemID;
-	float StockDuration, StockTime;
-	int StockCount, MaxCount;
-	float InitialStockDuration;
-	uint32_t PlayerID;
-	int BonusDelayedStockCount;
+	DOTA_GC_TEAM iTeamNumber;
+	int nItemAbilityID;
+	float fStockDuration, fStockTime;
+	int iStockCount, iMaxCount;
+	float fInitialStockDuration;
+	uint32_t iPlayerID;
+	int iBonusDelayedStockCount;
 };
 
 class CDOTAGameRules : public VClass {
@@ -22,26 +22,9 @@ public:
 	typedef void(*GetGameTimeFn)(float* out, bool unk);
 	inline static GetGameTimeFn GetGameTimeFunc{};
 
-	DOTA_GameState GetGameState() {
-		return Member<DOTA_GameState>(Netvars::C_DOTAGamerules::m_nGameState);
-	}
-	float GetGameTime() {
-		float result = 0;
-		GetGameTimeFunc(&result, 0);
-		return result;
-	}
-
-	DOTA_GameMode GetGameMode() {
-		return Member<DOTA_GameMode>(Netvars::C_DOTAGamerules::m_iGameMode);
-	}
-
-	std::vector<ItemStockInfo*> GetItemStockInfo() {
-		CUtlVector<ItemStockInfo>* arr = (CUtlVector<ItemStockInfo>*)((uintptr_t)this + Netvars::C_DOTAGamerules::m_vecItemStockInfo);
-		auto result = std::vector<ItemStockInfo*>{};
-		result.reserve(arr->m_Size);
-		for (int i = 0; i < arr->m_Size; i++)
-			result.push_back(&arr->at(i));
-
-		return result;
-	}
+	GETTER(DOTA_GameState, GetGameState, Netvars::C_DOTAGamerules::m_nGameState);
+	GETTER(DOTA_GameMode, GetGameMode, Netvars::C_DOTAGamerules::m_iGameMode);
+	
+	float GetGameTime();
+	std::vector<ItemStockInfo*> GetItemStockInfo();
 };

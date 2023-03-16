@@ -15,7 +15,6 @@ namespace ESP {
 			float currentCooldown{};
 		};
 
-		std::map<std::string, TextureData*> loadingQueue;
 
 		// Scales a value according to the config parameter
 		template<typename T = int>
@@ -31,6 +30,14 @@ namespace ESP {
 
 		bool CanDraw(CDOTABaseNPC_Hero* hero);;
 		void DrawAbilities(ImFont* textFont);
+		void LoadItemTexIfNeeded(AbilityData& data ) {
+			if (data.icon.glTex == 0) {
+				std::string itemName = data.ability->GetIdentity()->GetName();
+				auto tex = texManager.GetNamedTexture(itemName.substr(5));
+				if (tex)
+					data.icon = *tex;
+			}
+		}
 		void DrawItems(ImFont* textFont);
 		void DrawItemCircle(ImFont* textFont, const AbilityData& data, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius);
 		void DrawLevelCounter(CDOTABaseAbility* ability, ImFont* font, ImVec2 pos);

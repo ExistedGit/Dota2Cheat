@@ -75,7 +75,7 @@ void HelpMarker(const char* desc)
 	}
 }
 
-bool LoadTexture(const char* filename, TextureData& data)
+bool TextureManager::LoadTexture(const char* filename, TextureData& data)
 {
 	// Load from file
 	int image_width = 0;
@@ -105,6 +105,7 @@ bool LoadTexture(const char* filename, TextureData& data)
 	data.glTex = (void*)image_texture;
 	data.width = image_width;
 	data.height = image_height;
+	data.filePath = filename;
 
 	return true;
 }

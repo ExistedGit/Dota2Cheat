@@ -8,9 +8,15 @@ void Signatures::FindSignatures(bool log) {
 	if (log)
 		std::cout << "[SIGNATURES]\n";
 
+
+	// xref "particles/ui_mouseactions/waypoint_flag.vpcf"
 	PrepareUnitOrders = ssctx.Scan("4C 89 4C 24 20 44 89 44 24 18 89 54 24 10 55 53 56 41 55 41 56 48 8D 6C 24 C0", L"client.dll");
 
-	OnRemoveModifier = ssctx.Scan("E8 ? ? ? ? FF CB 48 83 EF 01", L"client.dll").GetAbsoluteAddress(0, 1, 5);
+	// xref "%c [%2.2f] Removing buff '%s' index: %d to '%s'.\n"
+	// the sig is to a call instruction
+	OnRemoveModifier = ssctx.Scan("E8 ? ? ? ? FF CB 48 83 EF 01", L"client.dll").GetAbsoluteAddress(1, 5);
+	
+	
 	std::cout << "OnRemoveModifier: " << OnRemoveModifier << '\n';
 	// Xref DestroyParticleEffect to a lea rcx just behind the string
 	// It's offset by 9 bytes because it checks for an invalid handle before doing the initial mov
@@ -23,7 +29,7 @@ void Signatures::FindSignatures(bool log) {
 	// JS func
 	CDOTABaseAbility::GetLevelSpecialValueForFunc = ssctx.Scan("40 53 57 41 56 48 83 EC 40 41 8B F8 4C 8B F2", L"client.dll");
 	// Second call in JS func GetLevelSpecialValueFor
-	CDOTABaseAbility::GetKVEntry = Address(CDOTABaseAbility::GetLevelSpecialValueForFunc).GetAbsoluteAddress(0x33, 1, 5);
+	CDOTABaseAbility::GetKVEntry = Address(CDOTABaseAbility::GetLevelSpecialValueForFunc).Offset(0x33).GetAbsoluteAddress(1, 5);
 
 	//xref: "You are #%d in line of %d waiting players.\n"
 	DispatchPacket = ssctx.Scan("74 05 48 8B 01 FF 10 48 8B 06 48 8B CE 48 89 BC 24 80 00 00 00", L"client.dll").Offset(-0x1B);
