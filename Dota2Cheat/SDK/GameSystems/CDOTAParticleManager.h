@@ -128,9 +128,9 @@ public:
 	ParticleWrapper CreateParticle(const char* name, ParticleAttachment_t attachType, CBaseEntity* ent);
 	void DestroyParticle(uint32_t handle);
 	void DestroyParticle(ParticleWrapper& info);
-	
+
 	void OnExitMatch();
-	
+
 	static void BindLua(sol::state& lua) {
 		auto type = lua.new_usertype<CDOTAParticleManager>(
 			"CDOTAParticleManager"
@@ -138,13 +138,10 @@ public:
 		type["GetParticleCount"] = &CDOTAParticleManager::GetParticleCount;
 		type["CreateParticle"] = &CDOTAParticleManager::CreateParticle;
 
-		type["DestroyParticleByHandle"] = [](CDOTAParticleManager& thisptr, uint32_t handle) -> void {
-			thisptr.DestroyParticle(handle);
-		};
-
-		type["DestroyParticleWrapper"] = [](CDOTAParticleManager& thisptr, ParticleWrapper& wrapper) -> void {
-			thisptr.DestroyParticle(wrapper);
-		};
+		type["DestroyParticle"] = sol::overload(
+			sol::resolve<void(uint32_t)>(&CDOTAParticleManager::DestroyParticle),
+		sol::resolve<void(ParticleWrapper&)>(&CDOTAParticleManager::DestroyParticle)
+		);
 	}
 };
 

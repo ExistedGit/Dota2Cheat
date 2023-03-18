@@ -29,6 +29,7 @@ int main() {
 
 		
 		fs::copy(curDir + "\\..\\..\\assets", cheatFolderPath + R"(\assets\)", fs::copy_options::recursive | fs::copy_options::skip_existing);
+		fs::copy(curDir + "\\..\\..\\scripts", cheatFolderPath + R"(\scripts\)", fs::copy_options::recursive | fs::copy_options::skip_existing);
 		
 		cout << "Successfully updated assets in " << cheatFolderPath << '\n';
 	}

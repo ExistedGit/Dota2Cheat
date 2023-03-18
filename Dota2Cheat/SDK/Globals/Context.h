@@ -43,6 +43,10 @@ struct Context {
 
 	std::string cheatFolderPath;
 	sol::state lua{};
+
+	// For Lua compatibility
+	Context() {};
+	Context(const Context& other) { };
 };
 
 inline Context ctx{};

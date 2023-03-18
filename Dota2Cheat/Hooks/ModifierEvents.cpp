@@ -82,8 +82,8 @@ void Hooks::hkOnAddModifier(CDOTAModifier* modifier, int unk) {
 
 void Hooks::hkOnRemoveModifier(CDOTAModifier* modifier, C_DOTA_PlayerResource* playerResource, void* unk) {
 	if (!oOnAddModifier) {
-		void* onAddModifier = modifier->GetVFunc(VTableIndexes::CDOTA_Buff::OnAddModifier).ptr;
-		HookFunc(onAddModifier, &hkOnAddModifier, &oOnAddModifier, "OnAddModifier");
+		void* OnAddModifier = modifier->GetVFunc(VTableIndexes::CDOTA_Buff::OnAddModifier).ptr;
+		HOOKFUNC(OnAddModifier);
 	}
 
 	std::string_view modName = modifier->GetName();
@@ -91,7 +91,6 @@ void Hooks::hkOnRemoveModifier(CDOTAModifier* modifier, C_DOTA_PlayerResource* p
 
 	if (modName.starts_with("modifier_item") && modifier->GetOwner() == ctx.assignedHero)
 	{
-
 		if (modifier->GetOwner() == ctx.assignedHero && importantItemNames.count(modName))
 			*importantItemNames[modName].item = nullptr;
 		else if (itemName.find("sphere", 0) != -1)

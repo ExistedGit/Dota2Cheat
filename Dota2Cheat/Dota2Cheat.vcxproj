@@ -188,6 +188,7 @@
     <ClCompile Include="Hooks\ParticleRendering.cpp" />
     <ClCompile Include="Hooks\PrepareUnitOrders.cpp" />
     <ClCompile Include="Hooks\RunFrame.cpp" />
+    <ClCompile Include="Lua\LuaInitialization.cpp" />
     <ClCompile Include="MatchStateHandling.cpp" />
     <ClCompile Include="Modules\Hacks\AutoBuyTome.cpp" />
     <ClCompile Include="Modules\Hacks\AutoDodge.cpp" />
@@ -268,6 +269,7 @@
     <ClInclude Include="Modules\Hacks\AutoUseMidas.h" />
     <ClInclude Include="Modules\Hacks\BadCastPrevention.h" />
     <ClInclude Include="Modules\Utility\AttackAnimTracker.h" />
+    <ClInclude Include="Modules\Utility\TPTracker.h" />
     <ClInclude Include="SDK\Base\Bytehook.h" />
     <ClInclude Include="SDK\Base\Color.h" />
     <ClInclude Include="SDK\Base\Definitions.h" />

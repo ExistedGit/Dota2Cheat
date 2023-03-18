@@ -17,7 +17,7 @@ inline void AutoUseWandCheck(CDOTABaseNPC* hero, int hpPercentTreshold, int minC
 		if (wand->GetCooldown() != 0 || wand->GetCharges() < minCharges)
 			return;
 
-		ctx.localPlayer->CastNoTarget(wand->GetIdentity()->entHandle, hero);
+		ctx.localPlayer->CastNoTarget(wand, hero);
 	}
 }
 
@@ -30,6 +30,6 @@ inline void AutoUseFaerieFireCheck(CDOTABaseNPC* hero, int hpPercentTreshold) {
 		if (!faerieFire)
 			return;
 
-		ctx.localPlayer->CastNoTarget(faerieFire->GetIdentity()->entHandle, hero);
+		ctx.localPlayer->CastNoTarget(faerieFire, hero);
 	}
 }

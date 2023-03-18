@@ -24,7 +24,8 @@ public:
 
 	GETTER(DOTA_GameState, GetGameState, Netvars::C_DOTAGamerules::m_nGameState);
 	GETTER(DOTA_GameMode, GetGameMode, Netvars::C_DOTAGamerules::m_iGameMode);
-	
+	GETTER(bool, IsGamePaused, Netvars::C_DOTAGamerules::m_bGamePaused);
+
 	float GetGameTime();
 	std::vector<ItemStockInfo*> GetItemStockInfo();
 };

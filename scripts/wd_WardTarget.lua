@@ -1,0 +1,60 @@
+-- Modules.WitchDoctorWardTargeting = {
+--     Info = {
+--         Name = "Witch Doctor: Ward Targeting",
+--         Description = 'Aims the ward for the target with least health and ignores illusions.'
+--     },
+--     Ward = nil,
+--     WardTarget = nil,
+--     OnAddEntity = function(self, ent)
+--         if (ent:GetTeam() ~= localHero:GetTeam()
+--             or ent:GetSchemaBinding().binaryName ~= "C_DOTA_NPC_WitchDoctor_Ward") then
+--             return
+--         end
+
+--         print('ward created')
+--         self.Ward = ent
+--     end,
+--     OnRemoveEntity = function(self, ent)
+--         if (ent:GetTeam() ~= localHero:GetTeam()
+--             or ent:GetSchemaBinding().binaryName ~= "C_DOTA_NPC_WitchDoctor_Ward") then
+--             return
+--         end
+
+--         print('ward dead')
+--         self.Ward = nil
+--     end,
+--     OnHero = function(self, enemy)
+--         if (self.Ward == nil) then return end
+--         if (self.WardTarget == enemy) then return end
+--         if (
+--             enemy:HasState(Enum.ModifierState.MODIFIER_STATE_OUT_OF_GAME) or
+--             enemy:HasState(Enum.ModifierState.MODIFIER_STATE_INVULNERABLE)
+--             ) then
+--             return
+--         end
+
+--         local atkRange = self.Ward:GetAttackRange();
+--         if (enemy:IsIllusion()) then return end
+--         if (not IsWithinRadius(self.Ward:GetPos(), enemy:GetPos(), atkRange)) then return end
+
+--         print('eligible...')
+
+--         if (self.WardTarget == nil
+--             or not IsWithinRadius(self.WardTarget:GetPos(), self.Ward:GetPos(), atkRange)
+--             or CompareDistance(self.Ward:GetPos(), enemy:GetPos(), self.WardTarget:GetPos()) == -1)
+--         then
+--             self.WardTarget = enemy;
+--             localPlayer:PrepareOrder(
+--                 Enum.DotaUnitOrder.DOTA_UNIT_ORDER_ATTACK_TARGET,
+--                 self.WardTarget:GetIndex(),
+--                 Vector.new(0, 0, 0),
+--                 0,
+--                 Enum.PlayerOrderIssuer.DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
+--                 self.Ward,
+--                 false,
+--                 false
+--             )
+--             print('Target acquired')
+--         end
+--     end
+-- }

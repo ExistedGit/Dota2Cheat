@@ -20,8 +20,12 @@ namespace VTableIndexes {
 		// Third calls a virtual function of RAX, the index is there
 		Index CreateParticle = 9;
 	}
+	namespace CDOTABaseNPC {
+		// JS function "GetMagicalArmorValue", gets an entity by index and then calls its vfunc with jmp [rdx+880h]
+		Index GetMagicalArmorValue = 272;
+	}
 	namespace CDOTABaseAbility {
-		Index GetCastRangeBonus = 249;
+		Index GetCastRangeBonus = 0X7C8/8;
 	}
 	namespace CDOTA_Buff {
 		Index OnAddModifier = 39;

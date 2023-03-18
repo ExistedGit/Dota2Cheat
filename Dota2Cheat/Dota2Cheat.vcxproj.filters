@@ -249,6 +249,9 @@
     <ClCompile Include="SDK\GameSystems\C_DOTAGameRules.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="Lua\LuaInitialization.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h">
@@ -573,6 +576,9 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="json.hpp">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Modules\Utility\TPTracker.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -87,73 +87,77 @@ void Hooks::UpdateWeather() {
 void Hooks::hkRunFrame(uintptr_t a, uintptr_t b) {
 	bool isInGame = Interfaces::Engine->IsInGame();
 
-	if (isInGame) {
-		//std::cout << "frame\n";
-		if (ctx.gameStage == Context::GameStage::IN_GAME) {
-			//sol::function entIter = ctx.lua["Modules"]["Core"]["EntityIteration"];
-			//entIter();
-
-			UpdateCameraDistance();
-			UpdateWeather();
-
-			if (ctx.assignedHero->GetLifeState() == 0) { // if alive
-				AutoUseWandCheck(ctx.assignedHero, Config::AutoHealWandHPTreshold, Config::AutoHealWandMinCharges);
-				AutoUseFaerieFireCheck(ctx.assignedHero, Config::AutoHealFaerieFireHPTreshold);
-
-				Modules::AbilityESP.UpdateHeroData();
-				Modules::AutoPing.FrameBasedLogic();
-				Modules::AutoDodge.FrameBasedLogic();
-				Modules::AutoBuyTome.FrameBasedLogic();
-				Modules::RiverPaint.FrameBasedLogic();
-				Modules::ParticleGC.FrameBasedLogic();
-				Modules::TargetedSpellHighlighter.FrameBasedLogic();
-				Modules::LinearProjectileWarner.FrameBasedLogic();
-				EntityIteration();
-			}
-#ifdef _DEBUG
-			if (IsKeyPressed(VK_NUMPAD7)) {
-				for (auto& hero : ctx.heroes)
-					if(hero != ctx.assignedHero)
-						std::cout << Modules::AttackAnimTracker.WillUnitAttack(ctx.assignedHero, hero, 0.5) << '\n';
-
-			}
-			if (IsKeyPressed(VK_NUMPAD8)) {
-				auto selected = ctx.localPlayer->GetSelectedUnits();
-					auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(selected[0]);
-					auto pos = ent->GetPos();
-
-					std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
-					<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
-					<< "\n\tAttack Time: " << std::clamp(ent->GetBaseAttackTime() / ent->GetAttackSpeed(), 0.24f, 2.0f)
-					//<< "\n\tIsRoshan: " << ent->IsRoshan()
-					<< "\n\tStunned: " << ent->HasState(ModifierState::MODIFIER_STATE_STUNNED)
-					<< '\n';
-			}
-			if (IsKeyPressed(VK_NUMPAD3)) {
-				auto arr = GameSystems::ProjectileManager->GetTrackingProjectiles();
-				std::cout << "[PROJECTILES]\n";
-				for (int i = 0; i < arr.size(); i++) {
-					auto proj = arr[i];
-					if (!proj)
-						continue;
-					auto target = proj->GetTarget();
-					auto source = proj->GetSource();
-					std::cout << std::format("[{}] Move speed {} Source {} Target {} Dodgeable {} Attack {} Evaded {}\n",
-						i,
-						proj->GetMoveSpeed(),
-						source ? source->GetUnitName() : "unknown",
-						target ? target->GetUnitName() : "unknown",
-						proj->IsDodgeable() ? "YES" : "NO",
-						proj->IsAttack() ? "YES" : "NO",
-						proj->IsEvaded() ? "YES" : "NO"
-					);
-				};
-			}
-			if (IsKeyPressed(VK_HOME)) {
-
-			}
-#endif
-		}
+	if (!isInGame || ctx.gameStage != Context::GameStage::IN_GAME) {
+		oRunFrame(a, b);
+		return;
 	}
+	//std::cout << "frame\n";
+
+	UpdateCameraDistance();
+	UpdateWeather();
+
+	Modules::AbilityESP.UpdateHeroData();
+	if (
+		ctx.assignedHero->GetLifeState() == 0 // if alive
+		&& !GameSystems::GameRules->IsGamePaused() // and the game is not paused
+		) { 
+		AutoUseWandCheck(ctx.assignedHero, Config::AutoHealWandHPTreshold, Config::AutoHealWandMinCharges);
+		AutoUseFaerieFireCheck(ctx.assignedHero, Config::AutoHealFaerieFireHPTreshold);
+
+		Modules::AutoPing.FrameBasedLogic();
+		Modules::AutoDodge.FrameBasedLogic();
+		Modules::AutoBuyTome.FrameBasedLogic();
+		Modules::RiverPaint.FrameBasedLogic();
+		Modules::ParticleGC.FrameBasedLogic();
+		Modules::TargetedSpellHighlighter.FrameBasedLogic();
+		Modules::LinearProjectileWarner.FrameBasedLogic();
+		EntityIteration();
+
+		ctx.lua.safe_script("Modules.Core:EntityIteration()");
+	}
+#ifdef _DEBUG
+	if (IsKeyPressed(VK_NUMPAD7)) {
+		for (auto& hero : ctx.heroes)
+			if (hero != ctx.assignedHero)
+				std::cout << Modules::AttackAnimTracker.WillUnitAttack(ctx.assignedHero, hero, 0.5) << '\n';
+
+	}
+	if (IsKeyPressed(VK_NUMPAD8)) {
+		auto selected = ctx.localPlayer->GetSelectedUnits();
+		auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(selected[0]);
+		auto pos = ent->GetPos();
+
+		std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
+			<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
+			<< "\n\tAttack Time: " << std::clamp(ent->GetBaseAttackTime() / ent->GetAttackSpeed(), 0.24f, 2.0f)
+			//<< "\n\tIsRoshan: " << ent->IsRoshan()
+			//<< "\n\tStunned: " << ent->HasState(ModifierState::MODIFIER_STATE_STUNNED)
+			<< '\n';
+	}
+	if (IsKeyPressed(VK_NUMPAD3)) {
+		auto arr = GameSystems::ProjectileManager->GetTrackingProjectiles();
+		std::cout << "[PROJECTILES]\n";
+		for (int i = 0; i < arr.size(); i++) {
+			auto proj = arr[i];
+			if (!proj)
+				continue;
+			auto target = proj->GetTarget();
+			auto source = proj->GetSource();
+			std::cout << std::format("[{}] Move speed {} Source {} Target {} Dodgeable {} Attack {} Evaded {}\n",
+				i,
+				proj->GetMoveSpeed(),
+				source ? source->GetUnitName() : "unknown",
+				target ? target->GetUnitName() : "unknown",
+				proj->IsDodgeable() ? "YES" : "NO",
+				proj->IsAttack() ? "YES" : "NO",
+				proj->IsEvaded() ? "YES" : "NO"
+			);
+		};
+	}
+	if (IsKeyPressed(VK_HOME)) {
+
+	}
+#endif
+
 	oRunFrame(a, b);
 }
