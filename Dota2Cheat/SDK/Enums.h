@@ -14,7 +14,7 @@ enum DotaUnitType : int {
 	DOTA_UNIT_SHOPKEEP
 };
 
-enum class ModifierState : int {
+enum ModifierState : int {
 	MODIFIER_STATE_ROOTED = 0,
 	MODIFIER_STATE_DISARMED = 1,
 	MODIFIER_STATE_ATTACK_IMMUNE = 2,

@@ -1477,6 +1477,21 @@ inline void QAngleAdd(const QAngle& a, const QAngle& b, QAngle& c)
 }
 
 // Ignores coordinate Z as it's irrelevant in Dota 2's mechanics
-inline bool IsWithinRadius(Vector p1, Vector p2, float radius) {
+inline bool IsWithinRadius(const Vector& p1, const Vector& p2, float radius) {
 	return pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2) <= radius * radius;
+}
+
+// If v1 is closer to point, returns -1
+// If v2 is closer to point, returns 1
+// If they're equal, returns 0
+inline int CompareDistance(const Vector& point, const Vector& v1, const Vector& v2) {
+	float d1 = pow(point.x - v1.x, 2) + pow(point.y - v1.y, 2),
+		d2 = pow(point.x - v2.x, 2) + pow(point.y - v2.y, 2);
+
+	if (d1 < d2)
+		return -1;
+	else if (d2 > d1)
+		return 1;
+	
+	return 0;
 }

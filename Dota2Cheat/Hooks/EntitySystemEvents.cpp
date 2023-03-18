@@ -1,4 +1,5 @@
 #include "EntitySystemEvents.h"
+#include "../Lua/LuaModules.h"
 // Here we filter entities and put them into their respective collections
 CBaseEntity* Hooks::OnAddEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HANDLE handle) {
 	auto className = ent->SchemaBinding()->binaryName;
@@ -14,7 +15,7 @@ CBaseEntity* Hooks::OnAddEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HA
 		}
 		ctx.entities.insert(ent);
 	}
-
+	Lua::CallModuleFunc("OnAddEntity", ent);
 	return oOnAddEntity(thisptr, ent, handle);
 }
 
@@ -27,6 +28,6 @@ CBaseEntity* Hooks::OnRemoveEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT
 	if (ent == ctx.importantItems.midas)
 		ctx.importantItems.midas = nullptr;
 
-
+	Lua::CallModuleFunc("OnRemoveEntity", ent);
 	return oOnRemoveEntity(thisptr, ent, handle);
 }

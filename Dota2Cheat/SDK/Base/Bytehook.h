@@ -8,3 +8,4 @@ inline void HookFunc(void* func, void* detour, void* original, const char* name)
 		MH_EnableHook(func) != MH_OK)
 		std::cout << "Could not hook" << name << "()!\n";
 };
+#define HOOKFUNC(func) HookFunc(func, &hk##func, &o##func, #func)

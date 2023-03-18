@@ -8,18 +8,30 @@ CDOTABaseNPC_Hero* CDOTAPlayerController::GetAssignedHero() {
 	return Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(GetAssignedHeroHandle()));
 }
 
-void CDOTAPlayerController::CastNoTarget(ENT_HANDLE handle, CBaseEntity* issuer) {
+void CDOTAPlayerController::CastNoTarget(CDOTABaseAbility* ability, CBaseEntity* issuer) {
 	if (issuer == nullptr)
 		issuer = GetAssignedHero();
 	PrepareOrder(DOTA_UNIT_ORDER_CAST_NO_TARGET,
 		0,
 		&Vector::Zero,
-		H2IDX(handle),
+		ability->GetIndex(),
 		DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
 		issuer,
 		false,
 		true
 	);
+}
+
+void CDOTAPlayerController::CastTarget(CDOTABaseAbility* ability, CBaseEntity* target, CBaseEntity* issuer) {
+	if (!issuer)
+		issuer = GetAssignedHero();
+	PrepareOrder(
+		DOTA_UNIT_ORDER_CAST_TARGET,
+		target->GetIndex(),
+		&Vector::Zero,
+		ability->GetIndex(),
+		DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
+		issuer);
 }
 
 void CDOTAPlayerController::BuyItem(int itemId) {
@@ -68,6 +80,7 @@ void CDOTAPlayerController::BindLua(sol::state& lua) {
 
 	type["PrepareOrder"] = &CDOTAPlayerController::PrepareOrder;
 	type["CastNoTarget"] = &CDOTAPlayerController::CastNoTarget;
+	type["CastTarget"] = &CDOTAPlayerController::CastTarget;
 	type["OrderMoveTo"] = &CDOTAPlayerController::OrderMoveTo;
 	type["BuyItem"] = &CDOTAPlayerController::BuyItem;
 }

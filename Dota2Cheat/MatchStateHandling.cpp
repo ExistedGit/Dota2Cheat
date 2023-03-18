@@ -1,6 +1,6 @@
 #include "MatchStateHandling.h"
 #include "HookHelper.h"
-
+#include "Lua/LuaModules.h"
 void FillPlayerList() {
 	auto vec = GameSystems::PlayerResource->GetVecPlayerTeamData();
 	std::cout << "<PLAYERS>\n";
@@ -109,10 +109,8 @@ void EnteredInGame() {
 	GameSystems::GameEventManager->AddListener(hurtListener, "entity_hurt");
 
 	GameSystems::LogGameSystems();
-	Lua::InitGlobals(ctx.lua);
 
-	ctx.lua["assignedHero"] = ctx.assignedHero;
-	ctx.lua["localPlayer"] = ctx.localPlayer;
+	Lua::SetGlobals(ctx.lua);
 
 	ReinjectEntIteration();
 
@@ -120,13 +118,17 @@ void EnteredInGame() {
 	Modules::AutoBuyTome.Init();
 	Modules::AbilityESP.SubscribeHeroes();
 
-	ctx.gameStage = Context::GameStage::IN_GAME;
+	Lua::CallModuleFunc("Init");
+
 	Hooks::EnableHooks();
+	ctx.gameStage = Context::GameStage::IN_GAME;
 	std::cout << "ENTERED GAME\n";
 }
 
 void LeftMatch() {
 	ctx.gameStage = Context::GameStage::NONE;
+
+	Lua::CallModuleFunc("Reset");
 
 	GameSystems::ParticleManager->OnExitMatch();
 
@@ -141,19 +143,15 @@ void LeftMatch() {
 	GameSystems::ParticleManager = nullptr;
 	GameSystems::ProjectileManager = nullptr;
 
-	Lua::ResetGlobals(ctx.lua);
-
 	for (auto& listener : CGameEventManager::EventListeners)
 		GameSystems::GameEventManager->RemoveListener(listener.get());
 	CGameEventManager::EventListeners.clear();
 	GameSystems::GameEventManager = nullptr;
 
-
 	ctx.localPlayer = nullptr;
 	ctx.assignedHero = nullptr;
-	ctx.lua["assignedHero"] = nullptr;
-	ctx.lua["localPlayer"] = nullptr;
 	
+	Lua::SetGlobals(ctx.lua);
 	Hooks::DisableHooks();
 	texManager.QueueTextureUnload();
 

@@ -1,5 +1,6 @@
 #pragma once
 #define STB_IMAGE_IMPLEMENTATION
+#define SOL_ALL_SAFETIES_ON
 #include <cstdio>
 #include <iostream>
 #include "HookHelper.h"
@@ -64,7 +65,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	ctx.CurProcId = GetCurrentProcessId();
 	ctx.CurProcHandle = OpenProcess(PROCESS_ALL_ACCESS, TRUE, ctx.CurProcId);
 
-	ctx.lua.open_libraries(sol::lib::base, sol::lib::package, sol::lib::string);
+	ctx.lua.open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::math );
 
 	ctx.lua.script("print(\"works!\")");
 	Interfaces::FindInterfaces();
@@ -80,10 +81,13 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	GameSystems::FindGameSystems();
 	Hooks::SetUpByteHooks();
 	Hooks::SetUpVirtualHooks(true);
+	Hooks::DisableHooks();
 
 	Lua::InitEnums(ctx.lua);
 	Lua::InitClasses(ctx.lua);
 	Lua::InitInterfaces(ctx.lua);
+	Lua::InitFunctions(ctx.lua);
+	Lua::SetGlobals(ctx.lua);
 	Lua::LoadScriptFiles(ctx.lua);
 
 	//	Panorama::CSource2UITexture* texture{};

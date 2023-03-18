@@ -1,4 +1,5 @@
 #pragma once
+#include "../SDK/pch.h"
 
 namespace Hooks {
 	typedef CBaseEntity* (__fastcall* EntSystemEvent)(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HANDLE handle);

@@ -13,7 +13,8 @@ public:
 	std::vector<uint32_t> GetSelectedUnits();
 	CDOTABaseNPC_Hero* GetAssignedHero();
 	
-	void CastNoTarget(ENT_HANDLE handle, CBaseEntity* issuer = nullptr);
+	void CastNoTarget(CDOTABaseAbility* ability, CBaseEntity* issuer = nullptr);
+	void CastTarget(CDOTABaseAbility* ability, CBaseEntity* target, CBaseEntity* issuer = nullptr);
 	void BuyItem(int itemId);
 	void OrderMoveTo(Vector* pos, bool directMovement = false, CBaseEntity* issuer = nullptr);
 	void PrepareOrder(dotaunitorder_t orderType, uint32_t targetIndex, Vector* position, uint32_t abilityIndex, PlayerOrderIssuer_t orderIssuer, CBaseEntity* issuer, bool queue = false, bool showEffects = true);
