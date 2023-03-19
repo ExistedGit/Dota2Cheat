@@ -1,6 +1,7 @@
 #include "HookHelper.h"
 #include "SDK/Base/VMT.h"
 
+// these hooks are removed when not in-game
 #define HOOKFUNC_INGAME(func) HOOKFUNC(func); hooks.insert(func);
 #define HOOKFUNC_SIGNATURES_INGAME(func) HOOKFUNC_SIGNATURES(func); hooks.insert(Signatures::func);
 
@@ -9,20 +10,31 @@ void Hooks::SetUpByteHooks() {
 	//HOOKFUNC(DispatchPacket);
 	//HOOKFUNC(BAsyncSendProto);
 	HOOKFUNC_SIGNATURES_INGAME(CreateParticleCollection);
-	HOOKFUNC_SIGNATURES(OnRemoveModifier);
 }
 
 
 void Hooks::SetUpVirtualHooks(bool log) {
 
 	SigScanContext ssctx{ ctx.CurProcHandle, ctx.CurProcId };
-	// NetChan constructor
-	// vtable ptr at 0x15
-	uintptr_t** vtable = ssctx.Scan("40 53 56 57 41 56 48 83 EC ?? 45 33 F6 48 8D 71", L"networksystem.dll").Offset(0x15).GetAbsoluteAddress(3, 7);
-	uintptr_t* PostReceivedNetMessage = vtable[86], * SendNetMessage = vtable[69]; // bytehooking through vtables, how's that, Elon Musk?
-	HOOKFUNC_INGAME(PostReceivedNetMessage);
-	HOOKFUNC_INGAME(SendNetMessage);
+	{
+		// NetChan constructor
+		// vtable ptr at 0x15
+		uintptr_t** vtable = ssctx.Scan("40 53 56 57 41 56 48 83 EC ?? 45 33 F6 48 8D 71", L"networksystem.dll").Offset(0x15).GetAbsoluteAddress(3, 7);
+		uintptr_t* PostReceivedNetMessage = vtable[86], * SendNetMessage = vtable[69]; // bytehooking through vtables, how's that, Elon Musk?
+		HOOKFUNC_INGAME(PostReceivedNetMessage);
+		HOOKFUNC_INGAME(SendNetMessage);
+	}
+	{
 
+		// CDOTA_Buff destructor
+		// vtable ptr at 0xd
+		auto OnRemoveModifier = ssctx.Scan("4C 8B DC 56 41 57", L"client.dll");
+		uintptr_t** vtable = OnRemoveModifier.Offset(0xd).GetAbsoluteAddress(3, 7);
+		uintptr_t* OnAddModifier = vtable[39];
+		HOOKFUNC(OnAddModifier);
+		HOOKFUNC(OnRemoveModifier);
+
+	}
 	{
 		auto vmt = VMT(Interfaces::EntitySystem);
 		HookFunc(vmt.GetVM<EntSystemEvent>(14), &OnAddEntity, &oOnAddEntity, "OnAddEntity");
@@ -35,7 +47,7 @@ void Hooks::SetUpVirtualHooks(bool log) {
 }
 
 void Hooks::DisableHooks() {
-	for(auto hook : hooks)
+	for (auto hook : hooks)
 		MH_DisableHook(hook);
 }
 

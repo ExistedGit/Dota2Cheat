@@ -80,11 +80,11 @@ void Hooks::hkOnAddModifier(CDOTAModifier* modifier, int unk) {
 	oOnAddModifier(modifier, unk);
 }
 
-void Hooks::hkOnRemoveModifier(CDOTAModifier* modifier, C_DOTA_PlayerResource* playerResource, void* unk) {
-	if (!oOnAddModifier) {
-		void* OnAddModifier = modifier->GetVFunc(VTableIndexes::CDOTA_Buff::OnAddModifier).ptr;
-		HOOKFUNC(OnAddModifier);
-	}
+void Hooks::hkOnRemoveModifier(CDOTAModifier* modifier) {
+	//if (!oOnAddModifier) {
+	//	void* OnAddModifier = modifier->GetVFunc(VTableIndexes::CDOTA_Buff::OnAddModifier).ptr;
+	//	HOOKFUNC(OnAddModifier);
+	//}
 
 	std::string_view modName = modifier->GetName();
 	auto itemName = modName.substr(9); // removing the "modifier_" prefix
@@ -100,6 +100,5 @@ void Hooks::hkOnRemoveModifier(CDOTAModifier* modifier, C_DOTA_PlayerResource* p
 	Modules::TargetedSpellHighlighter.RemoveParticleIfTargetedSpell(modifier);
 	Modules::LinearProjectileWarner.RemoveParticleIfTrajectoryModifier(modifier);
 
-
-	oOnRemoveModifier(modifier, playerResource, unk);
+	oOnRemoveModifier(modifier);
 }

@@ -20,7 +20,7 @@ void Signatures::FindSignatures(bool log) {
 
 	// xref "%c [%2.2f] Removing buff '%s' index: %d to '%s'.\n"
 	// the sig is to a call instruction
-	SCAN_FUNC(OnRemoveModifier, ssctx.Scan("E8 ? ? ? ? FF CB 48 83 EF 01", L"client.dll").GetAbsoluteAddress(1, 5));
+	// SCAN_FUNC(OnRemoveModifier, ssctx.Scan("E8 ? ? ? ? FF CB 48 83 EF 01", L"client.dll").GetAbsoluteAddress(1, 5));
 
 	// Xref DestroyParticleEffect to a lea rcx just behind the string
 	// It's offset by 9 bytes because it checks for an invalid handle before doing the initial mov
