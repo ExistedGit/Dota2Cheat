@@ -9,11 +9,11 @@ CDOTAParticleManager::ParticleContainer** CDOTAParticleManager::GetParticleArray
 }
 
 uint32_t CDOTAParticleManager::GetHandle() {
-	return Member<uint32_t>(0x98);
+	return Member<uint32_t>(0xb8);
 }
 
 void CDOTAParticleManager::IncHandle() {
-	*(uint32_t*)((uintptr_t)this + 0x98) = GetHandle() + 1;
+	*(uint32_t*)((uintptr_t)this + 0xb8) = GetHandle() + 1;
 }
 
 ParticleWrapper CDOTAParticleManager::CreateParticle(const char* name, ParticleAttachment_t attachType, CBaseEntity* ent) {
