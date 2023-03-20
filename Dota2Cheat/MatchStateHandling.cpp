@@ -4,27 +4,27 @@
 void FillPlayerList() {
 	auto vec = GameSystems::PlayerResource->GetVecPlayerTeamData();
 	std::cout << "<PLAYERS>\n";
-	for (int i = 0; i < vec.m_Size; i++) {
-		//Sleep(800);
-		auto idx = vec[i].GetPlayerSlot() + 1;
-		if (idx < 1)
+	for (auto& data : vec) {
+		auto slot = data.GetPlayerSlot();
+
+		auto player = Interfaces::EntitySystem->GetEntity<CDOTAPlayerController>(
+			H2IDX(
+				GameSystems::PlayerResource->PlayerSlotToHandle(slot)
+			)
+			);
+
+		if (!player)
 			continue;
 
-		auto player = (CDOTAPlayerController*)Interfaces::EntitySystem->GetEntity(idx);
-		if (player == nullptr)
-			continue;
-
-		auto hero = (CDOTABaseNPC*)player->GetAssignedHero();
-		//std::cout << idx << " " << player << ' ' << player->GetIdentity() << '\n';
-
-		std::cout << "Player " << std::dec << idx << ": " << player;
+		auto hero = player->GetAssignedHero();
+		std::cout << "Player " << std::dec << slot << ": " << player;
 		if (hero &&
 			hero->GetUnitName()) {
 			std::cout << "\n\t" << hero->GetUnitName() << " " << hero;
-			ctx.heroes.insert((CDOTABaseNPC_Hero*)hero);
+			ctx.heroes.insert(hero);
 		}
-		std::cout << '\n';
 
+		std::cout << '\n';
 		//players.push_back(player);
 	}
 }

@@ -2,9 +2,31 @@
 #include "CDOTAModifier.h"
 #include "../Base/CUtlVector.h"
 
+
+
 struct ModifierFunctionListNode {
+	struct ReturnBuffer1 {
+		int successful;
+		float result;
+	private:
+		void* unk1;
+		void* unk2;
+	};
+
+	struct ReturnBuffer2 {
+		void* unk[0x100 / 8];
+	};
+
 	CDOTAModifier* modifier;
-	void* func;
+	using GetModifierPropertyValue = float(*)(CDOTAModifier*, ReturnBuffer1*, ReturnBuffer2*, void*);
+	GetModifierPropertyValue func;
+
+	float GetPropertyValue() {
+		ReturnBuffer1 buf1{};
+		ReturnBuffer2 buf2{};
+
+		return func(modifier, &buf1, &buf2, nullptr);
+	}
 private:
 	uintptr_t unk;
 };
@@ -41,6 +63,17 @@ public:
 				return &list.at(idx);
 		}
 		return nullptr;
+	}
+
+	float GetModifierPropertySum(ModifierFunction id) {
+		float sum = 0;
+		auto vec = GetBuffsByModifierFunction(id);
+		if (!vec)
+			return sum;
+
+		for (auto& node : *vec)
+			sum += node.GetPropertyValue();
+		return sum;
 	}
 
 	static void BindLua(sol::state& lua) {

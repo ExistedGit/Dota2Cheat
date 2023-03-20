@@ -20,12 +20,12 @@ public:
 		return m_pElements[i];
 	}
 
-	T& first() {
-		return m_pElements[0];
+	T* begin() {
+		return m_pElements;
 	}
 
-	T& last() {
-		return m_pElements[m_Size - 1];
+	T* end() {
+		return m_pElements + m_Size;
 	}
 
 	[[nodiscard]] std::vector<T> AsStdVector() {

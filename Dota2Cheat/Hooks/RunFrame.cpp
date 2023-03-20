@@ -132,6 +132,7 @@ void Hooks::hkRunFrame(uintptr_t a, uintptr_t b) {
 			<< "\n\tAttack Time: " << std::clamp(ent->GetBaseAttackTime() / ent->GetAttackSpeed(), 0.24f, 2.0f)
 			//<< "\n\tIsRoshan: " << ent->IsRoshan()
 			//<< "\n\tStunned: " << ent->HasState(ModifierState::MODIFIER_STATE_STUNNED)
+			<< "\n\tValue:" << ent->GetModifierManager()->GetBuffsByModifierFunction(MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE)->at(0).GetPropertyValue()
 			<< '\n';
 	}
 	if (IsKeyPressed(VK_NUMPAD3)) {
