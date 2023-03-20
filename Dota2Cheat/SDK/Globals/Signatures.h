@@ -29,7 +29,7 @@ namespace Signatures {
 	typedef bool (*DispatchPacketFn)(void*, IMsgNetPacket*);
 	
 	typedef void(*OnAddModifierFn)(CDOTAModifier*, int);
-	typedef void(*OnRemoveModifierFn)(CDOTAModifier*, void*, void*);
+	typedef void(*OnRemoveModifierFn)(CDOTAModifier*);
 	//there's actually no point in sigging it
 	//netmessages ftw
 	//typedef CDOTAParticleManager::CNewParticleEffect* (__fastcall* CreateLinearProjectile)(void* thisptr, void* creationInfo);
@@ -41,8 +41,6 @@ namespace Signatures {
 
 	using CParticleCollection = void;
 	typedef CParticleCollection* (*CreateParticleCollectionFn)(CNewParticleEffect* thisptr, void* particleMgr, void* unk, void** query, int particleIndex);
-
-	inline OnRemoveModifierFn OnRemoveModifier{};
 	
 	inline PrepareUnitOrdersFn PrepareUnitOrders{};
 	

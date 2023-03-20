@@ -17,5 +17,5 @@ namespace Hooks {
 	};
 	void CacheIfItemModifier(CDOTAModifier* modifier);
 	void hkOnAddModifier(CDOTAModifier* modifier, int unk);
-	void hkOnRemoveModifier(CDOTAModifier* modifier, C_DOTA_PlayerResource* playerResource, void* unk);
+	void hkOnRemoveModifier(CDOTAModifier* modifier);
 }
