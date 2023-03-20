@@ -1,4 +1,4 @@
-# Dota2Cheat: now with Lua!
+# Dota2Cheat: now with Memory Mapping!
 
 ![Screenshot_517](https://user-images.githubusercontent.com/66470490/224436497-2e7a5e86-10d8-4d80-94c5-d8eab78b7aef.png)
 
@@ -15,24 +15,20 @@ also using Google's [Protocol Buffers](https://github.com/protocolbuffers/protob
 
 also using [Lua 5.4](https://www.lua.org/) and [sol2](https://github.com/ThePhD/sol2) for scripting
 
+also using DarthTon's [BlackBone](https://github.com/DarthTon/Blackbone) for injection
+
 `assets` folder contents are property of Valve Corporation
 
 ## Building
-You need to install the protobuf library for it to work. Install [vcpkg](https://vcpkg.io/en/getting-started.html). Navigate to the folder with vcpkg.exe. Open the console in the folder
+You need to install the protobuf library for it to work. Install [vcpkg](https://vcpkg.io/en/getting-started.html). Navigate to the folder with vcpkg.exe. Open the console in the folder and enter the following command:
 
-Here you have two ways:
-
-`.\vcpkg.exe install protobuf:x64-windows`
-or
 `.\vcpkg.exe install protobuf:x64-windows-static-md`
 
-The first one will install the default version of the lib. You will have to get libprotobuf DLLs from a release in this repo and move them to the folder with dota2.exe
+This will install the heavier static version of the library. 
 
-The second one will install the heavier static version which will not require anything.
+Once the process completes, go to `installed/x64-windows-static-md`. Copy libprotobuf.lib and libprotobuf-lite.lib files from /lib to Dota2Cheat/lib. You can also copy the libs with a `d` suffix from debug/lib if you want to compile it in Debug
 
-Once the process completes, go to `installed/x64-windows` or `installed/x64-windows-static-md`, depending on your choice before. Copy libprotobuf.lib and libprotobuf-lite.lib files from /lib to Dota2Cheat/lib. You can also copy the libs with a `d` suffix from debug/lib if you want to compile it in Debug
-
-Open the project in Visual Studio and build as **Release x64**
+Open the project in Visual Studio and build both Dota2Cheat and Dota2Loader as **Release x64**
 
 ## Injecting
 
@@ -40,7 +36,7 @@ This cheat can be safely reinjected at any point of the game
 
 Build Dota2Loader and launch its .exe to inject(not from Visual Studio, it messes up the file paths!)
 
-**ABSOLUTELY DETECTABLE BY VAC, FOR USE IN DEMO MODE OR A LOBBY** (Memory Map support WIP)
+**Use at own risk. Though I use methods that make detection chances as low as possible, there are no guarantees** (also consider not using non-legit features that others may notice)
 
 # Features
 To open the cheat menu, press Insert
@@ -84,6 +80,8 @@ This list is subject to frequent change as I'm testing new features
 I intend to implement most of the usual cheat functionality
 
 # For Developers
+
+If you want to tinker with the sources, compile both the cheat and loader as Debug x64(it will use LoadLibrary to allow for debugging and the overlay will not cover the whole screen)
 
 Check out the repo's Wiki, I add useful informations about dota-specific cheat things there
 
