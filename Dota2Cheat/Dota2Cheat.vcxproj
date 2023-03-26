@@ -301,6 +301,8 @@
     <ClInclude Include="SDK\Interfaces\CInputService.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="DebugFunctions.h" />
+    <ClInclude Include="SDK\Interfaces\CResourceSystem.h" />
+    <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h" />
     <ClInclude Include="Utils\Drawing.h" />
     <ClInclude Include="SDK\Globals\Context.h" />
     <ClInclude Include="Hooks\EntitySystemEvents.h" />

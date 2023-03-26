@@ -28,16 +28,10 @@ namespace ESP {
 		// For each hero there's a map of slot indexes to ability data(for items tho, but they're abilities too)
 		static inline std::map<CDOTABaseNPC_Hero*, std::map<int, AbilityData>> EnemyItems{};
 
+		std::map<CDOTABaseNPC_Hero*, bool> DrawableHeroes;
 		bool CanDraw(CDOTABaseNPC_Hero* hero);;
 		void DrawAbilities(ImFont* textFont);
-		void LoadItemTexIfNeeded(AbilityData& data ) {
-			if (data.icon.glTex == 0) {
-				std::string itemName = data.ability->GetIdentity()->GetName();
-				auto tex = texManager.GetNamedTexture(itemName.substr(5));
-				if (tex)
-					data.icon = *tex;
-			}
-		}
+		void LoadItemTexIfNeeded(AbilityData& data);
 		void DrawItems(ImFont* textFont);
 		void DrawItemCircle(ImFont* textFont, const AbilityData& data, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius);
 		void DrawLevelCounter(CDOTABaseAbility* ability, ImFont* font, ImVec2 pos);

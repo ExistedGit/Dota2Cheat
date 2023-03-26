@@ -9,7 +9,7 @@ void Hooks::SetUpByteHooks() {
 	HOOKFUNC_SIGNATURES(PrepareUnitOrders);
 	//HOOKFUNC(DispatchPacket);
 	//HOOKFUNC(BAsyncSendProto);
-	HOOKFUNC_SIGNATURES_INGAME(CreateParticleCollection);
+	//HOOKFUNC_SIGNATURES_INGAME(CreateParticleCollection);
 }
 
 
@@ -25,7 +25,6 @@ void Hooks::SetUpVirtualHooks(bool log) {
 		HOOKFUNC_INGAME(SendNetMessage);
 	}
 	{
-
 		// CDOTA_Buff destructor
 		// vtable ptr at 0xd
 		auto OnRemoveModifier = ssctx.Scan("4C 8B DC 56 41 57", L"client.dll");
@@ -33,12 +32,22 @@ void Hooks::SetUpVirtualHooks(bool log) {
 		uintptr_t* OnAddModifier = vtable[39];
 		HOOKFUNC(OnAddModifier);
 		HOOKFUNC(OnRemoveModifier);
-
+	}
+	{
+		// xref: "CParticleCollection::~CParticleCollection [%p]\n"
+		auto particleDestructor = ssctx.Scan("E8 ? ? ? ? 40 F6 C7 01 74 34", L"particles.dll")
+			.GetAbsoluteAddress(1, 5);
+		uintptr_t** vtable = particleDestructor
+			.Offset(0x19)
+			.GetAbsoluteAddress(3, 7);
+		auto SetRenderingEnabled = vtable[95];
+		HOOKFUNC(SetRenderingEnabled);
 	}
 	{
 		auto vmt = VMT(Interfaces::EntitySystem);
-		HookFunc(vmt.GetVM<EntSystemEvent>(14), &OnAddEntity, &oOnAddEntity, "OnAddEntity");
-		HookFunc(vmt.GetVM<EntSystemEvent>(15), &OnRemoveEntity, &oOnRemoveEntity, "OnRemoveEntity");
+		void* OnAddEntity = vmt.GetVM<EntSystemEvent>(14), *OnRemoveEntity = vmt.GetVM<EntSystemEvent>(15);
+		HOOKFUNC(OnAddEntity);
+		HOOKFUNC(OnRemoveEntity);
 	}
 	{
 		auto vmt = VMT(Interfaces::UIEngine);

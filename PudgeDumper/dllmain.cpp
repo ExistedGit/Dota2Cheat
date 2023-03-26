@@ -10,7 +10,6 @@
 #include <map>
 #include <set>
 
-
 struct ClassDescription;
 struct MemberDescription;
 
@@ -19,18 +18,16 @@ struct SchemaParentInfo {
 	ClassDescription* parent;
 };
 
-
 struct ClassDescription {
-
-	uintptr_t idk;//0
-	const char* className;//8
-	const char* modulename;//10
-	int sizeofclass;//18
-	short membersToIterate;//1c
-	char pad[6];//20
-	MemberDescription* MemberInfo;//28
-	uintptr_t idk2;//30
-	SchemaParentInfo* parentInfo;//38
+	uintptr_t idk;		           //0
+	const char* className;         //8
+	const char* modulename;        //10
+	int sizeofclass;               //18
+	short membersToIterate;		   //1c
+	char pad[6];				   //20
+	MemberDescription* MemberInfo; //28
+	uintptr_t idk2;                //30
+	SchemaParentInfo* parentInfo;  //38
 };
 
 

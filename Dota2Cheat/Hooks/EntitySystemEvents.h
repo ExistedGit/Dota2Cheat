@@ -7,7 +7,7 @@ namespace Hooks {
 	inline EntSystemEvent oOnRemoveEntity{};
 
 	// Here we filter entities and put them into their respective collections
-	CBaseEntity* OnAddEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HANDLE handle);
+	CBaseEntity* hkOnAddEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HANDLE handle);
 
-	CBaseEntity* OnRemoveEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HANDLE handle);
+	CBaseEntity* hkOnRemoveEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HANDLE handle);
 }
