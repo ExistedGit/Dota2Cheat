@@ -26,6 +26,7 @@
 
 #include "MatchStateHandling.h"
 #include "UI/Pages/MainMenu.h"
+#include "UI/Pages/AutoPickSelectionGrid.h"
 
 #pragma region Static variables
 
@@ -65,11 +66,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	ctx.CurProcId = GetCurrentProcessId();
 	ctx.CurProcHandle = OpenProcess(PROCESS_ALL_ACCESS, TRUE, ctx.CurProcId);
 
-	ctx.lua.open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::math );
+	ctx.lua.open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::math);
 
 	ctx.lua.script("print(\"works!\")");
 	Interfaces::FindInterfaces();
-	Interfaces::LogInterfaces();
 
 	Interfaces::CVar->DumpConVarsToMap();
 #ifdef _DEBUG
@@ -154,14 +154,18 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		ImGui::NewFrame();
 
 		ImGui::PushFont(defaultFont);
-		if (menuVisible)
-			Pages::MainMenu::Display(window);
 
 		if (Interfaces::Engine->IsInGame()) {
 			texManager.ExecuteLoadCycle();
 			Modules::AbilityESP.DrawESP(msTrebuchet);
 		}
 
+		if (menuVisible)
+			Pages::MainMenu::Draw(window);
+
+#ifdef _DEBUG
+		// Pages::AutoPickHeroGrid::Draw(window);
+#endif // _DEBUG
 		if (IsKeyPressed(VK_INSERT)) {
 			glfwSetWindowAttrib(window, GLFW_MOUSE_PASSTHROUGH, menuVisible);
 			menuVisible = !menuVisible;

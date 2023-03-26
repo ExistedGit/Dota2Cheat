@@ -56,7 +56,7 @@ void DllManualMap(Process& proc, const wstring& path)
 	};
 
 	std::wcout << L"Mapping Dota2Cheat.dll into dota2.exe..." << std::endl;
-	auto image = proc.mmap().MapImage(path, NoThreads, callback);
+	auto image = proc.mmap().MapImage(path, NoFlags, callback);
 	if (!image)
 		std::wcout << L"Mapping failed with error 0x" << std::hex << image.status
 		<< L". " << Utils::GetErrorDescription(image.status) << std::endl << std::endl;
@@ -92,8 +92,12 @@ int main() {
 
 	Process proc;
 	proc.Attach(L"dota2.exe");
-	cout << "dota2.exe is not running!\n";
-	
+	if (!proc.pid())
+	{
+		cout << "dota2.exe is not running!\n";
+		return 0;
+	}
+
 #ifdef _DEBUG
 	DllLoadLibrary(proc, injectPath);
 #else
@@ -101,4 +105,4 @@ int main() {
 #endif // _DEBUG
 
 	system("pause");
-}
+	}

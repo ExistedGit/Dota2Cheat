@@ -19,14 +19,10 @@ public:
 		return Address(ptr + offset);
 	}
 
-	template<typename T>
-	T GetAbsoluteAddress(int opcodeOffset, int addrOffset, int opcodeSize) const {
-		uintptr_t opcodeAddr = ptr + opcodeOffset;
-		return T(opcodeAddr + *(int*)(opcodeAddr + addrOffset) + opcodeSize);
-	}
 
-	Address GetAbsoluteAddress(int addrOffset, int opcodeSize) const {
-		return Address(ptr + *(int*)(ptr + addrOffset) + opcodeSize);
+	template<typename T = Address>
+	T GetAbsoluteAddress(int addrOffset, int opcodeSize) const {
+		return T(ptr + *(int*)(ptr + addrOffset) + opcodeSize);
 	}
 
 	template<typename T>
@@ -87,7 +83,25 @@ public:
 	}
 };
 
-template<typename T, typename Z>
-void MemCopy(T dst, Z src, size_t size) {
+inline void MemCopy(auto dst, auto src, size_t size) {
 	memcpy((void*)dst, (const void*)src, size);
+}
+
+// Returns an exported function, if it's available
+inline Function GetExport(const char* dllName, const char* exportName) {
+	return Function((void*)GetProcAddress(GetModuleHandleA(dllName), exportName));
+}
+
+inline bool IsValidReadPtr(uintptr_t Ptr) {
+	if (!Ptr)
+		return false;
+
+	MEMORY_BASIC_INFORMATION MBI{ 0 };
+	if (!VirtualQuery((void*)Ptr, &MBI, sizeof(MEMORY_BASIC_INFORMATION)))
+		return false;
+
+	if (MBI.State == MEM_COMMIT && !(MBI.Protect & PAGE_NOACCESS))
+		return true;
+
+	return false;
 }

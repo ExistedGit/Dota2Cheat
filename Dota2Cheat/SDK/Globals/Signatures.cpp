@@ -25,7 +25,8 @@ void Signatures::FindSignatures(bool log) {
 	// Xref DestroyParticleEffect to a lea rcx just behind the string
 	// It's offset by 9 bytes because it checks for an invalid handle before doing the initial mov
 	SCAN_FUNC(CDOTAParticleManager::DestroyParticleFunc, ssctx.Scan("48 89 6C 24 18 56 48 83 EC 30 48 63 81 80 00 00 00 41 0F B6 E8 48 89 5C 24 40 48 8B F1", L"client.dll").Offset(-9));
-	SCAN_FUNC(CreateParticleCollection, ssctx.Scan("41 56 48 83 EC 40 4C 89 41 50 48 8B F1 49 8B 01", L"client.dll").Offset(-5));
+	
+	//SCAN_FUNC(CreateParticleCollection, ssctx.Scan("41 56 48 83 EC 40 4C 89 41 50 48 8B F1 49 8B 01", L"client.dll").Offset(-5));
 	SCAN_FUNC(CDOTAGameRules::GetGameTimeFunc, ssctx.Scan("48 89 5C 24 18 48 89 6C 24 20 57 48 83 EC 20 48 8B ? ? ? ? ? 8B DA", L"client.dll"));
 
 	// UnknownCheats wiki -> Dota 2 -> link to Using engine functions

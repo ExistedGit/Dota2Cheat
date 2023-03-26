@@ -1,11 +1,12 @@
 #include "Interfaces.h"
 
 void Interfaces::FindInterfaces() {
+	std::cout << "[INTERFACES]\n";
 	Engine = GetInterface<CEngineClient>("engine2.dll", "Source2EngineToClient001");
-	Client = GetInterface<VClass>("client.dll", "Source2Client002");
+	Client = GetInterface<VClass>("client.dll", "Source2Client002", 151);
 	CVar = GetInterface<CVarSystem>("tier0.dll", "VEngineCvar007");
-
-	EntitySystem = *Address(Interfaces::Client->GetVFunc(25).ptr).GetAbsoluteAddress<CGameEntitySystem**>(0, 3, 7);
+	ResourceSystem = GetInterface<CResourceSystem>("resourcesystem.dll", "ResourceSystem013", 81);
+	EntitySystem = *Address(Interfaces::Client->GetVFunc(25).ptr).GetAbsoluteAddress<CGameEntitySystem**>(3, 7);
 
 	FileSystem = GetInterface<CBaseFileSystem>("filesystem_stdio.dll", "VFileSystem017");
 
@@ -18,17 +19,4 @@ void Interfaces::FindInterfaces() {
 	InputService = GetInterface<CInputService>("engine2.dll", "InputService_001");
 	NetworkSystem = GetInterface<void>("networksystem.dll", "NetworkSystemVersion001");
 	NetworkMessages = GetInterface<CNetworkMessages>("networksystem.dll", "NetworkMessagesVersion001");
-}
-
-void Interfaces::LogInterfaces() {
-	std::cout << "[INTERFACES]\n";
-	std::cout << "Schema: " << Schema << "\n";
-	std::cout << "EntitySystem: " << EntitySystem << "\n";
-	std::cout << "CEngineClient: " << Engine << "\n";
-	std::cout << "Source2Client: " << Client << "\n";
-	std::cout << "CVarSystem: " << CVar << "\n";
-	std::cout << "Panorama: " << Panorama << "\n";
-	std::cout << "Panorama2: " << UIEngine << "\n";
-	std::cout << "GCClient: " << GCClient << "\n";
-	std::cout << "ParticleMgrSystem: " << ParticleMgrSystem << "\n";
 }

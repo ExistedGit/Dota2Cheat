@@ -581,5 +581,11 @@
     <ClInclude Include="Modules\Utility\TPTracker.h">
       <Filter>Header files</Filter>
     </ClInclude>
+    <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Interfaces\CResourceSystem.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

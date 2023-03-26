@@ -1,7 +1,7 @@
 #include "EntitySystemEvents.h"
 #include "../Lua/LuaModules.h"
 // Here we filter entities and put them into their respective collections
-CBaseEntity* Hooks::OnAddEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HANDLE handle) {
+CBaseEntity* Hooks::hkOnAddEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HANDLE handle) {
 	auto className = ent->SchemaBinding()->binaryName;
 	if (className) {
 		if (strstr(className, "Item_Physical")) {
@@ -19,7 +19,7 @@ CBaseEntity* Hooks::OnAddEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HA
 	return oOnAddEntity(thisptr, ent, handle);
 }
 
-CBaseEntity* Hooks::OnRemoveEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HANDLE handle) {
+CBaseEntity* Hooks::hkOnRemoveEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HANDLE handle) {
 	ctx.physicalItems.erase(ent);
 	ctx.heroes.erase((CDOTABaseNPC_Hero*)ent);
 	ctx.entities.erase(ent);

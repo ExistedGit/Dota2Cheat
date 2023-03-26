@@ -35,6 +35,7 @@ void ESP::AbilityESP::Reset() {
 void ESP::AbilityESP::UpdateHeroData() {
 	SubscribeHeroes();
 	for (auto& hero : ctx.heroes) {
+		DrawableHeroes[hero] = hero && hero->GetIdentity() && !hero->GetIdentity()->IsDormant();
 		if (EnemyAbilities.count(hero))
 			UpdateAbilities(hero);
 
@@ -45,7 +46,7 @@ void ESP::AbilityESP::UpdateHeroData() {
 
 bool ESP::AbilityESP::CanDraw(CDOTABaseNPC_Hero* hero) {
 	bool ret = hero
-		&& !hero->GetIdentity()->IsDormant()
+		&& DrawableHeroes[hero]
 		&& !hero->IsIllusion()
 		&& hero != ctx.assignedHero && hero->GetLifeState() == 0;
 	if (!Config::AbilityESP::ShowAllies)
@@ -217,6 +218,15 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 			DrawLevelCounter(data.ability, textFont, ImVec2(imgXY1.x + centeringOffset, imgXY2.y + 1));
 			++idx;
 		}
+	}
+}
+
+void ESP::AbilityESP::LoadItemTexIfNeeded(AbilityData& data) {
+	if (data.icon.glTex == 0) {
+		std::string itemName = data.ability->GetIdentity()->GetName();
+		auto tex = texManager.GetNamedTexture(itemName.substr(5));
+		if (tex)
+			data.icon = *tex;
 	}
 }
 

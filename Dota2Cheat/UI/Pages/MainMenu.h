@@ -13,7 +13,7 @@ namespace Pages {
 
 		inline int debugEntIdx = 0;
 
-		inline void Display(GLFWwindow* window) {
+		inline void Draw(GLFWwindow* window) {
 			ImGui::Begin("Main", nullptr, ImGuiWindowFlags_::ImGuiWindowFlags_AlwaysAutoResize);
 
 			if (ImGui::Button("Scripting"))

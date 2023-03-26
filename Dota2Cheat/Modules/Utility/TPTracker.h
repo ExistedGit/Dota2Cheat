@@ -3,7 +3,8 @@
 
 namespace Modules {
 	class TPTracker {
-		std::set<std::pair<int, int>> TpPoints;
+		std::map<CUserMsg_ParticleManager*, CUserMsg_ParticleManager*> MessagePairs;
+		std::map<Vector, Vector> TpPoints;
 	public:
 		enum TPParticle : uint64_t {
 			START = 16169843851719108633,
@@ -21,7 +22,11 @@ namespace Modules {
 				auto particle = pmMsg->create_particle();
 				switch (particle.particle_name_index()) {
 				case TPParticle::START:
+					MessagePairs[pmMsg] = nullptr;
+					break;
 				case TPParticle::END:
+					for (auto& [_, end] : MessagePairs)
+						if (!end) end = pmMsg;
 					break;
 				}
 

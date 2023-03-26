@@ -24,7 +24,7 @@ namespace Signatures {
 	typedef void(__fastcall* WorldToScreenFn)(Vector* coord, int* outX, int* outY, void* offset);
 
 	typedef bool (*LoadUITextureFn)(void* thisptr, void** texturePtr, const char* textureName);
-	
+
 	typedef bool (*BAsyncSendProtoFn)(CProtobufMsgBase* protobufMsg, IProtoBufSendHandler* handler, google::protobuf::Message* responseMsg, unsigned int respMsgID);
 	typedef bool (*DispatchPacketFn)(void*, IMsgNetPacket*);
 	
