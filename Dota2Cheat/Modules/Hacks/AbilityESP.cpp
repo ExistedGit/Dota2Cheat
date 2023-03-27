@@ -77,7 +77,7 @@ void ESP::AbilityESP::DrawAbilities() {
 
 		int x, y;
 		Signatures::WorldToScreen(&drawPos, &x, &y, nullptr);
-		x -= abilityCount * iconSize / 2.0f;
+		x -= (abilityCount - 1) * iconSize / 2.0f;
 		y += 30;
 
 		int idx = 0;
@@ -415,10 +415,16 @@ void ESP::AbilityESP::DrawChargeCounter(int charges, ImVec2 pos, int radius) {
 }
 
 void ESP::AbilityESP::DrawManabars() {
-	constexpr static ImVec2 manabarSize{ 104, 8 };
+	// Fine-tuned values
+	// idk why it's this strange
+	constexpr static ImVec2 manabarSize{ 101, 8 };
 	for (auto& hero : ctx.heroes) {
 		if (hero->GetTeam() == ctx.assignedHero->GetTeam())
 			continue;
+		
+		if (!CanDraw(hero))
+			continue;
+
 		int hbo = hero->Member<int>(Netvars::C_DOTA_BaseNPC::m_iHealthBarOffset);
 
 		Vector pos = hero->IsMoving()
@@ -428,7 +434,7 @@ void ESP::AbilityESP::DrawManabars() {
 		int dx = 0, dy = 0;
 		Signatures::WorldToScreen(&pos, &dx, &dy, nullptr);
 		dy -= 14;
-		dx += 2;
+		dx += 4;
 		DrawRectFilled(
 			ImVec2(dx - 110 / 2, dy - manabarSize.y / 2),
 			manabarSize, ImVec4(0, 0, 0, 1));
