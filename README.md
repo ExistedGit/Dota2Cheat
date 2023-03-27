@@ -1,6 +1,6 @@
 # Dota2Cheat: now with Memory Mapping!
 
-![Screenshot_517](https://user-images.githubusercontent.com/66470490/224436497-2e7a5e86-10d8-4d80-94c5-d8eab78b7aef.png)
+![cheat preview 27 03 2023](https://user-images.githubusercontent.com/66470490/228053121-ed8cbc2b-8f9f-4db7-914c-81db2dad518d.png)
 
 There weren't many open-source Dota cheats. And so I decided to fix that.
 Written in C++20 with love
