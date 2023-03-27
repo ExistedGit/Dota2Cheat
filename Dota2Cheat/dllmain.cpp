@@ -102,8 +102,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
-#ifndef _DEBUG // wouldn't want the window to obscure the screen on a breakpoint
 	glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, 1);
+#ifndef _DEBUG // wouldn't want the window to obscure the screen on a breakpoint
 	glfwWindowHint(GLFW_DECORATED, 0);
 	glfwWindowHint(GLFW_FLOATING, 1);
 	glfwWindowHint(GLFW_RESIZABLE, 0);
@@ -137,12 +137,12 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
-
 	//auto vbeFont = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
 	auto msTrebuchet = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
 	auto defaultFont = io.Fonts->AddFontDefault();
 	bool menuVisible = false;
 
+	Modules::AbilityESP.textFont = msTrebuchet;
 	// Main loop
 	while (!glfwWindowShouldClose(window))
 	{
@@ -157,7 +157,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 		if (Interfaces::Engine->IsInGame()) {
 			texManager.ExecuteLoadCycle();
-			Modules::AbilityESP.DrawESP(msTrebuchet);
+			Modules::AbilityESP.DrawESP();
 		}
 
 		if (menuVisible)

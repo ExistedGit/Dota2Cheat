@@ -49,6 +49,8 @@ public:
 	GETTER(float, GetManaRegen, Netvars::C_DOTA_BaseNPC::m_flManaThinkRegen);
 	GETTER(float, GetBaseAttackTime, Netvars::C_DOTA_BaseNPC::m_flBaseAttackTime);
 	GETTER(float, GetHullRadius, Netvars::C_DOTA_BaseNPC::m_flHullRadius);
+	GETTER(int, GetMoveSpeed, Netvars::C_DOTA_BaseNPC::m_iMoveSpeed);
+	GETTER(bool, IsMoving, Netvars::C_DOTA_BaseNPC::m_bIsMoving);
 
 	[[nodiscard]]
 	std::vector<CDOTABaseAbility*> GetAbilities();

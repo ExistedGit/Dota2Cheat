@@ -30,19 +30,21 @@ namespace ESP {
 
 		std::map<CDOTABaseNPC_Hero*, bool> DrawableHeroes;
 		bool CanDraw(CDOTABaseNPC_Hero* hero);;
-		void DrawAbilities(ImFont* textFont);
+		void DrawAbilities();
 		void LoadItemTexIfNeeded(AbilityData& data);
-		void DrawItems(ImFont* textFont);
-		void DrawItemCircle(ImFont* textFont, const AbilityData& data, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius);
-		void DrawLevelCounter(CDOTABaseAbility* ability, ImFont* font, ImVec2 pos);
-		void DrawChargeCounter(ImFont* textFont, int charges, ImVec2 pos, int radius);
+		void DrawItems();
+		void DrawItemCircle(const AbilityData& data, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius);
+		void DrawLevelCounter(CDOTABaseAbility* ability, ImVec2 pos);
+		void DrawChargeCounter(int charges, ImVec2 pos, int radius);
+		void DrawManabars();
 	public:
+		ImFont* textFont = nullptr;
 		void UpdateAbilities(CDOTABaseNPC_Hero* hero);
 		void UpdateItems(CDOTABaseNPC_Hero* hero);
 		void UpdateHeroData();
 		void SubscribeHeroes();
 		void Reset();
-		void DrawESP(ImFont* textFont);
+		void DrawESP();
 	};
 }
 namespace Modules {

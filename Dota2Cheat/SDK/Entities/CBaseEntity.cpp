@@ -12,7 +12,6 @@ void CSchemaClassBinding::BindLua(sol::state& lua) {
 }
 
 // Returns the index of this entity in the entity system
-
 uint32_t CBaseEntity::GetIndex() {
 	return H2IDX(GetHandle());
 }
@@ -35,15 +34,13 @@ Vector CBaseEntity::GetPos() {
 }
 
 // In degrees from 180 to -180(on 0 it looks right)
-
 float CBaseEntity::GetRotation() {
 	return Member<VClass*>(Netvars::C_BaseEntity::m_pGameSceneNode)
-		->Member<float>(0xBC);
+		->Member<Vector>(Netvars::CGameSceneNode::m_angRotation).y;
 }
 
 // Gets the point in front of the entity at the specified distance
-
-Vector CBaseEntity::GetForwardVector(int dist) {
+Vector CBaseEntity::GetForwardVector(float dist) {
 	auto pos = GetPos();
 	float rotation = GetRotation() * M_PI / 180;
 

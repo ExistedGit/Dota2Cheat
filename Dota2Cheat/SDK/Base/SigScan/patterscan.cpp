@@ -16,10 +16,9 @@ void* PatternScan(char* base, size_t size, const char* pattern, const char* mask
 				break;
 			}
 		}
+
 		if (found)
-		{
 			return (void*)(base + i);
-		}
 	}
 	return nullptr;
 }
@@ -40,13 +39,12 @@ void* PatternScanEx(HANDLE hProcess, uintptr_t begin, uintptr_t end, const char*
 		VirtualProtectEx(hProcess, (void*)currentChunk, sizeof(buffer), oldprotect, &oldprotect);
 
 		if (bytesRead == 0)
-		{
 			return nullptr;
-		}
+		
 
 		void* internalAddress = PatternScan((char*)&buffer, bytesRead, pattern, mask);
 
-		if (internalAddress )
+		if (internalAddress)
 		{
 			//calculate from internal to external
 			uintptr_t offsetFromBuffer = (uintptr_t)internalAddress - (uintptr_t)&buffer;

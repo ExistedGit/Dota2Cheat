@@ -78,38 +78,3 @@ MODULEENTRY32 GetModule(DWORD dwProcID, const wchar_t* moduleName)
 	}
 	return modEntry;
 }
-
-//evaluate address if valid using memorypage size & protection
-template<typename T, typename P>
-bool ValidatePointer(T lpAddress, P hProc)
-{
-	MEMORY_BASIC_INFORMATION mbi;
-	SIZE_T size = VirtualQueryEx(reinterpret_cast<HANDLE>(hProc), reinterpret_cast<LPVOID>(lpAddress), &mbi, sizeof(MEMORY_BASIC_INFORMATION));
-
-	if (size == 0)
-		return false;
-
-	if (mbi.Protect & PAGE_NOACCESS)
-		return false;
-
-	if (mbi.Protect & PAGE_GUARD)
-		return false;
-
-	return true;
-}
-
-uintptr_t FindDMAAddy(HANDLE hProc, uintptr_t ptr, std::vector<unsigned int> offsets)
-{
-	uintptr_t addr = ptr;
-	for (unsigned int i = 1; i < offsets.size(); ++i)
-	{
-		ReadProcessMemory(hProc, (BYTE*)addr, &addr, sizeof(addr), 0);
-		addr += offsets[i];
-		if (!ValidatePointer(addr, hProc))
-		{
-			return 0;
-		}
-	}
-	return addr;
-}
-
