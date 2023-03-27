@@ -55,12 +55,11 @@ bool ESP::AbilityESP::CanDraw(CDOTABaseNPC_Hero* hero) {
 	return ret;
 }
 
-void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
+void ESP::AbilityESP::DrawAbilities() {
 	float iconSize = ScaleVar(AbilityIconSize);
-	int outlineThickness = 2;
-	int manaBarThickness = 18;
-	int levelCounterHeight = 8;
-
+	constexpr int outlineThickness = 2;
+	constexpr int levelCounterHeight = 8;
+	auto DrawList = ImGui::GetForegroundDrawList();
 
 	for (auto& [hero, abilities] : EnemyAbilities) {
 		if (!CanDraw(hero))
@@ -71,7 +70,6 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 			if (data.ability)
 				++abilityCount;
 
-		auto DrawList = ImGui::GetForegroundDrawList();
 		auto drawPos = hero->GetPos();
 
 		drawPos.x = (int)(drawPos.x * 100) / 100.0f;
@@ -79,47 +77,33 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 
 		int x, y;
 		Signatures::WorldToScreen(&drawPos, &x, &y, nullptr);
-		x -= abilityCount * iconSize / 2.0f;
+		x -= (abilityCount - 1) * iconSize / 2.0f;
 		y += 30;
 
 		int idx = 0;
 
 		// Background for the whole panel
-		DrawRect(
-			ImVec2(x - iconSize / 2, y - iconSize / 2),
-			ImVec2(abilityCount * iconSize, iconSize + manaBarThickness + levelCounterHeight + 2),
-#ifdef _DEBUG
-			ImVec4(1, 0, 0, 1)
-#else
-			ImVec4(0.11f, 0.11f, 0.11f, 1)
-#endif // _DEBUG
-		);
-		float manaPercent = hero->GetMana() / hero->GetMaxMana();
-
-		// Black background to better see the bounds of manabar
-		DrawRect(
-			ImVec2(x - iconSize / 2 + outlineThickness, y + iconSize / 2 + outlineThickness + levelCounterHeight + 2),
-			ImVec2((abilityCount * iconSize - outlineThickness * 2), manaBarThickness - outlineThickness * 2),
-			ImVec4(0, 0, 0, 1)
-		);
-		// Manabar
-		DrawRect(
-			ImVec2(x - iconSize / 2 + outlineThickness, y + iconSize / 2 + outlineThickness + levelCounterHeight + 2),
-			ImVec2((abilityCount * iconSize - outlineThickness * 2) * manaPercent, manaBarThickness - outlineThickness * 2),
-			ImVec4(0, 0.4f, 0.9f, 1)
-		);
+//		DrawRectFilled(
+//			ImVec2(x - iconSize / 2, y - iconSize / 2),
+//			ImVec2(abilityCount * iconSize, iconSize + levelCounterHeight + 2),
+//#ifdef _DEBUG
+//			ImVec4(1, 0, 0, 1)
+//#else
+//			ImVec4(0.11f, 0.11f, 0.11f, 1)
+//#endif // _DEBUG
+//		);
 		// Mana info: amount percent% +regen
-		DrawTextForeground(
-			textFont,
-			std::format("{} {}% +{:.1f}", (int)hero->GetMana(), int(manaPercent * 100), hero->GetManaRegen()),
-			ImVec2(
-				x - iconSize / 2 + outlineThickness + abilityCount * iconSize / 2,
-				y + iconSize / 2 + outlineThickness + levelCounterHeight + 2
-			),
-			manaBarThickness - 4,
-			Color(255, 255, 255),
-			true
-		);
+		//DrawTextForeground(
+		//	textFont,
+		//	std::format("{} {}% +{:.1f}", (int)hero->GetMana(), int(manaPercent * 100), hero->GetManaRegen()),
+		//	ImVec2(
+		//		x - iconSize / 2 + outlineThickness + abilityCount * iconSize / 2,
+		//		y + iconSize / 2 + outlineThickness + levelCounterHeight + 2
+		//	),
+		//	manaBarThickness - 4,
+		//	Color(255, 255, 255),
+		//	true
+		//);
 
 		for (auto& data : abilities) {
 			if (!data.ability)
@@ -140,6 +124,10 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 				imgXY2 = { float(x + centeringOffset + idxOffset), float(y + centeringOffset) };
 			}
 
+			DrawList->AddRectFilled(
+				ImVec2(imgXY1.x - outlineThickness / 2, imgXY1.y - outlineThickness / 2),
+				ImVec2(imgXY2.x + outlineThickness / 2, imgXY2.y + outlineThickness / 2),
+				ImGui::GetColorU32(ImVec4(0, 0, 0, 1)));
 
 			if (data.ability->Member<bool>(Netvars::C_DOTABaseAbility::m_bAutoCastState))
 				DrawList->AddRectFilled(
@@ -177,13 +165,13 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 					std::format("{:.1f}", cd),
 					ImVec2(imgXY1.x + centeringOffset, imgXY1.y + (iconSize - cdFontSize) / 2),
 					cdFontSize,
-					Color(255, 255, 255),
+					ImVec4(1, 1, 1, 1),
 					true);
 			}
 			if (data.ability->GetCharges() ||
 				(data.ability->GetCharges() == 0 &&
 					data.ability->GetChargeRestoreCooldown() >= 0))
-				DrawChargeCounter(textFont, data.ability->GetCharges(), imgXY1, ScaleVar(8));
+				DrawChargeCounter(data.ability->GetCharges(), imgXY1, ScaleVar(8));
 
 			float channelTime = data.ability->Member<float>(Netvars::C_DOTABaseAbility::m_flChannelStartTime);
 			if (channelTime != 0) {
@@ -194,7 +182,7 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 					std::format("{:.1f}", channelLength - (GameSystems::GameRules->GetGameTime() - channelTime)),
 					ImVec2(imgXY1.x + centeringOffset, imgXY1.y - fontSize - 2 - indicatorHeight),
 					fontSize,
-					Color(255, 255, 255),
+					ImVec4(1, 1, 1, 1),
 					true);
 				float indicatorWidth = abs(imgXY2.x - imgXY1.x) * (1 - ((GameSystems::GameRules->GetGameTime() - channelTime) / channelLength));
 				DrawList->AddRectFilled(
@@ -212,10 +200,10 @@ void ESP::AbilityESP::DrawAbilities(ImFont* textFont) {
 					std::format("{:.1f}", castPoint - (GameSystems::GameRules->GetGameTime() - castStartTime)),
 					ImVec2(imgXY1.x + centeringOffset, imgXY1.y - fontSize - 2),
 					fontSize,
-					Color(0, 255, 60),
+					ImVec4(0, 1, 60 / 255.0f, 1),
 					true);
 			}
-			DrawLevelCounter(data.ability, textFont, ImVec2(imgXY1.x + centeringOffset, imgXY2.y + 1));
+			DrawLevelCounter(data.ability, ImVec2(imgXY2.x - centeringOffset, imgXY2.y));
 			++idx;
 		}
 	}
@@ -234,7 +222,7 @@ void ESP::AbilityESP::LoadItemTexIfNeeded(AbilityData& data) {
 // If there is no item in a slot, a black block is drawn
 // If the item is toggled(like armlet), a green frame is drawn
 // If the item has charges(like wand), a circle with a counter is drawn in the top left corner of the image
-void ESP::AbilityESP::DrawItems(ImFont* textFont) {
+void ESP::AbilityESP::DrawItems() {
 	for (auto& [hero, inv] : EnemyItems) {
 		if (!CanDraw(hero))
 			continue;
@@ -264,7 +252,7 @@ void ESP::AbilityESP::DrawItems(ImFont* textFont) {
 		if (Config::AbilityESP::CropStashItems)
 			panelSize.y -= cropAmount * iconSize.y * 2;
 		// Background for the whole panel
-		DrawRect(
+		DrawRectFilled(
 			panelXY1,
 			panelSize,
 			ImVec4(0.2, 0.2, 0.2, 1.0f)
@@ -320,12 +308,12 @@ void ESP::AbilityESP::DrawItems(ImFont* textFont) {
 					std::format("{:.1f}", cd),
 					ImVec2(imgCenter.x, imgCenter.y - ScaleVar(14 / 2)),
 					ScaleVar<float>(14),
-					Color(255, 255, 255),
+					ImVec4(1, 1, 1, 1),
 					true);
 
 			int charges = reinterpret_cast<CDOTAItem*>(itemData.ability)->GetCurrentCharges();
 			if (charges != 0)
-				DrawChargeCounter(textFont, charges, imgXY1, 8);
+				DrawChargeCounter(charges, imgXY1, 8);
 		}
 
 		float circleX = panelXY1.x + panelSize.x + circleRadius + gap;
@@ -335,19 +323,19 @@ void ESP::AbilityESP::DrawItems(ImFont* textFont) {
 			LoadItemTexIfNeeded(inv[16]);
 			ImVec2 cXY1{ circleX - iconSize.y / 2, panelXY1.y + panelSize.y / 4 - iconSize.y / 2 },
 				cXY2{ cXY1.x + iconSize.y, cXY1.y + iconSize.y };
-			DrawItemCircle(textFont, inv[16], cXY1, cXY2, iconSize, circleRadius);
+			DrawItemCircle(inv[16], cXY1, cXY2, iconSize, circleRadius);
 		}
 		if (inv.count(15) && inv[15].ability) {
 			LoadItemTexIfNeeded(inv[15]);
 			ImVec2 cXY1{ circleX - iconSize.y / 2, panelXY1.y + panelSize.y / 4 * 3 - iconSize.y / 2 },
 				cXY2{ cXY1.x + iconSize.y, cXY1.y + iconSize.y };
-			DrawItemCircle(textFont, inv[15], cXY1, cXY2, iconSize, circleRadius);
+			DrawItemCircle(inv[15], cXY1, cXY2, iconSize, circleRadius);
 		}
 
 	}
 }
 
-void ESP::AbilityESP::DrawItemCircle(ImFont* textFont, const AbilityData& data, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius) {
+void ESP::AbilityESP::DrawItemCircle(const AbilityData& data, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius) {
 	auto DrawList = ImGui::GetForegroundDrawList();
 	float ratio = (1 - iconSize.y / iconSize.x) / 2;
 	DrawList->AddImageRounded(
@@ -369,29 +357,46 @@ void ESP::AbilityESP::DrawItemCircle(ImFont* textFont, const AbilityData& data, 
 			std::format("{:.1f}", cd),
 			ImVec2(center.x, center.y - cdFontSize / 2),
 			cdFontSize,
-			Color(255, 255, 255),
+			ImVec4(1, 1, 1, 1),
 			true);
 	}
 
 }
 
-void ESP::AbilityESP::DrawESP(ImFont* textFont) {
+void ESP::AbilityESP::DrawESP() {
+	if (!textFont)
+		return;
 	if (!Initialized || !Config::AbilityESP::Enabled)
 		return;
-
+	DrawManabars();
 	// ALT key
 	if (!GetAsyncKeyState(164))
-		DrawAbilities(textFont);
+		DrawAbilities();
 	else
-		DrawItems(textFont);
+		DrawItems();
 }
 
-void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, ImFont* font, ImVec2 pos) {
+void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, ImVec2 pos) {
 	int lvl = ability->GetLevel();
-	DrawTextForeground(font, std::format("LVL {}", lvl), pos, 12, Color(255, 255, 255, 255), true, false);
+	if (lvl == 0)
+		return;
+
+	constexpr static auto clrLvlOutline = ImVec4(0xE7 / 255.0f, 0xD2 / 255.0f, 0x92 / 255.0f, 1);
+	constexpr static auto clrLvlBackGround = ImVec4(0x28 / 255.0f, 0x0F / 255.0f, 0x01 / 255.0f, 1);
+	constexpr static int counterSize = 16;
+	constexpr static int outlinePadding = 1;
+
+	ImVec2 imgXY1{ pos.x - counterSize / 2, pos.y - counterSize / 2 };
+	DrawRectFilled(imgXY1, ImVec2(counterSize, counterSize), clrLvlBackGround);
+	DrawRect(
+		ImVec2(imgXY1.x + outlinePadding, imgXY1.y + outlinePadding),
+		ImVec2(counterSize - outlinePadding * 2, counterSize - outlinePadding * 2),
+		clrLvlOutline
+	);
+	DrawTextForeground(textFont, std::to_string(lvl), ImVec2(pos.x, pos.y - (counterSize - 4) / 2), counterSize - 4, clrLvlOutline, true, false);
 }
 
-void ESP::AbilityESP::DrawChargeCounter(ImFont* textFont, int charges, ImVec2 pos, int radius) {
+void ESP::AbilityESP::DrawChargeCounter(int charges, ImVec2 pos, int radius) {
 	auto DrawList = ImGui::GetForegroundDrawList();
 
 	// Green outline
@@ -404,9 +409,39 @@ void ESP::AbilityESP::DrawChargeCounter(ImFont* textFont, int charges, ImVec2 po
 		std::to_string(charges),
 		ImVec2(pos.x, pos.y - (radius - 2)),
 		(radius - 2) * 2,
-		Color(255, 255, 255, 255),
+		ImVec4(1, 1, 1, 1),
 		true,
 		false);
+}
+
+void ESP::AbilityESP::DrawManabars() {
+	// Fine-tuned values
+	// idk why it's this strange
+	constexpr static ImVec2 manabarSize{ 101, 8 };
+	for (auto& hero : ctx.heroes) {
+		if (hero->GetTeam() == ctx.assignedHero->GetTeam())
+			continue;
+		
+		if (!CanDraw(hero))
+			continue;
+
+		int hbo = hero->Member<int>(Netvars::C_DOTA_BaseNPC::m_iHealthBarOffset);
+
+		Vector pos = hero->IsMoving()
+			? pos = hero->GetForwardVector(hero->GetMoveSpeed() * (-0.0167f)) // Going back 1 frame to synchronize with the game
+			: pos = hero->GetPos();
+		pos.z += hbo;
+		int dx = 0, dy = 0;
+		Signatures::WorldToScreen(&pos, &dx, &dy, nullptr);
+		dy -= 14;
+		dx += 4;
+		DrawRectFilled(
+			ImVec2(dx - 110 / 2, dy - manabarSize.y / 2),
+			manabarSize, ImVec4(0, 0, 0, 1));
+		DrawRectFilled(
+			ImVec2(dx - 110 / 2 + 1, dy - manabarSize.y / 2 + 1),
+			ImVec2(manabarSize.x * (hero->GetMana() / hero->GetMaxMana()) - 2, manabarSize.y - 2), ImVec4(0, 0.5, 1, 1));
+	}
 }
 
 void ESP::AbilityESP::UpdateAbilities(CDOTABaseNPC_Hero* hero) {

@@ -53,7 +53,7 @@ public:
 	float GetRotation();
 
 	// Gets the point in front of the entity at the specified distance
-	Vector GetForwardVector(int dist);
+	Vector GetForwardVector(float dist);
 
 	static void BindLua(sol::state& lua);
 };
