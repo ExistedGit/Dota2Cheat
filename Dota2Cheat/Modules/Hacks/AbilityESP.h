@@ -22,7 +22,7 @@ namespace ESP {
 			return (T)(val * Config::AbilityESP::UIScale);
 		}
 
-		int AbilityIconSize = 40;
+		int AbilityIconSize = 32;
 		bool Initialized = false;
 		static inline std::map<CDOTABaseNPC_Hero*, std::vector<AbilityData>> EnemyAbilities{};
 		// For each hero there's a map of slot indexes to ability data(for items tho, but they're abilities too)
