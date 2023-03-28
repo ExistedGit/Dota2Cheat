@@ -2,8 +2,6 @@
 #include <cstdint>
 #include "Function.h"
 
-#define GETTER(type, name, offset) type name() { return Member<type>(offset); }
-
 inline Function getvfunc(void* instance, int index)
 {
 	uintptr_t vtable = *((uintptr_t*)(instance));
@@ -14,6 +12,11 @@ inline Function getvfunc(void* instance, int index)
 class VClass {
 public:
 	virtual void dummy_fn() = 0; // so that the classes have a vtable
+
+	template<typename T>
+	T& Field(int offset) {
+		return *(T*)((uintptr_t)this + offset);
+	}
 
 	template<typename T>
 	T Member(int offset/*, T defaultValue = T{}*/) {

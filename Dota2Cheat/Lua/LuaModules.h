@@ -12,7 +12,11 @@ namespace Lua {
 	inline void LoadScriptFiles(sol::state& lua) {
 
 		lua.create_named_table("Modules");
-		for (auto& file : directory_iterator(ctx.cheatFolderPath + R"(\scripts)")) {
+		auto scriptsPath = ctx.cheatFolderPath + R"(\scripts)";
+		if (!std::filesystem::exists(scriptsPath))
+			std::cout << scriptsPath << " not found! No scripts for you\n";
+		
+		for (auto& file : directory_iterator(scriptsPath)) {
 			auto path = file.path();
 			if (path.string().substr(path.string().size() - 3) == "lua")
 				lua.load_file(path.string())();

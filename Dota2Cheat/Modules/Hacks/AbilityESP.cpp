@@ -155,18 +155,33 @@ void ESP::AbilityESP::DrawAbilities() {
 					? data.ability->GetCooldown()
 					: data.ability->GetChargeRestoreCooldown();
 
-				int cdFontSize = ScaleVar(14);
+				int cdFontSize = iconSize - ScaleVar(12);
+				bool decimals = Config::AbilityESP::ShowCooldownDecimals;
 				// Darkens the picture
 				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.5)));
-				if (data.ability->GetCooldown() >= 100)
-					cdFontSize = ScaleVar(12);
+				if(data.ability->GetCooldown() >= 100)
+					decimals = false;
+				
+				if (decimals)
+					cdFontSize = iconSize - ScaleVar(16);
+
 				// Draws the cooldown
-				DrawTextForeground(textFont,
-					std::format("{:.1f}", cd),
-					ImVec2(imgXY1.x + centeringOffset, imgXY1.y + (iconSize - cdFontSize) / 2),
-					cdFontSize,
-					ImVec4(1, 1, 1, 1),
-					true);
+				// std::format doesn't allow non-constant format strings, so I have to do this mess :(
+				if (decimals)
+					DrawTextForeground(textFont,
+						std::format("{:.1f}", cd),
+						ImVec2(imgXY1.x + centeringOffset, imgXY1.y + (iconSize - cdFontSize) / 2),
+						cdFontSize,
+						ImVec4(1, 1, 1, 1),
+						true);
+				else
+					DrawTextForeground(textFont,
+						std::format("{:.0f}", cd),
+						ImVec2(imgXY1.x + centeringOffset, imgXY1.y + (iconSize - cdFontSize) / 2),
+						cdFontSize,
+						ImVec4(1, 1, 1, 1),
+						true);
+
 			}
 			if (data.ability->GetCharges() ||
 				(data.ability->GetCharges() == 0 &&
@@ -187,7 +202,7 @@ void ESP::AbilityESP::DrawAbilities() {
 				float indicatorWidth = abs(imgXY2.x - imgXY1.x) * (1 - ((GameSystems::GameRules->GetGameTime() - channelTime) / channelLength));
 				DrawList->AddRectFilled(
 					ImVec2(imgXY1.x, imgXY1.y - indicatorHeight),
-					ImVec2(imgXY1.x + indicatorWidth, imgXY1.y), ImGui::GetColorU32(ImVec4(1, 1, 1, 1)));
+					ImVec2(imgXY1.x + indicatorWidth, imgXY1.y), ImGui::GetColorU32(ImVec4(1, 1, 1, 0.7)));
 			}
 			// If it's being cast
 			else if (data.ability->Member<bool>(Netvars::C_DOTABaseAbility::m_bInAbilityPhase)) {
@@ -229,9 +244,9 @@ void ESP::AbilityESP::DrawItems() {
 
 		const int rows = 3, cols = 3;
 
-		int gap = 4;
+		int gap = 2;
 		// Scaled dimensions of item icons, half the size by default
-		ImVec2 iconSize = ImVec2(ScaleVar(88 / 2), ScaleVar(64 / 2));
+		ImVec2 iconSize = ImVec2(ScaleVar(88 / 3), ScaleVar(64 / 3));
 		auto DrawList = ImGui::GetForegroundDrawList();
 		auto drawPos = hero->GetPos();
 
@@ -306,14 +321,14 @@ void ESP::AbilityESP::DrawItems() {
 				DrawTextForeground(
 					textFont,
 					std::format("{:.1f}", cd),
-					ImVec2(imgCenter.x, imgCenter.y - ScaleVar(14 / 2)),
-					ScaleVar<float>(14),
+					ImVec2(imgCenter.x, imgCenter.y - (iconSize.y - ScaleVar<float>(6))/2),
+					iconSize.y - ScaleVar<float>(6),
 					ImVec4(1, 1, 1, 1),
 					true);
 
 			int charges = reinterpret_cast<CDOTAItem*>(itemData.ability)->GetCurrentCharges();
 			if (charges != 0)
-				DrawChargeCounter(charges, imgXY1, 8);
+				DrawChargeCounter(charges, imgXY1, ScaleVar(8));
 		}
 
 		float circleX = panelXY1.x + panelSize.x + circleRadius + gap;
@@ -368,9 +383,12 @@ void ESP::AbilityESP::DrawESP() {
 		return;
 	if (!Initialized || !Config::AbilityESP::Enabled)
 		return;
-	DrawManabars();
+
+	if (Config::AbilityESP::ShowManabars)
+		DrawManabars();
+
 	// ALT key
-	if (!GetAsyncKeyState(164))
+	if (!GetAsyncKeyState(VK_LMENU))
 		DrawAbilities();
 	else
 		DrawItems();
@@ -383,8 +401,8 @@ void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, ImVec2 pos) {
 
 	constexpr static auto clrLvlOutline = ImVec4(0xE7 / 255.0f, 0xD2 / 255.0f, 0x92 / 255.0f, 1);
 	constexpr static auto clrLvlBackGround = ImVec4(0x28 / 255.0f, 0x0F / 255.0f, 0x01 / 255.0f, 1);
-	constexpr static int counterSize = 16;
 	constexpr static int outlinePadding = 1;
+	int counterSize = ScaleVar(16);
 
 	ImVec2 imgXY1{ pos.x - counterSize / 2, pos.y - counterSize / 2 };
 	DrawRectFilled(imgXY1, ImVec2(counterSize, counterSize), clrLvlBackGround);
@@ -400,7 +418,7 @@ void ESP::AbilityESP::DrawChargeCounter(int charges, ImVec2 pos, int radius) {
 	auto DrawList = ImGui::GetForegroundDrawList();
 
 	// Green outline
-	DrawList->AddCircleFilled(pos, radius + ScaleVar(2), ImGui::GetColorU32(ImVec4(135 / 255.0f, 214 / 255.0f, 77 / 255.0f, 1)));
+	DrawList->AddCircleFilled(pos, radius + 2, ImGui::GetColorU32(ImVec4(135 / 255.0f, 214 / 255.0f, 77 / 255.0f, 1)));
 	// Gray core
 	DrawList->AddCircleFilled(pos, radius, ImGui::GetColorU32(ImVec4(0.2, 0.2, 0.2, 1)));
 
@@ -421,7 +439,7 @@ void ESP::AbilityESP::DrawManabars() {
 	for (auto& hero : ctx.heroes) {
 		if (hero->GetTeam() == ctx.assignedHero->GetTeam())
 			continue;
-		
+
 		if (!CanDraw(hero))
 			continue;
 

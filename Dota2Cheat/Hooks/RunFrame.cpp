@@ -84,6 +84,9 @@ void Hooks::UpdateWeather() {
 	varInfo.var->value.i32 = Config::WeatherListIdx;
 }
 
+ENT_HANDLE currentQueryUnit = 0xFFFFFFFF;
+DOTA_GC_TEAM quTeam;
+
 void Hooks::hkRunFrame(uintptr_t a, uintptr_t b) {
 	bool isInGame = Interfaces::Engine->IsInGame();
 
@@ -111,6 +114,27 @@ void Hooks::hkRunFrame(uintptr_t a, uintptr_t b) {
 		Modules::ParticleGC.FrameBasedLogic();
 		Modules::TargetedSpellHighlighter.FrameBasedLogic();
 		Modules::LinearProjectileWarner.FrameBasedLogic();
+
+		// Changes selected unit's team to ours
+		// looks funny
+#ifdef _DEBUG
+		auto queryUnit = ctx.localPlayer->Member<ENT_HANDLE>(Netvars::C_DOTAPlayerController::m_hQueryUnit);
+		if (HVALID(currentQueryUnit) && queryUnit != currentQueryUnit) {
+			auto unit = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(currentQueryUnit));
+			if(unit)
+			unit->Field<DOTA_GC_TEAM>(Netvars::C_BaseEntity::m_iTeamNum) = quTeam;
+		}
+		if (HVALID(queryUnit))
+		{
+			auto unit = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(queryUnit));
+			if (unit && unit->GetTeam() != ctx.assignedHero->GetTeam()) {
+				quTeam = unit->GetTeam();
+				unit->Field<DOTA_GC_TEAM>(Netvars::C_BaseEntity::m_iTeamNum) = ctx.assignedHero->GetTeam();
+				currentQueryUnit = queryUnit;
+			}
+		}
+#endif // _DEBUG
+
 		EntityIteration();
 
 		ctx.lua.safe_script("Modules.Core:EntityIteration()");

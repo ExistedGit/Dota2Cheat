@@ -95,7 +95,10 @@ namespace Pages {
 				ImGui::Text("Hold [Alt] to switch from AbilityESP to ItemESP");
 				ImGui::Checkbox("Enable", &Config::AbilityESP::Enabled);
 				ImGui::Checkbox("Include allied heroes", &Config::AbilityESP::ShowAllies);
+				ImGui::Checkbox("Show decimals in cooldowns", &Config::AbilityESP::ShowCooldownDecimals);
+				ImGui::Checkbox("Show manabars", &Config::AbilityESP::ShowManabars);
 				ImGui::SliderFloat("Icon scale", &Config::AbilityESP::UIScale, 0.75f, 2.0f, "%.1f");
+				
 				ImGui::Checkbox("Crop stashed icons", &Config::AbilityESP::CropStashItems);
 				ImGui::SameLine(); HelpMarker("Stashed items will be displayed like in Dota itself");
 				ImGui::TreePop();

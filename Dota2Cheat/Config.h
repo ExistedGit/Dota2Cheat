@@ -37,6 +37,8 @@ namespace Config {
 		inline bool ShowAllies;
 		inline float UIScale;
 		inline bool CropStashItems;
+		inline bool ShowManabars;
+		inline bool ShowCooldownDecimals;
 	}
 	namespace AutoDodge {
 		inline bool Enabled;

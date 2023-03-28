@@ -1,9 +1,7 @@
 #pragma once
 #include <cstdint>
 
-#define GETTER(type, name, offset) type name() { return Member<type>(offset); }
-
-// Class with no virtual method
+// Class with no virtual methods
 class NormalClass {
 public:
 	template<typename T>

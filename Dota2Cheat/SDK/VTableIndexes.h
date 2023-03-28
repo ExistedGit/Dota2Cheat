@@ -21,7 +21,8 @@ namespace VTableIndexes {
 		Index CreateParticle = 9;
 	}
 	namespace CDOTABaseNPC {
-		// JS function "GetMagicalArmorValue", gets an entity by index and then calls its vfunc with jmp [rdx+880h]
+		// JS functions
+		Index GetPhysicalArmorValue = 271;
 		Index GetMagicalArmorValue = 272;
 	}
 	namespace CDOTABaseAbility {
