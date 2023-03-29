@@ -33,11 +33,12 @@ ParticleWrapper Hacks::ParticleAbilityWarner::DrawRadius(Vector pos, float radiu
 }
 
 CDOTABaseNPC_Hero* Hacks::ParticleAbilityWarner::FindParticleOwner(const char* name) {
-	for (auto& hero : ctx.heroes)
-		if (!strcmp(hero->GetUnitName(), name)) {
-			return hero;
-			break;
-		}
+	for (auto& hero : ctx.heroes) {
+		if (auto unitName = hero->GetUnitName())
+			if (!strcmp(unitName, name)) {
+				return hero;
+			}
+	}
 	return nullptr;
 }
 

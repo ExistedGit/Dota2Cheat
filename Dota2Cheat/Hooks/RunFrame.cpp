@@ -87,7 +87,10 @@ void Hooks::UpdateWeather() {
 void Hooks::hkRunFrame(uintptr_t a, uintptr_t b) {
 	bool isInGame = Interfaces::Engine->IsInGame();
 
-	if (!isInGame || ctx.gameStage != Context::GameStage::IN_GAME) {
+	if (!isInGame ||
+		!ctx.localPlayer ||
+		!ctx.assignedHero ||
+		ctx.gameStage != Context::GameStage::IN_GAME) {
 		oRunFrame(a, b);
 		return;
 	}
