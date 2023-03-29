@@ -1,4 +1,4 @@
-# Dota2Cheat: now with Memory Mapping!
+# Dota2Cheat: now with Dota Plus!
 
 ![cheat preview 27 03 2023](https://user-images.githubusercontent.com/66470490/228053121-ed8cbc2b-8f9f-4db7-914c-81db2dad518d.png)
 
@@ -89,6 +89,7 @@ This list is subject to frequent change as I'm testing new features
   * Weather changing(Ash, Spring etc)
   * River painting
   * Unlocks emoticons
+  * Dota Plus Unlocker
   
 I intend to implement most of the usual cheat functionality
 
