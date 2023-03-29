@@ -70,6 +70,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	ctx.lua.script("print(\"works!\")");
 	Interfaces::FindInterfaces();
+	//	Interfaces::GCClient->FindCDOTAGameAccountPlus();
+	auto iconLoadThread = std::async(std::launch::async, []() {
+		Pages::AutoPickHeroGrid::InitList();
+		});
 
 	Interfaces::CVar->DumpConVarsToMap();
 #ifdef _DEBUG

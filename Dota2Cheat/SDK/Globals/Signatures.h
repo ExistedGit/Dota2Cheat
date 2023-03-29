@@ -16,6 +16,7 @@ class CDOTAPlayerController;
 class CDOTAModifier;
 
 namespace Signatures {
+
 	typedef void(__fastcall* CMsgFn)(const char* format, ...);
 	typedef void(__fastcall* ColorMsgFn)(Color* color, const char* format, ...);
 
@@ -27,7 +28,7 @@ namespace Signatures {
 
 	typedef bool (*BAsyncSendProtoFn)(CProtobufMsgBase* protobufMsg, IProtoBufSendHandler* handler, google::protobuf::Message* responseMsg, unsigned int respMsgID);
 	typedef bool (*DispatchPacketFn)(void*, IMsgNetPacket*);
-	
+
 	typedef void(*OnAddModifierFn)(CDOTAModifier*, int);
 	typedef void(*OnRemoveModifierFn)(CDOTAModifier*);
 	//there's actually no point in sigging it

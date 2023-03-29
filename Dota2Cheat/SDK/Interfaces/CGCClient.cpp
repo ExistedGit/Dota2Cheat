@@ -1,25 +1,24 @@
 #include "CGCClient.h"
 
-CGCClientSharedObjectCache* CGCClient::GetObjCache() {
-	return Member<CGCClientSharedObjectCache*>(0x450);
+void CGCClient::DispatchSOUpdated(SOID_t* soid, void* sharedObj, ESOCacheEvent ev) {
+	auto listeners = GetSOListeners();
+	for (auto& listener : listeners)
+		listener->DispatchUpdate(soid, sharedObj, ev);
 }
 
-VClass* CGCClient::GetGCClientSystem() {
-	return Member<VClass*>(0x768);
-}
+// not working
+// Liberalist's method must be obsolete
+void CGCClient::FindCDOTAGameAccountPlus() {
+	auto inventory = GetSOListeners()[1];
 
-CUtlVector<CGCClientSharedObjectTypeCache*> CGCClientSharedObjectCache::GetTypeCacheList() {
-	return Member<CUtlVector<CGCClientSharedObjectTypeCache*>>(0x10);
-}
+	auto objCache = inventory->GetSOCache();
+	for (auto& typeCache : objCache->GetTypeCacheList()) {
+		if (typeCache->GetSomeKindOfIndex() < 2012) // CDOTAGameAccountPlus' index
+			continue;
 
-CProtobufSharedObjectBase* CGCClientSharedObjectTypeCache::GetProtobufSO() {
-	return *Member< CProtobufSharedObjectBase**>(0x10);
-}
-
-google::protobuf::Message* CProtobufSharedObjectBase::GetPObject() {
-	return CallVFunc<9, google::protobuf::Message*>();
-}
-
-EDOTAGCMsg IMsgNetPacket::GetEMsg() {
-	return Member<EDOTAGCMsg>(0x78);
+		auto message = (CDOTAGameAccountPlus*)typeCache->GetProtobufSO()->GetPObject();
+		message->set_plus_flags(0);
+		message->set_plus_status(1);
+		DispatchSOUpdated(objCache->GetOwner(), typeCache->GetProtobufSO(), eSOCacheEvent_Incremental);
+	}
 }

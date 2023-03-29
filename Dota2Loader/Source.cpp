@@ -90,6 +90,7 @@ int main() {
 		cout << "Successfully updated resources in" << cheatFolderPath << '\n';
 	}
 
+	cout << "Attaching to dota2.exe...\n";
 	Process proc;
 	proc.Attach(L"dota2.exe");
 	if (!proc.pid())
@@ -98,6 +99,7 @@ int main() {
 		return 0;
 	}
 
+	cout << "Attached! Injecting...\n";
 #ifdef _DEBUG
 	DllLoadLibrary(proc, injectPath);
 #else
@@ -105,4 +107,4 @@ int main() {
 #endif // _DEBUG
 
 	system("pause");
-	}
+}

@@ -252,6 +252,9 @@
     <ClCompile Include="Lua\LuaInitialization.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="SDK\Protobufs\custommessages.pb.cc">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h">
@@ -587,5 +590,11 @@
     <ClInclude Include="SDK\Interfaces\CResourceSystem.h">
       <Filter>Header files</Filter>
     </ClInclude>
+    <ClInclude Include="SDK\Protobufs\custommessages.pb.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="custommessages.proto" />
   </ItemGroup>
 </Project>

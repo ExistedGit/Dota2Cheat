@@ -67,5 +67,6 @@
 #include "Protobufs/steammessages_steamlearn.steamworkssdk.pb.h"
 #include "Protobufs/steammessages_unified_base.steamworkssdk.pb.h"
 #include "Protobufs/usermessages.pb.h"
+#include "Protobufs/custommessages.pb.h"
 
 #endif // !PCH_H

@@ -237,6 +237,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="SDK\Base\SigScan\proc.cpp" />
+    <ClCompile Include="SDK\Protobufs\custommessages.pb.cc" />
     <ClCompile Include="SDK\Protobufs\dota_clientmessages.pb.cc" />
     <ClCompile Include="SDK\Protobufs\dota_commonmessages.pb.cc" />
     <ClCompile Include="SDK\Protobufs\dota_gcmessages_msgid.pb.cc" />
@@ -302,6 +303,7 @@
     <ClInclude Include="Config.h" />
     <ClInclude Include="DebugFunctions.h" />
     <ClInclude Include="SDK\Interfaces\CResourceSystem.h" />
+    <ClInclude Include="SDK\Protobufs\custommessages.pb.h" />
     <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h" />
     <ClInclude Include="Utils\Drawing.h" />
     <ClInclude Include="SDK\Globals\Context.h" />
@@ -366,6 +368,9 @@
     <ClInclude Include="SDK\Entities\CDOTABaseNPC.h" />
     <ClInclude Include="SDK\Entities\CEntityIdentity.h" />
     <ClInclude Include="UI\Pages\MainMenu.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="custommessages.proto" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
