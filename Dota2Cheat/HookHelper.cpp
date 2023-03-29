@@ -7,6 +7,8 @@
 
 void Hooks::SetUpByteHooks() {
 	HOOKFUNC_SIGNATURES(PrepareUnitOrders);
+	HOOKFUNC_SIGNATURES(BIsEmoticonUnlocked);
+
 	//HOOKFUNC(DispatchPacket);
 	//HOOKFUNC(BAsyncSendProto);
 	//HOOKFUNC_SIGNATURES_INGAME(CreateParticleCollection);
@@ -45,13 +47,17 @@ void Hooks::SetUpVirtualHooks(bool log) {
 	}
 	{
 		auto vmt = VMT(Interfaces::EntitySystem);
-		void* OnAddEntity = vmt.GetVM<EntSystemEvent>(14), *OnRemoveEntity = vmt.GetVM<EntSystemEvent>(15);
+		void* OnAddEntity = vmt.GetVM<EntSystemEvent>(14), * OnRemoveEntity = vmt.GetVM<EntSystemEvent>(15);
 		HOOKFUNC(OnAddEntity);
 		HOOKFUNC(OnRemoveEntity);
 	}
 	{
-		auto vmt = VMT(Interfaces::UIEngine);
-		HookFunc(vmt.GetVM<RunFrameFn>(6), &hkRunFrame, &oRunFrame, "RunFrame");
+	}
+	{
+		void* RunScript = Interfaces::UIEngine->GetVFunc(88).ptr,
+			* RunFrame = Interfaces::UIEngine->GetVFunc(6).ptr;
+		HOOKFUNC(RunFrame);
+		HOOKFUNC(RunScript);
 	}
 }
 

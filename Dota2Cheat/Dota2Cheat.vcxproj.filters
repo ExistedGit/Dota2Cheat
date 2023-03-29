@@ -255,6 +255,9 @@
     <ClCompile Include="SDK\Protobufs\custommessages.pb.cc">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="Hooks\OnAcceptMatch.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h">
@@ -591,6 +594,12 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="SDK\Protobufs\custommessages.pb.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\OnAcceptMatch.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\Misc.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>

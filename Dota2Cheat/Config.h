@@ -40,6 +40,11 @@ namespace Config {
 		inline bool ShowManabars;
 		inline bool ShowCooldownDecimals;
 	}
+
+	namespace AutoAccept {
+		inline bool Enabled;
+		inline int Delay;
+	}
 	namespace AutoDodge {
 		inline bool Enabled;
 	}
