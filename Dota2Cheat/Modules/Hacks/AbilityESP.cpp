@@ -218,7 +218,7 @@ void ESP::AbilityESP::DrawAbilities() {
 					ImVec4(0, 1, 60 / 255.0f, 1),
 					true);
 			}
-			DrawLevelCounter(data.ability, ImVec2(imgXY2.x - centeringOffset, imgXY2.y));
+			DrawLevelCounter(data.ability, ImVec2(imgXY2.x - centeringOffset, imgXY2.y + 6));
 			++idx;
 		}
 	}
@@ -256,7 +256,7 @@ void ESP::AbilityESP::DrawItems() {
 
 		int x, y;
 		Signatures::WorldToScreen(&drawPos, &x, &y, nullptr);
-		y += 20;
+		y += 15;
 
 		float cropAmount = 0.2f;
 		auto panelXY1 = ImVec2(x - (iconSize.x + gap) * cols / 2.0f, y);
