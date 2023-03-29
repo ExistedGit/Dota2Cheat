@@ -81,11 +81,29 @@ int main() {
 		fs::create_directories(cheatFolderPath + "\\assets\\spellicons\\");
 		fs::create_directories(cheatFolderPath + "\\scripts\\");
 		fs::create_directories(cheatFolderPath + "\\config\\");
+		{
+			auto assetsPath = curDir;
+			for (int i = 0; i < 3; i++) {
+				if (fs::exists(assetsPath + L"\\assets"))
+					break;
+				assetsPath += L"\\..";
+			}
+			fs::copy(assetsPath + L"\\assets", cheatFolderPath + R"(\assets\)", fs::copy_options::recursive | fs::copy_options::skip_existing);
+		}
+		cout << "Updated assets\n";
 
-		fs::copy(curDir + L"\\..\\..\\assets", cheatFolderPath + R"(\assets\)", fs::copy_options::recursive | fs::copy_options::skip_existing);
-		cout << "Updated assets...\n";
-		fs::copy(curDir + L"\\..\\..\\scripts", cheatFolderPath + R"(\scripts\)", fs::copy_options::recursive | fs::copy_options::skip_existing);
-		cout << "Updated scripts...\n";
+
+		cout << "Updating scripts\n";
+		{
+			auto scriptsPath = curDir;
+			for (int i = 0; i < 3; i++) {
+				if (fs::exists(scriptsPath + L"\\scripts"))
+					break;
+				scriptsPath += L"\\..";
+			}
+			fs::copy(scriptsPath + L"\\scripts", cheatFolderPath + R"(\scripts\)", fs::copy_options::recursive | fs::copy_options::skip_existing);
+		}
+		cout << "Updated scripts\n";
 
 		cout << "Successfully updated resources in" << cheatFolderPath << '\n';
 	}

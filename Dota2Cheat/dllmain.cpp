@@ -161,7 +161,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 		ImGui::PushFont(defaultFont);
 
-		if (Interfaces::Engine->IsInGame()) {
+		if (ctx.gameStage == Context::GameStage::IN_MATCH &&
+			ctx.assignedHero) {
 			texManager.ExecuteLoadCycle();
 			Modules::AbilityESP.DrawESP();
 		}
