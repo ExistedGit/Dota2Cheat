@@ -25,6 +25,7 @@
 #include "Lua/LuaInitialization.h"
 
 #include "MatchStateHandling.h"
+#include "Hooks/InvalidateUEF.h"
 #include "UI/Pages/MainMenu.h"
 #include "UI/Pages/AutoPickSelectionGrid.h"
 
@@ -46,6 +47,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	if (MH_Initialize() != MH_OK)
 		FreeLibraryAndExitThread(hModule, 0);
 
+	Hooks::InvalidateUEF::Create();
 	AllocConsole();
 	FILE* f;
 	freopen_s(&f, "CONOUT$", "w", stdout);
@@ -203,6 +205,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Modules::TargetedSpellHighlighter.OnDisableTargetedSpells();
 	Modules::TargetedSpellHighlighter.OnDisableLinken();
 
+	Hooks::InvalidateUEF::Remove();
 	MH_Uninitialize();
 	if (f) fclose(f);
 	FreeConsole();

@@ -48,8 +48,6 @@ inline std::map<std::string_view, Hooks::ImportantItemData> importantItemNames =
 
 void Hooks::CacheIfItemModifier(CDOTAModifier* modifier) {
 	std::string_view modName = modifier->GetName();
-	auto itemName = modName.substr(9); // removing the "modifier_" prefix
-
 	if (!modName.starts_with("modifier_item"))
 		return;
 
@@ -63,6 +61,7 @@ void Hooks::CacheIfItemModifier(CDOTAModifier* modifier) {
 		*data.item = item;
 	}
 
+	auto itemName = modName.substr(9); // removing the "modifier_" prefix
 	auto item = modifier->GetOwner()->FindItemBySubstring(itemName.data());
 	if (item) {
 		if (itemName.find("sphere", 0) != -1)
@@ -87,13 +86,14 @@ void Hooks::hkOnRemoveModifier(CDOTAModifier* modifier) {
 	//}
 
 	std::string_view modName = modifier->GetName();
-	auto itemName = modName.substr(9); // removing the "modifier_" prefix
 
-	if (modName.starts_with("modifier_item") && modifier->GetOwner() == ctx.assignedHero)
+	if (modName.starts_with("modifier_item"))
 	{
 		if (modifier->GetOwner() == ctx.assignedHero && importantItemNames.count(modName))
 			*importantItemNames[modName].item = nullptr;
-		else if (itemName.find("sphere", 0) != -1)
+
+		auto itemName = modName.substr(9); // removing the "modifier_" prefix
+		if (itemName.find("sphere", 0) != -1)
 			Modules::TargetedSpellHighlighter.UnsubscribeLinkenRendering(modifier->GetOwner());
 	}
 

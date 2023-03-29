@@ -51,6 +51,42 @@ void ReinjectEntIteration() {
 	}
 }
 
+void OnUpdatedAssignedHero()
+{
+	ctx.lua["localHero"] = ctx.assignedHero;
+	Lua::CallModuleFunc("OnUpdatedAssignedHero");
+
+	for (auto& modifier : ctx.assignedHero->GetModifierManager()->GetModifierList())
+		Hooks::CacheIfItemModifier(modifier); // for registering important items on reinjection
+
+	Modules::ShakerAttackAnimFix.SubscribeEntity(ctx.assignedHero);
+}
+
+void UpdateAssignedHero()
+{
+	if (!ctx.localPlayer)
+		return;
+
+	auto heroHandle = ctx.localPlayer->GetAssignedHeroHandle();
+	if (ctx.assignedHeroHandle != heroHandle)
+	{
+		ctx.assignedHeroHandle = heroHandle;
+		auto assignedHero = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(ctx.localPlayer->GetAssignedHeroHandle()));
+
+		std::cout << "===== UpdateAssignedHero =====" << '\n';
+		std::cout << "assignedHeroHandle: " << std::hex << heroHandle << '\n';
+		std::cout << "assignedHero: " << std::hex << assignedHero << '\n';
+
+		std::cout << "===== UpdateAssignedHero End =====" << '\n';
+
+		ctx.assignedHero = assignedHero;
+		if (assignedHero)
+		{
+			OnUpdatedAssignedHero();
+		}
+	}
+}
+
 void EnteredMatch() {
 	GetGameSystem(GameRules);
 	GetGameSystem(ProjectileManager);
@@ -79,7 +115,8 @@ void EnteredInGame() {
 		gameState != DOTA_GAMERULES_STATE_GAME_IN_PROGRESS)
 		return;
 
-	ctx.assignedHero = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(ctx.localPlayer->GetAssignedHeroHandle()));
+	UpdateAssignedHero();
+
 	if (!ctx.assignedHero) {
 		//ctx.localPlayer = Interfaces::EntitySystem->GetEntity<CDOTAPlayerController>(Interfaces::Engine->GetLocalPlayerSlot() + 2);
 		//ctx.assignedHero = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(ctx.localPlayer->GetAssignedHeroHandle()));
@@ -88,17 +125,17 @@ void EnteredInGame() {
 	}
 
 	//Config::AutoPingTarget = ctx.assignedHero;
-	for (auto& modifier : ctx.assignedHero->GetModifierManager()->GetModifierList())
-		Hooks::CacheIfItemModifier(modifier); // for registering important items on reinjection
 
 
 	//FillPlayerList();
 
+	std::cout << "====== ENTERED GAME:\n";
 
 	std::cout << "Local Player: " << ctx.localPlayer
 		<< "\n\t" << std::dec << "STEAM ID: " << ctx.localPlayer->GetSteamID()
 		<< '\n';
-	std::cout << "Assigned Hero: " << ctx.assignedHero << " " << ctx.assignedHero->GetUnitName() << '\n';
+	if (ctx.assignedHero->GetUnitName())
+		std::cout << "Assigned Hero: " << ctx.assignedHero << " " << ctx.assignedHero->GetUnitName() << '\n';
 
 	Interfaces::CVar->SetConvars();
 
@@ -114,7 +151,6 @@ void EnteredInGame() {
 
 	ReinjectEntIteration();
 
-	Modules::ShakerAttackAnimFix.SubscribeEntity(ctx.assignedHero);
 	Modules::AutoBuyTome.Init();
 	Modules::AbilityESP.SubscribeHeroes();
 
@@ -122,7 +158,7 @@ void EnteredInGame() {
 
 	Hooks::EnableHooks();
 	ctx.gameStage = Context::GameStage::IN_GAME;
-	std::cout << "ENTERED GAME\n";
+	std::cout << "====== ENTERED GAME End\n";
 }
 
 void LeftMatch() {
@@ -165,6 +201,8 @@ void CheckMatchState() {
 			EnteredMatch();
 		else if (ctx.gameStage == Context::GameStage::IN_MATCH)
 			EnteredInGame();
+		else if (ctx.gameStage == Context::GameStage::IN_GAME)
+			UpdateAssignedHero();
 	}
 	else if (ctx.gameStage != Context::GameStage::NONE)
 		LeftMatch();

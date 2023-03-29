@@ -102,6 +102,7 @@ void Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t o
 
 			auto items = npc->GetItems();
 			for (auto& item : items) {
+				if (!item) continue;
 				auto itemSlot = npc->GetInventory()->GetItemSlot(item->GetHandle());
 				if (
 					item->GetIndex() == abilityIndex                   // must not be the item we're using
@@ -128,7 +129,7 @@ void Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t o
 				}
 			}
 			if (callPickup) {
-				// Multhithreading magic — who knows when the hero finishes dropping the items?
+				// Multhithreading magic ?who knows when the hero finishes dropping the items?
 				manaAbusePickup = std::async(std::launch::async, [&, origItemStats, player, issuer]() mutable {
 					Sleep(300);
 				for (auto& [item, stat] : origItemStats)
