@@ -185,6 +185,7 @@
     <ClCompile Include="Hooks\EntitySystemEvents.cpp" />
     <ClCompile Include="Hooks\ModifierEvents.cpp" />
     <ClCompile Include="Hooks\NetChannel.cpp" />
+    <ClCompile Include="Hooks\OnAcceptMatch.cpp" />
     <ClCompile Include="Hooks\ParticleRendering.cpp" />
     <ClCompile Include="Hooks\PrepareUnitOrders.cpp" />
     <ClCompile Include="Hooks\RunFrame.cpp" />
@@ -257,6 +258,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hooks\InvalidateUEF.h" />
+    <ClInclude Include="Hooks\Misc.h" />
+    <ClInclude Include="Hooks\OnAcceptMatch.h" />
     <ClInclude Include="include.h" />
     <ClInclude Include="json.hpp" />
     <ClInclude Include="Modules\Hacks\AbilityESP.h" />

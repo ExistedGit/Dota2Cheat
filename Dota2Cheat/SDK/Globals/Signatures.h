@@ -16,6 +16,8 @@ class CDOTAPlayerController;
 class CDOTAModifier;
 
 namespace Signatures {
+	typedef void(__fastcall* BIsEmoticonUnlockedFn)(void* thisptr, uint32_t unk);
+	inline BIsEmoticonUnlockedFn BIsEmoticonUnlocked{};
 
 	typedef void(__fastcall* CMsgFn)(const char* format, ...);
 	typedef void(__fastcall* ColorMsgFn)(Color* color, const char* format, ...);
@@ -23,6 +25,9 @@ namespace Signatures {
 	typedef void(__fastcall* PrepareUnitOrdersFn)(CDOTAPlayerController* player, dotaunitorder_t orderType, uint32_t targetIndex, Vector* position, uint32_t abilityIndex, PlayerOrderIssuer_t orderIssuer, CBaseEntity* issuer, bool queue, bool showEffects);
 	
 	typedef void(__fastcall* WorldToScreenFn)(Vector* coord, int* outX, int* outY, void* offset);
+
+	typedef char(*OnAcceptMatchFn)(VClass**);
+	inline OnAcceptMatchFn OnAcceptMatch{};
 
 	typedef bool (*LoadUITextureFn)(void* thisptr, void** texturePtr, const char* textureName);
 

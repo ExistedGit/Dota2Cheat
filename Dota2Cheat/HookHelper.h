@@ -1,11 +1,14 @@
 #pragma once
 
 #include "Hooks/PrepareUnitOrders.h"
+#include "Hooks/OnAcceptMatch.h"
 #include "Hooks/RunFrame.h"
 #include "Hooks/NetChannel.h"
 #include "Hooks/EntitySystemEvents.h"
 #include "Hooks/ParticleRendering.h"
 #include "Hooks/ModifierEvents.h"
+
+#include "Hooks/Misc.h"
 
 #define HOOKFUNC_SIGNATURES(func) HookFunc(Signatures::##func, &hk##func, &o##func, #func)
 

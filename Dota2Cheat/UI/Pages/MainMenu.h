@@ -58,7 +58,11 @@ namespace Pages {
 			if (ImGui::Button("Circle drawing"))
 				circleMenuVisible = !circleMenuVisible;
 
-
+			if (ImGui::TreeNode("AutoAccept")) {
+				ImGui::Checkbox("Enabled", &Config::AutoAccept::Enabled);
+				ImGui::SliderInt("Delay", &Config::AutoAccept::Delay, 0, 6);
+				ImGui::TreePop();
+			}
 			if (ImGui::TreeNode("Visuals")) {
 				// https://github.com/SK68-ph/Shadow-Dance-Menu
 				ImGui::ListBox(
