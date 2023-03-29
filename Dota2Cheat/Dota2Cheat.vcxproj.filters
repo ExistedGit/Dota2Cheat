@@ -587,5 +587,8 @@
     <ClInclude Include="SDK\Interfaces\CResourceSystem.h">
       <Filter>Header files</Filter>
     </ClInclude>
+    <ClInclude Include="Hooks\InvalidateUEF.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
