@@ -34,7 +34,7 @@ Open the project in Visual Studio and build both Dota2Cheat and Dota2Loader as *
 
 This cheat can be safely reinjected at any point of the game
 
-Build Dota2Loader and launch its .exe to inject(not from Visual Studio, it messes up the file paths!)
+Build Dota2Loader and launch it, it will move the necessary resources around and then inject
 
 **Use at own risk. Though I use methods that make detection chances as low as possible, there are no guarantees** (also consider not using non-legit features that others may notice)
 
