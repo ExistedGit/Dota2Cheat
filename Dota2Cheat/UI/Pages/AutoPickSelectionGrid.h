@@ -8,7 +8,8 @@
 
 namespace Pages {
 	namespace AutoPickHeroGrid {
-		std::vector<TextureData> heroIcons;
+		std::vector < std::string> heroNames;
+		std::map<std::string, TextureData> heroIcons;
 		bool Initialized = false;
 
 		void InitList() {
@@ -24,32 +25,40 @@ namespace Pages {
 			while (Interfaces::FileSystem->ReadLine(buffer, 512, handle)) {
 				std::string line = buffer;
 				std::smatch match;
-				if (std::regex_match(line, match, heroRegex)){
+				if (std::regex_match(line, match, heroRegex)) {
 					std::string heroName = regex_replace(match[0].str(), heroRegex, "$1");
-					TextureData data{};
-					if (heroName.find("venge") != -1)
-					{
-						std::cout << heroName << '\n';
-					}
-					auto path = ctx.cheatFolderPath + "\\assets\\heroicons\\" + heroName + "_png.png";
-					texManager.LoadTexture(path.c_str(), data);
-					heroIcons.push_back(data);
+					if (heroName.find("base") != -1)
+						continue;
+
+					heroNames.push_back(heroName);
 				}
+			}
+		}
+		void InitImages() {
+			for (auto& heroName : heroNames) {
+				TextureData data{};
+				auto path = ctx.cheatFolderPath + "\\assets\\heroicons\\" + heroName + "_png.png";
+				texManager.LoadTexture(path.c_str(), data);
+				heroIcons[heroName] = data;
 			}
 			Initialized = true;
 		}
 		void Draw(GLFWwindow* window) {
 			if (!Initialized)
-				InitList();
+				InitImages();
 
 			ImGui::Begin("AutoPick");
-			for (int i = 0; i < heroIcons.size();++i) {
-				auto& icon = heroIcons[i];
-				ImGui::ImageButton(icon.glTex, ImVec2(24, 24));
-				if (i % 8 != 0)
+			for (auto it = heroIcons.begin(); it != heroIcons.end(); ++it) {
+				auto& icon = it->second;
+				if (
+					ImGui::ImageButton(icon.glTex, ImVec2(24, 24)))
+					std::cout << it->first << '\n';
+
+				int i = std::distance(heroIcons.begin(), it);
+				if (i == 0 || i / 8 != 0)
 					ImGui::SameLine();
 			}
-	
+
 			ImGui::End();
 		}
 	}
