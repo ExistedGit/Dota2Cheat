@@ -39,6 +39,8 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
+!Dota2Loader/include/3rd_party/AsmJit/x86/
+
 # Visual Studio 2015/2017 cache/options directory
 .vs/
 # Uncomment if you have tasks that create the project's static files in wwwroot

@@ -38,6 +38,17 @@ Build Dota2Loader and launch its .exe to inject(not from Visual Studio, it messe
 
 **Use at own risk. Though I use methods that make detection chances as low as possible, there are no guarantees** (also consider not using non-legit features that others may notice)
 
+## Troubleshooting
+
+If you encounter a crash and want to inform me of it, do the following:
+
+Build both the cheat and loader in Debug. Launch dota 2, then In Visual Studio Ctrl + Alt + P and select dota2.exe.
+Now that you're debugging the process, inject the cheat. VS will show you where the exception occurs.
+Screenshot both what place it crashed in and the Call Stack(it's one of the bottom menus).
+You can also screenshot exact places the call stack entries take you to(double-click them).
+
+And thus we can defeat bugs together!
+
 # Features
 To open the cheat menu, press Insert
 
