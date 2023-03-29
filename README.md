@@ -1,6 +1,6 @@
-# Dota2Cheat: now with Lua!
+# Dota2Cheat: now with Memory Mapping!
 
-![Screenshot_517](https://user-images.githubusercontent.com/66470490/224436497-2e7a5e86-10d8-4d80-94c5-d8eab78b7aef.png)
+![cheat preview 27 03 2023](https://user-images.githubusercontent.com/66470490/228053121-ed8cbc2b-8f9f-4db7-914c-81db2dad518d.png)
 
 There weren't many open-source Dota cheats. And so I decided to fix that.
 Written in C++20 with love
@@ -15,19 +15,39 @@ also using Google's [Protocol Buffers](https://github.com/protocolbuffers/protob
 
 also using [Lua 5.4](https://www.lua.org/) and [sol2](https://github.com/ThePhD/sol2) for scripting
 
+also using DarthTon's [BlackBone](https://github.com/DarthTon/Blackbone) for injection
+
 `assets` folder contents are property of Valve Corporation
 
 ## Building
-Open the project in Visual Studio and build as **Release x64**
+You need to install the protobuf library for it to work. Install [vcpkg](https://vcpkg.io/en/getting-started.html). Navigate to the folder with vcpkg.exe. Open the console in the folder and enter the following command:
+
+`.\vcpkg.exe install protobuf:x64-windows-static-md`
+
+This will install the heavier static version of the library. 
+
+Once the process completes, go to `installed/x64-windows-static-md`. Copy libprotobuf.lib and libprotobuf-lite.lib files from /lib to Dota2Cheat/lib. You can also copy the libs with a `d` suffix from debug/lib if you want to compile it in Debug
+
+Open the project in Visual Studio and build both Dota2Cheat and Dota2Loader as **Release x64**
 
 ## Injecting
-You need to have libprotobuf DLLs in your the folder with dota2.exe, get them from a release in this repo or install protobuf via vcpkg and get them from the vcpkg/installed/x64-windows/bin folder
 
 This cheat can be safely reinjected at any point of the game
 
 Build Dota2Loader and launch its .exe to inject(not from Visual Studio, it messes up the file paths!)
 
-**ABSOLUTELY DETECTABLE BY VAC, FOR USE IN DEMO MODE OR A LOBBY** (Memory Map support WIP)
+**Use at own risk. Though I use methods that make detection chances as low as possible, there are no guarantees** (also consider not using non-legit features that others may notice)
+
+## Troubleshooting
+
+If you encounter a crash and want to inform me of it, do the following:
+
+Build both the cheat and loader in Debug. Launch dota 2, then In Visual Studio Ctrl + Alt + P and select dota2.exe.
+Now that you're debugging the process, inject the cheat. VS will show you where the exception occurs.
+Screenshot both what place it crashed in and the Call Stack(it's one of the bottom menus).
+You can also screenshot exact places the call stack entries take you to(double-click them).
+
+And thus we can defeat bugs together!
 
 # Features
 To open the cheat menu, press Insert
@@ -45,7 +65,7 @@ This list is subject to frequent change as I'm testing new features
   
 * Information:
   * ~~Visible by Enemy~~ RIP on 21.02.2023, you shall not be forgotten
-  * AbilityESP 
+  * [AbilityESP & ItemESP](https://youtu.be/U-ZhxwjEw4k)
   * Draw circles of custom radius around you hero(e. g. to see XP receiving range)
   * Shows point-cast spells(Sunstrike, Torrent, Light Strike Array)
   * Shows target-cast spells(Assassinate, Charge of Darkness)
@@ -71,6 +91,8 @@ This list is subject to frequent change as I'm testing new features
 I intend to implement most of the usual cheat functionality
 
 # For Developers
+
+If you want to tinker with the sources, compile both the cheat and loader as Debug x64(it will use LoadLibrary to allow for debugging and the overlay will not cover the whole screen)
 
 Check out the repo's Wiki, I add useful informations about dota-specific cheat things there
 

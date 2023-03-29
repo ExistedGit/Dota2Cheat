@@ -1,0 +1,20 @@
+# EditorConfig is awesome: http://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Windows-style newlines with a newline ending every file
+[*]
+end_of_line = crlf
+
+# Tab indentation
+[*.{c,h,def,c++,cc,cpp,cxx,h,h++,hh,hpp,hxx,inl,ipp,tlh,tli}]
+indent_style = tab
+
+# Trim trailing whitespaces
+[*.{c,h,def,txt,c++,cc,cpp,cxx,h,h++,hh,hpp,hxx,inl,ipp,tlh,tli}]
+trim_trailing_whitespace = true
+
+# UTF-8
+[*.{c,h,def,txt,c++,cc,cpp,cxx,h,h++,hh,hpp,hxx,inl,ipp,tlh,tli}]
+charset=utf-8

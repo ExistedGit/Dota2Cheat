@@ -1,8 +1,12 @@
 #include "ShakerAttackAnimFix.h"
 
 void Hacks::ShakerAttackAnimFix::SubscribeEntity(CDOTABaseNPC* hero) {
-	if (!strcmp(hero->GetUnitName(), "npc_dota_hero_earthshaker"))
-		shaker = hero;
+	if (auto unitName = hero->GetUnitName()) {
+		if (!strcmp(unitName, "npc_dota_hero_earthshaker"))
+			shaker = hero;
+		else
+			Reset();
+	}
 }
 
 void Hacks::ShakerAttackAnimFix::Reset() {

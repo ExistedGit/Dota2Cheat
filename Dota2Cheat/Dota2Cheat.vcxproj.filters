@@ -596,5 +596,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="custommessages.proto" />
+    <ClInclude Include="Hooks\InvalidateUEF.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
