@@ -55,6 +55,7 @@ To open the cheat menu, press Insert
 This list is subject to frequent change as I'm testing new features
 
 * Automation:
+  * AutoAccept with customizable delay
   * Uses Magic Wand and Faerie Fire with customizable health tresholds
   * Uses Hand of Midas on nearby big neutrals, ranged & flagbearer lane creeps and catapults
   * Bounty rune & Aegis pickup
@@ -84,10 +85,11 @@ This list is subject to frequent change as I'm testing new features
   * Perfect Blink
   * Prevents bad spell casts(such as Black Hole/Chronosphere with no one in its radius)
 
-* Visuals:
+* Changer:
   * Weather changing(Ash, Spring etc)
   * River painting
-
+  * Unlocks emoticons
+  
 I intend to implement most of the usual cheat functionality
 
 # For Developers
