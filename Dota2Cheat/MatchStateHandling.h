@@ -19,6 +19,10 @@ void FillPlayerList();
 void ReinjectEntIteration();
 #define GetGameSystem(global) GameSystems::##global = *GameSystems::## global ##Ptr
 
+void OnUpdatedAssignedHero();
+
+void UpdateAssignedHero();
+
 void EnteredMatch();
 
 void EnteredInGame();

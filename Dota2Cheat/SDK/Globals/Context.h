@@ -15,6 +15,7 @@ class CDOTAItemRune;
 struct Context {
 	CDOTAPlayerController* localPlayer{};
 	CDOTABaseNPC_Hero* assignedHero{};
+	uint32_t assignedHeroHandle{};
 
 	HANDLE CurProcHandle;
 	int CurProcId;
