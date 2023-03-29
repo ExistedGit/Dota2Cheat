@@ -60,6 +60,4 @@ public:
 
 	void DispatchSOUpdated(SOID_t* soid, void* sharedObj, ESOCacheEvent ev);
 
-	// rebuilt from xref: "Failed to find CDOTAGameAccountPlus"
-	void FindCDOTAGameAccountPlus();
 };

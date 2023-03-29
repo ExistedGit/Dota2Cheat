@@ -73,5 +73,7 @@ void Config::ConfigManager::SetupVars() {
 	Config::cfg.AddVar(BOOL, &Config::AutoAccept::Enabled, true, "AutoAccept.Enabled");
 	Config::cfg.AddVar(INT, &Config::AutoAccept::Delay, 1, "AutoAccept.Delay");
 
+	Config::cfg.AddVar(BOOL, &Config::UnlockDotaPlus, true, "UnlockDotaPlus");
+
 	Config::cfg.AddVar(BOOL, &Config::RenderAllParticles, true, "RenderAllParticles");
 }

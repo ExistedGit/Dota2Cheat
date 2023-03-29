@@ -86,6 +86,5 @@ namespace Config {
 	inline int CircleRadius = 1200;
 	inline Vector CircleRGB{ 0,0,0 };
 
-	inline bool VBEShowText = true;
-	inline bool VBEShowParticle = true;
+	inline bool UnlockDotaPlus;
 }
