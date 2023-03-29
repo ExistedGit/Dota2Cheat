@@ -6,6 +6,7 @@
 namespace Hooks {
 	using CParticleCollection = Signatures::CParticleCollection;
 
+	inline bool unlockedDotaPlus = false;
 	inline void* SetRenderingEnabled = nullptr;
 	inline Signatures::CreateParticleCollectionFn oCreateParticleCollection = nullptr;
 

@@ -602,6 +602,9 @@
     <ClInclude Include="Hooks\Misc.h">
       <Filter>Header files</Filter>
     </ClInclude>
+    <ClInclude Include="Modules\Hacks\DotaPlusUnlocker.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="custommessages.proto" />

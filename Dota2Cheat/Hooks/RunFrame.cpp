@@ -87,6 +87,7 @@ void Hooks::UpdateWeather() {
 ENT_HANDLE currentQueryUnit = 0xFFFFFFFF;
 DOTA_GC_TEAM quTeam;
 
+
 void Hooks::hkRunFrame(uintptr_t a, uintptr_t b) {
 	bool isInGame = Interfaces::Engine->IsInGame();
 
@@ -106,7 +107,7 @@ void Hooks::hkRunFrame(uintptr_t a, uintptr_t b) {
 	if (
 		ctx.assignedHero->GetLifeState() == 0 // if alive
 		&& !GameSystems::GameRules->IsGamePaused() // and the game is not paused
-		) { 
+		) {
 		AutoUseWandCheck(ctx.assignedHero, Config::AutoHealWandHPTreshold, Config::AutoHealWandMinCharges);
 		AutoUseFaerieFireCheck(ctx.assignedHero, Config::AutoHealFaerieFireHPTreshold);
 
@@ -124,8 +125,8 @@ void Hooks::hkRunFrame(uintptr_t a, uintptr_t b) {
 		auto queryUnit = ctx.localPlayer->Member<ENT_HANDLE>(Netvars::C_DOTAPlayerController::m_hQueryUnit);
 		if (HVALID(currentQueryUnit) && queryUnit != currentQueryUnit) {
 			auto unit = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(currentQueryUnit));
-			if(unit)
-			unit->Field<DOTA_GC_TEAM>(Netvars::C_BaseEntity::m_iTeamNum) = quTeam;
+			if (unit)
+				unit->Field<DOTA_GC_TEAM>(Netvars::C_BaseEntity::m_iTeamNum) = quTeam;
 		}
 		if (HVALID(queryUnit))
 		{
@@ -134,8 +135,8 @@ void Hooks::hkRunFrame(uintptr_t a, uintptr_t b) {
 				quTeam = unit->GetTeam();
 				unit->Field<DOTA_GC_TEAM>(Netvars::C_BaseEntity::m_iTeamNum) = ctx.assignedHero->GetTeam();
 				currentQueryUnit = queryUnit;
-			}
-		}
+	}
+}
 #endif // _DEBUG
 
 		EntityIteration();

@@ -265,6 +265,7 @@
     <ClInclude Include="Modules\Hacks\AbilityESP.h" />
     <ClInclude Include="Modules\Hacks\AegisAutoPickup.h" />
     <ClInclude Include="Modules\Hacks\ArmletAbuse.h" />
+    <ClInclude Include="Modules\Hacks\DotaPlusUnlocker.h" />
     <ClInclude Include="Modules\Utility\AttackTargetFinder.h" />
     <ClInclude Include="Modules\Hacks\AutoBuyTome.h" />
     <ClInclude Include="Modules\Hacks\AutoDodge.h" />

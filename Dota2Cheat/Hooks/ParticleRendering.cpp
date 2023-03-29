@@ -1,8 +1,17 @@
 #include "ParticleRendering.h"
+#include "../Modules/Hacks/DotaPlusUnlocker.h"
+#include "../Config.h"
+
 using CParticleCollection = Signatures::CParticleCollection;
 
 void Hooks::hkSetRenderingEnabled(CParticleCollection* thisptr, bool state) {
 	bool FakeState = state;
+
+	if (unlockedDotaPlus != Config::UnlockDotaPlus)
+	{
+		unlockedDotaPlus = Config::UnlockDotaPlus;
+		Modules::DotaPlusUnlocker.UpdateDotaPlusStatus();
+	}
 
 	if (Config::RenderAllParticles)
 		FakeState = true;
@@ -11,6 +20,7 @@ void Hooks::hkSetRenderingEnabled(CParticleCollection* thisptr, bool state) {
 }
 
 // An old Wolf49406-style hook
+// Unused.
 CParticleCollection* Hooks::hkCreateParticleCollection(CNewParticleEffect* thisptr, void* particleMgr, void* unk, void** query, int particleIndex) {
 	CParticleCollection* Ret = oCreateParticleCollection(thisptr, particleMgr, unk, query, particleIndex);
 

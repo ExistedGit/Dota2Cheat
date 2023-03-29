@@ -58,6 +58,8 @@ namespace Pages {
 			if (ImGui::Button("Circle drawing"))
 				circleMenuVisible = !circleMenuVisible;
 
+			ImGui::Checkbox("Unlock Dota Plus", &Config::UnlockDotaPlus);
+
 			if (ImGui::TreeNode("AutoAccept")) {
 				ImGui::Checkbox("Enabled", &Config::AutoAccept::Enabled);
 				ImGui::SliderInt("Delay", &Config::AutoAccept::Delay, 0, 6);
@@ -73,7 +75,7 @@ namespace Pages {
 					4);
 
 				// credits to the screenshot https://yougame.biz/threads/283404/
-				// and to Wolf49046 himself
+				// and to Wolf49406 himself
 				// should've figured out it's controlled by a convar like the weather :)
 				ImGui::ListBox(
 					"River paint",

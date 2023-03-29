@@ -72,7 +72,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	ctx.lua.script("print(\"works!\")");
 	Interfaces::FindInterfaces();
-	//	Interfaces::GCClient->FindCDOTAGameAccountPlus();
 	auto iconLoadThread = std::async(std::launch::async, []() {
 		Pages::AutoPickHeroGrid::InitList();
 		});
@@ -161,7 +160,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 		ImGui::PushFont(defaultFont);
 
-		if (Interfaces::Engine->IsInGame()) {
+		if (ctx.gameStage == Context::GameStage::IN_MATCH &&
+			ctx.assignedHero) {
 			texManager.ExecuteLoadCycle();
 			Modules::AbilityESP.DrawESP();
 		}
