@@ -17,7 +17,7 @@ public:
 	template<typename T>
 	T& Field(int offset) {
 		if (!IsValidReadPtr((uintptr_t)this + offset))
-			throw std::exception_ptr("VClass::Field access violation");
+			throw "VClass::Field access violation";
 		return *(T*)((uintptr_t)this + offset);
 	}
 
