@@ -7,7 +7,7 @@ void Hacks::DotaPlusUnlocker::UpdateDotaPlusStatus() {
 
 	auto objCache = inventory->GetSOCache();
 	for (auto& typeCache : objCache->GetTypeCacheList()) {
-		if (typeCache->GetEconTypeID() < 2012) // CDOTAGameAccountPlus' index
+		if (typeCache->GetEconTypeID() == EEconTypeID::k_CDOTAGameAccountPlus)
 			continue;
 
 		auto message = (CSODOTAGameAccountPlus*)typeCache->GetProtobufSO()->GetPObject();

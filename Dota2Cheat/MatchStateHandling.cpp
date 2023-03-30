@@ -62,28 +62,22 @@ void OnUpdatedAssignedHero()
 	Modules::ShakerAttackAnimFix.SubscribeEntity(ctx.assignedHero);
 }
 
-void UpdateAssignedHero()
-{
+void UpdateAssignedHero() {
 	if (!ctx.localPlayer)
 		return;
 
 	auto heroHandle = ctx.localPlayer->GetAssignedHeroHandle();
-	if (ctx.assignedHeroHandle != heroHandle)
-	{
+	if (ctx.assignedHeroHandle != heroHandle) {
 		ctx.assignedHeroHandle = heroHandle;
 		auto assignedHero = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(ctx.localPlayer->GetAssignedHeroHandle()));
+		ctx.assignedHero = assignedHero;
 
-		std::cout << "===== UpdateAssignedHero =====" << '\n';
+		std::cout << "UpdateAssignedHero:" << '\n';
 		std::cout << "assignedHeroHandle: " << std::hex << heroHandle << '\n';
 		std::cout << "assignedHero: " << std::hex << assignedHero << '\n';
 
-		std::cout << "===== UpdateAssignedHero End =====" << '\n';
-
-		ctx.assignedHero = assignedHero;
 		if (assignedHero)
-		{
 			OnUpdatedAssignedHero();
-		}
 	}
 }
 
@@ -97,11 +91,7 @@ void EnteredMatch() {
 	//	Modules::AutoPick.autoBanHero = "sniper";
 	//	Modules::AutoPick.autoPickHero = "arc_warden";
 
-	ctx.localPlayer = Interfaces::EntitySystem->GetEntity<CDOTAPlayerController>(
-		H2IDX(
-			GameSystems::PlayerResource->PlayerSlotToHandle(Interfaces::Engine->GetLocalPlayerSlot())
-		)
-		);
+	ctx.localPlayer = Signatures::GetPlayer(-1);
 	if (!ctx.localPlayer)
 		return;
 
@@ -129,8 +119,7 @@ void EnteredInGame() {
 
 	//FillPlayerList();
 
-	std::cout << "====== ENTERED GAME:\n";
-
+	std::cout << "ENTERED GAME:\n";
 	std::cout << "Local Player: " << ctx.localPlayer
 		<< "\n\t" << std::dec << "STEAM ID: " << ctx.localPlayer->GetSteamID()
 		<< '\n';
@@ -158,7 +147,7 @@ void EnteredInGame() {
 
 	Hooks::EnableHooks();
 	ctx.gameStage = Context::GameStage::IN_GAME;
-	std::cout << "====== ENTERED GAME End\n";
+	std::cout << "ENTERED GAME End\n";
 }
 
 void LeftMatch() {
