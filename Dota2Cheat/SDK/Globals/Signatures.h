@@ -26,6 +26,9 @@ namespace Signatures {
 	
 	typedef void(__fastcall* WorldToScreenFn)(Vector* coord, int* outX, int* outY, void* offset);
 
+	typedef CDOTAPlayerController* (*GetPlayerFn)(int);
+	inline GetPlayerFn GetPlayer{};
+
 	typedef char(*OnAcceptMatchFn)(VClass**);
 	inline OnAcceptMatchFn OnAcceptMatch{};
 
