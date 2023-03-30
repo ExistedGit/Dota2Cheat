@@ -1,4 +1,17 @@
 #pragma once
+
+enum EEconTypeID
+{
+	k_EEconTypeItem = 1,
+	k_CEconGameAccountClient = 7,
+	k_CDOTAGameAccountClient = 0x7D2,
+	k_CDOTAParty = 0x7D3,
+	k_CDOTAGameHeroFavorites = 0x7D7,
+	k_ECDOTAMapLocationState = 0x7D8,
+	k_ECDOTAPlayerChallenge = 0x7DA,
+	k_CDOTAGameAccountPlus = 0x7DC
+};
+
 enum ESOCacheEvent
 {
 	eSOCacheEvent_None = 0,

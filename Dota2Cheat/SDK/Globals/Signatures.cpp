@@ -16,7 +16,7 @@ void Signatures::FindSignatures(bool log) {
 
 	SCAN_FUNC(OnAcceptMatch, ssctx.Scan("E8 ? ? ? ? 48 8D 4F 28 FF C6 E8", L"client.dll").GetAbsoluteAddress(1, 5));
 
-	SCAN_FUNC(GetPlayer, ssctx.Scan("33 C0 83 F9 FF 0F 44 C8 48 63 C1 48 8D 0D ?? ?? ?? ?? 48 8B 04 C1 C3", L"client.dll"));
+	SCAN_FUNC(GetPlayer, ssctx.Scan("33 C0 83 F9 FF", L"client.dll"));
 
 	// xref "particles/ui_mouseactions/waypoint_flag.vpcf"
 	// The one with the bigger offset from function
