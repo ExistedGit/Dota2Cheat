@@ -262,11 +262,15 @@ enum ERankType : int {
   k_ERankType_Casual = 1,
   k_ERankType_Ranked = 2,
   k_ERankType_CasualLegacy = 3,
-  k_ERankType_RankedLegacy = 4
+  k_ERankType_RankedLegacy = 4,
+  k_ERankType_CasualGlicko = 5,
+  k_ERankType_RankedGlicko = 6,
+  k_ERankType_CasualRemapped = 7,
+  k_ERankType_CasualRemappedGlicko = 8
 };
 bool ERankType_IsValid(int value);
 constexpr ERankType ERankType_MIN = k_ERankType_Invalid;
-constexpr ERankType ERankType_MAX = k_ERankType_RankedLegacy;
+constexpr ERankType ERankType_MAX = k_ERankType_CasualRemappedGlicko;
 constexpr int ERankType_ARRAYSIZE = ERankType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ERankType_descriptor();
