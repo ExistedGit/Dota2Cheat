@@ -5,7 +5,6 @@
 #include <google/protobuf/message.h>
 #include "../Protobufs/dota_gcmessages_msgid.pb.h"
 #include "../Enums.h"
-#include "../Protobufs/custommessages.pb.h"
 
 class CProtobufMsgBase : public VClass {
 private:
@@ -36,8 +35,16 @@ public:
 	CProtobufSharedObjectBase* GetProtobufSO() {
 		return *Member< CProtobufSharedObjectBase**>(0x10);
 	}
-	GETTER(uint32_t, GetSomeKindOfIndex, 0x28);
+	GETTER(uint32_t, GetEconTypeID, 0x28);
 };
+
+class CDOTAGCClientSystem : public VClass {
+public:
+	void SaveSerializedSOCache() {
+		CallVFunc<2>();
+	}
+};
+
 class CGCClientSharedObjectCache : public VClass {
 public:
 	GETTER(CUtlVector<CGCClientSharedObjectTypeCache*>, GetTypeCacheList, 0x10);

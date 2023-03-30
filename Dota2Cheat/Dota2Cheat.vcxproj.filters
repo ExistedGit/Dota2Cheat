@@ -252,10 +252,13 @@
     <ClCompile Include="Lua\LuaInitialization.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
-    <ClCompile Include="SDK\Protobufs\custommessages.pb.cc">
+    <ClCompile Include="Hooks\OnAcceptMatch.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
-    <ClCompile Include="Hooks\OnAcceptMatch.cpp">
+    <ClCompile Include="Modules\Hacks\DotaPlusUnlocker.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_common.pb.cc">
       <Filter>Source files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -593,9 +596,6 @@
     <ClInclude Include="SDK\Interfaces\CResourceSystem.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\Protobufs\custommessages.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
     <ClInclude Include="Hooks\OnAcceptMatch.h">
       <Filter>Header files</Filter>
     </ClInclude>
@@ -605,9 +605,14 @@
     <ClInclude Include="Modules\Hacks\DotaPlusUnlocker.h">
       <Filter>Header files</Filter>
     </ClInclude>
+    <ClInclude Include="Modules\Hacks\ClaimTutorialRewards.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_common.pb.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="custommessages.proto" />
     <ClInclude Include="Hooks\InvalidateUEF.h">
       <Filter>Header files</Filter>
     </ClInclude>

@@ -1,4 +1,4 @@
-﻿#define _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
 #ifndef PCH_H
 #define PCH_H
 
@@ -55,6 +55,7 @@
 #include "Protobufs/dota_clientmessages.pb.h"
 #include "Protobufs/dota_commonmessages.pb.h"
 #include "Protobufs/dota_gcmessages_msgid.pb.h"
+#include "Protobufs/dota_gcmessages_common.pb.h"
 #include "Protobufs/dota_shared_enums.pb.h"
 #include "Protobufs/dota_usermessages.pb.h"
 #include "Protobufs/econ_gcmessages.pb.h"
@@ -67,6 +68,5 @@
 #include "Protobufs/steammessages_steamlearn.steamworkssdk.pb.h"
 #include "Protobufs/steammessages_unified_base.steamworkssdk.pb.h"
 #include "Protobufs/usermessages.pb.h"
-#include "Protobufs/custommessages.pb.h"
 
 #endif // !PCH_H

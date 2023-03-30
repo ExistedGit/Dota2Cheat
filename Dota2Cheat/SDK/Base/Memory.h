@@ -92,7 +92,8 @@ inline Function GetExport(const char* dllName, const char* exportName) {
 	return Function((void*)GetProcAddress(GetModuleHandleA(dllName), exportName));
 }
 
-inline bool IsValidReadPtr(uintptr_t Ptr) {
+template<typename T = uintptr_t>
+inline bool IsValidReadPtr(T Ptr) {
 	if (!Ptr)
 		return false;
 

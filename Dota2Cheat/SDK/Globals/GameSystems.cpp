@@ -8,9 +8,16 @@ void GameSystems::FindGameSystems() {
 	// In Source2Client::Init(), right after "g_GameEventManager.Init()":
 	// mov rcx, [XXXXXXXXX]
 	GameEventManagerPtr = Address(Interfaces::Client->GetVFunc(3).ptr).Offset(0x106).GetAbsoluteAddress(3, 7);
-
 	std::cout << "GameEventManagerPtr: " << GameEventManagerPtr << '\n';
 
+	//xref: "Usage: watch_server steamid\n"
+	//GCClientSystem =
+	//	ssctx.Scan(
+	//		"48 83 EC 28 83 BA ? ? ? ? ? 74 12 48 8D 0D ? ? ? ? FF 15",
+	//		L"client.dll"
+	//	)
+	//	.Offset(0x80)
+	//	.GetAbsoluteAddress(3, 7);
 
 	// xref "Spews a list of all client-side projectiles", above it is lea rax, [XXXXXXXX]
 	// right click -> Find references to -> Address: XXXXXXXX
