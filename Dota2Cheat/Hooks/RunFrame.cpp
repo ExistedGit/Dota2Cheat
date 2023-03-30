@@ -8,7 +8,7 @@ void Hooks::EntityIteration() {
 	bool runePickUp = false;
 
 	for (auto& ent : ctx.entities) {
-		if (!ent || IsValidReadPtr(ent->GetIdentity()) || ent->GetIdentity()->IsDormant())
+		if (!ent || !IsValidReadPtr(ent->GetIdentity()) || ent->GetIdentity()->IsDormant())
 			continue;
 
 		const char* className = ent->SchemaBinding()->binaryName;
