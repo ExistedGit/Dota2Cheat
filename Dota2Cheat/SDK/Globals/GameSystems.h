@@ -12,7 +12,7 @@
 
 
 namespace GameSystems {
-
+	inline CDOTAGCClientSystem* GCClientSystem{};
 	//GameRules is nullptr while not in a game
 	//So we need to dereference it when we enter a match and reset to nullptr on leave
 	inline CDOTAGameRules** GameRulesPtr{};

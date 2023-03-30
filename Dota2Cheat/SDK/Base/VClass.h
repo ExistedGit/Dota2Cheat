@@ -1,6 +1,7 @@
 #pragma once
 #include <cstdint>
 #include "Function.h"
+#include "Memory.h"
 
 inline Function getvfunc(void* instance, int index)
 {
@@ -15,13 +16,15 @@ public:
 
 	template<typename T>
 	T& Field(int offset) {
+		if (!IsValidReadPtr((uintptr_t)this + offset))
+			throw std::exception_ptr("VClass::Field access violation");
 		return *(T*)((uintptr_t)this + offset);
 	}
 
 	template<typename T>
 	T Member(int offset/*, T defaultValue = T{}*/) {
-		//if (!offset)
-		//	return defaultValue;
+		if (!IsValidReadPtr((uintptr_t)this + offset))
+			return T{};
 		return *(T*)((uintptr_t)this + offset);
 	}
 
