@@ -261,6 +261,12 @@
     <ClCompile Include="SDK\Protobufs\dota_gcmessages_common.pb.cc">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="UI\Pages\AutoPickSelectionGrid.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGuiSDK\Elements.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h">
@@ -609,6 +615,9 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="SDK\Protobufs\dota_gcmessages_common.pb.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGuiSDK\Elements.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>

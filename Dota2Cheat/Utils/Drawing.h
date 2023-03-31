@@ -58,6 +58,7 @@ public:
 		if (!namedTex.count(texName))
 			loadingQueue[filename] = &namedTex[texName];
 	}
+
 	void ExecuteLoadCycle() {
 		for (auto& [path, data] : loadingQueue)
 			LoadTexture(path.c_str(), *data);

@@ -189,6 +189,7 @@
     <ClCompile Include="Hooks\ParticleRendering.cpp" />
     <ClCompile Include="Hooks\PrepareUnitOrders.cpp" />
     <ClCompile Include="Hooks\RunFrame.cpp" />
+    <ClCompile Include="ImGuiSDK\Elements.cpp" />
     <ClCompile Include="Lua\LuaInitialization.cpp" />
     <ClCompile Include="MatchStateHandling.cpp" />
     <ClCompile Include="Modules\Hacks\AutoBuyTome.cpp" />
@@ -255,12 +256,14 @@
     <ClCompile Include="SDK\Protobufs\steammessages_steamlearn.steamworkssdk.pb.cc" />
     <ClCompile Include="SDK\Protobufs\steammessages_unified_base.steamworkssdk.pb.cc" />
     <ClCompile Include="SDK\Protobufs\usermessages.pb.cc" />
+    <ClCompile Include="UI\Pages\AutoPickSelectionGrid.cpp" />
     <ClCompile Include="Utils\Drawing.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hooks\InvalidateUEF.h" />
     <ClInclude Include="Hooks\Misc.h" />
     <ClInclude Include="Hooks\OnAcceptMatch.h" />
+    <ClInclude Include="ImGuiSDK\Elements.h" />
     <ClInclude Include="include.h" />
     <ClInclude Include="json.hpp" />
     <ClInclude Include="Modules\Hacks\AbilityESP.h" />
