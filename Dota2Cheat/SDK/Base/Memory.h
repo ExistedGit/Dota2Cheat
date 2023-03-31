@@ -93,16 +93,51 @@ inline Function GetExport(const char* dllName, const char* exportName) {
 }
 
 template<typename T = uintptr_t>
-inline bool IsValidReadPtr(T Ptr) {
-	if (!Ptr)
+inline bool IsValidReadPtr(T p) {
+	if (!p)
 		return false;
-
-	MEMORY_BASIC_INFORMATION MBI{ 0 };
-	if (!VirtualQuery((void*)Ptr, &MBI, sizeof(MEMORY_BASIC_INFORMATION)))
+	MEMORY_BASIC_INFORMATION mbi;
+	memset(&mbi, 0, sizeof(mbi));
+	if (!VirtualQuery((void*)p, &mbi, sizeof(mbi)))
 		return false;
+	if (!(mbi.State & MEM_COMMIT))
+		return false;
+	if (!(mbi.Protect & (PAGE_READONLY | PAGE_READWRITE | PAGE_WRITECOPY |
+		PAGE_EXECUTE_READ | PAGE_EXECUTE_READWRITE | PAGE_EXECUTE_WRITECOPY)))
+		return false;
+	if (mbi.Protect & (PAGE_GUARD | PAGE_NOACCESS))
+		return false;
+	return true;
+}
 
-	if (MBI.State == MEM_COMMIT && !(MBI.Protect & PAGE_NOACCESS))
-		return true;
+template<typename T = uintptr_t>
+inline bool IsValidWritePtr(T p)
+{
+	MEMORY_BASIC_INFORMATION mbi;
+	memset(&mbi, 0, sizeof(mbi));
+	if (!VirtualQuery((void*)p, &mbi, sizeof(mbi)))
+		return false;
+	if (!(mbi.State & MEM_COMMIT))
+		return false;
+	if (!(mbi.Protect & (PAGE_READWRITE | PAGE_WRITECOPY | PAGE_EXECUTE_READWRITE | PAGE_EXECUTE_WRITECOPY)))
+		return false;
+	if (mbi.Protect & (PAGE_GUARD | PAGE_NOACCESS))
+		return false;
+	return true;
+}
 
-	return false;
+template<typename T = uintptr_t>
+inline bool IsValidCodePtr(T p)
+{
+	MEMORY_BASIC_INFORMATION mbi;
+	memset(&mbi, 0, sizeof(mbi));
+	if (!VirtualQuery((void*)p, &mbi, sizeof(mbi)))
+		return false;
+	if (!(mbi.State & MEM_COMMIT))
+		return false;
+	if (!(mbi.Protect & (PAGE_EXECUTE | PAGE_EXECUTE_READ | PAGE_EXECUTE_READWRITE | PAGE_EXECUTE_WRITECOPY)))
+		return false;
+	if (mbi.Protect & (PAGE_GUARD | PAGE_NOACCESS))
+		return false;
+	return true;
 }
