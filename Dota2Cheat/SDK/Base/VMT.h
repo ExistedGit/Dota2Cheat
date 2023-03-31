@@ -12,7 +12,7 @@ inline uint32_t CountVMs(void* Interface)
 
 	uint32_t methodCount = 0;
 
-	while (vmt && (*vmt)[methodCount] && IsValidReadPtr((*vmt)[methodCount]))
+	while (vmt && (*vmt)[methodCount] && IsValidCodePtr((*vmt)[methodCount]))
 		methodCount++;
 
 	return methodCount;
