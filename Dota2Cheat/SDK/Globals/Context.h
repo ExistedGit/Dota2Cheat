@@ -20,9 +20,9 @@ struct Context {
 	HANDLE CurProcHandle;
 	int CurProcId;
 	enum class GameStage {
-		NONE = 0,
-		IN_MATCH = 1,
-		IN_GAME = 2
+		NONE = 0, // In menu
+		PRE_GAME = 1, // Joined the match but the game itself didn't start yet
+		IN_GAME = 2 // In the game proper
 	};
 	GameStage gameStage = GameStage::NONE;
 

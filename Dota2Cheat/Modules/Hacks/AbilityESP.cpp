@@ -58,6 +58,7 @@ bool ESP::AbilityESP::CanDraw(CDOTABaseNPC_Hero* hero) {
 void ESP::AbilityESP::DrawAbilities() {
 	float iconSize = ScaleVar(AbilityIconSize);
 	constexpr int outlineThickness = 2;
+	constexpr ImVec2 outlineSize{ outlineThickness, outlineThickness };
 	constexpr int levelCounterHeight = 8;
 	auto DrawList = ImGui::GetForegroundDrawList();
 
@@ -116,28 +117,30 @@ void ESP::AbilityESP::DrawAbilities() {
 			}
 
 			// Top-Left and Bottom-Right points of ability icon
-			ImVec2 imgXY1, imgXY2;
+			ImVec2 imgXY1, imgXY2, imgCenter;
 			int centeringOffset = -outlineThickness + iconSize / 2;
 			{
 				int idxOffset = idx * iconSize;
 				imgXY1 = { float(x - centeringOffset + idxOffset), float(y - centeringOffset) };
 				imgXY2 = { float(x + centeringOffset + idxOffset), float(y + centeringOffset) };
+				imgCenter = imgXY1 + ImVec2(centeringOffset, centeringOffset);
 			}
 
 			DrawList->AddRectFilled(
-				ImVec2(imgXY1.x - outlineThickness / 2, imgXY1.y - outlineThickness / 2),
-				ImVec2(imgXY2.x + outlineThickness / 2, imgXY2.y + outlineThickness / 2),
+				imgXY1 - outlineSize / 2,
+				imgXY2 + outlineSize / 2,
 				ImGui::GetColorU32(ImVec4(0, 0, 0, 1)));
 
 			if (data.ability->Member<bool>(Netvars::C_DOTABaseAbility::m_bAutoCastState))
 				DrawList->AddRectFilled(
-					ImVec2(imgXY1.x - outlineThickness, imgXY1.y - outlineThickness),
-					ImVec2(imgXY2.x + outlineThickness, imgXY2.y + outlineThickness),
+					imgXY1 - outlineSize,
+					imgXY2 + outlineSize,
 					ImGui::GetColorU32(ImVec4(255.0f / 255, 191.0f / 255, 0, 1)));
+
 			if (data.ability->IsToggled())
 				DrawList->AddRectFilled(
-					ImVec2(imgXY1.x - outlineThickness, imgXY1.y - outlineThickness),
-					ImVec2(imgXY2.x + outlineThickness, imgXY2.y + outlineThickness),
+					imgXY1 - outlineSize,
+					imgXY2 + outlineSize,
 					ImGui::GetColorU32(ImVec4(0x3 / 255.0f, 0xAC / 255.0f, 0x13 / 255.0f, 1)));
 
 			DrawList->AddImage(data.icon.glTex, imgXY1, imgXY2);
@@ -159,9 +162,9 @@ void ESP::AbilityESP::DrawAbilities() {
 				bool decimals = Config::AbilityESP::ShowCooldownDecimals;
 				// Darkens the picture
 				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.5)));
-				if(data.ability->GetCooldown() >= 100)
+				if (data.ability->GetCooldown() >= 100)
 					decimals = false;
-				
+
 				if (decimals)
 					cdFontSize = iconSize - ScaleVar(16);
 
@@ -209,16 +212,16 @@ void ESP::AbilityESP::DrawAbilities() {
 				auto castPoint = data.ability->GetKVValueFor("AbilityCastPoint");
 				float castStartTime = data.ability->Member<float>(Netvars::C_DOTABaseAbility::m_flCastStartTime);
 				int fontSize = ScaleVar(18);
-				float indicatorWidth = abs(imgXY1.x - imgXY2.x) * ((GameSystems::GameRules->GetGameTime() - castStartTime) / castPoint);
-				DrawList->AddRectFilled(imgXY1, ImVec2(imgXY1.x + indicatorWidth, imgXY2.y), ImGui::GetColorU32(ImVec4(0, 1, 0, 0.5)));
+				float indicatorWidthFactor = abs(imgXY1.x - imgXY2.x) * ((GameSystems::GameRules->GetGameTime() - castStartTime) / castPoint);
+				DrawList->AddRectFilled(imgXY1, ImVec2(imgXY1.x + indicatorWidthFactor, imgXY2.y), ImGui::GetColorU32(ImVec4(0, 1, 0, 0.5)));
 				DrawTextForeground(textFont,
 					std::format("{:.1f}", castPoint - (GameSystems::GameRules->GetGameTime() - castStartTime)),
-					ImVec2(imgXY1.x + centeringOffset, imgXY1.y - fontSize - 2),
+					imgXY1 + ImVec2(centeringOffset, -fontSize - 2),
 					fontSize,
 					ImVec4(0, 1, 60 / 255.0f, 1),
 					true);
 			}
-			DrawLevelCounter(data.ability, ImVec2(imgXY2.x - centeringOffset, imgXY2.y + 6));
+			DrawLevelCounter(data.ability, imgXY2 + ImVec2(-centeringOffset, 6));
 			++idx;
 		}
 	}
@@ -233,7 +236,7 @@ void ESP::AbilityESP::LoadItemTexIfNeeded(AbilityData& data) {
 	}
 }
 
-// Draws a 3x3 grid of items
+// Draws a 3x3 grid of items + two circles for TP and neutral slot on the right
 // If there is no item in a slot, a black block is drawn
 // If the item is toggled(like armlet), a green frame is drawn
 // If the item has charges(like wand), a circle with a counter is drawn in the top left corner of the image
@@ -245,12 +248,12 @@ void ESP::AbilityESP::DrawItems() {
 		const int rows = 3, cols = 3;
 
 		int gap = 2;
-		// Scaled dimensions of item icons, half the size by default
+		// Scaled dimensions of item icons, 1/3 the size by default
 		ImVec2 iconSize = ImVec2(ScaleVar(88 / 3), ScaleVar(64 / 3));
 		auto DrawList = ImGui::GetForegroundDrawList();
 		auto drawPos = hero->GetPos();
 
-		// here the rounding isn't as critical for some reason
+		// here the rounding isn't as needed for some reason
 		//drawPos.x = (int)(drawPos.x * 100) / 100.0f;
 		//drawPos.y = (int)(drawPos.y * 100) / 100.0f;
 
@@ -275,8 +278,13 @@ void ESP::AbilityESP::DrawItems() {
 		for (int slot = 0; slot < 9; slot++) {
 			bool stashSlot = slot > 5;
 			int row = slot / 3, col = slot % 3;
-			ImVec2 imgXY1{ panelXY1.x + gap + (iconSize.x + gap) * col, panelXY1.y + gap + (gap + iconSize.y) * row },
-				imgXY2 = ImVec2(imgXY1.x + iconSize.x, imgXY1.y + iconSize.y);
+			ImVec2 imgXY1
+			{
+				panelXY1.x + gap + (gap + iconSize.x) * col,
+				panelXY1.y + gap + (gap + iconSize.y) * row
+			},
+				imgXY2 = imgXY1 + iconSize,
+				imgCenter = (imgXY1 + imgXY2) / 2;
 
 			ImVec2 uvMin{ 0,0 }, uvMax{ 1,1 };
 			if (Config::AbilityESP::CropStashItems && stashSlot) {
@@ -284,11 +292,11 @@ void ESP::AbilityESP::DrawItems() {
 				uvMax.y -= cropAmount;
 				imgXY2.y -= cropAmount * iconSize.y * 2;
 			}
-			ImVec2 imgCenter = ImVec2((imgXY1.x + imgXY2.x) / 2, (imgXY1.y + imgXY2.y) / 2);
 
-			int frameThickness = gap / 2;
-			ImVec2 frameXY1{ imgXY1.x - frameThickness, imgXY1.y - frameThickness },
-				frameXY2{ imgXY2.x + frameThickness, imgXY2.y + frameThickness };
+			ImVec2 frameSize(gap / 2, gap / 2);
+			ImVec2 frameXY1 = imgXY1 - frameSize,
+				frameXY2 = imgXY2 + frameSize;
+
 			bool drawFrame = false;
 			ImU32 frameColor = 0;
 
@@ -321,7 +329,7 @@ void ESP::AbilityESP::DrawItems() {
 				DrawTextForeground(
 					textFont,
 					std::format("{:.1f}", cd),
-					ImVec2(imgCenter.x, imgCenter.y - (iconSize.y - ScaleVar<float>(6))/2),
+					ImVec2(imgCenter.x, imgCenter.y - (iconSize.y - ScaleVar<float>(6)) / 2),
 					iconSize.y - ScaleVar<float>(6),
 					ImVec4(1, 1, 1, 1),
 					true);
@@ -334,6 +342,7 @@ void ESP::AbilityESP::DrawItems() {
 		float circleX = panelXY1.x + panelSize.x + circleRadius + gap;
 		DrawList->AddCircleFilled(ImVec2(circleX, panelXY1.y + panelSize.y / 4), circleRadius, ImGui::GetColorU32(ImVec4(0.2, 0.2, 0.2, 1.0f)));
 		DrawList->AddCircleFilled(ImVec2(circleX, panelXY1.y + panelSize.y / 4 * 3), circleRadius, ImGui::GetColorU32(ImVec4(0.2, 0.2, 0.2, 1.0f)));
+
 		if (inv.count(16) && inv[16].ability) {
 			LoadItemTexIfNeeded(inv[16]);
 			ImVec2 cXY1{ circleX - iconSize.y / 2, panelXY1.y + panelSize.y / 4 - iconSize.y / 2 },
@@ -363,17 +372,25 @@ void ESP::AbilityESP::DrawItemCircle(const AbilityData& data, const ImVec2& xy1,
 		radius);
 	float cd = data.ability->GetCooldown();
 	if (cd) {
-		ImVec2 center((xy1.x + xy2.x) / 2, (xy1.y + xy2.y) / 2);
-		int cdFontSize = ScaleVar(14);
+		ImVec2 center = (xy1 + xy2) / 2;
+		int cdFontSize = ScaleVar(14 + !Config::AbilityESP::ShowCooldownDecimals * 2);
 		// Darkens the picture
 		DrawList->AddCircleFilled(center, radius, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.5)));
 		// Draws the cooldown
-		DrawTextForeground(textFont,
-			std::format("{:.1f}", cd),
-			ImVec2(center.x, center.y - cdFontSize / 2),
-			cdFontSize,
-			ImVec4(1, 1, 1, 1),
-			true);
+		if (Config::AbilityESP::ShowCooldownDecimals)
+			DrawTextForeground(textFont,
+				std::format("{:.1f}", cd),
+				ImVec2(center.x, center.y - cdFontSize / 2),
+				cdFontSize,
+				ImVec4(1, 1, 1, 1),
+				true);
+		else
+			DrawTextForeground(textFont,
+				std::format("{:.0f}", cd),
+				ImVec2(center.x, center.y - cdFontSize / 2),
+				cdFontSize,
+				ImVec4(1, 1, 1, 1),
+				true);
 	}
 
 }
@@ -401,17 +418,20 @@ void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, ImVec2 pos) {
 
 	constexpr static auto clrLvlOutline = ImVec4(0xE7 / 255.0f, 0xD2 / 255.0f, 0x92 / 255.0f, 1);
 	constexpr static auto clrLvlBackGround = ImVec4(0x28 / 255.0f, 0x0F / 255.0f, 0x01 / 255.0f, 1);
-	constexpr static int outlinePadding = 1;
-	int counterSize = ScaleVar(16);
+	constexpr static ImVec2 outlinePadding(1, 1);
+	int counterScale = ScaleVar(16);
 
-	ImVec2 imgXY1{ pos.x - counterSize / 2, pos.y - counterSize / 2 };
-	DrawRectFilled(imgXY1, ImVec2(counterSize, counterSize), clrLvlBackGround);
+	ImVec2 counterSize(counterScale, counterScale);
+
+	ImVec2 imgXY1 = pos - counterSize / 2;
+
+	DrawRectFilled(imgXY1, counterSize, clrLvlBackGround);
 	DrawRect(
-		ImVec2(imgXY1.x + outlinePadding, imgXY1.y + outlinePadding),
-		ImVec2(counterSize - outlinePadding * 2, counterSize - outlinePadding * 2),
+		imgXY1 + outlinePadding,
+		counterSize - outlinePadding * 2,
 		clrLvlOutline
 	);
-	DrawTextForeground(textFont, std::to_string(lvl), ImVec2(pos.x, pos.y - (counterSize - 4) / 2), counterSize - 4, clrLvlOutline, true, false);
+	DrawTextForeground(textFont, std::to_string(lvl), ImVec2(pos.x, pos.y - (counterScale - 4) / 2), counterScale - 4, clrLvlOutline, true, false);
 }
 
 void ESP::AbilityESP::DrawChargeCounter(int charges, ImVec2 pos, int radius) {

@@ -95,7 +95,7 @@ void EnteredMatch() {
 	if (!ctx.localPlayer)
 		return;
 
-	ctx.gameStage = Context::GameStage::IN_MATCH;
+	ctx.gameStage = Context::GameStage::PRE_GAME;
 	std::cout << "ENTERED MATCH\n";
 }
 
@@ -188,7 +188,7 @@ void CheckMatchState() {
 		//Modules::AutoPick.TryAutoBan();
 		if (ctx.gameStage == Context::GameStage::NONE)
 			EnteredMatch();
-		else if (ctx.gameStage == Context::GameStage::IN_MATCH)
+		else if (ctx.gameStage == Context::GameStage::PRE_GAME)
 			EnteredInGame();
 		else if (ctx.gameStage == Context::GameStage::IN_GAME)
 			UpdateAssignedHero();
