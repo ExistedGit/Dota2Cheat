@@ -21,6 +21,7 @@ namespace Interfaces {
 	inline VClass* Panorama{};
 	inline Panorama::CUIEngineSource2* UIEngine{};
 	inline VClass* Client{};
+	inline VClass* SteamGameCoordinator{};
 	inline CGameEntitySystem* EntitySystem{};
 
 	inline CGCClient* GCClient{};

@@ -32,6 +32,8 @@ void Signatures::FindSignatures(bool log) {
 	// UnknownCheats wiki -> Dota 2 -> link to Using engine functions
 	SCAN_FUNC(WorldToScreen, ssctx.Scan("E8 ? ? ? ? 83 7D B7 00", L"client.dll").GetAbsoluteAddress(1,5));
 
+	// xref: "BuildCacheSubscribed(CEconItem)"
+	SCAN_FUNC(CreateEconItem, ssctx.Scan("48 83 EC ? B9 ? ? ? ? E8 ? ? ? ? 48 85 C0 74 ? 48 8D 0D", L"client.dll"));
 	// Last call in JS func GetLevelSpecialValueFor for a method of CDOTABaseAbility
 	SCAN_FUNC(CDOTABaseAbility::GetLevelSpecialValueForFunc, ssctx.Scan("E8 ? ? ? ? F3 0F 5A C0", L"client.dll").GetAbsoluteAddress(1, 5));
 	// Second call inside that ^

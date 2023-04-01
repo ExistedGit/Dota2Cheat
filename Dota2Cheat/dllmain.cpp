@@ -140,6 +140,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	bool menuVisible = false;
 	Modules::AbilityESP.textFont = msTrebuchet;
 	iconLoadThread.wait();
+		
 	// Main loop
 	while (!glfwWindowShouldClose(window))
 	{
@@ -171,6 +172,11 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			glfwSetWindowAttrib(window, GLFW_MOUSE_PASSTHROUGH, menuVisible);
 			menuVisible = !menuVisible;
 		}
+
+#ifdef _DEBUG
+		if (ImGui::Button("Create item"))
+			Modules::SkinChanger.AddItem(6996);
+#endif // _DEBUG
 
 		ImGui::PopFont();
 

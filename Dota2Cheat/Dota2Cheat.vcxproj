@@ -167,6 +167,7 @@
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <AdditionalOptions>/bigobj /FI"pch.h" </AdditionalOptions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -206,6 +207,7 @@
     <ClCompile Include="Modules\Hacks\PerfectBlink.cpp" />
     <ClCompile Include="Modules\Hacks\RiverPaint.cpp" />
     <ClCompile Include="Modules\Hacks\ShakerAttackAnimFix.cpp" />
+    <ClCompile Include="Modules\Hacks\SkinChanger.cpp" />
     <ClCompile Include="Modules\Hacks\TargetedSpellHighlighter.cpp" />
     <ClCompile Include="Modules\Hacks\AbilityESP.cpp" />
     <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp" />
@@ -263,6 +265,7 @@
     <ClInclude Include="Hooks\InvalidateUEF.h" />
     <ClInclude Include="Hooks\Misc.h" />
     <ClInclude Include="Hooks\OnAcceptMatch.h" />
+    <ClInclude Include="Hooks\SteamGC.h" />
     <ClInclude Include="ImGuiSDK\Elements.h" />
     <ClInclude Include="include.h" />
     <ClInclude Include="json.hpp" />
@@ -271,6 +274,7 @@
     <ClInclude Include="Modules\Hacks\ArmletAbuse.h" />
     <ClInclude Include="Modules\Hacks\ClaimTutorialRewards.h" />
     <ClInclude Include="Modules\Hacks\DotaPlusUnlocker.h" />
+    <ClInclude Include="Modules\Hacks\SkinChanger.h" />
     <ClInclude Include="Modules\Utility\AttackTargetFinder.h" />
     <ClInclude Include="Modules\Hacks\AutoBuyTome.h" />
     <ClInclude Include="Modules\Hacks\AutoDodge.h" />

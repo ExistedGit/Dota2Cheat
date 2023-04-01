@@ -58,18 +58,18 @@ namespace Pages {
 			if (ImGui::Button("Circle drawing"))
 				circleMenuVisible = !circleMenuVisible;
 
-			ImGui::Checkbox("Unlock Dota Plus", &Config::UnlockDotaPlus);
-
 			if (ImGui::TreeNode("AutoAccept")) {
 				ImGui::Checkbox("Enabled", &Config::AutoAccept::Enabled);
 				ImGui::SliderInt("Delay", &Config::AutoAccept::Delay, 0, 6);
 				ImGui::TreePop();
 			}
-			if (ImGui::TreeNode("Visuals")) {
+			if (ImGui::CollapsingHeader("Changer")) {
+
+				ImGui::Checkbox("Unlock Dota Plus", &Config::Changer::UnlockDotaPlus);
 				// https://github.com/SK68-ph/Shadow-Dance-Menu
 				ImGui::ListBox(
 					"Change weather",
-					&Config::WeatherListIdx,
+					&Config::Changer::WeatherListIdx,
 					UIState::WeatherList,
 					IM_ARRAYSIZE(UIState::WeatherList),
 					4);
@@ -79,12 +79,11 @@ namespace Pages {
 				// should've figured out it's controlled by a convar like the weather :)
 				ImGui::ListBox(
 					"River paint",
-					&Config::RiverListIdx,
+					&Config::Changer::RiverListIdx,
 					UIState::RiverList,
 					IM_ARRAYSIZE(UIState::RiverList),
 					4);
-				ImGui::TreePop();
-			}
+			};
 			if (ImGui::TreeNode("Auto-pickup")) {
 				ImGui::Checkbox("Bounty runes", &Config::AutoPickUpRunes);
 				ImGui::Checkbox("Aegis", &Config::AutoPickUpAegis);
@@ -104,7 +103,7 @@ namespace Pages {
 				ImGui::Checkbox("Show decimals in cooldowns", &Config::AbilityESP::ShowCooldownDecimals);
 				ImGui::Checkbox("Show manabars", &Config::AbilityESP::ShowManabars);
 				ImGui::SliderFloat("Icon scale", &Config::AbilityESP::UIScale, 0.75f, 2.0f, "%.1f");
-				
+
 				ImGui::Checkbox("Crop stashed icons", &Config::AbilityESP::CropStashItems);
 				ImGui::SameLine(); HelpMarker("Stashed items will be displayed like in Dota itself");
 				ImGui::TreePop();

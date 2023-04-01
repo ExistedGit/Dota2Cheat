@@ -7,9 +7,9 @@ using CParticleCollection = Signatures::CParticleCollection;
 void Hooks::hkSetRenderingEnabled(CParticleCollection* thisptr, bool state) {
 	bool FakeState = state;
 
-	if (unlockedDotaPlus != Config::UnlockDotaPlus)
+	if (unlockedDotaPlus != Config::Changer::UnlockDotaPlus)
 	{
-		unlockedDotaPlus = Config::UnlockDotaPlus;
+		unlockedDotaPlus = Config::Changer::UnlockDotaPlus;
 		Modules::DotaPlusUnlocker.UpdateDotaPlusStatus();
 	}
 

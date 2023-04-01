@@ -2,6 +2,7 @@
 #include "../Config.h"
 #include "../SDK/Globals/Signatures.h"
 #include "../SDK/Base/Bytehook.h"
+#include "../Modules/Hacks/SkinChanger.h"
 
 namespace Hooks {
 	using CParticleCollection = Signatures::CParticleCollection;

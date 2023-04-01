@@ -71,9 +71,11 @@ namespace Config {
 	inline bool ShowEnemyTargetedSpells = true;
 	inline bool ShowLinkenSphere = true;
 
-	inline int WeatherListIdx = 0;
-	inline int RiverListIdx = 0;
-
+	namespace Changer {
+		inline int WeatherListIdx = 0;
+		inline int RiverListIdx = 0;
+		inline bool UnlockDotaPlus;
+	}
 	inline float CameraDistance = 1200.0f;
 
 	inline bool RenderAllParticles;
@@ -85,6 +87,4 @@ namespace Config {
 
 	inline int CircleRadius = 1200;
 	inline Vector CircleRGB{ 0,0,0 };
-
-	inline bool UnlockDotaPlus;
 }

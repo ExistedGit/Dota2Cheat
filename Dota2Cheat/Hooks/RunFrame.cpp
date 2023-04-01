@@ -81,7 +81,7 @@ void Hooks::UpdateCameraDistance() {
 
 void Hooks::UpdateWeather() {
 	static auto varInfo = CVarSystem::CVar["cl_weather"];
-	varInfo.var->value.i32 = Config::WeatherListIdx;
+	varInfo.var->value.i32 = Config::Changer::WeatherListIdx;
 }
 
 ENT_HANDLE currentQueryUnit = 0xFFFFFFFF;

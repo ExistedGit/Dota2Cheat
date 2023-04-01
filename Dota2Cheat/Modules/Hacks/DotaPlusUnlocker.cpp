@@ -12,11 +12,11 @@ void Hacks::DotaPlusUnlocker::UpdateDotaPlusStatus() {
 
 		auto message = (CSODOTAGameAccountPlus*)typeCache->GetProtobufSO()->GetPObject();
 
-		if (message->plus_status() == Config::UnlockDotaPlus)
+		if (message->plus_status() == Config::Changer::UnlockDotaPlus)
 			return;
 
-		message->set_plus_flags(!Config::UnlockDotaPlus);
-		message->set_plus_status(Config::UnlockDotaPlus);
+		message->set_plus_flags(!Config::Changer::UnlockDotaPlus);
+		message->set_plus_status(Config::Changer::UnlockDotaPlus);
 		Interfaces::GCClient->DispatchSOUpdated(objCache->GetOwner(), typeCache->GetProtobufSO(), eSOCacheEvent_Incremental);
 	}
 }
