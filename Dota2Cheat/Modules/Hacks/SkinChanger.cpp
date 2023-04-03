@@ -8,10 +8,11 @@ bool Hacks::SkinChanger::AddItem(uint32_t unDefIndex) {
 
 	item->m_unDefIndex = unDefIndex;
 	item->m_unAccountID = accId;
-	item->m_ulID = rand() % item->m_unDefIndex;
+	item->m_ulID = itemIdCounter++;
+	item->m_unInventory = invPosCounter++;
 
 	bool result = inv->GetSOCache()->AddObject(item);
-
 	inv->SOCreated(&soid, item, eSOCacheEvent_Incremental);
+	FakeItems[item->m_ulID] = item;
 	return result;
 }

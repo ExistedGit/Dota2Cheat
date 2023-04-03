@@ -4,71 +4,82 @@
 #include "../Modules/Hacks/AbilityESP.h"
 
 void Hooks::EntityIteration() {
-	bool midasUsed = false;
-	bool runePickUp = false;
+	for (auto& hero : ctx.heroes) {
 
-	for (auto& ent : ctx.entities) {
-		if (!ent || !IsValidReadPtr(ent->GetIdentity()) || ent->GetIdentity()->IsDormant())
-			continue;
-
-		const char* className = ent->SchemaBinding()->binaryName;
-		if (!className)
-			continue;
-
-		if (!midasUsed && CanUseMidas() && strstr(className, "Creep")) {
-
-			auto creep = (CDOTABaseNPC*)ent;
-
-			//neutral prefixes because Wildwing Ripper and Dark Troll Warlord spawn a tornado and skeletons respectively
-			//they have their summoner's name in them but not the word "neutral"
-			static std::vector<const char*> filters = {
-				"ranged",
-				"flagbearer",
-				"siege",
-				"alpha_wolf",
-				"centaur_khan",
-				"neutral_dark_troll_warlord",
-				"ursa_warrior",
-				"ogre_magi",
-				"satyr_hellcaller",
-				"neutral_enraged_wildkin"
-			};
-
-			auto midasEnt = ctx.importantItems.midas;
-
-			// If the creep is visible, not one of ours, is alive, is within Midas's radius and its name matches one of the filters
-			if (
-				creep->GetTeam() != ctx.assignedHero->GetTeam() &&
-				creep->GetHealth() > 0 &&
-				!creep->IsWaitingToSpawn() &&
-				IsWithinRadius(creep->GetPos(), ctx.assignedHero->GetPos(), midasEnt->GetEffectiveCastRange()) &&
-				TestStringFilters(creep->GetUnitName(), filters)
-				) {
-				midasUsed = true;
-				ctx.localPlayer->PrepareOrder(DOTA_UNIT_ORDER_CAST_TARGET, ent->GetIndex(), &Vector::Zero, midasEnt->GetIndex(), DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, ctx.assignedHero);
-			}
-		}
-		else if (Config::AutoPickUpRunes && !runePickUp && ctx.runes.count((CDOTAItemRune*)ent)) {
-			auto* rune = (CDOTAItemRune*)ent;
-			if (
-				rune->GetRuneType() == DotaRunes::BOUNTY &&
-				IsWithinRadius(rune->GetPos(), ctx.assignedHero->GetPos(), 150.0f)
-				)
-				ctx.localPlayer->PrepareOrder(DOTA_UNIT_ORDER_PICKUP_RUNE, ent->GetIndex(), &Vector::Zero, 0, DOTA_ORDER_ISSUER_HERO_ONLY, ctx.assignedHero, false, false);
-		}
-		else {
-
-			if (Modules::IllusionColoring.ColorIfIllusion(ent)
-				|| Modules::AegisAutoPickup.PickUpIfAegis(ent))
-				continue;
-			//sol::table luaModules = ctx.lua["Modules"];
-			//for (auto& pair : luaModules) {
-			//	sol::function callback = pair.second.as<sol::table>()["OnEntity"];
-			//	if (callback.get_type() != sol::type::nil)
-			//		callback(ent);
-			//}
-		}
+		if (IsValidReadPtr(hero) &&
+			IsValidReadPtr(hero->GetIdentity()) &&
+			!hero->GetIdentity()->IsDormant())
+			Modules::IllusionColoring.ColorIfIllusion(hero);
 	}
+
+
+	// OUT OF ORDER
+
+	//bool midasUsed = false;
+	//bool runePickUp = false;
+	//for (auto& ent : ctx.entities) {
+	//	if (!IsValidReadPtr(ent) || !IsValidReadPtr(ent->GetIdentity()) || ent->GetIdentity()->IsDormant() ||
+	//		!IsValidReadPtr())
+	//		continue;
+
+	//	const char* className = ent->SchemaBinding()->binaryName;
+	//	if (!className)
+	//		continue;
+
+	//	if (!midasUsed && CanUseMidas() && strstr(className, "Creep")) {
+
+	//		auto creep = (CDOTABaseNPC*)ent;
+
+	//		//neutral prefixes because Wildwing Ripper and Dark Troll Warlord spawn a tornado and skeletons respectively
+	//		//they have their summoner's name in them but not the word "neutral"
+	//		static std::vector<const char*> filters = {
+	//			"ranged",
+	//			"flagbearer",
+	//			"siege",
+	//			"alpha_wolf",
+	//			"centaur_khan",
+	//			"neutral_dark_troll_warlord",
+	//			"ursa_warrior",
+	//			"ogre_magi",
+	//			"satyr_hellcaller",
+	//			"neutral_enraged_wildkin"
+	//		};
+
+	//		auto midasEnt = ctx.importantItems.midas;
+
+	//		// If the creep is visible, not one of ours, is alive, is within Midas's radius and its name matches one of the filters
+	//		if (
+	//			creep->GetTeam() != ctx.assignedHero->GetTeam() &&
+	//			creep->GetHealth() > 0 &&
+	//			!creep->IsWaitingToSpawn() &&
+	//			IsWithinRadius(creep->GetPos(), ctx.assignedHero->GetPos(), midasEnt->GetEffectiveCastRange()) &&
+	//			TestStringFilters(creep->GetUnitName(), filters)
+	//			) {
+	//			midasUsed = true;
+	//			ctx.localPlayer->PrepareOrder(DOTA_UNIT_ORDER_CAST_TARGET, ent->GetIndex(), &Vector::Zero, midasEnt->GetIndex(), DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, ctx.assignedHero);
+	//		}
+	//	}
+	//	else if (Config::AutoPickUpRunes && !runePickUp && ctx.runes.count((CDOTAItemRune*)ent)) {
+	//		auto* rune = (CDOTAItemRune*)ent;
+	//		if (
+	//			rune->GetRuneType() == DotaRunes::BOUNTY &&
+	//			IsWithinRadius(rune->GetPos(), ctx.assignedHero->GetPos(), 150.0f)
+	//			)
+	//			ctx.localPlayer->PrepareOrder(DOTA_UNIT_ORDER_PICKUP_RUNE, ent->GetIndex(), &Vector::Zero, 0, DOTA_ORDER_ISSUER_HERO_ONLY, ctx.assignedHero, false, false);
+	//	}
+	//	else {
+
+	//		if (
+	//			Modules::AegisAutoPickup.PickUpIfAegis(ent))
+	//			continue;
+	//		//sol::table luaModules = ctx.lua["Modules"];
+	//		//for (auto& pair : luaModules) {
+	//		//	sol::function callback = pair.second.as<sol::table>()["OnEntity"];
+	//		//	if (callback.get_type() != sol::type::nil)
+	//		//		callback(ent);
+	//		//}
+	//	}
+	//}
 }
 
 void Hooks::UpdateCameraDistance() {
@@ -135,8 +146,8 @@ void Hooks::hkRunFrame(uintptr_t a, uintptr_t b) {
 				quTeam = unit->GetTeam();
 				unit->Field<DOTA_GC_TEAM>(Netvars::C_BaseEntity::m_iTeamNum) = ctx.assignedHero->GetTeam();
 				currentQueryUnit = queryUnit;
-	}
-}
+			}
+		}
 #endif // _DEBUG
 
 		EntityIteration();

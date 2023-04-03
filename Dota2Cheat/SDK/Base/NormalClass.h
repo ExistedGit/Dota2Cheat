@@ -10,7 +10,12 @@ public:
 		//	return defaultValue;
 		return *(T*)((uintptr_t)this + offset);
 	}
-
+	template<typename T>
+	T& Field(int offset) {
+		if (!IsValidReadPtr((uintptr_t)this + offset))
+			throw "VClass::Field access violation";
+		return *(T*)((uintptr_t)this + offset);
+	}
 	// Gets a pointer to a type via the offset but does not dereference it
 	template<typename T>
 	T* MemberInline(int offset) {

@@ -190,6 +190,7 @@
     <ClCompile Include="Hooks\ParticleRendering.cpp" />
     <ClCompile Include="Hooks\PrepareUnitOrders.cpp" />
     <ClCompile Include="Hooks\RunFrame.cpp" />
+    <ClCompile Include="Hooks\SteamGC.cpp" />
     <ClCompile Include="ImGuiSDK\Elements.cpp" />
     <ClCompile Include="Lua\LuaInitialization.cpp" />
     <ClCompile Include="MatchStateHandling.cpp" />
@@ -317,6 +318,7 @@
     <ClInclude Include="Config.h" />
     <ClInclude Include="DebugFunctions.h" />
     <ClInclude Include="SDK\Interfaces\CResourceSystem.h" />
+    <ClInclude Include="SDK\Interfaces\ISteamClient.h" />
     <ClInclude Include="SDK\Protobufs\dota_gcmessages_common.pb.h" />
     <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h" />
     <ClInclude Include="Utils\Drawing.h" />

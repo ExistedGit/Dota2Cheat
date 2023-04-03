@@ -66,6 +66,7 @@ namespace Pages {
 			if (ImGui::CollapsingHeader("Changer")) {
 
 				ImGui::Checkbox("Unlock Dota Plus", &Config::Changer::UnlockDotaPlus);
+				ImGui::Checkbox("Unlock emoticons", &Config::Changer::UnlockEmoticons);
 				// https://github.com/SK68-ph/Shadow-Dance-Menu
 				ImGui::ListBox(
 					"Change weather",

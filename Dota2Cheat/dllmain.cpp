@@ -1,6 +1,6 @@
 #pragma once
 #define STB_IMAGE_IMPLEMENTATION
-#define SOL_ALL_SAFETIES_ON
+
 #include <cstdio>
 #include <iostream>
 #include "HookHelper.h"
@@ -56,6 +56,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		if (fin.is_open()) {
 			Config::cfg.LoadConfig(fin);
 			fin.close();
+			std::cout << "Loaded config from " << ctx.cheatFolderPath + "\\config\\base.json\n";
 		}
 	}
 	ctx.CurProcId = GetCurrentProcessId();
@@ -140,7 +141,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	bool menuVisible = false;
 	Modules::AbilityESP.textFont = msTrebuchet;
 	iconLoadThread.wait();
-		
+
 	// Main loop
 	while (!glfwWindowShouldClose(window))
 	{
@@ -174,8 +175,9 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		}
 
 #ifdef _DEBUG
-		if (ImGui::Button("Create item"))
-			Modules::SkinChanger.AddItem(6996);
+		if (ImGui::Button("Create item")) {
+			Modules::SkinChanger.QueueAddItem(9235);
+		}
 #endif // _DEBUG
 
 		ImGui::PopFont();

@@ -7,7 +7,7 @@ void Interfaces::FindInterfaces() {
 	CVar = GetInterface<CVarSystem>("tier0.dll", "VEngineCvar007", 43);
 	ResourceSystem = GetInterface<CResourceSystem>("resourcesystem.dll", "ResourceSystem013", 81);
 	EntitySystem = *Address(Interfaces::Client->GetVFunc(25).ptr).GetAbsoluteAddress<CGameEntitySystem**>(3, 7);
-	SteamGameCoordinator = GetInterface<VClass>("client.dll", "SteamGameCoordinator001");
+	SteamClient = GetInterface<ISteamClient>("steamclient64.dll", "SteamClient017");
 	FileSystem = GetInterface<CBaseFileSystem>("filesystem_stdio.dll", "VFileSystem017", 156);
 
 	Panorama = GetInterface<VClass>("panorama.dll", "PanoramaUIEngine001");

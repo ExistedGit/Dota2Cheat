@@ -22,14 +22,17 @@ CBaseEntity* Hooks::hkOnAddEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_
 }
 
 CBaseEntity* Hooks::hkOnRemoveEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HANDLE handle) {
-	ctx.physicalItems.erase(ent);
-	ctx.heroes.erase((CDOTABaseNPC_Hero*)ent);
-	ctx.entities.erase(ent);
-	ctx.runes.erase((CDOTAItemRune*)ent);
+	if (ctx.gameStage == Context::GameStage::IN_GAME) {
 
-	if (ent == ctx.importantItems.midas)
-		ctx.importantItems.midas = nullptr;
+		ctx.physicalItems.erase(ent);
+		ctx.heroes.erase((CDOTABaseNPC_Hero*)ent);
+		ctx.entities.erase(ent);
+		ctx.runes.erase((CDOTAItemRune*)ent);
 
-	Lua::CallModuleFunc("OnRemoveEntity", ent);
+		if (ent == ctx.importantItems.midas)
+			ctx.importantItems.midas = nullptr;
+
+		Lua::CallModuleFunc("OnRemoveEntity", ent);
+	}
 	return oOnRemoveEntity(thisptr, ent, handle);
 }

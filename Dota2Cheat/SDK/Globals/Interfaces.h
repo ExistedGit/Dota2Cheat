@@ -9,6 +9,7 @@
 #include "../Interfaces/CVarSystem.h"
 #include "../Interfaces/Panorama.h"
 #include "../Interfaces/CResourceSystem.h"
+#include "../Interfaces/ISteamClient.h"
 #include "../Base/Memory.h"
 #include "../Base/VMT.h"
 
@@ -21,8 +22,8 @@ namespace Interfaces {
 	inline VClass* Panorama{};
 	inline Panorama::CUIEngineSource2* UIEngine{};
 	inline VClass* Client{};
-	inline VClass* SteamGameCoordinator{};
 	inline CGameEntitySystem* EntitySystem{};
+	inline ISteamClient* SteamClient{};
 
 	inline CGCClient* GCClient{};
 	inline CInputService* InputService{};

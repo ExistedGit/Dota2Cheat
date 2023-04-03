@@ -75,6 +75,7 @@ namespace Config {
 		inline int WeatherListIdx = 0;
 		inline int RiverListIdx = 0;
 		inline bool UnlockDotaPlus;
+		inline bool UnlockEmoticons;
 	}
 	inline float CameraDistance = 1200.0f;
 

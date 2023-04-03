@@ -7,6 +7,7 @@
 #include "Hooks/EntitySystemEvents.h"
 #include "Hooks/ParticleRendering.h"
 #include "Hooks/ModifierEvents.h"
+#include "Hooks/SteamGC.h"
 
 #include "Hooks/Misc.h"
 

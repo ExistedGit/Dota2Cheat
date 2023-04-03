@@ -9,14 +9,14 @@ void Hooks::SetUpByteHooks() {
 	HOOKFUNC_SIGNATURES(PrepareUnitOrders);
 	HOOKFUNC_SIGNATURES(BIsEmoticonUnlocked);
 
-	//HOOKFUNC(DispatchPacket);
-	//HOOKFUNC(BAsyncSendProto);
+	HOOKFUNC_SIGNATURES(DispatchPacket);
+	HOOKFUNC_SIGNATURES(BAsyncSendProto);
 	//HOOKFUNC_SIGNATURES_INGAME(CreateParticleCollection);
 }
 
 
 void Hooks::SetUpVirtualHooks(bool log) {
-
+	HookSteamGC();
 	SigScanContext ssctx{ ctx.CurProcHandle, ctx.CurProcId };
 	{
 		// NetChan constructor

@@ -270,6 +270,9 @@
     <ClCompile Include="Modules\Hacks\SkinChanger.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="Hooks\SteamGC.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h">
@@ -627,6 +630,9 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="Modules\Hacks\SkinChanger.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Interfaces\ISteamClient.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>

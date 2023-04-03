@@ -67,13 +67,14 @@ void Config::ConfigManager::SetupVars() {
 	Config::cfg.AddVar(BOOL, &Config::IllusionColoring::Enabled, false, "IllusionColoring.Enabled");
 	Config::cfg.AddVar(VECTOR, &Config::IllusionColoring::Color, { 1,0,0 }, "IllusionColoring.Color");
 
-	Config::cfg.AddVar(INT, &Config::Changer::RiverListIdx, 0, "Changer.RiverPaint");
-	Config::cfg.AddVar(INT, &Config::Changer::WeatherListIdx, 0, "Changer.Weather");
 
 	Config::cfg.AddVar(BOOL, &Config::AutoAccept::Enabled, true, "AutoAccept.Enabled");
 	Config::cfg.AddVar(INT, &Config::AutoAccept::Delay, 1, "AutoAccept.Delay");
 
+	Config::cfg.AddVar(INT, &Config::Changer::RiverListIdx, 0, "Changer.RiverPaint");
+	Config::cfg.AddVar(INT, &Config::Changer::WeatherListIdx, 0, "Changer.Weather");
 	Config::cfg.AddVar(BOOL, &Config::Changer::UnlockDotaPlus, true, "Changer.UnlockDotaPlus");
+	Config::cfg.AddVar(BOOL, &Config::Changer::UnlockEmoticons, true, "Changer.UnlockEmoticons");
 
 	Config::cfg.AddVar(BOOL, &Config::RenderAllParticles, true, "RenderAllParticles");
 }
