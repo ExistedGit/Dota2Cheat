@@ -605,7 +605,7 @@
     <ClInclude Include="Modules\Utility\AttackAnimTracker.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="json.hpp">
+    <ClInclude Include="include\json.hpp">
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="Modules\Utility\TPTracker.h">

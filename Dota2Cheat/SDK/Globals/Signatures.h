@@ -16,6 +16,9 @@ class CDOTAPlayerController;
 class CDOTAModifier;
 
 namespace Signatures {
+	inline VClass* (*GetItemSchema)() = nullptr;
+	inline CDOTAItemDefinition* (*GetItemDefByIndex)(VClass* itemSchema, uint32_t index) = nullptr;
+
 
 	inline CEconItem* (*CreateEconItem)() = nullptr;
 

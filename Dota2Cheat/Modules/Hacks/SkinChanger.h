@@ -15,13 +15,27 @@ namespace Hacks {
 		std::vector<uint32_t> itemsToCreate;
 		bool ItemsCreated = false;
 
+		// structure reversed from CEconItem::IsStyleUnlocked
+		// xref: "unlocked styles"
+		void UnlockAllStyles(CEconItem* pItem) {
+			using namespace Signatures;
+			auto itemSchema = GetItemSchema();
+			auto itemDef = GetItemDefByIndex(itemSchema, pItem->m_unDefIndex);
+			auto styles = itemDef->GetAssetModifierContainer()->GetStyles();
+			for (auto style : styles) {
+				style->Field<uintptr_t>(0x50) =
+					style->Field<uintptr_t>(0x40) =
+					style->Field<uint32_t>(0x30) = 0;
+			}
+		}
+
 		// Call in main thread
 		void Equip(CEconItem* pItem, uint16_t unClass, uint16_t unSlot) {
 			EquippedItems[unClass][unSlot] = pItem;
 
 			pItem->Class() = unClass;
 			pItem->Slot() = unSlot;
-			pItem->Flag() |= 0x100;
+			pItem->Flag() = 3;
 
 			SOUpdated(pItem);
 		}
@@ -31,7 +45,7 @@ namespace Hacks {
 
 			pItem->Class() = 0;
 			pItem->Slot() = static_cast<uint16_t>(-1);
-			pItem->Flag() ^= 0x100;
+			pItem->Flag() = 2;
 
 			SOUpdated(pItem);
 		}

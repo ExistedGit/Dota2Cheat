@@ -4,7 +4,15 @@
 
 
 bool Hooks::hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandler* handler, google::protobuf::Message* responseMsg, unsigned int respMsgID) {
-	if (protobufMsg->msgID == k_EMsgClientToGCEquipItems) {
+	if (protobufMsg->msgID == k_EMsgClientToGCSetItemStyle) {
+		auto msg = (CMsgClientToGCSetItemStyle*)protobufMsg->msg;
+		auto item = Modules::SkinChanger.FakeItems[msg->item_id()];
+		if (item) {
+			item->Style() = msg->style_index();
+			Modules::SkinChanger.SOUpdated(item);
+		}
+	}
+	else if (protobufMsg->msgID == k_EMsgClientToGCEquipItems) {
 		auto msg = (CMsgClientToGCEquipItems*)protobufMsg->msg;
 		auto equip = msg->equips().Get(0);
 		if (equip.has_new_slot()) {
@@ -16,10 +24,11 @@ bool Hooks::hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandle
 			}
 			if (item) {
 #ifdef _DEBUG
-				std::cout << std::format("Equipping {}. Class: {}; Slot: {}\n",
+				std::cout << std::format("Equipping {}. Class: {}; Slot: {} | ItemDef: {}\n",
 					(void*)item,
 					equip.new_slot(),
-					equip.new_class()
+					equip.new_class(),
+					(void*)Signatures::GetItemDefByIndex(Signatures::GetItemSchema(), item->m_unDefIndex)
 				);
 #endif // _DEBUG
 				Modules::SkinChanger.Equip(item, equip.new_class(), equip.new_slot());

@@ -52,8 +52,6 @@ void Hooks::SetUpVirtualHooks(bool log) {
 		HOOKFUNC(OnRemoveEntity);
 	}
 	{
-	}
-	{
 		void* RunScript = Interfaces::UIEngine->GetVFunc(88).ptr,
 			* RunFrame = Interfaces::UIEngine->GetVFunc(6).ptr;
 		HOOKFUNC(RunFrame);

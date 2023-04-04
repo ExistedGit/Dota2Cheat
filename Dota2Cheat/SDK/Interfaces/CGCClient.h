@@ -9,8 +9,33 @@
 typedef uint8_t	style_index_t;
 typedef uint16_t item_definition_index_t;
 
+class CDOTAItemDefinition : public VClass {
+public:
+	// Localization strings
+	GETTER(const char*, GetName, 0x40);
+	GETTER(const char*, GetWearableType, 0x48);
+	GETTER(const char*, GetDesc, 0x50);
+	GETTER(const char*, GetEnglishName, 0xf0);
+
+	struct CEconItemSetDefinition : public VClass {
+		const char* setName, * setLocalizedName;
+	};
+	struct CEconStyleInfo : public VClass {
+		GETTER(const char*, GetName, 0x18);
+		GETTER(const char*, GetModelPath, 0x20);
+	};
+	struct CAssetModifierContainer : public VClass {
+		CUtlVector<CEconStyleInfo*> GetStyles() {
+			return *Member<CUtlVector<CEconStyleInfo*>*>(0x48);
+		}
+	};
+
+	GETTER(CEconItemSetDefinition*, GetItemSetDef, 0xA0);
+	GETTER(CAssetModifierContainer*, GetAssetModifierContainer, 0xA8);
+};
+
 class CEconItem : public VClass { // yes I know it has not just one but two VMTs but it's gotta be like that
-	void *vmt2;
+	void* vmt2;
 public:
 	uint64_t m_ulID; // 0x10 (Item ID)
 	uint64_t unknown; // 0x18
@@ -23,8 +48,12 @@ public:
 	uint8_t m_unOrigin;
 	style_index_t m_unStyle;
 
-	uint16_t& Flag() {
-		return Field<uint16_t>(0x30);
+
+	uint8_t& Style() {
+		return Field<uint8_t>(0x30);
+	}
+	uint8_t& Flag() {
+		return Field<uint8_t>(0x31);
 	}
 	uint16_t& Class() {
 		return Field<uint16_t>(0x32);

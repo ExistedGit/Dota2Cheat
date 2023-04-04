@@ -272,7 +272,7 @@
     <ClInclude Include="Hooks\SteamGC.h" />
     <ClInclude Include="ImGuiSDK\Elements.h" />
     <ClInclude Include="include.h" />
-    <ClInclude Include="json.hpp" />
+    <ClInclude Include="include\json.hpp" />
     <ClInclude Include="Modules\Hacks\AbilityESP.h" />
     <ClInclude Include="Modules\Hacks\AegisAutoPickup.h" />
     <ClInclude Include="Modules\Hacks\ArmletAbuse.h" />

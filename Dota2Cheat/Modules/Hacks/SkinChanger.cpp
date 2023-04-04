@@ -10,7 +10,8 @@ bool Hacks::SkinChanger::AddItem(uint32_t unDefIndex) {
 	item->m_unAccountID = accId;
 	item->m_ulID = itemIdCounter++;
 	item->m_unInventory = invPosCounter++;
-	item->Flag() = 0x200;
+	item->Flag() = 2;
+	UnlockAllStyles(item);
 
 	bool result = inv->GetSOCache()->AddObject(item);
 	inv->SOCreated(&soid, item, eSOCacheEvent_Incremental);

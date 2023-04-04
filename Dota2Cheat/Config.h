@@ -1,11 +1,9 @@
 #pragma once
 #include "SDK/Base/Vector.h"
 #include <fstream>
-#include "json.hpp"
+#include <json.hpp>
 
 namespace Config {
-
-
 	class ConfigManager {
 	public:
 		enum class ConfigVarType {
