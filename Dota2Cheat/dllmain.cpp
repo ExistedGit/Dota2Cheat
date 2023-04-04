@@ -102,6 +102,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
 	glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, 1);
+
 #ifndef _DEBUG // wouldn't want the window to obscure the screen on a breakpoint
 	glfwWindowHint(GLFW_DECORATED, 0);
 	glfwWindowHint(GLFW_FLOATING, 1);
@@ -141,7 +142,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	bool menuVisible = false;
 	Modules::AbilityESP.textFont = msTrebuchet;
 	iconLoadThread.wait();
-
+	int itemDefId = 6996;
 	// Main loop
 	while (!glfwWindowShouldClose(window))
 	{
@@ -160,10 +161,12 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		Pages::AutoPickHeroGrid::Draw(window);
 #endif // _DEBUG
 
-		if (ctx.gameStage == Context::GameStage::IN_GAME &&
-			ctx.assignedHero) {
+		if (
+			ctx.gameStage == Context::GameStage::IN_GAME &&
+			ctx.assignedHero
+			)
 			Modules::AbilityESP.DrawESP();
-		}
+		
 
 
 		if (menuVisible)
@@ -175,9 +178,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		}
 
 #ifdef _DEBUG
-		if (ImGui::Button("Create item")) {
-			Modules::SkinChanger.QueueAddItem(9235);
-		}
+		ImGui::InputInt("ItemDef ID", &itemDefId);
+		if (ImGui::Button("Create item"))
+			Modules::SkinChanger.QueueAddItem(itemDefId);
+		
 #endif // _DEBUG
 
 		ImGui::PopFont();

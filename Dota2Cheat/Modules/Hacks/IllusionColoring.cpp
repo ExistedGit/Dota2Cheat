@@ -17,3 +17,4 @@ bool Hacks::IllusionColoring::ColorIfIllusion(CBaseEntity* ent) {
 
 	return false;
 }
+	

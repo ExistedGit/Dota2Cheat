@@ -194,8 +194,11 @@
     <ClCompile Include="ImGuiSDK\Elements.cpp" />
     <ClCompile Include="Lua\LuaInitialization.cpp" />
     <ClCompile Include="MatchStateHandling.cpp" />
+    <ClCompile Include="Modules\Hacks\AegisAutoPickup.cpp" />
     <ClCompile Include="Modules\Hacks\AutoBuyTome.cpp" />
     <ClCompile Include="Modules\Hacks\AutoDodge.cpp" />
+    <ClCompile Include="Modules\Hacks\AutoHeal.cpp" />
+    <ClCompile Include="Modules\Hacks\AutoMidas.cpp" />
     <ClCompile Include="Modules\Hacks\AutoPick.cpp" />
     <ClCompile Include="Modules\Hacks\AutoPing.cpp" />
     <ClCompile Include="Modules\Hacks\BadCastPrevention.cpp" />
@@ -281,8 +284,8 @@
     <ClInclude Include="Modules\Hacks\AutoDodge.h" />
     <ClInclude Include="Modules\Hacks\AutoPick.h" />
     <ClInclude Include="Modules\Hacks\AutoPing.h" />
-    <ClInclude Include="Modules\Hacks\AutoUseMagicWand.h" />
-    <ClInclude Include="Modules\Hacks\AutoUseMidas.h" />
+    <ClInclude Include="Modules\Hacks\AutoHeal.h" />
+    <ClInclude Include="Modules\Hacks\AutoMidas.h" />
     <ClInclude Include="Modules\Hacks\BadCastPrevention.h" />
     <ClInclude Include="Modules\Utility\AttackAnimTracker.h" />
     <ClInclude Include="Modules\Utility\TPTracker.h" />

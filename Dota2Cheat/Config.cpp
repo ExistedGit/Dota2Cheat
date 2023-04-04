@@ -76,5 +76,8 @@ void Config::ConfigManager::SetupVars() {
 	Config::cfg.AddVar(BOOL, &Config::Changer::UnlockDotaPlus, true, "Changer.UnlockDotaPlus");
 	Config::cfg.AddVar(BOOL, &Config::Changer::UnlockEmoticons, true, "Changer.UnlockEmoticons");
 
+	Config::cfg.AddVar(BOOL, &Config::AutoMidas::Enabled, true, "AutoMidas.Enabled");
+	Config::cfg.AddVar(INT, &Config::AutoMidas::XPTreshold, 1, "AutoMidas.XPTreshold");
+
 	Config::cfg.AddVar(BOOL, &Config::RenderAllParticles, true, "RenderAllParticles");
 }

@@ -128,17 +128,23 @@ namespace Pages {
 					Modules::TargetedSpellHighlighter.OnDisableLinken();
 				ImGui::TreePop();
 			}
-			if (ImGui::TreeNode("AutoWand")) {
-				ImGui::Checkbox("Auto-use Faerie Fire and Magic Stick", &Config::AutoWandEnabled);
-				ImGui::SliderFloat("Faerie Fire HP Treshold", &Config::AutoHealFaerieFireHPTreshold, 0, 100, "%.1f");
-				ImGui::SliderFloat("Magic Stick/Wand/Holy Locket HP Treshold", &Config::AutoHealWandHPTreshold, 0, 100, "%.1f");
-				ImGui::SliderInt("Minimum charges", &Config::AutoHealWandMinCharges, 1, 20);
+			if (ImGui::TreeNode("AutoHeal")) {
+				ImGui::Text("Uses Magic Stick/Wand, Holy Locket and/or Faerie Fire on low health");
+				ImGui::Checkbox("Enabled", &Config::AutoHeal::Enabled);
+				ImGui::SliderFloat("Faerie Fire HP Treshold", &Config::AutoHeal::FaerieFireHPTreshold, 1, 100, "%.1f");
+				ImGui::SliderFloat("Wand Locket HP Treshold", &Config::AutoHeal::WandHPTreshold, 1, 100, "%.1f");
+				ImGui::SliderInt("Minimum wand charges", &Config::AutoHeal::WandMinCharges, 1, 20);
 
 				ImGui::TreePop();
 			}
+			if (ImGui::TreeNode("AutoMidas")) {
+				ImGui::Checkbox("Enabled", &Config::AutoMidas::Enabled);
+				ImGui::SliderInt("XP Treshold", &Config::AutoMidas::XPTreshold);
+				ImGui::TreePop();
+			}
+
 			ImGui::Checkbox("AutoDodge", &Config::AutoDodge::Enabled);
 			ImGui::SameLine(); HelpMarker("Can use Manta Style, Bottled Illusion Rune and Naga's Mirror Image");
-
 
 			ImGui::Checkbox("Show all particles", &Config::RenderAllParticles);
 			ImGui::SameLine(); HelpMarker("Renders any possible particle, even in FoW");
@@ -149,10 +155,8 @@ namespace Pages {
 			ImGui::Checkbox("Redirect illusion casts", &Config::CastRedirection);
 			ImGui::SameLine(); HelpMarker("You cast something on an illusion - it aims for the real hero(if they're in range, of course)");
 
-			ImGui::Checkbox("Auto-use Hand of Midas", &Config::AutoMidasEnabled);
-			ImGui::Checkbox("Auto-buy Tome of Knowledge", &Config::AutoBuyTome);
+			ImGui::Checkbox("Tome AutoBuy", &Config::AutoBuyTome);
 			ImGui::SliderFloat("Camera distance", &Config::CameraDistance, 1200, 3000, "%.1f");
-
 
 			if (ImGui::Button("EXIT", ImVec2(100, 50)))
 				glfwSetWindowShouldClose(window, 1);

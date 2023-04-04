@@ -273,6 +273,15 @@
     <ClCompile Include="Hooks\SteamGC.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="Modules\Hacks\AegisAutoPickup.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modules\Hacks\AutoMidas.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modules\Hacks\AutoHeal.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h">
@@ -299,10 +308,10 @@
     <ClInclude Include="SDK\Base\CUtlVector.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="Modules\Hacks\AutoUseMagicWand.h">
+    <ClInclude Include="Modules\Hacks\AutoHeal.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
-    <ClInclude Include="Modules\Hacks\AutoUseMidas.h">
+    <ClInclude Include="Modules\Hacks\AutoMidas.h">
       <Filter>Header files\Hacks</Filter>
     </ClInclude>
     <ClInclude Include="SDK\Interfaces\CGameEntitySystem.h">

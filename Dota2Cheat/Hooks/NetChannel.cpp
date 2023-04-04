@@ -7,9 +7,14 @@ bool Hooks::hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandle
 	if (protobufMsg->msgID == k_EMsgClientToGCEquipItems) {
 		auto msg = (CMsgClientToGCEquipItems*)protobufMsg->msg;
 		auto equip = msg->equips().Get(0);
-		if (Modules::SkinChanger.FakeItems.count(equip.item_id())) {
+		if (equip.has_new_slot()) {
+
 			auto item = Modules::SkinChanger.FakeItems[equip.item_id()];
-			if (equip.has_new_slot()) {
+			if (auto& equippedItem = Modules::SkinChanger.EquippedItems[equip.new_class()][equip.new_slot()]) {
+				if (equippedItem != item)
+					Modules::SkinChanger.Unequip(equippedItem);
+			}
+			if (item) {
 #ifdef _DEBUG
 				std::cout << std::format("Equipping {}. Class: {}; Slot: {}\n",
 					(void*)item,
@@ -17,11 +22,7 @@ bool Hooks::hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandle
 					equip.new_class()
 				);
 #endif // _DEBUG
-				item->Class() = equip.new_class();
-				item->Slot() = equip.new_slot();
-				item->Flag() = 0x200 | 0x100;
-
-				Modules::SkinChanger.SOUpdated(item);
+				Modules::SkinChanger.Equip(item, equip.new_class(), equip.new_slot());
 				return false;
 			}
 		};
@@ -32,8 +33,9 @@ bool Hooks::hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandle
 }
 
 bool Hooks::hkDispatchPacket(CGCClient* thisptr, IMsgNetPacket* netPacket) {
+	if (netPacket->GetEMsg() == 26)
 #ifdef _DEBUG
-	//	std::cout << "GCClient Recv: " << std::dec << EDOTAGCMsg2String(netPacket->GetEMsg()) << '\n';
+		std::cout << "GCClient Recv: " << EDOTAGCMsg2String(netPacket->GetEMsg()) << '\n';
 #endif // _DEBUG
 	return oDispatchPacket(thisptr, netPacket);
 }
