@@ -22,7 +22,11 @@ namespace Hacks {
 			auto itemSchema = GetItemSchema();
 			auto itemDef = GetItemDefByIndex(itemSchema, pItem->m_unDefIndex);
 			auto styles = itemDef->GetAssetModifierContainer()->GetStyles();
-			for (auto style : styles) {
+
+			if (!styles)
+				return;
+
+			for (auto style : *styles) {
 				style->Field<uintptr_t>(0x50) =
 					style->Field<uintptr_t>(0x40) =
 					style->Field<uint32_t>(0x30) = 0;

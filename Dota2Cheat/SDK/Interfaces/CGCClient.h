@@ -25,8 +25,8 @@ public:
 		GETTER(const char*, GetModelPath, 0x20);
 	};
 	struct CAssetModifierContainer : public VClass {
-		CUtlVector<CEconStyleInfo*> GetStyles() {
-			return *Member<CUtlVector<CEconStyleInfo*>*>(0x48);
+		CUtlVector<CEconStyleInfo*>* GetStyles() {
+			return Member<CUtlVector<CEconStyleInfo*>*>(0x48);
 		}
 	};
 
