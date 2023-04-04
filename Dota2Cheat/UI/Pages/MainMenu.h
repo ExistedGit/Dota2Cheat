@@ -139,7 +139,7 @@ namespace Pages {
 			}
 			if (ImGui::TreeNode("AutoMidas")) {
 				ImGui::Checkbox("Enabled", &Config::AutoMidas::Enabled);
-				ImGui::SliderInt("XP Treshold", &Config::AutoMidas::XPTreshold);
+				ImGui::SliderInt("XP Treshold", &Config::AutoMidas::XPTreshold, 40, 90);
 				ImGui::TreePop();
 			}
 

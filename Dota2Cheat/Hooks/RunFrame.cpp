@@ -74,6 +74,7 @@ void Hooks::hkRunFrame(uintptr_t a, uintptr_t b) {
 		Modules::AutoHeal.FrameBasedLogic(ctx.assignedHero);
 		Modules::AutoPing.FrameBasedLogic();
 		Modules::AutoDodge.FrameBasedLogic();
+		Modules::AutoMidas.FrameBasedLogic();
 		Modules::AutoBuyTome.FrameBasedLogic();
 		Modules::AegisAutoPickup.FrameBasedLogic();
 

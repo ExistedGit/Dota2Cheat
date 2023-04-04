@@ -11,6 +11,7 @@
 #include "../Modules/Hacks/LinearProjectileWarner.h"
 #include "../Modules/Hacks/AutoPing.h"
 #include "../Modules/Hacks/AutoDodge.h"
+#include "../Modules/Hacks/AutoMidas.h"
 
 #include "../Modules/Utility/ParticleGC.h"
 

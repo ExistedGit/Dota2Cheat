@@ -8,8 +8,12 @@ void Hacks::AutoMidas::FrameBasedLogic() {
 		GameSystems::GameRules->GetGameTime() - lastTime < usePeriod)
 		return;
 
+	auto midas = ctx.importantItems.midas;
+
+	if (!midas || midas->GetCooldown() != 0)
+		return;
+
 	for (auto& creep : ctx.creeps) {
-		auto midas = ctx.importantItems.midas;
 
 		// If the creep is visible, not one of ours, is alive, is within Midas's radius and its name matches one of the filters
 		if (

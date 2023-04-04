@@ -25,10 +25,9 @@ public:
 		return !GetIdentity()->IsDormant() && GetLifeState() == 0 && !IsWaitingToSpawn();
 	}
 
-	//Implemented as a method returning a bool rather than a field
-	//Is inside some kind of structure on offset BE8
+	// JS func, uses another vtable at 0xA10
 	bool IsRoshan() {
-		return MemberInline<VClass>(0xbe8)->CallVFunc<57, bool>();
+		return MemberInline<VClass>(0xA10)->CallVFunc<57, bool>();
 	}
 
 	int GetAttackDamageMin() {
