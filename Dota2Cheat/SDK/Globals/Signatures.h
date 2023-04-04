@@ -16,6 +16,9 @@ class CDOTAPlayerController;
 class CDOTAModifier;
 
 namespace Signatures {
+
+	inline CEconItem* (*CreateEconItem)() = nullptr;
+
 	typedef void(__fastcall* BIsEmoticonUnlockedFn)(void* thisptr, uint32_t unk);
 	inline BIsEmoticonUnlockedFn BIsEmoticonUnlocked{};
 

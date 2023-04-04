@@ -9,8 +9,6 @@ CDOTABaseNPC_Hero* CDOTAPlayerController::GetAssignedHero() {
 }
 
 void CDOTAPlayerController::CastNoTarget(CDOTABaseAbility* ability, CBaseEntity* issuer) {
-	if (issuer == nullptr)
-		issuer = GetAssignedHero();
 	PrepareOrder(DOTA_UNIT_ORDER_CAST_NO_TARGET,
 		0,
 		&Vector::Zero,
@@ -23,8 +21,6 @@ void CDOTAPlayerController::CastNoTarget(CDOTABaseAbility* ability, CBaseEntity*
 }
 
 void CDOTAPlayerController::CastTarget(CDOTABaseAbility* ability, CBaseEntity* target, CBaseEntity* issuer) {
-	if (!issuer)
-		issuer = GetAssignedHero();
 	PrepareOrder(
 		DOTA_UNIT_ORDER_CAST_TARGET,
 		target->GetIndex(),
@@ -47,9 +43,6 @@ void CDOTAPlayerController::BuyItem(int itemId) {
 }
 
 void CDOTAPlayerController::OrderMoveTo(Vector* pos, bool directMovement, CBaseEntity* issuer) {
-	if (issuer == nullptr)
-		issuer = GetAssignedHero();
-
 	PrepareOrder(directMovement ? DOTA_UNIT_ORDER_MOVE_TO_DIRECTION : DOTA_UNIT_ORDER_MOVE_TO_POSITION,
 		0,
 		pos,
@@ -62,9 +55,6 @@ void CDOTAPlayerController::OrderMoveTo(Vector* pos, bool directMovement, CBaseE
 }
 
 void CDOTAPlayerController::PrepareOrder(dotaunitorder_t orderType, uint32_t targetIndex, Vector* position, uint32_t abilityIndex, PlayerOrderIssuer_t orderIssuer, CBaseEntity* issuer, bool queue, bool showEffects) {
-	//if (issuer == nullptr)
-	//	issuer = GetAssignedHero();
-
 	if (Signatures::PrepareUnitOrders == nullptr)
 		return;
 

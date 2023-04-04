@@ -5,18 +5,21 @@
 using CParticleCollection = Signatures::CParticleCollection;
 
 void Hooks::hkSetRenderingEnabled(CParticleCollection* thisptr, bool state) {
-	bool FakeState = state;
-
-	if (unlockedDotaPlus != Config::UnlockDotaPlus)
+	if (unlockedDotaPlus != Config::Changer::UnlockDotaPlus)
 	{
-		unlockedDotaPlus = Config::UnlockDotaPlus;
+		unlockedDotaPlus = Config::Changer::UnlockDotaPlus;
 		Modules::DotaPlusUnlocker.UpdateDotaPlusStatus();
 	}
+	if (Modules::SkinChanger.ItemsCreated) {
+		Modules::SkinChanger.ItemsCreated = false;
 
-	if (Config::RenderAllParticles)
-		FakeState = true;
+		for (auto& item : Modules::SkinChanger.itemsToCreate)
+			Modules::SkinChanger.AddItem(item);
 
-	oSetRenderingEnabled(thisptr, FakeState);
+		Modules::SkinChanger.itemsToCreate.clear();
+	}
+
+	oSetRenderingEnabled(thisptr, state || Config::RenderAllParticles);
 }
 
 // An old Wolf49406-style hook

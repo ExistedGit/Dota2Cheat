@@ -51,8 +51,6 @@ namespace Config {
 
 	inline ConfigManager cfg{};
 
-	inline bool AutoMidasEnabled = true;
-
 	inline bool AutoPickUpRunes = true;
 	inline bool AutoPickUpAegis = false;
 
@@ -60,10 +58,12 @@ namespace Config {
 
 	inline bool CastRedirection = true;
 
-	inline bool AutoWandEnabled = true;
-	inline float AutoHealWandHPTreshold = 10.0f;
-	inline int AutoHealWandMinCharges = 5;
-	inline float AutoHealFaerieFireHPTreshold = 7.0f;
+	namespace AutoHeal {
+		inline bool Enabled;
+		inline float WandHPTreshold;
+		inline int WandMinCharges;
+		inline float FaerieFireHPTreshold;
+	}
 
 	inline bool WarnLinearProjectiles = true;
 
@@ -71,10 +71,19 @@ namespace Config {
 	inline bool ShowEnemyTargetedSpells = true;
 	inline bool ShowLinkenSphere = true;
 
-	inline int WeatherListIdx = 0;
-	inline int RiverListIdx = 0;
+	namespace Changer {
+		inline int WeatherListIdx;
+		inline int RiverListIdx;
+		inline bool UnlockDotaPlus;
+		inline bool UnlockEmoticons;
+	}
 
-	inline float CameraDistance = 1200.0f;
+	namespace AutoMidas {
+		inline bool Enabled;
+		inline int XPTreshold;
+	}
+
+	inline float CameraDistance;
 
 	inline bool RenderAllParticles;
 
@@ -85,6 +94,4 @@ namespace Config {
 
 	inline int CircleRadius = 1200;
 	inline Vector CircleRGB{ 0,0,0 };
-
-	inline bool UnlockDotaPlus;
 }

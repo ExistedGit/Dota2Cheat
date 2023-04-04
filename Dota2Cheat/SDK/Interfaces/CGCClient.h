@@ -6,6 +6,34 @@
 #include "../Protobufs/dota_gcmessages_msgid.pb.h"
 #include "../Enums.h"
 
+typedef uint8_t	style_index_t;
+typedef uint16_t item_definition_index_t;
+
+class CEconItem : public VClass { // yes I know it has not just one but two VMTs but it's gotta be like that
+	void *vmt2;
+public:
+	uint64_t m_ulID; // 0x10 (Item ID)
+	uint64_t unknown; // 0x18
+	uint32_t m_unAccountID; // 0x20 (Account owner ID)
+	uint32_t m_unInventory; // 0x24
+	item_definition_index_t m_unDefIndex; // 0x28
+	uint8_t m_unLevel; // not sure
+	uint8_t m_nQuality;
+	uint8_t m_unFlags; // not sure
+	uint8_t m_unOrigin;
+	style_index_t m_unStyle;
+
+	uint16_t& Flag() {
+		return Field<uint16_t>(0x30);
+	}
+	uint16_t& Class() {
+		return Field<uint16_t>(0x32);
+	}
+	uint16_t& Slot() {
+		return Field<uint16_t>(0x34);
+	}
+};
+
 class CProtobufMsgBase : public VClass {
 private:
 	void* unk;
@@ -21,7 +49,12 @@ public:
 
 };
 
-using SOID_t = uint64_t;
+struct SOID_t
+{
+	uint64_t m_unSteamID;
+	uint32_t m_iType;
+	uint32_t m_iPadding;
+};
 
 class CProtobufSharedObjectBase : public VClass {
 public:
@@ -48,14 +81,19 @@ public:
 class CGCClientSharedObjectCache : public VClass {
 public:
 	GETTER(CUtlVector<CGCClientSharedObjectTypeCache*>, GetTypeCacheList, 0x10);
-	SOID_t* GetOwner() {
-		return MemberInline<SOID_t>(0x28);
+	GETTER(SOID_t, GetOwner, 0x28);
+
+	bool AddObject(void* sharedObj) {
+		return CallVFunc<2, bool>(sharedObj);
 	}
 };
 
 class ISharedObjectListener : public VClass {
 public:
-	void DispatchUpdate(SOID_t* soid, void* sharedObj, ESOCacheEvent ev) {
+	void SOCreated(SOID_t* soid, void* sharedObj, ESOCacheEvent ev) {
+		CallVFunc<0>(soid, sharedObj, ev);
+	}
+	void SOUpdated(SOID_t* soid, void* sharedObj, ESOCacheEvent ev) {
 		CallVFunc<1>(soid, sharedObj, ev);
 	}
 	GETTER(CGCClientSharedObjectCache*, GetSOCache, 0xA0);
@@ -65,6 +103,6 @@ class CGCClient : public VClass {
 public:
 	GETTER(CUtlVector<ISharedObjectListener*>, GetSOListeners, 0x270);
 
-	void DispatchSOUpdated(SOID_t* soid, void* sharedObj, ESOCacheEvent ev);
+	void DispatchSOUpdated(SOID_t soid, void* sharedObj, ESOCacheEvent ev);
 
 };

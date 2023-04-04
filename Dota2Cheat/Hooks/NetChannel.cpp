@@ -1,16 +1,41 @@
 #include "NetChannel.h"
 #include "../Modules/Utility/AttackAnimTracker.h"
+#include "../Modules/Hacks/SkinChanger.h"
+
 
 bool Hooks::hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandler* handler, google::protobuf::Message* responseMsg, unsigned int respMsgID) {
+	if (protobufMsg->msgID == k_EMsgClientToGCEquipItems) {
+		auto msg = (CMsgClientToGCEquipItems*)protobufMsg->msg;
+		auto equip = msg->equips().Get(0);
+		if (equip.has_new_slot()) {
+
+			auto item = Modules::SkinChanger.FakeItems[equip.item_id()];
+			if (auto& equippedItem = Modules::SkinChanger.EquippedItems[equip.new_class()][equip.new_slot()]) {
+				if (equippedItem != item)
+					Modules::SkinChanger.Unequip(equippedItem);
+			}
+			if (item) {
 #ifdef _DEBUG
-	std::cout << "GCClient Send: " << std::dec << EDOTAGCMsg2String(protobufMsg->msgID) << '\n';
+				std::cout << std::format("Equipping {}. Class: {}; Slot: {}\n",
+					(void*)item,
+					equip.new_slot(),
+					equip.new_class()
+				);
 #endif // _DEBUG
+				Modules::SkinChanger.Equip(item, equip.new_class(), equip.new_slot());
+				return false;
+			}
+		};
+
+
+	}
 	return oBAsyncSendProto(protobufMsg, handler, responseMsg, respMsgID);
 }
 
 bool Hooks::hkDispatchPacket(CGCClient* thisptr, IMsgNetPacket* netPacket) {
+	if (netPacket->GetEMsg() == 26)
 #ifdef _DEBUG
-	std::cout << "GCClient Recv: " << std::dec << EDOTAGCMsg2String(netPacket->GetEMsg()) << '\n';
+		std::cout << "GCClient Recv: " << EDOTAGCMsg2String(netPacket->GetEMsg()) << '\n';
 #endif // _DEBUG
 	return oDispatchPacket(thisptr, netPacket);
 }

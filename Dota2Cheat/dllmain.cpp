@@ -1,18 +1,11 @@
 #pragma once
 #define STB_IMAGE_IMPLEMENTATION
-#define SOL_ALL_SAFETIES_ON
+
 #include <cstdio>
 #include <iostream>
 #include "HookHelper.h"
 #include "Input.h"
 #include "UIState.h"
-
-#include "imgui/imgui.h"
-#include "imgui/imgui_impl_glfw.h"
-#include "imgui/imgui_impl_opengl3.h"
-
-#include <GL/glew.h>
-#include <GLFW/glfw3.h> // Will drag system OpenGL headers
 
 #include "Config.h"
 #include "DebugFunctions.h"
@@ -63,6 +56,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		if (fin.is_open()) {
 			Config::cfg.LoadConfig(fin);
 			fin.close();
+			std::cout << "Loaded config from " << ctx.cheatFolderPath + "\\config\\base.json\n";
 		}
 	}
 	ctx.CurProcId = GetCurrentProcessId();
@@ -108,6 +102,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
 	glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, 1);
+
 #ifndef _DEBUG // wouldn't want the window to obscure the screen on a breakpoint
 	glfwWindowHint(GLFW_DECORATED, 0);
 	glfwWindowHint(GLFW_FLOATING, 1);
@@ -135,7 +130,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	// Setup Dear ImGui style
 	ImGui::StyleColorsClassic();
 	//ImGui::StyleColorsLight();
-
 	// Setup Platform/Renderer backends
 	ImGui_ImplGlfw_InitForOpenGL(window, true);
 	ImGui_ImplOpenGL3_Init(glsl_version);
@@ -143,11 +137,12 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
 	//auto vbeFont = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
-	auto msTrebuchet = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
+	auto msTrebuchet = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 40.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
 	auto defaultFont = io.Fonts->AddFontDefault();
 	bool menuVisible = false;
-
 	Modules::AbilityESP.textFont = msTrebuchet;
+	iconLoadThread.wait();
+	int itemDefId = 6996;
 	// Main loop
 	while (!glfwWindowShouldClose(window))
 	{
@@ -158,24 +153,36 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
 
+		texManager.ExecuteLoadCycle();
+
 		ImGui::PushFont(defaultFont);
 
-		if (ctx.gameStage == Context::GameStage::IN_GAME &&
-			ctx.assignedHero) {
-			texManager.ExecuteLoadCycle();
+#ifdef _DEBUG
+		Pages::AutoPickHeroGrid::Draw(window);
+#endif // _DEBUG
+
+		if (
+			ctx.gameStage == Context::GameStage::IN_GAME &&
+			ctx.assignedHero
+			)
 			Modules::AbilityESP.DrawESP();
-		}
+		
+
 
 		if (menuVisible)
 			Pages::MainMenu::Draw(window);
 
-#ifdef _DEBUG
-		// Pages::AutoPickHeroGrid::Draw(window);
-#endif // _DEBUG
 		if (IsKeyPressed(VK_INSERT)) {
 			glfwSetWindowAttrib(window, GLFW_MOUSE_PASSTHROUGH, menuVisible);
 			menuVisible = !menuVisible;
 		}
+
+#ifdef _DEBUG
+		ImGui::InputInt("ItemDef ID", &itemDefId);
+		if (ImGui::Button("Create item"))
+			Modules::SkinChanger.QueueAddItem(itemDefId);
+		
+#endif // _DEBUG
 
 		ImGui::PopFont();
 

@@ -1,5 +1,5 @@
 #pragma once
-
+#include "../../SDK/pch.h"
 #include "../../Config.h"
 
 namespace Hacks {

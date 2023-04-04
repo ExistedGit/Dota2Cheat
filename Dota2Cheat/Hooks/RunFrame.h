@@ -4,13 +4,14 @@
 #include "../Modules/Hacks/AegisAutoPickup.h"
 #include "../Modules/Hacks/AutoBuyTome.h"
 #include "../Modules/Hacks/RiverPaint.h"
-#include "../Modules/Hacks/AutoUseMidas.h"
-#include "../Modules/Hacks/AutoUseMagicWand.h"
+#include "../Modules/Hacks/AutoHeal.h"
 #include "../Modules/Hacks/ShakerAttackAnimFix.h"
+#include "../Modules/Hacks/AbilityESP.h"
 #include "../Modules/Hacks/TargetedSpellHighlighter.h"
 #include "../Modules/Hacks/LinearProjectileWarner.h"
 #include "../Modules/Hacks/AutoPing.h"
 #include "../Modules/Hacks/AutoDodge.h"
+#include "../Modules/Hacks/AutoMidas.h"
 
 #include "../Modules/Utility/ParticleGC.h"
 

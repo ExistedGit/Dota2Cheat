@@ -31,6 +31,7 @@ struct Context {
 	std::set<CDOTAPlayerController*> players;
 	std::set<CBaseEntity*> physicalItems;
 	std::set<CDOTABaseNPC_Hero*> heroes;
+	std::set<CDOTABaseNPC*> creeps;
 
 	struct ImportantItems {
 		CDOTAItem

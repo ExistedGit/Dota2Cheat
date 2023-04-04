@@ -53,7 +53,7 @@ public:
 	}
 
 	// Hook virtual method
-	template <typename func>
+	template <typename func = void*>
 	func GetVM(size_t methodIndex)
 	{
 		return (func)vmt[hasRTTI ? methodIndex + rttiPrefix : methodIndex];

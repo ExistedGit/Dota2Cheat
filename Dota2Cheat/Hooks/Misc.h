@@ -5,6 +5,6 @@ namespace Hooks {
 	inline Signatures::BIsEmoticonUnlockedFn oBIsEmoticonUnlocked;
 
 	inline bool hkBIsEmoticonUnlocked(void* thisptr, uint32_t unk) {
-		return unk != 0;
+		return Config::Changer::UnlockEmoticons;
 	}
 }

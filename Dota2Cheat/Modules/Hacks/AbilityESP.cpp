@@ -35,7 +35,10 @@ void ESP::AbilityESP::Reset() {
 void ESP::AbilityESP::UpdateHeroData() {
 	SubscribeHeroes();
 	for (auto& hero : ctx.heroes) {
-		DrawableHeroes[hero] = hero && hero->GetIdentity() && !hero->GetIdentity()->IsDormant();
+		DrawableHeroes[hero] =
+			IsValidReadPtr(hero) &&
+			IsValidReadPtr(hero->GetIdentity()) &&
+			!hero->GetIdentity()->IsDormant();
 		if (EnemyAbilities.count(hero))
 			UpdateAbilities(hero);
 

@@ -167,6 +167,7 @@
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <AdditionalOptions>/bigobj /FI"pch.h" </AdditionalOptions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -189,10 +190,15 @@
     <ClCompile Include="Hooks\ParticleRendering.cpp" />
     <ClCompile Include="Hooks\PrepareUnitOrders.cpp" />
     <ClCompile Include="Hooks\RunFrame.cpp" />
+    <ClCompile Include="Hooks\SteamGC.cpp" />
+    <ClCompile Include="ImGuiSDK\Elements.cpp" />
     <ClCompile Include="Lua\LuaInitialization.cpp" />
     <ClCompile Include="MatchStateHandling.cpp" />
+    <ClCompile Include="Modules\Hacks\AegisAutoPickup.cpp" />
     <ClCompile Include="Modules\Hacks\AutoBuyTome.cpp" />
     <ClCompile Include="Modules\Hacks\AutoDodge.cpp" />
+    <ClCompile Include="Modules\Hacks\AutoHeal.cpp" />
+    <ClCompile Include="Modules\Hacks\AutoMidas.cpp" />
     <ClCompile Include="Modules\Hacks\AutoPick.cpp" />
     <ClCompile Include="Modules\Hacks\AutoPing.cpp" />
     <ClCompile Include="Modules\Hacks\BadCastPrevention.cpp" />
@@ -205,6 +211,7 @@
     <ClCompile Include="Modules\Hacks\PerfectBlink.cpp" />
     <ClCompile Include="Modules\Hacks\RiverPaint.cpp" />
     <ClCompile Include="Modules\Hacks\ShakerAttackAnimFix.cpp" />
+    <ClCompile Include="Modules\Hacks\SkinChanger.cpp" />
     <ClCompile Include="Modules\Hacks\TargetedSpellHighlighter.cpp" />
     <ClCompile Include="Modules\Hacks\AbilityESP.cpp" />
     <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp" />
@@ -255,12 +262,15 @@
     <ClCompile Include="SDK\Protobufs\steammessages_steamlearn.steamworkssdk.pb.cc" />
     <ClCompile Include="SDK\Protobufs\steammessages_unified_base.steamworkssdk.pb.cc" />
     <ClCompile Include="SDK\Protobufs\usermessages.pb.cc" />
+    <ClCompile Include="UI\Pages\AutoPickSelectionGrid.cpp" />
     <ClCompile Include="Utils\Drawing.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hooks\InvalidateUEF.h" />
     <ClInclude Include="Hooks\Misc.h" />
     <ClInclude Include="Hooks\OnAcceptMatch.h" />
+    <ClInclude Include="Hooks\SteamGC.h" />
+    <ClInclude Include="ImGuiSDK\Elements.h" />
     <ClInclude Include="include.h" />
     <ClInclude Include="json.hpp" />
     <ClInclude Include="Modules\Hacks\AbilityESP.h" />
@@ -268,13 +278,14 @@
     <ClInclude Include="Modules\Hacks\ArmletAbuse.h" />
     <ClInclude Include="Modules\Hacks\ClaimTutorialRewards.h" />
     <ClInclude Include="Modules\Hacks\DotaPlusUnlocker.h" />
+    <ClInclude Include="Modules\Hacks\SkinChanger.h" />
     <ClInclude Include="Modules\Utility\AttackTargetFinder.h" />
     <ClInclude Include="Modules\Hacks\AutoBuyTome.h" />
     <ClInclude Include="Modules\Hacks\AutoDodge.h" />
     <ClInclude Include="Modules\Hacks\AutoPick.h" />
     <ClInclude Include="Modules\Hacks\AutoPing.h" />
-    <ClInclude Include="Modules\Hacks\AutoUseMagicWand.h" />
-    <ClInclude Include="Modules\Hacks\AutoUseMidas.h" />
+    <ClInclude Include="Modules\Hacks\AutoHeal.h" />
+    <ClInclude Include="Modules\Hacks\AutoMidas.h" />
     <ClInclude Include="Modules\Hacks\BadCastPrevention.h" />
     <ClInclude Include="Modules\Utility\AttackAnimTracker.h" />
     <ClInclude Include="Modules\Utility\TPTracker.h" />
@@ -310,6 +321,7 @@
     <ClInclude Include="Config.h" />
     <ClInclude Include="DebugFunctions.h" />
     <ClInclude Include="SDK\Interfaces\CResourceSystem.h" />
+    <ClInclude Include="SDK\Interfaces\ISteamClient.h" />
     <ClInclude Include="SDK\Protobufs\dota_gcmessages_common.pb.h" />
     <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h" />
     <ClInclude Include="Utils\Drawing.h" />
