@@ -1,37 +1,26 @@
 #pragma once
 #include "../SDK/pch.h"
+#include <json.hpp>
 
 // I mean, I tried
 // maybe someone else figures it out.
 namespace Hacks {
 	class SkinChanger {
 	public:
-		std::map<uint32_t, CEconItem*> FakeItems;
-		std::map<uint16_t, std::map<uint16_t, CEconItem*>> EquippedItems;
+		std::map<uint32_t, CEconItem*> FakeItems{};
+		std::map<uint16_t, std::map<uint16_t, CEconItem*>> EquippedItems{};
 
-		uint32_t itemIdCounter = 0xFFFF,
-			invPosCounter = 0xFFFF;
+		uint32_t itemIdCounter = 0x20000000,
+			invPosCounter = 0;
 
 		std::vector<uint32_t> itemsToCreate;
 		bool ItemsCreated = false;
 
+		void ParseItemDefs(std::istream& stream);
+
 		// structure reversed from CEconItem::IsStyleUnlocked
 		// xref: "unlocked styles"
-		void UnlockAllStyles(CEconItem* pItem) {
-			using namespace Signatures;
-			auto itemSchema = GetItemSchema();
-			auto itemDef = GetItemDefByIndex(itemSchema, pItem->m_unDefIndex);
-			auto styles = itemDef->GetAssetModifierContainer()->GetStyles();
-
-			if (!styles)
-				return;
-
-			for (auto style : *styles) {
-				style->Field<uintptr_t>(0x50) =
-					style->Field<uintptr_t>(0x40) =
-					style->Field<uint32_t>(0x30) = 0;
-			}
-		}
+		void UnlockAllStyles(CEconItem* pItem);
 
 		// Call in main thread
 		void Equip(CEconItem* pItem, uint16_t unClass, uint16_t unSlot) {
@@ -68,5 +57,5 @@ namespace Hacks {
 	};
 }
 namespace Modules {
-	inline Hacks::SkinChanger SkinChanger;
+	inline Hacks::SkinChanger SkinChanger{};
 }

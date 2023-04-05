@@ -58,6 +58,13 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			fin.close();
 			std::cout << "Loaded config from " << ctx.cheatFolderPath + "\\config\\base.json\n";
 		}
+
+		fin = std::ifstream(ctx.cheatFolderPath + "\\assets\\itemdefs.txt");
+		if (fin.is_open())
+		{
+			Modules::SkinChanger.ParseItemDefs(fin);
+			fin.close();
+		}
 	}
 	ctx.CurProcId = GetCurrentProcessId();
 	ctx.CurProcHandle = OpenProcess(PROCESS_ALL_ACCESS, TRUE, ctx.CurProcId);
@@ -66,8 +73,11 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	ctx.lua.script("print(\"works!\")");
 	Interfaces::FindInterfaces();
+
+
 	auto iconLoadThread = std::async(std::launch::async, []() {
-		Pages::AutoPickHeroGrid::InitList();
+		auto hFile = Interfaces::FileSystem->OpenFile("scripts/items/items_game.txt", "r");
+	Pages::AutoPickHeroGrid::InitList();
 		});
 
 	Interfaces::CVar->DumpConVarsToMap();
@@ -78,6 +88,19 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 #endif // _DEBUG
 
 	GameSystems::FindGameSystems();
+	std::cout << "ItemSchema: " << Signatures::GetItemSchema() << "\n";
+	CDOTAItemDefinition** arcanaNode = nullptr, ** defNode = nullptr;
+	for (auto& node : Signatures::GetItemSchema()->GetItemDefinitions()) {
+		if (node.unDefIndex == 6996)
+			arcanaNode = &node.itemDef;
+		if (node.unDefIndex == 387)
+			defNode = &node.itemDef;
+		if (defNode && arcanaNode) {
+			*defNode = *arcanaNode;
+			break;
+		}
+	};
+
 	Hooks::SetUpByteHooks();
 	Hooks::SetUpVirtualHooks(true);
 	Hooks::DisableHooks();
@@ -166,7 +189,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			ctx.assignedHero
 			)
 			Modules::AbilityESP.DrawESP();
-		
+
 
 
 		if (menuVisible)
@@ -181,7 +204,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		ImGui::InputInt("ItemDef ID", &itemDefId);
 		if (ImGui::Button("Create item"))
 			Modules::SkinChanger.QueueAddItem(itemDefId);
-		
+
 #endif // _DEBUG
 
 		ImGui::PopFont();

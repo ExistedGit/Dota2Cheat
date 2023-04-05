@@ -46,5 +46,5 @@ void GameSystems::LogGameSystems() {
 	std::cout << "[GLOBALS]\n";
 	std::cout << "GameRules: " << GameRules << '\n';
 	std::cout << "Projectile Manager:" << ProjectileManager << '\n';
-	std::cout << "Particle Manager: " << ParticleManager << ' ' << ParticleManager->GetVFunc(9).ptr << "\n";
+	std::cout << "Particle Manager: " << ParticleManager << ' ' << ParticleManager->GetVFunc(VTableIndexes::CDOTAParticleManager::CreateParticle).ptr << "\n";
 }

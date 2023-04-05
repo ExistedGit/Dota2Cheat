@@ -5,7 +5,7 @@
 #include "../Interfaces/CInputService.h"
 #include "../Interfaces/CBaseFileSystem.h"
 #include "../Interfaces/Network/CNetworkMessages.h"
-#include "../Interfaces/CGCClient.h"
+#include "../Interfaces/GC/CGCClient.h"
 #include "../Interfaces/CVarSystem.h"
 #include "../Interfaces/Panorama.h"
 #include "../Interfaces/CResourceSystem.h"

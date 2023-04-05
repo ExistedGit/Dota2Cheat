@@ -45,7 +45,7 @@ void Signatures::FindSignatures(bool log) {
 	//xref: "CProtoBufMsg::BAsyncSendProto"
 	SCAN_FUNC(BAsyncSendProto, ssctx.Scan("E8 ? ? ? ? 48 8B 4D 90 48 89 7C 24", L"client.dll").GetAbsoluteAddress(1, 5));
 	SCAN_FUNC(GetItemSchema, ssctx.Scan("E8 ? ? ? ? 48 89 5D 18", L"client.dll").GetAbsoluteAddress(1, 5));
-	SCAN_FUNC(GetItemDefByIndex, ssctx.Scan("E8 ? ? ? ? 83 FE 05", L"client.dll").GetAbsoluteAddress(1, 5));
+	SCAN_FUNC(CDOTAItemSchema::GetItemDefByIndex, ssctx.Scan("E8 ? ? ? ? 83 FE 05", L"client.dll").GetAbsoluteAddress(1, 5));
 
 	//xref: "#DOTA_GlobalItems_Emoticons"
 	//decompile in IDA

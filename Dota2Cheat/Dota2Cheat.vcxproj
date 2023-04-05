@@ -236,7 +236,7 @@
     <ClCompile Include="SDK\Globals\GameSystems.cpp" />
     <ClCompile Include="SDK\Globals\Interfaces.cpp" />
     <ClCompile Include="SDK\Globals\Signatures.cpp" />
-    <ClCompile Include="SDK\Interfaces\CGCClient.cpp" />
+    <ClCompile Include="SDK\Interfaces\GC\CGCClient.cpp" />
     <ClCompile Include="SDK\Interfaces\CVarSystem.cpp" />
     <ClCompile Include="SDK\Base\SigScan\patterscan.cpp" />
     <ClCompile Include="SDK\pch.cpp">
@@ -316,11 +316,13 @@
     <ClInclude Include="SDK\GameSystems\CDOTAParticleManager.h" />
     <ClInclude Include="SDK\Interfaces\CGameEntitySystem.h" />
     <ClInclude Include="SDK\GameSystems\CGameEventManager.h" />
-    <ClInclude Include="SDK\Interfaces\CGCClient.h" />
+    <ClInclude Include="SDK\Interfaces\GC\CEconItem.h" />
+    <ClInclude Include="SDK\Interfaces\GC\CGCClient.h" />
     <ClInclude Include="SDK\Interfaces\CInputService.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="DebugFunctions.h" />
     <ClInclude Include="SDK\Interfaces\CResourceSystem.h" />
+    <ClInclude Include="SDK\Interfaces\GC\ItemSchema.h" />
     <ClInclude Include="SDK\Interfaces\ISteamClient.h" />
     <ClInclude Include="SDK\Protobufs\dota_gcmessages_common.pb.h" />
     <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h" />

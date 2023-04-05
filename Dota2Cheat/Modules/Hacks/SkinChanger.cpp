@@ -1,5 +1,33 @@
 #include "SkinChanger.h"
 
+void Hacks::SkinChanger::ParseItemDefs(std::istream& stream) {
+	using namespace nlohmann;
+	json data = json::parse(stream);
+	for (auto& pair: data["items"].items()) {
+		int defIdx = pair.value().get<int>();
+		QueueAddItem(defIdx);
+	}
+
+}
+
+// structure reversed from CEconItem::IsStyleUnlocked
+// xref: "unlocked styles"
+void Hacks::SkinChanger::UnlockAllStyles(CEconItem* pItem) {
+	using namespace Signatures;
+	auto itemSchema = GetItemSchema();
+	auto itemDef = CDOTAItemSchema::GetItemDefByIndex(itemSchema, pItem->m_unDefIndex);
+	auto styles = itemDef->GetAssetModifierContainer()->GetStyles();
+
+	if (!styles)
+		return;
+
+	for (auto style : *styles) {
+		style->Field<uintptr_t>(0x50) =
+			style->Field<uintptr_t>(0x40) =
+			style->Field<uint32_t>(0x30) = 0;
+	}
+}
+
 bool Hacks::SkinChanger::AddItem(uint32_t unDefIndex) {
 	auto inv = Interfaces::GCClient->GetSOListeners()[1];
 	auto soid = inv->GetSOCache()->GetOwner();

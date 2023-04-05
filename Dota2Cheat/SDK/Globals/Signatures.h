@@ -8,7 +8,11 @@
 #include "../Protobufs/dota_commonmessages.pb.h"
 #include "../GameSystems/CDOTAParticleManager.h"
 #include "../GameSystems/C_DOTAGameRules.h"
-#include "../Interfaces/CGCClient.h"
+
+#include "../Interfaces/GC/CGCClient.h"
+#include "../Interfaces/GC/ItemSchema.h"
+#include "../Interfaces/GC/CEconItem.h"
+
 #include "../Interfaces/Network/CNetworkMessages.h"
 #include "../Entities/CDOTABaseAbility.h"
 
@@ -16,9 +20,7 @@ class CDOTAPlayerController;
 class CDOTAModifier;
 
 namespace Signatures {
-	inline VClass* (*GetItemSchema)() = nullptr;
-	inline CDOTAItemDefinition* (*GetItemDefByIndex)(VClass* itemSchema, uint32_t index) = nullptr;
-
+	inline CDOTAItemSchema* (*GetItemSchema)() = nullptr;
 
 	inline CEconItem* (*CreateEconItem)() = nullptr;
 
