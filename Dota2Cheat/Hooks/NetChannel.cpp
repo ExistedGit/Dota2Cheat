@@ -33,16 +33,27 @@ bool Hooks::hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandle
 
 			if (equippedItem && equippedItem != item)
 				Modules::SkinChanger.Unequip(equippedItem);
-			
+
 			if (item) {
 #ifdef _DEBUG
+				auto itemSchema = Signatures::GetItemSchema();
+
+				auto itemDef = CDOTAItemSchema::GetItemDefByIndex(itemSchema, item->m_unDefIndex);
 				std::cout << std::format("Equipping {}. Class: {}; Slot: {} | ItemDef: {}\n",
 					(void*)item,
 					equip.new_class(),
 					equip.new_slot(),
-					(void*)CDOTAItemSchema::GetItemDefByIndex(Signatures::GetItemSchema(), item->m_unDefIndex)
+					(void*)itemDef
 				);
 #endif // _DEBUG
+				//for (auto& defaultItem : Modules::SkinChanger.DefaultItems) {
+				//	auto defaultItemDef = itemSchema->GetItemDefByIndexRef(defaultItem.unDefIndex);
+				//	if (defaultItem.unClass == equip.new_class() &&
+				//		defaultItem.szSlot == itemDef->GetSlot()) {
+				//		*defaultItemDef = itemDef;
+				//	}
+				//}
+
 				Modules::SkinChanger.Equip(item, equip.new_class(), equip.new_slot());
 				return false;
 			}

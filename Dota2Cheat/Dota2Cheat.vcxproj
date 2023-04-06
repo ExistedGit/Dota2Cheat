@@ -308,6 +308,7 @@
     <ClInclude Include="SDK\Entities\CDOTAModifier.h" />
     <ClInclude Include="SDK\Entities\CDOTAModifierManager.h" />
     <ClInclude Include="SDK\Entities\CDOTAPlayerController.h" />
+    <ClInclude Include="SDK\GameSystems\CDOTARichPresence.h" />
     <ClInclude Include="SDK\GameSystems\C_DOTAGameRules.h" />
     <ClInclude Include="SDK\GameSystems\C_DOTA_PlayerResource.h" />
     <ClInclude Include="SDK\GameSystems\C_DOTA_ProjectileManager.h" />

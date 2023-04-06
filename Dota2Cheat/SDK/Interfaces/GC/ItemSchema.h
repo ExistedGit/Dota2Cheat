@@ -24,20 +24,33 @@ public:
 
 	GETTER(CEconItemSetDefinition*, GetItemSetDef, 0xA0);
 	GETTER(CAssetModifierContainer*, GetAssetModifierContainer, 0xA8);
-	// Returns the slot's index + 1
-	GETTER(uint32_t, GetSlot, 0x188);
-	GETTER(uint32_t, GetClass, 0x18C);
+	GETTER(const char*, GetPrefab, 0x8);
+	GETTER(const char*, GetHero, 0x1b0);
+	GETTER(const char*, GetSlot, 0x1b8);
+
+	GETTER(uint16_t, GetClass, 0x18C);
 };
 
 struct ItemDefNode {
 	uint32_t unDefIndex, unk0;
 	CDOTAItemDefinition* itemDef;
-	uintptr_t unk1;
+	int unk1, unk2;
 };
 
 class CDOTAItemSchema : public VClass {
 public:
 	inline static CDOTAItemDefinition* (*GetItemDefByIndex)(VClass* itemSchema, uint32_t index) = nullptr;
+	inline static int(*GetItemDefArrIdx)(int* arr, uint32_t* unDefIndex) = nullptr;
 
-	GETTER(CUtlVector<ItemDefNode>, GetItemDefinitions, 0x48);
+	GETTER(ItemDefNode*, GetItemDefinitions, 0x50);
+	// Rebuilt from GetItemDefByIndex
+	CDOTAItemDefinition** GetItemDefByIndexRef(uint32_t unDefIndex) {
+		auto index = GetItemDefArrIdx(MemberInline<int>(0x20), &unDefIndex);
+		if (index < 0 || index >= Member<int>(0x68))
+			return nullptr;
+		auto itemDefs = GetItemDefinitions();
+		return itemDefs[index].unk1 < -1
+			? nullptr
+			: &itemDefs[index].itemDef;
+	}
 };

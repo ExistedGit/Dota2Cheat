@@ -437,7 +437,7 @@ void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, ImVec2 pos) {
 	DrawTextForeground(textFont, std::to_string(lvl), ImVec2(pos.x, pos.y - (counterScale - 4) / 2), counterScale - 4, clrLvlOutline, true, false);
 }
 
-void ESP::AbilityESP::DrawChargeCounter(int charges, ImVec2 pos, int radius) {
+void ESP::AbilityESP::DrawChargeCounter(int charges, const ImVec2& pos, int radius) {
 	auto DrawList = ImGui::GetForegroundDrawList();
 
 	// Green outline

@@ -8,6 +8,7 @@
 #include "../Protobufs/dota_commonmessages.pb.h"
 #include "../GameSystems/CDOTAParticleManager.h"
 #include "../GameSystems/C_DOTAGameRules.h"
+#include "../GameSystems/CDOTARichPresence.h"
 
 #include "../Interfaces/GC/CGCClient.h"
 #include "../Interfaces/GC/ItemSchema.h"

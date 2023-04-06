@@ -7,6 +7,15 @@ void Hacks::SkinChanger::ParseItemDefs(std::istream& stream) {
 		int defIdx = pair.value().get<int>();
 		QueueAddItem(defIdx);
 	}
+	//for (auto& pair: data["default_items"].items()) {
+	//	uint32_t defIdx = pair.value().get<uint32_t>();
+	//	auto itemDef = CDOTAItemSchema::GetItemDefByIndex(Signatures::GetItemSchema(), defIdx);
+	//	DefaultItems.push_back(ItemData{
+	//		.unDefIndex = defIdx,
+	//		.unClass = itemDef->GetClass(),
+	//		.szSlot = itemDef->GetSlot()
+	//		});
+	//}
 
 }
 

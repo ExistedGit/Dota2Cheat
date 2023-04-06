@@ -30,7 +30,7 @@ void Signatures::FindSignatures(bool log) {
 	SCAN_FUNC(CDOTAGameRules::GetGameTimeFunc, ssctx.Scan("E8 ? ? ? ? 8B 04 2E", L"client.dll").GetAbsoluteAddress(1, 5));
 
 	// UnknownCheats wiki -> Dota 2 -> link to Using engine functions
-	SCAN_FUNC(WorldToScreen, ssctx.Scan("E8 ? ? ? ? 83 7D B7 00", L"client.dll").GetAbsoluteAddress(1,5));
+	SCAN_FUNC(WorldToScreen, ssctx.Scan("E8 ? ? ? ? 83 7D B7 00", L"client.dll").GetAbsoluteAddress(1, 5));
 
 	// xref: "BuildCacheSubscribed(CEconItem)"
 	SCAN_FUNC(CreateEconItem, ssctx.Scan("48 83 EC ? B9 ? ? ? ? E8 ? ? ? ? 48 85 C0 74 ? 48 8D 0D", L"client.dll"));
@@ -46,6 +46,10 @@ void Signatures::FindSignatures(bool log) {
 	SCAN_FUNC(BAsyncSendProto, ssctx.Scan("E8 ? ? ? ? 48 8B 4D 90 48 89 7C 24", L"client.dll").GetAbsoluteAddress(1, 5));
 	SCAN_FUNC(GetItemSchema, ssctx.Scan("E8 ? ? ? ? 48 89 5D 18", L"client.dll").GetAbsoluteAddress(1, 5));
 	SCAN_FUNC(CDOTAItemSchema::GetItemDefByIndex, ssctx.Scan("E8 ? ? ? ? 83 FE 05", L"client.dll").GetAbsoluteAddress(1, 5));
+	SCAN_FUNC(CDOTAItemSchema::GetItemDefArrIdx, Address(CDOTAItemSchema::GetItemDefByIndex).Offset(0x16).GetAbsoluteAddress(1, 5));
+
+	//xref: "RP: Setting %s's status to %s (%s).\n"
+	SCAN_FUNC(CDOTARichPresence::SetRPStatusFunc, ssctx.Scan("4C 89 4C 24 20 55 53 57 41 54", L"client.dll"));
 
 	//xref: "#DOTA_GlobalItems_Emoticons"
 	//decompile in IDA

@@ -650,6 +650,9 @@
     <ClInclude Include="SDK\Interfaces\GC\ItemSchema.h">
       <Filter>Header files</Filter>
     </ClInclude>
+    <ClInclude Include="SDK\GameSystems\CDOTARichPresence.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hooks\InvalidateUEF.h">

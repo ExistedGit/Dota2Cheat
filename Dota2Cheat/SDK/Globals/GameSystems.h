@@ -2,13 +2,14 @@
 #include "../../include.h"
 #include "Interfaces.h"
 #include "Context.h"
+#include "../Base/Memory.h"
 
 #include "../GameSystems/C_DOTAGameRules.h"
 #include "../GameSystems/C_DOTA_PlayerResource.h"
 #include "../GameSystems/CDOTAParticleManager.h"
 #include "../GameSystems/C_DOTA_ProjectileManager.h"
 #include "../GameSystems/CGameEventManager.h"
-#include "../Base/Memory.h"
+#include "../GameSystems/CDOTARichPresence.h"
 
 
 namespace GameSystems {
@@ -26,6 +27,8 @@ namespace GameSystems {
 
 	inline C_DOTA_ProjectileManager** ProjectileManagerPtr{};
 	inline C_DOTA_ProjectileManager* ProjectileManager{};
+
+	inline CDOTARichPresence* RichPresence{};
 
 	inline CGameEventManager** GameEventManagerPtr{};
 	inline CGameEventManager* GameEventManager{};

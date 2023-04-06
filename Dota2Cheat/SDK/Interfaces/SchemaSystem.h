@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -43,8 +43,6 @@ struct MemberDescription {
 	int idk;
 	uintptr_t idk2;
 };
-
-// You can use these to update Netvars.h
 
 //inline void DumpClassMembers(ClassDescription* classDesc) {
 //	std::string className = classDesc->className;

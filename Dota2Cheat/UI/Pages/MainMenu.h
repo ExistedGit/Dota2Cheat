@@ -7,7 +7,7 @@ namespace Pages {
 	namespace MainMenu {
 
 		inline char scriptBuf[4096]{};
-		inline char addrBuf[4096]{};
+		inline char rpStatusBuf[32]{};
 		inline bool scriptMenuVisible = false;
 		inline bool circleMenuVisible = false;
 
@@ -64,6 +64,11 @@ namespace Pages {
 				ImGui::TreePop();
 			}
 			if (ImGui::CollapsingHeader("Changer")) {
+
+				//ImGui::InputText("Rich Presence status", rpStatusBuf, 32); ImGui::SameLine();
+				//if (ImGui::Button("Set status")) {
+				//	GameSystems::RichPresence->SetRPStatus(rpStatusBuf);
+				//};
 
 				ImGui::Checkbox("Unlock Dota Plus", &Config::Changer::UnlockDotaPlus);
 				ImGui::Checkbox("Unlock emoticons", &Config::Changer::UnlockEmoticons);

@@ -7,8 +7,14 @@
 namespace Hacks {
 	class SkinChanger {
 	public:
-		std::map<uint32_t, CEconItem*> FakeItems{};
-		std::map<uint16_t, std::map<uint16_t, CEconItem*>> EquippedItems{};
+		struct ItemData {
+			uint32_t unDefIndex;
+			uint16_t unClass;
+			std::string_view szSlot;
+		};
+		std::vector<ItemData> DefaultItems;
+		std::map<uint32_t, CEconItem*> FakeItems;
+		std::map<uint16_t, std::map<uint16_t, CEconItem*>> EquippedItems;
 
 		uint32_t itemIdCounter = 0x20000000,
 			invPosCounter = 0;
