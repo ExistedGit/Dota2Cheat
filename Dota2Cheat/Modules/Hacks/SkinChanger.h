@@ -1,19 +1,45 @@
 #pragma once
 #include "../SDK/pch.h"
+#include <json.hpp>
 
 // I mean, I tried
 // maybe someone else figures it out.
 namespace Hacks {
 	class SkinChanger {
 	public:
+		struct ItemData {
+			uint32_t unDefIndex;
+			uint16_t unClass;
+			std::string_view szSlot;
+		};
+		struct QueuedEquip {
+			uint16_t unClass, unSlot;
+		};
+		std::vector<ItemData> DefaultItems;
 		std::map<uint32_t, CEconItem*> FakeItems;
 		std::map<uint16_t, std::map<uint16_t, CEconItem*>> EquippedItems;
 
-		uint32_t itemIdCounter = 0xFFFF,
-			invPosCounter = 0xFFFF;
+		uint32_t itemIdCounter = 0x20000000,
+			invPosCounter = 0;
 
 		std::vector<uint32_t> itemsToCreate;
+		std::map<uint32_t, QueuedEquip> itemsToEquip;
+
 		bool ItemsCreated = false;
+		void DeleteSOCacheFiles() {
+			auto dotaPath = std::filesystem::current_path().string() + "\\..\\..\\dota\\";
+			if (std::filesystem::exists(dotaPath))
+				for (auto& file : std::filesystem::directory_iterator(dotaPath)) {
+					auto filePath = file.path().string();
+					if (filePath.substr(filePath.size() - 3) == "soc")
+						std::filesystem::remove(filePath);
+				}
+		}
+		void ParseItemDefs(std::istream& stream);
+
+		// structure reversed from CEconItem::IsStyleUnlocked
+		// xref: "unlocked styles"
+		void UnlockAllStyles(CEconItem* pItem);
 
 		// Call in main thread
 		void Equip(CEconItem* pItem, uint16_t unClass, uint16_t unSlot) {
@@ -21,17 +47,21 @@ namespace Hacks {
 
 			pItem->Class() = unClass;
 			pItem->Slot() = unSlot;
-			pItem->Flag() |= 0x100;
+			pItem->Flag() = 3;
 
 			SOUpdated(pItem);
 		}
 		// Call in main thread
 		void Unequip(CEconItem* pItem) {
-			EquippedItems[pItem->Class()][pItem->Slot()] = nullptr;
+			auto& classEquips = EquippedItems[pItem->Class()];
+
+			classEquips.erase(pItem->Slot());
+			if (classEquips.size() == 0)
+				EquippedItems.erase(pItem->Class());
 
 			pItem->Class() = 0;
 			pItem->Slot() = static_cast<uint16_t>(-1);
-			pItem->Flag() ^= 0x100;
+			pItem->Flag() = 2;
 
 			SOUpdated(pItem);
 		}
@@ -50,5 +80,5 @@ namespace Hacks {
 	};
 }
 namespace Modules {
-	inline Hacks::SkinChanger SkinChanger;
+	inline Hacks::SkinChanger SkinChanger{};
 }

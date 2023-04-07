@@ -1,11 +1,9 @@
 #pragma once
 #include "SDK/Base/Vector.h"
 #include <fstream>
-#include "json.hpp"
+#include <json.hpp>
 
 namespace Config {
-
-
 	class ConfigManager {
 	public:
 		enum class ConfigVarType {
@@ -29,6 +27,9 @@ namespace Config {
 
 		void SaveConfig(std::ofstream& stream);
 		void LoadConfig(std::ifstream& stream);
+		void SaveEquippedItems(std::ofstream& stream);;
+		void LoadEquippedItems(std::ifstream& stream);;
+
 		void SetupVars();
 	};
 

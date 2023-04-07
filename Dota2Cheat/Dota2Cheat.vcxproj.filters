@@ -186,7 +186,7 @@
     <ClCompile Include="Modules\Hacks\IllusionColoring.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
-    <ClCompile Include="SDK\Interfaces\CGCClient.cpp">
+    <ClCompile Include="SDK\Interfaces\GC\CGCClient.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
     <ClCompile Include="SDK\Interfaces\CVarSystem.cpp">
@@ -282,6 +282,9 @@
     <ClCompile Include="Modules\Hacks\AutoHeal.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="include\imgui\imgui_stdlib.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h">
@@ -365,7 +368,7 @@
     <ClInclude Include="DebugFunctions.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\Interfaces\CGCClient.h">
+    <ClInclude Include="SDK\Interfaces\GC\CGCClient.h">
       <Filter>Header files\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="Modules\Hacks\AegisAutoPickup.h">
@@ -605,7 +608,7 @@
     <ClInclude Include="Modules\Utility\AttackAnimTracker.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="json.hpp">
+    <ClInclude Include="include\json.hpp">
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="Modules\Utility\TPTracker.h">
@@ -642,6 +645,18 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="SDK\Interfaces\ISteamClient.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Interfaces\GC\CEconItem.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Interfaces\GC\ItemSchema.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\GameSystems\CDOTARichPresence.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\imgui\imgui_stdlib.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>

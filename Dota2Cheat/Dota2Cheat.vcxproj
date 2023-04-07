@@ -192,6 +192,7 @@
     <ClCompile Include="Hooks\RunFrame.cpp" />
     <ClCompile Include="Hooks\SteamGC.cpp" />
     <ClCompile Include="ImGuiSDK\Elements.cpp" />
+    <ClCompile Include="include\imgui\imgui_stdlib.cpp" />
     <ClCompile Include="Lua\LuaInitialization.cpp" />
     <ClCompile Include="MatchStateHandling.cpp" />
     <ClCompile Include="Modules\Hacks\AegisAutoPickup.cpp" />
@@ -236,7 +237,7 @@
     <ClCompile Include="SDK\Globals\GameSystems.cpp" />
     <ClCompile Include="SDK\Globals\Interfaces.cpp" />
     <ClCompile Include="SDK\Globals\Signatures.cpp" />
-    <ClCompile Include="SDK\Interfaces\CGCClient.cpp" />
+    <ClCompile Include="SDK\Interfaces\GC\CGCClient.cpp" />
     <ClCompile Include="SDK\Interfaces\CVarSystem.cpp" />
     <ClCompile Include="SDK\Base\SigScan\patterscan.cpp" />
     <ClCompile Include="SDK\pch.cpp">
@@ -272,7 +273,8 @@
     <ClInclude Include="Hooks\SteamGC.h" />
     <ClInclude Include="ImGuiSDK\Elements.h" />
     <ClInclude Include="include.h" />
-    <ClInclude Include="json.hpp" />
+    <ClInclude Include="include\imgui\imgui_stdlib.h" />
+    <ClInclude Include="include\json.hpp" />
     <ClInclude Include="Modules\Hacks\AbilityESP.h" />
     <ClInclude Include="Modules\Hacks\AegisAutoPickup.h" />
     <ClInclude Include="Modules\Hacks\ArmletAbuse.h" />
@@ -308,6 +310,7 @@
     <ClInclude Include="SDK\Entities\CDOTAModifier.h" />
     <ClInclude Include="SDK\Entities\CDOTAModifierManager.h" />
     <ClInclude Include="SDK\Entities\CDOTAPlayerController.h" />
+    <ClInclude Include="SDK\GameSystems\CDOTARichPresence.h" />
     <ClInclude Include="SDK\GameSystems\C_DOTAGameRules.h" />
     <ClInclude Include="SDK\GameSystems\C_DOTA_PlayerResource.h" />
     <ClInclude Include="SDK\GameSystems\C_DOTA_ProjectileManager.h" />
@@ -316,11 +319,13 @@
     <ClInclude Include="SDK\GameSystems\CDOTAParticleManager.h" />
     <ClInclude Include="SDK\Interfaces\CGameEntitySystem.h" />
     <ClInclude Include="SDK\GameSystems\CGameEventManager.h" />
-    <ClInclude Include="SDK\Interfaces\CGCClient.h" />
+    <ClInclude Include="SDK\Interfaces\GC\CEconItem.h" />
+    <ClInclude Include="SDK\Interfaces\GC\CGCClient.h" />
     <ClInclude Include="SDK\Interfaces\CInputService.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="DebugFunctions.h" />
     <ClInclude Include="SDK\Interfaces\CResourceSystem.h" />
+    <ClInclude Include="SDK\Interfaces\GC\ItemSchema.h" />
     <ClInclude Include="SDK\Interfaces\ISteamClient.h" />
     <ClInclude Include="SDK\Protobufs\dota_gcmessages_common.pb.h" />
     <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h" />

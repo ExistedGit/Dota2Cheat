@@ -34,7 +34,7 @@ void Hacks::AutoDodge::FrameBasedLogic() {
 			(
 				usedItem == ctx.importantItems.bottle && // if we can use bottle
 				usedItem->Member<DotaRunes>(Netvars::C_DOTA_Item_EmptyBottle::m_iStoredRuneType) != DotaRunes::ILLUSION // and it has no illusion rune
-				&& !((usedItem = ctx.importantItems.manta) && // and if we can't use manta
+				&& !((usedItem = ctx.importantItems.manta) && // and if we don't have manta
 					usedItem->GetCooldown() == 0) // or it's on cooldown
 				)
 			)

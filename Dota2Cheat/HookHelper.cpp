@@ -3,7 +3,6 @@
 
 // these hooks are removed when not in-game
 #define HOOKFUNC_INGAME(func) HOOKFUNC(func); hooks.insert(func);
-#define HOOKFUNC_SIGNATURES_INGAME(func) HOOKFUNC_SIGNATURES(func); hooks.insert(Signatures::func);
 
 void Hooks::SetUpByteHooks() {
 	HOOKFUNC_SIGNATURES(PrepareUnitOrders);
@@ -11,6 +10,7 @@ void Hooks::SetUpByteHooks() {
 
 	HOOKFUNC_SIGNATURES(DispatchPacket);
 	HOOKFUNC_SIGNATURES(BAsyncSendProto);
+	HOOKFUNC_SIGNATURES(SaveSerializedSOCache);
 	//HOOKFUNC_SIGNATURES_INGAME(CreateParticleCollection);
 }
 
@@ -50,8 +50,6 @@ void Hooks::SetUpVirtualHooks(bool log) {
 		void* OnAddEntity = vmt.GetVM<EntSystemEvent>(14), * OnRemoveEntity = vmt.GetVM<EntSystemEvent>(15);
 		HOOKFUNC(OnAddEntity);
 		HOOKFUNC(OnRemoveEntity);
-	}
-	{
 	}
 	{
 		void* RunScript = Interfaces::UIEngine->GetVFunc(88).ptr,

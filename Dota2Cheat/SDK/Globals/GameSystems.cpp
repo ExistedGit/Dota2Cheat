@@ -10,6 +10,12 @@ void GameSystems::FindGameSystems() {
 	GameEventManagerPtr = Address(Interfaces::Client->GetVFunc(3).ptr).Offset(0x106).GetAbsoluteAddress(3, 7);
 	std::cout << "GameEventManagerPtr: " << GameEventManagerPtr << '\n';
 
+	// CSource2Client::NotifySignon
+	RichPresence = Address(Interfaces::Client->GetVFunc(47).ptr)
+		.Offset(0x23)
+		.GetAbsoluteAddress(1,5)
+		.GetAbsoluteAddress(3, 7);
+
 	//xref: "Usage: watch_server steamid\n"
 	//GCClientSystem =
 	//	ssctx.Scan(
@@ -46,5 +52,6 @@ void GameSystems::LogGameSystems() {
 	std::cout << "[GLOBALS]\n";
 	std::cout << "GameRules: " << GameRules << '\n';
 	std::cout << "Projectile Manager:" << ProjectileManager << '\n';
-	std::cout << "Particle Manager: " << ParticleManager << ' ' << ParticleManager->GetVFunc(9).ptr << "\n";
+	std::cout << "CDOTARichPresence:" << RichPresence << '\n';
+	std::cout << "Particle Manager: " << ParticleManager << ' ' << ParticleManager->GetVFunc(VTableIndexes::CDOTAParticleManager::CreateParticle).ptr << "\n";
 }

@@ -7,7 +7,7 @@ namespace Pages {
 	namespace MainMenu {
 
 		inline char scriptBuf[4096]{};
-		inline char addrBuf[4096]{};
+		inline std::string rpStatusBuf;
 		inline bool scriptMenuVisible = false;
 		inline bool circleMenuVisible = false;
 
@@ -64,6 +64,11 @@ namespace Pages {
 				ImGui::TreePop();
 			}
 			if (ImGui::CollapsingHeader("Changer")) {
+
+				ImGui::InputText("Rich Presence status", &rpStatusBuf);
+				if (ImGui::Button("Apply status"))
+					GameSystems::RichPresence->SetRPStatus(rpStatusBuf.c_str());
+				
 
 				ImGui::Checkbox("Unlock Dota Plus", &Config::Changer::UnlockDotaPlus);
 				ImGui::Checkbox("Unlock emoticons", &Config::Changer::UnlockEmoticons);
