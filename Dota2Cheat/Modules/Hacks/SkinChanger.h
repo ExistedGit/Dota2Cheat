@@ -12,6 +12,9 @@ namespace Hacks {
 			uint16_t unClass;
 			std::string_view szSlot;
 		};
+		struct QueuedEquip {
+			uint16_t unClass, unSlot;
+		};
 		std::vector<ItemData> DefaultItems;
 		std::map<uint32_t, CEconItem*> FakeItems;
 		std::map<uint16_t, std::map<uint16_t, CEconItem*>> EquippedItems;
@@ -20,8 +23,18 @@ namespace Hacks {
 			invPosCounter = 0;
 
 		std::vector<uint32_t> itemsToCreate;
-		bool ItemsCreated = false;
+		std::map<uint32_t, QueuedEquip> itemsToEquip;
 
+		bool ItemsCreated = false;
+		void DeleteSOCacheFiles() {
+			auto dotaPath = std::filesystem::current_path().string() + "\\..\\..\\dota\\";
+			if (std::filesystem::exists(dotaPath))
+				for (auto& file : std::filesystem::directory_iterator(dotaPath)) {
+					auto filePath = file.path().string();
+					if (filePath.substr(filePath.size() - 3) == "soc")
+						std::filesystem::remove(filePath);
+				}
+		}
 		void ParseItemDefs(std::istream& stream);
 
 		// structure reversed from CEconItem::IsStyleUnlocked
@@ -40,7 +53,11 @@ namespace Hacks {
 		}
 		// Call in main thread
 		void Unequip(CEconItem* pItem) {
-			EquippedItems[pItem->Class()][pItem->Slot()] = nullptr;
+			auto& classEquips = EquippedItems[pItem->Class()];
+
+			classEquips.erase(pItem->Slot());
+			if (classEquips.size() == 0)
+				EquippedItems.erase(pItem->Class());
 
 			pItem->Class() = 0;
 			pItem->Slot() = static_cast<uint16_t>(-1);

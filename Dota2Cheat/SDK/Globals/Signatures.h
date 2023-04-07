@@ -28,6 +28,9 @@ namespace Signatures {
 	typedef void(__fastcall* BIsEmoticonUnlockedFn)(void* thisptr, uint32_t unk);
 	inline BIsEmoticonUnlockedFn BIsEmoticonUnlocked{};
 
+	typedef void* (__fastcall* SaveSerializedSOCacheFn)(void* thisptr);
+	inline SaveSerializedSOCacheFn SaveSerializedSOCache{};
+
 	typedef void(__fastcall* CMsgFn)(const char* format, ...);
 	typedef void(__fastcall* ColorMsgFn)(Color* color, const char* format, ...);
 

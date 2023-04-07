@@ -192,6 +192,7 @@
     <ClCompile Include="Hooks\RunFrame.cpp" />
     <ClCompile Include="Hooks\SteamGC.cpp" />
     <ClCompile Include="ImGuiSDK\Elements.cpp" />
+    <ClCompile Include="include\imgui\imgui_stdlib.cpp" />
     <ClCompile Include="Lua\LuaInitialization.cpp" />
     <ClCompile Include="MatchStateHandling.cpp" />
     <ClCompile Include="Modules\Hacks\AegisAutoPickup.cpp" />
@@ -272,6 +273,7 @@
     <ClInclude Include="Hooks\SteamGC.h" />
     <ClInclude Include="ImGuiSDK\Elements.h" />
     <ClInclude Include="include.h" />
+    <ClInclude Include="include\imgui\imgui_stdlib.h" />
     <ClInclude Include="include\json.hpp" />
     <ClInclude Include="Modules\Hacks\AbilityESP.h" />
     <ClInclude Include="Modules\Hacks\AegisAutoPickup.h" />

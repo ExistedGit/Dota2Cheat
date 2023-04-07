@@ -3,7 +3,7 @@
 
 class CDOTARichPresence :public VClass {
 public:
-	static inline void(*SetRPStatusFunc)(CDOTARichPresence* thisptr, const char* status, int unk, void* unk1);
+	static inline void(*SetRPStatusFunc)(CDOTARichPresence* thisptr, const char* status, int unk, void* unk1) = nullptr;
 	void SetRPStatus(const char* status) {
 		SetRPStatusFunc(this, status, 0, nullptr);
 	}

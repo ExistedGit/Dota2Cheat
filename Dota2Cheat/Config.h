@@ -27,6 +27,9 @@ namespace Config {
 
 		void SaveConfig(std::ofstream& stream);
 		void LoadConfig(std::ifstream& stream);
+		void SaveEquippedItems(std::ofstream& stream);;
+		void LoadEquippedItems(std::ifstream& stream);;
+
 		void SetupVars();
 	};
 

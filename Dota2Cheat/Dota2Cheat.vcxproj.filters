@@ -282,6 +282,9 @@
     <ClCompile Include="Modules\Hacks\AutoHeal.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="include\imgui\imgui_stdlib.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h">
@@ -651,6 +654,9 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="SDK\GameSystems\CDOTARichPresence.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\imgui\imgui_stdlib.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>

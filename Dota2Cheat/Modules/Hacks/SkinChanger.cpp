@@ -53,5 +53,11 @@ bool Hacks::SkinChanger::AddItem(uint32_t unDefIndex) {
 	bool result = inv->GetSOCache()->AddObject(item);
 	inv->SOCreated(&soid, item, eSOCacheEvent_Incremental);
 	FakeItems[item->m_ulID] = item;
+
+	if (Modules::SkinChanger.itemsToEquip.contains(unDefIndex)) {
+		auto equip = Modules::SkinChanger.itemsToEquip.at(unDefIndex);
+		Modules::SkinChanger.Equip(item, equip.unClass, equip.unSlot);
+	}
+
 	return result;
 }

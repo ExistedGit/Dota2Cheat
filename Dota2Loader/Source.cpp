@@ -105,7 +105,7 @@ int main() {
 		}
 		cout << "Updated scripts\n";
 
-		cout << "Successfully updated resources in" << cheatFolderPath << '\n';
+		cout << "Successfully updated resources in " << cheatFolderPath << '\n';
 	}
 
 	cout << "Attaching to dota2.exe...\n";

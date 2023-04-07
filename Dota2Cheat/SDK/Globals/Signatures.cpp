@@ -51,6 +51,9 @@ void Signatures::FindSignatures(bool log) {
 	//xref: "RP: Setting %s's status to %s (%s).\n"
 	SCAN_FUNC(CDOTARichPresence::SetRPStatusFunc, ssctx.Scan("4C 89 4C 24 20 55 53 57 41 54", L"client.dll"));
 
+	//xref: "cache_%u_%u.soc", closest to the beginning
+	SCAN_FUNC(SaveSerializedSOCache, ssctx.Scan("4C 8B DC 57 48 81 EC ? ? ? ? 48 8B 05", L"client.dll"));
+
 	//xref: "#DOTA_GlobalItems_Emoticons"
 	//decompile in IDA
 	//in the middle, 240 lines in is:

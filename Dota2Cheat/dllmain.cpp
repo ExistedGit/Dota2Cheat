@@ -51,14 +51,24 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		SHGetSpecialFolderPathA(0, buf, CSIDL_PROFILE, false);
 		ctx.cheatFolderPath = buf;
 		ctx.cheatFolderPath += "\\Documents\\Dota2Cheat";
-
-		std::ifstream fin(ctx.cheatFolderPath + "\\config\\base.json");
-		if (fin.is_open()) {
-			Config::cfg.LoadConfig(fin);
-			fin.close();
-			std::cout << "Loaded config from " << ctx.cheatFolderPath + "\\config\\base.json\n";
+		{
+			std::ifstream fin(ctx.cheatFolderPath + "\\config\\base.json");
+			if (fin.is_open()) {
+				Config::cfg.LoadConfig(fin);
+				fin.close();
+				std::cout << "Loaded config from " << ctx.cheatFolderPath + "\\config\\base.json\n";
+			}
+		}
+		{
+			std::ifstream fin(ctx.cheatFolderPath + "\\config\\inventory.json");
+			if (fin.is_open()) {
+				Config::cfg.LoadEquippedItems(fin);
+				fin.close();
+				std::cout << "Loaded inventory from " << ctx.cheatFolderPath + "\\config\\inventory.json\n";
+			}
 		}
 
+		Modules::SkinChanger.DeleteSOCacheFiles();
 	}
 	ctx.CurProcId = GetCurrentProcessId();
 	ctx.CurProcHandle = OpenProcess(PROCESS_ALL_ACCESS, TRUE, ctx.CurProcId);
@@ -66,12 +76,11 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	ctx.lua.open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::math);
 
 	ctx.lua.script("print(\"works!\")");
+
 	Interfaces::FindInterfaces();
 
-
 	auto iconLoadThread = std::async(std::launch::async, []() {
-		auto hFile = Interfaces::FileSystem->OpenFile("scripts/items/items_game.txt", "r");
-	Pages::AutoPickHeroGrid::InitList();
+		Pages::AutoPickHeroGrid::InitList();
 		});
 
 	Interfaces::CVar->DumpConVarsToMap();
@@ -195,7 +204,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		ImGui::InputInt("ItemDef ID", &itemDefId);
 		if (ImGui::Button("Create item"))
 			Modules::SkinChanger.QueueAddItem(itemDefId);
-
 #endif // _DEBUG
 
 		ImGui::PopFont();
@@ -212,10 +220,17 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 		CheckMatchState(); // checking every frame
 	}
+	{
 
-	std::ofstream fout(ctx.cheatFolderPath + "\\config\\base.json");
-	Config::cfg.SaveConfig(fout);
-	fout.close();
+		std::ofstream fout(ctx.cheatFolderPath + "\\config\\base.json");
+		Config::cfg.SaveConfig(fout);
+		fout.close();
+	}
+	{
+		std::ofstream fout(ctx.cheatFolderPath + "\\config\\inventory.json");
+		Config::cfg.SaveEquippedItems(fout);
+		fout.close();
+	}
 
 	// Cleanup
 	ImGui_ImplOpenGL3_Shutdown();
