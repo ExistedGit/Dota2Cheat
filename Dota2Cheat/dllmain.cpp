@@ -92,8 +92,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	GameSystems::FindGameSystems();
 
-#ifdef _DEBUG
-	{
 		std::ifstream fin(ctx.cheatFolderPath + "\\assets\\itemdefs.txt");
 		if (fin.is_open())
 		{
@@ -101,7 +99,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			fin.close();
 		}
 	}
-#endif
 	std::cout << "ItemSchema: " << Signatures::GetItemSchema() << "\n";
 
 	Hooks::SetUpByteHooks();
