@@ -90,7 +90,14 @@ This list is subject to frequent change as I'm testing new features
   * River painting
   * Unlocks emoticons
   * Dota Plus Unlocker
-  
+  * Partial skinchanger:
+   * Music
+   * Cursor packs
+   * Announcers
+   * Kill streak effects
+   * Terrain
+   * HUD skins
+   
 I intend to implement most of the usual cheat functionality
 
 # For Developers
