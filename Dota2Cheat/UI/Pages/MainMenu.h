@@ -19,9 +19,6 @@ namespace Pages {
 			if (ImGui::Button("Scripting"))
 				scriptMenuVisible = !scriptMenuVisible;
 
-			//ImGui::End();
-
-
 			if (scriptMenuVisible) {
 
 				ImGui::Begin("Scripting");
@@ -33,7 +30,6 @@ namespace Pages {
 			}
 #ifdef _DEBUG
 			ImGui::Begin("Debug functions", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
-
 
 			if (ImGui::Button("Log Entities")) {
 				LogEntities();
@@ -52,8 +48,6 @@ namespace Pages {
 
 			ImGui::End();
 #endif // _DEBUG
-
-
 
 			if (ImGui::Button("Circle drawing"))
 				circleMenuVisible = !circleMenuVisible;
@@ -146,6 +140,10 @@ namespace Pages {
 				ImGui::Checkbox("Enabled", &Config::AutoMidas::Enabled);
 				ImGui::SliderInt("XP Treshold", &Config::AutoMidas::XPTreshold, 40, 90);
 				ImGui::TreePop();
+			}
+			if (ImGui::TreeNode("Mana/HP Abuse")) {
+				ImGui::Text("Drops items that add stats before using items that give mana/HP");
+				ImGui::Checkbox("Enabled", &Config::ManaAbuse::Enabled);
 			}
 
 			ImGui::Checkbox("AutoDodge", &Config::AutoDodge::Enabled);

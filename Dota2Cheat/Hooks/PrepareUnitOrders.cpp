@@ -1,6 +1,6 @@
 #include "PrepareUnitOrders.h"
 
-void Hooks::ChangeItemStatTo(CDOTAItem* item, ItemStat_t stat, CDOTAPlayerController* player, CBaseEntity* issuer) {
+void Hooks::ChangeItemStatTo(CDOTAItem* item, ItemStat stat, CDOTAPlayerController* player, CBaseEntity* issuer) {
 	if (!item || item->GetItemStat() == stat)
 		return;
 	int diff = (int)stat - (int)item->GetItemStat();
@@ -53,14 +53,22 @@ void Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t o
 			break;
 		}
 		case DOTA_UNIT_ORDER_CAST_NO_TARGET: {
+			if (!Config::ManaAbuse::Enabled)
+				break;
+
 			//Automatic mana & HP abuse with items like Arcane Boots or Faerie Fire
 			static std::vector<const char*> filters = {
-				"item_arcane_boots", "item_enchanted_mango",
+				"item_arcane_boots",
+				"item_enchanted_mango",
 				"item_guardian_greaves",
 				"item_magic_stick",
 				"item_magic_wand",
 				"item_holy_locket",
-				"item_soul_ring", "item_cheese", "item_arcane_ring", "item_faerie_fire", "item_greater_faerie_fire"
+				"item_soul_ring",
+				"item_cheese",
+				"item_arcane_ring",
+				"item_faerie_fire",
+				"item_greater_faerie_fire"
 			};
 			static std::vector<const char*> bonusTypes = {
 				"bonus_int",
@@ -71,8 +79,6 @@ void Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t o
 				"bonus_mana",
 				"bonus_health"
 			};
-			if (issuer == nullptr)
-				issuer = player->GetAssignedHero();
 
 			if (!TestStringFilters(
 				Interfaces::EntitySystem
@@ -85,27 +91,27 @@ void Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t o
 			CDOTABaseNPC* npc = (CDOTABaseNPC*)issuer;
 			bool callPickup = false;
 
-			std::map<CDOTAItem*, ItemStat_t> origItemStats{
+			std::map<CDOTAItem*, ItemStat> origItemStats{
 			};
 			if (ctx.importantItems.power_treads) {
-
 				origItemStats[ctx.importantItems.power_treads] = ctx.importantItems.power_treads->GetItemStat();
-				ChangeItemStatTo(ctx.importantItems.power_treads, ItemStat_t::AGILITY, player, issuer);
+				ChangeItemStatTo(ctx.importantItems.power_treads, ItemStat::AGILITY, player, issuer);
 				callPickup = true;
 			}
 			if (ctx.importantItems.vambrace) {
-
 				origItemStats[ctx.importantItems.vambrace] = ctx.importantItems.vambrace->GetItemStat();
-				ChangeItemStatTo(ctx.importantItems.vambrace, ItemStat_t::AGILITY, player, issuer);
+				ChangeItemStatTo(ctx.importantItems.vambrace, ItemStat::AGILITY, player, issuer);
 				callPickup = true;
 			}
 
 			auto items = npc->GetItems();
+
+			//Dropping items
 			for (auto& item : items) {
 				if (!item) continue;
 				auto itemSlot = npc->GetInventory()->GetItemSlot(item->GetHandle());
 				if (
-					item->GetIndex() == abilityIndex                   // must not be the item we're using
+					item->GetIndex() == abilityIndex // must not be the item we're using
 					||
 					(
 						itemSlot > 5 && // must not be in the backpack
@@ -129,7 +135,7 @@ void Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t o
 				}
 			}
 			if (callPickup) {
-				// Multhithreading magic ?who knows when the hero finishes dropping the items?
+				// Multhithreading magic — who knows when the hero finishes dropping the items?
 				manaAbusePickup = std::async(std::launch::async, [&, origItemStats, player, issuer]() mutable {
 					Sleep(300);
 				for (auto& [item, stat] : origItemStats)

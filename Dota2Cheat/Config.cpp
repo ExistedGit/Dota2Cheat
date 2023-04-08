@@ -92,6 +92,7 @@ void Config::ConfigManager::SetupVars() {
 	cfg.AddVar(BOOL, &IllusionColoring::Enabled, false, "IllusionColoring.Enabled");
 	cfg.AddVar(VECTOR, &IllusionColoring::Color, { 1,0,0 }, "IllusionColoring.Color");
 
+	cfg.AddVar(BOOL, &ManaAbuse::Enabled, false, "ManaAbuse.Enabled");
 
 	cfg.AddVar(BOOL, &AutoAccept::Enabled, true, "AutoAccept.Enabled");
 	cfg.AddVar(INT, &AutoAccept::Delay, 1, "AutoAccept.Delay");
