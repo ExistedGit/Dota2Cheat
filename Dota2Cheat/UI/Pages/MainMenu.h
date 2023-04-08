@@ -155,6 +155,9 @@ namespace Pages {
 			ImGui::Checkbox("Show enemy projectile trajectory", &Config::WarnLinearProjectiles);
 			ImGui::SameLine(); HelpMarker("Draws a red line for things like Mirana's arrow");
 
+			ImGui::Checkbox("Prevent bad casts", &Config::BadCastPrevention);
+			ImGui::SameLine(); HelpMarker("Detect if there are enemy heroes within range of some AOE skills to prevent bad casts. e.g, Chronosphere, Black hole, Reverse polarity, etc.");
+
 			ImGui::Checkbox("Redirect illusion casts", &Config::CastRedirection);
 			ImGui::SameLine(); HelpMarker("You cast something on an illusion - it aims for the real hero(if they're in range, of course)");
 
