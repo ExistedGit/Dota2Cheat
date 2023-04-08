@@ -107,6 +107,7 @@ void Config::ConfigManager::SetupVars() {
 	cfg.AddVar(FLOAT, &AutoHeal::WandHPTreshold, 10.f, "AutoHeal.WandHPTreshold");
 	cfg.AddVar(INT, &AutoHeal::WandMinCharges, 10, "AutoHeal.WandMinCharges");
 
+	cfg.AddVar(BOOL, &BadCastPrevention, true, "BadCastPrevention");
 
 	cfg.AddVar(BOOL, &AutoMidas::Enabled, true, "AutoMidas.Enabled");
 	cfg.AddVar(INT, &AutoMidas::XPTreshold, 60, "AutoMidas.XPTreshold");
