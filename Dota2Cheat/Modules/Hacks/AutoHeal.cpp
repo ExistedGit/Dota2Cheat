@@ -31,5 +31,8 @@ void Hacks::AutoHeal::UseFaerieFire(CDOTABaseNPC* hero) {
 	if (!faerieFire)
 		return;
 
+	if (faerieFire->GetCooldown() != 0)
+		return;
+
 	ctx.localPlayer->CastNoTarget(faerieFire, hero);
 }

@@ -1,4 +1,5 @@
 #include "BadCastPrevention.h"
+#include "../../Config.h"
 
 bool Hacks::BadCastPrevention::AreEnemyUnitsInArea(const Vector& center, int radius) {
 	for (int i = 0; i <= Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
@@ -31,6 +32,9 @@ bool Hacks::BadCastPrevention::AreEnemyHeroesInArea(const Vector& center, int ra
 
 // Checks whether the ability is cast at an area without enemy heroes/units
 bool Hacks::BadCastPrevention::IsBadCast(uint32_t abilityIdx, Vector* pos, CBaseEntity* caster) {
+	if (!Config::BadCastPrevention)
+		return false;
+
 	auto ability = Interfaces::EntitySystem->GetEntity<CDOTABaseAbility>(abilityIdx);
 
 	if (Interfaces::EntitySystem->GetIdentity(abilityIdx)->GetName()) {
