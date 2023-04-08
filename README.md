@@ -1,4 +1,4 @@
-# Dota2Cheat: now with Memory Mapping!
+# Dota2Cheat: now with Dota Plus!
 
 ![cheat preview 27 03 2023](https://user-images.githubusercontent.com/66470490/228053121-ed8cbc2b-8f9f-4db7-914c-81db2dad518d.png)
 
@@ -34,7 +34,7 @@ Open the project in Visual Studio and build both Dota2Cheat and Dota2Loader as *
 
 This cheat can be safely reinjected at any point of the game
 
-Build Dota2Loader and launch its .exe to inject(not from Visual Studio, it messes up the file paths!)
+Build Dota2Loader and launch it, it will move the necessary resources around and then inject
 
 **Use at own risk. Though I use methods that make detection chances as low as possible, there are no guarantees** (also consider not using non-legit features that others may notice)
 
@@ -55,6 +55,7 @@ To open the cheat menu, press Insert
 This list is subject to frequent change as I'm testing new features
 
 * Automation:
+  * AutoAccept with customizable delay
   * Uses Magic Wand and Faerie Fire with customizable health tresholds
   * Uses Hand of Midas on nearby big neutrals, ranged & flagbearer lane creeps and catapults
   * Bounty rune & Aegis pickup
@@ -84,10 +85,19 @@ This list is subject to frequent change as I'm testing new features
   * Perfect Blink
   * Prevents bad spell casts(such as Black Hole/Chronosphere with no one in its radius)
 
-* Visuals:
+* Changer:
   * Weather changing(Ash, Spring etc)
   * River painting
-
+  * Unlocks emoticons
+  * Dota Plus Unlocker
+  * Partial skinchanger:
+    * Music
+    * Cursor packs
+    * Announcers
+    * Kill streak effects
+    * Terrain
+    * HUD skins
+   
 I intend to implement most of the usual cheat functionality
 
 # For Developers

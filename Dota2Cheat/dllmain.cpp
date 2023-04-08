@@ -98,7 +98,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			Modules::SkinChanger.ParseItemDefs(fin);
 			fin.close();
 		}
-	}
+	
 	std::cout << "ItemSchema: " << Signatures::GetItemSchema() << "\n";
 
 	Hooks::SetUpByteHooks();
