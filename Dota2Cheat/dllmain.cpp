@@ -92,13 +92,13 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	GameSystems::FindGameSystems();
 
-		std::ifstream fin(ctx.cheatFolderPath + "\\assets\\itemdefs.txt");
-		if (fin.is_open())
-		{
-			Modules::SkinChanger.ParseItemDefs(fin);
-			fin.close();
-		}
-	
+	std::ifstream fin(ctx.cheatFolderPath + "\\assets\\itemdefs.txt");
+	if (fin.is_open())
+	{
+		Modules::SkinChanger.ParseItemDefs(fin);
+		fin.close();
+	}
+
 	std::cout << "ItemSchema: " << Signatures::GetItemSchema() << "\n";
 
 	Hooks::SetUpByteHooks();

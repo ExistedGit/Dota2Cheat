@@ -83,6 +83,9 @@ namespace Config {
 		inline bool Enabled;
 		inline int XPTreshold;
 	}
+	namespace ManaAbuse {
+		inline bool Enabled;
+	}
 
 	inline float CameraDistance;
 
