@@ -9,9 +9,9 @@ std::vector<CDOTABaseAbility*> CDOTABaseNPC::GetAbilities() {
 		if (!HVALID(handle))
 			continue;
 
-		result.push_back(Interfaces::EntitySystem->GetEntity<CDOTABaseAbility>(
-			H2IDX(handle)
-			));
+		if (auto ability = Interfaces::EntitySystem->GetEntity<CDOTABaseAbility>(H2IDX(handle)))
+			result.push_back(ability);
+
 	}
 	return result;
 }
