@@ -57,6 +57,8 @@ namespace Config {
 
 	inline bool AutoBuyTome = false;
 
+	inline bool BadCastPrevention = true;
+
 	inline bool CastRedirection = true;
 
 	namespace AutoHeal {
