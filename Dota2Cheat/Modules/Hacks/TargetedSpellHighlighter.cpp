@@ -8,7 +8,7 @@ void Hacks::TargetedSpellHighlighter::Reset() {
 
 void Hacks::TargetedSpellHighlighter::OnDisableTargetedSpells() {
 	for (auto& [_, pw] : TrackedModifiers)
-		if (pw.handle != 0xFFFFFFFF)
+		if (HVALID(pw.handle))
 			GameSystems::ParticleManager->DestroyParticle(pw);
 	TrackedModifiers.clear();
 }

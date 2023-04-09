@@ -14,6 +14,8 @@ bool CDOTAUnitInventory::IsItemInSlot(ENT_HANDLE item, uint32_t slot) {
 }
 
 int CDOTAUnitInventory::GetItemSlot(ENT_HANDLE item) {
+	if (item == INVALID_HANDLE)
+		return -1;
 	auto items = GetItems();
 	auto it = std::find(items.begin(), items.end(), item);
 	return it != items.end()
