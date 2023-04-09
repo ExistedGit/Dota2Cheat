@@ -81,11 +81,11 @@ struct CNewParticleEffect : public VClass {
 struct ParticleWrapper {
 	CreateParticleInfo info{};
 	CNewParticleEffect* particle{};
-	ENT_HANDLE handle = 0XFFFFFFFF;
+	ENT_HANDLE handle = INVALID_HANDLE;
 
 	void Invalidate() {
 		particle = nullptr;
-		handle = 0XFFFFFFFF;
+		handle = INVALID_HANDLE;
 		info = CreateParticleInfo{};
 	}
 

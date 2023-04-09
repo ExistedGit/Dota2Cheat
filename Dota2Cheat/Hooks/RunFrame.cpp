@@ -45,7 +45,7 @@ void Hooks::UpdateWeather() {
 	varInfo.var->value.i32 = Config::Changer::WeatherListIdx;
 }
 
-ENT_HANDLE currentQueryUnit = 0xFFFFFFFF;
+ENT_HANDLE currentQueryUnit = INVALID_HANDLE;
 DOTA_GC_TEAM quTeam;
 
 
