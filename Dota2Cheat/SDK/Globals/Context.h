@@ -3,6 +3,7 @@
 #include <set>
 #include <string>
 #include <sol/sol.hpp>
+#include "../Wrappers/Creep.h"
 
 class CBaseEntity;
 class CDOTABaseNPC;
@@ -31,20 +32,12 @@ struct Context {
 	std::set<CDOTAPlayerController*> players;
 	std::set<CBaseEntity*> physicalItems;
 	std::set<CDOTABaseNPC_Hero*> heroes;
-	std::set<CDOTABaseNPC*> creeps;
+	std::set<CreepWrapper, CreepWrapper_less> creeps;
 
-	struct ImportantItems {
-		CDOTAItem
-			*midas{},
-			*manta{},
-			*bottle{},
-			*armlet{},
-			*power_treads{},
-			*vambrace;
-	} importantItems{};
+	std::map<std::string, CDOTAItem*> ImportantItems;
 
 	std::string cheatFolderPath;
-	sol::state lua{};
+	sol::state lua;
 
 	// For Lua compatibility
 	Context() {};

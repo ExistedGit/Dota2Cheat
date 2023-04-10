@@ -16,14 +16,14 @@
 void FillPlayerList();
 
 // Now that the iteration is based on collections, the cheat does not retain the entity lists upon reinjection
-void ReinjectEntIteration();
+void CacheAllEntities();
 #define GetGameSystem(global) GameSystems::##global = *GameSystems::## global ##Ptr
 
 void OnUpdatedAssignedHero();
 
 void UpdateAssignedHero();
 
-void EnteredMatch();
+void EnteredPreGame();
 
 void EnteredInGame();
 

@@ -31,8 +31,11 @@ CBaseEntity* Hooks::hkOnRemoveEntity(CEntitySystem* thisptr, CBaseEntity* ent, E
 	ctx.entities.erase(ent);
 	ctx.runes.erase((CDOTAItemRune*)ent);
 
-	if (ent == ctx.importantItems.midas)
-		ctx.importantItems.midas = nullptr;
+	for (auto it = ctx.ImportantItems.begin(); it != ctx.ImportantItems.end(); ++it)
+		if (it->second == ent) {
+			it = ctx.ImportantItems.erase(it);
+			break;
+		}
 
 	Modules::AegisAutoPickup.RemoveIfAegis(ent);
 

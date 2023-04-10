@@ -10,6 +10,12 @@ enum EGCResults
 	k_EGCResultInvalidMessage = 4,		// Something was wrong with the message being sent with SendMessage
 };
 
+enum CombatClass {
+	DOTA_COMBAT_CLASS_ATTACK_HERO,
+	DOTA_COMBAT_CLASS_ATTACK_BASIC,
+	DOTA_COMBAT_CLASS_ATTACK_PIERCE,
+	DOTA_COMBAT_CLASS_ATTACK_SIEGE
+};
 enum EEconTypeID
 {
 	k_EEconTypeItem = 1,
@@ -366,9 +372,12 @@ enum ModifierFunction {
 	MODIFIER_FUNCTION_INVALID = 65535,
 };
 
-enum class AttackCapabilities {
-	MELEE = 1,
-	RANGED
+enum DOTAUnitAttackCapability_t {
+	DOTA_UNIT_CAP_NO_ATTACK = 0,
+	DOTA_UNIT_CAP_MELEE_ATTACK = 1,
+	DOTA_UNIT_CAP_RANGED_ATTACK = 2,
+	DOTA_UNIT_ATTACK_CAPABILITY_BIT_COUNT = 3,
+	DOTA_UNIT_CAP_RANGED_ATTACK_DIRECTIONAL = 4
 };
 
 enum DOTA_HeroPickState : int {

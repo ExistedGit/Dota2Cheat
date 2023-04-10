@@ -90,13 +90,14 @@ void Hooks::hkRunFrame(uintptr_t a, uintptr_t b) {
 		auto queryUnit = ctx.localPlayer->Member<ENT_HANDLE>(Netvars::C_DOTAPlayerController::m_hQueryUnit);
 		if (HVALID(currentQueryUnit) && queryUnit != currentQueryUnit) {
 			auto unit = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(currentQueryUnit));
-			if (unit)
+			if (unit) 
 				unit->Field<DOTA_GC_TEAM>(Netvars::C_BaseEntity::m_iTeamNum) = quTeam;
 		}
 		if (HVALID(queryUnit))
 		{
 			auto unit = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(queryUnit));
-			if (unit && unit->GetTeam() != ctx.assignedHero->GetTeam()) {
+			if (unit) {
+				std::cout << "Selected: " << unit << '\n';
 				quTeam = unit->GetTeam();
 				unit->Field<DOTA_GC_TEAM>(Netvars::C_BaseEntity::m_iTeamNum) = ctx.assignedHero->GetTeam();
 				currentQueryUnit = queryUnit;

@@ -11,7 +11,7 @@ namespace Hacks {
 		inline void SwitchArmletIfNeeded() {
 			for (auto& proj : GameSystems::ProjectileManager->GetTrackingProjectiles()) {
 				if (!proj || !proj->IsAttack() ||
-					!ctx.importantItems.armlet)
+					!ctx.ImportantItems["armlet"])
 					continue;
 
 				auto target = proj->GetTarget();
@@ -19,7 +19,7 @@ namespace Hacks {
 				if (target != ctx.assignedHero || !source)
 					continue;
 
-				auto armlet = ctx.importantItems.armlet;
+				auto armlet = ctx.ImportantItems["armlet"];
 				auto attackDamage = source->GetAttackDamageMin();
 				if (attackDamage >= target->GetHealth()) {
 

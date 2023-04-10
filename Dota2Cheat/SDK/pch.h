@@ -52,6 +52,8 @@
 #include "Globals/Interfaces.h"
 #include "Globals/Signatures.h"
 
+#include "Wrappers/Creep.h"
+
 #include "Protobufs/dota_clientmessages.pb.h"
 #include "Protobufs/dota_commonmessages.pb.h"
 #include "Protobufs/dota_gcmessages_msgid.pb.h"
