@@ -285,6 +285,9 @@
     <ClCompile Include="include\imgui\imgui_stdlib.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="Modules\Hacks\LastHitMarker.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h">
@@ -657,6 +660,12 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="include\imgui\imgui_stdlib.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Modules\Hacks\LastHitMarker.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\FuncWrappers.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>
