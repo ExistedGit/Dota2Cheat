@@ -1,67 +1,33 @@
 #include "ModifierEvents.h"
 
-inline std::map<std::string_view, Hooks::ImportantItemData> importantItemNames = {
-		{
-			"modifier_item_hand_of_midas",
-			{
-			"item_hand_of_midas",
-			&ctx.importantItems.midas
-			}
-		},
+//
+inline std::map<std::string, std::string> importantItemNames = {
 		{
 			"modifier_item_manta_style",
-			{
-			"item_manta",
-			&ctx.importantItems.manta
-			}
+			"manta"
 		},
 		{
 			"modifier_item_empty_bottle",
-			{
-			"item_bottle",
-			&ctx.importantItems.bottle
-			}
-		},
-		{
-			"item_armlet",
-			{
-			"modifier_item_armlet",
-			&ctx.importantItems.armlet
-			}
-		},
-		{
-			"modifier_item_power_treads",
-			{
-
-			"item_power_treads",
-			&ctx.importantItems.power_treads
-			}
-		},
-		{
-			"modifier_item_vambrace",
-			{
-			"item_vambrace",
-			&ctx.importantItems.vambrace
-			}
+			"bottle"
 		}
 };
 
 void Hooks::CacheIfItemModifier(CDOTAModifier* modifier) {
-	std::string_view modName = modifier->GetName();
+	std::string modName = modifier->GetName();
 	if (!modName.starts_with("modifier_item"))
 		return;
 
-	if (modifier->GetOwner() == ctx.assignedHero
-		&& importantItemNames.count(modName))
+	auto itemName = modName.substr(9); // removing the "modifier_" prefix
+	if (modifier->GetOwner() == ctx.assignedHero)
 	{
-		auto& data = importantItemNames[modName];
-		auto item = modifier->GetOwner()->FindItemBySubstring(data.itemName);
-		if (!item)
-			return;
-		*data.item = item;
+		auto searchName = importantItemNames.count(modName) ?
+			importantItemNames[modName] :
+			itemName.substr(5);
+		auto item = modifier->GetOwner()->FindItemBySubstring(searchName.c_str());
+		if (item)
+			ctx.ImportantItems[searchName] = item;
 	}
 
-	auto itemName = modName.substr(9); // removing the "modifier_" prefix
 	auto item = modifier->GetOwner()->FindItemBySubstring(itemName.data());
 	if (item) {
 		if (itemName.find("sphere", 0) != -1)
@@ -85,14 +51,18 @@ void Hooks::hkOnRemoveModifier(CDOTAModifier* modifier) {
 	//	HOOKFUNC(OnAddModifier);
 	//}
 
-	std::string_view modName = modifier->GetName();
+	std::string modName = modifier->GetName();
 
 	if (modName.starts_with("modifier_item"))
 	{
-		if (modifier->GetOwner() == ctx.assignedHero && importantItemNames.count(modName))
-			*importantItemNames[modName].item = nullptr;
-
 		auto itemName = modName.substr(9); // removing the "modifier_" prefix
+		if (modifier->GetOwner() == ctx.assignedHero) {
+			auto searchName = importantItemNames.count(modName) ?
+				importantItemNames[modName] :
+				itemName.substr(5);
+			ctx.ImportantItems.erase(searchName);
+		}
+
 		if (itemName.find("sphere", 0) != -1)
 			Modules::TargetedSpellHighlighter.UnsubscribeLinkenRendering(modifier->GetOwner());
 	}

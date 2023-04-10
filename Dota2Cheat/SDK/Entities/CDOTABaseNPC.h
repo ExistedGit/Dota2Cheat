@@ -44,7 +44,7 @@ public:
 	GETTER(float, GetBaseMagicalResistance, Netvars::C_DOTA_BaseNPC::m_flMagicalResistanceValue);
 	GETTER(int, GetAttackRange, Netvars::C_DOTA_BaseNPC::m_iAttackRange);
 	GETTER(const char*, GetUnitName, Netvars::C_DOTA_BaseNPC::m_iszUnitName);
-	GETTER(AttackCapabilities, GetAttackCapabilities, Netvars::C_DOTA_BaseNPC::m_iAttackCapabilities);
+	GETTER(DOTAUnitAttackCapability_t, GetAttackCapabilities, Netvars::C_DOTA_BaseNPC::m_iAttackCapabilities);
 	GETTER(float, GetHealthRegen, Netvars::C_DOTA_BaseNPC::m_flHealthThinkRegen);
 	GETTER(float, GetMana, Netvars::C_DOTA_BaseNPC::m_flMana);
 	GETTER(float, GetMaxMana, Netvars::C_DOTA_BaseNPC::m_flMaxMana);

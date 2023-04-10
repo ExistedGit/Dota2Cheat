@@ -144,6 +144,7 @@ namespace Pages {
 			if (ImGui::TreeNode("Mana/HP Abuse")) {
 				ImGui::Text("Drops items that add stats before using items that give mana/HP");
 				ImGui::Checkbox("Enabled", &Config::ManaAbuse::Enabled);
+				ImGui::TreePop();
 			}
 
 			ImGui::Checkbox("AutoDodge", &Config::AutoDodge::Enabled);

@@ -4,47 +4,54 @@ void Hacks::AutoMidas::FrameBasedLogic() {
 	if (!Config::AutoMidas::Enabled)
 		return;
 
-	if (lastTime != 0 &&
-		GameSystems::GameRules->GetGameTime() - lastTime < usePeriod)
-		return;
+	//if (lastTime != 0 &&
+	//	GameSystems::GameRules->GetGameTime() - lastTime < usePeriod)
+	//	return;
 
-	auto midas = ctx.importantItems.midas;
+	auto midas = ctx.ImportantItems["hand_of_midas"];
 
 	if (!midas || midas->GetCooldown() != 0)
 		return;
 
-	for (auto& creep : ctx.creeps) {
-
+	for (auto& wrapper : ctx.creeps) {
+		auto creep = wrapper.ent;
 		// If the creep is visible, not one of ours, is alive, is within Midas's radius and its name matches one of the filters
-		if (
-			creep->GetTeam() != ctx.assignedHero->GetTeam()
-			&& creep->GetHealth() > 0
-			&& !creep->IsWaitingToSpawn()
-			&& !creep->HasState(MODIFIER_STATE_MAGIC_IMMUNE)
-			&& IsWithinRadius
-			(
-				creep->GetPos(),
-				ctx.assignedHero->GetPos(),
-				midas->GetEffectiveCastRange()
+		if (creep->GetTeam() == ctx.assignedHero->GetTeam())
+			continue;
+
+		if (!creep->IsTargetable())
+			continue;
+
+		if (creep->IsAncient() ||
+			creep->IsRoshan())
+			continue;
+
+		if (creep->Member<int>(Netvars::C_DOTA_BaseNPC::m_iXPBounty) < Config::AutoMidas::XPTreshold)
+			continue;
+
+		if (creep->HasState(MODIFIER_STATE_MAGIC_IMMUNE))
+			continue;
+		if (!IsWithinRadius
+		(
+			creep->GetPos(),
+			ctx.assignedHero->GetPos(),
+			midas->GetEffectiveCastRange()
+		)
 			)
-			&& !creep->IsAncient()
-			&& !creep->IsRoshan()
-			&& creep->Member<int>(Netvars::C_DOTA_BaseNPC::m_iXPBounty) >= Config::AutoMidas::XPTreshold
-			) {
+			continue;
 
-			// Don't want to hurt ourselves
-			if (strstr(creep->GetUnitName(), "necronomicon_warrior"))
-				return;
+		// Don't want to hurt ourselves
+		if (strstr(creep->GetUnitName(), "necronomicon_warrior"))
+			continue;
 
-			ctx.localPlayer->PrepareOrder(
-				DOTA_UNIT_ORDER_CAST_TARGET,
-				creep->GetIndex(),
-				&Vector::Zero,
-				midas->GetIndex(),
-				DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
-				ctx.assignedHero);
-		}
+		ctx.localPlayer->PrepareOrder(
+			DOTA_UNIT_ORDER_CAST_TARGET,
+			creep->GetIndex(),
+			&Vector::Zero,
+			midas->GetIndex(),
+			DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
+			ctx.assignedHero);
+
+		lastTime = GameSystems::GameRules->GetGameTime();
 	}
-
-	lastTime = GameSystems::GameRules->GetGameTime();
 }

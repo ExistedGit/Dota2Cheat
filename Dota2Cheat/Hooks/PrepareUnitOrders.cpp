@@ -93,14 +93,14 @@ void Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t o
 
 			std::map<CDOTAItem*, ItemStat> origItemStats{
 			};
-			if (ctx.importantItems.power_treads) {
-				origItemStats[ctx.importantItems.power_treads] = ctx.importantItems.power_treads->GetItemStat();
-				ChangeItemStatTo(ctx.importantItems.power_treads, ItemStat::AGILITY, player, issuer);
+			if (ctx.ImportantItems["power_treads"]) {
+				origItemStats[ctx.ImportantItems["power_treads"]] = ctx.ImportantItems["power_treads"]->GetItemStat();
+				ChangeItemStatTo(ctx.ImportantItems["power_treads"], ItemStat::AGILITY, player, issuer);
 				callPickup = true;
 			}
-			if (ctx.importantItems.vambrace) {
-				origItemStats[ctx.importantItems.vambrace] = ctx.importantItems.vambrace->GetItemStat();
-				ChangeItemStatTo(ctx.importantItems.vambrace, ItemStat::AGILITY, player, issuer);
+			if (ctx.ImportantItems["vambrace"]) {
+				origItemStats[ctx.ImportantItems["vambrace"]] = ctx.ImportantItems["vambrace"]->GetItemStat();
+				ChangeItemStatTo(ctx.ImportantItems["vambrace"], ItemStat::AGILITY, player, issuer);
 				callPickup = true;
 			}
 

@@ -30,27 +30,28 @@ void FillPlayerList() {
 }
 
 // Now that the iteration is based on collections, the cheat does not retain the entity lists upon reinjection
-void ReinjectEntIteration() {
+void CacheAllEntities() {
+	if (ctx.gameStage != Context::GameStage::IN_GAME)
+		return;
 	for (int i = 0; i <= Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
 		auto ent = Interfaces::EntitySystem->GetEntity(i);
-		if (!ent)
-			continue;
-		auto className = ent->SchemaBinding()->binaryName;
-		if (!className)
-			continue;
-		if (strstr(className, "Item_Physical")) {
-			ctx.physicalItems.insert(ent);
+		if (ent->SchemaBinding()->binaryName) {
+			std::string_view className = ent->SchemaBinding()->binaryName;
+
+			if (className == "C_DOTA_Item_Physical")
+				ctx.physicalItems.insert(ent);
+			else if (className.find("Creep") != -1)
+				ctx.creeps.insert((CDOTABaseNPC*)ent);
+			else if (className == "C_DOTA_Item_Rune")
+				ctx.runes.insert((CDOTAItemRune*)ent);
+			else if (className.find("C_DOTA_Unit_Hero") != -1)
+				ctx.heroes.insert(reinterpret_cast<CDOTABaseNPC_Hero*>(ent));
+
+			ctx.entities.insert(ent);
+			Lua::CallModuleFunc("OnAddEntity", ent);
 		}
-		else if (!strcmp(className, "C_DOTA_Item_Rune")) {
-			ctx.runes.insert((CDOTAItemRune*)ent);
-		}
-		else if (strstr(className, "Unit_Hero")) {
-			ctx.heroes.insert(reinterpret_cast<CDOTABaseNPC_Hero*>(ent));
-		}
-		ctx.entities.insert(ent);
 	}
 }
-
 void OnUpdatedAssignedHero()
 {
 	ctx.lua["localHero"] = ctx.assignedHero;
@@ -72,16 +73,16 @@ void UpdateAssignedHero() {
 		auto assignedHero = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(ctx.localPlayer->GetAssignedHeroHandle()));
 		ctx.assignedHero = assignedHero;
 
-		std::cout << "UpdateAssignedHero:" << '\n';
-		std::cout << "assignedHeroHandle: " << std::hex << heroHandle << '\n';
-		std::cout << "assignedHero: " << std::hex << assignedHero << '\n';
+		std::cout << "Changed hero:" << '\n';
+		std::cout << "\thandle: " << std::hex << heroHandle << '\n';
+		std::cout << "\tentity: " << assignedHero << '\n';
 
 		if (assignedHero)
 			OnUpdatedAssignedHero();
 	}
 }
 
-void EnteredMatch() {
+void EnteredPreGame() {
 	GetGameSystem(GameRules);
 	GetGameSystem(ProjectileManager);
 	GetGameSystem(PlayerResource);
@@ -96,7 +97,7 @@ void EnteredMatch() {
 		return;
 
 	ctx.gameStage = Context::GameStage::PRE_GAME;
-	std::cout << "ENTERED MATCH\n";
+	std::cout << "[PRE-GAME]\n";
 }
 
 void EnteredInGame() {
@@ -108,18 +109,13 @@ void EnteredInGame() {
 	UpdateAssignedHero();
 
 	if (!ctx.assignedHero) {
-		//ctx.localPlayer = Interfaces::EntitySystem->GetEntity<CDOTAPlayerController>(Interfaces::Engine->GetLocalPlayerSlot() + 2);
-		//ctx.assignedHero = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(ctx.localPlayer->GetAssignedHeroHandle()));
-		//if (!ctx.assignedHero)
 		return;
 	}
 
 	//Config::AutoPingTarget = ctx.assignedHero;
-
-
 	//FillPlayerList();
 
-	std::cout << "ENTERED GAME:\n";
+	std::cout << "[GAME]:\n";
 	std::cout << "Local Player: " << ctx.localPlayer
 		<< "\n\t" << std::dec << "STEAM ID: " << ctx.localPlayer->GetSteamID()
 		<< '\n';
@@ -132,13 +128,13 @@ void EnteredInGame() {
 	roshanListener->gameStartTime = GameSystems::GameRules->GetGameTime();
 	auto hurtListener = new EntityHurtListener();
 	GameSystems::GameEventManager->AddListener(roshanListener, "dota_roshan_kill");
-	GameSystems::GameEventManager->AddListener(hurtListener, "entity_hurt");
+	//GameSystems::GameEventManager->AddListener(hurtListener, "entity_hurt");
 
 	GameSystems::LogGameSystems();
 
 	Lua::SetGlobals(ctx.lua);
 
-	ReinjectEntIteration();
+	CacheAllEntities();
 
 	Modules::AutoBuyTome.Init();
 	Modules::AbilityESP.SubscribeHeroes();
@@ -147,7 +143,7 @@ void EnteredInGame() {
 
 	Hooks::EnableHooks();
 	ctx.gameStage = Context::GameStage::IN_GAME;
-	std::cout << "ENTERED GAME End\n";
+	std::cout << "[/GAME]\n";
 }
 
 void LeftMatch() {
@@ -175,7 +171,7 @@ void LeftMatch() {
 
 	ctx.localPlayer = nullptr;
 	ctx.assignedHero = nullptr;
-	
+
 	Lua::SetGlobals(ctx.lua);
 	Hooks::DisableHooks();
 	texManager.QueueTextureUnload();
@@ -187,7 +183,7 @@ void CheckMatchState() {
 	if (Interfaces::Engine->IsInGame()) {
 		//Modules::AutoPick.TryAutoBan();
 		if (ctx.gameStage == Context::GameStage::NONE)
-			EnteredMatch();
+			EnteredPreGame();
 		else if (ctx.gameStage == Context::GameStage::PRE_GAME)
 			EnteredInGame();
 		else if (ctx.gameStage == Context::GameStage::IN_GAME)

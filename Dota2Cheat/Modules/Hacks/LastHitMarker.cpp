@@ -14,7 +14,8 @@ void Hacks::LastHitMarker::Draw() {
 	if (!Config::LastHitMarker)
 		return;
 
-	for (auto& creep : ctx.creeps) {
+	for (auto& wrapper : ctx.creeps) {
+		auto creep = wrapper.ent;
 		if (!IsValidReadPtr(creep)
 			|| !IsValidReadPtr(creep->GetIdentity())
 			|| !creep->IsTargetable())
@@ -25,13 +26,19 @@ void Hacks::LastHitMarker::Draw() {
 			continue;
 
 		// Deny check
-		if (creep->GetTeam() == ctx.assignedHero->GetTeam() && creep->GetHealth() / creep->GetMaxHealth() >= 0.5f)
+		if (creep->GetTeam() == ctx.assignedHero->GetTeam() && (float)creep->GetHealth() / creep->GetMaxHealth() >= 0.5f)
 			continue;
 
+		int dmg = ctx.assignedHero->GetAttackDamageMin();
+		if (ctx.ImportantItems["quelling_blade"])
+			dmg += ctx.assignedHero->GetAttackCapabilities() == DOTA_UNIT_CAP_MELEE_ATTACK ? 8 : 4;
+
+		if (wrapper.creepType == CreepType::Siege)
+			dmg *= 0.5f;
+
+		float dmgReduction = (0.052f * creep->GetPhysicalArmorValue()) / (0.9f + 0.048f * abs(creep->GetPhysicalArmorValue()));
 		// Damage check
-		if (creep->GetHealth() >= ctx.assignedHero->GetAttackDamageMin() * (
-			1 - (0.052f* creep->GetPhysicalArmorValue())/(0.9f + 0.048f * abs(creep->GetPhysicalArmorValue()))
-			))
+		if (creep->GetHealth() >= dmg * (1 - dmgReduction))
 			continue;
 
 		DrawCircleFor(creep);
