@@ -89,6 +89,8 @@ namespace Config {
 		inline bool Enabled;
 	}
 
+	inline bool LastHitMarker;
+
 	inline float CameraDistance;
 
 	inline bool RenderAllParticles;

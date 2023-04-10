@@ -147,10 +147,12 @@ namespace Pages {
 			}
 
 			ImGui::Checkbox("AutoDodge", &Config::AutoDodge::Enabled);
-			ImGui::SameLine(); HelpMarker("Can use Manta Style, Bottled Illusion Rune and Naga's Mirror Image");
+			ImGui::SameLine(); HelpMarker("Can use Manta Style, Bottled Illusion Rune");
 
 			ImGui::Checkbox("Show all particles", &Config::RenderAllParticles);
 			ImGui::SameLine(); HelpMarker("Renders any possible particle, even in FoW");
+			ImGui::Checkbox("Last hit marker", &Config::LastHitMarker);
+			ImGui::SameLine(); HelpMarker("Shows a dot on creeps when you can last hit/deny them");
 
 			ImGui::Checkbox("Show enemy projectile trajectory", &Config::WarnLinearProjectiles);
 			ImGui::SameLine(); HelpMarker("Draws a red line for things like Mirana's arrow");

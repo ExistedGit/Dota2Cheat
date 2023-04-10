@@ -13,6 +13,9 @@ public:
 		return MemberInline<CDOTAModifierManager>(Netvars::C_DOTA_BaseNPC::m_ModifierManager);
 	}
 
+	float GetPhysicalArmorValue() {
+		return CallVFunc<VTableIndexes::CDOTABaseNPC::GetPhysicalArmorValue, float>();
+	}
 	float GetMagicalArmorValue() {
 		return CallVFunc<VTableIndexes::CDOTABaseNPC::GetMagicalArmorValue, float>();
 	}

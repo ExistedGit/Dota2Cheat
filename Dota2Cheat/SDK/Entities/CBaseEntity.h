@@ -40,7 +40,10 @@ public:
 
 
 	uint32_t GetHandle() {
-		return GetIdentity()->entHandle;
+		auto id = GetIdentity();
+		if (!IsValidReadPtr(id))
+			return INVALID_HANDLE;
+		return id->entHandle;
 	}
 	// Returns the index of this entity in the entity system
 	uint32_t GetIndex();

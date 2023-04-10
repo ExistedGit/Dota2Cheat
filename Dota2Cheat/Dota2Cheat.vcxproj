@@ -207,6 +207,7 @@
     <ClCompile Include="Modules\Hacks\DotaPlusUnlocker.cpp" />
     <ClCompile Include="Modules\Hacks\EnemySpellHighlight.cpp" />
     <ClCompile Include="Modules\Hacks\IllusionColoring.cpp" />
+    <ClCompile Include="Modules\Hacks\LastHitMarker.cpp" />
     <ClCompile Include="Modules\Hacks\LinearProjectileWarner.cpp" />
     <ClCompile Include="Modules\Hacks\ParticleAbilityWarner.cpp" />
     <ClCompile Include="Modules\Hacks\PerfectBlink.cpp" />
@@ -280,6 +281,7 @@
     <ClInclude Include="Modules\Hacks\ArmletAbuse.h" />
     <ClInclude Include="Modules\Hacks\ClaimTutorialRewards.h" />
     <ClInclude Include="Modules\Hacks\DotaPlusUnlocker.h" />
+    <ClInclude Include="Modules\Hacks\LastHitMarker.h" />
     <ClInclude Include="Modules\Hacks\SkinChanger.h" />
     <ClInclude Include="Modules\Utility\AttackTargetFinder.h" />
     <ClInclude Include="Modules\Hacks\AutoBuyTome.h" />
@@ -392,6 +394,7 @@
     <ClInclude Include="SDK\Entities\CDOTABaseNPC.h" />
     <ClInclude Include="SDK\Entities\CEntityIdentity.h" />
     <ClInclude Include="UI\Pages\MainMenu.h" />
+    <ClInclude Include="Utils\FuncWrappers.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

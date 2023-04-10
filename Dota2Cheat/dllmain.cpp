@@ -21,6 +21,7 @@
 #include "Hooks/InvalidateUEF.h"
 #include "UI/Pages/MainMenu.h"
 #include "UI/Pages/AutoPickSelectionGrid.h"
+#include "Modules/Hacks/LastHitMarker.h"
 
 #pragma region Static variables
 
@@ -184,13 +185,16 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		if (
 			ctx.gameStage == Context::GameStage::IN_GAME &&
 			ctx.assignedHero
-			)
+			) {
 			Modules::AbilityESP.DrawESP();
+			Modules::LastHitMarker.Draw();
+		}
 
 
 
 		if (menuVisible)
 			Pages::MainMenu::Draw(window);
+
 
 		if (IsKeyPressed(VK_INSERT)) {
 			glfwSetWindowAttrib(window, GLFW_MOUSE_PASSTHROUGH, menuVisible);
