@@ -1,7 +1,7 @@
 #include "OnAcceptMatch.h"
 #include "../Config.h"
 
-void Hooks::RunTimer() {
+void Hooks::RunAcceptTimer() {
 	std::thread([=]() {
 		std::this_thread::sleep_for(std::chrono::seconds(Config::AutoAccept::Delay));
 	Signatures::CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby(GameSystems::GCClientSystem, true);
@@ -12,7 +12,7 @@ void Hooks::hkRunScript(VClass* thisptr, VClass* panel, const char* entireJSCode
 		Signatures::CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby &&
 		strstr(pathToXMLContext, "popup_accept_match.xml")) {
 		std::cout << "Trying to accept match\n";
-		RunTimer();
+		RunAcceptTimer();
 	}
 
 	oRunScript(thisptr, panel, entireJSCode, pathToXMLContext, int1, int2, alreadyCompiled);

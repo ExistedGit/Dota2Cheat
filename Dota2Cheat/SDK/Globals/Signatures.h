@@ -25,21 +25,21 @@ namespace Signatures {
 
 	inline CEconItem* (*CreateEconItem)() = nullptr;
 
+	typedef void* (*CGameUI__ChangeGameUIStateFn)(void* thisptr, DOTAGameUIState_t state);
+	inline CGameUI__ChangeGameUIStateFn CGameUI__ChangeGameUIState;
+
 	typedef bool(__fastcall* BIsEmoticonUnlockedFn)(void* thisptr, uint32_t unk);
 	inline BIsEmoticonUnlockedFn BIsEmoticonUnlocked{};
 
 	typedef void* (__fastcall* SaveSerializedSOCacheFn)(void* thisptr);
 	inline SaveSerializedSOCacheFn SaveSerializedSOCache{};
 
-	typedef void(__fastcall* CMsgFn)(const char* format, ...);
-	typedef void(__fastcall* ColorMsgFn)(Color* color, const char* format, ...);
+	inline void(__fastcall* CMsg)(const char* format, ...);
+	inline void(__fastcall* CMsgColor)(Color* color, const char* format, ...);
 
 	typedef void(__fastcall* PrepareUnitOrdersFn)(CDOTAPlayerController* player, dotaunitorder_t orderType, uint32_t targetIndex, Vector* position, uint32_t abilityIndex, PlayerOrderIssuer_t orderIssuer, CBaseEntity* issuer, bool queue, bool showEffects);
 	
-
-	typedef CDOTAPlayerController* (*GetPlayerFn)(int);
-	inline GetPlayerFn GetPlayer{};
-
+	inline CDOTAPlayerController* (*GetPlayer)(int idx);
 
 	//typedef bool (*LoadUITextureFn)(void* thisptr, void** texturePtr, const char* textureName);
 
@@ -54,9 +54,6 @@ namespace Signatures {
 
 	//inline LoadUITextureFn LoadUITexture{};
 
-	inline CMsgFn CMsg{};
-	inline ColorMsgFn CMsgColor{};
-
 	using CParticleCollection = void;
 	typedef CParticleCollection* (*CreateParticleCollectionFn)(CNewParticleEffect* thisptr, void* particleMgr, void* unk, void** query, int particleIndex);
 	
@@ -67,7 +64,11 @@ namespace Signatures {
 	inline BAsyncSendProtoFn BAsyncSendProto{};
 
 	inline CreateParticleCollectionFn CreateParticleCollection{};
-	inline bool(*CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby)(void* thisptr, bool unk);
+
+	// state:
+	// true = accept
+	// false = decline
+	inline bool(*CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby)(void* thisptr, bool state);
 
 	void FindSignatures(bool log);
 }

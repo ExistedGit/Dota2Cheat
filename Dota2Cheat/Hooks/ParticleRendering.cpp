@@ -12,7 +12,7 @@ void Hooks::hkSetRenderingEnabled(CParticleCollection* thisptr, bool state) {
 	}
 	if (Modules::SkinChanger.ItemsCreated) {
 		Modules::SkinChanger.ItemsCreated = false;
-
+				
 		for (auto& item : Modules::SkinChanger.itemsToCreate)
 			Modules::SkinChanger.AddItem(item);
 

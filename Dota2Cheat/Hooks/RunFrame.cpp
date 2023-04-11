@@ -3,7 +3,6 @@
 #include <format>
 
 void Hooks::EntityIteration() {
-	bool runePickUp = false;
 	for (auto& hero : ctx.heroes) {
 
 		if (IsValidReadPtr(hero) &&
@@ -11,10 +10,10 @@ void Hooks::EntityIteration() {
 			!hero->GetIdentity()->IsDormant())
 			Modules::IllusionColoring.ColorIfIllusion(hero);
 	}
-	if (Config::AutoPickUpRunes && !runePickUp) {
+	if (Config::AutoPickUpRunes) {
 		for (auto& rune : ctx.runes) {
 
-			if (rune->GetRuneType() != DotaRunes::BOUNTY ||
+			if (rune->GetRuneType() != DOTA_RUNE_BOUNTY ||
 				!IsWithinRadius(rune->GetPos(), ctx.assignedHero->GetPos(), 140.0f)
 				)
 				continue;

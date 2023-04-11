@@ -7,10 +7,7 @@ bool Hacks::BadCastPrevention::AreEnemyUnitsInArea(const Vector& center, int rad
 		if (ent
 			&& !ent->IsSameTeam(ctx.assignedHero)
 			&& IsWithinRadius(center, ent->GetPos(), radius)
-
-			&& ent->SchemaBinding()->binaryName
-			&& TestStringFilters(ent->SchemaBinding()->binaryName, { "BaseNPC","Unit_Hero" })
-
+			&& (ctx.heroes.contains((CDOTABaseNPC_Hero*)ent) || ctx.creeps.contains((CDOTABaseNPC*)ent))
 			&& reinterpret_cast<CDOTABaseNPC*>(ent)->IsTargetable())
 			return true;
 	}
@@ -20,10 +17,9 @@ bool Hacks::BadCastPrevention::AreEnemyUnitsInArea(const Vector& center, int rad
 bool Hacks::BadCastPrevention::AreEnemyHeroesInArea(const Vector& center, int radius) {
 	for (auto& hero : ctx.heroes) {
 		if (
-			hero->IsTargetable() &&
-			!hero->IsSameTeam(ctx.assignedHero) &&
-
-			IsWithinRadius(center, hero->GetPos(), radius)
+			hero->IsTargetable()
+			&& !hero->IsSameTeam(ctx.assignedHero)
+			&& IsWithinRadius(center, hero->GetPos(), radius)
 			)
 			return true;
 	}
