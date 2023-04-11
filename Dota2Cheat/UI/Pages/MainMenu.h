@@ -155,9 +155,11 @@ namespace Pages {
 			ImGui::Checkbox("Last hit marker", &Config::LastHitMarker);
 			ImGui::SameLine(); HelpMarker("Shows a dot on creeps when you can last hit/deny them");
 
+
 			ImGui::Checkbox("Show enemy projectile trajectory", &Config::WarnLinearProjectiles);
 			ImGui::SameLine(); HelpMarker("Draws a red line for things like Mirana's arrow");
 
+			ImGui::Checkbox("Perfect Blink", &Config::PerfectBlink);
 			ImGui::Checkbox("Prevent bad casts", &Config::BadCastPrevention);
 			ImGui::SameLine(); HelpMarker("Detect if there are enemy heroes within range of some AOE skills to prevent bad casts. e.g, Chronosphere, Black hole, Reverse polarity, etc.");
 
@@ -192,32 +194,6 @@ namespace Pages {
 				}
 				ImGui::End();
 			}
-
-
-
-
-			//{
-			//	for (auto& proj : UtilityModules::ProjectileTracker.projectiles) {
-			//		int x = 0, y = 0;
-			//		Signatures::Scripts::WorldToScreen(&proj.pos, &x, &y, nullptr);
-			//		y += 10;
-			//		DrawTextForeground(window, defaultFont, "\\/", ImVec2(x, y), 20, Color{ 255,0,0,255 }, true);
-			//	}
-			//}
-			//if (ctx.IsInMatch && Config::VBEShowText)
-			//	DrawTextForeground(window, vbeFont, UIState::HeroVisibleToEnemy ? "DETECTED" : "HIDDEN", ImVec2(1920 / 2, 1080 * 3 / 4), 80.0f, Color(200, 200, 200, 255), true);
-
-
-#ifdef _DEBUG
-			//if (ctx.assignedHero) {
-			//	int x = 0, y = 0;
-			//	auto vec = ctx.assignedHero->GetForwardVector(500);
-			//	Signatures::Scripts::WorldToScreen(&vec, &x, &y, nullptr);
-			//	int size = 10;
-			//	DrawRect(window, ImVec2(x - size, y - size), ImVec2(size, size), ImVec4(1, 0, 0, 1));
-			//}
-#endif // _DEBUG
-
 
 		}
 	}

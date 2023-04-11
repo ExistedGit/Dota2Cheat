@@ -92,6 +92,7 @@ void Config::ConfigManager::SetupVars() {
 	cfg.AddVar(BOOL, &ShowLinkenSphere, true, "ShowLinkenSphere");
 	cfg.AddVar(BOOL, &ShowEnemyTargetedSpells, true, "ShowEnemyTargetedSpells");
 	cfg.AddVar(BOOL, &ShowEnemyPointSpells, true, "ShowEnemyPointSpells");
+	cfg.AddVar(BOOL, &PerfectBlink, false, "PerfectBlink");
 
 	cfg.AddVar(BOOL, &IllusionColoring::Enabled, false, "IllusionColoring.Enabled");
 	cfg.AddVar(VECTOR, &IllusionColoring::Color, { 1,0,0 }, "IllusionColoring.Color");

@@ -94,6 +94,7 @@ namespace Config {
 	inline float CameraDistance;
 
 	inline bool RenderAllParticles;
+	inline bool PerfectBlink;
 
 	namespace IllusionColoring {
 		inline bool Enabled;

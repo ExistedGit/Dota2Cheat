@@ -16,7 +16,7 @@ void Signatures::FindSignatures(bool log) {
 
 	//xref: "<BAD GAMEUI STATE>"
 	//you can see messages about UI state in console when switching between game/menu/loading screen
-	SCAN_FUNC(CGameUI__ChangeGameUIState, ssctx.Scan("E8 ? ? ? ? 48 8B 5C 24 ? C6 86", L"client.dll").GetAbsoluteAddress(1, 5));
+	// SCAN_FUNC(CGameUI__ChangeGameUIState, ssctx.Scan("E8 ? ? ? ? 48 8B 5C 24 ? C6 86", L"client.dll").GetAbsoluteAddress(1, 5));
 
 	SCAN_FUNC(GetPlayer, ssctx.Scan("33 C0 83 F9 FF", L"client.dll"));
 
