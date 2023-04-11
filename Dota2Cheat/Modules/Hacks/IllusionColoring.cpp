@@ -7,7 +7,7 @@ bool Hacks::IllusionColoring::ColorIfIllusion(CBaseEntity* ent) {
 	const char* className = ent->SchemaBinding()->binaryName;
 	auto hero = (CDOTABaseNPC_Hero*)ent;
 	if (ctx.assignedHero &&
-		ctx.assignedHero->GetTeam() != hero->GetTeam() &&
+		!ctx.assignedHero->IsSameTeam(hero) &&
 		hero->IsIllusion()
 		) {
 		auto c = Config::IllusionColoring::Color;

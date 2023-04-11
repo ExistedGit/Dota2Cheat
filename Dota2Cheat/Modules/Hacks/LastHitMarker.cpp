@@ -1,7 +1,7 @@
 #include "LastHitMarker.h"
 
 void Hacks::LastHitMarker::DrawCircleFor(CDOTABaseNPC* creep) {
-	ImColor color = creep->GetTeam() == ctx.assignedHero->GetTeam() ?
+	ImColor color = creep->IsSameTeam(ctx.assignedHero) ?
 		ImColor{ 0,255,0 } :
 		ImColor{ 255,0,0 };
 	auto pos = creep->GetPos();
@@ -26,11 +26,15 @@ void Hacks::LastHitMarker::Draw() {
 			continue;
 
 		// Deny check
-		if (creep->GetTeam() == ctx.assignedHero->GetTeam() && (float)creep->GetHealth() / creep->GetMaxHealth() >= 0.5f)
+		if (creep->IsSameTeam(ctx.assignedHero) && (float)creep->GetHealth() / creep->GetMaxHealth() >= 0.5f)
 			continue;
 
 		int dmg = ctx.assignedHero->GetAttackDamageMin();
-		if (ctx.ImportantItems["quelling_blade"])
+
+		if (ctx.assignedHero->HasOneOfModifiers({
+			"modifier_item_quelling_blade",
+			"modifier_item_battlefury"
+			}))
 			dmg += ctx.assignedHero->GetAttackCapabilities() == DOTA_UNIT_CAP_MELEE_ATTACK ? 8 : 4;
 
 		if (wrapper.creepType == CreepType::Siege)

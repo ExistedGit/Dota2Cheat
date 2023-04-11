@@ -71,7 +71,7 @@ namespace Hacks {
 
 		// Draws a dashed red line from begin to end
 		// Returns the wrapper for the created particle
-		ParticleWrapper DrawTrajectory(Vector begin, Vector end);
+		ParticleWrapper DrawTrajectory(const Vector& begin, const Vector& end);
 
 
 		void DrawIfTrajectoryModifier(CDOTAModifier* modifier);

@@ -54,7 +54,7 @@ bool ESP::AbilityESP::CanDraw(CDOTABaseNPC_Hero* hero) {
 		&& hero != ctx.assignedHero && hero->GetLifeState() == 0;
 	if (!Config::AbilityESP::ShowAllies)
 		// I wish they made &&= an operator
-		ret = ret && hero->GetTeam() != ctx.assignedHero->GetTeam();
+		ret = ret && !hero->IsSameTeam(ctx.assignedHero);
 	return ret;
 }
 
@@ -460,7 +460,7 @@ void ESP::AbilityESP::DrawManabars() {
 	// idk why it's this strange
 	constexpr static ImVec2 manabarSize{ 101, 8 };
 	for (auto& hero : ctx.heroes) {
-		if (hero->GetTeam() == ctx.assignedHero->GetTeam())
+		if (hero->IsSameTeam(ctx.assignedHero))
 			continue;
 
 		if (!CanDraw(hero))

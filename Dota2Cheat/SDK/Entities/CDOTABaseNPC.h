@@ -5,12 +5,28 @@
 #include "CDOTAUnitInventory.h"
 #include "CDOTAModifierManager.h"
 #include "../Enums.h"
+#include "../Base/StringUtils.h"
 
 class CDOTABaseNPC : public CBaseEntity {
 public:
 	CDOTAModifierManager* GetModifierManager() {
 		// Inlined into the object instead of a pointer
 		return MemberInline<CDOTAModifierManager>(Netvars::C_DOTA_BaseNPC::m_ModifierManager);
+	}
+	bool HasOneOfModifiers(std::vector<const char*> modifiers) {
+		for (auto& modifier : *GetModifierManager()->GetModifierListRaw()) {
+			if (TestStringFilters(modifier->GetName(), modifiers))
+				return true;
+		}
+		return false;
+	}
+	bool HasModifier(std::string_view modifierName) {
+		for (auto& modifier : *GetModifierManager()->GetModifierListRaw())
+			if (modifier->GetName() == modifierName)
+				return true;
+		
+		return false;
+
 	}
 
 	float GetPhysicalArmorValue() {
@@ -97,7 +113,7 @@ public:
 	}
 
 	bool CanUseAbility(CDOTABaseAbility* ability) {
-		for (auto& ab: GetAbilities()) {
+		for (auto& ab : GetAbilities()) {
 			if (ab->Member<float>(Netvars::C_DOTABaseAbility::m_flChannelStartTime))
 				return false;
 		}

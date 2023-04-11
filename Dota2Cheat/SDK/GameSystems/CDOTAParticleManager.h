@@ -67,9 +67,9 @@ struct CNewParticleEffect : public VClass {
 	VClass* GetParticleCollection() {
 		return Member<VClass*>(0x20);
 	}
-	CNewParticleEffect* SetControlPoint(int idx, Vector* pos) {
+	CNewParticleEffect* SetControlPoint(int idx, const Vector& pos) {
 		auto coll = GetParticleCollection();
-		coll->CallVFunc<VTableIndexes::CParticleCollection::SetControlPoint>(idx, pos);
+		coll->CallVFunc<VTableIndexes::CParticleCollection::SetControlPoint>(idx, &pos);
 		return this;
 	}
 	static void BindLua(sol::state& lua) {
