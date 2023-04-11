@@ -52,14 +52,14 @@ namespace Config {
 
 	inline ConfigManager cfg{};
 
-	inline bool AutoPickUpRunes = true;
-	inline bool AutoPickUpAegis = false;
+	inline bool AutoPickUpRunes;
+	inline bool AutoPickUpAegis;
 
-	inline bool AutoBuyTome = false;
+	inline bool AutoBuyTome;
 
-	inline bool BadCastPrevention = true;
+	inline bool BadCastPrevention;
 
-	inline bool CastRedirection = true;
+	inline bool CastRedirection;
 
 	namespace AutoHeal {
 		inline bool Enabled;
@@ -68,11 +68,11 @@ namespace Config {
 		inline float FaerieFireHPTreshold;
 	}
 
-	inline bool WarnLinearProjectiles = true;
+	inline bool WarnLinearProjectiles;
 
-	inline bool ShowEnemyPointSpells = true;
-	inline bool ShowEnemyTargetedSpells = true;
-	inline bool ShowLinkenSphere = true;
+	inline bool ShowEnemyPointSpells;
+	inline bool ShowEnemyTargetedSpells;
+	inline bool ShowLinkenSphere;
 
 	namespace Changer {
 		inline int WeatherListIdx;
@@ -96,7 +96,7 @@ namespace Config {
 	inline bool RenderAllParticles;
 
 	namespace IllusionColoring {
-		inline bool Enabled = true;
+		inline bool Enabled;
 		inline Vector Color{ 1,0,0 };
 	}
 

@@ -446,16 +446,16 @@ enum DOTA_HeroPickState : int {
 	DOTA_HEROPICK_STATE_COUNT = 62
 };
 
-enum class DotaRunes : int {
-	INVALID = -1,
-	DOUBLEDAMAGE = 0,
-	HASTE = 1,
-	ILLUSION = 2,
-	INVISIBILITY = 3,
-	REGENERATION = 4,
-	BOUNTY = 5,
-	COUNT = 6, //???
-	WATER = 7
+enum RuneType : int {
+	DOTA_RUNE_INVALID = 1,
+	DOTA_RUNE_DOUBLEDAMAGE,
+	DOTA_RUNE_HASTE,
+	DOTA_RUNE_ILLUSION,
+	DOTA_RUNE_INVISIBILITY,
+	DOTA_RUNE_REGENERATION,
+	DOTA_RUNE_BOUNTY,
+	DOTA_RUNE_ARCANE,
+	DOTA_RUNE_COUNT
 };
 
 //what units will receive the PrepareUnitOrders() command

@@ -89,6 +89,10 @@ void Config::ConfigManager::SetupVars() {
 	cfg.AddVar(BOOL, &AutoDodge::Enabled, true, "AutoDodge.Enabled");
 	cfg.AddVar(FLOAT, &CameraDistance, 1200.0f, "CameraDistance");
 
+	cfg.AddVar(BOOL, &ShowLinkenSphere, true, "ShowLinkenSphere");
+	cfg.AddVar(BOOL, &ShowEnemyTargetedSpells, true, "ShowEnemyTargetedSpells");
+	cfg.AddVar(BOOL, &ShowEnemyPointSpells, true, "ShowEnemyPointSpells");
+
 	cfg.AddVar(BOOL, &IllusionColoring::Enabled, false, "IllusionColoring.Enabled");
 	cfg.AddVar(VECTOR, &IllusionColoring::Color, { 1,0,0 }, "IllusionColoring.Color");
 
@@ -96,6 +100,9 @@ void Config::ConfigManager::SetupVars() {
 
 	cfg.AddVar(BOOL, &AutoAccept::Enabled, true, "AutoAccept.Enabled");
 	cfg.AddVar(INT, &AutoAccept::Delay, 1, "AutoAccept.Delay");
+
+	cfg.AddVar(BOOL, &AutoPickUpRunes, true, "AutoPickUp.Runes");
+	cfg.AddVar(BOOL, &AutoPickUpAegis, true, "AutoPickUp.Aegis");
 
 	cfg.AddVar(INT, &Changer::RiverListIdx, 0, "Changer.RiverPaint");
 	cfg.AddVar(INT, &Changer::WeatherListIdx, 0, "Changer.Weather");

@@ -6,9 +6,11 @@ void Hacks::AutoDodge::FrameBasedLogic() {
 		|| !GameSystems::ProjectileManager)
 		return;
 
+	if (!ctx.ImportantItems["manta"] && !ctx.ImportantItems["bottle"])
+		return;
+
 	for (auto& proj : GameSystems::ProjectileManager->GetTrackingProjectiles()) {
-		if (!proj || proj->IsAttack() ||
-			(!ctx.ImportantItems["item_manta"] && !ctx.ImportantItems["item_bottle"]))
+		if (!proj || proj->IsAttack())
 			continue;
 
 		auto target = proj->GetTarget();
@@ -26,15 +28,15 @@ void Hacks::AutoDodge::FrameBasedLogic() {
 			continue;
 
 
-		auto usedItem = ctx.ImportantItems["item_bottle"] ? ctx.ImportantItems["item_bottle"] : ctx.ImportantItems["item_manta"];
+		auto usedItem = ctx.ImportantItems["bottle"] ? ctx.ImportantItems["bottle"] : ctx.ImportantItems["manta"];
 		//if (counterspell && counterspell->GetCooldown() == 0)
 		//	usedItem = counterspell;
 		//else
 		if (!usedItem ||
 			(
-				usedItem == ctx.ImportantItems["item_bottle"] && // if we can use bottle
-				usedItem->Member<DotaRunes>(Netvars::C_DOTA_Item_EmptyBottle::m_iStoredRuneType) != DotaRunes::ILLUSION // and it has no illusion rune
-				&& !((usedItem = ctx.ImportantItems["item_manta"]) && // and if we don't have manta
+				usedItem == ctx.ImportantItems["bottle"] && // if we can use bottle
+				usedItem->Member<RuneType>(Netvars::C_DOTA_Item_EmptyBottle::m_iStoredRuneType) != DOTA_RUNE_ILLUSION // and it has no illusion rune
+				&& !((usedItem = ctx.ImportantItems["manta"]) && // and if we don't have manta
 					usedItem->GetCooldown() == 0) // or it's on cooldown
 				)
 			)
