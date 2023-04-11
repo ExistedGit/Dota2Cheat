@@ -13,17 +13,15 @@ void GameSystems::FindGameSystems() {
 	// CSource2Client::NotifySignon
 	RichPresence = Address(Interfaces::Client->GetVFunc(47).ptr)
 		.Offset(0x23)
-		.GetAbsoluteAddress(1,5)
-		.GetAbsoluteAddress(3, 7);
+		.GetAbsoluteAddress(1)
+		.GetAbsoluteAddress(3);
 
-	//xref: "Usage: watch_server steamid\n"
-	//GCClientSystem =
-	//	ssctx.Scan(
-	//		"48 83 EC 28 83 BA ? ? ? ? ? 74 12 48 8D 0D ? ? ? ? FF 15",
-	//		L"client.dll"
-	//	)
-	//	.Offset(0x80)
-	//	.GetAbsoluteAddress(3, 7);
+	//xref: "Failed to get custom game %llu timestamp/CRC!\n"
+	GCClientSystem =
+		ssctx.Scan("E8 ? ? ? ? 48 8B D7 48 8B CB E8 ? ? ? ? 48 8D 8B", L"client.dll")
+		.GetAbsoluteAddress(1)
+		.Offset(0x277)
+		.GetAbsoluteAddress(3);
 
 	// xref "Spews a list of all client-side projectiles", above it is lea rax, [XXXXXXXX]
 	// right click -> Find references to -> Address: XXXXXXXX
