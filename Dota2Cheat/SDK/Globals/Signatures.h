@@ -25,6 +25,9 @@ namespace Signatures {
 
 	inline CEconItem* (*CreateEconItem)() = nullptr;
 
+	typedef void* (*CGameUI__ChangeGameUIStateFn)(void* thisptr, DOTAGameUIState_t state);
+	inline CGameUI__ChangeGameUIStateFn CGameUI__ChangeGameUIState;
+
 	typedef bool(__fastcall* BIsEmoticonUnlockedFn)(void* thisptr, uint32_t unk);
 	inline BIsEmoticonUnlockedFn BIsEmoticonUnlocked{};
 

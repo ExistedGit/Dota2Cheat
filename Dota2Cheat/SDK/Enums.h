@@ -16,6 +16,15 @@ enum CombatClass {
 	DOTA_COMBAT_CLASS_ATTACK_PIERCE,
 	DOTA_COMBAT_CLASS_ATTACK_SIEGE
 };
+
+// Reversed from CGameUI::ChangeGameUIState, see Signatures
+enum DOTAGameUIState_t {
+	DOTA_GAME_UI_STATE_INVALID,
+	DOTA_GAME_UI_STATE_LOADING_SCREEN,
+	DOTA_GAME_UI_DOTA_INGAME,
+	DOTA_GAME_UI_STATE_DASHBOARD
+};
+
 enum EEconTypeID
 {
 	k_EEconTypeItem = 1,

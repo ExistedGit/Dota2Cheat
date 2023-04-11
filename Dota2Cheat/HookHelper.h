@@ -8,6 +8,7 @@
 #include "Hooks/ParticleRendering.h"
 #include "Hooks/ModifierEvents.h"
 #include "Hooks/SteamGC.h"
+#include "Hooks/UIState.h"
 
 #include "Hooks/Misc.h"
 

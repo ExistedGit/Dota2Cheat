@@ -671,6 +671,12 @@
     <ClInclude Include="SDK\Wrappers\Creep.h">
       <Filter>Header files</Filter>
     </ClInclude>
+    <ClInclude Include="UI\DrawContext.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\UIState.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hooks\InvalidateUEF.h">

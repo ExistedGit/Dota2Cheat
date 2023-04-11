@@ -22,6 +22,7 @@
 #include "UI/Pages/MainMenu.h"
 #include "UI/Pages/AutoPickSelectionGrid.h"
 #include "Modules/Hacks/LastHitMarker.h"
+#include "UI/DrawContext.h"
 
 #pragma region Static variables
 
@@ -183,14 +184,13 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 #endif // _DEBUG
 
 		if (
-			ctx.gameStage == Context::GameStage::IN_GAME &&
-			ctx.assignedHero
+			draw_ctx.uiState == DOTA_GAME_UI_DOTA_INGAME
+			&& ctx.gameStage == Context::GameStage::IN_GAME
+			&& ctx.assignedHero
 			) {
 			Modules::AbilityESP.DrawESP();
 			Modules::LastHitMarker.Draw();
 		}
-
-
 
 		if (menuVisible)
 			Pages::MainMenu::Draw(window);
