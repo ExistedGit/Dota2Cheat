@@ -6,7 +6,7 @@ namespace Hooks {
 	inline Signatures::BIsEmoticonUnlockedFn oBIsEmoticonUnlocked{};
 
 	inline bool hkBIsEmoticonUnlocked(void* thisptr, uint32_t unk) {
-		return Config::Changer::UnlockEmoticons;
+		return Config::Changer::UnlockEmoticons || oBIsEmoticonUnlocked(thisptr, unk);
 	}
 	inline Signatures::SaveSerializedSOCacheFn oSaveSerializedSOCache{};
 	inline void* hkSaveSerializedSOCache(void* thisptr) {

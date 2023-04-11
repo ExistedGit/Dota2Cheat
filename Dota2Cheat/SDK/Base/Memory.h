@@ -21,7 +21,9 @@ public:
 
 
 	template<typename T = Address>
-	T GetAbsoluteAddress(int addrOffset, int opcodeSize) const {
+	T GetAbsoluteAddress(int addrOffset, int opcodeSize = -1) const {
+		if (opcodeSize == -1)
+			opcodeSize = addrOffset + sizeof(uint32_t);
 		return T(ptr + *(int*)(ptr + addrOffset) + opcodeSize);
 	}
 

@@ -15,7 +15,7 @@ void Hacks::AutoDodge::FrameBasedLogic() {
 		auto source = proj->GetSource();
 
 		if (target != ctx.assignedHero ||
-			(source && source->GetTeam() == ctx.assignedHero->GetTeam()))
+			(source && source->IsSameTeam(ctx.assignedHero)))
 			continue;
 
 		//if (counterspell && counterspell->GetCooldown() == 0)

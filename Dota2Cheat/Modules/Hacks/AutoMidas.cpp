@@ -16,7 +16,7 @@ void Hacks::AutoMidas::FrameBasedLogic() {
 	for (auto& wrapper : ctx.creeps) {
 		auto creep = wrapper.ent;
 		// If the creep is visible, not one of ours, is alive, is within Midas's radius and its name matches one of the filters
-		if (creep->GetTeam() == ctx.assignedHero->GetTeam())
+		if (creep->IsSameTeam(ctx.assignedHero))
 			continue;
 
 		if (!creep->IsTargetable())

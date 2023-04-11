@@ -5,7 +5,7 @@ bool Hacks::BadCastPrevention::AreEnemyUnitsInArea(const Vector& center, int rad
 	for (int i = 0; i <= Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
 		auto ent = Interfaces::EntitySystem->GetEntity(i);
 		if (ent
-			&& ent->GetTeam() != ctx.assignedHero->GetTeam()
+			&& !ent->IsSameTeam(ctx.assignedHero)
 			&& IsWithinRadius(center, ent->GetPos(), radius)
 
 			&& ent->SchemaBinding()->binaryName
@@ -21,7 +21,7 @@ bool Hacks::BadCastPrevention::AreEnemyHeroesInArea(const Vector& center, int ra
 	for (auto& hero : ctx.heroes) {
 		if (
 			hero->IsTargetable() &&
-			hero->GetTeam() != ctx.assignedHero->GetTeam() &&
+			!hero->IsSameTeam(ctx.assignedHero) &&
 
 			IsWithinRadius(center, hero->GetPos(), radius)
 			)

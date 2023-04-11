@@ -25,7 +25,7 @@ namespace Signatures {
 
 	inline CEconItem* (*CreateEconItem)() = nullptr;
 
-	typedef void(__fastcall* BIsEmoticonUnlockedFn)(void* thisptr, uint32_t unk);
+	typedef bool(__fastcall* BIsEmoticonUnlockedFn)(void* thisptr, uint32_t unk);
 	inline BIsEmoticonUnlockedFn BIsEmoticonUnlocked{};
 
 	typedef void* (__fastcall* SaveSerializedSOCacheFn)(void* thisptr);
@@ -36,15 +36,12 @@ namespace Signatures {
 
 	typedef void(__fastcall* PrepareUnitOrdersFn)(CDOTAPlayerController* player, dotaunitorder_t orderType, uint32_t targetIndex, Vector* position, uint32_t abilityIndex, PlayerOrderIssuer_t orderIssuer, CBaseEntity* issuer, bool queue, bool showEffects);
 	
-	typedef void(__fastcall* WorldToScreenFn)(Vector* coord, int* outX, int* outY, void* offset);
 
 	typedef CDOTAPlayerController* (*GetPlayerFn)(int);
 	inline GetPlayerFn GetPlayer{};
 
-	typedef char(*OnAcceptMatchFn)(VClass**);
-	inline OnAcceptMatchFn OnAcceptMatch{};
 
-	typedef bool (*LoadUITextureFn)(void* thisptr, void** texturePtr, const char* textureName);
+	//typedef bool (*LoadUITextureFn)(void* thisptr, void** texturePtr, const char* textureName);
 
 	typedef bool (*BAsyncSendProtoFn)(CProtobufMsgBase* protobufMsg, IProtoBufSendHandler* handler, google::protobuf::Message* responseMsg, unsigned int respMsgID);
 	typedef bool (*DispatchPacketFn)(void*, IMsgNetPacket*);
@@ -55,7 +52,7 @@ namespace Signatures {
 	//netmessages ftw
 	//typedef CDOTAParticleManager::CNewParticleEffect* (__fastcall* CreateLinearProjectile)(void* thisptr, void* creationInfo);
 
-	inline LoadUITextureFn LoadUITexture{};
+	//inline LoadUITextureFn LoadUITexture{};
 
 	inline CMsgFn CMsg{};
 	inline ColorMsgFn CMsgColor{};
@@ -63,13 +60,14 @@ namespace Signatures {
 	using CParticleCollection = void;
 	typedef CParticleCollection* (*CreateParticleCollectionFn)(CNewParticleEffect* thisptr, void* particleMgr, void* unk, void** query, int particleIndex);
 	
+	inline void(__fastcall* WorldToScreen)(Vector* coord, int* outX, int* outY, void* offset);
 	inline PrepareUnitOrdersFn PrepareUnitOrders{};
 	
 	inline DispatchPacketFn DispatchPacket{};
 	inline BAsyncSendProtoFn BAsyncSendProto{};
 
 	inline CreateParticleCollectionFn CreateParticleCollection{};
+	inline bool(*CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby)(void* thisptr, bool unk);
 
-	inline WorldToScreenFn WorldToScreen{};
 	void FindSignatures(bool log);
 }

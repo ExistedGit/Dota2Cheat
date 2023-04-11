@@ -5,7 +5,7 @@ CBaseEntity* Utility::AttackTargetFinder::GetAttackTarget(CDOTABaseNPC* attacker
 		for (auto& ent : ctx.heroes) {
 			auto pos = attacker->GetForwardVector(i);
 			if (ent &&
-				ent->GetTeam() != attacker->GetTeam() &&
+				!ent->IsSameTeam(attacker) &&
 				IsWithinRadius(
 					pos,
 					ent->GetPos(),

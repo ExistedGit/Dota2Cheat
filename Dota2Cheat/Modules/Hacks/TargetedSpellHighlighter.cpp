@@ -84,9 +84,9 @@ void Hacks::TargetedSpellHighlighter::DrawParticleIfTargetedSpell(CDOTAModifier*
 		PATTACH_OVERHEAD_FOLLOW,
 		modifier->GetOwner()
 	);
-	for (auto& cp : entry.controlPoints)
+	for (auto& [idx, value] : entry.controlPoints)
 		TrackedModifiers[modifier].particle
-		->SetControlPoint(cp.first, &cp.second);
+		->SetControlPoint(idx, value);
 
 	if (entry.dieTime)
 		Modules::ParticleGC.SetDieTime(TrackedModifiers[modifier], entry.dieTime);

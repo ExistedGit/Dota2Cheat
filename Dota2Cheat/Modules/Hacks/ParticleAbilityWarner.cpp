@@ -11,11 +11,10 @@ ParticleWrapper Hacks::ParticleAbilityWarner::DrawTrajectory(Vector begin, Vecto
 		PATTACH_WORLDORIGIN,
 		ctx.assignedHero
 	);
-	Vector boolCp{ 1, 0, 0 };
 	pw.particle
-		->SetControlPoint(2, &begin)
-		->SetControlPoint(6, &boolCp)
-		->SetControlPoint(7, &end);
+		->SetControlPoint(2, begin)
+		->SetControlPoint(6, { 1, 0, 0 })
+		->SetControlPoint(7, end);
 	return pw;
 }
 
@@ -25,10 +24,9 @@ ParticleWrapper Hacks::ParticleAbilityWarner::DrawRadius(Vector pos, float radiu
 		PATTACH_WORLDORIGIN,
 		ctx.assignedHero
 	);
-	Vector radiusVec{ radius, 0, 0 };
 	pw.particle
-		->SetControlPoint(0, &pos)
-		->SetControlPoint(1, &radiusVec);
+		->SetControlPoint(0, pos)
+		->SetControlPoint(1, { radius, 0, 0 });
 	return pw;
 }
 
@@ -79,7 +77,7 @@ void Hacks::ParticleAbilityWarner::ProcessParticleMsg(NetMessageHandle_t* msgHan
 		auto updParticleEnt = pmMsg->update_particle_ent();
 		auto owner = Interfaces::EntitySystem->GetEntity(NH2IDX(updParticleEnt.entity_handle()));
 		// If they're not an enemy we dequeue the particle's index
-		if (!owner || owner->GetTeam() == ctx.assignedHero->GetTeam()) {
+		if (!owner || owner->IsSameTeam(ctx.assignedHero)) {
 			queuedParticleIndexes.erase(msgIndex);
 			break;
 		}

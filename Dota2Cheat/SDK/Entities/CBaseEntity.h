@@ -31,14 +31,17 @@ public:
 	typedef void(__fastcall* EntityCallback)(void* thisptr);
 	static inline EntityCallback OnColorChanged{};
 
-	GETTER(CEntityIdentity*, GetIdentity, Netvars::CEntityInstance::m_pEntity)
-	GETTER(int, GetHealth, Netvars::C_BaseEntity::m_iHealth)
-	GETTER(int, GetMaxHealth, Netvars::C_BaseEntity::m_iMaxHealth)
-	GETTER(DOTA_GC_TEAM, GetTeam, Netvars::C_BaseEntity::m_iTeamNum)
-	GETTER(int8_t, GetLifeState, Netvars::C_BaseEntity::m_lifeState)
-	GETTER(ENT_HANDLE, GetOwnerEntityHandle, Netvars::C_BaseEntity::m_hOwnerEntity)
+	GETTER(CEntityIdentity*, GetIdentity, Netvars::CEntityInstance::m_pEntity);
+	GETTER(int, GetHealth, Netvars::C_BaseEntity::m_iHealth);
+	GETTER(int, GetMaxHealth, Netvars::C_BaseEntity::m_iMaxHealth);
+	GETTER(DOTA_GC_TEAM, GetTeam, Netvars::C_BaseEntity::m_iTeamNum);
+	GETTER(int8_t, GetLifeState, Netvars::C_BaseEntity::m_lifeState);
+	GETTER(ENT_HANDLE, GetOwnerEntityHandle, Netvars::C_BaseEntity::m_hOwnerEntity);
 
 
+	bool IsSameTeam(CBaseEntity* other) {
+		return GetTeam() == other->GetTeam();
+	}
 	uint32_t GetHandle() {
 		auto id = GetIdentity();
 		if (!IsValidReadPtr(id))

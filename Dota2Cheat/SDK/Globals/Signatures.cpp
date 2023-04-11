@@ -14,7 +14,7 @@ void Signatures::FindSignatures(bool log) {
 	if (log)
 		std::cout << "[SIGNATURES]\n";
 
-	SCAN_FUNC(OnAcceptMatch, ssctx.Scan("E8 ? ? ? ? 48 8D 4F 28 FF C6 E8", L"client.dll").GetAbsoluteAddress(1, 5));
+	//SCAN_FUNC(OnAcceptMatch, ssctx.Scan("E8 ? ? ? ? 48 8D 4F 28 FF C6 E8", L"client.dll").GetAbsoluteAddress(1, 5));
 
 	SCAN_FUNC(GetPlayer, ssctx.Scan("33 C0 83 F9 FF", L"client.dll"));
 
@@ -50,6 +50,13 @@ void Signatures::FindSignatures(bool log) {
 
 	//xref: "RP: Setting %s's status to %s (%s).\n"
 	SCAN_FUNC(CDOTARichPresence::SetRPStatusFunc, ssctx.Scan("4C 89 4C 24 20 55 53 57 41 54", L"client.dll"));
+
+	//xref: "Failed to get custom game %llu timestamp/CRC!\n"
+	SCAN_FUNC(CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby,
+		ssctx.Scan("E8 ? ? ? ? 48 8B D7 48 8B CB E8 ? ? ? ? 48 8D 8B", L"client.dll")
+		.GetAbsoluteAddress(1)
+		.Offset(0x27E)
+		.GetAbsoluteAddress(1));
 
 	//xref: "cache_%u_%u.soc", closest to the beginning
 	SCAN_FUNC(SaveSerializedSOCache, ssctx.Scan("4C 8B DC 57 48 81 EC ? ? ? ? 48 8B 05", L"client.dll"));

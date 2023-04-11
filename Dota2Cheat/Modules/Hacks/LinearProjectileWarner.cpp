@@ -4,17 +4,16 @@
 // Draws a dashed red line from begin to end
 // Returns the wrapper for the created particle
 
-ParticleWrapper Hacks::LinearProjectileWarner::DrawTrajectory(Vector begin, Vector end) {
+ParticleWrapper Hacks::LinearProjectileWarner::DrawTrajectory(const Vector& begin, const Vector& end) {
 	auto pw = GameSystems::ParticleManager->CreateParticle(
 		"particles/ui_mouseactions/range_finder_tower_line.vpcf",
 		PATTACH_WORLDORIGIN,
 		nullptr
 	);
-	Vector boolCp{ 1, 0, 0 };
 	pw.particle
-		->SetControlPoint(2, &begin)
-		->SetControlPoint(6, &boolCp)
-		->SetControlPoint(7, &end);
+		->SetControlPoint(2, begin)
+		->SetControlPoint(6, {1,0,0})
+		->SetControlPoint(7, end);
 	return pw;
 }
 
@@ -51,7 +50,7 @@ void Hacks::LinearProjectileWarner::FrameBasedLogic() {
 	for (auto& [modifier, info] : EntityTrajectories) {
 		auto owner = modifier->GetOwner();
 		auto forwardVec = modifier->GetOwner()->GetForwardVector(info.offset);
-		info.particleWrap.particle->SetControlPoint(7, &forwardVec);
+		info.particleWrap.particle->SetControlPoint(7, forwardVec);
 	}
 }
 
@@ -69,19 +68,18 @@ void Hacks::LinearProjectileWarner::ProcessLinearProjectileMsg(NetMessageHandle_
 			.origin = Vector(linProjMsg->origin().x(), linProjMsg->origin().y(), linProjMsg->origin().z())
 		};
 
-		if (
-			Config::WarnLinearProjectiles &&
-			(!newProj.source || newProj.source->GetTeam() != ctx.assignedHero->GetTeam())
-			) {
+		if (!Config::WarnLinearProjectiles)
+			return;
+		if (!newProj.source || !newProj.source->IsSameTeam(ctx.assignedHero))
+			return;
 
-			auto ratio = newProj.distance / newProj.velocity.Length();
-			auto endPoint = newProj.origin;
-			endPoint.x += (newProj.velocity * ratio).x;
-			endPoint.y += (newProj.velocity * ratio).y;
-			TrackedProjectiles[newProj.handle] = DrawTrajectory(newProj.origin, endPoint);
-		}
-	}
-	else if (msgHandle->messageID == 472) {
+		auto ratio = newProj.distance / newProj.velocity.Length();
+		auto endPoint = newProj.origin;
+		endPoint.x += (newProj.velocity * ratio).x;
+		endPoint.y += (newProj.velocity * ratio).y;
+		TrackedProjectiles[newProj.handle] = DrawTrajectory(newProj.origin, endPoint);
+
+	} else if (msgHandle->messageID == 472) {
 		auto linProjMsg = reinterpret_cast<CDOTAUserMsg_DestroyLinearProjectile*>(msg);
 		auto handle = linProjMsg->handle();
 		linearProjectiles.erase(handle);

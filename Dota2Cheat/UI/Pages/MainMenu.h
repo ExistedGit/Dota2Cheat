@@ -184,11 +184,11 @@ namespace Pages {
 					auto particle = GameSystems::ParticleManager->CreateParticle(
 						"particles/ui_mouseactions/selected_ring.vpcf",
 						PATTACH_ABSORIGIN_FOLLOW,
-						(CBaseEntity*)ctx.assignedHero
+						ctx.assignedHero
 					).particle
-						->SetControlPoint(1, &color)
-						->SetControlPoint(2, &radius)
-						->SetControlPoint(3, &Vector::Zero);
+						->SetControlPoint(1, color)
+						->SetControlPoint(2, radius)
+						->SetControlPoint(3, Vector::Zero);
 				}
 				ImGui::End();
 			}
