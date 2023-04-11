@@ -269,7 +269,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hooks\UIState.h" />
-    <ClInclude Include="UI\DrawContext.h" />
+    <ClInclude Include="SDK\GameSystems\CGameUI.h" />
     <ClInclude Include="Hooks\InvalidateUEF.h" />
     <ClInclude Include="Hooks\Misc.h" />
     <ClInclude Include="Hooks\OnAcceptMatch.h" />

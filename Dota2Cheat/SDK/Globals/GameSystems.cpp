@@ -23,6 +23,12 @@ void GameSystems::FindGameSystems() {
 		.Offset(0x277)
 		.GetAbsoluteAddress(3);
 
+	//xref: "activategameui", first lea rax, [XXXXXXXXX]
+	//console command ^
+	GameUI = ssctx.Scan("E8 ? ? ? ? 48 8B C8 E8 ? ? ? ? 48 8B 3D", L"client.dll")
+		.GetAbsoluteAddress(1)
+		.GetAbsoluteAddress(3);
+
 	// xref "Spews a list of all client-side projectiles", above it is lea rax, [XXXXXXXX]
 	// right click -> Find references to -> Address: XXXXXXXX
 	auto addr = ssctx.Scan("40 55 53 41 57 48 8D 6C 24 D0 48 81 EC 30 01 00 00 48 89 BC 24 58 01 00 00", L"client.dll");

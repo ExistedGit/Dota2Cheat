@@ -671,10 +671,10 @@
     <ClInclude Include="SDK\Wrappers\Creep.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="UI\DrawContext.h">
+    <ClInclude Include="Hooks\UIState.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="Hooks\UIState.h">
+    <ClInclude Include="SDK\GameSystems\CGameUI.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -7,12 +7,10 @@
 void Hooks::SetUpByteHooks() {
 	HOOKFUNC_SIGNATURES(PrepareUnitOrders);
 	HOOKFUNC_SIGNATURES(BIsEmoticonUnlocked);
-
 	HOOKFUNC_SIGNATURES(DispatchPacket);
 	HOOKFUNC_SIGNATURES(BAsyncSendProto);
 	HOOKFUNC_SIGNATURES(SaveSerializedSOCache);
-	HOOKFUNC_SIGNATURES(CGameUI__ChangeGameUIState);
-	//HOOKFUNC_SIGNATURES_INGAME(CreateParticleCollection);
+	//HOOKFUNC_SIGNATURES(CGameUI__ChangeGameUIState);
 }
 
 

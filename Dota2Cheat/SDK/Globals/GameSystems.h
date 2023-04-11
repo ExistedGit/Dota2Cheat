@@ -10,9 +10,11 @@
 #include "../GameSystems/C_DOTA_ProjectileManager.h"
 #include "../GameSystems/CGameEventManager.h"
 #include "../GameSystems/CDOTARichPresence.h"
+#include "../GameSystems/CGameUI.h"
 
 
 namespace GameSystems {
+	inline CGameUI* GameUI{};
 	inline CDOTAGCClientSystem* GCClientSystem{};
 	//GameRules is nullptr while not in a game
 	//So we need to dereference it when we enter a match and reset to nullptr on leave

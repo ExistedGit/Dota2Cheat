@@ -40,7 +40,7 @@ void Hacks::LastHitMarker::Draw() {
 		if (wrapper.creepType == CreepType::Siege)
 			dmg *= 0.5f;
 
-		float dmgReduction = (0.052f * creep->GetPhysicalArmorValue()) / (0.9f + 0.048f * abs(creep->GetPhysicalArmorValue()));
+		float dmgReduction = (0.06f * creep->GetPhysicalArmorValue()) / (1 + 0.06f * abs(creep->GetPhysicalArmorValue()));
 		// Damage check
 		if (creep->GetHealth() >= dmg * (1 - dmgReduction))
 			continue;

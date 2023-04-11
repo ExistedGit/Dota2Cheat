@@ -10,8 +10,6 @@
 #include "Config.h"
 #include "DebugFunctions.h"
 
-#include "Hooks/EntitySystemEvents.h"
-
 #include "Utils/Drawing.h"
 
 #include "Lua/LuaModules.h"
@@ -22,7 +20,6 @@
 #include "UI/Pages/MainMenu.h"
 #include "UI/Pages/AutoPickSelectionGrid.h"
 #include "Modules/Hacks/LastHitMarker.h"
-#include "UI/DrawContext.h"
 
 #pragma region Static variables
 
@@ -184,7 +181,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 #endif // _DEBUG
 
 		if (
-			draw_ctx.uiState == DOTA_GAME_UI_DOTA_INGAME
+			GameSystems::GameUI->GetUIState() == DOTA_GAME_UI_DOTA_INGAME
 			&& ctx.gameStage == Context::GameStage::IN_GAME
 			&& ctx.assignedHero
 			) {
