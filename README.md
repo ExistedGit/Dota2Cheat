@@ -36,7 +36,7 @@ This cheat can be safely reinjected at any point of the game
 
 Build Dota2Loader and launch it, it will move the necessary resources around and then inject
 
-**Use at own risk. Though I use methods that make detection chances as low as possible, there are no guarantees** (also consider not using non-legit features that others may notice)
+**Use at own risk. Though I use methods that make detection chances as low as possible, there are no guarantees. [Use](https://github.com/zyhp/vac3_inhibitor) a [vac bypass](https://github.com/danielkrupinski/VAC-Bypass)** (also consider not using non-legit features that you can get reported for)
 
 ## Troubleshooting
 
@@ -57,7 +57,7 @@ This list is subject to frequent change as I'm testing new features
 * Automation:
   * AutoAccept with customizable delay
   * Uses Magic Wand and Faerie Fire with customizable health tresholds
-  * Uses Hand of Midas on nearby big neutrals, ranged & flagbearer lane creeps and catapults
+  * AutoMidas with customizable min XP reward
   * Bounty rune & Aegis pickup
   * Tome of Knowledge purchase
   * Redirects spell casts from illusions to the real hero
