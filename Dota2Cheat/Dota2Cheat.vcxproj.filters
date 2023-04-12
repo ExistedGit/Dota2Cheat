@@ -677,6 +677,9 @@
     <ClInclude Include="SDK\GameSystems\CGameUI.h">
       <Filter>Header files</Filter>
     </ClInclude>
+    <ClInclude Include="SDK\Base\Logging.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hooks\InvalidateUEF.h">

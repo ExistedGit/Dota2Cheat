@@ -70,5 +70,5 @@ namespace Signatures {
 	// false = decline
 	inline bool(*CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby)(void* thisptr, bool state);
 
-	void FindSignatures(bool log);
+	void FindSignatures();
 }

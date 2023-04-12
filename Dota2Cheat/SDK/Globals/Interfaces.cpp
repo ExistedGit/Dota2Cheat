@@ -1,7 +1,7 @@
 #include "Interfaces.h"
 
 void Interfaces::FindInterfaces() {
-	std::cout << "[INTERFACES]\n";
+	Log(LP_NONE, "[INTERFACES]");
 	Engine = GetInterface<CEngineClient>("engine2.dll", "Source2EngineToClient001", 177);
 	Client = GetInterface<VClass>("client.dll", "Source2Client002");
 	CVar = GetInterface<CVarSystem>("tier0.dll", "VEngineCvar007", 43);

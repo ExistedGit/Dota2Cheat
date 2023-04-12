@@ -1,22 +1,19 @@
 #include "Signatures.h"
+#include "../Base/Logging.h"
 
-#ifdef _DEBUG
-#define SCAN_FUNC(var, scan) var = (scan); std::cout << #var << ": " << var << '\n';
-#else
-#define SCAN_FUNC(var, scan) var = scan;
-#endif
+#define SCAN_FUNC(var, scan) var = (scan); Log(LP_NONE, #var, ": ", var);
 
-void Signatures::FindSignatures(bool log) {
+void Signatures::FindSignatures() {
 	CMsg = reinterpret_cast<decltype(CMsg)>(GetProcAddress(GetModuleHandleA("tier0.dll"), "Msg"));
 	CMsgColor = reinterpret_cast<decltype(CMsgColor)>(GetProcAddress(GetModuleHandleA("tier0.dll"), "?ConColorMsg@@YAXAEBVColor@@PEBDZZ"));
 
 	SigScanContext ssctx(ctx.CurProcHandle, ctx.CurProcId);
-	if (log)
-		std::cout << "[SIGNATURES]\n";
+	
+	Log(LP_NONE, "[SIGNATURES]");
 
 	//xref: "<BAD GAMEUI STATE>"
 	//you can see messages about UI state in console when switching between game/menu/loading screen
-	// SCAN_FUNC(CGameUI__ChangeGameUIState, ssctx.Scan("E8 ? ? ? ? 48 8B 5C 24 ? C6 86", L"client.dll").GetAbsoluteAddress(1, 5));
+	//SCAN_FUNC(CGameUI__ChangeGameUIState, ssctx.Scan("E8 ? ? ? ? 48 8B 5C 24 ? C6 86", L"client.dll").GetAbsoluteAddress(1, 5));
 
 	SCAN_FUNC(GetPlayer, ssctx.Scan("33 C0 83 F9 FF", L"client.dll"));
 

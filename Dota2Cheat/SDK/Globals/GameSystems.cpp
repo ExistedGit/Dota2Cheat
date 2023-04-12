@@ -48,14 +48,14 @@ void GameSystems::FindGameSystems() {
 		.GetAbsoluteAddress(1, 5)
 		.GetAbsoluteAddress(3, 7);
 
-	
+
 	std::cout << "DPMP: " << ParticleManagerPtr << '\n';
 }
 
 void GameSystems::LogGameSystems() {
-	std::cout << "[GLOBALS]\n";
-	std::cout << "GameRules: " << GameRules << '\n';
-	std::cout << "Projectile Manager:" << ProjectileManager << '\n';
-	std::cout << "CDOTARichPresence:" << RichPresence << '\n';
-	std::cout << "Particle Manager: " << ParticleManager << ' ' << ParticleManager->GetVFunc(VTableIndexes::CDOTAParticleManager::CreateParticle).ptr << "\n";
+	Log(LP_NONE, "[GAME SYSTEMS]");
+	Log(LP_INFO, "GameRules: ", GameRules);
+	Log(LP_INFO, "Projectile Manager: ", ProjectileManager);
+	Log(LP_INFO, "CDOTARichPresence: ", RichPresence);
+	Log(LP_INFO, "Particle Manager: ", ParticleManager, " ", ParticleManager->GetVFunc(VTableIndexes::CDOTAParticleManager::CreateParticle).ptr);
 }

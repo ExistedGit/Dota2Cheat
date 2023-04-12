@@ -27,17 +27,31 @@ namespace Panorama {
 			return CallVFunc<0, bool>(output, path);
 		}
 	};
+	class CUIPanel;
+
+	class CPanel2D : public VClass {
+	public:
+		GETTER(CUIPanel*, GetUIPanel, 0x8);
+	};
 
 	class CUIPanel : public VClass {
 	public:
-		const char* GetName() {
+		GETTER(CPanel2D*, GetPanel2D, 0x8);
+
+		bool BHasClass(const char* szClass) {
+			return CallVFunc<148, bool>(szClass);
+		}
+		const char* GetAttributeString(const char* attr, const char* defaultValue = "N/A") {
+			return CallVFunc<279, const char*>(attr, defaultValue);
+		}
+		const char* GetId() {
 			return Member<const char*>(0x10);
 		}
 	};
 	class PanelListNode {
 		void* unk0, * unk1;
 	public:
-		CUIPanel* panel;
+		CUIPanel* uiPanel;
 	private:
 		void* unk2;
 	};

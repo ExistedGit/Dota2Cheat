@@ -10,8 +10,10 @@
 #include "../Interfaces/Panorama.h"
 #include "../Interfaces/CResourceSystem.h"
 #include "../Interfaces/ISteamClient.h"
+
 #include "../Base/Memory.h"
 #include "../Base/VMT.h"
+#include "../Base/Logging.h"
 
 #include <format>
 

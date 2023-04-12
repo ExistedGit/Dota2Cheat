@@ -1,3 +1,4 @@
+// Became unused the day I set it up
 #pragma once
 #include "../SDK/pch.h"
 //#include "../UI/DrawContext.h"
