@@ -74,7 +74,6 @@ This list is subject to frequent change as I'm testing new features
   * Renders any and all possible particles, including in FoW
   * Customizable enemy illusion coloring
   * Shows trajectories of enemy projectiles like Mirana's arrow and non-projectile abilities like Meat Hook
-  * Roshan — saves his death time and approximates when he will spawn [WIP]
   
 * Convars:
   * `sv_cheats` spoofing
@@ -90,14 +89,11 @@ This list is subject to frequent change as I'm testing new features
   * River painting
   * Unlocks emoticons
   * Dota Plus Unlocker
-  * Partial skinchanger:
-    * Music
-    * Cursor packs
-    * Announcers
-    * Kill streak effects
-    * Terrain
-    * HUD skins
-   
+  
+* Work in progress:
+  * Roshan timer
+  * Skinchanger(half of the work done)
+  
 I intend to implement most of the usual cheat functionality
 
 # For Developers
