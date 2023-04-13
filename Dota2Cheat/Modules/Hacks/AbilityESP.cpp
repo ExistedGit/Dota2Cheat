@@ -86,29 +86,6 @@ void ESP::AbilityESP::DrawAbilities() {
 
 		int idx = 0;
 
-		// Background for the whole panel
-//		DrawRectFilled(
-//			ImVec2(x - iconSize / 2, y - iconSize / 2),
-//			ImVec2(abilityCount * iconSize, iconSize + levelCounterHeight + 2),
-//#ifdef _DEBUG
-//			ImVec4(1, 0, 0, 1)
-//#else
-//			ImVec4(0.11f, 0.11f, 0.11f, 1)
-//#endif // _DEBUG
-//		);
-		// Mana info: amount percent% +regen
-		//DrawTextForeground(
-		//	textFont,
-		//	std::format("{} {}% +{:.1f}", (int)hero->GetMana(), int(manaPercent * 100), hero->GetManaRegen()),
-		//	ImVec2(
-		//		x - iconSize / 2 + outlineThickness + abilityCount * iconSize / 2,
-		//		y + iconSize / 2 + outlineThickness + levelCounterHeight + 2
-		//	),
-		//	manaBarThickness - 4,
-		//	Color(255, 255, 255),
-		//	true
-		//);
-
 		for (auto& data : abilities) {
 			if (!data.ability)
 				continue;
@@ -476,9 +453,11 @@ void ESP::AbilityESP::DrawManabars() {
 		Signatures::WorldToScreen(&pos, &dx, &dy, nullptr);
 		dy -= 14;
 		dx += 4;
+		// Background
 		DrawRectFilled(
 			ImVec2(dx - 110 / 2, dy - manabarSize.y / 2),
 			manabarSize, ImVec4(0, 0, 0, 1));
+		// Manabar
 		DrawRectFilled(
 			ImVec2(dx - 110 / 2 + 1, dy - manabarSize.y / 2 + 1),
 			ImVec2(manabarSize.x * (hero->GetMana() / hero->GetMaxMana()) - 2, manabarSize.y - 2), ImVec4(0, 0.5, 1, 1));

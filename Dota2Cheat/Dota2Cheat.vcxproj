@@ -216,6 +216,7 @@
     <ClCompile Include="Modules\Hacks\SkinChanger.cpp" />
     <ClCompile Include="Modules\Hacks\TargetedSpellHighlighter.cpp" />
     <ClCompile Include="Modules\Hacks\AbilityESP.cpp" />
+    <ClCompile Include="Modules\Hacks\UIOverhaul.cpp" />
     <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp" />
     <ClCompile Include="Modules\Utility\AttackTargetFinder.cpp" />
     <ClCompile Include="Modules\Utility\ParticleGC.cpp" />
@@ -269,6 +270,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hooks\UIState.h" />
+    <ClInclude Include="Modules\Hacks\UIOverhaul.h" />
     <ClInclude Include="SDK\GameSystems\CGameUI.h" />
     <ClInclude Include="Hooks\InvalidateUEF.h" />
     <ClInclude Include="Hooks\Misc.h" />

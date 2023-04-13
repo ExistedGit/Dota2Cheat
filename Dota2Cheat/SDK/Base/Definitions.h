@@ -1,5 +1,6 @@
 #pragma once
 #include <cstdint>
+#include <sol/sol.hpp>
 
 using ENT_HANDLE = uint32_t;
 constexpr uint32_t ENT_HANDLE_MASK = 0x7fff;

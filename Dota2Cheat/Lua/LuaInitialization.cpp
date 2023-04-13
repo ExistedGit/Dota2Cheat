@@ -149,6 +149,7 @@ void Lua::InitEnums(sol::state& lua) {
 
 void Lua::SetGlobals(sol::state& lua) {
 	lua["ParticleManager"] = GameSystems::ParticleManager;
+	lua["GameRules"] = GameSystems::GameRules;
 
 	ctx.lua["localHero"] = ctx.assignedHero;
 	ctx.lua["localPlayer"] = ctx.localPlayer;
@@ -200,6 +201,7 @@ void Lua::InitClasses(sol::state& lua) {
 	CNewParticleEffect::BindLua(lua);
 	ParticleWrapper::BindLua(lua);
 	CDOTAParticleManager::BindLua(lua);
+	CDOTAGameRules::BindLua(lua);
 	{
 		auto type = lua.new_usertype<Context>("Context");
 		type["heroes"] = &Context::heroes;

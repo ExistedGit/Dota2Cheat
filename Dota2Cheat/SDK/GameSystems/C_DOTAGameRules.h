@@ -1,8 +1,9 @@
 #pragma once
 #include "../Protobufs/dota_shared_enums.pb.h"
 #include "../Base/VClass.h"
-#include "../Netvars.h"
+#include "../Base/Definitions.h"
 #include "../Base/CUtlVector.h"
+#include "../Netvars.h"
 
 class ItemStockInfo : VClass {
 private:
@@ -28,4 +29,6 @@ public:
 
 	float GetGameTime();
 	std::vector<ItemStockInfo*> GetItemStockInfo();
+
+	static void BindLua(sol::state& lua);
 };

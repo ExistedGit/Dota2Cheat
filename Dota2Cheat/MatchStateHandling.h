@@ -9,6 +9,7 @@
 
 #include "Modules/Hacks/AutoBuyTome.h"
 #include "Modules/Hacks/AbilityESP.h"
+#include "Modules/Hacks/UIOverhaul.h"
 #include <format>
 #include "Modules/Hacks/AutoPick.h"
 #include "Modules/Hacks/AutoPing.h"

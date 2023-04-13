@@ -4,6 +4,7 @@
 
 namespace Hacks {
 	class DotaPlusUnlocker {
+		bool plusStatus = false;
 	public:
 		// rebuilt from xref: "Failed to find CDOTAGameAccountPlus"
 		void UpdateDotaPlusStatus();

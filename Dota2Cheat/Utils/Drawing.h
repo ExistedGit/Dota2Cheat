@@ -12,6 +12,10 @@
 #include "../SDK/Base/Color.h"
 #include <unordered_map>
 
+inline ImVec2 ImVecFromVec2D(const Vector2D& vec) {
+	return ImVec2{ vec.x,vec.y };
+}
+
 void DrawRect(const ImVec2& topLeft, const ImVec2& size, const ImVec4& color, float thickness = 1.0f);
 void DrawRectFilled(const ImVec2& topLeft, const ImVec2& size, const ImVec4& color);
 void HelpMarker(const char* desc);

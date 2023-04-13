@@ -12,6 +12,9 @@
 #include "../Modules/Hacks/AutoPing.h"
 #include "../Modules/Hacks/AutoDodge.h"
 #include "../Modules/Hacks/AutoMidas.h"
+#include "../Modules/Hacks/UIOverhaul.h"
+#include "../Modules/Hacks/DotaPlusUnlocker.h"
+#include "../Modules/Hacks/SkinChanger.h"
 
 #include "../Modules/Utility/ParticleGC.h"
 
@@ -39,7 +42,7 @@ namespace Hooks {
 	void UpdateCameraDistance();
 	void UpdateWeather();
 
-	typedef void(__fastcall* RunFrameFn)(uintptr_t a, uintptr_t b);
+	typedef void(__fastcall* RunFrameFn)(void* thisptr);
 	inline RunFrameFn oRunFrame{};
-	void hkRunFrame(uintptr_t a, uintptr_t b);
+	void hkRunFrame(void* thisptr);
 }

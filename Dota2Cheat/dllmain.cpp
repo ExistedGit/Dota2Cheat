@@ -97,7 +97,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		}
 	}
 
-	Log(LP_NONE, "ItemSchema: ", Signatures::GetItemSchema());
+	Log(LP_DATA, "ItemSchema: ", Signatures::GetItemSchema());
 
 	Hooks::SetUpByteHooks();
 	Hooks::SetUpVirtualHooks(true);
@@ -163,18 +163,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Modules::AbilityESP.textFont = msTrebuchet;
 	iconLoadThread.wait();
 	{
-		int count = 0;
-		for (auto& node : Interfaces::UIEngine->GetPanelList<4096 * 4>()) {
-			auto uiPanel = node.uiPanel;
-			if (!uiPanel->GetId())
-				continue;
-			std::string_view id = uiPanel->GetId();
-			if (!uiPanel->BHasClass("TopBarHeroImage"))
-				continue;
 
-			LogF(LP_DATA, "TopBarHeroImage #{}: {} {}", count, (void*)uiPanel->GetPanel2D(), uiPanel->GetAttributeString("src"));
-			++count;
-		};
 	}
 
 	int itemDefId = 6996;
@@ -202,6 +191,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			&& ctx.assignedHero
 			) {
 			Modules::AbilityESP.DrawESP();
+			Modules::UIOverhaul.DrawBars();
 			Modules::LastHitMarker.Draw();
 		}
 

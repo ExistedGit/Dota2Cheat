@@ -15,3 +15,13 @@ std::vector<ItemStockInfo*> CDOTAGameRules::GetItemStockInfo() {
 
 	return result;
 }
+
+void CDOTAGameRules::BindLua(sol::state& lua) {
+	auto type = lua.new_usertype<CDOTAGameRules>("CDOTAGameRules");
+
+	type["GetGameState"] = &CDOTAGameRules::GetGameState;
+	type["GetGameMode"] = &CDOTAGameRules::GetGameMode;
+	type["IsGamePaused"] = &CDOTAGameRules::IsGamePaused;
+	type["GetGameTime"] = &CDOTAGameRules::GetGameTime;
+	type["GetItemStockInfo"] = &CDOTAGameRules::GetItemStockInfo;
+}

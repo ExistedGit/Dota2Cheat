@@ -46,16 +46,29 @@ void Hooks::UpdateWeather() {
 
 ENT_HANDLE currentQueryUnit = INVALID_HANDLE;
 DOTA_GC_TEAM quTeam;
+bool DotaPlusStatus = false;
 
-
-void Hooks::hkRunFrame(uintptr_t a, uintptr_t b) {
+void Hooks::hkRunFrame(void* thisptr) {
 	bool isInGame = Interfaces::Engine->IsInGame();
-	
+	if (DotaPlusStatus != Config::Changer::UnlockDotaPlus) {
+		DotaPlusStatus = Config::Changer::UnlockDotaPlus;
+		Modules::DotaPlusUnlocker.UpdateDotaPlusStatus();
+	}
+
+	if (Modules::SkinChanger.ItemsCreated) {
+		Modules::SkinChanger.ItemsCreated = false;
+
+		for (auto& item : Modules::SkinChanger.itemsToCreate)
+			Modules::SkinChanger.AddItem(item);
+
+		Modules::SkinChanger.itemsToCreate.clear();
+	}
+
 	if (!isInGame ||
 		!ctx.localPlayer ||
 		!ctx.assignedHero ||
 		ctx.gameStage != Context::GameStage::IN_GAME) {
-		oRunFrame(a, b);
+		oRunFrame(thisptr);
 		return;
 	}
 	//std::cout << "frame\n";
@@ -64,6 +77,7 @@ void Hooks::hkRunFrame(uintptr_t a, uintptr_t b) {
 	UpdateWeather();
 
 	Modules::AbilityESP.UpdateHeroData();
+	//Modules::UIOverhaul.Update();
 	if (
 		ctx.assignedHero->GetLifeState() == 0 // if alive
 		&& !GameSystems::GameRules->IsGamePaused() // and the game is not paused
@@ -89,7 +103,7 @@ void Hooks::hkRunFrame(uintptr_t a, uintptr_t b) {
 		auto queryUnit = ctx.localPlayer->Member<ENT_HANDLE>(Netvars::C_DOTAPlayerController::m_hQueryUnit);
 		if (HVALID(currentQueryUnit) && queryUnit != currentQueryUnit) {
 			auto unit = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(currentQueryUnit));
-			if (unit) 
+			if (unit)
 				unit->Field<DOTA_GC_TEAM>(Netvars::C_BaseEntity::m_iTeamNum) = quTeam;
 		}
 		if (HVALID(queryUnit))
@@ -153,5 +167,5 @@ void Hooks::hkRunFrame(uintptr_t a, uintptr_t b) {
 	}
 #endif
 
-	oRunFrame(a, b);
+	oRunFrame(thisptr);
 }

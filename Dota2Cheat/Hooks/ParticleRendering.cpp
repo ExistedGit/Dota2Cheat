@@ -5,20 +5,6 @@
 using CParticleCollection = Signatures::CParticleCollection;
 
 void Hooks::hkSetRenderingEnabled(CParticleCollection* thisptr, bool state) {
-	if (unlockedDotaPlus != Config::Changer::UnlockDotaPlus)
-	{
-		unlockedDotaPlus = Config::Changer::UnlockDotaPlus;
-		Modules::DotaPlusUnlocker.UpdateDotaPlusStatus();
-	}
-	if (Modules::SkinChanger.ItemsCreated) {
-		Modules::SkinChanger.ItemsCreated = false;
-				
-		for (auto& item : Modules::SkinChanger.itemsToCreate)
-			Modules::SkinChanger.AddItem(item);
-
-		Modules::SkinChanger.itemsToCreate.clear();
-	}
-
 	oSetRenderingEnabled(thisptr, state || Config::RenderAllParticles);
 }
 
