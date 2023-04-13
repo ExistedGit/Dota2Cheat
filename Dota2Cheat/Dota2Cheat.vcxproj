@@ -148,7 +148,7 @@
       <EnableUAC>false</EnableUAC>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;lua54.lib;libprotobufd.lib;libprotobuf-lited.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)lib\;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -216,6 +216,7 @@
     <ClCompile Include="Modules\Hacks\SkinChanger.cpp" />
     <ClCompile Include="Modules\Hacks\TargetedSpellHighlighter.cpp" />
     <ClCompile Include="Modules\Hacks\AbilityESP.cpp" />
+    <ClCompile Include="Modules\Hacks\UIOverhaul.cpp" />
     <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp" />
     <ClCompile Include="Modules\Utility\AttackTargetFinder.cpp" />
     <ClCompile Include="Modules\Utility\ParticleGC.cpp" />
@@ -269,6 +270,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hooks\UIState.h" />
+    <ClInclude Include="Modules\Hacks\UIOverhaul.h" />
     <ClInclude Include="SDK\GameSystems\CGameUI.h" />
     <ClInclude Include="Hooks\InvalidateUEF.h" />
     <ClInclude Include="Hooks\Misc.h" />
@@ -398,6 +400,7 @@
     <ClInclude Include="SDK\Entities\CEntityIdentity.h" />
     <ClInclude Include="UI\Pages\MainMenu.h" />
     <ClInclude Include="Utils\FuncWrappers.h" />
+    <ClInclude Include="SDK\Base\Logging.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -288,6 +288,9 @@
     <ClCompile Include="Modules\Hacks\LastHitMarker.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="Modules\Hacks\UIOverhaul.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h">
@@ -675,6 +678,12 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="SDK\GameSystems\CGameUI.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Base\Logging.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Modules\Hacks\UIOverhaul.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>

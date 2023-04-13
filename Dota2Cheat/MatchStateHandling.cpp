@@ -31,25 +31,26 @@ void FillPlayerList() {
 
 // Now that the iteration is based on collections, the cheat does not retain the entity lists upon reinjection
 void CacheAllEntities() {
-	if (ctx.gameStage != Context::GameStage::IN_GAME)
-		return;
 	for (int i = 0; i <= Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
 		auto ent = Interfaces::EntitySystem->GetEntity(i);
-		if (ent->SchemaBinding()->binaryName) {
-			std::string_view className = ent->SchemaBinding()->binaryName;
+		if (!IsValidReadPtr(ent) ||
+			!ent->SchemaBinding()->binaryName)
+			continue;
 
-			if (className == "C_DOTA_Item_Physical")
-				ctx.physicalItems.insert(ent);
-			else if (className.find("Creep") != -1)
-				ctx.creeps.insert((CDOTABaseNPC*)ent);
-			else if (className == "C_DOTA_Item_Rune")
-				ctx.runes.insert((CDOTAItemRune*)ent);
-			else if (className.find("C_DOTA_Unit_Hero") != -1)
-				ctx.heroes.insert(reinterpret_cast<CDOTABaseNPC_Hero*>(ent));
+		std::string_view className = ent->SchemaBinding()->binaryName;
 
-			ctx.entities.insert(ent);
-			Lua::CallModuleFunc("OnAddEntity", ent);
-		}
+		if (className == "C_DOTA_Item_Physical")
+			ctx.physicalItems.insert(ent);
+		else if (className.find("Creep") != -1)
+			ctx.creeps.insert((CDOTABaseNPC*)ent);
+		else if (className == "C_DOTA_Item_Rune")
+			ctx.runes.insert((CDOTAItemRune*)ent);
+		else if (className.find("C_DOTA_Unit_Hero") != -1)
+			ctx.heroes.insert(reinterpret_cast<CDOTABaseNPC_Hero*>(ent));
+
+		ctx.entities.insert(ent);
+		Lua::CallModuleFunc("OnAddEntity", ent);
+
 	}
 }
 void OnUpdatedAssignedHero()
@@ -97,7 +98,7 @@ void EnteredPreGame() {
 		return;
 
 	ctx.gameStage = Context::GameStage::PRE_GAME;
-	std::cout << "[PRE-GAME]\n";
+	Log(LP_INFO, "GAME STAGE: PRE-GAME");
 }
 
 void EnteredInGame() {
@@ -108,19 +109,16 @@ void EnteredInGame() {
 
 	UpdateAssignedHero();
 
-	if (!ctx.assignedHero) {
+	if (!ctx.assignedHero)
 		return;
-	}
 
 	//Config::AutoPingTarget = ctx.assignedHero;
 	//FillPlayerList();
 
-	std::cout << "[GAME]:\n";
-	std::cout << "Local Player: " << ctx.localPlayer
-		<< "\n\t" << std::dec << "STEAM ID: " << ctx.localPlayer->GetSteamID()
-		<< '\n';
+	Log(LP_INFO, "GAME STAGE: INGAME");
+	LogF(LP_DATA, "Local Player: {}\n\tSTEAM ID: {}", (void*)ctx.localPlayer, ctx.localPlayer->GetSteamID());
 	if (ctx.assignedHero->GetUnitName())
-		std::cout << "Assigned Hero: " << ctx.assignedHero << " " << ctx.assignedHero->GetUnitName() << '\n';
+		LogF(LP_DATA, "Assigned Hero: {} {}", (void*)ctx.assignedHero, ctx.assignedHero->GetUnitName());
 
 	Interfaces::CVar->SetConvars();
 
@@ -138,12 +136,12 @@ void EnteredInGame() {
 
 	Modules::AutoBuyTome.Init();
 	Modules::AbilityESP.SubscribeHeroes();
+	Modules::UIOverhaul.Init();
 
 	Lua::CallModuleFunc("Init");
 
 	Hooks::EnableHooks();
 	ctx.gameStage = Context::GameStage::IN_GAME;
-	std::cout << "[/GAME]\n";
 }
 
 void LeftMatch() {
@@ -158,6 +156,7 @@ void LeftMatch() {
 	Modules::AutoPick.Reset();
 	Modules::ParticleGC.Reset();
 	Modules::AbilityESP.Reset();
+	Modules::UIOverhaul.Reset();
 
 	GameSystems::PlayerResource = nullptr;
 	GameSystems::GameRules = nullptr;
@@ -176,7 +175,7 @@ void LeftMatch() {
 	Hooks::DisableHooks();
 	texManager.QueueTextureUnload();
 
-	std::cout << "LEFT MATCH\n";
+	Log(LP_INFO, "GAME STAGE: NONE");
 }
 
 void CheckMatchState() {

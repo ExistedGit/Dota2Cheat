@@ -10,8 +10,10 @@
 #include "../Interfaces/Panorama.h"
 #include "../Interfaces/CResourceSystem.h"
 #include "../Interfaces/ISteamClient.h"
+
 #include "../Base/Memory.h"
 #include "../Base/VMT.h"
+#include "../Base/Logging.h"
 
 #include <format>
 
@@ -42,13 +44,14 @@ namespace Interfaces {
 		void* result = CreateInterface(interfaceName, &retCode);
 		
 		int countedVMs = CountVMs(result);
-		std::cout << std::format("{}/{}: {}", dllName, interfaceName, result);
-		
-		if (vmCount != -1 && countedVMs != vmCount)
-			std::cout << std::format(" | VM count mismatch! Current: {}, Required: {}", countedVMs, vmCount);
-		else
-			std::cout << " | VMs: " << countedVMs;
-		std::cout << '\n';
+		LogPrefix prefix = LP_DATA;
+		std::string vmInfo = " | VMs: " + std::to_string(countedVMs);
+		if (vmCount != -1 && countedVMs != vmCount) {
+			vmInfo = std::format(" | VM count mismatch! Current: {}, Required: {}", countedVMs, vmCount);
+			prefix = LP_WARNING;
+		}
+
+		LogF(prefix, "{}/{}: {}{}", dllName, interfaceName, result, vmInfo);
 
 		return reinterpret_cast<T*>(result);
 	}

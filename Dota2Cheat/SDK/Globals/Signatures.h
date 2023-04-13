@@ -48,14 +48,12 @@ namespace Signatures {
 
 	typedef void(*OnAddModifierFn)(CDOTAModifier*, int);
 	typedef void(*OnRemoveModifierFn)(CDOTAModifier*);
-	//there's actually no point in sigging it
-	//netmessages ftw
-	//typedef CDOTAParticleManager::CNewParticleEffect* (__fastcall* CreateLinearProjectile)(void* thisptr, void* creationInfo);
 
 	//inline LoadUITextureFn LoadUITexture{};
 
 	using CParticleCollection = void;
-	typedef CParticleCollection* (*CreateParticleCollectionFn)(CNewParticleEffect* thisptr, void* particleMgr, void* unk, void** query, int particleIndex);
+	//typedef CParticleCollection* (*CreateParticleCollectionFn)(CNewParticleEffect* thisptr, void* particleMgr, void* unk, void** query, int particleIndex);
+	//CreateParticleCollectionFn CreateParticleCollection{};
 	
 	inline void(__fastcall* WorldToScreen)(Vector* coord, int* outX, int* outY, void* offset);
 	inline PrepareUnitOrdersFn PrepareUnitOrders{};
@@ -63,12 +61,10 @@ namespace Signatures {
 	inline DispatchPacketFn DispatchPacket{};
 	inline BAsyncSendProtoFn BAsyncSendProto{};
 
-	inline CreateParticleCollectionFn CreateParticleCollection{};
-
 	// state:
 	// true = accept
 	// false = decline
 	inline bool(*CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby)(void* thisptr, bool state);
 
-	void FindSignatures(bool log);
+	void FindSignatures();
 }

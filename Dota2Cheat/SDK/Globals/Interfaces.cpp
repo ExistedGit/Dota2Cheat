@@ -1,22 +1,22 @@
 #include "Interfaces.h"
 
 void Interfaces::FindInterfaces() {
-	std::cout << "[INTERFACES]\n";
-	Engine = GetInterface<CEngineClient>("engine2.dll", "Source2EngineToClient001", 177);
+	Log(LP_NONE, "[INTERFACES]");
+	Engine = GetInterface<CEngineClient>("engine2.dll", "Source2EngineToClient001", 176);
 	Client = GetInterface<VClass>("client.dll", "Source2Client002");
 	CVar = GetInterface<CVarSystem>("tier0.dll", "VEngineCvar007", 43);
-	ResourceSystem = GetInterface<CResourceSystem>("resourcesystem.dll", "ResourceSystem013", 81);
+	ResourceSystem = GetInterface<CResourceSystem>("resourcesystem.dll", "ResourceSystem013", 78);
 	EntitySystem = *Address(Interfaces::Client->GetVFunc(25).ptr).GetAbsoluteAddress<CGameEntitySystem**>(3, 7);
 	SteamClient = GetInterface<ISteamClient>("steamclient64.dll", "SteamClient017");
-	FileSystem = GetInterface<CBaseFileSystem>("filesystem_stdio.dll", "VFileSystem017", 156);
+	FileSystem = GetInterface<CBaseFileSystem>("filesystem_stdio.dll", "VFileSystem017", 144);
 
 	Panorama = GetInterface<VClass>("panorama.dll", "PanoramaUIEngine001");
 	UIEngine = Panorama->Member<Panorama::CUIEngineSource2*>(0x28);
 
 	GCClient = GetInterface<CGCClient>("client.dll", "DOTA_CLIENT_GCCLIENT");
-	Schema = GetInterface<VClass>("schemasystem.dll", "SchemaSystem_001", 41);
+	Schema = GetInterface<VClass>("schemasystem.dll", "SchemaSystem_001", 38);
 	ParticleMgrSystem = GetInterface<VClass>("particles.dll", "ParticleSystemMgr003");
-	InputService = GetInterface<CInputService>("engine2.dll", "InputService_001", 69);
-	NetworkSystem = GetInterface<void>("networksystem.dll", "NetworkSystemVersion001", 65);
-	NetworkMessages = GetInterface<CNetworkMessages>("networksystem.dll", "NetworkMessagesVersion001", 39);
+	InputService = GetInterface<CInputService>("engine2.dll", "InputService_001", 64);
+	NetworkSystem = GetInterface<void>("networksystem.dll", "NetworkSystemVersion001", 62);
+	NetworkMessages = GetInterface<CNetworkMessages>("networksystem.dll", "NetworkMessagesVersion001", 36);
 }

@@ -28,6 +28,8 @@ std::vector<std::unique_ptr<IGameEventListener2>> CGameEventManager::EventListen
 
 #pragma endregion
 
+constexpr bool useChangerCode = false;
+
 static inline void glfw_error_callback(int error, const char* description)
 {
 	fprintf(stderr, "Glfw Error %d: %s\n", error, description);
@@ -58,7 +60,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 				std::cout << "Loaded config from " << ctx.cheatFolderPath + "\\config\\base.json\n";
 			}
 		}
-		{
+		if (useChangerCode) {
 			std::ifstream fin(ctx.cheatFolderPath + "\\config\\inventory.json");
 			if (fin.is_open()) {
 				Config::cfg.LoadEquippedItems(fin);
@@ -83,22 +85,19 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		});
 
 	Interfaces::CVar->DumpConVarsToMap();
-#ifdef _DEBUG
-	Signatures::FindSignatures(true);
-#else
-	Signatures::FindSignatures(false);
-#endif // _DEBUG
-
+	Signatures::FindSignatures();
 	GameSystems::FindGameSystems();
 
-	std::ifstream fin(ctx.cheatFolderPath + "\\assets\\itemdefs.txt");
-	if (fin.is_open())
-	{
-		Modules::SkinChanger.ParseItemDefs(fin);
-		fin.close();
+	if (useChangerCode) {
+		std::ifstream fin(ctx.cheatFolderPath + "\\assets\\itemdefs.txt");
+		if (fin.is_open())
+		{
+			Modules::SkinChanger.ParseItemDefs(fin);
+			fin.close();
+		}
 	}
 
-	std::cout << "ItemSchema: " << Signatures::GetItemSchema() << "\n";
+	Log(LP_DATA, "ItemSchema: ", Signatures::GetItemSchema());
 
 	Hooks::SetUpByteHooks();
 	Hooks::SetUpVirtualHooks(true);
@@ -110,6 +109,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Lua::InitFunctions(ctx.lua);
 	Lua::SetGlobals(ctx.lua);
 	Lua::LoadScriptFiles(ctx.lua);
+
+	std::cout << "Loading finished, initializing UI\n";
 
 	glfwSetErrorCallback(glfw_error_callback);
 	if (!glfwInit())
@@ -161,6 +162,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	bool menuVisible = false;
 	Modules::AbilityESP.textFont = msTrebuchet;
 	iconLoadThread.wait();
+	{
+
+	}
+
 	int itemDefId = 6996;
 	// Main loop
 	while (!glfwWindowShouldClose(window))
@@ -186,6 +191,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			&& ctx.assignedHero
 			) {
 			Modules::AbilityESP.DrawESP();
+			Modules::UIOverhaul.DrawBars();
 			Modules::LastHitMarker.Draw();
 		}
 

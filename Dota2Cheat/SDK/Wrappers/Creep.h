@@ -29,6 +29,7 @@ public:
 	}
 };
 
+// Comparator for std::set
 struct CreepWrapper_less {
 	bool operator()(const CreepWrapper& w1, const CreepWrapper& w2)const {
 		return w1.ent < w2.ent;

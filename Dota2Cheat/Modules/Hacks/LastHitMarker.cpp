@@ -14,6 +14,11 @@ void Hacks::LastHitMarker::Draw() {
 	if (!Config::LastHitMarker)
 		return;
 
+	bool hasQBlade = ctx.assignedHero->HasOneOfModifiers({
+			"modifier_item_quelling_blade",
+			"modifier_item_battlefury"
+		});
+
 	for (auto& wrapper : ctx.creeps) {
 		auto creep = wrapper.ent;
 		if (!IsValidReadPtr(creep)
@@ -31,10 +36,7 @@ void Hacks::LastHitMarker::Draw() {
 
 		int dmg = ctx.assignedHero->GetAttackDamageMin();
 
-		if (ctx.assignedHero->HasOneOfModifiers({
-			"modifier_item_quelling_blade",
-			"modifier_item_battlefury"
-			}))
+		if (hasQBlade)
 			dmg += ctx.assignedHero->GetAttackCapabilities() == DOTA_UNIT_CAP_MELEE_ATTACK ? 8 : 4;
 
 		if (wrapper.creepType == CreepType::Siege)

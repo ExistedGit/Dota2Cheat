@@ -137,6 +137,7 @@ void Lua::InitEnums(sol::state& lua) {
 		LUA_ENUM_TABLE_ENTRY(MODIFIER_STATE_ALLOW_PATHING_THROUGH_OBSTRUCTIONS),
 		LUA_ENUM_TABLE_ENTRY(MODIFIER_STATE_LAST)
 	);
+
 	lua.create_named_table("Enum",
 		"PlayerOrderIssuer", orderIssuerTable,
 		"DotaUnitOrder", orderTable,
@@ -149,6 +150,7 @@ void Lua::InitEnums(sol::state& lua) {
 
 void Lua::SetGlobals(sol::state& lua) {
 	lua["ParticleManager"] = GameSystems::ParticleManager;
+	lua["GameRules"] = GameSystems::GameRules;
 
 	ctx.lua["localHero"] = ctx.assignedHero;
 	ctx.lua["localPlayer"] = ctx.localPlayer;
@@ -161,7 +163,7 @@ void Lua::InitInterfaces(sol::state& lua) {
 void Lua::InitClasses(sol::state& lua) {
 #pragma region Base types
 	{
-		auto type_Vector =lua.new_usertype<Vector>(
+		auto type_Vector = lua.new_usertype<Vector>(
 			"Vector",
 			sol::constructors<Vector(), Vector(float, float, float)>());
 		type_Vector["x"] = &Vector::x;
@@ -200,6 +202,7 @@ void Lua::InitClasses(sol::state& lua) {
 	CNewParticleEffect::BindLua(lua);
 	ParticleWrapper::BindLua(lua);
 	CDOTAParticleManager::BindLua(lua);
+	CDOTAGameRules::BindLua(lua);
 	{
 		auto type = lua.new_usertype<Context>("Context");
 		type["heroes"] = &Context::heroes;
