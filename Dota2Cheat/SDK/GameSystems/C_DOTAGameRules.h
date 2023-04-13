@@ -26,6 +26,12 @@ public:
 	GETTER(DOTA_GameState, GetGameState, Netvars::C_DOTAGamerules::m_nGameState);
 	GETTER(DOTA_GameMode, GetGameMode, Netvars::C_DOTAGamerules::m_iGameMode);
 	GETTER(bool, IsGamePaused, Netvars::C_DOTAGamerules::m_bGamePaused);
+	GETTER(uint64_t, GetMatchID, Netvars::C_DOTAGamerules::m_unMatchID64);
+	GETTER(float, GetPreGameStartTime, Netvars::C_DOTAGamerules::m_flPreGameStartTime);
+	GETTER(float, GetGameStartTime, Netvars::C_DOTAGamerules::m_flGameStartTime);
+	GETTER(float, GetGameLoadTime, Netvars::C_DOTAGamerules::m_flGameLoadTime);
+	GETTER(float, GetGameEndTime, Netvars::C_DOTAGamerules::m_flGameEndTime);
+	
 
 	float GetGameTime();
 	std::vector<ItemStockInfo*> GetItemStockInfo();

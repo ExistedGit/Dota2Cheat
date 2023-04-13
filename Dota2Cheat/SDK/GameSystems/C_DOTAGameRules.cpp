@@ -24,4 +24,10 @@ void CDOTAGameRules::BindLua(sol::state& lua) {
 	type["IsGamePaused"] = &CDOTAGameRules::IsGamePaused;
 	type["GetGameTime"] = &CDOTAGameRules::GetGameTime;
 	type["GetItemStockInfo"] = &CDOTAGameRules::GetItemStockInfo;
+	type["GetMatchID"] = &CDOTAGameRules::GetMatchID;
+	type["GetPreGameStartTime"] = &CDOTAGameRules::GetPreGameStartTime;
+	type["GetGameStartTime"] = &CDOTAGameRules::GetGameStartTime;
+	type["GetGameLoadTime"] = &CDOTAGameRules::GetGameLoadTime;
+	type["GetGameEndTime"] = &CDOTAGameRules::GetGameEndTime;
+
 }
