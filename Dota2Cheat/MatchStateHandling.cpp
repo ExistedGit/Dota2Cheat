@@ -162,6 +162,7 @@ void LeftMatch() {
 	GameSystems::GameRules = nullptr;
 	GameSystems::ParticleManager = nullptr;
 	GameSystems::ProjectileManager = nullptr;
+	GameSystems::MinimapRenderer = nullptr;
 
 	for (auto& listener : CGameEventManager::EventListeners)
 		GameSystems::GameEventManager->RemoveListener(listener.get());

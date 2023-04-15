@@ -653,38 +653,6 @@ namespace Netvars {
 		constexpr uint32_t m_pkvControlGroupKV = 0xc90; // KeyValues*
 		constexpr uint32_t m_flAltHeldStartTime = 0xcf0; // float32
 	}
-	namespace CDOTA_Buff {
-		constexpr uint32_t m_bIsAura = 0x0; // bitfield:1
-		constexpr uint32_t m_name = 0x28; // CUtlSymbolLarge
-		constexpr uint32_t m_szModifierAura = 0x38; // CUtlSymbolLarge
-		constexpr uint32_t m_iSerialNumber = 0x48; // int32
-		constexpr uint32_t m_iStringIndex = 0x4c; // int32
-		constexpr uint32_t m_iIndex = 0x50; // int32
-		constexpr uint32_t m_flCreationTime = 0x54; // GameTime_t
-		constexpr uint32_t m_iCreationFrame = 0x58; // int32
-		constexpr uint32_t m_flLastAppliedTime = 0x5c; // GameTime_t
-		constexpr uint32_t m_flDuration = 0x60; // float32
-		constexpr uint32_t m_flDieTime = 0x64; // GameTime_t
-		constexpr uint32_t m_hCaster = 0x68; // CHandle< CBaseEntity >
-		constexpr uint32_t m_hAbility = 0x6c; // CHandle< CBaseEntity >
-		constexpr uint32_t m_hParent = 0x70; // CHandle< CBaseEntity >
-		constexpr uint32_t m_hAuraOwner = 0x74; // CHandle< CBaseEntity >
-		constexpr uint32_t m_iStackCount = 0x78; // int32
-		constexpr uint32_t m_iAuraSearchTeam = 0x7c; // int16
-		constexpr uint32_t m_iAuraSearchType = 0x7e; // int16
-		constexpr uint32_t m_iAuraSearchFlags = 0x80; // int32
-		constexpr uint32_t m_iAuraRadius = 0x84; // int32
-		constexpr uint32_t m_iTeam = 0x88; // int32
-		constexpr uint32_t m_iAttributes = 0x8c; // int32
-		constexpr uint32_t m_iPaddingToMakeSchemaHappy2 = 0x90; // int16
-		constexpr uint32_t m_bPurgedDestroy = 0x93; // bool
-		constexpr uint32_t m_flPreviousTick = 0x94; // GameTime_t
-		constexpr uint32_t m_flThinkInterval = 0x98; // float32
-		constexpr uint32_t m_flThinkTimeAccumulator = 0x9c; // float32
-		constexpr uint32_t m_iParticles = 0xa0; // CUtlVector< CDOTA_BuffParticle >
-		constexpr uint32_t m_hAuraUnits = 0xb8; // CUtlVector< CHandle< CBaseEntity > >
-		constexpr uint32_t m_hScriptScope = 0x1130; // HSCRIPT
-	}
 	namespace C_DOTA_PlayerResource {
 		constexpr uint32_t m_bWasDataUpdateCreated = 0x538; // bool
 		constexpr uint32_t m_vecPlayerTeamData = 0x540; // C_UtlVectorEmbeddedNetworkVar< PlayerResourcePlayerTeamData_t >
@@ -1043,5 +1011,37 @@ namespace Netvars {
 		constexpr uint32_t m_iStoredRuneType = 0x630; // int32
 		constexpr uint32_t m_fStoredRuneTime = 0x634; // GameTime_t
 		constexpr uint32_t rune_expire_time = 0x638; // float32
+	}
+	namespace CDOTA_Buff {
+		constexpr uint32_t m_bIsAura = 0x0; // bitfield:1
+		constexpr uint32_t m_name = 0x28; // CUtlSymbolLarge
+		constexpr uint32_t m_szModifierAura = 0x38; // CUtlSymbolLarge
+		constexpr uint32_t m_iSerialNumber = 0x48; // int32
+		constexpr uint32_t m_iStringIndex = 0x4c; // int32
+		constexpr uint32_t m_iIndex = 0x50; // int32
+		constexpr uint32_t m_flCreationTime = 0x54; // GameTime_t
+		constexpr uint32_t m_iCreationFrame = 0x58; // int32
+		constexpr uint32_t m_flLastAppliedTime = 0x5c; // GameTime_t
+		constexpr uint32_t m_flDuration = 0x60; // float32
+		constexpr uint32_t m_flDieTime = 0x64; // GameTime_t
+		constexpr uint32_t m_hCaster = 0x68; // CHandle< CBaseEntity >
+		constexpr uint32_t m_hAbility = 0x6c; // CHandle< CBaseEntity >
+		constexpr uint32_t m_hParent = 0x70; // CHandle< CBaseEntity >
+		constexpr uint32_t m_hAuraOwner = 0x74; // CHandle< CBaseEntity >
+		constexpr uint32_t m_iStackCount = 0x78; // int32
+		constexpr uint32_t m_iAuraSearchTeam = 0x7c; // int16
+		constexpr uint32_t m_iAuraSearchType = 0x7e; // int16
+		constexpr uint32_t m_iAuraSearchFlags = 0x80; // int32
+		constexpr uint32_t m_iAuraRadius = 0x84; // int32
+		constexpr uint32_t m_iTeam = 0x88; // int32
+		constexpr uint32_t m_iAttributes = 0x8c; // int32
+		constexpr uint32_t m_iPaddingToMakeSchemaHappy2 = 0x90; // int16
+		constexpr uint32_t m_bPurgedDestroy = 0x93; // bool
+		constexpr uint32_t m_flPreviousTick = 0x94; // GameTime_t
+		constexpr uint32_t m_flThinkInterval = 0x98; // float32
+		constexpr uint32_t m_flThinkTimeAccumulator = 0x9c; // float32
+		constexpr uint32_t m_iParticles = 0xa0; // CUtlVector< CDOTA_BuffParticle >
+		constexpr uint32_t m_hAuraUnits = 0xb8; // CUtlVector< CHandle< CBaseEntity > >
+		constexpr uint32_t m_hScriptScope = 0x1130; // HSCRIPT
 	}
 }

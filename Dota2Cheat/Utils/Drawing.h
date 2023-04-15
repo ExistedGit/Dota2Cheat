@@ -1,4 +1,5 @@
 #pragma once
+#include "../SDK/pch.h"
 #include <imgui/imgui.h>
 #include <imgui/imgui_stdlib.h>
 #include <imgui/imgui_internal.h>
@@ -9,12 +10,35 @@
 #include "../stb_image.h"
 #include <string>
 #include <sstream>
-#include "../SDK/Base/Color.h"
 #include <unordered_map>
 
+// Converts a 3D position in Dota's world to a minimap
 inline ImVec2 ImVecFromVec2D(const Vector2D& vec) {
 	return ImVec2{ vec.x,vec.y };
 }
+
+// Credit to Wolf49406
+inline ImVec2 WorldToMap(const Vector& EntityPos) {
+	if (!GameSystems::MinimapRenderer)
+		return { 0,0 };
+	auto MinimapSize = GameSystems::MinimapRenderer->GetMinimapSize();
+	auto MinimapBounds = GameSystems::MinimapRenderer->MinimapBounds;
+
+	// Actual Minimap is 94% from MinimapSize above (bc of borders I guess)
+	auto ActualMinimapSize = static_cast<float>(MinimapSize.x * 0.94);
+	auto MinimapPosMin = Vector2D(0, static_cast<float>(GameData.ScreenSize.y - ActualMinimapSize));
+
+	if (Signatures::IsHUDFlipped()) {
+		float offset = GameData.ScreenSize.x - ActualMinimapSize;
+		MinimapPosMin.x = MinimapPosMin.x + offset;
+	}
+
+	Vector2D Scaler = MinimapBounds / ActualMinimapSize * 2;
+	auto PosOnMinimap = MinimapPosMin + (MinimapBounds / Scaler) - (Vector2D{ EntityPos.x, EntityPos.y } / Scaler);
+
+	return ImVecFromVec2D(PosOnMinimap);
+}
+
 
 void DrawRect(const ImVec2& topLeft, const ImVec2& size, const ImVec4& color, float thickness = 1.0f);
 void DrawRectFilled(const ImVec2& topLeft, const ImVec2& size, const ImVec4& color);
@@ -44,6 +68,11 @@ public:
 	}
 
 	bool LoadTexture(const char* filename, TextureData& data);
+	bool LoadTextureNamed(const char* filename, TextureData& data, const std::string& texName) {
+		auto result = LoadTexture(filename, data);
+		namedTex[texName] = data;
+		return result;
+	};
 
 	void QueueTextureUnload()
 	{

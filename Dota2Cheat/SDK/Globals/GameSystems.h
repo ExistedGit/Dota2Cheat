@@ -11,9 +11,11 @@
 #include "../GameSystems/CGameEventManager.h"
 #include "../GameSystems/CDOTARichPresence.h"
 #include "../GameSystems/CGameUI.h"
+#include "../GameSystems/CDOTA_PanoramaMinimapRenderer.h"
 
 
 namespace GameSystems {
+	inline CDOTAPanoramaMinimapRenderer* MinimapRenderer{};
 	inline CGameUI* GameUI{};
 	inline CDOTAGCClientSystem* GCClientSystem{};
 	//GameRules is nullptr while not in a game

@@ -216,6 +216,7 @@
     <ClCompile Include="Modules\Hacks\SkinChanger.cpp" />
     <ClCompile Include="Modules\Hacks\TargetedSpellHighlighter.cpp" />
     <ClCompile Include="Modules\Hacks\AbilityESP.cpp" />
+    <ClCompile Include="Modules\Hacks\TPTracker.cpp" />
     <ClCompile Include="Modules\Hacks\UIOverhaul.cpp" />
     <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp" />
     <ClCompile Include="Modules\Utility\AttackTargetFinder.cpp" />
@@ -269,8 +270,10 @@
     <ClCompile Include="Utils\Drawing.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Hooks\MinimapRenderer.h" />
     <ClInclude Include="Hooks\UIState.h" />
     <ClInclude Include="Modules\Hacks\UIOverhaul.h" />
+    <ClInclude Include="SDK\GameSystems\CDOTA_PanoramaMinimapRenderer.h" />
     <ClInclude Include="SDK\GameSystems\CGameUI.h" />
     <ClInclude Include="Hooks\InvalidateUEF.h" />
     <ClInclude Include="Hooks\Misc.h" />
@@ -296,7 +299,7 @@
     <ClInclude Include="Modules\Hacks\AutoMidas.h" />
     <ClInclude Include="Modules\Hacks\BadCastPrevention.h" />
     <ClInclude Include="Modules\Utility\AttackAnimTracker.h" />
-    <ClInclude Include="Modules\Utility\TPTracker.h" />
+    <ClInclude Include="Modules\Hacks\TPTracker.h" />
     <ClInclude Include="SDK\Base\Bytehook.h" />
     <ClInclude Include="SDK\Base\Color.h" />
     <ClInclude Include="SDK\Base\Definitions.h" />

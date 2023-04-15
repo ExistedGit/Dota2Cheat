@@ -1,7 +1,4 @@
 #include "NetChannel.h"
-#include "../Modules/Utility/AttackAnimTracker.h"
-#include "../Modules/Hacks/SkinChanger.h"
-
 
 bool Hooks::hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandler* handler, google::protobuf::Message* responseMsg, unsigned int respMsgID) {
 	if (protobufMsg->msgID == k_EMsgClientToGCSetItemStyle) {
@@ -80,6 +77,7 @@ void Hooks::hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* m
 
 		Modules::ShakerAttackAnimFix.ChangeAttackAnimIfNeeded(messageHandle, msg);
 		Modules::LinearProjectileWarner.ProcessLinearProjectileMsg(messageHandle, msg);
+		Modules::TPTracker.ProcessParticleMsg(messageHandle, msg);
 		Modules::ParticleAbilityWarner.ProcessParticleMsg(messageHandle, msg);
 		Modules::AttackAnimTracker.ProcessAttackAnimMessage(messageHandle, msg);
 	}

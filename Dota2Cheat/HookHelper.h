@@ -9,6 +9,7 @@
 #include "Hooks/ModifierEvents.h"
 #include "Hooks/SteamGC.h"
 #include "Hooks/UIState.h"
+#include "Hooks/MinimapRenderer.h"
 
 #include "Hooks/Misc.h"
 

@@ -71,8 +71,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 		Modules::SkinChanger.DeleteSOCacheFiles();
 	}
-	ctx.CurProcId = GetCurrentProcessId();
-	ctx.CurProcHandle = OpenProcess(PROCESS_ALL_ACCESS, TRUE, ctx.CurProcId);
 
 	ctx.lua.open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::math);
 
@@ -120,7 +118,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	constexpr const char* glsl_version = "#version 130";
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
-
 	glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, 1);
 
 #ifndef _DEBUG // wouldn't want the window to obscure the screen on a breakpoint
@@ -162,9 +159,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	bool menuVisible = false;
 	Modules::AbilityESP.textFont = msTrebuchet;
 	iconLoadThread.wait();
-	{
-
-	}
 
 	int itemDefId = 6996;
 	// Main loop
@@ -192,6 +186,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			) {
 			Modules::AbilityESP.DrawESP();
 			Modules::UIOverhaul.DrawBars();
+			Modules::TPTracker.DrawMapTeleports();
 			Modules::LastHitMarker.Draw();
 		}
 

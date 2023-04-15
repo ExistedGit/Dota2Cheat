@@ -25,7 +25,7 @@ void Pages::AutoPickHeroGrid::InitImages() {
 	for (auto& heroName : heroNames) {
 		TextureData data{};
 		auto path = ctx.cheatFolderPath + "\\assets\\heroicons\\" + heroName + "_png.png";
-		texManager.LoadTexture(path.c_str(), heroIcons[heroName]);
+		texManager.LoadTextureNamed(path.c_str(), heroIcons[heroName], "icon_" + heroName.substr(14));
 	}
 	Initialized = true;
 }

@@ -34,9 +34,9 @@ public:
 
 };
 
-class SigScanContext {
+class SigScan {
 	//Splits IDA pattern into code mask/pattern
-	void ParseCombo(const char* combo, std::string& pattern, std::string& mask)
+	static void ParseCombo(const char* combo, std::string& pattern, std::string& mask)
 	{
 		unsigned int patternLen = (strlen(combo) + 1) / 3;
 		int index = 0;
@@ -61,18 +61,9 @@ class SigScanContext {
 				i += 2;
 			}
 		}
-		//pattern += '\0';
-		//mask = '\0';
 	}
 public:
-	HANDLE procHandle;
-	int pid;
-
-	SigScanContext(HANDLE procHandle, int pid) : procHandle(procHandle), pid(pid) {
-
-	}
-
-	Address Scan(const std::string& signature, const wchar_t* moduleName) {
+	static Address Find(const std::string& signature, const wchar_t* moduleName) {
 		int maskLength = (signature.length() + 1) / 3 + 1;
 		std::string pattern, mask;
 		pattern.reserve(maskLength);
@@ -80,7 +71,7 @@ public:
 
 		ParseCombo(signature.c_str(), pattern, mask);
 
-		Address result(PatternScanExModule(procHandle, pid, moduleName, pattern.c_str(), mask.c_str()));
+		Address result(PatternScanInModule(moduleName, pattern.c_str(), mask.c_str()));
 		return result;
 	}
 };

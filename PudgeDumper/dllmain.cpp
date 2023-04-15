@@ -1,4 +1,4 @@
-﻿#include "pch.h"
+#include "pch.h"
 #include <fstream>
 #include <Windows.h>
 #include <iostream>
@@ -20,13 +20,13 @@ struct SchemaParentInfo {
 };
 
 struct ClassDescription {
-	uintptr_t idk;		           //0
+	ClassDescription* self;        //0
 	const char* className;         //8
 	const char* modulename;        //10
-	int sizeofclass;               //18
-	short membersToIterate;		   //1c
+	uint32_t classSize;               //18
+	short membersSize;		   //1c
 	char pad[6];				   //20
-	MemberDescription* MemberInfo; //28
+	MemberDescription* membersDescription; //28
 	uintptr_t idk2;                //30
 	SchemaParentInfo* parentInfo;  //38
 };
@@ -65,9 +65,11 @@ uintptr_t CreateInterface(const char* szModule, const char* szInterface) {
 VClass* SchemaSystem = 0;
 
 inline void DumpClassMembers(ClassDescription* classDesc) {
+	std::cout << "Dumping " << classDesc->className << "...\n";
+
 	std::string className = classDesc->className;
-	for (uintptr_t i = 0; i < classDesc->membersToIterate; i++) {
-		MemberDescription desc = classDesc->MemberInfo[i];
+	for (uintptr_t i = 0; i < classDesc->membersSize; i++) {
+		MemberDescription desc = classDesc->membersDescription[i];
 		Netvars[className].insert(desc);
 		//		std::cout << std::format("{}: {} ({})\n", info.schematypeptr->name, info.name, info.offset);
 	}
@@ -78,16 +80,24 @@ inline void DumpClassMembers(ClassDescription* classDesc) {
 	}
 
 }
-inline void SchemaDumpToMap(const char* _module, const char* _class) {
-	auto Scope = SchemaSystem->CallVFunc<13, VClass*>(_module);
-	if (!Scope) { return; }
-	//std::cout << "Scope " << std::hex << Scope << std::dec << std::endl;
-	auto classDesc = Scope->CallVFunc<2, ClassDescription*>(_class);
-	if (!classDesc) {
-		//std::cout << "No such class!\n"; 
+
+template<typename... Args>
+inline void SchemaDumpToMap(const char* _module, Args&&... args) {
+	const char* classes[sizeof...(args)] = {std::forward<Args>(args)...};
+	auto typeScope = SchemaSystem->CallVFunc<13, VClass*>(_module);
+
+	if (!typeScope)
 		return;
+
+	for (auto& _class : classes) {
+		//std::cout << "Scope " << std::hex << Scope << std::dec << std::endl;
+		auto classDesc = typeScope->CallVFunc<2, ClassDescription*>(_class);
+		if (!classDesc) {
+			std::cout << "No such class: " << _class << "\n";
+			return;
+		}
+		DumpClassMembers(classDesc);
 	}
-	DumpClassMembers(classDesc);
 }
 
 uintptr_t WINAPI HackThread(HMODULE hModule) {
@@ -103,21 +113,23 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	SchemaSystem = (VClass*)CreateInterface("schemasystem.dll", "SchemaSystem_001");
 	std::cout << "Dumping...\n";
 	// You can add some other classes there if you need to
-	SchemaDumpToMap("client.dll", "CEntityIdentity");
-	SchemaDumpToMap("client.dll", "C_DOTA_Item");
-	SchemaDumpToMap("client.dll", "C_DOTA_BaseNPC_Hero");
-	SchemaDumpToMap("client.dll", "C_DOTAPlayerController");
-	SchemaDumpToMap("client.dll", "C_DOTA_UnitInventory");
-	SchemaDumpToMap("client.dll", "C_DOTABaseAbility");
+	SchemaDumpToMap("client.dll",
+		"CEntityIdentity",
+		"C_DOTA_Item",
+		"C_DOTA_BaseNPC_Hero",
+		"C_DOTAPlayerController",
+		"C_DOTA_UnitInventory",
+		"C_DOTABaseAbility",
+		"C_DOTA_PlayerResource",
+		"PlayerResourcePlayerTeamData_t",
+		"PlayerResourcePlayerData_t",
+		"C_DOTAGamerules",
+		"CGameSceneNode",
+		"C_DOTA_Item_Rune",
+		"GameTime_t",
+		"C_DOTA_Item_EmptyBottle");
+
 	SchemaDumpToMap("server.dll", "CDOTA_Buff");
-	SchemaDumpToMap("client.dll", "C_DOTA_PlayerResource");
-	SchemaDumpToMap("client.dll", "PlayerResourcePlayerTeamData_t");
-	SchemaDumpToMap("client.dll", "PlayerResourcePlayerData_t");
-	SchemaDumpToMap("client.dll", "C_DOTAGamerules");
-	SchemaDumpToMap("client.dll", "CGameSceneNode");
-	SchemaDumpToMap("client.dll", "C_DOTA_Item_Rune");
-	SchemaDumpToMap("client.dll", "GameTime_t");
-	SchemaDumpToMap("client.dll", "C_DOTA_Item_EmptyBottle");
 
 	// Replace this path with something valid
 	// Probably will do some FileDialog thing in the future
