@@ -90,11 +90,8 @@ void ESP::AbilityESP::DrawAbilities() {
 			if (!data.ability)
 				continue;
 
-			if (data.icon.glTex == 0) {
-				auto tex = texManager.GetNamedTexture(data.ability->GetIdentity()->GetName());
-				if (tex)
-					data.icon = *tex;
-			}
+			if (!data.icon)
+				data.icon = texManager.GetNamedTexture(data.ability->GetIdentity()->GetName());
 
 			// Top-Left and Bottom-Right points of ability icon
 			ImVec2 imgXY1, imgXY2, imgCenter;
@@ -123,7 +120,7 @@ void ESP::AbilityESP::DrawAbilities() {
 					imgXY2 + outlineSize,
 					ImGui::GetColorU32(ImVec4(0x3 / 255.0f, 0xAC / 255.0f, 0x13 / 255.0f, 1)));
 
-			DrawList->AddImage(data.icon.glTex, imgXY1, imgXY2);
+			DrawList->AddImage(data.icon, imgXY1, imgXY2);
 
 			if (data.ability->GetLevel() == 0)
 				// Darkens the picture
@@ -208,11 +205,9 @@ void ESP::AbilityESP::DrawAbilities() {
 }
 
 void ESP::AbilityESP::LoadItemTexIfNeeded(AbilityData& data) {
-	if (data.icon.glTex == 0) {
+	if (!data.icon) {
 		std::string itemName = data.ability->GetIdentity()->GetName();
-		auto tex = texManager.GetNamedTexture(itemName.substr(5));
-		if (tex)
-			data.icon = *tex;
+		data.icon = texManager.GetNamedTexture(itemName.substr(5));
 	}
 }
 
@@ -287,7 +282,7 @@ void ESP::AbilityESP::DrawItems() {
 
 			auto& itemData = inv[slot];
 			LoadItemTexIfNeeded(itemData);
-			DrawList->AddImage(itemData.icon.glTex, imgXY1, imgXY2, uvMin, uvMax);
+			DrawList->AddImage(itemData.icon, imgXY1, imgXY2, uvMin, uvMax);
 
 			if (itemData.ability->IsToggled()) {
 				drawFrame = true;
@@ -343,7 +338,7 @@ void ESP::AbilityESP::DrawItemCircle(const AbilityData& data, const ImVec2& xy1,
 	auto DrawList = ImGui::GetForegroundDrawList();
 	float ratio = (1 - iconSize.y / iconSize.x) / 2;
 	DrawList->AddImageRounded(
-		data.icon.glTex,
+		data.icon,
 		xy1,
 		xy2,
 		ImVec2(ratio, 0),

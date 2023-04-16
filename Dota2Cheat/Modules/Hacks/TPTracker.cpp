@@ -1,34 +1,43 @@
 #include "TPTracker.h"
 
 void Hacks::TPTracker::DrawMapTeleports() {
+	if (!Config::TPTracker::Enabled)
+		return;
+
 	constexpr static ImVec2 iconSize{ 32,32 };
 	auto  DrawList = ImGui::GetForegroundDrawList();
 	for (auto& [ent, startData] : tpStarts) {
-		if (!ent->IsSameTeam(ctx.assignedHero)
-			&& tpEnds.count(ent)) {
-			const auto& endData = tpEnds[ent];
-			ImVec2 start = WorldToMap(startData.pos), end = WorldToMap(endData.pos);
+		if (ent->IsSameTeam(ctx.assignedHero)
+			|| !tpEnds.count(ent))
+			continue;
+		const auto& endData = tpEnds[ent];
+		ImVec2 start = WorldToMap(startData.pos), end = WorldToMap(endData.pos);
 
-			DrawList->AddLine(start, end, ImColor{ 255, 0, 0 }, 3);
-			std::string prefixLessName = std::string(((CDOTABaseNPC*)ent)->GetUnitName()).substr(14);
-			std::string iconName = "icon_" + prefixLessName;
+		DrawList->AddLine(start, end, ImColor{ 255, 0, 0 }, 3);
 
-			if (ent->GetIdentity()->IsDormant()) {
-				ImVec2 startXY1 = start - iconSize / 2, startXY2 = startXY1 + iconSize;
-				DrawList->AddImage(texManager.GetNamedTexture(iconName)->glTex,
-					startXY1,
-					startXY2
-				);
-			}
-			ImVec2 endXY1 = end - iconSize / 2, endXY2 = endXY1 + iconSize;
-			DrawList->AddImage(texManager.GetNamedTexture(iconName)->glTex,
-				endXY1,
-				endXY2,
-				{ 0,0 },
-				{ 1,1 },
-				ImColor{ 255,255,255, 128 }
+		if (!heroIcons.count(ent))
+			continue;
+
+		auto texture = heroIcons[ent];
+		if (!texture)
+			continue;
+
+		if (ent->GetIdentity()->IsDormant()) {
+			ImVec2 startXY1 = start - iconSize / 2, startXY2 = startXY1 + iconSize;
+			DrawList->AddImage(texture,
+				startXY1,
+				startXY2
 			);
 		}
+		ImVec2 endXY1 = end - iconSize / 2, endXY2 = endXY1 + iconSize;
+		DrawList->AddImage(texture,
+			endXY1,
+			endXY2,
+			{ 0,0 },
+			{ 1,1 },
+			ImColor{ 255,255,255, 128 }
+		);
+
 	}
 }
 

@@ -15,18 +15,18 @@ void Pages::AutoPickHeroGrid::InitList() {
 		std::smatch match;
 		if (std::regex_match(line, match, heroRegex)) {
 			std::string heroName = regex_replace(match[0].str(), heroRegex, "$1");
-			if (std::filesystem::exists(ctx.cheatFolderPath + "\\assets\\heroicons\\" + heroName + "_png.png"))
+			auto path = ctx.cheatFolderPath + "\\assets\\heroicons\\" + heroName + "_png.png";
+			if (std::filesystem::exists(path)) {
 				heroNames.push_back(heroName);
+				texManager.QueueForLoading(path, "icon_" + heroName.substr(14));
+			}
 		}
 	}
 }
 
 void Pages::AutoPickHeroGrid::InitImages() {
-	for (auto& heroName : heroNames) {
-		TextureData data{};
-		auto path = ctx.cheatFolderPath + "\\assets\\heroicons\\" + heroName + "_png.png";
-		texManager.LoadTextureNamed(path.c_str(), heroIcons[heroName], "icon_" + heroName.substr(14));
-	}
+	for (auto& heroName : heroNames)
+		heroIcons[heroName] = texManager.GetNamedTexture("icon_" + heroName.substr(14));
 	Initialized = true;
 }
 
@@ -58,7 +58,7 @@ void Pages::AutoPickHeroGrid::Draw(GLFWwindow* window) {
 		auto& icon = it->second;
 		int i = std::distance(heroIcons.begin(), it);
 		if (
-			ImGui::ImageButton(it->first.c_str(), icon.glTex, ImVec2(24, 24)))
+			ImGui::ImageButton(it->first.c_str(), icon, ImVec2(24, 24)))
 			std::cout << it->first << ": " << i << '\n';
 		if ((i + 1) % 8 != 0)
 			ImGui::SameLine();

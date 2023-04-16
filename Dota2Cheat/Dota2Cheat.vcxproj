@@ -338,6 +338,7 @@
     <ClInclude Include="SDK\Interfaces\ISteamClient.h" />
     <ClInclude Include="SDK\Protobufs\dota_gcmessages_common.pb.h" />
     <ClInclude Include="SDK\Wrappers\Creep.h" />
+    <ClInclude Include="SDK\Wrappers\EntitySorting.h" />
     <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h" />
     <ClInclude Include="Utils\Drawing.h" />
     <ClInclude Include="SDK\Globals\Context.h" />

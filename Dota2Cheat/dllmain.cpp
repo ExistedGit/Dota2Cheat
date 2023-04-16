@@ -80,6 +80,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	auto iconLoadThread = std::async(std::launch::async, []() {
 		Pages::AutoPickHeroGrid::InitList();
+	return true;
 		});
 
 	Interfaces::CVar->DumpConVarsToMap();
@@ -121,12 +122,12 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, 1);
 
 #ifndef _DEBUG // wouldn't want the window to obscure the screen on a breakpoint
-	glfwWindowHint(GLFW_DECORATED, 0);
 	glfwWindowHint(GLFW_FLOATING, 1);
+#endif // DEBUG
+	glfwWindowHint(GLFW_DECORATED, 0);
 	glfwWindowHint(GLFW_RESIZABLE, 0);
 	glfwWindowHint(GLFW_MAXIMIZED, 1);
 	glfwWindowHint(GLFW_MOUSE_PASSTHROUGH, 1);
-#endif // DEBUG
 	auto* monitor = glfwGetPrimaryMonitor();
 	if (!monitor)
 		return 0;
@@ -158,8 +159,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	auto defaultFont = io.Fonts->AddFontDefault();
 	bool menuVisible = false;
 	Modules::AbilityESP.textFont = msTrebuchet;
-	iconLoadThread.wait();
-
+	std::cout << "Icon loading result: " << iconLoadThread.get() << "\n";
 	int itemDefId = 6996;
 	// Main loop
 	while (!glfwWindowShouldClose(window))
@@ -185,7 +185,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			&& ctx.assignedHero
 			) {
 			Modules::AbilityESP.DrawESP();
-			Modules::UIOverhaul.DrawBars();
+			//Modules::UIOverhaul.DrawBars();
 			Modules::TPTracker.DrawMapTeleports();
 			Modules::LastHitMarker.Draw();
 		}

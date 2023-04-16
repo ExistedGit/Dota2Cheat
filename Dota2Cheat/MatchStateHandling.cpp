@@ -1,6 +1,7 @@
 #include "MatchStateHandling.h"
-#include "HookHelper.h"
-#include "Lua/LuaModules.h"
+
+#define GetGameSystem(global) GameSystems::##global = *GameSystems::## global ##Ptr
+
 void FillPlayerList() {
 	auto vec = GameSystems::PlayerResource->GetVecPlayerTeamData();
 	std::cout << "<PLAYERS>\n";
@@ -34,23 +35,11 @@ void CacheAllEntities() {
 	for (int i = 0; i <= Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
 		auto ent = Interfaces::EntitySystem->GetEntity(i);
 		if (!IsValidReadPtr(ent) ||
-			!ent->SchemaBinding()->binaryName)
+			!IsValidReadPtr(ent->SchemaBinding()->binaryName))
 			continue;
 
-		std::string_view className = ent->SchemaBinding()->binaryName;
-
-		if (className == "C_DOTA_Item_Physical")
-			ctx.physicalItems.insert(ent);
-		else if (className.find("Creep") != -1)
-			ctx.creeps.insert((CDOTABaseNPC*)ent);
-		else if (className == "C_DOTA_Item_Rune")
-			ctx.runes.insert((CDOTAItemRune*)ent);
-		else if (className.find("C_DOTA_Unit_Hero") != -1)
-			ctx.heroes.insert(reinterpret_cast<CDOTABaseNPC_Hero*>(ent));
-
-		ctx.entities.insert(ent);
+		SortEntToCollections(ent);
 		Lua::CallModuleFunc("OnAddEntity", ent);
-
 	}
 }
 void OnUpdatedAssignedHero()
@@ -136,7 +125,7 @@ void EnteredInGame() {
 
 	Modules::AutoBuyTome.Init();
 	Modules::AbilityESP.SubscribeHeroes();
-	Modules::UIOverhaul.Init();
+	// Modules::UIOverhaul.Init();
 
 	Lua::CallModuleFunc("Init");
 

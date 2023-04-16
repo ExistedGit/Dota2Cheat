@@ -26,7 +26,7 @@ void Signatures::FindSignatures() {
 				static_cast<float>(iScreenSize[1])
 		};
 	}
-	// 2nd vfunc of 
+	// 2nd vfunc of CDOTA_PanoramaMinimapRenderer
 	SET_VAR(CDOTAMinimapRenderer_Render, SigScan::Find("48 8B C4 48 89 58 08 48 89 68 10 48 89 70 18 57 41 56 41 57 48 83 EC 40 F3 0F 10 84 24", L"client.dll"));
 	// JS
 	SET_VAR(IsHUDFlipped, SigScan::Find("48 83 EC 38 B9 ? ? ? ? E8 ? ? ? ? 48 8B C8", L"client.dll"));

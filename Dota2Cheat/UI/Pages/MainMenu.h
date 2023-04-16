@@ -57,6 +57,11 @@ namespace Pages {
 				ImGui::SliderInt("Delay", &Config::AutoAccept::Delay, 0, 6);
 				ImGui::TreePop();
 			}
+			if (ImGui::TreeNode("TP Tracker")) {
+				ImGui::Text("Shows enemy teleports on the map(currently not working for Boots of Travel)");
+				ImGui::Checkbox("Enabled", &Config::TPTracker::Enabled);
+				ImGui::TreePop();
+			}
 			if (ImGui::CollapsingHeader("Changer")) {
 
 				ImGui::InputText("Rich Presence status", &rpStatusBuf);

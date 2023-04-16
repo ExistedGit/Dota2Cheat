@@ -18,26 +18,7 @@ inline ImVec2 ImVecFromVec2D(const Vector2D& vec) {
 }
 
 // Credit to Wolf49406
-inline ImVec2 WorldToMap(const Vector& EntityPos) {
-	if (!GameSystems::MinimapRenderer)
-		return { 0,0 };
-	auto MinimapSize = GameSystems::MinimapRenderer->GetMinimapSize();
-	auto MinimapBounds = GameSystems::MinimapRenderer->MinimapBounds;
-
-	// Actual Minimap is 94% from MinimapSize above (bc of borders I guess)
-	auto ActualMinimapSize = static_cast<float>(MinimapSize.x * 0.94);
-	auto MinimapPosMin = Vector2D(0, static_cast<float>(GameData.ScreenSize.y - ActualMinimapSize));
-
-	if (Signatures::IsHUDFlipped()) {
-		float offset = GameData.ScreenSize.x - ActualMinimapSize;
-		MinimapPosMin.x = MinimapPosMin.x + offset;
-	}
-
-	Vector2D Scaler = MinimapBounds / ActualMinimapSize * 2;
-	auto PosOnMinimap = MinimapPosMin + (MinimapBounds / Scaler) - (Vector2D{ EntityPos.x, EntityPos.y } / Scaler);
-
-	return ImVecFromVec2D(PosOnMinimap);
-}
+ImVec2 WorldToMap(const Vector& EntityPos);
 
 
 void DrawRect(const ImVec2& topLeft, const ImVec2& size, const ImVec4& color, float thickness = 1.0f);
@@ -47,30 +28,21 @@ void HelpMarker(const char* desc);
 //https://www.unknowncheats.me/forum/direct3d/244074-imgui-d3d11-text-drawing.html
 float DrawTextForeground(ImFont* pFont, const std::string& text, const ImVec2& pos, float size, const ImVec4& color, bool center, bool outline = true);
 
-struct TextureData {
-	const char* filePath{};
-	ImTextureID glTex{};
-	int width{}, height{};
-};
-
-
 // Texture management system
 // Caches loaded textures which you can get by the name identifier
 class TextureManager {
-	std::unordered_map<std::string, TextureData> namedTex;
-	std::map<std::string, TextureData*> loadingQueue;
+	std::unordered_map<std::string, ImTextureID> namedTex;
+	std::map<std::string, ImTextureID*> loadingQueue;
 	bool requiresUnload = false;
 public:
-	TextureData* GetNamedTexture(const std::string& name) {
-		if (!namedTex.count(name))
-			return nullptr;
-		return &namedTex[name];
+	ImTextureID GetNamedTexture(const std::string& name) {
+		return namedTex[name];
 	}
 
-	bool LoadTexture(const char* filename, TextureData& data);
-	bool LoadTextureNamed(const char* filename, TextureData& data, const std::string& texName) {
-		auto result = LoadTexture(filename, data);
-		namedTex[texName] = data;
+	bool LoadTexture(const char* filename, ImTextureID& tex);
+	bool LoadTextureNamed(const char* filename, ImTextureID& tex, const std::string& texName) {
+		auto result = LoadTexture(filename, tex);
+		namedTex[texName] = tex;
 		return result;
 	};
 
@@ -83,8 +55,8 @@ public:
 		if (!requiresUnload)
 			return;
 
-		for (auto& [_, data] : namedTex)
-			glDeleteTextures(1, (const GLuint*)&data.glTex);
+		for (auto& [_, tex] : namedTex)
+			glDeleteTextures(1, (const GLuint*)&tex);
 		namedTex.clear();
 	}
 
@@ -94,8 +66,10 @@ public:
 	}
 
 	void ExecuteLoadCycle() {
-		for (auto& [path, data] : loadingQueue)
-			LoadTexture(path.c_str(), *data);
+		for (auto& [path, tex] : loadingQueue) {
+			LogF(LP_INFO, "Loading image: {}", path);
+			LoadTexture(path.c_str(), *tex);
+		}
 
 		loadingQueue.clear();
 	}

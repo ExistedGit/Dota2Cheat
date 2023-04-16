@@ -8,7 +8,7 @@ namespace ESP {
 	class AbilityESP {
 		struct AbilityData {
 			CDOTABaseAbility* ability{};
-			TextureData icon{};
+			ImTextureID icon{};
 
 			float lastActiveTime{};
 			float lastActiveCooldown{};
