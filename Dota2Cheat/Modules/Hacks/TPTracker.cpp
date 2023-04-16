@@ -20,7 +20,7 @@ void Hacks::TPTracker::FrameBasedLogic() {
 		data.fadeCounter -= timeDelta;
 
 		ImColor newColor{ data.color };
-		newColor.Value.w = data.fadeCounter/data.fadeDuration;
+		newColor.Value.w = data.fadeCounter / data.fadeDuration;
 		data.color = newColor;
 
 		if (data.fadeCounter <= 0)
@@ -44,7 +44,7 @@ void Hacks::TPTracker::DrawMapTeleports() {
 	if (!Config::TPTracker::Enabled)
 		return;
 
-	constexpr static ImVec2 iconSize{ 32,32 };
+	constexpr static ImVec2 iconSize{ 24,24 };
 	auto  DrawList = ImGui::GetForegroundDrawList();
 	for (auto& [ent, data] : teleports) {
 		if (ent->IsSameTeam(ctx.assignedHero)
@@ -62,13 +62,18 @@ void Hacks::TPTracker::DrawMapTeleports() {
 		if (!texture)
 			continue;
 
-		if (ent->GetIdentity()->IsDormant() && !data.isFading) {
+		if (ent->GetIdentity()->IsDormant()) {
 			ImVec2 startXY1 = start - iconSize / 2, startXY2 = startXY1 + iconSize;
 			DrawList->AddImage(texture,
 				startXY1,
-				startXY2
+				startXY2,
+				{ 0,0 },
+				{ 1,1 },
+				data.isFading ? (ImU32)ImColor{ 255, 255, 255, 128 }
+				: (ImU32)ImColor { 255, 255, 255 }
 			);
 		}
+
 		ImVec2 endXY1 = end - iconSize / 2, endXY2 = endXY1 + iconSize;
 		DrawList->AddImage(texture,
 			endXY1,
@@ -76,9 +81,8 @@ void Hacks::TPTracker::DrawMapTeleports() {
 			{ 0,0 },
 			{ 1,1 },
 			data.isFading ? ImGui::ColorConvertFloat4ToU32(ImVec4(1, 1, 1, ImColor{ data.color }.Value.w))
-			: (ImU32)ImColor{ 255,255,255, 128 }
+			: (ImU32)ImColor { 255, 255, 255, 128 }
 		);
-
 	}
 }
 
@@ -105,14 +109,18 @@ void Hacks::TPTracker::ProcessParticleMsg(NetMessageHandle_t* msgHandle, google:
 			break;
 
 		if (particleName == "particles/items2_fx/teleport_start.vpcf") {
-			teleports[ent].color = ImColor{ 220,220,220 };
-			teleports[ent].start = TPData{
-			.msgIdx = msgIndex
+			auto& tpData = teleports[ent];
+			tpData.fadeCounter = tpData.fadeDuration = tpData.isFading = 0;
+			tpData.color = ImColor{ 220,220,220 };
+			tpData.start = TPData{
+						.msgIdx = msgIndex
 			};
 		}
 		else if (particleName == "particles/items2_fx/teleport_end.vpcf") {
-			teleports[ent].color = ImColor{ 220,220,220 };
-			teleports[ent].end = TPData{
+			auto& tpData = teleports[ent];
+			tpData.fadeCounter = tpData.fadeDuration = tpData.isFading = 0;
+			tpData.color = ImColor{ 220,220,220 };
+			tpData.end = TPData{
 			.msgIdx = msgIndex
 			};
 		}
