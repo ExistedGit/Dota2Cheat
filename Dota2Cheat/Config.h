@@ -57,6 +57,10 @@ namespace Config {
 
 	inline bool AutoBuyTome;
 
+	namespace TPTracker {
+		inline bool Enabled;
+	}
+
 	inline bool BadCastPrevention;
 
 	inline bool CastRedirection;

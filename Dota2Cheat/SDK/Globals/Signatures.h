@@ -22,11 +22,16 @@ class CDOTAModifier;
 
 namespace Signatures {
 	inline CDOTAItemSchema* (*GetItemSchema)() = nullptr;
-
+	inline bool(*IsHUDFlipped)() = nullptr;
 	inline CEconItem* (*CreateEconItem)() = nullptr;
 
 	typedef void* (*CGameUI__ChangeGameUIStateFn)(void* thisptr, DOTAGameUIState_t state);
-	inline CGameUI__ChangeGameUIStateFn CGameUI__ChangeGameUIState;
+	inline CGameUI__ChangeGameUIStateFn CGameUI__ChangeGameUIState{};
+
+	// I don't know what its actual name is, but it's called every frame and has a call with xref "Minimap Objects"
+	// which in client.dylib corresponds to CDotaMinimapRenderer's Render function
+	typedef void* (*CDOTAMinimapRenderer_RenderFn)(void* thisptr, void*, void**, void*, float, float, float, float);
+	inline CDOTAMinimapRenderer_RenderFn CDOTAMinimapRenderer_Render{};
 
 	typedef bool(__fastcall* BIsEmoticonUnlockedFn)(void* thisptr, uint32_t unk);
 	inline BIsEmoticonUnlockedFn BIsEmoticonUnlocked{};

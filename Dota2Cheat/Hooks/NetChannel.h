@@ -8,6 +8,8 @@
 #include "../Modules/Utility/AttackAnimTracker.h"
 #include "../Modules/Hacks/ParticleAbilityWarner.h"
 #include "../Modules/Hacks/LinearProjectileWarner.h"
+#include "../Modules/Hacks/SkinChanger.h"
+#include "../Modules/Hacks/TPTracker.h"
 
 namespace Hooks {
 	inline INetChannel* NetChan{};

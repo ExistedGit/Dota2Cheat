@@ -2,9 +2,9 @@
 
 void Interfaces::FindInterfaces() {
 	Log(LP_NONE, "[INTERFACES]");
-	Engine = GetInterface<CEngineClient>("engine2.dll", "Source2EngineToClient001", 176);
+	Engine = GetInterface<CEngineClient>("engine2.dll", "Source2EngineToClient001", 177);
 	Client = GetInterface<VClass>("client.dll", "Source2Client002");
-	CVar = GetInterface<CVarSystem>("tier0.dll", "VEngineCvar007", 43);
+	CVar = GetInterface<CVarSystem>("tier0.dll", "VEngineCvar007", 41);
 	ResourceSystem = GetInterface<CResourceSystem>("resourcesystem.dll", "ResourceSystem013", 78);
 	EntitySystem = *Address(Interfaces::Client->GetVFunc(25).ptr).GetAbsoluteAddress<CGameEntitySystem**>(3, 7);
 	SteamClient = GetInterface<ISteamClient>("steamclient64.dll", "SteamClient017");

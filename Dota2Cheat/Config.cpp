@@ -45,7 +45,7 @@ void Config::ConfigManager::LoadConfig(std::ifstream& stream) {
 
 		};
 	}
-	
+
 }
 
 void Config::ConfigManager::SaveEquippedItems(std::ofstream& stream) {
@@ -79,14 +79,15 @@ void Config::ConfigManager::SetupVars() {
 	cfg.AddVar(BOOL, &AbilityESP::Enabled, true, "AbilityESP.Enabled");
 	cfg.AddVar(FLOAT, &AbilityESP::UIScale, 1.0f, "AbilityESP.UIScale");
 	cfg.AddVar(BOOL, &AbilityESP::ShowAllies, true, "AbilityESP.ShowAllies");
-	cfg.AddVar(BOOL, &AbilityESP::CropStashItems, false, "AbilityESP.CropStashItems");
+	cfg.AddVar(BOOL, &AbilityESP::CropStashItems, true, "AbilityESP.CropStashItems");
 	cfg.AddVar(BOOL, &AbilityESP::ShowManabars, true, "AbilityESP.ShowManabars");
-	cfg.AddVar(BOOL, &AbilityESP::ShowCooldownDecimals, true, "AbilityESP.ShowCooldownDecimals");
+	cfg.AddVar(BOOL, &AbilityESP::ShowCooldownDecimals, false, "AbilityESP.ShowCooldownDecimals");
 
 	cfg.AddVar(INT, &CircleRadius, 1200, "Circles.Radius");
 	cfg.AddVar(VECTOR, &CircleRGB, { 0, 1, 0 }, "Circles.RGB");
 
-	cfg.AddVar(BOOL, &AutoDodge::Enabled, true, "AutoDodge.Enabled");
+	cfg.AddVar(BOOL, &AutoDodge::Enabled, false, "AutoDodge.Enabled");
+
 	cfg.AddVar(FLOAT, &CameraDistance, 1200.0f, "CameraDistance");
 
 	cfg.AddVar(BOOL, &ShowLinkenSphere, true, "ShowLinkenSphere");
@@ -94,7 +95,9 @@ void Config::ConfigManager::SetupVars() {
 	cfg.AddVar(BOOL, &ShowEnemyPointSpells, true, "ShowEnemyPointSpells");
 	cfg.AddVar(BOOL, &PerfectBlink, false, "PerfectBlink");
 
-	cfg.AddVar(BOOL, &IllusionColoring::Enabled, false, "IllusionColoring.Enabled");
+	cfg.AddVar(BOOL, &TPTracker::Enabled, true, "TPTracker.Enabled");
+
+	cfg.AddVar(BOOL, &IllusionColoring::Enabled, true, "IllusionColoring.Enabled");
 	cfg.AddVar(VECTOR, &IllusionColoring::Color, { 1,0,0 }, "IllusionColoring.Color");
 
 	cfg.AddVar(BOOL, &ManaAbuse::Enabled, false, "ManaAbuse.Enabled");
@@ -110,7 +113,7 @@ void Config::ConfigManager::SetupVars() {
 	cfg.AddVar(BOOL, &Changer::UnlockDotaPlus, true, "Changer.UnlockDotaPlus");
 	cfg.AddVar(BOOL, &Changer::UnlockEmoticons, true, "Changer.UnlockEmoticons");
 
-	cfg.AddVar(BOOL, &AutoHeal::Enabled, true, "AutoHeal.Enabled");
+	cfg.AddVar(BOOL, &AutoHeal::Enabled, false, "AutoHeal.Enabled");
 	cfg.AddVar(FLOAT, &AutoHeal::FaerieFireHPTreshold, 5.f, "AutoHeal.FaerieFireHPTreshold");
 	cfg.AddVar(FLOAT, &AutoHeal::WandHPTreshold, 10.f, "AutoHeal.WandHPTreshold");
 	cfg.AddVar(INT, &AutoHeal::WandMinCharges, 10, "AutoHeal.WandMinCharges");
@@ -118,7 +121,7 @@ void Config::ConfigManager::SetupVars() {
 	cfg.AddVar(BOOL, &BadCastPrevention, true, "BadCastPrevention");
 	cfg.AddVar(BOOL, &LastHitMarker, true, "LastHitMarker");
 
-	cfg.AddVar(BOOL, &AutoMidas::Enabled, true, "AutoMidas.Enabled");
+	cfg.AddVar(BOOL, &AutoMidas::Enabled, false, "AutoMidas.Enabled");
 	cfg.AddVar(INT, &AutoMidas::XPTreshold, 60, "AutoMidas.XPTreshold");
 
 	cfg.AddVar(BOOL, &RenderAllParticles, true, "RenderAllParticles");

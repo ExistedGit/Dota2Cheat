@@ -13,13 +13,15 @@ class CDOTABaseAbility;
 class CDOTAItem;
 class CDOTAItemRune;
 
+inline struct _GameData {
+	Vector2D ScreenSize;
+} GameData;
+
 struct Context {
 	CDOTAPlayerController* localPlayer{};
 	CDOTABaseNPC_Hero* assignedHero{};
 	uint32_t assignedHeroHandle{};
 
-	HANDLE CurProcHandle;
-	int CurProcId;
 	enum class GameStage {
 		NONE = 0, // In menu
 		PRE_GAME = 1, // Joined the match but the game itself didn't start yet

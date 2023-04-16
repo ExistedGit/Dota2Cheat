@@ -14,8 +14,6 @@ bool Utility::AttackAnimTracker::WillUnitAttack(CDOTABaseNPC* unit, CDOTABaseNPC
 void Utility::AttackAnimTracker::ProcessAttackAnimMessage(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
 	if (msgHandle->messageID == 521)
 	{
-
-
 		auto animMsg = (CDOTAUserMsg_TE_UnitAnimation*)msg;
 
 		if (animMsg->activity() != 1503)

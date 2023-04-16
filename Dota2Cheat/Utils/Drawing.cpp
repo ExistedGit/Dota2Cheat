@@ -1,5 +1,27 @@
 #include "Drawing.h"
 
+// Credit to Wolf49406
+ImVec2 WorldToMap(const Vector& EntityPos) {
+	if (!GameSystems::MinimapRenderer)
+		return { 0,0 };
+	auto MinimapSize = GameSystems::MinimapRenderer->GetMinimapSize();
+	auto MinimapBounds = GameSystems::MinimapRenderer->MinimapBounds;
+
+	// The border around the actual map panel is around 12px
+	auto ActualMinimapSize = static_cast<float>(MinimapSize.x - 24);
+	auto MinimapPosMin = Vector2D(12, static_cast<float>(GameData.ScreenSize.y - ActualMinimapSize - 12));
+
+	if (Signatures::IsHUDFlipped()) {
+		float offset = GameData.ScreenSize.x - ActualMinimapSize;
+		MinimapPosMin.x = MinimapPosMin.x + offset;
+	}
+
+	Vector2D Scaler = MinimapBounds / ActualMinimapSize * 2;
+	auto PosOnMinimap = MinimapPosMin + (MinimapBounds / Scaler) - (Vector2D{ EntityPos.x, EntityPos.y } / Scaler);
+
+	return ImVecFromVec2D(PosOnMinimap);
+}
+
 void DrawRect(const ImVec2& topLeft, const ImVec2& size, const ImVec4& color, float thickness) {
 	auto DrawList = ImGui::GetForegroundDrawList();
 	DrawList->AddRect(
@@ -77,7 +99,7 @@ void HelpMarker(const char* desc)
 	}
 }
 
-bool TextureManager::LoadTexture(const char* filename, TextureData& data)
+bool TextureManager::LoadTexture(const char* filename, ImTextureID& tex)
 {
 	// Load from file
 	int image_width = 0;
@@ -104,10 +126,7 @@ bool TextureManager::LoadTexture(const char* filename, TextureData& data)
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image_width, image_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image_data);
 	stbi_image_free(image_data);
 
-	data.glTex = (void*)image_texture;
-	data.width = image_width;
-	data.height = image_height;
-	data.filePath = filename;
-
+	tex = (ImTextureID)image_texture;
+	
 	return true;
 }

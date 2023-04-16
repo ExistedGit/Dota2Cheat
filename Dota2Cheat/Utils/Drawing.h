@@ -1,4 +1,5 @@
 #pragma once
+#include "../SDK/pch.h"
 #include <imgui/imgui.h>
 #include <imgui/imgui_stdlib.h>
 #include <imgui/imgui_internal.h>
@@ -9,12 +10,16 @@
 #include "../stb_image.h"
 #include <string>
 #include <sstream>
-#include "../SDK/Base/Color.h"
 #include <unordered_map>
 
+// Converts a 3D position in Dota's world to a minimap
 inline ImVec2 ImVecFromVec2D(const Vector2D& vec) {
 	return ImVec2{ vec.x,vec.y };
 }
+
+// Credit to Wolf49406
+ImVec2 WorldToMap(const Vector& EntityPos);
+
 
 void DrawRect(const ImVec2& topLeft, const ImVec2& size, const ImVec4& color, float thickness = 1.0f);
 void DrawRectFilled(const ImVec2& topLeft, const ImVec2& size, const ImVec4& color);
@@ -23,27 +28,23 @@ void HelpMarker(const char* desc);
 //https://www.unknowncheats.me/forum/direct3d/244074-imgui-d3d11-text-drawing.html
 float DrawTextForeground(ImFont* pFont, const std::string& text, const ImVec2& pos, float size, const ImVec4& color, bool center, bool outline = true);
 
-struct TextureData {
-	const char* filePath{};
-	ImTextureID glTex{};
-	int width{}, height{};
-};
-
-
 // Texture management system
 // Caches loaded textures which you can get by the name identifier
 class TextureManager {
-	std::unordered_map<std::string, TextureData> namedTex;
-	std::map<std::string, TextureData*> loadingQueue;
+	std::unordered_map<std::string, ImTextureID> namedTex;
+	std::map<std::string, ImTextureID*> loadingQueue;
 	bool requiresUnload = false;
 public:
-	TextureData* GetNamedTexture(const std::string& name) {
-		if (!namedTex.count(name))
-			return nullptr;
-		return &namedTex[name];
+	ImTextureID GetNamedTexture(const std::string& name) {
+		return namedTex[name];
 	}
 
-	bool LoadTexture(const char* filename, TextureData& data);
+	bool LoadTexture(const char* filename, ImTextureID& tex);
+	bool LoadTextureNamed(const char* filename, ImTextureID& tex, const std::string& texName) {
+		auto result = LoadTexture(filename, tex);
+		namedTex[texName] = tex;
+		return result;
+	};
 
 	void QueueTextureUnload()
 	{
@@ -54,8 +55,8 @@ public:
 		if (!requiresUnload)
 			return;
 
-		for (auto& [_, data] : namedTex)
-			glDeleteTextures(1, (const GLuint*)&data.glTex);
+		for (auto& [_, tex] : namedTex)
+			glDeleteTextures(1, (const GLuint*)&tex);
 		namedTex.clear();
 	}
 
@@ -65,8 +66,10 @@ public:
 	}
 
 	void ExecuteLoadCycle() {
-		for (auto& [path, data] : loadingQueue)
-			LoadTexture(path.c_str(), *data);
+		for (auto& [path, tex] : loadingQueue) {
+			LogF(LP_INFO, "Loading image: {}", path);
+			LoadTexture(path.c_str(), *tex);
+		}
 
 		loadingQueue.clear();
 	}

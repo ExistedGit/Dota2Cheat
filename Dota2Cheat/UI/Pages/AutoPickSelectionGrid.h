@@ -10,7 +10,7 @@
 namespace Pages {
 	namespace AutoPickHeroGrid {
 		inline std::vector < std::string> heroNames;
-		inline std::map<std::string, TextureData> heroIcons;
+		inline std::map<std::string, ImTextureID> heroIcons;
 		inline bool Initialized = false;
 
 		void InitList();
