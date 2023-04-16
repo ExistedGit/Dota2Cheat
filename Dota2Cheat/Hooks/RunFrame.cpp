@@ -85,6 +85,8 @@ void Hooks::hkRunFrame(void* thisptr) {
 
 
 		Modules::TPTracker.CacheHeroIcons();
+
+		Modules::TPTracker.FrameBasedLogic();
 		Modules::AutoHeal.FrameBasedLogic(ctx.assignedHero);
 		Modules::AutoPing.FrameBasedLogic();
 		Modules::AutoDodge.FrameBasedLogic();

@@ -127,7 +127,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwWindowHint(GLFW_DECORATED, 0);
 	glfwWindowHint(GLFW_RESIZABLE, 0);
 	glfwWindowHint(GLFW_MAXIMIZED, 1);
-	glfwWindowHint(GLFW_MOUSE_PASSTHROUGH, 1);
+	glfwWindowHint(GLFW_MOUSE_PASSTHROUGH, 0);
 	auto* monitor = glfwGetPrimaryMonitor();
 	if (!monitor)
 		return 0;
@@ -152,12 +152,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	ImGui_ImplGlfw_InitForOpenGL(window, true);
 	ImGui_ImplOpenGL3_Init(glsl_version);
 
-	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-
 	//auto vbeFont = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
 	auto msTrebuchet = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 40.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
 	auto defaultFont = io.Fonts->AddFontDefault();
-	bool menuVisible = false;
+	bool menuVisible = true;
 	Modules::AbilityESP.textFont = msTrebuchet;
 	std::cout << "Icon loading result: " << iconLoadThread.get() << "\n";
 	int itemDefId = 6996;

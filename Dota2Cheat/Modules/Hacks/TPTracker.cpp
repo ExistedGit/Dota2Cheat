@@ -1,19 +1,59 @@
 #include "TPTracker.h"
 
+
+// Mostly calculating fade duration
+
+void Hacks::TPTracker::FrameBasedLogic() {
+	if (lastTime == 0) {
+		lastTime = GameSystems::GameRules->GetGameTime();
+		return;
+	}
+	auto timeDelta = GameSystems::GameRules->GetGameTime() - lastTime;
+	lastTime = GameSystems::GameRules->GetGameTime();
+	for (auto it = teleports.begin(); it != teleports.end();) {
+		auto& data = it->second;
+		if (!data.isFading) {
+			++it;
+			continue;
+		}
+
+		data.fadeCounter -= timeDelta;
+
+		ImColor newColor{ data.color };
+		newColor.Value.w = data.fadeCounter / data.fadeDuration;
+		data.color = newColor;
+
+		if (data.fadeCounter <= 0)
+			it = teleports.erase(it);
+		else
+			++it;
+	}
+}
+
+void Hacks::TPTracker::CacheHeroIcons() {
+	for (auto& hero : ctx.heroes) {
+		if (heroIcons.count(hero))
+			continue;
+		std::string prefixLessName = std::string(hero->GetUnitName()).substr(14),
+			iconName = "icon_" + prefixLessName;
+		heroIcons[hero] = texManager.GetNamedTexture(iconName);
+	}
+}
+
 void Hacks::TPTracker::DrawMapTeleports() {
 	if (!Config::TPTracker::Enabled)
 		return;
 
-	constexpr static ImVec2 iconSize{ 32,32 };
+	constexpr static ImVec2 iconSize{ 24,24 };
 	auto  DrawList = ImGui::GetForegroundDrawList();
-	for (auto& [ent, startData] : tpStarts) {
+	for (auto& [ent, data] : teleports) {
 		if (ent->IsSameTeam(ctx.assignedHero)
-			|| !tpEnds.count(ent))
+			|| !data.start.msgIdx || !data.end.msgIdx)
 			continue;
-		const auto& endData = tpEnds[ent];
-		ImVec2 start = WorldToMap(startData.pos), end = WorldToMap(endData.pos);
 
-		DrawList->AddLine(start, end, ImColor{ 255, 0, 0 }, 3);
+		ImVec2 start = WorldToMap(data.start.pos), end = WorldToMap(data.end.pos);
+
+		DrawList->AddLine(start, end, data.color, 3);
 
 		if (!heroIcons.count(ent))
 			continue;
@@ -26,18 +66,23 @@ void Hacks::TPTracker::DrawMapTeleports() {
 			ImVec2 startXY1 = start - iconSize / 2, startXY2 = startXY1 + iconSize;
 			DrawList->AddImage(texture,
 				startXY1,
-				startXY2
+				startXY2,
+				{ 0,0 },
+				{ 1,1 },
+				data.isFading ? (ImU32)ImColor{ 255, 255, 255, 128 }
+				: (ImU32)ImColor { 255, 255, 255 }
 			);
 		}
+
 		ImVec2 endXY1 = end - iconSize / 2, endXY2 = endXY1 + iconSize;
 		DrawList->AddImage(texture,
 			endXY1,
 			endXY2,
 			{ 0,0 },
 			{ 1,1 },
-			ImColor{ 255,255,255, 128 }
+			data.isFading ? ImGui::ColorConvertFloat4ToU32(ImVec4(1, 1, 1, ImColor{ data.color }.Value.w))
+			: (ImU32)ImColor { 255, 255, 255, 128 }
 		);
-
 	}
 }
 
@@ -63,16 +108,22 @@ void Hacks::TPTracker::ProcessParticleMsg(NetMessageHandle_t* msgHandle, google:
 		if (!ent)
 			break;
 
-		if (particleName == "particles/items2_fx/teleport_start.vpcf")
-			tpStarts[ent] = ParticleData{
-			.name = particleName,
+		if (particleName == "particles/items2_fx/teleport_start.vpcf") {
+			auto& tpData = teleports[ent];
+			tpData.fadeCounter = tpData.fadeDuration = tpData.isFading = 0;
+			tpData.color = ImColor{ 220,220,220 };
+			tpData.start = TPData{
+						.msgIdx = msgIndex
+			};
+		}
+		else if (particleName == "particles/items2_fx/teleport_end.vpcf") {
+			auto& tpData = teleports[ent];
+			tpData.fadeCounter = tpData.fadeDuration = tpData.isFading = 0;
+			tpData.color = ImColor{ 220,220,220 };
+			tpData.end = TPData{
 			.msgIdx = msgIndex
-		};
-		else if (particleName == "particles/items2_fx/teleport_end.vpcf")
-			tpEnds[ent] = ParticleData{
-			.name = particleName,
-			.msgIdx = msgIndex
-		};
+			};
+		}
 
 	}
 	case GAME_PARTICLE_MANAGER_EVENT_UPDATE_TRANSFORM:
@@ -83,32 +134,35 @@ void Hacks::TPTracker::ProcessParticleMsg(NetMessageHandle_t* msgHandle, google:
 
 		auto pos = pmMsg->update_particle_transform().position();
 
-		for (auto& [_, data] : tpStarts)
-			if (data.msgIdx == msgIndex)
-				data.pos = Vector(pos.x(), pos.y(), pos.z());
-		for (auto& [_, data] : tpEnds)
-			if (data.msgIdx == msgIndex)
-				data.pos = Vector(pos.x(), pos.y(), pos.z());
+		for (auto& [_, data] : teleports)
+			if (data.start.msgIdx == msgIndex)
+				data.start.pos = Vector(pos.x(), pos.y(), pos.z());
+		for (auto& [_, data] : teleports)
+			if (data.end.msgIdx == msgIndex)
+				data.end.pos = Vector(pos.x(), pos.y(), pos.z());
 
 		break;
 	}
 	case GAME_PARTICLE_MANAGER_EVENT_DESTROY: {
 		bool cancelled = pmMsg->destroy_particle().destroy_immediately();
-		for (auto it = tpStarts.begin(); it != tpStarts.end(); )
+		for (auto& [_, data] : teleports)
 		{
-			if (it->second.msgIdx == msgIndex) {
-				it = tpStarts.erase(it);
+			if (
+				data.start.msgIdx == msgIndex
+				|| data.end.msgIdx == msgIndex
+				) {
+				data.isFading = true;
+				if (cancelled) {
+					data.color = ImColor{ 255,0,0 };
+					data.fadeDuration = data.fadeCounter = 1.5f;
+				}
+				else {
+					data.color = ImColor{ 0,255,128 };
+					data.fadeDuration = data.fadeCounter = 5;
+				}
+
 				break;
 			}
-			else ++it;
-		}
-		for (auto it = tpEnds.begin(); it != tpEnds.end(); )
-		{
-			if (it->second.msgIdx == msgIndex) {
-				it = tpEnds.erase(it);
-				break;
-			}
-			else ++it;
 		}
 		break;
 	}

@@ -5,27 +5,27 @@
 
 namespace Hacks {
 	class TPTracker {
-		struct ParticleData {
-			Vector pos;
-			std::string_view name;
-			uint32_t msgIdx;
+		struct TPData {
+			Vector pos{ 0,0,0 };
+			uint32_t msgIdx = 0;
 		};
 
+		struct TPLineData {
+			ImU32 color;
+			bool isFading = false;
+			float fadeDuration = 0.0f;
+			float fadeCounter = 0;
+			TPData start, end;
+		};
 
-		std::map<CBaseEntity*, ParticleData> tpStarts;
-		std::map<CBaseEntity*, ParticleData> tpEnds;
+		std::map<CBaseEntity*, TPLineData> teleports;
 
 		std::map<CBaseEntity*, ImTextureID> heroIcons;
+		float lastTime = 0;
 	public:
-		void CacheHeroIcons() {
-			for (auto& hero : ctx.heroes) {
-				if (heroIcons.count(hero))
-					continue;
-				std::string prefixLessName = std::string(hero->GetUnitName()).substr(14),
-					iconName = "icon_" + prefixLessName;
-				heroIcons[hero] = texManager.GetNamedTexture(iconName);
-			}
-		}
+		// Mostly calculating fade duration
+		void FrameBasedLogic();
+		void CacheHeroIcons();
 		void DrawMapTeleports();
 		void ProcessParticleMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg);;
 	};

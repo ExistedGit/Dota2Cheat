@@ -38,7 +38,7 @@ namespace Interfaces {
 	// Gets a public interface via CreateInterface() export
 	// vmCount can be specified to check if the vtable has changed
 	template<typename T>
-	inline T* GetInterface(const char* dllName, const char* interfaceName, int vmCount = -1) {
+	T* GetInterface(const char* dllName, const char* interfaceName, int vmCount = -1) {
 		auto CreateInterface = GetExport(dllName, "CreateInterface");
 		int retCode = 0;
 		void* result = CreateInterface(interfaceName, &retCode);
