@@ -157,7 +157,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	//auto vbeFont = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
 	auto msTrebuchet = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 40.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
 	auto defaultFont = io.Fonts->AddFontDefault();
-	bool menuVisible = false;
+	bool menuVisible = true;
 	Modules::AbilityESP.textFont = msTrebuchet;
 	std::cout << "Icon loading result: " << iconLoadThread.get() << "\n";
 	int itemDefId = 6996;
