@@ -36,7 +36,7 @@ This cheat can be safely reinjected at any point of the game
 
 Build Dota2Loader and launch it, it will move the necessary resources around and then inject
 
-**Use at own risk. Though I use methods that make detection chances as low as possible, there are no guarantees** (also consider not using non-legit features that others may notice)
+**Use at own risk. Though I use methods that make detection chances as low as possible, there are no guarantees. [Use](https://github.com/zyhp/vac3_inhibitor) a [vac bypass](https://github.com/danielkrupinski/VAC-Bypass)** (also consider not using non-legit features that you can get reported for)
 
 ## Troubleshooting
 
@@ -57,7 +57,7 @@ This list is subject to frequent change as I'm testing new features
 * Automation:
   * AutoAccept with customizable delay
   * Uses Magic Wand and Faerie Fire with customizable health tresholds
-  * Uses Hand of Midas on nearby big neutrals, ranged & flagbearer lane creeps and catapults
+  * AutoMidas with customizable min XP reward
   * Bounty rune & Aegis pickup
   * Tome of Knowledge purchase
   * Redirects spell casts from illusions to the real hero
@@ -66,6 +66,7 @@ This list is subject to frequent change as I'm testing new features
   
 * Information:
   * ~~Visible by Enemy~~ RIP on 21.02.2023, you shall not be forgotten
+  * Teleport Tracker — draws enemy TPs on the map
   * [AbilityESP & ItemESP](https://youtu.be/U-ZhxwjEw4k)
   * Draw circles of custom radius around you hero(e. g. to see XP receiving range)
   * Shows point-cast spells(Sunstrike, Torrent, Light Strike Array)
@@ -74,7 +75,6 @@ This list is subject to frequent change as I'm testing new features
   * Renders any and all possible particles, including in FoW
   * Customizable enemy illusion coloring
   * Shows trajectories of enemy projectiles like Mirana's arrow and non-projectile abilities like Meat Hook
-  * Roshan — saves his death time and approximates when he will spawn [WIP]
   
 * Convars:
   * `sv_cheats` spoofing
@@ -90,14 +90,11 @@ This list is subject to frequent change as I'm testing new features
   * River painting
   * Unlocks emoticons
   * Dota Plus Unlocker
-  * Partial skinchanger:
-    * Music
-    * Cursor packs
-    * Announcers
-    * Kill streak effects
-    * Terrain
-    * HUD skins
-   
+  
+* Work in progress:
+  * Roshan timer
+  * Skinchanger(half of the work done)
+  
 I intend to implement most of the usual cheat functionality
 
 # For Developers

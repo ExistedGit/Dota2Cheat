@@ -184,6 +184,14 @@ public:
 		return *(T*)((uintptr_t)this + offset);
 	}
 
+
+	template <class T>
+	inline T GetVF( int Index )
+	{
+		return ( *reinterpret_cast<T**>( this ) )[Index];
+	}
+
+
 	Function GetVFunc(int index)
 	{
 		uintptr_t vtable = *((uintptr_t*)(this));
