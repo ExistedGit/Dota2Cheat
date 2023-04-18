@@ -272,6 +272,7 @@
   <ItemGroup>
     <ClInclude Include="Hooks\MinimapRenderer.h" />
     <ClInclude Include="Hooks\UIState.h" />
+    <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
     <ClInclude Include="Modules\Hacks\UIOverhaul.h" />
     <ClInclude Include="SDK\GameSystems\CDOTA_PanoramaMinimapRenderer.h" />
     <ClInclude Include="SDK\GameSystems\CGameUI.h" />

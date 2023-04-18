@@ -23,10 +23,12 @@ void Hacks::AutoDodge::FrameBasedLogic() {
 		//if (counterspell && counterspell->GetCooldown() == 0)
 		//	useTime = 1.2f;
 
-
-		if (!IsWithinRadius(proj->PredictPos(0.05f), target->GetPos(), 24.0f /*target->GetHullRadius()*/))
-			continue;
-
+		{
+			auto dist = proj->GetPos().As<Vector2D>().DistTo(target->GetPos().As<Vector2D>()) - target->GetHullRadius();
+			auto timeToHit = dist / proj->GetMoveSpeed();
+			if (timeToHit > 0.05f)
+				continue;
+		}
 
 		auto usedItem = ctx.ImportantItems["bottle"] ? ctx.ImportantItems["bottle"] : ctx.ImportantItems["manta"];
 		//if (counterspell && counterspell->GetCooldown() == 0)

@@ -698,6 +698,9 @@
     <ClInclude Include="SDK\Wrappers\EntitySorting.h">
       <Filter>Header files</Filter>
     </ClInclude>
+    <ClInclude Include="Modules\Hacks\AutoLastHit.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hooks\InvalidateUEF.h">

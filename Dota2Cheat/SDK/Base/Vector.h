@@ -115,7 +115,7 @@ public:
 	[[nodiscard]] float	Length2D(void) const;
 	[[nodiscard]] float	Length2DSqr(void) const;
 	template<typename T>
-	[[nodiscard]] inline T To(void) const {
+	[[nodiscard]] inline T As(void) const {
 		return *(T*)this;
 	}
 	Vector	operator-(void) const;

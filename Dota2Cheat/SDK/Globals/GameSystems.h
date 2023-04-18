@@ -38,5 +38,4 @@ namespace GameSystems {
 	inline CGameEventManager* GameEventManager{};
 
 	void FindGameSystems();
-	void LogGameSystems();
 }

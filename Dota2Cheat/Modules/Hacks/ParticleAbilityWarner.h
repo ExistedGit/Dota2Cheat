@@ -1,6 +1,7 @@
 #pragma once
 #include <map>
 #include "../Utility/ParticleGC.h"
+#include "../../Config.h"
 
 namespace Hacks {
 	class ParticleAbilityWarner {

@@ -36,23 +36,30 @@ bool Hooks::hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandle
 				auto itemSchema = Signatures::GetItemSchema();
 
 				auto itemDef = CDOTAItemSchema::GetItemDefByIndex(itemSchema, item->m_unDefIndex);
-				std::cout << std::format("Equipping {}. Class: {}; Slot: {} | ItemDef: {}\n",
+				LogF(LP_INFO, "Equipping {}. Class: {}; Slot: {} | ItemDef: {}",
 					(void*)item,
 					equip.new_class(),
 					equip.new_slot(),
 					(void*)itemDef
 				);
 #endif // _DEBUG
-				//for (auto& defaultItem : Modules::SkinChanger.DefaultItems) {
-				//	auto defaultItemDef = itemSchema->GetItemDefByIndexRef(defaultItem.unDefIndex);
-				//	if (defaultItem.unClass == equip.new_class() &&
-				//		defaultItem.szSlot == itemDef->GetSlot()) {
-				//		*defaultItemDef = itemDef;
-				//	}
-				//}
+				for (auto& defaultItem : Modules::SkinChanger.DefaultItems) {
+					auto defaultItemDef = itemSchema->GetItemDefByIndexRef(defaultItem.unDefIndex);
+					if (defaultItem.unClass == equip.new_class() &&
+						defaultItem.szSlot == itemDef->GetSlot()) {
+						*defaultItemDef = itemDef;
+					}
+				}
 
-				Modules::SkinChanger.Equip(item, equip.new_class(), equip.new_slot());
+//				Modules::SkinChanger.Equip(item, equip.new_class(), equip.new_slot());
 				return false;
+			}
+			else {
+				LogF(LP_INFO, "Equipping {}. Class: {}; Slot: {}",
+					(void*)item,
+					equip.new_class(),
+					equip.new_slot()
+				);
 			}
 		};
 

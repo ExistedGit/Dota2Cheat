@@ -9,7 +9,9 @@ void Hooks::SetUpByteHooks() {
 	HOOKFUNC_SIGNATURES(BIsEmoticonUnlocked);
 	HOOKFUNC_SIGNATURES(CDOTAMinimapRenderer_Render);
 	//HOOKFUNC_SIGNATURES(DispatchPacket);
-	//HOOKFUNC_SIGNATURES(BAsyncSendProto);
+#ifdef _DEBUG
+	HOOKFUNC_SIGNATURES(BAsyncSendProto);
+#endif // _DEBUG
 	HOOKFUNC_SIGNATURES(SaveSerializedSOCache);
 	//HOOKFUNC_SIGNATURES(CGameUI__ChangeGameUIState);
 }

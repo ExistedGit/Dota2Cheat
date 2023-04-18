@@ -62,15 +62,15 @@ void Hacks::TPTracker::DrawMapTeleports() {
 		if (!texture)
 			continue;
 
-		if (ent->GetIdentity()->IsDormant()) {
+		if (ent->GetIdentity()->IsDormant() || data.isFading) {
 			ImVec2 startXY1 = start - iconSize / 2, startXY2 = startXY1 + iconSize;
 			DrawList->AddImage(texture,
 				startXY1,
 				startXY2,
 				{ 0,0 },
 				{ 1,1 },
-				data.isFading ? (ImU32)ImColor{ 255, 255, 255, 128 }
-				: (ImU32)ImColor { 255, 255, 255 }
+				data.isFading ? (ImU32)ImColor { 255, 255, 255, 128 }
+			: (ImU32)ImColor { 255, 255, 255 }
 			);
 		}
 
@@ -83,6 +83,7 @@ void Hacks::TPTracker::DrawMapTeleports() {
 			data.isFading ? ImGui::ColorConvertFloat4ToU32(ImVec4(1, 1, 1, ImColor{ data.color }.Value.w))
 			: (ImU32)ImColor { 255, 255, 255, 128 }
 		);
+
 	}
 }
 

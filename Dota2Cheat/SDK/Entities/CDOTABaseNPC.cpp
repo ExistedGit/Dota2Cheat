@@ -58,9 +58,6 @@ bool CDOTABaseNPC::HasState(ModifierState state) {
 	return (unitState & (1Ui64 << (int)state));
 }
 
-float CDOTABaseNPC::GetAttackSpeed() {
-	return 1 + CallVFunc<295, float>();
-}
 
 void CDOTABaseNPC::BindLua(sol::state& lua) {
 	auto type = lua.new_usertype<CDOTABaseNPC>("CDOTABaseNPC", sol::base_classes, sol::bases<CBaseEntity>());
@@ -85,7 +82,7 @@ void CDOTABaseNPC::BindLua(sol::state& lua) {
 	type["HasState"] = &CDOTABaseNPC::HasState;
 	type["GetBaseAttackTime"] = &CDOTABaseNPC::GetBaseAttackTime;
 	type["GetHullRadius"] = &CDOTABaseNPC::GetHullRadius;
-	type["GetAttackSpeed"] = &CDOTABaseNPC::GetAttackSpeed;
+	// type["GetAttackSpeed"] = &CDOTABaseNPC::GetAttackSpeed;
 	type["CanUseAbility"] = &CDOTABaseNPC::CanUseAbility;
 	type["IsDisabled"] = &CDOTABaseNPC::IsDisabled;
 	type["GetMagicalArmorValue"] = &CDOTABaseNPC::GetMagicalArmorValue;
