@@ -398,9 +398,16 @@ struct SchemaParentInfo {
 	ClassDescription* parent;
 };
 
+struct SchemaTypeDescription {
+	uintptr_t idk;
+	const char* name;
+	uintptr_t idk2;
+};
+
+
 struct SchemaClassFieldData_t {
 	const char* m_name; // 0x0000
-	void* m_type; // 0x0008
+	SchemaTypeDescription* m_type; // 0x0008
 	std::int32_t m_single_inheritance_offset; // 0x0010
 	std::int32_t m_metadata_size; // 0x0014
 	void* m_metadata; // 0x0018
@@ -416,13 +423,6 @@ struct ClassDescription {
 	SchemaClassFieldData_t* membersDescription; //28
 	uintptr_t idk2;                //30
 	SchemaParentInfo* parentInfo;  //38
-};
-
-
-struct SchemaTypeDescription {
-	uintptr_t idk;
-	const char* name;
-	uintptr_t idk2;
 };
 
 struct less_than_key
@@ -518,38 +518,34 @@ uintptr_t WINAPI HackThread( HMODULE hModule ) {
 
 	const auto type_scopes = SchemaSystem->type_scopes( );
 
-	std::ofstream fout( "C:\\Users\\user\\Documents\\schema_dump.txt" );
-	fout << "Dump started at " << getTimeStr( ) << std::endl << std::endl;
-
 	clock_t tic = clock( );
+
+	std::ofstream fout( "C:\\Users\\user\\Documents\\asd\\fields.hpp" );
+	fout << std::hex;
+	fout << "#pragma once\n#include <cstdint>\nnamespace fields {\n";
+
 	for ( auto i = 0; i < type_scopes.Count( ); ++i ) {
 		const auto current_scope = type_scopes.m_pElements[i];
 		auto current_classes = current_scope->GetClasses( );
 
 		for ( const auto class__ : current_classes.GetElements( ) ) {
 			const auto class_info = current_scope->FindDeclaredClass( class__->m_binary_name );
+			fout << std::format( "\tnamespace {}", class__->m_binary_name ) << " {\n";
 
+			if ( !class_info->membersSize ) fout << "\t\t// empty class" << '\n';
 			for ( auto ki = 0; ki < class_info->membersSize; ki++ ) {
 				if ( !&class_info->membersDescription[ki] ) continue;
-				char buffer[256];
-				sprintf_s( buffer, "module: %s | class: %s | field: [%s;0x%X]\n",
-						   current_scope->GetScopeName( ).data( ),
-						   class__->m_binary_name,
-						   ( &class_info->membersDescription[ki] )->m_name,
-						   ( &class_info->membersDescription[ki] )->m_single_inheritance_offset
-				);
-				printf( buffer );
 
-				fout << buffer;
+				fout << std::format( "\t\tconstexpr uint32_t {} = ", ( &class_info->membersDescription[ki] )->m_name ) << "0x" << ( &class_info->membersDescription[ki] )->m_single_inheritance_offset << ";";
+				fout << " // " << ( &class_info->membersDescription[ki] )->m_type->name << '\n';
 			}
+			fout << "\t}\n";
 		}
 	}
+	fout << "}";
 	clock_t toc = clock( );
 
-	fout << std::endl << "Time elapsed " << round( ( (double)( toc - tic ) / CLOCKS_PER_SEC ) * 10 ) / 10 << "s" << std::endl;
-
-	fout << "Dumped at " << getTimeStr( ) << std::endl;
-	fout.close( );
+	std::cout << "Time elapsed " << round( ( (double)( toc - tic ) / CLOCKS_PER_SEC ) * 10 ) / 10 << "s" << std::endl;
 
 	// You can add some other classes there if you need to
 	/*SchemaDumpToMap( "client.dll",
