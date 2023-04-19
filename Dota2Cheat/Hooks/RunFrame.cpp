@@ -127,10 +127,10 @@ void Hooks::hkRunFrame(void* thisptr) {
 	}
 #ifdef _DEBUG
 	if (IsKeyPressed(VK_NUMPAD7)) {
-		for (auto& hero : ctx.heroes)
-			if (hero != ctx.assignedHero)
-				std::cout << Modules::AttackAnimTracker.WillUnitAttack(ctx.assignedHero, hero, 0.5) << '\n';
-
+		auto wearables = ctx.assignedHero->Member < CUtlVector<ENT_HANDLE>>(Netvars::C_BaseCombatCharacter::m_hMyWearables);
+		for (auto& w : wearables) {
+			Log(LP_NONE, (void*)Interfaces::EntitySystem->GetEntity(H2IDX(w)));
+		};
 	}
 	if (IsKeyPressed(VK_NUMPAD8)) {
 		auto selected = ctx.localPlayer->GetSelectedUnits();
@@ -139,10 +139,10 @@ void Hooks::hkRunFrame(void* thisptr) {
 
 		std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
 			<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
-			<< "\n\tAttack Time: " << std::clamp(ent->GetBaseAttackTime() / ent->GetAttackSpeed(), 0.24f, 2.0f)
+			// << "\n\tAttack Time: " << std::clamp(ent->GetBaseAttackTime() / ent->GetAttackSpeed(), 0.24f, 2.0f)
 			//<< "\n\tIsRoshan: " << ent->IsRoshan()
 			//<< "\n\tStunned: " << ent->HasState(ModifierState::MODIFIER_STATE_STUNNED)
-			<< "\n\tValue:" << ent->GetModifierManager()->GetBuffsByModifierFunction(MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE)->at(0).GetPropertyValue()
+			//<< "\n\tValue:" << ent->GetModifierManager()->GetBuffsByModifierFunction(MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE)->at(0).GetPropertyValue()
 			<< '\n';
 	}
 	if (IsKeyPressed(VK_NUMPAD3)) {

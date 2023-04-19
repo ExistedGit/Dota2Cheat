@@ -58,6 +58,8 @@ void Hacks::ParticleAbilityWarner::ProcessParticleMsg(NetMessageHandle_t* msgHan
 		case AP_PUDGE_MEAT_HOOK:
 		case AP_BANSHEE_CRYPT_SWARM:
 		case AP_MEEPO_EARTHBIND:
+			if (!Config::ShowEnemyPointSpells)
+				break;
 			queuedParticleIndexes[msgIndex] = AbilityParticleInfo{
 				.nameIndex = (AbilityParticles)particle.particle_name_index(),
 				.owner = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(
@@ -68,7 +70,7 @@ void Hacks::ParticleAbilityWarner::ProcessParticleMsg(NetMessageHandle_t* msgHan
 
 		break;
 	}
-		// Gets the ability owner and determines if the ability trajectory will be drawn
+										   // Gets the ability owner and determines if the ability trajectory will be drawn
 	case GAME_PARTICLE_MANAGER_EVENT_UPDATE_ENT:
 	{
 		if (!queuedParticleIndexes.count(msgIndex))
@@ -101,7 +103,6 @@ void Hacks::ParticleAbilityWarner::ProcessParticleMsg(NetMessageHandle_t* msgHan
 		if (!queuedParticleIndexes.count(msgIndex))
 			break;
 
-
 		auto& info = queuedParticleIndexes[msgIndex];
 		auto cpIdx = pmMsg->update_particle_transform().control_point();
 		auto cpVal = Vector{
@@ -132,15 +133,15 @@ void Hacks::ParticleAbilityWarner::ProcessParticleMsg(NetMessageHandle_t* msgHan
 						AbilityIndexes.at(info.nameIndex)
 					]->GetEffectiveCastRange();
 
-				if (info.nameIndex == AP_BANSHEE_CRYPT_SWARM)
-					castRange += 390; // hits past its cast range, for some reason
+						if (info.nameIndex == AP_BANSHEE_CRYPT_SWARM)
+							castRange += 390; // hits past its cast range, for some reason
 
-				auto ratio = castRange / cpVal.Length2D();
-				auto enlargedVec = cpVal.To<Vector2D>() * ratio;
-				info.end = info.begin;
-				info.end.x += enlargedVec.x;
-				info.end.y += enlargedVec.y;
-				TrackedAbilityParticles[msgIndex].trajectory = DrawTrajectory(info.begin, info.end);
+						auto ratio = castRange / cpVal.Length2D();
+						auto enlargedVec = cpVal.As<Vector2D>() * ratio;
+						info.end = info.begin;
+						info.end.x += enlargedVec.x;
+						info.end.y += enlargedVec.y;
+						TrackedAbilityParticles[msgIndex].trajectory = DrawTrajectory(info.begin, info.end);
 			}
 			break;
 		case AP_MEEPO_EARTHBIND:
@@ -150,7 +151,7 @@ void Hacks::ParticleAbilityWarner::ProcessParticleMsg(NetMessageHandle_t* msgHan
 				info.end = cpVal;
 				auto& data = TrackedAbilityParticles[msgIndex];
 				data.trajectory = DrawTrajectory(info.begin, info.end);
-				data.aoe = DrawRadius(info.end, static_cast<float>(info.owner->GetAbilities()[0]->GetAOERadius()));
+				data.aoe = DrawRadius(info.end, static_cast<float>(info.owner->GetAbility(0)->GetAOERadius()));
 				Modules::ParticleGC.SetDieTime(data.trajectory, 3);
 				Modules::ParticleGC.SetDieTime(data.aoe, 3);
 			}

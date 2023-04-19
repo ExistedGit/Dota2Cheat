@@ -42,15 +42,7 @@ namespace Hacks {
 		void UnlockAllStyles(CEconItem* pItem);
 
 		// Call in main thread
-		void Equip(CEconItem* pItem, uint16_t unClass, uint16_t unSlot) {
-			EquippedItems[unClass][unSlot] = pItem;
-
-			pItem->Class() = unClass;
-			pItem->Slot() = unSlot;
-			pItem->Flag() = 3;
-
-			SOUpdated(pItem);
-		}
+		void Equip(CEconItem* pItem, uint16_t unClass, uint16_t unSlot);
 		// Call in main thread
 		void Unequip(CEconItem* pItem) {
 			auto& classEquips = EquippedItems[pItem->Class()];

@@ -250,6 +250,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="SDK\Base\SigScan\proc.cpp" />
+    <ClCompile Include="SDK\Protobufs\base_gcmessages.pb.cc" />
     <ClCompile Include="SDK\Protobufs\dota_clientmessages.pb.cc" />
     <ClCompile Include="SDK\Protobufs\dota_commonmessages.pb.cc" />
     <ClCompile Include="SDK\Protobufs\dota_gcmessages_common.pb.cc" />
@@ -272,6 +273,7 @@
   <ItemGroup>
     <ClInclude Include="Hooks\MinimapRenderer.h" />
     <ClInclude Include="Hooks\UIState.h" />
+    <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
     <ClInclude Include="Modules\Hacks\UIOverhaul.h" />
     <ClInclude Include="SDK\GameSystems\CDOTA_PanoramaMinimapRenderer.h" />
     <ClInclude Include="SDK\GameSystems\CGameUI.h" />
@@ -336,6 +338,7 @@
     <ClInclude Include="SDK\Interfaces\CResourceSystem.h" />
     <ClInclude Include="SDK\Interfaces\GC\ItemSchema.h" />
     <ClInclude Include="SDK\Interfaces\ISteamClient.h" />
+    <ClInclude Include="SDK\Protobufs\base_gcmessages.pb.h" />
     <ClInclude Include="SDK\Protobufs\dota_gcmessages_common.pb.h" />
     <ClInclude Include="SDK\Wrappers\Creep.h" />
     <ClInclude Include="SDK\Wrappers\EntitySorting.h" />

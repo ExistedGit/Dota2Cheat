@@ -14,7 +14,7 @@ void Hacks::AutoBuyTome::Init() {
 		if (info->iTeamNumber == ctx.assignedHero->GetTeam() &&
 			info->nItemAbilityID == 0x101) { // tome's id is 257
 			tomeStockInfo = info;
-			std::cout << "FOUND TOME STOCK INFO\n";
+			Log(LP_INFO, "Found Tome of Knowledge stock info");
 			break;
 		}
 	}

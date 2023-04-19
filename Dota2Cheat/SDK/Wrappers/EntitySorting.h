@@ -12,7 +12,7 @@ inline void SortEntToCollections(CBaseEntity* ent) {
 		ctx.runes.insert((CDOTAItemRune*)ent);
 	else if (className.find("C_DOTA_Unit_Hero") != -1
 		|| className.find("CDOTA_Unit_Hero") != -1)
-		ctx.heroes.insert(reinterpret_cast<CDOTABaseNPC_Hero*>(ent));
+		ctx.heroes.insert((CDOTABaseNPC_Hero*)(ent));
 
 	ctx.entities.insert(ent);
 }

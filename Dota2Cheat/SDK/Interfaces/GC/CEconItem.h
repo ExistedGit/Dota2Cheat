@@ -2,6 +2,7 @@
 #include "../../Base/VClass.h"
 #include "../../Base/CUtlVector.h"
 #include "../../Base/Definitions.h"
+#include "../../Protobufs/base_gcmessages.pb.h"
 
 typedef uint8_t	style_index_t;
 typedef uint16_t item_definition_index_t;
@@ -9,6 +10,16 @@ typedef uint16_t item_definition_index_t;
 class CEconItem : public VClass {
 	void* vmt2;
 public:
+	inline static void (*DeserializeFromProtobufItemFunc)(CEconItem*, CSOEconItem* );
+	inline static void (*EnsureCustomDataExistsFunc)(CEconItem*);
+
+	void EnsureCustomDataExists() {
+		EnsureCustomDataExistsFunc(this);
+	}
+	void DeserializeFromProtobufItem(CSOEconItem* proto) {
+		DeserializeFromProtobufItemFunc(this, proto);
+	}
+
 	uint64_t m_ulID; // 0x10 (Item ID)
 	uint64_t unknown; // 0x18
 	uint32_t m_unAccountID; // 0x20 (Account owner ID)
@@ -32,4 +43,6 @@ public:
 	uint16_t& Slot() {
 		return Field<uint16_t>(0x34);
 	}
+
+	GETTER(uint64_t*, GetCustomData, 0x48);
 };

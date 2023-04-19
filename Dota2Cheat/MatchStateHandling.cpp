@@ -1,6 +1,6 @@
 #include "MatchStateHandling.h"
 
-#define GetGameSystem(global) GameSystems::##global = *GameSystems::## global ##Ptr
+#define GetGameSystem(global) GameSystems::##global = *GameSystems::## global ##Ptr; LogF(LP_DATA, "{}: {}", #global, (void*)GameSystems::global);
 
 void FillPlayerList() {
 	auto vec = GameSystems::PlayerResource->GetVecPlayerTeamData();
@@ -59,25 +59,18 @@ void UpdateAssignedHero() {
 
 	auto heroHandle = ctx.localPlayer->GetAssignedHeroHandle();
 	if (ctx.assignedHeroHandle != heroHandle) {
-		ctx.assignedHeroHandle = heroHandle;
 		auto assignedHero = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(ctx.localPlayer->GetAssignedHeroHandle()));
+
+		ctx.assignedHeroHandle = heroHandle;
 		ctx.assignedHero = assignedHero;
 
-		std::cout << "Changed hero:" << '\n';
-		std::cout << "\thandle: " << std::hex << heroHandle << '\n';
-		std::cout << "\tentity: " << assignedHero << '\n';
-
+		LogF(LP_INFO, "Changed hero: \n\tHandle: {:X}\n\tEntity: {}", heroHandle, (void*)assignedHero);
 		if (assignedHero)
 			OnUpdatedAssignedHero();
 	}
 }
 
 void EnteredPreGame() {
-	GetGameSystem(GameRules);
-	GetGameSystem(ProjectileManager);
-	GetGameSystem(PlayerResource);
-	GetGameSystem(ParticleManager);
-	GetGameSystem(GameEventManager);
 
 	//	Modules::AutoPick.autoBanHero = "sniper";
 	//	Modules::AutoPick.autoPickHero = "arc_warden";
@@ -87,6 +80,13 @@ void EnteredPreGame() {
 		return;
 
 	ctx.gameStage = Context::GameStage::PRE_GAME;
+
+	GetGameSystem(GameRules);
+	GetGameSystem(ProjectileManager);
+	GetGameSystem(PlayerResource);
+	GetGameSystem(ParticleManager);
+	GetGameSystem(GameEventManager);
+
 	Log(LP_INFO, "GAME STAGE: PRE-GAME");
 }
 
@@ -111,13 +111,11 @@ void EnteredInGame() {
 
 	Interfaces::CVar->SetConvars();
 
-	auto roshanListener = new RoshanListener();
-	roshanListener->gameStartTime = GameSystems::GameRules->GetGameTime();
-	auto hurtListener = new EntityHurtListener();
-	GameSystems::GameEventManager->AddListener(roshanListener, "dota_roshan_kill");
+	//auto roshanListener = new RoshanListener();
+	//roshanListener->gameStartTime = GameSystems::GameRules->GetGameTime();
+	//auto hurtListener = new EntityHurtListener();
+	//GameSystems::GameEventManager->AddListener(roshanListener, "dota_roshan_kill");
 	//GameSystems::GameEventManager->AddListener(hurtListener, "entity_hurt");
-
-	GameSystems::LogGameSystems();
 
 	Lua::SetGlobals(ctx.lua);
 

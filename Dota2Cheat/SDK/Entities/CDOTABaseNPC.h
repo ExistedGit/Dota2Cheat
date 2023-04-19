@@ -9,6 +9,8 @@
 
 class CDOTABaseNPC : public CBaseEntity {
 public:
+	inline static float(*GetAttackSpeed)(CDOTABaseNPC* npc) = nullptr;
+
 	CDOTAModifierManager* GetModifierManager() {
 		// Inlined into the object instead of a pointer
 		return MemberInline<CDOTAModifierManager>(Netvars::C_DOTA_BaseNPC::m_ModifierManager);
@@ -98,7 +100,6 @@ public:
 	std::vector<CDOTAItem*> GetItems();
 
 	bool HasState(ModifierState state);
-	float GetAttackSpeed();
 
 	// This checks for modifier states under which you cannot give orders to the hero
 	bool IsDisabled() {

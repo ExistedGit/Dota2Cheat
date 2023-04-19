@@ -51,11 +51,3 @@ void GameSystems::FindGameSystems() {
 		.GetAbsoluteAddress(1, 5)
 		.GetAbsoluteAddress(3, 7));
 }
-
-void GameSystems::LogGameSystems() {
-	Log(LP_INFO, "GAME SYSTEMS:");
-	Log(LP_DATA, "GameRules: ", GameRules);
-	Log(LP_DATA, "Projectile Manager: ", ProjectileManager);
-	Log(LP_DATA, "CDOTARichPresence: ", RichPresence);
-	LogF(LP_DATA, "Particle Manager: {} {}", (void*)ParticleManager, ParticleManager->GetVFunc(VTableIndexes::CDOTAParticleManager::CreateParticle).ptr);
-}

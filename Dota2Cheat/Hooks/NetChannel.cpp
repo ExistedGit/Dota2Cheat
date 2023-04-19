@@ -1,6 +1,7 @@
 #include "NetChannel.h"
 
 bool Hooks::hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandler* handler, google::protobuf::Message* responseMsg, unsigned int respMsgID) {
+#ifdef _DEBUG
 	if (protobufMsg->msgID == k_EMsgClientToGCSetItemStyle) {
 
 		auto msg = (CMsgClientToGCSetItemStyle*)protobufMsg->msg;
@@ -32,32 +33,39 @@ bool Hooks::hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandle
 				Modules::SkinChanger.Unequip(equippedItem);
 
 			if (item) {
-#ifdef _DEBUG
 				auto itemSchema = Signatures::GetItemSchema();
 
 				auto itemDef = CDOTAItemSchema::GetItemDefByIndex(itemSchema, item->m_unDefIndex);
-				std::cout << std::format("Equipping {}. Class: {}; Slot: {} | ItemDef: {}\n",
+
+				LogF(LP_INFO, "Equipping {}. Class: {}; Slot: {} | ItemDef: {}",
 					(void*)item,
 					equip.new_class(),
 					equip.new_slot(),
 					(void*)itemDef
 				);
-#endif // _DEBUG
-				//for (auto& defaultItem : Modules::SkinChanger.DefaultItems) {
-				//	auto defaultItemDef = itemSchema->GetItemDefByIndexRef(defaultItem.unDefIndex);
-				//	if (defaultItem.unClass == equip.new_class() &&
-				//		defaultItem.szSlot == itemDef->GetSlot()) {
-				//		*defaultItemDef = itemDef;
-				//	}
-				//}
+				for (auto& defaultItem : Modules::SkinChanger.DefaultItems) {
+					auto defaultItemDef = itemSchema->GetItemDefByIndexRef(defaultItem.unDefIndex);
+					if (defaultItem.unClass == equip.new_class() &&
+						defaultItem.szSlot == itemDef->GetSlot()) {
+						*defaultItemDef = itemDef;
+					}
+				}
 
 				Modules::SkinChanger.Equip(item, equip.new_class(), equip.new_slot());
 				return false;
+			}
+			else {
+				LogF(LP_INFO, "Equipping {}. Class: {}; Slot: {}",
+					(void*)item,
+					equip.new_class(),
+					equip.new_slot()
+				);
 			}
 		};
 
 
 	}
+#endif // _DEBUG
 	return oBAsyncSendProto(protobufMsg, handler, responseMsg, respMsgID);
 }
 

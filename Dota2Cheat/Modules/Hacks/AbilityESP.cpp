@@ -146,22 +146,12 @@ void ESP::AbilityESP::DrawAbilities() {
 					cdFontSize = iconSize - ScaleVar(16);
 
 				// Draws the cooldown
-				// std::format doesn't allow non-constant format strings, so I have to do this mess :(
-				if (decimals)
-					DrawTextForeground(textFont,
-						std::format("{:.1f}", cd),
-						ImVec2(imgXY1.x + centeringOffset, imgXY1.y + (iconSize - cdFontSize) / 2),
-						cdFontSize,
-						ImVec4(1, 1, 1, 1),
-						true);
-				else
-					DrawTextForeground(textFont,
-						std::format("{:.0f}", cd),
-						ImVec2(imgXY1.x + centeringOffset, imgXY1.y + (iconSize - cdFontSize) / 2),
-						cdFontSize,
-						ImVec4(1, 1, 1, 1),
-						true);
-
+				DrawTextForeground(textFont,
+					std::vformat(decimals ? "{:.1f}" : "{:.0f}", std::make_format_args(cd)),
+					ImVec2(imgXY1.x + centeringOffset, imgXY1.y + (iconSize - cdFontSize) / 2),
+					cdFontSize,
+					ImVec4(1, 1, 1, 1),
+					true);
 			}
 			if (data.ability->GetCharges() ||
 				(data.ability->GetCharges() == 0 &&
@@ -205,10 +195,11 @@ void ESP::AbilityESP::DrawAbilities() {
 }
 
 void ESP::AbilityESP::LoadItemTexIfNeeded(AbilityData& data) {
-	if (!data.icon) {
-		std::string itemName = data.ability->GetIdentity()->GetName();
-		data.icon = texManager.GetNamedTexture(itemName.substr(5));
-	}
+	if (data.icon)
+		return;
+
+	std::string itemName = data.ability->GetIdentity()->GetName();
+	data.icon = texManager.GetNamedTexture(itemName.substr(5));
 }
 
 // Draws a 3x3 grid of items + two circles for TP and neutral slot on the right
@@ -299,11 +290,11 @@ void ESP::AbilityESP::DrawItems() {
 				darkIcon = true;
 
 			if (darkIcon)
-				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.5f)));
+				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.25f)));
 			if (cd)
 				DrawTextForeground(
 					textFont,
-					std::format("{:.1f}", cd),
+					std::vformat(Config::AbilityESP::ShowCooldownDecimals ? "{:.1f}" : "{:.0f}", std::make_format_args(cd)),
 					ImVec2(imgCenter.x, imgCenter.y - (iconSize.y - ScaleVar<float>(6)) / 2),
 					iconSize.y - ScaleVar<float>(6),
 					ImVec4(1, 1, 1, 1),
