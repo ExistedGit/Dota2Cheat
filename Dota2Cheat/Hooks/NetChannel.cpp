@@ -36,7 +36,7 @@ bool Hooks::hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandle
 				auto itemSchema = Signatures::GetItemSchema();
 
 				auto itemDef = CDOTAItemSchema::GetItemDefByIndex(itemSchema, item->m_unDefIndex);
-#ifdef _DEBUG
+
 				LogF(LP_INFO, "Equipping {}. Class: {}; Slot: {} | ItemDef: {}",
 					(void*)item,
 					equip.new_class(),
