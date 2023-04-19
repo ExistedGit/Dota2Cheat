@@ -121,8 +121,12 @@ namespace Panorama {
 		auto GetPanelList() {
 			return std::span{ Member<PanelListNode*>(0xf8), size };
 		}
-		auto GetUIRenderDevice() {
-			return Member<CUIRenderDeviceSource2*>(0xB90);
+		bool IsValidPanelPointer(CUIPanel* panel) {
+			struct  IVPBuffer {
+				uint32_t unk0, unk1;
+			} buf;
+			return CallVFunc<VTableIndexes::CUIEngineSource2::IsValidPanelPointer, IVPBuffer*>(&buf, panel)->unk0 != 0xFFFFFFFF;
 		}
+
 	};
 }

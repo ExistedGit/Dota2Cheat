@@ -29,18 +29,21 @@ CUIPanel* Hacks::UIOverhaul::GetTopBarImgForHero(CDOTABaseNPC_Hero* hero) {
 
 // Mana and Health bars
 void Hacks::UIOverhaul::DrawBars() {
-	if (!Intiialized)
+	if (!ReadyToRender)
 		return; 
 	auto DrawList = ImGui::GetForegroundDrawList();
 	constexpr static int barHeight = 8; // as in the game
 	for (auto& [hero, data] : topBar) {
-		if (hero->IsSameTeam(ctx.assignedHero))
+		if (hero->IsSameTeam(ctx.assignedHero) || !hero->IsTargetable())
+			continue;
+		if (!Interfaces::UIEngine->IsValidPanelPointer(data.panel))
 			continue;
 
 		auto heroImg = data.panel->GetPanel2D();
 		ImVec2 imgXY1 = ImVecFromVec2D(heroImg->GetPositionWithinWindow());
 		if (!data.IsDire)
 			imgXY1.x += topBarImgSlope;
+		
 
 		float manaRatio = hero->GetMana() / hero->GetMaxMana(),
 			hpRatio = (float)hero->GetHealth() / hero->GetMaxHealth();
@@ -69,5 +72,5 @@ void Hacks::UIOverhaul::Init() {
 	}
 
 	UpdateHeroes();
-	Intiialized = true;
+	ReadyToRender = true;
 }

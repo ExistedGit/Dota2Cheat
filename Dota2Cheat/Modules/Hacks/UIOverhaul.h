@@ -8,7 +8,8 @@ namespace Hacks {
 	// Augments Dota's own UI built on Panorama
 	// We only use Panorama's functions to obtain data on where and what to draw with ImGui
 	class UIOverhaul {
-		static constexpr ImVec2 topBarImgSize{ 66,36 };
+		// The slope is 2-way
+		static constexpr ImVec2 topBarImgSize{ 66 - 4, 36 };
 		static constexpr int topBarImgSlope = 4;
 
 		struct TopBarImgData {
@@ -16,7 +17,8 @@ namespace Hacks {
 			bool IsDire; // Used for calculating the slope
 			TopBarImgData() {}
 			TopBarImgData(CUIPanel* panel) : panel(panel) {
-				std::string_view id = panel->GetParent()->GetId(); // DOTATopBarPlayer is either RadiantPlayerN or DirePlayerN
+				// DOTATopBarPlayer is either RadiantPlayerN or DirePlayerN
+				std::string_view id = panel->GetParent()->GetParent()->GetId();
 				IsDire = id.starts_with("Dire");
 			}
 		};
@@ -47,25 +49,23 @@ namespace Hacks {
 					topBar[hero] = panel;
 			}
 		}
-		bool Intiialized = false;
+		bool ReadyToRender = false;
 	public:
 		// Mana and Health bars
 		void DrawBars();
 		void Init();
 		void Update() {
-			if (!Intiialized)
-				return;
-
 			for (auto& hero : ctx.heroes) {
-				if (topBar.contains(hero))
+				if (topBar.contains(hero) || hero->IsIllusion())
 					continue;
-
+				ReadyToRender = false;
 				UpdateHeroes();
+				ReadyToRender = true;
 				break;
 			}
 		}
 		void Reset() {
-			Intiialized = false;
+			ReadyToRender = false;
 			DotaHud = nullptr;
 			topBar.clear();
 		}

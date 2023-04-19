@@ -123,7 +123,7 @@ void EnteredInGame() {
 
 	Modules::AutoBuyTome.Init();
 	Modules::AbilityESP.SubscribeHeroes();
-	// Modules::UIOverhaul.Init();
+	Modules::UIOverhaul.Init();
 
 	Lua::CallModuleFunc("Init");
 
@@ -158,6 +158,7 @@ void LeftMatch() {
 
 	ctx.localPlayer = nullptr;
 	ctx.assignedHero = nullptr;
+	ctx.assignedHeroHandle = 0xFFFFFFFF;
 
 	Lua::SetGlobals(ctx.lua);
 	Hooks::DisableHooks();

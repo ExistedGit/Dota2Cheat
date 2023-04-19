@@ -31,6 +31,13 @@ namespace VTableIndexes {
 	namespace CDOTA_Buff {
 		Index OnAddModifier = 39;
 	}
+	namespace CUIEngineSource2 {
+		//xref: "CUIEngineSource::RunFrame"
+		Index RunFrame = 6;
+		// 7th above vfunc with "CUIEngine::RegisterEventHandler"
+		// look for the one that matches the dylib version
+		Index IsValidPanelPointer = 33;
+	}
 }
 
 #undef Index
