@@ -50,6 +50,8 @@ void Signatures::FindSignatures() {
 
 	// xref: "BuildCacheSubscribed(CEconItem)"
 	SET_VAR(CreateEconItem, SigScan::Find("48 83 EC ? B9 ? ? ? ? E8 ? ? ? ? 48 85 C0 74 ? 48 8D 0D", L"client.dll"));
+	SET_VAR(CEconItem::DeserializeFromProtobufItemFunc, SigScan::Find("E8 ? ? ? ? 41 0F B6 46 ? 41 84 C4", L"client.dll").GetAbsoluteAddress(1));
+	SET_VAR(CEconItem::EnsureCustomDataExistsFunc, SigScan::Find("E8 ? ? ? ? 4C 8B 7E 48", L"client.dll").GetAbsoluteAddress(1));
 	// Last call in JS func GetLevelSpecialValueFor for a method of CDOTABaseAbility
 	SET_VAR(CDOTABaseAbility::GetLevelSpecialValueForFunc, SigScan::Find("E8 ? ? ? ? F3 0F 5A C0", L"client.dll").GetAbsoluteAddress(1, 5));
 	// Second call inside that ^

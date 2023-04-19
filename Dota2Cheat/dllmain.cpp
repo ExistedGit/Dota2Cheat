@@ -21,6 +21,7 @@
 #include "UI/Pages/AutoPickSelectionGrid.h"
 #include "Modules/Hacks/LastHitMarker.h"
 
+
 #pragma region Static variables
 
 Vector Vector::Zero = Vector(0, 0, 0);

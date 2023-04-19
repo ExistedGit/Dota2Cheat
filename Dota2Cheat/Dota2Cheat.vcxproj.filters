@@ -294,6 +294,9 @@
     <ClCompile Include="Modules\Hacks\TPTracker.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="SDK\Protobufs\base_gcmessages.pb.cc">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h">
@@ -699,6 +702,7 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="Modules\Hacks\AutoLastHit.h">
+    <ClInclude Include="SDK\Protobufs\base_gcmessages.pb.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>

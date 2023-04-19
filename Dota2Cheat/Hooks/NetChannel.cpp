@@ -1,6 +1,7 @@
 #include "NetChannel.h"
 
 bool Hooks::hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandler* handler, google::protobuf::Message* responseMsg, unsigned int respMsgID) {
+#ifdef _DEBUG
 	if (protobufMsg->msgID == k_EMsgClientToGCSetItemStyle) {
 
 		auto msg = (CMsgClientToGCSetItemStyle*)protobufMsg->msg;
@@ -42,7 +43,6 @@ bool Hooks::hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandle
 					equip.new_slot(),
 					(void*)itemDef
 				);
-#endif // _DEBUG
 				for (auto& defaultItem : Modules::SkinChanger.DefaultItems) {
 					auto defaultItemDef = itemSchema->GetItemDefByIndexRef(defaultItem.unDefIndex);
 					if (defaultItem.unClass == equip.new_class() &&
@@ -51,7 +51,7 @@ bool Hooks::hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandle
 					}
 				}
 
-//				Modules::SkinChanger.Equip(item, equip.new_class(), equip.new_slot());
+				Modules::SkinChanger.Equip(item, equip.new_class(), equip.new_slot());
 				return false;
 			}
 			else {
@@ -65,6 +65,7 @@ bool Hooks::hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandle
 
 
 	}
+#endif // _DEBUG
 	return oBAsyncSendProto(protobufMsg, handler, responseMsg, respMsgID);
 }
 
