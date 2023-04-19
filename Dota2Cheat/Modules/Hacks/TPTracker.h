@@ -13,6 +13,7 @@ namespace Hacks {
 		struct TPLineData {
 			ImU32 color;
 			bool isFading = false;
+			bool cancelled = false;
 			float fadeDuration = 0.0f;
 			float fadeCounter = 0;
 			TPData start, end;

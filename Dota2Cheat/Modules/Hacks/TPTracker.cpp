@@ -69,21 +69,32 @@ void Hacks::TPTracker::DrawMapTeleports() {
 				startXY2,
 				{ 0,0 },
 				{ 1,1 },
-				data.isFading ? (ImU32)ImColor { 255, 255, 255, 128 }
-			: (ImU32)ImColor { 255, 255, 255 }
+				data.isFading ?
+				(ImU32)ImColor {
+				255, 255, 255, (int)(192 * ImColor{ data.color }.Value.w)
+			}
+			:
+				(ImU32)ImColor {
+				255, 255, 255, 255
+			}
 			);
 		}
 
-		ImVec2 endXY1 = end - iconSize / 2, endXY2 = endXY1 + iconSize;
-		DrawList->AddImage(texture,
-			endXY1,
-			endXY2,
-			{ 0,0 },
-			{ 1,1 },
-			data.isFading ? ImGui::ColorConvertFloat4ToU32(ImVec4(1, 1, 1, ImColor{ data.color }.Value.w))
-			: (ImU32)ImColor { 255, 255, 255, 128 }
-		);
-
+		if (!data.isFading || (data.isFading && !data.cancelled)) {
+			ImVec2 endXY1 = end - iconSize / 2, endXY2 = endXY1 + iconSize;
+			DrawList->AddImage(texture,
+				endXY1,
+				endXY2,
+				{ 0,0 },
+				{ 1,1 },
+				data.isFading
+				? (ImU32)ImColor { 255, 255, 255, 255 }
+			:
+				(ImU32)ImColor {
+				255, 255, 255, 128
+			}
+			);
+		}
 	}
 }
 
@@ -158,10 +169,10 @@ void Hacks::TPTracker::ProcessParticleMsg(NetMessageHandle_t* msgHandle, google:
 					data.fadeDuration = data.fadeCounter = 1.5f;
 				}
 				else {
-					data.color = ImColor{ 0,255,128 };
+					data.color = ImColor{ 0,255,0 };
 					data.fadeDuration = data.fadeCounter = 5;
 				}
-
+				data.cancelled = cancelled;
 				break;
 			}
 		}

@@ -290,11 +290,11 @@ void ESP::AbilityESP::DrawItems() {
 				darkIcon = true;
 
 			if (darkIcon)
-				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.5f)));
+				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.25f)));
 			if (cd)
 				DrawTextForeground(
 					textFont,
-					std::format("{:.1f}", cd),
+					std::vformat(Config::AbilityESP::ShowCooldownDecimals ? "{:.1f}" : "{:.0f}", std::make_format_args(cd)),
 					ImVec2(imgCenter.x, imgCenter.y - (iconSize.y - ScaleVar<float>(6)) / 2),
 					iconSize.y - ScaleVar<float>(6),
 					ImVec4(1, 1, 1, 1),
