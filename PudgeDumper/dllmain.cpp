@@ -15,8 +15,11 @@
 #include <assert.h>
 #include <filesystem>
 #include "sdk.h"
+#include <ShlObj_core.h>
 
 
+int scopeCount = 0;
+int scopesDumped = 0;
 
 struct CSchemaClassBinding {
 	CSchemaClassBinding* parent;
@@ -54,6 +57,11 @@ struct SchemaParentInfo {
 	ClassDescription* parent;
 };
 
+struct SchemaTypeDescription {
+	uintptr_t idk;
+	const char* name;
+	uintptr_t idk2;
+};
 struct SchemaClassFieldData_t {
 	const char* m_name; // 0x0000
 	SchemaTypeDescription* m_type; // 0x0008
@@ -75,11 +83,6 @@ struct ClassDescription {
 };
 
 
-struct SchemaTypeDescription {
-	uintptr_t idk;
-	const char* name;
-	uintptr_t idk2;
-};
 
 struct less_than_key
 {
@@ -158,44 +161,73 @@ std::string getTimeStr() {
 	std::strftime(&s[0], s.size(), "%d-%m-%Y %H:%M:%S", std::localtime(&now));
 	return s;
 }
-
-void DumpAllClasses(std::string& dir) {
-	if (!std::filesystem::exists(dir)) {
-		std::cout << "No such directory: " << dir << '\n';
-		return;
+void DumpClassToText(const ClassDescription* classDesc, std::ofstream& fout, std::set<std::string>& parents) {
+	fout << std::hex;
+	auto parentInfo = classDesc->parentInfo;
+	while (parentInfo) {
+		if (!parents.contains(parentInfo->parent->className)) {
+			parents.insert(parentInfo->parent->className);
+			DumpClassToText(parentInfo->parent, fout, parents);
+		}
+		parentInfo = parentInfo->parent->parentInfo;
 	}
 
+	fout << classDesc->className;
+
+	if (classDesc->parentInfo)
+		fout << " : " << classDesc->parentInfo->parent->className;
+	fout << '\n';
+
+	if (classDesc->membersSize == 0)
+		fout << "<no members>\n";
+	else
+		for (uintptr_t i = 0; i < classDesc->membersSize; i++) {
+			SchemaClassFieldData_t field = classDesc->membersDescription[i];
+			fout << std::format("\t{} {} {:#x};\n", field.m_type->name, field.m_name, field.m_single_inheritance_offset);
+		}
+	fout << '\n';
+}
+
+
+
+
+void DumpAllClasses(const std::string& dir) {
 	auto scopes = SchemaSystem->GetTypeScopes();
+	scopeCount = scopes.m_Size;
+
 	for (auto scope : scopes) {
-		auto classes = scope->GetClasses();
+		std::thread([&, scope]() {
+
+			auto classes = scope->GetClasses();
 		std::filesystem::create_directory(dir + "\\" + scope->GetScopeName().data());
 
 		for (const auto _class : classes.GetElements()) {
+			std::ofstream fout(dir + "\\" + scope->GetScopeName().data() + "\\" + _class->m_binary_name + ".txt");
+
 			const auto classDesc = scope->FindDeclaredClass(_class->m_binary_name);
+			std::set<std::string> parents;
+			DumpClassToText(classDesc, fout, parents);
 
-			for (auto i = 0; i < classDesc->membersSize; i++) {
-				auto memberDesc = &classDesc->membersDescription[i];
-				if (!memberDesc)
-					continue;
-
-			}
+			fout.close();
 		}
+		++scopesDumped;
+			}).detach();
 	}
 }
 
-void SaveNetvarsToFile(std::ofstream& fout) {
+void SaveNetvarsToHeader(std::ofstream& fout) {
 	fout << std::hex;
 	fout << "#pragma once\n#include <cstdint>\nnamespace Netvars {\n";
 	for (auto& [className, classMap] : Netvars) {
 		fout << std::format("\tnamespace {}", className) << " {\n";
-		for (auto& desc : classMap) {
-			fout << std::format("\t\tconstexpr uint32_t {} = ", desc.m_name) << "0x" << desc.m_single_inheritance_offset << ";";
-			fout << " // " << desc.m_type << '\n';
-		}
+		for (auto& desc : classMap)
+			fout << std::format("\t\tconstexpr uint32_t {} = {:#x}; // {}\n", desc.m_name, desc.m_single_inheritance_offset, desc.m_type->name);
+
 		fout << "\t}\n";
 	}
 	fout << "}";
 }
+
 
 uintptr_t WINAPI HackThread(HMODULE hModule) {
 	const bool console = true;
@@ -206,25 +238,22 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		freopen_s(&f, "CONOUT$", "w", stdout);
 	}
 
+	std::string dumpFolderPath;
+	{
+		char buf[256];
+		SHGetSpecialFolderPathA(0, buf, CSIDL_PROFILE, false);
+		dumpFolderPath = buf;
+		dumpFolderPath += "\\Documents\\PudgeDumper";
+	}
+	std::filesystem::remove_all(dumpFolderPath);
+	std::filesystem::create_directory(dumpFolderPath);
 
 	SchemaSystem = (CSchemaSystem*)CreateInterface("schemasystem.dll", "SchemaSystem_001");
-	std::cout << "Dumping...\n";
 
-
-	std::ofstream fout("C:\\Users\\user\\Documents\\schema_dump.txt");
-	fout << "Dump started at " << getTimeStr() << std::endl << std::endl;
+	std::cout << "Dump started at " << getTimeStr() << std::endl << std::endl;
 
 	clock_t timeStart = clock();
-	DumpAllClasses(fout);
 
-	clock_t timeEnd = clock();
-
-	fout << "\nTime elapsed " << round(((double)(timeEnd - timeStart) / CLOCKS_PER_SEC) * 10) / 10 << "s" << '\n';
-	fout << "Dumped at " << getTimeStr() << '\n';
-
-	fout.close();
-
-	// You can add some other classes there if you need to
 	SchemaDumpToMap("client.dll",
 		"CEntityIdentity",
 		"C_DOTA_Item",
@@ -242,9 +271,19 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		"C_DOTA_Item_EmptyBottle");
 
 	SchemaDumpToMap("server.dll", "CDOTA_Buff");
+	std::ofstream fout(dumpFolderPath + "\\Netvars.h");
+	SaveNetvarsToHeader(fout);
+	std::cout << "Netvars.h generated!\n";
 
-	std::ofstream fout("H:\\Reversing\\SchemaDump\\header.h");
-	std::cout << "Done!\n";
+	DumpAllClasses(dumpFolderPath);
+
+	while (scopesDumped != scopeCount)
+	{
+		Sleep(1);
+	}
+	clock_t timeEnd = clock();
+
+	std::cout << "\nTime elapsed " << round(((double)(timeEnd - timeStart) / CLOCKS_PER_SEC) * 10) / 10 << "s" << '\n';
 
 	if (console) {
 		system("pause");
