@@ -70,8 +70,10 @@ This list is subject to frequent change as I'm testing new features
   * [AbilityESP & ItemESP](https://youtu.be/U-ZhxwjEw4k) + manabars
   * Draw circles of custom radius around you hero(e. g. to see XP receiving range)
   * Shows point-cast spells(Sunstrike, Torrent, Light Strike Array)
-  * Shows target-cast spells(Assassinate, Charge of Darkness)
-  * Shows Linken's Sphere effect on heroes
+  * Modifier Revealer:
+    * Shows target-cast spells(Assassinate, Charge of Darkness)
+    * Shows Linken's Sphere on everyone
+    * Shows True Sight on allies
   * Renders any and all possible particles, including in FoW
   * Customizable enemy illusion coloring
   * Shows trajectories of enemy projectiles like Mirana's arrow and non-projectile abilities like Meat Hook
