@@ -29,7 +29,7 @@ namespace VTableIndexes {
 		Index GetMagicalArmorValue = 272;
 	}
 	namespace CDOTABaseAbility {
-		Index GetCastRangeBonus = 0X7C8/8;
+		Index GetCastRangeBonus = 257;
 	}
 	namespace CDOTA_Buff {
 		Index OnAddModifier = 42;

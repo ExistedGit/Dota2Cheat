@@ -78,7 +78,7 @@ namespace Pages {
 					UIState::WeatherList,
 					IM_ARRAYSIZE(UIState::WeatherList),
 					4);
-				
+
 				// credits to the screenshot https://yougame.biz/threads/283404/
 				// and to Wolf49406 himself
 				// should've figured out it's controlled by a convar like the weather :)
