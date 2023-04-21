@@ -121,9 +121,8 @@ void EnteredInGame() {
 
 	CacheAllEntities();
 
-	Modules::AutoBuyTome.Init();
 	Modules::AbilityESP.SubscribeHeroes();
-	// Modules::UIOverhaul.Init();
+	Modules::UIOverhaul.Init();
 
 	Lua::CallModuleFunc("Init");
 
@@ -138,7 +137,6 @@ void LeftMatch() {
 
 	GameSystems::ParticleManager->OnExitMatch();
 
-	Modules::AutoBuyTome.Reset();
 	Modules::TargetedSpellHighlighter.Reset();
 	Modules::AutoPick.Reset();
 	Modules::ParticleGC.Reset();
@@ -158,6 +156,7 @@ void LeftMatch() {
 
 	ctx.localPlayer = nullptr;
 	ctx.assignedHero = nullptr;
+	ctx.assignedHeroHandle = 0xFFFFFFFF;
 
 	Lua::SetGlobals(ctx.lua);
 	Hooks::DisableHooks();

@@ -31,11 +31,10 @@ void GameSystems::FindGameSystems() {
 		.GetAbsoluteAddress(1)
 		.GetAbsoluteAddress(3));
 
-	// found via x64dbg
 	// xref "Spews a list of all client-side projectiles", above it is lea rax, [XXXXXXXX]
-	// right click -> Find references to -> Address: XXXXXXXX
+	// I want to die looking at that sig
 	SET_VAR(ProjectileManagerPtr,
-		SigScan::Find("48 8D 0D ? ? ? ? 48 83 38 00", L"client.dll")
+		SigScan::Find("48 8B 0D ? ? ? ? 48 85 C9 0F 85 ? ? ? ? C3 CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC 48 8D 0D", L"client.dll")
 		.GetAbsoluteAddress(3, 7));
 
 	SET_VAR(GameRulesPtr, Address(CDOTAGameRules::GetGameTimeFunc).Offset(0xF).GetAbsoluteAddress(3, 7));

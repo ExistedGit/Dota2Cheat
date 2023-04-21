@@ -5,9 +5,11 @@
 if(var) \
 	LogF(LP_DATA, "{}: {}", #var, (void*)var); \
 else \
-	LogF(LP_ERROR, "{}: {}", #var, (void*)var);
+	{ LogF(LP_ERROR, "{}: {}", #var, (void*)var); error = true; }
 
 void Signatures::FindSignatures() {
+	bool error = false;
+
 	CMsg = reinterpret_cast<decltype(CMsg)>(GetProcAddress(GetModuleHandleA("tier0.dll"), "Msg"));
 	CMsgColor = reinterpret_cast<decltype(CMsgColor)>(GetProcAddress(GetModuleHandleA("tier0.dll"), "?ConColorMsg@@YAXAEBVColor@@PEBDZZ"));
 
@@ -36,7 +38,7 @@ void Signatures::FindSignatures() {
 
 	// xref "particles/ui_mouseactions/waypoint_flag.vpcf"
 	// The one with the bigger offset from function
-	SET_VAR(PrepareUnitOrders, SigScan::Find("E8 ? ? ? ? 49 8B CF FF C5", L"client.dll").GetAbsoluteAddress(1, 5));
+	SET_VAR(PrepareUnitOrders, SigScan::Find("E8 ? ? ? ? F3 44 0F 11 5B", L"client.dll").GetAbsoluteAddress(1, 5));
 
 	// Xref DestroyParticleEffect to a lea rcx just behind the string
 	// It's offset by 9 bytes because it checks for an invalid handle before doing the initial mov
@@ -46,25 +48,24 @@ void Signatures::FindSignatures() {
 	SET_VAR(CDOTAGameRules::GetGameTimeFunc, SigScan::Find("E8 ? ? ? ? 8B 04 2E", L"client.dll").GetAbsoluteAddress(1, 5));
 
 	// UnknownCheats wiki -> Dota 2 -> link to Using engine functions
-	SET_VAR(WorldToScreen, SigScan::Find("E8 ? ? ? ? 83 7D B7 00", L"client.dll").GetAbsoluteAddress(1, 5));
+	SET_VAR(WorldToScreen, SigScan::Find("E8 ? ? ? ? 39 6C 24 68", L"client.dll").GetAbsoluteAddress(1, 5));
 
 	// xref: "BuildCacheSubscribed(CEconItem)"
 	SET_VAR(CreateEconItem, SigScan::Find("48 83 EC ? B9 ? ? ? ? E8 ? ? ? ? 48 85 C0 74 ? 48 8D 0D", L"client.dll"));
-	SET_VAR(CEconItem::DeserializeFromProtobufItemFunc, SigScan::Find("E8 ? ? ? ? 41 0F B6 46 ? 41 84 C4", L"client.dll").GetAbsoluteAddress(1));
+	SET_VAR(CEconItem::DeserializeFromProtobufItemFunc, SigScan::Find("E8 ? ? ? ? 41 0F B6 46 ? A8 01", L"client.dll").GetAbsoluteAddress(1));
 	SET_VAR(CEconItem::EnsureCustomDataExistsFunc, SigScan::Find("E8 ? ? ? ? 4C 8B 7E 48", L"client.dll").GetAbsoluteAddress(1));
-	// Last call in JS func GetLevelSpecialValueFor for a method of CDOTABaseAbility
+
+	// JS func
 	SET_VAR(CDOTABaseAbility::GetLevelSpecialValueForFunc, SigScan::Find("E8 ? ? ? ? F3 0F 5A C0", L"client.dll").GetAbsoluteAddress(1, 5));
-	// Second call inside that ^
-	SET_VAR(CDOTABaseAbility::GetKVEntry, Address(CDOTABaseAbility::GetLevelSpecialValueForFunc).Offset(0x33).GetAbsoluteAddress(1, 5));
 
 	//xref: "You are #%d in line of %d waiting players.\n"
-	SET_VAR(DispatchPacket, SigScan::Find("E8 ? ? ? ? 48 8B CF E8 ? ? ? ? B8", L"client.dll").GetAbsoluteAddress(1, 5));
+	SET_VAR(DispatchPacket, SigScan::Find("E8 ? ? ? ? 48 8B CF E8 ? ? ? ? B8", L"client.dll").GetAbsoluteAddress(1));
 
 	//xref: "CProtoBufMsg::BAsyncSendProto"
-	SET_VAR(BAsyncSendProto, SigScan::Find("E8 ? ? ? ? 48 8B 4D 90 48 89 7C 24", L"client.dll").GetAbsoluteAddress(1, 5));
-	SET_VAR(GetItemSchema, SigScan::Find("E8 ? ? ? ? 48 89 5D 18", L"client.dll").GetAbsoluteAddress(1, 5));
-	SET_VAR(CDOTAItemSchema::GetItemDefByIndex, SigScan::Find("E8 ? ? ? ? 83 FE 05", L"client.dll").GetAbsoluteAddress(1, 5));
-	SET_VAR(CDOTAItemSchema::GetItemDefArrIdx, Address(CDOTAItemSchema::GetItemDefByIndex).Offset(0x16).GetAbsoluteAddress(1, 5));
+	SET_VAR(BAsyncSendProto, SigScan::Find("E8 ? ? ? ? 48 8B 4D 90 48 89 7C 24", L"client.dll").GetAbsoluteAddress(1));
+	SET_VAR(GetItemSchema, SigScan::Find("E8 ? ? ? ? 48 89 5D 18", L"client.dll").GetAbsoluteAddress(1));
+	SET_VAR(CDOTAItemSchema::GetItemDefByIndex, SigScan::Find("E8 ? ? ? ? 8B 4E 64", L"client.dll").GetAbsoluteAddress(1));
+	SET_VAR(CDOTAItemSchema::GetItemDefArrIdx, Address(CDOTAItemSchema::GetItemDefByIndex).Offset(0x16).GetAbsoluteAddress(1));
 
 	//xref: "RP: Setting %s's status to %s (%s).\n"
 	SET_VAR(CDOTARichPresence::SetRPStatusFunc, SigScan::Find("4C 89 4C 24 20 55 53 57 41 54", L"client.dll"));
@@ -88,5 +89,7 @@ void Signatures::FindSignatures() {
 	//xref "OnColorChanged", lea rax, [XXXXXXXXX] below it
 	SET_VAR(CBaseEntity::OnColorChanged, SigScan::Find("40 53 48 83 EC 20 48 8B D9 48 8B 89 ? ? ? ? 48 8B 01 0F B6 93", L"client.dll"));
 
+	if (error)
+		system("pause");
 	// LoadUITexture = SigScan::Find("57 48 83 EC 20 48 8B 1A 49 8B F0 48 8B FA 48 85 DB", L"panorama.dll").Offset(-10);
 }

@@ -44,8 +44,6 @@ void Hooks::UpdateWeather() {
 	varInfo.var->value.i32 = Config::Changer::WeatherListIdx;
 }
 
-ENT_HANDLE currentQueryUnit = INVALID_HANDLE;
-DOTA_GC_TEAM quTeam;
 bool DotaPlusStatus = false;
 
 void Hooks::hkRunFrame(void* thisptr) {
@@ -77,7 +75,7 @@ void Hooks::hkRunFrame(void* thisptr) {
 	UpdateWeather();
 
 	Modules::AbilityESP.UpdateHeroData();
-	//Modules::UIOverhaul.Update();
+	// Modules::UIOverhaul.Update();
 	if (
 		ctx.assignedHero->GetLifeState() == 0 // if alive
 		&& !GameSystems::GameRules->IsGamePaused() // and the game is not paused
@@ -85,13 +83,12 @@ void Hooks::hkRunFrame(void* thisptr) {
 
 
 		Modules::TPTracker.CacheHeroIcons();
-
 		Modules::TPTracker.FrameBasedLogic();
+
 		Modules::AutoHeal.FrameBasedLogic(ctx.assignedHero);
 		Modules::AutoPing.FrameBasedLogic();
 		Modules::AutoDodge.FrameBasedLogic();
 		Modules::AutoMidas.FrameBasedLogic();
-		Modules::AutoBuyTome.FrameBasedLogic();
 		Modules::AegisAutoPickup.FrameBasedLogic();
 
 		Modules::RiverPaint.FrameBasedLogic();
@@ -100,26 +97,6 @@ void Hooks::hkRunFrame(void* thisptr) {
 		Modules::LinearProjectileWarner.FrameBasedLogic();
 
 		Modules::ParticleGC.FrameBasedLogic();
-		// Changes selected unit's team to ours
-		// looks funny
-#ifdef _DEBUG
-		auto queryUnit = ctx.localPlayer->Member<ENT_HANDLE>(Netvars::C_DOTAPlayerController::m_hQueryUnit);
-		if (HVALID(currentQueryUnit) && queryUnit != currentQueryUnit) {
-			auto unit = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(currentQueryUnit));
-			if (unit)
-				unit->Field<DOTA_GC_TEAM>(Netvars::C_BaseEntity::m_iTeamNum) = quTeam;
-		}
-		if (HVALID(queryUnit))
-		{
-			auto unit = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(queryUnit));
-			if (unit) {
-				std::cout << "Selected: " << unit << '\n';
-				quTeam = unit->GetTeam();
-				unit->Field<DOTA_GC_TEAM>(Netvars::C_BaseEntity::m_iTeamNum) = ctx.assignedHero->GetTeam();
-				currentQueryUnit = queryUnit;
-			}
-		}
-#endif // _DEBUG
 
 		EntityIteration();
 

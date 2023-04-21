@@ -184,7 +184,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			&& ctx.assignedHero
 			) {
 			Modules::AbilityESP.DrawESP();
-			//Modules::UIOverhaul.DrawBars();
+			Modules::UIOverhaul.DrawBars();
 			Modules::TPTracker.DrawMapTeleports();
 			Modules::LastHitMarker.Draw();
 		}

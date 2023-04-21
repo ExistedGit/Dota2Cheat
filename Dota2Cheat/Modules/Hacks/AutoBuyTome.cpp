@@ -21,7 +21,7 @@ void Hacks::AutoBuyTome::Init() {
 }
 
 void Hacks::AutoBuyTome::FrameBasedLogic() {
-	if (!Config::AutoBuyTome ||
+	if (// !Config::AutoBuyTome ||
 		tomeStockInfo->nItemAbilityID != 0x101) // maybe the tome stock info was not found
 		return;
 

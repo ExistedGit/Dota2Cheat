@@ -48,7 +48,7 @@ public:
 
 	// JS func, uses another vtable at 0xA10
 	bool IsRoshan() {
-		return MemberInline<VClass>(0xA10)->CallVFunc<57, bool>();
+		return MemberInline<VClass>(0xA08)->CallVFunc<59, bool>();
 	}
 
 	int GetAttackDamageMin() {
