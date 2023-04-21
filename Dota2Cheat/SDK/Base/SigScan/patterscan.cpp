@@ -27,7 +27,7 @@ void* PatternScan(char* base, size_t size, const char* pattern, const char* mask
 void* PatternScanEx(uintptr_t begin, uintptr_t end, const char* pattern, const char* mask)
 {
 	uintptr_t currentChunk = begin;
-	size_t patternSize = strlen(pattern);
+	size_t patternSize = strlen(mask);
 	while (currentChunk < end)
 	{
 		void* internalAddress = PatternScan((char*)currentChunk, patternSize + 1, pattern, mask);

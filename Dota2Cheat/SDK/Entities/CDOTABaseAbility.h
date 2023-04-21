@@ -2,27 +2,23 @@
 #include "CBaseEntity.h"
 
 // Structure that GetKVEntry returns, rebuilt through Reclass
-struct AbilityKVEntry : public NormalClass {
-	GETTER(const char*, GetKey, 0);
-	GETTER(int, GetValuesSize, 0x30);
-
-	auto GetValues() {
-		auto size = GetValuesSize();
-		return std::span{ MemberInline<float>(0x34), uint64_t(size) };
-	}
-};
+//struct AbilityKVEntry : public NormalClass {
+//	GETTER(const char*, GetKey, 0);
+//	GETTER(int, GetValuesSize, 0x30);
+//
+//	auto GetValues() {
+//		auto size = GetValuesSize();
+//		return std::span{ MemberInline<float>(0x34), uint64_t(size) };
+//	}
+//};
 
 class CDOTABaseAbility : public CBaseEntity {
 public:
-	// The problem is that GetLevelSpecialValueFor fails to find a non-special value like AbilityCastRange
-	// Which is why we also need that GetKVEntry thing, thankfully it's inside GetLevelSpecialValueFor
-
-	
 	using GetLevelSpecialValueForFn = float(__fastcall* )(void* thisptr, const char* value, int level, void* unk1, bool noOverride, bool* result);
 	static inline GetLevelSpecialValueForFn GetLevelSpecialValueForFunc{};
 
-	typedef AbilityKVEntry* (__fastcall* GetKVEntryFn)(CDOTABaseAbility* thisptr, const char* value);
-	static inline GetKVEntryFn GetKVEntry{};
+	//typedef AbilityKVEntry* (__fastcall* GetKVEntryFn)(CDOTABaseAbility* thisptr, const char* value);
+	//static inline GetKVEntryFn GetKVEntry{};
 	
 	template<typename T = float>
 	T GetLevelSpecialValueFor(const char* value, int level = -1) {
@@ -49,26 +45,21 @@ public:
 	int GetCastRangeBonus();
 	int GetEffectiveCastRange();
 
-	// Rebuilt by analyzing GetLevelSpecialValueFor logic
-	template<typename T = float>
-	T GetKVValueFor(const char* valName, int level = -1);
-
 	int GetAOERadius();
 
 	static void BindLua(sol::state& lua);
 };
 
-// Rebuilt by analyzing GetLevelSpecialValueFor logic
-template<typename T>
-T CDOTABaseAbility::GetKVValueFor(const char* valName, int level) {
-	auto entry = GetKVEntry(this, valName);
-
-	// Clamping the level value
-	if (level < 0)
-		level = GetLevel();
-	if (level > entry->GetValuesSize() - 1)
-		level = entry->GetValuesSize();
-
-	auto values = entry->GetValues();
-	return (T)values[level - 1];
-}
+//template<typename T>
+//T CDOTABaseAbility::GetLevelSpecialValueFor(const char* valName, int level) {
+//	auto entry = GetKVEntry(this, valName);
+//
+//	// Clamping the level value
+//	if (level < 0)
+//		level = GetLevel();
+//	if (level > entry->GetValuesSize() - 1)
+//		level = entry->GetValuesSize();
+//
+//	auto values = entry->GetValues();
+//	return (T)values[level - 1];
+//}

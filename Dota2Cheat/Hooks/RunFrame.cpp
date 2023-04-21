@@ -75,7 +75,7 @@ void Hooks::hkRunFrame(void* thisptr) {
 	UpdateWeather();
 
 	Modules::AbilityESP.UpdateHeroData();
-	Modules::UIOverhaul.Update();
+	// Modules::UIOverhaul.Update();
 	if (
 		ctx.assignedHero->GetLifeState() == 0 // if alive
 		&& !GameSystems::GameRules->IsGamePaused() // and the game is not paused
@@ -89,7 +89,6 @@ void Hooks::hkRunFrame(void* thisptr) {
 		Modules::AutoPing.FrameBasedLogic();
 		Modules::AutoDodge.FrameBasedLogic();
 		Modules::AutoMidas.FrameBasedLogic();
-		Modules::AutoBuyTome.FrameBasedLogic();
 		Modules::AegisAutoPickup.FrameBasedLogic();
 
 		Modules::RiverPaint.FrameBasedLogic();

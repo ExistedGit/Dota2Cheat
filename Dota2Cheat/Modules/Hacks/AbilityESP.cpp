@@ -161,7 +161,7 @@ void ESP::AbilityESP::DrawAbilities() {
 			float channelTime = data.ability->Member<float>(Netvars::C_DOTABaseAbility::m_flChannelStartTime);
 			if (channelTime != 0) {
 				float indicatorHeight = ScaleVar(4);
-				auto channelLength = data.ability->GetKVValueFor("AbilityChannelTime");
+				auto channelLength = data.ability->GetLevelSpecialValueFor("AbilityChannelTime");
 				int fontSize = ScaleVar(18);
 				DrawTextForeground(textFont,
 					std::format("{:.1f}", channelLength - (GameSystems::GameRules->GetGameTime() - channelTime)),
@@ -176,7 +176,7 @@ void ESP::AbilityESP::DrawAbilities() {
 			}
 			// If it's being cast
 			else if (data.ability->Member<bool>(Netvars::C_DOTABaseAbility::m_bInAbilityPhase)) {
-				auto castPoint = data.ability->GetKVValueFor("AbilityCastPoint");
+				auto castPoint = data.ability->GetLevelSpecialValueFor("AbilityCastPoint");
 				float castStartTime = data.ability->Member<float>(Netvars::C_DOTABaseAbility::m_flCastStartTime);
 				int fontSize = ScaleVar(18);
 				float indicatorWidthFactor = abs(imgXY1.x - imgXY2.x) * ((GameSystems::GameRules->GetGameTime() - castStartTime) / castPoint);

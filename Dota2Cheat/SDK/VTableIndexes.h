@@ -13,6 +13,9 @@ namespace VTableIndexes {
 		// decompile -> under "particles/ui_mouseactions/range_display.vpcf" will be a sub_XXXXXXX call with 3 args
 		// that is CNewParticleEffect::SetControlPoint, which gets the CParticleCollection at 0x20 and calls the vfunc at index 16
 		Index SetControlPoint = 16;
+		// xref: "m_Children.m_pHead: [%p]\n"
+		// the only one in the vtable
+		Index SetRenderingEnabled = 97;
 	}
 	namespace CDOTAParticleManager {
 		// JS xref "CreateParticle" to lea RCX
@@ -29,10 +32,10 @@ namespace VTableIndexes {
 		Index GetCastRangeBonus = 0X7C8/8;
 	}
 	namespace CDOTA_Buff {
-		Index OnAddModifier = 39;
+		Index OnAddModifier = 42;
 	}
 	namespace CUIEngineSource2 {
-		//xref: "CUIEngineSource::RunFrame"
+		// xref: "CUIEngineSource::RunFrame"
 		Index RunFrame = 6;
 		// 7th above vfunc with "CUIEngine::RegisterEventHandler"
 		// look for the one that matches the dylib version

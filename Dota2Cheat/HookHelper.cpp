@@ -31,19 +31,19 @@ void Hooks::SetUpVirtualHooks(bool log) {
 		// CDOTA_Buff destructor
 		// vtable ptr at 0xd
 		auto OnRemoveModifier = SigScan::Find("4C 8B DC 56 41 57", L"client.dll");
-		uintptr_t** vtable = OnRemoveModifier.Offset(0xd).GetAbsoluteAddress(3, 7);
-		uintptr_t* OnAddModifier = vtable[39];
+		uintptr_t** vtable = OnRemoveModifier.Offset(0xd).GetAbsoluteAddress(3);
+		uintptr_t* OnAddModifier = vtable[VTableIndexes::CDOTA_Buff::OnAddModifier];
 		HOOKFUNC(OnAddModifier);
 		HOOKFUNC(OnRemoveModifier);
 	}
 	{
 		// xref: "CParticleCollection::~CParticleCollection [%p]\n"
 		auto particleDestructor = SigScan::Find("E8 ? ? ? ? 40 F6 C7 01 74 34", L"particles.dll")
-			.GetAbsoluteAddress(1, 5);
+			.GetAbsoluteAddress(1);
 		uintptr_t** vtable = particleDestructor
 			.Offset(0x19)
-			.GetAbsoluteAddress(3, 7);
-		auto SetRenderingEnabled = vtable[95];
+			.GetAbsoluteAddress(3);
+		auto SetRenderingEnabled = vtable[VTableIndexes::CParticleCollection::SetRenderingEnabled];
 		HOOKFUNC(SetRenderingEnabled);
 	}
 	{
@@ -53,6 +53,8 @@ void Hooks::SetUpVirtualHooks(bool log) {
 		HOOKFUNC(OnRemoveEntity);
 	}
 	{
+		// RunFrame: xref "CUIEngineSource2::RunFrame", never changes tho
+
 		void* RunScript = Interfaces::UIEngine->GetVFunc(88).ptr,
 			* RunFrame = Interfaces::UIEngine->GetVFunc(6).ptr;
 		HOOKFUNC(RunFrame);

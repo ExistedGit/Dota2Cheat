@@ -121,7 +121,6 @@ void EnteredInGame() {
 
 	CacheAllEntities();
 
-	Modules::AutoBuyTome.Init();
 	Modules::AbilityESP.SubscribeHeroes();
 	Modules::UIOverhaul.Init();
 
@@ -138,7 +137,6 @@ void LeftMatch() {
 
 	GameSystems::ParticleManager->OnExitMatch();
 
-	Modules::AutoBuyTome.Reset();
 	Modules::TargetedSpellHighlighter.Reset();
 	Modules::AutoPick.Reset();
 	Modules::ParticleGC.Reset();

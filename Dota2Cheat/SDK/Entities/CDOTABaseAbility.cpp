@@ -5,7 +5,7 @@
 
 int CDOTABaseAbility::GetCastRange() {
 	// Still using GetLevelSpecialValueFor because that has clearer usage
-	return GetKVValueFor<int>("AbilityCastRange");
+	return GetLevelSpecialValueFor<int>("AbilityCastRange");
 }
 
 // Goes right after GetCastRange ^
@@ -37,7 +37,6 @@ void CDOTABaseAbility::BindLua(sol::state& lua) {
 	type["GetCastRange"] = &CDOTABaseAbility::GetCastRange;
 	type["GetCastRangeBonus"] = &CDOTABaseAbility::GetCastRangeBonus;
 	type["GetEffectiveCastRange"] = &CDOTABaseAbility::GetEffectiveCastRange;
-	type["GetKVValueFor"] = &CDOTABaseAbility::GetKVValueFor<float>;
 	type["GetLevelSpecialValueFor"] = &CDOTABaseAbility::GetLevelSpecialValueFor<float>;
 	type["GetAOERadius"] = &CDOTABaseAbility::GetAOERadius;
 }

@@ -55,8 +55,6 @@ namespace Config {
 	inline bool AutoPickUpRunes;
 	inline bool AutoPickUpAegis;
 
-	inline bool AutoBuyTome;
-
 	namespace TPTracker {
 		inline bool Enabled;
 	}

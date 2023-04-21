@@ -78,7 +78,7 @@ namespace Pages {
 					UIState::WeatherList,
 					IM_ARRAYSIZE(UIState::WeatherList),
 					4);
-
+				
 				// credits to the screenshot https://yougame.biz/threads/283404/
 				// and to Wolf49406 himself
 				// should've figured out it's controlled by a convar like the weather :)
@@ -171,7 +171,6 @@ namespace Pages {
 			ImGui::Checkbox("Redirect illusion casts", &Config::CastRedirection);
 			ImGui::SameLine(); HelpMarker("You cast something on an illusion - it aims for the real hero(if they're in range, of course)");
 
-			ImGui::Checkbox("Tome AutoBuy", &Config::AutoBuyTome);
 			ImGui::SliderFloat("Camera distance", &Config::CameraDistance, 1200, 3000, "%.1f");
 
 			if (ImGui::Button("EXIT", ImVec2(100, 50)))
