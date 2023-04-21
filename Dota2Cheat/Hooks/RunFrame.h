@@ -25,7 +25,7 @@ namespace Hooks {
 	template<typename T = CBaseEntity>
 	std::set<T*> GetEntitiesByFilter(const std::vector<const char*>& filters) {
 		std::set<T*> vec{};
-		for (int i = 0; i < Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
+		for ( int i = 0; i <= Interfaces::EntitySystem->GetHighestEntityIndex( ); ++i ) {
 			auto* ent = Interfaces::EntitySystem->GetEntity(i);
 			if (!ent || ent->GetIdentity()->IsDormant())
 				continue;

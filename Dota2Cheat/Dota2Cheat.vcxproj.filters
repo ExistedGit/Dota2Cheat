@@ -1,714 +1,331 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Resource files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Source files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Source files\imgui">
-      <UniqueIdentifier>{a7bcb7cb-3760-42c2-9260-76329d21199e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Header files\SigScan">
-      <UniqueIdentifier>{6ee30ea1-c9ed-4aa0-ad23-0bcd6d4a198d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header files\Hacks">
-      <UniqueIdentifier>{96a775f0-2891-487e-af6c-4c6572e4232a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header files\Interfaces">
-      <UniqueIdentifier>{fb364672-1a12-43f7-8145-9d1ee7b3f4f9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header files\Events">
-      <UniqueIdentifier>{c5887a9e-46bb-400f-8eeb-d5dae5a74f61}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header files\Utils">
-      <UniqueIdentifier>{3a9abafc-4f87-4c4e-9b06-903ef0087f3c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header files\UI">
-      <UniqueIdentifier>{b431f54f-3531-4beb-a3ff-d2b837c371dd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source files\Protobuf Messages">
-      <UniqueIdentifier>{a6b22c09-c300-4fa0-b9dc-05fce663c711}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header files\Protobuf Messages">
-      <UniqueIdentifier>{f9c05d2c-da8b-4639-86fd-e3322ecdc055}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header files\Hooks">
-      <UniqueIdentifier>{a99fdb0c-6680-4f5d-88cb-aaadf8759d5a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header files\Lua">
-      <UniqueIdentifier>{6bc97820-53b1-4cf7-bda5-e43dd37004e3}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="Config.cpp" />
+    <ClCompile Include="HookHelper.cpp" />
+    <ClCompile Include="Hooks\EntitySystemEvents.cpp" />
+    <ClCompile Include="Hooks\ModifierEvents.cpp" />
+    <ClCompile Include="Hooks\NetChannel.cpp" />
+    <ClCompile Include="Hooks\OnAcceptMatch.cpp" />
+    <ClCompile Include="Hooks\ParticleRendering.cpp" />
+    <ClCompile Include="Hooks\PrepareUnitOrders.cpp" />
+    <ClCompile Include="Hooks\RunFrame.cpp" />
+    <ClCompile Include="Hooks\SteamGC.cpp" />
+    <ClCompile Include="ImGuiSDK\Elements.cpp" />
+    <ClCompile Include="include\imgui\imgui_stdlib.cpp" />
+    <ClCompile Include="Lua\LuaInitialization.cpp" />
+    <ClCompile Include="MatchStateHandling.cpp" />
+    <ClCompile Include="Modules\Hacks\AegisAutoPickup.cpp" />
+    <ClCompile Include="Modules\Hacks\AutoBuyTome.cpp" />
+    <ClCompile Include="Modules\Hacks\AutoDodge.cpp" />
+    <ClCompile Include="Modules\Hacks\AutoHeal.cpp" />
+    <ClCompile Include="Modules\Hacks\AutoMidas.cpp" />
+    <ClCompile Include="Modules\Hacks\AutoPick.cpp" />
+    <ClCompile Include="Modules\Hacks\AutoPing.cpp" />
+    <ClCompile Include="Modules\Hacks\BadCastPrevention.cpp" />
+    <ClCompile Include="Modules\Hacks\CastRedirection.cpp" />
+    <ClCompile Include="Modules\Hacks\DotaPlusUnlocker.cpp" />
+    <ClCompile Include="Modules\Hacks\EnemySpellHighlight.cpp" />
+    <ClCompile Include="Modules\Hacks\IllusionColoring.cpp" />
+    <ClCompile Include="Modules\Hacks\LastHitMarker.cpp" />
+    <ClCompile Include="Modules\Hacks\LinearProjectileWarner.cpp" />
+    <ClCompile Include="Modules\Hacks\ParticleAbilityWarner.cpp" />
+    <ClCompile Include="Modules\Hacks\PerfectBlink.cpp" />
+    <ClCompile Include="Modules\Hacks\RiverPaint.cpp" />
+    <ClCompile Include="Modules\Hacks\ShakerAttackAnimFix.cpp" />
+    <ClCompile Include="Modules\Hacks\SkinChanger.cpp" />
+    <ClCompile Include="Modules\Hacks\TargetedSpellHighlighter.cpp" />
+    <ClCompile Include="Modules\Hacks\AbilityESP.cpp" />
+    <ClCompile Include="Modules\Hacks\TPTracker.cpp" />
+    <ClCompile Include="Modules\Hacks\UIOverhaul.cpp" />
+    <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp" />
+    <ClCompile Include="Modules\Utility\AttackTargetFinder.cpp" />
+    <ClCompile Include="Modules\Utility\ParticleGC.cpp" />
+    <ClCompile Include="SDK\Entities\CBaseEntity.cpp" />
+    <ClCompile Include="SDK\Entities\CDOTABaseAbility.cpp" />
+    <ClCompile Include="SDK\Entities\CDOTABaseNPC.cpp" />
+    <ClCompile Include="SDK\Entities\CDOTAModifier.cpp" />
+    <ClCompile Include="SDK\Entities\CDOTAPlayerController.cpp" />
+    <ClCompile Include="SDK\Entities\CDOTAUnitInventory.cpp" />
+    <ClCompile Include="SDK\GameSystems\CDOTAParticleManager.cpp" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="include\imgui\imgui.cpp" />
+    <ClCompile Include="include\imgui\imgui_demo.cpp" />
+    <ClCompile Include="include\imgui\imgui_draw.cpp" />
+    <ClCompile Include="include\imgui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="include\imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="include\imgui\imgui_tables.cpp" />
+    <ClCompile Include="include\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="SDK\GameSystems\C_DOTAGameRules.cpp" />
+    <ClCompile Include="SDK\Globals\GameSystems.cpp" />
+    <ClCompile Include="SDK\Globals\Interfaces.cpp" />
+    <ClCompile Include="SDK\Globals\Signatures.cpp" />
+    <ClCompile Include="SDK\Interfaces\GC\CGCClient.cpp" />
+    <ClCompile Include="SDK\Interfaces\CVarSystem.cpp" />
+    <ClCompile Include="SDK\Base\SigScan\patterscan.cpp" />
+    <ClCompile Include="SDK\pch.cpp" />
+    <ClCompile Include="SDK\Base\SigScan\proc.cpp" />
+    <ClCompile Include="SDK\Protobufs\base_gcmessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_clientmessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_commonmessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_common.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_msgid.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_shared_enums.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_usermessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\econ_gcmessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\econ_shared_enums.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\gcsdk_gcmessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\netmessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\networkbasetypes.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\network_connection.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steammessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steammessages_steamlearn.steamworkssdk.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steammessages_unified_base.steamworkssdk.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\usermessages.pb.cc" />
+    <ClCompile Include="UI\Pages\AutoPickSelectionGrid.cpp" />
+    <ClCompile Include="Utils\Drawing.cpp" />
+    <ClCompile Include="SDK\Protobufs\c_peer2peer_netmessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\clientmessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\connectionless_netmessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\demo.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_broadcastmessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_client_enums.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_battle_report.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_candy_shop.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_chat.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_coaching.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_fantasy.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_guild.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_guild_events.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_match_management.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_team.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_tournament.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_watch.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_common_bot_script.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_common_league.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_common_lobby.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_common_match_management.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_server.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_webapi.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_hud_types.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_match_metadata.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_messages_mlbot.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_modifiers.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_scenariomessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_usercmd.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\engine_gcmessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\enums_clientserver.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\gameevents.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\gametoolevents.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\gcsystemmsgs.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\networksystem_protomessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steamdatagram_messages_auth.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steamdatagram_messages_sdr.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steammessages_cloud.steamworkssdk.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steammessages_gamenetworkingui.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steammessages_helprequest.steamworkssdk.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steammessages_int.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steammessages_oauth.steamworkssdk.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steammessages_player.steamworkssdk.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steammessages_publishedfile.steamworkssdk.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steamnetworkingsockets_messages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steamnetworkingsockets_messages_certs.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steamnetworkingsockets_messages_udp.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\te.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\uifontfile_format.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\usercmd.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\valveextensions.pb.cc" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dllmain.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\pch.cpp">
-      <Filter>Header files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Base\SigScan\patterscan.cpp">
-      <Filter>Header files\SigScan</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Base\SigScan\proc.cpp">
-      <Filter>Header files\SigScan</Filter>
-    </ClCompile>
-    <ClCompile Include="include\imgui\imgui.cpp">
-      <Filter>Source files\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="include\imgui\imgui_demo.cpp">
-      <Filter>Source files\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="include\imgui\imgui_draw.cpp">
-      <Filter>Source files\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="include\imgui\imgui_impl_glfw.cpp">
-      <Filter>Source files\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="include\imgui\imgui_impl_opengl3.cpp">
-      <Filter>Source files\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="include\imgui\imgui_tables.cpp">
-      <Filter>Source files\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="include\imgui\imgui_widgets.cpp">
-      <Filter>Source files\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\GameSystems\CDOTAParticleManager.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_shared_enums.pb.cc">
-      <Filter>Source files\Protobuf Messages</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_usermessages.pb.cc">
-      <Filter>Source files\Protobuf Messages</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_clientmessages.pb.cc">
-      <Filter>Source files\Protobuf Messages</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_commonmessages.pb.cc">
-      <Filter>Source files\Protobuf Messages</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_gcmessages_msgid.pb.cc">
-      <Filter>Source files\Protobuf Messages</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\econ_gcmessages.pb.cc">
-      <Filter>Source files\Protobuf Messages</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\econ_shared_enums.pb.cc">
-      <Filter>Source files\Protobuf Messages</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\gcsdk_gcmessages.pb.cc">
-      <Filter>Source files\Protobuf Messages</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\netmessages.pb.cc">
-      <Filter>Source files\Protobuf Messages</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\network_connection.pb.cc">
-      <Filter>Source files\Protobuf Messages</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\networkbasetypes.pb.cc">
-      <Filter>Source files\Protobuf Messages</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\steammessages_steamlearn.steamworkssdk.pb.cc">
-      <Filter>Source files\Protobuf Messages</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\steammessages_unified_base.steamworkssdk.pb.cc">
-      <Filter>Source files\Protobuf Messages</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\usermessages.pb.cc">
-      <Filter>Source files\Protobuf Messages</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\steammessages.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Hooks\PrepareUnitOrders.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Hooks\RunFrame.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Hooks\ModifierEvents.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\ParticleAbilityWarner.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Hooks\ParticleRendering.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Hooks\EntitySystemEvents.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\LinearProjectileWarner.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\PerfectBlink.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\TargetedSpellHighlighter.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\ShakerAttackAnimFix.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\RiverPaint.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\AutoBuyTome.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\AutoDodge.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\AutoPick.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\AutoPing.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\BadCastPrevention.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\CastRedirection.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\EnemySpellHighlight.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\IllusionColoring.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Interfaces\GC\CGCClient.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Interfaces\CVarSystem.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="HookHelper.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Utility\ParticleGC.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Utils\Drawing.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\AbilityESP.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Utility\AttackTargetFinder.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Hooks\NetChannel.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Entities\CBaseEntity.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Entities\CDOTABaseAbility.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Entities\CDOTABaseNPC.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Entities\CDOTAModifier.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Entities\CDOTAUnitInventory.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Entities\CDOTAPlayerController.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Config.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="MatchStateHandling.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Globals\GameSystems.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Globals\Signatures.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Globals\Interfaces.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\GameSystems\C_DOTAGameRules.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lua\LuaInitialization.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Hooks\OnAcceptMatch.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\DotaPlusUnlocker.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_gcmessages_common.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="UI\Pages\AutoPickSelectionGrid.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="ImGuiSDK\Elements.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\SkinChanger.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Hooks\SteamGC.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\AegisAutoPickup.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\AutoMidas.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\AutoHeal.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="include\imgui\imgui_stdlib.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\LastHitMarker.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\UIOverhaul.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="Modules\Hacks\TPTracker.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\base_gcmessages.pb.cc">
-      <Filter>Source files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="SDK\Interfaces\SchemaSystem.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Base\SigScan\patternscan.h">
-      <Filter>Header files\SigScan</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Base\SigScan\proc.h">
-      <Filter>Header files\SigScan</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Globals\Signatures.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Interfaces\CVarSystem.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="dllmain.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Enums.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Base\CUtlVector.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\AutoHeal.h">
-      <Filter>Header files\Hacks</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\AutoMidas.h">
-      <Filter>Header files\Hacks</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Interfaces\CGameEntitySystem.h">
-      <Filter>Header files\Interfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="MatchStateHandling.h">
-      <Filter>Header files\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Interfaces\IEngineClient.h">
-      <Filter>Header files\Interfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\AutoBuyTome.h">
-      <Filter>Header files\Hacks</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\AbilityESP.h">
-      <Filter>Header files\Hacks</Filter>
-    </ClInclude>
-    <ClInclude Include="HookHelper.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>Header files\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="UIState.h">
-      <Filter>Header files\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\GameSystems\CDOTAParticleManager.h">
-      <Filter>Header files\Interfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\GameSystems\CGameEventManager.h">
-      <Filter>Header files\Interfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Interfaces\CInputService.h">
-      <Filter>Header files\Interfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Interfaces\CBaseFileSystem.h">
-      <Filter>Header files\Interfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\EnemySpellHighlight.h">
-      <Filter>Header files\Hacks</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\TargetedSpellHighlighter.h">
-      <Filter>Header files\Hacks</Filter>
-    </ClInclude>
-    <ClInclude Include="EventListeners.h">
-      <Filter>Header files\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\IllusionColoring.h">
-      <Filter>Header files\Hacks</Filter>
-    </ClInclude>
-    <ClInclude Include="DebugFunctions.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Interfaces\GC\CGCClient.h">
-      <Filter>Header files\Interfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\AegisAutoPickup.h">
-      <Filter>Header files\Hacks</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\RiverPaint.h">
-      <Filter>Header files\Hacks</Filter>
-    </ClInclude>
-    <ClInclude Include="Config.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Utils\Drawing.h">
-      <Filter>Header files\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Utility\AttackTargetFinder.h">
-      <Filter>Header files\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\ArmletAbuse.h">
-      <Filter>Header files\Hacks</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\BadCastPrevention.h">
-      <Filter>Header files\Hacks</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\ShakerAttackAnimFix.h">
-      <Filter>Header files\Hacks</Filter>
-    </ClInclude>
-    <ClInclude Include="Hooks\RunFrame.h">
-      <Filter>Header files\Hooks</Filter>
-    </ClInclude>
-    <ClInclude Include="Hooks\PrepareUnitOrders.h">
-      <Filter>Header files\Hooks</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\pch.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Hooks\EntitySystemEvents.h">
-      <Filter>Header files\Hooks</Filter>
-    </ClInclude>
-    <ClInclude Include="Hooks\NetChannel.h">
-      <Filter>Header files\Hooks</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Netvars.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Globals\Context.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Lua\LuaInitialization.h">
-      <Filter>Header files\Lua</Filter>
-    </ClInclude>
-    <ClInclude Include="Lua\LuaModules.h">
-      <Filter>Header files\Lua</Filter>
-    </ClInclude>
-    <ClInclude Include="Hooks\ParticleRendering.h">
-      <Filter>Header files\Hooks</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Protobufs\dota_shared_enums.pb.h">
-      <Filter>Header files\Protobuf Messages</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Protobufs\dota_usermessages.pb.h">
-      <Filter>Header files\Protobuf Messages</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Protobufs\usermessages.pb.h">
-      <Filter>Header files\Protobuf Messages</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Protobufs\steammessages_steamlearn.steamworkssdk.pb.h">
-      <Filter>Header files\Protobuf Messages</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Protobufs\steammessages_unified_base.steamworkssdk.pb.h">
-      <Filter>Header files\Protobuf Messages</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Protobufs\networkbasetypes.pb.h">
-      <Filter>Header files\Protobuf Messages</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Protobufs\netmessages.pb.h">
-      <Filter>Header files\Protobuf Messages</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Protobufs\econ_gcmessages.pb.h">
-      <Filter>Header files\Protobuf Messages</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Protobufs\econ_shared_enums.pb.h">
-      <Filter>Header files\Protobuf Messages</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Protobufs\gcsdk_gcmessages.pb.h">
-      <Filter>Header files\Protobuf Messages</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Protobufs\dota_clientmessages.pb.h">
-      <Filter>Header files\Protobuf Messages</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Protobufs\dota_commonmessages.pb.h">
-      <Filter>Header files\Protobuf Messages</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Protobufs\dota_gcmessages_msgid.pb.h">
-      <Filter>Header files\Protobuf Messages</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Protobufs\network_connection.pb.h">
-      <Filter>Header files\Protobuf Messages</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Interfaces\Panorama.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Hooks\ModifierEvents.h">
-      <Filter>Header files\Hooks</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Utility\ParticleGC.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\LinearProjectileWarner.h">
-      <Filter>Header files\Hacks</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\ParticleAbilityWarner.h">
-      <Filter>Header files\Hacks</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\CastRedirection.h">
-      <Filter>Header files\Hacks</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\PerfectBlink.h">
-      <Filter>Header files\Hacks</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\AutoPick.h">
-      <Filter>Header files\Hacks</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\AutoPing.h">
-      <Filter>Header files\Hacks</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\AutoDodge.h">
-      <Filter>Header files\Hacks</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\ManaHpAbuse.h">
-      <Filter>Header files\Hacks</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Entities\CBaseEntity.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Base\Color.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Base\NormalClass.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Base\VClass.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Base\Function.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Base\Bytehook.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Entities\CDOTABaseNPC.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Base\Definitions.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Entities\CEntityIdentity.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Entities\CDOTABaseAbility.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Base\Vector.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Entities\CDOTAUnitInventory.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Entities\CDOTAPlayerController.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Entities\CDOTAModifier.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Entities\CDOTAModifierManager.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Entities\CDOTABaseNPCHero.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Entities\CDOTAItemRune.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\GameSystems\C_DOTAGameRules.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Base\VMT.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\GameSystems\C_DOTA_ProjectileManager.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Base\Memory.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Globals\GameSystems.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\GameSystems\C_DOTA_PlayerResource.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Globals\Interfaces.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Base\StringUtils.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Interfaces\Network\bf_read.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Interfaces\Network\bf_write.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Interfaces\Network\CNetworkMessages.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Interfaces\Network\INetChannel.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="UI\Pages\MainMenu.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Entities\CDOTAItem.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="include.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\VTableIndexes.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Protobufs\steammessages.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="stb_image.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Utility\AttackAnimTracker.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\json.hpp">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\TPTracker.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Interfaces\CResourceSystem.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Hooks\OnAcceptMatch.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Hooks\Misc.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\DotaPlusUnlocker.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\ClaimTutorialRewards.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Protobufs\dota_gcmessages_common.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="ImGuiSDK\Elements.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Hooks\SteamGC.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\SkinChanger.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Interfaces\ISteamClient.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Interfaces\GC\CEconItem.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Interfaces\GC\ItemSchema.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\GameSystems\CDOTARichPresence.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imgui\imgui_stdlib.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\LastHitMarker.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Utils\FuncWrappers.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Wrappers\Creep.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Hooks\UIState.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\GameSystems\CGameUI.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Base\Logging.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\UIOverhaul.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\GameSystems\CDOTA_PanoramaMinimapRenderer.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Hooks\MinimapRenderer.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Wrappers\EntitySorting.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="Modules\Hacks\AutoLastHit.h">
-    <ClInclude Include="SDK\Protobufs\base_gcmessages.pb.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Hooks\InvalidateUEF.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
+    <ClInclude Include="Hooks\MinimapRenderer.h" />
+    <ClInclude Include="Hooks\UIState.h" />
+    <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
+    <ClInclude Include="Modules\Hacks\UIOverhaul.h" />
+    <ClInclude Include="SDK\GameSystems\CDOTA_PanoramaMinimapRenderer.h" />
+    <ClInclude Include="SDK\GameSystems\CGameUI.h" />
+    <ClInclude Include="Hooks\InvalidateUEF.h" />
+    <ClInclude Include="Hooks\Misc.h" />
+    <ClInclude Include="Hooks\OnAcceptMatch.h" />
+    <ClInclude Include="Hooks\SteamGC.h" />
+    <ClInclude Include="ImGuiSDK\Elements.h" />
+    <ClInclude Include="include.h" />
+    <ClInclude Include="include\imgui\imgui_stdlib.h" />
+    <ClInclude Include="include\json.hpp" />
+    <ClInclude Include="Modules\Hacks\AbilityESP.h" />
+    <ClInclude Include="Modules\Hacks\AegisAutoPickup.h" />
+    <ClInclude Include="Modules\Hacks\ArmletAbuse.h" />
+    <ClInclude Include="Modules\Hacks\ClaimTutorialRewards.h" />
+    <ClInclude Include="Modules\Hacks\DotaPlusUnlocker.h" />
+    <ClInclude Include="Modules\Hacks\LastHitMarker.h" />
+    <ClInclude Include="Modules\Hacks\SkinChanger.h" />
+    <ClInclude Include="Modules\Utility\AttackTargetFinder.h" />
+    <ClInclude Include="Modules\Hacks\AutoBuyTome.h" />
+    <ClInclude Include="Modules\Hacks\AutoDodge.h" />
+    <ClInclude Include="Modules\Hacks\AutoPick.h" />
+    <ClInclude Include="Modules\Hacks\AutoPing.h" />
+    <ClInclude Include="Modules\Hacks\AutoHeal.h" />
+    <ClInclude Include="Modules\Hacks\AutoMidas.h" />
+    <ClInclude Include="Modules\Hacks\BadCastPrevention.h" />
+    <ClInclude Include="Modules\Utility\AttackAnimTracker.h" />
+    <ClInclude Include="Modules\Hacks\TPTracker.h" />
+    <ClInclude Include="SDK\Base\Bytehook.h" />
+    <ClInclude Include="SDK\Base\Color.h" />
+    <ClInclude Include="SDK\Base\Definitions.h" />
+    <ClInclude Include="SDK\Base\Function.h" />
+    <ClInclude Include="SDK\Base\Memory.h" />
+    <ClInclude Include="SDK\Base\NormalClass.h" />
+    <ClInclude Include="SDK\Base\StringUtils.h" />
+    <ClInclude Include="SDK\Base\VClass.h" />
+    <ClInclude Include="Modules\Hacks\CastRedirection.h" />
+    <ClInclude Include="SDK\Base\Vector.h" />
+    <ClInclude Include="SDK\Base\VMT.h" />
+    <ClInclude Include="SDK\Entities\CDOTABaseAbility.h" />
+    <ClInclude Include="SDK\Entities\CDOTABaseNPCHero.h" />
+    <ClInclude Include="SDK\Entities\CDOTAItem.h" />
+    <ClInclude Include="SDK\Entities\CDOTAUnitInventory.h" />
+    <ClInclude Include="SDK\Entities\CDOTAItemRune.h" />
+    <ClInclude Include="SDK\Entities\CDOTAModifier.h" />
+    <ClInclude Include="SDK\Entities\CDOTAModifierManager.h" />
+    <ClInclude Include="SDK\Entities\CDOTAPlayerController.h" />
+    <ClInclude Include="SDK\GameSystems\CDOTARichPresence.h" />
+    <ClInclude Include="SDK\GameSystems\C_DOTAGameRules.h" />
+    <ClInclude Include="SDK\GameSystems\C_DOTA_PlayerResource.h" />
+    <ClInclude Include="SDK\GameSystems\C_DOTA_ProjectileManager.h" />
+    <ClInclude Include="SDK\Globals\GameSystems.h" />
+    <ClInclude Include="SDK\Interfaces\CBaseFileSystem.h" />
+    <ClInclude Include="SDK\GameSystems\CDOTAParticleManager.h" />
+    <ClInclude Include="SDK\Interfaces\CGameEntitySystem.h" />
+    <ClInclude Include="SDK\GameSystems\CGameEventManager.h" />
+    <ClInclude Include="SDK\Interfaces\GC\CEconItem.h" />
+    <ClInclude Include="SDK\Interfaces\GC\CGCClient.h" />
+    <ClInclude Include="SDK\Interfaces\CInputService.h" />
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="DebugFunctions.h" />
+    <ClInclude Include="SDK\Interfaces\CResourceSystem.h" />
+    <ClInclude Include="SDK\Interfaces\GC\ItemSchema.h" />
+    <ClInclude Include="SDK\Interfaces\ISteamClient.h" />
+    <ClInclude Include="SDK\Protobufs\base_gcmessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_common.pb.h" />
+    <ClInclude Include="SDK\Wrappers\Creep.h" />
+    <ClInclude Include="SDK\Wrappers\EntitySorting.h" />
+    <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h" />
+    <ClInclude Include="Utils\Drawing.h" />
+    <ClInclude Include="SDK\Globals\Context.h" />
+    <ClInclude Include="Hooks\EntitySystemEvents.h" />
+    <ClInclude Include="EventListeners.h" />
+    <ClInclude Include="HookHelper.h" />
+    <ClInclude Include="Modules\Hacks\LinearProjectileWarner.h" />
+    <ClInclude Include="Lua\LuaModules.h" />
+    <ClInclude Include="Lua\LuaInitialization.h" />
+    <ClInclude Include="Hooks\NetChannel.h" />
+    <ClInclude Include="Hooks\ModifierEvents.h" />
+    <ClInclude Include="Modules\Hacks\ManaHpAbuse.h" />
+    <ClInclude Include="SDK\Globals\Interfaces.h" />
+    <ClInclude Include="SDK\Interfaces\Network\bf_read.h" />
+    <ClInclude Include="SDK\Interfaces\Network\bf_write.h" />
+    <ClInclude Include="SDK\Interfaces\Network\CNetworkMessages.h" />
+    <ClInclude Include="SDK\Interfaces\Network\INetChannel.h" />
+    <ClInclude Include="SDK\Netvars.h" />
+    <ClInclude Include="Hooks\PrepareUnitOrders.h" />
+    <ClInclude Include="Hooks\RunFrame.h" />
+    <ClInclude Include="Modules\Hacks\IllusionColoring.h" />
+    <ClInclude Include="Input.h" />
+    <ClInclude Include="Hooks\ParticleRendering.h" />
+    <ClInclude Include="SDK\Interfaces\Panorama.h" />
+    <ClInclude Include="Modules\Hacks\ParticleAbilityWarner.h" />
+    <ClInclude Include="Modules\Utility\ParticleGC.h" />
+    <ClInclude Include="SDK\pch.h" />
+    <ClInclude Include="Modules\Hacks\PerfectBlink.h" />
+    <ClInclude Include="SDK\Protobufs\dota_clientmessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_commonmessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_msgid.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_shared_enums.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_usermessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\econ_gcmessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\econ_shared_enums.pb.h" />
+    <ClInclude Include="SDK\Protobufs\gcsdk_gcmessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\netmessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\networkbasetypes.pb.h" />
+    <ClInclude Include="SDK\Protobufs\network_connection.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steammessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steammessages_steamlearn.steamworkssdk.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steammessages_unified_base.steamworkssdk.pb.h" />
+    <ClInclude Include="SDK\Protobufs\usermessages.pb.h" />
+    <ClInclude Include="Modules\Hacks\RiverPaint.h" />
+    <ClInclude Include="Modules\Hacks\ShakerAttackAnimFix.h" />
+    <ClInclude Include="Modules\Hacks\TargetedSpellHighlighter.h" />
+    <ClInclude Include="Modules\Hacks\EnemySpellHighlight.h" />
+    <ClInclude Include="SDK\VTableIndexes.h" />
+    <ClInclude Include="stb_image.h" />
+    <ClInclude Include="UIState.h" />
+    <ClInclude Include="SDK\Interfaces\CVarSystem.h" />
+    <ClInclude Include="SDK\Base\CUtlVector.h" />
+    <ClInclude Include="dllmain.h" />
+    <ClInclude Include="SDK\Enums.h" />
+    <ClInclude Include="SDK\Interfaces\IEngineClient.h" />
+    <ClInclude Include="MatchStateHandling.h" />
+    <ClInclude Include="SDK\Interfaces\SchemaSystem.h" />
+    <ClInclude Include="SDK\Base\SigScan\patternscan.h" />
+    <ClInclude Include="SDK\Base\SigScan\proc.h" />
+    <ClInclude Include="SDK\Globals\Signatures.h" />
+    <ClInclude Include="SDK\Entities\CBaseEntity.h" />
+    <ClInclude Include="SDK\Entities\CDOTABaseNPC.h" />
+    <ClInclude Include="SDK\Entities\CEntityIdentity.h" />
+    <ClInclude Include="UI\Pages\MainMenu.h" />
+    <ClInclude Include="Utils\FuncWrappers.h" />
+    <ClInclude Include="SDK\Base\Logging.h" />
+    <ClInclude Include="SDK\Protobufs\c_peer2peer_netmessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\clientmessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\connectionless_netmessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\demo.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_broadcastmessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_client_enums.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_battle_report.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_candy_shop.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_chat.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_coaching.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_fantasy.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_guild.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_guild_events.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_match_management.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_team.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_tournament.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_watch.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_common_bot_script.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_common_league.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_common_lobby.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_common_match_management.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_server.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_webapi.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_hud_types.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_match_metadata.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_messages_mlbot.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_modifiers.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_scenariomessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_usercmd.pb.h" />
+    <ClInclude Include="SDK\Protobufs\engine_gcmessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\enums_clientserver.pb.h" />
+    <ClInclude Include="SDK\Protobufs\gameevents.pb.h" />
+    <ClInclude Include="SDK\Protobufs\gametoolevents.pb.h" />
+    <ClInclude Include="SDK\Protobufs\gcsystemmsgs.pb.h" />
+    <ClInclude Include="SDK\Protobufs\networksystem_protomessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steamdatagram_messages_auth.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steamdatagram_messages_sdr.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steammessages_cloud.steamworkssdk.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steammessages_gamenetworkingui.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steammessages_helprequest.steamworkssdk.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steammessages_int.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steammessages_oauth.steamworkssdk.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steammessages_player.steamworkssdk.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steammessages_publishedfile.steamworkssdk.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steamnetworkingsockets_messages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steamnetworkingsockets_messages_certs.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steamnetworkingsockets_messages_udp.pb.h" />
+    <ClInclude Include="SDK\Protobufs\te.pb.h" />
+    <ClInclude Include="SDK\Protobufs\uifontfile_format.pb.h" />
+    <ClInclude Include="SDK\Protobufs\usercmd.pb.h" />
+    <ClInclude Include="SDK\Protobufs\valveextensions.pb.h" />
   </ItemGroup>
 </Project>

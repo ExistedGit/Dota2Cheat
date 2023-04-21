@@ -13,9 +13,9 @@ class CDOTABaseAbility;
 class CDOTAItem;
 class CDOTAItemRune;
 
-inline struct _GameData {
-	Vector2D ScreenSize;
-} GameData;
+//inline struct _GameData {
+//	Vector2D ScreenSize;
+//} GameData;
 
 struct Context {
 	CDOTAPlayerController* localPlayer{};
