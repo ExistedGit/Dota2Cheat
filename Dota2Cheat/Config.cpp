@@ -90,10 +90,12 @@ void Config::ConfigManager::SetupVars() {
 
 	cfg.AddVar(FLOAT, &CameraDistance, 1200.0f, "CameraDistance");
 
-	cfg.AddVar(BOOL, &ShowLinkenSphere, true, "ShowLinkenSphere");
-	cfg.AddVar(BOOL, &ShowEnemyTargetedSpells, true, "ShowEnemyTargetedSpells");
 	cfg.AddVar(BOOL, &ShowEnemyPointSpells, true, "ShowEnemyPointSpells");
 	cfg.AddVar(BOOL, &PerfectBlink, false, "PerfectBlink");
+
+	cfg.AddVar(BOOL, &ModifierRevealer::LinkenSphere, true, "ModifierRevealer.LinkenSphere");
+	cfg.AddVar(BOOL, &ModifierRevealer::TargetedSpells, true, "ModifierRevealer.TargetedSpells");
+	cfg.AddVar(BOOL, &ModifierRevealer::TrueSight, true, "ModifierRevealer.TrueSight");
 
 	cfg.AddVar(BOOL, &TPTracker::Enabled, true, "TPTracker.Enabled");
 

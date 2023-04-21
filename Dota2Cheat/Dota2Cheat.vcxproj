@@ -147,7 +147,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;lua54.lib;libprotobufd.lib;libprotobuf-lited.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;lua54.lib;libprotobufd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)lib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -176,7 +176,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;lua54.lib;libprotobuf.lib;libprotobuf-lite.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;lua54.lib;libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)lib\;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -217,6 +217,7 @@
     <ClCompile Include="Modules\Hacks\TargetedSpellHighlighter.cpp" />
     <ClCompile Include="Modules\Hacks\AbilityESP.cpp" />
     <ClCompile Include="Modules\Hacks\TPTracker.cpp" />
+    <ClCompile Include="Modules\Hacks\TrueSightESP.cpp" />
     <ClCompile Include="Modules\Hacks\UIOverhaul.cpp" />
     <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp" />
     <ClCompile Include="Modules\Utility\AttackTargetFinder.cpp" />
@@ -274,6 +275,7 @@
     <ClInclude Include="Hooks\MinimapRenderer.h" />
     <ClInclude Include="Hooks\UIState.h" />
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
+    <ClInclude Include="Modules\Hacks\TrueSightESP.h" />
     <ClInclude Include="Modules\Hacks\UIOverhaul.h" />
     <ClInclude Include="SDK\GameSystems\CDOTA_PanoramaMinimapRenderer.h" />
     <ClInclude Include="SDK\GameSystems\CGameUI.h" />

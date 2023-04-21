@@ -73,8 +73,12 @@ namespace Config {
 	inline bool WarnLinearProjectiles;
 
 	inline bool ShowEnemyPointSpells;
-	inline bool ShowEnemyTargetedSpells;
-	inline bool ShowLinkenSphere;
+
+	namespace ModifierRevealer {
+		inline bool TargetedSpells;
+		inline bool TrueSight;
+		inline bool LinkenSphere;
+	}
 
 	namespace Changer {
 		inline int WeatherListIdx;

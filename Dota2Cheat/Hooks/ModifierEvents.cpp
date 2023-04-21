@@ -39,6 +39,7 @@ void Hooks::CacheIfItemModifier(CDOTAModifier* modifier) {
 void Hooks::hkOnAddModifier(CDOTAModifier* modifier, int unk) {
 	CacheIfItemModifier(modifier);
 	Modules::TargetedSpellHighlighter.DrawParticleIfTargetedSpell(modifier);
+	Modules::TrueSightESP.DrawParticleIfTrueSight(modifier);
 	Modules::EnemySpellHighlighter.RenderIfThinkerModifier(modifier);
 	Modules::LinearProjectileWarner.DrawIfTrajectoryModifier(modifier);
 
@@ -69,6 +70,7 @@ void Hooks::hkOnRemoveModifier(CDOTAModifier* modifier) {
 
 	Modules::TargetedSpellHighlighter.RemoveParticleIfTargetedSpell(modifier);
 	Modules::LinearProjectileWarner.RemoveParticleIfTrajectoryModifier(modifier);
+	Modules::TrueSightESP.RemoveParticleIfTrueSight(modifier);
 
 	oOnRemoveModifier(modifier);
 }

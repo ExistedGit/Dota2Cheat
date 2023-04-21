@@ -29,18 +29,7 @@ std::vector<std::unique_ptr<IGameEventListener2>> CGameEventManager::EventListen
 
 #pragma endregion
 
-void UpdateCameraDistance() {
-	static auto varInfo = CVarSystem::CVar["dota_camera_distance"];
-	if (Config::CameraDistance != varInfo.var->value.flt) {
-		varInfo.var->value.flt = Config::CameraDistance;
-		Interfaces::CVar->TriggerCallback(varInfo);
-	}
-}
 
-void UpdateWeather() {
-	static auto varInfo = CVarSystem::CVar["cl_weather"];
-	varInfo.var->value.i32 = Config::Changer::WeatherListIdx;
-}
 
 constexpr bool useChangerCode = false;
 
