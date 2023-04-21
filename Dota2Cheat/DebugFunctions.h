@@ -5,19 +5,13 @@
 
 #ifdef _DEBUG
 inline void LogEntities() {
-	for (int i = 0; i < Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
-		auto* ent = Interfaces::EntitySystem->GetEntity(i);
-		if (ent == nullptr)
-			continue;
-		//std::cout << ent->SchemaBinding() << '\n';
-		const char* className = ent->SchemaBinding()->binaryName;
-		if (
-			className
-			//&& strstr(className, "Rune")
-			)
-			std::cout << className << ' ' << i
-			//<< " // " << ent->GetPos().x << ' ' << ent->GetPos().y
-			<< " -> " << ent << '\n';
+	for (int idx = 0; idx <= Interfaces::EntitySystem->GetHighestEntityIndex(); ++idx) {
+		if ( CBaseEntity* entity = Interfaces::EntitySystem->GetEntity( idx ); ( entity && IsValidReadPtr( entity ) ) ) {
+			const auto schema_bind = entity->SchemaBinding( );
+			if ( entity->GetIdentity( )->GetName( ) && schema_bind && schema_bind->binaryName ) {
+				std::cout << entity << ", " << entity->GetIdentity( )->GetName( ) << ", " << schema_bind->binaryName << std::endl;
+			}
+		}
 	}
 }
 inline void LogModifiers(CDOTABaseNPC* npc) {

@@ -1599,6 +1599,8 @@ class CSODOTAGameAccountClient final :
     kMatchDisabledCountFieldNumber = 42,
     kShutdownlawterminatetimestampFieldNumber = 47,
     kLowPriorityGamesRemainingFieldNumber = 48,
+    kCompetitiveRankFieldNumber = 49,
+    kCompetitiveCalibrationGamesRemainingFieldNumber = 51,
     kRecruitmentLevelFieldNumber = 55,
     kSecondaryLeaverCountFieldNumber = 58,
     kLastSecondaryAbandonedGameDateFieldNumber = 59,
@@ -1898,6 +1900,32 @@ class CSODOTAGameAccountClient final :
   private:
   uint32_t _internal_low_priority_games_remaining() const;
   void _internal_set_low_priority_games_remaining(uint32_t value);
+  public:
+
+  // optional uint32 competitive_rank = 49;
+  bool has_competitive_rank() const;
+  private:
+  bool _internal_has_competitive_rank() const;
+  public:
+  void clear_competitive_rank();
+  uint32_t competitive_rank() const;
+  void set_competitive_rank(uint32_t value);
+  private:
+  uint32_t _internal_competitive_rank() const;
+  void _internal_set_competitive_rank(uint32_t value);
+  public:
+
+  // optional uint32 competitive_calibration_games_remaining = 51;
+  bool has_competitive_calibration_games_remaining() const;
+  private:
+  bool _internal_has_competitive_calibration_games_remaining() const;
+  public:
+  void clear_competitive_calibration_games_remaining();
+  uint32_t competitive_calibration_games_remaining() const;
+  void set_competitive_calibration_games_remaining(uint32_t value);
+  private:
+  uint32_t _internal_competitive_calibration_games_remaining() const;
+  void _internal_set_competitive_calibration_games_remaining(uint32_t value);
   public:
 
   // optional uint32 recruitment_level = 55;
@@ -2385,6 +2413,8 @@ class CSODOTAGameAccountClient final :
     uint32_t match_disabled_count_;
     uint32_t shutdownlawterminatetimestamp_;
     uint32_t low_priority_games_remaining_;
+    uint32_t competitive_rank_;
+    uint32_t competitive_calibration_games_remaining_;
     uint32_t recruitment_level_;
     uint32_t secondary_leaver_count_;
     uint32_t last_secondary_abandoned_game_date_;
@@ -39335,7 +39365,7 @@ inline void CSODOTAGameAccountClient::set_leaver_count(uint32_t value) {
 
 // optional uint32 secondary_leaver_count = 58;
 inline bool CSODOTAGameAccountClient::_internal_has_secondary_leaver_count() const {
-  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00400000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_secondary_leaver_count() const {
@@ -39343,7 +39373,7 @@ inline bool CSODOTAGameAccountClient::has_secondary_leaver_count() const {
 }
 inline void CSODOTAGameAccountClient::clear_secondary_leaver_count() {
   _impl_.secondary_leaver_count_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00100000u;
+  _impl_._has_bits_[0] &= ~0x00400000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_secondary_leaver_count() const {
   return _impl_.secondary_leaver_count_;
@@ -39353,7 +39383,7 @@ inline uint32_t CSODOTAGameAccountClient::secondary_leaver_count() const {
   return _internal_secondary_leaver_count();
 }
 inline void CSODOTAGameAccountClient::_internal_set_secondary_leaver_count(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00100000u;
+  _impl_._has_bits_[0] |= 0x00400000u;
   _impl_.secondary_leaver_count_ = value;
 }
 inline void CSODOTAGameAccountClient::set_secondary_leaver_count(uint32_t value) {
@@ -39447,7 +39477,7 @@ inline void CSODOTAGameAccountClient::set_prevent_voice_until_date(uint32_t valu
 
 // optional uint32 prevent_public_text_chat_until_date = 86;
 inline bool CSODOTAGameAccountClient::_internal_has_prevent_public_text_chat_until_date() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000080u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_prevent_public_text_chat_until_date() const {
@@ -39455,7 +39485,7 @@ inline bool CSODOTAGameAccountClient::has_prevent_public_text_chat_until_date() 
 }
 inline void CSODOTAGameAccountClient::clear_prevent_public_text_chat_until_date() {
   _impl_.prevent_public_text_chat_until_date_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000020u;
+  _impl_._has_bits_[1] &= ~0x00000080u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_prevent_public_text_chat_until_date() const {
   return _impl_.prevent_public_text_chat_until_date_;
@@ -39465,7 +39495,7 @@ inline uint32_t CSODOTAGameAccountClient::prevent_public_text_chat_until_date() 
   return _internal_prevent_public_text_chat_until_date();
 }
 inline void CSODOTAGameAccountClient::_internal_set_prevent_public_text_chat_until_date(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000020u;
+  _impl_._has_bits_[1] |= 0x00000080u;
   _impl_.prevent_public_text_chat_until_date_ = value;
 }
 inline void CSODOTAGameAccountClient::set_prevent_public_text_chat_until_date(uint32_t value) {
@@ -39475,7 +39505,7 @@ inline void CSODOTAGameAccountClient::set_prevent_public_text_chat_until_date(ui
 
 // optional uint32 prevent_new_player_chat_until_date = 122;
 inline bool CSODOTAGameAccountClient::_internal_has_prevent_new_player_chat_until_date() const {
-  bool value = (_impl_._has_bits_[1] & 0x00200000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00800000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_prevent_new_player_chat_until_date() const {
@@ -39483,7 +39513,7 @@ inline bool CSODOTAGameAccountClient::has_prevent_new_player_chat_until_date() c
 }
 inline void CSODOTAGameAccountClient::clear_prevent_new_player_chat_until_date() {
   _impl_.prevent_new_player_chat_until_date_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00200000u;
+  _impl_._has_bits_[1] &= ~0x00800000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_prevent_new_player_chat_until_date() const {
   return _impl_.prevent_new_player_chat_until_date_;
@@ -39493,7 +39523,7 @@ inline uint32_t CSODOTAGameAccountClient::prevent_new_player_chat_until_date() c
   return _internal_prevent_new_player_chat_until_date();
 }
 inline void CSODOTAGameAccountClient::_internal_set_prevent_new_player_chat_until_date(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00200000u;
+  _impl_._has_bits_[1] |= 0x00800000u;
   _impl_.prevent_new_player_chat_until_date_ = value;
 }
 inline void CSODOTAGameAccountClient::set_prevent_new_player_chat_until_date(uint32_t value) {
@@ -39531,7 +39561,7 @@ inline void CSODOTAGameAccountClient::set_last_abandoned_game_date(uint32_t valu
 
 // optional uint32 last_secondary_abandoned_game_date = 59;
 inline bool CSODOTAGameAccountClient::_internal_has_last_secondary_abandoned_game_date() const {
-  bool value = (_impl_._has_bits_[0] & 0x00200000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00800000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_last_secondary_abandoned_game_date() const {
@@ -39539,7 +39569,7 @@ inline bool CSODOTAGameAccountClient::has_last_secondary_abandoned_game_date() c
 }
 inline void CSODOTAGameAccountClient::clear_last_secondary_abandoned_game_date() {
   _impl_.last_secondary_abandoned_game_date_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00200000u;
+  _impl_._has_bits_[0] &= ~0x00800000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_last_secondary_abandoned_game_date() const {
   return _impl_.last_secondary_abandoned_game_date_;
@@ -39549,7 +39579,7 @@ inline uint32_t CSODOTAGameAccountClient::last_secondary_abandoned_game_date() c
   return _internal_last_secondary_abandoned_game_date();
 }
 inline void CSODOTAGameAccountClient::_internal_set_last_secondary_abandoned_game_date(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00200000u;
+  _impl_._has_bits_[0] |= 0x00800000u;
   _impl_.last_secondary_abandoned_game_date_ = value;
 }
 inline void CSODOTAGameAccountClient::set_last_secondary_abandoned_game_date(uint32_t value) {
@@ -39781,9 +39811,65 @@ inline void CSODOTAGameAccountClient::set_low_priority_games_remaining(uint32_t 
   // @@protoc_insertion_point(field_set:CSODOTAGameAccountClient.low_priority_games_remaining)
 }
 
+// optional uint32 competitive_rank = 49;
+inline bool CSODOTAGameAccountClient::_internal_has_competitive_rank() const {
+  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
+  return value;
+}
+inline bool CSODOTAGameAccountClient::has_competitive_rank() const {
+  return _internal_has_competitive_rank();
+}
+inline void CSODOTAGameAccountClient::clear_competitive_rank() {
+  _impl_.competitive_rank_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00080000u;
+}
+inline uint32_t CSODOTAGameAccountClient::_internal_competitive_rank() const {
+  return _impl_.competitive_rank_;
+}
+inline uint32_t CSODOTAGameAccountClient::competitive_rank() const {
+  // @@protoc_insertion_point(field_get:CSODOTAGameAccountClient.competitive_rank)
+  return _internal_competitive_rank();
+}
+inline void CSODOTAGameAccountClient::_internal_set_competitive_rank(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00080000u;
+  _impl_.competitive_rank_ = value;
+}
+inline void CSODOTAGameAccountClient::set_competitive_rank(uint32_t value) {
+  _internal_set_competitive_rank(value);
+  // @@protoc_insertion_point(field_set:CSODOTAGameAccountClient.competitive_rank)
+}
+
+// optional uint32 competitive_calibration_games_remaining = 51;
+inline bool CSODOTAGameAccountClient::_internal_has_competitive_calibration_games_remaining() const {
+  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
+  return value;
+}
+inline bool CSODOTAGameAccountClient::has_competitive_calibration_games_remaining() const {
+  return _internal_has_competitive_calibration_games_remaining();
+}
+inline void CSODOTAGameAccountClient::clear_competitive_calibration_games_remaining() {
+  _impl_.competitive_calibration_games_remaining_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00100000u;
+}
+inline uint32_t CSODOTAGameAccountClient::_internal_competitive_calibration_games_remaining() const {
+  return _impl_.competitive_calibration_games_remaining_;
+}
+inline uint32_t CSODOTAGameAccountClient::competitive_calibration_games_remaining() const {
+  // @@protoc_insertion_point(field_get:CSODOTAGameAccountClient.competitive_calibration_games_remaining)
+  return _internal_competitive_calibration_games_remaining();
+}
+inline void CSODOTAGameAccountClient::_internal_set_competitive_calibration_games_remaining(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00100000u;
+  _impl_.competitive_calibration_games_remaining_ = value;
+}
+inline void CSODOTAGameAccountClient::set_competitive_calibration_games_remaining(uint32_t value) {
+  _internal_set_competitive_calibration_games_remaining(value);
+  // @@protoc_insertion_point(field_set:CSODOTAGameAccountClient.competitive_calibration_games_remaining)
+}
+
 // optional uint32 recruitment_level = 55;
 inline bool CSODOTAGameAccountClient::_internal_has_recruitment_level() const {
-  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00200000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_recruitment_level() const {
@@ -39791,7 +39877,7 @@ inline bool CSODOTAGameAccountClient::has_recruitment_level() const {
 }
 inline void CSODOTAGameAccountClient::clear_recruitment_level() {
   _impl_.recruitment_level_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00080000u;
+  _impl_._has_bits_[0] &= ~0x00200000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_recruitment_level() const {
   return _impl_.recruitment_level_;
@@ -39801,7 +39887,7 @@ inline uint32_t CSODOTAGameAccountClient::recruitment_level() const {
   return _internal_recruitment_level();
 }
 inline void CSODOTAGameAccountClient::_internal_set_recruitment_level(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00080000u;
+  _impl_._has_bits_[0] |= 0x00200000u;
   _impl_.recruitment_level_ = value;
 }
 inline void CSODOTAGameAccountClient::set_recruitment_level(uint32_t value) {
@@ -39811,7 +39897,7 @@ inline void CSODOTAGameAccountClient::set_recruitment_level(uint32_t value) {
 
 // optional bool has_new_notifications = 56;
 inline bool CSODOTAGameAccountClient::_internal_has_has_new_notifications() const {
-  bool value = (_impl_._has_bits_[0] & 0x02000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_has_new_notifications() const {
@@ -39819,7 +39905,7 @@ inline bool CSODOTAGameAccountClient::has_has_new_notifications() const {
 }
 inline void CSODOTAGameAccountClient::clear_has_new_notifications() {
   _impl_.has_new_notifications_ = false;
-  _impl_._has_bits_[0] &= ~0x02000000u;
+  _impl_._has_bits_[0] &= ~0x08000000u;
 }
 inline bool CSODOTAGameAccountClient::_internal_has_new_notifications() const {
   return _impl_.has_new_notifications_;
@@ -39829,7 +39915,7 @@ inline bool CSODOTAGameAccountClient::has_new_notifications() const {
   return _internal_has_new_notifications();
 }
 inline void CSODOTAGameAccountClient::_internal_set_has_new_notifications(bool value) {
-  _impl_._has_bits_[0] |= 0x02000000u;
+  _impl_._has_bits_[0] |= 0x08000000u;
   _impl_.has_new_notifications_ = value;
 }
 inline void CSODOTAGameAccountClient::set_has_new_notifications(bool value) {
@@ -39839,7 +39925,7 @@ inline void CSODOTAGameAccountClient::set_has_new_notifications(bool value) {
 
 // optional bool is_league_admin = 57;
 inline bool CSODOTAGameAccountClient::_internal_has_is_league_admin() const {
-  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_is_league_admin() const {
@@ -39847,7 +39933,7 @@ inline bool CSODOTAGameAccountClient::has_is_league_admin() const {
 }
 inline void CSODOTAGameAccountClient::clear_is_league_admin() {
   _impl_.is_league_admin_ = false;
-  _impl_._has_bits_[0] &= ~0x04000000u;
+  _impl_._has_bits_[0] &= ~0x10000000u;
 }
 inline bool CSODOTAGameAccountClient::_internal_is_league_admin() const {
   return _impl_.is_league_admin_;
@@ -39857,7 +39943,7 @@ inline bool CSODOTAGameAccountClient::is_league_admin() const {
   return _internal_is_league_admin();
 }
 inline void CSODOTAGameAccountClient::_internal_set_is_league_admin(bool value) {
-  _impl_._has_bits_[0] |= 0x04000000u;
+  _impl_._has_bits_[0] |= 0x10000000u;
   _impl_.is_league_admin_ = value;
 }
 inline void CSODOTAGameAccountClient::set_is_league_admin(bool value) {
@@ -39867,7 +39953,7 @@ inline void CSODOTAGameAccountClient::set_is_league_admin(bool value) {
 
 // optional uint32 casual_games_played = 60;
 inline bool CSODOTAGameAccountClient::_internal_has_casual_games_played() const {
-  bool value = (_impl_._has_bits_[0] & 0x00400000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x01000000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_casual_games_played() const {
@@ -39875,7 +39961,7 @@ inline bool CSODOTAGameAccountClient::has_casual_games_played() const {
 }
 inline void CSODOTAGameAccountClient::clear_casual_games_played() {
   _impl_.casual_games_played_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00400000u;
+  _impl_._has_bits_[0] &= ~0x01000000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_casual_games_played() const {
   return _impl_.casual_games_played_;
@@ -39885,7 +39971,7 @@ inline uint32_t CSODOTAGameAccountClient::casual_games_played() const {
   return _internal_casual_games_played();
 }
 inline void CSODOTAGameAccountClient::_internal_set_casual_games_played(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00400000u;
+  _impl_._has_bits_[0] |= 0x01000000u;
   _impl_.casual_games_played_ = value;
 }
 inline void CSODOTAGameAccountClient::set_casual_games_played(uint32_t value) {
@@ -39895,7 +39981,7 @@ inline void CSODOTAGameAccountClient::set_casual_games_played(uint32_t value) {
 
 // optional uint32 solo_competitive_games_played = 61;
 inline bool CSODOTAGameAccountClient::_internal_has_solo_competitive_games_played() const {
-  bool value = (_impl_._has_bits_[0] & 0x00800000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x02000000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_solo_competitive_games_played() const {
@@ -39903,7 +39989,7 @@ inline bool CSODOTAGameAccountClient::has_solo_competitive_games_played() const 
 }
 inline void CSODOTAGameAccountClient::clear_solo_competitive_games_played() {
   _impl_.solo_competitive_games_played_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00800000u;
+  _impl_._has_bits_[0] &= ~0x02000000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_solo_competitive_games_played() const {
   return _impl_.solo_competitive_games_played_;
@@ -39913,7 +39999,7 @@ inline uint32_t CSODOTAGameAccountClient::solo_competitive_games_played() const 
   return _internal_solo_competitive_games_played();
 }
 inline void CSODOTAGameAccountClient::_internal_set_solo_competitive_games_played(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00800000u;
+  _impl_._has_bits_[0] |= 0x02000000u;
   _impl_.solo_competitive_games_played_ = value;
 }
 inline void CSODOTAGameAccountClient::set_solo_competitive_games_played(uint32_t value) {
@@ -39923,7 +40009,7 @@ inline void CSODOTAGameAccountClient::set_solo_competitive_games_played(uint32_t
 
 // optional uint32 party_competitive_games_played = 62;
 inline bool CSODOTAGameAccountClient::_internal_has_party_competitive_games_played() const {
-  bool value = (_impl_._has_bits_[0] & 0x01000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_party_competitive_games_played() const {
@@ -39931,7 +40017,7 @@ inline bool CSODOTAGameAccountClient::has_party_competitive_games_played() const
 }
 inline void CSODOTAGameAccountClient::clear_party_competitive_games_played() {
   _impl_.party_competitive_games_played_ = 0u;
-  _impl_._has_bits_[0] &= ~0x01000000u;
+  _impl_._has_bits_[0] &= ~0x04000000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_party_competitive_games_played() const {
   return _impl_.party_competitive_games_played_;
@@ -39941,7 +40027,7 @@ inline uint32_t CSODOTAGameAccountClient::party_competitive_games_played() const
   return _internal_party_competitive_games_played();
 }
 inline void CSODOTAGameAccountClient::_internal_set_party_competitive_games_played(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x01000000u;
+  _impl_._has_bits_[0] |= 0x04000000u;
   _impl_.party_competitive_games_played_ = value;
 }
 inline void CSODOTAGameAccountClient::set_party_competitive_games_played(uint32_t value) {
@@ -39951,7 +40037,7 @@ inline void CSODOTAGameAccountClient::set_party_competitive_games_played(uint32_
 
 // optional uint32 casual_1v1_games_played = 65;
 inline bool CSODOTAGameAccountClient::_internal_has_casual_1v1_games_played() const {
-  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_casual_1v1_games_played() const {
@@ -39959,7 +40045,7 @@ inline bool CSODOTAGameAccountClient::has_casual_1v1_games_played() const {
 }
 inline void CSODOTAGameAccountClient::clear_casual_1v1_games_played() {
   _impl_.casual_1v1_games_played_ = 0u;
-  _impl_._has_bits_[0] &= ~0x10000000u;
+  _impl_._has_bits_[0] &= ~0x40000000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_casual_1v1_games_played() const {
   return _impl_.casual_1v1_games_played_;
@@ -39969,7 +40055,7 @@ inline uint32_t CSODOTAGameAccountClient::casual_1v1_games_played() const {
   return _internal_casual_1v1_games_played();
 }
 inline void CSODOTAGameAccountClient::_internal_set_casual_1v1_games_played(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x10000000u;
+  _impl_._has_bits_[0] |= 0x40000000u;
   _impl_.casual_1v1_games_played_ = value;
 }
 inline void CSODOTAGameAccountClient::set_casual_1v1_games_played(uint32_t value) {
@@ -39979,7 +40065,7 @@ inline void CSODOTAGameAccountClient::set_casual_1v1_games_played(uint32_t value
 
 // optional uint32 curr_all_hero_challenge_id = 67;
 inline bool CSODOTAGameAccountClient::_internal_has_curr_all_hero_challenge_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_curr_all_hero_challenge_id() const {
@@ -39987,7 +40073,7 @@ inline bool CSODOTAGameAccountClient::has_curr_all_hero_challenge_id() const {
 }
 inline void CSODOTAGameAccountClient::clear_curr_all_hero_challenge_id() {
   _impl_.curr_all_hero_challenge_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x20000000u;
+  _impl_._has_bits_[0] &= ~0x80000000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_curr_all_hero_challenge_id() const {
   return _impl_.curr_all_hero_challenge_id_;
@@ -39997,7 +40083,7 @@ inline uint32_t CSODOTAGameAccountClient::curr_all_hero_challenge_id() const {
   return _internal_curr_all_hero_challenge_id();
 }
 inline void CSODOTAGameAccountClient::_internal_set_curr_all_hero_challenge_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x20000000u;
+  _impl_._has_bits_[0] |= 0x80000000u;
   _impl_.curr_all_hero_challenge_id_ = value;
 }
 inline void CSODOTAGameAccountClient::set_curr_all_hero_challenge_id(uint32_t value) {
@@ -40007,7 +40093,7 @@ inline void CSODOTAGameAccountClient::set_curr_all_hero_challenge_id(uint32_t va
 
 // optional uint32 play_time_points = 68;
 inline bool CSODOTAGameAccountClient::_internal_has_play_time_points() const {
-  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_play_time_points() const {
@@ -40015,7 +40101,7 @@ inline bool CSODOTAGameAccountClient::has_play_time_points() const {
 }
 inline void CSODOTAGameAccountClient::clear_play_time_points() {
   _impl_.play_time_points_ = 0u;
-  _impl_._has_bits_[0] &= ~0x40000000u;
+  _impl_._has_bits_[1] &= ~0x00000001u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_play_time_points() const {
   return _impl_.play_time_points_;
@@ -40025,7 +40111,7 @@ inline uint32_t CSODOTAGameAccountClient::play_time_points() const {
   return _internal_play_time_points();
 }
 inline void CSODOTAGameAccountClient::_internal_set_play_time_points(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x40000000u;
+  _impl_._has_bits_[1] |= 0x00000001u;
   _impl_.play_time_points_ = value;
 }
 inline void CSODOTAGameAccountClient::set_play_time_points(uint32_t value) {
@@ -40035,7 +40121,7 @@ inline void CSODOTAGameAccountClient::set_play_time_points(uint32_t value) {
 
 // optional uint32 account_flags = 69;
 inline bool CSODOTAGameAccountClient::_internal_has_account_flags() const {
-  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_account_flags() const {
@@ -40043,7 +40129,7 @@ inline bool CSODOTAGameAccountClient::has_account_flags() const {
 }
 inline void CSODOTAGameAccountClient::clear_account_flags() {
   _impl_.account_flags_ = 0u;
-  _impl_._has_bits_[0] &= ~0x80000000u;
+  _impl_._has_bits_[1] &= ~0x00000002u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_account_flags() const {
   return _impl_.account_flags_;
@@ -40053,7 +40139,7 @@ inline uint32_t CSODOTAGameAccountClient::account_flags() const {
   return _internal_account_flags();
 }
 inline void CSODOTAGameAccountClient::_internal_set_account_flags(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x80000000u;
+  _impl_._has_bits_[1] |= 0x00000002u;
   _impl_.account_flags_ = value;
 }
 inline void CSODOTAGameAccountClient::set_account_flags(uint32_t value) {
@@ -40063,7 +40149,7 @@ inline void CSODOTAGameAccountClient::set_account_flags(uint32_t value) {
 
 // optional uint32 play_time_level = 70;
 inline bool CSODOTAGameAccountClient::_internal_has_play_time_level() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_play_time_level() const {
@@ -40071,7 +40157,7 @@ inline bool CSODOTAGameAccountClient::has_play_time_level() const {
 }
 inline void CSODOTAGameAccountClient::clear_play_time_level() {
   _impl_.play_time_level_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000001u;
+  _impl_._has_bits_[1] &= ~0x00000004u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_play_time_level() const {
   return _impl_.play_time_level_;
@@ -40081,7 +40167,7 @@ inline uint32_t CSODOTAGameAccountClient::play_time_level() const {
   return _internal_play_time_level();
 }
 inline void CSODOTAGameAccountClient::_internal_set_play_time_level(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000001u;
+  _impl_._has_bits_[1] |= 0x00000004u;
   _impl_.play_time_level_ = value;
 }
 inline void CSODOTAGameAccountClient::set_play_time_level(uint32_t value) {
@@ -40091,7 +40177,7 @@ inline void CSODOTAGameAccountClient::set_play_time_level(uint32_t value) {
 
 // optional uint32 player_behavior_seq_num_last_report = 71;
 inline bool CSODOTAGameAccountClient::_internal_has_player_behavior_seq_num_last_report() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_player_behavior_seq_num_last_report() const {
@@ -40099,7 +40185,7 @@ inline bool CSODOTAGameAccountClient::has_player_behavior_seq_num_last_report() 
 }
 inline void CSODOTAGameAccountClient::clear_player_behavior_seq_num_last_report() {
   _impl_.player_behavior_seq_num_last_report_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000002u;
+  _impl_._has_bits_[1] &= ~0x00000008u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_player_behavior_seq_num_last_report() const {
   return _impl_.player_behavior_seq_num_last_report_;
@@ -40109,7 +40195,7 @@ inline uint32_t CSODOTAGameAccountClient::player_behavior_seq_num_last_report() 
   return _internal_player_behavior_seq_num_last_report();
 }
 inline void CSODOTAGameAccountClient::_internal_set_player_behavior_seq_num_last_report(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000002u;
+  _impl_._has_bits_[1] |= 0x00000008u;
   _impl_.player_behavior_seq_num_last_report_ = value;
 }
 inline void CSODOTAGameAccountClient::set_player_behavior_seq_num_last_report(uint32_t value) {
@@ -40119,7 +40205,7 @@ inline void CSODOTAGameAccountClient::set_player_behavior_seq_num_last_report(ui
 
 // optional uint32 player_behavior_score_last_report = 72;
 inline bool CSODOTAGameAccountClient::_internal_has_player_behavior_score_last_report() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000010u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_player_behavior_score_last_report() const {
@@ -40127,7 +40213,7 @@ inline bool CSODOTAGameAccountClient::has_player_behavior_score_last_report() co
 }
 inline void CSODOTAGameAccountClient::clear_player_behavior_score_last_report() {
   _impl_.player_behavior_score_last_report_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000004u;
+  _impl_._has_bits_[1] &= ~0x00000010u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_player_behavior_score_last_report() const {
   return _impl_.player_behavior_score_last_report_;
@@ -40137,7 +40223,7 @@ inline uint32_t CSODOTAGameAccountClient::player_behavior_score_last_report() co
   return _internal_player_behavior_score_last_report();
 }
 inline void CSODOTAGameAccountClient::_internal_set_player_behavior_score_last_report(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000004u;
+  _impl_._has_bits_[1] |= 0x00000010u;
   _impl_.player_behavior_score_last_report_ = value;
 }
 inline void CSODOTAGameAccountClient::set_player_behavior_score_last_report(uint32_t value) {
@@ -40147,7 +40233,7 @@ inline void CSODOTAGameAccountClient::set_player_behavior_score_last_report(uint
 
 // optional bool player_behavior_report_old_data = 73;
 inline bool CSODOTAGameAccountClient::_internal_has_player_behavior_report_old_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_player_behavior_report_old_data() const {
@@ -40155,7 +40241,7 @@ inline bool CSODOTAGameAccountClient::has_player_behavior_report_old_data() cons
 }
 inline void CSODOTAGameAccountClient::clear_player_behavior_report_old_data() {
   _impl_.player_behavior_report_old_data_ = false;
-  _impl_._has_bits_[0] &= ~0x08000000u;
+  _impl_._has_bits_[0] &= ~0x20000000u;
 }
 inline bool CSODOTAGameAccountClient::_internal_player_behavior_report_old_data() const {
   return _impl_.player_behavior_report_old_data_;
@@ -40165,7 +40251,7 @@ inline bool CSODOTAGameAccountClient::player_behavior_report_old_data() const {
   return _internal_player_behavior_report_old_data();
 }
 inline void CSODOTAGameAccountClient::_internal_set_player_behavior_report_old_data(bool value) {
-  _impl_._has_bits_[0] |= 0x08000000u;
+  _impl_._has_bits_[0] |= 0x20000000u;
   _impl_.player_behavior_report_old_data_ = value;
 }
 inline void CSODOTAGameAccountClient::set_player_behavior_report_old_data(bool value) {
@@ -40175,7 +40261,7 @@ inline void CSODOTAGameAccountClient::set_player_behavior_report_old_data(bool v
 
 // optional uint32 tourney_skill_level = 74;
 inline bool CSODOTAGameAccountClient::_internal_has_tourney_skill_level() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_tourney_skill_level() const {
@@ -40183,7 +40269,7 @@ inline bool CSODOTAGameAccountClient::has_tourney_skill_level() const {
 }
 inline void CSODOTAGameAccountClient::clear_tourney_skill_level() {
   _impl_.tourney_skill_level_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000008u;
+  _impl_._has_bits_[1] &= ~0x00000020u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_tourney_skill_level() const {
   return _impl_.tourney_skill_level_;
@@ -40193,7 +40279,7 @@ inline uint32_t CSODOTAGameAccountClient::tourney_skill_level() const {
   return _internal_tourney_skill_level();
 }
 inline void CSODOTAGameAccountClient::_internal_set_tourney_skill_level(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000008u;
+  _impl_._has_bits_[1] |= 0x00000020u;
   _impl_.tourney_skill_level_ = value;
 }
 inline void CSODOTAGameAccountClient::set_tourney_skill_level(uint32_t value) {
@@ -40203,7 +40289,7 @@ inline void CSODOTAGameAccountClient::set_tourney_skill_level(uint32_t value) {
 
 // optional uint32 tourney_recent_participation_date = 85;
 inline bool CSODOTAGameAccountClient::_internal_has_tourney_recent_participation_date() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000040u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_tourney_recent_participation_date() const {
@@ -40211,7 +40297,7 @@ inline bool CSODOTAGameAccountClient::has_tourney_recent_participation_date() co
 }
 inline void CSODOTAGameAccountClient::clear_tourney_recent_participation_date() {
   _impl_.tourney_recent_participation_date_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000010u;
+  _impl_._has_bits_[1] &= ~0x00000040u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_tourney_recent_participation_date() const {
   return _impl_.tourney_recent_participation_date_;
@@ -40221,7 +40307,7 @@ inline uint32_t CSODOTAGameAccountClient::tourney_recent_participation_date() co
   return _internal_tourney_recent_participation_date();
 }
 inline void CSODOTAGameAccountClient::_internal_set_tourney_recent_participation_date(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000010u;
+  _impl_._has_bits_[1] |= 0x00000040u;
   _impl_.tourney_recent_participation_date_ = value;
 }
 inline void CSODOTAGameAccountClient::set_tourney_recent_participation_date(uint32_t value) {
@@ -40231,7 +40317,7 @@ inline void CSODOTAGameAccountClient::set_tourney_recent_participation_date(uint
 
 // optional uint64 anchored_phone_number_id = 88;
 inline bool CSODOTAGameAccountClient::_internal_has_anchored_phone_number_id() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000100u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_anchored_phone_number_id() const {
@@ -40239,7 +40325,7 @@ inline bool CSODOTAGameAccountClient::has_anchored_phone_number_id() const {
 }
 inline void CSODOTAGameAccountClient::clear_anchored_phone_number_id() {
   _impl_.anchored_phone_number_id_ = uint64_t{0u};
-  _impl_._has_bits_[1] &= ~0x00000040u;
+  _impl_._has_bits_[1] &= ~0x00000100u;
 }
 inline uint64_t CSODOTAGameAccountClient::_internal_anchored_phone_number_id() const {
   return _impl_.anchored_phone_number_id_;
@@ -40249,7 +40335,7 @@ inline uint64_t CSODOTAGameAccountClient::anchored_phone_number_id() const {
   return _internal_anchored_phone_number_id();
 }
 inline void CSODOTAGameAccountClient::_internal_set_anchored_phone_number_id(uint64_t value) {
-  _impl_._has_bits_[1] |= 0x00000040u;
+  _impl_._has_bits_[1] |= 0x00000100u;
   _impl_.anchored_phone_number_id_ = value;
 }
 inline void CSODOTAGameAccountClient::set_anchored_phone_number_id(uint64_t value) {
@@ -40259,7 +40345,7 @@ inline void CSODOTAGameAccountClient::set_anchored_phone_number_id(uint64_t valu
 
 // optional uint32 ranked_matchmaking_ban_until_date = 89;
 inline bool CSODOTAGameAccountClient::_internal_has_ranked_matchmaking_ban_until_date() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000200u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_ranked_matchmaking_ban_until_date() const {
@@ -40267,7 +40353,7 @@ inline bool CSODOTAGameAccountClient::has_ranked_matchmaking_ban_until_date() co
 }
 inline void CSODOTAGameAccountClient::clear_ranked_matchmaking_ban_until_date() {
   _impl_.ranked_matchmaking_ban_until_date_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000080u;
+  _impl_._has_bits_[1] &= ~0x00000200u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_ranked_matchmaking_ban_until_date() const {
   return _impl_.ranked_matchmaking_ban_until_date_;
@@ -40277,7 +40363,7 @@ inline uint32_t CSODOTAGameAccountClient::ranked_matchmaking_ban_until_date() co
   return _internal_ranked_matchmaking_ban_until_date();
 }
 inline void CSODOTAGameAccountClient::_internal_set_ranked_matchmaking_ban_until_date(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000080u;
+  _impl_._has_bits_[1] |= 0x00000200u;
   _impl_.ranked_matchmaking_ban_until_date_ = value;
 }
 inline void CSODOTAGameAccountClient::set_ranked_matchmaking_ban_until_date(uint32_t value) {
@@ -40287,7 +40373,7 @@ inline void CSODOTAGameAccountClient::set_ranked_matchmaking_ban_until_date(uint
 
 // optional uint32 recent_game_time_1 = 90;
 inline bool CSODOTAGameAccountClient::_internal_has_recent_game_time_1() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000400u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_recent_game_time_1() const {
@@ -40295,7 +40381,7 @@ inline bool CSODOTAGameAccountClient::has_recent_game_time_1() const {
 }
 inline void CSODOTAGameAccountClient::clear_recent_game_time_1() {
   _impl_.recent_game_time_1_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000100u;
+  _impl_._has_bits_[1] &= ~0x00000400u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_recent_game_time_1() const {
   return _impl_.recent_game_time_1_;
@@ -40305,7 +40391,7 @@ inline uint32_t CSODOTAGameAccountClient::recent_game_time_1() const {
   return _internal_recent_game_time_1();
 }
 inline void CSODOTAGameAccountClient::_internal_set_recent_game_time_1(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000100u;
+  _impl_._has_bits_[1] |= 0x00000400u;
   _impl_.recent_game_time_1_ = value;
 }
 inline void CSODOTAGameAccountClient::set_recent_game_time_1(uint32_t value) {
@@ -40315,7 +40401,7 @@ inline void CSODOTAGameAccountClient::set_recent_game_time_1(uint32_t value) {
 
 // optional uint32 recent_game_time_2 = 91;
 inline bool CSODOTAGameAccountClient::_internal_has_recent_game_time_2() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000200u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000800u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_recent_game_time_2() const {
@@ -40323,7 +40409,7 @@ inline bool CSODOTAGameAccountClient::has_recent_game_time_2() const {
 }
 inline void CSODOTAGameAccountClient::clear_recent_game_time_2() {
   _impl_.recent_game_time_2_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000200u;
+  _impl_._has_bits_[1] &= ~0x00000800u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_recent_game_time_2() const {
   return _impl_.recent_game_time_2_;
@@ -40333,7 +40419,7 @@ inline uint32_t CSODOTAGameAccountClient::recent_game_time_2() const {
   return _internal_recent_game_time_2();
 }
 inline void CSODOTAGameAccountClient::_internal_set_recent_game_time_2(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000200u;
+  _impl_._has_bits_[1] |= 0x00000800u;
   _impl_.recent_game_time_2_ = value;
 }
 inline void CSODOTAGameAccountClient::set_recent_game_time_2(uint32_t value) {
@@ -40343,7 +40429,7 @@ inline void CSODOTAGameAccountClient::set_recent_game_time_2(uint32_t value) {
 
 // optional uint32 recent_game_time_3 = 92;
 inline bool CSODOTAGameAccountClient::_internal_has_recent_game_time_3() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000400u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00001000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_recent_game_time_3() const {
@@ -40351,7 +40437,7 @@ inline bool CSODOTAGameAccountClient::has_recent_game_time_3() const {
 }
 inline void CSODOTAGameAccountClient::clear_recent_game_time_3() {
   _impl_.recent_game_time_3_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000400u;
+  _impl_._has_bits_[1] &= ~0x00001000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_recent_game_time_3() const {
   return _impl_.recent_game_time_3_;
@@ -40361,7 +40447,7 @@ inline uint32_t CSODOTAGameAccountClient::recent_game_time_3() const {
   return _internal_recent_game_time_3();
 }
 inline void CSODOTAGameAccountClient::_internal_set_recent_game_time_3(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000400u;
+  _impl_._has_bits_[1] |= 0x00001000u;
   _impl_.recent_game_time_3_ = value;
 }
 inline void CSODOTAGameAccountClient::set_recent_game_time_3(uint32_t value) {
@@ -40371,7 +40457,7 @@ inline void CSODOTAGameAccountClient::set_recent_game_time_3(uint32_t value) {
 
 // optional uint64 favorite_team_packed = 103;
 inline bool CSODOTAGameAccountClient::_internal_has_favorite_team_packed() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000800u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00002000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_favorite_team_packed() const {
@@ -40379,7 +40465,7 @@ inline bool CSODOTAGameAccountClient::has_favorite_team_packed() const {
 }
 inline void CSODOTAGameAccountClient::clear_favorite_team_packed() {
   _impl_.favorite_team_packed_ = uint64_t{0u};
-  _impl_._has_bits_[1] &= ~0x00000800u;
+  _impl_._has_bits_[1] &= ~0x00002000u;
 }
 inline uint64_t CSODOTAGameAccountClient::_internal_favorite_team_packed() const {
   return _impl_.favorite_team_packed_;
@@ -40389,7 +40475,7 @@ inline uint64_t CSODOTAGameAccountClient::favorite_team_packed() const {
   return _internal_favorite_team_packed();
 }
 inline void CSODOTAGameAccountClient::_internal_set_favorite_team_packed(uint64_t value) {
-  _impl_._has_bits_[1] |= 0x00000800u;
+  _impl_._has_bits_[1] |= 0x00002000u;
   _impl_.favorite_team_packed_ = value;
 }
 inline void CSODOTAGameAccountClient::set_favorite_team_packed(uint64_t value) {
@@ -40399,7 +40485,7 @@ inline void CSODOTAGameAccountClient::set_favorite_team_packed(uint64_t value) {
 
 // optional uint32 recent_report_time = 104;
 inline bool CSODOTAGameAccountClient::_internal_has_recent_report_time() const {
-  bool value = (_impl_._has_bits_[1] & 0x00001000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00004000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_recent_report_time() const {
@@ -40407,7 +40493,7 @@ inline bool CSODOTAGameAccountClient::has_recent_report_time() const {
 }
 inline void CSODOTAGameAccountClient::clear_recent_report_time() {
   _impl_.recent_report_time_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00001000u;
+  _impl_._has_bits_[1] &= ~0x00004000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_recent_report_time() const {
   return _impl_.recent_report_time_;
@@ -40417,7 +40503,7 @@ inline uint32_t CSODOTAGameAccountClient::recent_report_time() const {
   return _internal_recent_report_time();
 }
 inline void CSODOTAGameAccountClient::_internal_set_recent_report_time(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00001000u;
+  _impl_._has_bits_[1] |= 0x00004000u;
   _impl_.recent_report_time_ = value;
 }
 inline void CSODOTAGameAccountClient::set_recent_report_time(uint32_t value) {
@@ -40427,7 +40513,7 @@ inline void CSODOTAGameAccountClient::set_recent_report_time(uint32_t value) {
 
 // optional uint32 custom_game_disabled_until_date = 105;
 inline bool CSODOTAGameAccountClient::_internal_has_custom_game_disabled_until_date() const {
-  bool value = (_impl_._has_bits_[1] & 0x00002000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00008000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_custom_game_disabled_until_date() const {
@@ -40435,7 +40521,7 @@ inline bool CSODOTAGameAccountClient::has_custom_game_disabled_until_date() cons
 }
 inline void CSODOTAGameAccountClient::clear_custom_game_disabled_until_date() {
   _impl_.custom_game_disabled_until_date_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00002000u;
+  _impl_._has_bits_[1] &= ~0x00008000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_custom_game_disabled_until_date() const {
   return _impl_.custom_game_disabled_until_date_;
@@ -40445,7 +40531,7 @@ inline uint32_t CSODOTAGameAccountClient::custom_game_disabled_until_date() cons
   return _internal_custom_game_disabled_until_date();
 }
 inline void CSODOTAGameAccountClient::_internal_set_custom_game_disabled_until_date(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00002000u;
+  _impl_._has_bits_[1] |= 0x00008000u;
   _impl_.custom_game_disabled_until_date_ = value;
 }
 inline void CSODOTAGameAccountClient::set_custom_game_disabled_until_date(uint32_t value) {
@@ -40455,7 +40541,7 @@ inline void CSODOTAGameAccountClient::set_custom_game_disabled_until_date(uint32
 
 // optional uint32 recent_win_time_1 = 106;
 inline bool CSODOTAGameAccountClient::_internal_has_recent_win_time_1() const {
-  bool value = (_impl_._has_bits_[1] & 0x00004000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00010000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_recent_win_time_1() const {
@@ -40463,7 +40549,7 @@ inline bool CSODOTAGameAccountClient::has_recent_win_time_1() const {
 }
 inline void CSODOTAGameAccountClient::clear_recent_win_time_1() {
   _impl_.recent_win_time_1_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00004000u;
+  _impl_._has_bits_[1] &= ~0x00010000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_recent_win_time_1() const {
   return _impl_.recent_win_time_1_;
@@ -40473,7 +40559,7 @@ inline uint32_t CSODOTAGameAccountClient::recent_win_time_1() const {
   return _internal_recent_win_time_1();
 }
 inline void CSODOTAGameAccountClient::_internal_set_recent_win_time_1(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00004000u;
+  _impl_._has_bits_[1] |= 0x00010000u;
   _impl_.recent_win_time_1_ = value;
 }
 inline void CSODOTAGameAccountClient::set_recent_win_time_1(uint32_t value) {
@@ -40483,7 +40569,7 @@ inline void CSODOTAGameAccountClient::set_recent_win_time_1(uint32_t value) {
 
 // optional uint32 recent_win_time_2 = 107;
 inline bool CSODOTAGameAccountClient::_internal_has_recent_win_time_2() const {
-  bool value = (_impl_._has_bits_[1] & 0x00008000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00020000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_recent_win_time_2() const {
@@ -40491,7 +40577,7 @@ inline bool CSODOTAGameAccountClient::has_recent_win_time_2() const {
 }
 inline void CSODOTAGameAccountClient::clear_recent_win_time_2() {
   _impl_.recent_win_time_2_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00008000u;
+  _impl_._has_bits_[1] &= ~0x00020000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_recent_win_time_2() const {
   return _impl_.recent_win_time_2_;
@@ -40501,7 +40587,7 @@ inline uint32_t CSODOTAGameAccountClient::recent_win_time_2() const {
   return _internal_recent_win_time_2();
 }
 inline void CSODOTAGameAccountClient::_internal_set_recent_win_time_2(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00008000u;
+  _impl_._has_bits_[1] |= 0x00020000u;
   _impl_.recent_win_time_2_ = value;
 }
 inline void CSODOTAGameAccountClient::set_recent_win_time_2(uint32_t value) {
@@ -40511,7 +40597,7 @@ inline void CSODOTAGameAccountClient::set_recent_win_time_2(uint32_t value) {
 
 // optional uint32 recent_win_time_3 = 108;
 inline bool CSODOTAGameAccountClient::_internal_has_recent_win_time_3() const {
-  bool value = (_impl_._has_bits_[1] & 0x00010000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00040000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_recent_win_time_3() const {
@@ -40519,7 +40605,7 @@ inline bool CSODOTAGameAccountClient::has_recent_win_time_3() const {
 }
 inline void CSODOTAGameAccountClient::clear_recent_win_time_3() {
   _impl_.recent_win_time_3_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00010000u;
+  _impl_._has_bits_[1] &= ~0x00040000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_recent_win_time_3() const {
   return _impl_.recent_win_time_3_;
@@ -40529,7 +40615,7 @@ inline uint32_t CSODOTAGameAccountClient::recent_win_time_3() const {
   return _internal_recent_win_time_3();
 }
 inline void CSODOTAGameAccountClient::_internal_set_recent_win_time_3(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00010000u;
+  _impl_._has_bits_[1] |= 0x00040000u;
   _impl_.recent_win_time_3_ = value;
 }
 inline void CSODOTAGameAccountClient::set_recent_win_time_3(uint32_t value) {
@@ -40539,7 +40625,7 @@ inline void CSODOTAGameAccountClient::set_recent_win_time_3(uint32_t value) {
 
 // optional uint32 coach_rating = 109;
 inline bool CSODOTAGameAccountClient::_internal_has_coach_rating() const {
-  bool value = (_impl_._has_bits_[1] & 0x00020000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00080000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_coach_rating() const {
@@ -40547,7 +40633,7 @@ inline bool CSODOTAGameAccountClient::has_coach_rating() const {
 }
 inline void CSODOTAGameAccountClient::clear_coach_rating() {
   _impl_.coach_rating_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00020000u;
+  _impl_._has_bits_[1] &= ~0x00080000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_coach_rating() const {
   return _impl_.coach_rating_;
@@ -40557,7 +40643,7 @@ inline uint32_t CSODOTAGameAccountClient::coach_rating() const {
   return _internal_coach_rating();
 }
 inline void CSODOTAGameAccountClient::_internal_set_coach_rating(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00020000u;
+  _impl_._has_bits_[1] |= 0x00080000u;
   _impl_.coach_rating_ = value;
 }
 inline void CSODOTAGameAccountClient::set_coach_rating(uint32_t value) {
@@ -40567,7 +40653,7 @@ inline void CSODOTAGameAccountClient::set_coach_rating(uint32_t value) {
 
 // optional uint32 queue_points = 114;
 inline bool CSODOTAGameAccountClient::_internal_has_queue_points() const {
-  bool value = (_impl_._has_bits_[1] & 0x00040000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00100000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_queue_points() const {
@@ -40575,7 +40661,7 @@ inline bool CSODOTAGameAccountClient::has_queue_points() const {
 }
 inline void CSODOTAGameAccountClient::clear_queue_points() {
   _impl_.queue_points_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00040000u;
+  _impl_._has_bits_[1] &= ~0x00100000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_queue_points() const {
   return _impl_.queue_points_;
@@ -40585,7 +40671,7 @@ inline uint32_t CSODOTAGameAccountClient::queue_points() const {
   return _internal_queue_points();
 }
 inline void CSODOTAGameAccountClient::_internal_set_queue_points(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00040000u;
+  _impl_._has_bits_[1] |= 0x00100000u;
   _impl_.queue_points_ = value;
 }
 inline void CSODOTAGameAccountClient::set_queue_points(uint32_t value) {
@@ -40635,7 +40721,7 @@ CSODOTAGameAccountClient::role_handicaps() const {
 
 // optional uint32 event_mode_recent_time = 120;
 inline bool CSODOTAGameAccountClient::_internal_has_event_mode_recent_time() const {
-  bool value = (_impl_._has_bits_[1] & 0x00080000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00200000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_event_mode_recent_time() const {
@@ -40643,7 +40729,7 @@ inline bool CSODOTAGameAccountClient::has_event_mode_recent_time() const {
 }
 inline void CSODOTAGameAccountClient::clear_event_mode_recent_time() {
   _impl_.event_mode_recent_time_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00080000u;
+  _impl_._has_bits_[1] &= ~0x00200000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_event_mode_recent_time() const {
   return _impl_.event_mode_recent_time_;
@@ -40653,7 +40739,7 @@ inline uint32_t CSODOTAGameAccountClient::event_mode_recent_time() const {
   return _internal_event_mode_recent_time();
 }
 inline void CSODOTAGameAccountClient::_internal_set_event_mode_recent_time(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00080000u;
+  _impl_._has_bits_[1] |= 0x00200000u;
   _impl_.event_mode_recent_time_ = value;
 }
 inline void CSODOTAGameAccountClient::set_event_mode_recent_time(uint32_t value) {
@@ -40663,7 +40749,7 @@ inline void CSODOTAGameAccountClient::set_event_mode_recent_time(uint32_t value)
 
 // optional uint32 mmr_recalibration_time = 121;
 inline bool CSODOTAGameAccountClient::_internal_has_mmr_recalibration_time() const {
-  bool value = (_impl_._has_bits_[1] & 0x00100000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00400000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_mmr_recalibration_time() const {
@@ -40671,7 +40757,7 @@ inline bool CSODOTAGameAccountClient::has_mmr_recalibration_time() const {
 }
 inline void CSODOTAGameAccountClient::clear_mmr_recalibration_time() {
   _impl_.mmr_recalibration_time_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00100000u;
+  _impl_._has_bits_[1] &= ~0x00400000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_mmr_recalibration_time() const {
   return _impl_.mmr_recalibration_time_;
@@ -40681,7 +40767,7 @@ inline uint32_t CSODOTAGameAccountClient::mmr_recalibration_time() const {
   return _internal_mmr_recalibration_time();
 }
 inline void CSODOTAGameAccountClient::_internal_set_mmr_recalibration_time(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00100000u;
+  _impl_._has_bits_[1] |= 0x00400000u;
   _impl_.mmr_recalibration_time_ = value;
 }
 inline void CSODOTAGameAccountClient::set_mmr_recalibration_time(uint32_t value) {

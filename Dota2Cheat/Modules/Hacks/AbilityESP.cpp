@@ -66,130 +66,129 @@ void ESP::AbilityESP::DrawAbilities() {
 	auto DrawList = ImGui::GetForegroundDrawList();
 
 	for (auto& [hero, abilities] : EnemyAbilities) {
-		if (!CanDraw(hero))
-			continue;
+		if ( CanDraw( hero ) ) {
 
-		int abilityCount = 0;
-		for (auto& data : abilities)
-			if (data.ability)
-				++abilityCount;
+			int abilityCount = 0;
+			for ( auto& data : abilities )
+				if ( data.ability )
+					++abilityCount;
 
-		auto drawPos = hero->GetPos();
+			auto drawPos = hero->GetPos( );
 
-		drawPos.x = (int)(drawPos.x * 100) / 100.0f;
-		drawPos.y = (int)(drawPos.y * 100) / 100.0f;
+			drawPos.x = (int)( drawPos.x * 100 ) / 100.0f;
+			drawPos.y = (int)( drawPos.y * 100 ) / 100.0f;
 
-		int x, y;
-		Signatures::WorldToScreen(&drawPos, &x, &y, nullptr);
-		x -= (abilityCount - 1) * iconSize / 2.0f;
-		y += 30;
+			int x, y;
+			Signatures::WorldToScreen( &drawPos, &x, &y, nullptr );
+			x -= ( abilityCount - 1 ) * iconSize / 2.0f;
+			y += 30;
 
-		int idx = 0;
+			int idx = 0;
 
-		for (auto& data : abilities) {
-			if (!data.ability)
-				continue;
+			for ( auto& data : abilities ) {
+				if ( data.ability ) {
 
-			if (!data.icon)
-				data.icon = texManager.GetNamedTexture(data.ability->GetIdentity()->GetName());
+					if ( !data.icon )
+						data.icon = texManager.GetNamedTexture( data.ability->GetIdentity( )->GetName( ) );
 
-			// Top-Left and Bottom-Right points of ability icon
-			ImVec2 imgXY1, imgXY2, imgCenter;
-			int centeringOffset = -outlineThickness + iconSize / 2;
-			{
-				int idxOffset = idx * iconSize;
-				imgXY1 = { float(x - centeringOffset + idxOffset), float(y - centeringOffset) };
-				imgXY2 = { float(x + centeringOffset + idxOffset), float(y + centeringOffset) };
-				imgCenter = imgXY1 + ImVec2(centeringOffset, centeringOffset);
+					// Top-Left and Bottom-Right points of ability icon
+					ImVec2 imgXY1, imgXY2, imgCenter;
+					int centeringOffset = -outlineThickness + iconSize / 2;
+					{
+						int idxOffset = idx * iconSize;
+						imgXY1 = { float( x - centeringOffset + idxOffset ), float( y - centeringOffset ) };
+						imgXY2 = { float( x + centeringOffset + idxOffset ), float( y + centeringOffset ) };
+						imgCenter = imgXY1 + ImVec2( centeringOffset, centeringOffset );
+					}
+
+					DrawList->AddRectFilled(
+						imgXY1 - outlineSize / 2,
+						imgXY2 + outlineSize / 2,
+						ImGui::GetColorU32( ImVec4( 0, 0, 0, 1 ) ) );
+
+					if ( data.ability->Member<bool>( Netvars::C_DOTABaseAbility::m_bAutoCastState ) )
+						DrawList->AddRectFilled(
+							imgXY1 - outlineSize,
+							imgXY2 + outlineSize,
+							ImGui::GetColorU32( ImVec4( 255.0f / 255, 191.0f / 255, 0, 1 ) ) );
+
+					if ( data.ability->IsToggled( ) )
+						DrawList->AddRectFilled(
+							imgXY1 - outlineSize,
+							imgXY2 + outlineSize,
+							ImGui::GetColorU32( ImVec4( 0x3 / 255.0f, 0xAC / 255.0f, 0x13 / 255.0f, 1 ) ) );
+
+					DrawList->AddImage( data.icon, imgXY1, imgXY2 );
+
+					if ( data.ability->GetLevel( ) == 0 )
+						// Darkens the picture
+						DrawList->AddRectFilled( imgXY1, imgXY2, ImGui::GetColorU32( ImVec4( 0, 0, 0, 0.5 ) ) );
+
+					if (
+						data.ability->GetCooldown( ) != 0 || // if on cooldown
+						( data.ability->GetCharges( ) == 0 && // or has 0 charges and a charge cooldown
+						data.ability->GetChargeRestoreCooldown( ) > 0 )
+						) {
+						auto cd = data.ability->GetCooldown( ) // choosing either of these cooldowns, since they're mutually exclusive
+							? data.ability->GetCooldown( )
+							: data.ability->GetChargeRestoreCooldown( );
+
+						int cdFontSize = iconSize - ScaleVar( 12 );
+						bool decimals = Config::AbilityESP::ShowCooldownDecimals;
+						// Darkens the picture
+						DrawList->AddRectFilled( imgXY1, imgXY2, ImGui::GetColorU32( ImVec4( 0, 0, 0, 0.5 ) ) );
+						if ( data.ability->GetCooldown( ) >= 100 )
+							decimals = false;
+
+						if ( decimals )
+							cdFontSize = iconSize - ScaleVar( 16 );
+
+						// Draws the cooldown
+						DrawTextForeground( textFont,
+											std::vformat( decimals ? "{:.1f}" : "{:.0f}", std::make_format_args( cd ) ),
+											ImVec2( imgXY1.x + centeringOffset, imgXY1.y + ( iconSize - cdFontSize ) / 2 ),
+											cdFontSize,
+											ImVec4( 1, 1, 1, 1 ),
+											true );
+					}
+					if ( data.ability->GetCharges( ) ||
+						 ( data.ability->GetCharges( ) == 0 &&
+						 data.ability->GetChargeRestoreCooldown( ) >= 0 ) )
+						DrawChargeCounter( data.ability->GetCharges( ), imgXY1, ScaleVar( 8 ) );
+
+					if ( const auto channelTime = data.ability->Member<float>( Netvars::C_DOTABaseAbility::m_flChannelStartTime ); channelTime != 0 ) {
+						float indicatorHeight = ScaleVar( 4 );
+						auto channelLength = data.ability->GetLevelSpecialValueFor( "AbilityChannelTime" );
+						int fontSize = ScaleVar( 18 );
+						DrawTextForeground( textFont,
+											std::format( "{:.1f}", channelLength - ( GameSystems::GameRules->GetGameTime( ) - channelTime ) ),
+											ImVec2( imgXY1.x + centeringOffset, imgXY1.y - fontSize - 2 - indicatorHeight ),
+											fontSize,
+											ImVec4( 1, 1, 1, 1 ),
+											true );
+						float indicatorWidth = abs( imgXY2.x - imgXY1.x ) * ( 1 - ( ( GameSystems::GameRules->GetGameTime( ) - channelTime ) / channelLength ) );
+						DrawList->AddRectFilled(
+							ImVec2( imgXY1.x, imgXY1.y - indicatorHeight ),
+							ImVec2( imgXY1.x + indicatorWidth, imgXY1.y ), ImGui::GetColorU32( ImVec4( 1, 1, 1, 0.7 ) ) );
+					}
+					// If it's being cast
+					else if ( data.ability->Member<bool>( Netvars::C_DOTABaseAbility::m_bInAbilityPhase ) ) {
+						auto castPoint = data.ability->GetLevelSpecialValueFor( "AbilityCastPoint" );
+						float castStartTime = data.ability->Member<float>( Netvars::C_DOTABaseAbility::m_flCastStartTime );
+						int fontSize = ScaleVar( 18 );
+						float indicatorWidthFactor = abs( imgXY1.x - imgXY2.x ) * ( ( GameSystems::GameRules->GetGameTime( ) - castStartTime ) / castPoint );
+						DrawList->AddRectFilled( imgXY1, ImVec2( imgXY1.x + indicatorWidthFactor, imgXY2.y ), ImGui::GetColorU32( ImVec4( 0, 1, 0, 0.5 ) ) );
+						DrawTextForeground( textFont,
+											std::format( "{:.1f}", castPoint - ( GameSystems::GameRules->GetGameTime( ) - castStartTime ) ),
+											imgXY1 + ImVec2( centeringOffset, -fontSize - 2 ),
+											fontSize,
+											ImVec4( 0, 1, 60 / 255.0f, 1 ),
+											true );
+					}
+					DrawLevelCounter( data.ability, imgXY2 + ImVec2( -centeringOffset, 6 ) );
+					++idx;
+				}
 			}
-
-			DrawList->AddRectFilled(
-				imgXY1 - outlineSize / 2,
-				imgXY2 + outlineSize / 2,
-				ImGui::GetColorU32(ImVec4(0, 0, 0, 1)));
-
-			if (data.ability->Member<bool>(Netvars::C_DOTABaseAbility::m_bAutoCastState))
-				DrawList->AddRectFilled(
-					imgXY1 - outlineSize,
-					imgXY2 + outlineSize,
-					ImGui::GetColorU32(ImVec4(255.0f / 255, 191.0f / 255, 0, 1)));
-
-			if (data.ability->IsToggled())
-				DrawList->AddRectFilled(
-					imgXY1 - outlineSize,
-					imgXY2 + outlineSize,
-					ImGui::GetColorU32(ImVec4(0x3 / 255.0f, 0xAC / 255.0f, 0x13 / 255.0f, 1)));
-
-			DrawList->AddImage(data.icon, imgXY1, imgXY2);
-
-			if (data.ability->GetLevel() == 0)
-				// Darkens the picture
-				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.5)));
-
-			if (
-				data.ability->GetCooldown() != 0 || // if on cooldown
-				(data.ability->GetCharges() == 0 && // or has 0 charges and a charge cooldown
-					data.ability->GetChargeRestoreCooldown() > 0)
-				) {
-				auto cd = data.ability->GetCooldown() // choosing either of these cooldowns, since they're mutually exclusive
-					? data.ability->GetCooldown()
-					: data.ability->GetChargeRestoreCooldown();
-
-				int cdFontSize = iconSize - ScaleVar(12);
-				bool decimals = Config::AbilityESP::ShowCooldownDecimals;
-				// Darkens the picture
-				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.5)));
-				if (data.ability->GetCooldown() >= 100)
-					decimals = false;
-
-				if (decimals)
-					cdFontSize = iconSize - ScaleVar(16);
-
-				// Draws the cooldown
-				DrawTextForeground(textFont,
-					std::vformat(decimals ? "{:.1f}" : "{:.0f}", std::make_format_args(cd)),
-					ImVec2(imgXY1.x + centeringOffset, imgXY1.y + (iconSize - cdFontSize) / 2),
-					cdFontSize,
-					ImVec4(1, 1, 1, 1),
-					true);
-			}
-			if (data.ability->GetCharges() ||
-				(data.ability->GetCharges() == 0 &&
-					data.ability->GetChargeRestoreCooldown() >= 0))
-				DrawChargeCounter(data.ability->GetCharges(), imgXY1, ScaleVar(8));
-
-			float channelTime = data.ability->Member<float>(Netvars::C_DOTABaseAbility::m_flChannelStartTime);
-			if (channelTime != 0) {
-				float indicatorHeight = ScaleVar(4);
-				auto channelLength = data.ability->GetLevelSpecialValueFor("AbilityChannelTime");
-				int fontSize = ScaleVar(18);
-				DrawTextForeground(textFont,
-					std::format("{:.1f}", channelLength - (GameSystems::GameRules->GetGameTime() - channelTime)),
-					ImVec2(imgXY1.x + centeringOffset, imgXY1.y - fontSize - 2 - indicatorHeight),
-					fontSize,
-					ImVec4(1, 1, 1, 1),
-					true);
-				float indicatorWidth = abs(imgXY2.x - imgXY1.x) * (1 - ((GameSystems::GameRules->GetGameTime() - channelTime) / channelLength));
-				DrawList->AddRectFilled(
-					ImVec2(imgXY1.x, imgXY1.y - indicatorHeight),
-					ImVec2(imgXY1.x + indicatorWidth, imgXY1.y), ImGui::GetColorU32(ImVec4(1, 1, 1, 0.7)));
-			}
-			// If it's being cast
-			else if (data.ability->Member<bool>(Netvars::C_DOTABaseAbility::m_bInAbilityPhase)) {
-				auto castPoint = data.ability->GetLevelSpecialValueFor("AbilityCastPoint");
-				float castStartTime = data.ability->Member<float>(Netvars::C_DOTABaseAbility::m_flCastStartTime);
-				int fontSize = ScaleVar(18);
-				float indicatorWidthFactor = abs(imgXY1.x - imgXY2.x) * ((GameSystems::GameRules->GetGameTime() - castStartTime) / castPoint);
-				DrawList->AddRectFilled(imgXY1, ImVec2(imgXY1.x + indicatorWidthFactor, imgXY2.y), ImGui::GetColorU32(ImVec4(0, 1, 0, 0.5)));
-				DrawTextForeground(textFont,
-					std::format("{:.1f}", castPoint - (GameSystems::GameRules->GetGameTime() - castStartTime)),
-					imgXY1 + ImVec2(centeringOffset, -fontSize - 2),
-					fontSize,
-					ImVec4(0, 1, 60 / 255.0f, 1),
-					true);
-			}
-			DrawLevelCounter(data.ability, imgXY2 + ImVec2(-centeringOffset, 6));
-			++idx;
 		}
 	}
 }
