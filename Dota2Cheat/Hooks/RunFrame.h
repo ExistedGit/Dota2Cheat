@@ -39,8 +39,6 @@ namespace Hooks {
 
 	void EntityIteration();
 
-	void UpdateCameraDistance();
-	void UpdateWeather();
 
 	typedef void(__fastcall* RunFrameFn)(void* thisptr);
 	inline RunFrameFn oRunFrame{};

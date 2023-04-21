@@ -72,22 +72,24 @@ namespace Pages {
 				ImGui::Checkbox("Unlock Dota Plus", &Config::Changer::UnlockDotaPlus);
 				ImGui::Checkbox("Unlock emoticons", &Config::Changer::UnlockEmoticons);
 				// https://github.com/SK68-ph/Shadow-Dance-Menu
-				ImGui::ListBox(
+				if(ImGui::ListBox(
 					"Change weather",
 					&Config::Changer::WeatherListIdx,
 					UIState::WeatherList,
 					IM_ARRAYSIZE(UIState::WeatherList),
-					4);
+					4))
+					UpdateWeather();
 
 				// credits to the screenshot https://yougame.biz/threads/283404/
 				// and to Wolf49406 himself
 				// should've figured out it's controlled by a convar like the weather :)
-				ImGui::ListBox(
+				if(ImGui::ListBox(
 					"River paint",
 					&Config::Changer::RiverListIdx,
 					UIState::RiverList,
 					IM_ARRAYSIZE(UIState::RiverList),
-					4);
+					4))
+					UpdateCameraDistance();
 			};
 			if (ImGui::TreeNode("Auto-pickup")) {
 				ImGui::Checkbox("Bounty runes", &Config::AutoPickUpRunes);
