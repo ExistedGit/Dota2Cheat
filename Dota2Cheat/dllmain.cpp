@@ -29,6 +29,8 @@ std::vector<std::unique_ptr<IGameEventListener2>> CGameEventManager::EventListen
 
 #pragma endregion
 
+
+
 constexpr bool useChangerCode = false;
 
 static inline void glfw_error_callback(int error, const char* description)

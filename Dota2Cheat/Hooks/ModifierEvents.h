@@ -3,6 +3,7 @@
 #include "../Modules/Hacks/EnemySpellHighlight.h"
 #include "../Modules/Hacks/TargetedSpellHighlighter.h"
 #include "../Modules/Hacks/LinearProjectileWarner.h"
+#include "../Modules/Hacks/TrueSightESP.h"
 
 namespace Hooks {
 	inline Signatures::OnRemoveModifierFn oOnRemoveModifier = nullptr;

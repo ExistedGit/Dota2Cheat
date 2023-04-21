@@ -5,6 +5,18 @@
 
 namespace Pages {
 	namespace MainMenu {
+		void UpdateCameraDistance() {
+			static auto varInfo = CVarSystem::CVar["dota_camera_distance"];
+			if (Config::CameraDistance != varInfo.var->value.flt) {
+				varInfo.var->value.flt = Config::CameraDistance;
+				Interfaces::CVar->TriggerCallback(varInfo);
+			}
+		}
+
+		void UpdateWeather() {
+			static auto varInfo = CVarSystem::CVar["cl_weather"];
+			varInfo.var->value.i32 = Config::Changer::WeatherListIdx;
+		}
 
 		inline char scriptBuf[4096]{};
 		inline std::string rpStatusBuf;
@@ -67,27 +79,29 @@ namespace Pages {
 				ImGui::InputText("Rich Presence status", &rpStatusBuf);
 				if (ImGui::Button("Apply status"))
 					GameSystems::RichPresence->SetRPStatus(rpStatusBuf.c_str());
-				
+
 
 				ImGui::Checkbox("Unlock Dota Plus", &Config::Changer::UnlockDotaPlus);
 				ImGui::Checkbox("Unlock emoticons", &Config::Changer::UnlockEmoticons);
 				// https://github.com/SK68-ph/Shadow-Dance-Menu
-				ImGui::ListBox(
+				if (ImGui::ListBox(
 					"Change weather",
 					&Config::Changer::WeatherListIdx,
 					UIState::WeatherList,
 					IM_ARRAYSIZE(UIState::WeatherList),
-					4);
+					4))
+					UpdateWeather();
 
 				// credits to the screenshot https://yougame.biz/threads/283404/
 				// and to Wolf49406 himself
 				// should've figured out it's controlled by a convar like the weather :)
-				ImGui::ListBox(
+				if (ImGui::ListBox(
 					"River paint",
 					&Config::Changer::RiverListIdx,
 					UIState::RiverList,
 					IM_ARRAYSIZE(UIState::RiverList),
-					4);
+					4))
+					UpdateCameraDistance();
 			};
 			if (ImGui::TreeNode("Auto-pickup")) {
 				ImGui::Checkbox("Bounty runes", &Config::AutoPickUpRunes);
@@ -119,16 +133,27 @@ namespace Pages {
 				ImGui::TreePop();
 			}
 			if (ImGui::TreeNode("Show enemy spells")) {
+
 				ImGui::Checkbox("Point spells", &Config::ShowEnemyPointSpells);
 				ImGui::SameLine(); HelpMarker("Sunstrike, Torrent, Light Strike Array");
+				ImGui::Checkbox("Show enemy projectile trajectory", &Config::WarnLinearProjectiles);
+				ImGui::SameLine(); HelpMarker("Draws a red line for things like Mirana's arrow");
 
-				if (ImGui::Checkbox("Targeted spells", &Config::ShowEnemyTargetedSpells) &&
-					!Config::ShowEnemyTargetedSpells)
+				ImGui::TreePop();
+			}
+			if (ImGui::TreeNode("Modifier revealer")) {
+
+				if (ImGui::Checkbox("Targeted spells", &Config::ModifierRevealer::TargetedSpells) &&
+					!Config::ModifierRevealer::TargetedSpells)
 					Modules::TargetedSpellHighlighter.OnDisableTargetedSpells();
 				ImGui::SameLine(); HelpMarker("Assassinate, Charge of Darkness, Track");
+				
+				if (ImGui::Checkbox("True Sight", &Config::ModifierRevealer::TrueSight)
+					&& !Config::ModifierRevealer::TrueSight)
+					Modules::TrueSightESP.OnDisable();
 
-				if (ImGui::Checkbox("Show Linken Sphere", &Config::ShowLinkenSphere) &&
-					!Config::ShowLinkenSphere)
+				if (ImGui::Checkbox("Show Linken Sphere", &Config::ModifierRevealer::LinkenSphere) &&
+					!Config::ModifierRevealer::LinkenSphere)
 					Modules::TargetedSpellHighlighter.OnDisableLinken();
 				ImGui::TreePop();
 			}
@@ -161,8 +186,6 @@ namespace Pages {
 			ImGui::SameLine(); HelpMarker("Shows a dot on creeps when you can last hit/deny them");
 
 
-			ImGui::Checkbox("Show enemy projectile trajectory", &Config::WarnLinearProjectiles);
-			ImGui::SameLine(); HelpMarker("Draws a red line for things like Mirana's arrow");
 
 			ImGui::Checkbox("Perfect Blink", &Config::PerfectBlink);
 			ImGui::Checkbox("Prevent bad casts", &Config::BadCastPrevention);

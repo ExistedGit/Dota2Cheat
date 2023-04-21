@@ -31,18 +31,7 @@ void Hooks::EntityIteration() {
 	}
 }
 
-void Hooks::UpdateCameraDistance() {
-	static auto varInfo = CVarSystem::CVar["dota_camera_distance"];
-	if (Config::CameraDistance != varInfo.var->value.flt) {
-		varInfo.var->value.flt = Config::CameraDistance;
-		Interfaces::CVar->TriggerCallback(varInfo);
-	}
-}
 
-void Hooks::UpdateWeather() {
-	static auto varInfo = CVarSystem::CVar["cl_weather"];
-	varInfo.var->value.i32 = Config::Changer::WeatherListIdx;
-}
 
 bool DotaPlusStatus = false;
 
@@ -69,10 +58,6 @@ void Hooks::hkRunFrame(void* thisptr) {
 		oRunFrame(thisptr);
 		return;
 	}
-	//std::cout << "frame\n";
-
-	UpdateCameraDistance();
-	UpdateWeather();
 
 	Modules::AbilityESP.UpdateHeroData();
 	// Modules::UIOverhaul.Update();

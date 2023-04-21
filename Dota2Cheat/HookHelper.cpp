@@ -8,8 +8,8 @@ void Hooks::SetUpByteHooks() {
 	HOOKFUNC_SIGNATURES(PrepareUnitOrders);
 	HOOKFUNC_SIGNATURES(BIsEmoticonUnlocked);
 	HOOKFUNC_SIGNATURES(CDOTAMinimapRenderer_Render);
-	//HOOKFUNC_SIGNATURES(DispatchPacket);
 #ifdef _DEBUG
+	//HOOKFUNC_SIGNATURES(DispatchPacket);
 	HOOKFUNC_SIGNATURES(BAsyncSendProto);
 #endif // _DEBUG
 	HOOKFUNC_SIGNATURES(SaveSerializedSOCache);

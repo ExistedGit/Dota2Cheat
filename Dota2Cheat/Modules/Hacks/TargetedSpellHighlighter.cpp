@@ -38,7 +38,7 @@ void Hacks::TargetedSpellHighlighter::RemoveLinkenEffectFor(CBaseEntity* ent) {
 }
 
 void Hacks::TargetedSpellHighlighter::DrawLinkenEffectFor(CBaseEntity* ent) {
-	if (!Config::ShowLinkenSphere)
+	if (!Config::ModifierRevealer::LinkenSphere)
 		return;
 
 	if (LinkenSphereParticles.count(ent))
@@ -70,7 +70,7 @@ void Hacks::TargetedSpellHighlighter::RemoveParticleIfTargetedSpell(CDOTAModifie
 }
 
 void Hacks::TargetedSpellHighlighter::DrawParticleIfTargetedSpell(CDOTAModifier* modifier) {
-	if (!Config::ShowEnemyTargetedSpells)
+	if (!Config::ModifierRevealer::TargetedSpells)
 		return;
 	if (!ModifierParticles.count(modifier->GetName()))
 		return;

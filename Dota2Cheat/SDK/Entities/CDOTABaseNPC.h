@@ -31,12 +31,9 @@ public:
 
 	}
 
-	float GetPhysicalArmorValue() {
-		return CallVFunc<VTableIndexes::CDOTABaseNPC::GetPhysicalArmorValue, float>();
-	}
-	float GetMagicalArmorValue() {
-		return CallVFunc<VTableIndexes::CDOTABaseNPC::GetMagicalArmorValue, float>();
-	}
+	VGETTER(float, GetPhysicalArmorValue, VTableIndexes::CDOTABaseNPC::GetPhysicalArmorValue);
+	VGETTER(float, GetMagicalArmorValue, VTableIndexes::CDOTABaseNPC::GetMagicalArmorValue);
+	VGETTER(float, GetIdealSpeed, VTableIndexes::CDOTABaseNPC::GetIdealSpeed);
 
 	// Wrapper function combining the following conditions: 
 	// Is not dormant

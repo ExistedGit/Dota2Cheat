@@ -12,3 +12,4 @@ constexpr uint32_t INVALID_HANDLE = 0xFFFFFFFF;
 #define CASE_STRING( x ) case static_cast<int>( x ) : return #x
 #define CASE_STD_STRING( x ) case static_cast<int>( x ) : return std::string(#x)
 #define GETTER(type, name, offset) type name() { return Member<type>(offset); }
+#define VGETTER(type, name, index) type name() { return CallVFunc<index, type>(); }
