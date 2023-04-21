@@ -1,26 +1,26 @@
 #include "Drawing.h"
 
 // Credit to Wolf49406
-ImVec2 WorldToMap(const Vector& EntityPos) {
-	if (!GameSystems::MinimapRenderer)
+ImVec2 WorldToMap( const Vector& EntityPos ) {
+	if ( !GameSystems::MinimapRenderer )
 		return { 0,0 };
-	auto MinimapSize = GameSystems::MinimapRenderer->GetMinimapSize();
-	auto MinimapBounds = GameSystems::MinimapRenderer->MinimapBounds;
+	const auto ScreenSize = glfwGetVideoMode( glfwGetPrimaryMonitor( ) );
 
 	// The border around the actual map panel is around 12px
-	auto ActualMinimapSize = static_cast<float>(MinimapSize.x - 24);
-	auto MinimapPosMin = Vector2D(12, static_cast<float>(GameData.ScreenSize.y - ActualMinimapSize - 12));
+	auto ActualMinimapSize = static_cast<float>( GameSystems::MinimapRenderer->GetMinimapSize( ).x - 24 );
+	auto MinimapPosMin = Vector2D( 12, static_cast<float>( ScreenSize->height - ActualMinimapSize - 12 ) );
 
-	if (Signatures::IsHUDFlipped()) {
-		float offset = GameData.ScreenSize.x - ActualMinimapSize;
+	if ( Signatures::IsHUDFlipped( ) ) {
+		float offset = ScreenSize->width - ActualMinimapSize;
 		MinimapPosMin.x = MinimapPosMin.x + offset;
 	}
 
-	Vector2D Scaler = MinimapBounds / ActualMinimapSize * 2;
-	auto PosOnMinimap = MinimapPosMin + (MinimapBounds / Scaler) - (Vector2D{ EntityPos.x, EntityPos.y } / Scaler);
+	Vector2D Scaler = GameSystems::MinimapRenderer->MinimapBounds / ActualMinimapSize * 2;
+	auto PosOnMinimap = MinimapPosMin + ( GameSystems::MinimapRenderer->MinimapBounds / Scaler ) - ( Vector2D{ EntityPos.x, EntityPos.y } / Scaler );
 
-	return ImVecFromVec2D(PosOnMinimap);
+	return ImVecFromVec2D( PosOnMinimap );
 }
+
 
 void DrawRect(const ImVec2& topLeft, const ImVec2& size, const ImVec4& color, float thickness) {
 	auto DrawList = ImGui::GetForegroundDrawList();

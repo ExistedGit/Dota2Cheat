@@ -20,14 +20,14 @@ void Signatures::FindSignatures() {
 	//SCAN_FUNC(CGameUI__ChangeGameUIState, SigScan::Find("E8 ? ? ? ? 48 8B 5C 24 ? C6 86", L"client.dll").GetAbsoluteAddress(1, 5));
 
 	SET_VAR(GetPlayer, SigScan::Find("33 C0 83 F9 FF", L"client.dll"));
-	{
-		int* iScreenSize = SigScan::Find("89 05 ? ? ? ? 8B CA", L"engine2.dll").GetAbsoluteAddress(2);
-		GameData.ScreenSize =
-			Vector2D{
-				static_cast<float>(iScreenSize[0]),
-				static_cast<float>(iScreenSize[1])
-		};
-	}
+	//{
+	//	int* iScreenSize = SigScan::Find("89 05 ? ? ? ? 8B CA", L"engine2.dll").GetAbsoluteAddress(2);
+	//	GameData.ScreenSize =
+	//		Vector2D{
+	// 			static_cast<float>(iScreenSize[0]),
+	//			static_cast<float>(iScreenSize[1])
+	//	};
+	//}
 	// 2nd vfunc of CDOTA_PanoramaMinimapRenderer
 	SET_VAR(CDOTAMinimapRenderer_Render, SigScan::Find("48 8B C4 48 89 58 08 48 89 68 10 48 89 70 18 57 41 56 41 57 48 83 EC 40 F3 0F 10 84 24", L"client.dll"));
 

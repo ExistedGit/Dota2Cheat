@@ -134,13 +134,14 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <ExceptionHandling>false</ExceptionHandling>
       <AdditionalOptions>/bigobj /FI"pch.h" </AdditionalOptions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -149,6 +150,7 @@
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;lua54.lib;libprotobufd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)lib\</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>msvcrt.lib;libcmtd.lib;libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -161,13 +163,13 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <AdditionalOptions>/bigobj /FI"pch.h" </AdditionalOptions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -178,6 +180,7 @@
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook-x64-v141-mtd.lib;opengl32.lib;lua54.lib;libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)lib\;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libcmtd.lib;libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -252,22 +255,74 @@
     </ClCompile>
     <ClCompile Include="SDK\Base\SigScan\proc.cpp" />
     <ClCompile Include="SDK\Protobufs\base_gcmessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\clientmessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\connectionless_netmessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\c_peer2peer_netmessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\demo.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_broadcastmessages.pb.cc" />
     <ClCompile Include="SDK\Protobufs\dota_clientmessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_client_enums.pb.cc" />
     <ClCompile Include="SDK\Protobufs\dota_commonmessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_battle_report.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_candy_shop.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_chat.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_coaching.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_fantasy.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_guild.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_guild_events.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_match_management.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_team.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_tournament.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_watch.pb.cc" />
     <ClCompile Include="SDK\Protobufs\dota_gcmessages_common.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_common_bot_script.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_common_league.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_common_lobby.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_common_match_management.pb.cc" />
     <ClCompile Include="SDK\Protobufs\dota_gcmessages_msgid.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_server.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_gcmessages_webapi.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_hud_types.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_match_metadata.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_messages_mlbot.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_modifiers.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_scenariomessages.pb.cc" />
     <ClCompile Include="SDK\Protobufs\dota_shared_enums.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\dota_usercmd.pb.cc" />
     <ClCompile Include="SDK\Protobufs\dota_usermessages.pb.cc" />
     <ClCompile Include="SDK\Protobufs\econ_gcmessages.pb.cc" />
     <ClCompile Include="SDK\Protobufs\econ_shared_enums.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\engine_gcmessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\enums_clientserver.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\gameevents.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\gametoolevents.pb.cc" />
     <ClCompile Include="SDK\Protobufs\gcsdk_gcmessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\gcsystemmsgs.pb.cc" />
     <ClCompile Include="SDK\Protobufs\netmessages.pb.cc" />
     <ClCompile Include="SDK\Protobufs\networkbasetypes.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\networksystem_protomessages.pb.cc" />
     <ClCompile Include="SDK\Protobufs\network_connection.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steamdatagram_messages_auth.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steamdatagram_messages_sdr.pb.cc" />
     <ClCompile Include="SDK\Protobufs\steammessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steammessages_cloud.steamworkssdk.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steammessages_gamenetworkingui.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steammessages_helprequest.steamworkssdk.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steammessages_int.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steammessages_oauth.steamworkssdk.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steammessages_player.steamworkssdk.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steammessages_publishedfile.steamworkssdk.pb.cc" />
     <ClCompile Include="SDK\Protobufs\steammessages_steamlearn.steamworkssdk.pb.cc" />
     <ClCompile Include="SDK\Protobufs\steammessages_unified_base.steamworkssdk.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steamnetworkingsockets_messages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steamnetworkingsockets_messages_certs.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\steamnetworkingsockets_messages_udp.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\te.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\uifontfile_format.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\usercmd.pb.cc" />
     <ClCompile Include="SDK\Protobufs\usermessages.pb.cc" />
+    <ClCompile Include="SDK\Protobufs\valveextensions.pb.cc" />
     <ClCompile Include="UI\Pages\AutoPickSelectionGrid.cpp" />
     <ClCompile Include="Utils\Drawing.cpp" />
   </ItemGroup>
@@ -341,7 +396,59 @@
     <ClInclude Include="SDK\Interfaces\GC\ItemSchema.h" />
     <ClInclude Include="SDK\Interfaces\ISteamClient.h" />
     <ClInclude Include="SDK\Protobufs\base_gcmessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\clientmessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\connectionless_netmessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\c_peer2peer_netmessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\demo.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_broadcastmessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_client_enums.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_battle_report.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_candy_shop.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_chat.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_coaching.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_fantasy.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_guild.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_guild_events.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_match_management.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_team.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_tournament.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_watch.pb.h" />
     <ClInclude Include="SDK\Protobufs\dota_gcmessages_common.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_common_bot_script.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_common_league.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_common_lobby.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_common_match_management.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_server.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_gcmessages_webapi.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_hud_types.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_match_metadata.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_messages_mlbot.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_modifiers.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_scenariomessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\dota_usercmd.pb.h" />
+    <ClInclude Include="SDK\Protobufs\engine_gcmessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\enums_clientserver.pb.h" />
+    <ClInclude Include="SDK\Protobufs\gameevents.pb.h" />
+    <ClInclude Include="SDK\Protobufs\gametoolevents.pb.h" />
+    <ClInclude Include="SDK\Protobufs\gcsystemmsgs.pb.h" />
+    <ClInclude Include="SDK\Protobufs\networksystem_protomessages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steamdatagram_messages_auth.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steamdatagram_messages_sdr.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steammessages_cloud.steamworkssdk.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steammessages_gamenetworkingui.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steammessages_helprequest.steamworkssdk.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steammessages_int.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steammessages_oauth.steamworkssdk.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steammessages_player.steamworkssdk.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steammessages_publishedfile.steamworkssdk.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steamnetworkingsockets_messages.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steamnetworkingsockets_messages_certs.pb.h" />
+    <ClInclude Include="SDK\Protobufs\steamnetworkingsockets_messages_udp.pb.h" />
+    <ClInclude Include="SDK\Protobufs\te.pb.h" />
+    <ClInclude Include="SDK\Protobufs\uifontfile_format.pb.h" />
+    <ClInclude Include="SDK\Protobufs\usercmd.pb.h" />
+    <ClInclude Include="SDK\Protobufs\valveextensions.pb.h" />
     <ClInclude Include="SDK\Wrappers\Creep.h" />
     <ClInclude Include="SDK\Wrappers\EntitySorting.h" />
     <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h" />

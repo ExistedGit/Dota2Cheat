@@ -59,7 +59,7 @@ This list is subject to frequent change as I'm testing new features
   * Uses Magic Wand and Faerie Fire with customizable health tresholds
   * AutoMidas with customizable min XP reward
   * Bounty rune & Aegis pickup
-  * Tome of Knowledge purchase
+  * ~~Tome of Knowledge purchase~~ RIP on 21.04.2023. Goodbye, sweet prince.
   * Redirects spell casts from illusions to the real hero
   * Mana & HP abuse with items like Arcane Boots
   * AutoDodge for projectiles
@@ -67,7 +67,7 @@ This list is subject to frequent change as I'm testing new features
 * Information:
   * ~~Visible by Enemy~~ RIP on 21.02.2023, you shall not be forgotten
   * Teleport Tracker — draws enemy TPs on the map
-  * [AbilityESP & ItemESP](https://youtu.be/U-ZhxwjEw4k)
+  * [AbilityESP & ItemESP](https://youtu.be/U-ZhxwjEw4k) + manabars
   * Draw circles of custom radius around you hero(e. g. to see XP receiving range)
   * Shows point-cast spells(Sunstrike, Torrent, Light Strike Array)
   * Shows target-cast spells(Assassinate, Charge of Darkness)
@@ -93,7 +93,6 @@ This list is subject to frequent change as I'm testing new features
   
 * Work in progress:
   * Roshan timer
-  * Skinchanger(half of the work done)
   
 I intend to implement most of the usual cheat functionality
 
