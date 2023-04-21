@@ -59,7 +59,7 @@ This list is subject to frequent change as I'm testing new features
   * Uses Magic Wand and Faerie Fire with customizable health tresholds
   * AutoMidas with customizable min XP reward
   * Bounty rune & Aegis pickup
-  * Tome of Knowledge purchase
+  * ~~Tome of Knowledge purchase~~ RIP on 21.04.2023. Goodbye, sweet prince.
   * Redirects spell casts from illusions to the real hero
   * Mana & HP abuse with items like Arcane Boots
   * AutoDodge for projectiles
