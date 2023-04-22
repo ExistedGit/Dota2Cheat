@@ -19,9 +19,9 @@ namespace Hacks {
 			TPData start, end;
 		};
 
-		std::map<CBaseEntity*, TPLineData> teleports;
-
+		qwemap<CBaseEntity*, TPLineData> teleports;
 		std::map<CBaseEntity*, ImTextureID> heroIcons;
+
 		float lastTime = 0;
 	public:
 		// Mostly calculating fade duration

@@ -91,6 +91,9 @@ namespace Config {
 		inline bool Enabled;
 		inline int XPTreshold;
 	}
+	namespace UIOverhaul {
+		inline bool TopBars;
+	}
 	namespace ManaAbuse {
 		inline bool Enabled;
 	}

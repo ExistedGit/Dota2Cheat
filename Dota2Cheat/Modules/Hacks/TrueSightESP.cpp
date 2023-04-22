@@ -24,5 +24,5 @@ void Hacks::TrueSightESP::DrawParticleIfTrueSight(CDOTAModifier* modifier) {
 		PATTACH_OVERHEAD_FOLLOW,
 		modifier->GetOwner()
 	);
-	TrackedModifiers[modifier].particle->SetControlPoint(0, { 0,0, -200 });
+	TrackedModifiers[modifier].particle->SetControlPoint(0, { 0,0, 0 });
 }

@@ -10,6 +10,7 @@
 #include "Hooks/SteamGC.h"
 #include "Hooks/UIState.h"
 #include "Hooks/MinimapRenderer.h"
+#include "Hooks/GameEvents.h"
 
 #include "Hooks/Misc.h"
 
@@ -21,6 +22,4 @@ namespace Hooks {
 	void SetUpByteHooks();
 
 	void SetUpVirtualHooks(bool log);
-	void DisableHooks();
-	void EnableHooks();
 }

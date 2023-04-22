@@ -5,19 +5,6 @@
 
 namespace Pages {
 	namespace MainMenu {
-		void UpdateCameraDistance() {
-			static auto varInfo = CVarSystem::CVar["dota_camera_distance"];
-			if (Config::CameraDistance != varInfo.var->value.flt) {
-				varInfo.var->value.flt = Config::CameraDistance;
-				Interfaces::CVar->TriggerCallback(varInfo);
-			}
-		}
-
-		void UpdateWeather() {
-			static auto varInfo = CVarSystem::CVar["cl_weather"];
-			varInfo.var->value.i32 = Config::Changer::WeatherListIdx;
-		}
-
 		inline char scriptBuf[4096]{};
 		inline std::string rpStatusBuf;
 		inline bool scriptMenuVisible = false;
@@ -84,13 +71,12 @@ namespace Pages {
 				ImGui::Checkbox("Unlock Dota Plus", &Config::Changer::UnlockDotaPlus);
 				ImGui::Checkbox("Unlock emoticons", &Config::Changer::UnlockEmoticons);
 				// https://github.com/SK68-ph/Shadow-Dance-Menu
-				if (ImGui::ListBox(
+				ImGui::ListBox(
 					"Change weather",
 					&Config::Changer::WeatherListIdx,
 					UIState::WeatherList,
 					IM_ARRAYSIZE(UIState::WeatherList),
-					4))
-					UpdateWeather();
+					4);
 
 				// credits to the screenshot https://yougame.biz/threads/283404/
 				// and to Wolf49406 himself
@@ -99,8 +85,8 @@ namespace Pages {
 					"River paint",
 					&Config::Changer::RiverListIdx,
 					UIState::RiverList,
-					IM_ARRAYSIZE( UIState::RiverList ),
-					4 );
+					IM_ARRAYSIZE(UIState::RiverList),
+					4);
 			};
 			if (ImGui::TreeNode("Auto-pickup")) {
 				ImGui::Checkbox("Bounty runes", &Config::AutoPickUpRunes);
@@ -124,6 +110,11 @@ namespace Pages {
 
 				ImGui::Checkbox("Crop stashed icons", &Config::AbilityESP::CropStashItems);
 				ImGui::SameLine(); HelpMarker("Stashed items will be displayed like in Dota itself");
+				ImGui::TreePop();
+			}
+			if (ImGui::TreeNode("UI Overhaul")) {
+				ImGui::Checkbox("Top bars", &Config::IllusionColoring::Enabled);
+				ImGui::SameLine(); HelpMarker("Shows HP and Mana bars for enemies in the top bar. Like pressing Alt does for your allies");
 				ImGui::TreePop();
 			}
 			if (ImGui::TreeNode("Illusion coloring")) {
@@ -151,7 +142,7 @@ namespace Pages {
 					&& !Config::ModifierRevealer::TrueSight)
 					Modules::TrueSightESP.OnDisable();
 
-				if (ImGui::Checkbox("Show Linken Sphere", &Config::ModifierRevealer::LinkenSphere) &&
+				if (ImGui::Checkbox("Linken Sphere", &Config::ModifierRevealer::LinkenSphere) &&
 					!Config::ModifierRevealer::LinkenSphere)
 					Modules::TargetedSpellHighlighter.OnDisableLinken();
 				ImGui::TreePop();

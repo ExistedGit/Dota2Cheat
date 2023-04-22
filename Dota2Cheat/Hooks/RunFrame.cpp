@@ -2,6 +2,19 @@
 #include "RunFrame.h"
 #include <format>
 
+void UpdateCameraDistance() {
+	static auto varInfo = CVarSystem::CVar["dota_camera_distance"];
+	if (Config::CameraDistance != varInfo.var->value.flt) {
+		varInfo.var->value.flt = Config::CameraDistance;
+		Interfaces::CVar->TriggerCallback(varInfo);
+	}
+}
+
+void UpdateWeather() {
+	static auto varInfo = CVarSystem::CVar["cl_weather"];
+	varInfo.var->value.i32 = Config::Changer::WeatherListIdx;
+}
+
 void Hooks::EntityIteration() {
 	for (auto& hero : ctx.heroes) {
 
@@ -62,12 +75,15 @@ void Hooks::hkRunFrame(void* thisptr) {
 	}
 
 	Modules::AbilityESP.UpdateHeroData();
-	// Modules::UIOverhaul.Update();
+	Modules::UIOverhaul.Update();
+
+	UpdateCameraDistance();
+	UpdateWeather();
+
 	if (
 		ctx.assignedHero->GetLifeState() == 0 // if alive
 		&& !GameSystems::GameRules->IsGamePaused() // and the game is not paused
 		) {
-
 
 		Modules::TPTracker.CacheHeroIcons();
 		Modules::TPTracker.FrameBasedLogic();

@@ -55,6 +55,7 @@
 
 #include "Wrappers/Creep.h"
 #include "Wrappers/EntitySorting.h"
+#include "Wrappers/MapThreadSafe.h"
 
 #include "Protobufs/dota_clientmessages.pb.h"
 #include "Protobufs/dota_commonmessages.pb.h"

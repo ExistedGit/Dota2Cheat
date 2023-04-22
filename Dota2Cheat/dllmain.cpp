@@ -25,7 +25,6 @@ GLFWwindow* window_menu{};
 #pragma region Static variables
 
 Vector Vector::Zero = Vector(0, 0, 0);
-std::vector<std::unique_ptr<IGameEventListener2>> CGameEventManager::EventListeners{};
 
 #pragma endregion
 
@@ -99,7 +98,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	Hooks::SetUpByteHooks();
 	Hooks::SetUpVirtualHooks(true);
-	Hooks::DisableHooks();
 
 	Lua::InitEnums(ctx.lua);
 	Lua::InitClasses(ctx.lua);

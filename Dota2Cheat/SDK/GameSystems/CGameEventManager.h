@@ -47,6 +47,29 @@ public:
 	void* GetDataKeys() {
 		return *(void**)((uintptr_t)this + 0x10);
 	};
+
+	static void BindLua(sol::state& lua) {
+		auto type = lua.new_usertype<CGameEvent>("CGameEvent");
+		type["SetBool"] = &CGameEvent::SetBool;
+		type["SetInt"] = &CGameEvent::SetInt;
+		type["SetUint64"] = &CGameEvent::SetUint64;
+		type["SetFloat"] = &CGameEvent::SetFloat;
+		type["SetString"] = &CGameEvent::SetString;
+		type["SetPtr"] = &CGameEvent::SetPtr;
+		type["GetName"] = &CGameEvent::GetName;
+		type["GetID"] = &CGameEvent::GetID;
+
+		type["IsReliable"] = &CGameEvent::IsReliable;
+		type["IsLocal"] = &CGameEvent::IsLocal;
+		type["IsEmpty"] = &CGameEvent::IsEmpty;
+
+		type["GetBool"] = &CGameEvent::GetBool;
+		type["GetInt"] = &CGameEvent::GetInt;
+		type["GetUint64"] = &CGameEvent::GetUint64;
+		type["GetFloat"] = &CGameEvent::GetFloat;
+		type["GetString"] = &CGameEvent::GetString;
+		type["GetPtr"] = &CGameEvent::GetPtr;
+	}
 };
 
 class IGameEventListener2
@@ -60,7 +83,6 @@ class IGameEventListener2
 class CGameEventManager
 {
 public:
-	static std::vector<std::unique_ptr<IGameEventListener2>> EventListeners;
 	virtual void DESTROY() = 0;
 	//virtual void DESTROY2() = 0; 
 	virtual int LoadEventsFromFile(const char* filename) = 0;
@@ -70,10 +92,4 @@ private:
 public:
 	virtual bool FindListener(IGameEventListener2* listener, const char* eventName) = 0;
 	virtual void RemoveListener(IGameEventListener2* listener) = 0;
-	
-	// Wrapper function that saves the listener to remove it on match exit
-	bool AddListener(IGameEventListener2* listener, const char* eventName) {
-		EventListeners.push_back(std::unique_ptr<IGameEventListener2>(listener));
-		return AddListener(listener, eventName, false);
-	}
 };

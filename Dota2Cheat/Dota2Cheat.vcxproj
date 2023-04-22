@@ -188,6 +188,7 @@
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="HookHelper.cpp" />
     <ClCompile Include="Hooks\EntitySystemEvents.cpp" />
+    <ClCompile Include="Hooks\GameEvents.cpp" />
     <ClCompile Include="Hooks\ModifierEvents.cpp" />
     <ClCompile Include="Hooks\NetChannel.cpp" />
     <ClCompile Include="Hooks\OnAcceptMatch.cpp" />
@@ -328,6 +329,7 @@
     <ClCompile Include="Utils\Drawing.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Hooks\GameEvents.h" />
     <ClInclude Include="Hooks\MinimapRenderer.h" />
     <ClInclude Include="Hooks\UIState.h" />
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
@@ -452,6 +454,7 @@
     <ClInclude Include="SDK\Protobufs\valveextensions.pb.h" />
     <ClInclude Include="SDK\Wrappers\Creep.h" />
     <ClInclude Include="SDK\Wrappers\EntitySorting.h" />
+    <ClInclude Include="SDK\Wrappers\MapThreadSafe.h" />
     <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h" />
     <ClInclude Include="Utils\Drawing.h" />
     <ClInclude Include="SDK\Globals\Context.h" />

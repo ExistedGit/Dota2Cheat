@@ -93,6 +93,8 @@ void Config::ConfigManager::SetupVars() {
 	cfg.AddVar(BOOL, &ShowEnemyPointSpells, true, "ShowEnemyPointSpells");
 	cfg.AddVar(BOOL, &PerfectBlink, false, "PerfectBlink");
 
+	cfg.AddVar(BOOL, &UIOverhaul::TopBars, true, "UIOverhaul.TopBars");
+
 	cfg.AddVar(BOOL, &ModifierRevealer::LinkenSphere, true, "ModifierRevealer.LinkenSphere");
 	cfg.AddVar(BOOL, &ModifierRevealer::TargetedSpells, true, "ModifierRevealer.TargetedSpells");
 	cfg.AddVar(BOOL, &ModifierRevealer::TrueSight, true, "ModifierRevealer.TrueSight");

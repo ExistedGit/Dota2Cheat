@@ -12,8 +12,7 @@ namespace Panorama {
 	// BHasClass is vfunc at offset 0x4a0(index 148), and GetClasses is right above it(returns CUtlVector<uint16_t> at 0x160)
 	// So examine the elements at 0x160
 	enum class PClass : uint16_t {
-		TopBarHeroImage = 7039,
-		AltPressed = 6891
+		TopBarHeroImage = 7037
 	};
 
 	class CTextureDx11 : public VClass {
@@ -44,7 +43,7 @@ namespace Panorama {
 	public:
 		Vector2D GetPositionWithinWindow() {
 			Vector2D result{ 0, 0 };
-			CallVFunc<45>(0, &result.x, &result.y);
+			CallVFunc<44>(0, &result.x, &result.y);
 			return result;
 		}
 		GETTER(CUIPanel*, GetUIPanel, 0x8);

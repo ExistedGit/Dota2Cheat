@@ -1,9 +1,6 @@
 #include "HookHelper.h"
 #include "SDK/Base/VMT.h"
 
-// these hooks are removed when not in-game
-#define HOOKFUNC_INGAME(func) HOOKFUNC(func); hooks.insert(func);
-
 void Hooks::SetUpByteHooks() {
 	HOOKFUNC_SIGNATURES(PrepareUnitOrders);
 	HOOKFUNC_SIGNATURES(BIsEmoticonUnlocked);
@@ -24,8 +21,8 @@ void Hooks::SetUpVirtualHooks(bool log) {
 		// vtable ptr at 0x15
 		uintptr_t** vtable = SigScan::Find("40 53 56 57 41 56 48 83 EC ?? 45 33 F6 48 8D 71", L"networksystem.dll").Offset(0x15).GetAbsoluteAddress(3, 7);
 		uintptr_t* PostReceivedNetMessage = vtable[86], * SendNetMessage = vtable[69]; // bytehooking through vtables, how's that, Elon Musk?
-		HOOKFUNC_INGAME(PostReceivedNetMessage);
-		HOOKFUNC_INGAME(SendNetMessage);
+		HOOKFUNC(PostReceivedNetMessage);
+		HOOKFUNC(SendNetMessage);
 	}
 	{
 		// CDOTA_Buff destructor
@@ -48,7 +45,7 @@ void Hooks::SetUpVirtualHooks(bool log) {
 	}
 	{
 		auto vmt = VMT(Interfaces::EntitySystem);
-		void* OnAddEntity = vmt.GetVM<EntSystemEvent>(14), * OnRemoveEntity = vmt.GetVM<EntSystemEvent>(15);
+		void* OnAddEntity = vmt.GetVM(14), * OnRemoveEntity = vmt.GetVM(15);
 		HOOKFUNC(OnAddEntity);
 		HOOKFUNC(OnRemoveEntity);
 	}
@@ -62,12 +59,3 @@ void Hooks::SetUpVirtualHooks(bool log) {
 	}
 }
 
-void Hooks::DisableHooks() {
-	for (auto hook : hooks)
-		MH_DisableHook(hook);
-}
-
-void Hooks::EnableHooks() {
-	for (auto hook : hooks)
-		MH_EnableHook(hook);
-}

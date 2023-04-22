@@ -1,6 +1,7 @@
 #pragma once
-#include "../SDK/pch.h"
+#include "../../SDK/pch.h"
 #include "../../Utils/Drawing.h"
+#include "../../Config.h"
 
 using namespace Panorama;
 
@@ -25,7 +26,7 @@ namespace Hacks {
 
 		CUIPanel* DotaHud = nullptr;
 		// Top bar images linked with the heroes they are for
-		std::map<CDOTABaseNPC_Hero*, TopBarImgData> topBar;
+		qwemap<CDOTABaseNPC_Hero*, TopBarImgData> topBar;
 		CDOTABaseNPC_Hero* FindHeroByUnitName(std::string_view name);
 
 		CUIPanel* GetTopBarImgForHero(CDOTABaseNPC_Hero* hero);
@@ -55,8 +56,11 @@ namespace Hacks {
 		void DrawBars();
 		void Init();
 		void Update() {
+			if (!Config::UIOverhaul::TopBars)
+				return;
+
 			for (auto& hero : ctx.heroes) {
-				if (topBar.contains(hero) || hero->IsIllusion())
+				if (hero->IsIllusion() || hero->IsSameTeam(ctx.assignedHero) || topBar.contains(hero))
 					continue;
 				ReadyToRender = false;
 				UpdateHeroes();

@@ -199,6 +199,7 @@ void Lua::InitClasses(sol::state& lua) {
 	CDOTABaseNPC_Hero::BindLua(lua);
 	CDOTAPlayerController::BindLua(lua);
 	CDOTABaseAbility::BindLua(lua);
+	CGameEvent::BindLua(lua);
 	CNewParticleEffect::BindLua(lua);
 	ParticleWrapper::BindLua(lua);
 	CDOTAParticleManager::BindLua(lua);

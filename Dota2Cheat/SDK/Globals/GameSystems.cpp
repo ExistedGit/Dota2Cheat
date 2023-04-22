@@ -9,9 +9,9 @@ else \
 void GameSystems::FindGameSystems() {
 	Log(LP_INFO, "GAME SYSTEM POINTERS:");
 
-	// In Source2Client::Init(), right after "g_GameEventManager.Init()":
+	// Also in Source2Client::Init(), right after "g_GameEventManager.Init()":
 	// mov rcx, [XXXXXXXXX]
-	SET_VAR(GameEventManagerPtr, Address(Interfaces::Client->GetVFunc(3).ptr).Offset(0x106).GetAbsoluteAddress(3, 7));
+	SET_VAR(GameEventManagerPtr, Address(Interfaces::Client->GetVFunc(13).ptr).Offset(0x3E).GetAbsoluteAddress(3));
 
 	// CSource2Client::NotifyClientSignon
 	SET_VAR(RichPresence, Address(Interfaces::Client->GetVFunc(47).ptr)
