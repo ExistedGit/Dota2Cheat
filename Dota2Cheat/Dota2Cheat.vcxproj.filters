@@ -137,7 +137,6 @@
     <ClCompile Include="SDK\Protobufs\uifontfile_format.pb.cc" />
     <ClCompile Include="SDK\Protobufs\usercmd.pb.cc" />
     <ClCompile Include="SDK\Protobufs\valveextensions.pb.cc" />
-    <ClCompile Include="Hooks\GameEvents.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hooks\MinimapRenderer.h" />
@@ -330,7 +329,8 @@
     <ClInclude Include="SDK\Protobufs\uifontfile_format.pb.h" />
     <ClInclude Include="SDK\Protobufs\usercmd.pb.h" />
     <ClInclude Include="SDK\Protobufs\valveextensions.pb.h" />
-    <ClInclude Include="Hooks\GameEvents.h" />
     <ClInclude Include="SDK\Wrappers\MapThreadSafe.h" />
+    <ClInclude Include="Hooks\GameEvents.h" />
+    <ClInclude Include="Utils\SignatureParser.h" />
   </ItemGroup>
 </Project>

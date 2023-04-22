@@ -188,7 +188,6 @@
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="HookHelper.cpp" />
     <ClCompile Include="Hooks\EntitySystemEvents.cpp" />
-    <ClCompile Include="Hooks\GameEvents.cpp" />
     <ClCompile Include="Hooks\ModifierEvents.cpp" />
     <ClCompile Include="Hooks\NetChannel.cpp" />
     <ClCompile Include="Hooks\OnAcceptMatch.cpp" />
@@ -521,6 +520,7 @@
     <ClInclude Include="UI\Pages\MainMenu.h" />
     <ClInclude Include="Utils\FuncWrappers.h" />
     <ClInclude Include="SDK\Base\Logging.h" />
+    <ClInclude Include="Utils\SignatureParser.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
