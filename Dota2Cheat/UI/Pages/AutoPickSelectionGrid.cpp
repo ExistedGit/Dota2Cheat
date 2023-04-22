@@ -30,7 +30,7 @@ void Pages::AutoPickHeroGrid::InitImages() {
 	Initialized = true;
 }
 
-void Pages::AutoPickHeroGrid::Draw(GLFWwindow* window) {
+void Pages::AutoPickHeroGrid::Draw( ) {
 	if (!Initialized)
 		InitImages();
 
