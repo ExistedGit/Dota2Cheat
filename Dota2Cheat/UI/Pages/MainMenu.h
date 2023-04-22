@@ -25,7 +25,7 @@ namespace Pages {
 
 		inline int debugEntIdx = 0;
 
-		inline void Draw(GLFWwindow* window) {
+		inline void Draw() {
 			ImGui::Begin("Main", nullptr, ImGuiWindowFlags_::ImGuiWindowFlags_AlwaysAutoResize);
 
 			if (ImGui::Button("Scripting"))
@@ -95,13 +95,12 @@ namespace Pages {
 				// credits to the screenshot https://yougame.biz/threads/283404/
 				// and to Wolf49406 himself
 				// should've figured out it's controlled by a convar like the weather :)
-				if (ImGui::ListBox(
+				ImGui::ListBox(
 					"River paint",
 					&Config::Changer::RiverListIdx,
 					UIState::RiverList,
-					IM_ARRAYSIZE(UIState::RiverList),
-					4))
-					UpdateCameraDistance();
+					IM_ARRAYSIZE( UIState::RiverList ),
+					4 );
 			};
 			if (ImGui::TreeNode("Auto-pickup")) {
 				ImGui::Checkbox("Bounty runes", &Config::AutoPickUpRunes);
@@ -194,10 +193,10 @@ namespace Pages {
 			ImGui::Checkbox("Redirect illusion casts", &Config::CastRedirection);
 			ImGui::SameLine(); HelpMarker("You cast something on an illusion - it aims for the real hero(if they're in range, of course)");
 
-			ImGui::SliderFloat("Camera distance", &Config::CameraDistance, 1200, 3000, "%.1f");
+			if ( ImGui::SliderFloat( "Camera distance", &Config::CameraDistance, 1200, 3000, "%.1f" ) ) UpdateCameraDistance( );
 
 			if (ImGui::Button("EXIT", ImVec2(100, 50)))
-				glfwSetWindowShouldClose(window, 1);
+				glfwSetWindowShouldClose(window_menu, 1);
 
 			ImGui::End();
 

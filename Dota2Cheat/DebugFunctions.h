@@ -3,16 +3,23 @@
 #include "SDK/Globals/Interfaces.h"
 #include "SDK/Base/VMT.h"
 
+extern GLFWwindow* window_menu;
+
 #ifdef _DEBUG
 inline void LogEntities() {
+	std::stringstream buf;
 	for (int idx = 0; idx <= Interfaces::EntitySystem->GetHighestEntityIndex(); ++idx) {
 		if ( CBaseEntity* entity = Interfaces::EntitySystem->GetEntity( idx ); ( entity && IsValidReadPtr( entity ) ) ) {
 			const auto schema_bind = entity->SchemaBinding( );
 			if ( entity->GetIdentity( )->GetName( ) && schema_bind && schema_bind->binaryName ) {
-				std::cout << entity << ", " << entity->GetIdentity( )->GetName( ) << ", " << schema_bind->binaryName << std::endl;
+				buf << (void*)entity << ", " << entity->GetIdentity( )->GetName( ) << ", " << schema_bind->binaryName << std::endl;
 			}
 		}
 	}
+
+	const auto str = buf.str( );
+	std::cout << str;
+	glfwSetClipboardString( window_menu, str.c_str( ) );
 }
 inline void LogModifiers(CDOTABaseNPC* npc) {
 	std::cout << "modifiers:\n";

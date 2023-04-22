@@ -10,33 +10,35 @@ void Hooks::EntityIteration() {
 			!hero->GetIdentity()->IsDormant())
 			Modules::IllusionColoring.ColorIfIllusion(hero);
 	}
+
 	if (Config::AutoPickUpRunes) {
+		Hooks::NetChan ? nullptr : throw "netchan = nullptr";
+
 		for (auto& rune : ctx.runes) {
 
-			if (rune->GetRuneType() != DOTA_RUNE_BOUNTY ||
-				!IsWithinRadius(rune->GetPos(), ctx.assignedHero->GetPos(), 140.0f)
-				)
-				continue;
+			static long long last_pickup_time = 0;
+			if ( IsWithinRadius( rune->GetPos( ), ctx.assignedHero->GetPos( ), 140.0f ) &&
+				 GetTickCount64( ) - last_pickup_time >= 1000 ) {
 
-			ctx.localPlayer->PrepareOrder(
-				DOTA_UNIT_ORDER_PICKUP_RUNE,
-				rune->GetIndex(),
-				&Vector::Zero,
-				0,
-				DOTA_ORDER_ISSUER_HERO_ONLY,
-				ctx.assignedHero,
-				false,
-				true);
+				CDOTAClientMsg_ExecuteOrders orders_message;
+				auto msg_id = Interfaces::NetworkMessages->FindNetworkMessageByID( 350 );
+				auto order = orders_message.add_orders( );
+				order->set_order_type( DOTA_UNIT_ORDER_PICKUP_RUNE );
+				order->set_target_index( rune->GetIndex( ) );
+				order->set_ability_index( 0 );
+				order->set_sequence_number( ctx.localPlayer->GetSequenceNum( ) + 1 );
+				order->add_units( ctx.assignedHero->GetIndex( ) );
+
+				Hooks::oSendNetMessage( Hooks::NetChan, msg_id, &orders_message, BUF_DEFAULT );
+				last_pickup_time = GetTickCount64( );
+			}
 		}
 	}
 }
 
-
-
-bool DotaPlusStatus = false;
-
 void Hooks::hkRunFrame(void* thisptr) {
 	bool isInGame = Interfaces::Engine->IsInGame();
+	static bool DotaPlusStatus = false;
 	if (DotaPlusStatus != Config::Changer::UnlockDotaPlus) {
 		DotaPlusStatus = Config::Changer::UnlockDotaPlus;
 		Modules::DotaPlusUnlocker.UpdateDotaPlusStatus();
@@ -127,10 +129,26 @@ void Hooks::hkRunFrame(void* thisptr) {
 			);
 		};
 	}
-	if (IsKeyPressed(VK_HOME)) {
+	if (IsKeyPressed(VK_RMENU)) {
+		auto type = GameSystems::GameRules->GetRiverType( );
+		std::cout << "r: " << type << std::endl;
 
+		if ( ctx.runes.size( ) > 0 ) {
+			auto rune = *ctx.runes.begin( );
+
+			CDOTAClientMsg_ExecuteOrders orders_message;
+			auto msg_id = Interfaces::NetworkMessages->FindNetworkMessageByID( 350 );
+			auto order = orders_message.add_orders( );
+			order->set_order_type( DOTA_UNIT_ORDER_PICKUP_RUNE );
+			order->set_target_index( rune->GetIndex() );
+			order->set_ability_index( 0 );
+			order->set_sequence_number( ctx.localPlayer->GetSequenceNum( ) + 1 );
+			order->add_units( ctx.assignedHero->GetIndex( ) );
+
+			Hooks::oSendNetMessage( Hooks::NetChan, msg_id, &orders_message, BUF_DEFAULT );
+		}
 	}
-#endif
+#endif 
 
 	oRunFrame(thisptr);
 }

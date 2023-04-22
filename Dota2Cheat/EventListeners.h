@@ -55,7 +55,7 @@ public:
 	}
 };
 
-class EntityHurtListener : public IGameEventListener2 {
+class RunePickupListener : public IGameEventListener2 {
 public:
 	void DESTROY() override {
 

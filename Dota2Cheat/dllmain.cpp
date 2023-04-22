@@ -20,7 +20,7 @@
 #include "UI/Pages/MainMenu.h"
 #include "UI/Pages/AutoPickSelectionGrid.h"
 #include "Modules/Hacks/LastHitMarker.h"
-
+GLFWwindow* window_menu{};
 
 #pragma region Static variables
 
@@ -29,17 +29,13 @@ std::vector<std::unique_ptr<IGameEventListener2>> CGameEventManager::EventListen
 
 #pragma endregion
 
-
-
-constexpr bool useChangerCode = false;
-
 static inline void glfw_error_callback(int error, const char* description)
 {
 	fprintf(stderr, "Glfw Error %d: %s\n", error, description);
 }
 
-
 uintptr_t WINAPI HackThread(HMODULE hModule) {
+	constexpr bool useChangerCode = false;
 	// Initialize MinHook.
 	if (MH_Initialize() != MH_OK)
 		FreeLibraryAndExitThread(hModule, 0);
@@ -135,12 +131,13 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	if (!monitor)
 		return 0;
 
-	auto videoMode = glfwGetVideoMode(monitor);
-
-	GLFWwindow* window = glfwCreateWindow(videoMode->width, videoMode->height, "Dota2Cheat", NULL, NULL);
-	if (window == NULL)
+	const auto videoMode = glfwGetVideoMode(monitor);
+	
+	window_menu = glfwCreateWindow(videoMode->width, videoMode->height, "Dota2Cheat", NULL, NULL);
+	if ( window_menu == NULL)
 		return 1;
-	glfwMakeContextCurrent(window);
+
+	glfwMakeContextCurrent( window_menu );
 	glfwSwapInterval(1); // Enable vsync
 
 	// Setup Dear ImGui context
@@ -152,7 +149,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	ImGui::StyleColorsClassic();
 	//ImGui::StyleColorsLight();
 	// Setup Platform/Renderer backends
-	ImGui_ImplGlfw_InitForOpenGL(window, true);
+	ImGui_ImplGlfw_InitForOpenGL( window_menu, true);
 	ImGui_ImplOpenGL3_Init(glsl_version);
 
 	//auto vbeFont = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
@@ -163,7 +160,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	std::cout << "Icon loading result: " << iconLoadThread.get() << "\n";
 	int itemDefId = 6996;
 	// Main loop
-	while (!glfwWindowShouldClose(window))
+	while (!glfwWindowShouldClose( window_menu ))
 	{
 		glfwPollEvents();
 
@@ -177,7 +174,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		ImGui::PushFont(defaultFont);
 
 #ifdef _DEBUG
-		Pages::AutoPickHeroGrid::Draw(window);
+		Pages::AutoPickHeroGrid::Draw();
 #endif // _DEBUG
 
 		if (
@@ -192,11 +189,11 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		}
 
 		if (menuVisible)
-			Pages::MainMenu::Draw(window);
+			Pages::MainMenu::Draw();
 
 
 		if (IsKeyPressed(VK_INSERT)) {
-			glfwSetWindowAttrib(window, GLFW_MOUSE_PASSTHROUGH, menuVisible);
+			glfwSetWindowAttrib( window_menu, GLFW_MOUSE_PASSTHROUGH, menuVisible);
 			menuVisible = !menuVisible;
 		}
 
@@ -211,12 +208,12 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		// Rendering
 		ImGui::Render();
 		int display_w, display_h;
-		glfwGetFramebufferSize(window, &display_w, &display_h);
+		glfwGetFramebufferSize( window_menu, &display_w, &display_h);
 		glViewport(0, 0, display_w, display_h);
 		glClear(GL_COLOR_BUFFER_BIT);
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
-		glfwSwapBuffers(window);
+		glfwSwapBuffers( window_menu );
 
 		CheckMatchState(); // checking every frame
 	}
@@ -237,7 +234,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	ImGui_ImplGlfw_Shutdown();
 	ImGui::DestroyContext();
 
-	glfwDestroyWindow(window);
+	glfwDestroyWindow( window_menu );
 	glfwTerminate();
 
 	if (ctx.gameStage != Context::GameStage::NONE)
@@ -259,10 +256,8 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 {
 	switch (ul_reason_for_call)
 	{
-	case DLL_PROCESS_ATTACH: {
-		//imgui ver
-		HANDLE thread = CreateThread(0, 0, (LPTHREAD_START_ROUTINE)HackThread, hModule, 0, 0);
-		if (thread)
+	case DLL_PROCESS_ATTACH: { 
+		if ( HANDLE thread = CreateThread( 0, 0, (LPTHREAD_START_ROUTINE)HackThread, hModule, 0, 0 ); thread)
 			CloseHandle(thread);
 		break;
 	}
@@ -273,4 +268,3 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 	}
 	return TRUE;
 }
-

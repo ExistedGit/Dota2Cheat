@@ -113,9 +113,9 @@ void EnteredInGame() {
 
 	//auto roshanListener = new RoshanListener();
 	//roshanListener->gameStartTime = GameSystems::GameRules->GetGameTime();
-	//auto hurtListener = new EntityHurtListener();
+	//auto runel = new RunePickupListener();
 	//GameSystems::GameEventManager->AddListener(roshanListener, "dota_roshan_kill");
-	//GameSystems::GameEventManager->AddListener(hurtListener, "entity_hurt");
+	//GameSystems::GameEventManager->AddListener(runel, "dota_rune_pickup");
 
 	Lua::SetGlobals(ctx.lua);
 

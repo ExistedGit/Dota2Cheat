@@ -17,6 +17,6 @@ namespace Pages {
 		void InitImages();
 		// Button toggles
 		inline bool pickToggled = true, banToggled = false;
-		void Draw(GLFWwindow* window);
+		void Draw();
 	}
 }
