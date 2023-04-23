@@ -39,7 +39,6 @@ void CacheAllEntities() {
 			continue;
 
 		SortEntToCollections(ent);
-		Lua::CallModuleFunc("OnAddEntity", ent);
 	}
 }
 void OnUpdatedAssignedHero()
@@ -128,7 +127,7 @@ void EnteredInGame() {
 	CacheAllEntities();
 
 	Modules::AbilityESP.SubscribeHeroes();
-	Modules::UIOverhaul.Init();
+	//Modules::UIOverhaul.Init();
 
 	Lua::CallModuleFunc("OnJoinedMatch");
 
