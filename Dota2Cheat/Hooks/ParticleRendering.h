@@ -1,5 +1,5 @@
 #pragma once
-#include "../Config.h"
+#include "../CheatSDK/Config.h"
 
 namespace Hooks {
 	using CParticleCollection = Signatures::CParticleCollection;

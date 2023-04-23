@@ -1,6 +1,6 @@
 #pragma once
 #include "../../SDK/pch.h"
-#include "../../Config.h"
+#include "../../CheatSDK/Config.h"
 
 namespace Hacks {
 	// Automatically uses Hand of Midas on non-ancient creeps

@@ -87,6 +87,12 @@ void EnteredPreGame() {
 	GetGameSystem(ParticleManager);
 	GetGameSystem(GameEventManager);
 
+	if (!oFireEventClientSide) {
+		auto vmt = VMT(GameSystems::GameEventManager);
+		void* FireEventClientSide = vmt.GetVM(8);
+		HOOKFUNC(FireEventClientSide);
+	}
+
 	Log(LP_INFO, "GAME STAGE: PRE-GAME");
 }
 
@@ -113,9 +119,9 @@ void EnteredInGame() {
 
 	//auto roshanListener = new RoshanListener();
 	//roshanListener->gameStartTime = GameSystems::GameRules->GetGameTime();
-	//auto hurtListener = new EntityHurtListener();
+	//auto runel = new RunePickupListener();
 	//GameSystems::GameEventManager->AddListener(roshanListener, "dota_roshan_kill");
-	//GameSystems::GameEventManager->AddListener(hurtListener, "entity_hurt");
+	//GameSystems::GameEventManager->AddListener(runel, "dota_rune_pickup");
 
 	Lua::SetGlobals(ctx.lua);
 
@@ -124,16 +130,15 @@ void EnteredInGame() {
 	Modules::AbilityESP.SubscribeHeroes();
 	Modules::UIOverhaul.Init();
 
-	Lua::CallModuleFunc("Init");
+	Lua::CallModuleFunc("OnJoinedMatch");
 
-	Hooks::EnableHooks();
 	ctx.gameStage = Context::GameStage::IN_GAME;
 }
 
 void LeftMatch() {
 	ctx.gameStage = Context::GameStage::NONE;
 
-	Lua::CallModuleFunc("Reset");
+	Lua::CallModuleFunc("OnLeftMatch");
 
 	GameSystems::ParticleManager->OnExitMatch();
 
@@ -149,9 +154,6 @@ void LeftMatch() {
 	GameSystems::ProjectileManager = nullptr;
 	GameSystems::MinimapRenderer = nullptr;
 
-	for (auto& listener : CGameEventManager::EventListeners)
-		GameSystems::GameEventManager->RemoveListener(listener.get());
-	CGameEventManager::EventListeners.clear();
 	GameSystems::GameEventManager = nullptr;
 
 	ctx.localPlayer = nullptr;
@@ -159,7 +161,6 @@ void LeftMatch() {
 	ctx.assignedHeroHandle = 0xFFFFFFFF;
 
 	Lua::SetGlobals(ctx.lua);
-	Hooks::DisableHooks();
 	texManager.QueueTextureUnload();
 
 	Log(LP_INFO, "GAME STAGE: NONE");

@@ -31,6 +31,9 @@ CUIPanel* Hacks::UIOverhaul::GetTopBarImgForHero(CDOTABaseNPC_Hero* hero) {
 void Hacks::UIOverhaul::DrawBars() {
 	if (!ReadyToRender)
 		return; 
+	if (!Config::UIOverhaul::TopBars)
+		return;
+
 	auto DrawList = ImGui::GetForegroundDrawList();
 	constexpr static int barHeight = 8; // as in the game
 	for (auto& [hero, data] : topBar) {

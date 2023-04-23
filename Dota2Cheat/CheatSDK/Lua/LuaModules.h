@@ -26,7 +26,7 @@ namespace Lua {
 	// Calls a function in every module that has it
 	template<typename ...Args>
 	inline void CallModuleFunc(const std::string& funcName, Args&&... args) {
-		ctx.lua["Modules"]["Core"]["CallModuleFunc"](funcName, args...);
+		ctx.lua["Modules"]["Core"]["CallModuleFunc"](funcName, std::forward<Args>(args)...);
 	}
 
 	inline void CallModuleFunc(const std::string& funcName) {

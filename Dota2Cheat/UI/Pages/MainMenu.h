@@ -1,22 +1,11 @@
 #pragma once
-#include <imgui/imgui.h>
-#include "../../Config.h"
-#include "../../Input.h"
+#include "../Utils/Drawing.h"
+#include "../../CheatSDK/include.h"
 
 namespace Pages {
 	namespace MainMenu {
-		void UpdateCameraDistance() {
-			static auto varInfo = CVarSystem::CVar["dota_camera_distance"];
-			if (Config::CameraDistance != varInfo.var->value.flt) {
-				varInfo.var->value.flt = Config::CameraDistance;
-				Interfaces::CVar->TriggerCallback(varInfo);
-			}
-		}
-
-		void UpdateWeather() {
-			static auto varInfo = CVarSystem::CVar["cl_weather"];
-			varInfo.var->value.i32 = Config::Changer::WeatherListIdx;
-		}
+		const char* WeatherList[] = { "Default", "Winter", "Rain", "MoonBeam", "Pestilence", "Harvest", "Sirocco", "Spring", "Ash", "Aurora" };
+		const char* RiverList[] = { "Default", "Chrome", "Dry", "Slime", "Oil", "Electric", "Potion", "Blood" };
 
 		inline char scriptBuf[4096]{};
 		inline std::string rpStatusBuf;
@@ -25,7 +14,7 @@ namespace Pages {
 
 		inline int debugEntIdx = 0;
 
-		inline void Draw(GLFWwindow* window) {
+		inline void Draw() {
 			ImGui::Begin("Main", nullptr, ImGuiWindowFlags_::ImGuiWindowFlags_AlwaysAutoResize);
 
 			if (ImGui::Button("Scripting"))
@@ -84,24 +73,22 @@ namespace Pages {
 				ImGui::Checkbox("Unlock Dota Plus", &Config::Changer::UnlockDotaPlus);
 				ImGui::Checkbox("Unlock emoticons", &Config::Changer::UnlockEmoticons);
 				// https://github.com/SK68-ph/Shadow-Dance-Menu
-				if (ImGui::ListBox(
+				ImGui::ListBox(
 					"Change weather",
 					&Config::Changer::WeatherListIdx,
-					UIState::WeatherList,
-					IM_ARRAYSIZE(UIState::WeatherList),
-					4))
-					UpdateWeather();
+					WeatherList,
+					IM_ARRAYSIZE(WeatherList),
+					4);
 
 				// credits to the screenshot https://yougame.biz/threads/283404/
 				// and to Wolf49406 himself
 				// should've figured out it's controlled by a convar like the weather :)
-				if (ImGui::ListBox(
+				ImGui::ListBox(
 					"River paint",
 					&Config::Changer::RiverListIdx,
-					UIState::RiverList,
-					IM_ARRAYSIZE(UIState::RiverList),
-					4))
-					UpdateCameraDistance();
+					RiverList,
+					IM_ARRAYSIZE(RiverList),
+					4);
 			};
 			if (ImGui::TreeNode("Auto-pickup")) {
 				ImGui::Checkbox("Bounty runes", &Config::AutoPickUpRunes);
@@ -127,6 +114,11 @@ namespace Pages {
 				ImGui::SameLine(); HelpMarker("Stashed items will be displayed like in Dota itself");
 				ImGui::TreePop();
 			}
+			if (ImGui::TreeNode("UI Overhaul")) {
+				ImGui::Checkbox("Top bars", &Config::IllusionColoring::Enabled);
+				ImGui::SameLine(); HelpMarker("Shows HP and Mana bars for enemies in the top bar. Like pressing Alt does for your allies");
+				ImGui::TreePop();
+			}
 			if (ImGui::TreeNode("Illusion coloring")) {
 				ImGui::Checkbox("Enable", &Config::IllusionColoring::Enabled);
 				ImGui::ColorEdit3("Color", &Config::IllusionColoring::Color.x);
@@ -147,12 +139,12 @@ namespace Pages {
 					!Config::ModifierRevealer::TargetedSpells)
 					Modules::TargetedSpellHighlighter.OnDisableTargetedSpells();
 				ImGui::SameLine(); HelpMarker("Assassinate, Charge of Darkness, Track");
-				
+
 				if (ImGui::Checkbox("True Sight", &Config::ModifierRevealer::TrueSight)
 					&& !Config::ModifierRevealer::TrueSight)
 					Modules::TrueSightESP.OnDisable();
 
-				if (ImGui::Checkbox("Show Linken Sphere", &Config::ModifierRevealer::LinkenSphere) &&
+				if (ImGui::Checkbox("Linken Sphere", &Config::ModifierRevealer::LinkenSphere) &&
 					!Config::ModifierRevealer::LinkenSphere)
 					Modules::TargetedSpellHighlighter.OnDisableLinken();
 				ImGui::TreePop();
@@ -197,7 +189,7 @@ namespace Pages {
 			ImGui::SliderFloat("Camera distance", &Config::CameraDistance, 1200, 3000, "%.1f");
 
 			if (ImGui::Button("EXIT", ImVec2(100, 50)))
-				glfwSetWindowShouldClose(window, 1);
+				glfwSetWindowShouldClose(window_menu, 1);
 
 			ImGui::End();
 

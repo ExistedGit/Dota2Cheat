@@ -1,6 +1,6 @@
 #pragma once
 #include "../SDK/pch.h"
-#include "../Config.h"
+#include "../CheatSDK/Config.h"
 
 namespace Hooks {
 	inline Signatures::BIsEmoticonUnlockedFn oBIsEmoticonUnlocked{};

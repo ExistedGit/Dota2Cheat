@@ -1,7 +1,7 @@
 #pragma once
 #include "../../SDK/pch.h"
 #include "../../Utils/Drawing.h"
-#include "../../Config.h"
+#include "../../CheatSDK/Config.h"
 
 namespace Hacks {
 	class TPTracker {
@@ -19,9 +19,9 @@ namespace Hacks {
 			TPData start, end;
 		};
 
-		std::map<CBaseEntity*, TPLineData> teleports;
-
+		qwemap<CBaseEntity*, TPLineData> teleports;
 		std::map<CBaseEntity*, ImTextureID> heroIcons;
+
 		float lastTime = 0;
 	public:
 		// Mostly calculating fade duration

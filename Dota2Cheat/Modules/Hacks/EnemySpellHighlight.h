@@ -1,6 +1,6 @@
 #pragma once
 #include "../../SDK/pch.h"
-#include "../../Config.h"
+#include "../../CheatSDK/Config.h"
 #include "../Utility/ParticleGC.h"
 
 namespace Hacks {

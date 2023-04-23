@@ -1,8 +1,7 @@
 #pragma once
 #include "../SDK/pch.h"
 #include "../Utils/Drawing.h"
-#include "../Config.h"
-#include "../Utils/FuncWrappers.h"
+#include "../CheatSDK/include.h"
 
 namespace Hacks {
 	class LastHitMarker {

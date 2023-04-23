@@ -10,7 +10,7 @@ namespace Hooks
         {
             if (!_target_func)
             {
-                _target_func = (target_func_type)GetProcAddress(GetModuleHandle(_module), _pattern);
+                _target_func = (target_func_type)GetProcAddress(GetModuleHandleW(_module), _pattern);
             }
             if (!_target_func)
                 return;

@@ -1,5 +1,5 @@
 #pragma once
-#include "SDK/Base/Vector.h"
+#include "../SDK/Base/Vector.h"
 #include <fstream>
 #include <json.hpp>
 
@@ -90,6 +90,9 @@ namespace Config {
 	namespace AutoMidas {
 		inline bool Enabled;
 		inline int XPTreshold;
+	}
+	namespace UIOverhaul {
+		inline bool TopBars;
 	}
 	namespace ManaAbuse {
 		inline bool Enabled;

@@ -2,6 +2,10 @@
 #include "../Globals/Context.h"
 
 inline void SortEntToCollections(CBaseEntity* ent) {
+	if (!ent->SchemaBinding()
+		|| !ent->SchemaBinding()->binaryName)
+		return;
+
 	std::string_view className = ent->SchemaBinding()->binaryName;
 
 	if (className == "C_DOTA_Item_Physical")

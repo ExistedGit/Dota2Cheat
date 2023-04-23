@@ -1,7 +1,7 @@
 #pragma once
 #include "../SDK/pch.h"
 #include "../../Utils/Drawing.h"
-#include "../../Config.h"
+#include "../../CheatSDK/Config.h"
 #include <map>
 
 namespace ESP {
@@ -24,11 +24,11 @@ namespace ESP {
 
 		int AbilityIconSize = 32;
 		bool Initialized = false;
-		static inline std::map<CDOTABaseNPC_Hero*, std::vector<AbilityData>> EnemyAbilities{};
+		static inline qwemap<CDOTABaseNPC_Hero*, std::vector<AbilityData>> EnemyAbilities{};
 		// For each hero there's a map of slot indexes to ability data(for items tho, but they're abilities too)
-		static inline std::map<CDOTABaseNPC_Hero*, std::map<int, AbilityData>> EnemyItems{};
+		static inline qwemap<CDOTABaseNPC_Hero*, std::map<int, AbilityData>> EnemyItems{};
 
-		std::map<CDOTABaseNPC_Hero*, bool> DrawableHeroes;
+		qwemap<CDOTABaseNPC_Hero*, bool> DrawableHeroes;
 		bool CanDraw(CDOTABaseNPC_Hero* hero);;
 		void DrawAbilities();
 		void LoadItemTexIfNeeded(AbilityData& data);

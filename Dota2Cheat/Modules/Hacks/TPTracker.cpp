@@ -106,21 +106,16 @@ void Hacks::TPTracker::ProcessParticleMsg(NetMessageHandle_t* msgHandle, google:
 	auto msgIndex = pmMsg->index();
 	switch (pmMsg->type()) {
 	case GAME_PARTICLE_MANAGER_EVENT_CREATE: {
-
 		auto particle = pmMsg->create_particle();
 		if (!particle.has_particle_name_index())
 			break;
-		std::string_view particleName = "";
-		{
-			const char* name = Interfaces::ResourceSystem->GetResourceName(particle.particle_name_index());
-			if (name)
-				particleName = name;
-		}
+
+		const auto particleName = Interfaces::ResourceSystem->GetResourceName(particle.particle_name_index());
 		auto ent = Interfaces::EntitySystem->GetEntity(NH2IDX(particle.entity_handle_for_modifiers()));
 		if (!ent)
 			break;
 
-		if (particleName == "particles/items2_fx/teleport_start.vpcf") {
+		if (!strcmp( particleName, "particles/items2_fx/teleport_start.vpcf")) {
 			auto& tpData = teleports[ent];
 			tpData.fadeCounter = tpData.fadeDuration = tpData.isFading = 0;
 			tpData.color = ImColor{ 220,220,220 };
@@ -128,7 +123,7 @@ void Hacks::TPTracker::ProcessParticleMsg(NetMessageHandle_t* msgHandle, google:
 						.msgIdx = msgIndex
 			};
 		}
-		else if (particleName == "particles/items2_fx/teleport_end.vpcf") {
+		else if (!strcmp(particleName, "particles/items2_fx/teleport_end.vpcf")) {
 			auto& tpData = teleports[ent];
 			tpData.fadeCounter = tpData.fadeDuration = tpData.isFading = 0;
 			tpData.color = ImColor{ 220,220,220 };
@@ -140,19 +135,16 @@ void Hacks::TPTracker::ProcessParticleMsg(NetMessageHandle_t* msgHandle, google:
 	}
 	case GAME_PARTICLE_MANAGER_EVENT_UPDATE_TRANSFORM:
 	{
-		int cp = pmMsg->update_particle_transform().control_point();
-		if (cp != 0)
-			break;
+		if ( pmMsg->update_particle_transform( ).control_point( ) == 0 ) {
+			auto pos = pmMsg->update_particle_transform( ).position( );
 
-		auto pos = pmMsg->update_particle_transform().position();
-
-		for (auto& [_, data] : teleports)
-			if (data.start.msgIdx == msgIndex)
-				data.start.pos = Vector(pos.x(), pos.y(), pos.z());
-		for (auto& [_, data] : teleports)
-			if (data.end.msgIdx == msgIndex)
-				data.end.pos = Vector(pos.x(), pos.y(), pos.z());
-
+			for ( auto& [_, data] : teleports )
+				if ( data.start.msgIdx == msgIndex )
+					data.start.pos = Vector( pos.x( ), pos.y( ), pos.z( ) );
+			for ( auto& [_, data] : teleports )
+				if ( data.end.msgIdx == msgIndex )
+					data.end.pos = Vector( pos.x( ), pos.y( ), pos.z( ) );
+		}
 		break;
 	}
 	case GAME_PARTICLE_MANAGER_EVENT_DESTROY: {
