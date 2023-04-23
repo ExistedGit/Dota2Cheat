@@ -1,5 +1,5 @@
 #include "Config.h"
-#include "Modules/Hacks/SkinChanger.h"
+#include "../Modules/Hacks/SkinChanger.h"
 
 void Config::ConfigManager::SaveConfig(std::ofstream& stream) {
 	using enum ConfigVarType;

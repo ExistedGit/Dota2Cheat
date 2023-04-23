@@ -1,6 +1,6 @@
 #include "ParticleRendering.h"
 #include "../Modules/Hacks/DotaPlusUnlocker.h"
-#include "../Config.h"
+#include "../CheatSDK/Config.h"
 
 using CParticleCollection = Signatures::CParticleCollection;
 

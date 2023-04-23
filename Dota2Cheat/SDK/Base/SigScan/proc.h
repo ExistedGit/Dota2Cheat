@@ -1,7 +1,9 @@
 #pragma once
-#include "../../../include.h"
+#include <Windows.h>
+#include <TlHelp32.h>
+#include <string_view>
 
-DWORD GetProcId(const wchar_t* procname);
+DWORD GetProcId(const char* procname);
 
-uintptr_t GetModuleBaseAddress(DWORD procId, const wchar_t* modname);
-MODULEENTRY32 GetModule(DWORD dwProcID, const wchar_t* moduleName);
+uintptr_t GetModuleBaseAddress(DWORD procId, const char* modname);
+MODULEENTRY32 GetModule(DWORD dwProcID, const char* moduleName);

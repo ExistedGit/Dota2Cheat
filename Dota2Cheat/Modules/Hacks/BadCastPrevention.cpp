@@ -1,5 +1,5 @@
 #include "BadCastPrevention.h"
-#include "../../Config.h"
+#include "../../CheatSDK/Config.h"
 
 bool Hacks::BadCastPrevention::AreEnemyUnitsInArea(const Vector& center, int radius) {
 	for (int i = 0; i <= Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {

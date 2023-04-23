@@ -1,7 +1,6 @@
 #pragma once
 #include "../../SDK/pch.h"
-#include "../../Config.h"
-#include "../../Input.h"
+#include "../../CheatSDK/Config.h"
 #include "../../Utils/Drawing.h"
 #include <regex>
 

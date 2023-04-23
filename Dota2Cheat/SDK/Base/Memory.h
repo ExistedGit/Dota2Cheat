@@ -63,7 +63,7 @@ class SigScan {
 		}
 	}
 public:
-	static Address Find(const std::string& signature, const wchar_t* moduleName) {
+	static Address Find(const std::string& signature, const char* moduleName) {
 		int maskLength = (signature.length() + 1) / 3 + 1;
 		std::string pattern, mask;
 		pattern.reserve(maskLength);

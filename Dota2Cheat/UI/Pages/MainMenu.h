@@ -1,10 +1,12 @@
 #pragma once
-#include <imgui/imgui.h>
-#include "../../Config.h"
-#include "../../Input.h"
+#include "../Utils/Drawing.h"
+#include "../../CheatSDK/include.h"
 
 namespace Pages {
 	namespace MainMenu {
+		const char* WeatherList[] = { "Default", "Winter", "Rain", "MoonBeam", "Pestilence", "Harvest", "Sirocco", "Spring", "Ash", "Aurora" };
+		const char* RiverList[] = { "Default", "Chrome", "Dry", "Slime", "Oil", "Electric", "Potion", "Blood" };
+
 		inline char scriptBuf[4096]{};
 		inline std::string rpStatusBuf;
 		inline bool scriptMenuVisible = false;
@@ -74,8 +76,8 @@ namespace Pages {
 				ImGui::ListBox(
 					"Change weather",
 					&Config::Changer::WeatherListIdx,
-					UIState::WeatherList,
-					IM_ARRAYSIZE(UIState::WeatherList),
+					WeatherList,
+					IM_ARRAYSIZE(WeatherList),
 					4);
 
 				// credits to the screenshot https://yougame.biz/threads/283404/
@@ -84,8 +86,8 @@ namespace Pages {
 				ImGui::ListBox(
 					"River paint",
 					&Config::Changer::RiverListIdx,
-					UIState::RiverList,
-					IM_ARRAYSIZE(UIState::RiverList),
+					RiverList,
+					IM_ARRAYSIZE(RiverList),
 					4);
 			};
 			if (ImGui::TreeNode("Auto-pickup")) {
@@ -137,7 +139,7 @@ namespace Pages {
 					!Config::ModifierRevealer::TargetedSpells)
 					Modules::TargetedSpellHighlighter.OnDisableTargetedSpells();
 				ImGui::SameLine(); HelpMarker("Assassinate, Charge of Darkness, Track");
-				
+
 				if (ImGui::Checkbox("True Sight", &Config::ModifierRevealer::TrueSight)
 					&& !Config::ModifierRevealer::TrueSight)
 					Modules::TrueSightESP.OnDisable();
@@ -184,7 +186,7 @@ namespace Pages {
 			ImGui::Checkbox("Redirect illusion casts", &Config::CastRedirection);
 			ImGui::SameLine(); HelpMarker("You cast something on an illusion - it aims for the real hero(if they're in range, of course)");
 
-			if ( ImGui::SliderFloat( "Camera distance", &Config::CameraDistance, 1200, 3000, "%.1f" ) ) UpdateCameraDistance( );
+			ImGui::SliderFloat("Camera distance", &Config::CameraDistance, 1200, 3000, "%.1f");
 
 			if (ImGui::Button("EXIT", ImVec2(100, 50)))
 				glfwSetWindowShouldClose(window_menu, 1);

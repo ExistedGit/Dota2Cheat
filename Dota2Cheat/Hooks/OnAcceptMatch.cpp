@@ -1,5 +1,5 @@
 #include "OnAcceptMatch.h"
-#include "../Config.h"
+#include "../CheatSDK/Config.h"
 
 void Hooks::RunAcceptTimer() {
 	std::thread([=]() {

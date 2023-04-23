@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Config.cpp" />
-    <ClCompile Include="HookHelper.cpp" />
+    <ClCompile Include="CheatSDK\Config.cpp" />
+    <ClCompile Include="CheatSDK\Hooking.cpp" />
     <ClCompile Include="Hooks\EntitySystemEvents.cpp" />
     <ClCompile Include="Hooks\ModifierEvents.cpp" />
     <ClCompile Include="Hooks\NetChannel.cpp" />
@@ -13,8 +13,8 @@
     <ClCompile Include="Hooks\SteamGC.cpp" />
     <ClCompile Include="ImGuiSDK\Elements.cpp" />
     <ClCompile Include="include\imgui\imgui_stdlib.cpp" />
-    <ClCompile Include="Lua\LuaInitialization.cpp" />
-    <ClCompile Include="MatchStateHandling.cpp" />
+    <ClCompile Include="CheatSDK\Lua\LuaInitialization.cpp" />
+    <ClCompile Include="CheatSDK\MatchStateHandling.cpp" />
     <ClCompile Include="Modules\Hacks\AegisAutoPickup.cpp" />
     <ClCompile Include="Modules\Hacks\AutoBuyTome.cpp" />
     <ClCompile Include="Modules\Hacks\AutoDodge.cpp" />
@@ -150,7 +150,6 @@
     <ClInclude Include="Hooks\OnAcceptMatch.h" />
     <ClInclude Include="Hooks\SteamGC.h" />
     <ClInclude Include="ImGuiSDK\Elements.h" />
-    <ClInclude Include="include.h" />
     <ClInclude Include="include\imgui\imgui_stdlib.h" />
     <ClInclude Include="include\json.hpp" />
     <ClInclude Include="Modules\Hacks\AbilityESP.h" />
@@ -201,7 +200,7 @@
     <ClInclude Include="SDK\Interfaces\GC\CEconItem.h" />
     <ClInclude Include="SDK\Interfaces\GC\CGCClient.h" />
     <ClInclude Include="SDK\Interfaces\CInputService.h" />
-    <ClInclude Include="Config.h" />
+    <ClInclude Include="CheatSDK\Config.h" />
     <ClInclude Include="DebugFunctions.h" />
     <ClInclude Include="SDK\Interfaces\CResourceSystem.h" />
     <ClInclude Include="SDK\Interfaces\GC\ItemSchema.h" />
@@ -214,11 +213,11 @@
     <ClInclude Include="Utils\Drawing.h" />
     <ClInclude Include="SDK\Globals\Context.h" />
     <ClInclude Include="Hooks\EntitySystemEvents.h" />
-    <ClInclude Include="EventListeners.h" />
-    <ClInclude Include="HookHelper.h" />
+    <ClInclude Include="CheatSDK\EventListeners.h" />
+    <ClInclude Include="CheatSDK\Hooking.h" />
     <ClInclude Include="Modules\Hacks\LinearProjectileWarner.h" />
-    <ClInclude Include="Lua\LuaModules.h" />
-    <ClInclude Include="Lua\LuaInitialization.h" />
+    <ClInclude Include="CheatSDK\Lua\LuaModules.h" />
+    <ClInclude Include="CheatSDK\Lua\LuaInitialization.h" />
     <ClInclude Include="Hooks\NetChannel.h" />
     <ClInclude Include="Hooks\ModifierEvents.h" />
     <ClInclude Include="Modules\Hacks\ManaHpAbuse.h" />
@@ -231,7 +230,6 @@
     <ClInclude Include="Hooks\PrepareUnitOrders.h" />
     <ClInclude Include="Hooks\RunFrame.h" />
     <ClInclude Include="Modules\Hacks\IllusionColoring.h" />
-    <ClInclude Include="Input.h" />
     <ClInclude Include="Hooks\ParticleRendering.h" />
     <ClInclude Include="SDK\Interfaces\Panorama.h" />
     <ClInclude Include="Modules\Hacks\ParticleAbilityWarner.h" />
@@ -258,14 +256,12 @@
     <ClInclude Include="Modules\Hacks\TargetedSpellHighlighter.h" />
     <ClInclude Include="Modules\Hacks\EnemySpellHighlight.h" />
     <ClInclude Include="SDK\VTableIndexes.h" />
-    <ClInclude Include="stb_image.h" />
-    <ClInclude Include="UIState.h" />
     <ClInclude Include="SDK\Interfaces\CVarSystem.h" />
     <ClInclude Include="SDK\Base\CUtlVector.h" />
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="SDK\Enums.h" />
     <ClInclude Include="SDK\Interfaces\IEngineClient.h" />
-    <ClInclude Include="MatchStateHandling.h" />
+    <ClInclude Include="CheatSDK\MatchStateHandling.h" />
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h" />
     <ClInclude Include="SDK\Base\SigScan\patternscan.h" />
     <ClInclude Include="SDK\Base\SigScan\proc.h" />
@@ -274,7 +270,6 @@
     <ClInclude Include="SDK\Entities\CDOTABaseNPC.h" />
     <ClInclude Include="SDK\Entities\CEntityIdentity.h" />
     <ClInclude Include="UI\Pages\MainMenu.h" />
-    <ClInclude Include="Utils\FuncWrappers.h" />
     <ClInclude Include="SDK\Base\Logging.h" />
     <ClInclude Include="Modules\Hacks\TrueSightESP.h" />
     <ClInclude Include="SDK\Protobufs\c_peer2peer_netmessages.pb.h" />
@@ -331,6 +326,7 @@
     <ClInclude Include="SDK\Protobufs\valveextensions.pb.h" />
     <ClInclude Include="SDK\Wrappers\MapThreadSafe.h" />
     <ClInclude Include="Hooks\GameEvents.h" />
-    <ClInclude Include="Utils\SignatureParser.h" />
+    <ClInclude Include="CheatSDK\Utils.h" />
+    <ClInclude Include="CheatSDK\include.h" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,5 @@
 #pragma once
-#include "../Config.h"
+#include "../CheatSDK/include.h"
 #include "../Modules/Hacks/IllusionColoring.h"
 #include "../Modules/Hacks/AegisAutoPickup.h"
 #include "../Modules/Hacks/AutoBuyTome.h"
@@ -18,7 +18,6 @@
 
 #include "../Modules/Utility/ParticleGC.h"
 
-#include "../Input.h"
 #include "../SDK/Entities/CDOTAItemRune.h"
 
 namespace Hooks {

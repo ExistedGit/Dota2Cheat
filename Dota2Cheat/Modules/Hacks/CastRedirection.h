@@ -1,5 +1,5 @@
 #pragma once
-#include "../../Config.h"
+#include "../../CheatSDK/Config.h"
 #include "../../SDK/pch.h"
 namespace Hacks {
 	//Redirects spell casts from illusions to the real hero

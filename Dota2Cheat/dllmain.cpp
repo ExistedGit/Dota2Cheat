@@ -3,19 +3,13 @@
 
 #include <cstdio>
 #include <iostream>
-#include "HookHelper.h"
-#include "Input.h"
-#include "UIState.h"
+#include "CheatSDK/Hooking.h"
 
-#include "Config.h"
 #include "DebugFunctions.h"
 
 #include "Utils/Drawing.h"
 
-#include "Lua/LuaModules.h"
-#include "Lua/LuaInitialization.h"
-
-#include "MatchStateHandling.h"
+#include "CheatSDK/include.h"
 #include "Hooks/InvalidateUEF.h"
 #include "UI/Pages/MainMenu.h"
 #include "UI/Pages/AutoPickSelectionGrid.h"
@@ -82,7 +76,15 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		});
 
 	Interfaces::CVar->DumpConVarsToMap();
-	Signatures::FindSignatures();
+	//Signatures::FindSignatures();
+	{
+		using namespace nlohmann;
+		std::ifstream fin("C:\\Users\\user\\Desktop\\signatures.json");
+		if (fin.is_open()) {
+			Signatures::ParseSignatures(json::parse(fin));
+			fin.close();
+		}
+	}
 	GameSystems::FindGameSystems();
 
 	if (useChangerCode) {
@@ -255,8 +257,7 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 	switch (ul_reason_for_call)
 	{
 	case DLL_PROCESS_ATTACH: { 
-		if ( HANDLE thread = CreateThread( 0, 0, (LPTHREAD_START_ROUTINE)HackThread, hModule, 0, 0 ); thread)
-			CloseHandle(thread);
+		std::thread(HackThread, hModule).detach();
 		break;
 	}
 	case DLL_THREAD_ATTACH:

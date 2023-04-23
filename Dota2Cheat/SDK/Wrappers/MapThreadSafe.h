@@ -3,7 +3,7 @@
 #include <mutex>
 #include <iostream>
 
-// Threadsafe technology patented by Wolf49406 thanks to qweme
+// Threadsafe technology patented by Wolf49406 and extended by yours truly
 template <class K, class V, class Compare = std::less<K>, class Allocator = std::allocator<std::pair<const K, V> > >
 class qwemap {
 private:

@@ -46,7 +46,7 @@ void* PatternScanEx(uintptr_t begin, uintptr_t end, const char* pattern, const c
 }
 
 //Module wrapper for external pattern scan
-void* PatternScanInModule(const wchar_t* module, const char* pattern, const char* mask)
+void* PatternScanInModule(const char* module, const char* pattern, const char* mask)
 {
 	MODULEENTRY32 modEntry = GetModule(GetCurrentProcessId(), module);
 

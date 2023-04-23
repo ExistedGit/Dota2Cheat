@@ -4,7 +4,7 @@ void Hacks::SkinChanger::ParseItemDefs(std::istream& stream) {
 	using namespace nlohmann;
 	json data = json::parse(stream);
 	for (auto& pair: data["items"].items()) {
-		int defIdx = pair.value().get<int>();
+		int defIdx = pair.value();
 		QueueAddItem(defIdx);
 	}
 	//for (auto& pair: data["default_items"].items()) {

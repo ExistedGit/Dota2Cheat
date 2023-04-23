@@ -1,7 +1,6 @@
 #include "proc.h"
 
-
-DWORD GetProcId(const wchar_t* procName)
+DWORD GetProcId(const char* procName)
 {
 	DWORD procId = 0;
 	HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
@@ -14,7 +13,7 @@ DWORD GetProcId(const wchar_t* procName)
 		{
 			do
 			{
-				if (!_wcsicmp(procEntry.szExeFile, procName))
+				if (std::string_view(procEntry.szExeFile) == procName)
 				{
 					procId = procEntry.th32ProcessID;
 					break;
@@ -27,7 +26,7 @@ DWORD GetProcId(const wchar_t* procName)
 	return procId;
 }
 
-uintptr_t GetModuleBaseAddress(DWORD procId, const wchar_t* modName)
+uintptr_t GetModuleBaseAddress(DWORD procId, const char* modName)
 {
 	uintptr_t modBaseAddr = 0;
 	HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE | TH32CS_SNAPMODULE32, procId);
@@ -39,7 +38,7 @@ uintptr_t GetModuleBaseAddress(DWORD procId, const wchar_t* modName)
 		{
 			do
 			{
-				if (!_wcsicmp(modEntry.szModule, modName))
+				if (std::string_view(modEntry.szModule) == modName)
 				{
 					modBaseAddr = (uintptr_t)modEntry.modBaseAddr;
 					break;
@@ -52,7 +51,7 @@ uintptr_t GetModuleBaseAddress(DWORD procId, const wchar_t* modName)
 }
 
 //Get ModuleEntry from module name, using toolhelp32snapshot
-MODULEENTRY32 GetModule(DWORD dwProcID, const wchar_t* moduleName)
+MODULEENTRY32 GetModule(DWORD dwProcID, const char* moduleName)
 {
 	MODULEENTRY32 modEntry = { 0 };
 
@@ -67,7 +66,7 @@ MODULEENTRY32 GetModule(DWORD dwProcID, const wchar_t* moduleName)
 		{
 			do
 			{
-				if (!wcscmp(curr.szModule, moduleName))
+				if (std::string_view(curr.szModule) == moduleName)
 				{
 					modEntry = curr;
 					break;

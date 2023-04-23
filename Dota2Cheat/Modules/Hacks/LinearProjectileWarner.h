@@ -1,6 +1,6 @@
 #pragma once
 #include <map>
-#include "../../Config.h"
+#include "../../CheatSDK/Config.h"
 #include "../../SDK/pch.h"
 #include "../../SDK/Protobufs/dota_usermessages.pb.h"
 

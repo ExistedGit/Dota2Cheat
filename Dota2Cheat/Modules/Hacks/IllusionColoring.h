@@ -1,6 +1,6 @@
 #pragma once
 #include "../../SDK/pch.h"
-#include "../../Config.h"
+#include "../../CheatSDK/Config.h"
 
 namespace Hacks {
 	// Heroes have the m_clrRender netvar which changes their color(like the blue friendly illusions)
