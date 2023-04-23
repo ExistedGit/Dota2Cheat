@@ -177,7 +177,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			&& ctx.assignedHero
 			) {
 			Modules::AbilityESP.DrawESP();
-			Modules::UIOverhaul.DrawBars();
+			// Modules::UIOverhaul.DrawBars();
 			Modules::TPTracker.DrawMapTeleports();
 			Modules::LastHitMarker.Draw();
 		}
@@ -251,7 +251,8 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 	switch (ul_reason_for_call)
 	{
 	case DLL_PROCESS_ATTACH: { 
-		std::thread(HackThread, hModule).detach();
+		if (HANDLE thread = CreateThread(0, 0, (LPTHREAD_START_ROUTINE)HackThread, hModule, 0, 0); thread)
+			CloseHandle(thread);
 		break;
 	}
 	case DLL_THREAD_ATTACH:

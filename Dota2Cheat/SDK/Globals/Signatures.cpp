@@ -45,7 +45,7 @@ void Signatures::ParseSignatures(nlohmann::json data) {
 }
 
 void Signatures::LoadSignaturesFromNetwork(const std::string& url) {
-	LogF(LP_DATA, "Loading signatures from {}", url);
+	LogF(LP_INFO, "Loading signatures from {}", url);
 
 	std::stringstream out;
 	CURL* curl = curl_easy_init();
@@ -71,7 +71,7 @@ void Signatures::FindSignatures() {
 	CMsg = reinterpret_cast<decltype(CMsg)>(GetProcAddress(GetModuleHandleA("tier0.dll"), "Msg"));
 	CMsgColor = reinterpret_cast<decltype(CMsgColor)>(GetProcAddress(GetModuleHandleA("tier0.dll"), "?ConColorMsg@@YAXAEBVColor@@PEBDZZ"));
 
-	Log(LP_INFO, "SIGNATURES:");
+	// Log(LP_INFO, "SIGNATURES:");
 
 	//xref: "<BAD GAMEUI STATE>"
 	//you can see messages about UI state in console when switching between game/menu/loading screen

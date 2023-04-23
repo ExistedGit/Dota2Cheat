@@ -53,7 +53,7 @@ inline std::string GetLogPrefix(LogPrefix prefixType) {
 		SetConsoleColor(ConColor::LightRed);
 		return "[ERROR] ";
 	case LP_DATA:
-		SetConsoleColor(ConColor::White);
+		SetConsoleColor(ConColor::LightGreen);
 		return "[DATA] ";
 	}
 	return "";

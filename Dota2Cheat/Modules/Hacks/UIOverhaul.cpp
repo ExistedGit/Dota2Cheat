@@ -37,7 +37,10 @@ void Hacks::UIOverhaul::DrawBars() {
 	auto DrawList = ImGui::GetForegroundDrawList();
 	constexpr static int barHeight = 8; // as in the game
 	for (auto& [hero, data] : topBar) {
-		if (hero->IsSameTeam(ctx.assignedHero) || !hero->IsTargetable())
+		if (!IsValidReadPtr(hero) ||
+			!IsValidReadPtr(hero->GetIdentity()) ||
+			hero->IsSameTeam(ctx.assignedHero) ||
+			!hero->IsTargetable())
 			continue;
 		if (!Interfaces::UIEngine->IsValidPanelPointer(data.panel))
 			continue;
