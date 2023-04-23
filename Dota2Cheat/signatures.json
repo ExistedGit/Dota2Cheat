@@ -7,6 +7,10 @@
     "signature": "48 83 EC 38 B9 ? ? ? ? E8 ? ? ? ? 48 8B C8",
     "module": "client.dll"
   },
+  "CreateEconItem": {
+    "signature": "48 83 EC ? B9 ? ? ? ? E8 ? ? ? ? 48 85 C0 74 ? 48 8D 0D",
+    "module": "client.dll"
+  },
   "SaveSerializedSOCache": {
     "signature": "4C 8B DC 57 48 81 EC ? ? ? ? 48 8B 05",
     "module": "client.dll"
@@ -17,6 +21,16 @@
   },
 
   "WorldToScreen": {
+    "signature": "E8 ? ? ? ? 39 6C 24 68",
+    "module": "client.dll",
+    "steps": [[0, 1]]
+  },
+  "GetItemSchema": {
+    "signature": "E8 ? ? ? ? 48 89 5D 18",
+    "module": "client.dll",
+    "steps": [[0, 1]]
+  },
+  "DispatchPacket": {
     "signature": "E8 ? ? ? ? 39 6C 24 68",
     "module": "client.dll",
     "steps": [[0, 1]]

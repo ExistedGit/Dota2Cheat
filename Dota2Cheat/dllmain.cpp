@@ -76,15 +76,9 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		});
 
 	Interfaces::CVar->DumpConVarsToMap();
-	//Signatures::FindSignatures();
-	{
-		using namespace nlohmann;
-		std::ifstream fin("C:\\Users\\user\\Desktop\\signatures.json");
-		if (fin.is_open()) {
-			Signatures::ParseSignatures(json::parse(fin));
-			fin.close();
-		}
-	}
+	Signatures::FindSignatures();
+	Signatures::LoadSignaturesFromNetwork("https://raw.githubusercontent.com/ExistedGit/Dota2Cheat/main/Dota2Cheat/signatures.json");
+		
 	GameSystems::FindGameSystems();
 
 	if (useChangerCode) {
