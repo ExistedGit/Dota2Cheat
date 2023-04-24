@@ -8,8 +8,8 @@
 #include "../Hooks/ModifierEvents.h"
 
 #include "../Modules/Hacks/AutoBuyTome.h"
-#include "../Modules/Hacks/AbilityESP.h"
-#include "../Modules/Hacks/UIOverhaul.h"
+#include "../Modules/UI/AbilityESP.h"
+#include "../Modules/UI/UIOverhaul.h"
 #include "../Modules/Hacks/AutoPick.h"
 #include "../Modules/Hacks/AutoPing.h"
 
