@@ -23,7 +23,7 @@ void DllLoadLibrary(Process& proc, const wstring& path) {
 	{
 		auto result = pLoadLibrary.Call({ path.c_str() }, mainThread);
 		if (*result)
-			cout << "LoadLibrary successful!\n";
+			cout << "LoadLibrary result: " << *result << "\n";
 	}
 }
 

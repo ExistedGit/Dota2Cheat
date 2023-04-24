@@ -31,7 +31,9 @@ public:
 	GETTER(float, GetCooldown, Netvars::C_DOTABaseAbility::m_fCooldown);
 	GETTER(float, GetCooldownLength, Netvars::C_DOTABaseAbility::m_flCooldownLength);
 	GETTER(int, GetLevel, Netvars::C_DOTABaseAbility::m_iLevel);
-	GETTER(int, GetMaxLevel, Netvars::C_DOTABaseAbility::m_iMaxLevel);
+	int GetMaxLevel() {
+		return Member<NormalClass*>(0x528)->Member<int>(0x7c);
+	};
 	GETTER(int, GetCharges, Netvars::C_DOTABaseAbility::m_nAbilityCurrentCharges);
 	GETTER(float, GetChargeRestoreCooldown, Netvars::C_DOTABaseAbility::m_fAbilityChargeRestoreTimeRemaining);
 	GETTER(int, GetManaCost, Netvars::C_DOTABaseAbility::m_iManaCost);
