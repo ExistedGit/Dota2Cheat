@@ -219,10 +219,10 @@
     <ClCompile Include="Modules\Hacks\ShakerAttackAnimFix.cpp" />
     <ClCompile Include="Modules\Hacks\SkinChanger.cpp" />
     <ClCompile Include="Modules\Hacks\TargetedSpellHighlighter.cpp" />
-    <ClCompile Include="Modules\Hacks\AbilityESP.cpp" />
-    <ClCompile Include="Modules\Hacks\TPTracker.cpp" />
+    <ClCompile Include="Modules\UI\AbilityESP.cpp" />
+    <ClCompile Include="Modules\UI\TPTracker.cpp" />
     <ClCompile Include="Modules\Hacks\TrueSightESP.cpp" />
-    <ClCompile Include="Modules\Hacks\UIOverhaul.cpp" />
+    <ClCompile Include="Modules\UI\UIOverhaul.cpp" />
     <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp" />
     <ClCompile Include="Modules\Utility\AttackTargetFinder.cpp" />
     <ClCompile Include="Modules\Utility\ParticleGC.cpp" />
@@ -335,7 +335,11 @@
     <ClInclude Include="Hooks\UIState.h" />
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
     <ClInclude Include="Modules\Hacks\TrueSightESP.h" />
-    <ClInclude Include="Modules\Hacks\UIOverhaul.h" />
+    <ClInclude Include="Modules\UI\UIOverhaul.h" />
+    <ClInclude Include="Modules\UI\SpeedIndicator.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="SDK\GameSystems\CDOTA_PanoramaMinimapRenderer.h" />
     <ClInclude Include="SDK\GameSystems\CGameUI.h" />
     <ClInclude Include="Hooks\InvalidateUEF.h" />
@@ -345,7 +349,7 @@
     <ClInclude Include="ImGuiSDK\Elements.h" />
     <ClInclude Include="include\imgui\imgui_stdlib.h" />
     <ClInclude Include="include\json.hpp" />
-    <ClInclude Include="Modules\Hacks\AbilityESP.h" />
+    <ClInclude Include="Modules\UI\AbilityESP.h" />
     <ClInclude Include="Modules\Hacks\AegisAutoPickup.h" />
     <ClInclude Include="Modules\Hacks\ArmletAbuse.h" />
     <ClInclude Include="Modules\Hacks\ClaimTutorialRewards.h" />
@@ -361,7 +365,7 @@
     <ClInclude Include="Modules\Hacks\AutoMidas.h" />
     <ClInclude Include="Modules\Hacks\BadCastPrevention.h" />
     <ClInclude Include="Modules\Utility\AttackAnimTracker.h" />
-    <ClInclude Include="Modules\Hacks\TPTracker.h" />
+    <ClInclude Include="Modules\UI\TPTracker.h" />
     <ClInclude Include="SDK\Base\Bytehook.h" />
     <ClInclude Include="SDK\Base\Color.h" />
     <ClInclude Include="SDK\Base\Definitions.h" />

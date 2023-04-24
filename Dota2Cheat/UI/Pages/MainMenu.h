@@ -114,11 +114,13 @@ namespace Pages {
 				ImGui::SameLine(); HelpMarker("Stashed items will be displayed like in Dota itself");
 				ImGui::TreePop();
 			}
-			//if (ImGui::TreeNode("UI Overhaul")) {
+			if (ImGui::TreeNode("UI")) {
+				ImGui::Checkbox("Speed indicator", &Config::Indicators::Speed);
+				ImGui::SameLine(); HelpMarker("Shows an icon near the enemy signifying whether you are faster or slower");
 			//	ImGui::Checkbox("Top bars", &Config::UIOverhaul::TopBars);
 			//	ImGui::SameLine(); HelpMarker("Shows HP and Mana bars for enemies in the top bar. Like pressing Alt does for your allies");
-			//	ImGui::TreePop();
-			//}
+				ImGui::TreePop();
+			}
 			if (ImGui::TreeNode("Illusion coloring")) {
 				ImGui::Checkbox("Enable", &Config::IllusionColoring::Enabled);
 				ImGui::ColorEdit3("Color", &Config::IllusionColoring::Color.x);

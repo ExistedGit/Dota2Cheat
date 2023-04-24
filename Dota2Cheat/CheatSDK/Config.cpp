@@ -2,21 +2,32 @@
 #include "../Modules/Hacks/SkinChanger.h"
 
 void Config::ConfigManager::SaveConfig(std::ofstream& stream) {
+
 	using enum ConfigVarType;
 	using json = nlohmann::json;
 
 	json data;
+
 	for (auto& [name, var] : vars) {
+
+		auto& entry = *GetJsonEntryFromCfgVar(data, name);
 		switch (var.type) {
-		case BOOL: data[name] = *(bool*)var.val; break;
-		case FLOAT: data[name] = *(float*)var.val; break;
-		case INT: data[name] = *(int*)var.val; break;
-		case VECTOR: {
+		case BOOL: entry = *(bool*)var.val; break;
+		case FLOAT: entry = *(float*)var.val; break;
+		case INT: entry = *(int*)var.val; break;
+		case VECTOR2D: {
+			Vector2D& vec = *(Vector2D*)var.val;
+			entry["x"] = vec.x;
+			entry["y"] = vec.y;
+			break;
+		}
+		case VECTOR3D: {
 			Vector& vec = *(Vector*)var.val;
-			data[name]["x"] = vec.x;
-			data[name]["y"] = vec.y;
-			data[name]["z"] = vec.z;
-		}; break;
+			entry["x"] = vec.x;
+			entry["y"] = vec.y;
+			entry["z"] = vec.z;
+			break;
+		}
 
 		};
 	}
@@ -29,18 +40,24 @@ void Config::ConfigManager::LoadConfig(std::ifstream& stream) {
 
 	json data = json::parse(stream);
 	for (auto& [name, var] : vars) {
-		if (data[name].is_null())
+		auto& entry = *GetJsonEntryFromCfgVar(data, name);
+		if (entry.is_null())
 			continue;
 
 		switch (var.type) {
-		case BOOL: *(bool*)var.val = data[name]; break;
-		case FLOAT: *(float*)var.val = data[name]; break;
-		case INT: *(int*)var.val = data[name]; break;
-		case VECTOR: {
+		case BOOL: *(bool*)var.val = entry; break;
+		case FLOAT: *(float*)var.val = entry; break;
+		case INT: *(int*)var.val = entry; break;
+		case VECTOR2D: {
+			Vector2D& vec = *(Vector2D*)var.val;
+			vec.x = entry["x"];
+			vec.y = entry["y"];
+		}; break;
+		case VECTOR3D: {
 			Vector& vec = *(Vector*)var.val;
-			vec.x = data[name]["x"];
-			vec.y = data[name]["y"];
-			vec.z = data[name]["z"];
+			vec.x = entry["x"];
+			vec.y = entry["y"];
+			vec.z = entry["z"];
 		}; break;
 
 		};
@@ -72,61 +89,65 @@ void Config::ConfigManager::LoadEquippedItems(std::ifstream& stream) {
 		};
 }
 
+#define CFG_VAR(type, var, defVal) cfg.AddVar(type, &var, defVal, #var)
 void Config::ConfigManager::SetupVars() {
 	using namespace Config;
 	using enum ConfigManager::ConfigVarType;
 
-	cfg.AddVar(BOOL, &AbilityESP::Enabled, true, "AbilityESP.Enabled");
-	cfg.AddVar(FLOAT, &AbilityESP::UIScale, 1.0f, "AbilityESP.UIScale");
-	cfg.AddVar(BOOL, &AbilityESP::ShowAllies, true, "AbilityESP.ShowAllies");
-	cfg.AddVar(BOOL, &AbilityESP::CropStashItems, true, "AbilityESP.CropStashItems");
-	cfg.AddVar(BOOL, &AbilityESP::ShowManabars, true, "AbilityESP.ShowManabars");
-	cfg.AddVar(BOOL, &AbilityESP::ShowCooldownDecimals, false, "AbilityESP.ShowCooldownDecimals");
 
-	cfg.AddVar(INT, &CircleRadius, 1200, "Circles.Radius");
-	cfg.AddVar(VECTOR, &CircleRGB, { 0, 1, 0 }, "Circles.RGB");
+	CFG_VAR(BOOL, AbilityESP::Enabled, true);
+	CFG_VAR(FLOAT, AbilityESP::UIScale, 1.0f);
+	CFG_VAR(BOOL, AbilityESP::ShowAllies, true);
+	CFG_VAR(BOOL, AbilityESP::CropStashItems, true);
+	CFG_VAR(BOOL, AbilityESP::ShowManabars, true);
+	CFG_VAR(BOOL, AbilityESP::ShowCooldownDecimals, false);
 
-	cfg.AddVar(BOOL, &AutoDodge::Enabled, false, "AutoDodge.Enabled");
+	CFG_VAR(BOOL, Indicators::Speed, true);
 
-	cfg.AddVar(FLOAT, &CameraDistance, 1200.0f, "CameraDistance");
+	CFG_VAR(INT, CircleRadius, 1200);
+	CFG_VAR(VECTOR3D, CircleRGB, Vector(0, 1, 0));
 
-	cfg.AddVar(BOOL, &ShowEnemyPointSpells, true, "ShowEnemyPointSpells");
-	cfg.AddVar(BOOL, &PerfectBlink, false, "PerfectBlink");
+	CFG_VAR(BOOL, AutoDodge::Enabled, false);
 
-	cfg.AddVar(BOOL, &UIOverhaul::TopBars, true, "UIOverhaul.TopBars");
+	CFG_VAR(FLOAT, CameraDistance, 1200.0f);
 
-	cfg.AddVar(BOOL, &ModifierRevealer::LinkenSphere, true, "ModifierRevealer.LinkenSphere");
-	cfg.AddVar(BOOL, &ModifierRevealer::TargetedSpells, true, "ModifierRevealer.TargetedSpells");
-	cfg.AddVar(BOOL, &ModifierRevealer::TrueSight, true, "ModifierRevealer.TrueSight");
+	CFG_VAR(BOOL, ShowEnemyPointSpells, true);
+	CFG_VAR(BOOL, PerfectBlink, false);
 
-	cfg.AddVar(BOOL, &TPTracker::Enabled, true, "TPTracker.Enabled");
+	CFG_VAR(BOOL, UIOverhaul::TopBars, true);
 
-	cfg.AddVar(BOOL, &IllusionColoring::Enabled, true, "IllusionColoring.Enabled");
-	cfg.AddVar(VECTOR, &IllusionColoring::Color, { 1,0,0 }, "IllusionColoring.Color");
+	CFG_VAR(BOOL, ModifierRevealer::LinkenSphere, true);
+	CFG_VAR(BOOL, ModifierRevealer::TargetedSpells, true);
+	CFG_VAR(BOOL, ModifierRevealer::TrueSight, true);
 
-	cfg.AddVar(BOOL, &ManaAbuse::Enabled, false, "ManaAbuse.Enabled");
+	CFG_VAR(BOOL, TPTracker::Enabled, true);
 
-	cfg.AddVar(BOOL, &AutoAccept::Enabled, true, "AutoAccept.Enabled");
-	cfg.AddVar(INT, &AutoAccept::Delay, 1, "AutoAccept.Delay");
+	CFG_VAR(BOOL, IllusionColoring::Enabled, true);
+	CFG_VAR(VECTOR3D, IllusionColoring::Color, Vector(1, 0, 0));
 
-	cfg.AddVar(BOOL, &AutoPickUpRunes, true, "AutoPickUp.Runes");
-	cfg.AddVar(BOOL, &AutoPickUpAegis, true, "AutoPickUp.Aegis");
+	CFG_VAR(BOOL, ManaAbuse::Enabled, false);
 
-	cfg.AddVar(INT, &Changer::RiverListIdx, 0, "Changer.RiverPaint");
-	cfg.AddVar(INT, &Changer::WeatherListIdx, 0, "Changer.Weather");
-	cfg.AddVar(BOOL, &Changer::UnlockDotaPlus, true, "Changer.UnlockDotaPlus");
-	cfg.AddVar(BOOL, &Changer::UnlockEmoticons, true, "Changer.UnlockEmoticons");
+	CFG_VAR(BOOL, AutoAccept::Enabled, true);
+	CFG_VAR(INT, AutoAccept::Delay, 1);
 
-	cfg.AddVar(BOOL, &AutoHeal::Enabled, false, "AutoHeal.Enabled");
-	cfg.AddVar(FLOAT, &AutoHeal::FaerieFireHPTreshold, 5.f, "AutoHeal.FaerieFireHPTreshold");
-	cfg.AddVar(FLOAT, &AutoHeal::WandHPTreshold, 10.f, "AutoHeal.WandHPTreshold");
-	cfg.AddVar(INT, &AutoHeal::WandMinCharges, 10, "AutoHeal.WandMinCharges");
+	CFG_VAR(BOOL, AutoPickUpRunes, true);
+	CFG_VAR(BOOL, AutoPickUpAegis, true);
 
-	cfg.AddVar(BOOL, &BadCastPrevention, true, "BadCastPrevention");
-	cfg.AddVar(BOOL, &LastHitMarker, true, "LastHitMarker");
+	CFG_VAR(INT, Changer::RiverListIdx, 0);
+	CFG_VAR(INT, Changer::WeatherListIdx, 0);
+	CFG_VAR(BOOL, Changer::UnlockDotaPlus, true);
+	CFG_VAR(BOOL, Changer::UnlockEmoticons, true);
 
-	cfg.AddVar(BOOL, &AutoMidas::Enabled, false, "AutoMidas.Enabled");
-	cfg.AddVar(INT, &AutoMidas::XPTreshold, 60, "AutoMidas.XPTreshold");
+	CFG_VAR(BOOL, AutoHeal::Enabled, false);
+	CFG_VAR(FLOAT, AutoHeal::FaerieFireHPTreshold, 5.f);
+	CFG_VAR(FLOAT, AutoHeal::WandHPTreshold, 10.f);
+	CFG_VAR(INT, AutoHeal::WandMinCharges, 10);
 
-	cfg.AddVar(BOOL, &RenderAllParticles, true, "RenderAllParticles");
+	CFG_VAR(BOOL, BadCastPrevention, true);
+	CFG_VAR(BOOL, LastHitMarker, true);
+
+	CFG_VAR(BOOL, AutoMidas::Enabled, false);
+	CFG_VAR(INT, AutoMidas::XPTreshold, 60);
+
+	CFG_VAR(BOOL, RenderAllParticles, true);
 }

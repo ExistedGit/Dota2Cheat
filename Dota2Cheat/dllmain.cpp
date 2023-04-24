@@ -11,6 +11,7 @@
 
 #include "CheatSDK/include.h"
 #include "Hooks/InvalidateUEF.h"
+#include "Modules/UI/SpeedIndicator.h"
 #include "UI/Pages/MainMenu.h"
 #include "UI/Pages/AutoPickSelectionGrid.h"
 #include "Modules/Hacks/LastHitMarker.h"
@@ -52,6 +53,11 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 				std::cout << "Loaded config from " << ctx.cheatFolderPath + "\\config\\base.json\n";
 			}
 		}
+		for (auto& file : std::filesystem::directory_iterator(ctx.cheatFolderPath + "\\assets\\misc")) {
+			auto path = file.path();
+			auto fileName = path.filename().string();
+			texManager.QueueForLoading(path.string(), fileName.substr(0, fileName.size() - 4));
+		}
 		if (useChangerCode) {
 			std::ifstream fin(ctx.cheatFolderPath + "\\config\\inventory.json");
 			if (fin.is_open()) {
@@ -78,7 +84,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Interfaces::CVar->DumpConVarsToMap();
 	Signatures::FindSignatures();
 	Signatures::LoadSignaturesFromNetwork("https://raw.githubusercontent.com/ExistedGit/Dota2Cheat/main/Dota2Cheat/signatures.json");
-		
+
 	GameSystems::FindGameSystems();
 
 	if (useChangerCode) {
@@ -126,12 +132,12 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		return 0;
 
 	const auto videoMode = glfwGetVideoMode(monitor);
-	
+
 	window_menu = glfwCreateWindow(videoMode->width, videoMode->height, "Dota2Cheat", NULL, NULL);
-	if ( window_menu == NULL)
+	if (window_menu == NULL)
 		return 1;
 
-	glfwMakeContextCurrent( window_menu );
+	glfwMakeContextCurrent(window_menu);
 	glfwSwapInterval(1); // Enable vsync
 
 	// Setup Dear ImGui context
@@ -143,7 +149,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	ImGui::StyleColorsClassic();
 	//ImGui::StyleColorsLight();
 	// Setup Platform/Renderer backends
-	ImGui_ImplGlfw_InitForOpenGL( window_menu, true);
+	ImGui_ImplGlfw_InitForOpenGL(window_menu, true);
 	ImGui_ImplOpenGL3_Init(glsl_version);
 
 	//auto vbeFont = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
@@ -154,7 +160,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	std::cout << "Icon loading result: " << iconLoadThread.get() << "\n";
 	int itemDefId = 6996;
 	// Main loop
-	while (!glfwWindowShouldClose( window_menu ))
+	while (!glfwWindowShouldClose(window_menu))
 	{
 		glfwPollEvents();
 
@@ -180,6 +186,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			// Modules::UIOverhaul.DrawBars();
 			Modules::TPTracker.DrawMapTeleports();
 			Modules::LastHitMarker.Draw();
+			Modules::SpeedIndicator.Draw();
 		}
 
 		if (menuVisible)
@@ -187,7 +194,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 
 		if (IsKeyPressed(VK_INSERT)) {
-			glfwSetWindowAttrib( window_menu, GLFW_MOUSE_PASSTHROUGH, menuVisible);
+			glfwSetWindowAttrib(window_menu, GLFW_MOUSE_PASSTHROUGH, menuVisible);
 			menuVisible = !menuVisible;
 		}
 
@@ -202,12 +209,12 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		// Rendering
 		ImGui::Render();
 		int display_w, display_h;
-		glfwGetFramebufferSize( window_menu, &display_w, &display_h);
+		glfwGetFramebufferSize(window_menu, &display_w, &display_h);
 		glViewport(0, 0, display_w, display_h);
 		glClear(GL_COLOR_BUFFER_BIT);
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
-		glfwSwapBuffers( window_menu );
+		glfwSwapBuffers(window_menu);
 
 		CheckMatchState(); // checking every frame
 	}
@@ -228,7 +235,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	ImGui_ImplGlfw_Shutdown();
 	ImGui::DestroyContext();
 
-	glfwDestroyWindow( window_menu );
+	glfwDestroyWindow(window_menu);
 	glfwTerminate();
 
 	if (ctx.gameStage != Context::GameStage::NONE)
@@ -250,7 +257,7 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 {
 	switch (ul_reason_for_call)
 	{
-	case DLL_PROCESS_ATTACH: { 
+	case DLL_PROCESS_ATTACH: {
 		if (HANDLE thread = CreateThread(0, 0, (LPTHREAD_START_ROUTINE)HackThread, hModule, 0, 0); thread)
 			CloseHandle(thread);
 		break;
