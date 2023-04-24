@@ -10,7 +10,8 @@ namespace Config {
 			BOOL,
 			INT,
 			FLOAT,
-			VECTOR
+			VECTOR2D,
+			VECTOR3D
 		};
 		struct ConfigVar {
 			void* val;
@@ -29,7 +30,31 @@ namespace Config {
 		void LoadConfig(std::ifstream& stream);
 		void SaveEquippedItems(std::ofstream& stream);;
 		void LoadEquippedItems(std::ifstream& stream);;
+		nlohmann::json* GetJsonEntryFromCfgVar(nlohmann::json& data, const std::string& name) {
+			using json = nlohmann::json;
+			const static std::string delimiter = "::";
+			auto nameCopy = name;
+			json* entryPtr = nullptr;
+			{
 
+				size_t pos = 0;
+				std::string token;
+				while ((pos = nameCopy.find(delimiter)) != std::string::npos) {
+					token = nameCopy.substr(0, pos);
+					if (!entryPtr)
+						entryPtr = &data[token];
+					else
+						entryPtr = &((*entryPtr)[token]);
+
+					nameCopy.erase(0, pos + delimiter.length());
+				}
+			}
+			if (!entryPtr)
+				entryPtr = &data[name];
+			else
+				entryPtr = &((*entryPtr)[nameCopy]);
+			return entryPtr;
+		}
 		void SetupVars();
 	};
 
@@ -54,7 +79,9 @@ namespace Config {
 
 	inline bool AutoPickUpRunes;
 	inline bool AutoPickUpAegis;
-
+	namespace Indicators {
+		inline bool Speed;
+	}
 	namespace TPTracker {
 		inline bool Enabled;
 	}
