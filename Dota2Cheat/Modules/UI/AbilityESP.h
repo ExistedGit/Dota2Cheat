@@ -35,6 +35,7 @@ namespace ESP {
 		void DrawItems();
 		void DrawItemCircle(const AbilityData& data, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius);
 		void DrawLevelCounter(CDOTABaseAbility* ability, ImVec2 pos);
+		void DrawLevelBars(CDOTABaseAbility* ability, const ImVec2& xy1, const ImVec2& xy2);
 		void DrawChargeCounter(int charges, const ImVec2& pos, int radius);
 		void DrawManabars();
 	public:
