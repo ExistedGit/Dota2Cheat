@@ -102,6 +102,8 @@ void Config::ConfigManager::SetupVars() {
 	CFG_VAR(BOOL, AbilityESP::ShowManabars, true);
 	CFG_VAR(BOOL, AbilityESP::ShowCooldownDecimals, false);
 
+	CFG_VAR(BOOL, Indicators::Speed, true);
+
 	CFG_VAR(INT, CircleRadius, 1200);
 	CFG_VAR(VECTOR3D, CircleRGB, Vector(0, 1, 0));
 

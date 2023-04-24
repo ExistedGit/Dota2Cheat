@@ -4,12 +4,14 @@
 #include "../../Utils/Drawing.h"
 
 namespace Hacks {
+	// Created together with Wolf49406
 	class SpeedIndicator {
 	public:
 		void Draw() {
 			if (!Config::Indicators::Speed)
 				return;
 
+			const auto icon = (void*)texManager.GetNamedTexture("icon_speed");
 			int mySpeed = ctx.assignedHero->GetIdealSpeed();
 			for (auto& hero : ctx.heroes) {
 				if (hero->IsSameTeam(ctx.assignedHero)
@@ -24,7 +26,7 @@ namespace Hacks {
 
 				int enemySpeed = hero->GetIdealSpeed();
 
-				auto drawPos = barPos - ImVec2{ 38, 105 };
+				auto drawPos = barPos - ImVec2{ 105,38};
 				ImColor img_color = { 255, 255, 255, 255 };
 				if (enemySpeed > mySpeed)
 					img_color = { 255, 0, 0, 255 };
@@ -32,7 +34,7 @@ namespace Hacks {
 					img_color = { 0, 255, 0, 255 };
 
 				ImGui::GetForegroundDrawList()->AddImage(
-					(void*)texManager.GetNamedTexture("icon_speed"),
+					icon,
 					drawPos + ImVec2{ 2, 2 },
 					drawPos + ImVec2(25, 25),
 					{ 0.0f, 0.0f },
