@@ -36,7 +36,7 @@ namespace VTableIndexes {
 		Index OnAddModifier = 42;
 	}
 	namespace CUIEngineSource2 {
-		// xref: "CUIEngineSource::RunFrame"
+		// xref: "RunFrame"
 		Index RunFrame = 6;
 		// 7th above vfunc with "CUIEngine::RegisterEventHandler"
 		// look for the one that matches the dylib version
