@@ -9,7 +9,7 @@ void Hacks::AutoDodge::FrameBasedLogic() {
 	if (!ctx.ImportantItems["manta"] && !ctx.ImportantItems["bottle"])
 		return;
 
-	for (auto& proj : GameSystems::ProjectileManager->GetTrackingProjectiles()) {
+	for (auto proj : GameSystems::ProjectileManager->m_pTrackingProjectiles) {
 		if (!proj || proj->IsAttack())
 			continue;
 

@@ -306,15 +306,16 @@ namespace Netvars {
 		constexpr uint32_t m_iAeonChargesUsed = 0xa98; // int32
 		constexpr uint32_t m_flRefresherUseTime = 0xa9c; // GameTime_t
 		constexpr uint32_t m_flRefresherLastCooldown = 0xaa0; // float32
-		constexpr uint32_t m_iBotDebugData = 0xaa4; // int32
-		constexpr uint32_t m_bIsIllusion = 0xaa8; // bool
-		constexpr uint32_t m_bHasClientSeenIllusionModifier = 0xaa9; // bool
-		constexpr uint32_t m_hAbilities = 0xaac; // CHandle< C_BaseEntity >[35]
-		constexpr uint32_t m_flInvisibilityLevel = 0xb38; // float32
-		constexpr uint32_t m_flHullRadius = 0xb3c; // float32
-		constexpr uint32_t m_flCollisionPadding = 0xb40; // float32
-		constexpr uint32_t m_flRingRadius = 0xb44; // float32
-		constexpr uint32_t m_flProjectileCollisionSize = 0xb48; // float32
+		constexpr uint32_t m_flLastDealtDamageTime = 0xaa4; // GameTime_t
+		constexpr uint32_t m_iBotDebugData = 0xaa8; // int32
+		constexpr uint32_t m_bIsIllusion = 0xaac; // bool
+		constexpr uint32_t m_bHasClientSeenIllusionModifier = 0xaad; // bool
+		constexpr uint32_t m_hAbilities = 0xab0; // CHandle< C_BaseEntity >[35]
+		constexpr uint32_t m_flInvisibilityLevel = 0xb3c; // float32
+		constexpr uint32_t m_flHullRadius = 0xb40; // float32
+		constexpr uint32_t m_flCollisionPadding = 0xb44; // float32
+		constexpr uint32_t m_flRingRadius = 0xb48; // float32
+		constexpr uint32_t m_flProjectileCollisionSize = 0xb4c; // float32
 		constexpr uint32_t m_iszUnitName = 0xb50; // CUtlSymbolLarge
 		constexpr uint32_t m_iszParticleFolder = 0xb58; // CUtlSymbolLarge
 		constexpr uint32_t m_iszSoundSet = 0xb60; // CUtlSymbolLarge
@@ -1053,6 +1054,6 @@ namespace Netvars {
 		constexpr uint32_t m_flThinkTimeAccumulator = 0x9c; // float32
 		constexpr uint32_t m_iParticles = 0xa0; // CUtlVector< CDOTA_BuffParticle >
 		constexpr uint32_t m_hAuraUnits = 0xb8; // CUtlVector< CHandle< CBaseEntity > >
-		constexpr uint32_t m_hScriptScope = 0x11b0; // HSCRIPT
+		constexpr uint32_t m_hScriptScope = 0x11d0; // HSCRIPT
 	}
 }

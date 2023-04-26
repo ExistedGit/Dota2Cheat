@@ -30,20 +30,20 @@ void Hooks::EntityIteration() {
 		for (auto& rune : ctx.runes) {
 
 			static long long last_pickup_time = 0;
-			if ( IsWithinRadius( rune->GetPos( ), ctx.assignedHero->GetPos( ), 140.0f ) &&
-				 GetTickCount64( ) - last_pickup_time >= 1000 ) {
+			if (IsWithinRadius(rune->GetPos(), ctx.assignedHero->GetPos(), 140.0f) &&
+				GetTickCount64() - last_pickup_time >= 1000) {
 
 				CDOTAClientMsg_ExecuteOrders orders_message;
-				auto msg_id = Interfaces::NetworkMessages->FindNetworkMessageByID( 350 );
-				auto order = orders_message.add_orders( );
-				order->set_order_type( DOTA_UNIT_ORDER_PICKUP_RUNE );
-				order->set_target_index( rune->GetIndex( ) );
-				order->set_ability_index( 0 );
-				order->set_sequence_number( ctx.localPlayer->GetSequenceNum( ) + 1 );
-				order->add_units( ctx.assignedHero->GetIndex( ) );
+				auto msg_id = Interfaces::NetworkMessages->FindNetworkMessageByID(350);
+				auto order = orders_message.add_orders();
+				order->set_order_type(DOTA_UNIT_ORDER_PICKUP_RUNE);
+				order->set_target_index(rune->GetIndex());
+				order->set_ability_index(0);
+				order->set_sequence_number(ctx.localPlayer->GetSequenceNum() + 1);
+				order->add_units(ctx.assignedHero->GetIndex());
 
-				Hooks::oSendNetMessage( Hooks::NetChan, msg_id, &orders_message, BUF_DEFAULT );
-				last_pickup_time = GetTickCount64( );
+				Hooks::oSendNetMessage(Hooks::NetChan, msg_id, &orders_message, BUF_DEFAULT);
+				last_pickup_time = GetTickCount64();
 			}
 		}
 	}
@@ -75,24 +75,23 @@ void Hooks::hkRunFrame(void* thisptr) {
 	}
 
 	Modules::AbilityESP.UpdateHeroData();
-	Modules::UIOverhaul.Update();
+	//	Modules::UIOverhaul.Update();
 
 	UpdateCameraDistance();
 	UpdateWeather();
 
-	if (
-		ctx.assignedHero->GetLifeState() == 0 // if alive
-		&& !GameSystems::GameRules->IsGamePaused() // and the game is not paused
-		) {
+	if (!GameSystems::GameRules->IsGamePaused()) {
 
 		Modules::TPTracker.CacheHeroIcons();
 		Modules::TPTracker.FrameBasedLogic();
 
-		Modules::AutoHeal.FrameBasedLogic(ctx.assignedHero);
-		Modules::AutoPing.FrameBasedLogic();
-		Modules::AutoDodge.FrameBasedLogic();
-		Modules::AutoMidas.FrameBasedLogic();
-		Modules::AegisAutoPickup.FrameBasedLogic();
+		if (ctx.assignedHero->GetLifeState() == 0) {
+			Modules::AutoHeal.FrameBasedLogic(ctx.assignedHero);
+			Modules::AutoPing.FrameBasedLogic();
+			Modules::AutoDodge.FrameBasedLogic();
+			Modules::AutoMidas.FrameBasedLogic();
+			Modules::AegisAutoPickup.FrameBasedLogic();
+		}
 
 		Modules::RiverPaint.FrameBasedLogic();
 
@@ -126,9 +125,9 @@ void Hooks::hkRunFrame(void* thisptr) {
 			<< '\n';
 	}
 	if (IsKeyPressed(VK_NUMPAD3)) {
-		auto arr = GameSystems::ProjectileManager->GetTrackingProjectiles();
+		auto arr = GameSystems::ProjectileManager->m_pTrackingProjectiles;
 		std::cout << "[PROJECTILES]\n";
-		for (int i = 0; i < arr.size(); i++) {
+		for (int i = 0; i < 1024; i++) {
 			auto proj = arr[i];
 			if (!proj)
 				continue;
@@ -146,22 +145,22 @@ void Hooks::hkRunFrame(void* thisptr) {
 		};
 	}
 	if (IsKeyPressed(VK_RMENU)) {
-		auto type = GameSystems::GameRules->GetRiverType( );
+		auto type = GameSystems::GameRules->GetRiverType();
 		std::cout << "r: " << type << std::endl;
 
-		if ( ctx.runes.size( ) > 0 ) {
-			auto rune = *ctx.runes.begin( );
+		if (ctx.runes.size() > 0) {
+			auto rune = *ctx.runes.begin();
 
 			CDOTAClientMsg_ExecuteOrders orders_message;
-			auto msg_id = Interfaces::NetworkMessages->FindNetworkMessageByID( 350 );
-			auto order = orders_message.add_orders( );
-			order->set_order_type( DOTA_UNIT_ORDER_PICKUP_RUNE );
-			order->set_target_index( rune->GetIndex() );
-			order->set_ability_index( 0 );
-			order->set_sequence_number( ctx.localPlayer->GetSequenceNum( ) + 1 );
-			order->add_units( ctx.assignedHero->GetIndex( ) );
+			auto msg_id = Interfaces::NetworkMessages->FindNetworkMessageByID(350);
+			auto order = orders_message.add_orders();
+			order->set_order_type(DOTA_UNIT_ORDER_PICKUP_RUNE);
+			order->set_target_index(rune->GetIndex());
+			order->set_ability_index(0);
+			order->set_sequence_number(ctx.localPlayer->GetSequenceNum() + 1);
+			order->add_units(ctx.assignedHero->GetIndex());
 
-			Hooks::oSendNetMessage( Hooks::NetChan, msg_id, &orders_message, BUF_DEFAULT );
+			Hooks::oSendNetMessage(Hooks::NetChan, msg_id, &orders_message, BUF_DEFAULT);
 		}
 	}
 #endif 

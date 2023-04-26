@@ -13,16 +13,11 @@ void ESP::AbilityESP::SubscribeHeroes() {
 		if (!CanDraw(hero))
 			continue;
 
-		if (!EnemyAbilities.count(hero)) {
-
-			EnemyAbilities[hero].reserve(6);
-			for (int i = 0; i < 6; ++i)
-				EnemyAbilities[hero].push_back(AbilityData());
-		}
+		if (!EnemyAbilities.count(hero))
+			EnemyAbilities[hero].resize(6);
 		if (!EnemyItems.count(hero))
 			EnemyItems[hero] = {};
 	}
-	Initialized = true;
 }
 
 void ESP::AbilityESP::Reset() {
@@ -44,6 +39,7 @@ void ESP::AbilityESP::UpdateHeroData() {
 		if (EnemyItems.count(hero))
 			UpdateItems(hero);
 	}
+	Initialized = true;
 }
 
 bool ESP::AbilityESP::CanDraw(CDOTABaseNPC_Hero* hero) {
@@ -476,20 +472,28 @@ void ESP::AbilityESP::DrawManabars() {
 }
 
 void ESP::AbilityESP::UpdateAbilities(CDOTABaseNPC_Hero* hero) {
-	auto heroAbilities = hero->GetAbilities();
-	if (heroAbilities.empty())
+	auto abilityList = hero->GetAbilities();
+	if (abilityList.empty())
 		return;
 
-	for (int i = 0; i < 6; ++i) {
-		auto ability = heroAbilities[i];
+	int validAbilities = 0;
+	for (int i = 0; validAbilities != 6; ++i) {
+		auto ability = abilityList[i];
 		auto& heroAbilities = EnemyAbilities[hero];
 
-		if (heroAbilities[i].ability == ability)
+		//weird worldent thing
+		if (heroAbilities[validAbilities].ability->GetIndex() == 0)
 			continue;
+
+		if (heroAbilities[validAbilities].ability == ability) {
+			++validAbilities;
+			continue;
+		}
 
 		// If the ability disappears - like if Aghanim's Scepter is dropped
 		if (ability->IsHidden()) {
-			heroAbilities[i] = AbilityData();
+			heroAbilities[validAbilities] = AbilityData();
+			++validAbilities;
 			continue;
 		}
 
@@ -498,13 +502,14 @@ void ESP::AbilityESP::UpdateAbilities(CDOTABaseNPC_Hero* hero) {
 		if (!abilityName)
 			return;
 		auto iconPath = ctx.cheatFolderPath + "\\assets\\spellicons\\" + abilityName + "_png.png";
-		auto& data = heroAbilities[i] = AbilityData{
+		auto& data = heroAbilities[validAbilities] = AbilityData{
 			.ability = ability,
 			.lastActiveTime = GameSystems::GameRules->GetGameTime(),
 			.lastActiveCooldown = ability->GetCooldown(),
 			.currentCooldown = ability->GetCooldown()
 		};
 		texManager.QueueForLoading(iconPath, abilityName);
+		++validAbilities;
 	}
 
 }

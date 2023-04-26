@@ -73,18 +73,18 @@ void EnteredPreGame() {
 
 	//	Modules::AutoPick.autoBanHero = "sniper";
 	//	Modules::AutoPick.autoPickHero = "arc_warden";
-
+	
 	ctx.localPlayer = Signatures::GetPlayer(-1);
 	if (!ctx.localPlayer)
 		return;
-
-	ctx.gameStage = Context::GameStage::PRE_GAME;
 
 	GetGameSystem(GameRules);
 	GetGameSystem(ProjectileManager);
 	GetGameSystem(PlayerResource);
 	GetGameSystem(ParticleManager);
 	GetGameSystem(GameEventManager);
+
+	ctx.gameStage = Context::GameStage::PRE_GAME;
 
 	if (!oFireEventClientSide) {
 		auto vmt = VMT(GameSystems::GameEventManager);
@@ -100,6 +100,9 @@ void EnteredInGame() {
 	if (gameState != DOTA_GAMERULES_STATE_PRE_GAME &&
 		gameState != DOTA_GAMERULES_STATE_GAME_IN_PROGRESS)
 		return;
+
+	//if (GameSystems::GameRules->GetGameMode() == DOTA_GAMEMODE_CUSTOM)
+	//	return;
 
 	UpdateAssignedHero();
 

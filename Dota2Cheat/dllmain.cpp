@@ -121,8 +121,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, 1);
 
 #ifndef _DEBUG // wouldn't want the window to obscure the screen on a breakpoint
-	glfwWindowHint(GLFW_FLOATING, 1);
 #endif // DEBUG
+	glfwWindowHint(GLFW_FLOATING, 1);
 	glfwWindowHint(GLFW_DECORATED, 0);
 	glfwWindowHint(GLFW_RESIZABLE, 0);
 	glfwWindowHint(GLFW_MAXIMIZED, 1);
@@ -174,7 +174,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		ImGui::PushFont(defaultFont);
 
 #ifdef _DEBUG
-		Pages::AutoPickHeroGrid::Draw();
+		// Pages::AutoPickHeroGrid::Draw();
 #endif // _DEBUG
 
 		if (
@@ -199,9 +199,9 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		}
 
 #ifdef _DEBUG
-		ImGui::InputInt("ItemDef ID", &itemDefId);
-		if (ImGui::Button("Create item"))
-			Modules::SkinChanger.QueueAddItem(itemDefId);
+//		ImGui::InputInt("ItemDef ID", &itemDefId);
+//		if (ImGui::Button("Create item"))
+//			Modules::SkinChanger.QueueAddItem(itemDefId);
 #endif // _DEBUG
 
 		ImGui::PopFont();

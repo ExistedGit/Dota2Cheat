@@ -1,15 +1,12 @@
 #pragma once
 #include "../../SDK/pch.h"
-namespace Config {
-	inline bool ArmletAbuse = false;
-}
 
 namespace Hacks {
 	// STUB
 	class ArmletAbuse {
 	public:
-		inline void SwitchArmletIfNeeded() {
-			for (auto& proj : GameSystems::ProjectileManager->GetTrackingProjectiles()) {
+		void SwitchArmletIfNeeded() {
+			for (auto& proj : GameSystems::ProjectileManager->m_pTrackingProjectiles) {
 				if (!proj || !proj->IsAttack() ||
 					!ctx.ImportantItems["armlet"])
 					continue;
