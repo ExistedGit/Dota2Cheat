@@ -26,7 +26,7 @@ public:
 		for (auto& modifier : *GetModifierManager()->GetModifierListRaw())
 			if (modifier->GetName() == modifierName)
 				return true;
-		
+
 		return false;
 
 	}
@@ -52,12 +52,14 @@ public:
 		return Member<int>(Netvars::C_DOTA_BaseNPC::m_iDamageMin)
 			+ Member<int>(Netvars::C_DOTA_BaseNPC::m_iDamageBonus);
 	}
+	float GetAttackRange() {
+		return CallVFunc<VTableIndexes::CDOTABaseNPC::GetAttackRange, float>(0, 1);
+	};
 
 	GETTER(bool, IsWaitingToSpawn, Netvars::C_DOTA_BaseNPC::m_bIsWaitingToSpawn);
 	GETTER(bool, IsAncient, Netvars::C_DOTA_BaseNPC::m_bIsAncient);
 	GETTER(float, GetArmor, Netvars::C_DOTA_BaseNPC::m_flPhysicalArmorValue);
 	GETTER(float, GetBaseMagicalResistance, Netvars::C_DOTA_BaseNPC::m_flMagicalResistanceValue);
-	GETTER(int, GetAttackRange, Netvars::C_DOTA_BaseNPC::m_iAttackRange);
 	GETTER(const char*, GetUnitName, Netvars::C_DOTA_BaseNPC::m_iszUnitName);
 	GETTER(DOTAUnitAttackCapability_t, GetAttackCapabilities, Netvars::C_DOTA_BaseNPC::m_iAttackCapabilities);
 	GETTER(float, GetHealthRegen, Netvars::C_DOTA_BaseNPC::m_flHealthThinkRegen);

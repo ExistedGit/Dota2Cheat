@@ -121,8 +121,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, 1);
 
 #ifndef _DEBUG // wouldn't want the window to obscure the screen on a breakpoint
-#endif // DEBUG
 	glfwWindowHint(GLFW_FLOATING, 1);
+#endif // DEBUG
 	glfwWindowHint(GLFW_DECORATED, 0);
 	glfwWindowHint(GLFW_RESIZABLE, 0);
 	glfwWindowHint(GLFW_MAXIMIZED, 1);
@@ -147,7 +147,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	// Setup Dear ImGui style
 	ImGui::StyleColorsClassic();
-	//ImGui::StyleColorsLight();
+
 	// Setup Platform/Renderer backends
 	ImGui_ImplGlfw_InitForOpenGL(window_menu, true);
 	ImGui_ImplOpenGL3_Init(glsl_version);

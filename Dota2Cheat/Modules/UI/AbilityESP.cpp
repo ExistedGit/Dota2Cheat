@@ -141,7 +141,7 @@ void ESP::AbilityESP::DrawAbilities() {
 						// Draws the cooldown
 						DrawTextForeground(textFont,
 							std::vformat(decimals ? "{:.1f}" : "{:.0f}", std::make_format_args(cd)),
-							ImVec2(imgXY1.x + centeringOffset, imgXY1.y + iconSize / 10),
+							ImVec2(imgXY1.x + centeringOffset, imgXY1.y + iconSize / 2 - cdFontSize / 1.5f),
 							cdFontSize,
 							ImVec4(1, 1, 1, 1),
 							true);
@@ -181,7 +181,7 @@ void ESP::AbilityESP::DrawAbilities() {
 							true);
 					}
 					DrawLevelBars(data.ability,
-						ImVec2{ imgXY1.x, imgXY1.y + iconSize - 10 }, imgXY2);
+						ImVec2{ imgXY1.x, imgXY2.y -3 }, { imgXY2.x, imgXY2.y + 3});
 					// DrawLevelCounter( data.ability, imgXY2 + ImVec2( -centeringOffset, 6 ) );
 					++idx;
 				}
