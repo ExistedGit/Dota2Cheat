@@ -119,9 +119,9 @@ int main() {
 
 	cout << "Attached! Injecting...\n";
 #ifdef _DEBUG
-	DllManualMap(proc, injectPath);
-#else
 	DllLoadLibrary(proc, injectPath);
+#else
+	DllManualMap(proc, injectPath);
 #endif // _DEBUG
 
 	system("pause");

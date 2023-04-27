@@ -118,7 +118,7 @@ void Hacks::TPTracker::ProcessParticleMsg(NetMessageHandle_t* msgHandle, google:
 		if (!ent)
 			break;
 
-		if (!strcmp( particleName, "particles/items2_fx/teleport_start.vpcf")) {
+		if (!strcmp(particleName, "particles/items2_fx/teleport_start.vpcf")) {
 			auto& tpData = teleports[ent];
 			tpData.fadeCounter = tpData.fadeDuration = tpData.isFading = 0;
 			tpData.color = ImColor{ 220,220,220 };
@@ -138,15 +138,29 @@ void Hacks::TPTracker::ProcessParticleMsg(NetMessageHandle_t* msgHandle, google:
 	}
 	case GAME_PARTICLE_MANAGER_EVENT_UPDATE_TRANSFORM:
 	{
-		if ( pmMsg->update_particle_transform( ).control_point( ) == 0 ) {
-			auto pos = pmMsg->update_particle_transform( ).position( );
+		if (pmMsg->update_particle_transform().control_point() == 0) {
+			auto pos = pmMsg->update_particle_transform().position();
 
-			for ( auto& [_, data] : teleports )
-				if ( data.start.msgIdx == msgIndex )
-					data.start.pos = Vector( pos.x( ), pos.y( ), pos.z( ) );
-			for ( auto& [_, data] : teleports )
-				if ( data.end.msgIdx == msgIndex )
-					data.end.pos = Vector( pos.x( ), pos.y( ), pos.z( ) );
+			for (auto& [_, data] : teleports)
+				if (data.start.msgIdx == msgIndex)
+					data.start.pos = Vector(pos.x(), pos.y(), pos.z());
+			for (auto& [_, data] : teleports)
+				if (data.end.msgIdx == msgIndex)
+					data.end.pos = Vector(pos.x(), pos.y(), pos.z());
+		}
+		break;
+	}
+	case GAME_PARTICLE_MANAGER_EVENT_UPDATE_ENT: {
+
+		if (pmMsg->update_particle_ent().control_point() == 0) {
+			auto pos = pmMsg->update_particle_ent().fallback_position();
+
+			for (auto& [_, data] : teleports)
+				if (data.start.msgIdx == msgIndex)
+					data.start.pos = Vector(pos.x(), pos.y(), pos.z());
+			for (auto& [_, data] : teleports)
+				if (data.end.msgIdx == msgIndex)
+					data.end.pos = Vector(pos.x(), pos.y(), pos.z());
 		}
 		break;
 	}
