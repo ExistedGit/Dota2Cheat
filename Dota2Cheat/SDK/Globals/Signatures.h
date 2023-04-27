@@ -22,8 +22,6 @@ class CDOTAPlayerController;
 class CDOTAModifier;
 
 namespace Signatures {
-
-
 	inline CDOTAItemSchema* (*GetItemSchema)() = nullptr;
 	inline bool(*IsHUDFlipped)() = nullptr;
 	inline CEconItem* (*CreateEconItem)() = nullptr;

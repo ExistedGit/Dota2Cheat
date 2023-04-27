@@ -245,10 +245,12 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		dumpFolderPath = buf;
 		dumpFolderPath += "\\Documents\\PudgeDumper";
 	}
+	std::cout << "Removing old dump...\n";
 	std::filesystem::remove_all(dumpFolderPath);
 	std::filesystem::create_directory(dumpFolderPath);
 
 	SchemaSystem = (CSchemaSystem*)CreateInterface("schemasystem.dll", "SchemaSystem_001");
+	std::cout << "SchemaSystem: " << SchemaSystem << '\n';
 
 	std::cout << "Dump started at " << getTimeStr() << std::endl << std::endl;
 

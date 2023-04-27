@@ -18,7 +18,7 @@ void Hacks::LastHitMarker::Draw() {
 			"modifier_item_quelling_blade",
 			"modifier_item_battlefury"
 		});
-
+	auto attackRange = ctx.assignedHero->GetAttackRange();
 	for (auto& wrapper : ctx.creeps) {
 		auto creep = wrapper.ent;
 		if (!IsValidReadPtr(creep)
@@ -27,7 +27,11 @@ void Hacks::LastHitMarker::Draw() {
 			continue;
 
 		// Distance check
-		if (!IsWithinRadius(creep->GetPos(), ctx.assignedHero->GetPos(), 1000))
+		if (!IsWithinRadius(
+			creep->GetPos(),
+			ctx.assignedHero->GetPos(),
+			ctx.assignedHero->GetAttackCapabilities() == DOTA_UNIT_CAP_MELEE_ATTACK ? 1000 : attackRange * 1.2
+			))
 			continue;
 
 		// Deny check

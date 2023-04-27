@@ -26,6 +26,7 @@ namespace VTableIndexes {
 	namespace CDOTABaseNPC {
 		// JS functions
 		Index GetIdealSpeed = 227;
+		Index GetAttackRange = 270;
 		Index GetPhysicalArmorValue = 273;
 		Index GetMagicalArmorValue = 274;
 	}

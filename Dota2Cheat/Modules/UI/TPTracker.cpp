@@ -111,6 +111,9 @@ void Hacks::TPTracker::ProcessParticleMsg(NetMessageHandle_t* msgHandle, google:
 			break;
 
 		const auto particleName = Interfaces::ResourceSystem->GetResourceName(particle.particle_name_index());
+		if (!particleName)
+			break;
+
 		auto ent = Interfaces::EntitySystem->GetEntity(NH2IDX(particle.entity_handle_for_modifiers()));
 		if (!ent)
 			break;

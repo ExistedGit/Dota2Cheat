@@ -147,7 +147,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	// Setup Dear ImGui style
 	ImGui::StyleColorsClassic();
-	//ImGui::StyleColorsLight();
+
 	// Setup Platform/Renderer backends
 	ImGui_ImplGlfw_InitForOpenGL(window_menu, true);
 	ImGui_ImplOpenGL3_Init(glsl_version);
@@ -174,7 +174,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		ImGui::PushFont(defaultFont);
 
 #ifdef _DEBUG
-		Pages::AutoPickHeroGrid::Draw();
+		// Pages::AutoPickHeroGrid::Draw();
 #endif // _DEBUG
 
 		if (
@@ -199,9 +199,9 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		}
 
 #ifdef _DEBUG
-		ImGui::InputInt("ItemDef ID", &itemDefId);
-		if (ImGui::Button("Create item"))
-			Modules::SkinChanger.QueueAddItem(itemDefId);
+//		ImGui::InputInt("ItemDef ID", &itemDefId);
+//		if (ImGui::Button("Create item"))
+//			Modules::SkinChanger.QueueAddItem(itemDefId);
 #endif // _DEBUG
 
 		ImGui::PopFont();

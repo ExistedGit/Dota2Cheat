@@ -35,12 +35,8 @@ public:
 	GETTER(Vector, GetPos, 0x38);
 };
 class C_DOTA_ProjectileManager : public VClass {
-public:	
-	auto GetTrackingProjectiles() {
-		return std::span<C_DOTA_TrackingProjectileInfo*, 1024>{MemberInline<C_DOTA_TrackingProjectileInfo*>(0x38), 1024};
-	}
-
-	auto GetLinearProjectiles() {
-		return std::span<C_DOTA_LinearProjectileInfo*, 1024>{MemberInline<C_DOTA_LinearProjectileInfo*>(0x2038), 1024};
-	}
+	char _pad[0x30];
+public:
+	C_DOTA_TrackingProjectileInfo* m_pTrackingProjectiles[1024];
+	C_DOTA_LinearProjectileInfo* m_pLinearProjectiles[1024];
 };
