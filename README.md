@@ -17,6 +17,8 @@ also using [Lua 5.4](https://www.lua.org/) and [sol2](https://github.com/ThePhD/
 
 also using DarthTon's [BlackBone](https://github.com/DarthTon/Blackbone) for injection
 
+also using [libcurl](https://github.com/curl/curl) for network requests
+
 `assets` folder contents are property of Valve Corporation
 
 ## Building
@@ -67,13 +69,16 @@ This list is subject to frequent change as I'm testing new features
 * Information:
   * ~~Visible by Enemy~~ RIP on 21.02.2023, you shall not be forgotten
   * Teleport Tracker — draws enemy TPs on the map
-  * [AbilityESP & ItemESP](https://youtu.be/U-ZhxwjEw4k) + manabars
+  * AbilityESP & ItemESP + manabars
+  * Indicators
+    * Speed indicator — shows whether you are faster or slower than the enemy
+    * Kill indicator — shows if you can kill the enemy with a nuke(if your hero has one). If you can't, shows how much damage there is left to deal before you can.
   * Draw circles of custom radius around you hero(e. g. to see XP receiving range)
   * Shows point-cast spells(Sunstrike, Torrent, Light Strike Array)
   * Modifier Revealer:
     * Shows target-cast spells(Assassinate, Charge of Darkness)
     * Shows Linken's Sphere on everyone
-    * Shows True Sight on allies
+    * Shows True Sight on allies and wards
   * Renders any and all possible particles, including in FoW
   * Customizable enemy illusion coloring
   * Shows trajectories of enemy projectiles like Mirana's arrow and non-projectile abilities like Meat Hook
