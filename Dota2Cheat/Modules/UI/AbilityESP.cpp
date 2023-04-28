@@ -142,7 +142,7 @@ void ESP::AbilityESP::DrawAbilities() {
 					cdFontSize = iconSize - ScaleVar(12);
 
 				// Draws the cooldown
-				DrawTextForeground(textFont,
+				DrawTextForeground(GImGui->Font,
 					std::vformat(decimals ? "{:.1f}" : "{:.0f}", std::make_format_args(cd)),
 					ImVec2(imgXY1.x + centeringOffset, imgXY1.y + iconSize / 2 - cdFontSize / 1.5f),
 					cdFontSize,
@@ -158,7 +158,7 @@ void ESP::AbilityESP::DrawAbilities() {
 				float indicatorHeight = ScaleVar(4);
 				auto channelLength = data.ability->GetLevelSpecialValueFor("AbilityChannelTime");
 				int fontSize = ScaleVar(18);
-				DrawTextForeground(textFont,
+				DrawTextForeground(GImGui->Font,
 					std::format("{:.1f}", channelLength - (GameSystems::GameRules->GetGameTime() - channelTime)),
 					ImVec2(imgXY1.x + centeringOffset, imgXY1.y - fontSize - 2 - indicatorHeight),
 					fontSize,
@@ -176,7 +176,7 @@ void ESP::AbilityESP::DrawAbilities() {
 				int fontSize = ScaleVar(18);
 				float indicatorWidthFactor = abs(imgXY1.x - imgXY2.x) * ((GameSystems::GameRules->GetGameTime() - castStartTime) / castPoint);
 				DrawList->AddRectFilled(imgXY1, ImVec2(imgXY1.x + indicatorWidthFactor, imgXY2.y), ImGui::GetColorU32(ImVec4(0, 1, 0, 0.5)));
-				DrawTextForeground(textFont,
+				DrawTextForeground(GImGui->Font,
 					std::format("{:.1f}", castPoint - (GameSystems::GameRules->GetGameTime() - castStartTime)),
 					imgXY1 + ImVec2(centeringOffset, -fontSize - 2),
 					fontSize,
@@ -292,7 +292,7 @@ void ESP::AbilityESP::DrawItems() {
 				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.25f)));
 			if (cd)
 				DrawTextForeground(
-					textFont,
+					GImGui->Font,
 					std::vformat(Config::AbilityESP::ShowCooldownDecimals ? "{:.1f}" : "{:.0f}", std::make_format_args(cd)),
 					ImVec2(imgCenter.x, imgCenter.y - (iconSize.y - ScaleVar<float>(6)) / 2),
 					iconSize.y - ScaleVar<float>(6),
@@ -345,14 +345,14 @@ void ESP::AbilityESP::DrawItemCircle(const AbilityData& data, const ImVec2& xy1,
 	DrawList->AddCircleFilled(center, radius, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.5)));
 	// Draws the cooldown
 	if (Config::AbilityESP::ShowCooldownDecimals)
-		DrawTextForeground(textFont,
+		DrawTextForeground(GImGui->Font,
 			std::format("{:.1f}", cd),
 			ImVec2(center.x, center.y - cdFontSize / 2),
 			cdFontSize,
 			ImVec4(1, 1, 1, 1),
 			true);
 	else
-		DrawTextForeground(textFont,
+		DrawTextForeground(GImGui->Font,
 			std::format("{:.0f}", cd),
 			ImVec2(center.x, center.y - cdFontSize / 2),
 			cdFontSize,
@@ -363,7 +363,7 @@ void ESP::AbilityESP::DrawItemCircle(const AbilityData& data, const ImVec2& xy1,
 }
 
 void ESP::AbilityESP::DrawESP() {
-	if (!textFont)
+	if (!GImGui->Font)
 		return;
 	if (!Initialized || !Config::AbilityESP::Enabled)
 		return;
@@ -398,7 +398,7 @@ void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, ImVec2 pos) {
 		counterSize - outlinePadding * 2,
 		clrLvlOutline
 	);
-	DrawTextForeground(textFont, std::to_string(lvl), ImVec2(pos.x, pos.y - (counterScale - 4) / 2), counterScale - 4, clrLvlOutline, true, false);
+	DrawTextForeground(GImGui->Font, std::to_string(lvl), ImVec2(pos.x, pos.y - (counterScale - 4) / 2), counterScale - 4, clrLvlOutline, true, false);
 }
 
 void ESP::AbilityESP::DrawLevelBars(CDOTABaseAbility* ability, const ImVec2& xy1, const ImVec2& xy2) {
@@ -435,7 +435,7 @@ void ESP::AbilityESP::DrawChargeCounter(int charges, const ImVec2& pos, int radi
 	DrawList->AddCircleFilled(pos, radius, ImGui::GetColorU32(ImVec4(0.2, 0.2, 0.2, 1)));
 
 	DrawTextForeground(
-		textFont,
+		GImGui->Font,
 		std::to_string(charges),
 		ImVec2(pos.x, pos.y - (radius - 2)),
 		(radius - 2) * 2,
@@ -508,10 +508,7 @@ void ESP::AbilityESP::UpdateAbilities(CDOTABaseNPC_Hero* hero) {
 			return;
 		auto iconPath = ctx.cheatFolderPath + "\\assets\\spellicons\\" + abilityName + "_png.png";
 		auto& data = heroAbilities[validAbilities] = AbilityData{
-			.ability = ability,
-			.lastActiveTime = GameSystems::GameRules->GetGameTime(),
-			.lastActiveCooldown = ability->GetCooldown(),
-			.currentCooldown = ability->GetCooldown()
+			.ability = ability
 		};
 		texManager.QueueForLoading(iconPath, abilityName);
 		++validAbilities;
@@ -539,10 +536,7 @@ void ESP::AbilityESP::UpdateItems(CDOTABaseNPC_Hero* hero) {
 		std::string itemName = item->GetIdentity()->GetName();
 		auto iconPath = ctx.cheatFolderPath + "\\assets\\items\\" + itemName.substr(5) + "_png.png";
 		EnemyItems[hero][i] = AbilityData{
-			.ability = item,
-			.lastActiveTime = GameSystems::GameRules->GetGameTime(),
-			.lastActiveCooldown = item->GetCooldown(),
-			.currentCooldown = item->GetCooldown()
+			.ability = item
 		};
 		texManager.QueueForLoading(iconPath, itemName.substr(5));
 	}

@@ -10,6 +10,7 @@
 #include "../Modules/Hacks/AutoBuyTome.h"
 #include "../Modules/UI/AbilityESP.h"
 #include "../Modules/UI/UIOverhaul.h"
+#include "../Modules/UI/Indicators/KillIndicator.h"
 #include "../Modules/Hacks/AutoPick.h"
 #include "../Modules/Hacks/AutoPing.h"
 

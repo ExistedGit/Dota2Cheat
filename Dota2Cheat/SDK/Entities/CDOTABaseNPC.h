@@ -22,13 +22,15 @@ public:
 		}
 		return false;
 	}
-	bool HasModifier(std::string_view modifierName) {
+	CDOTAModifier* GetModifier(std::string_view name) {
 		for (auto& modifier : *GetModifierManager()->GetModifierListRaw())
-			if (modifier->GetName() == modifierName)
-				return true;
+			if (modifier->GetName() == name)
+				return modifier;
 
-		return false;
-
+		return nullptr;
+	}
+	bool HasModifier(std::string_view name) {
+		return GetModifier(name) != nullptr;
 	}
 
 	VGETTER(float, GetPhysicalArmorValue, VTableIndexes::CDOTABaseNPC::GetPhysicalArmorValue);

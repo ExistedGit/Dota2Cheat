@@ -220,6 +220,8 @@
     <ClCompile Include="Modules\Hacks\SkinChanger.cpp" />
     <ClCompile Include="Modules\Hacks\TargetedSpellHighlighter.cpp" />
     <ClCompile Include="Modules\UI\AbilityESP.cpp" />
+    <ClCompile Include="Modules\UI\Indicators\KillIndicator.cpp" />
+    <ClCompile Include="Modules\UI\Indicators\SpeedIndicator.cpp" />
     <ClCompile Include="Modules\UI\TPTracker.cpp" />
     <ClCompile Include="Modules\Hacks\TrueSightESP.cpp" />
     <ClCompile Include="Modules\UI\UIOverhaul.cpp" />
@@ -328,6 +330,8 @@
     <ClCompile Include="Utils\Drawing.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CheatSDK\DrawData.h" />
+    <ClInclude Include="SDK\Bytes\Fonts.h" />
     <ClInclude Include="CheatSDK\include.h" />
     <ClInclude Include="CheatSDK\Utils.h" />
     <ClInclude Include="Hooks\GameEvents.h" />
@@ -335,8 +339,12 @@
     <ClInclude Include="Hooks\UIState.h" />
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
     <ClInclude Include="Modules\Hacks\TrueSightESP.h" />
+    <ClInclude Include="Modules\UI\Indicators\KillIndicator.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Modules\UI\UIOverhaul.h" />
-    <ClInclude Include="Modules\UI\SpeedIndicator.h">
+    <ClInclude Include="Modules\UI\Indicators\SpeedIndicator.h">
       <SubType>
       </SubType>
     </ClInclude>

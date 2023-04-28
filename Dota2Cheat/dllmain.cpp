@@ -11,10 +11,12 @@
 
 #include "CheatSDK/include.h"
 #include "Hooks/InvalidateUEF.h"
-#include "Modules/UI/SpeedIndicator.h"
+#include "Modules/UI/Indicators/SpeedIndicator.h"
+#include "Modules/UI/Indicators/KillIndicator.h"
 #include "UI/Pages/MainMenu.h"
 #include "UI/Pages/AutoPickSelectionGrid.h"
 #include "Modules/Hacks/LastHitMarker.h"
+
 GLFWwindow* window_menu{};
 
 #pragma region Static variables
@@ -152,11 +154,16 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	ImGui_ImplGlfw_InitForOpenGL(window_menu, true);
 	ImGui_ImplOpenGL3_Init(glsl_version);
 
-	//auto vbeFont = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 80.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
-	auto msTrebuchet = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 40.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
 	auto defaultFont = io.Fonts->AddFontDefault();
+	{
+		ImFontConfig fontCfg{};
+		fontCfg.FontDataOwnedByAtlas = false;
+		for (int i = 10; i < 26; i += 2) {
+			DrawData.Fonts["MSTrebuchet"][i] = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", i, nullptr, io.Fonts->GetGlyphRangesDefault());
+			DrawData.Fonts["Monofonto"][i] = io.Fonts->AddFontFromMemoryTTF((void*)Fonts::Monofonto, IM_ARRAYSIZE(Fonts::Monofonto), i, &fontCfg, io.Fonts->GetGlyphRangesDefault());
+		}
+	}
 	bool menuVisible = true;
-	Modules::AbilityESP.textFont = msTrebuchet;
 	std::cout << "Icon loading result: " << iconLoadThread.get() << "\n";
 	int itemDefId = 6996;
 	// Main loop
@@ -171,12 +178,11 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 		texManager.ExecuteLoadCycle();
 
-		ImGui::PushFont(defaultFont);
 
 #ifdef _DEBUG
 		// Pages::AutoPickHeroGrid::Draw();
 #endif // _DEBUG
-
+		ImGui::PushFont(DrawData.Fonts["MSTrebuchet"][24]);
 		if (
 			GameSystems::GameUI->GetUIState() == DOTA_GAME_UI_DOTA_INGAME
 			&& ctx.gameStage == Context::GameStage::IN_GAME
@@ -187,7 +193,17 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			Modules::TPTracker.DrawMapTeleports();
 			Modules::LastHitMarker.Draw();
 			Modules::SpeedIndicator.Draw();
+			Modules::KillIndicator.Draw();
+			//const auto ScreenSize = glfwGetVideoMode(glfwGetPrimaryMonitor());
+			//auto ActualMinimapSize = static_cast<float>(GameSystems::MinimapRenderer->GetMinimapSize().y - 28);
+			//auto MinimapPosMin = ImVec2(16, static_cast<float>(ScreenSize->height - ActualMinimapSize - 12));
+
+			//ImGui::GetForegroundDrawList()->AddRectFilled(MinimapPosMin, MinimapPosMin + ImVec2{ ActualMinimapSize, ActualMinimapSize }, ImColor{ 255,0,0 });
+
 		}
+		ImGui::PopFont();
+
+		ImGui::PushFont(defaultFont);
 
 		if (menuVisible)
 			Pages::MainMenu::Draw();
@@ -199,9 +215,9 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		}
 
 #ifdef _DEBUG
-//		ImGui::InputInt("ItemDef ID", &itemDefId);
-//		if (ImGui::Button("Create item"))
-//			Modules::SkinChanger.QueueAddItem(itemDefId);
+		//		ImGui::InputInt("ItemDef ID", &itemDefId);
+		//		if (ImGui::Button("Create item"))
+		//			Modules::SkinChanger.QueueAddItem(itemDefId);
 #endif // _DEBUG
 
 		ImGui::PopFont();

@@ -24,6 +24,9 @@ namespace Hacks {
 
 		float lastTime = 0;
 	public:
+		void Reset() {
+			teleports.clear();
+		}
 		// Mostly calculating fade duration
 		void FrameBasedLogic();
 		void CacheHeroIcons();

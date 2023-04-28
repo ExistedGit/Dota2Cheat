@@ -74,4 +74,6 @@
 #include "Protobufs/steammessages_unified_base.steamworkssdk.pb.h"
 #include "Protobufs/usermessages.pb.h"
 
+#include "Bytes/Fonts.h"
+
 #endif // !PCH_H

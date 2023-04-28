@@ -81,6 +81,8 @@ namespace Config {
 	inline bool AutoPickUpAegis;
 	namespace Indicators {
 		inline bool Speed;
+		inline bool Kill;
+		inline float KillScale;
 	}
 	namespace TPTracker {
 		inline bool Enabled;

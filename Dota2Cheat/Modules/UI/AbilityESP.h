@@ -9,10 +9,6 @@ namespace ESP {
 		struct AbilityData {
 			CDOTABaseAbility* ability{};
 			ImTextureID icon{};
-
-			float lastActiveTime{};
-			float lastActiveCooldown{};
-			float currentCooldown{};
 		};
 
 
@@ -39,7 +35,6 @@ namespace ESP {
 		void DrawChargeCounter(int charges, const ImVec2& pos, int radius);
 		void DrawManabars();
 	public:
-		ImFont* textFont = nullptr;
 		void UpdateAbilities(CDOTABaseNPC_Hero* hero);
 		void UpdateItems(CDOTABaseNPC_Hero* hero);
 		void UpdateHeroData();

@@ -13,7 +13,9 @@ void Hacks::TrueSightESP::DrawParticleIfTrueSight(CDOTAModifier* modifier) {
 
 	auto owner = modifier->GetOwner();
 	if (!owner->IsSameTeam(ctx.assignedHero)
-		|| !ctx.heroes.contains((CDOTABaseNPC_Hero*)owner))
+		||
+		(!ctx.heroes.contains((CDOTABaseNPC_Hero*)owner) &&
+			!strstr(owner->SchemaBinding()->binaryName, "Observer_Ward"))) // yes, you can tell if a ward is under a sentry 
 		return;
 
 	if (strcmp(modifier->GetName(), "modifier_truesight") != 0)
