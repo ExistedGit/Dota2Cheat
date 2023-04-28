@@ -330,7 +330,8 @@
     <ClCompile Include="Utils\Drawing.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bytes\Fonts.h" />
+    <ClInclude Include="CheatSDK\DrawData.h" />
+    <ClInclude Include="SDK\Bytes\Fonts.h" />
     <ClInclude Include="CheatSDK\include.h" />
     <ClInclude Include="CheatSDK\Utils.h" />
     <ClInclude Include="Hooks\GameEvents.h" />

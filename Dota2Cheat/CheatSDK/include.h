@@ -5,5 +5,6 @@
 #include "Config.h"
 #include "MatchStateHandling.h"
 #include "Utils.h"
+#include "DrawData.h"
 #include "Lua/LuaModules.h"
 #include "Lua/LuaInitialization.h"

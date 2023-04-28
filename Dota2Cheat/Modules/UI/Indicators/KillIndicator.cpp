@@ -4,7 +4,7 @@ void Hacks::KillIndicator::DrawIndicatorFor(CDOTABaseNPC* ent) {
 	if (!ent)
 		return;
 
-	float scale = 1.2f;
+	float scale = Config::Indicators::KillScale;
 	Vector pos = ent->GetPos();
 	pos.z += ent->Member<int>(Netvars::C_DOTA_BaseNPC::m_iHealthBarOffset);
 	const auto hbPos = WorldToScreen(pos);
@@ -29,22 +29,23 @@ void Hacks::KillIndicator::DrawIndicatorFor(CDOTABaseNPC* ent) {
 		diff = DefaultBehavior(ent);
 
 	auto indicatorBase = hbPos - ImVec2(76, 6);
+	auto plaqueXY = indicatorBase - ImVec2(26, 0) * scale;
 	auto DrawList = ImGui::GetForegroundDrawList();
 	if (diff <= 0)
 		// Outline
-		DrawList->AddRectFilled(indicatorBase - ImVec2{ 1,1 }, indicatorBase + ImVec2(18, 18) * scale, ImColor(0, 230, 0, 255), (3 * scale));
+		DrawList->AddRectFilled(indicatorBase, indicatorBase + ImVec2(18, 18) * scale, ImColor(0, 230, 0, 255), (3 * scale));
 	else {
 		if (diff > 999)
 			diff = 999;
 		std::string Text = std::to_string(diff);
-		auto textBase = indicatorBase + ImVec2{ 18 * scale + 4 , 1 };
+		auto textBase = plaqueXY + ImVec2(24 * scale / 2, (18 - 12) * scale / 2);
 		//Outline
-		DrawList->AddRectFilled(indicatorBase - ImVec2{ 1,1 }, indicatorBase + ImVec2(18, 18) * scale, ImColor(255, 50, 50, 255), (3 * scale));
+		DrawList->AddRectFilled(indicatorBase, indicatorBase + ImVec2(18, 18) * scale, ImColor(255, 50, 50, 255), (3 * scale));
 		// Background & text
-		DrawList->AddRectFilled(textBase, textBase + ImVec2{scale * 8 * Text.size(), scale * 16}, ImColor(0, 0, 0, 255), 2 * scale);
-		DrawList->AddText(GImGui->Font, scale*16, textBase + ImVec2{2,0}, ImColor(255, 255, 255, 255), Text.c_str());
+		DrawList->AddRectFilled(plaqueXY, plaqueXY + ImVec2(24, 18) * scale, ImColor(0, 0, 0, 255), 2 * scale);
+		DrawTextForeground(DrawData.GetFont("Monofonto", scale * 16), Text, textBase, scale * 12, ImVec4(1, 1, 1, 1), true, false);
 	}
 	//Icon
-	DrawList->AddRectFilled(indicatorBase + ImVec2{ 1,1 }, indicatorBase + ImVec2(16, 16) * scale, ImColor(1, 1, 1, 255), (2 * scale));
-	DrawList->AddImageRounded(icon, indicatorBase + ImVec2{ 2,2 }, indicatorBase + ImVec2(15, 15) * scale, { 0, 0 }, { 1, 1 }, ImColor(255, 255, 255, 255), (2 * scale));
+	DrawList->AddRectFilled(indicatorBase + ImVec2{ 2,2 }, indicatorBase + ImVec2(16, 16) * scale, ImColor(1, 1, 1, 255), (2 * scale));
+	DrawList->AddImageRounded(icon, indicatorBase + ImVec2{ 3,3 }, indicatorBase + ImVec2(15, 15) * scale, { 0, 0 }, { 1, 1 }, ImColor(255, 255, 255, 255), (2 * scale));
 }

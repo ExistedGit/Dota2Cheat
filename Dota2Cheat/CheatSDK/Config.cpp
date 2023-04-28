@@ -104,6 +104,7 @@ void Config::ConfigManager::SetupVars() {
 
 	CFG_VAR(BOOL, Indicators::Speed, true);
 	CFG_VAR(BOOL, Indicators::Kill, true);
+	CFG_VAR(FLOAT, Indicators::KillScale, 1.0f);
 
 	CFG_VAR(INT, CircleRadius, 1200);
 	CFG_VAR(VECTOR3D, CircleRGB, Vector(0, 1, 0));

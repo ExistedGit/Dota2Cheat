@@ -30,7 +30,8 @@ void Hooks::CacheIfItemModifier(CDOTAModifier* modifier) {
 
 	auto item = modifier->GetOwner()->FindItemBySubstring(itemName.data());
 	if (item) {
-		if (itemName.find("sphere", 0) != -1)
+		if (itemName.find("sphere", 0) != -1 &&
+			!((CDOTABaseNPC_Hero*)modifier->GetOwner())->IsIllusion())
 			Modules::TargetedSpellHighlighter.SubscribeLinkenRendering(modifier->GetOwner(), item);
 	}
 

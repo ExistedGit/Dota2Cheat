@@ -332,6 +332,7 @@
     <ClInclude Include="CheatSDK\include.h" />
     <ClInclude Include="Modules\UI\Indicators\SpeedIndicator.h" />
     <ClInclude Include="Modules\UI\Indicators\KillIndicator.h" />
-    <ClInclude Include="Bytes\Fonts.h" />
+    <ClInclude Include="SDK\Bytes\Fonts.h" />
+    <ClInclude Include="CheatSDK\DrawData.h" />
   </ItemGroup>
 </Project>
