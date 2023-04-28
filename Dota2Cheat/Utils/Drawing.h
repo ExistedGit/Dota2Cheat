@@ -44,7 +44,7 @@ public:
 		auto result = LoadTexture(filename, tex);
 		namedTex[texName] = tex;
 		return result;
-	};
+	}
 
 	void QueueTextureUnload()
 	{
@@ -67,7 +67,7 @@ public:
 
 	void ExecuteLoadCycle() {
 		for (auto& [path, tex] : loadingQueue) {
-			LogF(LP_INFO, "Loading image: {}", path);
+			// LogF(LP_INFO, "Loading image: {}", path);
 			LoadTexture(path.c_str(), *tex);
 		}
 

@@ -59,8 +59,10 @@ namespace Pages {
 				ImGui::TreePop();
 			}
 			if (ImGui::TreeNode("TP Tracker")) {
-				ImGui::Text("Shows enemy teleports on the map(currently not working for Boots of Travel)");
+				ImGui::Text("Shows enemy teleports on the map");
+
 				ImGui::Checkbox("Enabled", &Config::TPTracker::Enabled);
+				ImGui::SameLine(); HelpMarker("In case of Boots of Travel it only shows the position the receiver was at when the TP started");
 				ImGui::TreePop();
 			}
 			if (ImGui::CollapsingHeader("Changer")) {
@@ -114,9 +116,13 @@ namespace Pages {
 				ImGui::SameLine(); HelpMarker("Stashed items will be displayed like in Dota itself");
 				ImGui::TreePop();
 			}
-			if (ImGui::TreeNode("UI")) {
+			if (ImGui::TreeNode("Indicators")) {
 				ImGui::Checkbox("Speed indicator", &Config::Indicators::Speed);
 				ImGui::SameLine(); HelpMarker("Shows an icon near the enemy signifying whether you are faster or slower");
+				ImGui::Checkbox("Kill indicator", &Config::Indicators::Kill);
+				ImGui::SameLine(); HelpMarker(
+					"If your hero has a nuke spell, its icon will be displayed near the enemy's healthbar, signifying whether you can kill them with it."
+					"If not, it shows how much health is left until you can kill them");
 			//	ImGui::Checkbox("Top bars", &Config::UIOverhaul::TopBars);
 			//	ImGui::SameLine(); HelpMarker("Shows HP and Mana bars for enemies in the top bar. Like pressing Alt does for your allies");
 				ImGui::TreePop();

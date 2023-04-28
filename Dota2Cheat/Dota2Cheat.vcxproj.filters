@@ -137,6 +137,8 @@
     <ClCompile Include="SDK\Protobufs\uifontfile_format.pb.cc" />
     <ClCompile Include="SDK\Protobufs\usercmd.pb.cc" />
     <ClCompile Include="SDK\Protobufs\valveextensions.pb.cc" />
+    <ClCompile Include="Modules\UI\Indicators\KillIndicator.cpp" />
+    <ClCompile Include="Modules\UI\Indicators\SpeedIndicator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hooks\MinimapRenderer.h" />
@@ -328,6 +330,8 @@
     <ClInclude Include="Hooks\GameEvents.h" />
     <ClInclude Include="CheatSDK\Utils.h" />
     <ClInclude Include="CheatSDK\include.h" />
-    <ClInclude Include="Modules\UI\SpeedIndicator.h" />
+    <ClInclude Include="Modules\UI\Indicators\SpeedIndicator.h" />
+    <ClInclude Include="Modules\UI\Indicators\KillIndicator.h" />
+    <ClInclude Include="Bytes\Fonts.h" />
   </ItemGroup>
 </Project>

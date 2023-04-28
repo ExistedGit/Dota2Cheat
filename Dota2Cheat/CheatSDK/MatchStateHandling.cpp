@@ -130,6 +130,7 @@ void EnteredInGame() {
 	CacheAllEntities();
 
 	Modules::AbilityESP.SubscribeHeroes();
+	Modules::KillIndicator.Init();
 	//Modules::UIOverhaul.Init();
 
 	Lua::CallModuleFunc("OnJoinedMatch");
@@ -149,6 +150,8 @@ void LeftMatch() {
 	Modules::ParticleGC.Reset();
 	Modules::AbilityESP.Reset();
 	Modules::UIOverhaul.Reset();
+	Modules::TPTracker.Reset();
+	Modules::KillIndicator.Reset();
 
 	GameSystems::PlayerResource = nullptr;
 	GameSystems::GameRules = nullptr;

@@ -11,7 +11,8 @@
 
 #include "CheatSDK/include.h"
 #include "Hooks/InvalidateUEF.h"
-#include "Modules/UI/SpeedIndicator.h"
+#include "Modules/UI/Indicators/SpeedIndicator.h"
+#include "Modules/UI/Indicators/KillIndicator.h"
 #include "UI/Pages/MainMenu.h"
 #include "UI/Pages/AutoPickSelectionGrid.h"
 #include "Modules/Hacks/LastHitMarker.h"
@@ -156,7 +157,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	auto msTrebuchet = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", 40.0f, nullptr, io.Fonts->GetGlyphRangesDefault());
 	auto defaultFont = io.Fonts->AddFontDefault();
 	bool menuVisible = true;
-	Modules::AbilityESP.textFont = msTrebuchet;
 	std::cout << "Icon loading result: " << iconLoadThread.get() << "\n";
 	int itemDefId = 6996;
 	// Main loop
@@ -171,12 +171,11 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 		texManager.ExecuteLoadCycle();
 
-		ImGui::PushFont(defaultFont);
 
 #ifdef _DEBUG
 		// Pages::AutoPickHeroGrid::Draw();
 #endif // _DEBUG
-
+		ImGui::PushFont(msTrebuchet);
 		if (
 			GameSystems::GameUI->GetUIState() == DOTA_GAME_UI_DOTA_INGAME
 			&& ctx.gameStage == Context::GameStage::IN_GAME
@@ -187,7 +186,18 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			Modules::TPTracker.DrawMapTeleports();
 			Modules::LastHitMarker.Draw();
 			Modules::SpeedIndicator.Draw();
+			Modules::KillIndicator.Draw();
+
+			//const auto ScreenSize = glfwGetVideoMode(glfwGetPrimaryMonitor());
+			//auto ActualMinimapSize = static_cast<float>(GameSystems::MinimapRenderer->GetMinimapSize().y - 28);
+			//auto MinimapPosMin = ImVec2(16, static_cast<float>(ScreenSize->height - ActualMinimapSize - 12));
+
+			//ImGui::GetForegroundDrawList()->AddRectFilled(MinimapPosMin, MinimapPosMin + ImVec2{ ActualMinimapSize, ActualMinimapSize }, ImColor{ 255,0,0 });
+
 		}
+		ImGui::PopFont();
+
+		ImGui::PushFont(defaultFont);
 
 		if (menuVisible)
 			Pages::MainMenu::Draw();
