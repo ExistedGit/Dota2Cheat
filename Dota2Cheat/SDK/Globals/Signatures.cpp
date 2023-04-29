@@ -21,8 +21,10 @@ void Signatures::ParseSignatures(nlohmann::json data) {
 
 		auto& info = data[sigName];
 		std::string sigStr = info["signature"], sigModule = info["module"];
+		auto result = SigScan::Find(sigStr, sigModule);
 
-		auto result = SigScan::Find(sigStr, sigModule.c_str());
+		if (!result)
+			continue;
 
 		if (info.contains("steps")) {
 			for (auto& pair : info["steps"].items()) {
@@ -40,12 +42,20 @@ void Signatures::ParseSignatures(nlohmann::json data) {
 		*sigVar = result;
 	}
 
-	for (auto& [sigName, sigVar] : NamedSignatures)
+	bool brokenSig = false;
+	for (auto& [sigName, sigVar] : NamedSignatures) {
+
 		LogF(*sigVar ? LP_DATA : LP_ERROR, "{}: {}", sigName, *sigVar);
+		if (!(*sigVar))
+			brokenSig = true;
+	}
+	if (brokenSig)
+		system("pause");
+	
 }
 
 void Signatures::LoadSignaturesFromNetwork(const std::string& url) {
-	LogF(LP_INFO, "Loading signatures from {}", url);
+	std::cout << std::format("Loading signatures from {}\n", url);
 
 	std::stringstream out;
 	CURL* curl = curl_easy_init();

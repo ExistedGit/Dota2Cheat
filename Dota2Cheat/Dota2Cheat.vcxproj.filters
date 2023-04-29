@@ -64,7 +64,6 @@
     <ClCompile Include="SDK\Interfaces\CVarSystem.cpp" />
     <ClCompile Include="SDK\Base\SigScan\patterscan.cpp" />
     <ClCompile Include="SDK\pch.cpp" />
-    <ClCompile Include="SDK\Base\SigScan\proc.cpp" />
     <ClCompile Include="SDK\Protobufs\base_gcmessages.pb.cc" />
     <ClCompile Include="SDK\Protobufs\dota_clientmessages.pb.cc" />
     <ClCompile Include="SDK\Protobufs\dota_commonmessages.pb.cc" />
@@ -139,6 +138,7 @@
     <ClCompile Include="SDK\Protobufs\valveextensions.pb.cc" />
     <ClCompile Include="Modules\UI\Indicators\KillIndicator.cpp" />
     <ClCompile Include="Modules\UI\Indicators\SpeedIndicator.cpp" />
+    <ClCompile Include="SDK\Base\SigScan\proc.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hooks\MinimapRenderer.h" />
@@ -266,7 +266,6 @@
     <ClInclude Include="CheatSDK\MatchStateHandling.h" />
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h" />
     <ClInclude Include="SDK\Base\SigScan\patternscan.h" />
-    <ClInclude Include="SDK\Base\SigScan\proc.h" />
     <ClInclude Include="SDK\Globals\Signatures.h" />
     <ClInclude Include="SDK\Entities\CBaseEntity.h" />
     <ClInclude Include="SDK\Entities\CDOTABaseNPC.h" />
@@ -334,5 +333,6 @@
     <ClInclude Include="Modules\UI\Indicators\KillIndicator.h" />
     <ClInclude Include="SDK\Bytes\Fonts.h" />
     <ClInclude Include="CheatSDK\DrawData.h" />
+    <ClInclude Include="SDK\Base\SigScan\proc.h" />
   </ItemGroup>
 </Project>
