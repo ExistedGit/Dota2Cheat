@@ -9,12 +9,10 @@ void Hooks::SetUpByteHooks() {
 	HOOKFUNC_SIGNATURES(BAsyncSendProto);
 #endif // _DEBUG
 	HOOKFUNC_SIGNATURES(SaveSerializedSOCache);
-	//HOOKFUNC_SIGNATURES(CGameUI__ChangeGameUIState);
 }
 
 
 void Hooks::SetUpVirtualHooks(bool log) {
-	//HookSteamGC();
 	{
 		// NetChan constructor
 		// vtable ptr at 0x15
@@ -50,7 +48,6 @@ void Hooks::SetUpVirtualHooks(bool log) {
 	}
 	{
 		// RunFrame: xref "CUIEngineSource2::RunFrame", never changes tho
-
 		void* RunScript = Interfaces::UIEngine->GetVFunc(88).ptr,
 			* RunFrame = Interfaces::UIEngine->GetVFunc(6).ptr;
 		HOOKFUNC(RunFrame);

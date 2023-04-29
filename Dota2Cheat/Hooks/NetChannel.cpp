@@ -80,7 +80,8 @@ bool Hooks::hkDispatchPacket(CGCClient* thisptr, IMsgNetPacket* netPacket) {
 void Hooks::hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits) {
 	Hooks::NetChan = thisptr;
 
-	if (messageHandle->messageID != 4) // not CNetMsg_Tick [4]
+	if (messageHandle->messageID != 4 // not CNetMsg_Tick [4]
+		&& ctx.gameStage == Context::GameStage::IN_GAME)
 	{
 		Modules::ShakerAttackAnimFix.ChangeAttackAnimIfNeeded(messageHandle, msg);
 		Modules::LinearProjectileWarner.ProcessLinearProjectileMsg(messageHandle, msg);
@@ -88,11 +89,11 @@ void Hooks::hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* m
 		Modules::ParticleAbilityWarner.ProcessParticleMsg(messageHandle, msg);
 		Modules::AttackAnimTracker.ProcessAttackAnimMessage(messageHandle, msg);
 	}
-	return oPostReceivedNetMessage( Hooks::NetChan, messageHandle, msg, type, bits);
+	return oPostReceivedNetMessage(Hooks::NetChan, messageHandle, msg, type, bits);
 }
 
 bool Hooks::hkSendNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, NetChannelBufType_t type) {
 	Hooks::NetChan = thisptr;
 
-	return oSendNetMessage( Hooks::NetChan, messageHandle, msg, type);
+	return oSendNetMessage(Hooks::NetChan, messageHandle, msg, type);
 }
