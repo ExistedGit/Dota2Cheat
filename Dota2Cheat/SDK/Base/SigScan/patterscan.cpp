@@ -1,52 +1,46 @@
 #include "patternscan.h"
 
-//Internal Pattern Scan
-void* PatternScan(char* base, size_t size, const char* pattern, const char* mask)
-{
-	size_t patternLength = strlen(mask);
+// Boyer-Moore-Horspool with wildcards implementation
+FORCEINLINE std::array<size_t, 256> FillShiftTable(const char* pattern, const uint8_t wildcard) {
+	std::array<size_t, 256> bad_char_skip = {};
+	size_t idx = 0;
+	const size_t last = strlen(pattern) - 1;
 
-	for (unsigned int i = 0; i < size - patternLength; ++i)
-	{
-		bool found = true;
-		for (unsigned int j = 0; j < patternLength; ++j)
-		{
-			if (mask[j] != '?' && pattern[j] != *(base + i + j))
-			{
-				found = false;
+	// Get last wildcard position
+	for (idx = last; idx > 0 && (uint8_t)pattern[idx] != wildcard; --idx);
+	size_t diff = last - idx;
+	if (diff == 0)
+		diff = 1;
+
+	// Prepare shift table
+	for (idx = 0; idx < 256; ++idx)
+		bad_char_skip[idx] = diff;
+	for (idx = last - diff; idx < last; ++idx)
+		bad_char_skip[(uint8_t)pattern[idx]] = last - idx;
+	return bad_char_skip;
+}
+
+void* PatternScanEx(uintptr_t begin, uintptr_t end, const char* pattern)
+{
+	auto scanPos = (uint8_t*)begin;
+	auto scanEnd = (uint8_t*)end;
+	const size_t last = strlen(pattern) - 1;
+	auto bad_char_skip = FillShiftTable(pattern, 0xCC);
+
+	// Search
+	for (; scanPos <= scanEnd; scanPos += bad_char_skip[scanPos[last]])
+		for (size_t idx = last; idx >= 0; --idx) {
+			uint8_t elem = pattern[idx];
+			if (elem != 0xCC && elem != scanPos[idx])
 				break;
-			}
+			if (idx == 0)
+				return scanPos;
 		}
 
-		if (found)
-			return (void*)(base + i);
-	}
 	return nullptr;
 }
 
-//External Wrapper
-void* PatternScanEx(uintptr_t begin, uintptr_t end, const char* pattern, const char* mask)
-{
-	uintptr_t currentChunk = begin;
-	size_t patternSize = strlen(mask);
-	while (currentChunk < end)
-	{
-		void* internalAddress = PatternScan((char*)currentChunk, patternSize + 1, pattern, mask);
-
-		if (internalAddress)
-		{
-			//calculate from internal to external
-			uintptr_t offsetFromBuffer = (uintptr_t)internalAddress - currentChunk;
-			return (void*)(currentChunk + offsetFromBuffer);
-		}
-		else
-			//advance to next chunk
-			currentChunk++;
-	}
-	return nullptr;
-}
-
-//Module wrapper for external pattern scan
-void* PatternScanInModule(const char* module, const char* pattern, const char* mask)
+void* PatternScanInModule(const char* module, const char* pattern)
 {
 	MODULEENTRY32 modEntry = GetModule(GetCurrentProcessId(), module);
 
@@ -54,6 +48,6 @@ void* PatternScanInModule(const char* module, const char* pattern, const char* m
 		return nullptr;
 
 	uintptr_t begin = (uintptr_t)modEntry.modBaseAddr;
-	uintptr_t end = begin + modEntry.modBaseSize;
-	return PatternScanEx(begin, end, pattern, mask);
+	uintptr_t end = begin + modEntry.modBaseSize - strlen(pattern);
+	return PatternScanEx(begin, end, pattern);
 }

@@ -2,6 +2,7 @@
 #include "../SDK/pch.h"
 #include "../../Utils/Drawing.h"
 #include "../../CheatSDK/Config.h"
+#include "../../CheatSDK/DrawData.h"
 #include <map>
 
 namespace ESP {

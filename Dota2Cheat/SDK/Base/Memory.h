@@ -35,12 +35,15 @@ public:
 };
 
 class SigScan {
-	//Splits IDA pattern into code mask/pattern
-	static void ParseCombo(const char* combo, std::string& pattern, std::string& mask)
+	//Splits IDA pattern into a pattern for the BMH algorithm with 0xCC as the wildcard
+	static std::string ParseCombo(const std::string& combo)
 	{
-		unsigned int patternLen = (strlen(combo) + 1) / 3;
+		unsigned int patternLen = (combo.size() + 1) / 3;
+		std::string pattern;
+		pattern.reserve(patternLen);
+
 		int index = 0;
-		for (unsigned int i = 0; i < strlen(combo); i++)
+		for (unsigned int i = 0; i < combo.size(); i++)
 		{
 			if (combo[i] == ' ')
 			{
@@ -49,30 +52,21 @@ class SigScan {
 
 			else if (combo[i] == '?')
 			{
-				mask += '?';
-				pattern += '\x00';
+				pattern += '\xCC';
 				i += 1;
 			}
 			else
 			{
 				char byte = (char)strtol(&combo[i], 0, 16);
 				pattern += byte;
-				mask += 'x';
 				i += 2;
 			}
 		}
+		return pattern;
 	}
 public:
-	static Address Find(const std::string& signature, const char* moduleName) {
-		int maskLength = (signature.length() + 1) / 3 + 1;
-		std::string pattern, mask;
-		pattern.reserve(maskLength);
-		mask.reserve(maskLength);
-
-		ParseCombo(signature.c_str(), pattern, mask);
-
-		Address result(PatternScanInModule(moduleName, pattern.c_str(), mask.c_str()));
-		return result;
+	static Address Find(const std::string& signature, const std::string& moduleName) {
+		return PatternScanInModule(moduleName.c_str(), ParseCombo(signature).c_str());
 	}
 };
 

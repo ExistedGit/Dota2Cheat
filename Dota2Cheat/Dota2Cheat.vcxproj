@@ -228,6 +228,7 @@
     <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp" />
     <ClCompile Include="Modules\Utility\AttackTargetFinder.cpp" />
     <ClCompile Include="Modules\Utility\ParticleGC.cpp" />
+    <ClCompile Include="SDK\Base\SigScan\proc.cpp" />
     <ClCompile Include="SDK\Entities\CBaseEntity.cpp" />
     <ClCompile Include="SDK\Entities\CDOTABaseAbility.cpp" />
     <ClCompile Include="SDK\Entities\CDOTABaseNPC.cpp" />
@@ -256,7 +257,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="SDK\Base\SigScan\proc.cpp" />
     <ClCompile Include="SDK\Protobufs\base_gcmessages.pb.cc" />
     <ClCompile Include="SDK\Protobufs\clientmessages.pb.cc" />
     <ClCompile Include="SDK\Protobufs\connectionless_netmessages.pb.cc" />
@@ -331,6 +331,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CheatSDK\DrawData.h" />
+    <ClInclude Include="SDK\Base\SigScan\proc.h" />
     <ClInclude Include="SDK\Bytes\Fonts.h" />
     <ClInclude Include="CheatSDK\include.h" />
     <ClInclude Include="CheatSDK\Utils.h" />
@@ -522,7 +523,6 @@
     <ClInclude Include="CheatSDK\MatchStateHandling.h" />
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h" />
     <ClInclude Include="SDK\Base\SigScan\patternscan.h" />
-    <ClInclude Include="SDK\Base\SigScan\proc.h" />
     <ClInclude Include="SDK\Globals\Signatures.h" />
     <ClInclude Include="SDK\Entities\CBaseEntity.h" />
     <ClInclude Include="SDK\Entities\CDOTABaseNPC.h" />

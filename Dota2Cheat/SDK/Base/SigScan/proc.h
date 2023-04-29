@@ -2,6 +2,7 @@
 #include <Windows.h>
 #include <TlHelp32.h>
 #include <string_view>
+#include <array>
 
 DWORD GetProcId(const char* procname);
 
