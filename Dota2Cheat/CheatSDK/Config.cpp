@@ -114,6 +114,7 @@ void Config::ConfigManager::SetupVars() {
 	CFG_VAR(FLOAT, CameraDistance, 1200.0f);
 
 	CFG_VAR(BOOL, ShowEnemyPointSpells, true);
+	CFG_VAR(BOOL, WarnLinearProjectiles, true);
 	CFG_VAR(BOOL, PerfectBlink, false);
 
 	CFG_VAR(BOOL, UIOverhaul::TopBars, true);

@@ -28,6 +28,10 @@ void Hooks::EntityIteration() {
 		Hooks::NetChan ? nullptr : throw "netchan = nullptr";
 
 		for (auto& rune : ctx.runes) {
+			if (!IsValidReadPtr(rune) ||
+				!IsValidReadPtr(rune->GetIdentity()) ||
+				rune->GetIdentity()->IsDormant())
+				continue;
 
 			static long long last_pickup_time = 0;
 			if (IsWithinRadius(rune->GetPos(), ctx.assignedHero->GetPos(), 140.0f) &&
@@ -90,7 +94,7 @@ void Hooks::hkRunFrame(void* thisptr) {
 			Modules::AutoPing.FrameBasedLogic();
 			Modules::AutoDodge.FrameBasedLogic();
 			Modules::AutoMidas.FrameBasedLogic();
-			Modules::AegisAutoPickup.FrameBasedLogic();
+			// Modules::AegisAutoPickup.FrameBasedLogic();
 		}
 
 		Modules::RiverPaint.FrameBasedLogic();

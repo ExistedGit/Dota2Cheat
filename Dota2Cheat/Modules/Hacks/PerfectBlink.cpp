@@ -3,6 +3,7 @@
 void Hacks::PerfectBlink::AdjustIfBlink(Vector* position, uint32_t abilityIndex, CBaseEntity* issuer) {
 	if (!Config::PerfectBlink)
 		return;
+
 	// Blink overshoot bypass
 	auto item = Interfaces::EntitySystem->GetEntity<CDOTABaseAbility>(abilityIndex);
 
