@@ -1,6 +1,7 @@
 #pragma once
 #include "../Utils/Drawing.h"
 #include "../../CheatSDK/include.h"
+#include "../../DebugFunctions.h"
 
 namespace Pages {
 	namespace MainMenu {
