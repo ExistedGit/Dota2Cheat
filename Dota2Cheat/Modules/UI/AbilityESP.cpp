@@ -227,7 +227,7 @@ void ESP::AbilityESP::DrawItems() {
 
 		ImVec2 basePos = WorldToScreen(heroPos);
 		basePos.x -= 6 * (iconSize.x + gap) / 2.0f;
-		basePos.y -= 130;
+		basePos.y -= 120;
 		if (Config::AbilityESP::UIScale > 1)
 			basePos.y -= (Config::AbilityESP::UIScale - 1) * ScaleVar<float>(AbilityIconSize);
 		for (int slot = 0; slot < 6; slot++) {
@@ -281,7 +281,7 @@ void ESP::AbilityESP::DrawItems() {
 
 			int charges = reinterpret_cast<CDOTAItem*>(itemData.ability)->GetCurrentCharges();
 			if (charges != 0)
-				DrawChargeCounter(charges, frameXY1 + ImVec2{ iconSize.x / 2, 0 }, iconSize.x / 3);
+				DrawChargeCounter(charges, frameXY1, 8);
 		}
 
 		if (inv.count(16) && inv[16].ability)
