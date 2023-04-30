@@ -10,6 +10,7 @@
 #include "../Modules/Hacks/LinearProjectileWarner.h"
 #include "../Modules/Hacks/SkinChanger.h"
 #include "../Modules/UI/TPTracker.h"
+#include "../Modules/UI/BlinkRevealer.h"
 
 namespace Hooks {
 	inline INetChannel* NetChan{};

@@ -3,9 +3,10 @@
 
 #include "Lua/LuaModules.h"
 #include "Lua/LuaInitialization.h"
-#include "include.h"
+
 #include "../Hooks/RunFrame.h"
 #include "../Hooks/ModifierEvents.h"
+#include "../Hooks/GameEvents.h"
 
 #include "../Modules/Hacks/AutoBuyTome.h"
 #include "../Modules/UI/AbilityESP.h"

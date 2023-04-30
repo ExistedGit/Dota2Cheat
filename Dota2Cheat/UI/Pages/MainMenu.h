@@ -106,17 +106,14 @@ namespace Pages {
 			//}
 
 			if (ImGui::TreeNode("AbilityESP")) {
-				ImGui::Text("Hold [Alt] to switch from AbilityESP to ItemESP");
 				ImGui::Checkbox("Enable", &Config::AbilityESP::Enabled);
 				ImGui::Checkbox("Include allied heroes", &Config::AbilityESP::ShowAllies);
 				ImGui::Checkbox("Show decimals in cooldowns", &Config::AbilityESP::ShowCooldownDecimals);
 				ImGui::Checkbox("Show manabars", &Config::AbilityESP::ShowManabars);
-				ImGui::SliderFloat("UI scale", &Config::AbilityESP::UIScale, 0.7f, 1.5f, "%.1f");
-
-				ImGui::Checkbox("Crop stashed icons", &Config::AbilityESP::CropStashItems);
-				ImGui::SameLine(); HelpMarker("Stashed items will be displayed like in Dota itself");
+				ImGui::SliderFloat("UI scale", &Config::AbilityESP::UIScale, 0.7f, 1.4f, "%.1f");
 				ImGui::TreePop();
 			}
+			
 			if (ImGui::TreeNode("Indicators")) {
 				ImGui::Checkbox("Speed indicator", &Config::Indicators::Speed);
 				ImGui::SameLine(); HelpMarker("Shows an icon near the enemy signifying whether you are faster or slower");
@@ -138,7 +135,7 @@ namespace Pages {
 
 				ImGui::Checkbox("Point spells", &Config::ShowEnemyPointSpells);
 				ImGui::SameLine(); HelpMarker("Sunstrike, Torrent, Light Strike Array");
-				ImGui::Checkbox("Show enemy projectile trajectory", &Config::WarnLinearProjectiles);
+				ImGui::Checkbox("Show enemy projectile trajectory", &Config::ShowLinearProjTrajectory);
 				ImGui::SameLine(); HelpMarker("Draws a red line for things like Mirana's arrow");
 
 				ImGui::TreePop();
@@ -178,6 +175,8 @@ namespace Pages {
 				ImGui::Checkbox("Enabled", &Config::ManaAbuse::Enabled);
 				ImGui::TreePop();
 			}
+			ImGui::Checkbox("Blink Revealer", &Config::BlinkRevealer);
+			ImGui::SameLine(); HelpMarker("Reveals the location of Queen of Pain's or Antimage's blink");
 
 			ImGui::Checkbox("AutoDodge", &Config::AutoDodge::Enabled);
 			ImGui::SameLine(); HelpMarker("Can use Manta Style, Bottled Illusion Rune");

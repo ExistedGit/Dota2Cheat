@@ -46,7 +46,9 @@ bool ESP::AbilityESP::CanDraw(CDOTABaseNPC_Hero* hero) {
 	bool ret = hero
 		&& DrawableHeroes[hero]
 		&& !hero->IsIllusion()
-		&& hero != ctx.assignedHero && hero->GetLifeState() == 0;
+		&& hero != ctx.assignedHero
+		&& hero->GetLifeState() == 0
+		&& IsEntityOnScreen(hero);
 	if (!Config::AbilityESP::ShowAllies)
 		// I wish they made &&= an operator
 		ret = ret && !hero->IsSameTeam(ctx.assignedHero);
@@ -55,8 +57,8 @@ bool ESP::AbilityESP::CanDraw(CDOTABaseNPC_Hero* hero) {
 
 void ESP::AbilityESP::DrawAbilities() {
 	float iconSize = ScaleVar(AbilityIconSize);
-	float outlineThickness = 1;
-	ImVec2 outlineSize{ outlineThickness, outlineThickness };
+	constexpr float outlineThickness = 1;
+	constexpr ImVec2 outlineSize{ outlineThickness, outlineThickness };
 	constexpr int levelCounterHeight = 8;
 	auto DrawList = ImGui::GetForegroundDrawList();
 
@@ -197,100 +199,76 @@ void ESP::AbilityESP::LoadItemTexIfNeeded(AbilityData& data) {
 	if (data.icon)
 		return;
 
+	if (!IsValidReadPtr(data.ability)
+		|| !IsValidReadPtr(data.ability->GetIdentity())
+		|| !data.ability->GetIdentity()->GetName())
+		return;
+
 	std::string itemName = data.ability->GetIdentity()->GetName();
 	data.icon = texManager.GetNamedTexture(itemName.substr(5));
 }
 
-// Draws a 3x3 grid of items + two circles for TP and neutral slot on the right
+// Draws the same 6-slot sequence as for abilities + two circles for TP and neutral slot on the left and right respectively
 // If there is no item in a slot, a black block is drawn
 // If the item is toggled(like armlet), a green frame is drawn
 // If the item has charges(like wand), a circle with a counter is drawn in the top left corner of the image
 void ESP::AbilityESP::DrawItems() {
+	const ImVec2 iconSize{ (float)ScaleVar(AbilityIconSize), (float)ScaleVar(AbilityIconSize) };
+	const int gap = 2;
+	auto DrawList = ImGui::GetForegroundDrawList();
+	// used to convert native rectangular item images to SQUARES
+	constexpr float aspectRatio = (1 - 64. / 88) / 2;
+
 	for (auto& [hero, inv] : EnemyItems) {
 		if (!CanDraw(hero))
 			continue;
 
-		const int rows = 3, cols = 3;
+		auto heroPos = hero->GetPos();
 
-		int gap = 2;
-		// Scaled dimensions of item icons, 1/3 the size by default
-		ImVec2 iconSize = ImVec2(ScaleVar(88 / 3), ScaleVar(64 / 3));
-		auto DrawList = ImGui::GetForegroundDrawList();
-		auto drawPos = hero->GetPos();
-
-		// here the rounding isn't as needed for some reason
-		//drawPos.x = (int)(drawPos.x * 100) / 100.0f;
-		//drawPos.y = (int)(drawPos.y * 100) / 100.0f;
-
-		int x, y;
-		Signatures::WorldToScreen(&drawPos, &x, &y, nullptr);
-		y += 15;
-
-		float cropAmount = 0.2f;
-		auto panelXY1 = ImVec2(x - (iconSize.x + gap) * cols / 2.0f, y);
-		auto panelSize = ImVec2((iconSize.x + gap) * cols + gap, (iconSize.y + gap) * rows + gap);
-
-		int circleRadius = panelSize.y / 6;
-
-		if (Config::AbilityESP::CropStashItems)
-			panelSize.y -= cropAmount * iconSize.y * 2;
-		// Background for the whole panel
-		DrawRectFilled(
-			panelXY1,
-			panelSize,
-			ImVec4(0.2, 0.2, 0.2, 1.0f)
-		);
-		for (int slot = 0; slot < 9; slot++) {
-			bool stashSlot = slot > 5;
-			int row = slot / 3, col = slot % 3;
+		ImVec2 basePos = WorldToScreen(heroPos);
+		basePos.x -= 6 * (iconSize.x + gap) / 2.0f;
+		basePos.y -= 130;
+		if (Config::AbilityESP::UIScale > 1)
+			basePos.y -= (Config::AbilityESP::UIScale - 1) * ScaleVar<float>(AbilityIconSize);
+		for (int slot = 0; slot < 6; slot++) {
+			auto& itemData = inv[slot];
 			ImVec2 imgXY1
 			{
-				panelXY1.x + gap + (gap + iconSize.x) * col,
-				panelXY1.y + gap + (gap + iconSize.y) * row
+				basePos.x + (gap + iconSize.x) * slot + 1,
+				basePos.y + 1
 			},
-				imgXY2 = imgXY1 + iconSize,
+				imgXY2 = imgXY1 + iconSize - ImVec2{ 2,2 },
 				imgCenter = (imgXY1 + imgXY2) / 2;
 
-			ImVec2 uvMin{ 0,0 }, uvMax{ 1,1 };
-			if (Config::AbilityESP::CropStashItems && stashSlot) {
-				uvMin.y += cropAmount;
-				uvMax.y -= cropAmount;
-				imgXY2.y -= cropAmount * iconSize.y * 2;
-			}
 
-			ImVec2 frameSize(gap / 2, gap / 2);
+			ImVec2 frameSize(1, 1);
 			ImVec2 frameXY1 = imgXY1 - frameSize,
 				frameXY2 = imgXY2 + frameSize;
 
-			bool drawFrame = false;
-			ImU32 frameColor = 0;
+			ImU32 frameColor = ImColor{ 0,0,0,255 };
 
 			if (!inv.count(slot) || !inv[slot].ability) {
-				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::GetColorU32({ 0, 0, 0, 1 }));
+				DrawList->AddRectFilled(frameXY1, frameXY2, ImColor{ 0, 0, 0, 255 });
 				continue;
 			}
 
-			auto& itemData = inv[slot];
 			LoadItemTexIfNeeded(itemData);
-			DrawList->AddImage(itemData.icon, imgXY1, imgXY2, uvMin, uvMax);
+			DrawList->AddImage(itemData.icon,
+				imgXY1,
+				imgXY2,
+				ImVec2(aspectRatio, 0),
+				ImVec2(1 - aspectRatio, 1));
 
 			if (itemData.ability->IsToggled()) {
-				drawFrame = true;
 				frameColor = ImColor(0x3, 0xAC, 0x13);
 			}
 
 			// Frame
-			if (drawFrame)
-				DrawList->AddRect(frameXY1, frameXY2, frameColor);
+			DrawList->AddRect(frameXY1, frameXY2, frameColor);
 
-			bool darkIcon = false;
 			float cd = itemData.ability->GetCooldown();
-			if (stashSlot || cd != 0)
-				darkIcon = true;
-
-			if (darkIcon)
+			if (cd != 0) {
 				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.25f)));
-			if (cd) {
 				auto fontSize = iconSize.y - ScaleVar<float>(2);
 				DrawTextForeground(
 					DrawData.GetFont("Monofonto", fontSize),
@@ -303,48 +281,59 @@ void ESP::AbilityESP::DrawItems() {
 
 			int charges = reinterpret_cast<CDOTAItem*>(itemData.ability)->GetCurrentCharges();
 			if (charges != 0)
-				DrawChargeCounter(charges, imgXY1, ScaleVar(8));
+				DrawChargeCounter(charges, frameXY1 + ImVec2{ iconSize.x / 2, 0 }, iconSize.x / 3);
 		}
 
-		float circleX = panelXY1.x + panelSize.x + circleRadius + gap;
-		DrawList->AddCircleFilled(ImVec2(circleX, panelXY1.y + panelSize.y / 4), circleRadius, ImGui::GetColorU32(ImVec4(0.2, 0.2, 0.2, 1.0f)));
-		DrawList->AddCircleFilled(ImVec2(circleX, panelXY1.y + panelSize.y / 4 * 3), circleRadius, ImGui::GetColorU32(ImVec4(0.2, 0.2, 0.2, 1.0f)));
-
-		if (inv.count(16) && inv[16].ability) {
+		if (inv.count(16) && inv[16].ability)
 			LoadItemTexIfNeeded(inv[16]);
-			ImVec2 cXY1{ circleX - iconSize.y / 2, panelXY1.y + panelSize.y / 4 - iconSize.y / 2 },
-				cXY2{ cXY1.x + iconSize.y, cXY1.y + iconSize.y };
-			DrawItemCircle(inv[16], cXY1, cXY2, iconSize, circleRadius);
-		}
-		if (inv.count(15) && inv[15].ability) {
-			LoadItemTexIfNeeded(inv[15]);
-			ImVec2 cXY1{ circleX - iconSize.y / 2, panelXY1.y + panelSize.y / 4 * 3 - iconSize.y / 2 },
-				cXY2{ cXY1.x + iconSize.y, cXY1.y + iconSize.y };
-			DrawItemCircle(inv[15], cXY1, cXY2, iconSize, circleRadius);
-		}
 
+		if (inv.count(15) && inv[15].ability)
+			LoadItemTexIfNeeded(inv[15]);
+
+
+		{
+			ImVec2 cXY1{ basePos.x - iconSize.x - gap, basePos.y },
+				cXY2 = cXY1 + iconSize;
+			DrawItemCircle(inv[16], cXY1, cXY2, iconSize, iconSize.x / 2);
+		}
+		{
+			ImVec2 cXY1{ basePos.x + (iconSize.x + gap) * 6, basePos.y },
+				cXY2 = cXY1 + iconSize;
+			DrawItemCircle(inv[15], cXY1, cXY2, iconSize, iconSize.x / 2);
+		}
 	}
+
+
 }
+
 
 void ESP::AbilityESP::DrawItemCircle(const AbilityData& data, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius) {
 	auto DrawList = ImGui::GetForegroundDrawList();
-	float ratio = (1 - iconSize.y / iconSize.x) / 2;
+	const ImVec2 center = (xy1 + xy2) / 2;
+	constexpr float aspectRatio = (1 - 64. / 88) / 2;
+
+	DrawList->AddCircleFilled(center, radius + 2, ImColor(0, 0, 0, 255));
+	if (!data.ability)
+		return;
+
 	DrawList->AddImageRounded(
 		data.icon,
 		xy1,
 		xy2,
-		ImVec2(ratio, 0),
-		ImVec2(1 - ratio, 1),
+		ImVec2(aspectRatio, 0),
+		ImVec2(1 - aspectRatio, 1),
 		ImGui::GetColorU32(ImVec4(1, 1, 1, 1)),
 		radius);
+
 	float cd = data.ability->GetCooldown();
 	if (cd == 0)
 		return;
 
-	ImVec2 center = (xy1 + xy2) / 2;
-	int cdFontSize = ScaleVar(14 + !Config::AbilityESP::ShowCooldownDecimals * 2);
+	int cdFontSize = radius * 2 - 2;
+	if (Config::AbilityESP::ShowCooldownDecimals)
+		cdFontSize -= 4;
 	// Darkens the picture
-	DrawList->AddCircleFilled(center, radius, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.5)));
+	DrawList->AddCircleFilled(center, radius, ImColor(0, 0, 0, 128));
 	// Draws the cooldown
 	DrawTextForeground(DrawData.GetFont("Monofonto", cdFontSize),
 		std::vformat(Config::AbilityESP::ShowCooldownDecimals ? "{:.1f}" : "{:.0f}", std::make_format_args(cd)),
@@ -363,11 +352,8 @@ void ESP::AbilityESP::DrawESP() {
 	if (Config::AbilityESP::ShowManabars)
 		DrawManabars();
 
-	// ALT key
-	if (!GetAsyncKeyState(VK_LMENU))
-		DrawAbilities();
-	else
-		DrawItems();
+	DrawAbilities();
+	DrawItems();
 }
 
 void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, ImVec2 pos) {
@@ -422,7 +408,7 @@ void ESP::AbilityESP::DrawChargeCounter(int charges, const ImVec2& pos, int radi
 	auto DrawList = ImGui::GetForegroundDrawList();
 
 	// Green outline
-	DrawList->AddCircleFilled(pos, radius + 2, ImGui::GetColorU32(ImVec4(135 / 255.0f, 214 / 255.0f, 77 / 255.0f, 1)));
+	DrawList->AddCircleFilled(pos, radius + 1, ImGui::GetColorU32(ImVec4(135 / 255.0f, 214 / 255.0f, 77 / 255.0f, 1)));
 	// Gray core
 	DrawList->AddCircleFilled(pos, radius, ImGui::GetColorU32(ImVec4(0.2, 0.2, 0.2, 1)));
 

@@ -139,6 +139,9 @@
     <ClCompile Include="Modules\UI\Indicators\KillIndicator.cpp" />
     <ClCompile Include="Modules\UI\Indicators\SpeedIndicator.cpp" />
     <ClCompile Include="SDK\Base\SigScan\proc.cpp" />
+    <ClCompile Include="CheatSDK\Utils.cpp" />
+    <ClCompile Include="include\cityhash\city.cc" />
+    <ClCompile Include="Modules\UI\BlinkRevealer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hooks\MinimapRenderer.h" />
@@ -334,5 +337,6 @@
     <ClInclude Include="SDK\Bytes\Fonts.h" />
     <ClInclude Include="CheatSDK\DrawData.h" />
     <ClInclude Include="SDK\Base\SigScan\proc.h" />
+    <ClInclude Include="Modules\UI\BlinkRevealer.h" />
   </ItemGroup>
 </Project>

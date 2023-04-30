@@ -1,7 +1,7 @@
 #pragma once
 #include "../../SDK/pch.h"
 #include "../../Utils/Drawing.h"
-#include "../../CheatSDK/Config.h"
+#include "../../CheatSDK/include.h"
 
 using namespace Panorama;
 

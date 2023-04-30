@@ -12,13 +12,7 @@
 #include <sstream>
 #include <unordered_map>
 
-// Converts a 3D position in Dota's world to a minimap
-inline ImVec2 ImVecFromVec2D(const Vector2D& vec) {
-	return ImVec2{ vec.x,vec.y };
-}
 
-// Credit to Wolf49406
-ImVec2 WorldToMap(const Vector& EntityPos);
 
 
 void DrawRect(const ImVec2& topLeft, const ImVec2& size, const ImVec4& color, float thickness = 1.0f);

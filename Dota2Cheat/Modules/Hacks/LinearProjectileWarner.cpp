@@ -18,7 +18,7 @@ ParticleWrapper Hacks::LinearProjectileWarner::DrawTrajectory(const Vector& begi
 }
 
 void Hacks::LinearProjectileWarner::DrawIfTrajectoryModifier(CDOTAModifier* modifier) {
-	if (!Config::WarnLinearProjectiles)
+	if (!Config::ShowLinearProjTrajectory)
 		return;
 
 	auto owner = modifier->GetOwner();
@@ -68,7 +68,7 @@ void Hacks::LinearProjectileWarner::ProcessLinearProjectileMsg(NetMessageHandle_
 			.origin = Vector(linProjMsg->origin().x(), linProjMsg->origin().y(), linProjMsg->origin().z())
 		};
 
-		if (!Config::WarnLinearProjectiles)
+		if (!Config::ShowLinearProjTrajectory)
 			return;
 		if (!newProj.source || newProj.source->IsSameTeam(ctx.assignedHero))
 			return;
