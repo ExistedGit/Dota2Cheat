@@ -10,6 +10,9 @@
 #include "Utils/Drawing.h"
 
 #include "CheatSDK/include.h"
+#include "CheatSDK/MatchStateHandling.h"
+#include "CheatSDK/Lua/LuaInitialization.h"
+
 #include "Hooks/InvalidateUEF.h"
 #include "Modules/UI/Indicators/SpeedIndicator.h"
 #include "Modules/UI/Indicators/KillIndicator.h"
@@ -154,11 +157,12 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	ImGui_ImplGlfw_InitForOpenGL(window_menu, true);
 	ImGui_ImplOpenGL3_Init(glsl_version);
 
+	Log(LP_INFO, "Loading fonts...");
 	auto defaultFont = io.Fonts->AddFontDefault();
 	{
 		ImFontConfig fontCfg{};
 		fontCfg.FontDataOwnedByAtlas = false;
-		for (int i = 10; i < 26; i += 2) {
+		for (int i = 2; i < 30; i += 2) {
 			DrawData.Fonts["MSTrebuchet"][i] = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", i, nullptr, io.Fonts->GetGlyphRangesDefault());
 			DrawData.Fonts["Monofonto"][i] = io.Fonts->AddFontFromMemoryTTF((void*)Fonts::Monofonto, IM_ARRAYSIZE(Fonts::Monofonto), i, &fontCfg, io.Fonts->GetGlyphRangesDefault());
 		}
@@ -193,7 +197,9 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			Modules::TPTracker.DrawMapTeleports();
 			Modules::LastHitMarker.Draw();
 			Modules::SpeedIndicator.Draw();
+			Modules::BlinkRevealer.Draw();
 			Modules::KillIndicator.Draw();
+
 			//const auto ScreenSize = glfwGetVideoMode(glfwGetPrimaryMonitor());
 			//auto ActualMinimapSize = static_cast<float>(GameSystems::MinimapRenderer->GetMinimapSize().y - 28);
 			//auto MinimapPosMin = ImVec2(16, static_cast<float>(ScreenSize->height - ActualMinimapSize - 12));

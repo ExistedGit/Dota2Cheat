@@ -88,6 +88,7 @@ void Hooks::hkRunFrame(void* thisptr) {
 
 		Modules::TPTracker.CacheHeroIcons();
 		Modules::TPTracker.FrameBasedLogic();
+		Modules::BlinkRevealer.FrameBasedLogic();
 
 		if (ctx.assignedHero->GetLifeState() == 0) {
 			Modules::AutoHeal.FrameBasedLogic(ctx.assignedHero);

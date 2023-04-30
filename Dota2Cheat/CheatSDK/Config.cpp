@@ -98,13 +98,14 @@ void Config::ConfigManager::SetupVars() {
 	CFG_VAR(BOOL, AbilityESP::Enabled, true);
 	CFG_VAR(FLOAT, AbilityESP::UIScale, 1.0f);
 	CFG_VAR(BOOL, AbilityESP::ShowAllies, true);
-	CFG_VAR(BOOL, AbilityESP::CropStashItems, true);
 	CFG_VAR(BOOL, AbilityESP::ShowManabars, true);
 	CFG_VAR(BOOL, AbilityESP::ShowCooldownDecimals, false);
 
 	CFG_VAR(BOOL, Indicators::Speed, true);
 	CFG_VAR(BOOL, Indicators::Kill, true);
 	CFG_VAR(FLOAT, Indicators::KillScale, 1.0f);
+
+	CFG_VAR(BOOL, BlinkRevealer, true);
 
 	CFG_VAR(INT, CircleRadius, 1200);
 	CFG_VAR(VECTOR3D, CircleRGB, Vector(0, 1, 0));
@@ -114,7 +115,7 @@ void Config::ConfigManager::SetupVars() {
 	CFG_VAR(FLOAT, CameraDistance, 1200.0f);
 
 	CFG_VAR(BOOL, ShowEnemyPointSpells, true);
-	CFG_VAR(BOOL, WarnLinearProjectiles, true);
+	CFG_VAR(BOOL, ShowLinearProjTrajectory, true);
 	CFG_VAR(BOOL, PerfectBlink, false);
 
 	CFG_VAR(BOOL, UIOverhaul::TopBars, true);

@@ -62,7 +62,6 @@ namespace Config {
 		inline bool Enabled;
 		inline bool ShowAllies;
 		inline float UIScale;
-		inline bool CropStashItems;
 		inline bool ShowManabars;
 		inline bool ShowCooldownDecimals;
 	}
@@ -79,6 +78,8 @@ namespace Config {
 
 	inline bool AutoPickUpRunes;
 	inline bool AutoPickUpAegis;
+
+	inline bool BlinkRevealer;
 	namespace Indicators {
 		inline bool Speed;
 		inline bool Kill;
@@ -99,7 +100,7 @@ namespace Config {
 		inline float FaerieFireHPTreshold;
 	}
 
-	inline bool WarnLinearProjectiles;
+	inline bool ShowLinearProjTrajectory;
 
 	inline bool ShowEnemyPointSpells;
 

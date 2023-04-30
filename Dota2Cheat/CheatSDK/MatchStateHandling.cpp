@@ -73,7 +73,7 @@ void EnteredPreGame() {
 
 	//	Modules::AutoPick.autoBanHero = "sniper";
 	//	Modules::AutoPick.autoPickHero = "arc_warden";
-	
+
 	ctx.localPlayer = Signatures::GetPlayer(-1);
 	if (!ctx.localPlayer)
 		return;

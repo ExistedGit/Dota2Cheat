@@ -87,6 +87,7 @@ void Hooks::hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* m
 		Modules::LinearProjectileWarner.ProcessLinearProjectileMsg(messageHandle, msg);
 		Modules::TPTracker.ProcessParticleMsg(messageHandle, msg);
 		Modules::ParticleAbilityWarner.ProcessParticleMsg(messageHandle, msg);
+		Modules::BlinkRevealer.ProcessParticleMsg(messageHandle, msg);
 		Modules::AttackAnimTracker.ProcessAttackAnimMessage(messageHandle, msg);
 	}
 	return oPostReceivedNetMessage(Hooks::NetChan, messageHandle, msg, type, bits);
