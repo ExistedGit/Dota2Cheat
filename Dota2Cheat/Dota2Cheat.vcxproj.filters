@@ -15,7 +15,7 @@
     <ClCompile Include="include\imgui\imgui_stdlib.cpp" />
     <ClCompile Include="CheatSDK\Lua\LuaInitialization.cpp" />
     <ClCompile Include="CheatSDK\MatchStateHandling.cpp" />
-    <ClCompile Include="Modules\Hacks\AegisAutoPickup.cpp" />
+    <ClCompile Include="Modules\Hacks\AegisSnatcher.cpp" />
     <ClCompile Include="Modules\Hacks\AutoBuyTome.cpp" />
     <ClCompile Include="Modules\Hacks\AutoDodge.cpp" />
     <ClCompile Include="Modules\Hacks\AutoHeal.cpp" />
@@ -158,7 +158,7 @@
     <ClInclude Include="include\imgui\imgui_stdlib.h" />
     <ClInclude Include="include\json.hpp" />
     <ClInclude Include="Modules\UI\AbilityESP.h" />
-    <ClInclude Include="Modules\Hacks\AegisAutoPickup.h" />
+    <ClInclude Include="Modules\Hacks\AegisSnatcher.h" />
     <ClInclude Include="Modules\Hacks\ArmletAbuse.h" />
     <ClInclude Include="Modules\Hacks\ClaimTutorialRewards.h" />
     <ClInclude Include="Modules\Hacks\DotaPlusUnlocker.h" />

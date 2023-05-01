@@ -4,8 +4,8 @@ void Hacks::AutoMidas::FrameBasedLogic() {
 	if (!Config::AutoMidas::Enabled)
 		return;
 
-	//if (lastTime != 0 &&
-	//	GameSystems::GameRules->GetGameTime() - lastTime < usePeriod)
+	//if (lastPickupTime != 0 &&
+	//	GameSystems::GameRules->GetGameTime() - lastPickupTime < usePeriod)
 	//	return;
 
 	auto midas = ctx.ImportantItems["hand_of_midas"];

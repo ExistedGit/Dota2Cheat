@@ -94,7 +94,7 @@ void Hacks::BlinkRevealer::ProcessParticleMsg(NetMessageHandle_t* msgHandle, goo
 			{
 				auto& data = Blinks[hero];
 				data.pos = Vector{ pos.x(), pos.y(), pos.z() };
-				data.fadeCounter = data.fadeTime = 10;
+				data.fadeCounter = data.fadeTime = 3;
 			}
 		}
 		break;

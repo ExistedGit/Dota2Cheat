@@ -2,13 +2,14 @@
 #include "../../SDK/pch.h"
 
 namespace Hacks {
-	class AegisAutoPickup {
+	class AegisSnatcher {
 		CBaseEntity* aegis = nullptr;
+		float lastPickupTime = 0;
 	public:
 		void RemoveIfAegis(CBaseEntity* ent);
 		void FrameBasedLogic();
 	};
 }
 namespace Modules {
-	inline Hacks::AegisAutoPickup AegisAutoPickup{};
+	inline Hacks::AegisSnatcher AegisSnatcher{};
 }
