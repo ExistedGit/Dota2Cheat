@@ -4,16 +4,16 @@ void Hacks::SpeedIndicator::Draw() {
 	if (!Config::Indicators::Speed)
 		return;
 
-	const auto icon = (void*)texManager.GetNamedTexture("icon_speed");
+	const static auto icon = (void*)texManager.GetNamedTexture("icon_speed");
 	int mySpeed = ctx.assignedHero->GetIdealSpeed();
 	for (auto& hero : ctx.heroes) {
 		if (hero->IsSameTeam(ctx.assignedHero)
 			|| !hero->IsTargetable()
-			|| hero->IsIllusion())
+			|| hero->IsIllusion()
+			|| !IsEntityOnScreen(hero))
 			continue;
 
 		auto heroPos = hero->GetPos();
-		heroPos.z += hero->Member<int>(Netvars::C_DOTA_BaseNPC::m_iHealthBarOffset);
 
 		auto barPos = WorldToScreen(heroPos);
 

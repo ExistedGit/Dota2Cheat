@@ -257,7 +257,8 @@ namespace Netvars {
 		constexpr uint32_t m_nAbilityCurrentCharges = 0x58c; // int32
 		constexpr uint32_t m_fAbilityChargeRestoreTimeRemaining = 0x590; // float32
 		constexpr uint32_t m_bUpgradeRecommended = 0x594; // bool
-		constexpr uint32_t m_flLastCastClickTime = 0x598; // float32
+		constexpr uint32_t m_nMaxLevelOverride = 0x598; // int32
+		constexpr uint32_t m_flLastCastClickTime = 0x59c; // float32
 	}
 	namespace C_NextBotCombatCharacter {
 		constexpr uint32_t m_shadowTimer = 0x9e0; // CountdownTimer
@@ -1023,6 +1024,15 @@ namespace Netvars {
 		constexpr uint32_t m_iStoredRuneType = 0x630; // int32
 		constexpr uint32_t m_fStoredRuneTime = 0x634; // GameTime_t
 		constexpr uint32_t rune_expire_time = 0x638; // float32
+	}
+	namespace C_DOTA_Item_Physical {
+		constexpr uint32_t m_hItem = 0x7d0; // CHandle< C_DOTA_Item >
+		constexpr uint32_t m_bIsLowPriorityHoverItem = 0x7d4; // bool
+		constexpr uint32_t m_hOldItem = 0x7d8; // CHandle< C_DOTA_Item >
+		constexpr uint32_t m_pszParticleName = 0x7e0; // char*
+		constexpr uint32_t m_nFXIndex = 0x7e8; // ParticleIndex_t
+		constexpr uint32_t m_bShowingTooltip = 0x7ec; // bool
+		constexpr uint32_t m_bShowingSimpleTooltip = 0x7ed; // bool
 	}
 	namespace CDOTA_Buff {
 		constexpr uint32_t m_bIsAura = 0x0; // bitfield:1

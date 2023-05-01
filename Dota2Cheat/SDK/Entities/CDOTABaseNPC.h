@@ -92,6 +92,11 @@ public:
 		return nullptr;
 	}
 
+	Vector GetHealthBarPos() {
+		auto pos = GetPos();
+		pos.z += Member<int>(Netvars::C_DOTA_BaseNPC::m_iHealthBarOffset);
+		return pos;
+	};
 
 	CDOTAItem* FindItemBySubstring(const char* str);
 

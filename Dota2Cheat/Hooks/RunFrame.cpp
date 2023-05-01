@@ -95,7 +95,7 @@ void Hooks::hkRunFrame(void* thisptr) {
 			Modules::AutoPing.FrameBasedLogic();
 			Modules::AutoDodge.FrameBasedLogic();
 			Modules::AutoMidas.FrameBasedLogic();
-			// Modules::AegisAutoPickup.FrameBasedLogic();
+			Modules::AegisSnatcher.FrameBasedLogic();
 		}
 
 		Modules::RiverPaint.FrameBasedLogic();

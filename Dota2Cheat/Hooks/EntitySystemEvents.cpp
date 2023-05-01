@@ -20,7 +20,7 @@ CBaseEntity* Hooks::hkOnRemoveEntity(CEntitySystem* thisptr, CBaseEntity* ent, E
 				break;
 			}
 
-		Modules::AegisAutoPickup.RemoveIfAegis(ent);
+		Modules::AegisSnatcher.RemoveIfAegis(ent);
 	}
 	return oOnRemoveEntity(thisptr, ent, handle);
 }

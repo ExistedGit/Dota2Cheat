@@ -1,7 +1,7 @@
 #pragma once
 #include "../CheatSDK/include.h"
 #include "../Modules/Hacks/IllusionColoring.h"
-#include "../Modules/Hacks/AegisAutoPickup.h"
+#include "../Modules/Hacks/AegisSnatcher.h"
 #include "../Modules/Hacks/AutoBuyTome.h"
 #include "../Modules/Hacks/RiverPaint.h"
 #include "../Modules/Hacks/AutoHeal.h"

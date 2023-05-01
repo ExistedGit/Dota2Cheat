@@ -117,7 +117,8 @@ namespace Hacks {
 			for (auto& hero : ctx.heroes) {
 				if (hero->IsSameTeam(ctx.assignedHero)
 					|| !hero->IsTargetable()
-					|| hero->IsIllusion())
+					|| hero->IsIllusion()
+					|| !IsEntityOnScreen(hero))
 					continue;
 				DrawIndicatorFor(hero);
 			}

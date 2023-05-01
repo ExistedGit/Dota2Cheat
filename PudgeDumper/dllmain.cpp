@@ -270,7 +270,9 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		"CGameSceneNode",
 		"C_DOTA_Item_Rune",
 		"GameTime_t",
-		"C_DOTA_Item_EmptyBottle");
+		"C_DOTA_Item_EmptyBottle",
+		"C_DOTA_Item_Physical"
+	);
 
 	SchemaDumpToMap("server.dll", "CDOTA_Buff");
 	std::ofstream fout(dumpFolderPath + "\\Netvars.h");

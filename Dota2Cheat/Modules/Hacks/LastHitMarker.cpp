@@ -4,10 +4,8 @@ void Hacks::LastHitMarker::DrawCircleFor(CDOTABaseNPC* creep) {
 	ImColor color = creep->IsSameTeam(ctx.assignedHero) ?
 		ImColor{ 0,255,0 } :
 		ImColor{ 255,0,0 };
-	auto pos = creep->GetPos();
-	pos.z += creep->Member<int>(Netvars::C_DOTA_BaseNPC::m_iHealthBarOffset);
 	float radius = 10 * (1200 / Config::CameraDistance * 1.2);
-	ImGui::GetForegroundDrawList()->AddCircleFilled(WorldToScreen(pos), radius, color);
+	ImGui::GetForegroundDrawList()->AddCircleFilled(WorldToScreen(creep->GetHealthBarPos()), radius, color);
 }
 
 void Hacks::LastHitMarker::Draw() {

@@ -95,7 +95,7 @@ namespace Pages {
 			};
 			if (ImGui::TreeNode("Snatcher")) {
 				ImGui::Checkbox("Bounty runes", &Config::AutoPickUpRunes);
-				//ImGui::Checkbox("Aegis", &Config::AutoPickUpAegis);
+				ImGui::Checkbox("Aegis", &Config::AutoPickUpAegis);
 				ImGui::TreePop();
 			}
 
