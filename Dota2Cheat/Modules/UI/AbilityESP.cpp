@@ -229,11 +229,13 @@ void ESP::AbilityESP::DrawItems() {
 		if (!CanDraw(hero))
 			continue;
 
-		auto heroPos = hero->GetPos();
+		auto drawPos = hero->GetPos();
+		drawPos.z += hero->Member<int>(Netvars::C_DOTA_BaseNPC::m_iHealthBarOffset);
 
-		ImVec2 basePos = WorldToScreen(heroPos);
-		basePos.x -= 6 * (iconSize.x + gap) / 2.0f;
-		basePos.y -= 95 + iconSize.x;
+
+		ImVec2 basePos = WorldToScreen(drawPos);
+		basePos.x -= 6 * (iconSize.x + gap) / 2;
+		basePos.y -= 35 + iconSize.x;
 		for (int slot = 0; slot < 6; slot++) {
 			auto& itemData = inv[slot];
 			ImVec2 imgXY1

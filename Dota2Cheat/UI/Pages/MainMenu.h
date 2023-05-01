@@ -119,8 +119,8 @@ namespace Pages {
 				ImGui::SameLine(); HelpMarker("Shows an icon near the enemy signifying whether you are faster or slower");
 				ImGui::Checkbox("Kill indicator", &Config::Indicators::Kill);
 				ImGui::SameLine(); HelpMarker(
-					"If your hero has a nuke spell, its icon will be displayed near the enemy's healthbar, signifying whether you can kill them with it."
-					"If not, it shows how much health is left until you can kill them");
+					"If your hero has a nuke spell, its icon will be displayed near the enemy's healthbar, signifying whether you can kill them with it. "
+					"If you can't, it shows how much health is left until you can kill them");
 				ImGui::SliderFloat("Kill indicator scale", &Config::Indicators::KillScale, 1, 1.4, "%.1f");
 				//	ImGui::Checkbox("Top bars", &Config::UIOverhaul::TopBars);
 			//	ImGui::SameLine(); HelpMarker("Shows HP and Mana bars for enemies in the top bar. Like pressing Alt does for your allies");
