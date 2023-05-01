@@ -206,6 +206,12 @@ void ESP::AbilityESP::LoadItemTexIfNeeded(AbilityData& data) {
 
 	std::string itemName = data.ability->GetIdentity()->GetName();
 	data.icon = texManager.GetNamedTexture(itemName.substr(5));
+
+	if (!data.icon) {
+		auto iconPath = ctx.cheatFolderPath + "\\assets\\items\\" + itemName.substr(5) + "_png.png";
+		texManager.LoadTextureNamed(iconPath.c_str(), data.icon, itemName.substr(5));
+	}
+
 }
 
 // Draws the same 6-slot sequence as for abilities + two circles for TP and neutral slot on the left and right respectively
@@ -227,9 +233,7 @@ void ESP::AbilityESP::DrawItems() {
 
 		ImVec2 basePos = WorldToScreen(heroPos);
 		basePos.x -= 6 * (iconSize.x + gap) / 2.0f;
-		basePos.y -= 130;
-		if (Config::AbilityESP::UIScale > 1)
-			basePos.y -= (Config::AbilityESP::UIScale - 1) * ScaleVar<float>(AbilityIconSize);
+		basePos.y -= 95 + iconSize.x;
 		for (int slot = 0; slot < 6; slot++) {
 			auto& itemData = inv[slot];
 			ImVec2 imgXY1
@@ -259,9 +263,9 @@ void ESP::AbilityESP::DrawItems() {
 				ImVec2(aspectRatio, 0),
 				ImVec2(1 - aspectRatio, 1));
 
-			if (itemData.ability->IsToggled()) {
+			if (itemData.ability->IsToggled())
 				frameColor = ImColor(0x3, 0xAC, 0x13);
-			}
+
 
 			// Frame
 			DrawList->AddRect(frameXY1, frameXY2, frameColor);
@@ -270,6 +274,8 @@ void ESP::AbilityESP::DrawItems() {
 			if (cd != 0) {
 				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.25f)));
 				auto fontSize = iconSize.y - ScaleVar<float>(2);
+				if (cd >= 100)
+					fontSize -= 4;
 				DrawTextForeground(
 					DrawData.GetFont("Monofonto", fontSize),
 					std::vformat(Config::AbilityESP::ShowCooldownDecimals ? "{:.1f}" : "{:.0f}", std::make_format_args(cd)),
@@ -281,7 +287,7 @@ void ESP::AbilityESP::DrawItems() {
 
 			int charges = reinterpret_cast<CDOTAItem*>(itemData.ability)->GetCurrentCharges();
 			if (charges != 0)
-				DrawChargeCounter(charges, frameXY1 + ImVec2{ iconSize.x / 2, 0 }, iconSize.x / 3);
+				DrawChargeCounter(charges, frameXY1, 8);
 		}
 
 		if (inv.count(16) && inv[16].ability)
@@ -292,12 +298,12 @@ void ESP::AbilityESP::DrawItems() {
 
 
 		{
-			ImVec2 cXY1{ basePos.x - iconSize.x - gap, basePos.y },
+			ImVec2 cXY1{ basePos.x - iconSize.x - gap * 2, basePos.y },
 				cXY2 = cXY1 + iconSize;
 			DrawItemCircle(inv[16], cXY1, cXY2, iconSize, iconSize.x / 2);
 		}
 		{
-			ImVec2 cXY1{ basePos.x + (iconSize.x + gap) * 6, basePos.y },
+			ImVec2 cXY1{ basePos.x + (iconSize.x + gap) * 6 + gap, basePos.y },
 				cXY2 = cXY1 + iconSize;
 			DrawItemCircle(inv[15], cXY1, cXY2, iconSize, iconSize.x / 2);
 		}
