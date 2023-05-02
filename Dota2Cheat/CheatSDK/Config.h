@@ -85,8 +85,10 @@ namespace Config {
 		inline bool Kill;
 		inline float KillScale;
 	}
+
 	namespace TPTracker {
 		inline bool Enabled;
+		inline int FadeDuration;
 	}
 
 	inline bool BadCastPrevention;
@@ -126,6 +128,10 @@ namespace Config {
 	}
 	namespace ManaAbuse {
 		inline bool Enabled;
+	}
+	namespace ParticleMapHack {
+		inline bool Enabled;
+		inline int FadeDuration;
 	}
 
 	inline bool LastHitMarker;

@@ -64,8 +64,17 @@ namespace Pages {
 
 				ImGui::Checkbox("Enabled", &Config::TPTracker::Enabled);
 				ImGui::SameLine(); HelpMarker("In case of Boots of Travel it only shows the position the receiver was at when the TP started");
+				ImGui::SliderInt("Fade duration", &Config::TPTracker::FadeDuration, 3, 10);
 				ImGui::TreePop();
 			}
+			if (ImGui::TreeNode("Particle Maphack")) {
+				ImGui::Text("Shows enemies on both the map and the screen when they create a particle with position information in it(like casting a spell).");
+
+				ImGui::Checkbox("Enabled", &Config::ParticleMapHack::Enabled);
+				ImGui::SliderInt("Fade duration", &Config::ParticleMapHack::FadeDuration, 3, 10);
+				ImGui::TreePop();
+			}
+
 			if (ImGui::CollapsingHeader("Changer")) {
 
 				ImGui::InputText("Rich Presence status", &rpStatusBuf);
@@ -99,12 +108,6 @@ namespace Pages {
 				ImGui::TreePop();
 			}
 
-			//if (ImGui::TreeNode("Visible by Enemy")) {
-			//	ImGui::Checkbox("Show HIDDEN/DETECTED text", &Config::VBEShowText);
-			//	ImGui::Checkbox("Show a circle under the hero when visible", &Config::VBEShowParticle);
-			//	ImGui::TreePop();
-			//}
-
 			if (ImGui::TreeNode("AbilityESP")) {
 				ImGui::Checkbox("Enable", &Config::AbilityESP::Enabled);
 				ImGui::Checkbox("Include allied heroes", &Config::AbilityESP::ShowAllies);
@@ -113,7 +116,7 @@ namespace Pages {
 				ImGui::SliderFloat("UI scale", &Config::AbilityESP::UIScale, 0.7f, 1.4f, "%.1f");
 				ImGui::TreePop();
 			}
-			
+
 			if (ImGui::TreeNode("Indicators")) {
 				ImGui::Checkbox("Speed indicator", &Config::Indicators::Speed);
 				ImGui::SameLine(); HelpMarker("Shows an icon near the enemy signifying whether you are faster or slower");
@@ -123,7 +126,7 @@ namespace Pages {
 					"If you can't, it shows how much health is left until you can kill them");
 				ImGui::SliderFloat("Kill indicator scale", &Config::Indicators::KillScale, 1, 1.4, "%.1f");
 				//	ImGui::Checkbox("Top bars", &Config::UIOverhaul::TopBars);
-			//	ImGui::SameLine(); HelpMarker("Shows HP and Mana bars for enemies in the top bar. Like pressing Alt does for your allies");
+				//	ImGui::SameLine(); HelpMarker("Shows HP and Mana bars for enemies in the top bar. Like pressing Alt does for your allies");
 				ImGui::TreePop();
 			}
 			if (ImGui::TreeNode("Illusion coloring")) {

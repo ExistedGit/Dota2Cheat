@@ -2,15 +2,16 @@
 #include "../SDK/pch.h"
 #include "../SDK/Interfaces/Network/INetChannel.h"
 
-#include "../SDK/Globals/Signatures.h"
-
 #include "../Modules/Hacks/ShakerAttackAnimFix.h"
-#include "../Modules/Utility/AttackAnimTracker.h"
 #include "../Modules/Hacks/ParticleAbilityWarner.h"
 #include "../Modules/Hacks/LinearProjectileWarner.h"
 #include "../Modules/Hacks/SkinChanger.h"
+
 #include "../Modules/UI/TPTracker.h"
 #include "../Modules/UI/BlinkRevealer.h"
+#include "../Modules/UI/ParticleMaphack.h"
+
+#include "../Modules/Utility/AttackAnimTracker.h"
 
 namespace Hooks {
 	inline INetChannel* NetChan{};

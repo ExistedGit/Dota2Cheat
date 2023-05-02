@@ -1,5 +1,6 @@
 #include "TPTracker.h"
-
+#include <consthash/cityhash32.hxx>
+#include <cityhash/city.h>
 
 // Mostly calculating fade duration
 
@@ -118,21 +119,25 @@ void Hacks::TPTracker::ProcessParticleMsg(NetMessageHandle_t* msgHandle, google:
 		if (!ent)
 			break;
 
-		if (!strcmp(particleName, "particles/items2_fx/teleport_start.vpcf")) {
+		switch (CityHash32(std::string_view(particleName))) {
+		case "particles/items2_fx/teleport_start.vpcf"_city32: {
 			auto& tpData = teleports[ent];
 			tpData.fadeCounter = tpData.fadeDuration = tpData.isFading = 0;
 			tpData.color = ImColor{ 220,220,220 };
 			tpData.start = TPData{
 						.msgIdx = msgIndex
 			};
+			break;
 		}
-		else if (!strcmp(particleName, "particles/items2_fx/teleport_end.vpcf")) {
+		case "particles/items2_fx/teleport_end.vpcf"_city32: {
 			auto& tpData = teleports[ent];
 			tpData.fadeCounter = tpData.fadeDuration = tpData.isFading = 0;
 			tpData.color = ImColor{ 220,220,220 };
 			tpData.end = TPData{
 			.msgIdx = msgIndex
 			};
+			break;
+		}
 		}
 
 	}
@@ -175,11 +180,11 @@ void Hacks::TPTracker::ProcessParticleMsg(NetMessageHandle_t* msgHandle, google:
 				data.isFading = true;
 				if (cancelled) {
 					data.color = ImColor{ 255,0,0 };
-					data.fadeDuration = data.fadeCounter = 1.5f;
+					data.fadeDuration = data.fadeCounter = Config::TPTracker::FadeDuration/3;
 				}
 				else {
 					data.color = ImColor{ 0,255,0 };
-					data.fadeDuration = data.fadeCounter = 5;
+					data.fadeDuration = data.fadeCounter = Config::TPTracker::FadeDuration;
 				}
 				data.cancelled = cancelled;
 				break;

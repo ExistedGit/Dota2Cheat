@@ -199,6 +199,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			Modules::SpeedIndicator.Draw();
 			Modules::BlinkRevealer.Draw();
 			Modules::KillIndicator.Draw();
+			Modules::ParticleMaphack.Draw();
 
 			//const auto ScreenSize = glfwGetVideoMode(glfwGetPrimaryMonitor());
 			//auto ActualMinimapSize = static_cast<float>(GameSystems::MinimapRenderer->GetMinimapSize().y - 28);

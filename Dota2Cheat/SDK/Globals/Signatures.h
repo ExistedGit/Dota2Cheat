@@ -85,7 +85,6 @@ namespace Signatures {
 		SIG_NAMED(GetPlayer),
 		SIG_NAMED(SaveSerializedSOCache),
 		SIG_NAMED(BIsEmoticonUnlocked),
-		SIG_NAMED(CDOTAPanoramaMinimapRenderer__Render),
 		SIG_NAMED(CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby),
 
 		SIG_NAMED(CBaseEntity::OnColorChanged),

@@ -125,6 +125,10 @@ void Config::ConfigManager::SetupVars() {
 	CFG_VAR(BOOL, ModifierRevealer::TrueSight, true);
 
 	CFG_VAR(BOOL, TPTracker::Enabled, true);
+	CFG_VAR(INT, TPTracker::FadeDuration, 5);
+
+	CFG_VAR(BOOL, ParticleMapHack::Enabled, true);
+	CFG_VAR(INT, ParticleMapHack::FadeDuration, 5);
 
 	CFG_VAR(BOOL, IllusionColoring::Enabled, true);
 	CFG_VAR(VECTOR3D, IllusionColoring::Color, Vector(1, 0, 0));

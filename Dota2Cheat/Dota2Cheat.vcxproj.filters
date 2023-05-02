@@ -337,5 +337,6 @@
     <ClInclude Include="CheatSDK\DrawData.h" />
     <ClInclude Include="Modules\UI\BlinkRevealer.h" />
     <ClInclude Include="SDK\Base\Address.h" />
+    <ClInclude Include="Modules\UI\ParticleMaphack.h" />
   </ItemGroup>
 </Project>
