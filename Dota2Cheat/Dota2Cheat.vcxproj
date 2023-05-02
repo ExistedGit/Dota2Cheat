@@ -225,6 +225,7 @@
     <ClCompile Include="Modules\UI\BlinkRevealer.cpp" />
     <ClCompile Include="Modules\UI\Indicators\KillIndicator.cpp" />
     <ClCompile Include="Modules\UI\Indicators\SpeedIndicator.cpp" />
+    <ClCompile Include="Modules\UI\ParticleMaphack.cpp" />
     <ClCompile Include="Modules\UI\TPTracker.cpp" />
     <ClCompile Include="Modules\Hacks\TrueSightESP.cpp" />
     <ClCompile Include="Modules\UI\UIOverhaul.cpp" />

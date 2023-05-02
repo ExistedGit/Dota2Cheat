@@ -141,6 +141,7 @@
     <ClCompile Include="CheatSDK\Utils.cpp" />
     <ClCompile Include="include\cityhash\city.cc" />
     <ClCompile Include="Modules\UI\BlinkRevealer.cpp" />
+    <ClCompile Include="Modules\UI\ParticleMaphack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hooks\MinimapRenderer.h" />
