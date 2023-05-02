@@ -1,7 +1,6 @@
 #pragma once
 #include <cstdint>
 #include <vector>
-#include "Bytehook.h"
 
 // original by LWSS
 // but VMT hooks are VAC-detected so I had to rework it
@@ -34,7 +33,7 @@ public:
 
 		vtable = *this->Interface;
 
-		int method_count = CountVMs(Interface) + 2 + rttiPrefixAmount;
+		const int method_count = CountVMs(Interface) + 2 + rttiPrefixAmount;
 
 		// Copy the Original Vtable.
 		if (copyRTTI) {
@@ -52,10 +51,10 @@ public:
 		memset(&vmt[method_count], 0, sizeof(uintptr_t));
 	}
 
-	// Hook virtual method
-	template <typename func = void*>
-	func GetVM(size_t methodIndex)
+	// Get virtual method
+	template <typename T = void*>
+	T GetVM(size_t methodIndex)
 	{
-		return (func)vmt[hasRTTI ? methodIndex + rttiPrefix : methodIndex];
+		return (T)vmt[hasRTTI ? methodIndex + rttiPrefix : methodIndex];
 	}
 };

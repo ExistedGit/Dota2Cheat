@@ -1,10 +1,18 @@
 #include "GameSystems.h"
+#include "Interfaces.h"
 
-#define SET_VAR(var, data) var = (data); \
+#define SET_VAR(var, data) var = (decltype(var))(data); \
 if(var) \
 	LogF(LP_DATA, "{}: {}", #var, (void*)var); \
 else \
 	LogF(LP_ERROR, "{}: {}", #var, (void*)var);
+
+void GameSystems::InitMinimapRenderer() {
+	while (!DotaHud->FindChildWithIdTraverse("minimap")) {};
+	auto minimap = DotaHud->FindChildWithIdTraverse("minimap");
+	
+	SET_VAR(MinimapRenderer, minimap->GetPanel2D()->Member<CDOTAPanoramaMinimapRenderer*>(0x20));
+}
 
 void GameSystems::FindGameSystems() {
 	Log(LP_INFO, "GAME SYSTEM POINTERS:");

@@ -26,7 +26,7 @@ inline bool TestStringFilters(const char* str, const std::vector<const char*>& f
 	return false;
 }
 
-inline bool TestStringFilters(std::string_view str, const std::vector<const char*>& filters) {
+inline bool TestStringFilters(const std::string_view& str, const std::vector<const char*>& filters) {
 	for (auto& filter : filters)
 		if (str.find(filter, 0) != -1)
 			return true;

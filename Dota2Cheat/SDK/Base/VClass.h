@@ -23,6 +23,8 @@ public:
 
 	template<typename T>
 	T Member(int offset/*, T defaultValue = T{}*/) {
+		if (!IsValidReadPtr((uintptr_t)this + offset))
+			return T{};
 		return *(T*)((uintptr_t)this + offset);
 	}
 

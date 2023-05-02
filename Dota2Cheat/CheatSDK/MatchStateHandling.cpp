@@ -13,7 +13,6 @@ void FillPlayerList() {
 				GameSystems::PlayerResource->PlayerSlotToHandle(slot)
 			)
 			);
-
 		if (!player)
 			continue;
 
@@ -84,6 +83,19 @@ void EnteredPreGame() {
 	GetGameSystem(ParticleManager);
 	GetGameSystem(GameEventManager);
 
+	// Panorama's HUD root
+	for (auto& node : Interfaces::UIEngine->GetPanelList<4096>()) {
+		auto uiPanel = node.uiPanel;
+		if (!uiPanel->GetId())
+			continue;
+		std::string_view id = uiPanel->GetId();
+		if (id != "DotaHud")
+			continue;
+
+		GameSystems::DotaHud = (Panorama::DotaHud*)uiPanel;
+		break;
+	}
+
 	ctx.gameStage = Context::GameStage::PRE_GAME;
 
 	if (!oFireEventClientSide) {
@@ -119,6 +131,7 @@ void EnteredInGame() {
 
 	Interfaces::CVar->SetConvars();
 
+	GameSystems::InitMinimapRenderer();
 	//auto roshanListener = new RoshanListener();
 	//roshanListener->gameStartTime = GameSystems::GameRules->GetGameTime();
 	//auto runel = new RunePickupListener();
@@ -158,7 +171,7 @@ void LeftMatch() {
 	GameSystems::ParticleManager = nullptr;
 	GameSystems::ProjectileManager = nullptr;
 	GameSystems::MinimapRenderer = nullptr;
-
+	GameSystems::DotaHud = nullptr;
 	GameSystems::GameEventManager = nullptr;
 
 	ctx.localPlayer = nullptr;

@@ -10,7 +10,7 @@ namespace Panorama {
 	// F6 -> click on an element
 	// Press "Developer data" or whatever it's named in English, it will show you an address for each panel
 	// BHasClass is vfunc at offset 0x4a0(index 148), and GetClasses is right above it(returns CUtlVector<uint16_t> at 0x160)
-	// So examine the elements at 0x160
+	// So examine the elements at 0x160, thankfully due to it being a CUtlVector the classes are displayed in the same order as they are in memory
 	enum class PClass : uint16_t {
 		TopBarHeroImage = 7037
 	};
@@ -79,11 +79,27 @@ namespace Panorama {
 			_FindChildrenWithIdTraverse(id, result);
 			return result;
 		}
+
+
 		[[nodiscard]]
 		std::vector<CUIPanel*> FindChildrenWithClassTraverse(PClass unClass) {
 			std::vector<CUIPanel*> result;
 			_FindChildrenWithClassTraverse(unClass, result);
 			return result;
+		}
+
+		CUIPanel* FindChildWithIdTraverse(const std::string_view& id) {
+			auto children = GetChildren();
+			for (auto& panel : children) {
+				if (panel->GetId() && panel->GetId() == id)
+					return panel;
+
+				auto child = panel->FindChildWithIdTraverse(id);
+
+				if (child)
+					return child;
+			}
+			return nullptr;
 		}
 
 		bool BHasClass(PClass unClass) {
@@ -103,6 +119,10 @@ namespace Panorama {
 	class CDOTA_UI_HeroImage : public CPanel2D {
 	public:
 		GETTER(const char*, GetSrc, 0x98);
+	};
+	class DotaHud : public CUIPanel {
+	public:
+		GETTER(Vector2D, GetScreenSize, 0x54);
 	};
 
 	class PanelListNode {

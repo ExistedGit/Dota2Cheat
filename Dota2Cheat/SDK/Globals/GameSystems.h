@@ -1,7 +1,7 @@
 #pragma once
 #include "Interfaces.h"
 #include "Context.h"
-#include "../Base/Memory.h"
+#include "../Base/PatternScan.h"
 
 #include "../GameSystems/C_DOTAGameRules.h"
 #include "../GameSystems/C_DOTA_PlayerResource.h"
@@ -11,10 +11,13 @@
 #include "../GameSystems/CDOTARichPresence.h"
 #include "../GameSystems/CGameUI.h"
 #include "../GameSystems/CDOTA_PanoramaMinimapRenderer.h"
-
+#include "../Interfaces/Panorama.h"
 
 namespace GameSystems {
 	inline CDOTAPanoramaMinimapRenderer* MinimapRenderer{};
+	inline Panorama::DotaHud* DotaHud{};
+	void InitMinimapRenderer();
+
 	inline CGameUI* GameUI{};
 	inline CDOTAGCClientSystem* GCClientSystem{};
 	//GameRules is nullptr while not in a game
