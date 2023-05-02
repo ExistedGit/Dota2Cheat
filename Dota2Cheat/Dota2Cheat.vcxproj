@@ -231,7 +231,6 @@
     <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp" />
     <ClCompile Include="Modules\Utility\AttackTargetFinder.cpp" />
     <ClCompile Include="Modules\Utility\ParticleGC.cpp" />
-    <ClCompile Include="SDK\Base\SigScan\proc.cpp" />
     <ClCompile Include="SDK\Entities\CBaseEntity.cpp" />
     <ClCompile Include="SDK\Entities\CDOTABaseAbility.cpp" />
     <ClCompile Include="SDK\Entities\CDOTABaseNPC.cpp" />
@@ -253,7 +252,7 @@
     <ClCompile Include="SDK\Globals\Signatures.cpp" />
     <ClCompile Include="SDK\Interfaces\GC\CGCClient.cpp" />
     <ClCompile Include="SDK\Interfaces\CVarSystem.cpp" />
-    <ClCompile Include="SDK\Base\SigScan\patterscan.cpp" />
+    <ClCompile Include="SDK\Base\PatternScan.cpp" />
     <ClCompile Include="SDK\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -476,7 +475,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="SDK\Base\SigScan\proc.h" />
+    <ClInclude Include="SDK\Base\Address.h" />
     <ClInclude Include="SDK\Bytes\Fonts.h" />
     <ClInclude Include="CheatSDK\include.h" />
     <ClInclude Include="CheatSDK\Utils.h" />
@@ -667,7 +666,7 @@
     <ClInclude Include="SDK\Interfaces\IEngineClient.h" />
     <ClInclude Include="CheatSDK\MatchStateHandling.h" />
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h" />
-    <ClInclude Include="SDK\Base\SigScan\patternscan.h" />
+    <ClInclude Include="SDK\Base\PatternScan.h" />
     <ClInclude Include="SDK\Globals\Signatures.h" />
     <ClInclude Include="SDK\Entities\CBaseEntity.h" />
     <ClInclude Include="SDK\Entities\CDOTABaseNPC.h" />

@@ -7,8 +7,11 @@ void Hacks::PerfectBlink::AdjustIfBlink(Vector* position, uint32_t abilityIndex,
 	// Blink overshoot bypass
 	auto item = Interfaces::EntitySystem->GetEntity<CDOTABaseAbility>(abilityIndex);
 
-	if (!strstr(item->GetIdentity()->GetName(), "blink"))
+	std::string_view itemName = item->GetIdentity()->GetName();
+	if (!itemName.starts_with("item_") ||
+		itemName.find("blink") == -1 )
 		return;
+
 
 	auto maxDist = item->GetEffectiveCastRange();
 	auto castPos2D = position->As<Vector2D>();

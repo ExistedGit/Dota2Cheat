@@ -32,10 +32,10 @@ void Hooks::EntityIteration() {
 				!IsValidReadPtr(rune->GetIdentity()) ||
 				rune->GetIdentity()->IsDormant())
 				continue;
-
+			// Morphling's snake_case technologies
 			static long long last_pickup_time = 0;
 			if (IsWithinRadius(rune->GetPos(), ctx.assignedHero->GetPos(), 140.0f) &&
-				GetTickCount64() - last_pickup_time >= 1000) {
+				GetTickCount64() - last_pickup_time >= 200) {
 
 				CDOTAClientMsg_ExecuteOrders orders_message;
 				auto msg_id = Interfaces::NetworkMessages->FindNetworkMessageByID(350);
