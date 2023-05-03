@@ -26,7 +26,7 @@ namespace Hacks {
 
 		CUIPanel* DotaHud = nullptr;
 		// Top bar images linked with the heroes they are for
-		qwemap<CDOTABaseNPC_Hero*, TopBarImgData> topBar;
+		std::map<CDOTABaseNPC_Hero*, TopBarImgData> topBar;
 		CDOTABaseNPC_Hero* FindHeroByUnitName(std::string_view name);
 
 		CUIPanel* GetTopBarImgForHero(CDOTABaseNPC_Hero* hero);

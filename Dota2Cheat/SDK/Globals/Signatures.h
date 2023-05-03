@@ -61,6 +61,8 @@ namespace Signatures {
 	//typedef CParticleCollection* (*CreateParticleCollectionFn)(CNewParticleEffect* thisptr, void* particleMgr, void* unk, void** query, int particleIndex);
 	//CreateParticleCollectionFn CreateParticleCollection{};
 
+	inline void* (__fastcall *PlayUISoundScript)(void** unk, const char* sound, int unk2);
+
 	inline void(__fastcall* WorldToScreen)(const Vector* coord, int* outX, int* outY, void* offset);
 	inline PrepareUnitOrdersFn PrepareUnitOrders{};
 

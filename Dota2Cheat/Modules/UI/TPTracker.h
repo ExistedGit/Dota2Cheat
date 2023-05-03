@@ -21,7 +21,7 @@ namespace Hacks {
 			TPData start, end;
 		};
 
-		qwemap<CBaseEntity*, TPLineData> teleports;
+		std::map<CBaseEntity*, TPLineData> teleports;
 
 		float lastTime = 0;
 	public:

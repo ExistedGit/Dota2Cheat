@@ -2,6 +2,7 @@
 #include "../Utils/Drawing.h"
 #include "../../CheatSDK/include.h"
 #include "../../DebugFunctions.h"
+#include "../../ImGuiSDK/Elements.h"
 
 namespace Pages {
 	namespace MainMenu {
@@ -10,6 +11,7 @@ namespace Pages {
 
 		inline char scriptBuf[4096]{};
 		inline std::string rpStatusBuf;
+		inline std::string uiSoundBuf;
 		inline bool scriptMenuVisible = false;
 		inline bool circleMenuVisible = false;
 
@@ -18,14 +20,14 @@ namespace Pages {
 		inline void Draw() {
 			ImGui::Begin("Main", nullptr, ImGuiWindowFlags_::ImGuiWindowFlags_AlwaysAutoResize);
 
-			if (ImGui::Button("Scripting"))
+			if (CheatGui::Button("Scripting"))
 				scriptMenuVisible = !scriptMenuVisible;
 
 			if (scriptMenuVisible) {
 
 				ImGui::Begin("Scripting");
 				ImGui::InputTextMultiline("Lua script", scriptBuf, 4096, ImVec2(300, 500));
-				if (ImGui::Button("Execute"))
+				if (CheatGui::Button("Execute"))
 					ctx.lua.script(scriptBuf);
 
 				ImGui::End();
@@ -38,6 +40,13 @@ namespace Pages {
 
 			ImGui::Checkbox("net_showreliable", &net_showreliable);
 			ImGui::Checkbox("cl_particle_log_creates", &cl_particle_log_creates);
+
+			ImGui::InputText("Sound name", &uiSoundBuf);
+
+			if (CheatGui::Button("PLAY SOUND")) {
+				void* unk;
+				Signatures::PlayUISoundScript(&unk, uiSoundBuf.c_str(), 1);
+			}
 
 			if (ImGui::Button("Log Entities"))
 				LogEntities();
@@ -58,8 +67,9 @@ namespace Pages {
 			ImGui::End();
 #endif // _DEBUG
 
-			if (ImGui::Button("Circle drawing"))
-				circleMenuVisible = !circleMenuVisible;
+			if (ctx.gameStage == Context::GameStage::IN_GAME)
+				if (CheatGui::Button("Circle drawing"))
+					circleMenuVisible = !circleMenuVisible;
 
 			if (ImGui::TreeNode("AutoAccept")) {
 				ImGui::Checkbox("Enabled", &Config::AutoAccept::Enabled);
@@ -85,7 +95,7 @@ namespace Pages {
 			if (ImGui::CollapsingHeader("Changer")) {
 
 				ImGui::InputText("Rich Presence status", &rpStatusBuf);
-				if (ImGui::Button("Apply status"))
+				if (CheatGui::Button("Apply status"))
 					GameSystems::RichPresence->SetRPStatus(rpStatusBuf.c_str());
 
 
@@ -207,7 +217,7 @@ namespace Pages {
 
 			ImGui::SliderFloat("Camera distance", &Config::CameraDistance, 1200, 3000, "%.0f");
 
-			if (ImGui::Button("EXIT", ImVec2(100, 50)))
+			if (CheatGui::Button("EXIT", ImVec2(100, 50)))
 				glfwSetWindowShouldClose(window_menu, 1);
 
 			ImGui::End();
@@ -217,7 +227,7 @@ namespace Pages {
 				ImGui::InputInt("Circle radius", &Config::CircleRadius, 1, 10);
 				ImGui::ColorEdit3("Circle RGB", &Config::CircleRGB.x);
 
-				if (ImGui::Button("Draw circle")) {
+				if (CheatGui::Button("Draw circle")) {
 					Vector color = Config::CircleRGB * 255;
 					Vector radius{ static_cast<float>(Config::CircleRadius), 255, 0 };
 

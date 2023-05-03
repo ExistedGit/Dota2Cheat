@@ -103,7 +103,7 @@ void Hacks::TPTracker::ProcessParticleMsg(NetMessageHandle_t* msgHandle, google:
 			break;
 
 		auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(NH2IDX(particle.entity_handle_for_modifiers()));
-		if (!ent)
+		if (!ent || !ent->GetUnitName())
 			break;
 
 		std::string prefixLessName = std::string(ent->GetUnitName()).substr(14),

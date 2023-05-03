@@ -86,6 +86,31 @@ namespace Hacks {
 				else
 					return ent->GetHealth() - dmg * (1 - resist);
 			}
+			},
+			{
+			"npc_dota_hero_lion",
+			[this](CDOTABaseNPC* ent) -> int {
+				auto ult = ctx.assignedHero->GetAbility(curData.idx);
+				auto killCounter = ctx.assignedHero->GetModifier("modifier_lion_finger_of_death_kill_counter");
+				auto dmg = ult->GetLevelSpecialValueFor("damage");
+				auto resist = ent->GetMagicalArmorValue();
+
+				if (ctx.ImportantItems["ultimate_scepter"])
+					dmg += 100;
+
+				if (killCounter) {
+					auto dmgPerStack = ult->GetLevelSpecialValueFor("damage_per_kill");
+
+
+					if (ctx.assignedHero->GetAbility("special_bonus_unique_lion_8"))
+						dmgPerStack += 20;
+
+					auto stacks = killCounter->GetStackCount();
+					return ent->GetHealth() - (dmg + stacks * dmgPerStack) * (1 - resist);
+				}
+				else
+					return ent->GetHealth() - dmg * (1 - resist);
+			}
 			}
 		};
 		int DefaultBehavior(CDOTABaseNPC* ent) {

@@ -15,7 +15,7 @@ namespace Hacks {
 			bool qop;
 			float fadeCounter, fadeTime;
 		};
-		qwemap<CBaseEntity*, BlinkData> Blinks;
+		std::map<CBaseEntity*, BlinkData> Blinks;
 
 		float lastTime = 0;
 	public:
