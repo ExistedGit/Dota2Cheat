@@ -30,12 +30,19 @@ namespace Pages {
 
 				ImGui::End();
 			}
-#ifdef _DEBUG
-			ImGui::Begin("Debug functions", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
 
-			if (ImGui::Button("Log Entities")) {
+			static auto& net_showreliable = Interfaces::CVar->CVars["net_showreliable"].var->value.boolean;
+			static auto& cl_particle_log_creates = Interfaces::CVar->CVars["cl_particle_log_creates"].var->value.boolean;
+#ifdef _DEBUG
+			ImGui::Begin("Debug", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+
+			ImGui::Checkbox("net_showreliable", &net_showreliable);
+			ImGui::Checkbox("cl_particle_log_creates", &cl_particle_log_creates);
+
+			if (ImGui::Button("Log Entities"))
 				LogEntities();
-			}
+
+
 			if (ImGui::Button("Log Inventory")) {
 				auto selected = ctx.localPlayer->GetSelectedUnits();
 				auto ent = (CDOTABaseNPC*)Interfaces::EntitySystem->GetEntity(selected[0]);
@@ -198,7 +205,7 @@ namespace Pages {
 			ImGui::Checkbox("Redirect illusion casts", &Config::CastRedirection);
 			ImGui::SameLine(); HelpMarker("You cast something on an illusion - it aims for the real hero(if they're in range, of course)");
 
-			ImGui::SliderFloat("Camera distance", &Config::CameraDistance, 1200, 3000, "%.1f");
+			ImGui::SliderFloat("Camera distance", &Config::CameraDistance, 1200, 3000, "%.0f");
 
 			if (ImGui::Button("EXIT", ImVec2(100, 50)))
 				glfwSetWindowShouldClose(window_menu, 1);

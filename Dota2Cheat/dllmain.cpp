@@ -126,8 +126,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, 1);
 
 #ifndef _DEBUG // wouldn't want the window to obscure the screen on a breakpoint
-	glfwWindowHint(GLFW_FLOATING, 1);
 #endif // DEBUG
+	glfwWindowHint(GLFW_FLOATING, 1);
 	glfwWindowHint(GLFW_DECORATED, 0);
 	glfwWindowHint(GLFW_RESIZABLE, 0);
 	glfwWindowHint(GLFW_MAXIMIZED, 1);

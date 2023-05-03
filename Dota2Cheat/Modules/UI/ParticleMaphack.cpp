@@ -4,7 +4,9 @@ void Hacks::ParticleMaphack::DrawAllAppearances() {
 	static constexpr ImVec2 iconSize{ 32, 32 };
 	for (auto& data : AllAppearances) {
 		auto hero = data.ent;
-		if (!hero->GetIdentity()->IsDormant())
+		if (!IsValidReadPtr(hero)
+			|| !IsValidReadPtr(hero->GetIdentity())
+			|| !hero->GetIdentity()->IsDormant())
 			continue;
 
 		auto DrawList = ImGui::GetForegroundDrawList();
@@ -30,8 +32,11 @@ void Hacks::ParticleMaphack::DrawMapAppearances()
 	static constexpr ImVec2 iconSize{ 24, 24 };
 	auto DrawList = ImGui::GetForegroundDrawList();
 	for (auto& [hero, data] : MapAppearances) {
-		if (!hero->GetIdentity()->IsDormant())
+		if (!IsValidReadPtr(hero)
+			|| !IsValidReadPtr(hero->GetIdentity())
+			|| !hero->GetIdentity()->IsDormant())
 			continue;
+
 		const auto drawPos = WorldToMap(data.pos);
 		if (!IsPointOnScreen(drawPos))
 			continue;
@@ -58,13 +63,13 @@ void Hacks::ParticleMaphack::Draw() {
 	if (!Config::ParticleMapHack::Enabled)
 		return;
 
-	std::lock_guard<std::mutex> lk(this->_m);
+	MTM_LOCK;
 	DrawAllAppearances();
 	DrawMapAppearances();
 }
 
 void Hacks::ParticleMaphack::FrameBasedLogic() {
-	std::lock_guard<std::mutex> lk(this->_m);
+	MTM_LOCK;
 
 	const float timeDelta = GameSystems::GameRules->GetGameTime() - lastTime;
 	lastTime = GameSystems::GameRules->GetGameTime();
@@ -87,10 +92,10 @@ void Hacks::ParticleMaphack::FrameBasedLogic() {
 }
 
 void Hacks::ParticleMaphack::ProcessParticleMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
-	std::lock_guard<std::mutex> lk(this->_m);
 	if (msgHandle->messageID != 145)
 		return;
 
+	MTM_LOCK;
 	auto pmMsg = reinterpret_cast<CUserMsg_ParticleManager*>(msg);
 	auto msgIndex = pmMsg->index();
 	switch (pmMsg->type()) {
@@ -101,12 +106,11 @@ void Hacks::ParticleMaphack::ProcessParticleMsg(NetMessageHandle_t* msgHandle, g
 			auto pos = pmMsg->update_particle_ent().fallback_position();
 			auto npc = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(NH2IDX(pmMsg->update_particle_ent().entity_handle()));
 
-			if (!npc
+			if (!IsValidReadPtr(npc)
 				|| npc->IsSameTeam(ctx.assignedHero)
+				|| !IsValidReadPtr(npc->GetIdentity())
 				|| !npc->GetIdentity()->IsDormant())
 				return;
-
-
 
 			ImTextureID icon = 0;
 

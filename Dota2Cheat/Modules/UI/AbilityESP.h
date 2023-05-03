@@ -2,15 +2,16 @@
 #include "../SDK/pch.h"
 #include "../../Utils/Drawing.h"
 #include "../../CheatSDK/include.h"
+#include "MultiThreadModule.h"
 #include <map>
 
 namespace ESP {
-	class AbilityESP {
+	class AbilityESP : public MultiThreadModule {
 		struct AbilityData {
 			CDOTABaseAbility* ability{};
 			ImTextureID icon{};
 		};
-
+		
 
 		// Scales a value according to the config parameter
 		template<typename T = int>
@@ -34,9 +35,9 @@ namespace ESP {
 		void DrawLevelBars(CDOTABaseAbility* ability, const ImVec2& xy1, const ImVec2& xy2);
 		void DrawChargeCounter(int charges, const ImVec2& pos, int radius);
 		void DrawManabars();
-	public:
 		void UpdateAbilities(CDOTABaseNPC_Hero* hero);
 		void UpdateItems(CDOTABaseNPC_Hero* hero);
+	public:
 		void UpdateHeroData();
 		void SubscribeHeroes();
 		void Reset();

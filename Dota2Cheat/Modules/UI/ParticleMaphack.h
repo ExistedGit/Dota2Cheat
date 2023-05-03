@@ -2,9 +2,10 @@
 #include "../../SDK/pch.h"
 #include "../../CheatSDK/include.h"
 #include "../../Utils/Drawing.h"
+#include "MultiThreadModule.h"
 
 namespace Hacks {
-	class ParticleMaphack {
+	class ParticleMaphack : public MultiThreadModule {
 		struct ParticleData {
 			Vector pos{ 0, 0,0 };
 			ImTextureID icon;
@@ -14,8 +15,6 @@ namespace Hacks {
 			CDOTABaseNPC* ent{};
 		};
 
-		std::mutex _m;
-
 		// Only shows the last one
 		std::map<CDOTABaseNPC*, ParticleData> MapAppearances;
 		std::vector<ParticleEntData> AllAppearances;
@@ -24,9 +23,9 @@ namespace Hacks {
 		void DrawAllAppearances();
 		void DrawMapAppearances();
 	public:
-		void Draw();;
-		void FrameBasedLogic();;
-		void ProcessParticleMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg);;
+		void Draw();
+		void FrameBasedLogic();
+		void ProcessParticleMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg);
 	};
 }
 namespace Modules {

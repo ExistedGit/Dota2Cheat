@@ -3,7 +3,8 @@
 void Hacks::BlinkRevealer::Draw() {
 	if (!Config::BlinkRevealer)
 		return;
-	
+	MTM_LOCK;
+
 	static constexpr ImVec2 iconSize{ 48,48 };
 	for (auto& [hero, data] : Blinks) {
 		if (!hero->GetIdentity()->IsDormant())
@@ -38,10 +39,8 @@ void Hacks::BlinkRevealer::Draw() {
 }
 
 void Hacks::BlinkRevealer::FrameBasedLogic() {
-	if (lastTime == 0) {
-		lastTime = GameSystems::GameRules->GetGameTime();
-		return;
-	}
+	MTM_LOCK;
+
 	auto timeDelta = GameSystems::GameRules->GetGameTime() - lastTime;
 	lastTime = GameSystems::GameRules->GetGameTime();
 	for (auto it = Blinks.begin(); it != Blinks.end();) {
@@ -58,6 +57,7 @@ void Hacks::BlinkRevealer::ProcessParticleMsg(NetMessageHandle_t* msgHandle, goo
 	if (msgHandle->messageID != 145)
 		return;
 
+	MTM_LOCK;
 	auto pmMsg = reinterpret_cast<CUserMsg_ParticleManager*>(msg);
 	auto msgIndex = pmMsg->index();
 	switch (pmMsg->type()) {

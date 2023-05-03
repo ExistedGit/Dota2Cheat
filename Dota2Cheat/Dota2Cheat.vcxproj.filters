@@ -144,8 +144,6 @@
     <ClCompile Include="Modules\UI\ParticleMaphack.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Hooks\MinimapRenderer.h" />
-    <ClInclude Include="Hooks\UIState.h" />
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
     <ClInclude Include="Modules\UI\UIOverhaul.h" />
     <ClInclude Include="SDK\GameSystems\CDOTA_PanoramaMinimapRenderer.h" />
@@ -263,7 +261,6 @@
     <ClInclude Include="SDK\VTableIndexes.h" />
     <ClInclude Include="SDK\Interfaces\CVarSystem.h" />
     <ClInclude Include="SDK\Base\CUtlVector.h" />
-    <ClInclude Include="dllmain.h" />
     <ClInclude Include="SDK\Enums.h" />
     <ClInclude Include="SDK\Interfaces\IEngineClient.h" />
     <ClInclude Include="CheatSDK\MatchStateHandling.h" />
@@ -339,5 +336,6 @@
     <ClInclude Include="Modules\UI\BlinkRevealer.h" />
     <ClInclude Include="SDK\Base\Address.h" />
     <ClInclude Include="Modules\UI\ParticleMaphack.h" />
+    <ClInclude Include="Modules\UI\MultiThreadModule.h" />
   </ItemGroup>
 </Project>

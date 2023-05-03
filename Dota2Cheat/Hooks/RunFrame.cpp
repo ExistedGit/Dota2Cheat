@@ -3,7 +3,7 @@
 #include <format>
 
 void UpdateCameraDistance() {
-	static auto varInfo = CVarSystem::CVar["dota_camera_distance"];
+	static auto varInfo = CVarSystem::CVars["dota_camera_distance"];
 	if (Config::CameraDistance != varInfo.var->value.flt) {
 		varInfo.var->value.flt = Config::CameraDistance;
 		Interfaces::CVar->TriggerCallback(varInfo);
@@ -11,7 +11,7 @@ void UpdateCameraDistance() {
 }
 
 void UpdateWeather() {
-	static auto varInfo = CVarSystem::CVar["cl_weather"];
+	static auto varInfo = CVarSystem::CVars["cl_weather"];
 	varInfo.var->value.i32 = Config::Changer::WeatherListIdx;
 }
 
@@ -86,7 +86,6 @@ void Hooks::hkRunFrame(void* thisptr) {
 
 	if (!GameSystems::GameRules->IsGamePaused()) {
 
-		Modules::TPTracker.CacheHeroIcons();
 		Modules::TPTracker.FrameBasedLogic();
 		Modules::BlinkRevealer.FrameBasedLogic();
 		Modules::ParticleMaphack.FrameBasedLogic();

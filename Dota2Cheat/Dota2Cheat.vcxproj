@@ -476,6 +476,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Modules\UI\MultiThreadModule.h" />
     <ClInclude Include="Modules\UI\ParticleMaphack.h">
       <SubType>
       </SubType>
@@ -485,8 +486,6 @@
     <ClInclude Include="CheatSDK\include.h" />
     <ClInclude Include="CheatSDK\Utils.h" />
     <ClInclude Include="Hooks\GameEvents.h" />
-    <ClInclude Include="Hooks\MinimapRenderer.h" />
-    <ClInclude Include="Hooks\UIState.h" />
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
     <ClInclude Include="Modules\Hacks\TrueSightESP.h" />
     <ClInclude Include="Modules\UI\Indicators\KillIndicator.h">
@@ -666,7 +665,6 @@
     <ClInclude Include="SDK\VTableIndexes.h" />
     <ClInclude Include="SDK\Interfaces\CVarSystem.h" />
     <ClInclude Include="SDK\Base\CUtlVector.h" />
-    <ClInclude Include="dllmain.h" />
     <ClInclude Include="SDK\Enums.h" />
     <ClInclude Include="SDK\Interfaces\IEngineClient.h" />
     <ClInclude Include="CheatSDK\MatchStateHandling.h" />

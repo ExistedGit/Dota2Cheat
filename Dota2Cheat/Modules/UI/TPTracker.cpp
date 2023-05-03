@@ -5,6 +5,7 @@
 // Mostly calculating fade duration
 
 void Hacks::TPTracker::FrameBasedLogic() {
+	MTM_LOCK;
 	if (lastTime == 0) {
 		lastTime = GameSystems::GameRules->GetGameTime();
 		return;
@@ -31,20 +32,11 @@ void Hacks::TPTracker::FrameBasedLogic() {
 	}
 }
 
-void Hacks::TPTracker::CacheHeroIcons() {
-	for (auto& hero : ctx.heroes) {
-		if (heroIcons.count(hero))
-			continue;
-		std::string prefixLessName = std::string(hero->GetUnitName()).substr(14),
-			iconName = "icon_" + prefixLessName;
-		heroIcons[hero] = texManager.GetNamedTexture(iconName);
-	}
-}
-
 void Hacks::TPTracker::DrawMapTeleports() {
 	if (!Config::TPTracker::Enabled)
 		return;
 
+	MTM_LOCK;
 	constexpr static ImVec2 iconSize{ 24,24 };
 	auto  DrawList = ImGui::GetForegroundDrawList();
 	for (auto& [ent, data] : teleports) {
@@ -56,16 +48,9 @@ void Hacks::TPTracker::DrawMapTeleports() {
 
 		DrawList->AddLine(start, end, data.color, 3);
 
-		if (!heroIcons.count(ent))
-			continue;
-
-		auto texture = heroIcons[ent];
-		if (!texture)
-			continue;
-
 		if (ent->GetIdentity()->IsDormant() || data.isFading) {
 			ImVec2 startXY1 = start - iconSize / 2, startXY2 = startXY1 + iconSize;
-			DrawList->AddImage(texture,
+			DrawList->AddImage(data.icon,
 				startXY1,
 				startXY2,
 				{ 0,0 },
@@ -83,7 +68,7 @@ void Hacks::TPTracker::DrawMapTeleports() {
 
 		if (!data.isFading || (data.isFading && !data.cancelled)) {
 			ImVec2 endXY1 = end - iconSize / 2, endXY2 = endXY1 + iconSize;
-			DrawList->AddImage(texture,
+			DrawList->AddImage(data.icon,
 				endXY1,
 				endXY2,
 				{ 0,0 },
@@ -103,6 +88,8 @@ void Hacks::TPTracker::ProcessParticleMsg(NetMessageHandle_t* msgHandle, google:
 	if (msgHandle->messageID != 145)
 		return;
 
+	MTM_LOCK;
+
 	auto pmMsg = reinterpret_cast<CUserMsg_ParticleManager*>(msg);
 	auto msgIndex = pmMsg->index();
 	switch (pmMsg->type()) {
@@ -115,9 +102,14 @@ void Hacks::TPTracker::ProcessParticleMsg(NetMessageHandle_t* msgHandle, google:
 		if (!particleName)
 			break;
 
-		auto ent = Interfaces::EntitySystem->GetEntity(NH2IDX(particle.entity_handle_for_modifiers()));
+		auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(NH2IDX(particle.entity_handle_for_modifiers()));
 		if (!ent)
 			break;
+
+		std::string prefixLessName = std::string(ent->GetUnitName()).substr(14),
+			iconName = "icon_" + prefixLessName;
+
+		auto icon = texManager.GetNamedTexture(iconName);
 
 		switch (CityHash32(std::string_view(particleName))) {
 		case "particles/items2_fx/teleport_start.vpcf"_city32: {
@@ -127,6 +119,7 @@ void Hacks::TPTracker::ProcessParticleMsg(NetMessageHandle_t* msgHandle, google:
 			tpData.start = TPData{
 						.msgIdx = msgIndex
 			};
+			tpData.icon = icon;
 			break;
 		}
 		case "particles/items2_fx/teleport_end.vpcf"_city32: {
@@ -136,6 +129,7 @@ void Hacks::TPTracker::ProcessParticleMsg(NetMessageHandle_t* msgHandle, google:
 			tpData.end = TPData{
 			.msgIdx = msgIndex
 			};
+			tpData.icon = icon;
 			break;
 		}
 		}

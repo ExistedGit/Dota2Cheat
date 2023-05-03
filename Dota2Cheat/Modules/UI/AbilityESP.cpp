@@ -21,12 +21,16 @@ void ESP::AbilityESP::SubscribeHeroes() {
 }
 
 void ESP::AbilityESP::Reset() {
+	MTM_LOCK;
+
 	Initialized = false;
 	EnemyAbilities.clear();
 	EnemyItems.clear();
 }
 
 void ESP::AbilityESP::UpdateHeroData() {
+	MTM_LOCK;
+
 	SubscribeHeroes();
 	for (auto& hero : ctx.heroes) {
 		DrawableHeroes[hero] =
@@ -350,6 +354,8 @@ void ESP::AbilityESP::DrawItemCircle(const AbilityData& data, const ImVec2& xy1,
 }
 
 void ESP::AbilityESP::DrawESP() {
+	MTM_LOCK;
+
 	if (!Initialized || !Config::AbilityESP::Enabled)
 		return;
 

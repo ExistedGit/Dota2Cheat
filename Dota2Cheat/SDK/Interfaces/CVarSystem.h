@@ -83,8 +83,7 @@ public:
 		int index{};
 	};
 
-	//static std::map<ConVar*, int> CVar;
-	static inline std::map<std::string, CVarInfo> CVar{};
+	static inline std::map<std::string, CVarInfo> CVars{};
 	using CVarCallbackFn = void(*)(const CVarID& id, int unk1, const CVarValue* val, const CVarValue* old_val);
 
 	CVarCallbackFn GetCallback(int id);
