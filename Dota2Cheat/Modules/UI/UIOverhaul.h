@@ -60,7 +60,7 @@ namespace Hacks {
 				return;
 
 			for (auto& hero : ctx.heroes) {
-				if (hero->IsIllusion() || hero->IsSameTeam(ctx.assignedHero) || topBar.contains(hero))
+				if (hero->IsIllusion() || hero->IsSameTeam(ctx.localHero) || topBar.contains(hero))
 					continue;
 				ReadyToRender = false;
 				UpdateHeroes();

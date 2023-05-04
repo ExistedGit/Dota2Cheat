@@ -5,6 +5,8 @@
 #include <sol/sol.hpp>
 #include "../Wrappers/Creep.h"
 
+// Context of an ongoing Dota game
+
 class CBaseEntity;
 class CDOTABaseNPC;
 class CDOTABaseNPC_Hero;
@@ -13,20 +15,17 @@ class CDOTABaseAbility;
 class CDOTAItem;
 class CDOTAItemRune;
 
-//inline struct _GameData {
-//	Vector2D ScreenSize;
-//} GameData;
+enum class GameStage {
+	NONE = 0, // In menu
+	PRE_GAME = 1, // Joined the match but the game itself didn't start yet
+	IN_GAME = 2 // In the game proper
+};
 
 struct Context {
 	CDOTAPlayerController* localPlayer{};
-	CDOTABaseNPC_Hero* assignedHero{};
+	CDOTABaseNPC_Hero* localHero{};
 	uint32_t assignedHeroHandle{};
 
-	enum class GameStage {
-		NONE = 0, // In menu
-		PRE_GAME = 1, // Joined the match but the game itself didn't start yet
-		IN_GAME = 2 // In the game proper
-	};
 	GameStage gameStage = GameStage::NONE;
 
 	std::set<CDOTAItemRune*> runes;
@@ -36,7 +35,6 @@ struct Context {
 	std::set<CDOTABaseNPC_Hero*> heroes;
 	std::set<CreepWrapper, CreepWrapper_less> creeps;
 
-	std::map<std::string, CDOTAItem*> ImportantItems;
 
 	std::string cheatFolderPath;
 	sol::state lua;

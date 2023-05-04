@@ -107,7 +107,7 @@ void Hacks::ParticleMaphack::ProcessParticleMsg(NetMessageHandle_t* msgHandle, g
 			auto npc = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(NH2IDX(pmMsg->update_particle_ent().entity_handle()));
 
 			if (!IsValidReadPtr(npc)
-				|| npc->IsSameTeam(ctx.assignedHero)
+				|| npc->IsSameTeam(ctx.localHero)
 				|| !IsValidReadPtr(npc->GetIdentity())
 				|| !npc->GetIdentity()->IsDormant())
 				return;

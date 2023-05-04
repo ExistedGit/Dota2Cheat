@@ -337,5 +337,6 @@
     <ClInclude Include="SDK\Base\Address.h" />
     <ClInclude Include="Modules\UI\ParticleMaphack.h" />
     <ClInclude Include="Modules\UI\MultiThreadModule.h" />
+    <ClInclude Include="SDK\Globals\HeroData.h" />
   </ItemGroup>
 </Project>

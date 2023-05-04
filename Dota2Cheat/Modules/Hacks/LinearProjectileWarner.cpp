@@ -70,7 +70,7 @@ void Hacks::LinearProjectileWarner::ProcessLinearProjectileMsg(NetMessageHandle_
 
 		if (!Config::ShowLinearProjTrajectory)
 			return;
-		if (!newProj.source || newProj.source->IsSameTeam(ctx.assignedHero))
+		if (!newProj.source || newProj.source->IsSameTeam(ctx.localHero))
 			return;
 
 		auto ratio = newProj.distance / newProj.velocity.Length();

@@ -67,7 +67,7 @@ namespace Pages {
 			ImGui::End();
 #endif // _DEBUG
 
-			if (ctx.gameStage == Context::GameStage::IN_GAME)
+			if (ctx.gameStage == GameStage::IN_GAME)
 				if (CheatGui::Button("Circle drawing"))
 					circleMenuVisible = !circleMenuVisible;
 
@@ -234,7 +234,7 @@ namespace Pages {
 					auto particle = GameSystems::ParticleManager->CreateParticle(
 						"particles/ui_mouseactions/selected_ring.vpcf",
 						PATTACH_ABSORIGIN_FOLLOW,
-						ctx.assignedHero
+						ctx.localHero
 					).particle
 						->SetControlPoint(1, color)
 						->SetControlPoint(2, radius)

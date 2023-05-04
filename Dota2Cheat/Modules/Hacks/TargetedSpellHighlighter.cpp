@@ -74,7 +74,7 @@ void Hacks::TargetedSpellHighlighter::DrawParticleIfTargetedSpell(CDOTAModifier*
 		return;
 	if (!ModifierParticles.count(modifier->GetName()))
 		return;
-	if (modifier->GetOwner()->GetTeam() != ctx.assignedHero->GetTeam())
+	if (modifier->GetOwner()->GetTeam() != ctx.localHero->GetTeam())
 		return;
 
 	auto entry = ModifierParticles[modifier->GetName()];

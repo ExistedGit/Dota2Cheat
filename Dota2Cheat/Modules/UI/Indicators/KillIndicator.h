@@ -55,8 +55,8 @@ namespace Hacks {
 			{
 			"npc_dota_hero_antimage",
 			[this](CDOTABaseNPC* ent) -> int {
-				auto manaVoid = ctx.assignedHero->GetAbility(curData.idx);
-				auto dmgPerMana = manaVoid->GetLevelSpecialValueFor("mana_void_damage_per_mana");
+				static auto ult = ctx.localHero->GetAbility(curData.idx);
+				auto dmgPerMana = ult->GetLevelSpecialValueFor("mana_void_damage_per_mana");
 				auto resist = ent->GetMagicalArmorValue();
 				return ent->GetHealth() - ((ent->GetMaxMana() - ent->GetMana()) * dmgPerMana) * (1 - resist);
 			}
@@ -64,7 +64,7 @@ namespace Hacks {
 			{
 			"npc_dota_hero_necrolyte",
 			[this](CDOTABaseNPC* ent) -> int {
-				auto ult = ctx.assignedHero->GetAbility(curData.idx);
+				static auto ult = ctx.localHero->GetAbility(curData.idx);
 				auto dmgPerHealth = ult->GetLevelSpecialValueFor("damage_per_health");
 				auto resist = ent->GetMagicalArmorValue();
 				return ent->GetHealth() - ((ent->GetMaxHealth() - ent->GetHealth()) * dmgPerHealth) * (1 - resist);
@@ -73,12 +73,11 @@ namespace Hacks {
 			{
 			"npc_dota_hero_nevermore",
 			[this](CDOTABaseNPC* ent) -> int {
-				auto raze = ctx.assignedHero->GetAbility(curData.idx);
-				auto razeDebuff = ent->GetModifier("modifier_nevermore_shadowraze_debuff");
+				static auto raze = ctx.localHero->GetAbility(curData.idx);
+				auto razeDebuff = HeroData[ent].Modifiers["modifier_nevermore_shadowraze_debuff"];
 				auto dmg = raze->GetLevelSpecialValueFor("shadowraze_damage");
 				auto resist = ent->GetMagicalArmorValue();
 				if (razeDebuff) {
-
 					auto dmgPerStack = raze->GetLevelSpecialValueFor("stack_bonus_damage");
 					auto stacks = razeDebuff->GetStackCount();
 					return ent->GetHealth() - (dmg + stacks * dmgPerStack) * (1 - resist);
@@ -90,21 +89,14 @@ namespace Hacks {
 			{
 			"npc_dota_hero_lion",
 			[this](CDOTABaseNPC* ent) -> int {
-				auto ult = ctx.assignedHero->GetAbility(curData.idx);
-				auto killCounter = ctx.assignedHero->GetModifier("modifier_lion_finger_of_death_kill_counter");
+				static auto ult = ctx.localHero->GetAbility(curData.idx);
+
+				auto killCounter = HeroData[ctx.localHero].Modifiers["modifier_lion_finger_of_death_kill_counter"];
 				auto dmg = ult->GetLevelSpecialValueFor("damage");
 				auto resist = ent->GetMagicalArmorValue();
 
-				if (ctx.ImportantItems["ultimate_scepter"])
-					dmg += 100;
-
 				if (killCounter) {
 					auto dmgPerStack = ult->GetLevelSpecialValueFor("damage_per_kill");
-
-
-					if (ctx.assignedHero->GetAbility("special_bonus_unique_lion_8"))
-						dmgPerStack += 20;
-
 					auto stacks = killCounter->GetStackCount();
 					return ent->GetHealth() - (dmg + stacks * dmgPerStack) * (1 - resist);
 				}
@@ -114,7 +106,7 @@ namespace Hacks {
 			}
 		};
 		int DefaultBehavior(CDOTABaseNPC* ent) {
-			auto nuke = ctx.assignedHero->GetAbility(curData.idx);
+			auto nuke = ctx.localHero->GetAbility(curData.idx);
 			auto dmg = nuke->GetLevelSpecialValueFor("damage");
 			auto resist = ent->GetMagicalArmorValue();
 
@@ -126,7 +118,7 @@ namespace Hacks {
 		bool Initialized = false;
 	public:
 		void Init() {
-			auto unitName = ctx.assignedHero->GetUnitName();
+			auto unitName = ctx.localHero->GetUnitName();
 			if (HeroNukes.contains(unitName)) {
 				curData = HeroNukes.at(unitName);
 				Initialized = true;
@@ -140,7 +132,7 @@ namespace Hacks {
 				return;
 
 			for (auto& hero : ctx.heroes) {
-				if (hero->IsSameTeam(ctx.assignedHero)
+				if (hero->IsSameTeam(ctx.localHero)
 					|| !hero->IsTargetable()
 					|| hero->IsIllusion()
 					|| !IsEntityOnScreen(hero))

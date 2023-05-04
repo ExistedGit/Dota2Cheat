@@ -547,6 +547,7 @@
     <ClInclude Include="SDK\GameSystems\C_DOTA_PlayerResource.h" />
     <ClInclude Include="SDK\GameSystems\C_DOTA_ProjectileManager.h" />
     <ClInclude Include="SDK\Globals\GameSystems.h" />
+    <ClInclude Include="SDK\Globals\HeroData.h" />
     <ClInclude Include="SDK\Interfaces\CBaseFileSystem.h" />
     <ClInclude Include="SDK\GameSystems\CDOTAParticleManager.h" />
     <ClInclude Include="SDK\Interfaces\CGameEntitySystem.h" />

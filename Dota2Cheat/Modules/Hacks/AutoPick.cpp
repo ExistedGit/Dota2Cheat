@@ -15,7 +15,7 @@ void Hacks::AutoPick::Reset() {
 }
 
 void Hacks::AutoPick::TryAutoBan() {
-	if (ctx.gameStage != Context::GameStage::PRE_GAME ||
+	if (ctx.gameStage != GameStage::PRE_GAME ||
 		(!autoBanHero && !autoPickHero)
 		|| GameSystems::GameRules->GetGameState() != DOTA_GAMERULES_STATE_HERO_SELECTION
 		)

@@ -40,7 +40,7 @@ void Hacks::TPTracker::DrawMapTeleports() {
 	constexpr static ImVec2 iconSize{ 24,24 };
 	auto  DrawList = ImGui::GetForegroundDrawList();
 	for (auto& [ent, data] : teleports) {
-		if (ent->IsSameTeam(ctx.assignedHero)
+		if (ent->IsSameTeam(ctx.localHero)
 			|| !data.start.msgIdx || !data.end.msgIdx)
 			continue;
 

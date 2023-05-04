@@ -14,9 +14,9 @@ CBaseEntity* Hooks::hkOnRemoveEntity(CEntitySystem* thisptr, CBaseEntity* ent, E
 		ctx.entities.erase(ent);
 		ctx.runes.erase((CDOTAItemRune*)ent);
 
-		for (auto it = ctx.ImportantItems.begin(); it != ctx.ImportantItems.end(); ++it)
+		for (auto it = HeroData[ctx.localHero].Items.begin(); it != HeroData[ctx.localHero].Items.end(); ++it)
 			if (it->second == ent) {
-				it = ctx.ImportantItems.erase(it);
+				it = HeroData[ctx.localHero].Items.erase(it);
 				break;
 			}
 

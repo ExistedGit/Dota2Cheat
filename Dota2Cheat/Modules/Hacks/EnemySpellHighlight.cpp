@@ -20,7 +20,7 @@ void Hacks::EnemySpellHighlighter::RenderIfThinkerModifier(CDOTAModifier* modifi
 
 	if (ModifierParticles.count(modifier->GetName())) {
 		auto thinker = modifier->GetOwner();
-		if (!thinker->IsSameTeam(ctx.assignedHero)) {
+		if (!thinker->IsSameTeam(ctx.localHero)) {
 
 			DrawParticleAt(thinker->GetPos(), ModifierParticles[modifier->GetName()]);
 		}

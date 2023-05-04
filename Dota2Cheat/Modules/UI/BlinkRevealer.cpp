@@ -73,7 +73,7 @@ void Hacks::BlinkRevealer::ProcessParticleMsg(NetMessageHandle_t* msgHandle, goo
 		auto ent = Interfaces::EntitySystem->GetEntity(NH2IDX(particle.entity_handle()));
 		if(!ent)
 			ent = Interfaces::EntitySystem->GetEntity(NH2IDX(particle.entity_handle_for_modifiers()));
-		if (!ent || ent->IsSameTeam(ctx.assignedHero))
+		if (!ent || ent->IsSameTeam(ctx.localHero))
 			break;
 		std::string_view particleName = m_szParticleName;
 

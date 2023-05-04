@@ -189,8 +189,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		ImGui::PushFont(DrawData.Fonts["MSTrebuchet"][24]);
 		if (
 			GameSystems::GameUI->GetUIState() == DOTA_GAME_UI_DOTA_INGAME
-			&& ctx.gameStage == Context::GameStage::IN_GAME
-			&& ctx.assignedHero
+			&& ctx.gameStage == GameStage::IN_GAME
+			&& ctx.localHero
 			) {
 			Modules::AbilityESP.DrawESP();
 			// Modules::UIOverhaul.DrawBars();
@@ -261,7 +261,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwDestroyWindow(window_menu);
 	glfwTerminate();
 
-	if (ctx.gameStage != Context::GameStage::NONE)
+	if (ctx.gameStage != GameStage::NONE)
 		LeftMatch();
 	Modules::TargetedSpellHighlighter.OnDisableTargetedSpells();
 	Modules::TargetedSpellHighlighter.OnDisableLinken();
