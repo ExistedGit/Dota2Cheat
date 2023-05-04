@@ -19,6 +19,7 @@
 #include "UI/Pages/MainMenu.h"
 #include "UI/Pages/AutoPickSelectionGrid.h"
 #include "Modules/Hacks/LastHitMarker.h"
+#include "Modules/UI/BarAugmenter.h"
 
 GLFWwindow* window_menu{};
 
@@ -126,8 +127,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, 1);
 
 #ifndef _DEBUG // wouldn't want the window to obscure the screen on a breakpoint
-#endif // DEBUG
 	glfwWindowHint(GLFW_FLOATING, 1);
+#endif // DEBUG
 	glfwWindowHint(GLFW_DECORATED, 0);
 	glfwWindowHint(GLFW_RESIZABLE, 0);
 	glfwWindowHint(GLFW_MAXIMIZED, 1);
@@ -200,6 +201,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			Modules::BlinkRevealer.Draw();
 			Modules::KillIndicator.Draw();
 			Modules::ParticleMaphack.Draw();
+			Modules::BarAugmenter.Draw();
 
 			//const auto ScreenSize = glfwGetVideoMode(glfwGetPrimaryMonitor());
 			//auto ActualMinimapSize = static_cast<float>(GameSystems::MinimapRenderer->GetMinimapSize().y - 28);

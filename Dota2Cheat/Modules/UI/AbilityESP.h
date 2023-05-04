@@ -34,7 +34,6 @@ namespace ESP {
 		void DrawLevelCounter(CDOTABaseAbility* ability, ImVec2 pos);
 		void DrawLevelBars(CDOTABaseAbility* ability, const ImVec2& xy1, const ImVec2& xy2);
 		void DrawChargeCounter(int charges, const ImVec2& pos, int radius);
-		void DrawManabars();
 		void UpdateAbilities(CDOTABaseNPC_Hero* hero);
 		void UpdateItems(CDOTABaseNPC_Hero* hero);
 	public:

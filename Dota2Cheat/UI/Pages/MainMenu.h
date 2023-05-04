@@ -76,6 +76,11 @@ namespace Pages {
 				ImGui::SliderInt("Delay", &Config::AutoAccept::Delay, 0, 6);
 				ImGui::TreePop();
 			}
+			if (ImGui::TreeNode("Bars")) {
+				ImGui::Checkbox("Manabars", &Config::Bars::ManaBar);
+				ImGui::Checkbox("HP amount on healthbar", &Config::Bars::HPNumbers);
+				ImGui::TreePop();
+			}
 			if (ImGui::TreeNode("TP Tracker")) {
 				ImGui::Text("Shows enemy teleports on the map");
 
@@ -129,7 +134,6 @@ namespace Pages {
 				ImGui::Checkbox("Enable", &Config::AbilityESP::Enabled);
 				ImGui::Checkbox("Include allied heroes", &Config::AbilityESP::ShowAllies);
 				ImGui::Checkbox("Show decimals in cooldowns", &Config::AbilityESP::ShowCooldownDecimals);
-				ImGui::Checkbox("Show manabars", &Config::AbilityESP::ShowManabars);
 				ImGui::SliderFloat("UI scale", &Config::AbilityESP::UIScale, 0.7f, 1.4f, "%.1f");
 				ImGui::TreePop();
 			}

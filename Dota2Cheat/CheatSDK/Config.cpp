@@ -98,8 +98,10 @@ void Config::ConfigManager::SetupVars() {
 	CFG_VAR(BOOL, AbilityESP::Enabled, true);
 	CFG_VAR(FLOAT, AbilityESP::UIScale, 1.0f);
 	CFG_VAR(BOOL, AbilityESP::ShowAllies, true);
-	CFG_VAR(BOOL, AbilityESP::ShowManabars, true);
 	CFG_VAR(BOOL, AbilityESP::ShowCooldownDecimals, false);
+
+	CFG_VAR(BOOL, Bars::ManaBar, true);
+	CFG_VAR(BOOL, Bars::HPNumbers, true);
 
 	CFG_VAR(BOOL, Indicators::Speed, true);
 	CFG_VAR(BOOL, Indicators::Kill, true);

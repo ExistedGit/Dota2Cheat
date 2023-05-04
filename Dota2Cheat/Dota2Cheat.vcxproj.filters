@@ -142,6 +142,7 @@
     <ClCompile Include="include\cityhash\city.cc" />
     <ClCompile Include="Modules\UI\BlinkRevealer.cpp" />
     <ClCompile Include="Modules\UI\ParticleMaphack.cpp" />
+    <ClCompile Include="Modules\UI\BarAugmenter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
@@ -338,5 +339,6 @@
     <ClInclude Include="Modules\UI\ParticleMaphack.h" />
     <ClInclude Include="Modules\UI\MultiThreadModule.h" />
     <ClInclude Include="SDK\Globals\HeroData.h" />
+    <ClInclude Include="Modules\UI\BarAugmenter.h" />
   </ItemGroup>
 </Project>

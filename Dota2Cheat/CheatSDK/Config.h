@@ -62,8 +62,12 @@ namespace Config {
 		inline bool Enabled;
 		inline bool ShowAllies;
 		inline float UIScale;
-		inline bool ShowManabars;
 		inline bool ShowCooldownDecimals;
+	}
+
+	namespace Bars {
+		inline bool ManaBar;
+		inline bool HPNumbers;
 	}
 
 	namespace AutoAccept {

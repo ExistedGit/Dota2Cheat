@@ -222,6 +222,7 @@
     <ClCompile Include="Modules\Hacks\SkinChanger.cpp" />
     <ClCompile Include="Modules\Hacks\TargetedSpellHighlighter.cpp" />
     <ClCompile Include="Modules\UI\AbilityESP.cpp" />
+    <ClCompile Include="Modules\UI\BarAugmenter.cpp" />
     <ClCompile Include="Modules\UI\BlinkRevealer.cpp" />
     <ClCompile Include="Modules\UI\Indicators\KillIndicator.cpp" />
     <ClCompile Include="Modules\UI\Indicators\SpeedIndicator.cpp" />
@@ -472,6 +473,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CheatSDK\DrawData.h" />
+    <ClInclude Include="Modules\UI\BarAugmenter.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Modules\UI\BlinkRevealer.h">
       <SubType>
       </SubType>
