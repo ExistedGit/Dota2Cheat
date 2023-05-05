@@ -157,5 +157,4 @@ void Signatures::FindSignatures() {
 
 	SET_VAR(CDOTAItemSchema::GetItemDefByIndex, SigScan::Find("E8 ? ? ? ? 8B 4E 64", "client.dll").GetAbsoluteAddress(1));
 	SET_VAR(CDOTAItemSchema::GetItemDefArrIdx, Address(CDOTAItemSchema::GetItemDefByIndex).Offset(0x16).GetAbsoluteAddress(1));
-	SET_VAR(PlayUISoundScript, SigScan::Find("E8 ? ? ? ? FF 4E 30", "client.dll").GetAbsoluteAddress(1));
 }

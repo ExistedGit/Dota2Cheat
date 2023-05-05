@@ -87,6 +87,7 @@ namespace Signatures {
 		SIG_NAMED(GetPlayer),
 		SIG_NAMED(SaveSerializedSOCache),
 		SIG_NAMED(BIsEmoticonUnlocked),
+		SIG_NAMED(PlayUISoundScript),
 		SIG_NAMED(CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby),
 
 		SIG_NAMED(CBaseEntity::OnColorChanged),
