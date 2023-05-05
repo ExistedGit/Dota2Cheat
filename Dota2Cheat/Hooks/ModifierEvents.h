@@ -1,5 +1,7 @@
 #pragma once
 #include "../SDK/pch.h"
+#include "../CheatSDK/include.h"
+
 #include "../Modules/Hacks/EnemySpellHighlight.h"
 #include "../Modules/Hacks/TargetedSpellHighlighter.h"
 #include "../Modules/Hacks/LinearProjectileWarner.h"

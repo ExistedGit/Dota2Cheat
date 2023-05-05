@@ -1,8 +1,6 @@
 #pragma once
 #include "../../../SDK/pch.h"
-#include "../../../CheatSDK/Utils.h"
-#include "../../../CheatSDK/DrawData.h"
-#include "../../../CheatSDK/Config.h"
+#include "../../../CheatSDK/include.h"
 #include "../../../Utils/Drawing.h"
 #include <functional>
 

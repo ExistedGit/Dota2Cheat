@@ -5,7 +5,8 @@ void Hacks::KillIndicator::DrawIndicatorFor(CDOTABaseNPC* ent) {
 		return;
 
 	float scale = Config::Indicators::KillScale;
-	const auto hbPos = WorldToScreen(ent->GetHealthBarPos());
+	const auto hbPos = HeroData[ent].HealthbarW2S;
+
 	auto nuke = ctx.localHero->GetAbility(curData.idx);
 	if (nuke->GetLevel() == 0)
 		return;

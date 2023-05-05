@@ -84,6 +84,11 @@ void Hooks::hkRunFrame(void* thisptr) {
 	UpdateCameraDistance();
 	UpdateWeather();
 
+	for (auto hero : ctx.heroes) {
+		HeroData[hero].AbsOrigin = hero->GetPos();
+		HeroData[hero].HealthbarW2S = WorldToScreen(hero->GetHealthBarPos());
+	}
+
 	if (!GameSystems::GameRules->IsGamePaused()) {
 
 		Modules::TPTracker.FrameBasedLogic();

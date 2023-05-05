@@ -1,4 +1,4 @@
-#include "EntitySystemEvents.h"
+#include "EntityEvents.h"
 
 // Here we filter entities and put them into their respective collections
 CBaseEntity* Hooks::hkOnAddEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HANDLE handle) {

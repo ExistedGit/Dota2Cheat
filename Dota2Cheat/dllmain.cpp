@@ -90,7 +90,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Interfaces::CVar->DumpConVarsToMap();
 	Signatures::FindSignatures();
 	Signatures::LoadSignaturesFromNetwork("https://raw.githubusercontent.com/ExistedGit/Dota2Cheat/main/Dota2Cheat/signatures.json");
-
 	GameSystems::FindGameSystems();
 
 	if (useChangerCode) {

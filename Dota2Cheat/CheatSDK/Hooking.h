@@ -5,7 +5,7 @@
 #include "../Hooks/OnAcceptMatch.h"
 #include "../Hooks/RunFrame.h"
 #include "../Hooks/NetChannel.h"
-#include "../Hooks/EntitySystemEvents.h"
+#include "../Hooks/EntityEvents.h"
 #include "../Hooks/ParticleRendering.h"
 #include "../Hooks/ModifierEvents.h"
 #include "../Hooks/SteamGC.h"

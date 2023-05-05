@@ -43,9 +43,13 @@ namespace Pages {
 
 			ImGui::InputText("Sound name", &uiSoundBuf);
 
-			if (CheatGui::Button("PLAY SOUND")) {
-				void* unk;
-				Signatures::PlayUISoundScript(&unk, uiSoundBuf.c_str(), 1);
+			if (ImGui::Button("PLAY SOUND")) {
+
+				uint16_t unk;
+				Interfaces::SoundOpSystem->CallVFunc<79>(&unk, uiSoundBuf.c_str());
+				unk = unk;
+				//				void* unk;
+//				Signatures::PlayUISoundScript(&unk, uiSoundBuf.c_str(), 1);
 			}
 
 			if (ImGui::Button("Log Entities"))

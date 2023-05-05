@@ -188,7 +188,7 @@
     <ClCompile Include="CheatSDK\Config.cpp" />
     <ClCompile Include="CheatSDK\Hooking.cpp" />
     <ClCompile Include="CheatSDK\Utils.cpp" />
-    <ClCompile Include="Hooks\EntitySystemEvents.cpp" />
+    <ClCompile Include="Hooks\EntityEvents.cpp" />
     <ClCompile Include="Hooks\ModifierEvents.cpp" />
     <ClCompile Include="Hooks\NetChannel.cpp" />
     <ClCompile Include="Hooks\OnAcceptMatch.cpp" />
@@ -552,7 +552,7 @@
     <ClInclude Include="SDK\GameSystems\C_DOTA_PlayerResource.h" />
     <ClInclude Include="SDK\GameSystems\C_DOTA_ProjectileManager.h" />
     <ClInclude Include="SDK\Globals\GameSystems.h" />
-    <ClInclude Include="SDK\Globals\HeroData.h" />
+    <ClInclude Include="CheatSDK\HeroData.h" />
     <ClInclude Include="SDK\Interfaces\CBaseFileSystem.h" />
     <ClInclude Include="SDK\GameSystems\CDOTAParticleManager.h" />
     <ClInclude Include="SDK\Interfaces\CGameEntitySystem.h" />
@@ -625,7 +625,7 @@
     <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h" />
     <ClInclude Include="Utils\Drawing.h" />
     <ClInclude Include="SDK\Globals\Context.h" />
-    <ClInclude Include="Hooks\EntitySystemEvents.h" />
+    <ClInclude Include="Hooks\EntityEvents.h" />
     <ClInclude Include="CheatSDK\EventListeners.h" />
     <ClInclude Include="CheatSDK\Hooking.h" />
     <ClInclude Include="Modules\Hacks\LinearProjectileWarner.h" />

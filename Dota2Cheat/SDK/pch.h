@@ -49,7 +49,6 @@
 #include "Entities/CDOTAItem.h"
 
 #include "Globals/Context.h"
-#include "Globals/HeroData.h"
 #include "Globals/GameSystems.h"
 #include "Globals/Interfaces.h"
 #include "Globals/Signatures.h"
