@@ -105,6 +105,17 @@ int main() {
 		}
 		cout << "Updated scripts\n";
 
+		// Copy the local signatures just in case
+		{
+			auto sigPath = curDir;
+			for (int i = 0; i < 3; i++) {
+				if (fs::exists(sigPath + L"\\signatures.json"))
+					break;
+				sigPath += L"\\..";
+			}
+			fs::copy(sigPath + L"\\signatures.json", cheatFolderPath);
+		}
+
 		cout << "Successfully updated resources in " << cheatFolderPath << '\n';
 	}
 
