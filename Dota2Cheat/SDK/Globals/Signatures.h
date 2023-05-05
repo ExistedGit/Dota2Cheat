@@ -61,7 +61,7 @@ namespace Signatures {
 	//typedef CParticleCollection* (*CreateParticleCollectionFn)(CNewParticleEffect* thisptr, void* particleMgr, void* unk, void** query, int particleIndex);
 	//CreateParticleCollectionFn CreateParticleCollection{};
 
-	inline void* (__fastcall *PlayUISoundScript)(void** unk, const char* sound, int unk2);
+	inline void* (__fastcall* PlayUISoundScript)(void** unk, const char* sound, int unk2);
 
 	inline void(__fastcall* WorldToScreen)(const Vector* coord, int* outX, int* outY, void* offset);
 	inline PrepareUnitOrdersFn PrepareUnitOrders{};
@@ -101,6 +101,13 @@ namespace Signatures {
 	size_t WriteRemoteString(void* ptr, size_t size, size_t nmemb, void* stream);
 	void ParseSignatures(nlohmann::json data);
 	void LoadSignaturesFromNetwork(const std::string& url);
-	
+	inline void LoadSignaturesFromFile(const std::string& url) {
+		if (std::ifstream fin(url); fin.is_open()) {
+			ParseSignatures(nlohmann::json::parse(fin));
+			fin.close();
+		}
+	};
+
+
 	void FindSignatures();
 }

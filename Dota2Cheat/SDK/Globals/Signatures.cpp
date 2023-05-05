@@ -51,7 +51,7 @@ void Signatures::ParseSignatures(nlohmann::json data) {
 	}
 	if (brokenSig)
 		system("pause");
-	
+
 }
 
 void Signatures::LoadSignaturesFromNetwork(const std::string& url) {
@@ -68,8 +68,9 @@ void Signatures::LoadSignaturesFromNetwork(const std::string& url) {
 	curl_easy_cleanup(curl);
 
 	if (CURLresult != CURLE_OK) {
-		std::cout << "FAILED TO LOAD SIGNATURES FROM " << url << '\n';
-		system("pause");
+		std::cout << "FAILED TO LOAD SIGNATURES FROM " << url << ", USING LOCAL COPY" << '\n';
+		LoadSignaturesFromFile(ctx.cheatFolderPath + "\\signatures.json");
+		return;
 	}
 
 	ParseSignatures(nlohmann::json::parse(out.str()));

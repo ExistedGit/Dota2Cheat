@@ -1,6 +1,10 @@
 #pragma once
 #define STB_IMAGE_IMPLEMENTATION
 
+// Will use local copy of signatures.json instead of the one from GitHub.
+// Use if you need to update them and the "cloud" version isn't updated yet/will not be updated
+//#define D2C_USE_LOCAL_SIGNATURES
+
 #include <cstdio>
 #include <iostream>
 #include "CheatSDK/Hooking.h"
@@ -89,7 +93,13 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	Interfaces::CVar->DumpConVarsToMap();
 	Signatures::FindSignatures();
+
+#ifdef D2C_USE_LOCAL_SIGNATURES
+	Signatures::LoadSignaturesFromFile(ctx.cheatFolderPath + "\\signatures.json");
+#else
 	Signatures::LoadSignaturesFromNetwork("https://raw.githubusercontent.com/ExistedGit/Dota2Cheat/main/Dota2Cheat/signatures.json");
+#endif
+
 	GameSystems::FindGameSystems();
 
 	if (useChangerCode) {
