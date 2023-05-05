@@ -68,11 +68,16 @@ This list is subject to frequent change as I'm testing new features
   
 * Information:
   * ~~Visible by Enemy~~ RIP on 21.02.2023, you shall not be forgotten
-  * Teleport Tracker — draws enemy TPs on the map
-  * AbilityESP & ItemESP + manabars
+  * Maphack:
+    * Teleport Tracker — draws enemy TPs on the map
+    * Particle MapHack — shows heroes in FoW when they create particles(if possible)
+  * AbilityESP & ItemESP
+  * Bars:
+    * Manabars
+    * HP amount displayed on healthbar
   * Indicators
     * Speed indicator — shows whether you are faster or slower than the enemy
-    * Kill indicator — shows if you can kill the enemy with a nuke(if your hero has one). If you can't, shows how much damage there is left to deal before you can.
+    * Kill indicator — shows if you can kill the enemy with a nuke(if your hero has one). If you can't, shows how much more health there is than the treshold.
   * Draw circles of custom radius around you hero(e. g. to see XP receiving range)
   * Shows point-cast spells(Sunstrike, Torrent, Light Strike Array)
   * Modifier Revealer:
