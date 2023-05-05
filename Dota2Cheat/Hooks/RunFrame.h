@@ -6,15 +6,17 @@
 #include "../Modules/Hacks/RiverPaint.h"
 #include "../Modules/Hacks/AutoHeal.h"
 #include "../Modules/Hacks/ShakerAttackAnimFix.h"
-#include "../Modules/UI/AbilityESP.h"
 #include "../Modules/Hacks/TargetedSpellHighlighter.h"
 #include "../Modules/Hacks/LinearProjectileWarner.h"
 #include "../Modules/Hacks/AutoPing.h"
 #include "../Modules/Hacks/AutoDodge.h"
 #include "../Modules/Hacks/AutoMidas.h"
-#include "../Modules/UI/UIOverhaul.h"
 #include "../Modules/Hacks/DotaPlusUnlocker.h"
 #include "../Modules/Hacks/SkinChanger.h"
+
+#include "../Modules/UI/UIOverhaul.h"
+#include "../Modules/UI/AbilityESP.h"
+#include "../Modules/UI/ParticleMaphack.h"
 
 #include "../Modules/Utility/ParticleGC.h"
 

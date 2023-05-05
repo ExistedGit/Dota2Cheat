@@ -9,7 +9,7 @@ ParticleWrapper Hacks::ParticleAbilityWarner::DrawTrajectory(Vector begin, Vecto
 	auto pw = GameSystems::ParticleManager->CreateParticle(
 		"particles/ui_mouseactions/range_finder_tower_line.vpcf",
 		PATTACH_WORLDORIGIN,
-		ctx.assignedHero
+		ctx.localHero
 	);
 	pw.particle
 		->SetControlPoint(2, begin)
@@ -22,7 +22,7 @@ ParticleWrapper Hacks::ParticleAbilityWarner::DrawRadius(Vector pos, float radiu
 	auto pw = GameSystems::ParticleManager->CreateParticle(
 		"particles/units/heroes/hero_snapfire/hero_snapfire_range_finder_aoe.vpcf",
 		PATTACH_WORLDORIGIN,
-		ctx.assignedHero
+		ctx.localHero
 	);
 	pw.particle
 		->SetControlPoint(0, pos)
@@ -79,7 +79,7 @@ void Hacks::ParticleAbilityWarner::ProcessParticleMsg(NetMessageHandle_t* msgHan
 		auto updParticleEnt = pmMsg->update_particle_ent();
 		auto owner = Interfaces::EntitySystem->GetEntity(NH2IDX(updParticleEnt.entity_handle()));
 		// If they're not an enemy we dequeue the particle's index
-		if (!owner || owner->IsSameTeam(ctx.assignedHero)) {
+		if (!owner || owner->IsSameTeam(ctx.localHero)) {
 			queuedParticleIndexes.erase(msgIndex);
 			break;
 		}

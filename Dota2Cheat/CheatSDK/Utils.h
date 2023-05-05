@@ -19,8 +19,11 @@ inline ImVec2 WorldToScreen(const Vector& pos) {
 }
 
 inline bool IsPointOnScreen(const ImVec2& pos) {
-	const auto screenSize = glfwGetVideoMode(glfwGetPrimaryMonitor());
-	ImRect screen{ 0,0 ,(float)screenSize->width, (float)screenSize->height };
+	if (!GameSystems::DotaHud)
+		return false;
+
+	const auto screenSize = GameSystems::DotaHud->GetScreenSize();
+	ImRect screen{ 0, 0, screenSize.x, screenSize.y };
 	return screen.Contains(pos);
 }
 

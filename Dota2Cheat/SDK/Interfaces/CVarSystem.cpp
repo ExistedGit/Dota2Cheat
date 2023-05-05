@@ -30,7 +30,7 @@ void CVarSystem::DumpConVarsToMap() {
 			info.var = list[i].var;
 			info.index = i;
 
-			CVar[var->name] = info;
+			CVars[var->name] = info;
 		}
 	}
 }
@@ -50,7 +50,7 @@ void CVarSystem::DumpConVarsToFile(const char* path) {
 }
 
 void CVarSystem::SetConvars() {
-	CVar["sv_cheats"].var->value.boolean = true;
-	CVar["r_farz"].var->value.flt = 10000.0f;
-	CVar["fog_enable"].var->value.boolean = false;
+	CVars["sv_cheats"].var->value.boolean = true;
+	CVars["r_farz"].var->value.flt = 10000.0f;
+	CVars["fog_enable"].var->value.boolean = false;
 }

@@ -39,7 +39,7 @@ void Hacks::UIOverhaul::DrawBars() {
 	for (auto& [hero, data] : topBar) {
 		if (!IsValidReadPtr(hero) ||
 			!IsValidReadPtr(hero->GetIdentity()) ||
-			hero->IsSameTeam(ctx.assignedHero) ||
+			hero->IsSameTeam(ctx.localHero) ||
 			!hero->IsTargetable())
 			continue;
 		if (!Interfaces::UIEngine->IsValidPanelPointer(data.panel))

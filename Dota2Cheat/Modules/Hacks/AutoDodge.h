@@ -1,5 +1,6 @@
 #pragma once
-#include "../../CheatSDK/Config.h"
+#include "../../SDK/pch.h"
+#include "../../CheatSDK/include.h"
 
 namespace Hacks {
 	class AutoDodge {

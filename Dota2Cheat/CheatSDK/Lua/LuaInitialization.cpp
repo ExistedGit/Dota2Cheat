@@ -152,7 +152,7 @@ void Lua::SetGlobals(sol::state& lua) {
 	lua["ParticleManager"] = GameSystems::ParticleManager;
 	lua["GameRules"] = GameSystems::GameRules;
 
-	ctx.lua["localHero"] = ctx.assignedHero;
+	ctx.lua["localHero"] = ctx.localHero;
 	ctx.lua["localPlayer"] = ctx.localPlayer;
 }
 

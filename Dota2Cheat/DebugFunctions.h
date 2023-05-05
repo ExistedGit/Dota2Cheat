@@ -28,7 +28,7 @@ inline void LogModifiers(CDOTABaseNPC* npc) {
 }
 inline void LogInvAndAbilities(CDOTABaseNPC* npc = nullptr) {
 	if (npc == nullptr)
-		npc = ctx.assignedHero;
+		npc = ctx.localHero;
 
 	std::cout << std::dec;
 	std::cout << "abilities: " << '\n';

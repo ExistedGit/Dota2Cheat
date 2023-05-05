@@ -21,12 +21,16 @@ void ESP::AbilityESP::SubscribeHeroes() {
 }
 
 void ESP::AbilityESP::Reset() {
+	MTM_LOCK;
+
 	Initialized = false;
 	EnemyAbilities.clear();
 	EnemyItems.clear();
 }
 
 void ESP::AbilityESP::UpdateHeroData() {
+	MTM_LOCK;
+
 	SubscribeHeroes();
 	for (auto& hero : ctx.heroes) {
 		DrawableHeroes[hero] =
@@ -46,12 +50,12 @@ bool ESP::AbilityESP::CanDraw(CDOTABaseNPC_Hero* hero) {
 	bool ret = hero
 		&& DrawableHeroes[hero]
 		&& !hero->IsIllusion()
-		&& hero != ctx.assignedHero
+		&& hero != ctx.localHero
 		&& hero->GetLifeState() == 0
 		&& IsEntityOnScreen(hero);
 	if (!Config::AbilityESP::ShowAllies)
 		// I wish they made &&= an operator
-		ret = ret && !hero->IsSameTeam(ctx.assignedHero);
+		ret = ret && !hero->IsSameTeam(ctx.localHero);
 	return ret;
 }
 
@@ -350,11 +354,11 @@ void ESP::AbilityESP::DrawItemCircle(const AbilityData& data, const ImVec2& xy1,
 }
 
 void ESP::AbilityESP::DrawESP() {
+
 	if (!Initialized || !Config::AbilityESP::Enabled)
 		return;
 
-	if (Config::AbilityESP::ShowManabars)
-		DrawManabars();
+	MTM_LOCK;
 
 	DrawAbilities();
 	DrawItems();
@@ -424,38 +428,6 @@ void ESP::AbilityESP::DrawChargeCounter(int charges, const ImVec2& pos, int radi
 		ImVec4(1, 1, 1, 1),
 		true,
 		false);
-}
-
-void ESP::AbilityESP::DrawManabars() {
-	// Fine-tuned values
-	// idk why it's this strange
-	constexpr static ImVec2 manabarSize{ 101, 8 };
-	for (auto& hero : ctx.heroes) {
-		if (hero->IsSameTeam(ctx.assignedHero))
-			continue;
-
-		if (!CanDraw(hero))
-			continue;
-
-		int hbo = hero->Member<int>(Netvars::C_DOTA_BaseNPC::m_iHealthBarOffset);
-
-		Vector pos = hero->IsMoving()
-			? pos = hero->GetForwardVector(hero->GetMoveSpeed() * (-0.0167f)) // Going back 1 frame to synchronize with the game
-			: pos = hero->GetPos();
-		pos.z += hbo;
-		int dx = 0, dy = 0;
-		Signatures::WorldToScreen(&pos, &dx, &dy, nullptr);
-		dy -= 14;
-		dx += 4;
-		// Background
-		DrawRectFilled(
-			ImVec2(dx - 110 / 2, dy - manabarSize.y / 2),
-			manabarSize, ImVec4(0, 0, 0, 1));
-		// Manabar
-		DrawRectFilled(
-			ImVec2(dx - 110 / 2 + 1, dy - manabarSize.y / 2 + 1),
-			ImVec2(manabarSize.x * (hero->GetMana() / hero->GetMaxMana()) - 2, manabarSize.y - 2), ImVec4(0, 0.5, 1, 1));
-	}
 }
 
 void ESP::AbilityESP::UpdateAbilities(CDOTABaseNPC_Hero* hero) {

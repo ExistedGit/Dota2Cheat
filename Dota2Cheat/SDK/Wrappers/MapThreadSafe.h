@@ -11,6 +11,14 @@ private:
 	std::mutex _m;
 
 public:
+	void lock() {
+		_m.lock();
+	}
+
+	void unlock() {
+		_m.unlock();
+	}
+
 	auto begin() {
 		std::lock_guard<std::mutex> lk(this->_m);
 		return this->_map.begin();

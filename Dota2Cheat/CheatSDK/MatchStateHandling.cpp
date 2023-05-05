@@ -42,13 +42,15 @@ void CacheAllEntities() {
 }
 void OnUpdatedAssignedHero()
 {
-	ctx.lua["localHero"] = ctx.assignedHero;
+	ctx.lua["localHero"] = ctx.localHero;
 	Lua::CallModuleFunc("OnUpdatedAssignedHero");
 
-	for (auto& modifier : ctx.assignedHero->GetModifierManager()->GetModifierList())
-		Hooks::CacheIfItemModifier(modifier); // for registering important items on reinjection
+	for (auto& modifier : ctx.localHero->GetModifierManager()->GetModifierList()) {
+		Hooks::CacheIfItemModifier(modifier); // for registering items on reinjection
+		Hooks::CacheModifier(modifier);
+	}
 
-	Modules::ShakerAttackAnimFix.SubscribeEntity(ctx.assignedHero);
+	Modules::ShakerAttackAnimFix.SubscribeEntity(ctx.localHero);
 }
 
 void UpdateAssignedHero() {
@@ -60,7 +62,7 @@ void UpdateAssignedHero() {
 		auto assignedHero = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(H2IDX(ctx.localPlayer->GetAssignedHeroHandle()));
 
 		ctx.assignedHeroHandle = heroHandle;
-		ctx.assignedHero = assignedHero;
+		ctx.localHero = assignedHero;
 
 		LogF(LP_INFO, "Changed hero: \n\tHandle: {:X}\n\tEntity: {}", heroHandle, (void*)assignedHero);
 		if (assignedHero)
@@ -96,7 +98,7 @@ void EnteredPreGame() {
 		break;
 	}
 
-	ctx.gameStage = Context::GameStage::PRE_GAME;
+	ctx.gameStage = GameStage::PRE_GAME;
 
 	if (!oFireEventClientSide) {
 		auto vmt = VMT(GameSystems::GameEventManager);
@@ -118,16 +120,16 @@ void EnteredInGame() {
 
 	UpdateAssignedHero();
 
-	if (!ctx.assignedHero)
+	if (!ctx.localHero)
 		return;
 
-	//Config::AutoPingTarget = ctx.assignedHero;
+	//Config::AutoPingTarget = ctx.localHero;
 	//FillPlayerList();
 
 	Log(LP_INFO, "GAME STAGE: INGAME");
 	LogF(LP_DATA, "Local Player: {}\n\tSTEAM ID: {}", (void*)ctx.localPlayer, ctx.localPlayer->GetSteamID());
-	if (ctx.assignedHero->GetUnitName())
-		LogF(LP_DATA, "Assigned Hero: {} {}", (void*)ctx.assignedHero, ctx.assignedHero->GetUnitName());
+	if (ctx.localHero->GetUnitName())
+		LogF(LP_DATA, "Assigned Hero: {} {}", (void*)ctx.localHero, ctx.localHero->GetUnitName());
 
 	Interfaces::CVar->SetConvars();
 
@@ -148,11 +150,11 @@ void EnteredInGame() {
 
 	Lua::CallModuleFunc("OnJoinedMatch");
 
-	ctx.gameStage = Context::GameStage::IN_GAME;
+	ctx.gameStage = GameStage::IN_GAME;
 }
 
 void LeftMatch() {
-	ctx.gameStage = Context::GameStage::NONE;
+	ctx.gameStage = GameStage::NONE;
 
 	Lua::CallModuleFunc("OnLeftMatch");
 
@@ -173,9 +175,10 @@ void LeftMatch() {
 	GameSystems::MinimapRenderer = nullptr;
 	GameSystems::DotaHud = nullptr;
 	GameSystems::GameEventManager = nullptr;
+	ClearHeroData();
 
 	ctx.localPlayer = nullptr;
-	ctx.assignedHero = nullptr;
+	ctx.localHero = nullptr;
 	ctx.assignedHeroHandle = 0xFFFFFFFF;
 
 	Lua::SetGlobals(ctx.lua);
@@ -187,13 +190,13 @@ void LeftMatch() {
 void CheckMatchState() {
 	if (Interfaces::Engine->IsInGame()) {
 		//Modules::AutoPick.TryAutoBan();
-		if (ctx.gameStage == Context::GameStage::NONE)
+		if (ctx.gameStage == GameStage::NONE)
 			EnteredPreGame();
-		else if (ctx.gameStage == Context::GameStage::PRE_GAME)
+		else if (ctx.gameStage == GameStage::PRE_GAME)
 			EnteredInGame();
-		else if (ctx.gameStage == Context::GameStage::IN_GAME)
+		else if (ctx.gameStage == GameStage::IN_GAME)
 			UpdateAssignedHero();
 	}
-	else if (ctx.gameStage != Context::GameStage::NONE)
+	else if (ctx.gameStage != GameStage::NONE)
 		LeftMatch();
 }

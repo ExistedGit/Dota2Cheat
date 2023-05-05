@@ -28,7 +28,7 @@ void Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t o
 	if (!issuer) { // issuer may be nullptr if it's HERO_ONLY or something
 		switch (orderIssuer) {
 		case DOTA_ORDER_ISSUER_HERO_ONLY:
-			issuer = ctx.assignedHero;
+			issuer = ctx.localHero;
 			break;
 		case DOTA_ORDER_ISSUER_CURRENT_UNIT_ONLY:
 		case DOTA_ORDER_ISSUER_SELECTED_UNITS:
@@ -93,14 +93,14 @@ void Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t o
 
 			std::map<CDOTAItem*, ItemStat> origItemStats{
 			};
-			if (ctx.ImportantItems["power_treads"]) {
-				origItemStats[ctx.ImportantItems["power_treads"]] = ctx.ImportantItems["power_treads"]->GetItemStat();
-				ChangeItemStatTo(ctx.ImportantItems["power_treads"], ItemStat::AGILITY, player, issuer);
+			if (HeroData[ctx.localHero].Items["power_treads"]) {
+				origItemStats[HeroData[ctx.localHero].Items["power_treads"]] = HeroData[ctx.localHero].Items["power_treads"]->GetItemStat();
+				ChangeItemStatTo(HeroData[ctx.localHero].Items["power_treads"], ItemStat::AGILITY, player, issuer);
 				callPickup = true;
 			}
-			if (ctx.ImportantItems["vambrace"]) {
-				origItemStats[ctx.ImportantItems["vambrace"]] = ctx.ImportantItems["vambrace"]->GetItemStat();
-				ChangeItemStatTo(ctx.ImportantItems["vambrace"], ItemStat::AGILITY, player, issuer);
+			if (HeroData[ctx.localHero].Items["vambrace"]) {
+				origItemStats[HeroData[ctx.localHero].Items["vambrace"]] = HeroData[ctx.localHero].Items["vambrace"]->GetItemStat();
+				ChangeItemStatTo(HeroData[ctx.localHero].Items["vambrace"], ItemStat::AGILITY, player, issuer);
 				callPickup = true;
 			}
 
@@ -142,7 +142,7 @@ void Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t o
 					ChangeItemStatTo(item, stat, player, issuer);
 
 				for (auto& item : ctx.physicalItems) { // wtf is with this indentation???
-					if (IsWithinRadius(item->GetPos(), ctx.assignedHero->GetPos(), 50))
+					if (IsWithinRadius(item->GetPos(), ctx.localHero->GetPos(), 50))
 						oPrepareUnitOrders(player, DOTA_UNIT_ORDER_PICKUP_ITEM, item->GetIndex(), &Vector::Zero, 0, DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY, issuer, true, false);
 				}
 				ctx.physicalItems.clear();

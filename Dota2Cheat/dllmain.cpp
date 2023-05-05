@@ -19,6 +19,7 @@
 #include "UI/Pages/MainMenu.h"
 #include "UI/Pages/AutoPickSelectionGrid.h"
 #include "Modules/Hacks/LastHitMarker.h"
+#include "Modules/UI/BarAugmenter.h"
 
 GLFWwindow* window_menu{};
 
@@ -89,7 +90,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Interfaces::CVar->DumpConVarsToMap();
 	Signatures::FindSignatures();
 	Signatures::LoadSignaturesFromNetwork("https://raw.githubusercontent.com/ExistedGit/Dota2Cheat/main/Dota2Cheat/signatures.json");
-
 	GameSystems::FindGameSystems();
 
 	if (useChangerCode) {
@@ -189,8 +189,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		ImGui::PushFont(DrawData.Fonts["MSTrebuchet"][24]);
 		if (
 			GameSystems::GameUI->GetUIState() == DOTA_GAME_UI_DOTA_INGAME
-			&& ctx.gameStage == Context::GameStage::IN_GAME
-			&& ctx.assignedHero
+			&& ctx.gameStage == GameStage::IN_GAME
+			&& ctx.localHero
 			) {
 			Modules::AbilityESP.DrawESP();
 			// Modules::UIOverhaul.DrawBars();
@@ -199,6 +199,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			Modules::SpeedIndicator.Draw();
 			Modules::BlinkRevealer.Draw();
 			Modules::KillIndicator.Draw();
+			Modules::ParticleMaphack.Draw();
+			Modules::BarAugmenter.Draw();
 
 			//const auto ScreenSize = glfwGetVideoMode(glfwGetPrimaryMonitor());
 			//auto ActualMinimapSize = static_cast<float>(GameSystems::MinimapRenderer->GetMinimapSize().y - 28);
@@ -260,7 +262,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwDestroyWindow(window_menu);
 	glfwTerminate();
 
-	if (ctx.gameStage != Context::GameStage::NONE)
+	if (ctx.gameStage != GameStage::NONE)
 		LeftMatch();
 	Modules::TargetedSpellHighlighter.OnDisableTargetedSpells();
 	Modules::TargetedSpellHighlighter.OnDisableLinken();

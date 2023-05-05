@@ -4,11 +4,11 @@ void Interfaces::FindInterfaces() {
 	Log(LP_INFO, "[INTERFACES]");
 	Engine = GetInterface<CEngineClient>("engine2.dll", "Source2EngineToClient001", 177);
 	Client = GetInterface<VClass>("client.dll", "Source2Client002");
-	CVar = GetInterface<CVarSystem>("tier0.dll", "VEngineCvar007", 41);
+	CVar = GetInterface<CVarSystem>("tier0.dll", "VEngineCvar007", 42);
 	ResourceSystem = GetInterface<CResourceSystem>("resourcesystem.dll", "ResourceSystem013", 78);
 	EntitySystem = *Address(Interfaces::Client->GetVFunc(25).ptr).GetAbsoluteAddress<CGameEntitySystem**>(3, 7);
 	SteamClient = GetInterface<ISteamClient>("steamclient64.dll", "SteamClient017");
-	FileSystem = GetInterface<CBaseFileSystem>("filesystem_stdio.dll", "VFileSystem017", 144);
+	FileSystem = GetInterface<CBaseFileSystem>("filesystem_stdio.dll", "VFileSystem017", 136);
 
 	Panorama = GetInterface<VClass>("panorama.dll", "PanoramaUIEngine001");
 	UIEngine = Panorama->Member<Panorama::CUIEngineSource2*>(0x28);

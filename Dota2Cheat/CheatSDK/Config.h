@@ -62,8 +62,12 @@ namespace Config {
 		inline bool Enabled;
 		inline bool ShowAllies;
 		inline float UIScale;
-		inline bool ShowManabars;
 		inline bool ShowCooldownDecimals;
+	}
+
+	namespace Bars {
+		inline bool ManaBar;
+		inline bool HPNumbers;
 	}
 
 	namespace AutoAccept {
@@ -85,8 +89,10 @@ namespace Config {
 		inline bool Kill;
 		inline float KillScale;
 	}
+
 	namespace TPTracker {
 		inline bool Enabled;
+		inline int FadeDuration;
 	}
 
 	inline bool BadCastPrevention;
@@ -126,6 +132,10 @@ namespace Config {
 	}
 	namespace ManaAbuse {
 		inline bool Enabled;
+	}
+	namespace ParticleMapHack {
+		inline bool Enabled;
+		inline int FadeDuration;
 	}
 
 	inline bool LastHitMarker;

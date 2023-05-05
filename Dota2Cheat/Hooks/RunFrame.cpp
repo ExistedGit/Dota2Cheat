@@ -3,7 +3,7 @@
 #include <format>
 
 void UpdateCameraDistance() {
-	static auto varInfo = CVarSystem::CVar["dota_camera_distance"];
+	static auto varInfo = CVarSystem::CVars["dota_camera_distance"];
 	if (Config::CameraDistance != varInfo.var->value.flt) {
 		varInfo.var->value.flt = Config::CameraDistance;
 		Interfaces::CVar->TriggerCallback(varInfo);
@@ -11,7 +11,7 @@ void UpdateCameraDistance() {
 }
 
 void UpdateWeather() {
-	static auto varInfo = CVarSystem::CVar["cl_weather"];
+	static auto varInfo = CVarSystem::CVars["cl_weather"];
 	varInfo.var->value.i32 = Config::Changer::WeatherListIdx;
 }
 
@@ -34,7 +34,7 @@ void Hooks::EntityIteration() {
 				continue;
 			// Morphling's snake_case technologies
 			static long long last_pickup_time = 0;
-			if (IsWithinRadius(rune->GetPos(), ctx.assignedHero->GetPos(), 140.0f) &&
+			if (IsWithinRadius(rune->GetPos(), ctx.localHero->GetPos(), 140.0f) &&
 				GetTickCount64() - last_pickup_time >= 200) {
 
 				CDOTAClientMsg_ExecuteOrders orders_message;
@@ -44,7 +44,7 @@ void Hooks::EntityIteration() {
 				order->set_target_index(rune->GetIndex());
 				order->set_ability_index(0);
 				order->set_sequence_number(ctx.localPlayer->GetSequenceNum() + 1);
-				order->add_units(ctx.assignedHero->GetIndex());
+				order->add_units(ctx.localHero->GetIndex());
 
 				Hooks::oSendNetMessage(Hooks::NetChan, msg_id, &orders_message, BUF_DEFAULT);
 				last_pickup_time = GetTickCount64();
@@ -72,8 +72,8 @@ void Hooks::hkRunFrame(void* thisptr) {
 
 	if (!isInGame ||
 		!ctx.localPlayer ||
-		!ctx.assignedHero ||
-		ctx.gameStage != Context::GameStage::IN_GAME) {
+		!ctx.localHero ||
+		ctx.gameStage != GameStage::IN_GAME) {
 		oRunFrame(thisptr);
 		return;
 	}
@@ -84,14 +84,19 @@ void Hooks::hkRunFrame(void* thisptr) {
 	UpdateCameraDistance();
 	UpdateWeather();
 
+	for (auto hero : ctx.heroes) {
+		HeroData[hero].AbsOrigin = hero->GetPos();
+		HeroData[hero].HealthbarW2S = WorldToScreen(hero->GetHealthBarPos());
+	}
+
 	if (!GameSystems::GameRules->IsGamePaused()) {
 
-		Modules::TPTracker.CacheHeroIcons();
 		Modules::TPTracker.FrameBasedLogic();
 		Modules::BlinkRevealer.FrameBasedLogic();
+		Modules::ParticleMaphack.FrameBasedLogic();
 
-		if (ctx.assignedHero->GetLifeState() == 0) {
-			Modules::AutoHeal.FrameBasedLogic(ctx.assignedHero);
+		if (ctx.localHero->GetLifeState() == 0) {
+			Modules::AutoHeal.FrameBasedLogic(ctx.localHero);
 			Modules::AutoPing.FrameBasedLogic();
 			Modules::AutoDodge.FrameBasedLogic();
 			Modules::AutoMidas.FrameBasedLogic();
@@ -111,7 +116,7 @@ void Hooks::hkRunFrame(void* thisptr) {
 	}
 #ifdef _DEBUG
 	if (IsKeyPressed(VK_NUMPAD7)) {
-		auto wearables = ctx.assignedHero->Member < CUtlVector<ENT_HANDLE>>(Netvars::C_BaseCombatCharacter::m_hMyWearables);
+		auto wearables = ctx.localHero->Member < CUtlVector<ENT_HANDLE>>(Netvars::C_BaseCombatCharacter::m_hMyWearables);
 		for (auto& w : wearables) {
 			Log(LP_NONE, (void*)Interfaces::EntitySystem->GetEntity(H2IDX(w)));
 		};
@@ -163,7 +168,7 @@ void Hooks::hkRunFrame(void* thisptr) {
 			order->set_target_index(rune->GetIndex());
 			order->set_ability_index(0);
 			order->set_sequence_number(ctx.localPlayer->GetSequenceNum() + 1);
-			order->add_units(ctx.assignedHero->GetIndex());
+			order->add_units(ctx.localHero->GetIndex());
 
 			Hooks::oSendNetMessage(Hooks::NetChan, msg_id, &orders_message, BUF_DEFAULT);
 		}

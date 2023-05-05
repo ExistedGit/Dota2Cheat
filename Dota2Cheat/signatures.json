@@ -11,6 +11,10 @@
     "signature": "48 83 EC ? B9 ? ? ? ? E8 ? ? ? ? 48 85 C0 74 ? 48 8D 0D",
     "module": "client.dll"
   },
+  "PlayUISoundScript": {
+    "signature": "E8 ? ? ? ? FF 4E 30",
+    "module": "client.dll"
+  },
   "SaveSerializedSOCache": {
     "signature": "4C 8B DC 57 48 81 EC ? ? ? ? 48 8B 05",
     "module": "client.dll"

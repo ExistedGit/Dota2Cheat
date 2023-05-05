@@ -188,7 +188,7 @@
     <ClCompile Include="CheatSDK\Config.cpp" />
     <ClCompile Include="CheatSDK\Hooking.cpp" />
     <ClCompile Include="CheatSDK\Utils.cpp" />
-    <ClCompile Include="Hooks\EntitySystemEvents.cpp" />
+    <ClCompile Include="Hooks\EntityEvents.cpp" />
     <ClCompile Include="Hooks\ModifierEvents.cpp" />
     <ClCompile Include="Hooks\NetChannel.cpp" />
     <ClCompile Include="Hooks\OnAcceptMatch.cpp" />
@@ -222,9 +222,11 @@
     <ClCompile Include="Modules\Hacks\SkinChanger.cpp" />
     <ClCompile Include="Modules\Hacks\TargetedSpellHighlighter.cpp" />
     <ClCompile Include="Modules\UI\AbilityESP.cpp" />
+    <ClCompile Include="Modules\UI\BarAugmenter.cpp" />
     <ClCompile Include="Modules\UI\BlinkRevealer.cpp" />
     <ClCompile Include="Modules\UI\Indicators\KillIndicator.cpp" />
     <ClCompile Include="Modules\UI\Indicators\SpeedIndicator.cpp" />
+    <ClCompile Include="Modules\UI\ParticleMaphack.cpp" />
     <ClCompile Include="Modules\UI\TPTracker.cpp" />
     <ClCompile Include="Modules\Hacks\TrueSightESP.cpp" />
     <ClCompile Include="Modules\UI\UIOverhaul.cpp" />
@@ -471,7 +473,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CheatSDK\DrawData.h" />
+    <ClInclude Include="Modules\UI\BarAugmenter.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Modules\UI\BlinkRevealer.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Modules\UI\MultiThreadModule.h" />
+    <ClInclude Include="Modules\UI\ParticleMaphack.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -480,8 +491,6 @@
     <ClInclude Include="CheatSDK\include.h" />
     <ClInclude Include="CheatSDK\Utils.h" />
     <ClInclude Include="Hooks\GameEvents.h" />
-    <ClInclude Include="Hooks\MinimapRenderer.h" />
-    <ClInclude Include="Hooks\UIState.h" />
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
     <ClInclude Include="Modules\Hacks\TrueSightESP.h" />
     <ClInclude Include="Modules\UI\Indicators\KillIndicator.h">
@@ -543,6 +552,7 @@
     <ClInclude Include="SDK\GameSystems\C_DOTA_PlayerResource.h" />
     <ClInclude Include="SDK\GameSystems\C_DOTA_ProjectileManager.h" />
     <ClInclude Include="SDK\Globals\GameSystems.h" />
+    <ClInclude Include="CheatSDK\HeroData.h" />
     <ClInclude Include="SDK\Interfaces\CBaseFileSystem.h" />
     <ClInclude Include="SDK\GameSystems\CDOTAParticleManager.h" />
     <ClInclude Include="SDK\Interfaces\CGameEntitySystem.h" />
@@ -615,7 +625,7 @@
     <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h" />
     <ClInclude Include="Utils\Drawing.h" />
     <ClInclude Include="SDK\Globals\Context.h" />
-    <ClInclude Include="Hooks\EntitySystemEvents.h" />
+    <ClInclude Include="Hooks\EntityEvents.h" />
     <ClInclude Include="CheatSDK\EventListeners.h" />
     <ClInclude Include="CheatSDK\Hooking.h" />
     <ClInclude Include="Modules\Hacks\LinearProjectileWarner.h" />
@@ -661,7 +671,6 @@
     <ClInclude Include="SDK\VTableIndexes.h" />
     <ClInclude Include="SDK\Interfaces\CVarSystem.h" />
     <ClInclude Include="SDK\Base\CUtlVector.h" />
-    <ClInclude Include="dllmain.h" />
     <ClInclude Include="SDK\Enums.h" />
     <ClInclude Include="SDK\Interfaces\IEngineClient.h" />
     <ClInclude Include="CheatSDK\MatchStateHandling.h" />

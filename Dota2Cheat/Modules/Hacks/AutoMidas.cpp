@@ -8,7 +8,7 @@ void Hacks::AutoMidas::FrameBasedLogic() {
 	//	GameSystems::GameRules->GetGameTime() - lastPickupTime < usePeriod)
 	//	return;
 
-	auto midas = ctx.ImportantItems["hand_of_midas"];
+	auto midas = HeroData[ctx.localHero].Items["hand_of_midas"];
 
 	if (!midas || midas->GetCooldown() != 0)
 		return;
@@ -16,7 +16,7 @@ void Hacks::AutoMidas::FrameBasedLogic() {
 	for (auto& wrapper : ctx.creeps) {
 		auto creep = wrapper.ent;
 		// If the creep is visible, not one of ours, is alive, is within Midas's radius and its name matches one of the filters
-		if (creep->IsSameTeam(ctx.assignedHero))
+		if (creep->IsSameTeam(ctx.localHero))
 			continue;
 
 		if (!creep->IsTargetable())
@@ -34,7 +34,7 @@ void Hacks::AutoMidas::FrameBasedLogic() {
 		if (!IsWithinRadius
 		(
 			creep->GetPos(),
-			ctx.assignedHero->GetPos(),
+			ctx.localHero->GetPos(),
 			midas->GetEffectiveCastRange()
 		)
 			)
@@ -50,7 +50,7 @@ void Hacks::AutoMidas::FrameBasedLogic() {
 			&Vector::Zero,
 			midas->GetIndex(),
 			DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
-			ctx.assignedHero);
+			ctx.localHero);
 
 		lastTime = GameSystems::GameRules->GetGameTime();
 	}

@@ -5,9 +5,9 @@ void Hacks::SpeedIndicator::Draw() {
 		return;
 
 	const static auto icon = (void*)texManager.GetNamedTexture("icon_speed");
-	int mySpeed = ctx.assignedHero->GetIdealSpeed();
+	int mySpeed = ctx.localHero->GetIdealSpeed();
 	for (auto& hero : ctx.heroes) {
-		if (hero->IsSameTeam(ctx.assignedHero)
+		if (hero->IsSameTeam(ctx.localHero)
 			|| !hero->IsTargetable()
 			|| hero->IsIllusion()
 			|| !IsEntityOnScreen(hero))

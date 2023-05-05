@@ -19,7 +19,7 @@ void Hacks::AegisSnatcher::FrameBasedLogic() {
 	}
 
 	bool slotsFull = true;
-	auto items = ctx.assignedHero->GetInventory()->GetItems();
+	auto items = ctx.localHero->GetInventory()->GetItems();
 	for (int i = 0; i < 6; ++i)
 		if (!HVALID(items[i])) {
 			slotsFull = false;
@@ -30,7 +30,7 @@ void Hacks::AegisSnatcher::FrameBasedLogic() {
 	if (slotsFull)
 		return;
 
-	if (!IsWithinRadius(aegis->GetPos(), ctx.assignedHero->GetPos(), 130))
+	if (!IsWithinRadius(aegis->GetPos(), ctx.localHero->GetPos(), 130))
 		return;
 
 	auto gameTime = GameSystems::GameRules->GetGameTime();
@@ -42,7 +42,7 @@ void Hacks::AegisSnatcher::FrameBasedLogic() {
 			&Vector::Zero,
 			0,
 			DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
-			ctx.assignedHero,
+			ctx.localHero,
 			false,
 			true);
 

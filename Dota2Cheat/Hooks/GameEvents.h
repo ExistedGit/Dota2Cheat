@@ -4,7 +4,7 @@
 using FireEventClientSideFn = bool(*)(CGameEventManager*, CGameEvent*);
 inline FireEventClientSideFn oFireEventClientSide{};
 inline bool hkFireEventClientSide(CGameEventManager* thisptr, CGameEvent* ev) {
-	if (IsValidReadPtr(ev) && ctx.gameStage == Context::GameStage::IN_GAME)
+	if (IsValidReadPtr(ev) && ctx.gameStage == GameStage::IN_GAME)
 		Lua::CallModuleFunc("OnGameEvent", ev);
 
 	return oFireEventClientSide(thisptr, ev);

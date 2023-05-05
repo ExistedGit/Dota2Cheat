@@ -11,7 +11,7 @@ public:
 	/// <summary>
 	/// Opens a VPK resource file
 	/// </summary>
-	/// <param name="filePath">resource path in "scripts/npc/npc_ctx.heroes.txt" format</param>
+	/// <param name="filePath">resource path in "scripts/npc/npc_heroes.txt" format</param>
 	/// <param name="options">C-style read-write permissions like "r"/"w+" etc</param>
 	/// <param name="unk">I don't exactly know what that is, doesn't get checked if reading</param>
 	/// <param name="pathId">Narrows the scope for search or something, LWSS knows better</param>

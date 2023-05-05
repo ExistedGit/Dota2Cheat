@@ -1,4 +1,3 @@
-#include "../../SDK/pch.h"
 #include "AutoDodge.h"
 
 void Hacks::AutoDodge::FrameBasedLogic() {
@@ -6,7 +5,7 @@ void Hacks::AutoDodge::FrameBasedLogic() {
 		|| !GameSystems::ProjectileManager)
 		return;
 
-	if (!ctx.ImportantItems["manta"] && !ctx.ImportantItems["bottle"])
+	if (!HeroData[ctx.localHero].Items["manta"] && !HeroData[ctx.localHero].Items["bottle"])
 		return;
 
 	for (auto proj : GameSystems::ProjectileManager->m_pTrackingProjectiles) {
@@ -16,8 +15,8 @@ void Hacks::AutoDodge::FrameBasedLogic() {
 		auto target = proj->GetTarget();
 		auto source = proj->GetSource();
 
-		if (target != ctx.assignedHero ||
-			(source && source->IsSameTeam(ctx.assignedHero)))
+		if (target != ctx.localHero ||
+			(source && source->IsSameTeam(ctx.localHero)))
 			continue;
 
 		//if (counterspell && counterspell->GetCooldown() == 0)
@@ -30,15 +29,15 @@ void Hacks::AutoDodge::FrameBasedLogic() {
 				continue;
 		}
 
-		auto usedItem = ctx.ImportantItems["bottle"] ? ctx.ImportantItems["bottle"] : ctx.ImportantItems["manta"];
+		auto usedItem = HeroData[ctx.localHero].Items["bottle"] ? HeroData[ctx.localHero].Items["bottle"] : HeroData[ctx.localHero].Items["manta"];
 		//if (counterspell && counterspell->GetCooldown() == 0)
 		//	usedItem = counterspell;
 		//else
 		if (!usedItem ||
 			(
-				usedItem == ctx.ImportantItems["bottle"] && // if we can use bottle
+				usedItem == HeroData[ctx.localHero].Items["bottle"] && // if we can use bottle
 				usedItem->Member<RuneType>(Netvars::C_DOTA_Item_EmptyBottle::m_iStoredRuneType) != DOTA_RUNE_ILLUSION // and it has no illusion rune
-				&& !((usedItem = ctx.ImportantItems["manta"]) && // and if we don't have manta
+				&& !((usedItem = HeroData[ctx.localHero].Items["manta"]) && // and if we don't have manta
 					usedItem->GetCooldown() == 0) // or it's on cooldown
 				)
 			)
@@ -50,7 +49,7 @@ void Hacks::AutoDodge::FrameBasedLogic() {
 			&Vector::Zero,
 			usedItem->GetIndex(),
 			DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
-			ctx.assignedHero);
+			ctx.localHero);
 		break;
 	}
 }

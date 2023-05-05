@@ -18,14 +18,14 @@ void Hooks::CacheIfItemModifier(CDOTAModifier* modifier) {
 		return;
 
 	auto itemName = modName.substr(9); // removing the "modifier_" prefix
-	if (modifier->GetOwner() == ctx.assignedHero)
+	if (modifier->GetOwner() == ctx.localHero)
 	{
 		auto searchName = importantItemNames.count(modName) ?
 			importantItemNames[modName] :
 			itemName.substr(5);
 		auto item = modifier->GetOwner()->FindItemBySubstring(searchName.c_str());
 		if (item)
-			ctx.ImportantItems[searchName] = item;
+			HeroData[ctx.localHero].Items[searchName] = item;
 	}
 
 	auto item = modifier->GetOwner()->FindItemBySubstring(itemName.data());
@@ -38,8 +38,9 @@ void Hooks::CacheIfItemModifier(CDOTAModifier* modifier) {
 }
 
 void Hooks::hkOnAddModifier(CDOTAModifier* modifier, int unk) {
-	if (ctx.gameStage == Context::GameStage::IN_GAME) {
+	if (ctx.gameStage == GameStage::IN_GAME) {
 		CacheIfItemModifier(modifier);
+		CacheModifier(modifier);
 		Modules::TargetedSpellHighlighter.DrawParticleIfTargetedSpell(modifier);
 		Modules::TrueSightESP.DrawParticleIfTrueSight(modifier);
 		Modules::EnemySpellHighlighter.RenderIfThinkerModifier(modifier);
@@ -51,23 +52,23 @@ void Hooks::hkOnAddModifier(CDOTAModifier* modifier, int unk) {
 
 void Hooks::hkOnRemoveModifier(CDOTAModifier* modifier) {
 
-	if (ctx.gameStage == Context::GameStage::IN_GAME) {
+	if (ctx.gameStage == GameStage::IN_GAME) {
 		std::string modName = modifier->GetName();
 
 		if (modName.starts_with("modifier_item"))
 		{
 			auto itemName = modName.substr(9); // removing the "modifier_" prefix
-			if (modifier->GetOwner() == ctx.assignedHero) {
+			if (modifier->GetOwner() == ctx.localHero) {
 				auto searchName = importantItemNames.count(modName) ?
 					importantItemNames[modName] :
 					itemName.substr(5);
-				ctx.ImportantItems.erase(searchName);
+				HeroData[ctx.localHero].Items.erase(searchName);
 			}
 
 			if (itemName.find("sphere", 0) != -1)
 				Modules::TargetedSpellHighlighter.UnsubscribeLinkenRendering(modifier->GetOwner());
 		}
-
+		UncacheModifier(modifier);
 		Modules::TargetedSpellHighlighter.RemoveParticleIfTargetedSpell(modifier);
 		Modules::LinearProjectileWarner.RemoveParticleIfTrajectoryModifier(modifier);
 		Modules::TrueSightESP.RemoveParticleIfTrueSight(modifier);
