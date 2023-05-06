@@ -8,11 +8,7 @@ if(var) \
 else \
 	{ LogF(LP_ERROR, "{}: {}", #var, (void*)var); error = true; }
 
-size_t Signatures::WriteRemoteString(void* ptr, size_t size, size_t nmemb, void* stream) {
-	std::string data((const char*)ptr, (size_t)size * nmemb);
-	*((std::stringstream*)stream) << data;
-	return size * nmemb;
-}
+
 
 void Signatures::ParseSignatures(nlohmann::json data) {
 	for (auto& [sigName, sigVar] : NamedSignatures) {

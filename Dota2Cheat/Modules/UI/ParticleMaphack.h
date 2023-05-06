@@ -6,42 +6,32 @@
 
 namespace Hacks {
 	class ParticleMaphack : public MultiThreadModule {
-		struct ParticleData {
-			Vector pos{ 0, 0,0 };
+		struct AppearanceData {
+			Vector worldPos{ 0, 0,0 };
+			ImVec2 mapPos{ 0, 0 };
 			ImTextureID icon;
 			float fadeCounter{}, fadeTime{};
 		};
-		struct ParticleEntData : public ParticleData {
-			CDOTABaseNPC* ent{};
-		};
-
-		// Particles which are created with attach type 2 and then are transformed with separate messages
-		std::map<int, CDOTABaseNPC_Hero*> TransformQueue;
+		// Particles which are created with attach type 2 and are then transformed with separate messages
+		std::map<uint32_t, CDOTABaseNPC_Hero*> TransformQueue;
+		std::set<uint32_t> UnidentifiedQueue;
 
 		// Only shows the last one
-		std::map<CDOTABaseNPC*, ParticleData> MapAppearances;
-		std::vector<ParticleEntData> AllAppearances;
+		std::map<CDOTABaseNPC*, AppearanceData> Appearances;
+		std::map<uint32_t, AppearanceData> UnidentifiedAppearances;
 
 		float lastTime = 0;
-		void DrawAllAppearances();
+		void DrawScreenAppearances();
 		void DrawMapAppearances();
 		void RegisterAppearance(CDOTABaseNPC* npc, const Vector& pos) {
 			ImTextureID icon = 0;
 			GetHeroIcon(npc, icon);
 
-			auto& mapData = MapAppearances[npc];
-			mapData.pos = pos;
+			auto& mapData = Appearances[npc];
+			mapData.worldPos = pos;
+			mapData.mapPos = WorldToMap(pos);
 			mapData.fadeCounter = mapData.fadeTime = Config::ParticleMapHack::FadeDuration;
 			mapData.icon = icon;
-
-			auto data = ParticleEntData{
-				.ent = npc
-			};
-
-			data.pos = pos;
-			data.icon = icon;
-			data.fadeCounter = data.fadeTime = Config::ParticleMapHack::FadeDuration;
-			AllAppearances.push_back(data);
 		}
 	public:
 		void Draw();

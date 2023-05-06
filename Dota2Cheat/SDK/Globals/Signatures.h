@@ -22,6 +22,9 @@ class CDOTAPlayerController;
 class CDOTAModifier;
 
 namespace Signatures {
+	typedef void* (*CDOTA_DB_Popup_AcceptMatchFn)(VClass*, Panorama::CPanel2D*, const char*, Panorama::CPanel2D*, bool, const char*);
+	inline CDOTA_DB_Popup_AcceptMatchFn CDOTA_DB_Popup_AcceptMatch{};
+
 	inline CDOTAItemSchema* (*GetItemSchema)() = nullptr;
 	inline bool(*IsHUDFlipped)() = nullptr;
 	inline CEconItem* (*CreateEconItem)() = nullptr;
@@ -89,6 +92,7 @@ namespace Signatures {
 		SIG_NAMED(BIsEmoticonUnlocked),
 		SIG_NAMED(PlayUISoundScript),
 		SIG_NAMED(CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby),
+		SIG_NAMED(CDOTA_DB_Popup_AcceptMatch),
 
 		SIG_NAMED(CBaseEntity::OnColorChanged),
 		SIG_NAMED(CDOTABaseNPC::GetAttackSpeed),
@@ -98,7 +102,6 @@ namespace Signatures {
 		{"CDOTARichPresence::SetRPStatus", (void**)&CDOTARichPresence::SetRPStatusFunc},
 		{"CDOTABaseAbility::GetLevelSpecialValueFor", (void**)&CDOTABaseAbility::GetLevelSpecialValueForFunc},
 	};
-	size_t WriteRemoteString(void* ptr, size_t size, size_t nmemb, void* stream);
 	void ParseSignatures(nlohmann::json data);
 	void LoadSignaturesFromNetwork(const std::string& url);
 	inline void LoadSignaturesFromFile(const std::string& url) {

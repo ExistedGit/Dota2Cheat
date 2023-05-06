@@ -2,13 +2,12 @@
 #include "../SDK/pch.h"
 
 #include "../Hooks/PrepareUnitOrders.h"
-#include "../Hooks/OnAcceptMatch.h"
+#include "../Hooks/AcceptEvents.h"
 #include "../Hooks/RunFrame.h"
 #include "../Hooks/NetChannel.h"
 #include "../Hooks/EntityEvents.h"
 #include "../Hooks/ParticleRendering.h"
 #include "../Hooks/ModifierEvents.h"
-#include "../Hooks/SteamGC.h"
 #include "../Hooks/GameEvents.h"
 
 #include "../Hooks/Misc.h"

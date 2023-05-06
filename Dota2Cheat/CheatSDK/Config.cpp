@@ -139,6 +139,9 @@ void Config::ConfigManager::SetupVars() {
 
 	CFG_VAR(BOOL, AutoAccept::Enabled, true);
 	CFG_VAR(INT, AutoAccept::Delay, 1);
+	CFG_VAR(BOOL, AutoAccept::SendTelegramNotifications, false);
+
+	CFG_VAR(INT, API::TelegramID, 0);
 
 	CFG_VAR(BOOL, AutoPickUpRunes, true);
 	CFG_VAR(BOOL, AutoPickUpAegis, true);

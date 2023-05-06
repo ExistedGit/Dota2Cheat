@@ -1,25 +1,18 @@
 #include "AutoPickSelectionGrid.h"
 
 void Pages::AutoPickHeroGrid::InitList() {
-	const static std::regex heroRegex("^\\s+\"(npc_dota_hero_\\w+)\".*\n$",
-		std::regex_constants::ECMAScript | std::regex_constants::icase);
-	auto handle = Interfaces::FileSystem->OpenFile("scripts/npc/npc_heroes.txt", "r");
-	if (!handle) {
+	using json = nlohmann::json;
+	std::ifstream fin(ctx.cheatFolderPath + "\\assets\\json\\npc_heroes.json");
+	if (!fin.is_open()) {
 		std::cout << "Failed hero icons initialization: can't open file\n";
 		return;
 	}
-
-	char buffer[512];
-	while (Interfaces::FileSystem->ReadLine(buffer, 512, handle)) {
-		std::string line = buffer;
-		std::smatch match;
-		if (std::regex_match(line, match, heroRegex)) {
-			std::string heroName = regex_replace(match[0].str(), heroRegex, "$1");
-			auto path = ctx.cheatFolderPath + "\\assets\\heroicons\\" + heroName + "_png.png";
-			if (std::filesystem::exists(path)) {
-				heroNames.push_back(heroName);
-				texManager.QueueForLoading(path, "icon_" + heroName.substr(14));
-			}
+	auto data = json::parse(fin);
+	for (auto& [heroName, _] : data["DOTAHeroes"].items()) {
+		auto path = ctx.cheatFolderPath + "\\assets\\heroicons\\" + heroName + "_png.png";
+		if (std::filesystem::exists(path)) {
+			heroNames.push_back(heroName);
+			texManager.QueueForLoading(path, "icon_" + heroName.substr(14));
 		}
 	}
 }
@@ -30,7 +23,7 @@ void Pages::AutoPickHeroGrid::InitImages() {
 	Initialized = true;
 }
 
-void Pages::AutoPickHeroGrid::Draw( ) {
+void Pages::AutoPickHeroGrid::Draw() {
 	if (!Initialized)
 		InitImages();
 

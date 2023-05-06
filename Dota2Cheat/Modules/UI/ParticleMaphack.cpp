@@ -1,9 +1,8 @@
 #include "ParticleMaphack.h"
 
-void Hacks::ParticleMaphack::DrawAllAppearances() {
+void Hacks::ParticleMaphack::DrawScreenAppearances() {
 	static constexpr ImVec2 iconSize{ 32, 32 };
-	for (auto& data : AllAppearances) {
-		auto hero = data.ent;
+	for (auto& [hero, data] : Appearances) {
 		if (!IsValidReadPtr(hero)
 			|| !IsValidReadPtr(hero->GetIdentity())
 			|| !hero->GetIdentity()->IsDormant())
@@ -12,7 +11,7 @@ void Hacks::ParticleMaphack::DrawAllAppearances() {
 		auto DrawList = ImGui::GetForegroundDrawList();
 
 		auto fade = int(data.fadeCounter / data.fadeTime * 255);
-		auto drawPos = WorldToScreen(data.pos);
+		auto drawPos = WorldToScreen(data.worldPos);
 		if (data.icon)
 			DrawList->AddImage(
 				data.icon,
@@ -31,14 +30,13 @@ void Hacks::ParticleMaphack::DrawMapAppearances()
 {
 	static constexpr ImVec2 iconSize{ 24, 24 };
 	auto DrawList = ImGui::GetForegroundDrawList();
-	for (auto& [hero, data] : MapAppearances) {
+	for (auto& [hero, data] : Appearances) {
 		if (!IsValidReadPtr(hero)
 			|| !IsValidReadPtr(hero->GetIdentity())
 			|| !hero->GetIdentity()->IsDormant())
 			continue;
 
-		const auto drawPos = WorldToMap(data.pos);
-		if (!IsPointOnScreen(drawPos))
+		if (!IsPointOnScreen(data.mapPos))
 			continue;
 
 
@@ -47,14 +45,14 @@ void Hacks::ParticleMaphack::DrawMapAppearances()
 		if (data.icon)
 			DrawList->AddImage(
 				data.icon,
-				drawPos - iconSize / 2,
-				drawPos + iconSize / 2,
+				data.mapPos - iconSize / 2,
+				data.mapPos + iconSize / 2,
 				{ 0,0 },
 				{ 1,1 },
 				ImColor{ 255, 255, 255, fade }
 		);
 		else
-			DrawList->AddCircleFilled(drawPos, 4, ImColor{ 0XFF, 0XCC, 0, fade });
+			DrawList->AddCircleFilled(data.mapPos, 4, ImColor{ 0XFF, 0XCC, 0, fade });
 
 	}
 }
@@ -64,7 +62,7 @@ void Hacks::ParticleMaphack::Draw() {
 		return;
 
 	MTM_LOCK;
-	DrawAllAppearances();
+	DrawScreenAppearances();
 	DrawMapAppearances();
 }
 
@@ -73,19 +71,11 @@ void Hacks::ParticleMaphack::FrameBasedLogic() {
 
 	const float timeDelta = GameSystems::GameRules->GetGameTime() - lastTime;
 	lastTime = GameSystems::GameRules->GetGameTime();
-	for (auto it = MapAppearances.begin(); it != MapAppearances.end();) {
+	for (auto it = Appearances.begin(); it != Appearances.end();) {
 		auto& data = it->second;
 		data.fadeCounter -= timeDelta;
 		if (data.fadeCounter <= 0)
-			it = MapAppearances.erase(it);
-		else
-			++it;
-	}
-	for (auto it = AllAppearances.begin(); it != AllAppearances.end();) {
-		auto& data = *it;
-		data.fadeCounter -= timeDelta;
-		if (data.fadeCounter <= 0)
-			it = AllAppearances.erase(it);
+			it = Appearances.erase(it);
 		else
 			++it;
 	}
@@ -100,7 +90,7 @@ void Hacks::ParticleMaphack::ProcessParticleMsg(NetMessageHandle_t* msgHandle, g
 	auto msgIndex = pmMsg->index();
 	switch (pmMsg->type()) {
 	case GAME_PARTICLE_MANAGER_EVENT_CREATE: {
-		if (!pmMsg->create_particle().has_entity_handle_for_modifiers())
+		if (pmMsg->create_particle().has_entity_handle_for_modifiers())
 			break;
 		auto npc = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(NH2IDX(pmMsg->create_particle().entity_handle_for_modifiers()));
 		if (!IsValidReadPtr(npc)

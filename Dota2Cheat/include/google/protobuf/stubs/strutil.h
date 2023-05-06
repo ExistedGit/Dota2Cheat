@@ -41,9 +41,6 @@
 #include <google/protobuf/port_def.inc>
 #include <vector>
 
-#undef u64
-
-
 namespace google {
 namespace protobuf {
 
@@ -951,5 +948,3 @@ double NoLocaleStrtod(const char* str, char** endptr);
 #include <google/protobuf/port_undef.inc>
 
 #endif  // GOOGLE_PROTOBUF_STUBS_STRUTIL_H__
-
-#define u64

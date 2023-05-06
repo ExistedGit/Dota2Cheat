@@ -113,7 +113,7 @@ int main() {
 					break;
 				sigPath += L"\\..";
 			}
-			fs::copy(sigPath + L"\\signatures.json", cheatFolderPath);
+			fs::copy(sigPath + L"\\signatures.json", cheatFolderPath, fs::copy_options::overwrite_existing);
 		}
 
 		cout << "Successfully updated resources in " << cheatFolderPath << '\n';
