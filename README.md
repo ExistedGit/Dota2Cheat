@@ -57,7 +57,9 @@ To open the cheat menu, press Insert
 This list is subject to frequent change as I'm testing new features
 
 * Automation:
-  * AutoAccept with customizable delay
+  * AutoAccept:
+    * Customizable delay
+    * Optional notifications sent straight to your Telegram(start [our bot](https://t.me/dotacheatnotifybot), get [your user ID](https://t.me/getmyid_bot) and plug it into the input field!)
   * Uses Magic Wand and Faerie Fire with customizable health tresholds
   * AutoMidas with customizable min XP reward
   * Bounty rune & Aegis pickup
