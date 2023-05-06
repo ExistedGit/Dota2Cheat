@@ -191,17 +191,17 @@
     <ClCompile Include="Hooks\EntityEvents.cpp" />
     <ClCompile Include="Hooks\ModifierEvents.cpp" />
     <ClCompile Include="Hooks\NetChannel.cpp" />
-    <ClCompile Include="Hooks\OnAcceptMatch.cpp" />
+    <ClCompile Include="Hooks\AcceptEvents.cpp" />
     <ClCompile Include="Hooks\ParticleRendering.cpp" />
     <ClCompile Include="Hooks\PrepareUnitOrders.cpp" />
     <ClCompile Include="Hooks\RunFrame.cpp" />
-    <ClCompile Include="Hooks\SteamGC.cpp" />
     <ClCompile Include="ImGuiSDK\Elements.cpp" />
     <ClCompile Include="include\cityhash\city.cc" />
     <ClCompile Include="include\imgui\imgui_stdlib.cpp" />
     <ClCompile Include="CheatSDK\Lua\LuaInitialization.cpp" />
     <ClCompile Include="CheatSDK\MatchStateHandling.cpp" />
     <ClCompile Include="Modules\Hacks\AegisSnatcher.cpp" />
+    <ClCompile Include="Modules\Hacks\AutoAccept.cpp" />
     <ClCompile Include="Modules\Hacks\AutoBuyTome.cpp" />
     <ClCompile Include="Modules\Hacks\AutoDodge.cpp" />
     <ClCompile Include="Modules\Hacks\AutoHeal.cpp" />
@@ -233,6 +233,7 @@
     <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp" />
     <ClCompile Include="Modules\Utility\AttackTargetFinder.cpp" />
     <ClCompile Include="Modules\Utility\ParticleGC.cpp" />
+    <ClCompile Include="SDK\Base\StringUtils.cpp" />
     <ClCompile Include="SDK\Entities\CBaseEntity.cpp" />
     <ClCompile Include="SDK\Entities\CDOTABaseAbility.cpp" />
     <ClCompile Include="SDK\Entities\CDOTABaseNPC.cpp" />
@@ -473,6 +474,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CheatSDK\DrawData.h" />
+    <ClInclude Include="Modules\Hacks\AutoAccept.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Modules\UI\BarAugmenter.h">
       <SubType>
       </SubType>
@@ -506,8 +511,7 @@
     <ClInclude Include="SDK\GameSystems\CGameUI.h" />
     <ClInclude Include="Hooks\InvalidateUEF.h" />
     <ClInclude Include="Hooks\Misc.h" />
-    <ClInclude Include="Hooks\OnAcceptMatch.h" />
-    <ClInclude Include="Hooks\SteamGC.h" />
+    <ClInclude Include="Hooks\AcceptEvents.h" />
     <ClInclude Include="ImGuiSDK\Elements.h" />
     <ClInclude Include="include\imgui\imgui_stdlib.h" />
     <ClInclude Include="include\json.hpp" />

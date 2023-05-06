@@ -73,6 +73,7 @@ namespace Config {
 	namespace AutoAccept {
 		inline bool Enabled;
 		inline int Delay;
+		inline bool SendTelegramNotifications;
 	}
 	namespace AutoDodge {
 		inline bool Enabled;
@@ -152,4 +153,8 @@ namespace Config {
 
 	inline int CircleRadius = 1200;
 	inline Vector CircleRGB{ 0,0,0 };
+
+	namespace API {
+		inline int TelegramID;
+	}
 }

@@ -97,7 +97,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 #ifdef D2C_USE_LOCAL_SIGNATURES
 	Signatures::LoadSignaturesFromFile(ctx.cheatFolderPath + "\\signatures.json");
 #else
-	Signatures::LoadSignaturesFromNetwork("https://raw.githubusercontent.com/ExistedGit/Dota2Cheat/main/Dota2Cheat/signatures.json");
+	Signatures::LoadSignaturesFromNetwork("https://raw.githubusercontent.com/ExistedGit/Dota2Cheat/main/signatures.json");
 #endif
 
 	GameSystems::FindGameSystems();
@@ -192,7 +192,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 		texManager.ExecuteLoadCycle();
 
-
 #ifdef _DEBUG
 		// Pages::AutoPickHeroGrid::Draw();
 #endif // _DEBUG
@@ -225,7 +224,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 		if (menuVisible)
 			Pages::MainMenu::Draw();
-
 
 		if (IsKeyPressed(VK_INSERT)) {
 			glfwSetWindowAttrib(window_menu, GLFW_MOUSE_PASSTHROUGH, menuVisible);

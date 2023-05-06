@@ -2,6 +2,7 @@
 
 void Hooks::SetUpByteHooks() {
 	HOOKFUNC_SIGNATURES(PrepareUnitOrders);
+	HOOKFUNC_SIGNATURES(CDOTA_DB_Popup_AcceptMatch);
 	HOOKFUNC_SIGNATURES(BIsEmoticonUnlocked);
 	// HOOKFUNC_SIGNATURES(CDOTAPanoramaMinimapRenderer__Render);
 #ifdef _DEBUG
@@ -13,6 +14,12 @@ void Hooks::SetUpByteHooks() {
 
 
 void Hooks::SetUpVirtualHooks(bool log) {
+	{
+		uintptr_t** vtable = SigScan::Find("48 8D 05 ? ? ? ? 48 8B D9 48 89 01 48 8B 49 50", "client.dll").GetAbsoluteAddress(3);
+		uintptr_t* SetAbsOrigin = vtable[21];
+		HOOKFUNC(SetAbsOrigin);
+	}
+
 	{
 		// NetChan constructor
 		// vtable ptr at 0x15

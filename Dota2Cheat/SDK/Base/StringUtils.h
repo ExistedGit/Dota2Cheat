@@ -3,6 +3,10 @@
 #include <string_view>
 #include <string>
 #include <cstdint>
+#include <cctype>
+#include <iomanip>
+#include <sstream>
+#include <map>
 
 template<typename T, typename Z>
 inline bool StringsMatch(T a, Z b) {
@@ -18,6 +22,13 @@ inline bool StringsMatch(T a, Z b) {
 //	return rc;
 //}
 
+std::string encodeURI(const std::string& value);
+
+inline size_t WriteRemoteString(void* ptr, size_t size, size_t nmemb, void* stream) {
+	std::string data((const char*)ptr, (size_t)size * nmemb);
+	*((std::stringstream*)stream) << data;
+	return size * nmemb;
+}
 inline bool TestStringFilters(const char* str, const std::vector<const char*>& filters) {
 	for (auto& filter : filters)
 		if (strstr(str, filter))

@@ -54,6 +54,11 @@
     "module": "client.dll",
     "steps": [ [ 0, 1 ] ]
   },
+  "CDOTA_DB_Popup_AcceptMatch": {
+    "signature": "E8 ? ? ? ? 48 8B F8 48 8B D7 48 8B CD",
+    "module": "client.dll",
+    "steps": [ [ 0, 1 ] ]
+  },
   "PlayUISoundScript": {
     "signature": "E8 ? ? ? ? FF 4E 30",
     "module": "client.dll",

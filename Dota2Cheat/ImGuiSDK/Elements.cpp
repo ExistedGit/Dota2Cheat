@@ -33,3 +33,23 @@ bool ImGui::ToggleButton(const char* label, bool* v, const ImVec2& size_arg)
 
 	return pressed;
 }
+
+bool ImGui::TextClickable(const char* label) {
+	ImGuiWindow* window = ImGui::GetCurrentWindow();
+	if (window->SkipItems)
+		return false;
+
+	Text(label);
+	ImGuiContext& g = *GImGui;
+	const ImGuiStyle& style = g.Style;
+	const ImVec2 text_size = CalcTextSize(label);
+	const ImGuiID id = window->GetID(label);
+	const ImVec2 pos = window->DC.CursorPos;
+	const ImVec2 label_size = ImGui::CalcTextSize(label, NULL, true);
+	const ImRect bb(pos, pos + text_size);
+	ImGui::ItemSize(bb, style.FramePadding.y);
+
+	bool hovered, held;
+	bool pressed = ImGui::ButtonBehavior(bb, id, &hovered, &held);
+	return pressed;
+}

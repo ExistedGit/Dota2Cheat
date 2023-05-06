@@ -6,11 +6,10 @@
     <ClCompile Include="Hooks\EntityEvents.cpp" />
     <ClCompile Include="Hooks\ModifierEvents.cpp" />
     <ClCompile Include="Hooks\NetChannel.cpp" />
-    <ClCompile Include="Hooks\OnAcceptMatch.cpp" />
+    <ClCompile Include="Hooks\AcceptEvents.cpp" />
     <ClCompile Include="Hooks\ParticleRendering.cpp" />
     <ClCompile Include="Hooks\PrepareUnitOrders.cpp" />
     <ClCompile Include="Hooks\RunFrame.cpp" />
-    <ClCompile Include="Hooks\SteamGC.cpp" />
     <ClCompile Include="ImGuiSDK\Elements.cpp" />
     <ClCompile Include="include\imgui\imgui_stdlib.cpp" />
     <ClCompile Include="CheatSDK\Lua\LuaInitialization.cpp" />
@@ -143,6 +142,8 @@
     <ClCompile Include="Modules\UI\BlinkRevealer.cpp" />
     <ClCompile Include="Modules\UI\ParticleMaphack.cpp" />
     <ClCompile Include="Modules\UI\BarAugmenter.cpp" />
+    <ClCompile Include="SDK\Base\StringUtils.cpp" />
+    <ClCompile Include="Modules\Hacks\AutoAccept.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
@@ -151,8 +152,7 @@
     <ClInclude Include="SDK\GameSystems\CGameUI.h" />
     <ClInclude Include="Hooks\InvalidateUEF.h" />
     <ClInclude Include="Hooks\Misc.h" />
-    <ClInclude Include="Hooks\OnAcceptMatch.h" />
-    <ClInclude Include="Hooks\SteamGC.h" />
+    <ClInclude Include="Hooks\AcceptEvents.h" />
     <ClInclude Include="ImGuiSDK\Elements.h" />
     <ClInclude Include="include\imgui\imgui_stdlib.h" />
     <ClInclude Include="include\json.hpp" />
@@ -340,5 +340,6 @@
     <ClInclude Include="Modules\UI\MultiThreadModule.h" />
     <ClInclude Include="CheatSDK\HeroData.h" />
     <ClInclude Include="Modules\UI\BarAugmenter.h" />
+    <ClInclude Include="Modules\Hacks\AutoAccept.h" />
   </ItemGroup>
 </Project>

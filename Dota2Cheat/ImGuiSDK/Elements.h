@@ -9,7 +9,7 @@
 namespace ImGui {
 
 	bool ToggleButton(const char* label, bool* v, const ImVec2& size_arg);
-
+	bool TextClickable(const char* label);
 }
 
 namespace CheatGui {

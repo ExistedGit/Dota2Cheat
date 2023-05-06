@@ -74,18 +74,12 @@ void ESP::AbilityESP::DrawAbilities() {
 			if (data.ability)
 				++abilityCount;
 
-		auto drawPos = hero->GetPos();
-
-		drawPos.x = (int)(drawPos.x * 100) / 100.0f;
-		drawPos.y = (int)(drawPos.y * 100) / 100.0f;
-
-		int x, y;
-		Signatures::WorldToScreen(&drawPos, &x, &y, nullptr);
-		x -= (abilityCount - 1) * iconSize / 2.0f;
-		y += 30;
+		
+		auto drawPos = HeroData[hero].HealthbarW2S;
+		drawPos.x -= (abilityCount - 1) * iconSize / 2.0f;
+		drawPos.y += 80;
 
 		int idx = 0;
-
 		for (auto& data : abilities) {
 			if (!data.ability)
 				continue;
@@ -95,11 +89,12 @@ void ESP::AbilityESP::DrawAbilities() {
 
 			// Top-Left and Bottom-Right points of ability icon
 			ImVec2 imgXY1, imgXY2, imgCenter;
-			int centeringOffset = -outlineThickness + iconSize / 2;
+			float centeringOffset = -outlineThickness + iconSize / 2;
 			{
 				int idxOffset = idx * iconSize;
-				imgXY1 = { float(x - centeringOffset + idxOffset), float(y - centeringOffset) };
-				imgXY2 = { float(x + centeringOffset + idxOffset), float(y + centeringOffset) };
+				
+				imgXY1 = drawPos - ImVec2{ centeringOffset - idxOffset, centeringOffset };
+				imgXY2 = drawPos + ImVec2{ centeringOffset + idxOffset, centeringOffset };
 				imgCenter = imgXY1 + ImVec2(centeringOffset, centeringOffset);
 			}
 
@@ -233,9 +228,15 @@ void ESP::AbilityESP::DrawItems() {
 		if (!CanDraw(hero))
 			continue;
 
-		ImVec2 basePos = WorldToScreen(hero->GetHealthBarPos());
+		
+		ImVec2 basePos = HeroData[hero].HealthbarW2S;
 		basePos.x -= 6 * (iconSize.x + gap) / 2;
 		basePos.y -= 35 + iconSize.x;
+
+		// Adjusting for the debuff indicator that is otherwise obscured by the panel 
+		if (hero->Member<uint64_t>(Netvars::C_DOTA_BaseNPC::m_nUnitDebuffState) != 0)
+			basePos.y -= 30;
+
 		for (int slot = 0; slot < 6; slot++) {
 			auto& itemData = inv[slot];
 			ImVec2 imgXY1
@@ -245,7 +246,6 @@ void ESP::AbilityESP::DrawItems() {
 			},
 				imgXY2 = imgXY1 + iconSize - ImVec2{ 2,2 },
 				imgCenter = (imgXY1 + imgXY2) / 2;
-
 
 			ImVec2 frameSize(1, 1);
 			ImVec2 frameXY1 = imgXY1 - frameSize,
