@@ -15,6 +15,7 @@ void Config::ConfigManager::SaveConfig(std::ofstream& stream) {
 		case BOOL: entry = *(bool*)var.val; break;
 		case FLOAT: entry = *(float*)var.val; break;
 		case INT: entry = *(int*)var.val; break;
+		case UINT_64: entry = *(uint64_t*)var.val; break;
 		case VECTOR2D: {
 			Vector2D& vec = *(Vector2D*)var.val;
 			entry["x"] = vec.x;
@@ -48,6 +49,7 @@ void Config::ConfigManager::LoadConfig(std::ifstream& stream) {
 		case BOOL: *(bool*)var.val = entry; break;
 		case FLOAT: *(float*)var.val = entry; break;
 		case INT: *(int*)var.val = entry; break;
+		case UINT_64: *(uint64_t*)var.val = entry; break;
 		case VECTOR2D: {
 			Vector2D& vec = *(Vector2D*)var.val;
 			vec.x = entry["x"];
@@ -141,7 +143,7 @@ void Config::ConfigManager::SetupVars() {
 	CFG_VAR(INT, AutoAccept::Delay, 1);
 	CFG_VAR(BOOL, AutoAccept::SendTelegramNotifications, false);
 
-	CFG_VAR(INT, API::TelegramID, 0);
+	CFG_VAR(UINT_64, API::TelegramID, 0ull);
 
 	CFG_VAR(BOOL, AutoPickUpRunes, true);
 	CFG_VAR(BOOL, AutoPickUpAegis, true);
