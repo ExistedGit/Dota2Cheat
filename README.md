@@ -21,38 +21,10 @@ also using [libcurl](https://github.com/curl/curl) for network requests
 
 `assets` folder contents are property of Valve Corporation
 
-## Building
-You need to install the protobuf library for it to work. Install [vcpkg](https://vcpkg.io/en/getting-started.html). Navigate to the folder with vcpkg.exe. Open the console in the folder and enter the following command:
-
-`.\vcpkg.exe install protobuf:x64-windows-static-md`
-
-This will install the heavier static version of the library. 
-
-Once the process completes, go to `installed/x64-windows-static-md`. Copy libprotobuf.lib and libprotobuf-lite.lib files from /lib to Dota2Cheat/lib. You can also copy the libs with a `d` suffix from debug/lib if you want to compile it in Debug
-
-Open the project in Visual Studio and build both Dota2Cheat and Dota2Loader as **Release x64**
-
-## Injecting
-
-This cheat can be safely reinjected at any point of the game
-
-Build Dota2Loader and launch it, it will move the necessary resources around and then inject
-
-**Use at own risk. Though I use methods that make detection chances as low as possible, there are no guarantees. [Use](https://github.com/zyhp/vac3_inhibitor) a [vac bypass](https://github.com/danielkrupinski/VAC-Bypass)** (also consider not using non-legit features that you can get reported for)
-
-## Troubleshooting
-
-If you encounter a crash and want to inform me of it, do the following:
-
-Build both the cheat and loader in Debug. Launch dota 2, then In Visual Studio Ctrl + Alt + P and select dota2.exe.
-Now that you're debugging the process, inject the cheat. VS will show you where the exception occurs.
-Screenshot both what place it crashed in and the Call Stack(it's one of the bottom menus).
-You can also screenshot exact places the call stack entries take you to(double-click them).
-
-And thus we can defeat bugs together!
-
 # Features
 To open the cheat menu, press Insert
+
+Dota2Cheat follows the legit paradigm, so you probably won't see AutoStop, AutoLastHit or AutoSteal here. Not only because I don't have time for complicated multipurpose scripts for each hero, but also because they can often be spotted without even replaying the game. It's also my personal opinion that if you can't press two buttons in a sequence, then perhaps Dota is not for you.
 
 This list is subject to frequent change as I'm testing new features
 
@@ -109,6 +81,34 @@ This list is subject to frequent change as I'm testing new features
   * Roshan timer
   
 I intend to implement most of the usual cheat functionality
+
+## Building
+You need to install the protobuf library for it to work. Install [vcpkg](https://vcpkg.io/en/getting-started.html). Navigate to the folder with vcpkg.exe. Open the console in the folder and enter the following command:
+
+`.\vcpkg.exe install protobuf:x64-windows-static-md`
+
+This will install the heavier static version of the library. 
+
+Once the process completes, go to `installed/x64-windows-static-md`. Copy libprotobuf.lib and libprotobuf-lite.lib files from /lib to Dota2Cheat/lib. You can also copy the libs with a `d` suffix from debug/lib if you want to compile it in Debug
+
+Open the project in Visual Studio and build both Dota2Cheat and Dota2Loader as **Release x64**
+
+## Injecting
+
+This cheat can be safely reinjected at any point of the game
+
+Build Dota2Loader and launch it, it will move the necessary resources around and then inject
+
+**Use at own risk. Though I use methods that make detection chances as low as possible, there are no guarantees. [Use](https://github.com/zyhp/vac3_inhibitor) a [vac bypass](https://github.com/danielkrupinski/VAC-Bypass)** (also consider not using non-legit features that you can get reported for)
+
+## Troubleshooting
+
+If you encounter a crash and want to inform me of it, do the following:
+
+Build both the cheat and loader in Debug. Launch dota 2, then In Visual Studio Ctrl + Alt + P and select dota2.exe.
+Now that you're debugging the process, inject the cheat. VS will show you where the exception occurs.
+Screenshot both what place it crashed in and the Call Stack(it's one of the bottom menus).
+You can also screenshot exact places the call stack entries take you to(double-click them)And thus we can defeat bugs together!
 
 # For Developers
 
