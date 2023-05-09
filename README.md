@@ -99,7 +99,7 @@ This cheat can be safely reinjected at any point of the game
 
 Build Dota2Loader and launch it, it will move the necessary resources around and then inject
 
-**Use at own risk. Though I use methods that make detection chances as low as possible, there are no guarantees. [Use](https://github.com/zyhp/vac3_inhibitor) a [vac bypass](https://github.com/danielkrupinski/VAC-Bypass)** (also consider not using non-legit features that you can get reported for)
+**Use at own risk. Though I use methods that make detection chances as low as possible, there are no guarantees.** (also consider not using non-legit features that you can get reported for)
 
 ## Troubleshooting
 
@@ -109,6 +109,18 @@ Build both the cheat and loader in Debug. Launch dota 2, then In Visual Studio C
 Now that you're debugging the process, inject the cheat. VS will show you where the exception occurs.
 Screenshot both what place it crashed in and the Call Stack(it's one of the bottom menus).
 You can also screenshot exact places the call stack entries take you to(double-click them)And thus we can defeat bugs together!
+
+### Testing
+
+Bugs don't always happen when you need them to. They strike viciously, when you don't expect it. If you have what it takes to be a tester, here are your instruments:
+
+* [x64dbg](https://x64dbg.com/) — debugger
+* [ScyllaHide](https://github.com/x64dbg/ScyllaHide/releases/tag/v1.4) — plugin for x64dbg that allows you to hide the debugger ring3 programs(VAC is one) 
+* [Use](https://github.com/zyhp/vac3_inhibitor) a [vac bypass](https://github.com/danielkrupinski/VAC-Bypass) so that VAC doesn't see your LoadLibrary trickery
+* An alt account, since disabling VAC only means you won't be banned. No information sent by VAC is suspicious too, you'll be placed in a player pool with cheaters(as I noticed myself)
+* Dota2Cheat & Dota2Loader compiled in the Testing configuration such that they function like Release but contain debug information
+
+Upon an exception, examine the file and lines it happened on. In the Call Stack tab you'll be able to trace the call to the function(in case the exception place doesn't provide enough information)
 
 # For Developers
 
