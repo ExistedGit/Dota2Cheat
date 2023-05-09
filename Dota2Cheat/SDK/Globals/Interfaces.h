@@ -12,6 +12,7 @@
 #include "../Interfaces/ISteamClient.h"
 
 #include "../Base/Memory.h"
+#include "../Base/Address.h"
 #include "../Base/VMT.h"
 #include "../Base/Logging.h"
 

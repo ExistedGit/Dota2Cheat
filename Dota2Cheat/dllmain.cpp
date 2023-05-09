@@ -3,7 +3,9 @@
 
 // Will use local copy of signatures.json instead of the one from GitHub.
 // Use if you need to update them and the "cloud" version isn't updated yet/will not be updated
-//#define D2C_USE_LOCAL_SIGNATURES
+#ifdef _DEBUG
+#define D2C_USE_LOCAL_SIGNATURES
+#endif
 
 #include <cstdio>
 #include <iostream>
@@ -20,6 +22,7 @@
 #include "Hooks/InvalidateUEF.h"
 #include "Modules/UI/Indicators/SpeedIndicator.h"
 #include "Modules/UI/Indicators/KillIndicator.h"
+#include "Modules/UI/Indicators/HookIndicator.h"
 #include "UI/Pages/MainMenu.h"
 #include "UI/Pages/AutoPickSelectionGrid.h"
 #include "Modules/Hacks/LastHitMarker.h"
@@ -135,8 +138,9 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 	glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, 1);
 
-#ifndef _DEBUG // wouldn't want the window to obscure the screen on a breakpoint
-	glfwWindowHint(GLFW_FLOATING, 1);
+// wouldn't want the window to obscure the screen on a breakpoint
+#if !defined(_DEBUG) || defined(_TESTING)
+ 	glfwWindowHint(GLFW_FLOATING, 1);
 #endif // DEBUG
 	glfwWindowHint(GLFW_DECORATED, 0);
 	glfwWindowHint(GLFW_RESIZABLE, 0);
@@ -205,11 +209,13 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			// Modules::UIOverhaul.DrawBars();
 			Modules::TPTracker.DrawMapTeleports();
 			Modules::LastHitMarker.Draw();
-			Modules::SpeedIndicator.Draw();
 			Modules::BlinkRevealer.Draw();
-			Modules::KillIndicator.Draw();
 			Modules::ParticleMaphack.Draw();
 			Modules::BarAugmenter.Draw();
+
+			Modules::SpeedIndicator.Draw();
+			Modules::KillIndicator.Draw();
+			//Modules::HookIndicator.Draw();
 
 			//const auto ScreenSize = glfwGetVideoMode(glfwGetPrimaryMonitor());
 			//auto ActualMinimapSize = static_cast<float>(GameSystems::MinimapRenderer->GetMinimapSize().y - 28);

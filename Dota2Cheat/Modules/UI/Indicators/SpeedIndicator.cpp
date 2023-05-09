@@ -13,10 +13,8 @@ void Hacks::SpeedIndicator::Draw() {
 			|| !IsEntityOnScreen(hero))
 			continue;
 
-		auto heroPos = hero->GetPos();
-
-		auto barPos = WorldToScreen(heroPos);
-
+		
+		auto barPos = HeroData[hero].HealthbarW2S;
 		int enemySpeed = hero->GetIdealSpeed();
 
 		auto drawPos = barPos - ImVec2{ 105,38 };

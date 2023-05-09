@@ -144,6 +144,7 @@
     <ClCompile Include="Modules\UI\BarAugmenter.cpp" />
     <ClCompile Include="SDK\Base\StringUtils.cpp" />
     <ClCompile Include="Modules\Hacks\AutoAccept.cpp" />
+    <ClCompile Include="Modules\UI\Indicators\HookIndicator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
@@ -341,5 +342,6 @@
     <ClInclude Include="CheatSDK\HeroData.h" />
     <ClInclude Include="Modules\UI\BarAugmenter.h" />
     <ClInclude Include="Modules\Hacks\AutoAccept.h" />
+    <ClInclude Include="Modules\UI\Indicators\HookIndicator.h" />
   </ItemGroup>
 </Project>

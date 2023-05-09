@@ -14,12 +14,6 @@ CBaseEntity* Hooks::hkOnRemoveEntity(CEntitySystem* thisptr, CBaseEntity* ent, E
 		ctx.entities.erase(ent);
 		ctx.runes.erase((CDOTAItemRune*)ent);
 
-		for (auto it = HeroData[ctx.localHero].Items.begin(); it != HeroData[ctx.localHero].Items.end(); ++it)
-			if (it->second == ent) {
-				it = HeroData[ctx.localHero].Items.erase(it);
-				break;
-			}
-
 		Modules::AegisSnatcher.RemoveIfAegis(ent);
 	}
 	return oOnRemoveEntity(thisptr, ent, handle);
