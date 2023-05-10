@@ -145,6 +145,7 @@
     <ClCompile Include="SDK\Base\StringUtils.cpp" />
     <ClCompile Include="Modules\Hacks\AutoAccept.cpp" />
     <ClCompile Include="Modules\UI\Indicators\HookIndicator.cpp" />
+    <ClCompile Include="UI\Pages\MainMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />

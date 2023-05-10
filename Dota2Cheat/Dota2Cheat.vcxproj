@@ -552,6 +552,7 @@
       <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
     </ClCompile>
     <ClCompile Include="UI\Pages\AutoPickSelectionGrid.cpp" />
+    <ClCompile Include="UI\Pages\MainMenu.cpp" />
     <ClCompile Include="Utils\Drawing.cpp" />
   </ItemGroup>
   <ItemGroup>
