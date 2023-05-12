@@ -24,4 +24,12 @@ namespace Hooks {
 		}
 		return result;
 	}
+
+	inline Signatures::C_DOTA_ProjectileManager__AddTrackingProjectileFn oC_DOTA_ProjectileManager__AddTrackingProjectile{};
+	inline void* hkC_DOTA_ProjectileManager__AddTrackingProjectile(C_DOTA_ProjectileManager* thisptr, void* unk) {
+		if (!GameSystems::ProjectileManager)
+			GameSystems::ProjectileManager = thisptr;
+
+		return oC_DOTA_ProjectileManager__AddTrackingProjectile(thisptr, unk);
+	}
 }

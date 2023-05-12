@@ -4,19 +4,19 @@
 
 class C_DOTA_TrackingProjectileInfo : public VClass {
 public:
-	GETTER(int32_t, GetMoveSpeed, 0xC);
-	GETTER(Vector, GetPos, 0x10);
-	GETTER(float, GetExpireTime, 0x34);
-	GETTER(bool, IsDodgeable, 0x30);
-	GETTER(bool, IsAttack, 0x31);
-	GETTER(bool, IsEvaded, 0x32);
+	GETTER(int32_t, GetMoveSpeed, 0x4);
+	GETTER(Vector, GetPos, 0x8);
+	GETTER(bool, IsDodgeable, 40);
+	GETTER(bool, IsAttack, 41);
+	GETTER(bool, IsEvaded, 42);
+	GETTER(float, GetExpireTime, 44);
 
 	auto GetSource() {
-		return Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(H2IDX(Member<uint32_t>(0x1c)));
+		return Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(H2IDX(Member<uint32_t>(20)));
 	}
 
 	auto GetTarget() {
-		return Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(H2IDX(Member<uint32_t>(0x20)));
+		return Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(H2IDX(Member<uint32_t>(24)));
 	}
 
 	Vector PredictPos(float deltaTime) {

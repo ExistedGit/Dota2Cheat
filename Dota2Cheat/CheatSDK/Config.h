@@ -9,6 +9,7 @@ namespace Config {
 		enum class ConfigVarType {
 			BOOL,
 			INT,
+			UINT_64,
 			FLOAT,
 			VECTOR2D,
 			VECTOR3D
@@ -155,6 +156,6 @@ namespace Config {
 	inline Vector CircleRGB{ 0,0,0 };
 
 	namespace API {
-		inline int TelegramID;
+		inline uint64_t TelegramID;
 	}
 }

@@ -27,76 +27,106 @@
   "WorldToScreen": {
     "signature": "E8 ? ? ? ? 39 6C 24 68",
     "module": "client.dll",
-    "steps": [ [ 0, 1 ] ]
+    "steps": [[0, 1]]
   },
   "GetItemSchema": {
     "signature": "E8 ? ? ? ? 48 89 5D 18",
     "module": "client.dll",
-    "steps": [ [ 0, 1 ] ]
+    "steps": [[0, 1]]
   },
   "DispatchPacket": {
     "signature": "E8 ? ? ? ? 39 6C 24 68",
     "module": "client.dll",
-    "steps": [ [ 0, 1 ] ]
+    "steps": [[0, 1]]
   },
   "BAsyncSendProto": {
     "signature": "E8 ? ? ? ? 48 8B 4D 90 48 89 7C 24",
     "module": "client.dll",
-    "steps": [ [ 0, 1 ] ]
+    "steps": [[0, 1]]
   },
   "PrepareUnitOrders": {
     "signature": "E8 ? ? ? ? F3 44 0F 11 5B",
     "module": "client.dll",
-    "steps": [ [ 0, 1 ] ]
+    "steps": [[0, 1]]
   },
   "BIsEmoticonUnlocked": {
     "signature": "E8 ? ? ? ? 84 C0 0F 84 ? ? ? ? 48 8B 45 08",
     "module": "client.dll",
-    "steps": [ [ 0, 1 ] ]
+    "steps": [[0, 1]]
   },
   "CDOTA_DB_Popup_AcceptMatch": {
     "signature": "E8 ? ? ? ? 48 8B F8 48 8B D7 48 8B CD",
     "module": "client.dll",
-    "steps": [ [ 0, 1 ] ]
+    "steps": [[0, 1]]
+  },
+  "C_DOTA_ProjectileManager__AddTrackingProjectile": {
+    "signature": " E8 ? ? ? ? 48 63 F0 83 FE FF 0F 84 ? ? ? ? 41 8B 4E 10",
+    "module": "client.dll",
+    "steps": [[0, 1]]
   },
   "PlayUISoundScript": {
     "signature": "E8 ? ? ? ? FF 4E 30",
     "module": "client.dll",
-    "steps": [ [ 0, 1 ] ]
+    "steps": [[0, 1]]
   },
 
   "CDOTAParticleManager::DestroyParticle": {
     "signature": "E8 ? ? ? ? 48 83 C3 1C",
     "module": "client.dll",
-    "steps": [ [ 0, 1 ] ]
+    "steps": [[0, 1]]
   },
   "CDOTAGameRules::GetGameTime": {
     "signature": "E8 ? ? ? ? 8B 04 2E",
     "module": "client.dll",
-    "steps": [ [ 0, 1 ] ]
+    "steps": [[0, 1]]
   },
   "CDOTABaseAbility::GetLevelSpecialValueFor": {
     "signature": "E8 ? ? ? ? F3 0F 5A C0",
     "module": "client.dll",
-    "steps": [ [ 0, 1 ] ]
+    "steps": [[0, 1]]
   },
   "CDOTABaseNPC::GetAttackSpeed": {
     "signature": "E8 ? ? ? ? F3 0F 59 05 ? ? ? ? 0F 57 C9",
     "module": "client.dll",
-    "steps": [ [ 0, 1 ] ]
+    "steps": [[0, 1]]
   },
 
   "CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby": {
     "signature": "E8 ? ? ? ? 48 8B D7 48 8B CB E8 ? ? ? ? 48 8D 8B",
     "module": "client.dll",
     "steps": [
-      [ 0, 1 ],
-      [ 1, 638 ],
-      [ 0, 1 ]
+      [0, 1],
+      [1, 638],
+      [0, 1]
     ]
   },
   "CDOTAPanoramaMinimapRenderer__Render": {
     "signature": "48 8B C4 48 89 58 08 48 89 68 10 48 89 70 18 57 41 56 41 57 48 83 EC 40 F3 0F 10 84 24",
     "module": "client.dll"
+  },
+
+  "ParticleManagerPtr": {
+    "signature": "E8 ? ? ? ? 8B 14 9F",
+    "module": "client.dll",
+    "steps": [
+      [0, 1],
+      [0, 3]
+    ]
+  },
+  "PlayerResourcePtr": {
+    "signature": "40 57 48 83 EC 70 48 8B 3D",
+    "module": "client.dll",
+    "steps": [
+      [1, 6],
+      [0, 3]
+    ]
+  },
+  "GameUI": {
+    "signature": "E8 ? ? ? ? 48 8B C8 E8 ? ? ? ? 48 8B 3D",
+    "module": "client.dll",
+    "steps": [
+      [0, 1],
+      [0, 3]
+    ]
   }
 }

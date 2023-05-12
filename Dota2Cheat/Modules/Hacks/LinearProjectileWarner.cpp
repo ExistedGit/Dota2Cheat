@@ -25,10 +25,14 @@ void Hacks::LinearProjectileWarner::DrawIfTrajectoryModifier(CDOTAModifier* modi
 	if (AbilityTrajectories.count(modifier->GetName()) &&
 		!EntityTrajectories.count(modifier)) {
 		auto trajectoryInfo = AbilityTrajectories[modifier->GetName()];
+		auto ability = owner->GetAbility(trajectoryInfo.value);
+		if (!ability)
+			return;
+
 		int offset = 0;
 		offset = trajectoryInfo.isAbilitySlot
-			? offset = owner->GetAbilities()[trajectoryInfo.value]->GetEffectiveCastRange()
-			: offset = trajectoryInfo.value;
+			? ability->GetEffectiveCastRange()
+			: trajectoryInfo.value;
 
 		EntityTrajectories[modifier] = EntTrajectoryInfo{
 			.offset = offset,

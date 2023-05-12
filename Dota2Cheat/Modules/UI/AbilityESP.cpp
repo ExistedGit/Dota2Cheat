@@ -75,9 +75,9 @@ void ESP::AbilityESP::DrawAbilities() {
 				++abilityCount;
 
 		
-		auto drawPos = HeroData[hero].HealthbarW2S;
+		auto drawPos = WorldToScreen(HeroData[hero].AbsOrigin);
 		drawPos.x -= (abilityCount - 1) * iconSize / 2.0f;
-		drawPos.y += 80;
+		drawPos.y += 30;
 
 		int idx = 0;
 		for (auto& data : abilities) {

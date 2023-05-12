@@ -3,6 +3,7 @@
 void Hooks::SetUpByteHooks() {
 	HOOKFUNC_SIGNATURES(PrepareUnitOrders);
 	HOOKFUNC_SIGNATURES(CDOTA_DB_Popup_AcceptMatch);
+	HOOKFUNC_SIGNATURES(C_DOTA_ProjectileManager__AddTrackingProjectile);
 	HOOKFUNC_SIGNATURES(BIsEmoticonUnlocked);
 	// HOOKFUNC_SIGNATURES(CDOTAPanoramaMinimapRenderer__Render);
 #ifdef _DEBUG

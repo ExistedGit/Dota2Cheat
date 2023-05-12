@@ -1,6 +1,7 @@
 #pragma once
 #include "Interfaces.h"
 #include "Context.h"
+#include "SignatureDB.h"
 #include "../Base/PatternScan.h"
 
 #include "../GameSystems/C_DOTAGameRules.h"
@@ -31,7 +32,6 @@ namespace GameSystems {
 	inline CDOTAParticleManager** ParticleManagerPtr{};
 	inline CDOTAParticleManager* ParticleManager{};
 
-	inline C_DOTA_ProjectileManager** ProjectileManagerPtr{};
 	inline C_DOTA_ProjectileManager* ProjectileManager{};
 
 	inline CDOTARichPresence* RichPresence{};
@@ -39,5 +39,11 @@ namespace GameSystems {
 	inline CGameEventManager** GameEventManagerPtr{};
 	inline CGameEventManager* GameEventManager{};
 
+
+	static inline std::map<std::string, void**> NamedSystems{
+		SIGMAP_ENTRY(PlayerResourcePtr),
+		SIGMAP_ENTRY(ParticleManagerPtr),
+		SIGMAP_ENTRY(GameUI),
+	};
 	void FindGameSystems();
 }

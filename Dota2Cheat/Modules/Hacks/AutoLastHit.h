@@ -3,9 +3,13 @@
 #include "../CheatSDK/Config.h"
 
 namespace Hacks {
+	// Absolutely ebin stubb :DDDD
 	class AutoLastHit {
 	public:
 		int GetHealthAfterProjectiles(CDOTABaseNPC* creep, float time) {
+			if (!GameSystems::ProjectileManager)
+				return -1;
+
 			int health = creep->GetHealth();
 			for (auto& proj : GameSystems::ProjectileManager->GetTrackingProjectiles()) {
 				if (!proj->IsAttack() || proj->GetTarget() != creep || !proj->GetSource())

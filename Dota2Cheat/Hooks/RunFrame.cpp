@@ -134,7 +134,7 @@ void Hooks::hkRunFrame(void* thisptr) {
 			//<< "\n\tValue:" << ent->GetModifierManager()->GetBuffsByModifierFunction(MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE)->at(0).GetPropertyValue()
 			<< '\n';
 	}
-	if (IsKeyPressed(VK_NUMPAD3)) {
+	if (GameSystems::ProjectileManager && IsKeyPressed(VK_NUMPAD3)) {
 		auto arr = GameSystems::ProjectileManager->m_pTrackingProjectiles;
 		std::cout << "[PROJECTILES]\n";
 		for (int i = 0; i < 1024; i++) {
