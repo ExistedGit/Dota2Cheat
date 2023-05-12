@@ -80,7 +80,6 @@ void EnteredPreGame() {
 		return;
 
 	GetGameSystem(GameRules);
-	GetGameSystem(ProjectileManager);
 	GetGameSystem(PlayerResource);
 	GetGameSystem(ParticleManager);
 	GetGameSystem(GameEventManager);

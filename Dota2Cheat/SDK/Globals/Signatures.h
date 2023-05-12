@@ -1,5 +1,6 @@
 #pragma once
 #include "../Base/PatternScan.h"
+#include "SignatureDB.h"
 
 #include "Context.h"
 
@@ -15,8 +16,6 @@
 
 #include "../Interfaces/Network/CNetworkMessages.h"
 #include "../Entities/CDOTABaseAbility.h"
-#include <json.hpp>
-#include <regex>
 
 class CDOTAPlayerController;
 class CDOTAModifier;
@@ -24,6 +23,8 @@ class CDOTAModifier;
 namespace Signatures {
 	typedef void* (*CDOTA_DB_Popup_AcceptMatchFn)(VClass*, Panorama::CPanel2D*, const char*, Panorama::CPanel2D*, bool, const char*);
 	inline CDOTA_DB_Popup_AcceptMatchFn CDOTA_DB_Popup_AcceptMatch{};
+	typedef void* (*C_DOTA_ProjectileManager__AddTrackingProjectileFn)(void* thisptr, void* unk);
+	inline C_DOTA_ProjectileManager__AddTrackingProjectileFn C_DOTA_ProjectileManager__AddTrackingProjectile{};
 
 	inline CDOTAItemSchema* (*GetItemSchema)() = nullptr;
 	inline bool(*IsHUDFlipped)() = nullptr;
@@ -78,39 +79,30 @@ namespace Signatures {
 	inline bool(*CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby)(void* thisptr, bool state);
 
 
-#define SIG_NAMED(var) {#var, (void**)&var}
 	static inline std::map<std::string, void**> NamedSignatures{
-		SIG_NAMED(WorldToScreen),
-		SIG_NAMED(DispatchPacket),
-		SIG_NAMED(BAsyncSendProto),
-		SIG_NAMED(PrepareUnitOrders),
-		SIG_NAMED(IsHUDFlipped),
-		SIG_NAMED(GetItemSchema),
-		SIG_NAMED(CreateEconItem),
-		SIG_NAMED(GetPlayer),
-		SIG_NAMED(SaveSerializedSOCache),
-		SIG_NAMED(BIsEmoticonUnlocked),
-		SIG_NAMED(PlayUISoundScript),
-		SIG_NAMED(CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby),
-		SIG_NAMED(CDOTA_DB_Popup_AcceptMatch),
+		SIGMAP_ENTRY(WorldToScreen),
+		SIGMAP_ENTRY(DispatchPacket),
+		SIGMAP_ENTRY(BAsyncSendProto),
+		SIGMAP_ENTRY(PrepareUnitOrders),
+		SIGMAP_ENTRY(IsHUDFlipped),
+		SIGMAP_ENTRY(GetItemSchema),
+		SIGMAP_ENTRY(CreateEconItem),
+		SIGMAP_ENTRY(GetPlayer),
+		SIGMAP_ENTRY(SaveSerializedSOCache),
+		SIGMAP_ENTRY(BIsEmoticonUnlocked),
+		SIGMAP_ENTRY(PlayUISoundScript),
+		SIGMAP_ENTRY(CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby),
+		SIGMAP_ENTRY(C_DOTA_ProjectileManager__AddTrackingProjectile),
+		SIGMAP_ENTRY(CDOTA_DB_Popup_AcceptMatch),
 
-		SIG_NAMED(CBaseEntity::OnColorChanged),
-		SIG_NAMED(CDOTABaseNPC::GetAttackSpeed),
+		SIGMAP_ENTRY(CBaseEntity::OnColorChanged),
+		SIGMAP_ENTRY(CDOTABaseNPC::GetAttackSpeed),
 
 		{"CDOTAParticleManager::DestroyParticle", (void**)&CDOTAParticleManager::DestroyParticleFunc},
 		{"CDOTAGameRules::GetGameTime", (void**)&CDOTAGameRules::GetGameTimeFunc},
 		{"CDOTARichPresence::SetRPStatus", (void**)&CDOTARichPresence::SetRPStatusFunc},
 		{"CDOTABaseAbility::GetLevelSpecialValueFor", (void**)&CDOTABaseAbility::GetLevelSpecialValueForFunc},
 	};
-	void ParseSignatures(nlohmann::json data);
-	void LoadSignaturesFromNetwork(const std::string& url);
-	inline void LoadSignaturesFromFile(const std::string& url) {
-		if (std::ifstream fin(url); fin.is_open()) {
-			ParseSignatures(nlohmann::json::parse(fin));
-			fin.close();
-		}
-	};
-
 
 	void FindSignatures();
 }

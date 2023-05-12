@@ -16,6 +16,7 @@ void GameSystems::InitMinimapRenderer() {
 
 void GameSystems::FindGameSystems() {
 	Log(LP_INFO, "GAME SYSTEM POINTERS:");
+	SignatureDB::ParseSignatures(NamedSystems);
 
 	// Also in Source2Client::Init(), right after "g_GameEventManager.Init()":
 	// mov rcx, [XXXXXXXXX]
@@ -35,26 +36,20 @@ void GameSystems::FindGameSystems() {
 
 	//xref: "activategameui", first lea rax, [XXXXXXXXX]
 	//console command ^
-	SET_VAR(GameUI, SigScan::Find("E8 ? ? ? ? 48 8B C8 E8 ? ? ? ? 48 8B 3D", "client.dll")
-		.GetAbsoluteAddress(1)
-		.GetAbsoluteAddress(3));
-
-	// xref "Spews a list of all client-side projectiles", above it is lea rax, [XXXXXXXX]
-	// I want to die looking at that sig
-	SET_VAR(ProjectileManagerPtr,
-		SigScan::Find("48 8B 0D ? ? ? ? 48 85 C9 0F 85 ? ? ? ? C3 CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC 48 8D 0D", "client.dll")
-		.GetAbsoluteAddress(3, 7));
+	//SET_VAR(GameUI, SigScan::Find("E8 ? ? ? ? 48 8B C8 E8 ? ? ? ? 48 8B 3D", "client.dll")
+	//	.GetAbsoluteAddress(1)
+	//	.GetAbsoluteAddress(3));
 
 	SET_VAR(GameRulesPtr, Address(CDOTAGameRules::GetGameTimeFunc).Offset(0xF).GetAbsoluteAddress(3, 7));
 
 	// xref: "No player resource\n"
-	SET_VAR(PlayerResourcePtr, SigScan::Find("40 57 48 83 EC 70 48 8B 3D", "client.dll")
-		.Offset(6)
-		.GetAbsoluteAddress(3, 7));
+	//SET_VAR(PlayerResourcePtr, SigScan::Find("40 57 48 83 EC 70 48 8B 3D", "client.dll")
+	//	.Offset(6)
+	//	.GetAbsoluteAddress(3, 7));
 
 	// xref: "flOffset"
 	// lea rcx, [XXXXXXXXX] above it is GetParticleManager()
-	SET_VAR(ParticleManagerPtr, SigScan::Find("E8 ? ? ? ? 8B 14 9F", "client.dll")
-		.GetAbsoluteAddress(1, 5)
-		.GetAbsoluteAddress(3, 7));
+	//SET_VAR(ParticleManagerPtr, SigScan::Find("E8 ? ? ? ? 8B 14 9F", "client.dll")
+	//	.GetAbsoluteAddress(1, 5)
+	//	.GetAbsoluteAddress(3, 7));
 }

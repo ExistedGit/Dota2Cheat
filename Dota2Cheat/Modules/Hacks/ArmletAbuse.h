@@ -6,6 +6,9 @@ namespace Hacks {
 	class ArmletAbuse {
 	public:
 		void SwitchArmletIfNeeded() {
+			if (!GameSystems::ProjectileManager)
+				return;
+
 			for (auto& proj : GameSystems::ProjectileManager->m_pTrackingProjectiles) {
 				if (!proj || !proj->IsAttack() ||
 					!HeroData[ctx.localHero].Items["armlet"])

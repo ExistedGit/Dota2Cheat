@@ -128,20 +128,23 @@ void Hacks::ParticleAbilityWarner::ProcessParticleMsg(NetMessageHandle_t* msgHan
 			// Particle's velocity
 			// Same calculations as in LinearProjectileWarner
 			else if (cpIdx == 1) {
+				auto ability = info.owner->GetAbility(
+					AbilityIndexes.at(info.nameIndex)
+				);
+				if (!ability)
+					break;
 				auto castRange =
-					info.owner->GetAbilities()[
-						AbilityIndexes.at(info.nameIndex)
-					]->GetEffectiveCastRange();
+					ability->GetEffectiveCastRange();
 
-						if (info.nameIndex == AP_BANSHEE_CRYPT_SWARM)
-							castRange += 390; // hits past its cast range, for some reason
+				if (info.nameIndex == AP_BANSHEE_CRYPT_SWARM)
+					castRange += 390; // hits past its cast range, for some reason
 
-						auto ratio = castRange / cpVal.Length2D();
-						auto enlargedVec = cpVal.As<Vector2D>() * ratio;
-						info.end = info.begin;
-						info.end.x += enlargedVec.x;
-						info.end.y += enlargedVec.y;
-						TrackedAbilityParticles[msgIndex].trajectory = DrawTrajectory(info.begin, info.end);
+				auto ratio = castRange / cpVal.Length2D();
+				auto enlargedVec = cpVal.As<Vector2D>() * ratio;
+				info.end = info.begin;
+				info.end.x += enlargedVec.x;
+				info.end.y += enlargedVec.y;
+				TrackedAbilityParticles[msgIndex].trajectory = DrawTrajectory(info.begin, info.end);
 			}
 			break;
 		case AP_MEEPO_EARTHBIND:

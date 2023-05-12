@@ -344,5 +344,6 @@
     <ClInclude Include="Modules\UI\BarAugmenter.h" />
     <ClInclude Include="Modules\Hacks\AutoAccept.h" />
     <ClInclude Include="Modules\UI\Indicators\HookIndicator.h" />
+    <ClInclude Include="SDK\Globals\SignatureDB.h" />
   </ItemGroup>
 </Project>

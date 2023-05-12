@@ -95,14 +95,14 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		});
 
 	Interfaces::CVar->DumpConVarsToMap();
-	Signatures::FindSignatures();
 
 #ifdef D2C_USE_LOCAL_SIGNATURES
-	Signatures::LoadSignaturesFromFile(ctx.cheatFolderPath + "\\signatures.json");
+	SignatureDB::LoadSignaturesFromFile(ctx.cheatFolderPath + "\\signatures.json");
 #else
-	Signatures::LoadSignaturesFromNetwork("https://raw.githubusercontent.com/ExistedGit/Dota2Cheat/main/signatures.json");
+	SignatureDB::LoadSignaturesFromNetwork("https://raw.githubusercontent.com/ExistedGit/Dota2Cheat/main/signatures.json");
 #endif
 
+	Signatures::FindSignatures();
 	GameSystems::FindGameSystems();
 
 	if (useChangerCode) {

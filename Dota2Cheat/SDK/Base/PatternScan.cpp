@@ -20,10 +20,17 @@ FORCEINLINE std::array<size_t, 256> FillShiftTable(const char* pattern, const ui
 	return bad_char_skip;
 }
 
-void* _PatternScan(uintptr_t begin, uintptr_t end, const char* pattern)
+void* SigScan::PatternScanInModule(const char* module, const char* pattern)
 {
-	auto scanPos = (uint8_t*)begin;
-	const auto scanEnd = (uint8_t*)end;
+	const auto begin = (uintptr_t)GetModuleHandleA(module);
+
+	const auto pDosHeader = PIMAGE_DOS_HEADER(begin);
+	const auto pNTHeaders = PIMAGE_NT_HEADERS((uint8_t*)(begin + pDosHeader->e_lfanew));
+	const auto dwSizeOfImage = pNTHeaders->OptionalHeader.SizeOfImage;
+
+	uint8_t* scanPos = (uint8_t*)begin;
+	const uint8_t* scanEnd = (uint8_t*)(begin + dwSizeOfImage - strlen(pattern));
+
 	const size_t last = strlen(pattern) - 1;
 	const auto bad_char_skip = FillShiftTable(pattern, 0xCC);
 
@@ -40,21 +47,9 @@ void* _PatternScan(uintptr_t begin, uintptr_t end, const char* pattern)
 	return nullptr;
 }
 
-void* PatternScanInModule(const char* module, const char* pattern)
-{
-	const auto begin = (uintptr_t)GetModuleHandleA(module);
-
-	const auto pDosHeader = PIMAGE_DOS_HEADER(begin);
-	const auto pNTHeaders = PIMAGE_NT_HEADERS((uint8_t*)(begin + pDosHeader->e_lfanew));
-	const auto dwSizeOfImage = pNTHeaders->OptionalHeader.SizeOfImage;
-	
-	const auto end = begin + dwSizeOfImage - strlen(pattern);
-	return _PatternScan(begin, end, pattern);
-}
-
 std::string SigScan::ParseCombo(const std::string& combo)
 {
-	unsigned int patternLen = (combo.size() + 1) / 3;
+	const size_t patternLen = (combo.size() + 1) / 3;
 	std::string pattern;
 	pattern.reserve(patternLen);
 
@@ -62,10 +57,7 @@ std::string SigScan::ParseCombo(const std::string& combo)
 	for (unsigned int i = 0; i < combo.size(); i++)
 	{
 		if (combo[i] == ' ')
-		{
 			continue;
-		}
-
 		else if (combo[i] == '?')
 		{
 			pattern += '\xCC';

@@ -8,75 +8,13 @@ if(var) \
 else \
 	{ LogF(LP_ERROR, "{}: {}", #var, (void*)var); error = true; }
 
-
-
-void Signatures::ParseSignatures(nlohmann::json data) {
-	for (auto& [sigName, sigVar] : NamedSignatures) {
-		if (!data.contains(sigName))
-			continue;
-
-		auto& info = data[sigName];
-		std::string sigStr = info["signature"], sigModule = info["module"];
-		auto result = SigScan::Find(sigStr, sigModule);
-
-		if (!result)
-			continue;
-
-		if (info.contains("steps")) {
-			for (auto& pair : info["steps"].items()) {
-				int type = pair.value()[0], value = pair.value()[1];
-				switch (type) {
-				case 0:
-					result = result.GetAbsoluteAddress(value);
-					break;
-				case 1:
-					result = result.Offset(value);
-					break;
-				}
-			}
-		}
-		*sigVar = result;
-	}
-
-	bool brokenSig = false;
-	for (auto& [sigName, sigVar] : NamedSignatures) {
-
-		LogF(*sigVar ? LP_DATA : LP_ERROR, "{}: {}", sigName, *sigVar);
-		if (!(*sigVar))
-			brokenSig = true;
-	}
-	if (brokenSig)
-		system("pause");
-
-}
-
-void Signatures::LoadSignaturesFromNetwork(const std::string& url) {
-	std::cout << std::format("Loading signatures from {}\n", url);
-
-	std::stringstream out;
-	CURL* curl = curl_easy_init();
-	curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
-	curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteRemoteString);
-	curl_easy_setopt(curl, CURLOPT_WRITEDATA, &out);
-	curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0);
-	curl_easy_setopt(curl, CURLOPT_USERAGENT, "Dota2Cheat/0.1");
-	CURLcode CURLresult = curl_easy_perform(curl);
-	curl_easy_cleanup(curl);
-
-	if (CURLresult != CURLE_OK) {
-		std::cout << "FAILED TO LOAD SIGNATURES FROM " << url << ", USING LOCAL COPY" << '\n';
-		LoadSignaturesFromFile(ctx.cheatFolderPath + "\\signatures.json");
-		return;
-	}
-
-	ParseSignatures(nlohmann::json::parse(out.str()));
-}
-
 void Signatures::FindSignatures() {
 	bool error = false;
 
 	CMsg = reinterpret_cast<decltype(CMsg)>(GetProcAddress(GetModuleHandleA("tier0.dll"), "Msg"));
 	CMsgColor = reinterpret_cast<decltype(CMsgColor)>(GetProcAddress(GetModuleHandleA("tier0.dll"), "?ConColorMsg@@YAXAEBVColor@@PEBDZZ"));
+
+	SignatureDB::ParseSignatures(NamedSignatures);
 
 	// Log(LP_INFO, "SIGNATURES:");
 
