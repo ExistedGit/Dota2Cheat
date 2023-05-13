@@ -66,6 +66,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 				std::cout << "Loaded config from " << ctx.cheatFolderPath + "\\config\\base.json\n";
 			}
 		}
+
 		for (auto& file : std::filesystem::directory_iterator(ctx.cheatFolderPath + "\\assets\\misc")) {
 			auto path = file.path();
 			auto fileName = path.filename().string();
@@ -81,6 +82,11 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		}
 
 		Modules::SkinChanger.DeleteSOCacheFiles();
+	}
+	{
+		auto gi = SigScan::Find("74 ? 84 C9 75 ? 83 BF", "client.dll");
+		if (gi)
+			Memory::Patch(gi, { 0xE8 });
 	}
 
 	ctx.lua.open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::math);
@@ -138,9 +144,9 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 	glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, 1);
 
-// wouldn't want the window to obscure the screen on a breakpoint
+	// wouldn't want the window to obscure the screen on a breakpoint
 #if !defined(_DEBUG) || defined(_TESTING)
- 	glfwWindowHint(GLFW_FLOATING, 1);
+	glfwWindowHint(GLFW_FLOATING, 1);
 #endif // DEBUG
 	glfwWindowHint(GLFW_DECORATED, 0);
 	glfwWindowHint(GLFW_RESIZABLE, 0);

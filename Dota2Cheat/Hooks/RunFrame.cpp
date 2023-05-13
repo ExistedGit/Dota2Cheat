@@ -134,26 +134,26 @@ void Hooks::hkRunFrame(void* thisptr) {
 			//<< "\n\tValue:" << ent->GetModifierManager()->GetBuffsByModifierFunction(MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE)->at(0).GetPropertyValue()
 			<< '\n';
 	}
-	if (GameSystems::ProjectileManager && IsKeyPressed(VK_NUMPAD3)) {
-		auto arr = GameSystems::ProjectileManager->m_pTrackingProjectiles;
-		std::cout << "[PROJECTILES]\n";
-		for (int i = 0; i < 1024; i++) {
-			auto proj = arr[i];
-			if (!proj)
-				continue;
-			auto target = proj->GetTarget();
-			auto source = proj->GetSource();
-			std::cout << std::format("[{}] Move speed {} Source {} Target {} Dodgeable {} Attack {} Evaded {}\n",
-				i,
-				proj->GetMoveSpeed(),
-				source ? source->GetUnitName() : "unknown",
-				target ? target->GetUnitName() : "unknown",
-				proj->IsDodgeable() ? "YES" : "NO",
-				proj->IsAttack() ? "YES" : "NO",
-				proj->IsEvaded() ? "YES" : "NO"
-			);
-		};
-	}
+	//if (GameSystems::ProjectileManager && IsKeyPressed(VK_NUMPAD3)) {
+	//	auto arr = GameSystems::ProjectileManager->m_pTrackingProjectiles;
+	//	std::cout << "[PROJECTILES]\n";
+	//	for (int i = 0; i < 1024; i++) {
+	//		auto proj = arr[i];
+	//		if (!proj)
+	//			continue;
+	//		auto target = proj->GetTarget();
+	//		auto source = proj->GetSource();
+	//		std::cout << std::format("[{}] Move speed {} Source {} Target {} Dodgeable {} Attack {} Evaded {}\n",
+	//			i,
+	//			proj->GetMoveSpeed(),
+	//			source ? source->GetUnitName() : "unknown",
+	//			target ? target->GetUnitName() : "unknown",
+	//			proj->IsDodgeable() ? "YES" : "NO",
+	//			proj->IsAttack() ? "YES" : "NO",
+	//			proj->IsEvaded() ? "YES" : "NO"
+	//		);
+	//	};
+	//}
 	if (IsKeyPressed(VK_RMENU)) {
 		auto type = GameSystems::GameRules->GetRiverType();
 		std::cout << "r: " << type << std::endl;

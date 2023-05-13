@@ -594,6 +594,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="SDK\Entities\CHandle.h" />
     <ClInclude Include="SDK\GameSystems\CDOTA_PanoramaMinimapRenderer.h" />
     <ClInclude Include="SDK\GameSystems\CGameUI.h" />
     <ClInclude Include="Hooks\InvalidateUEF.h" />
