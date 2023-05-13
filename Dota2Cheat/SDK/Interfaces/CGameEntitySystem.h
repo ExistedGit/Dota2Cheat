@@ -13,7 +13,7 @@ public:
 	CEntityIdentity m_pIdentities[MAX_ENTITIES_IN_LIST];
 };
 
-class CEntitySystem{
+class CEntitySystem {
 public:
 	virtual void n_0() = 0;
 	virtual void BuildResourceManifest(void) = 0; // 01
@@ -70,12 +70,12 @@ public:
 	T* GetEntity(int index)
 	{
 		auto identity = GetIdentity(index);
-		if(identity)
+		if (identity)
 			return (T*)identity->entity;
 		return nullptr;
 	}
 	int GetHighestEntityIndex()
-	{		
+	{
 		// IDA:
 		// xref "cl_showents" -> lea rax, [XXXXXXXX] above
 		// decompile it, there is a cycle using a variable initialized with the first call(to sub_18XXXXXX)

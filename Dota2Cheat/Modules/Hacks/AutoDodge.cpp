@@ -9,11 +9,12 @@ void Hacks::AutoDodge::FrameBasedLogic() {
 		return;
 
 	for (auto proj : GameSystems::ProjectileManager->m_pTrackingProjectiles) {
-		if (!proj || proj->IsAttack())
+		if (!proj || proj->m_bIsAttack)
 			continue;
 
-		auto target = proj->GetTarget();
-		auto source = proj->GetSource();
+		CDOTABaseNPC
+			* target = proj->m_hTarget,
+			* source = proj->m_hSource;
 
 		if (target != ctx.localHero ||
 			(source && source->IsSameTeam(ctx.localHero)))
@@ -23,8 +24,8 @@ void Hacks::AutoDodge::FrameBasedLogic() {
 		//	useTime = 1.2f;
 
 		{
-			auto dist = proj->GetPos().As<Vector2D>().DistTo(target->GetPos().As<Vector2D>()) - target->GetHullRadius();
-			auto timeToHit = dist / proj->GetMoveSpeed();
+			auto dist = proj->m_vLocation.As<Vector2D>().DistTo(proj->m_vTargetLocation.As<Vector2D>()) - target->GetHullRadius();
+			auto timeToHit = dist / proj->m_iMoveSpeed;
 			if (timeToHit > 0.05f)
 				continue;
 		}

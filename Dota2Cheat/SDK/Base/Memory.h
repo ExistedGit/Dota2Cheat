@@ -1,5 +1,21 @@
 #pragma once
 #include <cstdint>
+#include <Windows.h>
+#include "Address.h"
+
+struct Memory {
+	// Byte patching!
+	template<size_t replSize>
+	static void Patch(Address addr, BYTE const (&replacement)[replSize]) {
+		MEMORY_BASIC_INFORMATION mbi;
+		VirtualQuery(addr, &mbi, sizeof(mbi));
+		VirtualProtect(mbi.BaseAddress, mbi.RegionSize, PAGE_EXECUTE_READWRITE, &mbi.Protect);
+
+		memcpy(addr, replacement, replSize);
+
+		VirtualProtect(mbi.BaseAddress, mbi.RegionSize, mbi.Protect, &mbi.Protect);
+	}
+};
 
 // Utility functions for working with memory
 

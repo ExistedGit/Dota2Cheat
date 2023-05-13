@@ -15,7 +15,7 @@ namespace VTableIndexes {
 		Index SetControlPoint = 16;
 		// xref: "m_Children.m_pHead: [%p]\n"
 		// the only one in the vtable
-		Index SetRenderingEnabled = 97;
+		Index SetRenderingEnabled = 92;
 	}
 	namespace CDOTAParticleManager {
 		// JS xref "CreateParticle" to lea RCX

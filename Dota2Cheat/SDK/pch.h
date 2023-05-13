@@ -43,6 +43,7 @@
 
 #include "Enums.h"
 
+#include "Entities/CHandle.h"
 #include "Entities/CDOTABaseNPCHero.h"
 #include "Entities/CDOTAPlayerController.h"
 #include "Entities/CDOTAModifier.h"

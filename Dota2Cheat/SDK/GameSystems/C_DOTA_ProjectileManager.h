@@ -1,35 +1,25 @@
 #pragma once
+#include "../Entities/CHandle.h"
 #include "../Interfaces/CGameEntitySystem.h"
 #include <span>
 
-class C_DOTA_TrackingProjectileInfo : public VClass {
-public:
-	GETTER(int32_t, GetMoveSpeed, 0x4);
-	GETTER(Vector, GetPos, 0x8);
-	GETTER(bool, IsDodgeable, 40);
-	GETTER(bool, IsAttack, 41);
-	GETTER(bool, IsEvaded, 42);
-	GETTER(float, GetExpireTime, 44);
-
-	auto GetSource() {
-		return Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(H2IDX(Member<uint32_t>(20)));
-	}
-
-	auto GetTarget() {
-		return Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(H2IDX(Member<uint32_t>(24)));
-	}
-
-	Vector PredictPos(float deltaTime) {
-		auto pos = GetPos();
-		Vector predictedPos{};
-		auto moveVec = GetTarget()->GetPos() - pos;
-		auto moveDelta = moveVec.Length2D();
-		moveVec *= GetMoveSpeed() * deltaTime / moveDelta;
-
-		predictedPos = pos + moveVec;
-		return predictedPos;
-	}
+struct C_DOTA_TrackingProjectileInfo
+{
+	int32_t m_iHandle; // 0x0
+	int32_t m_iMoveSpeed; // 0x4
+	Vector m_vLocation; // 0x8
+	CHandle<CDOTABaseNPC> m_hSource; // 0x14
+	CHandle<CDOTABaseNPC> m_hTarget; // 0x18
+	Vector m_vTargetLocation; // 0x1c
+	bool m_bDodgeable; // 0x28
+	bool m_bIsAttack; // 0x29
+	bool m_bIsEvaded; // 0x2a
+	uint8_t pad_0x2b[1]; // 0x2b
+	float m_flExpireTime; // 0x2c
+	float m_flMaxImpactTime; // 0x30
+	uint8_t pad_0x34[36]; // 0x34
 };
+
 class C_DOTA_LinearProjectileInfo : public VClass {
 public:
 	GETTER(Vector, GetPos, 0x38);
