@@ -95,6 +95,8 @@ Open the project in Visual Studio and build both Dota2Cheat and Dota2Loader as *
 
 ## Injecting
 
+**I KNOW IT DOESN'T WORK ON WIN11, STOP MESSAGING ME ABOUT IT. TRY TO USE SOME OTHER INJECTOR THAT WORKS ON WIN11, MAYBE IT'LL HELP**
+
 This cheat can be safely reinjected at any point of the game
 
 Build Dota2Loader and launch it, it will move the necessary resources around and then inject
