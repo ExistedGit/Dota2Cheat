@@ -94,12 +94,11 @@ Once the process completes, go to `installed/x64-windows-static-md`. Copy libpro
 Open the project in Visual Studio and build both Dota2Cheat and Dota2Loader as **Release x64**
 
 ## Injecting
-
-**I KNOW IT DOESN'T WORK ON WIN11, STOP MESSAGING ME ABOUT IT. TRY TO USE SOME OTHER INJECTOR THAT WORKS ON WIN11, MAYBE IT'LL HELP**
-
 This cheat can be safely reinjected at any point of the game
 
 Build Dota2Loader and launch it, it will move the necessary resources around and then inject
+
+**I KNOW IT DOESN'T WORK ON WIN11, STOP MESSAGING ME ABOUT IT. TRY TO [USE](https://github.com/ExistedGit/Dota2Cheat/issues/124) SOME [OTHER](https://github.com/ExistedGit/Dota2Cheat/issues/120) INJECTOR THAT WORKS ON WIN11(JUST DON'T FORGET TO STILL LAUNCH IT, TO MOVE ASSETS)**
 
 **Use at own risk. Though I use methods that make detection chances as low as possible, there are no guarantees.** (also consider not using non-legit features that you can get reported for)
 
