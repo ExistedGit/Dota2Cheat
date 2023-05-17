@@ -76,6 +76,7 @@ This list is subject to frequent change as I'm testing new features
   * River painting
   * Unlocks emoticons
   * Dota Plus Unlocker
+  * Allows playing with VPK mods
   
 * Work in progress:
   * Roshan timer
