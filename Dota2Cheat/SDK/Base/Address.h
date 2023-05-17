@@ -1,5 +1,6 @@
 #pragma once
 #include <cstdint>
+#include <optional>
 
 // Wrapper for working with memory addresses
 class Address {
@@ -20,10 +21,8 @@ public:
 	}
 
 	template<typename T = Address>
-	T GetAbsoluteAddress(int addrOffset, int opcodeSize = -1) const {
-		if (opcodeSize == -1)
-			opcodeSize = addrOffset + sizeof(uint32_t);
-		return T(ptr + *(int*)(ptr + addrOffset) + opcodeSize);
+	T GetAbsoluteAddress(int addrOffset, std::optional<uint32_t> opcodeSize = std::nullopt) const {
+		return T(ptr + *(int*)(ptr + addrOffset) + opcodeSize.value_or(addrOffset + sizeof(uint32_t)));
 	}
 
 	template<typename T>

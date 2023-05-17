@@ -15,6 +15,13 @@ namespace Hacks {
 		};
 		NukeData curData;
 
+		// Includes magical resistance and newly added barriers
+		int CalcDmgWithResists(CDOTABaseNPC* ent, float dmg, bool pure = false) {
+			auto barriers = ent->GetBarriers();
+			auto effectiveDamage = dmg - (barriers.all + barriers.magic) + (!pure) * (1 - ent->GetMagicalArmorValue());
+			return ent->GetHealth() - effectiveDamage;
+		}
+
 		// Dataset provided by WolfGPT
 		const std::map<std::string, NukeData> HeroNukes = {
 			{ "npc_dota_hero_dragon_knight", 0 },
@@ -56,7 +63,7 @@ namespace Hacks {
 				static auto ult = ctx.localHero->GetAbility(curData.idx);
 				auto dmgPerMana = ult->GetLevelSpecialValueFor("mana_void_damage_per_mana");
 				auto resist = ent->GetMagicalArmorValue();
-				return ent->GetHealth() - ((ent->GetMaxMana() - ent->GetMana()) * dmgPerMana) * (1 - resist);
+				return CalcDmgWithResists(ent, (ent->GetMaxMana() - ent->GetMana()) * dmgPerMana);
 			}
 			},
 			{
@@ -65,7 +72,8 @@ namespace Hacks {
 				static auto ult = ctx.localHero->GetAbility(curData.idx);
 				auto dmgPerHealth = ult->GetLevelSpecialValueFor("damage_per_health");
 				auto resist = ent->GetMagicalArmorValue();
-				return ent->GetHealth() - ((ent->GetMaxHealth() - ent->GetHealth()) * dmgPerHealth) * (1 - resist);
+				auto dmgTotal = (ent->GetMaxHealth() - ent->GetHealth()) * dmgPerHealth;
+				return CalcDmgWithResists(ent, dmgTotal);
 			}
 			},
 			{
@@ -75,13 +83,15 @@ namespace Hacks {
 				auto razeDebuff = HeroData[ent].Modifiers["modifier_nevermore_shadowraze_debuff"];
 				auto dmg = raze->GetLevelSpecialValueFor("shadowraze_damage");
 				auto resist = ent->GetMagicalArmorValue();
+				auto dmgTotal = dmg;
+
 				if (razeDebuff) {
 					auto dmgPerStack = raze->GetLevelSpecialValueFor("stack_bonus_damage");
 					auto stacks = razeDebuff->GetStackCount();
-					return ent->GetHealth() - (dmg + stacks * dmgPerStack) * (1 - resist);
+					dmgTotal = dmg + stacks * dmgPerStack;
 				}
-				else
-					return ent->GetHealth() - dmg * (1 - resist);
+
+				return CalcDmgWithResists(ent, dmgTotal);
 			}
 			},
 			{
@@ -92,14 +102,15 @@ namespace Hacks {
 				auto killCounter = HeroData[ctx.localHero].Modifiers["modifier_lion_finger_of_death_kill_counter"];
 				auto dmg = ult->GetLevelSpecialValueFor("damage");
 				auto resist = ent->GetMagicalArmorValue();
+				auto dmgTotal = dmg;
 
 				if (killCounter) {
 					auto dmgPerStack = ult->GetLevelSpecialValueFor("damage_per_kill");
 					auto stacks = killCounter->GetStackCount();
-					return ent->GetHealth() - (dmg + stacks * dmgPerStack) * (1 - resist);
+					dmgTotal = dmg + stacks * dmgPerStack;
 				}
-				else
-					return ent->GetHealth() - dmg * (1 - resist);
+
+				return CalcDmgWithResists(ent, dmgTotal);
 			}
 			}
 		};
@@ -108,9 +119,7 @@ namespace Hacks {
 			auto dmg = nuke->GetLevelSpecialValueFor("damage");
 			auto resist = ent->GetMagicalArmorValue();
 
-			return curData.isPure
-				? ent->GetHealth() - dmg
-				: ent->GetHealth() - dmg * (1 - resist);
+			return CalcDmgWithResists(ent, dmg, curData.isPure);
 		}
 		void DrawIndicatorFor(CDOTABaseNPC* ent);
 		bool Initialized = false;

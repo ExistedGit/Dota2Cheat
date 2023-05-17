@@ -10,6 +10,21 @@
 class CDOTABaseNPC : public CBaseEntity {
 public:
 	inline static float(*GetAttackSpeed)(CDOTABaseNPC* npc) = nullptr;
+	// Reversed via xref "CDOTA_Hud_HealthMana::Update"
+	// in the beginning after the repeated section with xrefs the hero is acquired
+	// trace the variable in the call with "max_physical_barrier" to the assignment of a value where an offset to hero is used
+	// that offset ultimately leads to such a structure
+	struct BarrierData {
+		float
+			physMax,
+			magicMax,
+			allMax,
+			phys,  // blocks physical damage
+			magic, // blocks magical damage
+			all; // blocks all forms of damage
+	};
+
+	GETTER(BarrierData, GetBarriers, 0x16d4);
 
 	CDOTAModifierManager* GetModifierManager() {
 		// Inlined into the object instead of a pointer

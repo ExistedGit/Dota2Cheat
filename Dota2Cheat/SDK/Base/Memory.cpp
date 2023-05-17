@@ -1,4 +1,4 @@
-#include "PatternScan.h"
+#include "Memory.h"
 
 // Boyer-Moore-Horspool with wildcards implementation
 FORCEINLINE std::array<size_t, 256> FillShiftTable(const char* pattern, const uint8_t wildcard) {
@@ -20,7 +20,7 @@ FORCEINLINE std::array<size_t, 256> FillShiftTable(const char* pattern, const ui
 	return bad_char_skip;
 }
 
-void* SigScan::PatternScanInModule(const char* module, const char* pattern)
+void* Memory::PatternScanInModule(const char* module, const char* pattern)
 {
 	const auto begin = (uintptr_t)GetModuleHandleA(module);
 
@@ -47,7 +47,7 @@ void* SigScan::PatternScanInModule(const char* module, const char* pattern)
 	return nullptr;
 }
 
-std::string SigScan::ParseCombo(const std::string& combo)
+std::string Memory::ParseCombo(const std::string& combo)
 {
 	const size_t patternLen = (combo.size() + 1) / 3;
 	std::string pattern;

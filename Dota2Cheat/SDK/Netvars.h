@@ -220,6 +220,7 @@ namespace Netvars {
 		constexpr uint32_t m_nPlayerSlot = 0xc8; // CPlayerSlot
 		constexpr uint32_t m_bIsBot = 0xcc; // bool
 		constexpr uint32_t m_bHasNeutralTier = 0xcd; // bool[5]
+		constexpr uint32_t m_bHasRedeemedNeutralTier = 0xd2; // bool[5]
 	}
 	namespace C_DOTABaseAbility {
 		constexpr uint32_t m_bAltCastState = 0x530; // bool

@@ -5,27 +5,18 @@
 
 
 struct ModifierFunctionListNode {
-	struct ReturnBuffer1 {
-		int successful;
-		float result;
-	private:
-		void* unk1;
-		void* unk2;
-	};
-
-	struct ReturnBuffer2 {
-		void* unk[0x100 / 8];
+	struct ReturnBuffer {
+		BYTE unk[0x100];
 	};
 
 	CDOTAModifier* modifier;
-	using GetModifierPropertyValue = float(*)(CDOTAModifier*, ReturnBuffer1*, ReturnBuffer2*, void*);
+	using GetModifierPropertyValue = float(*)(CDOTAModifier*, void*, void*, void*);
 	GetModifierPropertyValue func;
 
 	float GetPropertyValue() {
-		ReturnBuffer1 buf1{};
-		ReturnBuffer2 buf2{};
+		ReturnBuffer buf{};
 
-		return func(modifier, &buf1, &buf2, nullptr);
+		return func(modifier, &buf, &buf, nullptr);
 	}
 private:
 	uintptr_t unk;
@@ -48,8 +39,8 @@ public:
 	// matrix[modFunc] gives you the index of the CUtlVector in what GetModifierFunctionList gets 
 	// (or 0xFFFF if there was no modifier with such a function)
 	// In CUtlVector are all the modifiers with the specified function
-	std::span<uint16_t, 256> GetModifierFunctionMatrix() {
-		return std::span<uint16_t, 256>(MemberInline<uint16_t>(0x40), 256);
+	auto GetModifierFunctionMatrix() {
+		return std::span<uint16_t, 280>(MemberInline<uint16_t>(0x40), 280);
 	}
 
 	auto GetModifierFunctionList() {
