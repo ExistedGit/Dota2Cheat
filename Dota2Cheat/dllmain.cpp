@@ -84,7 +84,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		Modules::SkinChanger.DeleteSOCacheFiles();
 	}
 	{
-		auto gi = SigScan::Find("74 ? 84 C9 75 ? 83 BF", "client.dll");
+		// Allows VPK mods
+		auto gi = Memory::Scan("74 ? 84 C9 75 ? 83 BF", "client.dll");
 		if (gi)
 			Memory::Patch(gi, { 0xE8 });
 	}

@@ -1,5 +1,5 @@
 #pragma once
-#include "../Base/PatternScan.h"
+#include "../Base/Memory.h"
 #include "SignatureDB.h"
 
 #include "Context.h"

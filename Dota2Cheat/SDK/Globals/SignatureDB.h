@@ -3,7 +3,7 @@
 #include <map>
 #include <string>
 #include <curl/curl.h>
-#include "../Base/PatternScan.h"
+#include "../Base/Memory.h"
 // Used for signatures downloaded off the web
 
 #define SIGMAP_ENTRY(var) {#var, (void**)&var}
@@ -18,7 +18,7 @@ struct SignatureDB {
 
 			auto& info = Data[sigName];
 			std::string sigStr = info["signature"], sigModule = info["module"];
-			auto result = SigScan::Find(sigStr, sigModule);
+			auto result = Memory::Scan(sigStr, sigModule);
 
 			if (!result)
 				continue;

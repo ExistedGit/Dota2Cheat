@@ -335,7 +335,7 @@
     <ClCompile Include="SDK\Globals\Signatures.cpp" />
     <ClCompile Include="SDK\Interfaces\GC\CGCClient.cpp" />
     <ClCompile Include="SDK\Interfaces\CVarSystem.cpp" />
-    <ClCompile Include="SDK\Base\PatternScan.cpp" />
+    <ClCompile Include="SDK\Base\Memory.cpp" />
     <ClCompile Include="SDK\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Testing|x64'">Create</PrecompiledHeader>
@@ -768,7 +768,6 @@
     <ClInclude Include="SDK\Interfaces\IEngineClient.h" />
     <ClInclude Include="CheatSDK\MatchStateHandling.h" />
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h" />
-    <ClInclude Include="SDK\Base\PatternScan.h" />
     <ClInclude Include="SDK\Globals\Signatures.h" />
     <ClInclude Include="SDK\Entities\CBaseEntity.h" />
     <ClInclude Include="SDK\Entities\CDOTABaseNPC.h" />

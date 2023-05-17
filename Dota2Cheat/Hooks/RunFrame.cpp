@@ -2,6 +2,21 @@
 #include "RunFrame.h"
 #include <format>
 
+template<typename T = CBaseEntity>
+std::set<T*> GetEntitiesByFilter(const std::vector<const char*>& filters) {
+	std::set<T*> vec{};
+	for (int i = 0; i <= Interfaces::EntitySystem->GetHighestEntityIndex(); ++i) {
+		auto* ent = Interfaces::EntitySystem->GetEntity(i);
+		if (!ent || ent->GetIdentity()->IsDormant())
+			continue;
+		//std::cout << ent->SchemaBinding() << '\n';
+		const char* className = ent->SchemaBinding()->binaryName;
+		if (className && TestStringFilters(className, filters))
+			vec.insert((T*)ent);
+	}
+	return vec;
+};
+
 void UpdateCameraDistance() {
 	static auto varInfo = CVarSystem::CVars["dota_camera_distance"];
 	if (Config::CameraDistance != varInfo.var->value.flt) {
@@ -15,7 +30,7 @@ void UpdateWeather() {
 	varInfo.var->value.i32 = Config::Changer::WeatherListIdx;
 }
 
-void Hooks::EntityIteration() {
+void EntityIteration() {
 	for (auto& hero : ctx.heroes) {
 
 		if (IsValidReadPtr(hero) &&
@@ -53,31 +68,7 @@ void Hooks::EntityIteration() {
 	}
 }
 
-void Hooks::hkRunFrame(void* thisptr) {
-	bool isInGame = Interfaces::Engine->IsInGame();
-	static bool DotaPlusStatus = false;
-	if (DotaPlusStatus != Config::Changer::UnlockDotaPlus) {
-		DotaPlusStatus = Config::Changer::UnlockDotaPlus;
-		Modules::DotaPlusUnlocker.UpdateDotaPlusStatus();
-	}
-
-	if (Modules::SkinChanger.ItemsCreated) {
-		Modules::SkinChanger.ItemsCreated = false;
-
-		for (auto& item : Modules::SkinChanger.itemsToCreate)
-			Modules::SkinChanger.AddItem(item);
-
-		Modules::SkinChanger.itemsToCreate.clear();
-	}
-
-	if (!isInGame ||
-		!ctx.localPlayer ||
-		!ctx.localHero ||
-		ctx.gameStage != GameStage::IN_GAME) {
-		oRunFrame(thisptr);
-		return;
-	}
-
+void InGameLogic() {
 	Modules::AbilityESP.UpdateHeroData();
 	//	Modules::UIOverhaul.Update();
 
@@ -125,13 +116,14 @@ void Hooks::hkRunFrame(void* thisptr) {
 		auto selected = ctx.localPlayer->GetSelectedUnits();
 		auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(selected[0]);
 		auto pos = ent->GetPos();
-
-		std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
+		auto buffs = ent->GetModifierManager()->GetBuffsByModifierFunction((ModifierFunction)62);
+		if (buffs)
+			std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
 			<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
 			// << "\n\tAttack Time: " << std::clamp(ent->GetBaseAttackTime() / ent->GetAttackSpeed(), 0.24f, 2.0f)
 			//<< "\n\tIsRoshan: " << ent->IsRoshan()
 			//<< "\n\tStunned: " << ent->HasState(ModifierState::MODIFIER_STATE_STUNNED)
-			//<< "\n\tValue:" << ent->GetModifierManager()->GetBuffsByModifierFunction(MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE)->at(0).GetPropertyValue()
+			<< "\n\tValue:" << buffs->at(0).GetPropertyValue()
 			<< '\n';
 	}
 	//if (GameSystems::ProjectileManager && IsKeyPressed(VK_NUMPAD3)) {
@@ -174,6 +166,29 @@ void Hooks::hkRunFrame(void* thisptr) {
 		}
 	}
 #endif 
+}
+
+void Hooks::hkRunFrame(void* thisptr) {
+	bool isInGame = Interfaces::Engine->IsInGame();
+	static bool DotaPlusStatus = false;
+	if (DotaPlusStatus != Config::Changer::UnlockDotaPlus) {
+		DotaPlusStatus = Config::Changer::UnlockDotaPlus;
+		Modules::DotaPlusUnlocker.UpdateDotaPlusStatus();
+	}
+
+	if (Modules::SkinChanger.ItemsCreated) {
+		Modules::SkinChanger.ItemsCreated = false;
+
+		for (auto& item : Modules::SkinChanger.itemsToCreate)
+			Modules::SkinChanger.AddItem(item);
+
+		Modules::SkinChanger.itemsToCreate.clear();
+	}
+
+	if (isInGame &&
+		ctx.localHero &&
+		ctx.gameStage == GameStage::IN_GAME)
+		InGameLogic();
 
 	oRunFrame(thisptr);
 }

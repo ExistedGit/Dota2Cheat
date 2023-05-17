@@ -1,9 +1,16 @@
 #pragma once
 #include <cstdint>
 #include <Windows.h>
+#include <string>
+#include <array>
 #include "Address.h"
+#include "Function.h"
 
+// Utility class for working with memory
 struct Memory {
+	static std::string ParseCombo(const std::string& combo);
+	static void* PatternScanInModule(const char* module, const char* pattern);
+public:
 	// Byte patching!
 	template<size_t replSize>
 	static void Patch(Address addr, BYTE const (&replacement)[replSize]) {
@@ -15,18 +22,22 @@ struct Memory {
 
 		VirtualProtect(mbi.BaseAddress, mbi.RegionSize, mbi.Protect, &mbi.Protect);
 	}
+
+	static Address Scan(const std::string& signature, const std::string& moduleName) {
+		return PatternScanInModule(moduleName.c_str(), ParseCombo(signature).c_str());
+	}
+
+	static void MemCopy(auto* dst, auto* src, size_t size) {
+		memcpy((void*)dst, (const void*)src, size);
+	}
+
+	// Returns an exported function, if it's available
+	static Function GetExport(const char* dllName, const char* exportName) {
+		return Function((void*)GetProcAddress(GetModuleHandleA(dllName), exportName));
+	}
 };
 
-// Utility functions for working with memory
 
-inline void MemCopy(auto dst, auto src, size_t size) {
-	memcpy((void*)dst, (const void*)src, size);
-}
-
-// Returns an exported function, if it's available
-inline Function GetExport(const char* dllName, const char* exportName) {
-	return Function((void*)GetProcAddress(GetModuleHandleA(dllName), exportName));
-}
 
 template<typename T = uintptr_t>
 inline bool IsValidReadPtr(T p) {

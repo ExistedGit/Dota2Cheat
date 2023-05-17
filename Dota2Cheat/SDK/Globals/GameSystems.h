@@ -2,7 +2,7 @@
 #include "Interfaces.h"
 #include "Context.h"
 #include "SignatureDB.h"
-#include "../Base/PatternScan.h"
+#include "../Base/Memory.h"
 
 #include "../GameSystems/C_DOTAGameRules.h"
 #include "../GameSystems/C_DOTA_PlayerResource.h"

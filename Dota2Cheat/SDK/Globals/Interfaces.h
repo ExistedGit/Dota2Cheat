@@ -40,7 +40,7 @@ namespace Interfaces {
 	// vmCount can be specified to check if the vtable has changed
 	template<typename T>
 	T* GetInterface(const char* dllName, const char* interfaceName, int vmCount = -1) {
-		auto CreateInterface = GetExport(dllName, "CreateInterface");
+		auto CreateInterface = Memory::GetExport(dllName, "CreateInterface");
 		int retCode = 0;
 		void* result = CreateInterface(interfaceName, &retCode);
 		
