@@ -38,24 +38,8 @@ namespace Interfaces {
 
 	// Gets a public interface via CreateInterface() export
 	// vmCount can be specified to check if the vtable has changed
-	template<typename T>
-	T* GetInterface(const char* dllName, const char* interfaceName, int vmCount = -1) {
-		auto CreateInterface = Memory::GetExport(dllName, "CreateInterface");
-		int retCode = 0;
-		void* result = CreateInterface(interfaceName, &retCode);
-		
-		int countedVMs = CountVMs(result);
-		LogPrefix prefix = LP_DATA;
-		std::string vmInfo = " | VMs: " + std::to_string(countedVMs);
-		if (vmCount != -1 && countedVMs != vmCount) {
-			vmInfo = std::format(" | VM count mismatch! Current: {}, Required: {}", countedVMs, vmCount);
-			prefix = LP_WARNING;
-		}
 
-		LogF(prefix, "{}/{}: {}{}", dllName, interfaceName, result, vmInfo);
-
-		return reinterpret_cast<T*>(result);
-	}
+	void* GetInterface(const char* dllName, const char* interfaceName);
 
 	void FindInterfaces();
 }

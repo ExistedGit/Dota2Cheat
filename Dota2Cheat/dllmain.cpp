@@ -83,12 +83,11 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 		Modules::SkinChanger.DeleteSOCacheFiles();
 	}
-	{
-		// Allows VPK mods
-		auto gi = Memory::Scan("74 ? 84 C9 75 ? 83 BF", "client.dll");
-		if (gi)
-			Memory::Patch(gi, { 0xE8 });
-	}
+
+	// Allows VPK mods
+	if (auto gi = Memory::Scan("74 ? 84 C9 75 ? 83 BF", "client.dll"))
+		Memory::Patch(gi, { 0xEB });
+
 
 	ctx.lua.open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::math);
 
