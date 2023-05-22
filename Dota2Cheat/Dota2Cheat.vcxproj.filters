@@ -345,5 +345,6 @@
     <ClInclude Include="Modules\UI\Indicators\HookIndicator.h" />
     <ClInclude Include="SDK\Globals\SignatureDB.h" />
     <ClInclude Include="SDK\Entities\CHandle.h" />
+    <ClInclude Include="SDK\Interfaces\GC\CEconWearable.h" />
   </ItemGroup>
 </Project>

@@ -80,6 +80,16 @@
     "module": "client.dll",
     "steps": [[0, 1]]
   },
+  "CEconItem::DeserializeFromProtobufItem": {
+    "signature": "E8 ? ? ? ? 41 0F B6 46 ? A8 01",
+    "module": "client.dll",
+    "steps": [[0, 1]]
+  },
+  "CEconItem::EnsureCustomDataExists": {
+    "signature": "E8 ? ? ? ? 4C 8B 7E 48",
+    "module": "client.dll",
+    "steps": [[0, 1]]
+  },
   "CDOTABaseAbility::GetLevelSpecialValueFor": {
     "signature": "E8 ? ? ? ? F3 0F 5A C0",
     "module": "client.dll",

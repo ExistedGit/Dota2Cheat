@@ -15,5 +15,7 @@ constexpr uint32_t INVALID_HANDLE = 0xFFFFFFFF;
 #define CASE_STD_STRING( x ) case static_cast<int>( x ) : return std::string(#x)
 
 // Macros for dota classes
-#define GETTER(type, name, offset) type name() { return Member<type>(offset); }
-#define VGETTER(type, name, index) type name() { return CallVFunc<index, type>(); }
+#define GETTER(type, name, offset) type name() { return Member<type>(offset); }			// regular getter
+#define IGETTER(type, name, offset) type* name() { return MemberInline<type>(offset); }  // inline field
+#define FIELD(type, name, offset) type& name() { return Field<type>(offset); }           // like GETTER, but returns a reference
+#define VGETTER(type, name, index) type name() { return CallVFunc<index, type>(); }     // vfunc without arguments

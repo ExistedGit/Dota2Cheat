@@ -12,6 +12,10 @@ public:
 	Function(void* ptr) : ptr(ptr) {
 
 	}
+	operator void* ()
+	{
+		return ptr;
+	}
 
 	template<typename ...T>
 	void* __fastcall operator()(T... t) {
