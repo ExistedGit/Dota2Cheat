@@ -118,12 +118,8 @@ public:
 	typedef void(__fastcall* DestroyParticleFn)(void* thisptr, ENT_HANDLE handle, bool unk);
 	static inline DestroyParticleFn DestroyParticleFunc{};
 
-
-	int GetParticleCount();
-	ParticleContainer** GetParticleArray();
-
-	uint32_t GetHandle();
-	void IncHandle();
+	GETTER(CUtlVector<ParticleContainer*>, GetParticles, 0x80);
+	FIELD(uint32_t, GetHandle, 0xb8);
 
 	ParticleWrapper CreateParticle(const char* name, ParticleAttachment_t attachType, CBaseEntity* ent);
 	void DestroyParticle(uint32_t handle);
@@ -135,12 +131,12 @@ public:
 		auto type = lua.new_usertype<CDOTAParticleManager>(
 			"CDOTAParticleManager"
 			);
-		type["GetParticleCount"] = &CDOTAParticleManager::GetParticleCount;
+		//type["GetParticles"] = &CDOTAParticleManager::GetParticles;
 		type["CreateParticle"] = &CDOTAParticleManager::CreateParticle;
 
 		type["DestroyParticle"] = sol::overload(
 			sol::resolve<void(uint32_t)>(&CDOTAParticleManager::DestroyParticle),
-		sol::resolve<void(ParticleWrapper&)>(&CDOTAParticleManager::DestroyParticle)
+			sol::resolve<void(ParticleWrapper&)>(&CDOTAParticleManager::DestroyParticle)
 		);
 	}
 };

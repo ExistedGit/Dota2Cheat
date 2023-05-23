@@ -9,10 +9,29 @@ namespace Hacks {
 	private:
 		CDOTABaseNPC* shaker = nullptr;
 	public:
-		void SubscribeEntity(CDOTABaseNPC* hero);
-		void Reset();
+		void Reset() {
+			shaker = nullptr;
+		}
 
-		void ChangeAttackAnimIfNeeded(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg);
+		void SubscribeEntity(CDOTABaseNPC* hero) {
+			if (auto unitName = hero->GetUnitName()) {
+				if (!strcmp(unitName, "npc_dota_hero_earthshaker"))
+					shaker = hero;
+				else
+					Reset();
+			}
+		}
+
+		void ChangeAttackAnimIfNeeded(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
+			if (msgHandle->messageID != 521 || !shaker)
+				return;
+
+			auto animMsg = reinterpret_cast<CDOTAUserMsg_TE_UnitAnimation*>(msg);
+			if (animMsg->activity() == 1503 &&
+				NH2IDX(animMsg->entity()) == shaker->GetIndex())
+				animMsg->set_sequence_variant(3);
+
+		}
 	};
 }
 namespace Modules {

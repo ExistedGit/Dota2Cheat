@@ -130,7 +130,9 @@ void EnteredInGame() {
 	if (ctx.localHero->GetUnitName())
 		LogF(LP_DATA, "Assigned Hero: {} {}", (void*)ctx.localHero, ctx.localHero->GetUnitName());
 
-	Interfaces::CVar->SetConvars();
+	Interfaces::CVar->CVars["sv_cheats"].m_pVar->value.boolean = true;
+	Interfaces::CVar->CVars["r_farz"].m_pVar->value.flt = 10000.0f;
+	Interfaces::CVar->CVars["fog_enable"].m_pVar->value.boolean = false;
 
 	GameSystems::InitMinimapRenderer();
 	//auto roshanListener = new RoshanListener();

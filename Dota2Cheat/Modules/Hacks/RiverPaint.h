@@ -6,7 +6,10 @@ namespace Hacks {
 	// River paint is controlled by a hidden ConVar
 	class RiverPaint {
 	public:
-		void FrameBasedLogic();
+		void FrameBasedLogic() {
+			static auto cvar = CVarSystem::CVars["dota_river_type"];
+			cvar.m_pVar->value.ui32 = Config::Changer::RiverListIdx;
+		}
 	};
 }
 

@@ -296,8 +296,6 @@
     <ClCompile Include="Modules\Hacks\LinearProjectileWarner.cpp" />
     <ClCompile Include="Modules\Hacks\ParticleAbilityWarner.cpp" />
     <ClCompile Include="Modules\Hacks\PerfectBlink.cpp" />
-    <ClCompile Include="Modules\Hacks\RiverPaint.cpp" />
-    <ClCompile Include="Modules\Hacks\ShakerAttackAnimFix.cpp" />
     <ClCompile Include="Modules\Hacks\SkinChanger.cpp" />
     <ClCompile Include="Modules\Hacks\TargetedSpellHighlighter.cpp" />
     <ClCompile Include="Modules\UI\AbilityESP.cpp" />
@@ -313,7 +311,6 @@
     <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp" />
     <ClCompile Include="Modules\Utility\AttackTargetFinder.cpp" />
     <ClCompile Include="Modules\Utility\ParticleGC.cpp" />
-    <ClCompile Include="SDK\Base\StringUtils.cpp" />
     <ClCompile Include="SDK\Entities\CBaseEntity.cpp" />
     <ClCompile Include="SDK\Entities\CDOTABaseAbility.cpp" />
     <ClCompile Include="SDK\Entities\CDOTABaseNPC.cpp" />
@@ -333,9 +330,6 @@
     <ClCompile Include="SDK\Globals\GameSystems.cpp" />
     <ClCompile Include="SDK\Globals\Interfaces.cpp" />
     <ClCompile Include="SDK\Globals\Signatures.cpp" />
-    <ClCompile Include="SDK\Interfaces\GC\CGCClient.cpp" />
-    <ClCompile Include="SDK\Interfaces\CVarSystem.cpp" />
-    <ClCompile Include="SDK\Base\Memory.cpp" />
     <ClCompile Include="SDK\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Testing|x64'">Create</PrecompiledHeader>

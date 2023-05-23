@@ -20,15 +20,15 @@ std::set<T*> GetEntitiesByFilter(const std::vector<const char*>& filters) {
 
 void UpdateCameraDistance() {
 	static auto varInfo = CVarSystem::CVars["dota_camera_distance"];
-	if (Config::CameraDistance != varInfo.var->value.flt) {
-		varInfo.var->value.flt = Config::CameraDistance;
+	if (Config::CameraDistance != varInfo.m_pVar->value.flt) {
+		varInfo.m_pVar->value.flt = Config::CameraDistance;
 		Interfaces::CVar->TriggerCallback(varInfo);
 	}
 }
 
 void UpdateWeather() {
 	static auto varInfo = CVarSystem::CVars["cl_weather"];
-	varInfo.var->value.i32 = Config::Changer::WeatherListIdx;
+	varInfo.m_pVar->value.i32 = Config::Changer::WeatherListIdx;
 }
 
 void EntityIteration() {

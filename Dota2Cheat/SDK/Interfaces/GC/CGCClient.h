@@ -76,6 +76,10 @@ class CGCClient : public VClass {
 public:
 	GETTER(CUtlVector<ISharedObjectListener*>, GetSOListeners, 0x270);
 
-	void DispatchSOUpdated(SOID_t soid, void* sharedObj, ESOCacheEvent ev);
+	void DispatchSOUpdated(SOID_t soid, void* sharedObj, ESOCacheEvent ev) {
+		auto listeners = GetSOListeners();
+		for (auto& listener : listeners)
+			listener->SOUpdated(&soid, sharedObj, ev);
+	}
 
 };

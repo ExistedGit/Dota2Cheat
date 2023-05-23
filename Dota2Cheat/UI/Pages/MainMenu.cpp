@@ -15,13 +15,10 @@ void Pages::MainMenu::Draw() {
 
 		ImGui::End();
 	}
-
-	static auto& net_showreliable = Interfaces::CVar->CVars["net_showreliable"].var->value.boolean;
-	static auto& cl_particle_log_creates = Interfaces::CVar->CVars["cl_particle_log_creates"].var->value.boolean;
+	static auto& cl_particle_log_creates = Interfaces::CVar->CVars["cl_particle_log_creates"].m_pVar->value.boolean;
 #ifdef _DEBUG
 	ImGui::Begin("Debug", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
 
-	ImGui::Checkbox("net_showreliable", &net_showreliable);
 	ImGui::Checkbox("cl_particle_log_creates", &cl_particle_log_creates);
 
 	ImGui::InputText("Sound name", &uiSoundBuf);
