@@ -43,6 +43,6 @@ public:
 
 	template<uint32_t index, typename RET = void*, typename ...T>
 	RET CallVFunc(T... t) {
-		return GetVFunc(index).Execute<RET>(this, t...);
+		return GetVFunc(index).Call<RET>(this, t...);
 	}
 };

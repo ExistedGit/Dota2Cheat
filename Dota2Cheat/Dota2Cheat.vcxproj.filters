@@ -3,11 +3,8 @@
   <ItemGroup>
     <ClCompile Include="CheatSDK\Config.cpp" />
     <ClCompile Include="CheatSDK\Hooking.cpp" />
-    <ClCompile Include="Hooks\EntityEvents.cpp" />
     <ClCompile Include="Hooks\ModifierEvents.cpp" />
     <ClCompile Include="Hooks\NetChannel.cpp" />
-    <ClCompile Include="Hooks\AcceptEvents.cpp" />
-    <ClCompile Include="Hooks\ParticleRendering.cpp" />
     <ClCompile Include="Hooks\PrepareUnitOrders.cpp" />
     <ClCompile Include="Hooks\RunFrame.cpp" />
     <ClCompile Include="ImGuiSDK\Elements.cpp" />
@@ -30,8 +27,6 @@
     <ClCompile Include="Modules\Hacks\LinearProjectileWarner.cpp" />
     <ClCompile Include="Modules\Hacks\ParticleAbilityWarner.cpp" />
     <ClCompile Include="Modules\Hacks\PerfectBlink.cpp" />
-    <ClCompile Include="Modules\Hacks\RiverPaint.cpp" />
-    <ClCompile Include="Modules\Hacks\ShakerAttackAnimFix.cpp" />
     <ClCompile Include="Modules\Hacks\SkinChanger.cpp" />
     <ClCompile Include="Modules\Hacks\TargetedSpellHighlighter.cpp" />
     <ClCompile Include="Modules\UI\AbilityESP.cpp" />
@@ -59,9 +54,6 @@
     <ClCompile Include="SDK\Globals\GameSystems.cpp" />
     <ClCompile Include="SDK\Globals\Interfaces.cpp" />
     <ClCompile Include="SDK\Globals\Signatures.cpp" />
-    <ClCompile Include="SDK\Interfaces\GC\CGCClient.cpp" />
-    <ClCompile Include="SDK\Interfaces\CVarSystem.cpp" />
-    <ClCompile Include="SDK\Base\Memory.cpp" />
     <ClCompile Include="SDK\pch.cpp" />
     <ClCompile Include="SDK\Protobufs\base_gcmessages.pb.cc" />
     <ClCompile Include="SDK\Protobufs\dota_clientmessages.pb.cc" />
@@ -142,10 +134,10 @@
     <ClCompile Include="Modules\UI\BlinkRevealer.cpp" />
     <ClCompile Include="Modules\UI\ParticleMaphack.cpp" />
     <ClCompile Include="Modules\UI\BarAugmenter.cpp" />
-    <ClCompile Include="SDK\Base\StringUtils.cpp" />
     <ClCompile Include="Modules\Hacks\AutoAccept.cpp" />
     <ClCompile Include="Modules\UI\Indicators\HookIndicator.cpp" />
     <ClCompile Include="UI\Pages\MainMenu.cpp" />
+    <ClCompile Include="Hooks\GameCoordinator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
@@ -346,5 +338,6 @@
     <ClInclude Include="SDK\Globals\SignatureDB.h" />
     <ClInclude Include="SDK\Entities\CHandle.h" />
     <ClInclude Include="SDK\Interfaces\GC\CEconWearable.h" />
+    <ClInclude Include="Hooks\GameCoordinator.h" />
   </ItemGroup>
 </Project>

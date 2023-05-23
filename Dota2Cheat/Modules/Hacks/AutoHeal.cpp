@@ -6,6 +6,7 @@ void Hacks::AutoHeal::UseWand(CDOTABaseNPC* hero) {
 
 	if ((float)hero->GetHealth() / hero->GetMaxHealth() > Config::AutoHeal::WandHPTreshold / 100.0f)
 		return;
+	
 	auto wand = hero->FindItemBySubstring("item_magic");
 	if (!wand)
 		wand = hero->FindItemBySubstring("holy_locket");

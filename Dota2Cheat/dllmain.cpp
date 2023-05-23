@@ -243,8 +243,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			menuVisible = !menuVisible;
 		}
 
-#ifdef _DEBUG
-
+#if defined(_DEBUG) && !defined(_TESTING)
 		ImGui::InputInt("ItemDef ID", &itemDefId);
 		if (ImGui::Button("Create item"))
 			Modules::SkinChanger.QueueAddItem(itemDefId);

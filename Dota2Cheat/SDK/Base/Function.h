@@ -23,7 +23,7 @@ public:
 	}
 	// Used to specify the return type(e. g. in case of a floating-point value)
 	template<typename V, typename ...T>
-	V __fastcall Execute(T... t) {
+	V __fastcall Call(T... t) {
 		return ((V(__fastcall*)(T...))ptr)(t...);
 	}
 

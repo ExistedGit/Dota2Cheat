@@ -12,10 +12,9 @@ public:
 		CallVFunc<VTableIndexes::CEngineClient::GetLocalPlayer>(&idx, 0, 0);
 		return idx;
 	}
-	bool IsInGame() {
-		return (bool)CallVFunc<VTableIndexes::CEngineClient::IsInGame, unsigned char>();
-	}
-	
+
+	VGETTER(bool, IsInGame, VTableIndexes::CEngineClient::IsInGame);
+
 	static void BindLua(sol::state& lua) {
 		auto type = lua.new_usertype<CEngineClient>("CEngineClient");
 		type["GetLocalPlayerSlot"] = &CEngineClient::GetLocalPlayerSlot;

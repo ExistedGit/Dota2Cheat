@@ -99,10 +99,14 @@ void EnteredPreGame() {
 
 	ctx.gameStage = GameStage::PRE_GAME;
 
-	if (!oFireEventClientSide) {
+	// I HATE SIGNATURES
+	// I HATE SIGNATURES
+	// we've got you surrounded!
+	// come scan for a 40-byte signature!
+	if (!Hooks::oFireEventClientSide) {
 		auto vmt = VMT(GameSystems::GameEventManager);
 		void* FireEventClientSide = vmt.GetVM(8);
-		HOOKFUNC(FireEventClientSide);
+		HookFunc(FireEventClientSide, &Hooks::hkFireEventClientSide, &Hooks::oFireEventClientSide, "FireEventClientSide");
 	}
 
 	Log(LP_INFO, "GAME STAGE: PRE-GAME");
@@ -130,7 +134,9 @@ void EnteredInGame() {
 	if (ctx.localHero->GetUnitName())
 		LogF(LP_DATA, "Assigned Hero: {} {}", (void*)ctx.localHero, ctx.localHero->GetUnitName());
 
-	Interfaces::CVar->SetConvars();
+	Interfaces::CVar->CVars["sv_cheats"].m_pVar->value.boolean = true;
+	Interfaces::CVar->CVars["r_farz"].m_pVar->value.flt = 10000.0f;
+	Interfaces::CVar->CVars["fog_enable"].m_pVar->value.boolean = false;
 
 	GameSystems::InitMinimapRenderer();
 	//auto roshanListener = new RoshanListener();

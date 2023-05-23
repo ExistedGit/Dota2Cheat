@@ -5,15 +5,32 @@
 #include "../Modules/Hacks/AegisSnatcher.h"
 #include "../SDK/Wrappers/EntitySorting.h"
 
+// EntitySystem's methods OnAddEntity and OnRemoveEntity
+// Hooking them allows for caching entities to collections
+
 namespace Hooks {
 	typedef CBaseEntity* (__fastcall* EntSystemEvent)(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HANDLE handle);
 	inline EntSystemEvent oOnAddEntity{};
 	inline EntSystemEvent oOnRemoveEntity{};
 
 	// Here we filter entities and put them into their respective collections
-	CBaseEntity* hkOnAddEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HANDLE handle);
+	inline CBaseEntity* hkOnAddEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HANDLE handle) {
+		SortEntToCollections(ent);
+		return oOnAddEntity(thisptr, ent, handle);
+	}
 
-	CBaseEntity* hkOnRemoveEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HANDLE handle);
+	inline CBaseEntity* hkOnRemoveEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HANDLE handle) {
+		if (ent->SchemaBinding()->binaryName) {
+			ctx.physicalItems.erase(ent);
+			ctx.heroes.erase((CDOTABaseNPC_Hero*)ent);
+			ctx.creeps.erase((CDOTABaseNPC*)ent);
+			ctx.entities.erase(ent);
+			ctx.runes.erase((CDOTAItemRune*)ent);
+
+			Modules::AegisSnatcher.RemoveIfAegis(ent);
+		}
+		return oOnRemoveEntity(thisptr, ent, handle);
+	}
 
 	// CGameSceneNode::SetAbsOrigin
 	typedef void* (__fastcall* SetAbsOriginFn)(VClass* thisptr, bool unk);

@@ -12,16 +12,18 @@ namespace Hooks {
 	inline Signatures::OnAddModifierFn oOnAddModifier = nullptr;
 
 	inline void CacheModifier(CDOTAModifier* modifier) {
-		if (!ctx.heroes.contains((CDOTABaseNPC_Hero*)modifier->GetOwner()))
+		auto owner = (CDOTABaseNPC_Hero*)modifier->GetOwner();
+		if (!ctx.heroes.contains(owner))
 			return;
 
-		HeroData[modifier->GetOwner()].Modifiers[modifier->GetName()] = modifier;
+		HeroData[owner].Modifiers[modifier->GetName()] = modifier;
 	}
 	inline void UncacheModifier(CDOTAModifier* modifier) {
-		if (!ctx.heroes.contains((CDOTABaseNPC_Hero*)modifier->GetOwner()))
+		auto owner = (CDOTABaseNPC_Hero*)modifier->GetOwner();
+		if (!ctx.heroes.contains(owner))
 			return;
 
-		HeroData[modifier->GetOwner()].Modifiers.erase(modifier->GetName());
+		HeroData[owner].Modifiers.erase(modifier->GetName());
 	}
 
 	void CacheIfItemModifier(CDOTAModifier* modifier);

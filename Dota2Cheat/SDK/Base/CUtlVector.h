@@ -28,10 +28,19 @@ public:
 		return m_pElements + m_Size;
 	}
 
+	T& first() {
+		assert(m_Size > 0 && "CUtlVector::first(): no elements");
+		return m_pElements[0];
+	}
+	T& last() {
+		assert(m_Size > 0 && "CUtlVector::first(): no elements");
+		return m_pElements[m_Size - 1];
+	}
+
 	[[nodiscard]] std::vector<T> AsStdVector() {
 		auto result = std::vector<T>{};
 		result.reserve(m_Size);
-		for (int i = 0; i  < m_Size; i++)
+		for (int i = 0; i < m_Size; i++)
 			result.push_back(m_pElements[i]);
 		return result;
 	}

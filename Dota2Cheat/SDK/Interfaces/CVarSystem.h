@@ -3,10 +3,10 @@
 #include <fstream>
 #include <string>
 #include <map>
-#include "../Base/VClass.h"
 #include <span>
-
-#define MAX_CVAR_COUNT 4280
+#include <array>
+#include "../Base/Definitions.h"
+#include "../Base/VClass.h"
 
 enum class EConvarType : std::uint8_t
 {
@@ -24,6 +24,7 @@ enum class EConvarType : std::uint8_t
 	UNK_SOME_FOUR_FLOATS,
 	UNK_SOME_THREE_FLOATS_AGAIN,
 };
+
 union CVarValue
 {
 	bool boolean{};
@@ -35,14 +36,14 @@ union CVarValue
 	double dbl;
 	const char* str;
 	std::uint32_t clr_rgba;
-	//std::array<float, 2> two_floats;
-	//std::array<float, 3> three_floats;
-	//std::array<float, 4> four_floats;
+	std::array<float, 2> two_floats;
+	std::array<float, 3> three_floats;
+	std::array<float, 4> four_floats;
 };
 
 struct CVar {
 	const char* name{};
-	CVar* m_Pnext{};
+	CVar* m_pNext{};
 	uintptr_t unk1{};
 	uintptr_t unk2{};
 	const char* desc{};
@@ -50,21 +51,24 @@ struct CVar {
 	int unk_maybe_number_of_times_changed{};
 	int flags{};
 	int unk4{};
-	int CALLBACK_INDEX{};
+	int m_iCallbackIndex{};
 	int unk5{};
 	CVarValue value{};
 	CVarValue defaultValue{};
 };
+
+// Element of the convar list
 struct CVarNode {
 	CVar* var;
 	void* unk;
 };
 
+// Used for callbacks
 struct CVarID
 {
 	static inline constexpr auto BAD_ID = 0xFFFFFFFF;
 	std::uint64_t impl{};
-	void* var_ptr{};
+	CVar* m_pVar{};
 
 	bool IsGood() const noexcept
 	{
@@ -76,23 +80,37 @@ struct CVarID
 		impl = BAD_ID;
 	}
 };
+
 class CVarSystem : VClass {
 public:
-	struct CVarInfo {
-		CVar* var{};
-		int index{};
-	};
 
-	static inline std::map<std::string, CVarInfo> CVars{};
+	static inline std::map<std::string, CVarID> CVars{};
 	using CVarCallbackFn = void(*)(const CVarID& id, int unk1, const CVarValue* val, const CVarValue* old_val);
 
-	CVarCallbackFn GetCallback(int id);
-	void TriggerCallback(CVarInfo info);
-	uint32_t GetCVarCount();
-	std::span<CVarNode, MAX_CVAR_COUNT> GetCVarNodeList();;
+	CVarCallbackFn GetCallback(int id) {
+		return *(CVarCallbackFn*)(Member<uintptr_t>(0x80) + 24 * id);
+	}
 
-	void DumpConVarsToMap();
-	void DumpConVarsToFile(const char* path);
-	void SetConvars();
+	void TriggerCallback(const CVarID& id) {
+		const auto cvar = id.m_pVar;
+		GetCallback(cvar->m_iCallbackIndex)(id, 0, &cvar->value, &cvar->value);
+	}
 
+	GETTER(uint32_t, GetCVarCount, 0xA0);
+	GETTER(CVarNode*, GetCVarNodeList, 0x40);
+
+	void DumpConVarsToMap() {
+		auto list = GetCVarNodeList();
+		auto size = GetCVarCount();
+		for (int i = 0; i < size; i++) {
+			auto var = list[i].var;
+			if (!var || !var->name)
+				continue;
+
+			CVarID id;
+			id.m_pVar = var;
+			id.impl = static_cast<uint64_t>(i);
+			CVars[var->name] = id;
+		}
+	}
 };

@@ -267,11 +267,9 @@
     <ClCompile Include="CheatSDK\Config.cpp" />
     <ClCompile Include="CheatSDK\Hooking.cpp" />
     <ClCompile Include="CheatSDK\Utils.cpp" />
-    <ClCompile Include="Hooks\EntityEvents.cpp" />
+    <ClCompile Include="Hooks\GameCoordinator.cpp" />
     <ClCompile Include="Hooks\ModifierEvents.cpp" />
     <ClCompile Include="Hooks\NetChannel.cpp" />
-    <ClCompile Include="Hooks\AcceptEvents.cpp" />
-    <ClCompile Include="Hooks\ParticleRendering.cpp" />
     <ClCompile Include="Hooks\PrepareUnitOrders.cpp" />
     <ClCompile Include="Hooks\RunFrame.cpp" />
     <ClCompile Include="ImGuiSDK\Elements.cpp" />
@@ -296,8 +294,6 @@
     <ClCompile Include="Modules\Hacks\LinearProjectileWarner.cpp" />
     <ClCompile Include="Modules\Hacks\ParticleAbilityWarner.cpp" />
     <ClCompile Include="Modules\Hacks\PerfectBlink.cpp" />
-    <ClCompile Include="Modules\Hacks\RiverPaint.cpp" />
-    <ClCompile Include="Modules\Hacks\ShakerAttackAnimFix.cpp" />
     <ClCompile Include="Modules\Hacks\SkinChanger.cpp" />
     <ClCompile Include="Modules\Hacks\TargetedSpellHighlighter.cpp" />
     <ClCompile Include="Modules\UI\AbilityESP.cpp" />
@@ -313,7 +309,6 @@
     <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp" />
     <ClCompile Include="Modules\Utility\AttackTargetFinder.cpp" />
     <ClCompile Include="Modules\Utility\ParticleGC.cpp" />
-    <ClCompile Include="SDK\Base\StringUtils.cpp" />
     <ClCompile Include="SDK\Entities\CBaseEntity.cpp" />
     <ClCompile Include="SDK\Entities\CDOTABaseAbility.cpp" />
     <ClCompile Include="SDK\Entities\CDOTABaseNPC.cpp" />
@@ -333,9 +328,6 @@
     <ClCompile Include="SDK\Globals\GameSystems.cpp" />
     <ClCompile Include="SDK\Globals\Interfaces.cpp" />
     <ClCompile Include="SDK\Globals\Signatures.cpp" />
-    <ClCompile Include="SDK\Interfaces\GC\CGCClient.cpp" />
-    <ClCompile Include="SDK\Interfaces\CVarSystem.cpp" />
-    <ClCompile Include="SDK\Base\Memory.cpp" />
     <ClCompile Include="SDK\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Testing|x64'">Create</PrecompiledHeader>
@@ -557,6 +549,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CheatSDK\DrawData.h" />
+    <ClInclude Include="Hooks\GameCoordinator.h" />
     <ClInclude Include="Modules\Hacks\AutoAccept.h">
       <SubType>
       </SubType>
