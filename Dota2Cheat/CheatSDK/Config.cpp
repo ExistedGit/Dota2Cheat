@@ -159,6 +159,7 @@ void Config::ConfigManager::SetupVars() {
 	CFG_VAR(INT, AutoHeal::WandMinCharges, 10);
 
 	CFG_VAR(BOOL, BadCastPrevention, true);
+	CFG_VAR(BOOL, CastRedirection, true);
 	CFG_VAR(BOOL, LastHitMarker, true);
 
 	CFG_VAR(BOOL, AutoMidas::Enabled, false);
