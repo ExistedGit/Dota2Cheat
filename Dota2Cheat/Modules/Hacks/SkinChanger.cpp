@@ -48,8 +48,8 @@ void Hacks::SkinChanger::Equip(CEconItem* pItem, uint16_t unClass, uint16_t unSl
 	SOUpdated(pItem);
 }
 bool Hacks::SkinChanger::AddItem(uint32_t unDefIndex) {
-	auto inv = Interfaces::GCClient->GetSOListeners()[1];
-	auto soid = inv->GetSOCache()->GetOwner();
+	static auto inv = Interfaces::GCClient->GetSOListeners()[1];
+	static auto soid = inv->GetSOCache()->GetOwner();
 	const uint32_t accId = inv->GetSOCache()->GetOwner().m_unSteamID;
 	auto item = Signatures::CreateEconItem();
 	CSOEconItem proto;
@@ -58,7 +58,7 @@ bool Hacks::SkinChanger::AddItem(uint32_t unDefIndex) {
 	proto.set_id(itemIdCounter++);
 	proto.set_def_index(unDefIndex);
 	proto.set_flags(2);
-	proto.set_origin(34);
+	proto.set_origin(kEconItemOrigin_Earned);
 	item->DeserializeFromProtobufItem(&proto);
 
 	// UnlockAllStyles(item);

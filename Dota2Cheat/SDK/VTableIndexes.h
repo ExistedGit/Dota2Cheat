@@ -24,11 +24,16 @@ namespace VTableIndexes {
 		Index CreateParticle = 9;
 	}
 	namespace CDOTABaseNPC {
+		// the name is an xref, decompile what you found
+		// the function that gets placed into a variable accepts int64 a1 and calls its vfunc
+		// the natural assumption would be that a1 is C_DOTA_BaseNPC*
+		Index OnWearablesChanged = 249;
+
 		// JS functions
-		Index GetIdealSpeed = 227;
-		Index GetAttackRange = 270;
-		Index GetPhysicalArmorValue = 273;
-		Index GetMagicalArmorValue = 274;
+		Index GetIdealSpeed = 224;
+		Index GetAttackRange = 267;
+		Index GetPhysicalArmorValue = 270;
+		Index GetMagicalArmorValue = 271;
 	}
 	namespace CDOTABaseAbility {
 		Index GetCastRangeBonus = 257;

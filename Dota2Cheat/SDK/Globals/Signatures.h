@@ -102,6 +102,8 @@ namespace Signatures {
 		{"CDOTAGameRules::GetGameTime", (void**)&CDOTAGameRules::GetGameTimeFunc},
 		{"CDOTARichPresence::SetRPStatus", (void**)&CDOTARichPresence::SetRPStatusFunc},
 		{"CDOTABaseAbility::GetLevelSpecialValueFor", (void**)&CDOTABaseAbility::GetLevelSpecialValueForFunc},
+		{"CEconItem::DeserializeFromProtobufItem", (void**)&CEconItem::DeserializeFromProtobufItemFunc},
+		{"CEconItem::EnsureCustomDataExists", (void**)&CEconItem::EnsureCustomDataExistsFunc},
 	};
 
 	void FindSignatures();

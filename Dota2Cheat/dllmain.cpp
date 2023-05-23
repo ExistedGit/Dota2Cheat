@@ -27,6 +27,7 @@
 #include "UI/Pages/AutoPickSelectionGrid.h"
 #include "Modules/Hacks/LastHitMarker.h"
 #include "Modules/UI/BarAugmenter.h"
+#include "SDK/Interfaces/GC/CEconWearable.h"
 
 GLFWwindow* window_menu{};
 
@@ -243,9 +244,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		}
 
 #ifdef _DEBUG
-		//		ImGui::InputInt("ItemDef ID", &itemDefId);
-		//		if (ImGui::Button("Create item"))
-		//			Modules::SkinChanger.QueueAddItem(itemDefId);
+
+		ImGui::InputInt("ItemDef ID", &itemDefId);
+		if (ImGui::Button("Create item"))
+			Modules::SkinChanger.QueueAddItem(itemDefId);
 #endif // _DEBUG
 
 		ImGui::PopFont();

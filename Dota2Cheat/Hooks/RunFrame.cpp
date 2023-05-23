@@ -1,6 +1,7 @@
 #pragma once
 #include "RunFrame.h"
 #include <format>
+#include "../SDK/Interfaces/GC/CEconWearable.h"
 
 template<typename T = CBaseEntity>
 std::set<T*> GetEntitiesByFilter(const std::vector<const char*>& filters) {
@@ -69,6 +70,7 @@ void EntityIteration() {
 }
 
 void InGameLogic() {
+
 	Modules::AbilityESP.UpdateHeroData();
 	//	Modules::UIOverhaul.Update();
 
@@ -107,24 +109,42 @@ void InGameLogic() {
 	}
 #ifdef _DEBUG
 	if (IsKeyPressed(VK_NUMPAD7)) {
-		auto wearables = ctx.localHero->Member < CUtlVector<ENT_HANDLE>>(Netvars::C_BaseCombatCharacter::m_hMyWearables);
-		for (auto& w : wearables) {
-			Log(LP_NONE, (void*)Interfaces::EntitySystem->GetEntity(H2IDX(w)));
+		auto wearables = ctx.localHero->MemberInline<CUtlVector<CHandle<>>>(Netvars::C_BaseCombatCharacter::m_hMyWearables);
+		LogF(LP_INFO, "Wearables: {}", (void*)wearables);
+		for (auto& handle : *wearables) {
+			LogF(LP_DATA, "{} | {}", (void*)handle.Entity(), handle.Entity()->MemberInline<VClass>(0x960 + 0x68)->Member<uint32_t>(0x8));
 		};
 	}
+
 	if (IsKeyPressed(VK_NUMPAD8)) {
 		auto selected = ctx.localPlayer->GetSelectedUnits();
 		auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(selected[0]);
 		auto pos = ent->GetPos();
-		auto buffs = ent->GetModifierManager()->GetBuffsByModifierFunction((ModifierFunction)62);
-		if (buffs)
-			std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
-			<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
-			// << "\n\tAttack Time: " << std::clamp(ent->GetBaseAttackTime() / ent->GetAttackSpeed(), 0.24f, 2.0f)
-			//<< "\n\tIsRoshan: " << ent->IsRoshan()
-			//<< "\n\tStunned: " << ent->HasState(ModifierState::MODIFIER_STATE_STUNNED)
-			<< "\n\tValue:" << buffs->at(0).GetPropertyValue()
-			<< '\n';
+		
+		static Function init = Memory::Scan("E8 ? ? ? ? 8B C6 3B F3", "client.dll").GetAbsoluteAddress(1);
+		auto& wearables = ctx.localHero->Field<CUtlVector<CHandle<CEconWearable>>>(Netvars::C_BaseCombatCharacter::m_hMyWearables);
+		auto* item = wearables[0].Entity()->GetAttributeManager()->GetItem();
+		init(item, Modules::SkinChanger.FakeItems.begin()->second, static_cast<BYTE>(0xFF));
+
+		auto& oldWearables = ctx.localHero->Field<CUtlVector<CHandle<CEconWearable>>>(Netvars::C_DOTA_BaseNPC::m_hOldWearables);
+		for (auto& handle : oldWearables)
+			handle.val = 0;
+
+		Log(LP_INFO, "OnWearablesChanged()");
+		ent->OnWearablesChanged();
+		//LogF(LP_INFO, "OnWearablesChanged(): {}\nResult: {}",
+		//	(void*)ctx.localHero->GetVFunc(VTableIndexes::CDOTABaseNPC::OnWearablesChanged),
+		//	ent->OnWearablesChanged());
+
+		//auto buffs = ent->GetModifierManager()->GetBuffsByModifierFunction((ModifierFunction)62);
+		//if (buffs)
+		//	std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
+		//	<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
+		//	// << "\n\tAttack Time: " << std::clamp(ent->GetBaseAttackTime() / ent->GetAttackSpeed(), 0.24f, 2.0f)
+		//	//<< "\n\tIsRoshan: " << ent->IsRoshan()
+		//	//<< "\n\tStunned: " << ent->HasState(ModifierState::MODIFIER_STATE_STUNNED)
+		//	<< "\n\tValue:" << buffs->at(0).GetPropertyValue()
+		//	<< '\n';
 	}
 	//if (GameSystems::ProjectileManager && IsKeyPressed(VK_NUMPAD3)) {
 	//	auto arr = GameSystems::ProjectileManager->m_pTrackingProjectiles;

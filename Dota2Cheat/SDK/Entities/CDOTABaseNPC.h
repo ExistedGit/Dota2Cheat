@@ -51,6 +51,7 @@ public:
 	VGETTER(float, GetPhysicalArmorValue, VTableIndexes::CDOTABaseNPC::GetPhysicalArmorValue);
 	VGETTER(float, GetMagicalArmorValue, VTableIndexes::CDOTABaseNPC::GetMagicalArmorValue);
 	VGETTER(float, GetIdealSpeed, VTableIndexes::CDOTABaseNPC::GetIdealSpeed);
+	VGETTER(void*, OnWearablesChanged, VTableIndexes::CDOTABaseNPC::OnWearablesChanged);
 
 	// Wrapper function combining the following conditions: 
 	// Is not dormant

@@ -651,6 +651,7 @@
     <ClInclude Include="SDK\Interfaces\CGameEntitySystem.h" />
     <ClInclude Include="SDK\GameSystems\CGameEventManager.h" />
     <ClInclude Include="SDK\Interfaces\GC\CEconItem.h" />
+    <ClInclude Include="SDK\Interfaces\GC\CEconWearable.h" />
     <ClInclude Include="SDK\Interfaces\GC\CGCClient.h" />
     <ClInclude Include="SDK\Interfaces\CInputService.h" />
     <ClInclude Include="CheatSDK\Config.h" />

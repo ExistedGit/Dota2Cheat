@@ -7,7 +7,7 @@
 #include "Function.h"
 
 // Utility class for working with memory
-struct Memory {
+class Memory {
 	static std::string ParseCombo(const std::string& combo);
 	static void* PatternScanInModule(const char* module, const char* pattern);
 public:
