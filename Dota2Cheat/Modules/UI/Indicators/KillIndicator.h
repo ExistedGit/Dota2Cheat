@@ -17,6 +17,8 @@ namespace Hacks {
 
 		// Includes magical resistance and newly added barriers
 		int CalcDmgWithResists(CDOTABaseNPC* ent, float dmg, bool pure = false) {
+			// static Function GetMagicalArmorValue = Memory::GetModule("client.dll").Offset(0x15E1030);
+			
 			auto barriers = ent->GetBarriers();
 			auto effectiveDamage = dmg - (barriers.all + barriers.magic);
 			if(!pure)
@@ -65,7 +67,6 @@ namespace Hacks {
 			[this](CDOTABaseNPC* ent) -> int {
 				static auto ult = ctx.localHero->GetAbility(curData.idx);
 				auto dmgPerMana = ult->GetLevelSpecialValueFor("mana_void_damage_per_mana");
-				auto resist = ent->GetMagicalArmorValue();
 				return CalcDmgWithResists(ent, (ent->GetMaxMana() - ent->GetMana()) * dmgPerMana);
 			}
 			},
@@ -74,7 +75,6 @@ namespace Hacks {
 			[this](CDOTABaseNPC* ent) -> int {
 				static auto ult = ctx.localHero->GetAbility(curData.idx);
 				auto dmgPerHealth = ult->GetLevelSpecialValueFor("damage_per_health");
-				auto resist = ent->GetMagicalArmorValue();
 				auto dmgTotal = (ent->GetMaxHealth() - ent->GetHealth()) * dmgPerHealth;
 				return CalcDmgWithResists(ent, dmgTotal);
 			}
@@ -85,7 +85,6 @@ namespace Hacks {
 				static auto raze = ctx.localHero->GetAbility(curData.idx);
 				auto razeDebuff = HeroData[ent].Modifiers["modifier_nevermore_shadowraze_debuff"];
 				auto dmg = raze->GetLevelSpecialValueFor("shadowraze_damage");
-				auto resist = ent->GetMagicalArmorValue();
 				auto dmgTotal = dmg;
 
 				if (razeDebuff) {
@@ -104,7 +103,6 @@ namespace Hacks {
 
 				auto killCounter = HeroData[ctx.localHero].Modifiers["modifier_lion_finger_of_death_kill_counter"];
 				auto dmg = ult->GetLevelSpecialValueFor("damage");
-				auto resist = ent->GetMagicalArmorValue();
 				auto dmgTotal = dmg;
 
 				if (killCounter) {
@@ -120,7 +118,6 @@ namespace Hacks {
 		int DefaultBehavior(CDOTABaseNPC* ent) {
 			auto nuke = ctx.localHero->GetAbility(curData.idx);
 			auto dmg = nuke->GetLevelSpecialValueFor("damage");
-			auto resist = ent->GetMagicalArmorValue();
 
 			return CalcDmgWithResists(ent, dmg, curData.isPure);
 		}

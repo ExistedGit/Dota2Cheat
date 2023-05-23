@@ -267,11 +267,9 @@
     <ClCompile Include="CheatSDK\Config.cpp" />
     <ClCompile Include="CheatSDK\Hooking.cpp" />
     <ClCompile Include="CheatSDK\Utils.cpp" />
-    <ClCompile Include="Hooks\EntityEvents.cpp" />
+    <ClCompile Include="Hooks\GameCoordinator.cpp" />
     <ClCompile Include="Hooks\ModifierEvents.cpp" />
     <ClCompile Include="Hooks\NetChannel.cpp" />
-    <ClCompile Include="Hooks\AcceptEvents.cpp" />
-    <ClCompile Include="Hooks\ParticleRendering.cpp" />
     <ClCompile Include="Hooks\PrepareUnitOrders.cpp" />
     <ClCompile Include="Hooks\RunFrame.cpp" />
     <ClCompile Include="ImGuiSDK\Elements.cpp" />
@@ -551,6 +549,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CheatSDK\DrawData.h" />
+    <ClInclude Include="Hooks\GameCoordinator.h" />
     <ClInclude Include="Modules\Hacks\AutoAccept.h">
       <SubType>
       </SubType>

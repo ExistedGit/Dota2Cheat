@@ -48,8 +48,14 @@ public:
 		return GetModifier(name) != nullptr;
 	}
 
-	VGETTER(float, GetPhysicalArmorValue, VTableIndexes::CDOTABaseNPC::GetPhysicalArmorValue);
-	VGETTER(float, GetMagicalArmorValue, VTableIndexes::CDOTABaseNPC::GetMagicalArmorValue);
+	float GetPhysicalArmorValue() {
+		return CallVFunc<VTableIndexes::CDOTABaseNPC::GetPhysicalArmorValue, float>(0ull);
+	}
+
+	float GetMagicalArmorValue() {
+		return CallVFunc<VTableIndexes::CDOTABaseNPC::GetMagicalArmorValue, float>(0ull, 0ull);
+	}
+
 	VGETTER(float, GetIdealSpeed, VTableIndexes::CDOTABaseNPC::GetIdealSpeed);
 	VGETTER(void*, OnWearablesChanged, VTableIndexes::CDOTABaseNPC::OnWearablesChanged);
 

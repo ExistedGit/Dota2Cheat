@@ -96,7 +96,7 @@ public:
 		GetCallback(cvar->m_iCallbackIndex)(id, 0, &cvar->value, &cvar->value);
 	}
 
-	GETTER(uint32_t, GetCVarCount, 0x58);
+	GETTER(uint32_t, GetCVarCount, 0xA0);
 	GETTER(CVarNode*, GetCVarNodeList, 0x40);
 
 	void DumpConVarsToMap() {

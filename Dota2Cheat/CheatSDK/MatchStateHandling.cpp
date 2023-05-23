@@ -99,10 +99,14 @@ void EnteredPreGame() {
 
 	ctx.gameStage = GameStage::PRE_GAME;
 
-	if (!oFireEventClientSide) {
+	// I HATE SIGNATURES
+	// I HATE SIGNATURES
+	// we've got you surrounded!
+	// come scan for a 40-byte signature!
+	if (!Hooks::oFireEventClientSide) {
 		auto vmt = VMT(GameSystems::GameEventManager);
 		void* FireEventClientSide = vmt.GetVM(8);
-		HOOKFUNC(FireEventClientSide);
+		HookFunc(FireEventClientSide, &Hooks::hkFireEventClientSide, &Hooks::oFireEventClientSide, "FireEventClientSide");
 	}
 
 	Log(LP_INFO, "GAME STAGE: PRE-GAME");

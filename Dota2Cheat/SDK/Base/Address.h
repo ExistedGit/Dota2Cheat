@@ -16,12 +16,12 @@ public:
 		return (T)ptr;
 	}
 
-	Address Offset(int offset) const {
+	Address Offset(ptrdiff_t offset) const {
 		return Address(ptr + offset);
 	}
 
 	template<typename T = Address>
-	T GetAbsoluteAddress(int addrOffset, std::optional<uint32_t> opcodeSize = std::nullopt) const {
+	T GetAbsoluteAddress(ptrdiff_t addrOffset, std::optional<uint32_t> opcodeSize = std::nullopt) const {
 		return T(ptr + *(int*)(ptr + addrOffset) + opcodeSize.value_or(addrOffset + sizeof(uint32_t)));
 	}
 

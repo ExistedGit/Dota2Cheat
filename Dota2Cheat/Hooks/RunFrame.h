@@ -1,4 +1,5 @@
 #pragma once
+#include "../SDK/pch.h"
 #include "../CheatSDK/include.h"
 #include "../Modules/Hacks/IllusionColoring.h"
 #include "../Modules/Hacks/AegisSnatcher.h"
@@ -22,9 +23,10 @@
 
 #include "../SDK/Entities/CDOTAItemRune.h"
 
+// CUIEngineSource2's RunFrame, well... processes and renders a UI frame.
+// Dota2Cheat mainly operates on a frame-by-frame basis, hence this hook
+
 namespace Hooks {
-
-
 	typedef void(__fastcall* RunFrameFn)(void* thisptr);
 	inline RunFrameFn oRunFrame{};
 	void hkRunFrame(void* thisptr);

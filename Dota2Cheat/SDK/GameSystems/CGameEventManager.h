@@ -9,7 +9,6 @@ class CGameEvent
 {
 public:
 	virtual void DESTROY() = 0;
-	//	virtual void DESTROY2() = 0;
 
 	virtual const char* GetName(void) = 0;
 	virtual int GetID(void) = 0;
@@ -75,7 +74,6 @@ public:
 class IGameEventListener2
 {
 	virtual void DESTROY() = 0;
-	//virtual void DESTROY2() = 0;
 
 	virtual void FireGameEvent(CGameEvent* event) = 0;
 };
@@ -84,7 +82,6 @@ class CGameEventManager
 {
 public:
 	virtual void DESTROY() = 0;
-	//virtual void DESTROY2() = 0; 
 	virtual int LoadEventsFromFile(const char* filename) = 0;
 	virtual void Reset(void) = 0;
 private:

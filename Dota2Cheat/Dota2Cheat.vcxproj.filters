@@ -3,11 +3,8 @@
   <ItemGroup>
     <ClCompile Include="CheatSDK\Config.cpp" />
     <ClCompile Include="CheatSDK\Hooking.cpp" />
-    <ClCompile Include="Hooks\EntityEvents.cpp" />
     <ClCompile Include="Hooks\ModifierEvents.cpp" />
     <ClCompile Include="Hooks\NetChannel.cpp" />
-    <ClCompile Include="Hooks\AcceptEvents.cpp" />
-    <ClCompile Include="Hooks\ParticleRendering.cpp" />
     <ClCompile Include="Hooks\PrepareUnitOrders.cpp" />
     <ClCompile Include="Hooks\RunFrame.cpp" />
     <ClCompile Include="ImGuiSDK\Elements.cpp" />
@@ -140,6 +137,7 @@
     <ClCompile Include="Modules\Hacks\AutoAccept.cpp" />
     <ClCompile Include="Modules\UI\Indicators\HookIndicator.cpp" />
     <ClCompile Include="UI\Pages\MainMenu.cpp" />
+    <ClCompile Include="Hooks\GameCoordinator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
@@ -340,5 +338,6 @@
     <ClInclude Include="SDK\Globals\SignatureDB.h" />
     <ClInclude Include="SDK\Entities\CHandle.h" />
     <ClInclude Include="SDK\Interfaces\GC\CEconWearable.h" />
+    <ClInclude Include="Hooks\GameCoordinator.h" />
   </ItemGroup>
 </Project>

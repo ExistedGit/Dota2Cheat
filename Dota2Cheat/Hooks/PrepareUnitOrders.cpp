@@ -1,13 +1,13 @@
 #include "PrepareUnitOrders.h"
 
-void Hooks::ChangeItemStatTo(CDOTAItem* item, ItemStat stat, CDOTAPlayerController* player, CBaseEntity* issuer) {
+void ChangeItemStatTo(CDOTAItem* item, ItemStat stat, CDOTAPlayerController* player, CBaseEntity* issuer) {
 	if (!item || item->GetItemStat() == stat)
 		return;
 	int diff = (int)stat - (int)item->GetItemStat();
 	int cycles = diff > 0 ? diff : diff + 3;
 
 	for (int i = 0; i < cycles; i++) {
-		oPrepareUnitOrders(
+		Hooks::oPrepareUnitOrders(
 			player,
 			DOTA_UNIT_ORDER_CAST_NO_TARGET,
 			0,
@@ -135,7 +135,7 @@ void Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t o
 				}
 			}
 			if (callPickup) {
-				// Multhithreading magic — who knows when the hero finishes dropping the items?
+				// Multhithreading magic â€” who knows when the hero finishes dropping the items?
 				manaAbusePickup = std::async(std::launch::async, [&, origItemStats, player, issuer]() mutable {
 					Sleep(300);
 				for (auto& [item, stat] : origItemStats)

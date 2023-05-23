@@ -5,6 +5,7 @@
 #include "../Hooks/AcceptEvents.h"
 #include "../Hooks/RunFrame.h"
 #include "../Hooks/NetChannel.h"
+#include "../Hooks/GameCoordinator.h"
 #include "../Hooks/EntityEvents.h"
 #include "../Hooks/ParticleRendering.h"
 #include "../Hooks/ModifierEvents.h"

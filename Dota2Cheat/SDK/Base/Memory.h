@@ -105,6 +105,11 @@ public:
 	static Function GetExport(const char* dllName, const char* exportName) {
 		return Function((void*)GetProcAddress(GetModuleHandleA(dllName), exportName));
 	}
+
+	// Returns a module's base address, for use with RVA
+	static Address GetModule(const char* dllName) {
+		return (void*)GetModuleHandleA(dllName);
+	}
 };
 
 

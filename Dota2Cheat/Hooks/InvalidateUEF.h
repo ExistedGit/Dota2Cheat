@@ -1,6 +1,8 @@
 #pragma once
 #include <MinHook.h>
 
+// Some weird abevol technology
+
 namespace Hooks
 {
     class InvalidateUEF
