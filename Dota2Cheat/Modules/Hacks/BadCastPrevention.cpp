@@ -31,6 +31,7 @@ bool Hacks::BadCastPrevention::IsBadCast(dotaunitorder_t orderType, UINT32 targe
 	if (!Config::BadCastPrevention)
 		return false;
 
+
 	auto ability = Interfaces::EntitySystem->GetEntity<CDOTABaseAbility>(abilityIdx);
 
 	if (!ability->GetIdentity()->GetName())
