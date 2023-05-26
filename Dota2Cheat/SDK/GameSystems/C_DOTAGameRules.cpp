@@ -1,6 +1,7 @@
 #include "C_DOTAGameRules.h"
 #include "../Globals/GameSystems.h"
 
+// Suggested by og, reversed by Morphling and rewritten by ExistedDim4
 float CDOTAGameRules::GetGameTime() {
 	auto inGame = !GameSystems::GlobalVars->Member<bool>(61) && !GameSystems::GlobalVars->Member<bool>(60);
 

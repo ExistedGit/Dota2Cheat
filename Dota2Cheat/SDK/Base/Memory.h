@@ -86,11 +86,13 @@ public:
 	static void Patch(Address addr, BYTE const (&replacement)[replSize]) {
 		MEMORY_BASIC_INFORMATION mbi;
 		VirtualQuery(addr, &mbi, sizeof(mbi));
-		VirtualProtect(mbi.BaseAddress, mbi.RegionSize, PAGE_EXECUTE_READWRITE, &mbi.Protect);
 
+		// VirtualProtect is hooked by none other that Valve's gameoverlayrenderer64.dll
+		// Syscalling is our option
+		static auto NtProtectVirtualMemory = Memory::GetExport("ntdll.dll", "NtProtectVirtualMemory");
+		NtProtectVirtualMemory(GetCurrentProcess(), &mbi.BaseAddress, (unsigned long*)&mbi.RegionSize, PAGE_EXECUTE_READWRITE, &mbi.Protect);
 		memcpy(addr, replacement, replSize);
-
-		VirtualProtect(mbi.BaseAddress, mbi.RegionSize, mbi.Protect, &mbi.Protect);
+		NtProtectVirtualMemory(GetCurrentProcess(), &mbi.BaseAddress, (unsigned long*)&mbi.RegionSize, mbi.Protect, &mbi.Protect);
 	}
 
 	static Address Scan(const std::string& signature, const std::string& moduleName) {
@@ -101,9 +103,10 @@ public:
 		memcpy((void*)dst, (const void*)src, size);
 	}
 
+	template<typename T = Function>
 	// Returns an exported function, if it's available
-	static Function GetExport(const char* dllName, const char* exportName) {
-		return Function((void*)GetProcAddress(GetModuleHandleA(dllName), exportName));
+	static T GetExport(const char* dllName, const char* exportName) {
+		return (void*)GetProcAddress(GetModuleHandleA(dllName), exportName);
 	}
 
 	// Returns a module's base address, for use with RVA
