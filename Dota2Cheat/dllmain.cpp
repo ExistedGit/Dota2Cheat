@@ -188,6 +188,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			DrawData.Fonts["Monofonto"][i] = io.Fonts->AddFontFromMemoryTTF((void*)Fonts::Monofonto, IM_ARRAYSIZE(Fonts::Monofonto), i, &fontCfg, io.Fonts->GetGlyphRangesDefault());
 		}
 	}
+
+	GameSystems::GetGameSystemViaFactory("CDOTARichPresence", (void**)&GameSystems::RichPresence);
+	GameSystems::GetGameSystemViaFactory("CDOTAGCClientSystem", (void**)&GameSystems::GCClientSystem);
+
 	bool menuVisible = true;
 	std::cout << "Icon loading result: " << iconLoadThread.get() << "\n";
 	int itemDefId = 6996;
@@ -242,6 +246,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			glfwSetWindowAttrib(window_menu, GLFW_MOUSE_PASSTHROUGH, menuVisible);
 			menuVisible = !menuVisible;
 		}
+
 
 #if defined(_DEBUG) && !defined(_TESTING)
 		ImGui::InputInt("ItemDef ID", &itemDefId);

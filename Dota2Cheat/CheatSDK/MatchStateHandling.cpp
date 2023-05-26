@@ -79,11 +79,10 @@ void EnteredPreGame() {
 	if (!ctx.localPlayer)
 		return;
 
-	GetGameSystem(GameRules);
 	GetGameSystem(PlayerResource);
 	GetGameSystem(ParticleManager);
 	GetGameSystem(GameEventManager);
-
+	GetGameSystem(GlobalVars);
 	// Panorama's HUD root
 	for (auto& node : Interfaces::UIEngine->GetPanelList<4096>()) {
 		auto uiPanel = node.uiPanel;

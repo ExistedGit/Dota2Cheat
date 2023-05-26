@@ -339,5 +339,6 @@
     <ClInclude Include="SDK\Entities\CHandle.h" />
     <ClInclude Include="SDK\Interfaces\GC\CEconWearable.h" />
     <ClInclude Include="Hooks\GameCoordinator.h" />
+    <ClInclude Include="SDK\GameSystems\CGlobalVars.h" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,7 @@
 #include "GameSystems.h"
 #include "Interfaces.h"
-
+#include <consthash/cityhash32.hxx>
+#include <cityhash/city.h>
 #define SET_VAR(var, data) var = (decltype(var))(data); \
 if(var) \
 	LogF(LP_DATA, "{}: {}", #var, (void*)var); \
@@ -10,8 +11,29 @@ else \
 void GameSystems::InitMinimapRenderer() {
 	while (!DotaHud->FindChildWithIdTraverse("minimap")) {};
 	auto minimap = DotaHud->FindChildWithIdTraverse("minimap");
-	
+
 	SET_VAR(MinimapRenderer, minimap->GetPanel2D()->Member<CDOTAPanoramaMinimapRenderer*>(0x20));
+}
+
+void GameSystems::GetGameSystemViaFactory(const char* name, void** val) {
+	struct IGameSystemFactory : public VClass{
+		IGameSystemFactory* m_pNextFactory;
+		const char* m_szName;
+		VGETTER(void*, GetGameSystem, 9);
+	};
+
+	auto pFactory = *Memory::Scan("E8 ? ? ? ? 84 C0 74 D3 48 8D 0D", "client.dll")
+		.GetAbsoluteAddress(1)
+		.Offset(0xE)
+		.GetAbsoluteAddress<IGameSystemFactory**>(3);
+	while (pFactory) {
+		if (pFactory->m_szName && !strcmp(pFactory->m_szName, name)) {
+			*(void**)val = pFactory->GetGameSystem();
+			return;
+		}
+
+		pFactory = pFactory->m_pNextFactory;
+	}
 }
 
 void GameSystems::FindGameSystems() {
@@ -21,18 +43,20 @@ void GameSystems::FindGameSystems() {
 	// Also in Source2Client::Init(), right after "g_GameEventManager.Init()":
 	// mov rcx, [XXXXXXXXX]
 	SET_VAR(GameEventManagerPtr, Address(Interfaces::Client->GetVFunc(13).ptr).Offset(0x3E).GetAbsoluteAddress(3));
+	// Source2Client::SetGlobalVars()
+	SET_VAR(GlobalVarsPtr, Address(Interfaces::Client->GetVFunc(11).ptr).GetAbsoluteAddress<CGlobalVars**>(3));
 
 	// CSource2Client::NotifyClientSignon
-	SET_VAR(RichPresence, Address(Interfaces::Client->GetVFunc(47).ptr)
-		.Offset(0x23)
-		.GetAbsoluteAddress(1)
-		.GetAbsoluteAddress(3));
+	//SET_VAR(RichPresence, Address(Interfaces::Client->GetVFunc(47).ptr)
+	//	.Offset(0x23)
+	//	.GetAbsoluteAddress(1)
+	//	.GetAbsoluteAddress(3));
 
 	// CSource2Client::NotifyClientSignon, first call
-	SET_VAR(GCClientSystem, Address(Interfaces::Client->GetVFunc(47).ptr)
-		.Offset(0x8)
-		.GetAbsoluteAddress(1)
-		.GetAbsoluteAddress(3));
+	//SET_VAR(GCClientSystem, Address(Interfaces::Client->GetVFunc(47).ptr)
+	//	.Offset(0x8)
+	//	.GetAbsoluteAddress(1)
+	//	.GetAbsoluteAddress(3));
 
 	//xref: "activategameui", first lea rax, [XXXXXXXXX]
 	//console command ^
@@ -40,7 +64,7 @@ void GameSystems::FindGameSystems() {
 	//	.GetAbsoluteAddress(1)
 	//	.GetAbsoluteAddress(3));
 
-	SET_VAR(GameRulesPtr, Address(CDOTAGameRules::GetGameTimeFunc).Offset(0xF).GetAbsoluteAddress(3, 7));
+	// SET_VAR(GameRulesPtr, Address(CDOTAGameRules::GetGameTimeFunc).Offset(0xF).GetAbsoluteAddress(3, 7));
 
 	// xref: "No player resource\n"
 	//SET_VAR(PlayerResourcePtr, Memory::Scan("40 57 48 83 EC 70 48 8B 3D", "client.dll")
@@ -52,4 +76,6 @@ void GameSystems::FindGameSystems() {
 	//SET_VAR(ParticleManagerPtr, Memory::Scan("E8 ? ? ? ? 8B 14 9F", "client.dll")
 	//	.GetAbsoluteAddress(1, 5)
 	//	.GetAbsoluteAddress(3, 7));
+
+
 }

@@ -1026,6 +1026,9 @@ namespace Netvars {
 		constexpr uint32_t m_fStoredRuneTime = 0x634; // GameTime_t
 		constexpr uint32_t rune_expire_time = 0x638; // float32
 	}
+	namespace C_DOTAGamerulesProxy {
+		constexpr uint32_t m_pGameRules = 0x528; // C_DOTAGamerules*
+	}
 	namespace C_DOTA_Item_Physical {
 		constexpr uint32_t m_hItem = 0x7d0; // CHandle< C_DOTA_Item >
 		constexpr uint32_t m_bIsLowPriorityHoverItem = 0x7d4; // bool

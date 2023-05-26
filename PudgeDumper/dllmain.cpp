@@ -119,9 +119,13 @@ public:
 CSchemaSystem* SchemaSystem = 0;
 
 inline void DumpClassMembers(ClassDescription* classDesc) {
-	std::cout << "Dumping " << classDesc->className << "...\n";
+	std::string className = classDesc->className; 
 
-	std::string className = classDesc->className;
+	if (Netvars.count(className))
+		return;
+
+	std::cout << "Dumping " << className << "...\n";
+
 	for (uintptr_t i = 0; i < classDesc->membersSize; i++) {
 		SchemaClassFieldData_t desc = classDesc->membersDescription[i];
 		Netvars[className].insert(desc);
@@ -271,12 +275,15 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		"C_DOTA_Item_Rune",
 		"GameTime_t",
 		"C_DOTA_Item_EmptyBottle",
+		"C_DOTAGamerulesProxy",
 		"C_DOTA_Item_Physical"
 	);
 
-	SchemaDumpToMap("server.dll", "CDOTA_Buff");
+	SchemaDumpToMap("server.dll",
+		"CDOTA_Buff");
 	std::ofstream fout(dumpFolderPath + "\\Netvars.h");
 	SaveNetvarsToHeader(fout);
+	fout.close();
 	std::cout << "Netvars.h generated!\n";
 
 	DumpAllClasses(dumpFolderPath);
@@ -287,7 +294,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	}
 	clock_t timeEnd = clock();
 
-	std::cout << "\nTime elapsed " << round(((double)(timeEnd - timeStart) / CLOCKS_PER_SEC) * 10) / 10 << "s" << '\n';
+	std::cout << "\nTime elapsed: " << round(((double)(timeEnd - timeStart) / CLOCKS_PER_SEC) * 10) / 10 << "s" << '\n';
 
 	if (console) {
 		system("pause");

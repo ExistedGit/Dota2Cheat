@@ -5,6 +5,7 @@
 #include "../Base/Memory.h"
 
 #include "../GameSystems/C_DOTAGameRules.h"
+#include "../GameSystems/CGlobalVars.h"
 #include "../GameSystems/C_DOTA_PlayerResource.h"
 #include "../GameSystems/CDOTAParticleManager.h"
 #include "../GameSystems/C_DOTA_ProjectileManager.h"
@@ -19,6 +20,8 @@ namespace GameSystems {
 	inline Panorama::DotaHud* DotaHud{};
 	void InitMinimapRenderer();
 
+	inline CGlobalVars** GlobalVarsPtr{};
+	inline CGlobalVars* GlobalVars{};
 	inline CGameUI* GameUI{};
 	inline CDOTAGCClientSystem* GCClientSystem{};
 	//GameRules is nullptr while not in a game
@@ -45,5 +48,6 @@ namespace GameSystems {
 		SIGMAP_ENTRY(ParticleManagerPtr),
 		SIGMAP_ENTRY(GameUI),
 	};
+	void GetGameSystemViaFactory(const char* name, void** val);
 	void FindGameSystems();
 }

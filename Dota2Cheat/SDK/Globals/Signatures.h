@@ -99,7 +99,6 @@ namespace Signatures {
 		SIGMAP_ENTRY(CDOTABaseNPC::GetAttackSpeed),
 
 		{"CDOTAParticleManager::DestroyParticle", (void**)&CDOTAParticleManager::DestroyParticleFunc},
-		{"CDOTAGameRules::GetGameTime", (void**)&CDOTAGameRules::GetGameTimeFunc},
 		{"CDOTARichPresence::SetRPStatus", (void**)&CDOTARichPresence::SetRPStatusFunc},
 		{"CDOTABaseAbility::GetLevelSpecialValueFor", (void**)&CDOTABaseAbility::GetLevelSpecialValueForFunc},
 		{"CEconItem::DeserializeFromProtobufItem", (void**)&CEconItem::DeserializeFromProtobufItemFunc},
