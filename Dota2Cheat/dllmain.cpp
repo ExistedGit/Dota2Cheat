@@ -88,6 +88,12 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	// Allows VPK mods
 	if (auto gi = Memory::Scan("74 ? 84 C9 75 ? 83 BF", "client.dll"))
 		Memory::Patch(gi, { 0xEB });
+	// Disables gameoverlayrenderer64's WINAPI hook checks
+	if (auto enableVACHooks = Memory::Scan("75 04 84 DB", "gameoverlayrenderer64.dll"))
+		enableVACHooks
+		.Offset(6)
+		.GetAbsoluteAddress(2, 7)
+		.Set(false);
 
 
 	ctx.lua.open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::math);

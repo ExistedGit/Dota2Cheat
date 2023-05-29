@@ -33,7 +33,7 @@ public:
 		return m_pElements[0];
 	}
 	T& last() {
-		assert(m_Size > 0 && "CUtlVector::first(): no elements");
+		assert(m_Size > 0 && "CUtlVector::last(): no elements");
 		return m_pElements[m_Size - 1];
 	}
 
