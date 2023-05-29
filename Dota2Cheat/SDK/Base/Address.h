@@ -26,6 +26,11 @@ public:
 	}
 
 	template<typename T>
+	void Set(const T& val) {
+		*(T*)ptr = val;
+	}
+
+	template<typename T>
 	T* As() const {
 		return (T*)ptr;
 	}

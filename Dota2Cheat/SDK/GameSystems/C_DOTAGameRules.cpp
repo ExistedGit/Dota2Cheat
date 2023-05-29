@@ -1,9 +1,22 @@
 #include "C_DOTAGameRules.h"
+#include "../Globals/GameSystems.h"
 
+// Suggested by og, reversed by Morphling and rewritten by ExistedDim4
 float CDOTAGameRules::GetGameTime() {
-	float result = 0;
-	GetGameTimeFunc(&result, 0);
-	return result;
+	auto inGame = !GameSystems::GlobalVars->Member<bool>(61) && !GameSystems::GlobalVars->Member<bool>(60);
+
+	if (inGame)
+	{
+		auto func = GameSystems::GlobalVars->Member<Function>(32);
+		if (func)
+			func(1i64, this ? GameSystems::GlobalVars : nullptr);
+		if (!this)
+			return GameSystems::GlobalVars->Member<float>(44);
+	}
+
+	float tickToSeconds = GameSystems::GlobalVars->Member<float>(68);
+	auto totalPausedTicks = Member<uint32_t>(Netvars::C_DOTAGamerules::m_nTotalPausedTicks);
+	return GameSystems::GlobalVars->Member<float>(44) - totalPausedTicks * tickToSeconds;
 }
 
 std::vector<ItemStockInfo*> CDOTAGameRules::GetItemStockInfo() {

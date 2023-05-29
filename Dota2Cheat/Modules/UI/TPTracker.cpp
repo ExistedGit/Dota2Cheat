@@ -6,10 +6,7 @@
 
 void Hacks::TPTracker::FrameBasedLogic() {
 	MTM_LOCK;
-	if (lastTime == 0) {
-		lastTime = GameSystems::GameRules->GetGameTime();
-		return;
-	}
+
 	auto timeDelta = GameSystems::GameRules->GetGameTime() - lastTime;
 	lastTime = GameSystems::GameRules->GetGameTime();
 	for (auto it = teleports.begin(); it != teleports.end();) {

@@ -16,6 +16,11 @@ namespace Hooks {
 	// Here we filter entities and put them into their respective collections
 	inline CBaseEntity* hkOnAddEntity(CEntitySystem* thisptr, CBaseEntity* ent, ENT_HANDLE handle) {
 		SortEntToCollections(ent);
+
+		if (ent->SchemaBinding()->binaryName && !strcmp(ent->SchemaBinding()->binaryName, "C_DOTAGamerulesProxy"))
+			GameSystems::GameRules = ent->Member<CDOTAGameRules*>(Netvars::C_DOTAGamerulesProxy::m_pGameRules);
+
+
 		return oOnAddEntity(thisptr, ent, handle);
 	}
 
@@ -38,7 +43,7 @@ namespace Hooks {
 	inline void* hkSetAbsOrigin(VClass* thisptr, bool unk) {
 		auto ret = oSetAbsOrigin(thisptr, unk);
 		CBaseEntity* ent = thisptr->Member<CBaseEntity*>(0x30);
-		
+
 		//if (ctx.heroes.contains((CDOTABaseNPC_Hero*)ent)) {
 		//	auto hero = (CDOTABaseNPC_Hero*)ent;
 		//	HeroData[hero].AbsOrigin = hero->GetPos();

@@ -151,10 +151,11 @@ void Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t o
 			break;
 		}
 		}
-
 	if (orderType == DOTA_UNIT_ORDER_CAST_NO_TARGET ||
-		orderType == DOTA_UNIT_ORDER_CAST_POSITION)
-		giveOrder = !Modules::BadCastPrevention.IsBadCast(abilityIndex, position, issuer);
+		orderType == DOTA_UNIT_ORDER_CAST_POSITION ||
+		orderType == DOTA_UNIT_ORDER_CAST_TARGET)
+		if (Modules::BadCastPrevention.IsBadCast(orderType, targetIndex, position, abilityIndex, issuer))
+			return;
 
 	if (giveOrder)
 		oPrepareUnitOrders(player, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);

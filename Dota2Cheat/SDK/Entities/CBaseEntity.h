@@ -1,4 +1,5 @@
 #pragma once
+#include "../Protobufs/dota_shared_enums.pb.h"
 #include <sol/sol.hpp>
 
 #include "../Base/VClass.h"
@@ -7,7 +8,6 @@
 #include "../Base/Color.h"
 
 #include "../Netvars.h"
-#include "../Protobufs/dota_shared_enums.pb.h"
 
 #include "CEntityIdentity.h"
 

@@ -6,12 +6,11 @@
 class Function {
 public:
 	void* ptr;
-	Function(uintptr_t ptr) : ptr((void*)ptr) {
 
-	}
-	Function(void* ptr) : ptr(ptr) {
+	Function() : ptr(nullptr) {}
+	Function(uintptr_t ptr) : ptr((void*)ptr) {}
+	Function(void* ptr) : ptr(ptr) {}
 
-	}
 	operator void* ()
 	{
 		return ptr;
