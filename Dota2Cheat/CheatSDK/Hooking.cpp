@@ -61,5 +61,14 @@ void Hooks::SetUpVirtualHooks(bool log) {
 		HOOKFUNC(RunFrame);
 		HOOKFUNC(RunScript);
 	}
+	{
+		// Hooking HUD flip's callback to avoid sigging IsHUDFlipped
+		// (and lowering performance, according to Wolf49406...)
+		auto cvar = Interfaces::CVar->CVars["dota_hud_flip"];
+		auto& callback = Interfaces::CVar->GetCallback(cvar.m_pVar->m_iCallbackIndex);
+		oOnHUDFlipped = callback;
+		callback = hkOnHUDFlipped;
+	}
+
 }
 

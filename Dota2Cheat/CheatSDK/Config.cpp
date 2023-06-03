@@ -91,79 +91,81 @@ void Config::ConfigManager::LoadEquippedItems(std::ifstream& stream) {
 		};
 }
 
-#define CFG_VAR(type, var, defVal) cfg.AddVar(type, &var, defVal, #var)
+// Minimized the definition syntax as much as I can
+// Pure elegancy
+#define CFG_VAR(var, defVal) cfg.AddVar(&var, defVal, #var)
+
 void Config::ConfigManager::SetupVars() {
 	using namespace Config;
 	using enum ConfigManager::ConfigVarType;
 
+	CFG_VAR(AbilityESP::Enabled, true);
+	CFG_VAR(AbilityESP::UIScale, 1.0f);
+	CFG_VAR(AbilityESP::ShowAllies, true);
+	CFG_VAR(AbilityESP::ShowCooldownDecimals, false);
 
-	CFG_VAR(BOOL, AbilityESP::Enabled, true);
-	CFG_VAR(FLOAT, AbilityESP::UIScale, 1.0f);
-	CFG_VAR(BOOL, AbilityESP::ShowAllies, true);
-	CFG_VAR(BOOL, AbilityESP::ShowCooldownDecimals, false);
+	CFG_VAR(Bars::ManaBar, true);
+	CFG_VAR(Bars::HPNumbers, true);
 
-	CFG_VAR(BOOL, Bars::ManaBar, true);
-	CFG_VAR(BOOL, Bars::HPNumbers, true);
+	CFG_VAR(Indicators::Speed, true);
+	CFG_VAR(Indicators::Kill, true);
+	CFG_VAR(Indicators::KillScale, 1.0f);
 
-	CFG_VAR(BOOL, Indicators::Speed, true);
-	CFG_VAR(BOOL, Indicators::Kill, true);
-	CFG_VAR(FLOAT, Indicators::KillScale, 1.0f);
+	CFG_VAR(BlinkRevealer, true);
 
-	CFG_VAR(BOOL, BlinkRevealer, true);
+	CFG_VAR(CircleRadius, 1200);
+	CFG_VAR(CircleRGB, Vector(0, 1, 0));
 
-	CFG_VAR(INT, CircleRadius, 1200);
-	CFG_VAR(VECTOR3D, CircleRGB, Vector(0, 1, 0));
+	CFG_VAR(AutoDodge::Enabled, false);
 
-	CFG_VAR(BOOL, AutoDodge::Enabled, false);
+	CFG_VAR(CameraDistance, 1200.0f);
 
-	CFG_VAR(FLOAT, CameraDistance, 1200.0f);
+	CFG_VAR(ShowEnemyPointSpells, true);
+	CFG_VAR(ShowLinearProjTrajectory, true);
+	CFG_VAR(PerfectBlink, false);
 
-	CFG_VAR(BOOL, ShowEnemyPointSpells, true);
-	CFG_VAR(BOOL, ShowLinearProjTrajectory, true);
-	CFG_VAR(BOOL, PerfectBlink, false);
+	CFG_VAR(UIOverhaul::TopBars, true);
 
-	CFG_VAR(BOOL, UIOverhaul::TopBars, true);
+	CFG_VAR(ModifierRevealer::LinkenSphere, true);
+	CFG_VAR(ModifierRevealer::TargetedSpells, true);
+	CFG_VAR(ModifierRevealer::TrueSight, true);
 
-	CFG_VAR(BOOL, ModifierRevealer::LinkenSphere, true);
-	CFG_VAR(BOOL, ModifierRevealer::TargetedSpells, true);
-	CFG_VAR(BOOL, ModifierRevealer::TrueSight, true);
+	CFG_VAR(TPTracker::Enabled, true);
+	CFG_VAR(TPTracker::FadeDuration, 5);
 
-	CFG_VAR(BOOL, TPTracker::Enabled, true);
-	CFG_VAR(INT, TPTracker::FadeDuration, 5);
+	CFG_VAR(ParticleMapHack::Enabled, true);
+	CFG_VAR(ParticleMapHack::FadeDuration, 5);
 
-	CFG_VAR(BOOL, ParticleMapHack::Enabled, true);
-	CFG_VAR(INT, ParticleMapHack::FadeDuration, 5);
+	CFG_VAR(IllusionColoring::Enabled, true);
+	CFG_VAR(IllusionColoring::Color, Vector(1, 0, 0));
 
-	CFG_VAR(BOOL, IllusionColoring::Enabled, true);
-	CFG_VAR(VECTOR3D, IllusionColoring::Color, Vector(1, 0, 0));
+	CFG_VAR(ManaAbuse::Enabled, false);
 
-	CFG_VAR(BOOL, ManaAbuse::Enabled, false);
+	CFG_VAR(AutoAccept::Enabled, true);
+	CFG_VAR(AutoAccept::Delay, 1);
+	CFG_VAR(AutoAccept::SendTelegramNotifications, false);
 
-	CFG_VAR(BOOL, AutoAccept::Enabled, true);
-	CFG_VAR(INT, AutoAccept::Delay, 1);
-	CFG_VAR(BOOL, AutoAccept::SendTelegramNotifications, false);
+	CFG_VAR(API::TelegramID, 0ull);
 
-	CFG_VAR(UINT_64, API::TelegramID, 0ull);
+	CFG_VAR(AutoPickUpRunes, true);
+	CFG_VAR(AutoPickUpAegis, true);
 
-	CFG_VAR(BOOL, AutoPickUpRunes, true);
-	CFG_VAR(BOOL, AutoPickUpAegis, true);
+	CFG_VAR(Changer::RiverListIdx, 0);
+	CFG_VAR(Changer::WeatherListIdx, 0);
+	CFG_VAR(Changer::UnlockDotaPlus, true);
+	CFG_VAR(Changer::UnlockEmoticons, true);
 
-	CFG_VAR(INT, Changer::RiverListIdx, 0);
-	CFG_VAR(INT, Changer::WeatherListIdx, 0);
-	CFG_VAR(BOOL, Changer::UnlockDotaPlus, true);
-	CFG_VAR(BOOL, Changer::UnlockEmoticons, true);
+	CFG_VAR(AutoHeal::Enabled, false);
+	CFG_VAR(AutoHeal::FaerieFireHPTreshold, 5.f);
+	CFG_VAR(AutoHeal::WandHPTreshold, 10.f);
+	CFG_VAR(AutoHeal::WandMinCharges, 10);
 
-	CFG_VAR(BOOL, AutoHeal::Enabled, false);
-	CFG_VAR(FLOAT, AutoHeal::FaerieFireHPTreshold, 5.f);
-	CFG_VAR(FLOAT, AutoHeal::WandHPTreshold, 10.f);
-	CFG_VAR(INT, AutoHeal::WandMinCharges, 10);
+	CFG_VAR(BadCastPrevention, true);
+	CFG_VAR(CastRedirection, true);
+	CFG_VAR(LastHitMarker, true);
 
-	CFG_VAR(BOOL, BadCastPrevention, true);
-	CFG_VAR(BOOL, CastRedirection, true);
-	CFG_VAR(BOOL, LastHitMarker, true);
+	CFG_VAR(AutoMidas::Enabled, false);
+	CFG_VAR(AutoMidas::XPTreshold, 60);
 
-	CFG_VAR(BOOL, AutoMidas::Enabled, false);
-	CFG_VAR(INT, AutoMidas::XPTreshold, 60);
-
-	CFG_VAR(BOOL, RenderAllParticles, true);
+	CFG_VAR(RenderAllParticles, true);
 }

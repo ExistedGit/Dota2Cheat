@@ -84,9 +84,7 @@ public:
 	virtual void DESTROY() = 0;
 	virtual int LoadEventsFromFile(const char* filename) = 0;
 	virtual void Reset(void) = 0;
-private:
-	virtual bool AddListener(IGameEventListener2* listener, const char* eventName, bool serverSide) = 0;
-public:
+	virtual bool AddListener(IGameEventListener2* listener, const char* eventName, bool serverSide = false) = 0;
 	virtual bool FindListener(IGameEventListener2* listener, const char* eventName) = 0;
 	virtual void RemoveListener(IGameEventListener2* listener) = 0;
 };

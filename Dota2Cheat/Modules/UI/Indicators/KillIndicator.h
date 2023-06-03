@@ -17,8 +17,6 @@ namespace Hacks {
 
 		// Includes magical resistance and newly added barriers
 		int CalcDmgWithResists(CDOTABaseNPC* ent, float dmg, bool pure = false) {
-			// static Function GetMagicalArmorValue = Memory::GetModule("client.dll").Offset(0x15E1030);
-			
 			auto barriers = ent->GetBarriers();
 			auto effectiveDamage = dmg - (barriers.all + barriers.magic);
 			if(!pure)

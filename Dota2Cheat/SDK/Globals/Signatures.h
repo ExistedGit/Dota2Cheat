@@ -27,7 +27,7 @@ namespace Signatures {
 	inline C_DOTA_ProjectileManager__AddTrackingProjectileFn C_DOTA_ProjectileManager__AddTrackingProjectile{};
 
 	inline CDOTAItemSchema* (*GetItemSchema)() = nullptr;
-	inline bool(*IsHUDFlipped)() = nullptr;
+
 	inline CEconItem* (*CreateEconItem)() = nullptr;
 
 	typedef void* (*CGameUI__ChangeGameUIStateFn)(void* thisptr, DOTAGameUIState_t state);
@@ -84,7 +84,6 @@ namespace Signatures {
 		SIGMAP_ENTRY(DispatchPacket),
 		SIGMAP_ENTRY(BAsyncSendProto),
 		SIGMAP_ENTRY(PrepareUnitOrders),
-		SIGMAP_ENTRY(IsHUDFlipped),
 		SIGMAP_ENTRY(GetItemSchema),
 		SIGMAP_ENTRY(CreateEconItem),
 		SIGMAP_ENTRY(GetPlayer),

@@ -27,6 +27,20 @@ namespace Config {
 			vars[name] = ConfigVar{ .val = (void*)var, .type = type };
 		}
 
+		// Used to infer the type of a ConfigVar to avoid manually specifying it
+#define ADDVAR_TEMPLATE(codeType, enumType) void AddVar(codeType* var, codeType val, const std::string& name) { \
+												AddVar<codeType>(enumType, var, val, name); \
+											}
+
+		ADDVAR_TEMPLATE(bool, ConfigVarType::BOOL);
+		ADDVAR_TEMPLATE(int, ConfigVarType::INT);
+		ADDVAR_TEMPLATE(float, ConfigVarType::FLOAT);
+		ADDVAR_TEMPLATE(Vector, ConfigVarType::VECTOR3D);
+		ADDVAR_TEMPLATE(Vector2D, ConfigVarType::VECTOR2D);
+		ADDVAR_TEMPLATE(uint64_t, ConfigVarType::UINT_64);
+
+#undef ADDVAR_TEMPLATE
+
 		void SaveConfig(std::ofstream& stream);
 		void LoadConfig(std::ifstream& stream);
 		void SaveEquippedItems(std::ofstream& stream);;

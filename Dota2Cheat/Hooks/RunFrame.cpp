@@ -108,19 +108,11 @@ void InGameLogic() {
 		ctx.lua.safe_script("Modules.Core:EntityIteration()");
 	}
 #ifdef _DEBUG
-	if (IsKeyPressed(VK_NUMPAD7)) {
-		auto wearables = ctx.localHero->MemberInline<CUtlVector<CHandle<>>>(Netvars::C_BaseCombatCharacter::m_hMyWearables);
-		LogF(LP_INFO, "Wearables: {}", (void*)wearables);
-		for (auto& handle : *wearables) {
-			LogF(LP_DATA, "{} | {}", (void*)handle.Entity(), handle.Entity()->MemberInline<VClass>(0x960 + 0x68)->Member<uint32_t>(0x8));
-		};
-	}
-
 	if (IsKeyPressed(VK_NUMPAD8)) {
 		auto selected = ctx.localPlayer->GetSelectedUnits();
 		auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(selected[0]);
 		auto pos = ent->GetPos();
-		
+
 		static Function init = Memory::Scan("E8 ? ? ? ? 8B C6 3B F3", "client.dll").GetAbsoluteAddress(1);
 		auto& wearables = ctx.localHero->Field<CUtlVector<CHandle<CEconWearable>>>(Netvars::C_BaseCombatCharacter::m_hMyWearables);
 		auto* item = wearables[0].Entity()->GetAttributeManager()->GetItem();
@@ -167,26 +159,27 @@ void InGameLogic() {
 	//	};
 	//}
 	if (IsKeyPressed(VK_RMENU)) {
-		auto type = GameSystems::GameRules->GetRiverType();
-		std::cout << "r: " << type << std::endl;
+		//auto type = GameSystems::GameRules->GetRiverType();
+		//std::cout << "r: " << type << std::endl;
 
-		if (ctx.runes.size() > 0) {
-			auto rune = *ctx.runes.begin();
+		//if (ctx.runes.size() > 0) {
+		//	auto rune = *ctx.runes.begin();
 
-			CDOTAClientMsg_ExecuteOrders orders_message;
-			auto msg_id = Interfaces::NetworkMessages->FindNetworkMessageByID(350);
-			auto order = orders_message.add_orders();
-			order->set_order_type(DOTA_UNIT_ORDER_PICKUP_RUNE);
-			order->set_target_index(rune->GetIndex());
-			order->set_ability_index(0);
-			order->set_sequence_number(ctx.localPlayer->GetSequenceNum() + 1);
-			order->add_units(ctx.localHero->GetIndex());
+		//	CDOTAClientMsg_ExecuteOrders orders_message;
+		//	auto msg_id = Interfaces::NetworkMessages->FindNetworkMessageByID(350);
+		//	auto order = orders_message.add_orders();
+		//	order->set_order_type(DOTA_UNIT_ORDER_PICKUP_RUNE);
+		//	order->set_target_index(rune->GetIndex());
+		//	order->set_ability_index(0);
+		//	order->set_sequence_number(ctx.localPlayer->GetSequenceNum() + 1);
+		//	order->add_units(ctx.localHero->GetIndex());
 
-			Hooks::oSendNetMessage(Hooks::NetChan, msg_id, &orders_message, BUF_DEFAULT);
-		}
+		//	Hooks::oSendNetMessage(Hooks::NetChan, msg_id, &orders_message, BUF_DEFAULT);
+		//}
 	}
 #endif 
 }
+
 
 void Hooks::hkRunFrame(void* thisptr) {
 	bool isInGame = Interfaces::Engine->IsInGame();
@@ -209,6 +202,14 @@ void Hooks::hkRunFrame(void* thisptr) {
 		ctx.localHero &&
 		ctx.gameStage == GameStage::IN_GAME)
 		InGameLogic();
+
+	if (IsKeyPressed(VK_NUMPAD7)) {
+		//auto wearables = ctx.localHero->MemberInline<CUtlVector<CHandle<>>>(Netvars::C_BaseCombatCharacter::m_hMyWearables);
+		//LogF(LP_INFO, "Wearables: {}", (void*)wearables);
+		//for (auto& handle : *wearables) {
+		//	LogF(LP_DATA, "{} | {}", (void*)handle.Entity(), handle.Entity()->MemberInline<VClass>(0x960 + 0x68)->Member<uint32_t>(0x8));
+		//};
+	}
 
 	oRunFrame(thisptr);
 }
