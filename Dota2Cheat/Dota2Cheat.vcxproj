@@ -193,7 +193,7 @@
       <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <ExceptionHandling>false</ExceptionHandling>
-      <AdditionalOptions>/bigobj /FI"pch.h" </AdditionalOptions>
+      <AdditionalOptions>/bigobj /FI"pch.h"</AdditionalOptions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -220,7 +220,7 @@
       <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <ExceptionHandling>false</ExceptionHandling>
-      <AdditionalOptions>/bigobj /FI"pch.h" </AdditionalOptions>
+      <AdditionalOptions>/bigobj /FI"pch.h"</AdditionalOptions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -248,7 +248,7 @@
       <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <AdditionalOptions>/bigobj /FI"pch.h" </AdditionalOptions>
+      <AdditionalOptions>/bigobj /FI"pch.h"</AdditionalOptions>
       <MultiProcessorCompilation>false</MultiProcessorCompilation>
     </ClCompile>
     <Link>

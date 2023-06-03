@@ -6,7 +6,7 @@ void ChangeItemStatTo(CDOTAItem* item, ItemStat stat, CDOTAPlayerController* pla
 	int diff = (int)stat - (int)item->GetItemStat();
 	int cycles = diff > 0 ? diff : diff + 3;
 
-	for (int i = 0; i < cycles; i++) {
+	for (int i = 0; i < cycles; i++)
 		Hooks::oPrepareUnitOrders(
 			player,
 			DOTA_UNIT_ORDER_CAST_NO_TARGET,
@@ -17,8 +17,6 @@ void ChangeItemStatTo(CDOTAItem* item, ItemStat stat, CDOTAPlayerController* pla
 			issuer,
 			true,
 			false);
-	}
-
 }
 
 void Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t orderType, UINT32 targetIndex, Vector* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, CBaseEntity* issuer, bool queue, bool showEffects) {

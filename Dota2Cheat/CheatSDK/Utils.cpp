@@ -9,7 +9,7 @@ ImVec2 WorldToMap(const Vector& EntityPos) {
 	auto ActualMinimapSize = static_cast<float>(GameSystems::MinimapRenderer->GetMinimapSize().x * 0.94);
 	auto MinimapPosMin = Vector2D(0, static_cast<float>(ScreenSize.y - ActualMinimapSize));
 
-	if (Signatures::IsHUDFlipped()) {
+	if (DrawData.IsHUDFlipped) {
 		float offset = ScreenSize.x - ActualMinimapSize;
 		MinimapPosMin.x = MinimapPosMin.x + offset;
 	}

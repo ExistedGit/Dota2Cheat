@@ -40,5 +40,6 @@ void Interfaces::FindInterfaces() {
 	InitInterface(&NetworkSystem, "networksystem.dll", "NetworkSystemVersion001", 62);
 	InitInterface(&NetworkMessages, "networksystem.dll", "NetworkMessagesVersion001", 36);
 	EntitySystem = *Address(Interfaces::Client->GetVFunc(25).ptr).GetAbsoluteAddress<CGameEntitySystem**>(3, 7);
+	LogF(LP_DATA, "EntitySystem: {}", (void*)EntitySystem);
 	UIEngine = Panorama->Member<Panorama::CUIEngineSource2*>(0x28);
 }

@@ -85,9 +85,9 @@ class CVarSystem : VClass {
 public:
 
 	static inline std::map<std::string, CVarID> CVars{};
-	using CVarCallbackFn = void(*)(const CVarID& id, int unk1, const CVarValue* val, const CVarValue* old_val);
+	using CVarCallbackFn = void*(*)(const CVarID& id, int unk1, const CVarValue* val, const CVarValue* old_val);
 
-	CVarCallbackFn GetCallback(int id) {
+	CVarCallbackFn& GetCallback(int id) {
 		return *(CVarCallbackFn*)(Member<uintptr_t>(0x80) + 24 * id);
 	}
 

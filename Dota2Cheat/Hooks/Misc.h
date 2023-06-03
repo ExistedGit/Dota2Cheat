@@ -1,8 +1,15 @@
 #pragma once
 #include "../SDK/pch.h"
 #include "../CheatSDK/Config.h"
-
+#include "../CheatSDK/DrawData.h"
 namespace Hooks {
+
+	inline CVarSystem::CVarCallbackFn oOnHUDFlipped;
+	inline void* hkOnHUDFlipped(const CVarID& id, int unk1, const CVarValue* val, const CVarValue* old_val) {
+		DrawData.IsHUDFlipped = val->boolean;
+		return oOnHUDFlipped(id, unk1, val, old_val);
+	};
+
 	inline Signatures::BIsEmoticonUnlockedFn oBIsEmoticonUnlocked{};
 
 	inline bool hkBIsEmoticonUnlocked(void* thisptr, uint32_t unk) {
