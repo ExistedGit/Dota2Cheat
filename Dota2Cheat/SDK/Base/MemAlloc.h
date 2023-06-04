@@ -9,6 +9,14 @@ struct CMemAlloc : public VClass {
 	}
 
 	template<typename T>
+	T* AllocInit() {
+		T obj{};
+		auto mem = CallVFunc<1, T*>(sizeof(T));
+		memcpy(mem, &obj, sizeof(T));
+		return mem;
+	}
+
+	template<typename T>
 	T* Alloc() {
 		return CallVFunc<1, T*>(sizeof(T));
 	}

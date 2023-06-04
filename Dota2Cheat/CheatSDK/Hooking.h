@@ -23,5 +23,6 @@ namespace Hooks {
 	inline void RemoveHooks() {
 		*HUDFlipCallback = oOnHUDFlipped;
 		Interfaces::EntitySystem->GetListeners().remove_by_value(EntEventListener);
+		CMemAlloc::Instance()->Free(EntEventListener);
 	}
 }

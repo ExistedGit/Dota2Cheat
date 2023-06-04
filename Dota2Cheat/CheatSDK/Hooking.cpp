@@ -62,7 +62,7 @@ void Hooks::InstallHooks() {
 		callback = hkOnHUDFlipped;
 	}
 	{
-		EntEventListener = new EntityEventListener;
+		EntEventListener = CMemAlloc::Instance()->AllocInit<EntityEventListener>();
 		Interfaces::EntitySystem->GetListeners().push_back(EntEventListener);
 	}
 }
