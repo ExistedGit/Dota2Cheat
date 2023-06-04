@@ -5,34 +5,28 @@
 
 class EntityEventListener : public IEntityListener {
 
-	void* OnEntityCreated(CBaseEntity* ent) override {
+	void OnEntityCreated(CBaseEntity* ent) override {
 		SortEntToCollections(ent);
 
 		if (ent->SchemaBinding()->binaryName && !strcmp(ent->SchemaBinding()->binaryName, "C_DOTAGamerulesProxy"))
 			GameSystems::GameRules = ent->Member<CDOTAGameRules*>(Netvars::C_DOTAGamerulesProxy::m_pGameRules);
-
-		return ent;
-	}
-	void* OnEntitySpawned(CBaseEntity* ent) override {
-		return ent;
-	}
-	void* OnEntityDeleted(CBaseEntity* ent) override {
-		if (ent->SchemaBinding()->binaryName) {
-			ctx.physicalItems.erase(ent);
-			ctx.heroes.erase((CDOTABaseNPC_Hero*)ent);
-			ctx.creeps.erase((CDOTABaseNPC*)ent);
-			ctx.entities.erase(ent);
-			ctx.runes.erase((CDOTAItemRune*)ent);
-
-			Modules::AegisSnatcher.RemoveIfAegis(ent);
-		}
-
-		return ent;
 	}
 
-	void* OnEntityParentChanged(CBaseEntity* ent, CBaseEntity* parent) override {
-		return ent;
-	};
+	void OnEntityDeleted(CBaseEntity* ent) override {
+		if (!ent->SchemaBinding()->binaryName)
+			return;
+
+		ctx.physicalItems.erase(ent);
+		ctx.heroes.erase((CDOTABaseNPC_Hero*)ent);
+		ctx.creeps.erase((CDOTABaseNPC*)ent);
+		ctx.entities.erase(ent);
+		ctx.runes.erase((CDOTAItemRune*)ent);
+
+		Modules::AegisSnatcher.RemoveIfAegis(ent);
+	}
+
+	void OnEntitySpawned(CBaseEntity* ent) override { }
+	void OnEntityParentChanged(CBaseEntity* ent, CBaseEntity* parent) override { };
 };
 
 class RoshanListener : public IGameEventListener2 {
@@ -83,15 +77,5 @@ public:
 			<< (minutes < 10 ? "0" : "") << minutes << ':'
 			<< (seconds < 10 ? "0" : "") << seconds << "\n";
 #endif // _DEBUG
-	}
-};
-
-class hud_flip_changed_l : public IGameEventListener2 {
-public:
-	void DESTROY() override {
-
-	}
-	void FireGameEvent(CGameEvent* ev) override {
-		LogF(LP_INFO, "HUD Flip Status: {}", ev->GetBool("flipped"));
 	}
 };

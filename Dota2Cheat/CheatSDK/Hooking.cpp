@@ -13,9 +13,9 @@ void Hooks::InstallHooks() {
 	HOOKFUNC_SIGNATURES(SaveSerializedSOCache);
 
 	{
-		uintptr_t** vtable = Memory::Scan("48 8D 05 ? ? ? ? 48 8B D9 48 89 01 48 8B 49 50", "client.dll").GetAbsoluteAddress(3);
-		uintptr_t* SetAbsOrigin = vtable[21];
-		HOOKFUNC(SetAbsOrigin);
+		//uintptr_t** vtable = Memory::Scan("48 8D 05 ? ? ? ? 48 8B D9 48 89 01 48 8B 49 50", "client.dll").GetAbsoluteAddress(3);
+		//uintptr_t* SetAbsOrigin = vtable[21];
+		//HOOKFUNC(SetAbsOrigin);
 	}
 
 	{

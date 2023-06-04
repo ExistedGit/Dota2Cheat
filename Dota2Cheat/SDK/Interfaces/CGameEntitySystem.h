@@ -18,10 +18,10 @@ public:
 // I almost feel like a Valve employee doing these things the intended way
 class IEntityListener {
 public:
-	virtual void* OnEntityCreated(CBaseEntity* ent) = 0;
-	virtual void* OnEntitySpawned(CBaseEntity* ent) = 0;
-	virtual void* OnEntityDeleted(CBaseEntity* ent) = 0;
-	virtual void* OnEntityParentChanged(CBaseEntity* ent, CBaseEntity* parent) = 0;
+	virtual void OnEntityCreated(CBaseEntity* ent) = 0;
+	virtual void OnEntitySpawned(CBaseEntity* ent) = 0;
+	virtual void OnEntityDeleted(CBaseEntity* ent) = 0;
+	virtual void OnEntityParentChanged(CBaseEntity* ent, CBaseEntity* parent) = 0;
 };
 
 class CEntitySystem : public VClass {
