@@ -146,6 +146,6 @@ namespace Panorama {
 			} buf;
 			return CallVFunc<VTableIndexes::CUIEngineSource2::IsValidPanelPointer, IVPBuffer*>(&buf, panel)->unk0 != 0xFFFFFFFF;
 		}
-
+		FIELD(CUtlVector<void(*)()>, GetListeners, 0xD8);
 	};
 }

@@ -49,7 +49,7 @@ void Hooks::InstallHooks() {
 		// RunFrame: xref "CUIEngineSource2::RunFrame", never changes tho
 		void* RunScript = Interfaces::UIEngine->GetVFunc(88).ptr,
 			* RunFrame = Interfaces::UIEngine->GetVFunc(6).ptr;
-		HOOKFUNC(RunFrame);
+		// HOOKFUNC(RunFrame);
 		HOOKFUNC(RunScript);
 	}
 	{
@@ -64,6 +64,8 @@ void Hooks::InstallHooks() {
 	{
 		EntEventListener = CMemAlloc::Instance()->AllocInit<EntityEventListener>();
 		Interfaces::EntitySystem->GetListeners().push_back(EntEventListener);
+
+		Interfaces::UIEngine->GetListeners().push_back(Hooks::hkRunFrame);
 	}
 }
 

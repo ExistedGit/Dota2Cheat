@@ -24,5 +24,6 @@ namespace Hooks {
 		*HUDFlipCallback = oOnHUDFlipped;
 		Interfaces::EntitySystem->GetListeners().remove_by_value(EntEventListener);
 		CMemAlloc::Instance()->Free(EntEventListener);
+		Interfaces::UIEngine->GetListeners().remove_by_value(hkRunFrame);
 	}
 }

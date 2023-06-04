@@ -73,7 +73,11 @@ public:
 
 	void adjust_capacity() {
 		if (m_Size > m_Capacity) {
-			m_Capacity *= 2;
+			if (m_Capacity == 0)
+				m_Capacity = 1;
+			else
+				m_Capacity *= 2;
+
 			m_pElements = m_pElements
 				? CMemAlloc::Instance()->ReAlloc(m_pElements, m_Capacity * sizeof(T))
 				: CMemAlloc::Instance()->Alloc<T>(m_Size * sizeof(T));

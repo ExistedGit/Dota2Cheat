@@ -27,7 +27,5 @@
 // Dota2Cheat mainly operates on a frame-by-frame basis, hence this hook
 
 namespace Hooks {
-	typedef void(__fastcall* RunFrameFn)(void* thisptr);
-	inline RunFrameFn oRunFrame{};
-	void hkRunFrame(void* thisptr);
+	void hkRunFrame();
 }

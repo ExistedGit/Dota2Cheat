@@ -118,15 +118,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Signatures::FindSignatures();
 	GameSystems::FindGameSystems();
 
-	if (useChangerCode) {
-		std::ifstream fin(ctx.cheatFolderPath + "\\assets\\itemdefs.txt");
-		if (fin.is_open())
-		{
-			Modules::SkinChanger.ParseItemDefs(fin);
-			fin.close();
-		}
-	}
-
 	Log(LP_DATA, "ItemSchema: ", Signatures::GetItemSchema());
 
 	Hooks::InstallHooks();
@@ -140,10 +131,19 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	std::cout << "Loading finished, initializing UI\n";
 
+
+	if (useChangerCode) {
+		std::ifstream fin(ctx.cheatFolderPath + "\\assets\\itemdefs.txt");
+		if (fin.is_open())
+		{
+			Modules::SkinChanger.ParseItemDefs(fin);
+			fin.close();
+		}
+	}
+
 	glfwSetErrorCallback(glfw_error_callback);
 	if (!glfwInit())
 		return 1;
-
 	// GL 3.0 + GLSL 130
 	constexpr const char* glsl_version = "#version 130";
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);

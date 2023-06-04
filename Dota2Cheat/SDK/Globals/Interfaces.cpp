@@ -22,6 +22,8 @@ void InitInterface(auto** var, const char* dllName, const char* interfaceName, s
 
 
 void Interfaces::FindInterfaces() {
+	Log(LP_NONE, "");
+
 	Log(LP_INFO, "[INTERFACES]");
 	InitInterface(&Engine, "engine2.dll", "Source2EngineToClient001");
 	InitInterface(&Engine, "engine2.dll", "Source2EngineToClient001", 177);
@@ -40,6 +42,9 @@ void Interfaces::FindInterfaces() {
 	InitInterface(&NetworkSystem, "networksystem.dll", "NetworkSystemVersion001", 62);
 	InitInterface(&NetworkMessages, "networksystem.dll", "NetworkMessagesVersion001", 36);
 	EntitySystem = *Address(Interfaces::Client->GetVFunc(25).ptr).GetAbsoluteAddress<CGameEntitySystem**>(3, 7);
-	LogF(LP_DATA, "EntitySystem: {}", (void*)EntitySystem);
 	UIEngine = Panorama->Member<Panorama::CUIEngineSource2*>(0x28);
+	LogF(LP_DATA, "UIEngine: {}", (void*)UIEngine);
+	LogF(LP_DATA, "EntitySystem: {}", (void*)EntitySystem);
+
+	Log(LP_NONE, "");
 }
