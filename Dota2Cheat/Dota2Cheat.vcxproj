@@ -572,6 +572,7 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="SDK\Base\Address.h" />
+    <ClInclude Include="SDK\Base\MemAlloc.h" />
     <ClInclude Include="SDK\Bytes\Fonts.h" />
     <ClInclude Include="CheatSDK\include.h" />
     <ClInclude Include="CheatSDK\Utils.h" />

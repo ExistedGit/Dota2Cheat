@@ -1,5 +1,6 @@
 #pragma once
 #include "../SDK/pch.h"
+#include "EventListeners.h"
 
 #include "../Hooks/PrepareUnitOrders.h"
 #include "../Hooks/AcceptEvents.h"
@@ -13,10 +14,14 @@
 
 #include "../Hooks/Misc.h"
 
-#define HOOKFUNC_SIGNATURES(func) HookFunc(Signatures::##func, &hk##func, &o##func, #func)
-
 namespace Hooks {
-	void SetUpByteHooks();
+	inline void** HUDFlipCallback{};
+	inline EntityEventListener* EntEventListener{};
+	void InstallHooks();
 
-	void SetUpVirtualHooks(bool log);
+	// Removes any custom, non-MinHook hooks
+	inline void RemoveHooks() {
+		*HUDFlipCallback = oOnHUDFlipped;
+		Interfaces::EntitySystem->GetListeners().remove_by_value(EntEventListener);
+	}
 }

@@ -340,5 +340,6 @@
     <ClInclude Include="SDK\Interfaces\GC\CEconWearable.h" />
     <ClInclude Include="Hooks\GameCoordinator.h" />
     <ClInclude Include="SDK\GameSystems\CGlobalVars.h" />
+    <ClInclude Include="SDK\Base\MemAlloc.h" />
   </ItemGroup>
 </Project>

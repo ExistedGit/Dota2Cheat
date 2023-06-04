@@ -129,8 +129,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	Log(LP_DATA, "ItemSchema: ", Signatures::GetItemSchema());
 
-	Hooks::SetUpByteHooks();
-	Hooks::SetUpVirtualHooks(true);
+	Hooks::InstallHooks();
 
 	Lua::InitEnums(ctx.lua);
 	Lua::InitClasses(ctx.lua);
@@ -299,6 +298,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Modules::TargetedSpellHighlighter.OnDisableTargetedSpells();
 	Modules::TargetedSpellHighlighter.OnDisableLinken();
 
+	Hooks::RemoveHooks();
 	Hooks::InvalidateUEF::Remove();
 	MH_Uninitialize();
 	if (f) fclose(f);

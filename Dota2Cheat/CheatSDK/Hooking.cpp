@@ -1,20 +1,17 @@
 #include "Hooking.h"
 
-void Hooks::SetUpByteHooks() {
+#define HOOKFUNC_SIGNATURES(func) HookFunc(Signatures::##func, &hk##func, &o##func, #func)
+
+void Hooks::InstallHooks() {
 	HOOKFUNC_SIGNATURES(PrepareUnitOrders);
 	HOOKFUNC_SIGNATURES(CDOTA_DB_Popup_AcceptMatch);
-	//HOOKFUNC_SIGNATURES(C_DOTA_ProjectileManager__AddTrackingProjectile);
 	HOOKFUNC_SIGNATURES(BIsEmoticonUnlocked);
-	// HOOKFUNC_SIGNATURES(CDOTAPanoramaMinimapRenderer__Render);
 #ifdef _DEBUG
 	//HOOKFUNC_SIGNATURES(DispatchPacket);
 	HOOKFUNC_SIGNATURES(BAsyncSendProto);
 #endif // _DEBUG
 	HOOKFUNC_SIGNATURES(SaveSerializedSOCache);
-}
 
-
-void Hooks::SetUpVirtualHooks(bool log) {
 	{
 		uintptr_t** vtable = Memory::Scan("48 8D 05 ? ? ? ? 48 8B D9 48 89 01 48 8B 49 50", "client.dll").GetAbsoluteAddress(3);
 		uintptr_t* SetAbsOrigin = vtable[21];
@@ -49,12 +46,6 @@ void Hooks::SetUpVirtualHooks(bool log) {
 		HOOKFUNC(SetRenderingEnabled);
 	}
 	{
-		auto vmt = VMT(Interfaces::EntitySystem);
-		void* OnAddEntity = vmt.GetVM(14), * OnRemoveEntity = vmt.GetVM(15);
-		HOOKFUNC(OnAddEntity);
-		HOOKFUNC(OnRemoveEntity);
-	}
-	{
 		// RunFrame: xref "CUIEngineSource2::RunFrame", never changes tho
 		void* RunScript = Interfaces::UIEngine->GetVFunc(88).ptr,
 			* RunFrame = Interfaces::UIEngine->GetVFunc(6).ptr;
@@ -67,8 +58,12 @@ void Hooks::SetUpVirtualHooks(bool log) {
 		auto cvar = Interfaces::CVar->CVars["dota_hud_flip"];
 		auto& callback = Interfaces::CVar->GetCallback(cvar.m_pVar->m_iCallbackIndex);
 		oOnHUDFlipped = callback;
+		HUDFlipCallback = (void**)&callback;
 		callback = hkOnHUDFlipped;
 	}
-
+	{
+		EntEventListener = new EntityEventListener;
+		Interfaces::EntitySystem->GetListeners().push_back(EntEventListener);
+	}
 }
 
