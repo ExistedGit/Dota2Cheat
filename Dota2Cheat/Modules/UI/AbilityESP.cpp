@@ -74,7 +74,7 @@ void ESP::AbilityESP::DrawAbilities() {
 			if (data.ability)
 				++abilityCount;
 
-		
+
 		auto drawPos = WorldToScreen(HeroData[hero].AbsOrigin);
 		drawPos.x -= (abilityCount - 1) * iconSize / 2.0f;
 		drawPos.y += 30;
@@ -92,7 +92,7 @@ void ESP::AbilityESP::DrawAbilities() {
 			float centeringOffset = -outlineThickness + iconSize / 2;
 			{
 				int idxOffset = idx * iconSize;
-				
+
 				imgXY1 = drawPos - ImVec2{ centeringOffset - idxOffset, centeringOffset };
 				imgXY2 = drawPos + ImVec2{ centeringOffset + idxOffset, centeringOffset };
 				imgCenter = imgXY1 + ImVec2(centeringOffset, centeringOffset);
@@ -219,7 +219,7 @@ void ESP::AbilityESP::LoadItemTexIfNeeded(AbilityData& data) {
 // If the item has charges(like wand), a circle with a counter is drawn in the top left corner of the image
 void ESP::AbilityESP::DrawItems() {
 	const ImVec2 iconSize{ (float)ScaleVar(AbilityIconSize), (float)ScaleVar(AbilityIconSize) };
-	const int gap = 2;
+	const int gap = 1;
 	auto DrawList = ImGui::GetForegroundDrawList();
 	// used to convert native rectangular item images to SQUARES
 	constexpr float aspectRatio = (1 - 64. / 88) / 2;
@@ -227,21 +227,40 @@ void ESP::AbilityESP::DrawItems() {
 	for (auto& [hero, inv] : EnemyItems) {
 		if (!CanDraw(hero))
 			continue;
+		int validItems = 0;
+		for (int i = 0; i < 6; i++)
+			if (inv[i].ability)
+				validItems++;
 
-		
+		if (inv[15].ability)
+			validItems++;
+		if (inv[16].ability)
+			validItems++;
+
 		ImVec2 basePos = HeroData[hero].HealthbarW2S;
-		basePos.x -= 6 * (iconSize.x + gap) / 2;
+		basePos.x -= validItems * (iconSize.x + gap) / 2;
 		basePos.y -= 35 + iconSize.x;
 
 		// Adjusting for the debuff indicator that is otherwise obscured by the panel 
 		if (hero->Member<uint64_t>(Netvars::C_DOTA_BaseNPC::m_nUnitDebuffState) != 0)
 			basePos.y -= 30;
 
+		if (inv[16].ability) {
+			LoadItemTexIfNeeded(inv[16]);
+			ImVec2 cXY1{ basePos.x + 1 , basePos.y + 1 },
+				cXY2 = cXY1 + iconSize - ImVec2{ 2,2 };
+			DrawItemCircle(inv[16], cXY1, cXY2, iconSize, (iconSize.x - 2) / 2);
+			basePos.x += gap + iconSize.x;
+		}
+
 		for (int slot = 0; slot < 6; slot++) {
 			auto& itemData = inv[slot];
+			if (!itemData.ability)
+				continue;
+
 			ImVec2 imgXY1
 			{
-				basePos.x + (gap + iconSize.x) * slot + 1,
+				basePos.x + 1,
 				basePos.y + 1
 			},
 				imgXY2 = imgXY1 + iconSize - ImVec2{ 2,2 },
@@ -252,11 +271,6 @@ void ESP::AbilityESP::DrawItems() {
 				frameXY2 = imgXY2 + frameSize;
 
 			ImU32 frameColor = ImColor{ 0,0,0,255 };
-
-			if (!inv.count(slot) || !inv[slot].ability) {
-				DrawList->AddRectFilled(frameXY1, frameXY2, ImColor{ 0, 0, 0, 255 });
-				continue;
-			}
 
 			LoadItemTexIfNeeded(itemData);
 			DrawList->AddImage(itemData.icon,
@@ -290,28 +304,18 @@ void ESP::AbilityESP::DrawItems() {
 			int charges = reinterpret_cast<CDOTAItem*>(itemData.ability)->GetCurrentCharges();
 			if (charges != 0)
 				DrawChargeCounter(charges, frameXY1, 8);
+
+			basePos.x += gap + iconSize.x;
 		}
 
-		if (inv.count(16) && inv[16].ability)
-			LoadItemTexIfNeeded(inv[16]);
 
-		if (inv.count(15) && inv[15].ability)
+		if (inv[15].ability) {
 			LoadItemTexIfNeeded(inv[15]);
-
-
-		{
-			ImVec2 cXY1{ basePos.x - iconSize.x - gap * 2, basePos.y },
-				cXY2 = cXY1 + iconSize;
-			DrawItemCircle(inv[16], cXY1, cXY2, iconSize, iconSize.x / 2);
-		}
-		{
-			ImVec2 cXY1{ basePos.x + (iconSize.x + gap) * 6 + gap, basePos.y },
-				cXY2 = cXY1 + iconSize;
-			DrawItemCircle(inv[15], cXY1, cXY2, iconSize, iconSize.x / 2);
+			ImVec2 cXY1{ basePos.x + 1 , basePos.y + 1 },
+				cXY2 = cXY1 + iconSize - ImVec2{ 2,2 };
+			DrawItemCircle(inv[15], cXY1, cXY2, iconSize, (iconSize.x - 2) / 2);
 		}
 	}
-
-
 }
 
 
