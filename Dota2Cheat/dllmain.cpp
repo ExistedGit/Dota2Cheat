@@ -1,12 +1,6 @@
 #pragma once
 #define STB_IMAGE_IMPLEMENTATION
 
-// Will use local copy of signatures.json instead of the one from GitHub.
-// Use if you need to update them and the "cloud" version isn't updated yet/will not be updated
-#ifdef _DEBUG
-#define D2C_USE_LOCAL_SIGNATURES
-#endif
-
 #include <cstdio>
 #include <iostream>
 #include "CheatSDK/Hooking.h"
@@ -109,28 +103,14 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	Interfaces::CVar->DumpConVarsToMap();
 
-#ifdef D2C_USE_LOCAL_SIGNATURES
 	SignatureDB::LoadSignaturesFromFile(ctx.cheatFolderPath + "\\signatures.json");
-#else
-	SignatureDB::LoadSignaturesFromNetwork("https://raw.githubusercontent.com/ExistedGit/Dota2Cheat/main/signatures.json");
-#endif
 
 	Signatures::FindSignatures();
 	GameSystems::FindGameSystems();
 
-	if (useChangerCode) {
-		std::ifstream fin(ctx.cheatFolderPath + "\\assets\\itemdefs.txt");
-		if (fin.is_open())
-		{
-			Modules::SkinChanger.ParseItemDefs(fin);
-			fin.close();
-		}
-	}
-
 	Log(LP_DATA, "ItemSchema: ", Signatures::GetItemSchema());
 
-	Hooks::SetUpByteHooks();
-	Hooks::SetUpVirtualHooks(true);
+	Hooks::InstallHooks();
 
 	Lua::InitEnums(ctx.lua);
 	Lua::InitClasses(ctx.lua);
@@ -141,10 +121,19 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	std::cout << "Loading finished, initializing UI\n";
 
+
+	if (useChangerCode) {
+		std::ifstream fin(ctx.cheatFolderPath + "\\assets\\itemdefs.txt");
+		if (fin.is_open())
+		{
+			Modules::SkinChanger.ParseItemDefs(fin);
+			fin.close();
+		}
+	}
+
 	glfwSetErrorCallback(glfw_error_callback);
 	if (!glfwInit())
 		return 1;
-
 	// GL 3.0 + GLSL 130
 	constexpr const char* glsl_version = "#version 130";
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -299,6 +288,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	Modules::TargetedSpellHighlighter.OnDisableTargetedSpells();
 	Modules::TargetedSpellHighlighter.OnDisableLinken();
 
+	Hooks::RemoveHooks();
 	Hooks::InvalidateUEF::Remove();
 	MH_Uninitialize();
 	if (f) fclose(f);

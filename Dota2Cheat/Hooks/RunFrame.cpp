@@ -181,7 +181,7 @@ void InGameLogic() {
 }
 
 
-void Hooks::hkRunFrame(void* thisptr) {
+void Hooks::hkRunFrame() {
 	bool isInGame = Interfaces::Engine->IsInGame();
 	static bool DotaPlusStatus = false;
 	if (DotaPlusStatus != Config::Changer::UnlockDotaPlus) {
@@ -210,6 +210,4 @@ void Hooks::hkRunFrame(void* thisptr) {
 		//	LogF(LP_DATA, "{} | {}", (void*)handle.Entity(), handle.Entity()->MemberInline<VClass>(0x960 + 0x68)->Member<uint32_t>(0x8));
 		//};
 	}
-
-	oRunFrame(thisptr);
 }

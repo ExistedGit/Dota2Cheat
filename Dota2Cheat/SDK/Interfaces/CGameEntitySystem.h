@@ -1,6 +1,7 @@
 #pragma once
 #include "../Base/Definitions.h"
 #include "../Entities/CEntityIdentity.h"
+#include "../Base/CUtlVector.h"
 #include <sol/sol.hpp>
 
 #define MAX_ENTITIES_IN_LIST 512
@@ -13,9 +14,18 @@ public:
 	CEntityIdentity m_pIdentities[MAX_ENTITIES_IN_LIST];
 };
 
-class CEntitySystem {
+// The entity system utilizes listeners for the events mentioned below
+// I almost feel like a Valve employee doing these things the intended way
+class IEntityListener {
 public:
-	virtual void n_0() = 0;
+	virtual void OnEntityCreated(CBaseEntity* ent) = 0;
+	virtual void OnEntitySpawned(CBaseEntity* ent) = 0;
+	virtual void OnEntityDeleted(CBaseEntity* ent) = 0;
+	virtual void OnEntityParentChanged(CBaseEntity* ent, CBaseEntity* parent) = 0;
+};
+
+class CEntitySystem : public VClass {
+public:
 	virtual void BuildResourceManifest(void) = 0; // 01
 	virtual void n_2() = 0;
 	virtual void n_3() = 0;
@@ -26,7 +36,7 @@ public:
 	virtual void ReleaseKeyValues(void const*) = 0; // 8
 	virtual void n_9() = 0;
 	virtual void n_10() = 0;
-	virtual void ClearEntityDatabase(void); // 11
+	virtual void ClearEntityDatabase(void) = 0; // 11
 	virtual CBaseEntity* FindEntityProcedural(const char *...) = 0;
 	virtual CBaseEntity* OnEntityParentChanged(CBaseEntity*, CBaseEntity*) = 0; //13
 	virtual CBaseEntity* OnAddEntity(CBaseEntity*, ENT_HANDLE) = 0; // 14
@@ -66,6 +76,7 @@ public:
 
 		return identity;
 	}
+
 	template<typename T = CBaseEntity>
 	T* GetEntity(int index)
 	{
@@ -74,13 +85,12 @@ public:
 			return (T*)identity->entity;
 		return nullptr;
 	}
-	int GetHighestEntityIndex()
-	{
-		// IDA:
-		// xref "cl_showents" -> lea rax, [XXXXXXXX] above
-		// decompile it, there is a cycle using a variable initialized with the first call(to sub_18XXXXXX)
-		// that function will have this function
-		return *(int*)((uintptr_t)this + 0x1510);
-	}
+
+	// IDA:
+	// xref "cl_showents" -> lea rax, [XXXXXXXX] above
+	// decompile it, there is a cycle using a variable initialized with the first call(to sub_18XXXXXX)
+	// that function will have this function
+	GETTER(int, GetHighestEntityIndex, 0x1510);
+	FIELD(CUtlVector<IEntityListener*>, GetListeners, 0x1548);
 };
 

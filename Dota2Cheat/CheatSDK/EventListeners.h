@@ -1,6 +1,33 @@
 #pragma once
 #include "../SDK/pch.h"
+#include "../Modules/Hacks/AegisSnatcher.h"
 #include <format>
+
+class EntityEventListener : public IEntityListener {
+
+	void OnEntityCreated(CBaseEntity* ent) override {
+		SortEntToCollections(ent);
+
+		if (ent->SchemaBinding()->binaryName && !strcmp(ent->SchemaBinding()->binaryName, "C_DOTAGamerulesProxy"))
+			GameSystems::GameRules = ent->Member<CDOTAGameRules*>(Netvars::C_DOTAGamerulesProxy::m_pGameRules);
+	}
+
+	void OnEntityDeleted(CBaseEntity* ent) override {
+		if (!ent->SchemaBinding()->binaryName)
+			return;
+
+		ctx.physicalItems.erase(ent);
+		ctx.heroes.erase((CDOTABaseNPC_Hero*)ent);
+		ctx.creeps.erase((CDOTABaseNPC*)ent);
+		ctx.entities.erase(ent);
+		ctx.runes.erase((CDOTAItemRune*)ent);
+
+		Modules::AegisSnatcher.RemoveIfAegis(ent);
+	}
+
+	void OnEntitySpawned(CBaseEntity* ent) override { }
+	void OnEntityParentChanged(CBaseEntity* ent, CBaseEntity* parent) override { };
+};
 
 class RoshanListener : public IGameEventListener2 {
 public:
@@ -50,15 +77,5 @@ public:
 			<< (minutes < 10 ? "0" : "") << minutes << ':'
 			<< (seconds < 10 ? "0" : "") << seconds << "\n";
 #endif // _DEBUG
-	}
-};
-
-class RunePickupListener : public IGameEventListener2 {
-public:
-	void DESTROY() override {
-
-	}
-	void FireGameEvent(CGameEvent* ev) override {
-
 	}
 };

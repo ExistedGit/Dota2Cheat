@@ -59,24 +59,25 @@ inline std::string GetLogPrefix(LogPrefix prefixType) {
 	return "";
 }
 
-#ifdef _DEBUG
 template<typename ...Args>
 void Log(LogPrefix prefixType, Args&&... args) {
+#ifndef _DEBUG
+	if (prefixType != LP_ERROR && prefixType != LP_WARNING)
+		return;
+#endif
 	std::string prefix = GetLogPrefix(prefixType);
 	((std::cout << prefix) << ... << args) << '\n';
 	SetConsoleColor();
 }
-#else
-#define Log(...)
-#endif
-#ifdef _DEBUG
+
 // Formatted log
 template<typename ...Args>
 void LogF(LogPrefix prefixType, const char* fmtString, Args&&... args) {
+#ifndef _DEBUG
+	if (prefixType != LP_ERROR && prefixType != LP_WARNING)
+		return;
+#endif
 	std::string prefix = GetLogPrefix(prefixType);
 	std::cout << prefix << std::vformat(fmtString, std::make_format_args(std::forward<Args>(args)...)) << '\n';
 	SetConsoleColor();
 }
-#else
-#define LogF(...)
-#endif
