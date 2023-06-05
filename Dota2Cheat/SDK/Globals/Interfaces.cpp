@@ -12,6 +12,7 @@ void InitInterface(auto** var, const char* dllName, const char* interfaceName, s
 
 	LogPrefix prefix = LP_DATA;
 	std::string vmInfo = " | VMs: " + std::to_string(countedVMs);
+
 	if (vmCount.has_value() && countedVMs != vmCount) {
 		vmInfo = std::format(" | VM count mismatch! Current: {}, Required: {}", countedVMs, *vmCount);
 		prefix = LP_WARNING;
