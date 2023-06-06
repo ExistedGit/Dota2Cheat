@@ -341,5 +341,9 @@
     <ClInclude Include="Hooks\GameCoordinator.h" />
     <ClInclude Include="SDK\GameSystems\CGlobalVars.h" />
     <ClInclude Include="SDK\Base\MemAlloc.h" />
+    <ClInclude Include="CheatSDK\EventManager.h" />
+    <ClInclude Include="CheatSDK\GameEventListeners\map_shutdown.h" />
+    <ClInclude Include="CheatSDK\GameEventListeners\dota_player_update_assigned_hero.h" />
+    <ClInclude Include="CheatSDK\GameEventListeners\dota_game_state_change.h" />
   </ItemGroup>
 </Project>

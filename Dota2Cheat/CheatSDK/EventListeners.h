@@ -1,6 +1,7 @@
 #pragma once
 #include "../SDK/pch.h"
 #include "../Modules/Hacks/AegisSnatcher.h"
+#include "MatchStateHandling.h"
 #include <format>
 
 class EntityEventListener : public IEntityListener {

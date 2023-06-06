@@ -24,7 +24,6 @@ enum class GameStage {
 struct Context {
 	CDOTAPlayerController* localPlayer{};
 	CDOTABaseNPC_Hero* localHero{};
-	uint32_t assignedHeroHandle{};
 
 	GameStage gameStage = GameStage::NONE;
 

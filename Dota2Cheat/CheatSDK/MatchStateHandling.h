@@ -17,8 +17,21 @@
 
 // A dota cheat's perception of reality relies on the game's stage,
 // as obviously we cannot do in-game things while we're still picking heroes
-// As such, constant checks are required. Might have as well hooked a callback,
-// but why waste time and space on another signature?
 
-void LeftMatch();
-void CheckMatchState();
+inline struct CMatchStateManager {
+	void EnteredPreGame();
+	void EnteredInGame();
+	void LeftMatch();
+	void OnStateChanged(DOTA_GameState newState) {
+		switch (newState) {
+		case DOTA_GAMERULES_STATE_PRE_GAME:
+		case DOTA_GAMERULES_STATE_GAME_IN_PROGRESS:
+			EnteredInGame();
+			break;
+		default:
+			if(ctx.gameStage == GameStage::NONE)
+				EnteredPreGame();
+			break;
+		}
+	}
+} MatchStateManager;

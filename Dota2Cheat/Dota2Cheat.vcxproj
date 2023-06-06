@@ -549,6 +549,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CheatSDK\DrawData.h" />
+    <ClInclude Include="CheatSDK\EventManager.h" />
+    <ClInclude Include="CheatSDK\GameEventListeners\dota_game_state_change.h" />
+    <ClInclude Include="CheatSDK\GameEventListeners\dota_player_update_assigned_hero.h" />
+    <ClInclude Include="CheatSDK\GameEventListeners\map_shutdown.h" />
     <ClInclude Include="Hooks\GameCoordinator.h" />
     <ClInclude Include="Modules\Hacks\AutoAccept.h">
       <SubType>

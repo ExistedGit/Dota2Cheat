@@ -7,8 +7,9 @@
 
 class CDOTAPlayerController : public CBaseEntity {
 public:
-	GETTER(uint32_t, GetAssignedHeroHandle, Netvars::C_DOTAPlayerController::m_hAssignedHero);
-	GETTER(int32_t, GetSequenceNum, Netvars::C_DOTAPlayerController::m_nOutgoingOrderSequenceNumber );
+	GETTER(CHandle<CDOTABaseNPC_Hero>, GetAssignedHeroHandle, Netvars::C_DOTAPlayerController::m_hAssignedHero);
+	GETTER(int32_t, GetSequenceNum, Netvars::C_DOTAPlayerController::m_nOutgoingOrderSequenceNumber);
+	GETTER(uint32_t, GetPlayerID, Netvars::C_DOTAPlayerController::m_nPlayerID);
 	GETTER(uint64_t, GetSteamID, Netvars::CBasePlayerController::m_steamID);
 
 	std::vector<uint32_t> GetSelectedUnits();
