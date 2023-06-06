@@ -32,18 +32,18 @@ namespace GameSystems {
 	inline CGameUI* GameUI{};
 	inline CDOTAGCClientSystem* GCClientSystem{};
 	inline CDOTARichPresence* RichPresence{};
+	inline CDOTAGameRules* GameRules;
 
 	// Ones that have a pointer to them that must be dereferenced when the game starts
 	// so we need to store both the system and the ptr to it
-#define REALLOCATING_SYSTEM(type, name) inline type* name; \
-										inline type** name##Ptr;
+#define REALLOCATING_SYSTEM(type, name) inline type* name {}; \
+										inline type** name##Ptr {};
 
 	REALLOCATING_SYSTEM(CGlobalVars, GlobalVars);
 	REALLOCATING_SYSTEM(CGameEventManager, GameEventManager);
 	REALLOCATING_SYSTEM(C_DOTA_ProjectileManager, ProjectileManager);
 	REALLOCATING_SYSTEM(CDOTAParticleManager, ParticleManager);
 	REALLOCATING_SYSTEM(C_DOTA_PlayerResource, PlayerResource);
-	REALLOCATING_SYSTEM(CDOTAGameRules, GameRules);
 
 #undef REALLOCATING_SYSTEM
 

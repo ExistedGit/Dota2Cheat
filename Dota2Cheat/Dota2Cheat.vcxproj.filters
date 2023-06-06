@@ -320,7 +320,6 @@
     <ClInclude Include="SDK\Protobufs\usercmd.pb.h" />
     <ClInclude Include="SDK\Protobufs\valveextensions.pb.h" />
     <ClInclude Include="SDK\Wrappers\MapThreadSafe.h" />
-    <ClInclude Include="Hooks\GameEvents.h" />
     <ClInclude Include="CheatSDK\Utils.h" />
     <ClInclude Include="CheatSDK\include.h" />
     <ClInclude Include="Modules\UI\Indicators\SpeedIndicator.h" />
@@ -345,5 +344,6 @@
     <ClInclude Include="CheatSDK\GameEventListeners\map_shutdown.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\dota_player_update_assigned_hero.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\dota_game_state_change.h" />
+    <ClInclude Include="CheatSDK\GameEventListeners\LuaListener.h" />
   </ItemGroup>
 </Project>

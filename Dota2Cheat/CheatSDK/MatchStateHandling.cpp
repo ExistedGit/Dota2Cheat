@@ -27,17 +27,6 @@ void FillPlayerList() {
 	}
 }
 
-// Now that the iteration is based on collections, the cheat does not retain the entity lists upon reinjection
-void CacheAllEntities() {
-	for (int i = 0; i <= Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
-		auto ent = Interfaces::EntitySystem->GetEntity(i);
-		if (!IsValidReadPtr(ent) ||
-			!IsValidReadPtr(ent->SchemaBinding()->binaryName))
-			continue;
-
-		SortEntToCollections(ent);
-	}
-}
 
 void CMatchStateManager::EnteredPreGame() {
 
@@ -70,16 +59,6 @@ void CMatchStateManager::EnteredPreGame() {
 	}
 
 	ctx.gameStage = GameStage::PRE_GAME;
-
-	// I HATE SIGNATURES
-	// I HATE SIGNATURES
-	// we've got you surrounded!
-	// come scan for a 40-byte signature!
-	if (!Hooks::oFireEventClientSide) {
-		auto vmt = VMT(GameSystems::GameEventManager);
-		void* FireEventClientSide = vmt.GetVM(8);
-		HookFunc(FireEventClientSide, &Hooks::hkFireEventClientSide, &Hooks::oFireEventClientSide, "FireEventClientSide");
-	}
 
 	Log(LP_INFO, "GAME STAGE: PRE-GAME");
 }
@@ -142,4 +121,73 @@ void CMatchStateManager::LeftMatch() {
 	texManager.QueueTextureUnload();
 
 	Log(LP_INFO, "GAME STAGE: NONE");
+}
+
+void CMatchStateManager::CheckForOngoingGame() {
+	if (Interfaces::Engine->IsInGame()) {
+		MatchStateManager.CacheAllEntities();
+
+		if (GameSystems::GameRules) {
+			MatchStateManager.EnteredPreGame();
+
+			if (ctx.localPlayer)
+				MatchStateManager.OnUpdatedAssignedHero();
+
+			if (GameSystems::GameRules->GetGameState() == DOTA_GAMERULES_STATE_PRE_GAME ||
+				GameSystems::GameRules->GetGameState() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS)
+				MatchStateManager.EnteredInGame();
+		}
+	}
+}
+
+
+// D2C's entity system is based on collections
+// Without such caching it doesn't retain the entity lists upon reinjection
+
+void CMatchStateManager::CacheAllEntities() {
+	for (int i = 0; i <= Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
+		auto ent = Interfaces::EntitySystem->GetEntity(i);
+		if (!IsValidReadPtr(ent) ||
+			!IsValidReadPtr(ent->SchemaBinding()->binaryName))
+			continue;
+
+		SortEntToCollections(ent);
+
+		if (ent->SchemaBinding()->binaryName && !strcmp(ent->SchemaBinding()->binaryName, "C_DOTAGamerulesProxy"))
+			GameSystems::GameRules = ent->Member<CDOTAGameRules*>(Netvars::C_DOTAGamerulesProxy::m_pGameRules);
+	}
+}
+
+void CMatchStateManager::OnUpdatedAssignedHero() {
+	CDOTABaseNPC_Hero* assignedHero = ctx.localPlayer->GetAssignedHeroHandle();
+
+	ctx.localHero = assignedHero;
+
+	LogF(LP_INFO, "Changed hero: \n\tEntity: {}\n\tName: ", (void*)assignedHero, assignedHero->GetUnitName());
+
+	ctx.lua["localHero"] = ctx.localHero;
+
+	Modules::AbilityESP.SubscribeHeroes();
+	Modules::KillIndicator.Init();
+	Modules::ShakerAttackAnimFix.SubscribeEntity(ctx.localHero);
+
+	//for (auto& modifier : ctx.localHero->GetModifierManager()->GetModifierList()) {
+	//	Hooks::CacheIfItemModifier(modifier); // for registering items on reinjection
+	//	Hooks::CacheModifier(modifier);
+	//}
+
+	Lua::CallModuleFunc("OnUpdatedAssignedHero");
+}
+
+void CMatchStateManager::OnStateChanged(DOTA_GameState newState) {
+	switch (newState) {
+	case DOTA_GAMERULES_STATE_PRE_GAME:
+	case DOTA_GAMERULES_STATE_GAME_IN_PROGRESS:
+		EnteredInGame();
+		break;
+	default:
+		if (ctx.gameStage == GameStage::NONE)
+			EnteredPreGame();
+		break;
+	}
 }

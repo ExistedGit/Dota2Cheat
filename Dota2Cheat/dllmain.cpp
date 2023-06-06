@@ -124,6 +124,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	std::cout << "Loading finished, initializing UI\n";
 
+	MatchStateManager.CheckForOngoingGame();
 
 	if (useChangerCode) {
 		std::ifstream fin(ctx.cheatFolderPath + "\\assets\\itemdefs.txt");

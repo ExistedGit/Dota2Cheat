@@ -55,7 +55,6 @@ void GameSystems::FindGameSystems() {
 	SET_VAR(GlobalVarsPtr, Address(Interfaces::Client->GetVFunc(11).ptr)
 		.GetAbsoluteAddress<CGlobalVars**>(3));
 
-	
 	RichPresence = FindStaticGameSystem<CDOTARichPresence>("CDOTARichPresence");
 	GCClientSystem = FindStaticGameSystem<CDOTAGCClientSystem>("CDOTAGCClientSystem");
 	ProjectileManagerPtr = FindReallocatingGameSystemPtr<C_DOTA_ProjectileManager>("C_DOTA_ProjectileManager");

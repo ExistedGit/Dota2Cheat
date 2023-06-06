@@ -6,7 +6,6 @@
 
 #include "../Hooks/RunFrame.h"
 #include "../Hooks/ModifierEvents.h"
-#include "../Hooks/GameEvents.h"
 
 #include "../Modules/Hacks/AutoBuyTome.h"
 #include "../Modules/UI/AbilityESP.h"
@@ -22,16 +21,12 @@ inline struct CMatchStateManager {
 	void EnteredPreGame();
 	void EnteredInGame();
 	void LeftMatch();
-	void OnStateChanged(DOTA_GameState newState) {
-		switch (newState) {
-		case DOTA_GAMERULES_STATE_PRE_GAME:
-		case DOTA_GAMERULES_STATE_GAME_IN_PROGRESS:
-			EnteredInGame();
-			break;
-		default:
-			if(ctx.gameStage == GameStage::NONE)
-				EnteredPreGame();
-			break;
-		}
-	}
+	void CheckForOngoingGame();
+
+	// D2C's entity system is based on collections
+	// Without such caching it doesn't retain the entity lists upon reinjection
+	void CacheAllEntities();
+
+	void OnUpdatedAssignedHero();
+	void OnStateChanged(DOTA_GameState newState);
 } MatchStateManager;
