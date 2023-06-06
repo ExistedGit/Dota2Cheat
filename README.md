@@ -107,10 +107,11 @@ Build Dota2Loader and launch it, it will move the necessary resources around and
 
 If you encounter a crash and want to inform me of it, do the following:
 
+### Debugging
+
+This method is for errors that are easily reproducible. You're meant to be playing either in the demo mode or a lobby(not on a VAC-protected server!)
 Build both the cheat and loader in Debug. Launch dota 2, then In Visual Studio Ctrl + Alt + P and select dota2.exe.
 Now that you're debugging the process, inject the cheat. VS will show you where the exception occurs.
-Screenshot both what place it crashed in and the Call Stack(it's one of the bottom menus).
-You can also screenshot exact places the call stack entries take you to(double-click them)And thus we can defeat bugs together!
 
 ### Testing
 
@@ -122,7 +123,9 @@ Bugs don't always happen when you need them to. They strike viciously, when you 
 * An alt account, since disabling VAC only means you won't be banned. No information sent by VAC is suspicious too, you'll be placed in a player pool with cheaters(as I noticed myself)
 * Dota2Cheat & Dota2Loader compiled in the Testing configuration such that they function like Release but contain debug information
 
-Upon an exception, examine the file and lines it happened on. In the Call Stack tab you'll be able to trace the call to the function(in case the exception place doesn't provide enough information)
+### What to do when an error appears
+
+Upon an exception, examine the file and lines it happened on. In the Call Stack tab you'll be able to trace the call to the function(in case the exception place doesn't provide enough information). Screenshot all of this and then you can make an Issue here with the data.
 
 # For Developers
 
