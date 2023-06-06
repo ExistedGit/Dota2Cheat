@@ -10,7 +10,6 @@
 #include "../Hooks/EntityEvents.h"
 #include "../Hooks/ParticleRendering.h"
 #include "../Hooks/ModifierEvents.h"
-#include "../Hooks/GameEvents.h"
 
 #include "../Hooks/Misc.h"
 

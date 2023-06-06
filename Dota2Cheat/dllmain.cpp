@@ -17,11 +17,12 @@
 #include "Modules/UI/Indicators/SpeedIndicator.h"
 #include "Modules/UI/Indicators/KillIndicator.h"
 #include "Modules/UI/Indicators/HookIndicator.h"
+#include "Modules/UI/BarAugmenter.h"
+#include "Modules/Hacks/LastHitMarker.h"
+#include "SDK/Interfaces/GC/CEconWearable.h"
+#include "CheatSDK/EventManager.h"
 #include "UI/Pages/MainMenu.h"
 #include "UI/Pages/AutoPickSelectionGrid.h"
-#include "Modules/Hacks/LastHitMarker.h"
-#include "Modules/UI/BarAugmenter.h"
-#include "SDK/Interfaces/GC/CEconWearable.h"
 
 GLFWwindow* window_menu{};
 
@@ -112,6 +113,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	Hooks::InstallHooks();
 
+	EventManager.InstallListeners();
+
 	Lua::InitEnums(ctx.lua);
 	Lua::InitClasses(ctx.lua);
 	Lua::InitInterfaces(ctx.lua);
@@ -121,6 +124,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	std::cout << "Loading finished, initializing UI\n";
 
+	MatchStateManager.CheckForOngoingGame();
 
 	if (useChangerCode) {
 		std::ifstream fin(ctx.cheatFolderPath + "\\assets\\itemdefs.txt");
@@ -183,10 +187,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			DrawData.Fonts["Monofonto"][i] = io.Fonts->AddFontFromMemoryTTF((void*)Fonts::Monofonto, IM_ARRAYSIZE(Fonts::Monofonto), i, &fontCfg, io.Fonts->GetGlyphRangesDefault());
 		}
 	}
-
-	GameSystems::GetGameSystemViaFactory("CDOTARichPresence", (void**)&GameSystems::RichPresence);
-	GameSystems::GetGameSystemViaFactory("CDOTAGCClientSystem", (void**)&GameSystems::GCClientSystem);
-
 	bool menuVisible = true;
 	std::cout << "Icon loading result: " << iconLoadThread.get() << "\n";
 	int itemDefId = 6996;
@@ -260,8 +260,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 		glfwSwapBuffers(window_menu);
-
-		CheckMatchState(); // checking every frame
 	}
 	{
 
@@ -284,9 +282,11 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	glfwTerminate();
 
 	if (ctx.gameStage != GameStage::NONE)
-		LeftMatch();
+		MatchStateManager.LeftMatch();
+
 	Modules::TargetedSpellHighlighter.OnDisableTargetedSpells();
 	Modules::TargetedSpellHighlighter.OnDisableLinken();
+	EventManager.ClearListeners();
 
 	Hooks::RemoveHooks();
 	Hooks::InvalidateUEF::Remove();

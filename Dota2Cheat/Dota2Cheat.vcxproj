@@ -549,6 +549,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CheatSDK\DrawData.h" />
+    <ClInclude Include="CheatSDK\EventManager.h" />
+    <ClInclude Include="CheatSDK\GameEventListeners\dota_game_state_change.h" />
+    <ClInclude Include="CheatSDK\GameEventListeners\dota_player_update_assigned_hero.h" />
+    <ClInclude Include="CheatSDK\GameEventListeners\LuaListener.h" />
+    <ClInclude Include="CheatSDK\GameEventListeners\map_shutdown.h" />
     <ClInclude Include="Hooks\GameCoordinator.h" />
     <ClInclude Include="Modules\Hacks\AutoAccept.h">
       <SubType>
@@ -576,7 +581,6 @@
     <ClInclude Include="SDK\Bytes\Fonts.h" />
     <ClInclude Include="CheatSDK\include.h" />
     <ClInclude Include="CheatSDK\Utils.h" />
-    <ClInclude Include="Hooks\GameEvents.h" />
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
     <ClInclude Include="Modules\Hacks\TrueSightESP.h" />
     <ClInclude Include="Modules\UI\Indicators\KillIndicator.h">

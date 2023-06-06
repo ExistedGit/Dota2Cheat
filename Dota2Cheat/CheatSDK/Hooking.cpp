@@ -46,10 +46,7 @@ void Hooks::InstallHooks() {
 		HOOKFUNC(SetRenderingEnabled);
 	}
 	{
-		// RunFrame: xref "CUIEngineSource2::RunFrame", never changes tho
-		void* RunScript = Interfaces::UIEngine->GetVFunc(88).ptr,
-			* RunFrame = Interfaces::UIEngine->GetVFunc(6).ptr;
-		// HOOKFUNC(RunFrame);
+		void* RunScript = Interfaces::UIEngine->GetVFunc(88).ptr;
 		HOOKFUNC(RunScript);
 	}
 	{

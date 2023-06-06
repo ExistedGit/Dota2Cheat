@@ -14,23 +14,23 @@ void GameSystems::InitMinimapRenderer() {
 
 	SET_VAR(MinimapRenderer, minimap->GetPanel2D()->Member<CDOTAPanoramaMinimapRenderer*>(0x20));
 }
-
-void GameSystems::GetGameSystemViaFactory(const char* name, void** val) {
-	struct IGameSystemFactory : public VClass{
-		IGameSystemFactory* m_pNextFactory;
-		const char* m_szName;
-		VGETTER(void*, GetGameSystem, 9);
-	};
-
-	auto pFactory = *Memory::Scan("E8 ? ? ? ? 84 C0 74 D3 48 8D 0D", "client.dll")
-		.GetAbsoluteAddress(1)
-		.Offset(0xE)
-		.GetAbsoluteAddress<IGameSystemFactory**>(3);
+template<typename T>
+T* GameSystems::FindStaticGameSystem(const char* name) {
+	auto pFactory = GameSystemFactory;
 	while (pFactory) {
-		if (pFactory->m_szName && !strcmp(pFactory->m_szName, name)) {
-			*(void**)val = pFactory->GetGameSystem();
-			return;
-		}
+		if (pFactory->m_szName && !strcmp(pFactory->m_szName, name))
+			return (T*)(*pFactory->GameSystem);
+		
+		pFactory = pFactory->m_pNextFactory;
+	}
+}
+
+template<typename T>
+T** GameSystems::FindReallocatingGameSystemPtr(const char* name) {
+	auto pFactory = GameSystemFactory;
+	while (pFactory) {
+		if (pFactory->m_szName && !strcmp(pFactory->m_szName, name))
+			return (T**)pFactory->GameSystem;
 
 		pFactory = pFactory->m_pNextFactory;
 	}
@@ -38,25 +38,26 @@ void GameSystems::GetGameSystemViaFactory(const char* name, void** val) {
 
 void GameSystems::FindGameSystems() {
 	Log(LP_INFO, "GAME SYSTEM POINTERS:");
+
+	GameSystemFactory = *Memory::Scan("E8 ? ? ? ? 84 C0 74 D3 48 8D 0D", "client.dll")
+		.GetAbsoluteAddress(1)
+		.Offset(0xE)
+		.GetAbsoluteAddress<IGameSystemFactory**>(3);
+
 	SignatureDB::ParseSignatures(NamedSystems);
 
 	// Also in Source2Client::Init(), right after "g_GameEventManager.Init()":
 	// mov rcx, [XXXXXXXXX]
-	SET_VAR(GameEventManagerPtr, Address(Interfaces::Client->GetVFunc(13).ptr).Offset(0x3E).GetAbsoluteAddress(3));
+	SET_VAR(GameEventManagerPtr, Address(Interfaces::Client->GetVFunc(13).ptr)
+		.Offset(0x3E)
+		.GetAbsoluteAddress(3));
 	// Source2Client::SetGlobalVars()
-	SET_VAR(GlobalVarsPtr, Address(Interfaces::Client->GetVFunc(11).ptr).GetAbsoluteAddress<CGlobalVars**>(3));
+	SET_VAR(GlobalVarsPtr, Address(Interfaces::Client->GetVFunc(11).ptr)
+		.GetAbsoluteAddress<CGlobalVars**>(3));
 
-	// CSource2Client::NotifyClientSignon
-	//SET_VAR(RichPresence, Address(Interfaces::Client->GetVFunc(47).ptr)
-	//	.Offset(0x23)
-	//	.GetAbsoluteAddress(1)
-	//	.GetAbsoluteAddress(3));
-
-	// CSource2Client::NotifyClientSignon, first call
-	//SET_VAR(GCClientSystem, Address(Interfaces::Client->GetVFunc(47).ptr)
-	//	.Offset(0x8)
-	//	.GetAbsoluteAddress(1)
-	//	.GetAbsoluteAddress(3));
+	RichPresence = FindStaticGameSystem<CDOTARichPresence>("CDOTARichPresence");
+	GCClientSystem = FindStaticGameSystem<CDOTAGCClientSystem>("CDOTAGCClientSystem");
+	ProjectileManagerPtr = FindReallocatingGameSystemPtr<C_DOTA_ProjectileManager>("C_DOTA_ProjectileManager");
 
 	//xref: "activategameui", first lea rax, [XXXXXXXXX]
 	//console command ^

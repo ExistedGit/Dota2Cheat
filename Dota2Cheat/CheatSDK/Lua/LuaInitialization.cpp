@@ -1,6 +1,9 @@
 #include "LuaInitialization.h"
+#include "../EventManager.h"
 
 void Lua::InitEnums(sol::state& lua) {
+#define LUA_ENUM_TABLE_ENTRY(x) #x, x
+
 	auto teamTable = lua.create_table_with(
 		LUA_ENUM_TABLE_ENTRY(DOTA_GC_TEAM_GOOD_GUYS),
 		LUA_ENUM_TABLE_ENTRY(DOTA_GC_TEAM_BAD_GUYS),
@@ -146,13 +149,13 @@ void Lua::InitEnums(sol::state& lua) {
 		"ModifierState", stateTable
 	);
 
+#undef LUA_ENUM_TABLE_ENTRY
 }
 
 void Lua::SetGlobals(sol::state& lua) {
 	lua["ParticleManager"] = GameSystems::ParticleManager;
 	lua["GameRules"] = GameSystems::GameRules;
 
-	ctx.lua["localHero"] = ctx.localHero;
 	ctx.lua["localPlayer"] = ctx.localPlayer;
 }
 
@@ -215,4 +218,7 @@ void Lua::InitClasses(sol::state& lua) {
 void Lua::InitFunctions(sol::state& lua) {
 	lua["IsWithinRadius"] = IsWithinRadius;
 	lua["CompareDistance"] = CompareDistance;
+	lua["RegisterGameEventListener"] = [](const char* eventName, const sol::function& func) {
+		EventManager.AddLuaListener(eventName, func);
+	};
 }

@@ -16,38 +16,46 @@
 #include "../Interfaces/Panorama.h"
 
 namespace GameSystems {
+	struct IGameSystemFactory : public VClass {
+		IGameSystemFactory* m_pNextFactory;
+		const char* m_szName;
+		void** GameSystem;
+
+		VGETTER(void*, GetGameSystem, 9);
+	};
+	inline IGameSystemFactory* GameSystemFactory{};
+
 	inline CDOTAPanoramaMinimapRenderer* MinimapRenderer{};
 	inline Panorama::DotaHud* DotaHud{};
 	void InitMinimapRenderer();
 
-	inline CGlobalVars** GlobalVarsPtr{};
-	inline CGlobalVars* GlobalVars{};
 	inline CGameUI* GameUI{};
 	inline CDOTAGCClientSystem* GCClientSystem{};
-	//GameRules is nullptr while not in a game
-	//So we need to dereference it when we enter a match and reset to nullptr on leave
-	inline CDOTAGameRules** GameRulesPtr{};
-	inline CDOTAGameRules* GameRules{};
-
-	inline C_DOTA_PlayerResource** PlayerResourcePtr{};
-	inline C_DOTA_PlayerResource* PlayerResource{};
-
-	inline CDOTAParticleManager** ParticleManagerPtr{};
-	inline CDOTAParticleManager* ParticleManager{};
-
-	inline C_DOTA_ProjectileManager* ProjectileManager{};
-
 	inline CDOTARichPresence* RichPresence{};
+	inline CDOTAGameRules* GameRules;
 
-	inline CGameEventManager** GameEventManagerPtr{};
-	inline CGameEventManager* GameEventManager{};
+	// Ones that have a pointer to them that must be dereferenced when the game starts
+	// so we need to store both the system and the ptr to it
+#define REALLOCATING_SYSTEM(type, name) inline type* name {}; \
+										inline type** name##Ptr {};
 
+	REALLOCATING_SYSTEM(CGlobalVars, GlobalVars);
+	REALLOCATING_SYSTEM(CGameEventManager, GameEventManager);
+	REALLOCATING_SYSTEM(C_DOTA_ProjectileManager, ProjectileManager);
+	REALLOCATING_SYSTEM(CDOTAParticleManager, ParticleManager);
+	REALLOCATING_SYSTEM(C_DOTA_PlayerResource, PlayerResource);
+
+#undef REALLOCATING_SYSTEM
 
 	static inline std::map<std::string, void**> NamedSystems{
 		SIGMAP_ENTRY(PlayerResourcePtr),
 		SIGMAP_ENTRY(ParticleManagerPtr),
 		SIGMAP_ENTRY(GameUI),
 	};
-	void GetGameSystemViaFactory(const char* name, void** val);
+	template<typename T>
+	T* FindStaticGameSystem(const char* name);
+	template<typename T>
+	T** FindReallocatingGameSystemPtr(const char* name);
+
 	void FindGameSystems();
 }

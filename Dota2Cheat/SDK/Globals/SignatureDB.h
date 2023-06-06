@@ -12,6 +12,11 @@ struct SignatureDB {
 
 	// Uses an array of signature names to signature globals to perform a sigscan
 	static void ParseSignatures(const std::map <std::string, void**>& signatureMap) {
+		enum SignatureAction {
+			GetAbsoluteAddress,
+			Offset
+		};
+
 		for (auto& [sigName, sigVar] : signatureMap) {
 			if (!Data.contains(sigName))
 				continue;
@@ -25,12 +30,13 @@ struct SignatureDB {
 
 			if (info.contains("steps")) {
 				for (auto& pair : info["steps"].items()) {
-					int type = pair.value()[0], value = pair.value()[1];
+					SignatureAction type = pair.value()[0];
+					int value = pair.value()[1];
 					switch (type) {
-					case 0:
+					case GetAbsoluteAddress:
 						result = result.GetAbsoluteAddress(value);
 						break;
-					case 1:
+					case Offset:
 						result = result.Offset(value);
 						break;
 					}

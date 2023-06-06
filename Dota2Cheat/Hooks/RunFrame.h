@@ -24,7 +24,8 @@
 #include "../SDK/Entities/CDOTAItemRune.h"
 
 // CUIEngineSource2's RunFrame, well... processes and renders a UI frame.
-// Dota2Cheat mainly operates on a frame-by-frame basis, hence this hook
+// Dota2Cheat mainly operates on a frame-by-frame basis
+// This is not a hook, but a listener that's called in RunFrame
 
 namespace Hooks {
 	void hkRunFrame();
