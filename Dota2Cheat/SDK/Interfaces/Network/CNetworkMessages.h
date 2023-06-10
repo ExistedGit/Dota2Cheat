@@ -2011,6 +2011,22 @@ public:
 		return CallVFunc<29, CNetworkSerializerPB*>( id );
 	}
 
+	struct CallbackData {
+	private:
+		uintptr_t unk0;
+	public:
+		const char* name;
+	private:
+		uintptr_t unk1;
+	public:
+		void(*func)(void*);
+		const char* className;
+	private:
+		uintptr_t unk2[2];
+	};
+	auto GetNetvarCallbacks() {
+		return **(std::array<CallbackData, 256>**)((uintptr_t)this + 0x4C0);
+	}
 
 	char _pad[0x1A0 - sizeof( void* )];
 	MessageEntries* messageList; // usermessage list @ +0x1F0

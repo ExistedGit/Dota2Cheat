@@ -134,8 +134,15 @@ void CMatchStateManager::CheckForOngoingGame() {
 				MatchStateManager.OnUpdatedAssignedHero();
 
 			if (GameSystems::GameRules->GetGameState() == DOTA_GAMERULES_STATE_PRE_GAME ||
-				GameSystems::GameRules->GetGameState() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS)
+				GameSystems::GameRules->GetGameState() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) {
+
 				MatchStateManager.EnteredInGame();
+				if (ctx.localHero)
+					for (auto& modifier : ctx.localHero->GetModifierManager()->GetModifierList()) {
+						Hooks::CacheIfItemModifier(modifier); // for registering items on reinjection
+						Hooks::CacheModifier(modifier);
+					}
+			}
 		}
 	}
 }
@@ -163,18 +170,13 @@ void CMatchStateManager::OnUpdatedAssignedHero() {
 
 	ctx.localHero = assignedHero;
 
-	LogF(LP_INFO, "Changed hero: \n\tEntity: {}\n\tName: ", (void*)assignedHero, assignedHero->GetUnitName());
+	LogF(LP_INFO, "Changed hero: \n\tEntity: {}\n\tName: {}", (void*)assignedHero, assignedHero->GetUnitName());
 
 	ctx.lua["localHero"] = ctx.localHero;
 
 	Modules::AbilityESP.SubscribeHeroes();
 	Modules::KillIndicator.Init();
 	Modules::ShakerAttackAnimFix.SubscribeEntity(ctx.localHero);
-
-	//for (auto& modifier : ctx.localHero->GetModifierManager()->GetModifierList()) {
-	//	Hooks::CacheIfItemModifier(modifier); // for registering items on reinjection
-	//	Hooks::CacheModifier(modifier);
-	//}
 
 	Lua::CallModuleFunc("OnUpdatedAssignedHero");
 }

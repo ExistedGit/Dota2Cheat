@@ -3,6 +3,7 @@
 
 struct LuaListener : public IGameEventListener2 {
 	sol::function func;
+	sol::table luaModule;
 
 	void DESTROY() override {
 
@@ -10,6 +11,6 @@ struct LuaListener : public IGameEventListener2 {
 
 	void FireGameEvent(CGameEvent* ev) override {
 		if (func.valid())
-			func(ev);
+			func(luaModule, ev);
 	}
 };

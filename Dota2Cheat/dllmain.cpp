@@ -97,6 +97,12 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	Interfaces::FindInterfaces();
 
+	for (auto cb : Interfaces::NetworkMessages->GetNetvarCallbacks())
+		if (cb.name && std::string_view(cb.name) == "OnColorChanged") {
+			CBaseEntity::OnColorChanged = cb.func;
+			LogF(LP_DATA, "{}::{}: {}", cb.className, cb.name, (void*)cb.func);
+		}
+
 	auto iconLoadThread = std::async(std::launch::async, []() {
 		Pages::AutoPickHeroGrid::InitList();
 	return true;

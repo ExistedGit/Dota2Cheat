@@ -218,7 +218,11 @@ void Lua::InitClasses(sol::state& lua) {
 void Lua::InitFunctions(sol::state& lua) {
 	lua["IsWithinRadius"] = IsWithinRadius;
 	lua["CompareDistance"] = CompareDistance;
-	lua["RegisterGameEventListener"] = [](const char* eventName, const sol::function& func) {
-		EventManager.AddLuaListener(eventName, func);
+	lua["RegisterGameEventListener"] = [](const sol::table& luaModule, const sol::function& func, const char* eventName) {
+		EventManager.AddLuaListener(luaModule, func, eventName);
+	};
+	lua["PlayUISoundScript"] = [](const char* soundName) {
+		void* unk;
+		Signatures::PlayUISoundScript(&unk, soundName, 1);
 	};
 }
