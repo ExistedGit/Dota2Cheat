@@ -15,9 +15,10 @@ public:
 		return (*GameSystems::GameEventManagerPtr)->AddListener(listener, eventName);
 	}
 
-	bool AddLuaListener(const char* eventName, const sol::function& func) {
+	bool AddLuaListener(const sol::table& luaModule, const sol::function& func, const char* eventName) {
 		auto listener = CMemAlloc::Instance()->AllocInit<LuaListener>();
 		listener->func = func;
+		listener->luaModule = luaModule;
 		return AddListener(listener, eventName);
 	}
 
@@ -53,4 +54,4 @@ Listeners.insert(name);
 		Listeners.clear();
 		LuaListeners.clear();
 	}
-} EventManager; 
+} EventManager;

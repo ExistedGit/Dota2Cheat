@@ -94,7 +94,6 @@ namespace Signatures {
 		SIGMAP_ENTRY(C_DOTA_ProjectileManager__AddTrackingProjectile),
 		SIGMAP_ENTRY(CDOTA_DB_Popup_AcceptMatch),
 
-		SIGMAP_ENTRY(CBaseEntity::OnColorChanged),
 		SIGMAP_ENTRY(CDOTABaseNPC::GetAttackSpeed),
 
 		{"CDOTAParticleManager::DestroyParticle", (void**)&CDOTAParticleManager::DestroyParticleFunc},
