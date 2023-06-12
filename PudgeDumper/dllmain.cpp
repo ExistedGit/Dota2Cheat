@@ -263,6 +263,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	SchemaDumpToMap("client.dll",
 		"CEntityIdentity",
 		"C_DOTA_Item",
+		"C_DOTA_Item_PowerTreads",
 		"C_DOTA_BaseNPC_Hero",
 		"C_DOTAPlayerController",
 		"C_DOTA_UnitInventory",

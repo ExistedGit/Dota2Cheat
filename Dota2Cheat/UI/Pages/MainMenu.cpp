@@ -174,8 +174,18 @@ void Pages::MainMenu::Draw() {
 		ImGui::TreePop();
 	}
 	if (ImGui::TreeNode("Mana/HP Abuse")) {
-		ImGui::Text("Drops items that add stats before using items that give mana/HP");
+		ImGui::Text("Drops/moves items that add stats before using items that give mana/HP");
 		ImGui::Checkbox("Enabled", &Config::ManaAbuse::Enabled);
+
+		static const char* Modes[] = {
+			"Drop",
+			"Move"
+		};
+		ImGui::Combo("Mode", &Config::ManaAbuse::Mode, Modes, IM_ARRAYSIZE(Modes));
+		if (Config::ManaAbuse::Mode == 0) {
+			ImGui::SliderInt("Safety radius", &Config::ManaAbuse::SafetyRadius, 300, 1200);
+			ImGui::SameLine(); HelpMarker("If there are any enemies within the radius, the Drop mode will not drop items.");
+		}
 		ImGui::TreePop();
 	}
 	ImGui::Checkbox("Blink Revealer", &Config::BlinkRevealer);

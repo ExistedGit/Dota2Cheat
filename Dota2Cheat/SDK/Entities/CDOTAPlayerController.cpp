@@ -1,4 +1,5 @@
 #include "CDOTAPlayerController.h"
+#include "../../Hooks/PrepareUnitOrders.h"
 
 std::vector<uint32_t> CDOTAPlayerController::GetSelectedUnits() {
 	return Member<CUtlVector<uint32_t>>(Netvars::C_DOTAPlayerController::m_nSelectedUnits).AsStdVector();
@@ -55,10 +56,10 @@ void CDOTAPlayerController::OrderMoveTo(Vector* pos, bool directMovement, CBaseE
 }
 
 void CDOTAPlayerController::PrepareOrder(dotaunitorder_t orderType, uint32_t targetIndex, Vector* position, uint32_t abilityIndex, PlayerOrderIssuer_t orderIssuer, CBaseEntity* issuer, bool queue, bool showEffects) {
-	if (Signatures::PrepareUnitOrders == nullptr)
+	if (!Hooks::oPrepareUnitOrders)
 		return;
 
-	Signatures::PrepareUnitOrders(this, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
+	Hooks::oPrepareUnitOrders(this, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
 }
 
 void CDOTAPlayerController::BindLua(sol::state& lua) {
@@ -68,7 +69,10 @@ void CDOTAPlayerController::BindLua(sol::state& lua) {
 	type["GetAssignedHero"] = &CDOTAPlayerController::GetAssignedHero;
 	type["GetSteamID"] = &CDOTAPlayerController::GetSteamID;
 
-	type["PrepareOrder"] = &CDOTAPlayerController::PrepareOrder;
+	type["PrepareOrder"] = sol::overload(
+		sol::resolve<void(const Order&)>( & CDOTAPlayerController::PrepareOrder),
+		sol::resolve<void(dotaunitorder_t, uint32_t, Vector*, uint32_t, PlayerOrderIssuer_t, CBaseEntity*, bool, bool)>(&CDOTAPlayerController::PrepareOrder)
+	);
 	type["CastNoTarget"] = &CDOTAPlayerController::CastNoTarget;
 	type["CastTarget"] = &CDOTAPlayerController::CastTarget;
 	type["OrderMoveTo"] = &CDOTAPlayerController::OrderMoveTo;

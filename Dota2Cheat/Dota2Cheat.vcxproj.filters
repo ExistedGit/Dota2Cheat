@@ -138,6 +138,7 @@
     <ClCompile Include="Modules\UI\Indicators\HookIndicator.cpp" />
     <ClCompile Include="UI\Pages\MainMenu.cpp" />
     <ClCompile Include="Hooks\GameCoordinator.cpp" />
+    <ClCompile Include="Modules\Hacks\ManaHPAbuse.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
@@ -218,7 +219,6 @@
     <ClInclude Include="CheatSDK\Lua\LuaInitialization.h" />
     <ClInclude Include="Hooks\NetChannel.h" />
     <ClInclude Include="Hooks\ModifierEvents.h" />
-    <ClInclude Include="Modules\Hacks\ManaHpAbuse.h" />
     <ClInclude Include="SDK\Globals\Interfaces.h" />
     <ClInclude Include="SDK\Interfaces\Network\bf_read.h" />
     <ClInclude Include="SDK\Interfaces\Network\bf_write.h" />
@@ -345,5 +345,6 @@
     <ClInclude Include="CheatSDK\GameEventListeners\dota_player_update_assigned_hero.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\dota_game_state_change.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\LuaListener.h" />
+    <ClInclude Include="Modules\Hacks\ManaHPAbuse.h" />
   </ItemGroup>
 </Project>

@@ -148,6 +148,9 @@ namespace Config {
 	}
 	namespace ManaAbuse {
 		inline bool Enabled;
+		// For enum definition see Modules/Hacks/ManaHPAbuse
+		inline int Mode;
+		inline int SafetyRadius;
 	}
 	namespace ParticleMapHack {
 		inline bool Enabled;

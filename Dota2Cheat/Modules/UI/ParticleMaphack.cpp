@@ -97,6 +97,7 @@ void Hacks::ParticleMaphack::ProcessParticleMsg(NetMessageHandle_t* msgHandle, g
 			|| npc->IsSameTeam(ctx.localHero)
 			|| !IsValidReadPtr(npc->GetIdentity())
 			|| !npc->GetIdentity()->IsDormant()
+			|| npc->GetLifeState() != 0
 			|| !ctx.heroes.contains(npc))
 			return;
 

@@ -261,12 +261,8 @@ namespace Netvars {
 		constexpr uint32_t m_nMaxLevelOverride = 0x598; // int32
 		constexpr uint32_t m_flLastCastClickTime = 0x59c; // float32
 	}
-	namespace C_NextBotCombatCharacter {
-		constexpr uint32_t m_shadowTimer = 0x9e0; // CountdownTimer
-		constexpr uint32_t m_bInFrustum = 0x9f8; // bool
-		constexpr uint32_t m_nInFrustumFrame = 0x9fc; // int32
-		constexpr uint32_t m_flFrustumDistanceSqr = 0xa00; // float32
-		constexpr uint32_t m_nLod = 0xa04; // uint8
+	namespace C_DOTA_Item_PowerTreads {
+		constexpr uint32_t m_iStat = 0x630; // int32
 	}
 	namespace C_DOTA_BaseNPC {
 		constexpr uint32_t m_bIsPhantom = 0xa18; // bool
@@ -477,6 +473,13 @@ namespace Netvars {
 		constexpr uint32_t m_iszPrivateVScripts = 0x8; // CUtlSymbolLarge
 		constexpr uint32_t m_pEntity = 0x10; // CEntityIdentity*
 		constexpr uint32_t m_CScriptComponent = 0x28; // CScriptComponent*
+	}
+	namespace C_NextBotCombatCharacter {
+		constexpr uint32_t m_shadowTimer = 0x9e0; // CountdownTimer
+		constexpr uint32_t m_bInFrustum = 0x9f8; // bool
+		constexpr uint32_t m_nInFrustumFrame = 0x9fc; // int32
+		constexpr uint32_t m_flFrustumDistanceSqr = 0xa00; // float32
+		constexpr uint32_t m_nLod = 0xa04; // uint8
 	}
 	namespace C_BaseCombatCharacter {
 		constexpr uint32_t m_hMyWearables = 0x950; // C_NetworkUtlVectorBase< CHandle< C_EconWearable > >

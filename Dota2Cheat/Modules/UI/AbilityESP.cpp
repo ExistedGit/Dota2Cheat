@@ -150,9 +150,14 @@ void ESP::AbilityESP::DrawAbilities() {
 					ImVec4(1, 1, 1, 1),
 					true);
 			}
-			if (data.ability->GetCharges() ||
-				(data.ability->GetCharges() == 0 &&
-					data.ability->GetChargeRestoreCooldown() >= 0))
+			else if (data.ability->GetManaCost() > hero->GetMana())
+				DrawList->AddRectFilled(imgXY1, imgXY2, ImColor(0, 50, 255, 128));
+
+			if (
+				data.ability->GetCharges()
+				||
+				data.ability->GetCharges() == 0 && data.ability->GetChargeRestoreCooldown() >= 0
+				)
 				DrawChargeCounter(data.ability->GetCharges(), imgXY1, ScaleVar(8));
 
 			if (const auto channelTime = data.ability->Member<float>(Netvars::C_DOTABaseAbility::m_flChannelStartTime); channelTime != 0) {
