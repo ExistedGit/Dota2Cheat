@@ -12,5 +12,5 @@ class CDOTAItem : public CDOTABaseAbility {
 public:
 	GETTER(int, GetCurrentCharges, Netvars::C_DOTA_Item::m_iCurrentCharges);
 	// For PT and Vambrace
-	GETTER(ItemStat, GetItemStat, 0x670);
+	GETTER(ItemStat, GetItemStat, Netvars::C_DOTA_Item_PowerTreads::m_iStat);
 };

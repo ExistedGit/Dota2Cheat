@@ -140,6 +140,8 @@ void Config::ConfigManager::SetupVars() {
 	CFG_VAR(IllusionColoring::Color, Vector(1, 0, 0));
 
 	CFG_VAR(ManaAbuse::Enabled, false);
+	CFG_VAR(ManaAbuse::Mode, 0);
+	CFG_VAR(ManaAbuse::SafetyRadius, 1000);
 
 	CFG_VAR(AutoAccept::Enabled, true);
 	CFG_VAR(AutoAccept::Delay, 1);

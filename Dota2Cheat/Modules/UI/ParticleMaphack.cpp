@@ -97,6 +97,7 @@ void Hacks::ParticleMaphack::ProcessParticleMsg(NetMessageHandle_t* msgHandle, g
 			|| npc->IsSameTeam(ctx.localHero)
 			|| !IsValidReadPtr(npc->GetIdentity())
 			|| !npc->GetIdentity()->IsDormant()
+			|| npc->GetLifeState() != 0
 			|| !ctx.heroes.contains(npc))
 			return;
 
@@ -144,7 +145,8 @@ void Hacks::ParticleMaphack::ProcessParticleMsg(NetMessageHandle_t* msgHandle, g
 			if (!IsValidReadPtr(npc)
 				|| npc->IsSameTeam(ctx.localHero)
 				|| !IsValidReadPtr(npc->GetIdentity())
-				|| !npc->GetIdentity()->IsDormant())
+				|| !npc->GetIdentity()->IsDormant()
+				|| npc->GetLifeState() != 0)
 				return;
 
 			RegisterAppearance(npc, Vector{ pos.x(), pos.y(), pos.z() });
