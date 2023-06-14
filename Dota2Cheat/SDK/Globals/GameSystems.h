@@ -11,6 +11,7 @@
 #include "../GameSystems/C_DOTA_ProjectileManager.h"
 #include "../GameSystems/CGameEventManager.h"
 #include "../GameSystems/CDOTARichPresence.h"
+#include "../GameSystems/CDOTA_MinimapObjectManager.h"
 #include "../GameSystems/CGameUI.h"
 #include "../GameSystems/CDOTA_PanoramaMinimapRenderer.h"
 #include "../Interfaces/Panorama.h"
@@ -33,7 +34,7 @@ namespace GameSystems {
 	inline CDOTAGCClientSystem* GCClientSystem{};
 	inline CDOTARichPresence* RichPresence{};
 	inline CDOTAGameRules* GameRules;
-
+	inline CDOTA_MinimapObjectManager* MinimapObjManager{};
 	// Ones that have a pointer to them that must be dereferenced when the game starts
 	// so we need to store both the system and the ptr to it
 #define REALLOCATING_SYSTEM(type, name) inline type* name {}; \

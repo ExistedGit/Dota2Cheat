@@ -73,18 +73,14 @@ void CMatchStateManager::EnteredInGame() {
 	Log(LP_INFO, "GAME STAGE: INGAME");
 	LogF(LP_DATA, "Local Player: {}\n\tSTEAM ID: {}", (void*)ctx.localPlayer, ctx.localPlayer->GetSteamID());
 
-	Interfaces::CVar->CVars["sv_cheats"].m_pVar->value.boolean = true;
+	// Interfaces::CVar->CVars["sv_cheats"].m_pVar->value.boolean = true;
 	Interfaces::CVar->CVars["r_farz"].m_pVar->value.flt = 10000.0f;
 	Interfaces::CVar->CVars["fog_enable"].m_pVar->value.boolean = false;
 
 	GameSystems::InitMinimapRenderer();
+	// Modules::UIOverhaul.Init();
 
 	Lua::SetGlobals(ctx.lua);
-
-	// CacheAllEntities();
-
-	//Modules::UIOverhaul.Init();
-
 	Lua::CallModuleFunc("OnJoinedMatch");
 
 	ctx.gameStage = GameStage::IN_GAME;

@@ -19,7 +19,7 @@ T* GameSystems::FindStaticGameSystem(const char* name) {
 	auto pFactory = GameSystemFactory;
 	while (pFactory) {
 		if (pFactory->m_szName && !strcmp(pFactory->m_szName, name))
-			return (T*)(*pFactory->GameSystem);
+			return (T*)pFactory->GetGameSystem();
 		
 		pFactory = pFactory->m_pNextFactory;
 	}
@@ -57,6 +57,7 @@ void GameSystems::FindGameSystems() {
 
 	RichPresence = FindStaticGameSystem<CDOTARichPresence>("CDOTARichPresence");
 	GCClientSystem = FindStaticGameSystem<CDOTAGCClientSystem>("CDOTAGCClientSystem");
+	SET_VAR(MinimapObjManager, GameSystems::FindStaticGameSystem<CDOTA_MinimapObjectManager>("CDOTA_MinimapObjectManager"));
 	ProjectileManagerPtr = FindReallocatingGameSystemPtr<C_DOTA_ProjectileManager>("C_DOTA_ProjectileManager");
 
 	//xref: "activategameui", first lea rax, [XXXXXXXXX]

@@ -110,6 +110,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	Interfaces::CVar->DumpConVarsToMap();
 
+	Interfaces::CVar->CVars["dota_hud_chat_enable_all_emoticons"].m_pVar->value.boolean = Config::Changer::UnlockEmoticons;
+
 	SignatureDB::LoadSignaturesFromFile(ctx.cheatFolderPath + "\\signatures.json");
 
 	Signatures::FindSignatures();
@@ -131,6 +133,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	std::cout << "Loading finished, initializing UI\n";
 
 	MatchStateManager.CheckForOngoingGame();
+
+	// auto res = GameSystems::MinimapRenderer->WorldToMap(ctx.localHero->GetPos());
 
 	if (useChangerCode) {
 		std::ifstream fin(ctx.cheatFolderPath + "\\assets\\itemdefs.txt");

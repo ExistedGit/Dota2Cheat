@@ -38,9 +38,6 @@ namespace Signatures {
 	typedef void* (*CDOTAPanoramaMinimapRenderer__RenderFn)(void* thisptr, void*, void**, void*, float, float, float, float);
 	inline CDOTAPanoramaMinimapRenderer__RenderFn CDOTAPanoramaMinimapRenderer__Render{};
 
-	typedef bool(__fastcall* BIsEmoticonUnlockedFn)(void* thisptr, uint32_t unk);
-	inline BIsEmoticonUnlockedFn BIsEmoticonUnlocked{};
-
 	typedef void* (__fastcall* SaveSerializedSOCacheFn)(void* thisptr);
 	inline SaveSerializedSOCacheFn SaveSerializedSOCache{};
 
@@ -88,7 +85,6 @@ namespace Signatures {
 		SIGMAP_ENTRY(CreateEconItem),
 		SIGMAP_ENTRY(GetPlayer),
 		SIGMAP_ENTRY(SaveSerializedSOCache),
-		SIGMAP_ENTRY(BIsEmoticonUnlocked),
 		SIGMAP_ENTRY(PlayUISoundScript),
 		SIGMAP_ENTRY(CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby),
 		SIGMAP_ENTRY(C_DOTA_ProjectileManager__AddTrackingProjectile),

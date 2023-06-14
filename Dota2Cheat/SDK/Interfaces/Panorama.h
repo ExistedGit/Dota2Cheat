@@ -6,14 +6,6 @@
 //#include <D3DX11.h>
 
 namespace Panorama {
-	// reversed via -dev launch option
-	// F6 -> click on an element
-	// Press "Developer data" or whatever it's named in English, it will show you an address for each panel
-	// BHasClass is vfunc at offset 0x4a0(index 148), and GetClasses is right above it(returns CUtlVector<uint16_t> at 0x160)
-	// So examine the elements at 0x160, thankfully due to it being a CUtlVector the classes are displayed in the same order as they are in memory
-	enum class PClass : uint16_t {
-		TopBarHeroImage = 7037
-	};
 
 	class CTextureDx11 : public VClass {
 	public:
@@ -58,7 +50,7 @@ namespace Panorama {
 				panel->_FindChildrenWithIdTraverse(id, result);
 			}
 		}
-		void _FindChildrenWithClassTraverse(PClass unClass, std::vector<CUIPanel*>& result) {
+		void _FindChildrenWithClassTraverse(uint16_t unClass, std::vector<CUIPanel*>& result) {
 			auto children = GetChildren();
 			for (auto& panel : children) {
 				if (panel->BHasClass(unClass))
@@ -71,7 +63,7 @@ namespace Panorama {
 		GETTER(const char*, GetId, 0x10);
 		GETTER(CUIPanel*, GetParent, 0x18);
 		GETTER(CUtlVector<CUIPanel*>, GetChildren, 0x28);
-		GETTER(CUtlVector<PClass>, GetClasses, 0x160);
+		GETTER(CUtlVector<uint16_t>, GetClasses, 0x160);
 		// Returns a list of all child elements with the specified ID at any level of nesting
 		[[nodiscard]]
 		std::vector<CUIPanel*> FindChildrenWithIdTraverse(const std::string_view& id) {
@@ -82,7 +74,7 @@ namespace Panorama {
 
 
 		[[nodiscard]]
-		std::vector<CUIPanel*> FindChildrenWithClassTraverse(PClass unClass) {
+		std::vector<CUIPanel*> FindChildrenWithClassTraverse(uint16_t unClass) {
 			std::vector<CUIPanel*> result;
 			_FindChildrenWithClassTraverse(unClass, result);
 			return result;
@@ -102,7 +94,7 @@ namespace Panorama {
 			return nullptr;
 		}
 
-		bool BHasClass(PClass unClass) {
+		bool BHasClass(uint16_t unClass) {
 			auto classes = GetClasses();
 			for (auto& c : classes)
 				if (unClass == c)
@@ -110,8 +102,8 @@ namespace Panorama {
 			return false;
 		}
 
-		void ToggleClass(PClass unClass) {
-			CallVFunc<0x4b0 / 8>(unClass);
+		void ToggleClass(uint16_t unClass) {
+			CallVFunc<150>(unClass);
 		}
 
 	};
@@ -140,6 +132,12 @@ namespace Panorama {
 		auto GetPanelList() {
 			return std::span{ Member<PanelListNode*>(0xf8), size };
 		}
+
+		uint16_t MakeSymbol(const char* string) {
+			uint16_t result = 0;
+			return CallVFunc<121, uint16_t>(&result, string);
+		}
+
 		bool IsValidPanelPointer(CUIPanel* panel) {
 			struct  IVPBuffer {
 				uint32_t unk0, unk1;

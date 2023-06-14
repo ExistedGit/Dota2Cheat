@@ -264,6 +264,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="SDK\GameSystems\CDOTA_MinimapObjectManager.cpp" />
     <ClCompile Include="CheatSDK\Config.cpp" />
     <ClCompile Include="CheatSDK\Hooking.cpp" />
     <ClCompile Include="CheatSDK\Utils.cpp" />
@@ -549,6 +550,7 @@
     <ClCompile Include="Utils\Drawing.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SDK\GameSystems\CDOTA_MinimapObjectManager.h" />
     <ClInclude Include="CheatSDK\DrawData.h" />
     <ClInclude Include="CheatSDK\EventManager.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\dota_game_state_change.h" />

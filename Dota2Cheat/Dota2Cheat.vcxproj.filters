@@ -139,6 +139,7 @@
     <ClCompile Include="UI\Pages\MainMenu.cpp" />
     <ClCompile Include="Hooks\GameCoordinator.cpp" />
     <ClCompile Include="Modules\Hacks\ManaHPAbuse.cpp" />
+    <ClCompile Include="SDK\GameSystems\CDOTA_MinimapObjectManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
@@ -346,5 +347,6 @@
     <ClInclude Include="CheatSDK\GameEventListeners\dota_game_state_change.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\LuaListener.h" />
     <ClInclude Include="Modules\Hacks\ManaHPAbuse.h" />
+    <ClInclude Include="SDK\GameSystems\CDOTA_MinimapObjectManager.h" />
   </ItemGroup>
 </Project>

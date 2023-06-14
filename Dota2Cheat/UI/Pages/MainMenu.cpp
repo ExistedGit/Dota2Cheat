@@ -94,7 +94,10 @@ void Pages::MainMenu::Draw() {
 
 
 		ImGui::Checkbox("Unlock Dota Plus", &Config::Changer::UnlockDotaPlus);
-		ImGui::Checkbox("Unlock emoticons", &Config::Changer::UnlockEmoticons);
+		if(ImGui::Checkbox("Unlock emoticons", &Config::Changer::UnlockEmoticons)) {
+			static auto dota_hud_chat_enable_all_emoticons = Interfaces::CVar->CVars["dota_hud_chat_enable_all_emoticons"].m_pVar;
+			dota_hud_chat_enable_all_emoticons->value.boolean = Config::Changer::UnlockEmoticons;
+		};
 		// https://github.com/SK68-ph/Shadow-Dance-Menu
 		ImGui::Combo("Weather", &Config::Changer::WeatherListIdx, WeatherList, IM_ARRAYSIZE(WeatherList));
 

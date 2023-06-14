@@ -42,7 +42,7 @@ void EntityIteration() {
 
 	if (Config::AutoPickUpRunes) {
 		Hooks::NetChan ? nullptr : throw "netchan = nullptr";
-
+		
 		for (auto& rune : ctx.runes) {
 			if (!IsValidReadPtr(rune) ||
 				!IsValidReadPtr(rune->GetIdentity()) ||
@@ -72,7 +72,7 @@ void EntityIteration() {
 void InGameLogic() {
 
 	Modules::AbilityESP.UpdateHeroData();
-	//	Modules::UIOverhaul.Update();
+	//Modules::UIOverhaul.Update();
 
 	UpdateCameraDistance();
 	UpdateWeather();

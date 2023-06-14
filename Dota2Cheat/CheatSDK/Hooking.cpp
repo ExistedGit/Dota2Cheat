@@ -5,7 +5,6 @@
 void Hooks::InstallHooks() {
 	HOOKFUNC_SIGNATURES(PrepareUnitOrders);
 	HOOKFUNC_SIGNATURES(CDOTA_DB_Popup_AcceptMatch);
-	HOOKFUNC_SIGNATURES(BIsEmoticonUnlocked);
 #ifdef _DEBUG
 	//HOOKFUNC_SIGNATURES(DispatchPacket);
 	HOOKFUNC_SIGNATURES(BAsyncSendProto);
