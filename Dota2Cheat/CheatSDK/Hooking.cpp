@@ -44,10 +44,10 @@ void Hooks::InstallHooks() {
 		auto SetRenderingEnabled = vtable[VTableIndexes::CParticleCollection::SetRenderingEnabled];
 		HOOKFUNC(SetRenderingEnabled);
 	}
-	{
-		void* RunScript = Interfaces::UIEngine->GetVFunc(88).ptr;
-		HOOKFUNC(RunScript);
-	}
+	//{
+	//	void* RunScript = Interfaces::UIEngine->GetVFunc(88).ptr;
+	//	HOOKFUNC(RunScript);
+	//}
 	{
 		// Hooking HUD flip's callback to avoid sigging IsHUDFlipped
 		// (and lowering performance, according to Wolf49406...)
