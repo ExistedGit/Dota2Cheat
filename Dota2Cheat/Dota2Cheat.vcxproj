@@ -264,6 +264,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="SDK\GameSystems\CDOTA_MinimapObjectManager.cpp" />
     <ClCompile Include="CheatSDK\Config.cpp" />
     <ClCompile Include="CheatSDK\Hooking.cpp" />
     <ClCompile Include="CheatSDK\Utils.cpp" />
@@ -549,6 +550,8 @@
     <ClCompile Include="Utils\Drawing.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Hooks\SteamGC.h" />
+    <ClInclude Include="SDK\GameSystems\CDOTA_MinimapObjectManager.h" />
     <ClInclude Include="CheatSDK\DrawData.h" />
     <ClInclude Include="CheatSDK\EventManager.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\dota_game_state_change.h" />
@@ -661,8 +664,11 @@
     <ClInclude Include="CheatSDK\Config.h" />
     <ClInclude Include="DebugFunctions.h" />
     <ClInclude Include="SDK\Interfaces\CResourceSystem.h" />
+    <ClInclude Include="SDK\Interfaces\GC\CDOTAGCLobbyManager.h" />
+    <ClInclude Include="SDK\Interfaces\GC\ISharedObjectListener.h" />
     <ClInclude Include="SDK\Interfaces\GC\ItemSchema.h" />
     <ClInclude Include="SDK\Interfaces\ISteamClient.h" />
+    <ClInclude Include="SDK\Interfaces\ISteamGameCoordinator.h" />
     <ClInclude Include="SDK\Protobufs\base_gcmessages.pb.h" />
     <ClInclude Include="SDK\Protobufs\clientmessages.pb.h" />
     <ClInclude Include="SDK\Protobufs\connectionless_netmessages.pb.h" />

@@ -10,7 +10,7 @@ CDOTABaseNPC_Hero* Hacks::UIOverhaul::FindHeroByUnitName(std::string_view name) 
 }
 
 CUIPanel* Hacks::UIOverhaul::GetTopBarImgForHero(CDOTABaseNPC_Hero* hero) {
-	auto topbarImages = DotaHud->FindChildrenWithClassTraverse(PClass::TopBarHeroImage);
+	auto topbarImages = GameSystems::DotaHud->FindChildrenWithClassTraverse(TopBarClass);
 	for (auto& panel : topbarImages) {
 		if (!panel->GetId() || strcmp(panel->GetId(), "HeroImage") != 0)
 			continue;
@@ -27,13 +27,32 @@ CUIPanel* Hacks::UIOverhaul::GetTopBarImgForHero(CDOTABaseNPC_Hero* hero) {
 	return nullptr;
 }
 
+void Hacks::UIOverhaul::UpdateHeroes() {
+	topBar.clear();
+	auto topbarImages = GameSystems::DotaHud->FindChildrenWithClassTraverse(TopBarClass);
+	for (auto& panel : topbarImages) {
+		if (!panel->GetId() || strcmp(panel->GetId(), "HeroImage") != 0)
+			continue;
+
+		auto heroImg = (Panorama::CDOTA_UI_HeroImage*)panel->GetPanel2D();
+		//LogF(LP_DATA, "TopBarHeroImage: {} {}", (void*)panel, (void*)panel->GetPanel2D());
+		if (!IsValidReadPtr(heroImg->GetSrc()))
+			continue;
+		std::string heroName(heroImg->GetSrc());
+		heroName = heroName.substr(23, heroName.size() - 23 - 4);
+		//LogF(LP_DATA, "\tHERO: {} XY: {} {}", heroName, POS.x, POS.y);
+		auto hero = FindHeroByUnitName(heroName);
+		if (hero)
+			topBar[hero] = panel;
+	}
+}
+
 // Mana and Health bars
 void Hacks::UIOverhaul::DrawBars() {
-	if (!ReadyToRender)
-		return; 
 	if (!Config::UIOverhaul::TopBars)
 		return;
 
+	MTM_LOCK;
 	auto DrawList = ImGui::GetForegroundDrawList();
 	constexpr static int barHeight = 8; // as in the game
 	for (auto& [hero, data] : topBar) {
@@ -45,11 +64,9 @@ void Hacks::UIOverhaul::DrawBars() {
 		if (!Interfaces::UIEngine->IsValidPanelPointer(data.panel))
 			continue;
 
-		auto heroImg = data.panel->GetPanel2D();
-		ImVec2 imgXY1 = ImVecFromVec2D(heroImg->GetPositionWithinWindow());
+		ImVec2 imgXY1 = data.imgPos;
 		if (!data.IsDire)
 			imgXY1.x += topBarImgSlope;
-		
 
 		float manaRatio = hero->GetMana() / hero->GetMaxMana(),
 			hpRatio = (float)hero->GetHealth() / hero->GetMaxHealth();
@@ -65,18 +82,12 @@ void Hacks::UIOverhaul::DrawBars() {
 }
 
 void Hacks::UIOverhaul::Init() {
-	for (auto& node : Interfaces::UIEngine->GetPanelList<4096>()) {
-		auto uiPanel = node.uiPanel;
-		if (!uiPanel->GetId())
-			continue;
-		std::string_view id = uiPanel->GetId();
-		if (id != "Hud")
-			continue;
+	if (!GameSystems::DotaHud)
+		return;
+	MTM_LOCK;
 
-		DotaHud = uiPanel;
-		LogF(LP_DATA, "Hud: {}", (void*)DotaHud->GetPanel2D());
-	}
+	if (!TopBarClass)
+		TopBarClass = Interfaces::UIEngine->MakeSymbol("TopBarHeroImage");
 
 	UpdateHeroes();
-	ReadyToRender = true;
 }

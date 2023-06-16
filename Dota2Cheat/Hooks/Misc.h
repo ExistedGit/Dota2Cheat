@@ -10,11 +10,6 @@ namespace Hooks {
 		return oOnHUDFlipped(id, unk1, val, old_val);
 	};
 
-	inline Signatures::BIsEmoticonUnlockedFn oBIsEmoticonUnlocked{};
-
-	inline bool hkBIsEmoticonUnlocked(void* thisptr, uint32_t unk) {
-		return Config::Changer::UnlockEmoticons || oBIsEmoticonUnlocked(thisptr, unk);
-	}
 	inline Signatures::SaveSerializedSOCacheFn oSaveSerializedSOCache{};
 	inline void* hkSaveSerializedSOCache(void* thisptr) {
 		auto result = oSaveSerializedSOCache(thisptr);

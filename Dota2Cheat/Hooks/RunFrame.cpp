@@ -72,7 +72,7 @@ void EntityIteration() {
 void InGameLogic() {
 
 	Modules::AbilityESP.UpdateHeroData();
-	//	Modules::UIOverhaul.Update();
+	//Modules::UIOverhaul.Update();
 
 	UpdateCameraDistance();
 	UpdateWeather();
@@ -202,6 +202,24 @@ void Hooks::hkRunFrame() {
 		ctx.localHero &&
 		ctx.gameStage == GameStage::IN_GAME)
 		InGameLogic();
+
+	//static float lastPingTime = 0;
+	//if (GameSystems::GameRules->GetGameTime() - lastPingTime >= 1.) {
+	//	lastPingTime = GameSystems::GameRules->GetGameTime();
+
+	//	auto msg_id = Interfaces::NetworkMessages->FindNetworkMessageByID(303);
+	//	CDOTAClientMsg_MapPing pingMsg{};
+	//	auto loc = new CDOTAMsg_LocationPing;
+	//	loc->set_x(0);
+	//	loc->set_y(0);
+	//	loc->set_target(-1);
+	//	loc->set_type(0);
+	//	loc->set_direct_ping(false);
+	//	loc->set_ping_source(k_ePingSource_Wheel);
+	//	pingMsg.set_allocated_location_ping(loc);
+	//	oSendNetMessage(Hooks::NetChan, msg_id, &pingMsg, BUF_DEFAULT);
+	//}
+
 
 	if (IsKeyPressed(VK_NUMPAD7)) {
 		//auto wearables = ctx.localHero->MemberInline<CUtlVector<CHandle<>>>(Netvars::C_BaseCombatCharacter::m_hMyWearables);

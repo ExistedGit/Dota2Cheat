@@ -9,6 +9,7 @@
 #include "../Hooks/GameCoordinator.h"
 #include "../Hooks/EntityEvents.h"
 #include "../Hooks/ParticleRendering.h"
+#include "../Hooks/SteamGC.h"
 #include "../Hooks/ModifierEvents.h"
 
 #include "../Hooks/Misc.h"

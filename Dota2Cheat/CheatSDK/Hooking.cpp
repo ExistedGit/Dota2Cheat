@@ -5,7 +5,6 @@
 void Hooks::InstallHooks() {
 	HOOKFUNC_SIGNATURES(PrepareUnitOrders);
 	HOOKFUNC_SIGNATURES(CDOTA_DB_Popup_AcceptMatch);
-	HOOKFUNC_SIGNATURES(BIsEmoticonUnlocked);
 #ifdef _DEBUG
 	//HOOKFUNC_SIGNATURES(DispatchPacket);
 	HOOKFUNC_SIGNATURES(BAsyncSendProto);
@@ -17,7 +16,10 @@ void Hooks::InstallHooks() {
 		//uintptr_t* SetAbsOrigin = vtable[21];
 		//HOOKFUNC(SetAbsOrigin);
 	}
-
+	{
+		auto SendMsg = VMT(Interfaces::SteamGC).GetVM(0);
+		HookFunc(SendMsg, &Hooks::hkSendMessage, &Hooks::oSendMessage, "ISteamGameCoordinator::SendMessage");
+	}
 	{
 		// NetChan constructor
 		// vtable ptr at 0x15
@@ -45,10 +47,10 @@ void Hooks::InstallHooks() {
 		auto SetRenderingEnabled = vtable[VTableIndexes::CParticleCollection::SetRenderingEnabled];
 		HOOKFUNC(SetRenderingEnabled);
 	}
-	{
-		void* RunScript = Interfaces::UIEngine->GetVFunc(88).ptr;
-		HOOKFUNC(RunScript);
-	}
+	//{
+	//	void* RunScript = Interfaces::UIEngine->GetVFunc(88).ptr;
+	//	HOOKFUNC(RunScript);
+	//}
 	{
 		// Hooking HUD flip's callback to avoid sigging IsHUDFlipped
 		// (and lowering performance, according to Wolf49406...)

@@ -40,7 +40,7 @@ namespace Hacks {
 			{
 				"modifier_lina_light_strike_array",
 				ParticleCreationInfo(
-					"particles/units/heroes/hero_lina/lina_spell_light_strike_array_ray_team.vpcf"
+					"particles/econ/items/lina/lina_ti7/light_strike_array_pre_ti7.vpcf"
 				).SetControlPoint(1, Vector(250, 1, 1))
 			}
 		};

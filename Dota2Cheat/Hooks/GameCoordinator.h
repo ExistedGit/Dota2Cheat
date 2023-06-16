@@ -11,6 +11,6 @@ namespace Hooks {
 	inline Signatures::DispatchPacketFn oDispatchPacket = nullptr;
 	inline Signatures::BAsyncSendProtoFn oBAsyncSendProto = nullptr;
 
-	bool hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandler* handler, google::protobuf::Message* responseMsg, unsigned int respMsgID);
+	bool hkBAsyncSendProto(CProtobufMsgBase<>* protobufMsg, IProtoBufSendHandler* handler);
 	bool hkDispatchPacket(CGCClient* thisptr, IMsgNetPacket* netPacket);	
 }

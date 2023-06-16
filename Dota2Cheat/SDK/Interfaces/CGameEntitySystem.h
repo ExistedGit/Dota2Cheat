@@ -19,9 +19,9 @@ public:
 class IEntityListener {
 public:
 	virtual void OnEntityCreated(CBaseEntity* ent) = 0;
-	virtual void OnEntitySpawned(CBaseEntity* ent) = 0;
+	virtual void OnEntitySpawned(CBaseEntity* ent) {};
 	virtual void OnEntityDeleted(CBaseEntity* ent) = 0;
-	virtual void OnEntityParentChanged(CBaseEntity* ent, CBaseEntity* parent) = 0;
+	virtual void OnEntityParentChanged(CBaseEntity* ent, CBaseEntity* parent) {};
 };
 
 class CEntitySystem : public VClass {
