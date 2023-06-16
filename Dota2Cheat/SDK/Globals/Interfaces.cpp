@@ -47,5 +47,11 @@ void Interfaces::FindInterfaces() {
 	LogF(LP_DATA, "UIEngine: {}", (void*)UIEngine);
 	LogF(LP_DATA, "EntitySystem: {}", (void*)EntitySystem);
 
+	SteamGC = SteamClient->GetISteamGenericInterface(
+		Memory::GetExport("steam_api64.dll", "GetHSteamPipe")(),
+		Memory::GetExport("steam_api64.dll", "GetHSteamUser")(),
+		"SteamGameCoordinator001"
+	);
+
 	Log(LP_NONE, "");
 }

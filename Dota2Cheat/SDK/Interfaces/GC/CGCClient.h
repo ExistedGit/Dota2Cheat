@@ -5,35 +5,27 @@
 #include <google/protobuf/message.h>
 #include "../../Protobufs/dota_gcmessages_msgid.pb.h"
 #include "../../Enums.h"
+#include "ISharedObjectListener.h"
+#include "CDOTAGCLobbyManager.h"
 
-
+template<typename T = google::protobuf::Message>
 class CProtobufMsgBase : public VClass {
 private:
 	void* unk;
 public:
 	google::protobuf::Message* header;
 	EDOTAGCMsg msgID;
-	google::protobuf::Message* msg;
+	T* msg;
 };
 
 class IMsgNetPacket : public VClass {
 public:
 	GETTER(EDOTAGCMsg, GetEMsg, 0x78);
-
-};
-
-struct SOID_t
-{
-	uint64_t m_unSteamID;
-	uint32_t m_iType;
-	uint32_t m_iPadding;
 };
 
 class CProtobufSharedObjectBase : public VClass {
 public:
-	google::protobuf::Message* GetPObject() {
-		return CallVFunc<9, google::protobuf::Message*>();
-	}
+	VGETTER(google::protobuf::Message*, GetPObject, 9);
 };
 
 class CGCClientSharedObjectTypeCache : public VClass {
@@ -61,25 +53,14 @@ public:
 	}
 };
 
-class ISharedObjectListener : public VClass {
-public:
-	void SOCreated(SOID_t* soid, void* sharedObj, ESOCacheEvent ev) {
-		CallVFunc<0>(soid, sharedObj, ev);
-	}
-	void SOUpdated(SOID_t* soid, void* sharedObj, ESOCacheEvent ev) {
-		CallVFunc<1>(soid, sharedObj, ev);
-	}
-	GETTER(CGCClientSharedObjectCache*, GetSOCache, 0xA0);
-};
-
 class CGCClient : public VClass {
 public:
 	GETTER(CUtlVector<ISharedObjectListener*>, GetSOListeners, 0x270);
+	IGETTER(CDOTAGCClientLobbyManager, GetLobbyManager, 0x6d0);
 
 	void DispatchSOUpdated(SOID_t soid, void* sharedObj, ESOCacheEvent ev) {
 		auto listeners = GetSOListeners();
 		for (auto& listener : listeners)
 			listener->SOUpdated(&soid, sharedObj, ev);
 	}
-
 };

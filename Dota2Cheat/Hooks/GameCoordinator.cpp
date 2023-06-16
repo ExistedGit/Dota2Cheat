@@ -1,7 +1,7 @@
 #include "GameCoordinator.h"
 
-bool Hooks::hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandler* handler, google::protobuf::Message* responseMsg, unsigned int respMsgID) {
-#ifdef _DEBUG
+bool Hooks::hkBAsyncSendProto(CProtobufMsgBase<>* protobufMsg, IProtoBufSendHandler* handler) {
+#if defined(_DEBUG) && !defined(_TESTING)
 	if (protobufMsg->msgID == k_EMsgClientToGCSetItemStyle) {
 
 		auto msg = (CMsgClientToGCSetItemStyle*)protobufMsg->msg;
@@ -66,13 +66,9 @@ bool Hooks::hkBAsyncSendProto(CProtobufMsgBase* protobufMsg, IProtoBufSendHandle
 
 	}
 #endif // _DEBUG
-	return oBAsyncSendProto(protobufMsg, handler, responseMsg, respMsgID);
+	return oBAsyncSendProto(protobufMsg, handler);
 }
 
 bool Hooks::hkDispatchPacket(CGCClient* thisptr, IMsgNetPacket* netPacket) {
-	if (netPacket->GetEMsg() == 26)
-#ifdef _DEBUG
-		std::cout << "GCClient Recv: " << EDOTAGCMsg2String(netPacket->GetEMsg()) << '\n';
-#endif // _DEBUG
 	return oDispatchPacket(thisptr, netPacket);
 }

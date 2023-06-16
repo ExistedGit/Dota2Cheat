@@ -348,5 +348,9 @@
     <ClInclude Include="CheatSDK\GameEventListeners\LuaListener.h" />
     <ClInclude Include="Modules\Hacks\ManaHPAbuse.h" />
     <ClInclude Include="SDK\GameSystems\CDOTA_MinimapObjectManager.h" />
+    <ClInclude Include="SDK\Interfaces\ISteamGameCoordinator.h" />
+    <ClInclude Include="Hooks\SteamGC.h" />
+    <ClInclude Include="SDK\Interfaces\GC\ISharedObjectListener.h" />
+    <ClInclude Include="SDK\Interfaces\GC\CDOTAGCLobbyManager.h" />
   </ItemGroup>
 </Project>

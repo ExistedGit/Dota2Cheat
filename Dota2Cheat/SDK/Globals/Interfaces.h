@@ -10,6 +10,7 @@
 #include "../Interfaces/Panorama.h"
 #include "../Interfaces/CResourceSystem.h"
 #include "../Interfaces/ISteamClient.h"
+#include "../Interfaces/ISteamGameCoordinator.h"
 
 #include "../Base/Memory.h"
 #include "../Base/Address.h"
@@ -27,7 +28,7 @@ namespace Interfaces {
 	inline VClass* Client{};
 	inline CGameEntitySystem* EntitySystem{};
 	inline ISteamClient* SteamClient{};
-
+	inline ISteamGameCoordinator* SteamGC{};
 	inline CGCClient* GCClient{};
 	inline CInputService* InputService{};
 	inline VClass* Schema{};

@@ -101,6 +101,8 @@ void Config::ConfigManager::SetupVars() {
 
 	CFG_VAR(AbilityESP::Enabled, true);
 	CFG_VAR(AbilityESP::UIScale, 1.0f);
+	CFG_VAR(AbilityESP::LevelCounterType, 0);
+	CFG_VAR(AbilityESP::Rounding, 0.0f);
 	CFG_VAR(AbilityESP::ShowAllies, true);
 	CFG_VAR(AbilityESP::ShowCooldownDecimals, false);
 

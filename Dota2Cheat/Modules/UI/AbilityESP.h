@@ -11,7 +11,11 @@ namespace ESP {
 			CDOTABaseAbility* ability{};
 			ImTextureID icon{};
 		};
-		
+
+		enum class LevelCounterType {
+			Bars,
+			Number
+		};
 
 		// Scales a value according to the config parameter
 		template<typename T = int>
@@ -19,7 +23,6 @@ namespace ESP {
 			return (T)(val * Config::AbilityESP::UIScale);
 		}
 
-		int AbilityIconSize = 32;
 		bool Initialized = false;
 		static inline std::map<CDOTABaseNPC_Hero*, std::vector<AbilityData>> EnemyAbilities{};
 		// For each hero there's a map of slot indexes to ability data(for items tho, but they're abilities too)
@@ -31,12 +34,13 @@ namespace ESP {
 		void LoadItemTexIfNeeded(AbilityData& data);
 		void DrawItems();
 		void DrawItemCircle(const AbilityData& data, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius);
-		void DrawLevelCounter(CDOTABaseAbility* ability, ImVec2 pos);
+		void DrawLevelCounter(CDOTABaseAbility* ability, const ImVec2& pos);
 		void DrawLevelBars(CDOTABaseAbility* ability, const ImVec2& xy1, const ImVec2& xy2);
 		void DrawChargeCounter(int charges, const ImVec2& pos, int radius);
 		void UpdateAbilities(CDOTABaseNPC_Hero* hero);
 		void UpdateItems(CDOTABaseNPC_Hero* hero);
 	public:
+		int AbilityIconSize = 32;
 		void UpdateHeroData();
 		void SubscribeHeroes();
 		void Reset();

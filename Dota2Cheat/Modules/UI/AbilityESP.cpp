@@ -64,7 +64,9 @@ void ESP::AbilityESP::DrawAbilities() {
 	constexpr float outlineThickness = 1;
 	constexpr ImVec2 outlineSize{ outlineThickness, outlineThickness };
 	constexpr int levelCounterHeight = 8;
+	auto rounding = Config::AbilityESP::Rounding;
 	auto DrawList = ImGui::GetForegroundDrawList();
+	auto lvlCounterType = (LevelCounterType)Config::AbilityESP::LevelCounterType;
 
 	for (auto& [hero, abilities] : EnemyAbilities) {
 		if (!CanDraw(hero))
@@ -101,25 +103,25 @@ void ESP::AbilityESP::DrawAbilities() {
 			DrawList->AddRectFilled(
 				imgXY1 - outlineSize,
 				imgXY2 + outlineSize,
-				ImGui::GetColorU32(ImVec4(0, 0, 0, 1)));
+				ImGui::GetColorU32(ImVec4(0, 0, 0, 1)), rounding);
 
 			if (data.ability->Member<bool>(Netvars::C_DOTABaseAbility::m_bAutoCastState))
 				DrawList->AddRectFilled(
 					imgXY1 - outlineSize,
 					imgXY2 + outlineSize,
-					ImGui::GetColorU32(ImVec4(255.0f / 255, 191.0f / 255, 0, 1)));
+					ImGui::GetColorU32(ImVec4(255.0f / 255, 191.0f / 255, 0, 1)), rounding);
 
 			if (data.ability->IsToggled())
 				DrawList->AddRectFilled(
 					imgXY1 - outlineSize,
 					imgXY2 + outlineSize,
-					ImGui::GetColorU32(ImVec4(0x3 / 255.0f, 0xAC / 255.0f, 0x13 / 255.0f, 1)));
+					ImGui::GetColorU32(ImVec4(0x3 / 255.0f, 0xAC / 255.0f, 0x13 / 255.0f, 1)), rounding);
 
-			DrawList->AddImage(data.icon, imgXY1, imgXY2);
+			DrawList->AddImageRounded(data.icon, imgXY1, imgXY2, { 0,0 }, { 1,1 }, ImColor{ 255,255,255 }, rounding);
 
 			if (data.ability->GetLevel() == 0)
 				// Darkens the picture
-				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.5)));
+				DrawList->AddRectFilled(imgXY1, imgXY2, ImColor(0, 0, 0, 128), rounding);
 
 			if (
 				data.ability->GetCooldown() != 0 || // if on cooldown
@@ -133,25 +135,26 @@ void ESP::AbilityESP::DrawAbilities() {
 				int cdFontSize = iconSize - ScaleVar(8);
 				bool decimals = Config::AbilityESP::ShowCooldownDecimals;
 				// Darkens the picture
-				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.5)));
+				DrawList->AddRectFilled(imgXY1, imgXY2, ImColor(0, 0, 0, 128), rounding);
 				if (floorf(data.ability->GetCooldown()) >= 100) {
-					cdFontSize = iconSize - ScaleVar(10);
+					cdFontSize = iconSize - ScaleVar(12);
 					decimals = false;
 				}
 
 				if (decimals)
-					cdFontSize = iconSize - ScaleVar(12);
+					cdFontSize = iconSize - ScaleVar(14);
+				auto textPos = imgCenter - ImVec2{ 0, cdFontSize / 2.f };
 
 				// Draws the cooldown
 				DrawTextForeground(DrawData.GetFont("Monofonto", cdFontSize),
 					std::vformat(decimals ? "{:.1f}" : "{:.0f}", std::make_format_args(cd)),
-					ImVec2(imgXY1.x + centeringOffset, imgXY1.y + iconSize / 2 - cdFontSize / 1.5f),
+					textPos,
 					cdFontSize,
-					ImVec4(1, 1, 1, 1),
+					ImColor{ 255,255,255 },
 					true);
 			}
 			else if (data.ability->GetManaCost() > hero->GetMana())
-				DrawList->AddRectFilled(imgXY1, imgXY2, ImColor(0, 50, 255, 128));
+				DrawList->AddRectFilled(imgXY1, imgXY2, ImColor(0, 50, 255, 128), rounding);
 
 			if (
 				data.ability->GetCharges()
@@ -173,7 +176,7 @@ void ESP::AbilityESP::DrawAbilities() {
 				float indicatorWidth = abs(imgXY2.x - imgXY1.x) * (1 - ((GameSystems::GameRules->GetGameTime() - channelTime) / channelLength));
 				DrawList->AddRectFilled(
 					ImVec2(imgXY1.x, imgXY1.y - indicatorHeight),
-					ImVec2(imgXY1.x + indicatorWidth, imgXY1.y), ImGui::GetColorU32(ImVec4(1, 1, 1, 0.7)));
+					ImVec2(imgXY1.x + indicatorWidth, imgXY1.y), ImGui::GetColorU32(ImVec4(1, 1, 1, 0.7)), rounding);
 			}
 			// If it's being cast
 			else if (data.ability->Member<bool>(Netvars::C_DOTABaseAbility::m_bInAbilityPhase)) {
@@ -181,7 +184,7 @@ void ESP::AbilityESP::DrawAbilities() {
 					castStartTime = data.ability->Member<float>(Netvars::C_DOTABaseAbility::m_flCastStartTime);
 				int fontSize = ScaleVar(18);
 				float indicatorWidthFactor = abs(imgXY1.x - imgXY2.x) * ((GameSystems::GameRules->GetGameTime() - castStartTime) / castPoint);
-				DrawList->AddRectFilled(imgXY1, ImVec2(imgXY1.x + indicatorWidthFactor, imgXY2.y), ImGui::GetColorU32(ImVec4(0, 1, 0, 0.5)));
+				DrawList->AddRectFilled(imgXY1, ImVec2(imgXY1.x + indicatorWidthFactor, imgXY2.y), ImGui::GetColorU32(ImVec4(0, 1, 0, 0.5)), rounding);
 				DrawTextForeground(DrawData.GetFont("Monofonto", fontSize),
 					std::format("{:.1f}", castPoint - (GameSystems::GameRules->GetGameTime() - castStartTime)),
 					imgXY1 + ImVec2(centeringOffset, -fontSize - 2),
@@ -189,11 +192,13 @@ void ESP::AbilityESP::DrawAbilities() {
 					ImVec4(0, 1, 60 / 255.0f, 1),
 					true);
 			}
-			DrawLevelBars(data.ability,
-				ImVec2{ imgXY1.x, imgXY2.y - 3 }, { imgXY2.x, imgXY2.y + 3 });
-			// DrawLevelCounter( data.ability, imgXY2 + ImVec2( -centeringOffset, 6 ) );
-			++idx;
 
+			if (lvlCounterType == LevelCounterType::Number)
+				DrawLevelCounter(data.ability, ImVec2{ imgXY1.x,imgXY2.y } - ImVec2{ 0, ScaleVar<float>(32) / 6 });
+			else
+				DrawLevelBars(data.ability,
+					ImVec2{ imgXY1.x, imgXY2.y - 3 }, { imgXY2.x, imgXY2.y + 3 });
+			++idx;
 		}
 
 	}
@@ -373,27 +378,33 @@ void ESP::AbilityESP::DrawESP() {
 	DrawItems();
 }
 
-void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, ImVec2 pos) {
+void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, const ImVec2& pos) {
 	int lvl = ability->GetLevel();
 	if (lvl == 0)
 		return;
 
-	constexpr static auto clrLvlOutline = ImVec4(0xE7 / 255.0f, 0xD2 / 255.0f, 0x92 / 255.0f, 1);
-	constexpr static auto clrLvlBackground = ImVec4(0x28 / 255.0f, 0x0F / 255.0f, 0x01 / 255.0f, 1);
-	constexpr static ImVec2 outlinePadding(1, 1);
-	int counterScale = ScaleVar(16);
+	// constexpr auto clrLvlOutline = ImVec4(0xE7 / 255.0f, 0xD2 / 255.0f, 0x92 / 255.0f, 1);
+	// constexpr auto clrLvlBackground = ImVec4(0x28 / 255.0f, 0x0F / 255.0f, 0x01 / 255.0f, 1);
+	// constexpr ImVec2 outlinePadding(1, 1);
+	int counterScale = ScaleVar(32);
 
-	ImVec2 counterSize(counterScale, counterScale);
+	// ImVec2 counterSize(counterScale, counterScale);
 
-	ImVec2 imgXY1 = pos - counterSize / 2;
+	// ImVec2 imgXY1 = pos - counterSize, imgXY2 = pos + counterSize;
 
-	DrawRectFilled(imgXY1, counterSize, clrLvlBackground);
-	DrawRect(
-		imgXY1 + outlinePadding,
-		counterSize - outlinePadding * 2,
-		clrLvlOutline
-	);
-	DrawTextForeground(DrawData.GetFont("Monofonto", counterScale - 4), std::to_string(lvl), ImVec2(pos.x, pos.y - (counterScale - 4) / 2), counterScale - 4, clrLvlOutline, true, false);
+	auto DrawList = ImGui::GetForegroundDrawList();
+	//DrawList->AddRectFilled();
+	//DrawRectFilled(imgXY1, counterSize, clrLvlBackground);
+	//DrawRect(
+	//	imgXY1 + outlinePadding,
+	//	counterSize - outlinePadding * 2,
+	//	clrLvlOutline
+	//);
+	DrawTextForeground(DrawData.GetFont("Monofonto", counterScale - 2), std::to_string(lvl),
+		ImVec2(pos.x, pos.y - (counterScale - 2) / 2),
+		counterScale - 2,
+		ImColor{ 255,255,255 },
+		true);
 }
 
 void ESP::AbilityESP::DrawLevelBars(CDOTABaseAbility* ability, const ImVec2& xy1, const ImVec2& xy2) {

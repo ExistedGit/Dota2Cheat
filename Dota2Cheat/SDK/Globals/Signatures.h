@@ -50,7 +50,7 @@ namespace Signatures {
 
 	//typedef bool (*LoadUITextureFn)(void* thisptr, void** texturePtr, const char* textureName);
 
-	typedef bool (*BAsyncSendProtoFn)(CProtobufMsgBase* protobufMsg, IProtoBufSendHandler* handler, google::protobuf::Message* responseMsg, unsigned int respMsgID);
+	typedef bool (*BAsyncSendProtoFn)(CProtobufMsgBase<>* protobufMsg, IProtoBufSendHandler* handler);
 	typedef bool (*DispatchPacketFn)(void*, IMsgNetPacket*);
 
 	typedef void(*OnAddModifierFn)(CDOTAModifier*, int);

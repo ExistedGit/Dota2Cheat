@@ -21,5 +21,5 @@ void Hooks::hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* m
 bool Hooks::hkSendNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, NetChannelBufType_t type) {
 	Hooks::NetChan = thisptr;
 
-	return oSendNetMessage(Hooks::NetChan, messageHandle, msg, type);
+	return oSendNetMessage(thisptr, messageHandle, msg, type);
 }

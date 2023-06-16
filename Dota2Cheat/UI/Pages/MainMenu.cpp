@@ -1,4 +1,5 @@
 #include "MainMenu.h"
+#include "../../Modules/UI/AbilityESP.h"
 
 void Pages::MainMenu::Draw() {
 	ImGui::Begin("Main", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
@@ -113,10 +114,19 @@ void Pages::MainMenu::Draw() {
 	}
 
 	if (ImGui::TreeNode("AbilityESP")) {
+
+		static const char* Types[] = {
+			"Bars",
+			"Number"
+		};
+
 		ImGui::Checkbox("Enable", &Config::AbilityESP::Enabled);
 		ImGui::Checkbox("Include allied heroes", &Config::AbilityESP::ShowAllies);
 		ImGui::Checkbox("Show decimals in cooldowns", &Config::AbilityESP::ShowCooldownDecimals);
+		ImGui::Combo("Level counter type", &Config::AbilityESP::LevelCounterType, Types, IM_ARRAYSIZE(Types));
 		ImGui::SliderFloat("UI scale", &Config::AbilityESP::UIScale, 0.7f, 1.4f, "%.1f");
+		ImGui::SliderFloat("Element rounding", &Config::AbilityESP::Rounding, 0, Modules::AbilityESP.AbilityIconSize * Config::AbilityESP::UIScale / 2, "%.1f",
+			ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_NoInput);
 		ImGui::TreePop();
 	}
 

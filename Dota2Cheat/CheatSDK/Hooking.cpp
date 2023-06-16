@@ -16,7 +16,10 @@ void Hooks::InstallHooks() {
 		//uintptr_t* SetAbsOrigin = vtable[21];
 		//HOOKFUNC(SetAbsOrigin);
 	}
-
+	{
+		auto SendMsg = VMT(Interfaces::SteamGC).GetVM(0);
+		HookFunc(SendMsg, &Hooks::hkSendMessage, &Hooks::oSendMessage, "ISteamGameCoordinator::SendMessage");
+	}
 	{
 		// NetChan constructor
 		// vtable ptr at 0x15

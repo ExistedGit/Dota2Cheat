@@ -34,8 +34,8 @@ void Hacks::AutoAccept::AcceptMatch() {
 	if (!Config::AutoAccept::Enabled ||
 		acceptingMatch)
 		return;
-	Log(LP_INFO, "Trying to accept match");
 	acceptingMatch = true;
+	Log(LP_INFO, "Trying to accept match");
 	if (Config::AutoAccept::SendTelegramNotifications && Config::API::TelegramID != 0)
 		std::thread(&AutoAccept::SendTGNotification, this).detach();
 
