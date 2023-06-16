@@ -16,6 +16,9 @@ float CDOTAGameRules::GetGameTime() {
 
 	float tickToSeconds = GameSystems::GlobalVars->Member<float>(68);
 	auto totalPausedTicks = Member<uint32_t>(Netvars::C_DOTAGamerules::m_nTotalPausedTicks);
+
+	if (IsGamePaused())
+		return (Member<int>(Netvars::C_DOTAGamerules::m_nPauseStartTick) - totalPausedTicks) * tickToSeconds;
 	return GameSystems::GlobalVars->Member<float>(44) - totalPausedTicks * tickToSeconds;
 }
 
