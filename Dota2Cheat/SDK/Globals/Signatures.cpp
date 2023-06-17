@@ -90,6 +90,8 @@ void Signatures::FindSignatures() {
 	////xref "OnColorChanged", lea rax, [XXXXXXXXX] below it
 	//SET_VAR(CBaseEntity::OnColorChanged, Memory::Scan("40 53 48 83 EC 20 48 8B D9 48 8B 89 ? ? ? ? 48 8B 01 0F B6 93", "client.dll"));
 
+#if defined(_DEBUG) && !defined(_TESTING)
 	SET_VAR(CDOTAItemSchema::GetItemDefByIndex, Memory::Scan("E8 ? ? ? ? 8B 4E 64", "client.dll").GetAbsoluteAddress(1));
 	SET_VAR(CDOTAItemSchema::GetItemDefArrIdx, Address(CDOTAItemSchema::GetItemDefByIndex).Offset(0x16).GetAbsoluteAddress(1));
+#endif
 }

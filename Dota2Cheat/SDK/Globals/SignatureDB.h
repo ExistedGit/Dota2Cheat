@@ -4,13 +4,14 @@
 #include <string>
 #include <curl/curl.h>
 #include "../Base/Memory.h"
-// Used for signatures downloaded off the web
+
+// Used to process JSON signatures
 
 #define SIGMAP_ENTRY(var) {#var, (void**)&var}
 struct SignatureDB {
 	inline static nlohmann::json Data;
 
-	// Uses an array of signature names to signature globals to perform a sigscan
+	// Uses an array of signature names to storage variable pointers to perform a sigscan
 	static void ParseSignatures(const std::map <std::string, void**>& signatureMap) {
 		enum SignatureAction {
 			GetAbsoluteAddress,
@@ -57,13 +58,14 @@ struct SignatureDB {
 
 	static void LoadSignaturesFromFile(const std::string& url) {
 		if (std::ifstream fin(url); fin.is_open()) {
+			LogF(LP_INFO, "Loading signatures from {}\n", url);
 			Data = nlohmann::json::parse(fin);
 			fin.close();
 		}
 	};
 
 	static bool LoadSignaturesFromNetwork(const std::string& url) {
-		std::cout << std::format("Loading signatures from {}\n", url);
+		LogF(LP_INFO, "Loading signatures from {}\n", url);
 
 		std::stringstream out;
 		CURL* curl = curl_easy_init();

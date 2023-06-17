@@ -33,14 +33,18 @@ void CMatchStateManager::EnteredPreGame() {
 	//	Modules::AutoPick.autoBanHero = "sniper";
 	//	Modules::AutoPick.autoPickHero = "arc_warden";
 
-	ctx.localPlayer = Signatures::GetPlayer(-1);
-	if (!ctx.localPlayer)
-		return;
-
 #define DereferenceReallocatingSystem(global) GameSystems::##global = *GameSystems::## global ##Ptr; LogF(LP_DATA, "{}: {}", #global, (void*)GameSystems::global);
 
 	DereferenceReallocatingSystem(PlayerResource);
-	DereferenceReallocatingSystem(ParticleManager);
+
+	if(!GameSystems::PlayerResource)
+		return;
+
+ 	ctx.localPlayer = GameSystems::PlayerResource->PlayerSlotToHandle(Interfaces::Engine->GetLocalPlayerSlot());
+	if (!ctx.localPlayer)
+		return;
+
+	GameSystems::ParticleManager = GameSystems::ParticleManagerSystem->GetParticleManager();
 	DereferenceReallocatingSystem(GameEventManager);
 	DereferenceReallocatingSystem(ProjectileManager);
 	DereferenceReallocatingSystem(GlobalVars);

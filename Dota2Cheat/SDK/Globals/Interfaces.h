@@ -11,6 +11,7 @@
 #include "../Interfaces/CResourceSystem.h"
 #include "../Interfaces/ISteamClient.h"
 #include "../Interfaces/ISteamGameCoordinator.h"
+#include "../Interfaces/CGameUI.h"
 
 #include "../Base/Memory.h"
 #include "../Base/Address.h"
@@ -29,6 +30,7 @@ namespace Interfaces {
 	inline CGameEntitySystem* EntitySystem{};
 	inline ISteamClient* SteamClient{};
 	inline ISteamGameCoordinator* SteamGC{};
+	inline CGameUI* GameUI{};
 	inline CGCClient* GCClient{};
 	inline CInputService* InputService{};
 	inline VClass* Schema{};
@@ -39,7 +41,6 @@ namespace Interfaces {
 
 	// Gets a public interface via CreateInterface() export
 	// vmCount can be specified to check if the vtable has changed
-
 	void* GetInterface(const char* dllName, const char* interfaceName);
 
 	void FindInterfaces();

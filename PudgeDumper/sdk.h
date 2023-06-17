@@ -16,25 +16,6 @@ constexpr uint32_t NET_ENT_HANDLE_MASK = 0x3fff;
 
 #define u64 unsigned long long
 
-
-//credits to Liberalist from YouGame
-//very handy classes
-class Function {
-public:
-	void* ptr;
-	Function(uintptr_t ptr) : ptr((void*)ptr) {
-
-	}
-	template<typename ...T>
-	void* __fastcall operator()(T... t) {
-		return (void*)((u64(__fastcall*)(T...))ptr)(t...);
-	}
-	template<typename V, typename ...T>
-	V __fastcall Execute(T... t) {
-		return ((V(__fastcall*)(T...))ptr)(t...);
-	}
-
-};
 class VClass {
 public:
 	virtual void dummy_fn() = 0; // so that the classes have a vtable
@@ -53,7 +34,7 @@ public:
 	}
 	template<uint32_t index, typename RET = void*, typename ...T>
 	RET CallVFunc(T... t) {
-		return GetVFunc(index).Execute<RET>(this, t...);
+		return GetVFunc(index).Call<RET>(this, t...);
 	}
 };
 

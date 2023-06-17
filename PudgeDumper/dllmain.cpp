@@ -14,9 +14,11 @@
 #include <sstream>
 #include <assert.h>
 #include <filesystem>
+#include "../Dota2Cheat/SDK/Base/Address.h"
+#include "../Dota2Cheat/SDK/Base/Function.h"
+#include "../Dota2Cheat/SDK/Base/Memory.h"
 #include "sdk.h"
 #include <ShlObj_core.h>
-
 
 int scopeCount = 0;
 int scopesDumped = 0;
@@ -119,7 +121,7 @@ public:
 CSchemaSystem* SchemaSystem = 0;
 
 inline void DumpClassMembers(ClassDescription* classDesc) {
-	std::string className = classDesc->className; 
+	std::string className = classDesc->className;
 
 	if (Netvars.count(className))
 		return;
@@ -192,8 +194,31 @@ void DumpClassToText(const ClassDescription* classDesc, std::ofstream& fout, std
 	fout << '\n';
 }
 
+struct InterfaceInfo {
+	void(*CreateInterface)();
+	const char* m_szName;
+	InterfaceInfo* m_pNext;
+};
 
+void SaveInterfacesToHeader(std::ofstream& fout) {
+	const char* modules[] = {
+		"client.dll",
+		"engine2.dll"
+	};
 
+	for (auto dll : modules) {
+		fout << dll << ": \n";
+		auto curInterface = *Memory::GetExport<Address>(dll, "CreateInterface").GetAbsoluteAddress<InterfaceInfo**>(3);
+		while (curInterface) {
+			if (curInterface->m_szName)
+				fout << '\t' << curInterface->m_szName << '\n';
+
+			curInterface = curInterface->m_pNext;
+		}
+		fout << '\n';
+	}
+	std::cout << "Interfaces.txt generated!";
+}
 
 void DumpAllClasses(const std::string& dir) {
 	auto scopes = SchemaSystem->GetTypeScopes();
@@ -282,9 +307,16 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	SchemaDumpToMap("server.dll",
 		"CDOTA_Buff");
-	std::ofstream fout(dumpFolderPath + "\\Netvars.h");
-	SaveNetvarsToHeader(fout);
-	fout.close();
+
+	if (std::ofstream fout(dumpFolderPath + "\\Netvars.h"); fout.is_open()) {
+		SaveNetvarsToHeader(fout);
+		fout.close();
+	}
+	if (std::ofstream fout(dumpFolderPath + "\\Interfaces.txt"); fout.is_open()) {
+		SaveInterfacesToHeader(fout);
+		fout.close();
+	}
+
 	std::cout << "Netvars.h generated!\n";
 
 	DumpAllClasses(dumpFolderPath);

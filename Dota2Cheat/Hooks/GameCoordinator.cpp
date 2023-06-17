@@ -1,7 +1,6 @@
 #include "GameCoordinator.h"
 
 bool Hooks::hkBAsyncSendProto(CProtobufMsgBase<>* protobufMsg, IProtoBufSendHandler* handler) {
-#if defined(_DEBUG) && !defined(_TESTING)
 	if (protobufMsg->msgID == k_EMsgClientToGCSetItemStyle) {
 
 		auto msg = (CMsgClientToGCSetItemStyle*)protobufMsg->msg;
@@ -62,10 +61,7 @@ bool Hooks::hkBAsyncSendProto(CProtobufMsgBase<>* protobufMsg, IProtoBufSendHand
 				);
 			}
 		};
-
-
 	}
-#endif // _DEBUG
 	return oBAsyncSendProto(protobufMsg, handler);
 }
 

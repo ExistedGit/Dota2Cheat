@@ -116,8 +116,9 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	Signatures::FindSignatures();
 	GameSystems::FindGameSystems();
-
+#if defined(_DEBUG) && !defined(_TESTING)
 	Log(LP_DATA, "ItemSchema: ", Signatures::GetItemSchema());
+#endif
 
 	Hooks::InstallHooks();
 
@@ -217,7 +218,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 #endif // _DEBUG
 		ImGui::PushFont(DrawData.Fonts["MSTrebuchet"][24]);
 		if (
-			GameSystems::GameUI->GetUIState() == DOTA_GAME_UI_DOTA_INGAME
+			Interfaces::GameUI->GetUIState() == DOTA_GAME_UI_DOTA_INGAME
 			&& ctx.gameStage == GameStage::IN_GAME
 			&& ctx.localHero
 			) {
