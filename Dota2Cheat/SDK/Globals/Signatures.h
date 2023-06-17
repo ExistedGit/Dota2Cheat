@@ -24,9 +24,10 @@ namespace Signatures {
 	typedef void* (*CDOTA_DB_Popup_AcceptMatchFn)(VClass*, Panorama::CPanel2D*, const char*, Panorama::CPanel2D*, bool, const char*);
 	inline CDOTA_DB_Popup_AcceptMatchFn CDOTA_DB_Popup_AcceptMatch{};
 
+#if defined(_DEBUG) && !defined(_TESTING)
 	inline CDOTAItemSchema* (*GetItemSchema)() = nullptr;
-
 	inline CEconItem* (*CreateEconItem)() = nullptr;
+#endif
 
 	// typedef void* (*CGameUI__ChangeGameUIStateFn)(void* thisptr, DOTAGameUIState_t state);
 	// inline CGameUI__ChangeGameUIStateFn CGameUI__ChangeGameUIState{};
@@ -76,9 +77,13 @@ namespace Signatures {
 		SIGMAP_ENTRY(DispatchPacket),
 		SIGMAP_ENTRY(BAsyncSendProto),
 		SIGMAP_ENTRY(PrepareUnitOrders),
+
+#if defined(_DEBUG) && !defined(_TESTING)
 		SIGMAP_ENTRY(GetItemSchema),
 		SIGMAP_ENTRY(CreateEconItem),
 		SIGMAP_ENTRY(SaveSerializedSOCache),
+#endif
+
 		SIGMAP_ENTRY(PlayUISoundScript),
 		SIGMAP_ENTRY(CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby),
 		SIGMAP_ENTRY(CDOTA_DB_Popup_AcceptMatch),
