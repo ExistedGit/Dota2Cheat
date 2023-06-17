@@ -51,6 +51,8 @@ namespace Signatures {
 	typedef void(*OnAddModifierFn)(CDOTAModifier*, int);
 	typedef void(*OnRemoveModifierFn)(CDOTAModifier*);
 
+	inline CDOTAPlayerController* (*GetPlayer)(int idx);
+
 	//inline LoadUITextureFn LoadUITexture{};
 
 	using CParticleCollection = void;
@@ -83,6 +85,7 @@ namespace Signatures {
 #endif
 
 		SIGMAP_ENTRY(PlayUISoundScript),
+		SIGMAP_ENTRY(GetPlayer),
 		SIGMAP_ENTRY(CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby),
 		SIGMAP_ENTRY(CDOTA_DB_Popup_AcceptMatch),
 
