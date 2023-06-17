@@ -12,7 +12,7 @@
 #include "../GameSystems/CGameEventManager.h"
 #include "../GameSystems/CDOTARichPresence.h"
 #include "../GameSystems/CDOTA_MinimapObjectManager.h"
-#include "../GameSystems/CGameUI.h"
+#include "../GameSystems/CGameParticleManagerSystem.h"
 #include "../GameSystems/CDOTA_PanoramaMinimapRenderer.h"
 #include "../Interfaces/Panorama.h"
 
@@ -30,11 +30,12 @@ namespace GameSystems {
 	inline Panorama::DotaHud* DotaHud{};
 	void InitMinimapRenderer();
 
-	inline CGameUI* GameUI{};
 	inline CDOTAGCClientSystem* GCClientSystem{};
 	inline CDOTARichPresence* RichPresence{};
 	inline CDOTAGameRules* GameRules;
 	inline CDOTA_MinimapObjectManager* MinimapObjManager{};
+	inline CGameParticleManagerSystem* ParticleManagerSystem{};
+	inline CDOTAParticleManager* ParticleManager{};
 	// Ones that have a pointer to them that must be dereferenced when the game starts
 	// so we need to store both the system and the ptr to it
 #define REALLOCATING_SYSTEM(type, name) inline type* name {}; \
@@ -43,16 +44,10 @@ namespace GameSystems {
 	REALLOCATING_SYSTEM(CGlobalVars, GlobalVars);
 	REALLOCATING_SYSTEM(CGameEventManager, GameEventManager);
 	REALLOCATING_SYSTEM(C_DOTA_ProjectileManager, ProjectileManager);
-	REALLOCATING_SYSTEM(CDOTAParticleManager, ParticleManager);
 	REALLOCATING_SYSTEM(C_DOTA_PlayerResource, PlayerResource);
 
 #undef REALLOCATING_SYSTEM
 
-	static inline std::map<std::string, void**> NamedSystems{
-		SIGMAP_ENTRY(PlayerResourcePtr),
-		SIGMAP_ENTRY(ParticleManagerPtr),
-		SIGMAP_ENTRY(GameUI),
-	};
 	template<typename T>
 	T* FindStaticGameSystem(const char* name);
 	template<typename T>

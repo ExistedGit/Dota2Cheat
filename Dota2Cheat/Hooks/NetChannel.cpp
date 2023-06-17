@@ -15,7 +15,7 @@ void Hooks::hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* m
 		Modules::ParticleMaphack.ProcessParticleMsg(messageHandle, msg);
 		//Modules::AttackAnimTracker.ProcessAttackAnimMessage(messageHandle, msg);
 	}
-	return oPostReceivedNetMessage(Hooks::NetChan, messageHandle, msg, type, bits);
+	return oPostReceivedNetMessage(thisptr, messageHandle, msg, type, bits);
 }
 
 bool Hooks::hkSendNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, NetChannelBufType_t type) {

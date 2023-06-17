@@ -28,13 +28,13 @@ namespace Signatures {
 
 	inline CEconItem* (*CreateEconItem)() = nullptr;
 
-	typedef void* (*CGameUI__ChangeGameUIStateFn)(void* thisptr, DOTAGameUIState_t state);
-	inline CGameUI__ChangeGameUIStateFn CGameUI__ChangeGameUIState{};
+	// typedef void* (*CGameUI__ChangeGameUIStateFn)(void* thisptr, DOTAGameUIState_t state);
+	// inline CGameUI__ChangeGameUIStateFn CGameUI__ChangeGameUIState{};
 
 	// I don't know what its actual name is, but it's called every frame and has a call with xref "Minimap Objects"
 	// which in client.dylib corresponds to CDotaMinimapRenderer's Render function
-	typedef void* (*CDOTAPanoramaMinimapRenderer__RenderFn)(void* thisptr, void*, void**, void*, float, float, float, float);
-	inline CDOTAPanoramaMinimapRenderer__RenderFn CDOTAPanoramaMinimapRenderer__Render{};
+	// typedef void* (*CDOTAPanoramaMinimapRenderer__RenderFn)(void* thisptr, void*, void**, void*, float, float, float, float);
+	// inline CDOTAPanoramaMinimapRenderer__RenderFn CDOTAPanoramaMinimapRenderer__Render{};
 
 	typedef void* (__fastcall* SaveSerializedSOCacheFn)(void* thisptr);
 	inline SaveSerializedSOCacheFn SaveSerializedSOCache{};
@@ -43,8 +43,6 @@ namespace Signatures {
 	inline void(__fastcall* CMsgColor)(Color* color, const char* format, ...);
 
 	typedef void(__fastcall* PrepareUnitOrdersFn)(CDOTAPlayerController* player, dotaunitorder_t orderType, uint32_t targetIndex, Vector* position, uint32_t abilityIndex, PlayerOrderIssuer_t orderIssuer, CBaseEntity* issuer, bool queue, bool showEffects);
-
-	inline CDOTAPlayerController* (*GetPlayer)(int idx);
 
 	//typedef bool (*LoadUITextureFn)(void* thisptr, void** texturePtr, const char* textureName);
 
@@ -73,7 +71,6 @@ namespace Signatures {
 	// false = decline
 	inline bool(*CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby)(void* thisptr, bool state);
 
-
 	static inline std::map<std::string, void**> NamedSignatures{
 		SIGMAP_ENTRY(WorldToScreen),
 		SIGMAP_ENTRY(DispatchPacket),
@@ -81,7 +78,6 @@ namespace Signatures {
 		SIGMAP_ENTRY(PrepareUnitOrders),
 		SIGMAP_ENTRY(GetItemSchema),
 		SIGMAP_ENTRY(CreateEconItem),
-		SIGMAP_ENTRY(GetPlayer),
 		SIGMAP_ENTRY(SaveSerializedSOCache),
 		SIGMAP_ENTRY(PlayUISoundScript),
 		SIGMAP_ENTRY(CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby),

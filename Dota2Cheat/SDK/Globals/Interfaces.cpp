@@ -1,13 +1,14 @@
 #include "Interfaces.h"
 #include <tuple>
 void* Interfaces::GetInterface(const char* dllName, const char* interfaceName) {
-	auto CreateInterface = Memory::GetExport(dllName, "CreateInterface");
-	void* result = CreateInterface(interfaceName, nullptr);
-	return result;
+	static auto CreateInterface = Memory::GetExport(dllName, "CreateInterface");
+	return CreateInterface(interfaceName, nullptr);
 }
 
 void InitInterface(auto** var, const char* dllName, const char* interfaceName, std::optional<int> vmCount = std::nullopt) {
 	auto instance = *(void**)var = Interfaces::GetInterface(dllName, interfaceName);
+	if (!instance)
+		LogF(LP_ERROR, "{}/{}: {}", dllName, interfaceName, instance);
 	int countedVMs = CountVMs(instance);
 
 	LogPrefix prefix = LP_DATA;
@@ -37,6 +38,7 @@ void Interfaces::FindInterfaces() {
 	InitInterface(&Panorama, "panorama.dll", "PanoramaUIEngine001");
 
 	InitInterface(&GCClient, "client.dll", "DOTA_CLIENT_GCCLIENT");
+	InitInterface(&GameUI, "client.dll", "LegacyGameUI001");
 	InitInterface(&Schema, "schemasystem.dll", "SchemaSystem_001", 38);
 	InitInterface(&ParticleMgrSystem, "particles.dll", "ParticleSystemMgr003");
 	InitInterface(&InputService, "engine2.dll", "InputService_001", 64);

@@ -42,6 +42,9 @@ namespace Modules {
 			{"item_holy_locket" , Both},
 			{"item_guardian_greaves", Both},
 			{"item_cheese", Both},
+			{"item_famango", Both},
+			{"item_great_famango", Both},
+			{"item_greater_famango", Both},
 
 			{"item_faerie_fire", Health},
 			{"item_greater_faerie_fire", Health}

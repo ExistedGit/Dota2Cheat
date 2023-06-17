@@ -602,7 +602,8 @@
     </ClInclude>
     <ClInclude Include="SDK\Entities\CHandle.h" />
     <ClInclude Include="SDK\GameSystems\CDOTA_PanoramaMinimapRenderer.h" />
-    <ClInclude Include="SDK\GameSystems\CGameUI.h" />
+    <ClInclude Include="SDK\GameSystems\CGameParticleManagerSystem.h" />
+    <ClInclude Include="SDK\Interfaces\CGameUI.h" />
     <ClInclude Include="Hooks\InvalidateUEF.h" />
     <ClInclude Include="Hooks\Misc.h" />
     <ClInclude Include="Hooks\AcceptEvents.h" />

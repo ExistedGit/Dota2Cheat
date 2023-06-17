@@ -63,10 +63,8 @@ private:
 };
 
 struct CNewParticleEffect : public VClass {
+	GETTER(VClass*, GetParticleCollection, 0x20);
 
-	VClass* GetParticleCollection() {
-		return Member<VClass*>(0x20);
-	}
 	CNewParticleEffect* SetControlPoint(int idx, const Vector& pos) {
 		auto coll = GetParticleCollection();
 		coll->CallVFunc<VTableIndexes::CParticleCollection::SetControlPoint>(idx, &pos);
@@ -111,9 +109,9 @@ class CDOTAParticleManager : public VClass {
 	static inline std::vector<ParticleWrapper> particles{};
 public:
 	struct ParticleContainer : NormalClass {
-		inline CNewParticleEffect* GetParticle() {
-			return Member<CNewParticleEffect*>(0x10);
-		}
+		GETTER(CNewParticleEffect*, GetParticle, 0x10);
+		GETTER(uint32_t, GetHandle, 0x2C);
+
 	};
 	typedef void(__fastcall* DestroyParticleFn)(void* thisptr, ENT_HANDLE handle, bool unk);
 	static inline DestroyParticleFn DestroyParticleFunc{};
@@ -124,6 +122,36 @@ public:
 	ParticleWrapper CreateParticle(const char* name, ParticleAttachment_t attachType, CBaseEntity* ent);
 	void DestroyParticle(uint32_t handle);
 	void DestroyParticle(ParticleWrapper& info);
+	//void firstSub(CNewParticleEffect* p, bool zero, int idx) {
+	//	auto pc = p->GetParticleCollection();
+	//	if (!p->Member<bool>(0x7E) ||
+	//		pc->CallVFunc<76, bool>() == zero)
+	//		return;
+
+	//	// pc->CallVFunc<77>(0);
+	//}
+	//void DPRebuild(uint32_t handle, bool destroyImmediately) {
+	//	if (!HVALID(handle))
+	//		return;
+
+	//	auto list = GetParticles();
+	//	if (list.empty())
+	//		return;
+	//	ParticleContainer* pc{};
+	//	int idx = 0;
+	//	for (; idx < list.m_Size; ++idx)
+	//		if (list[idx]->GetHandle() == handle)
+	//			pc = list[idx];
+
+	//	if (!pc)
+	//		return;
+
+	//	auto npe = pc->GetParticle();
+	//	if (!npe)
+	//		return;
+
+	//	firstSub(npe, 0, idx);
+	//}
 
 	void OnExitMatch();
 

@@ -17,25 +17,29 @@ public:
 		return m_pElements[i];
 	}
 
-	T& at(int i) {
+	T& at(int i) const {
 		return m_pElements[i];
 	}
 
-	T* begin() {
+	T* begin() const {
 		return m_pElements;
 	}
 
-	T* end() {
+	T* end() const {
 		return m_pElements + m_Size;
 	}
 
-	T& first() {
+	T& first() const {
 		assert(m_Size > 0 && "CUtlVector::first(): no elements");
 		return m_pElements[0];
 	}
-	T& last() {
+	T& last() const {
 		assert(m_Size > 0 && "CUtlVector::last(): no elements");
 		return m_pElements[m_Size - 1];
+	}
+
+	bool empty() const {
+		return m_Size == 0;
 	}
 
 	[[nodiscard]] std::vector<T> AsStdVector() {

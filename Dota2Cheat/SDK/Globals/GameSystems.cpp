@@ -39,12 +39,15 @@ T** GameSystems::FindReallocatingGameSystemPtr(const char* name) {
 void GameSystems::FindGameSystems() {
 	Log(LP_INFO, "GAME SYSTEM POINTERS:");
 
+	// xrefs: "CLoopModeGame::InitAllSystems()" "CBaseTempEntity::StaticInitTempEnts()"
 	GameSystemFactory = *Memory::Scan("E8 ? ? ? ? 84 C0 74 D3 48 8D 0D", "client.dll")
 		.GetAbsoluteAddress(1)
 		.Offset(0xE)
 		.GetAbsoluteAddress<IGameSystemFactory**>(3);
 
-	SignatureDB::ParseSignatures(NamedSystems);
+	// Found by xrefing this global in dylibs
+	// look below the vfunc with xrefs  "ehandle", "%d (s/n %d)", "[-1] -> empty", "m_flPoseParameter", "%s(%s)", "[%d %d] -> %s", "CStrongHandle", "CWeakHandle"
+	PlayerResourcePtr = Address(Interfaces::Client->GetVFunc(102)).Offset(4).GetAbsoluteAddress(3);
 
 	// Also in Source2Client::Init(), right after "g_GameEventManager.Init()":
 	// mov rcx, [XXXXXXXXX]
@@ -57,7 +60,8 @@ void GameSystems::FindGameSystems() {
 
 	RichPresence = FindStaticGameSystem<CDOTARichPresence>("CDOTARichPresence");
 	GCClientSystem = FindStaticGameSystem<CDOTAGCClientSystem>("CDOTAGCClientSystem");
-	SET_VAR(MinimapObjManager, GameSystems::FindStaticGameSystem<CDOTA_MinimapObjectManager>("CDOTA_MinimapObjectManager"));
+	SET_VAR(MinimapObjManager, FindStaticGameSystem<CDOTA_MinimapObjectManager>("CDOTA_MinimapObjectManager"));
+	SET_VAR(ParticleManagerSystem, FindStaticGameSystem<CGameParticleManagerSystem>("CGameParticleManagerSystem"));
 	ProjectileManagerPtr = FindReallocatingGameSystemPtr<C_DOTA_ProjectileManager>("C_DOTA_ProjectileManager");
 
 	//xref: "activategameui", first lea rax, [XXXXXXXXX]

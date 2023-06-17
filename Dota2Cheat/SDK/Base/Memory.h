@@ -106,7 +106,7 @@ public:
 	template<typename T = Function>
 	// Returns an exported function, if it's available
 	static T GetExport(const char* dllName, const char* exportName) {
-		return (T)GetProcAddress(GetModuleHandleA(dllName), exportName);
+		return T(GetProcAddress(GetModuleHandleA(dllName), exportName));
 	}
 
 	// Returns a module's base address, for use with RVA
