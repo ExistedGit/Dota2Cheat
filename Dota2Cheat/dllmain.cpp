@@ -116,8 +116,9 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	Signatures::FindSignatures();
 	GameSystems::FindGameSystems();
-
+#if defined(_DEBUG) && !defined(_TESTING)
 	Log(LP_DATA, "ItemSchema: ", Signatures::GetItemSchema());
+#endif
 
 	Hooks::InstallHooks();
 

@@ -36,10 +36,6 @@ void CMatchStateManager::EnteredPreGame() {
 #define DereferenceReallocatingSystem(global) GameSystems::##global = *GameSystems::## global ##Ptr; LogF(LP_DATA, "{}: {}", #global, (void*)GameSystems::global);
 
 	DereferenceReallocatingSystem(PlayerResource);
-	GameSystems::ParticleManager = GameSystems::ParticleManagerSystem->GetParticleManager();
-	DereferenceReallocatingSystem(GameEventManager);
-	DereferenceReallocatingSystem(ProjectileManager);
-	DereferenceReallocatingSystem(GlobalVars);
 
 	if(!GameSystems::PlayerResource)
 		return;
@@ -47,6 +43,11 @@ void CMatchStateManager::EnteredPreGame() {
  	ctx.localPlayer = GameSystems::PlayerResource->PlayerSlotToHandle(Interfaces::Engine->GetLocalPlayerSlot());
 	if (!ctx.localPlayer)
 		return;
+
+	GameSystems::ParticleManager = GameSystems::ParticleManagerSystem->GetParticleManager();
+	DereferenceReallocatingSystem(GameEventManager);
+	DereferenceReallocatingSystem(ProjectileManager);
+	DereferenceReallocatingSystem(GlobalVars);
 
 	// Panorama's HUD root
 	for (auto& node : Interfaces::UIEngine->GetPanelList<4096>()) {

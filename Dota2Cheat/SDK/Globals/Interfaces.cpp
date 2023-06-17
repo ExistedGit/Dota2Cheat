@@ -1,14 +1,15 @@
 #include "Interfaces.h"
 #include <tuple>
 void* Interfaces::GetInterface(const char* dllName, const char* interfaceName) {
-	static auto CreateInterface = Memory::GetExport(dllName, "CreateInterface");
+	auto CreateInterface = Memory::GetExport(dllName, "CreateInterface");
 	return CreateInterface(interfaceName, nullptr);
 }
 
 void InitInterface(auto** var, const char* dllName, const char* interfaceName, std::optional<int> vmCount = std::nullopt) {
 	auto instance = *(void**)var = Interfaces::GetInterface(dllName, interfaceName);
 	if (!instance)
-		LogF(LP_ERROR, "{}/{}: {}", dllName, interfaceName, instance);
+		return LogF(LP_ERROR, "{}/{}: {}", dllName, interfaceName, instance);
+
 	int countedVMs = CountVMs(instance);
 
 	LogPrefix prefix = LP_DATA;
