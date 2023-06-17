@@ -76,7 +76,6 @@ void ESP::AbilityESP::DrawAbilities() {
 			if (data.ability)
 				++abilityCount;
 
-
 		auto drawPos = WorldToScreen(HeroData[hero].AbsOrigin);
 		drawPos.x -= (abilityCount - 1) * iconSize / 2.0f;
 		drawPos.y += 30;
@@ -380,7 +379,7 @@ void ESP::AbilityESP::DrawESP() {
 
 void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, const ImVec2& pos) {
 	int lvl = ability->GetLevel();
-	if (lvl == 0)
+	if (lvl == 0 || lvl == 1 && ability->GetMaxLevel() == 1)
 		return;
 
 	// constexpr auto clrLvlOutline = ImVec4(0xE7 / 255.0f, 0xD2 / 255.0f, 0x92 / 255.0f, 1);
@@ -389,7 +388,6 @@ void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, const ImVec2& 
 	int counterScale = ScaleVar(32);
 
 	// ImVec2 counterSize(counterScale, counterScale);
-
 	// ImVec2 imgXY1 = pos - counterSize, imgXY2 = pos + counterSize;
 
 	auto DrawList = ImGui::GetForegroundDrawList();
@@ -423,31 +421,29 @@ void ESP::AbilityESP::DrawLevelBars(CDOTABaseAbility* ability, const ImVec2& xy1
 		ImVec2(xy1.x + lvl * elemWidth, xy2.y),
 		clrEmpty
 	);
-	for (int i = 0; i < lvl; ++i) {
+	for (int i = 0; i < lvl; ++i)
 		DrawList->AddRectFilled(
 			ImVec2(xy1.x + 1 + i * elemWidth, xy1.y + 1),
 			ImVec2(xy1.x - 1 + (i + 1) * elemWidth, xy2.y - 1),
 			clrLearned
 		);
-	}
 }
 
 void ESP::AbilityESP::DrawChargeCounter(int charges, const ImVec2& pos, int radius) {
 	auto DrawList = ImGui::GetForegroundDrawList();
 
 	// Green outline
-	DrawList->AddCircleFilled(pos, radius + 1, ImGui::GetColorU32(ImVec4(135 / 255.0f, 214 / 255.0f, 77 / 255.0f, 1)));
+	// DrawList->AddCircleFilled(pos, radius + 1, ImGui::GetColorU32(ImVec4(135 / 255.0f, 214 / 255.0f, 77 / 255.0f, 1)));
 	// Gray core
-	DrawList->AddCircleFilled(pos, radius, ImGui::GetColorU32(ImVec4(0.2, 0.2, 0.2, 1)));
-
+	// DrawList->AddCircleFilled(pos, radius, ImGui::GetColorU32(ImVec4(0.2, 0.2, 0.2, 1)));
+	auto textSize = ScaleVar(20);
 	DrawTextForeground(
-		DrawData.GetFont("Monofonto", (radius - 2) * 2),
+		DrawData.GetFont("Monofonto", textSize),
 		std::to_string(charges),
-		ImVec2(pos.x, pos.y - (radius - 2)),
-		(radius - 2) * 2,
+		ImVec2(pos.x, pos.y - textSize / 2),
+		textSize,
 		ImVec4(1, 1, 1, 1),
-		true,
-		false);
+		true);
 }
 
 void ESP::AbilityESP::UpdateAbilities(CDOTABaseNPC_Hero* hero) {

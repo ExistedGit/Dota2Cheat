@@ -23,8 +23,6 @@ class CDOTAModifier;
 namespace Signatures {
 	typedef void* (*CDOTA_DB_Popup_AcceptMatchFn)(VClass*, Panorama::CPanel2D*, const char*, Panorama::CPanel2D*, bool, const char*);
 	inline CDOTA_DB_Popup_AcceptMatchFn CDOTA_DB_Popup_AcceptMatch{};
-	typedef void* (*C_DOTA_ProjectileManager__AddTrackingProjectileFn)(void* thisptr, void* unk);
-	inline C_DOTA_ProjectileManager__AddTrackingProjectileFn C_DOTA_ProjectileManager__AddTrackingProjectile{};
 
 	inline CDOTAItemSchema* (*GetItemSchema)() = nullptr;
 
@@ -87,7 +85,6 @@ namespace Signatures {
 		SIGMAP_ENTRY(SaveSerializedSOCache),
 		SIGMAP_ENTRY(PlayUISoundScript),
 		SIGMAP_ENTRY(CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby),
-		SIGMAP_ENTRY(C_DOTA_ProjectileManager__AddTrackingProjectile),
 		SIGMAP_ENTRY(CDOTA_DB_Popup_AcceptMatch),
 
 		SIGMAP_ENTRY(CDOTABaseNPC::GetAttackSpeed),
