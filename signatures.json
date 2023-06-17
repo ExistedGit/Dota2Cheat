@@ -1,4 +1,8 @@
 {
+  "GetPlayer": {
+    "signature": "33 C0 83 F9 FF",
+    "module": "client.dll"
+  },
   "CreateEconItem": {
     "signature": "48 83 EC ? B9 ? ? ? ? E8 ? ? ? ? 48 85 C0 74 ? 48 8D 0D",
     "module": "client.dll"

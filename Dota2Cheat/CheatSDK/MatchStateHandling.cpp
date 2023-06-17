@@ -40,7 +40,7 @@ void CMatchStateManager::EnteredPreGame() {
 	if(!GameSystems::PlayerResource)
 		return;
 
- 	ctx.localPlayer = GameSystems::PlayerResource->PlayerSlotToHandle(Interfaces::Engine->GetLocalPlayerSlot());
+	ctx.localPlayer = Signatures::GetPlayer(-1);
 	if (!ctx.localPlayer)
 		return;
 

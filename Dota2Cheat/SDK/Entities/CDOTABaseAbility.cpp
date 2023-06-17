@@ -8,14 +8,8 @@ int CDOTABaseAbility::GetCastRange() {
 	return GetLevelSpecialValueFor<int>("AbilityCastRange");
 }
 
-// Goes right after GetCastRange ^
-
-int CDOTABaseAbility::GetCastRangeBonus() {
-	return CallVFunc<VTableIndexes::CDOTABaseAbility::GetCastRangeBonus, int>(nullptr, nullptr, nullptr);
-}
-
 int CDOTABaseAbility::GetEffectiveCastRange() {
-	return GetCastRange() + GetCastRangeBonus();
+	return CallVFunc<VTableIndexes::CDOTABaseAbility::GetEffectiveCastRange, int>(nullptr, nullptr, nullptr);
 }
 
 int CDOTABaseAbility::GetAOERadius() {
@@ -35,7 +29,6 @@ void CDOTABaseAbility::BindLua(sol::state& lua) {
 	type["GetManaCost"] = &CDOTABaseAbility::GetManaCost;
 	type["IsInAbilityPhase"] = &CDOTABaseAbility::IsInAbilityPhase;
 	type["GetCastRange"] = &CDOTABaseAbility::GetCastRange;
-	type["GetCastRangeBonus"] = &CDOTABaseAbility::GetCastRangeBonus;
 	type["GetEffectiveCastRange"] = &CDOTABaseAbility::GetEffectiveCastRange;
 	type["GetLevelSpecialValueFor"] = &CDOTABaseAbility::GetLevelSpecialValueFor<float>;
 	type["GetAOERadius"] = &CDOTABaseAbility::GetAOERadius;

@@ -44,7 +44,6 @@ public:
 	int GetCastRange();
 
 	// Goes right after GetCastRange ^
-	int GetCastRangeBonus();
 	int GetEffectiveCastRange();
 
 	int GetAOERadius();
