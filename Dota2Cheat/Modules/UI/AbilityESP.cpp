@@ -232,6 +232,7 @@ void ESP::AbilityESP::DrawItems() {
 	auto DrawList = ImGui::GetForegroundDrawList();
 	// used to convert native rectangular item images to SQUARES
 	constexpr float aspectRatio = (1 - 64. / 88) / 2;
+	const auto rounding = Config::AbilityESP::Rounding;
 
 	for (auto& [hero, inv] : EnemyItems) {
 		if (!CanDraw(hero))
@@ -282,24 +283,30 @@ void ESP::AbilityESP::DrawItems() {
 			ImU32 frameColor = ImColor{ 0,0,0,255 };
 
 			LoadItemTexIfNeeded(itemData);
-			DrawList->AddImage(itemData.icon,
+			DrawList->AddImageRounded(itemData.icon,
 				imgXY1,
 				imgXY2,
 				ImVec2(aspectRatio, 0),
-				ImVec2(1 - aspectRatio, 1));
+				ImVec2(1 - aspectRatio, 1), ImColor{ 255,255,255 }, rounding);
 
 			if (itemData.ability->IsToggled())
 				frameColor = ImColor(0x3, 0xAC, 0x13);
 
 
 			// Frame
-			DrawList->AddRect(frameXY1, frameXY2, frameColor);
+			DrawList->AddRect(frameXY1, frameXY2, frameColor, rounding);
 
 			float cd = itemData.ability->GetCooldown();
 			if (cd != 0) {
-				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.25f)));
+				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.25f)), rounding);
 				auto fontSize = iconSize.y - ScaleVar<float>(2);
-				if (cd >= 100)
+				bool decimals = Config::AbilityESP::ShowCooldownDecimals;
+				if (cd >= 100) {
+					fontSize -= 4;
+					decimals = false;
+				}
+
+				if (decimals)
 					fontSize -= 4;
 				DrawTextForeground(
 					DrawData.GetFont("Monofonto", fontSize),

@@ -163,21 +163,22 @@ void Lua::InitInterfaces(sol::state& lua) {
 	lua["EntitySystem"] = Interfaces::EntitySystem;
 }
 
+
 void Lua::InitClasses(sol::state& lua) {
 #pragma region Base types
 	{
-		auto type_Vector = lua.new_usertype<Vector>(
-			"Vector",
-			sol::constructors<Vector(), Vector(float, float, float)>());
-		type_Vector["x"] = &Vector::x;
-		type_Vector["y"] = &Vector::y;
-		type_Vector["z"] = &Vector::z;
+		LUA_TYPEDEF(Vector, sol::constructors<Vector(), Vector(float, float, float)>());
+		LUA_BIND(x);
+		LUA_BIND(y);
+		LUA_BIND(z);
+	}
+	{
+		LUA_TYPEDEF(Vector2D, sol::constructors<Vector2D(float, float)>());
+		LUA_BIND(x);
+		LUA_BIND(y);
+	}
+	{
 
-		auto type_Vector2 = lua.new_usertype<Vector2D>(
-			"Vector2D",
-			sol::constructors<Vector2D(float, float)>());
-		type_Vector2["x"] = &Vector2D::x;
-		type_Vector2["y"] = &Vector2D::y;
 		auto type_Color = lua.new_usertype<Color>(
 			"Color",
 			sol::constructors<Color(unsigned char, unsigned char, unsigned char, unsigned char)>()

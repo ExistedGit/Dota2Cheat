@@ -200,26 +200,6 @@ struct InterfaceInfo {
 	InterfaceInfo* m_pNext;
 };
 
-void SaveInterfacesToHeader(std::ofstream& fout) {
-	const char* modules[] = {
-		"client.dll",
-		"engine2.dll"
-	};
-
-	for (auto dll : modules) {
-		fout << dll << ": \n";
-		auto curInterface = *Memory::GetExport<Address>(dll, "CreateInterface").GetAbsoluteAddress<InterfaceInfo**>(3);
-		while (curInterface) {
-			if (curInterface->m_szName)
-				fout << '\t' << curInterface->m_szName << '\n';
-
-			curInterface = curInterface->m_pNext;
-		}
-		fout << '\n';
-	}
-	std::cout << "Interfaces.txt generated!";
-}
-
 void DumpAllClasses(const std::string& dir) {
 	auto scopes = SchemaSystem->GetTypeScopes();
 	scopeCount = scopes.m_Size;
@@ -244,7 +224,63 @@ void DumpAllClasses(const std::string& dir) {
 	}
 }
 
-void SaveNetvarsToHeader(std::ofstream& fout) {
+void SaveInterfacesToFile(std::ofstream& fout) {
+	using namespace std;
+
+	const char* modules[] = {
+		"client.dll",
+		"engine2.dll"
+	};
+
+	set<string> names;
+	for (auto dll : modules) {
+		fout << dll << ": \n";
+		auto curInterface = *Memory::GetExport<Address>(dll, "CreateInterface").GetAbsoluteAddress<InterfaceInfo**>(3);
+		while (curInterface) {
+			if (curInterface->m_szName)
+				names.insert(curInterface->m_szName);
+
+			curInterface = curInterface->m_pNext;
+		}
+
+		for (auto name : names)
+			fout << '\t' << name << '\n';
+
+		fout << '\n';
+		names.clear();
+	}
+	std::cout << "Interfaces.txt generated!\n";
+}
+
+void SaveGameSystemsToFile(std::ofstream& fout) {
+	using namespace std;
+
+	struct IGameSystemFactory : public VClass {
+		IGameSystemFactory* m_pNextFactory;
+		const char* m_szName;
+	};
+
+	auto m_pFactory = *Memory::Scan("E8 ? ? ? ? 84 C0 74 D3 48 8D 0D", "client.dll")
+		.GetAbsoluteAddress(1)
+		.Offset(0xE)
+		.GetAbsoluteAddress<IGameSystemFactory**>(3);
+
+	set<string> names;
+
+	while (m_pFactory) {
+		if (m_pFactory->m_szName)
+			names.insert(m_pFactory->m_szName);
+
+		m_pFactory = m_pFactory->m_pNextFactory;
+	}
+
+	for (auto name : names)
+		fout << name << '\n';
+
+	std::cout << "GameSystems.txt generated!\n";
+}
+
+void SaveNetvarsToFile(std::ofstream& fout) {
 	fout << std::hex;
 	fout << "#pragma once\n#include <cstdint>\nnamespace Netvars {\n";
 	for (auto& [className, classMap] : Netvars) {
@@ -255,6 +291,8 @@ void SaveNetvarsToHeader(std::ofstream& fout) {
 		fout << "\t}\n";
 	}
 	fout << "}";
+
+	std::cout << "Netvars.h generated!\n";
 }
 
 
@@ -309,15 +347,17 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		"CDOTA_Buff");
 
 	if (std::ofstream fout(dumpFolderPath + "\\Netvars.h"); fout.is_open()) {
-		SaveNetvarsToHeader(fout);
+		SaveNetvarsToFile(fout);
 		fout.close();
 	}
 	if (std::ofstream fout(dumpFolderPath + "\\Interfaces.txt"); fout.is_open()) {
-		SaveInterfacesToHeader(fout);
+		SaveInterfacesToFile(fout);
 		fout.close();
 	}
-
-	std::cout << "Netvars.h generated!\n";
+	if (std::ofstream fout(dumpFolderPath + "\\GameSystems.txt"); fout.is_open()) {
+		SaveGameSystemsToFile(fout);
+		fout.close();
+	}
 
 	DumpAllClasses(dumpFolderPath);
 
