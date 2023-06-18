@@ -26,7 +26,7 @@ To open the cheat menu, press Insert
 
 Dota2Cheat follows the legit paradigm, so you probably won't see AutoStop, AutoLastHit or AutoSteal here. Not only because I don't have time for complicated multipurpose scripts for each hero, but also because they can often be spotted without even replaying the game. It's also my personal opinion that if you can't press two buttons in a sequence, then perhaps Dota is not for you.
 
-This list is subject to frequent change as I'm testing new features
+This list is no longer subject to frequent change as I'm only refining existing features. I have little interest in just reusing instruments I already have. I'd much rather have a good cheat with a few truly needed features than a detectable, crashing, lagging monstrosity.
 
 * Automation:
   * AutoAccept:
@@ -35,13 +35,12 @@ This list is subject to frequent change as I'm testing new features
   * Uses Magic Wand and Faerie Fire with customizable health tresholds
   * AutoMidas with customizable min XP reward
   * Bounty rune & Aegis pickup
-  * ~~Tome of Knowledge purchase~~ RIP on 21.04.2023. Goodbye, sweet prince.
   * Redirects spell casts from illusions to the real hero
   * Mana & HP abuse with items like Arcane Boots
   * AutoDodge for projectiles
+  * ~~Tome of Knowledge purchase~~ RIP on 21.04.2023. Goodbye, sweet prince.
   
 * Information:
-  * ~~Visible by Enemy~~ RIP on 21.02.2023, you shall not be forgotten
   * Maphack:
     * Teleport Tracker — draws enemy TPs on the map
     * Particle MapHack — shows heroes in FoW when they create particles(if possible)
@@ -61,6 +60,7 @@ This list is subject to frequent change as I'm testing new features
   * Renders any and all possible particles, including in FoW
   * Customizable enemy illusion coloring
   * Shows trajectories of enemy projectiles like Mirana's arrow and non-projectile abilities like Meat Hook
+  * ~~Visible by Enemy~~ RIP on 21.02.2023, you shall not be forgotten
   
 * Convars:
   * `sv_cheats` spoofing
