@@ -97,12 +97,11 @@ void Config::ConfigManager::LoadEquippedItems(std::ifstream& stream) {
 
 void Config::ConfigManager::SetupVars() {
 	using namespace Config;
-	using enum ConfigManager::ConfigVarType;
 
 	CFG_VAR(AbilityESP::Enabled, true);
 	CFG_VAR(AbilityESP::UIScale, 1.0f);
 	CFG_VAR(AbilityESP::LevelCounterType, 0);
-	CFG_VAR(AbilityESP::Rounding, 0.0f);
+	CFG_VAR(AbilityESP::Rounding, 100);
 	CFG_VAR(AbilityESP::ShowAllies, true);
 	CFG_VAR(AbilityESP::ShowCooldownDecimals, false);
 

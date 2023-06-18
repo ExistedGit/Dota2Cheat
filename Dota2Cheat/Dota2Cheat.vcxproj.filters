@@ -140,6 +140,7 @@
     <ClCompile Include="Hooks\GameCoordinator.cpp" />
     <ClCompile Include="Modules\Hacks\ManaHPAbuse.cpp" />
     <ClCompile Include="SDK\GameSystems\CDOTA_MinimapObjectManager.cpp" />
+    <ClCompile Include="SDK\GameSystems\CRenderGameSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
@@ -353,5 +354,6 @@
     <ClInclude Include="SDK\Interfaces\GC\ISharedObjectListener.h" />
     <ClInclude Include="SDK\Interfaces\GC\CDOTAGCLobbyManager.h" />
     <ClInclude Include="SDK\GameSystems\CGameParticleManagerSystem.h" />
+    <ClInclude Include="SDK\GameSystems\CRenderGameSystem.h" />
   </ItemGroup>
 </Project>

@@ -14,6 +14,7 @@
 #include "../GameSystems/CDOTA_MinimapObjectManager.h"
 #include "../GameSystems/CGameParticleManagerSystem.h"
 #include "../GameSystems/CDOTA_PanoramaMinimapRenderer.h"
+#include "../GameSystems/CRenderGameSystem.h"
 #include "../Interfaces/Panorama.h"
 
 namespace GameSystems {
@@ -45,6 +46,7 @@ namespace GameSystems {
 	REALLOCATING_SYSTEM(CGameEventManager, GameEventManager);
 	REALLOCATING_SYSTEM(C_DOTA_ProjectileManager, ProjectileManager);
 	REALLOCATING_SYSTEM(C_DOTA_PlayerResource, PlayerResource);
+	REALLOCATING_SYSTEM(CRenderGameSystem, RenderGameSystem);
 
 #undef REALLOCATING_SYSTEM
 

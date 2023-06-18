@@ -326,6 +326,7 @@
     <ClCompile Include="include\imgui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="include\imgui\imgui_tables.cpp" />
     <ClCompile Include="include\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="SDK\GameSystems\CRenderGameSystem.cpp" />
     <ClCompile Include="SDK\GameSystems\C_DOTAGameRules.cpp" />
     <ClCompile Include="SDK\Globals\GameSystems.cpp" />
     <ClCompile Include="SDK\Globals\Interfaces.cpp" />
@@ -603,6 +604,7 @@
     <ClInclude Include="SDK\Entities\CHandle.h" />
     <ClInclude Include="SDK\GameSystems\CDOTA_PanoramaMinimapRenderer.h" />
     <ClInclude Include="SDK\GameSystems\CGameParticleManagerSystem.h" />
+    <ClInclude Include="SDK\GameSystems\CRenderGameSystem.h" />
     <ClInclude Include="SDK\Interfaces\CGameUI.h" />
     <ClInclude Include="Hooks\InvalidateUEF.h" />
     <ClInclude Include="Hooks\Misc.h" />

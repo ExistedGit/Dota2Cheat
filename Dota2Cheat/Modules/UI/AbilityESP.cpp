@@ -64,7 +64,7 @@ void ESP::AbilityESP::DrawAbilities() {
 	constexpr float outlineThickness = 1;
 	constexpr ImVec2 outlineSize{ outlineThickness, outlineThickness };
 	constexpr int levelCounterHeight = 8;
-	auto rounding = Config::AbilityESP::Rounding;
+	const float rounding = Config::AbilityESP::Rounding / 100.f * iconSize / 2;
 	auto DrawList = ImGui::GetForegroundDrawList();
 	auto lvlCounterType = (LevelCounterType)Config::AbilityESP::LevelCounterType;
 
@@ -232,7 +232,7 @@ void ESP::AbilityESP::DrawItems() {
 	auto DrawList = ImGui::GetForegroundDrawList();
 	// used to convert native rectangular item images to SQUARES
 	constexpr float aspectRatio = (1 - 64. / 88) / 2;
-	const auto rounding = Config::AbilityESP::Rounding;
+	const float rounding = Config::AbilityESP::Rounding / 100.f * iconSize.x / 2;
 
 	for (auto& [hero, inv] : EnemyItems) {
 		if (!CanDraw(hero))

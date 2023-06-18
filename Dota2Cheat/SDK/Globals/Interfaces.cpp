@@ -28,7 +28,6 @@ void Interfaces::FindInterfaces() {
 	Log(LP_NONE, "");
 
 	Log(LP_INFO, "[INTERFACES]");
-	InitInterface(&Engine, "engine2.dll", "Source2EngineToClient001");
 	InitInterface(&Engine, "engine2.dll", "Source2EngineToClient001", 177);
 	InitInterface(&Client, "client.dll", "Source2Client002");
 	InitInterface(&CVar, "tier0.dll", "VEngineCvar007", 42);

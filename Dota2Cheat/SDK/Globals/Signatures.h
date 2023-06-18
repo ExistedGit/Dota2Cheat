@@ -61,7 +61,6 @@ namespace Signatures {
 
 	inline void* (__fastcall* PlayUISoundScript)(void** unk, const char* sound, int unk2);
 
-	inline void(__fastcall* WorldToScreen)(const Vector* coord, int* outX, int* outY, void* offset);
 	inline PrepareUnitOrdersFn PrepareUnitOrders{};
 
 	inline DispatchPacketFn DispatchPacket{};
@@ -73,7 +72,6 @@ namespace Signatures {
 	inline bool(*CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby)(void* thisptr, bool state);
 
 	static inline std::map<std::string, void**> NamedSignatures{
-		SIGMAP_ENTRY(WorldToScreen),
 		SIGMAP_ENTRY(PrepareUnitOrders),
 
 #if defined(_DEBUG) && !defined(_TESTING)

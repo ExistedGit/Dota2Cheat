@@ -43,6 +43,7 @@ void CMatchStateManager::EnteredPreGame() {
 	DereferenceReallocatingSystem(PlayerResource);
 	DereferenceReallocatingSystem(GameEventManager);
 	DereferenceReallocatingSystem(ProjectileManager);
+	DereferenceReallocatingSystem(RenderGameSystem);
 	DereferenceReallocatingSystem(GlobalVars);
 
 	// Panorama's HUD root

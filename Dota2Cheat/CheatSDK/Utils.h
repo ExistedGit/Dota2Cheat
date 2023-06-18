@@ -13,10 +13,17 @@ inline bool IsKeyPressed(int key) {
 	return GetAsyncKeyState(key) & 1;
 }
 
+inline ImVec2 ImVecFromVec2D(const Vector2D& vec) {
+	return ImVec2{ vec.x,vec.y };
+}
+
 inline ImVec2 WorldToScreen(const Vector& pos) {
-	int x, y;
-	Signatures::WorldToScreen(&pos, &x, &y, nullptr);
-	return ImVec2{ (float)x, (float)y };
+	Vector2D xy{};
+	if (!GameSystems::RenderGameSystem)
+		return ImVecFromVec2D(xy);
+
+	GameSystems::RenderGameSystem->GetVectorInScreenSpace(pos, xy);
+	return ImVecFromVec2D(xy);
 }
 
 inline bool IsPointOnScreen(const ImVec2& pos) {
@@ -30,10 +37,6 @@ inline bool IsPointOnScreen(const ImVec2& pos) {
 
 inline bool IsEntityOnScreen(CBaseEntity* ent) {
 	return IsPointOnScreen(WorldToScreen(ent->GetPos()));
-}
-
-inline ImVec2 ImVecFromVec2D(const Vector2D& vec) {
-	return ImVec2{ vec.x,vec.y };
 }
 
 // Converts a 3D position in Dota's world to a point on the minimap

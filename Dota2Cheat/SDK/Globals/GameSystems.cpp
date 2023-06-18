@@ -63,6 +63,7 @@ void GameSystems::FindGameSystems() {
 	SET_VAR(MinimapObjManager, FindStaticGameSystem<CDOTA_MinimapObjectManager>("CDOTA_MinimapObjectManager"));
 	SET_VAR(ParticleManagerSystem, FindStaticGameSystem<CGameParticleManagerSystem>("CGameParticleManagerSystem"));
 	ProjectileManagerPtr = FindReallocatingGameSystemPtr<C_DOTA_ProjectileManager>("C_DOTA_ProjectileManager");
+	RenderGameSystemPtr = FindReallocatingGameSystemPtr<CRenderGameSystem>("RenderGameSystem");
 
 	//xref: "activategameui", first lea rax, [XXXXXXXXX]
 	//console command ^

@@ -125,8 +125,7 @@ void Pages::MainMenu::Draw() {
 		ImGui::Checkbox("Show decimals in cooldowns", &Config::AbilityESP::ShowCooldownDecimals);
 		ImGui::Combo("Level counter type", &Config::AbilityESP::LevelCounterType, Types, IM_ARRAYSIZE(Types));
 		ImGui::SliderFloat("UI scale", &Config::AbilityESP::UIScale, 0.7f, 1.4f, "%.1f");
-		ImGui::SliderFloat("Element rounding", &Config::AbilityESP::Rounding, 0, Modules::AbilityESP.AbilityIconSize * Config::AbilityESP::UIScale / 2, "%.1f",
-			ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_NoInput);
+		ImGui::SliderInt("Element rounding", &Config::AbilityESP::Rounding, 0, 100, "%d %%", ImGuiSliderFlags_AlwaysClamp);
 		ImGui::TreePop();
 	}
 
