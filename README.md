@@ -81,7 +81,7 @@ This list is no longer subject to frequent change as I'm only refining existing 
 * Work in progress:
   * Roshan timer
   
-I intend to implement most of the usual cheat functionality
+I intend to get most of D2C's functionality to work in the most proper way possible. Y'know, to rebuild functions and remove signatures, to use less detectable and/or more comfortable methods. That kinda stuff.
 
 ## Building
 You need to install the protobuf library for it to work. Install [vcpkg](https://vcpkg.io/en/getting-started.html). Navigate to the folder with vcpkg.exe. Open the console in the folder and enter the following command:
