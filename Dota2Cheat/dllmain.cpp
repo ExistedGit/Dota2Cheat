@@ -97,16 +97,19 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	Interfaces::FindInterfaces();
 
-	for (auto cb : Interfaces::NetworkMessages->GetNetvarCallbacks())
-		if (cb.name && std::string_view(cb.name) == "OnColorChanged") {
-			CBaseEntity::OnColorChanged = cb.func;
-			LogF(LP_DATA, "{}::{}: {}", cb.className, cb.name, (void*)cb.func);
+	// It's supposed to be a CUtlSymbolTable, but we don't yet have the technology...
+	for (auto data : Interfaces::NetworkMessages->GetNetvarCallbacks())
+		if (IsValidReadPtr(data.m_szCallbackName) && std::string_view(data.m_szCallbackName) == "OnColorChanged") {
+			CBaseEntity::OnColorChanged = data.m_CallbackFn;
+			LogF(LP_DATA, "{}::{}: {}", data.m_szClassName, data.m_szCallbackName, (void*)data.m_CallbackFn);
 		}
 
-	auto iconLoadThread = std::async(std::launch::async, []() {
-		Pages::AutoPickHeroGrid::InitList();
-	return true;
-		});
+	auto iconLoadThread = std::async(std::launch::async,
+		[]() {
+			Pages::AutoPickHeroGrid::InitList();
+			return true;
+		}
+	);
 
 	Interfaces::CVar->DumpConVarsToMap();
 

@@ -226,7 +226,7 @@ void ESP::AbilityESP::LoadItemTexIfNeeded(AbilityData& data) {
 // Only draws slots occupied by an item
 // If the item is toggled(like armlet), a green frame is drawn
 // If the item has charges(like wand), a counter is displayed in the top left corner of the image
-void ESP::AbilityESP::DrawItems() {
+void ESP::AbilityESP::DrawItemLines() {
 	const ImVec2 iconSize{ (float)ScaleVar(AbilityIconSize), (float)ScaleVar(AbilityIconSize) };
 	const int gap = 1;
 	auto DrawList = ImGui::GetForegroundDrawList();
@@ -379,7 +379,7 @@ void ESP::AbilityESP::DrawESP() {
 	MTM_LOCK;
 
 	DrawAbilities();
-	DrawItems();
+	DrawItemLines();
 }
 
 void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, const ImVec2& pos) {
@@ -390,7 +390,7 @@ void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, const ImVec2& 
 	// constexpr auto clrLvlOutline = ImVec4(0xE7 / 255.0f, 0xD2 / 255.0f, 0x92 / 255.0f, 1);
 	// constexpr auto clrLvlBackground = ImVec4(0x28 / 255.0f, 0x0F / 255.0f, 0x01 / 255.0f, 1);
 	// constexpr ImVec2 outlinePadding(1, 1);
-	int counterScale = ScaleVar(32);
+	int counterScale = ScaleVar(26);
 
 	// ImVec2 counterSize(counterScale, counterScale);
 	// ImVec2 imgXY1 = pos - counterSize, imgXY2 = pos + counterSize;
@@ -404,34 +404,38 @@ void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, const ImVec2& 
 	//	clrLvlOutline
 	//);
 	DrawTextForeground(DrawData.GetFont("Monofonto", counterScale - 2), std::to_string(lvl),
-		ImVec2(pos.x, pos.y - (counterScale - 2) / 2),
+		ImVec2(pos.x, pos.y - (ScaleVar(32) - 2) / 2),
 		counterScale - 2,
 		ImColor{ 255,255,255 },
 		true);
 }
 
 void ESP::AbilityESP::DrawLevelBars(CDOTABaseAbility* ability, const ImVec2& xy1, const ImVec2& xy2) {
-	const static auto clrLearned = ImColor(100, 255, 0);//= ImColor(0xE7, 0xD2, 0x92);
-	const static auto clrEmpty = ImColor(0, 0, 0);
+	const auto clrLearned = ImColor(193, 254, 0);
 
 	int lvl = ability->GetLevel(), maxLvl = ability->GetMaxLevel();
 	if (lvl == 1 && maxLvl == 1)
 		return;
 
-	int elemWidth = (xy2.x - xy1.x) / maxLvl;
+	const auto elemWidth = (xy2.x - xy1.x) / maxLvl;
 	auto DrawList = ImGui::GetForegroundDrawList();
-
-	DrawList->AddRectFilled(
-		ImVec2(xy1.x, xy1.y),
-		ImVec2(xy1.x + lvl * elemWidth, xy2.y),
-		clrEmpty
-	);
-	for (int i = 0; i < lvl; ++i)
+	const ImVec2 outline{ 1.f,1.f };
+	for (int i = 0; i < lvl; ++i) {
+		auto barXY1 = ImVec2(xy1.x + i * elemWidth, xy1.y);
+		auto barXY2 = ImVec2(xy1.x + (i + 1) * elemWidth, xy2.y);
 		DrawList->AddRectFilled(
-			ImVec2(xy1.x + 1 + i * elemWidth, xy1.y + 1),
-			ImVec2(xy1.x - 1 + (i + 1) * elemWidth, xy2.y - 1),
-			clrLearned
+			barXY1,
+			barXY2,
+			ImColor{0,0,0},
+			elemWidth / 4
 		);
+		DrawList->AddRectFilled(
+			barXY1 + outline,
+			barXY2 - outline,
+			clrLearned,
+			elemWidth / 4
+		);
+	}
 }
 
 void ESP::AbilityESP::DrawChargeCounter(int charges, const ImVec2& pos, int radius) {

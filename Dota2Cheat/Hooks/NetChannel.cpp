@@ -2,7 +2,7 @@
 
 
 void Hooks::hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits) {
-	Hooks::NetChan = thisptr;
+	NetChan = thisptr;
 
 	if (messageHandle->messageID != 4 // not CNetMsg_Tick [4]
 		&& ctx.gameStage == GameStage::IN_GAME)
@@ -19,7 +19,7 @@ void Hooks::hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* m
 }
 
 bool Hooks::hkSendNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, NetChannelBufType_t type) {
-	Hooks::NetChan = thisptr;
+	NetChan = thisptr;
 
 	return oSendNetMessage(thisptr, messageHandle, msg, type);
 }

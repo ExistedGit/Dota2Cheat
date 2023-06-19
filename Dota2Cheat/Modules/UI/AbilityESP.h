@@ -33,11 +33,20 @@ namespace ESP {
 		bool CanDraw(CDOTABaseNPC_Hero* hero);;
 		void DrawAbilities();
 		void LoadItemTexIfNeeded(AbilityData& data);
-		void DrawItems();
+
+		// ItemESP modes
+		void DrawItemLines();
+		//TODO: implement
+		//void DrawItemGrids();
+
 		void DrawItemCircle(const AbilityData& data, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius);
+
+		// Level display modes
 		void DrawLevelCounter(CDOTABaseAbility* ability, const ImVec2& pos);
 		void DrawLevelBars(CDOTABaseAbility* ability, const ImVec2& xy1, const ImVec2& xy2);
+
 		void DrawChargeCounter(int charges, const ImVec2& pos, int radius);
+
 		void UpdateAbilities(CDOTABaseNPC_Hero* hero);
 		void UpdateItems(CDOTABaseNPC_Hero* hero);
 	public:

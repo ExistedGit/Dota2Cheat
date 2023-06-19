@@ -323,6 +323,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	clock_t timeStart = clock();
 
+	DumpAllClasses(dumpFolderPath);
+
 	SchemaDumpToMap("client.dll",
 		"CEntityIdentity",
 		"C_DOTA_Item",
@@ -350,21 +352,20 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		SaveNetvarsToFile(fout);
 		fout.close();
 	}
+
 	if (std::ofstream fout(dumpFolderPath + "\\Interfaces.txt"); fout.is_open()) {
 		SaveInterfacesToFile(fout);
 		fout.close();
 	}
+
 	if (std::ofstream fout(dumpFolderPath + "\\GameSystems.txt"); fout.is_open()) {
 		SaveGameSystemsToFile(fout);
 		fout.close();
 	}
 
-	DumpAllClasses(dumpFolderPath);
-
 	while (scopesDumped != scopeCount)
-	{
-		Sleep(1);
-	}
+		Sleep(10);
+
 	clock_t timeEnd = clock();
 
 	std::cout << "\nTime elapsed: " << round(((double)(timeEnd - timeStart) / CLOCKS_PER_SEC) * 10) / 10 << "s" << '\n';
