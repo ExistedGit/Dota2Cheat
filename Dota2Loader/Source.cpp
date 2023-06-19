@@ -1,139 +1,152 @@
 #include <iostream>
-#include <ShlObj.h>
-
 #include <Windows.h>
-#include <filesystem>
-#include <vector>
+#include <string>
+#include <memory>
+#include <TlHelp32.h>
 
-#include <BlackBone/Process/Process.h>
-#include <BlackBone/Patterns/PatternSearch.h>
-#include <BlackBone/Process/RPC/RemoteFunction.hpp>
-#include <BlackBone/Syscalls/Syscall.h>
 
-using namespace std;
-using namespace blackbone;
-using std::filesystem::current_path;
-namespace fs = std::filesystem;
-
-std::set<std::wstring> nativeMods, modList;
-
-void DllLoadLibrary(Process& proc, const wstring& path) {
-	auto mainThread = proc.threads().getMain();
-	if (auto pLoadLibrary = MakeRemoteFunction<decltype(&LoadLibraryW)>(proc, L"Kernel32.dll", "LoadLibraryW"); pLoadLibrary && mainThread)
+DWORD GetProcessIdByName(const wchar_t* const processName)
+{
+	DWORD processId = 0;
+	HANDLE hSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+	if (hSnapshot != INVALID_HANDLE_VALUE)
 	{
-		auto result = pLoadLibrary.Call({ path.c_str() }, mainThread);
-		if (*result)
-			cout << "LoadLibrary result: " << *result << "\n";
+		PROCESSENTRY32W processEntry{};
+		processEntry.dwSize = sizeof(PROCESSENTRY32W);
+
+		if (Process32FirstW(hSnapshot, &processEntry))
+		{
+			do
+			{
+				if (_wcsicmp(processEntry.szExeFile, processName) == 0)
+				{
+					processId = processEntry.th32ProcessID;
+					break;
+				}
+			} while (Process32NextW(hSnapshot, &processEntry));
+		}
+
+		CloseHandle(hSnapshot);
 	}
+
+	return processId;
 }
 
-void DllManualMap(Process& proc, const wstring& path)
+bool OpenProcessWithRights(DWORD processId, HANDLE& hProcess)
 {
-
-	nativeMods.clear();
-	modList.clear();
-
-	nativeMods.emplace(L"combase.dll");
-	nativeMods.emplace(L"user32.dll");
-	modList.emplace(L"windows.storage.dll");
-	modList.emplace(L"shell32.dll");
-	modList.emplace(L"shlwapi.dll");
-
-	auto callback = [](CallbackType type, void* /*context*/, Process& /*process*/, const ModuleData& modInfo)
+	hProcess = OpenProcess(PROCESS_CREATE_THREAD | PROCESS_QUERY_INFORMATION | PROCESS_VM_OPERATION | PROCESS_VM_WRITE | PROCESS_VM_READ, FALSE, processId);
+	if (!hProcess)
 	{
-		if (type == PreCallback)
+		std::cout << "Ошибка при открытии процесса. Код ошибки: " << GetLastError() << std::endl;
+		return false;
+	}
+
+	return true;
+}
+
+bool AllocateMemoryInProcess(HANDLE hProcess, const wchar_t* const dllPath, LPVOID& dllPathRemote)
+{
+	size_t dllPathSize = (wcslen(dllPath) + 1) * sizeof(wchar_t);
+
+	dllPathRemote = VirtualAllocEx(hProcess, nullptr, dllPathSize, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
+	if (!dllPathRemote)
+	{
+		std::cout << "Ошибка при выделении памяти в процессе. Код ошибки: " << GetLastError() << std::endl;
+		return false;
+	}
+
+	if (!WriteProcessMemory(hProcess, dllPathRemote, dllPath, dllPathSize, nullptr))
+	{
+		std::cout << "Ошибка при записи пути к DLL в память процесса. Код ошибки: " << GetLastError() << std::endl;
+		VirtualFreeEx(hProcess, dllPathRemote, 0, MEM_RELEASE); // Освобождаем память в случае ошибки записи
+		return false;
+	}
+
+	return true;
+}
+
+bool CreateRemoteThreadForLoadLibrary(HANDLE hProcess, HANDLE& hRemoteThread, const wchar_t* const dllPath)
+{
+	HMODULE hKernel32 = GetModuleHandle(L"kernel32.dll");
+	if (!hKernel32)
+	{
+		std::cout << "Ошибка при получении адреса kernel32.dll. Код ошибки: " << GetLastError() << std::endl;
+		return false;
+	}
+
+	FARPROC loadLibraryAddr = GetProcAddress(hKernel32, "LoadLibraryW");
+	if (!loadLibraryAddr)
+	{
+		std::cout << "Ошибка при получении адреса функции LoadLibraryW. Код ошибки: " << GetLastError() << std::endl;
+		return false;
+	}
+
+	hRemoteThread = CreateRemoteThread(hProcess, nullptr, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>(loadLibraryAddr), const_cast<wchar_t*>(dllPath), 0, nullptr);
+	if (!hRemoteThread)
+	{
+		std::cout << "Ошибка при создании удаленного потока. Код ошибки: " << GetLastError() << std::endl;
+		return false;
+	}
+
+	return true;
+}
+
+bool WaitForThreadCompletion(HANDLE hRemoteThread)
+{
+	if (WaitForSingleObject(hRemoteThread, INFINITE) == WAIT_FAILED)
+	{
+		std::cout << "Ошибка при ожидании завершения удаленного потока. Код ошибки: " << GetLastError() << std::endl;
+		return false;
+	}
+
+	return true;
+}
+
+bool InjectDll(DWORD processId, const wchar_t* const dllPath)
+{
+	HANDLE hProcess;
+	if (!OpenProcessWithRights(processId, hProcess))
+		return false;
+
+	std::unique_ptr<void, decltype(&CloseHandle)> hProcessHandle(hProcess, &CloseHandle);
+
+	LPVOID dllPathRemote = nullptr;
+	if (!AllocateMemoryInProcess(hProcess, dllPath, dllPathRemote))
+		return false;
+
+	HANDLE hRemoteThread;
+	if (!CreateRemoteThreadForLoadLibrary(hProcess, hRemoteThread, reinterpret_cast<const wchar_t*>(dllPathRemote)))
+		return false;
+
+	if (!WaitForThreadCompletion(hRemoteThread))
+		return false;
+
+	return true;
+}
+
+int main()
+{
+	const char* const processName = "dota2.exe"; // Имя процесса Dota 2
+	const wchar_t* const dllPath = L"C:\\Users\\Wh3baby\\Desktop\\Dota2Cheat.dll"; // Путь к DLL для инъекции // "C:\Users\Wh3baby\Desktop\Dota2Cheat.dll"
+	wchar_t wideProcessName[MAX_PATH];
+	MultiByteToWideChar(CP_ACP, 0, processName, -1, wideProcessName, MAX_PATH);
+
+	DWORD processId = GetProcessIdByName(wideProcessName);
+	if (processId != 0)
+	{
+		if (InjectDll(processId, dllPath))
 		{
-			if (nativeMods.count(modInfo.name))
-				return LoadData(MT_Native, Ldr_None);
+			std::cout << "DLL успешно инжектирована!" << std::endl;
 		}
 		else
 		{
-			if (modList.count(modInfo.name))
-				return LoadData(MT_Default, Ldr_ModList);
+			std::cout << "Ошибка при инжектировании DLL." << std::endl;
 		}
-
-		return LoadData(MT_Default, Ldr_None);
-	};
-
-	std::wcout << L"Mapping Dota2Cheat.dll into dota2.exe..." << std::endl;
-	auto image = proc.mmap().MapImage(path, NoFlags, callback);
-	if (!image)
-		std::wcout << L"Mapping failed with error 0x" << std::hex << image.status
-		<< L". " << Utils::GetErrorDescription(image.status) << std::endl << std::endl;
+	}
 	else
-		std::wcout << L"Mapping successful!\n";
-}
-int main() {
-	using namespace blackbone;
-
-	const wstring curDir = current_path().wstring();
-	const wstring injectPath = curDir + L"\\Dota2Cheat.dll";
 	{
-		//notepad.CreateAndAttach( L"C:\\windows\\system32\\notepad.exe", true );
-		std::string userFolderPath;
-		{
-			char buf[256];
-			SHGetSpecialFolderPathA(0, buf, CSIDL_PROFILE, false);
-			userFolderPath = buf;
-		}
-		cout << "Updating assets...\n";
-		auto cheatFolderPath = userFolderPath + "\\Documents\\Dota2Cheat";
-		fs::create_directories(cheatFolderPath + "\\assets\\spellicons\\");
-		fs::create_directories(cheatFolderPath + "\\scripts\\");
-		fs::create_directories(cheatFolderPath + "\\config\\");
-		{
-			auto assetsPath = curDir;
-			for (int i = 0; i < 3; i++) {
-				if (fs::exists(assetsPath + L"\\assets"))
-					break;
-				assetsPath += L"\\..";
-			}
-			fs::copy(assetsPath + L"\\assets", cheatFolderPath + R"(\assets\)", fs::copy_options::recursive | fs::copy_options::skip_existing);
-		}
-		cout << "Updated assets\n";
-
-
-		cout << "Updating scripts\n";
-		{
-			auto scriptsPath = curDir;
-			for (int i = 0; i < 3; i++) {
-				if (fs::exists(scriptsPath + L"\\scripts"))
-					break;
-				scriptsPath += L"\\..";
-			}
-			fs::copy(scriptsPath + L"\\scripts", cheatFolderPath + R"(\scripts\)", fs::copy_options::recursive | fs::copy_options::skip_existing);
-		}
-		cout << "Updated scripts\n";
-
-		// Copy the local signatures just in case
-		{
-			auto sigPath = curDir;
-			for (int i = 0; i < 3; i++) {
-				if (fs::exists(sigPath + L"\\signatures.json"))
-					break;
-				sigPath += L"\\..";
-			}
-			fs::copy(sigPath + L"\\signatures.json", cheatFolderPath, fs::copy_options::overwrite_existing);
-		}
-
-		cout << "Successfully updated resources in " << cheatFolderPath << '\n';
+		std::cout << "Процесс Dota 2 не найден." << std::endl;
 	}
 
-	cout << "Attaching to dota2.exe...\n";
-	Process proc;
-	proc.Attach(L"dota2.exe");
-	if (!proc.pid())
-	{
-		cout << "dota2.exe is not running!\n";
-		return 0;
-	}
-
-	cout << "Attached! Injecting...\n";
-#ifdef _DEBUG
-	DllLoadLibrary(proc, injectPath);
-#else
-	DllManualMap(proc, injectPath);
-#endif // _DEBUG
-
-	system("pause");
+	return 0;
 }
