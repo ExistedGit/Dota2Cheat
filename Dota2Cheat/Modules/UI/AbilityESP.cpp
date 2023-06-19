@@ -222,10 +222,10 @@ void ESP::AbilityESP::LoadItemTexIfNeeded(AbilityData& data) {
 
 }
 
-// Draws the same 6-slot sequence as for abilities + two circles for TP and neutral slot on the left and right respectively
-// If there is no item in a slot, a black block is drawn
+// Draws the same blok sequence like for abilities + two circles for TP and neutral slot on the right and left respectively
+// Only draws slots occupied by an item
 // If the item is toggled(like armlet), a green frame is drawn
-// If the item has charges(like wand), a circle with a counter is drawn in the top left corner of the image
+// If the item has charges(like wand), a counter is displayed in the top left corner of the image
 void ESP::AbilityESP::DrawItems() {
 	const ImVec2 iconSize{ (float)ScaleVar(AbilityIconSize), (float)ScaleVar(AbilityIconSize) };
 	const int gap = 1;
@@ -338,7 +338,7 @@ void ESP::AbilityESP::DrawItems() {
 void ESP::AbilityESP::DrawItemCircle(const AbilityData& data, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius) {
 	auto DrawList = ImGui::GetForegroundDrawList();
 	const ImVec2 center = (xy1 + xy2) / 2;
-	constexpr float aspectRatio = (1 - 64. / 88) / 2;
+	constexpr float aspectRatio = (1 - 64.f / 88) / 2;
 
 	DrawList->AddCircleFilled(center, radius + 2, ImColor(0, 0, 0, 255));
 	if (!data.ability)
@@ -369,8 +369,6 @@ void ESP::AbilityESP::DrawItemCircle(const AbilityData& data, const ImVec2& xy1,
 		cdFontSize,
 		ImVec4(1, 1, 1, 1),
 		true);
-
-
 }
 
 void ESP::AbilityESP::DrawESP() {
