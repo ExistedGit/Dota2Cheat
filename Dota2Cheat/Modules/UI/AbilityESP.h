@@ -17,6 +17,11 @@ namespace ESP {
 			Number
 		};
 
+		enum class ItemPanelType {
+			Sequence,
+			Grid
+		};
+
 		// Scales a value according to the config parameter
 		template<typename T = int>
 		T ScaleVar(auto val) {
@@ -35,9 +40,10 @@ namespace ESP {
 		void LoadItemTexIfNeeded(AbilityData& data);
 
 		// ItemESP modes
-		void DrawItemLines();
-		//TODO: implement
-		//void DrawItemGrids();
+		void DrawItemSequences();
+		void DrawItemGrids();;
+		void DrawItemIcon(std::map<int, AbilityData>& inv, int slot, const ImVec2& pos, const ImVec2& size);
+		// void DrawItemGrids();
 
 		void DrawItemCircle(const AbilityData& data, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius);
 

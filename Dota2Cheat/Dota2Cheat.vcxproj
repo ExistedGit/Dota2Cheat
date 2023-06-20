@@ -326,6 +326,7 @@
     <ClCompile Include="include\imgui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="include\imgui\imgui_tables.cpp" />
     <ClCompile Include="include\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="SDK\GameSystems\CGlobalVars.cpp" />
     <ClCompile Include="SDK\GameSystems\CRenderGameSystem.cpp" />
     <ClCompile Include="SDK\GameSystems\C_DOTAGameRules.cpp" />
     <ClCompile Include="SDK\Globals\GameSystems.cpp" />
@@ -670,8 +671,11 @@
     <ClInclude Include="SDK\Interfaces\GC\CDOTAGCLobbyManager.h" />
     <ClInclude Include="SDK\Interfaces\GC\ISharedObjectListener.h" />
     <ClInclude Include="SDK\Interfaces\GC\ItemSchema.h" />
+    <ClInclude Include="SDK\Interfaces\IAppSystem.h" />
     <ClInclude Include="SDK\Interfaces\ISteamClient.h" />
     <ClInclude Include="SDK\Interfaces\ISteamGameCoordinator.h" />
+    <ClInclude Include="SDK\Interfaces\Network\CNetworkGameClient.h" />
+    <ClInclude Include="SDK\Interfaces\Network\INetworkClientService.h" />
     <ClInclude Include="SDK\Protobufs\base_gcmessages.pb.h" />
     <ClInclude Include="SDK\Protobufs\clientmessages.pb.h" />
     <ClInclude Include="SDK\Protobufs\connectionless_netmessages.pb.h" />

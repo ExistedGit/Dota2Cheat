@@ -1,25 +1,27 @@
 #include "C_DOTAGameRules.h"
 #include "../Globals/GameSystems.h"
+#include "CGlobalVars.h"
 
 // Suggested by og, reversed by Morphling and rewritten by ExistedDim4
 float CDOTAGameRules::GetGameTime() {
-	auto inGame = !GameSystems::GlobalVars->Member<bool>(61) && !GameSystems::GlobalVars->Member<bool>(60);
+	auto gpGlobals = CGlobalVars::GetInstance();
+	auto someCondition = !gpGlobals->Member<bool>(61) && !gpGlobals->Member<bool>(60);
 
-	if (inGame)
+	if (someCondition)
 	{
-		auto func = GameSystems::GlobalVars->Member<Function>(32);
+		auto func = gpGlobals->Member<Function>(32);
 		if (func)
-			func(1i64, this ? GameSystems::GlobalVars : nullptr);
+			func(1i64, this ? gpGlobals : nullptr);
 		if (!this)
-			return GameSystems::GlobalVars->Member<float>(44);
+			return gpGlobals->Member<float>(44);
 	}
 
-	float tickToSeconds = GameSystems::GlobalVars->Member<float>(68);
+	float tickToSeconds = gpGlobals->Member<float>(68);
 	auto totalPausedTicks = Member<uint32_t>(Netvars::C_DOTAGamerules::m_nTotalPausedTicks);
 
 	if (IsGamePaused())
 		return (Member<int>(Netvars::C_DOTAGamerules::m_nPauseStartTick) - totalPausedTicks) * tickToSeconds;
-	return GameSystems::GlobalVars->Member<float>(44) - totalPausedTicks * tickToSeconds;
+	return gpGlobals->Member<float>(44) - totalPausedTicks * tickToSeconds;
 }
 
 std::vector<ItemStockInfo*> CDOTAGameRules::GetItemStockInfo() {

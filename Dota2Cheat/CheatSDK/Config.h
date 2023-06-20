@@ -79,6 +79,7 @@ namespace Config {
 		inline float UIScale;
 		inline int Rounding;
 		inline int LevelCounterType;
+		inline int ItemPanelType;
 		inline bool ShowCooldownDecimals;
 	}
 

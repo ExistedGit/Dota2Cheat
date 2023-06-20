@@ -226,17 +226,15 @@ void ESP::AbilityESP::LoadItemTexIfNeeded(AbilityData& data) {
 // Only draws slots occupied by an item
 // If the item is toggled(like armlet), a green frame is drawn
 // If the item has charges(like wand), a counter is displayed in the top left corner of the image
-void ESP::AbilityESP::DrawItemLines() {
+void ESP::AbilityESP::DrawItemSequences() {
 	const ImVec2 iconSize{ (float)ScaleVar(AbilityIconSize), (float)ScaleVar(AbilityIconSize) };
+
 	const int gap = 1;
-	auto DrawList = ImGui::GetForegroundDrawList();
-	// used to convert native rectangular item images to SQUARES
-	constexpr float aspectRatio = (1 - 64. / 88) / 2;
-	const float rounding = Config::AbilityESP::Rounding / 100.f * iconSize.x / 2;
 
 	for (auto& [hero, inv] : EnemyItems) {
 		if (!CanDraw(hero))
 			continue;
+
 		int validItems = 0;
 		for (int i = 0; i < 6; i++)
 			if (inv[i].ability)
@@ -264,63 +262,7 @@ void ESP::AbilityESP::DrawItemLines() {
 		}
 
 		for (int slot = 0; slot < 6; slot++) {
-			auto& itemData = inv[slot];
-			if (!itemData.ability)
-				continue;
-
-			ImVec2 imgXY1
-			{
-				basePos.x + 1,
-				basePos.y + 1
-			},
-				imgXY2 = imgXY1 + iconSize - ImVec2{ 2,2 },
-				imgCenter = (imgXY1 + imgXY2) / 2;
-
-			ImVec2 frameSize(1, 1);
-			ImVec2 frameXY1 = imgXY1 - frameSize,
-				frameXY2 = imgXY2 + frameSize;
-
-			ImU32 frameColor = ImColor{ 0,0,0,255 };
-
-			LoadItemTexIfNeeded(itemData);
-			DrawList->AddImageRounded(itemData.icon,
-				imgXY1,
-				imgXY2,
-				ImVec2(aspectRatio, 0),
-				ImVec2(1 - aspectRatio, 1), ImColor{ 255,255,255 }, rounding);
-
-			if (itemData.ability->IsToggled())
-				frameColor = ImColor(0x3, 0xAC, 0x13);
-
-
-			// Frame
-			DrawList->AddRect(frameXY1, frameXY2, frameColor, rounding);
-
-			float cd = itemData.ability->GetCooldown();
-			if (cd != 0) {
-				DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.25f)), rounding);
-				auto fontSize = iconSize.y - ScaleVar<float>(2);
-				bool decimals = Config::AbilityESP::ShowCooldownDecimals;
-				if (cd >= 100) {
-					fontSize -= 4;
-					decimals = false;
-				}
-
-				if (decimals)
-					fontSize -= 4;
-				DrawTextForeground(
-					DrawData.GetFont("Monofonto", fontSize),
-					std::vformat(Config::AbilityESP::ShowCooldownDecimals ? "{:.1f}" : "{:.0f}", std::make_format_args(cd)),
-					ImVec2(imgCenter.x, imgCenter.y - fontSize / 2),
-					fontSize,
-					ImVec4(1, 1, 1, 1),
-					true);
-			}
-
-			int charges = reinterpret_cast<CDOTAItem*>(itemData.ability)->GetCurrentCharges();
-			if (charges != 0)
-				DrawChargeCounter(charges, frameXY1, 8);
-
+			DrawItemIcon(inv, slot, basePos, iconSize);
 			basePos.x += gap + iconSize.x;
 		}
 
@@ -332,6 +274,125 @@ void ESP::AbilityESP::DrawItemLines() {
 			DrawItemCircle(inv[15], cXY1, cXY2, iconSize, (iconSize.x - 2) / 2);
 		}
 	}
+}
+
+void ESP::AbilityESP::DrawItemGrids() {
+	const ImVec2 iconSize{ ScaleVar<float>(AbilityIconSize), ScaleVar<float>(AbilityIconSize) };
+
+	const int
+		gap = 1,
+		col = 3;
+
+	for (auto& [hero, inv] : EnemyItems) {
+		if (!CanDraw(hero))
+			continue;
+
+		//if (inv[15].ability)
+		//	validItems++;
+		//if (inv[16].ability)
+		//	validItems++;
+
+		ImVec2 basePos = HeroData[hero].HealthbarW2S;
+		basePos.x -= col * (iconSize.x + gap) / 2;
+		basePos.y -= 10;
+
+		bool sideSlotsPresent = inv[16].ability || inv[15].ability;
+		if (sideSlotsPresent)
+			basePos.x -= (iconSize.x + gap) / 2 + 4;
+
+		ImVec2 sideSlotsBasePos = basePos;
+		sideSlotsBasePos.x += col * (iconSize.x + gap) + 4;
+
+		if (inv[15].ability) {
+			LoadItemTexIfNeeded(inv[15]);
+			ImVec2 cXY1{ sideSlotsBasePos.x + 1 , sideSlotsBasePos.y + 1 },
+				cXY2 = cXY1 + iconSize - ImVec2{ 2,2 };
+			DrawItemCircle(inv[15], cXY1, cXY2, iconSize, (iconSize.x - 2) / 2);
+		}
+		if (inv[16].ability) {
+			LoadItemTexIfNeeded(inv[16]);
+			ImVec2 cXY1{ sideSlotsBasePos.x + 1 , sideSlotsBasePos.y + iconSize.y + 1 },
+				cXY2 = cXY1 + iconSize - ImVec2{ 2,2 };
+			DrawItemCircle(inv[16], cXY1, cXY2, iconSize, (iconSize.x - 2) / 2);
+		}
+
+
+		int validItemsDrawn = 0;
+		for (int slot = 0; slot < 6; slot++) {
+			if (!inv[slot].ability)
+				continue;
+
+			int x = validItemsDrawn % col,
+				y = validItemsDrawn / 3;
+
+			DrawItemIcon(inv, slot, basePos + ImVec2{ (float)x, (float)y } *(iconSize.x + gap), iconSize);
+
+			if (inv[slot].ability)
+				validItemsDrawn++;
+		}
+
+	}
+
+}
+
+void ESP::AbilityESP::DrawItemIcon(std::map<int, AbilityData>& inv, int slot, const ImVec2& pos, const ImVec2& size) {
+	auto DrawList = ImGui::GetForegroundDrawList();
+	// used to convert native rectangular item images to SQUARES
+	constexpr float aspectRatio = (1 - 64. / 88) / 2;
+	const float rounding = Config::AbilityESP::Rounding / 100.f * size.x / 2;
+
+	auto& itemData = inv[slot];
+	if (!itemData.ability)
+		return;
+
+	ImVec2 imgXY1 = pos + ImVec2{ 1,1 },
+		imgXY2 = imgXY1 + size - ImVec2{ 2,2 },
+		imgCenter = (imgXY1 + imgXY2) / 2;
+
+	ImVec2 frameSize(1, 1);
+	ImVec2 frameXY1 = imgXY1 - frameSize,
+		frameXY2 = imgXY2 + frameSize;
+
+	ImU32 frameColor = ImColor{ 0,0,0,255 };
+
+	LoadItemTexIfNeeded(itemData);
+	DrawList->AddImageRounded(itemData.icon,
+		imgXY1,
+		imgXY2,
+		ImVec2(aspectRatio, 0),
+		ImVec2(1 - aspectRatio, 1), ImColor{ 255,255,255 }, rounding);
+
+	if (itemData.ability->IsToggled())
+		frameColor = ImColor(0x3, 0xAC, 0x13);
+
+
+	// Frame
+	DrawList->AddRect(frameXY1, frameXY2, frameColor, rounding);
+
+	float cd = itemData.ability->GetCooldown();
+	if (cd != 0) {
+		DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.25f)), rounding);
+		auto fontSize = size.y - ScaleVar<float>(2);
+		bool decimals = Config::AbilityESP::ShowCooldownDecimals;
+		if (cd >= 100) {
+			fontSize -= 4;
+			decimals = false;
+		}
+
+		if (decimals)
+			fontSize -= 4;
+		DrawTextForeground(
+			DrawData.GetFont("Monofonto", fontSize),
+			std::vformat(Config::AbilityESP::ShowCooldownDecimals ? "{:.1f}" : "{:.0f}", std::make_format_args(cd)),
+			ImVec2(imgCenter.x, imgCenter.y - fontSize / 2),
+			fontSize,
+			ImVec4(1, 1, 1, 1),
+			true);
+	}
+
+	int charges = reinterpret_cast<CDOTAItem*>(itemData.ability)->GetCurrentCharges();
+	if (charges != 0)
+		DrawChargeCounter(charges, frameXY1, 8);
 }
 
 
@@ -378,8 +439,13 @@ void ESP::AbilityESP::DrawESP() {
 
 	MTM_LOCK;
 
+	auto itemType = (ItemPanelType)Config::AbilityESP::ItemPanelType;
+
 	DrawAbilities();
-	DrawItemLines();
+	if (itemType == ItemPanelType::Sequence)
+		DrawItemSequences();
+	else
+		DrawItemGrids();
 }
 
 void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, const ImVec2& pos) {
@@ -426,7 +492,7 @@ void ESP::AbilityESP::DrawLevelBars(CDOTABaseAbility* ability, const ImVec2& xy1
 		DrawList->AddRectFilled(
 			barXY1,
 			barXY2,
-			ImColor{0,0,0},
+			ImColor{ 0,0,0 },
 			elemWidth / 4
 		);
 		DrawList->AddRectFilled(

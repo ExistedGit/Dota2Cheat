@@ -54,9 +54,6 @@ void GameSystems::FindGameSystems() {
 	SET_VAR(GameEventManagerPtr, Address(Interfaces::Client->GetVFunc(13).ptr)
 		.Offset(0x3E)
 		.GetAbsoluteAddress(3));
-	// Source2Client::SetGlobals()
-	SET_VAR(GlobalVarsPtr, Address(Interfaces::Client->GetVFunc(11).ptr)
-		.GetAbsoluteAddress<CGlobalVars**>(3));
 
 	RichPresence = FindStaticGameSystem<CDOTARichPresence>("CDOTARichPresence");
 	GCClientSystem = FindStaticGameSystem<CDOTAGCClientSystem>("CDOTAGCClientSystem");

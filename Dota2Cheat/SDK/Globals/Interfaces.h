@@ -5,6 +5,8 @@
 #include "../Interfaces/CInputService.h"
 #include "../Interfaces/CBaseFileSystem.h"
 #include "../Interfaces/Network/CNetworkMessages.h"
+#include "../Interfaces/Network/CNetworkGameClient.h"
+#include "../Interfaces/Network/INetworkClientService.h"
 #include "../Interfaces/GC/CGCClient.h"
 #include "../Interfaces/CVarSystem.h"
 #include "../Interfaces/Panorama.h"
@@ -26,18 +28,21 @@ namespace Interfaces {
 	inline CResourceSystem* ResourceSystem{};
 	inline VClass* Panorama{};
 	inline Panorama::CUIEngineSource2* UIEngine{};
-	inline VClass* Client{};
+	inline VClass* Client{}; // CSource2Client 
 	inline CGameEntitySystem* EntitySystem{};
 	inline ISteamClient* SteamClient{};
 	inline ISteamGameCoordinator* SteamGC{};
 	inline CGameUI* GameUI{};
 	inline CGCClient* GCClient{};
+
+	inline INetworkClientService* NetworkClientService{};
+	inline CNetworkMessages* NetworkMessages{};
+
 	inline CInputService* InputService{};
 	inline VClass* Schema{};
 	inline VClass* ParticleMgrSystem{};
 	inline CBaseFileSystem* FileSystem{};
 	inline void* NetworkSystem;
-	inline CNetworkMessages* NetworkMessages{};
 
 	// Gets a public interface via CreateInterface() export
 	// vmCount can be specified to check if the vtable has changed

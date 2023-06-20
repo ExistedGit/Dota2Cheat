@@ -115,15 +115,21 @@ void Pages::MainMenu::Draw() {
 
 	if (ImGui::TreeNode("AbilityESP")) {
 
-		static const char* Types[] = {
+		static const char* LevelCounterTypes[] = {
 			"Bars",
 			"Number"
+		};
+
+		static const char* ItemPanelTypes[] = {
+			"Sequence",
+			"Grid"
 		};
 
 		ImGui::Checkbox("Enable", &Config::AbilityESP::Enabled);
 		ImGui::Checkbox("Include allied heroes", &Config::AbilityESP::ShowAllies);
 		ImGui::Checkbox("Show decimals in cooldowns", &Config::AbilityESP::ShowCooldownDecimals);
-		ImGui::Combo("Level counter type", &Config::AbilityESP::LevelCounterType, Types, IM_ARRAYSIZE(Types));
+		ImGui::Combo("Level counter type", &Config::AbilityESP::LevelCounterType, LevelCounterTypes, IM_ARRAYSIZE(LevelCounterTypes));
+		ImGui::Combo("Item panel type", &Config::AbilityESP::ItemPanelType, ItemPanelTypes, IM_ARRAYSIZE(ItemPanelTypes));
 		ImGui::SliderFloat("UI scale", &Config::AbilityESP::UIScale, 0.7f, 1.4f, "%.1f");
 		ImGui::SliderInt("Element rounding", &Config::AbilityESP::Rounding, 0, 100, "%d %%", ImGuiSliderFlags_AlwaysClamp);
 		ImGui::TreePop();

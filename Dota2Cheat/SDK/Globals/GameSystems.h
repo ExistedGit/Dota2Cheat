@@ -5,7 +5,6 @@
 #include "../Base/Memory.h"
 
 #include "../GameSystems/C_DOTAGameRules.h"
-#include "../GameSystems/CGlobalVars.h"
 #include "../GameSystems/C_DOTA_PlayerResource.h"
 #include "../GameSystems/CDOTAParticleManager.h"
 #include "../GameSystems/C_DOTA_ProjectileManager.h"
@@ -42,7 +41,6 @@ namespace GameSystems {
 #define REALLOCATING_SYSTEM(type, name) inline type* name {}; \
 										inline type** name##Ptr {};
 
-	REALLOCATING_SYSTEM(CGlobalVars, GlobalVars);
 	REALLOCATING_SYSTEM(CGameEventManager, GameEventManager);
 	REALLOCATING_SYSTEM(C_DOTA_ProjectileManager, ProjectileManager);
 	REALLOCATING_SYSTEM(C_DOTA_PlayerResource, PlayerResource);

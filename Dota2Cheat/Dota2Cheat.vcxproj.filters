@@ -141,6 +141,7 @@
     <ClCompile Include="Modules\Hacks\ManaHPAbuse.cpp" />
     <ClCompile Include="SDK\GameSystems\CDOTA_MinimapObjectManager.cpp" />
     <ClCompile Include="SDK\GameSystems\CRenderGameSystem.cpp" />
+    <ClCompile Include="SDK\GameSystems\CGlobalVars.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
@@ -355,5 +356,8 @@
     <ClInclude Include="SDK\Interfaces\GC\CDOTAGCLobbyManager.h" />
     <ClInclude Include="SDK\GameSystems\CGameParticleManagerSystem.h" />
     <ClInclude Include="SDK\GameSystems\CRenderGameSystem.h" />
+    <ClInclude Include="SDK\Interfaces\Network\CNetworkGameClient.h" />
+    <ClInclude Include="SDK\Interfaces\Network\INetworkClientService.h" />
+    <ClInclude Include="SDK\Interfaces\IAppSystem.h" />
   </ItemGroup>
 </Project>
