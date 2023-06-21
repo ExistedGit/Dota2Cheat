@@ -230,6 +230,7 @@ void SaveInterfacesToFile(std::ofstream& fout) {
 	const char* modules[] = {
 		"client.dll",
 		"steamclient64.dll",
+		"soundsystem.dll",
 		"engine2.dll"
 	};
 

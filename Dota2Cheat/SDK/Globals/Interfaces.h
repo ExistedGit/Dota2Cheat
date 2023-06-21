@@ -11,6 +11,7 @@
 #include "../Interfaces/CVarSystem.h"
 #include "../Interfaces/Panorama.h"
 #include "../Interfaces/CResourceSystem.h"
+#include "../Interfaces/CSoundOpSystem.h"
 #include "../Interfaces/ISteamClient.h"
 #include "../Interfaces/ISteamGameCoordinator.h"
 #include "../Interfaces/CGameUI.h"
@@ -32,6 +33,7 @@ namespace Interfaces {
 	inline CGameEntitySystem* EntitySystem{};
 	inline ISteamClient* SteamClient{};
 	inline ISteamGameCoordinator* SteamGC{};
+	inline CSoundOpSystem* SoundOpSystem{};
 	inline CGameUI* GameUI{};
 	inline CGCClient* GCClient{};
 

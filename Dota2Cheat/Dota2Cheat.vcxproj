@@ -662,6 +662,7 @@
     <ClInclude Include="SDK\GameSystems\CDOTAParticleManager.h" />
     <ClInclude Include="SDK\Interfaces\CGameEntitySystem.h" />
     <ClInclude Include="SDK\GameSystems\CGameEventManager.h" />
+    <ClInclude Include="SDK\Interfaces\CSoundOpSystem.h" />
     <ClInclude Include="SDK\Interfaces\GC\CEconItem.h" />
     <ClInclude Include="SDK\Interfaces\GC\CEconWearable.h" />
     <ClInclude Include="SDK\Interfaces\GC\CGCClient.h" />

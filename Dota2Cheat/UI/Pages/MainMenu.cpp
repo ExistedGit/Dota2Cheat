@@ -25,8 +25,7 @@ void Pages::MainMenu::Draw() {
 	ImGui::InputText("Sound name", &uiSoundBuf);
 
 	if (ImGui::Button("PLAY SOUND")) {
-		void* unk;
-		Signatures::PlayUISoundScript(&unk, uiSoundBuf.c_str(), 1);
+		PlayUISoundScript(uiSoundBuf);
 	}
 
 	if (ImGui::Button("Log Entities"))

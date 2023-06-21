@@ -59,8 +59,7 @@ namespace Signatures {
 	//typedef CParticleCollection* (*CreateParticleCollectionFn)(CNewParticleEffect* thisptr, void* particleMgr, void* unk, void** query, int particleIndex);
 	//CreateParticleCollectionFn CreateParticleCollection{};
 
-	inline void* (__fastcall* PlayUISoundScript)(void** unk, const char* sound, int unk2);
-
+	
 	inline PrepareUnitOrdersFn PrepareUnitOrders{};
 
 	inline DispatchPacketFn DispatchPacket{};
@@ -77,7 +76,6 @@ namespace Signatures {
 		SIGMAP_ENTRY(SaveSerializedSOCache),
 #endif
 
-		SIGMAP_ENTRY(PlayUISoundScript),
 		SIGMAP_ENTRY(GetPlayer),
 		SIGMAP_ENTRY(CDOTA_DB_Popup_AcceptMatch),
 

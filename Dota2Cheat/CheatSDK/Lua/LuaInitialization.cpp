@@ -222,8 +222,5 @@ void Lua::InitFunctions(sol::state& lua) {
 	lua["RegisterGameEventListener"] = [](const sol::table& luaModule, const sol::function& func, const char* eventName) {
 		EventManager.AddLuaListener(luaModule, func, eventName);
 	};
-	lua["PlayUISoundScript"] = [](const char* soundName) {
-		void* unk;
-		Signatures::PlayUISoundScript(&unk, soundName, 1);
-	};
+	lua["PlayUISoundScript"] = PlayUISoundScript;
 }

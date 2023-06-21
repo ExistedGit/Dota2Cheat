@@ -35,10 +35,9 @@ namespace CheatGui {
 
 	FORCEINLINE bool Button(const char* label, const ImVec2& size_arg = ImVec2(0, 0)) {
 		const bool clicked = ImGui::Button(label, size_arg);
-		if (clicked) {
-			void* unk;
-			Signatures::PlayUISoundScript(&unk, "General.ButtonClick", 1);
-		}
+		if (clicked)
+			PlayUISoundScript("General.ButtonClick");
+		
 		return clicked;
 	}
 }

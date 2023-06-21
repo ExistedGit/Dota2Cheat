@@ -360,5 +360,6 @@
     <ClInclude Include="SDK\Interfaces\Network\CNetworkGameClient.h" />
     <ClInclude Include="SDK\Interfaces\Network\INetworkClientService.h" />
     <ClInclude Include="SDK\Interfaces\IAppSystem.h" />
+    <ClInclude Include="SDK\Interfaces\CSoundOpSystem.h" />
   </ItemGroup>
 </Project>

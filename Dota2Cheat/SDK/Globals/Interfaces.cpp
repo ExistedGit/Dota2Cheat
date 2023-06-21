@@ -36,6 +36,7 @@ void Interfaces::FindInterfaces() {
 	InitInterface(&GameUI, "client.dll", "LegacyGameUI001");
 	InitInterface(&Schema, "schemasystem.dll", "SchemaSystem_001", 38);
 	InitInterface(&ParticleMgrSystem, "particles.dll", "ParticleSystemMgr003");
+	InitInterface(&SoundOpSystem, "soundsystem.dll", "SoundOpSystem001");
 	InitInterface(&InputService, "engine2.dll", "InputService_001", 64);
 	InitInterface(&NetworkClientService, "engine2.dll", "NetworkClientService_001");
 	InitInterface(&NetworkSystem, "networksystem.dll", "NetworkSystemVersion001", 62);

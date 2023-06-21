@@ -17,6 +17,11 @@ inline ImVec2 ImVecFromVec2D(const Vector2D& vec) {
 	return ImVec2{ vec.x,vec.y };
 }
 
+inline void PlayUISoundScript(const std::string_view& name) {
+	void* p;
+	Interfaces::SoundOpSystem->StartSoundEvent(&p, name.data(), static_cast<uint32_t>(-1), 1);
+}
+
 inline ImVec2 WorldToScreen(const Vector& pos) {
 	Vector2D xy{};
 	if (!GameSystems::RenderGameSystem)
