@@ -1,4 +1,5 @@
 #include "AutoAccept.h"
+#include "../../SDK/Protobufs/dota_gcmessages_client_match_management.pb.h"
 
 void Hacks::AutoAccept::SetNotificationGameMode(const char* gm) {
 	notificationGameMode = gm;
@@ -26,7 +27,11 @@ void Hacks::AutoAccept::SendTGNotification() {
 
 void Hacks::AutoAccept::RunAcceptTimer() {
 	std::this_thread::sleep_for(std::chrono::seconds(Config::AutoAccept::Delay));
-	Signatures::CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby(GameSystems::GCClientSystem, true);
+	// All that rebuilt from CDOTAGCClientSystem::SendReadyUpMessageForCurrentLobby(), see signatures.json
+	CMsgReadyUp msg;
+	msg.set_ready_up_key(Interfaces::GCClient->GetReadyUpKey());
+	msg.set_state(DOTALobbyReadyState_ACCEPTED);
+	Interfaces::SteamGC->SendMsg(msg, k_EMsgGCReadyUp);
 	acceptingMatch = false;
 }
 

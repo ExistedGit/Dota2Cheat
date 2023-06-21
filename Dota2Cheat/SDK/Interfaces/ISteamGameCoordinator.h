@@ -7,9 +7,8 @@ class ISteamGameCoordinator
 {
 public:
 	// Morphling technologies
-	template<class T = google::protobuf::Message>
-	bool SendMsg(const T message, int message_id) {
-		constexpr int proto_size = 8; // sizeof( ProtoBufMsgHeader_t );
+	bool SendMsg(const google::protobuf::Message& message, int message_id) {
+	constexpr int proto_size = 8; // sizeof( ProtoBufMsgHeader_t );
 		void* ptr = malloc(message.ByteSizeLong() + proto_size);
 		if (!ptr) return false;
 		uint32_t msgtype = message_id | (1 << 31);

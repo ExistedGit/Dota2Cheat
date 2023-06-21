@@ -142,6 +142,7 @@
     <ClCompile Include="SDK\GameSystems\CDOTA_MinimapObjectManager.cpp" />
     <ClCompile Include="SDK\GameSystems\CRenderGameSystem.cpp" />
     <ClCompile Include="SDK\GameSystems\CGlobalVars.cpp" />
+    <ClCompile Include="Hooks\SteamGC.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />

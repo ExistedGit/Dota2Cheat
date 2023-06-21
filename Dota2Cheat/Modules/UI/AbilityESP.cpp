@@ -192,7 +192,8 @@ void ESP::AbilityESP::DrawAbilities() {
 					true);
 			}
 
-			if (lvlCounterType == LevelCounterType::Number)
+			if (lvlCounterType == LevelCounterType::Number
+				|| data.ability->GetMaxLevel() > 4) // bars look horrible on Invoker
 				DrawLevelCounter(data.ability, ImVec2{ imgXY1.x,imgXY2.y } - ImVec2{ 0, ScaleVar<float>(32) / 6 });
 			else
 				DrawLevelBars(data.ability,
@@ -262,6 +263,9 @@ void ESP::AbilityESP::DrawItemSequences() {
 		}
 
 		for (int slot = 0; slot < 6; slot++) {
+			if (!inv[slot].ability)
+				continue;
+
 			DrawItemIcon(inv, slot, basePos, iconSize);
 			basePos.x += gap + iconSize.x;
 		}

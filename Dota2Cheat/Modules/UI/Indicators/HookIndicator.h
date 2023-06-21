@@ -3,6 +3,7 @@
 #include "../../../CheatSDK/include.h"
 
 namespace Hacks {
+	// STUB
 	class HookIndicator {
 	public:
 		Vector CalculateHook(CDOTABaseNPC* enemy);

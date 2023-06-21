@@ -96,7 +96,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	ctx.lua.script("print(\"works!\")");
 
 	Interfaces::FindInterfaces();
-
+	
 	// It's supposed to be a CUtlSymbolTable, but we don't yet have the technology...
 	for (auto data : Interfaces::NetworkMessages->GetNetvarCallbacks())
 		if (IsValidReadPtr(data.m_szCallbackName) && std::string_view(data.m_szCallbackName) == "OnColorChanged") {

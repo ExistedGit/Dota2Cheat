@@ -66,11 +66,6 @@ namespace Signatures {
 	inline DispatchPacketFn DispatchPacket{};
 	inline BAsyncSendProtoFn BAsyncSendProto{};
 
-	// state:
-	// true = accept
-	// false = decline
-	inline bool(*CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby)(void* thisptr, bool state);
-
 	static inline std::map<std::string, void**> NamedSignatures{
 		SIGMAP_ENTRY(PrepareUnitOrders),
 
@@ -84,7 +79,6 @@ namespace Signatures {
 
 		SIGMAP_ENTRY(PlayUISoundScript),
 		SIGMAP_ENTRY(GetPlayer),
-		SIGMAP_ENTRY(CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby),
 		SIGMAP_ENTRY(CDOTA_DB_Popup_AcceptMatch),
 
 		SIGMAP_ENTRY(CDOTABaseNPC::GetAttackSpeed),

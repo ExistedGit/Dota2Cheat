@@ -4,16 +4,8 @@
 
 namespace Hooks {
 	using SendMessageFn = EGCResults(*)(ISteamGameCoordinator*, uint32_t, const void*, uint32_t);
-	inline SendMessageFn oSendMessage;
-
-	inline EGCResults hkSendMessage(ISteamGameCoordinator* thisptr, uint32_t unMsgType, const void* pubData, uint32_t cubData) {
-		//auto msgType = (EDOTAGCMsg)((uint16_t)unMsgType);
-		//if (msgType == k_EMsgGCReadyUp) {
-		//	CMsgReadyUp msg;
-		//	msg.ParseFromArray(pubData, cubData);
-		//	
-		//	LogF(LP_INFO, "ReadyUp: key {}", msg.ready_up_key());
-		//}
-		return oSendMessage(thisptr, unMsgType, pubData, cubData);
-	}
+	inline SendMessageFn oSendMessage{};
+	inline void* oRetrieveMessage{};
+	EGCResults hkSendMessage(ISteamGameCoordinator* thisptr, uint32_t unMsgType, const void* pubData, uint32_t cubData);
+	EGCResults hkRetrieveMessage(ISteamGameCoordinator* thisptr, uint32_t* punMsgType, void* pubDest, uint32_t cubDest, uint32_t* pcubMsgSize);
 }

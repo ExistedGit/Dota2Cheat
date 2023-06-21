@@ -102,7 +102,11 @@ public:
 	static void MemCopy(auto* dst, auto* src, size_t size) {
 		memcpy((void*)dst, (const void*)src, size);
 	}
-
+	template<typename T = void>
+	static T* GetInterface(const char* dllName, const char* interfaceName) {
+		auto CreateInterface = GetExport(dllName, "CreateInterface");
+		return (T*)CreateInterface(interfaceName, nullptr);
+	}
 	template<typename T = Function>
 	// Returns an exported function, if it's available
 	static T GetExport(const char* dllName, const char* exportName) {
