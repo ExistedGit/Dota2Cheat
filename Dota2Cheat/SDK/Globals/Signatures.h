@@ -69,11 +69,13 @@ namespace Signatures {
 		SIGMAP_ENTRY(PrepareUnitOrders),
 
 #if defined(_DEBUG) && !defined(_TESTING)
-		SIGMAP_ENTRY(DispatchPacket),
-		SIGMAP_ENTRY(BAsyncSendProto),
+		//SIGMAP_ENTRY(DispatchPacket),
+		//SIGMAP_ENTRY(BAsyncSendProto),
 		SIGMAP_ENTRY(GetItemSchema),
 		SIGMAP_ENTRY(CreateEconItem),
 		SIGMAP_ENTRY(SaveSerializedSOCache),
+		{"CEconItem::DeserializeFromProtobufItem", (void**)&CEconItem::DeserializeFromProtobufItemFunc},
+		{"CEconItem::EnsureCustomDataExists", (void**)&CEconItem::EnsureCustomDataExistsFunc},
 #endif
 
 		SIGMAP_ENTRY(GetPlayer),
@@ -84,8 +86,6 @@ namespace Signatures {
 		{"CDOTAParticleManager::DestroyParticle", (void**)&CDOTAParticleManager::DestroyParticleFunc},
 		{"CDOTARichPresence::SetRPStatus", (void**)&CDOTARichPresence::SetRPStatusFunc},
 		{"CDOTABaseAbility::GetLevelSpecialValueFor", (void**)&CDOTABaseAbility::GetLevelSpecialValueForFunc},
-		{"CEconItem::DeserializeFromProtobufItem", (void**)&CEconItem::DeserializeFromProtobufItemFunc},
-		{"CEconItem::EnsureCustomDataExists", (void**)&CEconItem::EnsureCustomDataExistsFunc},
 	};
 
 	void FindSignatures();

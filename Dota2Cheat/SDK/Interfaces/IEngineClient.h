@@ -7,7 +7,7 @@ class CEngineClient :
 	public VClass
 {
 public:
-	DWORD GetLocalPlayerSlot() {
+	DWORD GetLocalPlayerID() {
 		DWORD idx = 0;
 		CallVFunc<VTableIndexes::CEngineClient::GetLocalPlayer>(&idx, 0);
 		return idx;
@@ -18,7 +18,7 @@ public:
 	static void BindLua(sol::state& lua) {
 		auto type = lua.new_usertype<CEngineClient>("CEngineClient");
 
-		type["GetLocalPlayerSlot"] = &CEngineClient::GetLocalPlayerSlot;
+		type["GetLocalPlayerID"] = &CEngineClient::GetLocalPlayerID;
 		type["IsInGame"] = &CEngineClient::IsInGame;
 	}
 };

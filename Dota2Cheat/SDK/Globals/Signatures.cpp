@@ -6,13 +6,11 @@
 if(var) \
 	LogF(LP_DATA, "{}: {}", #var, (void*)var); \
 else \
-	{ LogF(LP_ERROR, "{}: {}", #var, (void*)var); error = true; }
+	LogF(LP_ERROR, "{}: {}", #var, (void*)var);
 
 void Signatures::FindSignatures() {
-	bool error = false;
-
-	CMsg = reinterpret_cast<decltype(CMsg)>(GetProcAddress(GetModuleHandleA("tier0.dll"), "Msg"));
-	CMsgColor = reinterpret_cast<decltype(CMsgColor)>(GetProcAddress(GetModuleHandleA("tier0.dll"), "?ConColorMsg@@YAXAEBVColor@@PEBDZZ"));
+	CMsg = Memory::GetExport<decltype(CMsg)>("tier0.dll", "Msg");
+	CMsgColor = Memory::GetExport<decltype(CMsgColor)>("tier0.dll", "?ConColorMsg@@YAXAEBVColor@@PEBDZZ");
 
 	SignatureDB::ParseSignatures(NamedSignatures);
 
@@ -36,19 +34,13 @@ void Signatures::FindSignatures() {
 
 	//// JS
 	//SET_VAR(CDOTABaseNPC::GetAttackSpeed, Memory::Scan("E8 ? ? ? ? F3 0F 59 05 ? ? ? ? 0F 57 C9", "client.dll").GetAbsoluteAddress(1));
-	//// JS
-	//SET_VAR(IsHUDFlipped, Memory::Scan("48 83 EC 38 B9 ? ? ? ? E8 ? ? ? ? 48 8B C8", "client.dll"));
 
 	//// xref "particles/ui_mouseactions/waypoint_flag.vpcf"
 	//// The one with the bigger offset from function
 	//SET_VAR(PrepareUnitOrders, Memory::Scan("E8 ? ? ? ? F3 44 0F 11 5B", "client.dll").GetAbsoluteAddress(1, 5));
 
 	//// Xref DestroyParticleEffect to a lea rcx just behind the string
-	//// It's offset by 9 bytes because it checks for an invalid handle before doing the initial mov
 	//SET_VAR(CDOTAParticleManager::DestroyParticleFunc, Memory::Scan("E8 ? ? ? ? 48 83 C3 1C", "client.dll").GetAbsoluteAddress(1, 5));
-
-	//// JS function
-	//SET_VAR(CDOTAGameRules::GetGameTimeFunc, Memory::Scan("E8 ? ? ? ? 8B 04 2E", "client.dll").GetAbsoluteAddress(1, 5));
 
 	//// UnknownCheats wiki -> Dota 2 -> link to Using engine functions
 	//SET_VAR(WorldToScreen, Memory::Scan("E8 ? ? ? ? 39 6C 24 68", "client.dll").GetAbsoluteAddress(1, 5));
@@ -86,9 +78,6 @@ void Signatures::FindSignatures() {
 	////in the middle, 240 lines in is:
 	//// if(!sub_XXXXXXX(v34, v89)) goto LABEL_XX:
 	//SET_VAR(BIsEmoticonUnlocked, Memory::Scan("E8 ? ? ? ? 84 C0 0F 84 ? ? ? ? 48 8B 45 08", "client.dll").GetAbsoluteAddress(1, 5));
-
-	////xref "OnColorChanged", lea rax, [XXXXXXXXX] below it
-	//SET_VAR(CBaseEntity::OnColorChanged, Memory::Scan("40 53 48 83 EC 20 48 8B D9 48 8B 89 ? ? ? ? 48 8B 01 0F B6 93", "client.dll"));
 
 #if defined(_DEBUG) && !defined(_TESTING)
 	SET_VAR(CDOTAItemSchema::GetItemDefByIndex, Memory::Scan("E8 ? ? ? ? 8B 4E 64", "client.dll").GetAbsoluteAddress(1));

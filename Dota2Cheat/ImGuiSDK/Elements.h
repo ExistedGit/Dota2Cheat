@@ -7,6 +7,7 @@
 #include <GLFW/glfw3.h> // Will drag system OpenGL headers
 #include <vector>
 #include <map>
+#include "../CheatSDK/Utils.h"
 
 namespace ImGui {
 

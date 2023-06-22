@@ -7,19 +7,17 @@ void Hooks::InstallHooks() {
 	HOOKFUNC_SIGNATURES(CDOTA_DB_Popup_AcceptMatch);
 
 #if defined(_DEBUG) && !defined(_TESTING)
-	//HOOKFUNC_SIGNATURES(DispatchPacket);
-	HOOKFUNC_SIGNATURES(BAsyncSendProto);
 	{
 		auto SendMsg = VMT(Interfaces::SteamGC).GetVM(0);
 		HookFunc(SendMsg, &Hooks::hkSendMessage, &Hooks::oSendMessage, "ISteamGameCoordinator::SendMessage");
 	}
+	HOOKFUNC_SIGNATURES(SaveSerializedSOCache);
+#endif // _DEBUG
+	{
 	{
 		auto RetrieveMessage = VMT(Interfaces::SteamGC).GetVM(2);
 		HookFunc(RetrieveMessage, &Hooks::hkRetrieveMessage, &Hooks::oRetrieveMessage, "ISteamGameCoordinator::RetrieveMessage");
 	}
-	HOOKFUNC_SIGNATURES(SaveSerializedSOCache);
-#endif // _DEBUG
-	{
 		//uintptr_t** vtable = Memory::Scan("48 8D 05 ? ? ? ? 48 8B D9 48 89 01 48 8B 49 50", "client.dll").GetAbsoluteAddress(3);
 		//uintptr_t* SetAbsOrigin = vtable[21];
 		//HOOKFUNC(SetAbsOrigin);

@@ -31,6 +31,7 @@ namespace GameSystems {
 	void InitMinimapRenderer();
 
 	inline CDOTAGCClientSystem* GCClientSystem{};
+	inline VClass* InventoryManager{};
 	inline CDOTARichPresence* RichPresence{};
 	inline CDOTAGameRules* GameRules;
 	inline CDOTA_MinimapObjectManager* MinimapObjManager{};
