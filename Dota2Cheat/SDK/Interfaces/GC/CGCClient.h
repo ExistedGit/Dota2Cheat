@@ -63,4 +63,9 @@ public:
 		for (auto& listener : listeners)
 			listener->SOUpdated(&soid, sharedObj, ev);
 	}
+	uint64_t GetReadyUpKey() {
+		auto lobbyId = ~GetLobbyManager()->FindLobby()->lobby_id();
+		uint32_t accId = GetSOListeners()[1]->GetSOCache()->GetOwner().m_unSteamID;
+		return lobbyId ^ (accId | ((uint64_t)accId << 32));
+	}
 };

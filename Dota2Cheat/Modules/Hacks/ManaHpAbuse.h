@@ -8,7 +8,6 @@
 namespace Modules {
 	//Automatic mana & HP abuse with items like Arcane Boots or Faerie Fire
 	inline class M_ManaHPAbuse {
-	public:
 		enum class Mode {
 			Drop,
 			Move
@@ -42,6 +41,7 @@ namespace Modules {
 			{"item_holy_locket" , Both},
 			{"item_guardian_greaves", Both},
 			{"item_cheese", Both},
+			// Three variants of Healing Lotus
 			{"item_famango", Both},
 			{"item_great_famango", Both},
 			{"item_greater_famango", Both},
@@ -56,6 +56,12 @@ namespace Modules {
 			std::stack<CDOTAItem*>& itemsToExclude);
 		void MoveMode(CDOTABaseNPC* npc, CDOTAItem* ability,
 			std::map<CDOTAItem*, int>& cachedPositions, std::stack<CDOTAItem*>& itemsToExclude);
+		bool isInterruptible = true;
+	public:
+		// Used to stop the player from giving orders while abuse is in progress
+		bool IsInterruptible() const {
+			return isInterruptible;
+		}
 		void PerformAbuse(CDOTABaseNPC* npc, CDOTAItem* ability);
 	} ManaHPAbuse{};
 }

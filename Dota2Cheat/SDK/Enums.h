@@ -10,6 +10,19 @@ enum EGCResults
 	k_EGCResultInvalidMessage = 4,		// Something was wrong with the message being sent with SendMessage
 };
 
+// https://moddota.com/api/#!/vscripts/DOTA_SHOP_TYPE
+enum DOTA_SHOP_TYPE {
+	DOTA_SHOP_HOME = 0,
+	DOTA_SHOP_SIDE = 1,
+	DOTA_SHOP_SECRET = 2,
+	DOTA_SHOP_GROUND = 3,
+	DOTA_SHOP_SIDE2 = 4,
+	DOTA_SHOP_SECRET2 = 5,
+	DOTA_SHOP_CUSTOM = 6,
+	DOTA_SHOP_NEUTRALS = 7,
+	DOTA_SHOP_NONE = 8,
+};
+
 enum CombatClass {
 	DOTA_COMBAT_CLASS_ATTACK_HERO,
 	DOTA_COMBAT_CLASS_ATTACK_BASIC,

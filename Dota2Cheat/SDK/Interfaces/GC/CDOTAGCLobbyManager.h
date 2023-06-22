@@ -34,6 +34,30 @@ public:
 	LobbyData lobbyData;
 
 	CDOTALobby* FindLobby() {
-		return Member<LobbyData*>(0x10)[Member<uint32_t>(0x10) - 1].m_dota_lobby;
+		int v1; // r9d
+		int v2; // eax
+		__int64 i; // rdx
+		__int64 v5; // rcx
+		__int64 a1 = (uintptr_t)this;
+
+		v1 = Member<uint32_t>(24);
+		v2 = 0;
+		if (v1 <= 0)
+			return 0;
+		for (i = 0; ; i += 64)
+		{
+			if (v2 >= 0 && v2 < v1 && v2 <= *(DWORD*)(a1 + 44))
+			{
+				v5 = *(uintptr_t*)(a1 + 16);
+				if (*(DWORD*)(i + v5) != v2)
+				{
+					if (*(uintptr_t*)(i + v5 + 24))
+						break;
+				}
+			}
+			if (++v2 >= v1)
+				return 0;
+		}
+		return *(CDOTALobby**)(((__int64)v2 << 6) + v5 + 24);
 	}
 };

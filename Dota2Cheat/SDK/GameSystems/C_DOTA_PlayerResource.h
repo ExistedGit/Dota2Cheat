@@ -9,7 +9,9 @@ public:
 class C_DOTA_PlayerResource : public VClass {
 public:
 	GETTER(CUtlVector<PlayerResourcePlayerData_t>, GetVecPlayerTeamData, Netvars::C_DOTA_PlayerResource::m_vecPlayerTeamData);
-	auto PlayerSlotToHandle(int slot) {
-		return MemberInline<CHandle<CDOTAPlayerController>>(Netvars::C_DOTA_PlayerResource::m_playerIDToPlayer)[slot];
+	IGETTER(CHandle<CDOTAPlayerController>, GetPlayerIDToPlayerTable, Netvars::C_DOTA_PlayerResource::m_playerIDToPlayer);
+
+	auto PlayerIDToHandle(int id) {
+		return GetPlayerIDToPlayerTable()[id];
 	}
 };

@@ -20,5 +20,7 @@ public:
 	void SOUpdated(SOID_t* soid, void* sharedObj, ESOCacheEvent ev) {
 		CallVFunc<1>(soid, sharedObj, ev);
 	}
+
+	// Only for PlayerInventory
 	GETTER(CGCClientSharedObjectCache*, GetSOCache, 0xA0);
 };

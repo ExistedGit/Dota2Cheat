@@ -59,34 +59,26 @@ namespace Signatures {
 	//typedef CParticleCollection* (*CreateParticleCollectionFn)(CNewParticleEffect* thisptr, void* particleMgr, void* unk, void** query, int particleIndex);
 	//CreateParticleCollectionFn CreateParticleCollection{};
 
-	inline void* (__fastcall* PlayUISoundScript)(void** unk, const char* sound, int unk2);
-
-	inline void(__fastcall* WorldToScreen)(const Vector* coord, int* outX, int* outY, void* offset);
+	
 	inline PrepareUnitOrdersFn PrepareUnitOrders{};
 
 	inline DispatchPacketFn DispatchPacket{};
 	inline BAsyncSendProtoFn BAsyncSendProto{};
 
-	// state:
-	// true = accept
-	// false = decline
-	inline bool(*CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby)(void* thisptr, bool state);
-
 	static inline std::map<std::string, void**> NamedSignatures{
-		SIGMAP_ENTRY(WorldToScreen),
 		SIGMAP_ENTRY(PrepareUnitOrders),
 
 #if defined(_DEBUG) && !defined(_TESTING)
-		SIGMAP_ENTRY(DispatchPacket),
-		SIGMAP_ENTRY(BAsyncSendProto),
+		//SIGMAP_ENTRY(DispatchPacket),
+		//SIGMAP_ENTRY(BAsyncSendProto),
 		SIGMAP_ENTRY(GetItemSchema),
 		SIGMAP_ENTRY(CreateEconItem),
 		SIGMAP_ENTRY(SaveSerializedSOCache),
+		{"CEconItem::DeserializeFromProtobufItem", (void**)&CEconItem::DeserializeFromProtobufItemFunc},
+		{"CEconItem::EnsureCustomDataExists", (void**)&CEconItem::EnsureCustomDataExistsFunc},
 #endif
 
-		SIGMAP_ENTRY(PlayUISoundScript),
 		SIGMAP_ENTRY(GetPlayer),
-		SIGMAP_ENTRY(CDOTAGCClientSystem__SendReadyUpMessageForCurrentLobby),
 		SIGMAP_ENTRY(CDOTA_DB_Popup_AcceptMatch),
 
 		SIGMAP_ENTRY(CDOTABaseNPC::GetAttackSpeed),
@@ -94,8 +86,6 @@ namespace Signatures {
 		{"CDOTAParticleManager::DestroyParticle", (void**)&CDOTAParticleManager::DestroyParticleFunc},
 		{"CDOTARichPresence::SetRPStatus", (void**)&CDOTARichPresence::SetRPStatusFunc},
 		{"CDOTABaseAbility::GetLevelSpecialValueFor", (void**)&CDOTABaseAbility::GetLevelSpecialValueForFunc},
-		{"CEconItem::DeserializeFromProtobufItem", (void**)&CEconItem::DeserializeFromProtobufItemFunc},
-		{"CEconItem::EnsureCustomDataExists", (void**)&CEconItem::EnsureCustomDataExistsFunc},
 	};
 
 	void FindSignatures();

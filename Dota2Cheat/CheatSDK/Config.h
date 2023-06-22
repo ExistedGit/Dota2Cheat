@@ -77,8 +77,9 @@ namespace Config {
 		inline bool Enabled;
 		inline bool ShowAllies;
 		inline float UIScale;
-		inline float Rounding;
+		inline int Rounding;
 		inline int LevelCounterType;
+		inline int ItemPanelType;
 		inline bool ShowCooldownDecimals;
 	}
 

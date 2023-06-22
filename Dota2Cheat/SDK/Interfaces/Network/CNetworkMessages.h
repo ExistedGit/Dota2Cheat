@@ -2015,12 +2015,12 @@ public:
 	private:
 		uintptr_t unk0;
 	public:
-		const char* name;
+		const char* m_szCallbackName;
 	private:
 		uintptr_t unk1;
 	public:
-		void(*func)(void*);
-		const char* className;
+		void(*m_CallbackFn)(void*);
+		const char* m_szClassName;
 	private:
 		uintptr_t unk2[2];
 	};

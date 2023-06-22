@@ -202,21 +202,28 @@ void Modules::M_ManaHPAbuse::PerformAbuse(CDOTABaseNPC* npc, CDOTAItem* ability)
 
 	GetItemsForExclusion(npc, preservedItems, itemPositions, itemsToExclude);
 
-
-	if ((Mode)Config::ManaAbuse::Mode == Mode::Move
-		&& npc->Member<uint32_t>(Netvars::C_DOTA_BaseNPC::m_iCurShop) == 8)
+	if (
+		(Mode)Config::ManaAbuse::Mode == Mode::Move
+		// Move mode relies on 6-second stash cooldowns, which shops negate
+		&& npc->Member<DOTA_SHOP_TYPE>(Netvars::C_DOTA_BaseNPC::m_iCurShop) == DOTA_SHOP_NONE
+		)
 		MoveMode(npc, ability, itemPositions, itemsToExclude);
-	else
+	else {
+		isInterruptible = false;
 		DropMode(npc, ability, itemPositions, itemsToExclude);
+	}
 
-	auto revert = [&, origItemStats, npc, itemPositions]() {
+	auto revert = [&, this, origItemStats, npc, itemPositions]() {
 		Sleep(300);
 		for (auto& [item, stat] : origItemStats)
 			ChangeItemStatTo(item, stat, npc);
 
-		if ((Mode)Config::ManaAbuse::Mode == Mode::Drop || npc->Member<uint32_t>(Netvars::C_DOTA_BaseNPC::m_iCurShop) != 8) {
+		if (
+			(Mode)Config::ManaAbuse::Mode == Mode::Drop
+			|| npc->Member<uint32_t>(Netvars::C_DOTA_BaseNPC::m_iCurShop) != 8
+			) {
 			for (auto& item : ctx.physicalItems)
-				if (IsWithinRadius(item->GetPos(), ctx.localHero->GetPos(), 50))
+				if (IsWithinRadius(item->GetPos(), ctx.localHero->GetPos(), 150))
 					ctx.localPlayer->PrepareOrder(
 						Order()
 						.SetType(DOTA_UNIT_ORDER_PICKUP_ITEM)
@@ -227,6 +234,8 @@ void Modules::M_ManaHPAbuse::PerformAbuse(CDOTABaseNPC* npc, CDOTAItem* ability)
 
 		}
 		ReorderItems(itemPositions);
+
+		isInterruptible = true;
 	};
 
 	// Multithreading magic — who knows when the hero finishes dropping the items?

@@ -5,7 +5,6 @@
 #include "../Base/Memory.h"
 
 #include "../GameSystems/C_DOTAGameRules.h"
-#include "../GameSystems/CGlobalVars.h"
 #include "../GameSystems/C_DOTA_PlayerResource.h"
 #include "../GameSystems/CDOTAParticleManager.h"
 #include "../GameSystems/C_DOTA_ProjectileManager.h"
@@ -14,6 +13,7 @@
 #include "../GameSystems/CDOTA_MinimapObjectManager.h"
 #include "../GameSystems/CGameParticleManagerSystem.h"
 #include "../GameSystems/CDOTA_PanoramaMinimapRenderer.h"
+#include "../GameSystems/CRenderGameSystem.h"
 #include "../Interfaces/Panorama.h"
 
 namespace GameSystems {
@@ -31,6 +31,7 @@ namespace GameSystems {
 	void InitMinimapRenderer();
 
 	inline CDOTAGCClientSystem* GCClientSystem{};
+	inline VClass* InventoryManager{};
 	inline CDOTARichPresence* RichPresence{};
 	inline CDOTAGameRules* GameRules;
 	inline CDOTA_MinimapObjectManager* MinimapObjManager{};
@@ -41,10 +42,10 @@ namespace GameSystems {
 #define REALLOCATING_SYSTEM(type, name) inline type* name {}; \
 										inline type** name##Ptr {};
 
-	REALLOCATING_SYSTEM(CGlobalVars, GlobalVars);
 	REALLOCATING_SYSTEM(CGameEventManager, GameEventManager);
 	REALLOCATING_SYSTEM(C_DOTA_ProjectileManager, ProjectileManager);
 	REALLOCATING_SYSTEM(C_DOTA_PlayerResource, PlayerResource);
+	REALLOCATING_SYSTEM(CRenderGameSystem, RenderGameSystem);
 
 #undef REALLOCATING_SYSTEM
 

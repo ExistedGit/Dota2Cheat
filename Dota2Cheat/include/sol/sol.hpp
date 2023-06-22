@@ -78,4 +78,10 @@
 #pragma pop_macro("check")
 #endif // Unreal Engine 4 Bullshit
 
+// D2C
+// To be used in conjunction
+#define LUA_TYPEDEF(T, ...) auto type = lua.new_usertype<T>(#T, ##__VA_ARGS__);\
+						   using LuaType = T;
+#define LUA_BIND(F) type[#F] = &LuaType::F;
 #endif // SOL_HPP
+

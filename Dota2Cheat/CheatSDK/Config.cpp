@@ -97,12 +97,12 @@ void Config::ConfigManager::LoadEquippedItems(std::ifstream& stream) {
 
 void Config::ConfigManager::SetupVars() {
 	using namespace Config;
-	using enum ConfigManager::ConfigVarType;
 
 	CFG_VAR(AbilityESP::Enabled, true);
 	CFG_VAR(AbilityESP::UIScale, 1.0f);
 	CFG_VAR(AbilityESP::LevelCounterType, 0);
-	CFG_VAR(AbilityESP::Rounding, 0.0f);
+	CFG_VAR(AbilityESP::ItemPanelType, 0);
+	CFG_VAR(AbilityESP::Rounding, 100);
 	CFG_VAR(AbilityESP::ShowAllies, true);
 	CFG_VAR(AbilityESP::ShowCooldownDecimals, false);
 
@@ -144,7 +144,7 @@ void Config::ConfigManager::SetupVars() {
 	CFG_VAR(ManaAbuse::Enabled, false);
 	CFG_VAR(ManaAbuse::Mode, 0);
 	CFG_VAR(ManaAbuse::SafetyRadius, 1000);
-
+	
 	CFG_VAR(AutoAccept::Enabled, true);
 	CFG_VAR(AutoAccept::Delay, 1);
 	CFG_VAR(AutoAccept::SendTelegramNotifications, false);
