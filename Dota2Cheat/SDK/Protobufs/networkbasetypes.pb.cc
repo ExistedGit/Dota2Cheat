@@ -489,6 +489,7 @@ PROTOBUF_CONSTEXPR CNETMsg_DebugOverlay::CNETMsg_DebugOverlay(
   , /*decltype(_impl_.times_)*/{}
   , /*decltype(_impl_.bools_)*/{}
   , /*decltype(_impl_.uint64s_)*/{}
+  , /*decltype(_impl_.strings_)*/{}
   , /*decltype(_impl_.etype_)*/0} {}
 struct CNETMsg_DebugOverlayDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CNETMsg_DebugOverlayDefaultTypeInternal()
@@ -901,7 +902,9 @@ const uint32_t TableStruct_networkbasetypes_2eproto::offsets[] PROTOBUF_SECTION_
   PROTOBUF_FIELD_OFFSET(::CNETMsg_DebugOverlay, _impl_.times_),
   PROTOBUF_FIELD_OFFSET(::CNETMsg_DebugOverlay, _impl_.bools_),
   PROTOBUF_FIELD_OFFSET(::CNETMsg_DebugOverlay, _impl_.uint64s_),
+  PROTOBUF_FIELD_OFFSET(::CNETMsg_DebugOverlay, _impl_.strings_),
   0,
+  ~0u,
   ~0u,
   ~0u,
   ~0u,
@@ -937,7 +940,7 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 320, 329, -1, sizeof(::CNETMsg_SpawnGroup_Unload)},
   { 332, 339, -1, sizeof(::CNETMsg_SpawnGroup_LoadCompleted)},
   { 340, 365, -1, sizeof(::CSVCMsg_GameSessionConfiguration)},
-  { 384, 397, -1, sizeof(::CNETMsg_DebugOverlay)},
+  { 384, 398, -1, sizeof(::CNETMsg_DebugOverlay)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -1051,40 +1054,40 @@ const char descriptor_table_protodef_networkbasetypes_2eproto[] PROTOBUF_SECTION
   " \001(\t\022\014\n\004data\030\016 \001(\014\022\024\n\014is_localonly\030\017 \001(\010"
   "\022\027\n\017no_steam_server\030\023 \001(\010\022\025\n\ris_transiti"
   "on\030\020 \001(\010\022\025\n\rpreviouslevel\030\021 \001(\t\022\024\n\014landm"
-  "arkname\030\022 \001(\t\"\241\001\n\024CNETMsg_DebugOverlay\022\r"
+  "arkname\030\022 \001(\t\"\262\001\n\024CNETMsg_DebugOverlay\022\r"
   "\n\005etype\030\001 \001(\005\022\034\n\007vectors\030\002 \003(\0132\013.CMsgVec"
   "tor\022\031\n\006colors\030\003 \003(\0132\t.CMsgRGBA\022\022\n\ndimens"
   "ions\030\004 \003(\002\022\r\n\005times\030\005 \003(\002\022\r\n\005bools\030\006 \003(\010"
-  "\022\017\n\007uint64s\030\007 \003(\004*\324\001\n\rSignonState_t\022\024\n\020S"
-  "IGNONSTATE_NONE\020\000\022\031\n\025SIGNONSTATE_CHALLEN"
-  "GE\020\001\022\031\n\025SIGNONSTATE_CONNECTED\020\002\022\023\n\017SIGNO"
-  "NSTATE_NEW\020\003\022\030\n\024SIGNONSTATE_PRESPAWN\020\004\022\025"
-  "\n\021SIGNONSTATE_SPAWN\020\005\022\024\n\020SIGNONSTATE_FUL"
-  "L\020\006\022\033\n\027SIGNONSTATE_CHANGELEVEL\020\007*\304\002\n\014NET"
-  "_Messages\022\013\n\007net_NOP\020\000\022\022\n\016net_Disconnect"
-  "\020\001\022\027\n\023net_SplitScreenUser\020\003\022\014\n\010net_Tick\020"
-  "\004\022\021\n\rnet_StringCmd\020\005\022\021\n\rnet_SetConVar\020\006\022"
-  "\023\n\017net_SignonState\020\007\022\027\n\023net_SpawnGroup_L"
-  "oad\020\010\022!\n\035net_SpawnGroup_ManifestUpdate\020\t"
-  "\022\"\n\036net_SpawnGroup_SetCreationTick\020\013\022\031\n\025"
-  "net_SpawnGroup_Unload\020\014\022 \n\034net_SpawnGrou"
-  "p_LoadCompleted\020\r\022\024\n\020net_DebugOverlay\020\017*"
-  "\314\002\n\021SpawnGroupFlags_t\022\'\n#SPAWN_GROUP_LOA"
-  "D_ENTITIES_FROM_SAVE\020\001\022#\n\037SPAWN_GROUP_DO"
-  "NT_SPAWN_ENTITIES\020\002\022!\n\035SPAWN_GROUP_SYNCH"
-  "RONOUS_SPAWN\020\004\022&\n\"SPAWN_GROUP_IS_INITIAL"
-  "_SPAWN_GROUP\020\010\022+\n\'SPAWN_GROUP_CREATE_CLI"
-  "ENT_ONLY_ENTITIES\020\020\022\"\n\036SPAWN_GROUP_BLOCK"
-  "_UNTIL_LOADED\020@\022$\n\037SPAWN_GROUP_LOAD_STRE"
-  "AMING_DATA\020\200\001\022\'\n\"SPAWN_GROUP_CREATE_NEW_"
-  "SCENE_WORLD\020\200\002"
+  "\022\017\n\007uint64s\030\007 \003(\004\022\017\n\007strings\030\010 \003(\t*\324\001\n\rS"
+  "ignonState_t\022\024\n\020SIGNONSTATE_NONE\020\000\022\031\n\025SI"
+  "GNONSTATE_CHALLENGE\020\001\022\031\n\025SIGNONSTATE_CON"
+  "NECTED\020\002\022\023\n\017SIGNONSTATE_NEW\020\003\022\030\n\024SIGNONS"
+  "TATE_PRESPAWN\020\004\022\025\n\021SIGNONSTATE_SPAWN\020\005\022\024"
+  "\n\020SIGNONSTATE_FULL\020\006\022\033\n\027SIGNONSTATE_CHAN"
+  "GELEVEL\020\007*\304\002\n\014NET_Messages\022\013\n\007net_NOP\020\000\022"
+  "\022\n\016net_Disconnect\020\001\022\027\n\023net_SplitScreenUs"
+  "er\020\003\022\014\n\010net_Tick\020\004\022\021\n\rnet_StringCmd\020\005\022\021\n"
+  "\rnet_SetConVar\020\006\022\023\n\017net_SignonState\020\007\022\027\n"
+  "\023net_SpawnGroup_Load\020\010\022!\n\035net_SpawnGroup"
+  "_ManifestUpdate\020\t\022\"\n\036net_SpawnGroup_SetC"
+  "reationTick\020\013\022\031\n\025net_SpawnGroup_Unload\020\014"
+  "\022 \n\034net_SpawnGroup_LoadCompleted\020\r\022\024\n\020ne"
+  "t_DebugOverlay\020\017*\314\002\n\021SpawnGroupFlags_t\022\'"
+  "\n#SPAWN_GROUP_LOAD_ENTITIES_FROM_SAVE\020\001\022"
+  "#\n\037SPAWN_GROUP_DONT_SPAWN_ENTITIES\020\002\022!\n\035"
+  "SPAWN_GROUP_SYNCHRONOUS_SPAWN\020\004\022&\n\"SPAWN"
+  "_GROUP_IS_INITIAL_SPAWN_GROUP\020\010\022+\n\'SPAWN"
+  "_GROUP_CREATE_CLIENT_ONLY_ENTITIES\020\020\022\"\n\036"
+  "SPAWN_GROUP_BLOCK_UNTIL_LOADED\020@\022$\n\037SPAW"
+  "N_GROUP_LOAD_STREAMING_DATA\020\200\001\022\'\n\"SPAWN_"
+  "GROUP_CREATE_NEW_SCENE_WORLD\020\200\002"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_networkbasetypes_2eproto_deps[1] = {
   &::descriptor_table_network_5fconnection_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_networkbasetypes_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_networkbasetypes_2eproto = {
-    false, false, 4214, descriptor_table_protodef_networkbasetypes_2eproto,
+    false, false, 4231, descriptor_table_protodef_networkbasetypes_2eproto,
     "networkbasetypes.proto",
     &descriptor_table_networkbasetypes_2eproto_once, descriptor_table_networkbasetypes_2eproto_deps, 1, 28,
     schemas, file_default_instances, TableStruct_networkbasetypes_2eproto::offsets,
@@ -9770,6 +9773,7 @@ CNETMsg_DebugOverlay::CNETMsg_DebugOverlay(const CNETMsg_DebugOverlay& from)
     , decltype(_impl_.times_){from._impl_.times_}
     , decltype(_impl_.bools_){from._impl_.bools_}
     , decltype(_impl_.uint64s_){from._impl_.uint64s_}
+    , decltype(_impl_.strings_){from._impl_.strings_}
     , decltype(_impl_.etype_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -9790,6 +9794,7 @@ inline void CNETMsg_DebugOverlay::SharedCtor(
     , decltype(_impl_.times_){arena}
     , decltype(_impl_.bools_){arena}
     , decltype(_impl_.uint64s_){arena}
+    , decltype(_impl_.strings_){arena}
     , decltype(_impl_.etype_){0}
   };
 }
@@ -9811,6 +9816,7 @@ inline void CNETMsg_DebugOverlay::SharedDtor() {
   _impl_.times_.~RepeatedField();
   _impl_.bools_.~RepeatedField();
   _impl_.uint64s_.~RepeatedField();
+  _impl_.strings_.~RepeatedPtrField();
 }
 
 void CNETMsg_DebugOverlay::SetCachedSize(int size) const {
@@ -9829,6 +9835,7 @@ void CNETMsg_DebugOverlay::Clear() {
   _impl_.times_.Clear();
   _impl_.bools_.Clear();
   _impl_.uint64s_.Clear();
+  _impl_.strings_.Clear();
   _impl_.etype_ = 0;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -9940,6 +9947,23 @@ const char* CNETMsg_DebugOverlay::_InternalParse(const char* ptr, ::_pbi::ParseC
         } else
           goto handle_unusual;
         continue;
+      // repeated string strings = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_strings();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            #ifndef NDEBUG
+            ::_pbi::VerifyUTF8(str, "CNETMsg_DebugOverlay.strings");
+            #endif  // !NDEBUG
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<66>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -10017,6 +10041,16 @@ uint8_t* CNETMsg_DebugOverlay::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(7, this->_internal_uint64s(i), target);
   }
 
+  // repeated string strings = 8;
+  for (int i = 0, n = this->_internal_strings_size(); i < n; i++) {
+    const auto& s = this->_internal_strings(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CNETMsg_DebugOverlay.strings");
+    target = stream->WriteString(8, s, target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -10083,6 +10117,14 @@ size_t CNETMsg_DebugOverlay::ByteSizeLong() const {
     total_size += data_size;
   }
 
+  // repeated string strings = 8;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.strings_.size());
+  for (int i = 0, n = _impl_.strings_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.strings_.Get(i));
+  }
+
   // optional int32 etype = 1;
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
@@ -10113,6 +10155,7 @@ void CNETMsg_DebugOverlay::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, c
   _this->_impl_.times_.MergeFrom(from._impl_.times_);
   _this->_impl_.bools_.MergeFrom(from._impl_.bools_);
   _this->_impl_.uint64s_.MergeFrom(from._impl_.uint64s_);
+  _this->_impl_.strings_.MergeFrom(from._impl_.strings_);
   if (from._internal_has_etype()) {
     _this->_internal_set_etype(from._internal_etype());
   }
@@ -10140,6 +10183,7 @@ void CNETMsg_DebugOverlay::InternalSwap(CNETMsg_DebugOverlay* other) {
   _impl_.times_.InternalSwap(&other->_impl_.times_);
   _impl_.bools_.InternalSwap(&other->_impl_.bools_);
   _impl_.uint64s_.InternalSwap(&other->_impl_.uint64s_);
+  _impl_.strings_.InternalSwap(&other->_impl_.strings_);
   swap(_impl_.etype_, other->_impl_.etype_);
 }
 

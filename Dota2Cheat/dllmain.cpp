@@ -96,7 +96,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	ctx.lua.script("print(\"works!\")");
 
 	Interfaces::FindInterfaces();
-	
+
 	// It's supposed to be a CUtlSymbolTable, but we don't yet have the technology...
 	for (auto data : Interfaces::NetworkMessages->GetNetvarCallbacks())
 		if (IsValidReadPtr(data.m_szCallbackName) && std::string_view(data.m_szCallbackName) == "OnColorChanged") {
@@ -104,12 +104,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 			LogF(LP_DATA, "{}::{}: {}", data.m_szClassName, data.m_szCallbackName, (void*)data.m_CallbackFn);
 		}
 
-	auto iconLoadThread = std::async(std::launch::async,
-		[]() {
-			Pages::AutoPickHeroGrid::InitList();
-			return true;
-		}
-	);
+	auto iconLoadThread = std::async(std::launch::async, Pages::AutoPickHeroGrid::InitList);
 
 	Interfaces::CVar->DumpConVarsToMap();
 
@@ -203,7 +198,9 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		}
 	}
 	bool menuVisible = true;
-	std::cout << "Icon loading result: " << iconLoadThread.get() << "\n";
+
+	iconLoadThread.wait();
+
 	int itemDefId = 6996;
 	// Main loop
 	while (!glfwWindowShouldClose(window_menu))
@@ -276,8 +273,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 		glfwSwapBuffers(window_menu);
 	}
-	{
 
+	{
 		std::ofstream fout(ctx.cheatFolderPath + "\\config\\base.json");
 		Config::cfg.SaveConfig(fout);
 		fout.close();

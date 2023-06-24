@@ -2,13 +2,10 @@
 #include "../../SDK/pch.h"
 #include "../../CheatSDK/Config.h"
 
-namespace Hacks {
-
-	class PerfectBlink {
-	public:
-		void AdjustIfBlink(Vector* position, uint32_t abilityIndex, CBaseEntity* issuer);
-	};
-}
 namespace Modules {
-	inline Hacks::PerfectBlink PerfectBlink{};
+	inline class M_PerfectBlink {
+	public:
+		bool AdjustIfBlink(Vector* position, uint32_t abilityIndex, CBaseEntity* issuer);
+	}
+	PerfectBlink{};
 }

@@ -94,12 +94,29 @@ struct CMsgConnectedPlayers_PlayerDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgConnectedPlayers_PlayerDefaultTypeInternal _CMsgConnectedPlayers_Player_default_instance_;
+PROTOBUF_CONSTEXPR CMsgConnectedPlayers_PlayerDraft::CMsgConnectedPlayers_PlayerDraft(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.steam_id_)*/uint64_t{0u}
+  , /*decltype(_impl_.team_)*/0
+  , /*decltype(_impl_.team_slot_)*/0} {}
+struct CMsgConnectedPlayers_PlayerDraftDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgConnectedPlayers_PlayerDraftDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgConnectedPlayers_PlayerDraftDefaultTypeInternal() {}
+  union {
+    CMsgConnectedPlayers_PlayerDraft _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgConnectedPlayers_PlayerDraftDefaultTypeInternal _CMsgConnectedPlayers_PlayerDraft_default_instance_;
 PROTOBUF_CONSTEXPR CMsgConnectedPlayers::CMsgConnectedPlayers(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.connected_players_)*/{}
   , /*decltype(_impl_.disconnected_players_)*/{}
+  , /*decltype(_impl_.player_draft_)*/{}
   , /*decltype(_impl_.poor_network_conditions_)*/nullptr
   , /*decltype(_impl_.game_state_)*/0
   , /*decltype(_impl_.first_blood_happened_)*/false
@@ -524,7 +541,6 @@ PROTOBUF_CONSTEXPR CMsgGameMatchSignOut::CMsgGameMatchSignOut(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.num_players_)*/{}
   , /*decltype(_impl_.teams_)*/{}
   , /*decltype(_impl_.tower_status_)*/{}
   , /*decltype(_impl_.barracks_status_)*/{}
@@ -2916,6 +2932,21 @@ struct CMsgGCToServerSetSteamLearnDisableDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgGCToServerSetSteamLearnDisableDefaultTypeInternal _CMsgGCToServerSetSteamLearnDisable_default_instance_;
+PROTOBUF_CONSTEXPR CMsgGCToServerSetSteamLearnInferencing::CMsgGCToServerSetSteamLearnInferencing(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.project_ids_)*/{}
+  , /*decltype(_impl_.enable_)*/false} {}
+struct CMsgGCToServerSetSteamLearnInferencingDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgGCToServerSetSteamLearnInferencingDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgGCToServerSetSteamLearnInferencingDefaultTypeInternal() {}
+  union {
+    CMsgGCToServerSetSteamLearnInferencing _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgGCToServerSetSteamLearnInferencingDefaultTypeInternal _CMsgGCToServerSetSteamLearnInferencing_default_instance_;
 PROTOBUF_CONSTEXPR CMsgGCToServerSetSteamLearnKeysChanged::CMsgGCToServerSetSteamLearnKeysChanged(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -2948,6 +2979,24 @@ struct CMsgSteamLearnMatchInfoDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgSteamLearnMatchInfoDefaultTypeInternal _CMsgSteamLearnMatchInfo_default_instance_;
+PROTOBUF_CONSTEXPR CMsgSteamLearnMatchInfoPlayer::CMsgSteamLearnMatchInfoPlayer(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.average_mmr_)*/0u
+  , /*decltype(_impl_.team_won_)*/false
+  , /*decltype(_impl_.duration_)*/0u
+  , /*decltype(_impl_.game_mode_)*/0u
+  , /*decltype(_impl_.lobby_type_)*/0u} {}
+struct CMsgSteamLearnMatchInfoPlayerDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgSteamLearnMatchInfoPlayerDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgSteamLearnMatchInfoPlayerDefaultTypeInternal() {}
+  union {
+    CMsgSteamLearnMatchInfoPlayer _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgSteamLearnMatchInfoPlayerDefaultTypeInternal _CMsgSteamLearnMatchInfoPlayer_default_instance_;
 PROTOBUF_CONSTEXPR CMsgSteamLearnMatchHeroes::CMsgSteamLearnMatchHeroes(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.radiant_hero_ids_)*/{}
@@ -3047,6 +3096,7 @@ PROTOBUF_CONSTEXPR CMsgSteamLearnItemPurchase::CMsgSteamLearnItemPurchase(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.inventory_items_)*/{}
+  , /*decltype(_impl_.purchase_history_)*/{}
   , /*decltype(_impl_.gold_)*/0u
   , /*decltype(_impl_.net_worth_)*/0u
   , /*decltype(_impl_.is_radiant_team_)*/0u
@@ -3062,6 +3112,39 @@ struct CMsgSteamLearnItemPurchaseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgSteamLearnItemPurchaseDefaultTypeInternal _CMsgSteamLearnItemPurchase_default_instance_;
+PROTOBUF_CONSTEXPR CMsgSteamLearnPreGameItemPurchases::CMsgSteamLearnPreGameItemPurchases(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.item_ids_)*/{}
+  , /*decltype(_impl_.is_radiant_team_)*/0u
+  , /*decltype(_impl_.is_using_dota_plus_)*/false} {}
+struct CMsgSteamLearnPreGameItemPurchasesDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgSteamLearnPreGameItemPurchasesDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgSteamLearnPreGameItemPurchasesDefaultTypeInternal() {}
+  union {
+    CMsgSteamLearnPreGameItemPurchases _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgSteamLearnPreGameItemPurchasesDefaultTypeInternal _CMsgSteamLearnPreGameItemPurchases_default_instance_;
+PROTOBUF_CONSTEXPR CMsgSteamLearnNeutralItemPurchase::CMsgSteamLearnNeutralItemPurchase(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.tier_)*/0u
+  , /*decltype(_impl_.is_radiant_team_)*/0u
+  , /*decltype(_impl_.is_using_dota_plus_)*/false
+  , /*decltype(_impl_.item_id_)*/-1} {}
+struct CMsgSteamLearnNeutralItemPurchaseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgSteamLearnNeutralItemPurchaseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgSteamLearnNeutralItemPurchaseDefaultTypeInternal() {}
+  union {
+    CMsgSteamLearnNeutralItemPurchase _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgSteamLearnNeutralItemPurchaseDefaultTypeInternal _CMsgSteamLearnNeutralItemPurchase_default_instance_;
 PROTOBUF_CONSTEXPR CMsgSteamLearnAbilitySkill::CMsgSteamLearnAbilitySkill(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -3079,6 +3162,37 @@ struct CMsgSteamLearnAbilitySkillDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgSteamLearnAbilitySkillDefaultTypeInternal _CMsgSteamLearnAbilitySkill_default_instance_;
+PROTOBUF_CONSTEXPR CMsgSteamLearnWardPlacement_Location::CMsgSteamLearnWardPlacement_Location(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.x_)*/0
+  , /*decltype(_impl_.y_)*/0} {}
+struct CMsgSteamLearnWardPlacement_LocationDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgSteamLearnWardPlacement_LocationDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgSteamLearnWardPlacement_LocationDefaultTypeInternal() {}
+  union {
+    CMsgSteamLearnWardPlacement_Location _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgSteamLearnWardPlacement_LocationDefaultTypeInternal _CMsgSteamLearnWardPlacement_Location_default_instance_;
+PROTOBUF_CONSTEXPR CMsgSteamLearnWardPlacement::CMsgSteamLearnWardPlacement(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.existing_ward_locs_)*/{}
+  , /*decltype(_impl_.ward_loc_)*/nullptr
+  , /*decltype(_impl_.team_)*/0u} {}
+struct CMsgSteamLearnWardPlacementDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgSteamLearnWardPlacementDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgSteamLearnWardPlacementDefaultTypeInternal() {}
+  union {
+    CMsgSteamLearnWardPlacement _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgSteamLearnWardPlacementDefaultTypeInternal _CMsgSteamLearnWardPlacement_default_instance_;
 PROTOBUF_CONSTEXPR CMsgSignOutMuertaMinigame::CMsgSignOutMuertaMinigame(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -3093,7 +3207,37 @@ struct CMsgSignOutMuertaMinigameDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgSignOutMuertaMinigameDefaultTypeInternal _CMsgSignOutMuertaMinigame_default_instance_;
-static ::_pb::Metadata file_level_metadata_dota_5fgcmessages_5fserver_2eproto[172];
+PROTOBUF_CONSTEXPR CMsgSignOutMapStats_Player::CMsgSignOutMapStats_Player(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.personal_stats_)*/nullptr
+  , /*decltype(_impl_.account_id_)*/0u} {}
+struct CMsgSignOutMapStats_PlayerDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgSignOutMapStats_PlayerDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgSignOutMapStats_PlayerDefaultTypeInternal() {}
+  union {
+    CMsgSignOutMapStats_Player _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgSignOutMapStats_PlayerDefaultTypeInternal _CMsgSignOutMapStats_Player_default_instance_;
+PROTOBUF_CONSTEXPR CMsgSignOutMapStats::CMsgSignOutMapStats(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.players_)*/{}
+  , /*decltype(_impl_.global_stats_)*/nullptr} {}
+struct CMsgSignOutMapStatsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgSignOutMapStatsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgSignOutMapStatsDefaultTypeInternal() {}
+  union {
+    CMsgSignOutMapStats _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgSignOutMapStatsDefaultTypeInternal _CMsgSignOutMapStats_default_instance_;
+static ::_pb::Metadata file_level_metadata_dota_5fgcmessages_5fserver_2eproto[181];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_dota_5fgcmessages_5fserver_2eproto[8];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_dota_5fgcmessages_5fserver_2eproto = nullptr;
 
@@ -3166,6 +3310,18 @@ const uint32_t TableStruct_dota_5fgcmessages_5fserver_2eproto::offsets[] PROTOBU
   2,
   0,
   3,
+  PROTOBUF_FIELD_OFFSET(::CMsgConnectedPlayers_PlayerDraft, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgConnectedPlayers_PlayerDraft, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgConnectedPlayers_PlayerDraft, _impl_.steam_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgConnectedPlayers_PlayerDraft, _impl_.team_),
+  PROTOBUF_FIELD_OFFSET(::CMsgConnectedPlayers_PlayerDraft, _impl_.team_slot_),
+  0,
+  1,
+  2,
   PROTOBUF_FIELD_OFFSET(::CMsgConnectedPlayers, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgConnectedPlayers, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3182,6 +3338,7 @@ const uint32_t TableStruct_dota_5fgcmessages_5fserver_2eproto::offsets[] PROTOBU
   PROTOBUF_FIELD_OFFSET(::CMsgConnectedPlayers, _impl_.dire_kills_),
   PROTOBUF_FIELD_OFFSET(::CMsgConnectedPlayers, _impl_.radiant_lead_),
   PROTOBUF_FIELD_OFFSET(::CMsgConnectedPlayers, _impl_.building_state_),
+  PROTOBUF_FIELD_OFFSET(::CMsgConnectedPlayers, _impl_.player_draft_),
   ~0u,
   ~0u,
   1,
@@ -3192,6 +3349,7 @@ const uint32_t TableStruct_dota_5fgcmessages_5fserver_2eproto::offsets[] PROTOBU
   5,
   6,
   7,
+  ~0u,
   PROTOBUF_FIELD_OFFSET(::CMsgGameServerInfo, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgGameServerInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3612,7 +3770,6 @@ const uint32_t TableStruct_dota_5fgcmessages_5fserver_2eproto::offsets[] PROTOBU
   PROTOBUF_FIELD_OFFSET(::CMsgGameMatchSignOut, _impl_.duration_),
   PROTOBUF_FIELD_OFFSET(::CMsgGameMatchSignOut, _impl_.good_guys_win_),
   PROTOBUF_FIELD_OFFSET(::CMsgGameMatchSignOut, _impl_.date_),
-  PROTOBUF_FIELD_OFFSET(::CMsgGameMatchSignOut, _impl_.num_players_),
   PROTOBUF_FIELD_OFFSET(::CMsgGameMatchSignOut, _impl_.teams_),
   PROTOBUF_FIELD_OFFSET(::CMsgGameMatchSignOut, _impl_.tower_status_),
   PROTOBUF_FIELD_OFFSET(::CMsgGameMatchSignOut, _impl_.barracks_status_),
@@ -3644,7 +3801,6 @@ const uint32_t TableStruct_dota_5fgcmessages_5fserver_2eproto::offsets[] PROTOBU
   5,
   12,
   6,
-  ~0u,
   ~0u,
   ~0u,
   ~0u,
@@ -5678,6 +5834,16 @@ const uint32_t TableStruct_dota_5fgcmessages_5fserver_2eproto::offsets[] PROTOBU
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgGCToServerSetSteamLearnInferencing, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgGCToServerSetSteamLearnInferencing, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgGCToServerSetSteamLearnInferencing, _impl_.enable_),
+  PROTOBUF_FIELD_OFFSET(::CMsgGCToServerSetSteamLearnInferencing, _impl_.project_ids_),
+  0,
+  ~0u,
   PROTOBUF_FIELD_OFFSET(::CMsgGCToServerSetSteamLearnKeysChanged, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgGCToServerSetSteamLearnKeysChanged, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -5697,6 +5863,22 @@ const uint32_t TableStruct_dota_5fgcmessages_5fserver_2eproto::offsets[] PROTOBU
   PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnMatchInfo, _impl_.duration_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnMatchInfo, _impl_.game_mode_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnMatchInfo, _impl_.lobby_type_),
+  0,
+  1,
+  2,
+  3,
+  4,
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnMatchInfoPlayer, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnMatchInfoPlayer, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnMatchInfoPlayer, _impl_.average_mmr_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnMatchInfoPlayer, _impl_.team_won_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnMatchInfoPlayer, _impl_.duration_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnMatchInfoPlayer, _impl_.game_mode_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnMatchInfoPlayer, _impl_.lobby_type_),
   0,
   1,
   2,
@@ -5796,6 +5978,7 @@ const uint32_t TableStruct_dota_5fgcmessages_5fserver_2eproto::offsets[] PROTOBU
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnItemPurchase, _impl_.item_id_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnItemPurchase, _impl_.inventory_items_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnItemPurchase, _impl_.purchase_history_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnItemPurchase, _impl_.gold_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnItemPurchase, _impl_.net_worth_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnItemPurchase, _impl_.is_radiant_team_),
@@ -5803,11 +5986,38 @@ const uint32_t TableStruct_dota_5fgcmessages_5fserver_2eproto::offsets[] PROTOBU
   PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnItemPurchase, _impl_.is_using_dota_plus_),
   5,
   ~0u,
+  ~0u,
   0,
   1,
   2,
   3,
   4,
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnPreGameItemPurchases, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnPreGameItemPurchases, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnPreGameItemPurchases, _impl_.item_ids_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnPreGameItemPurchases, _impl_.is_radiant_team_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnPreGameItemPurchases, _impl_.is_using_dota_plus_),
+  ~0u,
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnNeutralItemPurchase, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnNeutralItemPurchase, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnNeutralItemPurchase, _impl_.item_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnNeutralItemPurchase, _impl_.tier_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnNeutralItemPurchase, _impl_.is_radiant_team_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnNeutralItemPurchase, _impl_.is_using_dota_plus_),
+  3,
+  0,
+  1,
+  2,
   PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnAbilitySkill, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnAbilitySkill, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -5822,6 +6032,28 @@ const uint32_t TableStruct_dota_5fgcmessages_5fserver_2eproto::offsets[] PROTOBU
   ~0u,
   0,
   1,
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnWardPlacement_Location, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnWardPlacement_Location, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnWardPlacement_Location, _impl_.x_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnWardPlacement_Location, _impl_.y_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnWardPlacement, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnWardPlacement, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnWardPlacement, _impl_.ward_loc_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnWardPlacement, _impl_.existing_ward_locs_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnWardPlacement, _impl_.team_),
+  0,
+  ~0u,
+  1,
   PROTOBUF_FIELD_OFFSET(::CMsgSignOutMuertaMinigame, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgSignOutMuertaMinigame, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -5830,180 +6062,209 @@ const uint32_t TableStruct_dota_5fgcmessages_5fserver_2eproto::offsets[] PROTOBU
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CMsgSignOutMuertaMinigame, _impl_.event_game_data_),
   0,
+  PROTOBUF_FIELD_OFFSET(::CMsgSignOutMapStats_Player, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSignOutMapStats_Player, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgSignOutMapStats_Player, _impl_.account_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSignOutMapStats_Player, _impl_.personal_stats_),
+  1,
+  0,
+  PROTOBUF_FIELD_OFFSET(::CMsgSignOutMapStats, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSignOutMapStats, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgSignOutMapStats, _impl_.players_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSignOutMapStats, _impl_.global_stats_),
+  ~0u,
+  0,
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 10, -1, sizeof(::CMsgPoorNetworkConditions_Player)},
   { 14, 22, -1, sizeof(::CMsgPoorNetworkConditions)},
   { 24, 42, -1, sizeof(::CMsgGameserverCrash)},
   { 54, 64, -1, sizeof(::CMsgConnectedPlayers_Player)},
-  { 68, 84, -1, sizeof(::CMsgConnectedPlayers)},
-  { 94, 128, -1, sizeof(::CMsgGameServerInfo)},
-  { 156, 168, -1, sizeof(::CMsgLeaverDetected)},
-  { 174, 181, -1, sizeof(::CMsgLeaverDetectedResponse)},
-  { 182, -1, -1, sizeof(::CMsgDOTAFantasyFinalPlayerStats)},
-  { 189, -1, -1, sizeof(::CMsgDOTAFantasyLivePlayerStats)},
-  { 196, 203, -1, sizeof(::CMsgServerToGCRealtimeStats)},
-  { 204, 211, -1, sizeof(::CMsgGCToServerRealtimeStatsStartStop)},
-  { 212, 219, -1, sizeof(::CMsgGCToServerUpdateSteamBroadcasting)},
-  { 220, 230, -1, sizeof(::CMsgSignOutGameplayStats_CPlayer)},
-  { 234, 244, -1, sizeof(::CMsgSignOutGameplayStats_CTeam)},
-  { 248, -1, -1, sizeof(::CMsgSignOutGameplayStats)},
-  { 255, 263, -1, sizeof(::CMsgGameMatchSignOut_CTeam_CPlayer_CCustomGameData)},
-  { 265, 274, -1, sizeof(::CMsgGameMatchSignOut_CTeam_CPlayer_HeroDamageReceived)},
-  { 277, 352, -1, sizeof(::CMsgGameMatchSignOut_CTeam_CPlayer)},
-  { 421, -1, -1, sizeof(::CMsgGameMatchSignOut_CTeam)},
-  { 428, 436, -1, sizeof(::CMsgGameMatchSignOut_CAdditionalSignoutMsg)},
-  { 438, 449, -1, sizeof(::CMsgGameMatchSignOut_CSocialFeedMatchEvent)},
-  { 454, 461, -1, sizeof(::CMsgGameMatchSignOut_CCustomGameData)},
-  { 462, 475, -1, sizeof(::CMsgGameMatchSignOut_EventGameLeaderboardEntry)},
-  { 482, 496, -1, sizeof(::CMsgGameMatchSignOut_WardPlacement)},
-  { 504, 542, -1, sizeof(::CMsgGameMatchSignOut)},
-  { 574, 583, -1, sizeof(::CMsgSignOutDraftInfo)},
-  { 586, 596, -1, sizeof(::CMsgSignOutBotInfo)},
-  { 600, 609, -1, sizeof(::CMsgSignOutTextMuteInfo_TextMuteMessage)},
-  { 612, -1, -1, sizeof(::CMsgSignOutTextMuteInfo)},
-  { 619, 655, -1, sizeof(::CMsgSignOutPlayerStats)},
-  { 685, 693, -1, sizeof(::CMsgSignOutCommunicationSummary_PlayerCommunication_PingDetail)},
-  { 695, 718, -1, sizeof(::CMsgSignOutCommunicationSummary_PlayerCommunication)},
-  { 735, -1, -1, sizeof(::CMsgSignOutCommunicationSummary)},
-  { 742, 761, -1, sizeof(::CMsgGameMatchSignoutResponse_PlayerMetadata)},
-  { 774, 792, -1, sizeof(::CMsgGameMatchSignoutResponse)},
-  { 804, -1, -1, sizeof(::CMsgTimedRewardContainer)},
-  { 811, 821, -1, sizeof(::CMsgGameMatchSignOutPermissionRequest)},
-  { 825, 834, -1, sizeof(::CMsgGameMatchSignOutPermissionResponse)},
-  { 837, 848, -1, sizeof(::CMsgGameMatchSignOutEventGameData)},
-  { 853, 881, -1, sizeof(::CMsgGameMatchSignOutPerfData)},
-  { 903, -1, -1, sizeof(::CMsgGameMatchSignOutBanData)},
-  { 911, 919, -1, sizeof(::CMsgDOTALiveScoreboardUpdate_Team_Player_HeroAbility)},
-  { 921, 954, -1, sizeof(::CMsgDOTALiveScoreboardUpdate_Team_Player)},
-  { 981, 993, -1, sizeof(::CMsgDOTALiveScoreboardUpdate_Team)},
-  { 999, 1014, -1, sizeof(::CMsgDOTALiveScoreboardUpdate)},
-  { 1023, -1, -1, sizeof(::CMsgServerToGCRequestBatchPlayerResources)},
-  { 1031, 1045, -1, sizeof(::CMsgServerToGCRequestBatchPlayerResourcesResponse_Result)},
-  { 1053, -1, -1, sizeof(::CMsgServerToGCRequestBatchPlayerResourcesResponse)},
-  { 1060, -1, -1, sizeof(::CMsgDOTAPlayerFailedToConnect)},
-  { 1068, 1081, -1, sizeof(::CMsgGCToRelayConnect)},
-  { 1088, 1095, -1, sizeof(::CMsgGCGCToLANServerRelayConnect)},
-  { 1096, 1103, -1, sizeof(::CMsgGCBanStatusRequest)},
-  { 1104, 1114, -1, sizeof(::CMsgGCBanStatusResponse)},
-  { 1118, 1136, -1, sizeof(::CMsgTournamentItemEvent)},
-  { 1148, 1156, -1, sizeof(::CMsgTournamentItemEventResponse)},
-  { 1158, 1165, -1, sizeof(::CMsgTeamFanfare)},
-  { 1166, 1174, -1, sizeof(::CMsgResponseTeamFanfare)},
-  { 1176, 1186, -1, sizeof(::CMsgGameServerUploadSaveGame)},
-  { 1190, 1197, -1, sizeof(::CMsgGameServerSaveGameResult)},
-  { 1198, 1205, -1, sizeof(::CMsgGameServerGetLoadGame)},
-  { 1206, 1213, -1, sizeof(::CMsgGameServerGetLoadGameResult)},
-  { 1214, 1226, -1, sizeof(::CMsgDOTAAwardEventPoints_AwardPoints)},
-  { 1232, 1243, -1, sizeof(::CMsgDOTAAwardEventPoints)},
-  { 1248, 1256, -1, sizeof(::CMsgGCToServerPingRequest)},
-  { 1258, 1267, -1, sizeof(::CMsgGCToServerPingResponse)},
-  { 1270, 1282, -1, sizeof(::CMsgServerToGCMatchConnectionStats_Player)},
-  { 1288, 1299, -1, sizeof(::CMsgServerToGCMatchConnectionStats)},
-  { 1304, 1311, -1, sizeof(::CMsgServerGCUpdateSpectatorCount)},
-  { 1312, 1320, -1, sizeof(::CSerializedCombatLog_Dictionary_DictString)},
-  { 1322, -1, -1, sizeof(::CSerializedCombatLog_Dictionary)},
-  { 1329, 1338, -1, sizeof(::CSerializedCombatLog)},
-  { 1341, 1350, -1, sizeof(::CMsgServerToGCVictoryPredictions_Record)},
-  { 1353, -1, -1, sizeof(::CMsgServerToGCVictoryPredictions)},
-  { 1360, -1, -1, sizeof(::CMsgServerToGCRequestStatus)},
-  { 1366, 1373, -1, sizeof(::CMsgServerToGCRequestStatus_Response)},
-  { 1374, 1388, -1, sizeof(::CMsgSignOutAssassinMiniGameInfo)},
-  { 1396, 1405, -1, sizeof(::CMsgServerToGCKillSummaries_KillSummary)},
-  { 1408, 1416, -1, sizeof(::CMsgServerToGCKillSummaries)},
-  { 1418, 1429, -1, sizeof(::CMsgGCToServerPredictionResult_Prediction)},
-  { 1434, 1444, -1, sizeof(::CMsgGCToServerPredictionResult)},
-  { 1448, 1456, -1, sizeof(::CMsgServerToGCLockCharmTrading)},
-  { 1458, 1469, -1, sizeof(::CMsgSignOutUpdatePlayerChallenge_Challenge)},
-  { 1474, 1485, -1, sizeof(::CMsgSignOutUpdatePlayerChallenge)},
-  { 1490, 1498, -1, sizeof(::CMsgServerToGCRerollPlayerChallenge)},
-  { 1500, 1509, -1, sizeof(::CMsgSpendWager_Player)},
-  { 1512, 1523, -1, sizeof(::CMsgSpendWager)},
-  { 1528, 1540, -1, sizeof(::CMsgSignOutXPCoins_Player)},
-  { 1546, 1556, -1, sizeof(::CMsgSignOutXPCoins)},
-  { 1560, 1569, -1, sizeof(::CMsgSignOutBounties_Bounty)},
-  { 1572, 1582, -1, sizeof(::CMsgSignOutBounties)},
-  { 1586, 1594, -1, sizeof(::CMsgSignOutCommunityGoalProgress_EventGoalIncrement)},
-  { 1596, 1604, -1, sizeof(::CMsgSignOutCommunityGoalProgress)},
-  { 1606, 1615, -1, sizeof(::CMsgServerToGCCloseCompendiumInGamePredictionVoting)},
-  { 1618, 1625, -1, sizeof(::CMsgServerToGCCloseCompendiumInGamePredictionVotingResponse)},
-  { 1626, 1635, -1, sizeof(::CMsgServerToGCCompendiumInGamePredictionResults_PredictionResult)},
-  { 1638, 1648, -1, sizeof(::CMsgServerToGCCompendiumInGamePredictionResults)},
-  { 1652, 1659, -1, sizeof(::CMsgServerToGCCompendiumChosenInGamePredictions_Prediction)},
-  { 1660, 1669, -1, sizeof(::CMsgServerToGCCompendiumChosenInGamePredictions)},
-  { 1672, 1679, -1, sizeof(::CMsgGCToGCCompendiumInGamePredictionResults)},
-  { 1680, 1692, -1, sizeof(::CMsgServerToGCMatchPlayerItemPurchaseHistory_ItemPurchase)},
-  { 1698, 1712, -1, sizeof(::CMsgServerToGCMatchPlayerItemPurchaseHistory_Player)},
-  { 1720, 1729, -1, sizeof(::CMsgServerToGCMatchPlayerItemPurchaseHistory)},
-  { 1732, 1743, -1, sizeof(::CMsgServerToGCMatchPlayerNeutralItemEquipHistory_ItemEquip)},
-  { 1748, 1759, -1, sizeof(::CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player)},
-  { 1764, 1772, -1, sizeof(::CMsgServerToGCMatchPlayerNeutralItemEquipHistory)},
-  { 1774, 1789, -1, sizeof(::CMsgServerToGCMatchStateHistory_PlayerState)},
-  { 1798, 1814, -1, sizeof(::CMsgServerToGCMatchStateHistory_TeamState)},
-  { 1824, 1833, -1, sizeof(::CMsgServerToGCMatchStateHistory_MatchState)},
-  { 1836, 1846, -1, sizeof(::CMsgServerToGCMatchStateHistory)},
-  { 1850, 1859, -1, sizeof(::CMsgMatchStateSteamMLEntry)},
-  { 1862, -1, -1, sizeof(::CMsgLaneSelectionSteamMLEntry)},
-  { 1870, 1882, -1, sizeof(::CMsgAbilitySelectionSteamMLEntry)},
-  { 1888, 1901, -1, sizeof(::CMsgItemPurchasePregameSteamMLEntry)},
-  { 1908, 1921, -1, sizeof(::CMsgItemPurchaseSteamMLEntry)},
-  { 1928, 1941, -1, sizeof(::CMsgItemPurchaseSequenceSteamMLEntry)},
-  { 1948, 1959, -1, sizeof(::CMsgServerToGCCavernCrawlIsHeroActive)},
-  { 1964, 1980, -1, sizeof(::CMsgServerToGCPlayerChallengeHistory_PlayerChallenge)},
-  { 1990, 1999, -1, sizeof(::CMsgServerToGCPlayerChallengeHistory)},
-  { 2002, 2010, -1, sizeof(::CMsgServerToGCCavernCrawlIsHeroActiveResponse_MapResults)},
-  { 2012, 2023, -1, sizeof(::CMsgServerToGCCavernCrawlIsHeroActiveResponse)},
-  { 2028, 2035, -1, sizeof(::CMsgGCtoServerTensorflowInstance)},
-  { 2036, 2073, -1, sizeof(::CMsgDetailedGameStats_PlayerStatEntry)},
-  { 2104, 2113, -1, sizeof(::CMsgDetailedGameStats_GameStats)},
-  { 2116, 2124, -1, sizeof(::CMsgDetailedGameStats_MinuteEntry)},
-  { 2126, 2135, -1, sizeof(::CMsgDetailedGameStats_PlayerInfo)},
-  { 2138, 2147, -1, sizeof(::CMsgDetailedGameStats)},
-  { 2150, 2162, -1, sizeof(::CMsgNeutralItemStats_NeutralItem)},
-  { 2168, -1, -1, sizeof(::CMsgNeutralItemStats)},
-  { 2175, 2184, -1, sizeof(::CMsgGCToServerLobbyHeroBanRates_HeroBanEntry)},
-  { 2187, -1, -1, sizeof(::CMsgGCToServerLobbyHeroBanRates)},
-  { 2194, 2203, -1, sizeof(::CMsgSignOutGuildContractProgress_CompletedGuildEventContracts)},
-  { 2206, 2214, -1, sizeof(::CMsgSignOutGuildContractProgress_PlayerContract)},
-  { 2216, -1, -1, sizeof(::CMsgSignOutGuildContractProgress)},
-  { 2223, 2236, -1, sizeof(::CMsgSignOutGuildChallengeProgress_ChallengeProgress)},
-  { 2243, -1, -1, sizeof(::CMsgSignOutGuildChallengeProgress)},
-  { 2250, 2258, -1, sizeof(::CMsgSignOutMVPStats_Player_KillEaterEvent)},
-  { 2260, 2291, -1, sizeof(::CMsgSignOutMVPStats_Player)},
-  { 2316, 2327, -1, sizeof(::CMsgSignOutMVPStats)},
-  { 2332, 2339, -1, sizeof(::CMsgGCToServerRecordTrainingData)},
-  { 2340, -1, -1, sizeof(::CMsgServerToGCGetGuildContracts)},
-  { 2347, 2358, -1, sizeof(::CMsgServerToGCGetGuildContractsResponse_ContractDetails)},
-  { 2363, 2373, -1, sizeof(::CMsgServerToGCGetGuildContractsResponse_Player)},
-  { 2377, -1, -1, sizeof(::CMsgServerToGCGetGuildContractsResponse)},
-  { 2384, 2392, -1, sizeof(::CMsgMatchDiretideCandy_CandyDetails)},
-  { 2394, 2404, -1, sizeof(::CMsgMatchDiretideCandy_PlayerCandy)},
-  { 2408, 2416, -1, sizeof(::CMsgMatchDiretideCandy)},
-  { 2418, 2426, -1, sizeof(::CMsgGCToServerCheerData_CheerTypeCount)},
-  { 2428, -1, -1, sizeof(::CMsgGCToServerCheerData)},
-  { 2435, 2459, -1, sizeof(::CMsgCheerConfig)},
-  { 2477, 2484, -1, sizeof(::CMsgGCToServerCheerConfig)},
-  { 2485, 2492, -1, sizeof(::CMsgServerToGCGetCheerConfig)},
-  { 2493, 2500, -1, sizeof(::CMsgServerToGCGetCheerConfigResponse)},
-  { 2501, -1, -1, sizeof(::CMsgGCToServerCheerScalesOverride)},
-  { 2508, -1, -1, sizeof(::CMsgGCToServerGetCheerState)},
-  { 2514, 2524, -1, sizeof(::CMsgCheerTypeState)},
-  { 2528, 2537, -1, sizeof(::CMsgCheerState)},
-  { 2540, 2548, -1, sizeof(::CMsgServerToGCReportCheerState)},
-  { 2550, -1, -1, sizeof(::CMsgServerToGCGetStickerHeroes)},
-  { 2557, 2565, -1, sizeof(::CMsgServerToGCGetStickerHeroesResponse_Player)},
-  { 2567, -1, -1, sizeof(::CMsgServerToGCGetStickerHeroesResponse)},
-  { 2574, -1, -1, sizeof(::CMsgGCToServerSetSteamLearnDisable)},
-  { 2580, 2587, -1, sizeof(::CMsgGCToServerSetSteamLearnKeysChanged)},
-  { 2588, 2599, -1, sizeof(::CMsgSteamLearnMatchInfo)},
-  { 2604, -1, -1, sizeof(::CMsgSteamLearnMatchHeroes)},
-  { 2614, 2624, -1, sizeof(::CMsgSteamLearnMatchHero)},
-  { 2628, 2643, -1, sizeof(::CMsgSteamLearnMatchState_PlayerState)},
-  { 2652, 2668, -1, sizeof(::CMsgSteamLearnMatchState_TeamState)},
-  { 2678, 2687, -1, sizeof(::CMsgSteamLearnMatchState)},
-  { 2690, 2703, -1, sizeof(::CMsgSteamLearnItemPurchase)},
-  { 2710, 2720, -1, sizeof(::CMsgSteamLearnAbilitySkill)},
-  { 2724, 2731, -1, sizeof(::CMsgSignOutMuertaMinigame)},
+  { 68, 77, -1, sizeof(::CMsgConnectedPlayers_PlayerDraft)},
+  { 80, 97, -1, sizeof(::CMsgConnectedPlayers)},
+  { 108, 142, -1, sizeof(::CMsgGameServerInfo)},
+  { 170, 182, -1, sizeof(::CMsgLeaverDetected)},
+  { 188, 195, -1, sizeof(::CMsgLeaverDetectedResponse)},
+  { 196, -1, -1, sizeof(::CMsgDOTAFantasyFinalPlayerStats)},
+  { 203, -1, -1, sizeof(::CMsgDOTAFantasyLivePlayerStats)},
+  { 210, 217, -1, sizeof(::CMsgServerToGCRealtimeStats)},
+  { 218, 225, -1, sizeof(::CMsgGCToServerRealtimeStatsStartStop)},
+  { 226, 233, -1, sizeof(::CMsgGCToServerUpdateSteamBroadcasting)},
+  { 234, 244, -1, sizeof(::CMsgSignOutGameplayStats_CPlayer)},
+  { 248, 258, -1, sizeof(::CMsgSignOutGameplayStats_CTeam)},
+  { 262, -1, -1, sizeof(::CMsgSignOutGameplayStats)},
+  { 269, 277, -1, sizeof(::CMsgGameMatchSignOut_CTeam_CPlayer_CCustomGameData)},
+  { 279, 288, -1, sizeof(::CMsgGameMatchSignOut_CTeam_CPlayer_HeroDamageReceived)},
+  { 291, 366, -1, sizeof(::CMsgGameMatchSignOut_CTeam_CPlayer)},
+  { 435, -1, -1, sizeof(::CMsgGameMatchSignOut_CTeam)},
+  { 442, 450, -1, sizeof(::CMsgGameMatchSignOut_CAdditionalSignoutMsg)},
+  { 452, 463, -1, sizeof(::CMsgGameMatchSignOut_CSocialFeedMatchEvent)},
+  { 468, 475, -1, sizeof(::CMsgGameMatchSignOut_CCustomGameData)},
+  { 476, 489, -1, sizeof(::CMsgGameMatchSignOut_EventGameLeaderboardEntry)},
+  { 496, 510, -1, sizeof(::CMsgGameMatchSignOut_WardPlacement)},
+  { 518, 555, -1, sizeof(::CMsgGameMatchSignOut)},
+  { 586, 595, -1, sizeof(::CMsgSignOutDraftInfo)},
+  { 598, 608, -1, sizeof(::CMsgSignOutBotInfo)},
+  { 612, 621, -1, sizeof(::CMsgSignOutTextMuteInfo_TextMuteMessage)},
+  { 624, -1, -1, sizeof(::CMsgSignOutTextMuteInfo)},
+  { 631, 667, -1, sizeof(::CMsgSignOutPlayerStats)},
+  { 697, 705, -1, sizeof(::CMsgSignOutCommunicationSummary_PlayerCommunication_PingDetail)},
+  { 707, 730, -1, sizeof(::CMsgSignOutCommunicationSummary_PlayerCommunication)},
+  { 747, -1, -1, sizeof(::CMsgSignOutCommunicationSummary)},
+  { 754, 773, -1, sizeof(::CMsgGameMatchSignoutResponse_PlayerMetadata)},
+  { 786, 804, -1, sizeof(::CMsgGameMatchSignoutResponse)},
+  { 816, -1, -1, sizeof(::CMsgTimedRewardContainer)},
+  { 823, 833, -1, sizeof(::CMsgGameMatchSignOutPermissionRequest)},
+  { 837, 846, -1, sizeof(::CMsgGameMatchSignOutPermissionResponse)},
+  { 849, 860, -1, sizeof(::CMsgGameMatchSignOutEventGameData)},
+  { 865, 893, -1, sizeof(::CMsgGameMatchSignOutPerfData)},
+  { 915, -1, -1, sizeof(::CMsgGameMatchSignOutBanData)},
+  { 923, 931, -1, sizeof(::CMsgDOTALiveScoreboardUpdate_Team_Player_HeroAbility)},
+  { 933, 966, -1, sizeof(::CMsgDOTALiveScoreboardUpdate_Team_Player)},
+  { 993, 1005, -1, sizeof(::CMsgDOTALiveScoreboardUpdate_Team)},
+  { 1011, 1026, -1, sizeof(::CMsgDOTALiveScoreboardUpdate)},
+  { 1035, -1, -1, sizeof(::CMsgServerToGCRequestBatchPlayerResources)},
+  { 1043, 1057, -1, sizeof(::CMsgServerToGCRequestBatchPlayerResourcesResponse_Result)},
+  { 1065, -1, -1, sizeof(::CMsgServerToGCRequestBatchPlayerResourcesResponse)},
+  { 1072, -1, -1, sizeof(::CMsgDOTAPlayerFailedToConnect)},
+  { 1080, 1093, -1, sizeof(::CMsgGCToRelayConnect)},
+  { 1100, 1107, -1, sizeof(::CMsgGCGCToLANServerRelayConnect)},
+  { 1108, 1115, -1, sizeof(::CMsgGCBanStatusRequest)},
+  { 1116, 1126, -1, sizeof(::CMsgGCBanStatusResponse)},
+  { 1130, 1148, -1, sizeof(::CMsgTournamentItemEvent)},
+  { 1160, 1168, -1, sizeof(::CMsgTournamentItemEventResponse)},
+  { 1170, 1177, -1, sizeof(::CMsgTeamFanfare)},
+  { 1178, 1186, -1, sizeof(::CMsgResponseTeamFanfare)},
+  { 1188, 1198, -1, sizeof(::CMsgGameServerUploadSaveGame)},
+  { 1202, 1209, -1, sizeof(::CMsgGameServerSaveGameResult)},
+  { 1210, 1217, -1, sizeof(::CMsgGameServerGetLoadGame)},
+  { 1218, 1225, -1, sizeof(::CMsgGameServerGetLoadGameResult)},
+  { 1226, 1238, -1, sizeof(::CMsgDOTAAwardEventPoints_AwardPoints)},
+  { 1244, 1255, -1, sizeof(::CMsgDOTAAwardEventPoints)},
+  { 1260, 1268, -1, sizeof(::CMsgGCToServerPingRequest)},
+  { 1270, 1279, -1, sizeof(::CMsgGCToServerPingResponse)},
+  { 1282, 1294, -1, sizeof(::CMsgServerToGCMatchConnectionStats_Player)},
+  { 1300, 1311, -1, sizeof(::CMsgServerToGCMatchConnectionStats)},
+  { 1316, 1323, -1, sizeof(::CMsgServerGCUpdateSpectatorCount)},
+  { 1324, 1332, -1, sizeof(::CSerializedCombatLog_Dictionary_DictString)},
+  { 1334, -1, -1, sizeof(::CSerializedCombatLog_Dictionary)},
+  { 1341, 1350, -1, sizeof(::CSerializedCombatLog)},
+  { 1353, 1362, -1, sizeof(::CMsgServerToGCVictoryPredictions_Record)},
+  { 1365, -1, -1, sizeof(::CMsgServerToGCVictoryPredictions)},
+  { 1372, -1, -1, sizeof(::CMsgServerToGCRequestStatus)},
+  { 1378, 1385, -1, sizeof(::CMsgServerToGCRequestStatus_Response)},
+  { 1386, 1400, -1, sizeof(::CMsgSignOutAssassinMiniGameInfo)},
+  { 1408, 1417, -1, sizeof(::CMsgServerToGCKillSummaries_KillSummary)},
+  { 1420, 1428, -1, sizeof(::CMsgServerToGCKillSummaries)},
+  { 1430, 1441, -1, sizeof(::CMsgGCToServerPredictionResult_Prediction)},
+  { 1446, 1456, -1, sizeof(::CMsgGCToServerPredictionResult)},
+  { 1460, 1468, -1, sizeof(::CMsgServerToGCLockCharmTrading)},
+  { 1470, 1481, -1, sizeof(::CMsgSignOutUpdatePlayerChallenge_Challenge)},
+  { 1486, 1497, -1, sizeof(::CMsgSignOutUpdatePlayerChallenge)},
+  { 1502, 1510, -1, sizeof(::CMsgServerToGCRerollPlayerChallenge)},
+  { 1512, 1521, -1, sizeof(::CMsgSpendWager_Player)},
+  { 1524, 1535, -1, sizeof(::CMsgSpendWager)},
+  { 1540, 1552, -1, sizeof(::CMsgSignOutXPCoins_Player)},
+  { 1558, 1568, -1, sizeof(::CMsgSignOutXPCoins)},
+  { 1572, 1581, -1, sizeof(::CMsgSignOutBounties_Bounty)},
+  { 1584, 1594, -1, sizeof(::CMsgSignOutBounties)},
+  { 1598, 1606, -1, sizeof(::CMsgSignOutCommunityGoalProgress_EventGoalIncrement)},
+  { 1608, 1616, -1, sizeof(::CMsgSignOutCommunityGoalProgress)},
+  { 1618, 1627, -1, sizeof(::CMsgServerToGCCloseCompendiumInGamePredictionVoting)},
+  { 1630, 1637, -1, sizeof(::CMsgServerToGCCloseCompendiumInGamePredictionVotingResponse)},
+  { 1638, 1647, -1, sizeof(::CMsgServerToGCCompendiumInGamePredictionResults_PredictionResult)},
+  { 1650, 1660, -1, sizeof(::CMsgServerToGCCompendiumInGamePredictionResults)},
+  { 1664, 1671, -1, sizeof(::CMsgServerToGCCompendiumChosenInGamePredictions_Prediction)},
+  { 1672, 1681, -1, sizeof(::CMsgServerToGCCompendiumChosenInGamePredictions)},
+  { 1684, 1691, -1, sizeof(::CMsgGCToGCCompendiumInGamePredictionResults)},
+  { 1692, 1704, -1, sizeof(::CMsgServerToGCMatchPlayerItemPurchaseHistory_ItemPurchase)},
+  { 1710, 1724, -1, sizeof(::CMsgServerToGCMatchPlayerItemPurchaseHistory_Player)},
+  { 1732, 1741, -1, sizeof(::CMsgServerToGCMatchPlayerItemPurchaseHistory)},
+  { 1744, 1755, -1, sizeof(::CMsgServerToGCMatchPlayerNeutralItemEquipHistory_ItemEquip)},
+  { 1760, 1771, -1, sizeof(::CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player)},
+  { 1776, 1784, -1, sizeof(::CMsgServerToGCMatchPlayerNeutralItemEquipHistory)},
+  { 1786, 1801, -1, sizeof(::CMsgServerToGCMatchStateHistory_PlayerState)},
+  { 1810, 1826, -1, sizeof(::CMsgServerToGCMatchStateHistory_TeamState)},
+  { 1836, 1845, -1, sizeof(::CMsgServerToGCMatchStateHistory_MatchState)},
+  { 1848, 1858, -1, sizeof(::CMsgServerToGCMatchStateHistory)},
+  { 1862, 1871, -1, sizeof(::CMsgMatchStateSteamMLEntry)},
+  { 1874, -1, -1, sizeof(::CMsgLaneSelectionSteamMLEntry)},
+  { 1882, 1894, -1, sizeof(::CMsgAbilitySelectionSteamMLEntry)},
+  { 1900, 1913, -1, sizeof(::CMsgItemPurchasePregameSteamMLEntry)},
+  { 1920, 1933, -1, sizeof(::CMsgItemPurchaseSteamMLEntry)},
+  { 1940, 1953, -1, sizeof(::CMsgItemPurchaseSequenceSteamMLEntry)},
+  { 1960, 1971, -1, sizeof(::CMsgServerToGCCavernCrawlIsHeroActive)},
+  { 1976, 1992, -1, sizeof(::CMsgServerToGCPlayerChallengeHistory_PlayerChallenge)},
+  { 2002, 2011, -1, sizeof(::CMsgServerToGCPlayerChallengeHistory)},
+  { 2014, 2022, -1, sizeof(::CMsgServerToGCCavernCrawlIsHeroActiveResponse_MapResults)},
+  { 2024, 2035, -1, sizeof(::CMsgServerToGCCavernCrawlIsHeroActiveResponse)},
+  { 2040, 2047, -1, sizeof(::CMsgGCtoServerTensorflowInstance)},
+  { 2048, 2085, -1, sizeof(::CMsgDetailedGameStats_PlayerStatEntry)},
+  { 2116, 2125, -1, sizeof(::CMsgDetailedGameStats_GameStats)},
+  { 2128, 2136, -1, sizeof(::CMsgDetailedGameStats_MinuteEntry)},
+  { 2138, 2147, -1, sizeof(::CMsgDetailedGameStats_PlayerInfo)},
+  { 2150, 2159, -1, sizeof(::CMsgDetailedGameStats)},
+  { 2162, 2174, -1, sizeof(::CMsgNeutralItemStats_NeutralItem)},
+  { 2180, -1, -1, sizeof(::CMsgNeutralItemStats)},
+  { 2187, 2196, -1, sizeof(::CMsgGCToServerLobbyHeroBanRates_HeroBanEntry)},
+  { 2199, -1, -1, sizeof(::CMsgGCToServerLobbyHeroBanRates)},
+  { 2206, 2215, -1, sizeof(::CMsgSignOutGuildContractProgress_CompletedGuildEventContracts)},
+  { 2218, 2226, -1, sizeof(::CMsgSignOutGuildContractProgress_PlayerContract)},
+  { 2228, -1, -1, sizeof(::CMsgSignOutGuildContractProgress)},
+  { 2235, 2248, -1, sizeof(::CMsgSignOutGuildChallengeProgress_ChallengeProgress)},
+  { 2255, -1, -1, sizeof(::CMsgSignOutGuildChallengeProgress)},
+  { 2262, 2270, -1, sizeof(::CMsgSignOutMVPStats_Player_KillEaterEvent)},
+  { 2272, 2303, -1, sizeof(::CMsgSignOutMVPStats_Player)},
+  { 2328, 2339, -1, sizeof(::CMsgSignOutMVPStats)},
+  { 2344, 2351, -1, sizeof(::CMsgGCToServerRecordTrainingData)},
+  { 2352, -1, -1, sizeof(::CMsgServerToGCGetGuildContracts)},
+  { 2359, 2370, -1, sizeof(::CMsgServerToGCGetGuildContractsResponse_ContractDetails)},
+  { 2375, 2385, -1, sizeof(::CMsgServerToGCGetGuildContractsResponse_Player)},
+  { 2389, -1, -1, sizeof(::CMsgServerToGCGetGuildContractsResponse)},
+  { 2396, 2404, -1, sizeof(::CMsgMatchDiretideCandy_CandyDetails)},
+  { 2406, 2416, -1, sizeof(::CMsgMatchDiretideCandy_PlayerCandy)},
+  { 2420, 2428, -1, sizeof(::CMsgMatchDiretideCandy)},
+  { 2430, 2438, -1, sizeof(::CMsgGCToServerCheerData_CheerTypeCount)},
+  { 2440, -1, -1, sizeof(::CMsgGCToServerCheerData)},
+  { 2447, 2471, -1, sizeof(::CMsgCheerConfig)},
+  { 2489, 2496, -1, sizeof(::CMsgGCToServerCheerConfig)},
+  { 2497, 2504, -1, sizeof(::CMsgServerToGCGetCheerConfig)},
+  { 2505, 2512, -1, sizeof(::CMsgServerToGCGetCheerConfigResponse)},
+  { 2513, -1, -1, sizeof(::CMsgGCToServerCheerScalesOverride)},
+  { 2520, -1, -1, sizeof(::CMsgGCToServerGetCheerState)},
+  { 2526, 2536, -1, sizeof(::CMsgCheerTypeState)},
+  { 2540, 2549, -1, sizeof(::CMsgCheerState)},
+  { 2552, 2560, -1, sizeof(::CMsgServerToGCReportCheerState)},
+  { 2562, -1, -1, sizeof(::CMsgServerToGCGetStickerHeroes)},
+  { 2569, 2577, -1, sizeof(::CMsgServerToGCGetStickerHeroesResponse_Player)},
+  { 2579, -1, -1, sizeof(::CMsgServerToGCGetStickerHeroesResponse)},
+  { 2586, -1, -1, sizeof(::CMsgGCToServerSetSteamLearnDisable)},
+  { 2592, 2600, -1, sizeof(::CMsgGCToServerSetSteamLearnInferencing)},
+  { 2602, 2609, -1, sizeof(::CMsgGCToServerSetSteamLearnKeysChanged)},
+  { 2610, 2621, -1, sizeof(::CMsgSteamLearnMatchInfo)},
+  { 2626, 2637, -1, sizeof(::CMsgSteamLearnMatchInfoPlayer)},
+  { 2642, -1, -1, sizeof(::CMsgSteamLearnMatchHeroes)},
+  { 2652, 2662, -1, sizeof(::CMsgSteamLearnMatchHero)},
+  { 2666, 2681, -1, sizeof(::CMsgSteamLearnMatchState_PlayerState)},
+  { 2690, 2706, -1, sizeof(::CMsgSteamLearnMatchState_TeamState)},
+  { 2716, 2725, -1, sizeof(::CMsgSteamLearnMatchState)},
+  { 2728, 2742, -1, sizeof(::CMsgSteamLearnItemPurchase)},
+  { 2750, 2759, -1, sizeof(::CMsgSteamLearnPreGameItemPurchases)},
+  { 2762, 2772, -1, sizeof(::CMsgSteamLearnNeutralItemPurchase)},
+  { 2776, 2786, -1, sizeof(::CMsgSteamLearnAbilitySkill)},
+  { 2790, 2798, -1, sizeof(::CMsgSteamLearnWardPlacement_Location)},
+  { 2800, 2809, -1, sizeof(::CMsgSteamLearnWardPlacement)},
+  { 2812, 2819, -1, sizeof(::CMsgSignOutMuertaMinigame)},
+  { 2820, 2828, -1, sizeof(::CMsgSignOutMapStats_Player)},
+  { 2830, 2838, -1, sizeof(::CMsgSignOutMapStats)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -6011,6 +6272,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CMsgPoorNetworkConditions_default_instance_._instance,
   &::_CMsgGameserverCrash_default_instance_._instance,
   &::_CMsgConnectedPlayers_Player_default_instance_._instance,
+  &::_CMsgConnectedPlayers_PlayerDraft_default_instance_._instance,
   &::_CMsgConnectedPlayers_default_instance_._instance,
   &::_CMsgGameServerInfo_default_instance_._instance,
   &::_CMsgLeaverDetected_default_instance_._instance,
@@ -6169,16 +6431,24 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CMsgServerToGCGetStickerHeroesResponse_Player_default_instance_._instance,
   &::_CMsgServerToGCGetStickerHeroesResponse_default_instance_._instance,
   &::_CMsgGCToServerSetSteamLearnDisable_default_instance_._instance,
+  &::_CMsgGCToServerSetSteamLearnInferencing_default_instance_._instance,
   &::_CMsgGCToServerSetSteamLearnKeysChanged_default_instance_._instance,
   &::_CMsgSteamLearnMatchInfo_default_instance_._instance,
+  &::_CMsgSteamLearnMatchInfoPlayer_default_instance_._instance,
   &::_CMsgSteamLearnMatchHeroes_default_instance_._instance,
   &::_CMsgSteamLearnMatchHero_default_instance_._instance,
   &::_CMsgSteamLearnMatchState_PlayerState_default_instance_._instance,
   &::_CMsgSteamLearnMatchState_TeamState_default_instance_._instance,
   &::_CMsgSteamLearnMatchState_default_instance_._instance,
   &::_CMsgSteamLearnItemPurchase_default_instance_._instance,
+  &::_CMsgSteamLearnPreGameItemPurchases_default_instance_._instance,
+  &::_CMsgSteamLearnNeutralItemPurchase_default_instance_._instance,
   &::_CMsgSteamLearnAbilitySkill_default_instance_._instance,
+  &::_CMsgSteamLearnWardPlacement_Location_default_instance_._instance,
+  &::_CMsgSteamLearnWardPlacement_default_instance_._instance,
   &::_CMsgSignOutMuertaMinigame_default_instance_._instance,
+  &::_CMsgSignOutMapStats_Player_default_instance_._instance,
+  &::_CMsgSignOutMapStats_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_dota_5fgcmessages_5fserver_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -6206,7 +6476,7 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fserver_2eproto[] PROTOB
   "\025\n\rtournament_id\030\014 \001(\r\022\027\n\017server_steam_i"
   "d\030\005 \001(\006\022\035\n\025server_public_ip_addr\030\006 \001(\007\022\023"
   "\n\013server_port\030\007 \001(\r\022\026\n\016server_cluster\030\010 "
-  "\001(\r\022\013\n\003pid\030\t \001(\r\022\016\n\006engine\030\n \001(\r\"\366\006\n\024CMs"
+  "\001(\r\022\013\n\003pid\030\t \001(\r\022\016\n\006engine\030\n \001(\r\"\230\010\n\024CMs"
   "gConnectedPlayers\0227\n\021connected_players\030\001"
   " \003(\0132\034.CMsgConnectedPlayers.Player\022:\n\024di"
   "sconnected_players\030\007 \003(\0132\034.CMsgConnected"
@@ -6218,750 +6488,776 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fserver_2eproto[] PROTOB
   "nectedPlayers.SendReason:\007INVALID\022\025\n\rrad"
   "iant_kills\030\013 \001(\r\022\022\n\ndire_kills\030\014 \001(\r\022\024\n\014"
   "radiant_lead\030\016 \001(\005\022\026\n\016building_state\030\017 \001"
-  "(\r\032\250\001\n\006Player\022\020\n\010steam_id\030\001 \001(\006\022\017\n\007hero_"
-  "id\030\002 \001(\r\022&\n\014leaver_state\030\003 \001(\0132\020.CMsgLea"
-  "verState\022S\n\021disconnect_reason\030\004 \001(\0162\034.EN"
-  "etworkDisconnectionReason:\032NETWORK_DISCO"
-  "NNECT_INVALID\"\211\002\n\nSendReason\022\013\n\007INVALID\020"
-  "\000\022\r\n\tHEARTBEAT\020\001\022\016\n\nGAME_STATE\020\002\022\017\n\013FIRS"
-  "T_BLOOD\020\003\022\024\n\020PLAYER_CONNECTED\020\004\022\017\n\013PLAYE"
-  "R_HERO\020\005\022$\n PLAYER_DISCONNECTED_CONSEQUE"
-  "NCES\020\006\022&\n\"PLAYER_DISCONNECTED_NOCONSEQUE"
-  "NCES\020\007\022\025\n\021GAMESTATE_TIMEOUT\020\n\022\023\n\017MASS_DI"
-  "SCONNECT\020\013\022\t\n\005KILLS\020\r\022\022\n\016BUILDING_STATE\020"
-  "\016\"\274\010\n\022CMsgGameServerInfo\022\035\n\025server_publi"
-  "c_ip_addr\030\001 \001(\007\022\036\n\026server_private_ip_add"
-  "r\030\002 \001(\007\022\023\n\013server_port\030\003 \001(\r\022\026\n\016server_t"
-  "v_port\030\004 \001(\r\022\037\n\027assigned_server_tv_port\030"
-  "\026 \001(\r\022+\n#legacy_server_steamdatagram_add"
-  "ress\030\033 \001(\014\022\022\n\nserver_key\030\005 \001(\t\022\032\n\022server"
-  "_hibernation\030\006 \001(\010\022@\n\013server_type\030\007 \001(\0162"
-  "\036.CMsgGameServerInfo.ServerType:\013UNSPECI"
-  "FIED\022\025\n\rserver_region\030\010 \001(\r\022\026\n\016server_lo"
-  "adavg\030\t \001(\002\022 \n\030server_tv_broadcast_time\030"
-  "\n \001(\002\022\030\n\020server_game_time\030\013 \001(\002\022\'\n\037serve"
-  "r_relay_connected_steam_id\030\014 \001(\006\022\027\n\017rela"
-  "y_slots_max\030\r \001(\r\022\030\n\020relays_connected\030\016 "
-  "\001(\005\022\037\n\027relay_clients_connected\030\017 \001(\005\022$\n\034"
-  "relayed_game_server_steam_id\030\020 \001(\006\022\032\n\022pa"
-  "rent_relay_count\030\021 \001(\r\022\026\n\016tv_secret_code"
-  "\030\022 \001(\006\022\026\n\016server_version\030\023 \001(\r\022\026\n\016server"
-  "_cluster\030\024 \001(\r\022A\n\022allow_custom_games\030\027 \001"
-  "(\0162\037.CMsgGameServerInfo.CustomGames:\004BOT"
-  "H\022\025\n\rbuild_version\030\030 \001(\r\022\027\n\017tf_server_co"
-  "unt\030\031 \001(\r\022\026\n\016srcds_instance\030\032 \001(\r\022\035\n\025dev"
-  "_force_server_type\030\034 \001(\010\022(\n is_recording"
-  "_match_training_data\030\035 \001(\010\"|\n\nServerType"
-  "\022\017\n\013UNSPECIFIED\020\000\022\010\n\004GAME\020\001\022\t\n\005PROXY\020\002\022\016"
-  "\n\nTENSORFLOW\020\003\022\r\n\tDOTA_ONLY\020\004\022\024\n\020CUSTOM_"
-  "GAME_ONLY\020\005\022\023\n\017EVENT_GAME_ONLY\020\006\"6\n\013Cust"
-  "omGames\022\010\n\004BOTH\020\000\022\010\n\004NONE\020\001\022\010\n\004ONLY\020\002\022\t\n"
-  "\005EVENT\020\003\"\266\002\n\022CMsgLeaverDetected\022\020\n\010steam"
-  "_id\030\001 \001(\006\022<\n\rleaver_status\030\002 \001(\0162\023.DOTAL"
-  "eaverStatus_t:\020DOTA_LEAVER_NONE\022&\n\014leave"
-  "r_state\030\004 \001(\0132\020.CMsgLeaverState\022\026\n\016serve"
-  "r_cluster\030\005 \001(\r\022S\n\021disconnect_reason\030\006 \001"
-  "(\0162\034.ENetworkDisconnectionReason:\032NETWOR"
-  "K_DISCONNECT_INVALID\022;\n\027poor_network_con"
-  "ditions\030\007 \001(\0132\032.CMsgPoorNetworkCondition"
-  "s\",\n\032CMsgLeaverDetectedResponse\022\016\n\006resul"
-  "t\030\001 \001(\r\"M\n\037CMsgDOTAFantasyFinalPlayerSta"
+  "(\r\0227\n\014player_draft\030\020 \003(\0132!.CMsgConnected"
+  "Players.PlayerDraft\032\250\001\n\006Player\022\020\n\010steam_"
+  "id\030\001 \001(\006\022\017\n\007hero_id\030\002 \001(\r\022&\n\014leaver_stat"
+  "e\030\003 \001(\0132\020.CMsgLeaverState\022S\n\021disconnect_"
+  "reason\030\004 \001(\0162\034.ENetworkDisconnectionReas"
+  "on:\032NETWORK_DISCONNECT_INVALID\032g\n\013Player"
+  "Draft\022\020\n\010steam_id\030\001 \001(\006\0223\n\004team\030\002 \001(\0162\r."
+  "DOTA_GC_TEAM:\026DOTA_GC_TEAM_GOOD_GUYS\022\021\n\t"
+  "team_slot\030\003 \001(\005\"\211\002\n\nSendReason\022\013\n\007INVALI"
+  "D\020\000\022\r\n\tHEARTBEAT\020\001\022\016\n\nGAME_STATE\020\002\022\017\n\013FI"
+  "RST_BLOOD\020\003\022\024\n\020PLAYER_CONNECTED\020\004\022\017\n\013PLA"
+  "YER_HERO\020\005\022$\n PLAYER_DISCONNECTED_CONSEQ"
+  "UENCES\020\006\022&\n\"PLAYER_DISCONNECTED_NOCONSEQ"
+  "UENCES\020\007\022\025\n\021GAMESTATE_TIMEOUT\020\n\022\023\n\017MASS_"
+  "DISCONNECT\020\013\022\t\n\005KILLS\020\r\022\022\n\016BUILDING_STAT"
+  "E\020\016\"\274\010\n\022CMsgGameServerInfo\022\035\n\025server_pub"
+  "lic_ip_addr\030\001 \001(\007\022\036\n\026server_private_ip_a"
+  "ddr\030\002 \001(\007\022\023\n\013server_port\030\003 \001(\r\022\026\n\016server"
+  "_tv_port\030\004 \001(\r\022\037\n\027assigned_server_tv_por"
+  "t\030\026 \001(\r\022+\n#legacy_server_steamdatagram_a"
+  "ddress\030\033 \001(\014\022\022\n\nserver_key\030\005 \001(\t\022\032\n\022serv"
+  "er_hibernation\030\006 \001(\010\022@\n\013server_type\030\007 \001("
+  "\0162\036.CMsgGameServerInfo.ServerType:\013UNSPE"
+  "CIFIED\022\025\n\rserver_region\030\010 \001(\r\022\026\n\016server_"
+  "loadavg\030\t \001(\002\022 \n\030server_tv_broadcast_tim"
+  "e\030\n \001(\002\022\030\n\020server_game_time\030\013 \001(\002\022\'\n\037ser"
+  "ver_relay_connected_steam_id\030\014 \001(\006\022\027\n\017re"
+  "lay_slots_max\030\r \001(\r\022\030\n\020relays_connected\030"
+  "\016 \001(\005\022\037\n\027relay_clients_connected\030\017 \001(\005\022$"
+  "\n\034relayed_game_server_steam_id\030\020 \001(\006\022\032\n\022"
+  "parent_relay_count\030\021 \001(\r\022\026\n\016tv_secret_co"
+  "de\030\022 \001(\006\022\026\n\016server_version\030\023 \001(\r\022\026\n\016serv"
+  "er_cluster\030\024 \001(\r\022A\n\022allow_custom_games\030\027"
+  " \001(\0162\037.CMsgGameServerInfo.CustomGames:\004B"
+  "OTH\022\025\n\rbuild_version\030\030 \001(\r\022\027\n\017tf_server_"
+  "count\030\031 \001(\r\022\026\n\016srcds_instance\030\032 \001(\r\022\035\n\025d"
+  "ev_force_server_type\030\034 \001(\010\022(\n is_recordi"
+  "ng_match_training_data\030\035 \001(\010\"|\n\nServerTy"
+  "pe\022\017\n\013UNSPECIFIED\020\000\022\010\n\004GAME\020\001\022\t\n\005PROXY\020\002"
+  "\022\016\n\nTENSORFLOW\020\003\022\r\n\tDOTA_ONLY\020\004\022\024\n\020CUSTO"
+  "M_GAME_ONLY\020\005\022\023\n\017EVENT_GAME_ONLY\020\006\"6\n\013Cu"
+  "stomGames\022\010\n\004BOTH\020\000\022\010\n\004NONE\020\001\022\010\n\004ONLY\020\002\022"
+  "\t\n\005EVENT\020\003\"\266\002\n\022CMsgLeaverDetected\022\020\n\010ste"
+  "am_id\030\001 \001(\006\022<\n\rleaver_status\030\002 \001(\0162\023.DOT"
+  "ALeaverStatus_t:\020DOTA_LEAVER_NONE\022&\n\014lea"
+  "ver_state\030\004 \001(\0132\020.CMsgLeaverState\022\026\n\016ser"
+  "ver_cluster\030\005 \001(\r\022S\n\021disconnect_reason\030\006"
+  " \001(\0162\034.ENetworkDisconnectionReason:\032NETW"
+  "ORK_DISCONNECT_INVALID\022;\n\027poor_network_c"
+  "onditions\030\007 \001(\0132\032.CMsgPoorNetworkConditi"
+  "ons\",\n\032CMsgLeaverDetectedResponse\022\016\n\006res"
+  "ult\030\001 \001(\r\"M\n\037CMsgDOTAFantasyFinalPlayerS"
+  "tats\022*\n\005stats\030\002 \003(\0132\033.CMsgDOTAFantasyPla"
+  "yerStats\"L\n\036CMsgDOTAFantasyLivePlayerSta"
   "ts\022*\n\005stats\030\002 \003(\0132\033.CMsgDOTAFantasyPlaye"
-  "rStats\"L\n\036CMsgDOTAFantasyLivePlayerStats"
-  "\022*\n\005stats\030\002 \003(\0132\033.CMsgDOTAFantasyPlayerS"
-  "tats\"O\n\033CMsgServerToGCRealtimeStats\0220\n\007d"
-  "elayed\030\001 \001(\0132\037.CMsgDOTARealtimeGameStats"
-  "Terse\"7\n$CMsgGCToServerRealtimeStatsStar"
-  "tStop\022\017\n\007delayed\030\001 \001(\010\"7\n%CMsgGCToServer"
-  "UpdateSteamBroadcasting\022\016\n\006active\030\001 \001(\010\""
-  "\343\002\n\030CMsgSignOutGameplayStats\022.\n\005teams\030\001 "
-  "\003(\0132\037.CMsgSignOutGameplayStats.CTeam\032v\n\007"
-  "CPlayer\022\020\n\010steam_id\030\001 \001(\006\022\023\n\013player_slot"
-  "\030\002 \001(\r\022\017\n\007hero_id\030\003 \001(\r\0223\n\022timed_player_"
-  "stats\030\004 \003(\0132\027.CMatchPlayerTimedStats\032\236\001\n"
-  "\005CTeam\022\027\n\017is_winning_team\030\001 \001(\010\022\027\n\017is_ra"
-  "diant_team\030\002 \001(\010\022/\n\020timed_team_stats\030\003 \003"
-  "(\0132\025.CMatchTeamTimedStats\0222\n\007players\030\004 \003"
-  "(\0132!.CMsgSignOutGameplayStats.CPlayer\"\213!"
-  "\n\024CMsgGameMatchSignOut\022\026\n\010match_id\030\001 \001(\004"
-  "B\004\200\246\035\001\022\020\n\010duration\030\002 \001(\r\022\025\n\rgood_guys_wi"
-  "n\030\003 \001(\010\022\014\n\004date\030\004 \001(\007\022\023\n\013num_players\030\005 \003"
-  "(\r\022*\n\005teams\030\006 \003(\0132\033.CMsgGameMatchSignOut"
-  ".CTeam\022\024\n\014tower_status\030\010 \003(\r\022\027\n\017barracks"
-  "_status\030\t \003(\r\022\017\n\007cluster\030\n \001(\r\022\023\n\013server"
-  "_addr\030\013 \001(\t\022\030\n\020first_blood_time\030\014 \001(\r\022\023\n"
-  "\013event_score\030\016 \001(\r\022*\n\npicks_bans\030\017 \003(\0132\026"
-  ".CMatchHeroSelectEvent\0222\n\rfantasy_stats\030"
-  ") \003(\0132\033.CMsgDOTAFantasyPlayerStats\022O\n pl"
-  "ayer_strange_count_adjustments\030\021 \003(\0132%.C"
-  "MsgEconPlayerStrangeCountAdjustment\022\033\n\023a"
-  "utomatic_surrender\030\022 \001(\010\022\026\n\016server_versi"
-  "on\030\023 \001(\r\022;\n\027poor_network_conditions\030# \001("
-  "\0132\032.CMsgPoorNetworkConditions\022D\n\017additio"
-  "nal_msgs\030\024 \003(\0132+.CMsgGameMatchSignOut.CA"
-  "dditionalSignoutMsg\022G\n\022social_feed_event"
-  "s\030$ \003(\0132+.CMsgGameMatchSignOut.CSocialFe"
-  "edMatchEvent\022\036\n\026average_networth_delta\030\026"
-  " \001(\021\022\?\n\020custom_game_data\030% \001(\0132%.CMsgGam"
-  "eMatchSignOut.CCustomGameData\022\023\n\013match_f"
-  "lags\030& \001(\r\022\023\n\013team_scores\030\' \003(\r\022\031\n\021pre_g"
-  "ame_duration\030( \001(\r\022W\n\036event_game_leaderb"
-  "oard_entries\030* \003(\0132/.CMsgGameMatchSignOu"
-  "t.EventGameLeaderboardEntry\022<\n\017ward_plac"
-  "ements\030+ \003(\0132#.CMsgGameMatchSignOut.Ward"
-  "Placement\0221\n\016gameplay_stats\030, \001(\0132\031.CMsg"
-  "SignOutGameplayStats\022\'\n\016extra_messages\0306"
-  " \003(\0132\017.CExtraMsgBlock\022\036\n\026training_data_r"
-  "ecorded\0307 \001(\010\022;\n\014winning_team\0308 \001(\0162\r.DO"
-  "TA_GC_TEAM:\026DOTA_GC_TEAM_GOOD_GUYS\022\'\n\037no"
-  "rmalized_win_probability_diff\0309 \001(\002\032\302\022\n\005"
-  "CTeam\0224\n\007players\030\001 \003(\0132#.CMsgGameMatchSi"
-  "gnOut.CTeam.CPlayer\032\202\022\n\007CPlayer\022\020\n\010steam"
-  "_id\030\001 \001(\006\022\017\n\007hero_id\030\003 \001(\r\022\r\n\005items\030\004 \003("
-  "\005\022\033\n\023item_purchase_times\030\? \003(\r\022\014\n\004gold\030\005"
-  " \001(\r\022\r\n\005kills\030\006 \001(\r\022\016\n\006deaths\030\007 \001(\r\022\017\n\007a"
-  "ssists\030\010 \001(\r\022\025\n\rleaver_status\030\t \001(\r\022\021\n\tl"
-  "ast_hits\030\n \001(\r\022\016\n\006denies\030\013 \001(\r\022\024\n\014gold_p"
-  "er_min\030\014 \001(\r\022\025\n\rxp_per_minute\030\r \001(\r\022\022\n\ng"
-  "old_spent\030\016 \001(\r\022\r\n\005level\030\017 \001(\r\022\032\n\022scaled"
-  "_hero_damage\030\020 \001(\r\022\033\n\023scaled_tower_damag"
-  "e\030\021 \001(\r\022\033\n\023scaled_hero_healing\030\022 \001(\r\022\026\n\016"
-  "time_last_seen\030\023 \001(\r\022\035\n\025support_ability_"
-  "value\030\024 \001(\r\022\020\n\010party_id\030\025 \001(\004\022\031\n\021claimed"
-  "_farm_gold\030\033 \001(\r\022\024\n\014support_gold\030\034 \001(\r\022\026"
-  "\n\016claimed_denies\030\035 \001(\r\022\026\n\016claimed_misses"
-  "\030\036 \001(\r\022\016\n\006misses\030\037 \001(\r\022\021\n\tnet_worth\030\" \001("
-  "\r\022\023\n\013hero_damage\030% \001(\r\022\024\n\014tower_damage\030&"
-  " \001(\r\022\024\n\014hero_healing\030\' \001(\r\0225\n\020ability_up"
-  "grades\030  \003(\0132\033.CMatchPlayerAbilityUpgrad"
-  "e\022B\n\032additional_units_inventory\030! \003(\0132\036."
-  "CMatchAdditionalUnitInventory\0223\n\017permane"
-  "nt_buffs\030( \003(\0132\032.CMatchPlayerPermanentBu"
-  "ff\022M\n\020custom_game_data\030# \001(\01323.CMsgGameM"
-  "atchSignOut.CTeam.CPlayer.CCustomGameDat"
-  "a\022\032\n\022match_player_flags\030$ \001(\r\022\032\n\022talent_"
-  "ability_ids\030) \003(\005\022\027\n\017hero_pick_order\030* \001"
-  "(\r\022\031\n\021hero_was_randomed\030+ \001(\010\022%\n\035hero_wa"
-  "s_dota_plus_suggestion\0302 \001(\010\022\014\n\004lane\030- \001"
-  "(\r\022\033\n\023is_using_plus_guide\030/ \001(\010\022T\n\024hero_"
-  "damage_received\0300 \003(\01326.CMsgGameMatchSig"
-  "nOut.CTeam.CPlayer.HeroDamageReceived\022Q\n"
-  "\021hero_damage_dealt\030@ \003(\01326.CMsgGameMatch"
-  "SignOut.CTeam.CPlayer.HeroDamageReceived"
-  "\022\024\n\014seconds_dead\0303 \001(\r\022\032\n\022gold_lost_to_d"
-  "eath\0304 \001(\r\022\025\n\rcommand_count\0305 \001(\r\022&\n\036mou"
-  "se_click_cast_command_count\0306 \001(\r\022\026\n\016tel"
-  "eports_used\0307 \001(\r\022/\n\"cavern_crawl_prefer"
-  "red_map_variant\0308 \001(\r:\003255\022\024\n\014bounty_run"
-  "es\0309 \001(\r\022\031\n\021outposts_captured\030: \001(\r\022\017\n\007d"
-  "ewards\030; \001(\r\022\024\n\014wards_placed\030< \001(\r\022\025\n\rca"
-  "mps_stacked\030= \001(\r\022\023\n\013player_slot\030> \001(\r\022\032"
-  "\n\022predicted_position\030B \001(\r\022\032\n\rlane_outco"
-  "mes\030C \001(\r:\003255\022\"\n\032friendly_t1_destroyed_"
-  "time\030D \001(\r\022\037\n\027enemy_t1_destroyed_time\030E "
-  "\001(\r\022\035\n\025friendly_roshan_kills\030F \001(\r\022\032\n\022en"
-  "emy_roshan_kills\030G \001(\r\022\023\n\013power_runes\030H "
-  "\001(\r\022\023\n\013water_runes\030I \001(\r\022\025\n\rstun_duratio"
-  "n\030J \001(\002\022:\n\013team_number\030K \001(\0162\r.DOTA_GC_T"
-  "EAM:\026DOTA_GC_TEAM_GOOD_GUYS\022\021\n\tteam_slot"
-  "\030L \001(\r\022\034\n\024time_purchased_shard\030M \001(\r\022\033\n\023"
-  "time_purchased_aghs\030N \001(\r\022\037\n\027ability_dra"
-  "ft_abilities\030O \003(\005\0324\n\017CCustomGameData\022\021\n"
-  "\tdota_team\030\001 \001(\r\022\016\n\006winner\030\002 \001(\010\032\242\001\n\022Her"
-  "oDamageReceived\022\025\n\rpre_reduction\030\001 \001(\r\022\026"
-  "\n\016post_reduction\030\002 \001(\r\022]\n\013damage_type\030\003 "
-  "\001(\01622.CMsgGameMatchSignOut.CTeam.CPlayer"
-  ".HeroDamageType:\024HERO_DAMAGE_PHYSICAL\"Y\n"
-  "\016HeroDamageType\022\030\n\024HERO_DAMAGE_PHYSICAL\020"
-  "\000\022\027\n\023HERO_DAMAGE_MAGICAL\020\001\022\024\n\020HERO_DAMAG"
-  "E_PURE\020\002\0325\n\025CAdditionalSignoutMsg\022\n\n\002id\030"
-  "\001 \001(\r\022\020\n\010contents\030\002 \001(\014\032z\n\025CSocialFeedMa"
-  "tchEvent\022\022\n\naccount_id\030\001 \001(\r\022\021\n\ttimestam"
-  "p\030\002 \001(\r\022\022\n\nevent_type\030\003 \001(\r\022\021\n\tgame_time"
-  "\030\004 \001(\005\022\023\n\013replay_time\030\005 \001(\r\032,\n\017CCustomGa"
-  "meData\022\031\n\021publish_timestamp\030\001 \001(\r\032\255\001\n\031Ev"
-  "entGameLeaderboardEntry\022\023\n\013name_suffix\030\001"
-  " \001(\t\022\r\n\005score\030\002 \001(\005\022\024\n\014extra_data_1\030\003 \001("
-  "\r\022\024\n\014extra_data_2\030\004 \001(\r\022\024\n\014extra_data_3\030"
-  "\005 \001(\r\022\024\n\014extra_data_4\030\006 \001(\r\022\024\n\014extra_dat"
-  "a_5\030\007 \001(\r\032\267\001\n\rWardPlacement\022\025\n\tplayer_id"
-  "\030\001 \001(\005:\002-1\022\017\n\007team_id\030\002 \001(\r\022\023\n\013placed_ti"
-  "me\030\003 \001(\r\022\026\n\016building_state\030\004 \001(\r\022\023\n\013cree"
-  "p_state\030\005 \001(\r\022\024\n\014roshan_alive\030\006 \001(\010\022\022\n\np"
-  "osition_x\030\007 \001(\r\022\022\n\nposition_y\030\010 \001(\r\"\207\001\n\024"
-  "CMsgSignOutDraftInfo\022\"\n\032radiant_captain_"
-  "account_id\030\001 \001(\r\022\037\n\027dire_captain_account"
-  "_id\030\002 \001(\r\022*\n\npicks_bans\030\003 \003(\0132\026.CMatchHe"
-  "roSelectEvent\"\326\001\n\022CMsgSignOutBotInfo\022\024\n\014"
-  "allow_cheats\030\001 \001(\010\022J\n\026bot_difficulty_rad"
-  "iant\030\002 \001(\0162\022.DOTABotDifficulty:\026BOT_DIFF"
-  "ICULTY_PASSIVE\022\025\n\rcreated_lobby\030\003 \001(\010\022G\n"
-  "\023bot_difficulty_dire\030\005 \001(\0162\022.DOTABotDiff"
-  "iculty:\026BOT_DIFFICULTY_PASSIVE\"\262\001\n\027CMsgS"
-  "ignOutTextMuteInfo\022D\n\022text_mute_messages"
-  "\030\001 \003(\0132(.CMsgSignOutTextMuteInfo.TextMut"
-  "eMessage\032Q\n\017TextMuteMessage\022\016\n\006region\030\001 "
-  "\001(\r\022\030\n\020caused_text_mute\030\002 \001(\010\022\024\n\014chat_me"
-  "ssage\030\003 \001(\t\"\372\004\n\026CMsgSignOutPlayerStats\022\022"
-  "\n\naccount_id\030\001 \001(\005\022\020\n\010match_id\030\002 \001(\004\022\014\n\004"
-  "rank\030\003 \001(\r\022\017\n\007hero_id\030\004 \001(\r\022\020\n\010rampages\030"
-  "\005 \001(\r\022\024\n\014triple_kills\030\006 \001(\r\022\033\n\023first_blo"
-  "od_claimed\030\007 \001(\r\022\031\n\021first_blood_given\030\010 "
-  "\001(\r\022\027\n\017couriers_killed\030\t \001(\r\022\030\n\020aegises_"
-  "snatched\030\n \001(\r\022\025\n\rcheeses_eaten\030\013 \001(\r\022\026\n"
-  "\016creeps_stacked\030\014 \001(\r\022\023\n\013fight_score\030\r \001"
-  "(\002\022\022\n\nfarm_score\030\016 \001(\002\022\025\n\rsupport_score\030"
-  "\017 \001(\002\022\022\n\npush_score\030\020 \001(\002\022\r\n\005kills\030\021 \001(\r"
-  "\022\016\n\006deaths\030\022 \001(\r\022\017\n\007assists\030\023 \001(\r\022\021\n\tlas"
-  "t_hits\030\024 \001(\r\022\016\n\006denies\030\025 \001(\r\022\013\n\003gpm\030\026 \001("
-  "\002\022\014\n\004xppm\030\027 \001(\002\022\021\n\tnet_worth\030\030 \001(\002\022\016\n\006da"
-  "mage\030\031 \001(\002\022\r\n\005heals\030\032 \001(\002\022\031\n\021rapiers_pur"
-  "chased\030\033 \001(\r\022\035\n\025observer_wards_placed\030\034 "
-  "\001(\r\022\027\n\017wards_destroyed\030\035 \001(\r\022\022\n\nlobby_ty"
-  "pe\030\036 \001(\r\"\230\005\n\037CMsgSignOutCommunicationSum"
-  "mary\022E\n\007players\030\001 \003(\01324.CMsgSignOutCommu"
-  "nicationSummary.PlayerCommunication\032\255\004\n\023"
-  "PlayerCommunication\022\022\n\naccount_id\030\001 \001(\r\022"
-  "\r\n\005pings\030\002 \001(\r\022\036\n\026max_pings_per_interval"
-  "\030\003 \001(\r\022\026\n\016teammate_pings\030\004 \001(\r\022\'\n\037max_te"
-  "ammate_pings_per_interval\030\005 \001(\r\022\032\n\022team_"
-  "chat_messages\030\006 \001(\r\022\031\n\021all_chat_messages"
-  "\030\007 \001(\r\022\033\n\023chat_wheel_messages\030\010 \001(\r\022\016\n\006p"
-  "auses\030\t \001(\r\022\020\n\010unpauses\030\n \001(\r\022\023\n\013lines_d"
-  "rawn\030\013 \001(\r\022\032\n\022voice_chat_seconds\030\014 \001(\r\022\022"
-  "\n\nchat_mutes\030\r \001(\r\022\023\n\013voice_mutes\030\016 \001(\r\022"
-  "U\n\014ping_details\030\017 \003(\0132\?.CMsgSignOutCommu"
-  "nicationSummary.PlayerCommunication.Ping"
-  "Detail\022\031\n\021comms_blocks_solo\030\020 \001(\r\022\031\n\021com"
-  "ms_blocks_mass\030\021 \001(\r\0325\n\nPingDetail\022\030\n\004ty"
-  "pe\030\001 \001(\r:\n4294967295\022\r\n\005count\030\002 \001(\r\"\340\005\n\034"
-  "CMsgGameMatchSignoutResponse\022\020\n\010match_id"
-  "\030\001 \001(\004\022\023\n\013replay_salt\030\002 \001(\007\0227\n\024timed_rew"
-  "ard_details\030\003 \003(\0132\031.CLobbyTimedRewardDet"
-  "ails\022.\n\021xp_reward_details\030\004 \003(\0132\023.CSODOT"
-  "ALobbyMember\022\020\n\010leagueid\030\005 \001(\r\022\034\n\024metada"
-  "ta_private_key\030\007 \001(\007\022%\n\rmatch_details\030\010 "
-  "\001(\0132\016.CMsgDOTAMatch\022F\n\020players_metadata\030"
-  "\t \003(\0132,.CMsgGameMatchSignoutResponse.Pla"
-  "yerMetadata\022\033\n\010mvp_data\030\n \001(\0132\t.CMvpData"
-  "\022\026\n\016ow_private_key\030\013 \001(\006\022\017\n\007ow_salt\030\014 \001("
-  "\007\022\024\n\014ow_replay_id\030\r \001(\004\032\264\002\n\016PlayerMetada"
-  "ta\022\017\n\007hero_id\030\001 \001(\r\022\025\n\ravg_kills_x16\030\002 \001"
-  "(\r\022\026\n\016avg_deaths_x16\030\003 \001(\r\022\027\n\017avg_assist"
-  "s_x16\030\004 \001(\r\022\023\n\013avg_gpm_x16\030\005 \001(\r\022\023\n\013avg_"
-  "xpm_x16\030\006 \001(\r\022\026\n\016best_kills_x16\030\007 \001(\r\022\030\n"
-  "\020best_assists_x16\030\010 \001(\r\022\024\n\014best_gpm_x16\030"
-  "\t \001(\r\022\024\n\014best_xpm_x16\030\n \001(\r\022\022\n\nwin_strea"
-  "k\030\013 \001(\r\022\027\n\017best_win_streak\030\014 \001(\r\022\024\n\014game"
-  "s_played\030\r \001(\r\"S\n\030CMsgTimedRewardContain"
-  "er\0227\n\024timed_reward_details\030\001 \003(\0132\031.CLobb"
-  "yTimedRewardDetails\"\205\001\n%CMsgGameMatchSig"
-  "nOutPermissionRequest\022\026\n\016server_version\030"
-  "\001 \001(\r\022\025\n\rlocal_attempt\030\002 \001(\r\022\025\n\rtotal_at"
-  "tempt\030\003 \001(\r\022\026\n\016seconds_waited\030\004 \001(\r\"\213\001\n&"
-  "CMsgGameMatchSignOutPermissionResponse\022!"
-  "\n\022permission_granted\030\001 \001(\010:\005false\022\036\n\017aba"
-  "ndon_signout\030\002 \001(\010:\005false\022\036\n\023retry_delay"
-  "_seconds\030\003 \001(\r:\0010\"\237\001\n!CMsgGameMatchSignO"
-  "utEventGameData\022(\n\010event_id\030\001 \001(\0162\007.EEve"
-  "nt:\rEVENT_ID_NONE\022\021\n\tgame_name\030\002 \001(\t\022\020\n\010"
-  "map_name\030\003 \001(\t\022\027\n\017event_game_data\030\004 \001(\014\022"
-  "\022\n\nstart_time\030\005 \001(\r\"\340\005\n\034CMsgGameMatchSig"
-  "nOutPerfData\022\032\n\022average_frame_time\030\001 \003(\002"
-  "\022\026\n\016max_frame_time\030\002 \003(\002\022!\n\031server_avera"
-  "ge_frame_time\030\003 \001(\002\022\035\n\025server_max_frame_"
-  "time\030\004 \001(\002\022\034\n\024average_compute_time\030\005 \003(\002"
-  "\022\030\n\020max_compute_time\030\006 \003(\002\022 \n\030average_cl"
-  "ient_tick_time\030\007 \003(\002\022\034\n\024max_client_tick_"
-  "time\030\010 \003(\002\022$\n\034average_client_simulate_ti"
-  "me\030\t \003(\002\022 \n\030max_client_simulate_time\030\n \003"
-  "(\002\022\033\n\023average_output_time\030\013 \003(\002\022\027\n\017max_o"
-  "utput_time\030\014 \003(\002\0223\n+average_wait_for_ren"
-  "dering_to_complete_time\030\r \003(\002\022/\n\'max_wai"
-  "t_for_rendering_to_complete_time\030\016 \003(\002\022\031"
-  "\n\021average_swap_time\030\017 \003(\002\022\025\n\rmax_swap_ti"
-  "me\030\020 \003(\002\022!\n\031average_frame_update_time\030\021 "
-  "\003(\002\022\035\n\025max_frame_update_time\030\022 \003(\002\022\031\n\021av"
-  "erage_idle_time\030\023 \003(\002\022\025\n\rmax_idle_time\030\024"
-  " \003(\002\022%\n\035average_input_processing_time\030\025 "
-  "\003(\002\022!\n\031max_input_processing_time\030\026 \003(\002\"H"
-  "\n\033CMsgGameMatchSignOutBanData\022\021\n\thero_ba"
-  "ns\030\001 \003(\r\022\026\n\016hero_ban_votes\030\002 \003(\r\"\320\n\n\034CMs"
-  "gDOTALiveScoreboardUpdate\022\025\n\rtournament_"
-  "id\030\001 \001(\r\022\032\n\022tournament_game_id\030\002 \001(\r\022\020\n\010"
-  "duration\030\003 \001(\002\022\022\n\nhltv_delay\030\004 \001(\005\0225\n\tte"
-  "am_good\030\005 \001(\0132\".CMsgDOTALiveScoreboardUp"
-  "date.Team\0224\n\010team_bad\030\006 \001(\0132\".CMsgDOTALi"
-  "veScoreboardUpdate.Team\022\034\n\024roshan_respaw"
-  "n_timer\030\007 \001(\r\022\021\n\tleague_id\030\010 \001(\r\022\020\n\010matc"
-  "h_id\030\t \001(\004\032\246\010\n\004Team\022:\n\007players\030\001 \003(\0132).C"
-  "MsgDOTALiveScoreboardUpdate.Team.Player\022"
-  "\r\n\005score\030\002 \001(\r\022\023\n\013tower_state\030\003 \001(\r\022\026\n\016b"
-  "arracks_state\030\004 \001(\r\022\022\n\nhero_picks\030\005 \003(\r\022"
-  "\021\n\thero_bans\030\006 \003(\r\032\376\006\n\006Player\022\023\n\013player_"
-  "slot\030\001 \001(\r\022\023\n\013player_name\030\002 \001(\t\022\021\n\thero_"
-  "name\030\003 \001(\t\022\017\n\007hero_id\030\004 \001(\r\022\r\n\005kills\030\005 \001"
-  "(\r\022\016\n\006deaths\030\006 \001(\r\022\017\n\007assists\030\007 \001(\r\022\021\n\tl"
-  "ast_hits\030\010 \001(\r\022\016\n\006denies\030\t \001(\r\022\014\n\004gold\030\n"
-  " \001(\r\022\r\n\005level\030\013 \001(\r\022\024\n\014gold_per_min\030\014 \001("
-  "\002\022\022\n\nxp_per_min\030\r \001(\002\022s\n\016ultimate_state\030"
-  "\016 \001(\0162;.CMsgDOTALiveScoreboardUpdate.Tea"
-  "m.Player.DOTAUltimateState:\036k_EDOTAUltim"
-  "ateStateNotLearned\022\031\n\021ultimate_cooldown\030"
-  "\017 \001(\002\022\021\n\005item0\030\020 \001(\005:\002-1\022\021\n\005item1\030\021 \001(\005:"
-  "\002-1\022\021\n\005item2\030\022 \001(\005:\002-1\022\021\n\005item3\030\023 \001(\005:\002-"
-  "1\022\021\n\005item4\030\024 \001(\005:\002-1\022\021\n\005item5\030\025 \001(\005:\002-1\022"
-  "\025\n\rrespawn_timer\030\026 \001(\r\022\022\n\naccount_id\030\027 \001"
-  "(\r\022\022\n\nposition_x\030\030 \001(\002\022\022\n\nposition_y\030\031 \001"
-  "(\002\022\021\n\tnet_worth\030\032 \001(\r\022H\n\tabilities\030\033 \003(\013"
-  "25.CMsgDOTALiveScoreboardUpdate.Team.Pla"
-  "yer.HeroAbility\032<\n\013HeroAbility\022\026\n\nabilit"
-  "y_id\030\001 \001(\005:\002-1\022\025\n\rability_level\030\002 \001(\r\"\233\001"
-  "\n\021DOTAUltimateState\022\"\n\036k_EDOTAUltimateSt"
-  "ateNotLearned\020\000\022 \n\034k_EDOTAUltimateStateC"
-  "ooldown\020\001\022!\n\035k_EDOTAUltimateStateNeedsMa"
-  "na\020\002\022\035\n\031k_EDOTAUltimateStateReady\020\003\"\\\n)C"
-  "MsgServerToGCRequestBatchPlayerResources"
-  "\022\027\n\013account_ids\030\001 \003(\rB\002\020\001\022\026\n\nrank_types\030"
-  "\004 \003(\rB\002\020\001\"\302\002\n1CMsgServerToGCRequestBatch"
-  "PlayerResourcesResponse\022J\n\007results\030\006 \003(\013"
-  "29.CMsgServerToGCRequestBatchPlayerResou"
-  "rcesResponse.Result\032\300\001\n\006Result\022\022\n\naccoun"
-  "t_id\030\001 \001(\r\022\031\n\021prevent_text_chat\030\002 \001(\010\022\032\n"
-  "\022prevent_voice_chat\030\003 \001(\010\022\014\n\004rank\030\004 \001(\r\022"
-  "\027\n\017rank_calibrated\030\005 \001(\010\022\024\n\014low_priority"
-  "\030\006 \001(\010\022\025\n\ris_new_player\030\007 \001(\010\022\027\n\017is_guid"
-  "e_player\030\010 \001(\010\"R\n\035CMsgDOTAPlayerFailedTo"
-  "Connect\022\026\n\016failed_loaders\030\001 \003(\006\022\031\n\021aband"
-  "oned_loaders\030\002 \003(\006\"\333\001\n\024CMsgGCToRelayConn"
-  "ect\022\035\n\025source_tv_public_addr\030\001 \001(\r\022\036\n\026so"
-  "urce_tv_private_addr\030\002 \001(\r\022\026\n\016source_tv_"
-  "port\030\003 \001(\r\022\034\n\024game_server_steam_id\030\004 \001(\004"
-  "\022\024\n\014parent_count\030\005 \001(\r\022\035\n\025tv_unique_secr"
-  "et_code\030\006 \001(\006\022\031\n\021source_tv_steamid\030\007 \001(\006"
-  "\"8\n\037CMsgGCGCToLANServerRelayConnect\022\025\n\rr"
-  "elay_steamid\030\001 \001(\006\",\n\026CMsgGCBanStatusReq"
-  "uest\022\022\n\naccount_id\030\001 \001(\r\"t\n\027CMsgGCBanSta"
-  "tusResponse\022\016\n\006result\030\001 \001(\r\022\024\n\014low_prior"
-  "ity\030\002 \001(\010\022\030\n\020text_chat_banned\030\003 \001(\010\022\031\n\021v"
-  "oice_chat_banned\030\004 \001(\010\"\336\002\n\027CMsgTournamen"
-  "tItemEvent\022\031\n\021killer_account_id\030\001 \001(\007\022\031\n"
-  "\021victim_account_id\030\002 \001(\007\022:\n\nevent_type\030\003"
-  " \001(\0162\026.DOTA_TournamentEvents:\016TE_FIRST_B"
-  "LOOD\022\020\n\010tv_delay\030\004 \001(\005\022\021\n\tdota_time\030\005 \001("
-  "\005\022\023\n\013replay_time\030\006 \001(\002\022\021\n\tloot_list\030\007 \001("
-  "\t\022\022\n\nevent_team\030\010 \001(\r\022\030\n\020multi_kill_coun"
-  "t\030\t \001(\r\022\024\n\014winner_score\030\n \001(\r\022\023\n\013loser_s"
-  "core\030\013 \001(\r\022+\n\014hero_statues\030\014 \003(\0132\025.CProt"
-  "oItemHeroStatue\"v\n\037CMsgTournamentItemEve"
-  "ntResponse\022:\n\nevent_type\030\001 \001(\0162\026.DOTA_To"
-  "urnamentEvents:\016TE_FIRST_BLOOD\022\027\n\017viewer"
-  "s_granted\030\006 \001(\r\"#\n\017CMsgTeamFanfare\022\020\n\010ma"
-  "tch_id\030\001 \001(\004\"L\n\027CMsgResponseTeamFanfare\022"
-  "\030\n\020fanfare_goodguys\030\001 \001(\r\022\027\n\017fanfare_bad"
-  "guys\030\002 \001(\r\"u\n\034CMsgGameServerUploadSaveGa"
-  "me\022\021\n\tgame_time\030\001 \001(\r\022\026\n\016save_game_data\030"
-  "\002 \001(\014\022\020\n\010lobby_id\030\003 \001(\004\022\030\n\020player_steam_"
-  "ids\030\004 \003(\004\"\266\001\n\034CMsgGameServerSaveGameResu"
-  "lt\022D\n\006result\030\001 \001(\0162$.CMsgGameServerSaveG"
-  "ameResult.Result:\016SaveSuccessful\"P\n\006Resu"
-  "lt\022\022\n\016SaveSuccessful\020\000\022\023\n\017SessionNotFoun"
-  "d\020\001\022\021\n\rDatabaseError\020\002\022\n\n\006TooBig\020\003\",\n\031CM"
-  "sgGameServerGetLoadGame\022\017\n\007save_id\030\001 \001(\r"
-  "\"9\n\037CMsgGameServerGetLoadGameResult\022\026\n\016s"
-  "ave_game_data\030\001 \001(\014\"\371\002\n\030CMsgDOTAAwardEve"
-  "ntPoints\022;\n\014award_points\030\001 \003(\0132%.CMsgDOT"
-  "AAwardEventPoints.AwardPoints\022\020\n\010match_i"
-  "d\030\002 \001(\004\022(\n\010event_id\030\004 \001(\0162\007.EEvent:\rEVEN"
-  "T_ID_NONE\022\021\n\ttimestamp\030\005 \001(\r\022\024\n\014audit_ac"
-  "tion\030\006 \001(\r\032\272\001\n\013AwardPoints\022\022\n\naccount_id"
-  "\030\001 \001(\r\022\016\n\006points\030\002 \001(\005\022\026\n\016premium_points"
-  "\030\003 \001(\005\022\026\n\016trade_ban_time\030\005 \001(\r\022/\n eligib"
-  "le_for_periodic_adjustment\030\006 \001(\010:\005false\022"
-  "&\n\036point_cap_periodic_resource_id\030\007 \001(\r\""
-  "E\n\031CMsgGCToServerPingRequest\022\022\n\nrequest_"
-  "id\030\001 \001(\006\022\024\n\014request_time\030\002 \001(\004\"W\n\032CMsgGC"
-  "ToServerPingResponse\022\022\n\nrequest_id\030\001 \001(\006"
-  "\022\024\n\014request_time\030\002 \001(\004\022\017\n\007cluster\030\003 \001(\r\""
-  "\260\002\n\"CMsgServerToGCMatchConnectionStats\022\020"
-  "\n\010match_id\030\001 \001(\004\022\021\n\tregion_id\030\002 \001(\r\022\021\n\tl"
-  "eague_id\030\003 \001(\r\022;\n\007players\030\004 \003(\0132*.CMsgSe"
-  "rverToGCMatchConnectionStats.Player\022\022\n\nc"
-  "luster_id\030\005 \001(\r\032\200\001\n\006Player\022\022\n\naccount_id"
-  "\030\001 \001(\r\022\n\n\002ip\030\002 \001(\007\022\023\n\013avg_ping_ms\030\003 \001(\r\022"
-  "\023\n\013packet_loss\030\005 \001(\002\022\026\n\016ping_deviation\030\006"
-  " \001(\002\022\024\n\014full_resends\030\007 \001(\r\";\n CMsgServer"
-  "GCUpdateSpectatorCount\022\027\n\017spectator_coun"
-  "t\030\001 \001(\r\"\374\001\n\024CSerializedCombatLog\022\017\n\007vers"
-  "ion\030\001 \001(\r\0224\n\ndictionary\030\002 \001(\0132 .CSeriali"
-  "zedCombatLog.Dictionary\022(\n\007entries\030\003 \003(\013"
-  "2\027.CMsgDOTACombatLogEntry\032s\n\nDictionary\022"
-  "<\n\007strings\030\001 \003(\0132+.CSerializedCombatLog."
-  "Dictionary.DictString\032\'\n\nDictString\022\n\n\002i"
-  "d\030\001 \002(\r\022\r\n\005value\030\002 \002(\t\"\236\001\n CMsgServerToG"
-  "CVictoryPredictions\0229\n\007records\030\001 \003(\0132(.C"
-  "MsgServerToGCVictoryPredictions.Record\032\?"
-  "\n\006Record\022\022\n\naccount_id\030\001 \001(\r\022\017\n\007item_id\030"
-  "\002 \001(\004\022\020\n\010item_ids\030\005 \003(\004\"\035\n\033CMsgServerToG"
-  "CRequestStatus\"8\n$CMsgServerToGCRequestS"
-  "tatus_Response\022\020\n\010response\030\001 \001(\r\"\352\001\n\037CMs"
-  "gSignOutAssassinMiniGameInfo\022\027\n\017winning_"
-  "players\030\001 \003(\006\022\026\n\016losing_players\030\002 \003(\006\022\025\n"
-  "\rarcana_owners\030\003 \003(\006\022\024\n\014assassin_won\030\004 \001"
-  "(\010\022\026\n\016target_hero_id\030\005 \001(\r\022\032\n\022contract_c"
-  "ompleted\030\006 \001(\010\022\036\n\026contract_complete_time"
-  "\030\007 \001(\002\022\025\n\rpa_is_radiant\030\010 \001(\010\"\305\001\n\033CMsgSe"
-  "rverToGCKillSummaries\022\026\n\016ingameevent_id\030"
-  "\001 \001(\r\022;\n\tsummaries\030\002 \003(\0132(.CMsgServerToG"
-  "CKillSummaries.KillSummary\032Q\n\013KillSummar"
-  "y\022\026\n\016killer_hero_id\030\001 \001(\r\022\026\n\016victim_hero"
-  "_id\030\002 \001(\r\022\022\n\nkill_count\030\003 \001(\r\"\226\003\n\036CMsgGC"
-  "ToServerPredictionResult\022\022\n\naccount_id\030\001"
-  " \001(\r\022\020\n\010match_id\030\002 \001(\004\022\017\n\007correct\030\003 \001(\010\022"
-  "\?\n\013predictions\030\004 \003(\0132*.CMsgGCToServerPre"
-  "dictionResult.Prediction\032\373\001\n\nPrediction\022"
-  "\020\n\010item_def\030\001 \001(\r\022\023\n\013num_correct\030\002 \001(\r\022\021"
-  "\n\tnum_fails\030\003 \001(\r\022Y\n\006result\030\004 \001(\01622.CMsg"
-  "GCToServerPredictionResult.Prediction.ER"
-  "esult:\025k_eResult_ItemGranted\022\031\n\021granted_"
-  "item_defs\030\006 \003(\r\"=\n\007EResult\022\031\n\025k_eResult_"
-  "ItemGranted\020\001\022\027\n\023k_eResult_Destroyed\020\002\"E"
-  "\n\036CMsgServerToGCLockCharmTrading\022\022\n\nacco"
-  "unt_id\030\001 \001(\r\022\017\n\007item_id\030\002 \001(\004\"\340\002\n CMsgSi"
-  "gnOutUpdatePlayerChallenge\022\022\n\naccount_id"
-  "\030\001 \001(\r\022>\n\tcompleted\030\002 \003(\0132+.CMsgSignOutU"
-  "pdatePlayerChallenge.Challenge\022=\n\010reroll"
-  "ed\030\003 \003(\0132+.CMsgSignOutUpdatePlayerChalle"
-  "nge.Challenge\022\020\n\010match_id\030\004 \001(\004\022\017\n\007hero_"
-  "id\030\005 \001(\r\032\205\001\n\tChallenge\022(\n\010event_id\030\001 \001(\016"
-  "2\007.EEvent:\rEVENT_ID_NONE\022\017\n\007slot_id\030\002 \001("
-  "\r\022\023\n\013sequence_id\030\003 \001(\r\022\020\n\010progress\030\004 \001(\r"
-  "\022\026\n\016challenge_rank\030\005 \001(\r\"s\n#CMsgServerTo"
-  "GCRerollPlayerChallenge\022\022\n\naccount_id\030\001 "
-  "\001(\r\0228\n\nreroll_msg\030\002 \001(\0132$.CMsgClientToGC"
-  "RerollPlayerChallenge\"\353\001\n\016CMsgSpendWager"
-  "\022\'\n\007players\030\001 \003(\0132\026.CMsgSpendWager.Playe"
-  "r\022(\n\010event_id\030\002 \001(\0162\007.EEvent:\rEVENT_ID_N"
-  "ONE\022\021\n\ttimestamp\030\003 \001(\r\022\020\n\010match_id\030\004 \001(\004"
-  "\022\027\n\017server_steam_id\030\005 \001(\004\032H\n\006Player\022\022\n\na"
-  "ccount_id\030\001 \001(\r\022\r\n\005wager\030\002 \001(\r\022\033\n\023wager_"
-  "token_item_id\030\003 \001(\004\"\236\002\n\022CMsgSignOutXPCoi"
-  "ns\022+\n\007players\030\001 \003(\0132\032.CMsgSignOutXPCoins"
-  ".Player\022(\n\010event_id\030\002 \001(\0162\007.EEvent:\rEVEN"
-  "T_ID_NONE\022\020\n\010match_id\030\003 \001(\004\022\021\n\ttimestamp"
-  "\030\004 \001(\r\032\213\001\n\006Player\022\022\n\naccount_id\030\001 \001(\r\022\021\n"
-  "\txp_gained\030\002 \001(\r\022\023\n\013coins_spent\030\003 \001(\r\022\033\n"
-  "\023wager_token_item_id\030\004 \001(\004\022\022\n\nrank_wager"
-  "\030\005 \001(\r\022\024\n\014wager_streak\030\006 \001(\r\"\361\001\n\023CMsgSig"
-  "nOutBounties\022-\n\010bounties\030\001 \003(\0132\033.CMsgSig"
-  "nOutBounties.Bounty\022(\n\010event_id\030\002 \001(\0162\007."
-  "EEvent:\rEVENT_ID_NONE\022\020\n\010match_id\030\003 \001(\004\022"
-  "\021\n\ttimestamp\030\004 \001(\r\032\\\n\006Bounty\022\031\n\021issuer_a"
-  "ccount_id\030\001 \001(\r\022\034\n\024completer_account_id\030"
-  "\002 \001(\r\022\031\n\021target_account_id\030\003 \001(\r\"\343\001\n CMs"
-  "gSignOutCommunityGoalProgress\022(\n\010event_i"
-  "d\030\001 \001(\0162\007.EEvent:\rEVENT_ID_NONE\022N\n\020event"
-  "_increments\030\002 \003(\01324.CMsgSignOutCommunity"
-  "GoalProgress.EventGoalIncrement\032E\n\022Event"
-  "GoalIncrement\022\025\n\revent_goal_id\030\001 \001(\r\022\030\n\020"
-  "increment_amount\030\002 \001(\r\"n\n3CMsgServerToGC"
-  "CloseCompendiumInGamePredictionVoting\022\020\n"
-  "\010match_id\030\001 \001(\004\022\022\n\nhltv_delay\030\002 \001(\r\022\021\n\tl"
-  "eague_id\030\003 \001(\r\"M\n;CMsgServerToGCCloseCom"
-  "pendiumInGamePredictionVotingResponse\022\016\n"
-  "\006result\030\001 \001(\010\"\251\002\n/CMsgServerToGCCompendi"
-  "umInGamePredictionResults\022\020\n\010match_id\030\001 "
-  "\001(\004\022R\n\007results\030\002 \003(\0132A.CMsgServerToGCCom"
-  "pendiumInGamePredictionResults.Predictio"
-  "nResult\022\021\n\tleague_id\030\003 \001(\r\022\026\n\016league_nod"
-  "e_id\030\004 \001(\r\032e\n\020PredictionResult\022\025\n\rpredic"
-  "tion_id\030\001 \001(\r\022\030\n\020prediction_value\030\002 \001(\r\022"
-  " \n\030prediction_value_is_mask\030\003 \001(\010\"\324\001\n/CM"
-  "sgServerToGCCompendiumChosenInGamePredic"
-  "tions\022\020\n\010match_id\030\001 \001(\004\022W\n\022predictions_c"
-  "hosen\030\002 \003(\0132;.CMsgServerToGCCompendiumCh"
-  "osenInGamePredictions.Prediction\022\021\n\tleag"
-  "ue_id\030\003 \001(\r\032#\n\nPrediction\022\025\n\rprediction_"
-  "id\030\001 \001(\r\"p\n+CMsgGCToGCCompendiumInGamePr"
-  "edictionResults\022A\n\007results\030\001 \001(\01320.CMsgS"
-  "erverToGCCompendiumInGamePredictionResul"
-  "ts\"\210\004\n,CMsgServerToGCMatchPlayerItemPurc"
-  "haseHistory\022\020\n\010match_id\030\001 \001(\004\022\013\n\003mmr\030\002 \001"
-  "(\r\022E\n\007players\030\003 \003(\01324.CMsgServerToGCMatc"
-  "hPlayerItemPurchaseHistory.Player\032\206\001\n\014It"
-  "emPurchase\022\020\n\004item\030\001 \001(\005:\002-1\022\014\n\004gold\030\002 \001"
-  "(\r\022\021\n\tnet_worth\030\003 \001(\r\022\021\n\tgame_time\030\004 \001(\r"
-  "\022\027\n\017inventory_items\030\005 \003(\005\022\027\n\017talents_ski"
-  "lled\030\007 \003(\010\032\350\001\n\006Player\022\023\n\013player_slot\030\001 \001"
-  "(\r\022\022\n\naccount_id\030\002 \001(\r\022\017\n\007hero_id\030\003 \001(\r\022"
-  "\027\n\017allied_hero_ids\030\004 \003(\r\022\026\n\016enemy_hero_i"
-  "ds\030\005 \003(\r\022R\n\016item_purchases\030\006 \003(\0132:.CMsgS"
-  "erverToGCMatchPlayerItemPurchaseHistory."
-  "ItemPurchase\022\014\n\004lane\030\007 \001(\r\022\021\n\tis_winner\030"
-  "\010 \001(\010\"\312\003\n0CMsgServerToGCMatchPlayerNeutr"
-  "alItemEquipHistory\022\020\n\010match_id\030\001 \001(\004\022I\n\007"
-  "players\030\002 \003(\01328.CMsgServerToGCMatchPlaye"
-  "rNeutralItemEquipHistory.Player\032\203\001\n\tItem"
-  "Equip\022\020\n\004item\030\001 \001(\005:\002-1\022\021\n\tgame_time\030\002 \001"
-  "(\r\022\027\n\017inventory_items\030\003 \003(\005\022\027\n\017talents_s"
-  "killed\030\004 \003(\010\022\037\n\027available_neutral_items\030"
-  "\005 \003(\005\032\262\001\n\006Player\022\022\n\naccount_id\030\001 \001(\r\022\027\n\017"
-  "allied_hero_ids\030\002 \003(\r\022\026\n\016enemy_hero_ids\030"
-  "\003 \003(\r\022P\n\013item_equips\030\004 \003(\0132;.CMsgServerT"
-  "oGCMatchPlayerNeutralItemEquipHistory.It"
-  "emEquip\022\021\n\tis_winner\030\005 \001(\010\"\266\006\n\037CMsgServe"
-  "rToGCMatchStateHistory\022\020\n\010match_id\030\001 \001(\004"
-  "\022\023\n\013radiant_won\030\002 \001(\010\022\013\n\003mmr\030\003 \001(\r\022A\n\014ma"
-  "tch_states\030\004 \003(\0132+.CMsgServerToGCMatchSt"
-  "ateHistory.MatchState\032\264\001\n\013PlayerState\022\017\n"
-  "\007hero_id\030\001 \001(\r\022\021\n\tnet_worth\030\002 \001(\r\022\r\n\005lev"
-  "el\030\003 \001(\r\022\016\n\006deaths\030\004 \001(\r\022\024\n\014respawn_time"
-  "\030\005 \001(\r\022\023\n\013has_buyback\030\006 \001(\010\022\021\n\thas_aegis"
-  "\030\007 \001(\010\022\022\n\nhas_rapier\030\010 \001(\010\022\020\n\010distance\030\t"
-  " \001(\r\032\277\002\n\tTeamState\022\014\n\004team\030\001 \001(\r\022I\n\rplay"
-  "er_states\030\002 \003(\0132,.CMsgServerToGCMatchSta"
-  "teHistory.PlayerStateB\004\340\344\035\005\022\036\n\020tower_hea"
-  "lth_pct\030\003 \003(\rB\004\340\344\035\013\022!\n\023barracks_health_p"
-  "ct\030\004 \003(\rB\004\340\344\035\003\022\032\n\022ancient_health_pct\030\005 \001"
+  "rStats\"O\n\033CMsgServerToGCRealtimeStats\0220\n"
+  "\007delayed\030\001 \001(\0132\037.CMsgDOTARealtimeGameSta"
+  "tsTerse\"7\n$CMsgGCToServerRealtimeStatsSt"
+  "artStop\022\017\n\007delayed\030\001 \001(\010\"7\n%CMsgGCToServ"
+  "erUpdateSteamBroadcasting\022\016\n\006active\030\001 \001("
+  "\010\"\343\002\n\030CMsgSignOutGameplayStats\022.\n\005teams\030"
+  "\001 \003(\0132\037.CMsgSignOutGameplayStats.CTeam\032v"
+  "\n\007CPlayer\022\020\n\010steam_id\030\001 \001(\006\022\023\n\013player_sl"
+  "ot\030\002 \001(\r\022\017\n\007hero_id\030\003 \001(\r\0223\n\022timed_playe"
+  "r_stats\030\004 \003(\0132\027.CMatchPlayerTimedStats\032\236"
+  "\001\n\005CTeam\022\027\n\017is_winning_team\030\001 \001(\010\022\027\n\017is_"
+  "radiant_team\030\002 \001(\010\022/\n\020timed_team_stats\030\003"
+  " \003(\0132\025.CMatchTeamTimedStats\0222\n\007players\030\004"
+  " \003(\0132!.CMsgSignOutGameplayStats.CPlayer\""
+  "\366 \n\024CMsgGameMatchSignOut\022\026\n\010match_id\030\001 \001"
+  "(\004B\004\200\246\035\001\022\020\n\010duration\030\002 \001(\r\022\025\n\rgood_guys_"
+  "win\030\003 \001(\010\022\014\n\004date\030\004 \001(\007\022*\n\005teams\030\006 \003(\0132\033"
+  ".CMsgGameMatchSignOut.CTeam\022\024\n\014tower_sta"
+  "tus\030\010 \003(\r\022\027\n\017barracks_status\030\t \003(\r\022\017\n\007cl"
+  "uster\030\n \001(\r\022\023\n\013server_addr\030\013 \001(\t\022\030\n\020firs"
+  "t_blood_time\030\014 \001(\r\022\023\n\013event_score\030\016 \001(\r\022"
+  "*\n\npicks_bans\030\017 \003(\0132\026.CMatchHeroSelectEv"
+  "ent\0222\n\rfantasy_stats\030) \003(\0132\033.CMsgDOTAFan"
+  "tasyPlayerStats\022O\n player_strange_count_"
+  "adjustments\030\021 \003(\0132%.CMsgEconPlayerStrang"
+  "eCountAdjustment\022\033\n\023automatic_surrender\030"
+  "\022 \001(\010\022\026\n\016server_version\030\023 \001(\r\022;\n\027poor_ne"
+  "twork_conditions\030# \001(\0132\032.CMsgPoorNetwork"
+  "Conditions\022D\n\017additional_msgs\030\024 \003(\0132+.CM"
+  "sgGameMatchSignOut.CAdditionalSignoutMsg"
+  "\022G\n\022social_feed_events\030$ \003(\0132+.CMsgGameM"
+  "atchSignOut.CSocialFeedMatchEvent\022\036\n\026ave"
+  "rage_networth_delta\030\026 \001(\021\022\?\n\020custom_game"
+  "_data\030% \001(\0132%.CMsgGameMatchSignOut.CCust"
+  "omGameData\022\023\n\013match_flags\030& \001(\r\022\023\n\013team_"
+  "scores\030\' \003(\r\022\031\n\021pre_game_duration\030( \001(\r\022"
+  "W\n\036event_game_leaderboard_entries\030* \003(\0132"
+  "/.CMsgGameMatchSignOut.EventGameLeaderbo"
+  "ardEntry\022<\n\017ward_placements\030+ \003(\0132#.CMsg"
+  "GameMatchSignOut.WardPlacement\0221\n\016gamepl"
+  "ay_stats\030, \001(\0132\031.CMsgSignOutGameplayStat"
+  "s\022\'\n\016extra_messages\0306 \003(\0132\017.CExtraMsgBlo"
+  "ck\022\036\n\026training_data_recorded\0307 \001(\010\022;\n\014wi"
+  "nning_team\0308 \001(\0162\r.DOTA_GC_TEAM:\026DOTA_GC"
+  "_TEAM_GOOD_GUYS\022\'\n\037normalized_win_probab"
+  "ility_diff\0309 \001(\002\032\302\022\n\005CTeam\0224\n\007players\030\001 "
+  "\003(\0132#.CMsgGameMatchSignOut.CTeam.CPlayer"
+  "\032\202\022\n\007CPlayer\022\020\n\010steam_id\030\001 \001(\006\022\017\n\007hero_i"
+  "d\030\003 \001(\r\022\r\n\005items\030\004 \003(\005\022\033\n\023item_purchase_"
+  "times\030\? \003(\r\022\014\n\004gold\030\005 \001(\r\022\r\n\005kills\030\006 \001(\r"
+  "\022\016\n\006deaths\030\007 \001(\r\022\017\n\007assists\030\010 \001(\r\022\025\n\rlea"
+  "ver_status\030\t \001(\r\022\021\n\tlast_hits\030\n \001(\r\022\016\n\006d"
+  "enies\030\013 \001(\r\022\024\n\014gold_per_min\030\014 \001(\r\022\025\n\rxp_"
+  "per_minute\030\r \001(\r\022\022\n\ngold_spent\030\016 \001(\r\022\r\n\005"
+  "level\030\017 \001(\r\022\032\n\022scaled_hero_damage\030\020 \001(\r\022"
+  "\033\n\023scaled_tower_damage\030\021 \001(\r\022\033\n\023scaled_h"
+  "ero_healing\030\022 \001(\r\022\026\n\016time_last_seen\030\023 \001("
+  "\r\022\035\n\025support_ability_value\030\024 \001(\r\022\020\n\010part"
+  "y_id\030\025 \001(\004\022\031\n\021claimed_farm_gold\030\033 \001(\r\022\024\n"
+  "\014support_gold\030\034 \001(\r\022\026\n\016claimed_denies\030\035 "
+  "\001(\r\022\026\n\016claimed_misses\030\036 \001(\r\022\016\n\006misses\030\037 "
+  "\001(\r\022\021\n\tnet_worth\030\" \001(\r\022\023\n\013hero_damage\030% "
+  "\001(\r\022\024\n\014tower_damage\030& \001(\r\022\024\n\014hero_healin"
+  "g\030\' \001(\r\0225\n\020ability_upgrades\030  \003(\0132\033.CMat"
+  "chPlayerAbilityUpgrade\022B\n\032additional_uni"
+  "ts_inventory\030! \003(\0132\036.CMatchAdditionalUni"
+  "tInventory\0223\n\017permanent_buffs\030( \003(\0132\032.CM"
+  "atchPlayerPermanentBuff\022M\n\020custom_game_d"
+  "ata\030# \001(\01323.CMsgGameMatchSignOut.CTeam.C"
+  "Player.CCustomGameData\022\032\n\022match_player_f"
+  "lags\030$ \001(\r\022\032\n\022talent_ability_ids\030) \003(\005\022\027"
+  "\n\017hero_pick_order\030* \001(\r\022\031\n\021hero_was_rand"
+  "omed\030+ \001(\010\022%\n\035hero_was_dota_plus_suggest"
+  "ion\0302 \001(\010\022\014\n\004lane\030- \001(\r\022\033\n\023is_using_plus"
+  "_guide\030/ \001(\010\022T\n\024hero_damage_received\0300 \003"
+  "(\01326.CMsgGameMatchSignOut.CTeam.CPlayer."
+  "HeroDamageReceived\022Q\n\021hero_damage_dealt\030"
+  "@ \003(\01326.CMsgGameMatchSignOut.CTeam.CPlay"
+  "er.HeroDamageReceived\022\024\n\014seconds_dead\0303 "
+  "\001(\r\022\032\n\022gold_lost_to_death\0304 \001(\r\022\025\n\rcomma"
+  "nd_count\0305 \001(\r\022&\n\036mouse_click_cast_comma"
+  "nd_count\0306 \001(\r\022\026\n\016teleports_used\0307 \001(\r\022/"
+  "\n\"cavern_crawl_preferred_map_variant\0308 \001"
+  "(\r:\003255\022\024\n\014bounty_runes\0309 \001(\r\022\031\n\021outpost"
+  "s_captured\030: \001(\r\022\017\n\007dewards\030; \001(\r\022\024\n\014war"
+  "ds_placed\030< \001(\r\022\025\n\rcamps_stacked\030= \001(\r\022\023"
+  "\n\013player_slot\030> \001(\r\022\032\n\022predicted_positio"
+  "n\030B \001(\r\022\032\n\rlane_outcomes\030C \001(\r:\003255\022\"\n\032f"
+  "riendly_t1_destroyed_time\030D \001(\r\022\037\n\027enemy"
+  "_t1_destroyed_time\030E \001(\r\022\035\n\025friendly_ros"
+  "han_kills\030F \001(\r\022\032\n\022enemy_roshan_kills\030G "
+  "\001(\r\022\023\n\013power_runes\030H \001(\r\022\023\n\013water_runes\030"
+  "I \001(\r\022\025\n\rstun_duration\030J \001(\002\022:\n\013team_num"
+  "ber\030K \001(\0162\r.DOTA_GC_TEAM:\026DOTA_GC_TEAM_G"
+  "OOD_GUYS\022\021\n\tteam_slot\030L \001(\r\022\034\n\024time_purc"
+  "hased_shard\030M \001(\r\022\033\n\023time_purchased_aghs"
+  "\030N \001(\r\022\037\n\027ability_draft_abilities\030O \003(\005\032"
+  "4\n\017CCustomGameData\022\021\n\tdota_team\030\001 \001(\r\022\016\n"
+  "\006winner\030\002 \001(\010\032\242\001\n\022HeroDamageReceived\022\025\n\r"
+  "pre_reduction\030\001 \001(\r\022\026\n\016post_reduction\030\002 "
+  "\001(\r\022]\n\013damage_type\030\003 \001(\01622.CMsgGameMatch"
+  "SignOut.CTeam.CPlayer.HeroDamageType:\024HE"
+  "RO_DAMAGE_PHYSICAL\"Y\n\016HeroDamageType\022\030\n\024"
+  "HERO_DAMAGE_PHYSICAL\020\000\022\027\n\023HERO_DAMAGE_MA"
+  "GICAL\020\001\022\024\n\020HERO_DAMAGE_PURE\020\002\0325\n\025CAdditi"
+  "onalSignoutMsg\022\n\n\002id\030\001 \001(\r\022\020\n\010contents\030\002"
+  " \001(\014\032z\n\025CSocialFeedMatchEvent\022\022\n\naccount"
+  "_id\030\001 \001(\r\022\021\n\ttimestamp\030\002 \001(\r\022\022\n\nevent_ty"
+  "pe\030\003 \001(\r\022\021\n\tgame_time\030\004 \001(\005\022\023\n\013replay_ti"
+  "me\030\005 \001(\r\032,\n\017CCustomGameData\022\031\n\021publish_t"
+  "imestamp\030\001 \001(\r\032\255\001\n\031EventGameLeaderboardE"
+  "ntry\022\023\n\013name_suffix\030\001 \001(\t\022\r\n\005score\030\002 \001(\005"
+  "\022\024\n\014extra_data_1\030\003 \001(\r\022\024\n\014extra_data_2\030\004"
+  " \001(\r\022\024\n\014extra_data_3\030\005 \001(\r\022\024\n\014extra_data"
+  "_4\030\006 \001(\r\022\024\n\014extra_data_5\030\007 \001(\r\032\267\001\n\rWardP"
+  "lacement\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\017\n\007team_"
+  "id\030\002 \001(\r\022\023\n\013placed_time\030\003 \001(\r\022\026\n\016buildin"
+  "g_state\030\004 \001(\r\022\023\n\013creep_state\030\005 \001(\r\022\024\n\014ro"
+  "shan_alive\030\006 \001(\010\022\022\n\nposition_x\030\007 \001(\r\022\022\n\n"
+  "position_y\030\010 \001(\r\"\207\001\n\024CMsgSignOutDraftInf"
+  "o\022\"\n\032radiant_captain_account_id\030\001 \001(\r\022\037\n"
+  "\027dire_captain_account_id\030\002 \001(\r\022*\n\npicks_"
+  "bans\030\003 \003(\0132\026.CMatchHeroSelectEvent\"\326\001\n\022C"
+  "MsgSignOutBotInfo\022\024\n\014allow_cheats\030\001 \001(\010\022"
+  "J\n\026bot_difficulty_radiant\030\002 \001(\0162\022.DOTABo"
+  "tDifficulty:\026BOT_DIFFICULTY_PASSIVE\022\025\n\rc"
+  "reated_lobby\030\003 \001(\010\022G\n\023bot_difficulty_dir"
+  "e\030\005 \001(\0162\022.DOTABotDifficulty:\026BOT_DIFFICU"
+  "LTY_PASSIVE\"\262\001\n\027CMsgSignOutTextMuteInfo\022"
+  "D\n\022text_mute_messages\030\001 \003(\0132(.CMsgSignOu"
+  "tTextMuteInfo.TextMuteMessage\032Q\n\017TextMut"
+  "eMessage\022\016\n\006region\030\001 \001(\r\022\030\n\020caused_text_"
+  "mute\030\002 \001(\010\022\024\n\014chat_message\030\003 \001(\t\"\372\004\n\026CMs"
+  "gSignOutPlayerStats\022\022\n\naccount_id\030\001 \001(\005\022"
+  "\020\n\010match_id\030\002 \001(\004\022\014\n\004rank\030\003 \001(\r\022\017\n\007hero_"
+  "id\030\004 \001(\r\022\020\n\010rampages\030\005 \001(\r\022\024\n\014triple_kil"
+  "ls\030\006 \001(\r\022\033\n\023first_blood_claimed\030\007 \001(\r\022\031\n"
+  "\021first_blood_given\030\010 \001(\r\022\027\n\017couriers_kil"
+  "led\030\t \001(\r\022\030\n\020aegises_snatched\030\n \001(\r\022\025\n\rc"
+  "heeses_eaten\030\013 \001(\r\022\026\n\016creeps_stacked\030\014 \001"
+  "(\r\022\023\n\013fight_score\030\r \001(\002\022\022\n\nfarm_score\030\016 "
+  "\001(\002\022\025\n\rsupport_score\030\017 \001(\002\022\022\n\npush_score"
+  "\030\020 \001(\002\022\r\n\005kills\030\021 \001(\r\022\016\n\006deaths\030\022 \001(\r\022\017\n"
+  "\007assists\030\023 \001(\r\022\021\n\tlast_hits\030\024 \001(\r\022\016\n\006den"
+  "ies\030\025 \001(\r\022\013\n\003gpm\030\026 \001(\002\022\014\n\004xppm\030\027 \001(\002\022\021\n\t"
+  "net_worth\030\030 \001(\002\022\016\n\006damage\030\031 \001(\002\022\r\n\005heals"
+  "\030\032 \001(\002\022\031\n\021rapiers_purchased\030\033 \001(\r\022\035\n\025obs"
+  "erver_wards_placed\030\034 \001(\r\022\027\n\017wards_destro"
+  "yed\030\035 \001(\r\022\022\n\nlobby_type\030\036 \001(\r\"\230\005\n\037CMsgSi"
+  "gnOutCommunicationSummary\022E\n\007players\030\001 \003"
+  "(\01324.CMsgSignOutCommunicationSummary.Pla"
+  "yerCommunication\032\255\004\n\023PlayerCommunication"
+  "\022\022\n\naccount_id\030\001 \001(\r\022\r\n\005pings\030\002 \001(\r\022\036\n\026m"
+  "ax_pings_per_interval\030\003 \001(\r\022\026\n\016teammate_"
+  "pings\030\004 \001(\r\022\'\n\037max_teammate_pings_per_in"
+  "terval\030\005 \001(\r\022\032\n\022team_chat_messages\030\006 \001(\r"
+  "\022\031\n\021all_chat_messages\030\007 \001(\r\022\033\n\023chat_whee"
+  "l_messages\030\010 \001(\r\022\016\n\006pauses\030\t \001(\r\022\020\n\010unpa"
+  "uses\030\n \001(\r\022\023\n\013lines_drawn\030\013 \001(\r\022\032\n\022voice"
+  "_chat_seconds\030\014 \001(\r\022\022\n\nchat_mutes\030\r \001(\r\022"
+  "\023\n\013voice_mutes\030\016 \001(\r\022U\n\014ping_details\030\017 \003"
+  "(\0132\?.CMsgSignOutCommunicationSummary.Pla"
+  "yerCommunication.PingDetail\022\031\n\021comms_blo"
+  "cks_solo\030\020 \001(\r\022\031\n\021comms_blocks_mass\030\021 \001("
+  "\r\0325\n\nPingDetail\022\030\n\004type\030\001 \001(\r:\n429496729"
+  "5\022\r\n\005count\030\002 \001(\r\"\340\005\n\034CMsgGameMatchSignou"
+  "tResponse\022\020\n\010match_id\030\001 \001(\004\022\023\n\013replay_sa"
+  "lt\030\002 \001(\007\0227\n\024timed_reward_details\030\003 \003(\0132\031"
+  ".CLobbyTimedRewardDetails\022.\n\021xp_reward_d"
+  "etails\030\004 \003(\0132\023.CSODOTALobbyMember\022\020\n\010lea"
+  "gueid\030\005 \001(\r\022\034\n\024metadata_private_key\030\007 \001("
+  "\007\022%\n\rmatch_details\030\010 \001(\0132\016.CMsgDOTAMatch"
+  "\022F\n\020players_metadata\030\t \003(\0132,.CMsgGameMat"
+  "chSignoutResponse.PlayerMetadata\022\033\n\010mvp_"
+  "data\030\n \001(\0132\t.CMvpData\022\026\n\016ow_private_key\030"
+  "\013 \001(\006\022\017\n\007ow_salt\030\014 \001(\007\022\024\n\014ow_replay_id\030\r"
+  " \001(\004\032\264\002\n\016PlayerMetadata\022\017\n\007hero_id\030\001 \001(\r"
+  "\022\025\n\ravg_kills_x16\030\002 \001(\r\022\026\n\016avg_deaths_x1"
+  "6\030\003 \001(\r\022\027\n\017avg_assists_x16\030\004 \001(\r\022\023\n\013avg_"
+  "gpm_x16\030\005 \001(\r\022\023\n\013avg_xpm_x16\030\006 \001(\r\022\026\n\016be"
+  "st_kills_x16\030\007 \001(\r\022\030\n\020best_assists_x16\030\010"
+  " \001(\r\022\024\n\014best_gpm_x16\030\t \001(\r\022\024\n\014best_xpm_x"
+  "16\030\n \001(\r\022\022\n\nwin_streak\030\013 \001(\r\022\027\n\017best_win"
+  "_streak\030\014 \001(\r\022\024\n\014games_played\030\r \001(\r\"S\n\030C"
+  "MsgTimedRewardContainer\0227\n\024timed_reward_"
+  "details\030\001 \003(\0132\031.CLobbyTimedRewardDetails"
+  "\"\205\001\n%CMsgGameMatchSignOutPermissionReque"
+  "st\022\026\n\016server_version\030\001 \001(\r\022\025\n\rlocal_atte"
+  "mpt\030\002 \001(\r\022\025\n\rtotal_attempt\030\003 \001(\r\022\026\n\016seco"
+  "nds_waited\030\004 \001(\r\"\213\001\n&CMsgGameMatchSignOu"
+  "tPermissionResponse\022!\n\022permission_grante"
+  "d\030\001 \001(\010:\005false\022\036\n\017abandon_signout\030\002 \001(\010:"
+  "\005false\022\036\n\023retry_delay_seconds\030\003 \001(\r:\0010\"\237"
+  "\001\n!CMsgGameMatchSignOutEventGameData\022(\n\010"
+  "event_id\030\001 \001(\0162\007.EEvent:\rEVENT_ID_NONE\022\021"
+  "\n\tgame_name\030\002 \001(\t\022\020\n\010map_name\030\003 \001(\t\022\027\n\017e"
+  "vent_game_data\030\004 \001(\014\022\022\n\nstart_time\030\005 \001(\r"
+  "\"\340\005\n\034CMsgGameMatchSignOutPerfData\022\032\n\022ave"
+  "rage_frame_time\030\001 \003(\002\022\026\n\016max_frame_time\030"
+  "\002 \003(\002\022!\n\031server_average_frame_time\030\003 \001(\002"
+  "\022\035\n\025server_max_frame_time\030\004 \001(\002\022\034\n\024avera"
+  "ge_compute_time\030\005 \003(\002\022\030\n\020max_compute_tim"
+  "e\030\006 \003(\002\022 \n\030average_client_tick_time\030\007 \003("
+  "\002\022\034\n\024max_client_tick_time\030\010 \003(\002\022$\n\034avera"
+  "ge_client_simulate_time\030\t \003(\002\022 \n\030max_cli"
+  "ent_simulate_time\030\n \003(\002\022\033\n\023average_outpu"
+  "t_time\030\013 \003(\002\022\027\n\017max_output_time\030\014 \003(\002\0223\n"
+  "+average_wait_for_rendering_to_complete_"
+  "time\030\r \003(\002\022/\n\'max_wait_for_rendering_to_"
+  "complete_time\030\016 \003(\002\022\031\n\021average_swap_time"
+  "\030\017 \003(\002\022\025\n\rmax_swap_time\030\020 \003(\002\022!\n\031average"
+  "_frame_update_time\030\021 \003(\002\022\035\n\025max_frame_up"
+  "date_time\030\022 \003(\002\022\031\n\021average_idle_time\030\023 \003"
+  "(\002\022\025\n\rmax_idle_time\030\024 \003(\002\022%\n\035average_inp"
+  "ut_processing_time\030\025 \003(\002\022!\n\031max_input_pr"
+  "ocessing_time\030\026 \003(\002\"H\n\033CMsgGameMatchSign"
+  "OutBanData\022\021\n\thero_bans\030\001 \003(\r\022\026\n\016hero_ba"
+  "n_votes\030\002 \003(\r\"\320\n\n\034CMsgDOTALiveScoreboard"
+  "Update\022\025\n\rtournament_id\030\001 \001(\r\022\032\n\022tournam"
+  "ent_game_id\030\002 \001(\r\022\020\n\010duration\030\003 \001(\002\022\022\n\nh"
+  "ltv_delay\030\004 \001(\005\0225\n\tteam_good\030\005 \001(\0132\".CMs"
+  "gDOTALiveScoreboardUpdate.Team\0224\n\010team_b"
+  "ad\030\006 \001(\0132\".CMsgDOTALiveScoreboardUpdate."
+  "Team\022\034\n\024roshan_respawn_timer\030\007 \001(\r\022\021\n\tle"
+  "ague_id\030\010 \001(\r\022\020\n\010match_id\030\t \001(\004\032\246\010\n\004Team"
+  "\022:\n\007players\030\001 \003(\0132).CMsgDOTALiveScoreboa"
+  "rdUpdate.Team.Player\022\r\n\005score\030\002 \001(\r\022\023\n\013t"
+  "ower_state\030\003 \001(\r\022\026\n\016barracks_state\030\004 \001(\r"
+  "\022\022\n\nhero_picks\030\005 \003(\r\022\021\n\thero_bans\030\006 \003(\r\032"
+  "\376\006\n\006Player\022\023\n\013player_slot\030\001 \001(\r\022\023\n\013playe"
+  "r_name\030\002 \001(\t\022\021\n\thero_name\030\003 \001(\t\022\017\n\007hero_"
+  "id\030\004 \001(\r\022\r\n\005kills\030\005 \001(\r\022\016\n\006deaths\030\006 \001(\r\022"
+  "\017\n\007assists\030\007 \001(\r\022\021\n\tlast_hits\030\010 \001(\r\022\016\n\006d"
+  "enies\030\t \001(\r\022\014\n\004gold\030\n \001(\r\022\r\n\005level\030\013 \001(\r"
+  "\022\024\n\014gold_per_min\030\014 \001(\002\022\022\n\nxp_per_min\030\r \001"
+  "(\002\022s\n\016ultimate_state\030\016 \001(\0162;.CMsgDOTALiv"
+  "eScoreboardUpdate.Team.Player.DOTAUltima"
+  "teState:\036k_EDOTAUltimateStateNotLearned\022"
+  "\031\n\021ultimate_cooldown\030\017 \001(\002\022\021\n\005item0\030\020 \001("
+  "\005:\002-1\022\021\n\005item1\030\021 \001(\005:\002-1\022\021\n\005item2\030\022 \001(\005:"
+  "\002-1\022\021\n\005item3\030\023 \001(\005:\002-1\022\021\n\005item4\030\024 \001(\005:\002-"
+  "1\022\021\n\005item5\030\025 \001(\005:\002-1\022\025\n\rrespawn_timer\030\026 "
+  "\001(\r\022\022\n\naccount_id\030\027 \001(\r\022\022\n\nposition_x\030\030 "
+  "\001(\002\022\022\n\nposition_y\030\031 \001(\002\022\021\n\tnet_worth\030\032 \001"
+  "(\r\022H\n\tabilities\030\033 \003(\01325.CMsgDOTALiveScor"
+  "eboardUpdate.Team.Player.HeroAbility\032<\n\013"
+  "HeroAbility\022\026\n\nability_id\030\001 \001(\005:\002-1\022\025\n\ra"
+  "bility_level\030\002 \001(\r\"\233\001\n\021DOTAUltimateState"
+  "\022\"\n\036k_EDOTAUltimateStateNotLearned\020\000\022 \n\034"
+  "k_EDOTAUltimateStateCooldown\020\001\022!\n\035k_EDOT"
+  "AUltimateStateNeedsMana\020\002\022\035\n\031k_EDOTAUlti"
+  "mateStateReady\020\003\"\\\n)CMsgServerToGCReques"
+  "tBatchPlayerResources\022\027\n\013account_ids\030\001 \003"
+  "(\rB\002\020\001\022\026\n\nrank_types\030\004 \003(\rB\002\020\001\"\302\002\n1CMsgS"
+  "erverToGCRequestBatchPlayerResourcesResp"
+  "onse\022J\n\007results\030\006 \003(\01329.CMsgServerToGCRe"
+  "questBatchPlayerResourcesResponse.Result"
+  "\032\300\001\n\006Result\022\022\n\naccount_id\030\001 \001(\r\022\031\n\021preve"
+  "nt_text_chat\030\002 \001(\010\022\032\n\022prevent_voice_chat"
+  "\030\003 \001(\010\022\014\n\004rank\030\004 \001(\r\022\027\n\017rank_calibrated\030"
+  "\005 \001(\010\022\024\n\014low_priority\030\006 \001(\010\022\025\n\ris_new_pl"
+  "ayer\030\007 \001(\010\022\027\n\017is_guide_player\030\010 \001(\010\"R\n\035C"
+  "MsgDOTAPlayerFailedToConnect\022\026\n\016failed_l"
+  "oaders\030\001 \003(\006\022\031\n\021abandoned_loaders\030\002 \003(\006\""
+  "\333\001\n\024CMsgGCToRelayConnect\022\035\n\025source_tv_pu"
+  "blic_addr\030\001 \001(\r\022\036\n\026source_tv_private_add"
+  "r\030\002 \001(\r\022\026\n\016source_tv_port\030\003 \001(\r\022\034\n\024game_"
+  "server_steam_id\030\004 \001(\004\022\024\n\014parent_count\030\005 "
+  "\001(\r\022\035\n\025tv_unique_secret_code\030\006 \001(\006\022\031\n\021so"
+  "urce_tv_steamid\030\007 \001(\006\"8\n\037CMsgGCGCToLANSe"
+  "rverRelayConnect\022\025\n\rrelay_steamid\030\001 \001(\006\""
+  ",\n\026CMsgGCBanStatusRequest\022\022\n\naccount_id\030"
+  "\001 \001(\r\"t\n\027CMsgGCBanStatusResponse\022\016\n\006resu"
+  "lt\030\001 \001(\r\022\024\n\014low_priority\030\002 \001(\010\022\030\n\020text_c"
+  "hat_banned\030\003 \001(\010\022\031\n\021voice_chat_banned\030\004 "
+  "\001(\010\"\336\002\n\027CMsgTournamentItemEvent\022\031\n\021kille"
+  "r_account_id\030\001 \001(\007\022\031\n\021victim_account_id\030"
+  "\002 \001(\007\022:\n\nevent_type\030\003 \001(\0162\026.DOTA_Tournam"
+  "entEvents:\016TE_FIRST_BLOOD\022\020\n\010tv_delay\030\004 "
+  "\001(\005\022\021\n\tdota_time\030\005 \001(\005\022\023\n\013replay_time\030\006 "
+  "\001(\002\022\021\n\tloot_list\030\007 \001(\t\022\022\n\nevent_team\030\010 \001"
+  "(\r\022\030\n\020multi_kill_count\030\t \001(\r\022\024\n\014winner_s"
+  "core\030\n \001(\r\022\023\n\013loser_score\030\013 \001(\r\022+\n\014hero_"
+  "statues\030\014 \003(\0132\025.CProtoItemHeroStatue\"v\n\037"
+  "CMsgTournamentItemEventResponse\022:\n\nevent"
+  "_type\030\001 \001(\0162\026.DOTA_TournamentEvents:\016TE_"
+  "FIRST_BLOOD\022\027\n\017viewers_granted\030\006 \001(\r\"#\n\017"
+  "CMsgTeamFanfare\022\020\n\010match_id\030\001 \001(\004\"L\n\027CMs"
+  "gResponseTeamFanfare\022\030\n\020fanfare_goodguys"
+  "\030\001 \001(\r\022\027\n\017fanfare_badguys\030\002 \001(\r\"u\n\034CMsgG"
+  "ameServerUploadSaveGame\022\021\n\tgame_time\030\001 \001"
+  "(\r\022\026\n\016save_game_data\030\002 \001(\014\022\020\n\010lobby_id\030\003"
+  " \001(\004\022\030\n\020player_steam_ids\030\004 \003(\004\"\266\001\n\034CMsgG"
+  "ameServerSaveGameResult\022D\n\006result\030\001 \001(\0162"
+  "$.CMsgGameServerSaveGameResult.Result:\016S"
+  "aveSuccessful\"P\n\006Result\022\022\n\016SaveSuccessfu"
+  "l\020\000\022\023\n\017SessionNotFound\020\001\022\021\n\rDatabaseErro"
+  "r\020\002\022\n\n\006TooBig\020\003\",\n\031CMsgGameServerGetLoad"
+  "Game\022\017\n\007save_id\030\001 \001(\r\"9\n\037CMsgGameServerG"
+  "etLoadGameResult\022\026\n\016save_game_data\030\001 \001(\014"
+  "\"\371\002\n\030CMsgDOTAAwardEventPoints\022;\n\014award_p"
+  "oints\030\001 \003(\0132%.CMsgDOTAAwardEventPoints.A"
+  "wardPoints\022\020\n\010match_id\030\002 \001(\004\022(\n\010event_id"
+  "\030\004 \001(\0162\007.EEvent:\rEVENT_ID_NONE\022\021\n\ttimest"
+  "amp\030\005 \001(\r\022\024\n\014audit_action\030\006 \001(\r\032\272\001\n\013Awar"
+  "dPoints\022\022\n\naccount_id\030\001 \001(\r\022\016\n\006points\030\002 "
+  "\001(\005\022\026\n\016premium_points\030\003 \001(\005\022\026\n\016trade_ban"
+  "_time\030\005 \001(\r\022/\n eligible_for_periodic_adj"
+  "ustment\030\006 \001(\010:\005false\022&\n\036point_cap_period"
+  "ic_resource_id\030\007 \001(\r\"E\n\031CMsgGCToServerPi"
+  "ngRequest\022\022\n\nrequest_id\030\001 \001(\006\022\024\n\014request"
+  "_time\030\002 \001(\004\"W\n\032CMsgGCToServerPingRespons"
+  "e\022\022\n\nrequest_id\030\001 \001(\006\022\024\n\014request_time\030\002 "
+  "\001(\004\022\017\n\007cluster\030\003 \001(\r\"\260\002\n\"CMsgServerToGCM"
+  "atchConnectionStats\022\020\n\010match_id\030\001 \001(\004\022\021\n"
+  "\tregion_id\030\002 \001(\r\022\021\n\tleague_id\030\003 \001(\r\022;\n\007p"
+  "layers\030\004 \003(\0132*.CMsgServerToGCMatchConnec"
+  "tionStats.Player\022\022\n\ncluster_id\030\005 \001(\r\032\200\001\n"
+  "\006Player\022\022\n\naccount_id\030\001 \001(\r\022\n\n\002ip\030\002 \001(\007\022"
+  "\023\n\013avg_ping_ms\030\003 \001(\r\022\023\n\013packet_loss\030\005 \001("
+  "\002\022\026\n\016ping_deviation\030\006 \001(\002\022\024\n\014full_resend"
+  "s\030\007 \001(\r\";\n CMsgServerGCUpdateSpectatorCo"
+  "unt\022\027\n\017spectator_count\030\001 \001(\r\"\374\001\n\024CSerial"
+  "izedCombatLog\022\017\n\007version\030\001 \001(\r\0224\n\ndictio"
+  "nary\030\002 \001(\0132 .CSerializedCombatLog.Dictio"
+  "nary\022(\n\007entries\030\003 \003(\0132\027.CMsgDOTACombatLo"
+  "gEntry\032s\n\nDictionary\022<\n\007strings\030\001 \003(\0132+."
+  "CSerializedCombatLog.Dictionary.DictStri"
+  "ng\032\'\n\nDictString\022\n\n\002id\030\001 \002(\r\022\r\n\005value\030\002 "
+  "\002(\t\"\236\001\n CMsgServerToGCVictoryPredictions"
+  "\0229\n\007records\030\001 \003(\0132(.CMsgServerToGCVictor"
+  "yPredictions.Record\032\?\n\006Record\022\022\n\naccount"
+  "_id\030\001 \001(\r\022\017\n\007item_id\030\002 \001(\004\022\020\n\010item_ids\030\005"
+  " \003(\004\"\035\n\033CMsgServerToGCRequestStatus\"8\n$C"
+  "MsgServerToGCRequestStatus_Response\022\020\n\010r"
+  "esponse\030\001 \001(\r\"\352\001\n\037CMsgSignOutAssassinMin"
+  "iGameInfo\022\027\n\017winning_players\030\001 \003(\006\022\026\n\016lo"
+  "sing_players\030\002 \003(\006\022\025\n\rarcana_owners\030\003 \003("
+  "\006\022\024\n\014assassin_won\030\004 \001(\010\022\026\n\016target_hero_i"
+  "d\030\005 \001(\r\022\032\n\022contract_completed\030\006 \001(\010\022\036\n\026c"
+  "ontract_complete_time\030\007 \001(\002\022\025\n\rpa_is_rad"
+  "iant\030\010 \001(\010\"\305\001\n\033CMsgServerToGCKillSummari"
+  "es\022\026\n\016ingameevent_id\030\001 \001(\r\022;\n\tsummaries\030"
+  "\002 \003(\0132(.CMsgServerToGCKillSummaries.Kill"
+  "Summary\032Q\n\013KillSummary\022\026\n\016killer_hero_id"
+  "\030\001 \001(\r\022\026\n\016victim_hero_id\030\002 \001(\r\022\022\n\nkill_c"
+  "ount\030\003 \001(\r\"\226\003\n\036CMsgGCToServerPredictionR"
+  "esult\022\022\n\naccount_id\030\001 \001(\r\022\020\n\010match_id\030\002 "
+  "\001(\004\022\017\n\007correct\030\003 \001(\010\022\?\n\013predictions\030\004 \003("
+  "\0132*.CMsgGCToServerPredictionResult.Predi"
+  "ction\032\373\001\n\nPrediction\022\020\n\010item_def\030\001 \001(\r\022\023"
+  "\n\013num_correct\030\002 \001(\r\022\021\n\tnum_fails\030\003 \001(\r\022Y"
+  "\n\006result\030\004 \001(\01622.CMsgGCToServerPredictio"
+  "nResult.Prediction.EResult:\025k_eResult_It"
+  "emGranted\022\031\n\021granted_item_defs\030\006 \003(\r\"=\n\007"
+  "EResult\022\031\n\025k_eResult_ItemGranted\020\001\022\027\n\023k_"
+  "eResult_Destroyed\020\002\"E\n\036CMsgServerToGCLoc"
+  "kCharmTrading\022\022\n\naccount_id\030\001 \001(\r\022\017\n\007ite"
+  "m_id\030\002 \001(\004\"\340\002\n CMsgSignOutUpdatePlayerCh"
+  "allenge\022\022\n\naccount_id\030\001 \001(\r\022>\n\tcompleted"
+  "\030\002 \003(\0132+.CMsgSignOutUpdatePlayerChalleng"
+  "e.Challenge\022=\n\010rerolled\030\003 \003(\0132+.CMsgSign"
+  "OutUpdatePlayerChallenge.Challenge\022\020\n\010ma"
+  "tch_id\030\004 \001(\004\022\017\n\007hero_id\030\005 \001(\r\032\205\001\n\tChalle"
+  "nge\022(\n\010event_id\030\001 \001(\0162\007.EEvent:\rEVENT_ID"
+  "_NONE\022\017\n\007slot_id\030\002 \001(\r\022\023\n\013sequence_id\030\003 "
+  "\001(\r\022\020\n\010progress\030\004 \001(\r\022\026\n\016challenge_rank\030"
+  "\005 \001(\r\"s\n#CMsgServerToGCRerollPlayerChall"
+  "enge\022\022\n\naccount_id\030\001 \001(\r\0228\n\nreroll_msg\030\002"
+  " \001(\0132$.CMsgClientToGCRerollPlayerChallen"
+  "ge\"\353\001\n\016CMsgSpendWager\022\'\n\007players\030\001 \003(\0132\026"
+  ".CMsgSpendWager.Player\022(\n\010event_id\030\002 \001(\016"
+  "2\007.EEvent:\rEVENT_ID_NONE\022\021\n\ttimestamp\030\003 "
+  "\001(\r\022\020\n\010match_id\030\004 \001(\004\022\027\n\017server_steam_id"
+  "\030\005 \001(\004\032H\n\006Player\022\022\n\naccount_id\030\001 \001(\r\022\r\n\005"
+  "wager\030\002 \001(\r\022\033\n\023wager_token_item_id\030\003 \001(\004"
+  "\"\236\002\n\022CMsgSignOutXPCoins\022+\n\007players\030\001 \003(\013"
+  "2\032.CMsgSignOutXPCoins.Player\022(\n\010event_id"
+  "\030\002 \001(\0162\007.EEvent:\rEVENT_ID_NONE\022\020\n\010match_"
+  "id\030\003 \001(\004\022\021\n\ttimestamp\030\004 \001(\r\032\213\001\n\006Player\022\022"
+  "\n\naccount_id\030\001 \001(\r\022\021\n\txp_gained\030\002 \001(\r\022\023\n"
+  "\013coins_spent\030\003 \001(\r\022\033\n\023wager_token_item_i"
+  "d\030\004 \001(\004\022\022\n\nrank_wager\030\005 \001(\r\022\024\n\014wager_str"
+  "eak\030\006 \001(\r\"\361\001\n\023CMsgSignOutBounties\022-\n\010bou"
+  "nties\030\001 \003(\0132\033.CMsgSignOutBounties.Bounty"
+  "\022(\n\010event_id\030\002 \001(\0162\007.EEvent:\rEVENT_ID_NO"
+  "NE\022\020\n\010match_id\030\003 \001(\004\022\021\n\ttimestamp\030\004 \001(\r\032"
+  "\\\n\006Bounty\022\031\n\021issuer_account_id\030\001 \001(\r\022\034\n\024"
+  "completer_account_id\030\002 \001(\r\022\031\n\021target_acc"
+  "ount_id\030\003 \001(\r\"\343\001\n CMsgSignOutCommunityGo"
+  "alProgress\022(\n\010event_id\030\001 \001(\0162\007.EEvent:\rE"
+  "VENT_ID_NONE\022N\n\020event_increments\030\002 \003(\01324"
+  ".CMsgSignOutCommunityGoalProgress.EventG"
+  "oalIncrement\032E\n\022EventGoalIncrement\022\025\n\rev"
+  "ent_goal_id\030\001 \001(\r\022\030\n\020increment_amount\030\002 "
+  "\001(\r\"n\n3CMsgServerToGCCloseCompendiumInGa"
+  "mePredictionVoting\022\020\n\010match_id\030\001 \001(\004\022\022\n\n"
+  "hltv_delay\030\002 \001(\r\022\021\n\tleague_id\030\003 \001(\r\"M\n;C"
+  "MsgServerToGCCloseCompendiumInGamePredic"
+  "tionVotingResponse\022\016\n\006result\030\001 \001(\010\"\251\002\n/C"
+  "MsgServerToGCCompendiumInGamePredictionR"
+  "esults\022\020\n\010match_id\030\001 \001(\004\022R\n\007results\030\002 \003("
+  "\0132A.CMsgServerToGCCompendiumInGamePredic"
+  "tionResults.PredictionResult\022\021\n\tleague_i"
+  "d\030\003 \001(\r\022\026\n\016league_node_id\030\004 \001(\r\032e\n\020Predi"
+  "ctionResult\022\025\n\rprediction_id\030\001 \001(\r\022\030\n\020pr"
+  "ediction_value\030\002 \001(\r\022 \n\030prediction_value"
+  "_is_mask\030\003 \001(\010\"\324\001\n/CMsgServerToGCCompend"
+  "iumChosenInGamePredictions\022\020\n\010match_id\030\001"
+  " \001(\004\022W\n\022predictions_chosen\030\002 \003(\0132;.CMsgS"
+  "erverToGCCompendiumChosenInGamePredictio"
+  "ns.Prediction\022\021\n\tleague_id\030\003 \001(\r\032#\n\nPred"
+  "iction\022\025\n\rprediction_id\030\001 \001(\r\"p\n+CMsgGCT"
+  "oGCCompendiumInGamePredictionResults\022A\n\007"
+  "results\030\001 \001(\01320.CMsgServerToGCCompendium"
+  "InGamePredictionResults\"\210\004\n,CMsgServerTo"
+  "GCMatchPlayerItemPurchaseHistory\022\020\n\010matc"
+  "h_id\030\001 \001(\004\022\013\n\003mmr\030\002 \001(\r\022E\n\007players\030\003 \003(\013"
+  "24.CMsgServerToGCMatchPlayerItemPurchase"
+  "History.Player\032\206\001\n\014ItemPurchase\022\020\n\004item\030"
+  "\001 \001(\005:\002-1\022\014\n\004gold\030\002 \001(\r\022\021\n\tnet_worth\030\003 \001"
+  "(\r\022\021\n\tgame_time\030\004 \001(\r\022\027\n\017inventory_items"
+  "\030\005 \003(\005\022\027\n\017talents_skilled\030\007 \003(\010\032\350\001\n\006Play"
+  "er\022\023\n\013player_slot\030\001 \001(\r\022\022\n\naccount_id\030\002 "
+  "\001(\r\022\017\n\007hero_id\030\003 \001(\r\022\027\n\017allied_hero_ids\030"
+  "\004 \003(\r\022\026\n\016enemy_hero_ids\030\005 \003(\r\022R\n\016item_pu"
+  "rchases\030\006 \003(\0132:.CMsgServerToGCMatchPlaye"
+  "rItemPurchaseHistory.ItemPurchase\022\014\n\004lan"
+  "e\030\007 \001(\r\022\021\n\tis_winner\030\010 \001(\010\"\312\003\n0CMsgServe"
+  "rToGCMatchPlayerNeutralItemEquipHistory\022"
+  "\020\n\010match_id\030\001 \001(\004\022I\n\007players\030\002 \003(\01328.CMs"
+  "gServerToGCMatchPlayerNeutralItemEquipHi"
+  "story.Player\032\203\001\n\tItemEquip\022\020\n\004item\030\001 \001(\005"
+  ":\002-1\022\021\n\tgame_time\030\002 \001(\r\022\027\n\017inventory_ite"
+  "ms\030\003 \003(\005\022\027\n\017talents_skilled\030\004 \003(\010\022\037\n\027ava"
+  "ilable_neutral_items\030\005 \003(\005\032\262\001\n\006Player\022\022\n"
+  "\naccount_id\030\001 \001(\r\022\027\n\017allied_hero_ids\030\002 \003"
+  "(\r\022\026\n\016enemy_hero_ids\030\003 \003(\r\022P\n\013item_equip"
+  "s\030\004 \003(\0132;.CMsgServerToGCMatchPlayerNeutr"
+  "alItemEquipHistory.ItemEquip\022\021\n\tis_winne"
+  "r\030\005 \001(\010\"\266\006\n\037CMsgServerToGCMatchStateHist"
+  "ory\022\020\n\010match_id\030\001 \001(\004\022\023\n\013radiant_won\030\002 \001"
+  "(\010\022\013\n\003mmr\030\003 \001(\r\022A\n\014match_states\030\004 \003(\0132+."
+  "CMsgServerToGCMatchStateHistory.MatchSta"
+  "te\032\264\001\n\013PlayerState\022\017\n\007hero_id\030\001 \001(\r\022\021\n\tn"
+  "et_worth\030\002 \001(\r\022\r\n\005level\030\003 \001(\r\022\016\n\006deaths\030"
+  "\004 \001(\r\022\024\n\014respawn_time\030\005 \001(\r\022\023\n\013has_buyba"
+  "ck\030\006 \001(\010\022\021\n\thas_aegis\030\007 \001(\010\022\022\n\nhas_rapie"
+  "r\030\010 \001(\010\022\020\n\010distance\030\t \001(\r\032\277\002\n\tTeamState\022"
+  "\014\n\004team\030\001 \001(\r\022I\n\rplayer_states\030\002 \003(\0132,.C"
+  "MsgServerToGCMatchStateHistory.PlayerSta"
+  "teB\004\340\344\035\005\022\036\n\020tower_health_pct\030\003 \003(\rB\004\340\344\035\013"
+  "\022!\n\023barracks_health_pct\030\004 \003(\rB\004\340\344\035\003\022\032\n\022a"
+  "ncient_health_pct\030\005 \001(\r\022\026\n\016glyph_cooldow"
+  "n\030\006 \001(\r\022\r\n\005kills\030\007 \001(\r\022\033\n\023creep_distance"
+  "_safe\030\010 \001(\r\022\032\n\022creep_distance_mid\030\t \001(\r\022"
+  "\032\n\022creep_distance_off\030\n \001(\r\032\242\001\n\nMatchSta"
+  "te\022\021\n\tgame_time\030\001 \001(\r\022A\n\rradiant_state\030\002"
+  " \001(\0132*.CMsgServerToGCMatchStateHistory.T"
+  "eamState\022>\n\ndire_state\030\003 \001(\0132*.CMsgServe"
+  "rToGCMatchStateHistory.TeamState\"\200\001\n\032CMs"
+  "gMatchStateSteamMLEntry\022@\n\013match_state\030\001"
+  " \001(\0132+.CMsgServerToGCMatchStateHistory.M"
+  "atchState\022\013\n\003mmr\030\002 \001(\r\022\023\n\013radiant_won\030\003 "
+  "\001(\010\"L\n\035CMsgLaneSelectionSteamMLEntry\022\026\n\010"
+  "hero_ids\030\001 \003(\rB\004\340\344\035\n\022\023\n\005lanes\030\002 \003(\rB\004\340\344\035"
+  "\006\"\243\001\n CMsgAbilitySelectionSteamMLEntry\022\013"
+  "\n\003mmr\030\001 \001(\r\022\017\n\007hero_id\030\002 \001(\r\022\034\n\016enemy_he"
+  "ro_ids\030\003 \003(\rB\004\340\344\035\004\022\014\n\004lane\030\004 \001(\r\022\027\n\tabil"
+  "ities\030\005 \003(\005B\004\340\344\035\031\022\034\n\020selected_ability\030\006 "
+  "\001(\005:\002-1\"\264\001\n#CMsgItemPurchasePregameSteam"
+  "MLEntry\022\013\n\003mmr\030\001 \001(\r\022\014\n\004lane\030\002 \001(\r\022\017\n\007ba"
+  "lance\030\003 \001(\002\022\017\n\007hero_id\030\004 \001(\r\022\035\n\017allied_h"
+  "ero_ids\030\005 \003(\rB\004\340\344\035\004\022\034\n\016enemy_hero_ids\030\006 "
+  "\003(\rB\004\340\344\035\005\022\023\n\005items\030\007 \003(\005B\004\340\344\035\t\"\301\001\n\034CMsgI"
+  "temPurchaseSteamMLEntry\022\013\n\003mmr\030\001 \001(\r\022\014\n\004"
+  "lane\030\002 \001(\r\022\017\n\007hero_id\030\003 \001(\r\022\035\n\017allied_he"
+  "ro_ids\030\004 \003(\rB\004\340\344\035\004\022\034\n\016enemy_hero_ids\030\005 \003"
+  "(\rB\004\340\344\035\005\022\023\n\005items\030\006 \003(\005B\004\340\344\035\024\022#\n\025items_t"
+  "o_be_purchased\030\007 \003(\005B\004\340\344\035\024\"\306\001\n$CMsgItemP"
+  "urchaseSequenceSteamMLEntry\022\013\n\003mmr\030\001 \001(\r"
+  "\022\014\n\004lane\030\002 \001(\r\022\017\n\007hero_id\030\003 \001(\r\022\035\n\017allie"
+  "d_hero_ids\030\004 \003(\rB\004\340\344\035\004\022\034\n\016enemy_hero_ids"
+  "\030\005 \003(\rB\004\340\344\035\005\022\023\n\005items\030\006 \003(\005B\004\340\344\035\024\022 \n\024ite"
+  "m_to_be_purchased\030\007 \001(\005:\002-1\"\226\001\n%CMsgServ"
+  "erToGCCavernCrawlIsHeroActive\022\020\n\010event_i"
+  "d\030\001 \001(\r\022\022\n\naccount_id\030\002 \001(\r\022\"\n\025preferred"
+  "_map_variant\030\003 \001(\r:\003255\022\017\n\007hero_id\030\004 \001(\r"
+  "\022\022\n\nturbo_mode\030\005 \001(\010\"\334\003\n$CMsgServerToGCP"
+  "layerChallengeHistory\022\020\n\010match_id\030\001 \001(\004\022"
+  "\024\n\014average_rank\030\002 \001(\r\022P\n\021challenge_recor"
+  "ds\030\003 \003(\01325.CMsgServerToGCPlayerChallenge"
+  "History.PlayerChallenge\032\271\002\n\017PlayerChalle"
+  "nge\022\022\n\naccount_id\030\001 \001(\r\022[\n\016challenge_typ"
+  "e\030\002 \001(\0162\034.EPlayerChallengeHistoryType:%k"
+  "_EPlayerChallengeHistoryType_Invalid\022\025\n\r"
+  "challenge_id1\030\003 \001(\r\022\025\n\rchallenge_id2\030\004 \001"
+  "(\r\022\034\n\024progress_value_start\030\005 \001(\r\022\032\n\022prog"
+  "ress_value_end\030\006 \001(\r\022\020\n\010team_won\030\007 \001(\010\022\022"
+  "\n\naudit_data\030\010 \001(\004\022\017\n\007hero_id\030\t \001(\r\022\026\n\016r"
+  "ank_completed\030\n \001(\r\"\270\002\n-CMsgServerToGCCa"
+  "vernCrawlIsHeroActiveResponse\022\016\n\006result\030"
+  "\001 \001(\010\022\030\n\013map_variant\030\005 \001(\r:\003255\022\032\n\022poten"
+  "tial_winnings\030\002 \001(\r\022N\n\013map_results\030\003 \003(\013"
+  "29.CMsgServerToGCCavernCrawlIsHeroActive"
+  "Response.MapResults\022%\n\035potential_plus_sh"
+  "ard_winnings\030\004 \001(\r\032J\n\nMapResults\022\036\n\021path"
+  "_id_completed\030\001 \001(\r:\003255\022\034\n\017room_id_clai"
+  "med\030\002 \001(\r:\003255\";\n CMsgGCtoServerTensorfl"
+  "owInstance\022\027\n\017server_instance\030\001 \001(\r\"\343\t\n\025"
+  "CMsgDetailedGameStats\0223\n\007minutes\030\001 \003(\0132\""
+  ".CMsgDetailedGameStats.MinuteEntry\0226\n\013pl"
+  "ayer_info\030\002 \003(\0132!.CMsgDetailedGameStats."
+  "PlayerInfo\0224\n\ngame_stats\030\003 \001(\0132 .CMsgDet"
+  "ailedGameStats.GameStats\032\244\006\n\017PlayerStatE"
+  "ntry\022\031\n\021total_earned_gold\030\001 \001(\r\022\026\n\016total"
+  "_networth\030\002 \001(\r\022\r\n\005level\030\003 \001(\r\022\021\n\ttotal_"
+  "dps\030\004 \001(\r\022\023\n\013average_dps\030\005 \001(\r\022\035\n\025abilit"
+  "y_damage_output\030\006 \001(\r\022\023\n\013base_health\030\007 \001"
+  "(\r\022\024\n\014total_health\030\010 \001(\r\022\022\n\ntotal_mana\030\t"
+  " \001(\r\022*\n\"base_physical_damage_reduction_p"
+  "ct\030\n \001(\002\022+\n#total_physical_damage_reduct"
+  "ion_pct\030\013 \001(\002\022)\n!base_ability_damage_red"
+  "uction_pct\030\014 \001(\002\022*\n\"total_ability_damage"
+  "_reduction_pct\030\r \001(\002\022\034\n\024ability_damage_b"
+  "lock\030\016 \001(\002\022\035\n\025physical_damage_block\030\017 \001("
+  "\002\022\022\n\nmana_regen\030\020 \001(\r\022\024\n\014health_regen\030\021 "
+  "\001(\r\022\036\n\026physical_magic_dmg_pct\030\022 \001(\002\022\r\n\005k"
+  "ills\030\023 \001(\r\022\016\n\006deaths\030\024 \001(\r\022\017\n\007assists\030\025 "
+  "\001(\r\022\027\n\017gold_from_kills\030\026 \001(\r\022\030\n\020gold_fro"
+  "m_creeps\030\027 \001(\r\022\023\n\013gold_shared\030\030 \001(\r\022\025\n\rx"
+  "p_from_kills\030\031 \001(\r\022\026\n\016xp_from_creeps\030\032 \001"
+  "(\r\022\020\n\010total_xp\030\033 \001(\r\022\025\n\rability_casts\030\034 "
+  "\001(\r\022\022\n\nitem_casts\030\035 \001(\r\022\032\n\022total_time_st"
+  "unned\030\036 \001(\002\022\022\n\nitem_count\030\037 \001(\r\032b\n\tGameS"
+  "tats\022\033\n\023tower_death_time_t1\030\001 \001(\r\022\033\n\023tow"
+  "er_death_time_t2\030\002 \001(\r\022\033\n\023tower_death_ti"
+  "me_t3\030\003 \001(\r\032T\n\013MinuteEntry\022\016\n\006minute\030\001 \001"
+  "(\r\0225\n\005stats\030\002 \003(\0132&.CMsgDetailedGameStat"
+  "s.PlayerStatEntry\032F\n\nPlayerInfo\022\022\n\naccou"
+  "nt_id\030\001 \001(\r\022\017\n\007hero_id\030\002 \001(\r\022\023\n\013player_s"
+  "lot\030\003 \001(\r\"\356\001\n\024CMsgNeutralItemStats\0228\n\rne"
+  "utral_items\030\001 \003(\0132!.CMsgNeutralItemStats"
+  ".NeutralItem\032\233\001\n\013NeutralItem\022\023\n\007item_id\030"
+  "\001 \001(\005:\002-1\022\024\n\014time_dropped\030\002 \001(\r\022\014\n\004team\030"
+  "\003 \001(\r\022\032\n\022time_last_equipped\030\004 \001(\r\022\034\n\024tim"
+  "e_last_unequipped\030\005 \001(\r\022\031\n\021duration_equi"
+  "pped\030\006 \001(\r\"\252\001\n\037CMsgGCToServerLobbyHeroBa"
+  "nRates\022\?\n\010ban_data\030\001 \003(\0132-.CMsgGCToServe"
+  "rLobbyHeroBanRates.HeroBanEntry\032F\n\014HeroB"
+  "anEntry\022\017\n\007hero_id\030\001 \001(\r\022\021\n\tban_count\030\002 "
+  "\001(\r\022\022\n\npick_count\030\003 \001(\r\"\311\002\n CMsgSignOutG"
+  "uildContractProgress\022J\n\020player_contracts"
+  "\030\001 \003(\01320.CMsgSignOutGuildContractProgres"
+  "s.PlayerContract\032U\n\034CompletedGuildEventC"
+  "ontracts\022\020\n\010guild_id\030\001 \001(\r\022\020\n\010event_id\030\002"
+  " \001(\r\022\021\n\tcontracts\030\003 \003(\004\032\201\001\n\016PlayerContra"
+  "ct\022\022\n\naccount_id\030\001 \001(\r\022[\n\023completed_cont"
+  "racts\030\002 \003(\0132>.CMsgSignOutGuildContractPr"
+  "ogress.CompletedGuildEventContracts\"\315\002\n!"
+  "CMsgSignOutGuildChallengeProgress\022Y\n\033gui"
+  "ld_challenges_progresses\030\001 \003(\01324.CMsgSig"
+  "nOutGuildChallengeProgress.ChallengeProg"
+  "ress\032\314\001\n\021ChallengeProgress\022\020\n\010guild_id\030\001"
+  " \001(\r\022\020\n\010event_id\030\002 \001(\r\022\035\n\025challenge_inst"
+  "ance_id\030\003 \001(\r\022$\n\034challenge_instance_time"
+  "stamp\030\004 \001(\r\022\037\n\027challenge_period_serial\030\005"
+  " \001(\r\022\020\n\010progress\030\006 \001(\r\022\033\n\023challenge_para"
+  "meter\030\007 \001(\r\"\204\006\n\023CMsgSignOutMVPStats\022\020\n\010m"
+  "atch_id\030\001 \001(\004\022\021\n\tgame_mode\030\002 \001(\r\022\024\n\014winn"
+  "ing_team\030\003 \001(\r\022\021\n\tgame_time\030\004 \001(\002\022,\n\007pla"
+  "yers\030\005 \003(\0132\033.CMsgSignOutMVPStats.Player\032"
+  "\360\004\n\006Player\022\017\n\007team_id\030\001 \001(\r\022\032\n\022team_netw"
+  "orth_rank\030\002 \001(\r\022\022\n\naccount_id\030\003 \001(\r\022\023\n\013p"
+  "layer_slot\030  \001(\r\022\014\n\004rank\030! \001(\r\022\017\n\007hero_i"
+  "d\030\004 \001(\r\022\014\n\004role\030\005 \001(\r\022\r\n\005kills\030\006 \001(\005\022\016\n\006"
+  "deaths\030\007 \001(\005\022\017\n\007assists\030\010 \001(\005\022\n\n\002xp\030\t \001("
+  "\005\022\021\n\tnet_worth\030\n \001(\005\022\032\n\022support_gold_spe"
+  "nt\030\014 \001(\005\022\024\n\014wards_placed\030\r \001(\005\022#\n\033wards_"
+  "spotted_for_dewarding\030\016 \001(\005\022\025\n\rcamps_sta"
+  "cked\030\017 \001(\005\022\021\n\tlast_hits\030\020 \001(\005\022\016\n\006denies\030"
+  "\021 \001(\005\022\027\n\017building_damage\030\023 \001(\005\022\024\n\014other_"
+  "damage\030\024 \001(\005\022\024\n\014triple_kills\030\032 \001(\005\022\020\n\010ra"
+  "mpages\030\034 \001(\005\022\023\n\013first_blood\030\037 \001(\005\022E\n\021kil"
+  "l_eater_events\030\" \003(\0132*.CMsgSignOutMVPSta"
+  "ts.Player.KillEaterEvent\022\032\n\022highest_kill"
+  "streak\030# \001(\r\0324\n\016KillEaterEvent\022\022\n\nevent_"
+  "type\030\001 \002(\r\022\016\n\006amount\030\002 \002(\r\"2\n CMsgGCToSe"
+  "rverRecordTrainingData\022\016\n\006enable\030\001 \001(\010\"6"
+  "\n\037CMsgServerToGCGetGuildContracts\022\023\n\013acc"
+  "ount_ids\030\001 \003(\r\"\260\003\n\'CMsgServerToGCGetGuil"
+  "dContractsResponse\022I\n\020player_contracts\030\001"
+  " \003(\0132/.CMsgServerToGCGetGuildContractsRe"
+  "sponse.Player\032\221\001\n\017ContractDetails\022\023\n\013con"
+  "tract_id\030\001 \001(\004\022\035\n\025challenge_instance_id\030"
+  "\002 \001(\r\022\033\n\023challenge_parameter\030\003 \001(\r\022\026\n\016co"
+  "ntract_stars\030\004 \001(\r\022\025\n\rcontract_slot\030\005 \001("
+  "\r\032\245\001\n\006Player\022\022\n\naccount_id\030\001 \001(\r\022\020\n\010guil"
+  "d_id\030\002 \001(\r\022(\n\010event_id\030\003 \001(\0162\007.EEvent:\rE"
+  "VENT_ID_NONE\022K\n\tcontracts\030\004 \003(\01328.CMsgSe"
+  "rverToGCGetGuildContractsResponse.Contra"
+  "ctDetails\"\316\002\n\026CMsgMatchDiretideCandy\022>\n\021"
+  "player_candy_data\030\001 \003(\0132#.CMsgMatchDiret"
+  "ideCandy.PlayerCandy\022(\n\010event_id\030\002 \001(\0162\007"
+  ".EEvent:\rEVENT_ID_NONE\032-\n\014CandyDetails\022\016"
+  "\n\006amount\030\001 \001(\r\022\r\n\005audit\030\002 \001(\r\032\232\001\n\013Player"
+  "Candy\022\022\n\naccount_id\030\001 \001(\r\022\024\n\014candy_amoun"
+  "t\030\003 \001(\r\022\"\n\032consumes_periodic_resource\030\004 "
+  "\001(\010\022=\n\017candy_breakdown\030\005 \003(\0132$.CMsgMatch"
+  "DiretideCandy.CandyDetails\"\222\001\n\027CMsgGCToS"
+  "erverCheerData\022<\n\013cheer_types\030\001 \003(\0132\'.CM"
+  "sgGCToServerCheerData.CheerTypeCount\0329\n\016"
+  "CheerTypeCount\022\022\n\ncheer_type\030\001 \001(\r\022\023\n\013ch"
+  "eer_count\030\002 \001(\r\"\250\004\n\017CMsgCheerConfig\022\026\n\016c"
+  "heers_enabled\030\001 \001(\010\022\032\n\022is_valid_league_i"
+  "d\030\002 \001(\010\022\027\n\017window_duration\030\003 \001(\002\022\033\n\023wind"
+  "ow_bucket_count\030\004 \001(\r\022\035\n\025crowd_level_pus"
+  "h_time\030\006 \001(\002\022\027\n\017crowd_level_low\030\n \001(\r\022\032\n"
+  "\022crowd_level_medium\030\013 \001(\r\022\030\n\020crowd_level"
+  "_high\030\014 \001(\r\022\031\n\021cheer_scale_start\030\r \001(\002\022\031"
+  "\n\021cheer_scale_speed\030\016 \001(\002\022\035\n\025cheer_scale"
+  "_push_mark\030\017 \001(\r\022\035\n\025cheer_scale_pull_mar"
+  "k\030\020 \001(\r\022(\n cheer_scale_pct_of_max_cps_cl"
+  "amp\030\021 \001(\002\022\"\n\032cheer_scale_dampener_value\030"
+  "\025 \001(\002\022&\n\036cheer_scale_dampener_lerp_time\030"
+  "\026 \001(\r\022\033\n\023cheer_factor_bronze\030\022 \001(\002\022\033\n\023ch"
+  "eer_factor_silver\030\023 \001(\002\022\031\n\021cheer_factor_"
+  "gold\030\024 \001(\002\"C\n\031CMsgGCToServerCheerConfig\022"
+  "&\n\014cheer_config\030\001 \001(\0132\020.CMsgCheerConfig\""
+  "1\n\034CMsgServerToGCGetCheerConfig\022\021\n\tleagu"
+  "e_id\030\001 \001(\r\"N\n$CMsgServerToGCGetCheerConf"
+  "igResponse\022&\n\014cheer_config\030\002 \001(\0132\020.CMsgC"
+  "heerConfig\"3\n!CMsgGCToServerCheerScalesO"
+  "verride\022\016\n\006scales\030\001 \003(\002\"\035\n\033CMsgGCToServe"
+  "rGetCheerState\"o\n\022CMsgCheerTypeState\022\024\n\014"
+  "cheer_counts\030\001 \003(\r\022\026\n\016max_per_second\030\002 \001"
+  "(\002\022\023\n\013cheer_scale\030\003 \001(\002\022\026\n\016override_scal"
+  "e\030\004 \001(\002\"q\n\016CMsgCheerState\022(\n\013cheer_types"
+  "\030\001 \003(\0132\023.CMsgCheerTypeState\022\033\n\023radiant_c"
+  "rowd_level\030\002 \001(\r\022\030\n\020dire_crowd_level\030\003 \001"
+  "(\r\"n\n\036CMsgServerToGCReportCheerState\022&\n\014"
+  "cheer_config\030\001 \001(\0132\020.CMsgCheerConfig\022$\n\013"
+  "cheer_state\030\002 \001(\0132\017.CMsgCheerState\"5\n\036CM"
+  "sgServerToGCGetStickerHeroes\022\023\n\013account_"
+  "ids\030\001 \003(\r\"\255\001\n&CMsgServerToGCGetStickerHe"
+  "roesResponse\022\?\n\007players\030\001 \003(\0132..CMsgServ"
+  "erToGCGetStickerHeroesResponse.Player\032B\n"
+  "\006Player\022\022\n\naccount_id\030\001 \001(\r\022$\n\010stickers\030"
+  "\002 \001(\0132\022.CMsgStickerHeroes\"$\n\"CMsgGCToSer"
+  "verSetSteamLearnDisable\"M\n&CMsgGCToServe"
+  "rSetSteamLearnInferencing\022\016\n\006enable\030\001 \001("
+  "\010\022\023\n\013project_ids\030\005 \003(\r\"O\n&CMsgGCToServer"
+  "SetSteamLearnKeysChanged\022%\n\004keys\030\001 \001(\0132\027"
+  ".CMsgSteamLearnHMACKeys\"|\n\027CMsgSteamLear"
+  "nMatchInfo\022\023\n\013average_mmr\030\001 \001(\r\022\023\n\013radia"
+  "nt_won\030\002 \001(\010\022\020\n\010duration\030\003 \001(\r\022\021\n\tgame_m"
+  "ode\030\004 \001(\r\022\022\n\nlobby_type\030\005 \001(\r\"\177\n\035CMsgSte"
+  "amLearnMatchInfoPlayer\022\023\n\013average_mmr\030\001 "
+  "\001(\r\022\020\n\010team_won\030\002 \001(\010\022\020\n\010duration\030\003 \001(\r\022"
+  "\021\n\tgame_mode\030\004 \001(\r\022\022\n\nlobby_type\030\005 \001(\r\"\217"
+  "\001\n\031CMsgSteamLearnMatchHeroes\022\036\n\020radiant_"
+  "hero_ids\030\001 \003(\rB\004\360\344\035\005\022\033\n\rdire_hero_ids\030\002 "
+  "\003(\rB\004\360\344\035\005\022\033\n\rradiant_lanes\030\003 \003(\rB\004\360\344\035\005\022\030"
+  "\n\ndire_lanes\030\004 \003(\rB\004\360\344\035\005\"u\n\027CMsgSteamLea"
+  "rnMatchHero\022\017\n\007hero_id\030\001 \001(\r\022\014\n\004lane\030\002 \001"
+  "(\r\022\035\n\017allied_hero_ids\030\003 \003(\rB\004\360\344\035\004\022\034\n\016ene"
+  "my_hero_ids\030\004 \003(\rB\004\360\344\035\005\"\224\005\n\030CMsgSteamLea"
+  "rnMatchState\022\021\n\tgame_time\030\001 \001(\002\022:\n\rradia"
+  "nt_state\030\002 \001(\0132#.CMsgSteamLearnMatchStat"
+  "e.TeamState\0227\n\ndire_state\030\003 \001(\0132#.CMsgSt"
+  "eamLearnMatchState.TeamState\032\264\001\n\013PlayerS"
+  "tate\022\017\n\007hero_id\030\001 \001(\r\022\021\n\tnet_worth\030\002 \001(\r"
+  "\022\r\n\005level\030\003 \001(\r\022\016\n\006deaths\030\004 \001(\r\022\024\n\014respa"
+  "wn_time\030\005 \001(\r\022\023\n\013has_buyback\030\006 \001(\010\022\021\n\tha"
+  "s_aegis\030\007 \001(\010\022\022\n\nhas_rapier\030\010 \001(\010\022\020\n\010dis"
+  "tance\030\t \001(\r\032\270\002\n\tTeamState\022\014\n\004team\030\001 \001(\r\022"
+  "B\n\rplayer_states\030\002 \003(\0132%.CMsgSteamLearnM"
+  "atchState.PlayerStateB\004\360\344\035\005\022\036\n\020tower_hea"
+  "lth_pct\030\003 \003(\rB\004\360\344\035\013\022!\n\023barracks_health_p"
+  "ct\030\004 \003(\rB\004\360\344\035\006\022\032\n\022ancient_health_pct\030\005 \001"
   "(\r\022\026\n\016glyph_cooldown\030\006 \001(\r\022\r\n\005kills\030\007 \001("
   "\r\022\033\n\023creep_distance_safe\030\010 \001(\r\022\032\n\022creep_"
   "distance_mid\030\t \001(\r\022\032\n\022creep_distance_off"
-  "\030\n \001(\r\032\242\001\n\nMatchState\022\021\n\tgame_time\030\001 \001(\r"
-  "\022A\n\rradiant_state\030\002 \001(\0132*.CMsgServerToGC"
-  "MatchStateHistory.TeamState\022>\n\ndire_stat"
-  "e\030\003 \001(\0132*.CMsgServerToGCMatchStateHistor"
-  "y.TeamState\"\200\001\n\032CMsgMatchStateSteamMLEnt"
-  "ry\022@\n\013match_state\030\001 \001(\0132+.CMsgServerToGC"
-  "MatchStateHistory.MatchState\022\013\n\003mmr\030\002 \001("
-  "\r\022\023\n\013radiant_won\030\003 \001(\010\"L\n\035CMsgLaneSelect"
-  "ionSteamMLEntry\022\026\n\010hero_ids\030\001 \003(\rB\004\340\344\035\n\022"
-  "\023\n\005lanes\030\002 \003(\rB\004\340\344\035\006\"\243\001\n CMsgAbilitySele"
-  "ctionSteamMLEntry\022\013\n\003mmr\030\001 \001(\r\022\017\n\007hero_i"
-  "d\030\002 \001(\r\022\034\n\016enemy_hero_ids\030\003 \003(\rB\004\340\344\035\004\022\014\n"
-  "\004lane\030\004 \001(\r\022\027\n\tabilities\030\005 \003(\005B\004\340\344\035\031\022\034\n\020"
-  "selected_ability\030\006 \001(\005:\002-1\"\264\001\n#CMsgItemP"
-  "urchasePregameSteamMLEntry\022\013\n\003mmr\030\001 \001(\r\022"
-  "\014\n\004lane\030\002 \001(\r\022\017\n\007balance\030\003 \001(\002\022\017\n\007hero_i"
-  "d\030\004 \001(\r\022\035\n\017allied_hero_ids\030\005 \003(\rB\004\340\344\035\004\022\034"
-  "\n\016enemy_hero_ids\030\006 \003(\rB\004\340\344\035\005\022\023\n\005items\030\007 "
-  "\003(\005B\004\340\344\035\t\"\301\001\n\034CMsgItemPurchaseSteamMLEnt"
-  "ry\022\013\n\003mmr\030\001 \001(\r\022\014\n\004lane\030\002 \001(\r\022\017\n\007hero_id"
-  "\030\003 \001(\r\022\035\n\017allied_hero_ids\030\004 \003(\rB\004\340\344\035\004\022\034\n"
-  "\016enemy_hero_ids\030\005 \003(\rB\004\340\344\035\005\022\023\n\005items\030\006 \003"
-  "(\005B\004\340\344\035\024\022#\n\025items_to_be_purchased\030\007 \003(\005B"
-  "\004\340\344\035\024\"\306\001\n$CMsgItemPurchaseSequenceSteamM"
-  "LEntry\022\013\n\003mmr\030\001 \001(\r\022\014\n\004lane\030\002 \001(\r\022\017\n\007her"
-  "o_id\030\003 \001(\r\022\035\n\017allied_hero_ids\030\004 \003(\rB\004\340\344\035"
-  "\004\022\034\n\016enemy_hero_ids\030\005 \003(\rB\004\340\344\035\005\022\023\n\005items"
-  "\030\006 \003(\005B\004\340\344\035\024\022 \n\024item_to_be_purchased\030\007 \001"
-  "(\005:\002-1\"\226\001\n%CMsgServerToGCCavernCrawlIsHe"
-  "roActive\022\020\n\010event_id\030\001 \001(\r\022\022\n\naccount_id"
-  "\030\002 \001(\r\022\"\n\025preferred_map_variant\030\003 \001(\r:\0032"
-  "55\022\017\n\007hero_id\030\004 \001(\r\022\022\n\nturbo_mode\030\005 \001(\010\""
-  "\334\003\n$CMsgServerToGCPlayerChallengeHistory"
-  "\022\020\n\010match_id\030\001 \001(\004\022\024\n\014average_rank\030\002 \001(\r"
-  "\022P\n\021challenge_records\030\003 \003(\01325.CMsgServer"
-  "ToGCPlayerChallengeHistory.PlayerChallen"
-  "ge\032\271\002\n\017PlayerChallenge\022\022\n\naccount_id\030\001 \001"
-  "(\r\022[\n\016challenge_type\030\002 \001(\0162\034.EPlayerChal"
-  "lengeHistoryType:%k_EPlayerChallengeHist"
-  "oryType_Invalid\022\025\n\rchallenge_id1\030\003 \001(\r\022\025"
-  "\n\rchallenge_id2\030\004 \001(\r\022\034\n\024progress_value_"
-  "start\030\005 \001(\r\022\032\n\022progress_value_end\030\006 \001(\r\022"
-  "\020\n\010team_won\030\007 \001(\010\022\022\n\naudit_data\030\010 \001(\004\022\017\n"
-  "\007hero_id\030\t \001(\r\022\026\n\016rank_completed\030\n \001(\r\"\270"
-  "\002\n-CMsgServerToGCCavernCrawlIsHeroActive"
-  "Response\022\016\n\006result\030\001 \001(\010\022\030\n\013map_variant\030"
-  "\005 \001(\r:\003255\022\032\n\022potential_winnings\030\002 \001(\r\022N"
-  "\n\013map_results\030\003 \003(\01329.CMsgServerToGCCave"
-  "rnCrawlIsHeroActiveResponse.MapResults\022%"
-  "\n\035potential_plus_shard_winnings\030\004 \001(\r\032J\n"
-  "\nMapResults\022\036\n\021path_id_completed\030\001 \001(\r:\003"
-  "255\022\034\n\017room_id_claimed\030\002 \001(\r:\003255\";\n CMs"
-  "gGCtoServerTensorflowInstance\022\027\n\017server_"
-  "instance\030\001 \001(\r\"\343\t\n\025CMsgDetailedGameStats"
-  "\0223\n\007minutes\030\001 \003(\0132\".CMsgDetailedGameStat"
-  "s.MinuteEntry\0226\n\013player_info\030\002 \003(\0132!.CMs"
-  "gDetailedGameStats.PlayerInfo\0224\n\ngame_st"
-  "ats\030\003 \001(\0132 .CMsgDetailedGameStats.GameSt"
-  "ats\032\244\006\n\017PlayerStatEntry\022\031\n\021total_earned_"
-  "gold\030\001 \001(\r\022\026\n\016total_networth\030\002 \001(\r\022\r\n\005le"
-  "vel\030\003 \001(\r\022\021\n\ttotal_dps\030\004 \001(\r\022\023\n\013average_"
-  "dps\030\005 \001(\r\022\035\n\025ability_damage_output\030\006 \001(\r"
-  "\022\023\n\013base_health\030\007 \001(\r\022\024\n\014total_health\030\010 "
-  "\001(\r\022\022\n\ntotal_mana\030\t \001(\r\022*\n\"base_physical"
-  "_damage_reduction_pct\030\n \001(\002\022+\n#total_phy"
-  "sical_damage_reduction_pct\030\013 \001(\002\022)\n!base"
-  "_ability_damage_reduction_pct\030\014 \001(\002\022*\n\"t"
-  "otal_ability_damage_reduction_pct\030\r \001(\002\022"
-  "\034\n\024ability_damage_block\030\016 \001(\002\022\035\n\025physica"
-  "l_damage_block\030\017 \001(\002\022\022\n\nmana_regen\030\020 \001(\r"
-  "\022\024\n\014health_regen\030\021 \001(\r\022\036\n\026physical_magic"
-  "_dmg_pct\030\022 \001(\002\022\r\n\005kills\030\023 \001(\r\022\016\n\006deaths\030"
-  "\024 \001(\r\022\017\n\007assists\030\025 \001(\r\022\027\n\017gold_from_kill"
-  "s\030\026 \001(\r\022\030\n\020gold_from_creeps\030\027 \001(\r\022\023\n\013gol"
-  "d_shared\030\030 \001(\r\022\025\n\rxp_from_kills\030\031 \001(\r\022\026\n"
-  "\016xp_from_creeps\030\032 \001(\r\022\020\n\010total_xp\030\033 \001(\r\022"
-  "\025\n\rability_casts\030\034 \001(\r\022\022\n\nitem_casts\030\035 \001"
-  "(\r\022\032\n\022total_time_stunned\030\036 \001(\002\022\022\n\nitem_c"
-  "ount\030\037 \001(\r\032b\n\tGameStats\022\033\n\023tower_death_t"
-  "ime_t1\030\001 \001(\r\022\033\n\023tower_death_time_t2\030\002 \001("
-  "\r\022\033\n\023tower_death_time_t3\030\003 \001(\r\032T\n\013Minute"
-  "Entry\022\016\n\006minute\030\001 \001(\r\0225\n\005stats\030\002 \003(\0132&.C"
-  "MsgDetailedGameStats.PlayerStatEntry\032F\n\n"
-  "PlayerInfo\022\022\n\naccount_id\030\001 \001(\r\022\017\n\007hero_i"
-  "d\030\002 \001(\r\022\023\n\013player_slot\030\003 \001(\r\"\356\001\n\024CMsgNeu"
-  "tralItemStats\0228\n\rneutral_items\030\001 \003(\0132!.C"
-  "MsgNeutralItemStats.NeutralItem\032\233\001\n\013Neut"
-  "ralItem\022\023\n\007item_id\030\001 \001(\005:\002-1\022\024\n\014time_dro"
-  "pped\030\002 \001(\r\022\014\n\004team\030\003 \001(\r\022\032\n\022time_last_eq"
-  "uipped\030\004 \001(\r\022\034\n\024time_last_unequipped\030\005 \001"
-  "(\r\022\031\n\021duration_equipped\030\006 \001(\r\"\252\001\n\037CMsgGC"
-  "ToServerLobbyHeroBanRates\022\?\n\010ban_data\030\001 "
-  "\003(\0132-.CMsgGCToServerLobbyHeroBanRates.He"
-  "roBanEntry\032F\n\014HeroBanEntry\022\017\n\007hero_id\030\001 "
-  "\001(\r\022\021\n\tban_count\030\002 \001(\r\022\022\n\npick_count\030\003 \001"
-  "(\r\"\311\002\n CMsgSignOutGuildContractProgress\022"
-  "J\n\020player_contracts\030\001 \003(\01320.CMsgSignOutG"
-  "uildContractProgress.PlayerContract\032U\n\034C"
-  "ompletedGuildEventContracts\022\020\n\010guild_id\030"
-  "\001 \001(\r\022\020\n\010event_id\030\002 \001(\r\022\021\n\tcontracts\030\003 \003"
-  "(\004\032\201\001\n\016PlayerContract\022\022\n\naccount_id\030\001 \001("
-  "\r\022[\n\023completed_contracts\030\002 \003(\0132>.CMsgSig"
-  "nOutGuildContractProgress.CompletedGuild"
-  "EventContracts\"\315\002\n!CMsgSignOutGuildChall"
-  "engeProgress\022Y\n\033guild_challenges_progres"
-  "ses\030\001 \003(\01324.CMsgSignOutGuildChallengePro"
-  "gress.ChallengeProgress\032\314\001\n\021ChallengePro"
-  "gress\022\020\n\010guild_id\030\001 \001(\r\022\020\n\010event_id\030\002 \001("
-  "\r\022\035\n\025challenge_instance_id\030\003 \001(\r\022$\n\034chal"
-  "lenge_instance_timestamp\030\004 \001(\r\022\037\n\027challe"
-  "nge_period_serial\030\005 \001(\r\022\020\n\010progress\030\006 \001("
-  "\r\022\033\n\023challenge_parameter\030\007 \001(\r\"\204\006\n\023CMsgS"
-  "ignOutMVPStats\022\020\n\010match_id\030\001 \001(\004\022\021\n\tgame"
-  "_mode\030\002 \001(\r\022\024\n\014winning_team\030\003 \001(\r\022\021\n\tgam"
-  "e_time\030\004 \001(\002\022,\n\007players\030\005 \003(\0132\033.CMsgSign"
-  "OutMVPStats.Player\032\360\004\n\006Player\022\017\n\007team_id"
-  "\030\001 \001(\r\022\032\n\022team_networth_rank\030\002 \001(\r\022\022\n\nac"
-  "count_id\030\003 \001(\r\022\023\n\013player_slot\030  \001(\r\022\014\n\004r"
-  "ank\030! \001(\r\022\017\n\007hero_id\030\004 \001(\r\022\014\n\004role\030\005 \001(\r"
-  "\022\r\n\005kills\030\006 \001(\005\022\016\n\006deaths\030\007 \001(\005\022\017\n\007assis"
-  "ts\030\010 \001(\005\022\n\n\002xp\030\t \001(\005\022\021\n\tnet_worth\030\n \001(\005\022"
-  "\032\n\022support_gold_spent\030\014 \001(\005\022\024\n\014wards_pla"
-  "ced\030\r \001(\005\022#\n\033wards_spotted_for_dewarding"
-  "\030\016 \001(\005\022\025\n\rcamps_stacked\030\017 \001(\005\022\021\n\tlast_hi"
-  "ts\030\020 \001(\005\022\016\n\006denies\030\021 \001(\005\022\027\n\017building_dam"
-  "age\030\023 \001(\005\022\024\n\014other_damage\030\024 \001(\005\022\024\n\014tripl"
-  "e_kills\030\032 \001(\005\022\020\n\010rampages\030\034 \001(\005\022\023\n\013first"
-  "_blood\030\037 \001(\005\022E\n\021kill_eater_events\030\" \003(\0132"
-  "*.CMsgSignOutMVPStats.Player.KillEaterEv"
-  "ent\022\032\n\022highest_killstreak\030# \001(\r\0324\n\016KillE"
-  "aterEvent\022\022\n\nevent_type\030\001 \002(\r\022\016\n\006amount\030"
-  "\002 \002(\r\"2\n CMsgGCToServerRecordTrainingDat"
-  "a\022\016\n\006enable\030\001 \001(\010\"6\n\037CMsgServerToGCGetGu"
-  "ildContracts\022\023\n\013account_ids\030\001 \003(\r\"\260\003\n\'CM"
-  "sgServerToGCGetGuildContractsResponse\022I\n"
-  "\020player_contracts\030\001 \003(\0132/.CMsgServerToGC"
-  "GetGuildContractsResponse.Player\032\221\001\n\017Con"
-  "tractDetails\022\023\n\013contract_id\030\001 \001(\004\022\035\n\025cha"
-  "llenge_instance_id\030\002 \001(\r\022\033\n\023challenge_pa"
-  "rameter\030\003 \001(\r\022\026\n\016contract_stars\030\004 \001(\r\022\025\n"
-  "\rcontract_slot\030\005 \001(\r\032\245\001\n\006Player\022\022\n\naccou"
-  "nt_id\030\001 \001(\r\022\020\n\010guild_id\030\002 \001(\r\022(\n\010event_i"
-  "d\030\003 \001(\0162\007.EEvent:\rEVENT_ID_NONE\022K\n\tcontr"
-  "acts\030\004 \003(\01328.CMsgServerToGCGetGuildContr"
-  "actsResponse.ContractDetails\"\316\002\n\026CMsgMat"
-  "chDiretideCandy\022>\n\021player_candy_data\030\001 \003"
-  "(\0132#.CMsgMatchDiretideCandy.PlayerCandy\022"
-  "(\n\010event_id\030\002 \001(\0162\007.EEvent:\rEVENT_ID_NON"
-  "E\032-\n\014CandyDetails\022\016\n\006amount\030\001 \001(\r\022\r\n\005aud"
-  "it\030\002 \001(\r\032\232\001\n\013PlayerCandy\022\022\n\naccount_id\030\001"
-  " \001(\r\022\024\n\014candy_amount\030\003 \001(\r\022\"\n\032consumes_p"
-  "eriodic_resource\030\004 \001(\010\022=\n\017candy_breakdow"
-  "n\030\005 \003(\0132$.CMsgMatchDiretideCandy.CandyDe"
-  "tails\"\222\001\n\027CMsgGCToServerCheerData\022<\n\013che"
-  "er_types\030\001 \003(\0132\'.CMsgGCToServerCheerData"
-  ".CheerTypeCount\0329\n\016CheerTypeCount\022\022\n\nche"
-  "er_type\030\001 \001(\r\022\023\n\013cheer_count\030\002 \001(\r\"\250\004\n\017C"
-  "MsgCheerConfig\022\026\n\016cheers_enabled\030\001 \001(\010\022\032"
-  "\n\022is_valid_league_id\030\002 \001(\010\022\027\n\017window_dur"
-  "ation\030\003 \001(\002\022\033\n\023window_bucket_count\030\004 \001(\r"
-  "\022\035\n\025crowd_level_push_time\030\006 \001(\002\022\027\n\017crowd"
-  "_level_low\030\n \001(\r\022\032\n\022crowd_level_medium\030\013"
-  " \001(\r\022\030\n\020crowd_level_high\030\014 \001(\r\022\031\n\021cheer_"
-  "scale_start\030\r \001(\002\022\031\n\021cheer_scale_speed\030\016"
-  " \001(\002\022\035\n\025cheer_scale_push_mark\030\017 \001(\r\022\035\n\025c"
-  "heer_scale_pull_mark\030\020 \001(\r\022(\n cheer_scal"
-  "e_pct_of_max_cps_clamp\030\021 \001(\002\022\"\n\032cheer_sc"
-  "ale_dampener_value\030\025 \001(\002\022&\n\036cheer_scale_"
-  "dampener_lerp_time\030\026 \001(\r\022\033\n\023cheer_factor"
-  "_bronze\030\022 \001(\002\022\033\n\023cheer_factor_silver\030\023 \001"
-  "(\002\022\031\n\021cheer_factor_gold\030\024 \001(\002\"C\n\031CMsgGCT"
-  "oServerCheerConfig\022&\n\014cheer_config\030\001 \001(\013"
-  "2\020.CMsgCheerConfig\"1\n\034CMsgServerToGCGetC"
-  "heerConfig\022\021\n\tleague_id\030\001 \001(\r\"N\n$CMsgSer"
-  "verToGCGetCheerConfigResponse\022&\n\014cheer_c"
-  "onfig\030\002 \001(\0132\020.CMsgCheerConfig\"3\n!CMsgGCT"
-  "oServerCheerScalesOverride\022\016\n\006scales\030\001 \003"
-  "(\002\"\035\n\033CMsgGCToServerGetCheerState\"o\n\022CMs"
-  "gCheerTypeState\022\024\n\014cheer_counts\030\001 \003(\r\022\026\n"
-  "\016max_per_second\030\002 \001(\002\022\023\n\013cheer_scale\030\003 \001"
-  "(\002\022\026\n\016override_scale\030\004 \001(\002\"q\n\016CMsgCheerS"
-  "tate\022(\n\013cheer_types\030\001 \003(\0132\023.CMsgCheerTyp"
-  "eState\022\033\n\023radiant_crowd_level\030\002 \001(\r\022\030\n\020d"
-  "ire_crowd_level\030\003 \001(\r\"n\n\036CMsgServerToGCR"
-  "eportCheerState\022&\n\014cheer_config\030\001 \001(\0132\020."
-  "CMsgCheerConfig\022$\n\013cheer_state\030\002 \001(\0132\017.C"
-  "MsgCheerState\"5\n\036CMsgServerToGCGetSticke"
-  "rHeroes\022\023\n\013account_ids\030\001 \003(\r\"\255\001\n&CMsgSer"
-  "verToGCGetStickerHeroesResponse\022\?\n\007playe"
-  "rs\030\001 \003(\0132..CMsgServerToGCGetStickerHeroe"
-  "sResponse.Player\032B\n\006Player\022\022\n\naccount_id"
-  "\030\001 \001(\r\022$\n\010stickers\030\002 \001(\0132\022.CMsgStickerHe"
-  "roes\"$\n\"CMsgGCToServerSetSteamLearnDisab"
-  "le\"O\n&CMsgGCToServerSetSteamLearnKeysCha"
-  "nged\022%\n\004keys\030\001 \001(\0132\027.CMsgSteamLearnHMACK"
-  "eys\"|\n\027CMsgSteamLearnMatchInfo\022\023\n\013averag"
-  "e_mmr\030\001 \001(\r\022\023\n\013radiant_won\030\002 \001(\010\022\020\n\010dura"
-  "tion\030\003 \001(\r\022\021\n\tgame_mode\030\004 \001(\r\022\022\n\nlobby_t"
-  "ype\030\005 \001(\r\"\217\001\n\031CMsgSteamLearnMatchHeroes\022"
-  "\036\n\020radiant_hero_ids\030\001 \003(\rB\004\360\344\035\005\022\033\n\rdire_"
-  "hero_ids\030\002 \003(\rB\004\360\344\035\005\022\033\n\rradiant_lanes\030\003 "
-  "\003(\rB\004\360\344\035\005\022\030\n\ndire_lanes\030\004 \003(\rB\004\360\344\035\005\"u\n\027C"
-  "MsgSteamLearnMatchHero\022\017\n\007hero_id\030\001 \001(\r\022"
-  "\014\n\004lane\030\002 \001(\r\022\035\n\017allied_hero_ids\030\003 \003(\rB\004"
-  "\360\344\035\004\022\034\n\016enemy_hero_ids\030\004 \003(\rB\004\360\344\035\005\"\224\005\n\030C"
-  "MsgSteamLearnMatchState\022\021\n\tgame_time\030\001 \001"
-  "(\002\022:\n\rradiant_state\030\002 \001(\0132#.CMsgSteamLea"
-  "rnMatchState.TeamState\0227\n\ndire_state\030\003 \001"
-  "(\0132#.CMsgSteamLearnMatchState.TeamState\032"
-  "\264\001\n\013PlayerState\022\017\n\007hero_id\030\001 \001(\r\022\021\n\tnet_"
-  "worth\030\002 \001(\r\022\r\n\005level\030\003 \001(\r\022\016\n\006deaths\030\004 \001"
-  "(\r\022\024\n\014respawn_time\030\005 \001(\r\022\023\n\013has_buyback\030"
-  "\006 \001(\010\022\021\n\thas_aegis\030\007 \001(\010\022\022\n\nhas_rapier\030\010"
-  " \001(\010\022\020\n\010distance\030\t \001(\r\032\270\002\n\tTeamState\022\014\n\004"
-  "team\030\001 \001(\r\022B\n\rplayer_states\030\002 \003(\0132%.CMsg"
-  "SteamLearnMatchState.PlayerStateB\004\360\344\035\005\022\036"
-  "\n\020tower_health_pct\030\003 \003(\rB\004\360\344\035\013\022!\n\023barrac"
-  "ks_health_pct\030\004 \003(\rB\004\360\344\035\006\022\032\n\022ancient_hea"
-  "lth_pct\030\005 \001(\r\022\026\n\016glyph_cooldown\030\006 \001(\r\022\r\n"
-  "\005kills\030\007 \001(\r\022\033\n\023creep_distance_safe\030\010 \001("
-  "\r\022\032\n\022creep_distance_mid\030\t \001(\r\022\032\n\022creep_d"
-  "istance_off\030\n \001(\r\"\271\001\n\032CMsgSteamLearnItem"
-  "Purchase\022\023\n\007item_id\030\001 \001(\005:\002-1\022\035\n\017invento"
-  "ry_items\030\002 \003(\005B\004\360\344\035\024\022\014\n\004gold\030\004 \001(\r\022\021\n\tne"
-  "t_worth\030\005 \001(\r\022\027\n\017is_radiant_team\030\006 \001(\r\022\021"
-  "\n\tgame_time\030\007 \001(\002\022\032\n\022is_using_dota_plus\030"
-  "\010 \001(\010\"\204\001\n\032CMsgSteamLearnAbilitySkill\022\026\n\n"
-  "ability_id\030\001 \001(\005:\002-1\022\037\n\021skilled_abilitie"
-  "s\030\002 \003(\005B\004\360\344\035\036\022\021\n\tgame_time\030\003 \001(\002\022\032\n\022is_u"
-  "sing_dota_plus\030\004 \001(\010\"4\n\031CMsgSignOutMuert"
-  "aMinigame\022\027\n\017event_game_data\030\001 \001(\014*\306\001\n\032E"
-  "PoorNetworkConditionsType\022!\n\035k_EPoorNetw"
-  "orkConditions_None\020\000\022$\n k_EPoorNetworkCo"
-  "nditions_Unknown\020\001\022+\n\'k_EPoorNetworkCond"
-  "itions_MassDisconnect\020\002\0222\n.k_EPoorNetwor"
-  "kConditions_ExcessBadQosIntervals\020\003"
+  "\030\n \001(\r\"\331\001\n\032CMsgSteamLearnItemPurchase\022\023\n"
+  "\007item_id\030\001 \001(\005:\002-1\022\035\n\017inventory_items\030\002 "
+  "\003(\005B\004\360\344\035\024\022\036\n\020purchase_history\030\003 \003(\005B\004\360\344\035"
+  "\024\022\014\n\004gold\030\004 \001(\r\022\021\n\tnet_worth\030\005 \001(\r\022\027\n\017is"
+  "_radiant_team\030\006 \001(\r\022\021\n\tgame_time\030\007 \001(\002\022\032"
+  "\n\022is_using_dota_plus\030\010 \001(\010\"q\n\"CMsgSteamL"
+  "earnPreGameItemPurchases\022\026\n\010item_ids\030\001 \003"
+  "(\005B\004\360\344\035\n\022\027\n\017is_radiant_team\030\002 \001(\r\022\032\n\022is_"
+  "using_dota_plus\030\003 \001(\010\"{\n!CMsgSteamLearnN"
+  "eutralItemPurchase\022\023\n\007item_id\030\001 \001(\005:\002-1\022"
+  "\014\n\004tier\030\002 \001(\r\022\027\n\017is_radiant_team\030\003 \001(\r\022\032"
+  "\n\022is_using_dota_plus\030\004 \001(\010\"\204\001\n\032CMsgSteam"
+  "LearnAbilitySkill\022\026\n\nability_id\030\001 \001(\005:\002-"
+  "1\022\037\n\021skilled_abilities\030\002 \003(\005B\004\360\344\035\036\022\021\n\tga"
+  "me_time\030\003 \001(\002\022\032\n\022is_using_dota_plus\030\004 \001("
+  "\010\"\317\001\n\033CMsgSteamLearnWardPlacement\0227\n\010war"
+  "d_loc\030\001 \001(\0132%.CMsgSteamLearnWardPlacemen"
+  "t.Location\022G\n\022existing_ward_locs\030\002 \003(\0132%"
+  ".CMsgSteamLearnWardPlacement.LocationB\004\360"
+  "\344\035\006\022\014\n\004team\030\003 \001(\r\032 \n\010Location\022\t\n\001x\030\001 \001(\002"
+  "\022\t\n\001y\030\002 \001(\002\"4\n\031CMsgSignOutMuertaMinigame"
+  "\022\027\n\017event_game_data\030\001 \001(\014\"\275\001\n\023CMsgSignOu"
+  "tMapStats\022,\n\007players\030\001 \003(\0132\033.CMsgSignOut"
+  "MapStats.Player\022+\n\014global_stats\030\002 \001(\0132\025."
+  "CMsgMapStatsSnapshot\032K\n\006Player\022\022\n\naccoun"
+  "t_id\030\001 \001(\r\022-\n\016personal_stats\030\002 \001(\0132\025.CMs"
+  "gMapStatsSnapshot*\306\001\n\032EPoorNetworkCondit"
+  "ionsType\022!\n\035k_EPoorNetworkConditions_Non"
+  "e\020\000\022$\n k_EPoorNetworkConditions_Unknown\020"
+  "\001\022+\n\'k_EPoorNetworkConditions_MassDiscon"
+  "nect\020\002\0222\n.k_EPoorNetworkConditions_Exces"
+  "sBadQosIntervals\020\003"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5fserver_2eproto_deps[10] = {
   &::descriptor_table_dota_5fgcmessages_5fcommon_2eproto,
@@ -6977,9 +7273,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5
 };
 static ::_pbi::once_flag descriptor_table_dota_5fgcmessages_5fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fgcmessages_5fserver_2eproto = {
-    false, false, 31195, descriptor_table_protodef_dota_5fgcmessages_5fserver_2eproto,
+    false, false, 32218, descriptor_table_protodef_dota_5fgcmessages_5fserver_2eproto,
     "dota_gcmessages_server.proto",
-    &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once, descriptor_table_dota_5fgcmessages_5fserver_2eproto_deps, 10, 172,
+    &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once, descriptor_table_dota_5fgcmessages_5fserver_2eproto_deps, 10, 181,
     schemas, file_default_instances, TableStruct_dota_5fgcmessages_5fserver_2eproto::offsets,
     file_level_metadata_dota_5fgcmessages_5fserver_2eproto, file_level_enum_descriptors_dota_5fgcmessages_5fserver_2eproto,
     file_level_service_descriptors_dota_5fgcmessages_5fserver_2eproto,
@@ -8582,6 +8878,277 @@ void CMsgConnectedPlayers_Player::InternalSwap(CMsgConnectedPlayers_Player* othe
 
 // ===================================================================
 
+class CMsgConnectedPlayers_PlayerDraft::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgConnectedPlayers_PlayerDraft>()._impl_._has_bits_);
+  static void set_has_steam_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_team(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_team_slot(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+};
+
+CMsgConnectedPlayers_PlayerDraft::CMsgConnectedPlayers_PlayerDraft(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgConnectedPlayers.PlayerDraft)
+}
+CMsgConnectedPlayers_PlayerDraft::CMsgConnectedPlayers_PlayerDraft(const CMsgConnectedPlayers_PlayerDraft& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgConnectedPlayers_PlayerDraft* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.steam_id_){}
+    , decltype(_impl_.team_){}
+    , decltype(_impl_.team_slot_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.steam_id_, &from._impl_.steam_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.team_slot_) -
+    reinterpret_cast<char*>(&_impl_.steam_id_)) + sizeof(_impl_.team_slot_));
+  // @@protoc_insertion_point(copy_constructor:CMsgConnectedPlayers.PlayerDraft)
+}
+
+inline void CMsgConnectedPlayers_PlayerDraft::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.steam_id_){uint64_t{0u}}
+    , decltype(_impl_.team_){0}
+    , decltype(_impl_.team_slot_){0}
+  };
+}
+
+CMsgConnectedPlayers_PlayerDraft::~CMsgConnectedPlayers_PlayerDraft() {
+  // @@protoc_insertion_point(destructor:CMsgConnectedPlayers.PlayerDraft)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgConnectedPlayers_PlayerDraft::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgConnectedPlayers_PlayerDraft::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgConnectedPlayers_PlayerDraft::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgConnectedPlayers.PlayerDraft)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    ::memset(&_impl_.steam_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.team_slot_) -
+        reinterpret_cast<char*>(&_impl_.steam_id_)) + sizeof(_impl_.team_slot_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgConnectedPlayers_PlayerDraft::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional fixed64 steam_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 9)) {
+          _Internal::set_has_steam_id(&has_bits);
+          _impl_.steam_id_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<uint64_t>(ptr);
+          ptr += sizeof(uint64_t);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional .DOTA_GC_TEAM team = 2 [default = DOTA_GC_TEAM_GOOD_GUYS];
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::DOTA_GC_TEAM_IsValid(val))) {
+            _internal_set_team(static_cast<::DOTA_GC_TEAM>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(2, val, mutable_unknown_fields());
+          }
+        } else
+          goto handle_unusual;
+        continue;
+      // optional int32 team_slot = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_team_slot(&has_bits);
+          _impl_.team_slot_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgConnectedPlayers_PlayerDraft::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgConnectedPlayers.PlayerDraft)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional fixed64 steam_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steam_id(), target);
+  }
+
+  // optional .DOTA_GC_TEAM team = 2 [default = DOTA_GC_TEAM_GOOD_GUYS];
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      2, this->_internal_team(), target);
+  }
+
+  // optional int32 team_slot = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_team_slot(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgConnectedPlayers.PlayerDraft)
+  return target;
+}
+
+size_t CMsgConnectedPlayers_PlayerDraft::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgConnectedPlayers.PlayerDraft)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional fixed64 steam_id = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 + 8;
+    }
+
+    // optional .DOTA_GC_TEAM team = 2 [default = DOTA_GC_TEAM_GOOD_GUYS];
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::EnumSize(this->_internal_team());
+    }
+
+    // optional int32 team_slot = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_team_slot());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgConnectedPlayers_PlayerDraft::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgConnectedPlayers_PlayerDraft::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgConnectedPlayers_PlayerDraft::GetClassData() const { return &_class_data_; }
+
+
+void CMsgConnectedPlayers_PlayerDraft::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgConnectedPlayers_PlayerDraft*>(&to_msg);
+  auto& from = static_cast<const CMsgConnectedPlayers_PlayerDraft&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgConnectedPlayers.PlayerDraft)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.steam_id_ = from._impl_.steam_id_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.team_ = from._impl_.team_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.team_slot_ = from._impl_.team_slot_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgConnectedPlayers_PlayerDraft::CopyFrom(const CMsgConnectedPlayers_PlayerDraft& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgConnectedPlayers.PlayerDraft)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgConnectedPlayers_PlayerDraft::IsInitialized() const {
+  return true;
+}
+
+void CMsgConnectedPlayers_PlayerDraft::InternalSwap(CMsgConnectedPlayers_PlayerDraft* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgConnectedPlayers_PlayerDraft, _impl_.team_slot_)
+      + sizeof(CMsgConnectedPlayers_PlayerDraft::_impl_.team_slot_)
+      - PROTOBUF_FIELD_OFFSET(CMsgConnectedPlayers_PlayerDraft, _impl_.steam_id_)>(
+          reinterpret_cast<char*>(&_impl_.steam_id_),
+          reinterpret_cast<char*>(&other->_impl_.steam_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgConnectedPlayers_PlayerDraft::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[4]);
+}
+
+// ===================================================================
+
 class CMsgConnectedPlayers::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgConnectedPlayers>()._impl_._has_bits_);
@@ -8630,6 +9197,7 @@ CMsgConnectedPlayers::CMsgConnectedPlayers(const CMsgConnectedPlayers& from)
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.connected_players_){from._impl_.connected_players_}
     , decltype(_impl_.disconnected_players_){from._impl_.disconnected_players_}
+    , decltype(_impl_.player_draft_){from._impl_.player_draft_}
     , decltype(_impl_.poor_network_conditions_){nullptr}
     , decltype(_impl_.game_state_){}
     , decltype(_impl_.first_blood_happened_){}
@@ -8658,6 +9226,7 @@ inline void CMsgConnectedPlayers::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.connected_players_){arena}
     , decltype(_impl_.disconnected_players_){arena}
+    , decltype(_impl_.player_draft_){arena}
     , decltype(_impl_.poor_network_conditions_){nullptr}
     , decltype(_impl_.game_state_){0}
     , decltype(_impl_.first_blood_happened_){false}
@@ -8682,6 +9251,7 @@ inline void CMsgConnectedPlayers::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.connected_players_.~RepeatedPtrField();
   _impl_.disconnected_players_.~RepeatedPtrField();
+  _impl_.player_draft_.~RepeatedPtrField();
   if (this != internal_default_instance()) delete _impl_.poor_network_conditions_;
 }
 
@@ -8697,6 +9267,7 @@ void CMsgConnectedPlayers::Clear() {
 
   _impl_.connected_players_.Clear();
   _impl_.disconnected_players_.Clear();
+  _impl_.player_draft_.Clear();
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     GOOGLE_DCHECK(_impl_.poor_network_conditions_ != nullptr);
@@ -8823,6 +9394,19 @@ const char* CMsgConnectedPlayers::_InternalParse(const char* ptr, ::_pbi::ParseC
         } else
           goto handle_unusual;
         continue;
+      // repeated .CMsgConnectedPlayers.PlayerDraft player_draft = 16;
+      case 16:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 130)) {
+          ptr -= 2;
+          do {
+            ptr += 2;
+            ptr = ctx->ParseMessage(_internal_add_player_draft(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<130>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -8921,6 +9505,14 @@ uint8_t* CMsgConnectedPlayers::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(15, this->_internal_building_state(), target);
   }
 
+  // repeated .CMsgConnectedPlayers.PlayerDraft player_draft = 16;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_player_draft_size()); i < n; i++) {
+    const auto& repfield = this->_internal_player_draft(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(16, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -8947,6 +9539,13 @@ size_t CMsgConnectedPlayers::ByteSizeLong() const {
   // repeated .CMsgConnectedPlayers.Player disconnected_players = 7;
   total_size += 1UL * this->_internal_disconnected_players_size();
   for (const auto& msg : this->_impl_.disconnected_players_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .CMsgConnectedPlayers.PlayerDraft player_draft = 16;
+  total_size += 2UL * this->_internal_player_draft_size();
+  for (const auto& msg : this->_impl_.player_draft_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -9018,6 +9617,7 @@ void CMsgConnectedPlayers::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, c
 
   _this->_impl_.connected_players_.MergeFrom(from._impl_.connected_players_);
   _this->_impl_.disconnected_players_.MergeFrom(from._impl_.disconnected_players_);
+  _this->_impl_.player_draft_.MergeFrom(from._impl_.player_draft_);
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
@@ -9067,6 +9667,7 @@ void CMsgConnectedPlayers::InternalSwap(CMsgConnectedPlayers* other) {
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.connected_players_.InternalSwap(&other->_impl_.connected_players_);
   _impl_.disconnected_players_.InternalSwap(&other->_impl_.disconnected_players_);
+  _impl_.player_draft_.InternalSwap(&other->_impl_.player_draft_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CMsgConnectedPlayers, _impl_.building_state_)
       + sizeof(CMsgConnectedPlayers::_impl_.building_state_)
@@ -9078,7 +9679,7 @@ void CMsgConnectedPlayers::InternalSwap(CMsgConnectedPlayers* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgConnectedPlayers::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[4]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[5]);
 }
 
 // ===================================================================
@@ -10154,7 +10755,7 @@ void CMsgGameServerInfo::InternalSwap(CMsgGameServerInfo* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameServerInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[5]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[6]);
 }
 
 // ===================================================================
@@ -10553,7 +11154,7 @@ void CMsgLeaverDetected::InternalSwap(CMsgLeaverDetected* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgLeaverDetected::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[6]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[7]);
 }
 
 // ===================================================================
@@ -10744,7 +11345,7 @@ void CMsgLeaverDetectedResponse::InternalSwap(CMsgLeaverDetectedResponse* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgLeaverDetectedResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[7]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[8]);
 }
 
 // ===================================================================
@@ -10932,7 +11533,7 @@ void CMsgDOTAFantasyFinalPlayerStats::InternalSwap(CMsgDOTAFantasyFinalPlayerSta
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAFantasyFinalPlayerStats::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[8]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[9]);
 }
 
 // ===================================================================
@@ -11120,7 +11721,7 @@ void CMsgDOTAFantasyLivePlayerStats::InternalSwap(CMsgDOTAFantasyLivePlayerStats
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAFantasyLivePlayerStats::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[9]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[10]);
 }
 
 // ===================================================================
@@ -11330,7 +11931,7 @@ void CMsgServerToGCRealtimeStats::InternalSwap(CMsgServerToGCRealtimeStats* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCRealtimeStats::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[10]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[11]);
 }
 
 // ===================================================================
@@ -11521,7 +12122,7 @@ void CMsgGCToServerRealtimeStatsStartStop::InternalSwap(CMsgGCToServerRealtimeSt
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerRealtimeStatsStartStop::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[11]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[12]);
 }
 
 // ===================================================================
@@ -11712,7 +12313,7 @@ void CMsgGCToServerUpdateSteamBroadcasting::InternalSwap(CMsgGCToServerUpdateSte
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerUpdateSteamBroadcasting::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[12]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[13]);
 }
 
 // ===================================================================
@@ -12014,7 +12615,7 @@ void CMsgSignOutGameplayStats_CPlayer::InternalSwap(CMsgSignOutGameplayStats_CPl
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutGameplayStats_CPlayer::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[13]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[14]);
 }
 
 // ===================================================================
@@ -12319,7 +12920,7 @@ void CMsgSignOutGameplayStats_CTeam::InternalSwap(CMsgSignOutGameplayStats_CTeam
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutGameplayStats_CTeam::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[14]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[15]);
 }
 
 // ===================================================================
@@ -12504,7 +13105,7 @@ void CMsgSignOutGameplayStats::InternalSwap(CMsgSignOutGameplayStats* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutGameplayStats::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[15]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[16]);
 }
 
 // ===================================================================
@@ -12741,7 +13342,7 @@ void CMsgGameMatchSignOut_CTeam_CPlayer_CCustomGameData::InternalSwap(CMsgGameMa
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameMatchSignOut_CTeam_CPlayer_CCustomGameData::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[16]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[17]);
 }
 
 // ===================================================================
@@ -13012,7 +13613,7 @@ void CMsgGameMatchSignOut_CTeam_CPlayer_HeroDamageReceived::InternalSwap(CMsgGam
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameMatchSignOut_CTeam_CPlayer_HeroDamageReceived::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[17]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[18]);
 }
 
 // ===================================================================
@@ -15383,7 +15984,7 @@ void CMsgGameMatchSignOut_CTeam_CPlayer::InternalSwap(CMsgGameMatchSignOut_CTeam
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameMatchSignOut_CTeam_CPlayer::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[18]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[19]);
 }
 
 // ===================================================================
@@ -15568,7 +16169,7 @@ void CMsgGameMatchSignOut_CTeam::InternalSwap(CMsgGameMatchSignOut_CTeam* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameMatchSignOut_CTeam::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[19]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[20]);
 }
 
 // ===================================================================
@@ -15818,7 +16419,7 @@ void CMsgGameMatchSignOut_CAdditionalSignoutMsg::InternalSwap(CMsgGameMatchSignO
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameMatchSignOut_CAdditionalSignoutMsg::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[20]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[21]);
 }
 
 // ===================================================================
@@ -16139,7 +16740,7 @@ void CMsgGameMatchSignOut_CSocialFeedMatchEvent::InternalSwap(CMsgGameMatchSignO
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameMatchSignOut_CSocialFeedMatchEvent::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[21]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[22]);
 }
 
 // ===================================================================
@@ -16330,7 +16931,7 @@ void CMsgGameMatchSignOut_CCustomGameData::InternalSwap(CMsgGameMatchSignOut_CCu
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameMatchSignOut_CCustomGameData::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[22]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[23]);
 }
 
 // ===================================================================
@@ -16738,7 +17339,7 @@ void CMsgGameMatchSignOut_EventGameLeaderboardEntry::InternalSwap(CMsgGameMatchS
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameMatchSignOut_EventGameLeaderboardEntry::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[23]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[24]);
 }
 
 // ===================================================================
@@ -17145,7 +17746,7 @@ void CMsgGameMatchSignOut_WardPlacement::InternalSwap(CMsgGameMatchSignOut_WardP
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameMatchSignOut_WardPlacement::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[24]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[25]);
 }
 
 // ===================================================================
@@ -17251,7 +17852,6 @@ CMsgGameMatchSignOut::CMsgGameMatchSignOut(const CMsgGameMatchSignOut& from)
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.num_players_){from._impl_.num_players_}
     , decltype(_impl_.teams_){from._impl_.teams_}
     , decltype(_impl_.tower_status_){from._impl_.tower_status_}
     , decltype(_impl_.barracks_status_){from._impl_.barracks_status_}
@@ -17315,7 +17915,6 @@ inline void CMsgGameMatchSignOut::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.num_players_){arena}
     , decltype(_impl_.teams_){arena}
     , decltype(_impl_.tower_status_){arena}
     , decltype(_impl_.barracks_status_){arena}
@@ -17365,7 +17964,6 @@ CMsgGameMatchSignOut::~CMsgGameMatchSignOut() {
 
 inline void CMsgGameMatchSignOut::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.num_players_.~RepeatedField();
   _impl_.teams_.~RepeatedPtrField();
   _impl_.tower_status_.~RepeatedField();
   _impl_.barracks_status_.~RepeatedField();
@@ -17394,7 +17992,6 @@ void CMsgGameMatchSignOut::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.num_players_.Clear();
   _impl_.teams_.Clear();
   _impl_.tower_status_.Clear();
   _impl_.barracks_status_.Clear();
@@ -17484,22 +18081,6 @@ const char* CMsgGameMatchSignOut::_InternalParse(const char* ptr, ::_pbi::ParseC
           _Internal::set_has_date(&has_bits);
           _impl_.date_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<uint32_t>(ptr);
           ptr += sizeof(uint32_t);
-        } else
-          goto handle_unusual;
-        continue;
-      // repeated uint32 num_players = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            _internal_add_num_players(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<40>(ptr));
-        } else if (static_cast<uint8_t>(tag) == 42) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_num_players(), ptr, ctx);
-          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -17862,12 +18443,6 @@ uint8_t* CMsgGameMatchSignOut::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteFixed32ToArray(4, this->_internal_date(), target);
   }
 
-  // repeated uint32 num_players = 5;
-  for (int i = 0, n = this->_internal_num_players_size(); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_num_players(i), target);
-  }
-
   // repeated .CMsgGameMatchSignOut.CTeam teams = 6;
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_teams_size()); i < n; i++) {
@@ -18071,15 +18646,6 @@ size_t CMsgGameMatchSignOut::ByteSizeLong() const {
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
-
-  // repeated uint32 num_players = 5;
-  {
-    size_t data_size = ::_pbi::WireFormatLite::
-      UInt32Size(this->_impl_.num_players_);
-    total_size += 1 *
-                  ::_pbi::FromIntSize(this->_internal_num_players_size());
-    total_size += data_size;
-  }
 
   // repeated .CMsgGameMatchSignOut.CTeam teams = 6;
   total_size += 1UL * this->_internal_teams_size();
@@ -18308,7 +18874,6 @@ void CMsgGameMatchSignOut::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, c
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.num_players_.MergeFrom(from._impl_.num_players_);
   _this->_impl_.teams_.MergeFrom(from._impl_.teams_);
   _this->_impl_.tower_status_.MergeFrom(from._impl_.tower_status_);
   _this->_impl_.barracks_status_.MergeFrom(from._impl_.barracks_status_);
@@ -18411,7 +18976,6 @@ void CMsgGameMatchSignOut::InternalSwap(CMsgGameMatchSignOut* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  _impl_.num_players_.InternalSwap(&other->_impl_.num_players_);
   _impl_.teams_.InternalSwap(&other->_impl_.teams_);
   _impl_.tower_status_.InternalSwap(&other->_impl_.tower_status_);
   _impl_.barracks_status_.InternalSwap(&other->_impl_.barracks_status_);
@@ -18439,7 +19003,7 @@ void CMsgGameMatchSignOut::InternalSwap(CMsgGameMatchSignOut* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameMatchSignOut::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[25]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[26]);
 }
 
 // ===================================================================
@@ -18713,7 +19277,7 @@ void CMsgSignOutDraftInfo::InternalSwap(CMsgSignOutDraftInfo* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutDraftInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[26]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[27]);
 }
 
 // ===================================================================
@@ -19018,7 +19582,7 @@ void CMsgSignOutBotInfo::InternalSwap(CMsgSignOutBotInfo* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutBotInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[27]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[28]);
 }
 
 // ===================================================================
@@ -19314,7 +19878,7 @@ void CMsgSignOutTextMuteInfo_TextMuteMessage::InternalSwap(CMsgSignOutTextMuteIn
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutTextMuteInfo_TextMuteMessage::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[28]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[29]);
 }
 
 // ===================================================================
@@ -19499,7 +20063,7 @@ void CMsgSignOutTextMuteInfo::InternalSwap(CMsgSignOutTextMuteInfo* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutTextMuteInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[29]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[30]);
 }
 
 // ===================================================================
@@ -20568,7 +21132,7 @@ void CMsgSignOutPlayerStats::InternalSwap(CMsgSignOutPlayerStats* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutPlayerStats::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[30]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[31]);
 }
 
 // ===================================================================
@@ -20800,7 +21364,7 @@ void CMsgSignOutCommunicationSummary_PlayerCommunication_PingDetail::InternalSwa
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutCommunicationSummary_PlayerCommunication_PingDetail::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[31]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[32]);
 }
 
 // ===================================================================
@@ -21477,7 +22041,7 @@ void CMsgSignOutCommunicationSummary_PlayerCommunication::InternalSwap(CMsgSignO
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutCommunicationSummary_PlayerCommunication::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[32]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[33]);
 }
 
 // ===================================================================
@@ -21662,7 +22226,7 @@ void CMsgSignOutCommunicationSummary::InternalSwap(CMsgSignOutCommunicationSumma
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutCommunicationSummary::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[33]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[34]);
 }
 
 // ===================================================================
@@ -22217,7 +22781,7 @@ void CMsgGameMatchSignoutResponse_PlayerMetadata::InternalSwap(CMsgGameMatchSign
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameMatchSignoutResponse_PlayerMetadata::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[34]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[35]);
 }
 
 // ===================================================================
@@ -22801,7 +23365,7 @@ void CMsgGameMatchSignoutResponse::InternalSwap(CMsgGameMatchSignoutResponse* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameMatchSignoutResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[35]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[36]);
 }
 
 // ===================================================================
@@ -22989,7 +23553,7 @@ void CMsgTimedRewardContainer::InternalSwap(CMsgTimedRewardContainer* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgTimedRewardContainer::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[36]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[37]);
 }
 
 // ===================================================================
@@ -23282,7 +23846,7 @@ void CMsgGameMatchSignOutPermissionRequest::InternalSwap(CMsgGameMatchSignOutPer
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameMatchSignOutPermissionRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[37]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[38]);
 }
 
 // ===================================================================
@@ -23547,7 +24111,7 @@ void CMsgGameMatchSignOutPermissionResponse::InternalSwap(CMsgGameMatchSignOutPe
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameMatchSignOutPermissionResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[38]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[39]);
 }
 
 // ===================================================================
@@ -23958,7 +24522,7 @@ void CMsgGameMatchSignOutEventGameData::InternalSwap(CMsgGameMatchSignOutEventGa
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameMatchSignOutEventGameData::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[39]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[40]);
 }
 
 // ===================================================================
@@ -24935,7 +25499,7 @@ void CMsgGameMatchSignOutPerfData::InternalSwap(CMsgGameMatchSignOutPerfData* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameMatchSignOutPerfData::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[40]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[41]);
 }
 
 // ===================================================================
@@ -25160,7 +25724,7 @@ void CMsgGameMatchSignOutBanData::InternalSwap(CMsgGameMatchSignOutBanData* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameMatchSignOutBanData::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[41]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[42]);
 }
 
 // ===================================================================
@@ -25392,7 +25956,7 @@ void CMsgDOTALiveScoreboardUpdate_Team_Player_HeroAbility::InternalSwap(CMsgDOTA
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTALiveScoreboardUpdate_Team_Player_HeroAbility::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[42]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[43]);
 }
 
 // ===================================================================
@@ -26460,7 +27024,7 @@ void CMsgDOTALiveScoreboardUpdate_Team_Player::InternalSwap(CMsgDOTALiveScoreboa
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTALiveScoreboardUpdate_Team_Player::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[43]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[44]);
 }
 
 // ===================================================================
@@ -26833,7 +27397,7 @@ void CMsgDOTALiveScoreboardUpdate_Team::InternalSwap(CMsgDOTALiveScoreboardUpdat
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTALiveScoreboardUpdate_Team::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[44]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[45]);
 }
 
 // ===================================================================
@@ -27301,7 +27865,7 @@ void CMsgDOTALiveScoreboardUpdate::InternalSwap(CMsgDOTALiveScoreboardUpdate* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTALiveScoreboardUpdate::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[45]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[46]);
 }
 
 // ===================================================================
@@ -27536,7 +28100,7 @@ void CMsgServerToGCRequestBatchPlayerResources::InternalSwap(CMsgServerToGCReque
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCRequestBatchPlayerResources::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[46]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[47]);
 }
 
 // ===================================================================
@@ -27941,7 +28505,7 @@ void CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::InternalSwap(CMsg
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[47]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[48]);
 }
 
 // ===================================================================
@@ -28126,7 +28690,7 @@ void CMsgServerToGCRequestBatchPlayerResourcesResponse::InternalSwap(CMsgServerT
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCRequestBatchPlayerResourcesResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[48]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[49]);
 }
 
 // ===================================================================
@@ -28351,7 +28915,7 @@ void CMsgDOTAPlayerFailedToConnect::InternalSwap(CMsgDOTAPlayerFailedToConnect* 
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAPlayerFailedToConnect::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[49]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[50]);
 }
 
 // ===================================================================
@@ -28728,7 +29292,7 @@ void CMsgGCToRelayConnect::InternalSwap(CMsgGCToRelayConnect* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToRelayConnect::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[50]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[51]);
 }
 
 // ===================================================================
@@ -28919,7 +29483,7 @@ void CMsgGCGCToLANServerRelayConnect::InternalSwap(CMsgGCGCToLANServerRelayConne
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCGCToLANServerRelayConnect::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[51]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[52]);
 }
 
 // ===================================================================
@@ -29110,7 +29674,7 @@ void CMsgGCBanStatusRequest::InternalSwap(CMsgGCBanStatusRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCBanStatusRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[52]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[53]);
 }
 
 // ===================================================================
@@ -29403,7 +29967,7 @@ void CMsgGCBanStatusResponse::InternalSwap(CMsgGCBanStatusResponse* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCBanStatusResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[53]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[54]);
 }
 
 // ===================================================================
@@ -29976,7 +30540,7 @@ void CMsgTournamentItemEvent::InternalSwap(CMsgTournamentItemEvent* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgTournamentItemEvent::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[54]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[55]);
 }
 
 // ===================================================================
@@ -30219,7 +30783,7 @@ void CMsgTournamentItemEventResponse::InternalSwap(CMsgTournamentItemEventRespon
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgTournamentItemEventResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[55]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[56]);
 }
 
 // ===================================================================
@@ -30410,7 +30974,7 @@ void CMsgTeamFanfare::InternalSwap(CMsgTeamFanfare* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgTeamFanfare::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[56]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[57]);
 }
 
 // ===================================================================
@@ -30647,7 +31211,7 @@ void CMsgResponseTeamFanfare::InternalSwap(CMsgResponseTeamFanfare* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgResponseTeamFanfare::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[57]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[58]);
 }
 
 // ===================================================================
@@ -30973,7 +31537,7 @@ void CMsgGameServerUploadSaveGame::InternalSwap(CMsgGameServerUploadSaveGame* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameServerUploadSaveGame::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[58]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[59]);
 }
 
 // ===================================================================
@@ -31170,7 +31734,7 @@ void CMsgGameServerSaveGameResult::InternalSwap(CMsgGameServerSaveGameResult* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameServerSaveGameResult::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[59]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[60]);
 }
 
 // ===================================================================
@@ -31361,7 +31925,7 @@ void CMsgGameServerGetLoadGame::InternalSwap(CMsgGameServerGetLoadGame* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameServerGetLoadGame::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[60]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[61]);
 }
 
 // ===================================================================
@@ -31574,7 +32138,7 @@ void CMsgGameServerGetLoadGameResult::InternalSwap(CMsgGameServerGetLoadGameResu
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameServerGetLoadGameResult::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[61]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[62]);
 }
 
 // ===================================================================
@@ -31923,7 +32487,7 @@ void CMsgDOTAAwardEventPoints_AwardPoints::InternalSwap(CMsgDOTAAwardEventPoints
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAAwardEventPoints_AwardPoints::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[62]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[63]);
 }
 
 // ===================================================================
@@ -32256,7 +32820,7 @@ void CMsgDOTAAwardEventPoints::InternalSwap(CMsgDOTAAwardEventPoints* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAAwardEventPoints::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[63]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[64]);
 }
 
 // ===================================================================
@@ -32493,7 +33057,7 @@ void CMsgGCToServerPingRequest::InternalSwap(CMsgGCToServerPingRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerPingRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[64]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[65]);
 }
 
 // ===================================================================
@@ -32758,7 +33322,7 @@ void CMsgGCToServerPingResponse::InternalSwap(CMsgGCToServerPingResponse* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerPingResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[65]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[66]);
 }
 
 // ===================================================================
@@ -33107,7 +33671,7 @@ void CMsgServerToGCMatchConnectionStats_Player::InternalSwap(CMsgServerToGCMatch
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCMatchConnectionStats_Player::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[66]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[67]);
 }
 
 // ===================================================================
@@ -33434,7 +33998,7 @@ void CMsgServerToGCMatchConnectionStats::InternalSwap(CMsgServerToGCMatchConnect
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCMatchConnectionStats::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[67]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[68]);
 }
 
 // ===================================================================
@@ -33625,7 +34189,7 @@ void CMsgServerGCUpdateSpectatorCount::InternalSwap(CMsgServerGCUpdateSpectatorC
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerGCUpdateSpectatorCount::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[68]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[69]);
 }
 
 // ===================================================================
@@ -33901,7 +34465,7 @@ void CSerializedCombatLog_Dictionary_DictString::InternalSwap(CSerializedCombatL
 ::PROTOBUF_NAMESPACE_ID::Metadata CSerializedCombatLog_Dictionary_DictString::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[69]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[70]);
 }
 
 // ===================================================================
@@ -34088,7 +34652,7 @@ void CSerializedCombatLog_Dictionary::InternalSwap(CSerializedCombatLog_Dictiona
 ::PROTOBUF_NAMESPACE_ID::Metadata CSerializedCombatLog_Dictionary::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[70]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[71]);
 }
 
 // ===================================================================
@@ -34375,7 +34939,7 @@ void CSerializedCombatLog::InternalSwap(CSerializedCombatLog* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CSerializedCombatLog::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[71]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[72]);
 }
 
 // ===================================================================
@@ -34649,7 +35213,7 @@ void CMsgServerToGCVictoryPredictions_Record::InternalSwap(CMsgServerToGCVictory
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCVictoryPredictions_Record::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[72]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[73]);
 }
 
 // ===================================================================
@@ -34834,7 +35398,7 @@ void CMsgServerToGCVictoryPredictions::InternalSwap(CMsgServerToGCVictoryPredict
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCVictoryPredictions::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[73]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[74]);
 }
 
 // ===================================================================
@@ -34874,7 +35438,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgServerToGCRequestStatus::G
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCRequestStatus::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[74]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[75]);
 }
 
 // ===================================================================
@@ -35065,7 +35629,7 @@ void CMsgServerToGCRequestStatus_Response::InternalSwap(CMsgServerToGCRequestSta
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCRequestStatus_Response::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[75]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[76]);
 }
 
 // ===================================================================
@@ -35497,7 +36061,7 @@ void CMsgSignOutAssassinMiniGameInfo::InternalSwap(CMsgSignOutAssassinMiniGameIn
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutAssassinMiniGameInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[76]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[77]);
 }
 
 // ===================================================================
@@ -35762,7 +36326,7 @@ void CMsgServerToGCKillSummaries_KillSummary::InternalSwap(CMsgServerToGCKillSum
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCKillSummaries_KillSummary::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[77]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[78]);
 }
 
 // ===================================================================
@@ -35987,7 +36551,7 @@ void CMsgServerToGCKillSummaries::InternalSwap(CMsgServerToGCKillSummaries* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCKillSummaries::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[78]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[79]);
 }
 
 // ===================================================================
@@ -36325,7 +36889,7 @@ void CMsgGCToServerPredictionResult_Prediction::InternalSwap(CMsgGCToServerPredi
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerPredictionResult_Prediction::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[79]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[80]);
 }
 
 // ===================================================================
@@ -36624,7 +37188,7 @@ void CMsgGCToServerPredictionResult::InternalSwap(CMsgGCToServerPredictionResult
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerPredictionResult::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[80]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[81]);
 }
 
 // ===================================================================
@@ -36861,7 +37425,7 @@ void CMsgServerToGCLockCharmTrading::InternalSwap(CMsgServerToGCLockCharmTrading
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCLockCharmTrading::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[81]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[82]);
 }
 
 // ===================================================================
@@ -37188,7 +37752,7 @@ void CMsgSignOutUpdatePlayerChallenge_Challenge::InternalSwap(CMsgSignOutUpdateP
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutUpdatePlayerChallenge_Challenge::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[82]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[83]);
 }
 
 // ===================================================================
@@ -37521,7 +38085,7 @@ void CMsgSignOutUpdatePlayerChallenge::InternalSwap(CMsgSignOutUpdatePlayerChall
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutUpdatePlayerChallenge::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[83]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[84]);
 }
 
 // ===================================================================
@@ -37772,7 +38336,7 @@ void CMsgServerToGCRerollPlayerChallenge::InternalSwap(CMsgServerToGCRerollPlaye
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCRerollPlayerChallenge::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[84]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[85]);
 }
 
 // ===================================================================
@@ -38037,7 +38601,7 @@ void CMsgSpendWager_Player::InternalSwap(CMsgSpendWager_Player* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSpendWager_Player::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[85]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[86]);
 }
 
 // ===================================================================
@@ -38370,7 +38934,7 @@ void CMsgSpendWager::InternalSwap(CMsgSpendWager* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSpendWager::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[86]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[87]);
 }
 
 // ===================================================================
@@ -38719,7 +39283,7 @@ void CMsgSignOutXPCoins_Player::InternalSwap(CMsgSignOutXPCoins_Player* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutXPCoins_Player::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[87]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[88]);
 }
 
 // ===================================================================
@@ -39024,7 +39588,7 @@ void CMsgSignOutXPCoins::InternalSwap(CMsgSignOutXPCoins* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutXPCoins::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[88]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[89]);
 }
 
 // ===================================================================
@@ -39289,7 +39853,7 @@ void CMsgSignOutBounties_Bounty::InternalSwap(CMsgSignOutBounties_Bounty* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutBounties_Bounty::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[89]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[90]);
 }
 
 // ===================================================================
@@ -39594,7 +40158,7 @@ void CMsgSignOutBounties::InternalSwap(CMsgSignOutBounties* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutBounties::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[90]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[91]);
 }
 
 // ===================================================================
@@ -39831,7 +40395,7 @@ void CMsgSignOutCommunityGoalProgress_EventGoalIncrement::InternalSwap(CMsgSignO
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutCommunityGoalProgress_EventGoalIncrement::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[91]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[92]);
 }
 
 // ===================================================================
@@ -40062,7 +40626,7 @@ void CMsgSignOutCommunityGoalProgress::InternalSwap(CMsgSignOutCommunityGoalProg
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutCommunityGoalProgress::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[92]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[93]);
 }
 
 // ===================================================================
@@ -40327,7 +40891,7 @@ void CMsgServerToGCCloseCompendiumInGamePredictionVoting::InternalSwap(CMsgServe
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCCloseCompendiumInGamePredictionVoting::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[93]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[94]);
 }
 
 // ===================================================================
@@ -40518,7 +41082,7 @@ void CMsgServerToGCCloseCompendiumInGamePredictionVotingResponse::InternalSwap(C
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCCloseCompendiumInGamePredictionVotingResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[94]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[95]);
 }
 
 // ===================================================================
@@ -40783,7 +41347,7 @@ void CMsgServerToGCCompendiumInGamePredictionResults_PredictionResult::InternalS
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCCompendiumInGamePredictionResults_PredictionResult::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[95]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[96]);
 }
 
 // ===================================================================
@@ -41082,7 +41646,7 @@ void CMsgServerToGCCompendiumInGamePredictionResults::InternalSwap(CMsgServerToG
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCCompendiumInGamePredictionResults::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[96]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[97]);
 }
 
 // ===================================================================
@@ -41273,7 +41837,7 @@ void CMsgServerToGCCompendiumChosenInGamePredictions_Prediction::InternalSwap(CM
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCCompendiumChosenInGamePredictions_Prediction::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[97]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[98]);
 }
 
 // ===================================================================
@@ -41544,7 +42108,7 @@ void CMsgServerToGCCompendiumChosenInGamePredictions::InternalSwap(CMsgServerToG
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCCompendiumChosenInGamePredictions::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[98]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[99]);
 }
 
 // ===================================================================
@@ -41750,7 +42314,7 @@ void CMsgGCToGCCompendiumInGamePredictionResults::InternalSwap(CMsgGCToGCCompend
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToGCCompendiumInGamePredictionResults::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[99]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[100]);
 }
 
 // ===================================================================
@@ -42119,7 +42683,7 @@ void CMsgServerToGCMatchPlayerItemPurchaseHistory_ItemPurchase::InternalSwap(CMs
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCMatchPlayerItemPurchaseHistory_ItemPurchase::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[100]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[101]);
 }
 
 // ===================================================================
@@ -42548,7 +43112,7 @@ void CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::InternalSwap(CMsgServe
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[101]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[102]);
 }
 
 // ===================================================================
@@ -42819,7 +43383,7 @@ void CMsgServerToGCMatchPlayerItemPurchaseHistory::InternalSwap(CMsgServerToGCMa
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCMatchPlayerItemPurchaseHistory::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[102]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[103]);
 }
 
 // ===================================================================
@@ -43162,7 +43726,7 @@ void CMsgServerToGCMatchPlayerNeutralItemEquipHistory_ItemEquip::InternalSwap(CM
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCMatchPlayerNeutralItemEquipHistory_ItemEquip::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[103]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[104]);
 }
 
 // ===================================================================
@@ -43507,7 +44071,7 @@ void CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::InternalSwap(CMsgS
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[104]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[105]);
 }
 
 // ===================================================================
@@ -43732,7 +44296,7 @@ void CMsgServerToGCMatchPlayerNeutralItemEquipHistory::InternalSwap(CMsgServerTo
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCMatchPlayerNeutralItemEquipHistory::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[105]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[106]);
 }
 
 // ===================================================================
@@ -44166,7 +44730,7 @@ void CMsgServerToGCMatchStateHistory_PlayerState::InternalSwap(CMsgServerToGCMat
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCMatchStateHistory_PlayerState::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[106]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[107]);
 }
 
 // ===================================================================
@@ -44651,7 +45215,7 @@ void CMsgServerToGCMatchStateHistory_TeamState::InternalSwap(CMsgServerToGCMatch
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCMatchStateHistory_TeamState::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[107]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[108]);
 }
 
 // ===================================================================
@@ -44944,7 +45508,7 @@ void CMsgServerToGCMatchStateHistory_MatchState::InternalSwap(CMsgServerToGCMatc
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCMatchStateHistory_MatchState::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[108]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[109]);
 }
 
 // ===================================================================
@@ -45243,7 +45807,7 @@ void CMsgServerToGCMatchStateHistory::InternalSwap(CMsgServerToGCMatchStateHisto
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCMatchStateHistory::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[109]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[110]);
 }
 
 // ===================================================================
@@ -45524,7 +46088,7 @@ void CMsgMatchStateSteamMLEntry::InternalSwap(CMsgMatchStateSteamMLEntry* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgMatchStateSteamMLEntry::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[110]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[111]);
 }
 
 // ===================================================================
@@ -45749,7 +46313,7 @@ void CMsgLaneSelectionSteamMLEntry::InternalSwap(CMsgLaneSelectionSteamMLEntry* 
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgLaneSelectionSteamMLEntry::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[111]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[112]);
 }
 
 // ===================================================================
@@ -46118,7 +46682,7 @@ void CMsgAbilitySelectionSteamMLEntry::InternalSwap(CMsgAbilitySelectionSteamMLE
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgAbilitySelectionSteamMLEntry::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[112]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[113]);
 }
 
 // ===================================================================
@@ -46522,7 +47086,7 @@ void CMsgItemPurchasePregameSteamMLEntry::InternalSwap(CMsgItemPurchasePregameSt
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgItemPurchasePregameSteamMLEntry::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[113]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[114]);
 }
 
 // ===================================================================
@@ -46935,7 +47499,7 @@ void CMsgItemPurchaseSteamMLEntry::InternalSwap(CMsgItemPurchaseSteamMLEntry* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgItemPurchaseSteamMLEntry::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[114]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[115]);
 }
 
 // ===================================================================
@@ -47341,7 +47905,7 @@ void CMsgItemPurchaseSequenceSteamMLEntry::InternalSwap(CMsgItemPurchaseSequence
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgItemPurchaseSequenceSteamMLEntry::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[115]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[116]);
 }
 
 // ===================================================================
@@ -47664,7 +48228,7 @@ void CMsgServerToGCCavernCrawlIsHeroActive::InternalSwap(CMsgServerToGCCavernCra
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCCavernCrawlIsHeroActive::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[116]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[117]);
 }
 
 // ===================================================================
@@ -48141,7 +48705,7 @@ void CMsgServerToGCPlayerChallengeHistory_PlayerChallenge::InternalSwap(CMsgServ
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCPlayerChallengeHistory_PlayerChallenge::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[117]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[118]);
 }
 
 // ===================================================================
@@ -48412,7 +48976,7 @@ void CMsgServerToGCPlayerChallengeHistory::InternalSwap(CMsgServerToGCPlayerChal
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCPlayerChallengeHistory::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[118]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[119]);
 }
 
 // ===================================================================
@@ -48644,7 +49208,7 @@ void CMsgServerToGCCavernCrawlIsHeroActiveResponse_MapResults::InternalSwap(CMsg
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCCavernCrawlIsHeroActiveResponse_MapResults::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[119]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[120]);
 }
 
 // ===================================================================
@@ -48973,7 +49537,7 @@ void CMsgServerToGCCavernCrawlIsHeroActiveResponse::InternalSwap(CMsgServerToGCC
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCCavernCrawlIsHeroActiveResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[120]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[121]);
 }
 
 // ===================================================================
@@ -49164,7 +49728,7 @@ void CMsgGCtoServerTensorflowInstance::InternalSwap(CMsgGCtoServerTensorflowInst
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCtoServerTensorflowInstance::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[121]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[122]);
 }
 
 // ===================================================================
@@ -50271,7 +50835,7 @@ void CMsgDetailedGameStats_PlayerStatEntry::InternalSwap(CMsgDetailedGameStats_P
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDetailedGameStats_PlayerStatEntry::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[122]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[123]);
 }
 
 // ===================================================================
@@ -50536,7 +51100,7 @@ void CMsgDetailedGameStats_GameStats::InternalSwap(CMsgDetailedGameStats_GameSta
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDetailedGameStats_GameStats::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[123]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[124]);
 }
 
 // ===================================================================
@@ -50761,7 +51325,7 @@ void CMsgDetailedGameStats_MinuteEntry::InternalSwap(CMsgDetailedGameStats_Minut
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDetailedGameStats_MinuteEntry::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[124]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[125]);
 }
 
 // ===================================================================
@@ -51026,7 +51590,7 @@ void CMsgDetailedGameStats_PlayerInfo::InternalSwap(CMsgDetailedGameStats_Player
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDetailedGameStats_PlayerInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[125]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[126]);
 }
 
 // ===================================================================
@@ -51300,7 +51864,7 @@ void CMsgDetailedGameStats::InternalSwap(CMsgDetailedGameStats* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDetailedGameStats::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[126]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[127]);
 }
 
 // ===================================================================
@@ -51651,7 +52215,7 @@ void CMsgNeutralItemStats_NeutralItem::InternalSwap(CMsgNeutralItemStats_Neutral
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgNeutralItemStats_NeutralItem::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[127]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[128]);
 }
 
 // ===================================================================
@@ -51836,7 +52400,7 @@ void CMsgNeutralItemStats::InternalSwap(CMsgNeutralItemStats* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgNeutralItemStats::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[128]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[129]);
 }
 
 // ===================================================================
@@ -52101,7 +52665,7 @@ void CMsgGCToServerLobbyHeroBanRates_HeroBanEntry::InternalSwap(CMsgGCToServerLo
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerLobbyHeroBanRates_HeroBanEntry::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[129]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[130]);
 }
 
 // ===================================================================
@@ -52286,7 +52850,7 @@ void CMsgGCToServerLobbyHeroBanRates::InternalSwap(CMsgGCToServerLobbyHeroBanRat
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerLobbyHeroBanRates::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[130]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[131]);
 }
 
 // ===================================================================
@@ -52560,7 +53124,7 @@ void CMsgSignOutGuildContractProgress_CompletedGuildEventContracts::InternalSwap
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutGuildContractProgress_CompletedGuildEventContracts::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[131]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[132]);
 }
 
 // ===================================================================
@@ -52785,7 +53349,7 @@ void CMsgSignOutGuildContractProgress_PlayerContract::InternalSwap(CMsgSignOutGu
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutGuildContractProgress_PlayerContract::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[132]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[133]);
 }
 
 // ===================================================================
@@ -52970,7 +53534,7 @@ void CMsgSignOutGuildContractProgress::InternalSwap(CMsgSignOutGuildContractProg
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutGuildContractProgress::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[133]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[134]);
 }
 
 // ===================================================================
@@ -53347,7 +53911,7 @@ void CMsgSignOutGuildChallengeProgress_ChallengeProgress::InternalSwap(CMsgSignO
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutGuildChallengeProgress_ChallengeProgress::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[134]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[135]);
 }
 
 // ===================================================================
@@ -53532,7 +54096,7 @@ void CMsgSignOutGuildChallengeProgress::InternalSwap(CMsgSignOutGuildChallengePr
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutGuildChallengeProgress::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[135]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[136]);
 }
 
 // ===================================================================
@@ -53786,7 +54350,7 @@ void CMsgSignOutMVPStats_Player_KillEaterEvent::InternalSwap(CMsgSignOutMVPStats
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutMVPStats_Player_KillEaterEvent::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[136]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[137]);
 }
 
 // ===================================================================
@@ -54715,7 +55279,7 @@ void CMsgSignOutMVPStats_Player::InternalSwap(CMsgSignOutMVPStats_Player* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutMVPStats_Player::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[137]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[138]);
 }
 
 // ===================================================================
@@ -55044,7 +55608,7 @@ void CMsgSignOutMVPStats::InternalSwap(CMsgSignOutMVPStats* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutMVPStats::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[138]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[139]);
 }
 
 // ===================================================================
@@ -55235,7 +55799,7 @@ void CMsgGCToServerRecordTrainingData::InternalSwap(CMsgGCToServerRecordTraining
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerRecordTrainingData::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[139]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[140]);
 }
 
 // ===================================================================
@@ -55423,7 +55987,7 @@ void CMsgServerToGCGetGuildContracts::InternalSwap(CMsgServerToGCGetGuildContrac
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCGetGuildContracts::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[140]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[141]);
 }
 
 // ===================================================================
@@ -55744,7 +56308,7 @@ void CMsgServerToGCGetGuildContractsResponse_ContractDetails::InternalSwap(CMsgS
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCGetGuildContractsResponse_ContractDetails::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[141]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[142]);
 }
 
 // ===================================================================
@@ -56049,7 +56613,7 @@ void CMsgServerToGCGetGuildContractsResponse_Player::InternalSwap(CMsgServerToGC
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCGetGuildContractsResponse_Player::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[142]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[143]);
 }
 
 // ===================================================================
@@ -56234,7 +56798,7 @@ void CMsgServerToGCGetGuildContractsResponse::InternalSwap(CMsgServerToGCGetGuil
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCGetGuildContractsResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[143]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[144]);
 }
 
 // ===================================================================
@@ -56471,7 +57035,7 @@ void CMsgMatchDiretideCandy_CandyDetails::InternalSwap(CMsgMatchDiretideCandy_Ca
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgMatchDiretideCandy_CandyDetails::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[144]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[145]);
 }
 
 // ===================================================================
@@ -56770,7 +57334,7 @@ void CMsgMatchDiretideCandy_PlayerCandy::InternalSwap(CMsgMatchDiretideCandy_Pla
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgMatchDiretideCandy_PlayerCandy::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[145]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[146]);
 }
 
 // ===================================================================
@@ -57001,7 +57565,7 @@ void CMsgMatchDiretideCandy::InternalSwap(CMsgMatchDiretideCandy* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgMatchDiretideCandy::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[146]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[147]);
 }
 
 // ===================================================================
@@ -57238,7 +57802,7 @@ void CMsgGCToServerCheerData_CheerTypeCount::InternalSwap(CMsgGCToServerCheerDat
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerCheerData_CheerTypeCount::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[147]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[148]);
 }
 
 // ===================================================================
@@ -57423,7 +57987,7 @@ void CMsgGCToServerCheerData::InternalSwap(CMsgGCToServerCheerData* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerCheerData::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[148]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[149]);
 }
 
 // ===================================================================
@@ -58132,7 +58696,7 @@ void CMsgCheerConfig::InternalSwap(CMsgCheerConfig* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgCheerConfig::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[149]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[150]);
 }
 
 // ===================================================================
@@ -58338,7 +58902,7 @@ void CMsgGCToServerCheerConfig::InternalSwap(CMsgGCToServerCheerConfig* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerCheerConfig::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[150]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[151]);
 }
 
 // ===================================================================
@@ -58529,7 +59093,7 @@ void CMsgServerToGCGetCheerConfig::InternalSwap(CMsgServerToGCGetCheerConfig* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCGetCheerConfig::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[151]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[152]);
 }
 
 // ===================================================================
@@ -58735,7 +59299,7 @@ void CMsgServerToGCGetCheerConfigResponse::InternalSwap(CMsgServerToGCGetCheerCo
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCGetCheerConfigResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[152]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[153]);
 }
 
 // ===================================================================
@@ -58923,7 +59487,7 @@ void CMsgGCToServerCheerScalesOverride::InternalSwap(CMsgGCToServerCheerScalesOv
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerCheerScalesOverride::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[153]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[154]);
 }
 
 // ===================================================================
@@ -58963,7 +59527,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgGCToServerGetCheerState::G
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerGetCheerState::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[154]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[155]);
 }
 
 // ===================================================================
@@ -59265,7 +59829,7 @@ void CMsgCheerTypeState::InternalSwap(CMsgCheerTypeState* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgCheerTypeState::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[155]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[156]);
 }
 
 // ===================================================================
@@ -59536,7 +60100,7 @@ void CMsgCheerState::InternalSwap(CMsgCheerState* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgCheerState::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[156]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[157]);
 }
 
 // ===================================================================
@@ -59798,7 +60362,7 @@ void CMsgServerToGCReportCheerState::InternalSwap(CMsgServerToGCReportCheerState
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCReportCheerState::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[157]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[158]);
 }
 
 // ===================================================================
@@ -59986,7 +60550,7 @@ void CMsgServerToGCGetStickerHeroes::InternalSwap(CMsgServerToGCGetStickerHeroes
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCGetStickerHeroes::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[158]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[159]);
 }
 
 // ===================================================================
@@ -60237,7 +60801,7 @@ void CMsgServerToGCGetStickerHeroesResponse_Player::InternalSwap(CMsgServerToGCG
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCGetStickerHeroesResponse_Player::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[159]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[160]);
 }
 
 // ===================================================================
@@ -60422,7 +60986,7 @@ void CMsgServerToGCGetStickerHeroesResponse::InternalSwap(CMsgServerToGCGetStick
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCGetStickerHeroesResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[160]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[161]);
 }
 
 // ===================================================================
@@ -60462,7 +61026,235 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgGCToServerSetSteamLearnDis
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerSetSteamLearnDisable::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[161]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[162]);
+}
+
+// ===================================================================
+
+class CMsgGCToServerSetSteamLearnInferencing::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgGCToServerSetSteamLearnInferencing>()._impl_._has_bits_);
+  static void set_has_enable(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CMsgGCToServerSetSteamLearnInferencing::CMsgGCToServerSetSteamLearnInferencing(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgGCToServerSetSteamLearnInferencing)
+}
+CMsgGCToServerSetSteamLearnInferencing::CMsgGCToServerSetSteamLearnInferencing(const CMsgGCToServerSetSteamLearnInferencing& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgGCToServerSetSteamLearnInferencing* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.project_ids_){from._impl_.project_ids_}
+    , decltype(_impl_.enable_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.enable_ = from._impl_.enable_;
+  // @@protoc_insertion_point(copy_constructor:CMsgGCToServerSetSteamLearnInferencing)
+}
+
+inline void CMsgGCToServerSetSteamLearnInferencing::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.project_ids_){arena}
+    , decltype(_impl_.enable_){false}
+  };
+}
+
+CMsgGCToServerSetSteamLearnInferencing::~CMsgGCToServerSetSteamLearnInferencing() {
+  // @@protoc_insertion_point(destructor:CMsgGCToServerSetSteamLearnInferencing)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgGCToServerSetSteamLearnInferencing::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.project_ids_.~RepeatedField();
+}
+
+void CMsgGCToServerSetSteamLearnInferencing::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgGCToServerSetSteamLearnInferencing::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgGCToServerSetSteamLearnInferencing)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.project_ids_.Clear();
+  _impl_.enable_ = false;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgGCToServerSetSteamLearnInferencing::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional bool enable = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_enable(&has_bits);
+          _impl_.enable_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated uint32 project_ids = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            _internal_add_project_ids(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<40>(ptr));
+        } else if (static_cast<uint8_t>(tag) == 42) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_project_ids(), ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgGCToServerSetSteamLearnInferencing::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgGCToServerSetSteamLearnInferencing)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional bool enable = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(1, this->_internal_enable(), target);
+  }
+
+  // repeated uint32 project_ids = 5;
+  for (int i = 0, n = this->_internal_project_ids_size(); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_project_ids(i), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgGCToServerSetSteamLearnInferencing)
+  return target;
+}
+
+size_t CMsgGCToServerSetSteamLearnInferencing::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgGCToServerSetSteamLearnInferencing)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated uint32 project_ids = 5;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      UInt32Size(this->_impl_.project_ids_);
+    total_size += 1 *
+                  ::_pbi::FromIntSize(this->_internal_project_ids_size());
+    total_size += data_size;
+  }
+
+  // optional bool enable = 1;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 + 1;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgGCToServerSetSteamLearnInferencing::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgGCToServerSetSteamLearnInferencing::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgGCToServerSetSteamLearnInferencing::GetClassData() const { return &_class_data_; }
+
+
+void CMsgGCToServerSetSteamLearnInferencing::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgGCToServerSetSteamLearnInferencing*>(&to_msg);
+  auto& from = static_cast<const CMsgGCToServerSetSteamLearnInferencing&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgGCToServerSetSteamLearnInferencing)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.project_ids_.MergeFrom(from._impl_.project_ids_);
+  if (from._internal_has_enable()) {
+    _this->_internal_set_enable(from._internal_enable());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgGCToServerSetSteamLearnInferencing::CopyFrom(const CMsgGCToServerSetSteamLearnInferencing& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgGCToServerSetSteamLearnInferencing)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgGCToServerSetSteamLearnInferencing::IsInitialized() const {
+  return true;
+}
+
+void CMsgGCToServerSetSteamLearnInferencing::InternalSwap(CMsgGCToServerSetSteamLearnInferencing* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.project_ids_.InternalSwap(&other->_impl_.project_ids_);
+  swap(_impl_.enable_, other->_impl_.enable_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerSetSteamLearnInferencing::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[163]);
 }
 
 // ===================================================================
@@ -60672,7 +61464,7 @@ void CMsgGCToServerSetSteamLearnKeysChanged::InternalSwap(CMsgGCToServerSetSteam
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerSetSteamLearnKeysChanged::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[162]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[164]);
 }
 
 // ===================================================================
@@ -60993,7 +61785,328 @@ void CMsgSteamLearnMatchInfo::InternalSwap(CMsgSteamLearnMatchInfo* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSteamLearnMatchInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[163]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[165]);
+}
+
+// ===================================================================
+
+class CMsgSteamLearnMatchInfoPlayer::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgSteamLearnMatchInfoPlayer>()._impl_._has_bits_);
+  static void set_has_average_mmr(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_team_won(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_duration(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_game_mode(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_lobby_type(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+};
+
+CMsgSteamLearnMatchInfoPlayer::CMsgSteamLearnMatchInfoPlayer(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgSteamLearnMatchInfoPlayer)
+}
+CMsgSteamLearnMatchInfoPlayer::CMsgSteamLearnMatchInfoPlayer(const CMsgSteamLearnMatchInfoPlayer& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgSteamLearnMatchInfoPlayer* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.average_mmr_){}
+    , decltype(_impl_.team_won_){}
+    , decltype(_impl_.duration_){}
+    , decltype(_impl_.game_mode_){}
+    , decltype(_impl_.lobby_type_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.average_mmr_, &from._impl_.average_mmr_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.lobby_type_) -
+    reinterpret_cast<char*>(&_impl_.average_mmr_)) + sizeof(_impl_.lobby_type_));
+  // @@protoc_insertion_point(copy_constructor:CMsgSteamLearnMatchInfoPlayer)
+}
+
+inline void CMsgSteamLearnMatchInfoPlayer::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.average_mmr_){0u}
+    , decltype(_impl_.team_won_){false}
+    , decltype(_impl_.duration_){0u}
+    , decltype(_impl_.game_mode_){0u}
+    , decltype(_impl_.lobby_type_){0u}
+  };
+}
+
+CMsgSteamLearnMatchInfoPlayer::~CMsgSteamLearnMatchInfoPlayer() {
+  // @@protoc_insertion_point(destructor:CMsgSteamLearnMatchInfoPlayer)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgSteamLearnMatchInfoPlayer::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgSteamLearnMatchInfoPlayer::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgSteamLearnMatchInfoPlayer::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgSteamLearnMatchInfoPlayer)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000001fu) {
+    ::memset(&_impl_.average_mmr_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.lobby_type_) -
+        reinterpret_cast<char*>(&_impl_.average_mmr_)) + sizeof(_impl_.lobby_type_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgSteamLearnMatchInfoPlayer::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint32 average_mmr = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_average_mmr(&has_bits);
+          _impl_.average_mmr_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional bool team_won = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_team_won(&has_bits);
+          _impl_.team_won_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 duration = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_duration(&has_bits);
+          _impl_.duration_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 game_mode = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _Internal::set_has_game_mode(&has_bits);
+          _impl_.game_mode_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 lobby_type = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          _Internal::set_has_lobby_type(&has_bits);
+          _impl_.lobby_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgSteamLearnMatchInfoPlayer::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgSteamLearnMatchInfoPlayer)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 average_mmr = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_average_mmr(), target);
+  }
+
+  // optional bool team_won = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_team_won(), target);
+  }
+
+  // optional uint32 duration = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_duration(), target);
+  }
+
+  // optional uint32 game_mode = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_game_mode(), target);
+  }
+
+  // optional uint32 lobby_type = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_lobby_type(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgSteamLearnMatchInfoPlayer)
+  return target;
+}
+
+size_t CMsgSteamLearnMatchInfoPlayer::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgSteamLearnMatchInfoPlayer)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000001fu) {
+    // optional uint32 average_mmr = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_average_mmr());
+    }
+
+    // optional bool team_won = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 1;
+    }
+
+    // optional uint32 duration = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_duration());
+    }
+
+    // optional uint32 game_mode = 4;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_game_mode());
+    }
+
+    // optional uint32 lobby_type = 5;
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_lobby_type());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgSteamLearnMatchInfoPlayer::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgSteamLearnMatchInfoPlayer::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgSteamLearnMatchInfoPlayer::GetClassData() const { return &_class_data_; }
+
+
+void CMsgSteamLearnMatchInfoPlayer::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgSteamLearnMatchInfoPlayer*>(&to_msg);
+  auto& from = static_cast<const CMsgSteamLearnMatchInfoPlayer&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgSteamLearnMatchInfoPlayer)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000001fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.average_mmr_ = from._impl_.average_mmr_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.team_won_ = from._impl_.team_won_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.duration_ = from._impl_.duration_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.game_mode_ = from._impl_.game_mode_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.lobby_type_ = from._impl_.lobby_type_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgSteamLearnMatchInfoPlayer::CopyFrom(const CMsgSteamLearnMatchInfoPlayer& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgSteamLearnMatchInfoPlayer)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgSteamLearnMatchInfoPlayer::IsInitialized() const {
+  return true;
+}
+
+void CMsgSteamLearnMatchInfoPlayer::InternalSwap(CMsgSteamLearnMatchInfoPlayer* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgSteamLearnMatchInfoPlayer, _impl_.lobby_type_)
+      + sizeof(CMsgSteamLearnMatchInfoPlayer::_impl_.lobby_type_)
+      - PROTOBUF_FIELD_OFFSET(CMsgSteamLearnMatchInfoPlayer, _impl_.average_mmr_)>(
+          reinterpret_cast<char*>(&_impl_.average_mmr_),
+          reinterpret_cast<char*>(&other->_impl_.average_mmr_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgSteamLearnMatchInfoPlayer::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[166]);
 }
 
 // ===================================================================
@@ -61292,7 +62405,7 @@ void CMsgSteamLearnMatchHeroes::InternalSwap(CMsgSteamLearnMatchHeroes* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSteamLearnMatchHeroes::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[164]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[167]);
 }
 
 // ===================================================================
@@ -61603,7 +62716,7 @@ void CMsgSteamLearnMatchHero::InternalSwap(CMsgSteamLearnMatchHero* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSteamLearnMatchHero::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[165]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[168]);
 }
 
 // ===================================================================
@@ -62037,7 +63150,7 @@ void CMsgSteamLearnMatchState_PlayerState::InternalSwap(CMsgSteamLearnMatchState
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSteamLearnMatchState_PlayerState::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[166]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[169]);
 }
 
 // ===================================================================
@@ -62522,7 +63635,7 @@ void CMsgSteamLearnMatchState_TeamState::InternalSwap(CMsgSteamLearnMatchState_T
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSteamLearnMatchState_TeamState::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[167]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[170]);
 }
 
 // ===================================================================
@@ -62815,7 +63928,7 @@ void CMsgSteamLearnMatchState::InternalSwap(CMsgSteamLearnMatchState* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSteamLearnMatchState::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[168]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[171]);
 }
 
 // ===================================================================
@@ -62856,6 +63969,7 @@ CMsgSteamLearnItemPurchase::CMsgSteamLearnItemPurchase(const CMsgSteamLearnItemP
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.inventory_items_){from._impl_.inventory_items_}
+    , decltype(_impl_.purchase_history_){from._impl_.purchase_history_}
     , decltype(_impl_.gold_){}
     , decltype(_impl_.net_worth_){}
     , decltype(_impl_.is_radiant_team_){}
@@ -62878,6 +63992,7 @@ inline void CMsgSteamLearnItemPurchase::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.inventory_items_){arena}
+    , decltype(_impl_.purchase_history_){arena}
     , decltype(_impl_.gold_){0u}
     , decltype(_impl_.net_worth_){0u}
     , decltype(_impl_.is_radiant_team_){0u}
@@ -62899,6 +64014,7 @@ CMsgSteamLearnItemPurchase::~CMsgSteamLearnItemPurchase() {
 inline void CMsgSteamLearnItemPurchase::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.inventory_items_.~RepeatedField();
+  _impl_.purchase_history_.~RepeatedField();
 }
 
 void CMsgSteamLearnItemPurchase::SetCachedSize(int size) const {
@@ -62912,6 +64028,7 @@ void CMsgSteamLearnItemPurchase::Clear() {
   (void) cached_has_bits;
 
   _impl_.inventory_items_.Clear();
+  _impl_.purchase_history_.Clear();
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
     ::memset(&_impl_.gold_, 0, static_cast<size_t>(
@@ -62951,6 +64068,22 @@ const char* CMsgSteamLearnItemPurchase::_InternalParse(const char* ptr, ::_pbi::
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<16>(ptr));
         } else if (static_cast<uint8_t>(tag) == 18) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_inventory_items(), ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated int32 purchase_history = 3 [(.steamlearn_count) = 20];
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            _internal_add_purchase_history(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<24>(ptr));
+        } else if (static_cast<uint8_t>(tag) == 26) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_purchase_history(), ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -63043,6 +64176,12 @@ uint8_t* CMsgSteamLearnItemPurchase::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_inventory_items(i), target);
   }
 
+  // repeated int32 purchase_history = 3 [(.steamlearn_count) = 20];
+  for (int i = 0, n = this->_internal_purchase_history_size(); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_purchase_history(i), target);
+  }
+
   // optional uint32 gold = 4;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
@@ -63098,6 +64237,15 @@ size_t CMsgSteamLearnItemPurchase::ByteSizeLong() const {
     total_size += data_size;
   }
 
+  // repeated int32 purchase_history = 3 [(.steamlearn_count) = 20];
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      Int32Size(this->_impl_.purchase_history_);
+    total_size += 1 *
+                  ::_pbi::FromIntSize(this->_internal_purchase_history_size());
+    total_size += data_size;
+  }
+
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
     // optional uint32 gold = 4;
@@ -63150,6 +64298,7 @@ void CMsgSteamLearnItemPurchase::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_
   (void) cached_has_bits;
 
   _this->_impl_.inventory_items_.MergeFrom(from._impl_.inventory_items_);
+  _this->_impl_.purchase_history_.MergeFrom(from._impl_.purchase_history_);
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
     if (cached_has_bits & 0x00000001u) {
@@ -63191,6 +64340,7 @@ void CMsgSteamLearnItemPurchase::InternalSwap(CMsgSteamLearnItemPurchase* other)
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.inventory_items_.InternalSwap(&other->_impl_.inventory_items_);
+  _impl_.purchase_history_.InternalSwap(&other->_impl_.purchase_history_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CMsgSteamLearnItemPurchase, _impl_.is_using_dota_plus_)
       + sizeof(CMsgSteamLearnItemPurchase::_impl_.is_using_dota_plus_)
@@ -63203,7 +64353,576 @@ void CMsgSteamLearnItemPurchase::InternalSwap(CMsgSteamLearnItemPurchase* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSteamLearnItemPurchase::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[169]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[172]);
+}
+
+// ===================================================================
+
+class CMsgSteamLearnPreGameItemPurchases::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgSteamLearnPreGameItemPurchases>()._impl_._has_bits_);
+  static void set_has_is_radiant_team(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_is_using_dota_plus(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CMsgSteamLearnPreGameItemPurchases::CMsgSteamLearnPreGameItemPurchases(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgSteamLearnPreGameItemPurchases)
+}
+CMsgSteamLearnPreGameItemPurchases::CMsgSteamLearnPreGameItemPurchases(const CMsgSteamLearnPreGameItemPurchases& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgSteamLearnPreGameItemPurchases* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.item_ids_){from._impl_.item_ids_}
+    , decltype(_impl_.is_radiant_team_){}
+    , decltype(_impl_.is_using_dota_plus_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.is_radiant_team_, &from._impl_.is_radiant_team_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.is_using_dota_plus_) -
+    reinterpret_cast<char*>(&_impl_.is_radiant_team_)) + sizeof(_impl_.is_using_dota_plus_));
+  // @@protoc_insertion_point(copy_constructor:CMsgSteamLearnPreGameItemPurchases)
+}
+
+inline void CMsgSteamLearnPreGameItemPurchases::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.item_ids_){arena}
+    , decltype(_impl_.is_radiant_team_){0u}
+    , decltype(_impl_.is_using_dota_plus_){false}
+  };
+}
+
+CMsgSteamLearnPreGameItemPurchases::~CMsgSteamLearnPreGameItemPurchases() {
+  // @@protoc_insertion_point(destructor:CMsgSteamLearnPreGameItemPurchases)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgSteamLearnPreGameItemPurchases::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.item_ids_.~RepeatedField();
+}
+
+void CMsgSteamLearnPreGameItemPurchases::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgSteamLearnPreGameItemPurchases::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgSteamLearnPreGameItemPurchases)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.item_ids_.Clear();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&_impl_.is_radiant_team_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.is_using_dota_plus_) -
+        reinterpret_cast<char*>(&_impl_.is_radiant_team_)) + sizeof(_impl_.is_using_dota_plus_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgSteamLearnPreGameItemPurchases::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated int32 item_ids = 1 [(.steamlearn_count) = 10];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            _internal_add_item_ids(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<8>(ptr));
+        } else if (static_cast<uint8_t>(tag) == 10) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_item_ids(), ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 is_radiant_team = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_is_radiant_team(&has_bits);
+          _impl_.is_radiant_team_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional bool is_using_dota_plus = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_is_using_dota_plus(&has_bits);
+          _impl_.is_using_dota_plus_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgSteamLearnPreGameItemPurchases::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgSteamLearnPreGameItemPurchases)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated int32 item_ids = 1 [(.steamlearn_count) = 10];
+  for (int i = 0, n = this->_internal_item_ids_size(); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_item_ids(i), target);
+  }
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 is_radiant_team = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_is_radiant_team(), target);
+  }
+
+  // optional bool is_using_dota_plus = 3;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_is_using_dota_plus(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgSteamLearnPreGameItemPurchases)
+  return target;
+}
+
+size_t CMsgSteamLearnPreGameItemPurchases::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgSteamLearnPreGameItemPurchases)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated int32 item_ids = 1 [(.steamlearn_count) = 10];
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      Int32Size(this->_impl_.item_ids_);
+    total_size += 1 *
+                  ::_pbi::FromIntSize(this->_internal_item_ids_size());
+    total_size += data_size;
+  }
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional uint32 is_radiant_team = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_is_radiant_team());
+    }
+
+    // optional bool is_using_dota_plus = 3;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 1;
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgSteamLearnPreGameItemPurchases::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgSteamLearnPreGameItemPurchases::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgSteamLearnPreGameItemPurchases::GetClassData() const { return &_class_data_; }
+
+
+void CMsgSteamLearnPreGameItemPurchases::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgSteamLearnPreGameItemPurchases*>(&to_msg);
+  auto& from = static_cast<const CMsgSteamLearnPreGameItemPurchases&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgSteamLearnPreGameItemPurchases)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.item_ids_.MergeFrom(from._impl_.item_ids_);
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.is_radiant_team_ = from._impl_.is_radiant_team_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.is_using_dota_plus_ = from._impl_.is_using_dota_plus_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgSteamLearnPreGameItemPurchases::CopyFrom(const CMsgSteamLearnPreGameItemPurchases& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgSteamLearnPreGameItemPurchases)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgSteamLearnPreGameItemPurchases::IsInitialized() const {
+  return true;
+}
+
+void CMsgSteamLearnPreGameItemPurchases::InternalSwap(CMsgSteamLearnPreGameItemPurchases* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.item_ids_.InternalSwap(&other->_impl_.item_ids_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgSteamLearnPreGameItemPurchases, _impl_.is_using_dota_plus_)
+      + sizeof(CMsgSteamLearnPreGameItemPurchases::_impl_.is_using_dota_plus_)
+      - PROTOBUF_FIELD_OFFSET(CMsgSteamLearnPreGameItemPurchases, _impl_.is_radiant_team_)>(
+          reinterpret_cast<char*>(&_impl_.is_radiant_team_),
+          reinterpret_cast<char*>(&other->_impl_.is_radiant_team_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgSteamLearnPreGameItemPurchases::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[173]);
+}
+
+// ===================================================================
+
+class CMsgSteamLearnNeutralItemPurchase::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgSteamLearnNeutralItemPurchase>()._impl_._has_bits_);
+  static void set_has_item_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_tier(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_is_radiant_team(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_is_using_dota_plus(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+};
+
+CMsgSteamLearnNeutralItemPurchase::CMsgSteamLearnNeutralItemPurchase(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgSteamLearnNeutralItemPurchase)
+}
+CMsgSteamLearnNeutralItemPurchase::CMsgSteamLearnNeutralItemPurchase(const CMsgSteamLearnNeutralItemPurchase& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgSteamLearnNeutralItemPurchase* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.tier_){}
+    , decltype(_impl_.is_radiant_team_){}
+    , decltype(_impl_.is_using_dota_plus_){}
+    , decltype(_impl_.item_id_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.tier_, &from._impl_.tier_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.item_id_) -
+    reinterpret_cast<char*>(&_impl_.tier_)) + sizeof(_impl_.item_id_));
+  // @@protoc_insertion_point(copy_constructor:CMsgSteamLearnNeutralItemPurchase)
+}
+
+inline void CMsgSteamLearnNeutralItemPurchase::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.tier_){0u}
+    , decltype(_impl_.is_radiant_team_){0u}
+    , decltype(_impl_.is_using_dota_plus_){false}
+    , decltype(_impl_.item_id_){-1}
+  };
+}
+
+CMsgSteamLearnNeutralItemPurchase::~CMsgSteamLearnNeutralItemPurchase() {
+  // @@protoc_insertion_point(destructor:CMsgSteamLearnNeutralItemPurchase)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgSteamLearnNeutralItemPurchase::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgSteamLearnNeutralItemPurchase::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgSteamLearnNeutralItemPurchase::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgSteamLearnNeutralItemPurchase)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    ::memset(&_impl_.tier_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.is_using_dota_plus_) -
+        reinterpret_cast<char*>(&_impl_.tier_)) + sizeof(_impl_.is_using_dota_plus_));
+    _impl_.item_id_ = -1;
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgSteamLearnNeutralItemPurchase::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional int32 item_id = 1 [default = -1];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_item_id(&has_bits);
+          _impl_.item_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 tier = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_tier(&has_bits);
+          _impl_.tier_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 is_radiant_team = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_is_radiant_team(&has_bits);
+          _impl_.is_radiant_team_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional bool is_using_dota_plus = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _Internal::set_has_is_using_dota_plus(&has_bits);
+          _impl_.is_using_dota_plus_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgSteamLearnNeutralItemPurchase::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgSteamLearnNeutralItemPurchase)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional int32 item_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_item_id(), target);
+  }
+
+  // optional uint32 tier = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_tier(), target);
+  }
+
+  // optional uint32 is_radiant_team = 3;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_is_radiant_team(), target);
+  }
+
+  // optional bool is_using_dota_plus = 4;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_is_using_dota_plus(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgSteamLearnNeutralItemPurchase)
+  return target;
+}
+
+size_t CMsgSteamLearnNeutralItemPurchase::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgSteamLearnNeutralItemPurchase)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    // optional uint32 tier = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_tier());
+    }
+
+    // optional uint32 is_radiant_team = 3;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_is_radiant_team());
+    }
+
+    // optional bool is_using_dota_plus = 4;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 + 1;
+    }
+
+    // optional int32 item_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_item_id());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgSteamLearnNeutralItemPurchase::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgSteamLearnNeutralItemPurchase::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgSteamLearnNeutralItemPurchase::GetClassData() const { return &_class_data_; }
+
+
+void CMsgSteamLearnNeutralItemPurchase::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgSteamLearnNeutralItemPurchase*>(&to_msg);
+  auto& from = static_cast<const CMsgSteamLearnNeutralItemPurchase&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgSteamLearnNeutralItemPurchase)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.tier_ = from._impl_.tier_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.is_radiant_team_ = from._impl_.is_radiant_team_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.is_using_dota_plus_ = from._impl_.is_using_dota_plus_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.item_id_ = from._impl_.item_id_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgSteamLearnNeutralItemPurchase::CopyFrom(const CMsgSteamLearnNeutralItemPurchase& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgSteamLearnNeutralItemPurchase)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgSteamLearnNeutralItemPurchase::IsInitialized() const {
+  return true;
+}
+
+void CMsgSteamLearnNeutralItemPurchase::InternalSwap(CMsgSteamLearnNeutralItemPurchase* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgSteamLearnNeutralItemPurchase, _impl_.is_using_dota_plus_)
+      + sizeof(CMsgSteamLearnNeutralItemPurchase::_impl_.is_using_dota_plus_)
+      - PROTOBUF_FIELD_OFFSET(CMsgSteamLearnNeutralItemPurchase, _impl_.tier_)>(
+          reinterpret_cast<char*>(&_impl_.tier_),
+          reinterpret_cast<char*>(&other->_impl_.tier_));
+  swap(_impl_.item_id_, other->_impl_.item_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgSteamLearnNeutralItemPurchase::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[174]);
 }
 
 // ===================================================================
@@ -63507,7 +65226,525 @@ void CMsgSteamLearnAbilitySkill::InternalSwap(CMsgSteamLearnAbilitySkill* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSteamLearnAbilitySkill::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[170]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[175]);
+}
+
+// ===================================================================
+
+class CMsgSteamLearnWardPlacement_Location::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgSteamLearnWardPlacement_Location>()._impl_._has_bits_);
+  static void set_has_x(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_y(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CMsgSteamLearnWardPlacement_Location::CMsgSteamLearnWardPlacement_Location(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgSteamLearnWardPlacement.Location)
+}
+CMsgSteamLearnWardPlacement_Location::CMsgSteamLearnWardPlacement_Location(const CMsgSteamLearnWardPlacement_Location& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgSteamLearnWardPlacement_Location* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.x_){}
+    , decltype(_impl_.y_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.x_, &from._impl_.x_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.y_) -
+    reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.y_));
+  // @@protoc_insertion_point(copy_constructor:CMsgSteamLearnWardPlacement.Location)
+}
+
+inline void CMsgSteamLearnWardPlacement_Location::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.x_){0}
+    , decltype(_impl_.y_){0}
+  };
+}
+
+CMsgSteamLearnWardPlacement_Location::~CMsgSteamLearnWardPlacement_Location() {
+  // @@protoc_insertion_point(destructor:CMsgSteamLearnWardPlacement.Location)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgSteamLearnWardPlacement_Location::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgSteamLearnWardPlacement_Location::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgSteamLearnWardPlacement_Location::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgSteamLearnWardPlacement.Location)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&_impl_.x_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.y_) -
+        reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.y_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgSteamLearnWardPlacement_Location::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional float x = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 13)) {
+          _Internal::set_has_x(&has_bits);
+          _impl_.x_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional float y = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 21)) {
+          _Internal::set_has_y(&has_bits);
+          _impl_.y_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgSteamLearnWardPlacement_Location::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgSteamLearnWardPlacement.Location)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional float x = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(1, this->_internal_x(), target);
+  }
+
+  // optional float y = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(2, this->_internal_y(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgSteamLearnWardPlacement.Location)
+  return target;
+}
+
+size_t CMsgSteamLearnWardPlacement_Location::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgSteamLearnWardPlacement.Location)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional float x = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 + 4;
+    }
+
+    // optional float y = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 4;
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgSteamLearnWardPlacement_Location::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgSteamLearnWardPlacement_Location::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgSteamLearnWardPlacement_Location::GetClassData() const { return &_class_data_; }
+
+
+void CMsgSteamLearnWardPlacement_Location::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgSteamLearnWardPlacement_Location*>(&to_msg);
+  auto& from = static_cast<const CMsgSteamLearnWardPlacement_Location&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgSteamLearnWardPlacement.Location)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.x_ = from._impl_.x_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.y_ = from._impl_.y_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgSteamLearnWardPlacement_Location::CopyFrom(const CMsgSteamLearnWardPlacement_Location& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgSteamLearnWardPlacement.Location)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgSteamLearnWardPlacement_Location::IsInitialized() const {
+  return true;
+}
+
+void CMsgSteamLearnWardPlacement_Location::InternalSwap(CMsgSteamLearnWardPlacement_Location* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgSteamLearnWardPlacement_Location, _impl_.y_)
+      + sizeof(CMsgSteamLearnWardPlacement_Location::_impl_.y_)
+      - PROTOBUF_FIELD_OFFSET(CMsgSteamLearnWardPlacement_Location, _impl_.x_)>(
+          reinterpret_cast<char*>(&_impl_.x_),
+          reinterpret_cast<char*>(&other->_impl_.x_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgSteamLearnWardPlacement_Location::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[176]);
+}
+
+// ===================================================================
+
+class CMsgSteamLearnWardPlacement::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgSteamLearnWardPlacement>()._impl_._has_bits_);
+  static const ::CMsgSteamLearnWardPlacement_Location& ward_loc(const CMsgSteamLearnWardPlacement* msg);
+  static void set_has_ward_loc(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_team(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+const ::CMsgSteamLearnWardPlacement_Location&
+CMsgSteamLearnWardPlacement::_Internal::ward_loc(const CMsgSteamLearnWardPlacement* msg) {
+  return *msg->_impl_.ward_loc_;
+}
+CMsgSteamLearnWardPlacement::CMsgSteamLearnWardPlacement(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgSteamLearnWardPlacement)
+}
+CMsgSteamLearnWardPlacement::CMsgSteamLearnWardPlacement(const CMsgSteamLearnWardPlacement& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgSteamLearnWardPlacement* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.existing_ward_locs_){from._impl_.existing_ward_locs_}
+    , decltype(_impl_.ward_loc_){nullptr}
+    , decltype(_impl_.team_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_ward_loc()) {
+    _this->_impl_.ward_loc_ = new ::CMsgSteamLearnWardPlacement_Location(*from._impl_.ward_loc_);
+  }
+  _this->_impl_.team_ = from._impl_.team_;
+  // @@protoc_insertion_point(copy_constructor:CMsgSteamLearnWardPlacement)
+}
+
+inline void CMsgSteamLearnWardPlacement::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.existing_ward_locs_){arena}
+    , decltype(_impl_.ward_loc_){nullptr}
+    , decltype(_impl_.team_){0u}
+  };
+}
+
+CMsgSteamLearnWardPlacement::~CMsgSteamLearnWardPlacement() {
+  // @@protoc_insertion_point(destructor:CMsgSteamLearnWardPlacement)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgSteamLearnWardPlacement::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.existing_ward_locs_.~RepeatedPtrField();
+  if (this != internal_default_instance()) delete _impl_.ward_loc_;
+}
+
+void CMsgSteamLearnWardPlacement::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgSteamLearnWardPlacement::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgSteamLearnWardPlacement)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.existing_ward_locs_.Clear();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(_impl_.ward_loc_ != nullptr);
+    _impl_.ward_loc_->Clear();
+  }
+  _impl_.team_ = 0u;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgSteamLearnWardPlacement::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional .CMsgSteamLearnWardPlacement.Location ward_loc = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_ward_loc(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .CMsgSteamLearnWardPlacement.Location existing_ward_locs = 2 [(.steamlearn_count) = 6];
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_existing_ward_locs(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 team = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_team(&has_bits);
+          _impl_.team_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgSteamLearnWardPlacement::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgSteamLearnWardPlacement)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional .CMsgSteamLearnWardPlacement.Location ward_loc = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::ward_loc(this),
+        _Internal::ward_loc(this).GetCachedSize(), target, stream);
+  }
+
+  // repeated .CMsgSteamLearnWardPlacement.Location existing_ward_locs = 2 [(.steamlearn_count) = 6];
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_existing_ward_locs_size()); i < n; i++) {
+    const auto& repfield = this->_internal_existing_ward_locs(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // optional uint32 team = 3;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_team(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgSteamLearnWardPlacement)
+  return target;
+}
+
+size_t CMsgSteamLearnWardPlacement::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgSteamLearnWardPlacement)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .CMsgSteamLearnWardPlacement.Location existing_ward_locs = 2 [(.steamlearn_count) = 6];
+  total_size += 1UL * this->_internal_existing_ward_locs_size();
+  for (const auto& msg : this->_impl_.existing_ward_locs_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional .CMsgSteamLearnWardPlacement.Location ward_loc = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.ward_loc_);
+    }
+
+    // optional uint32 team = 3;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_team());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgSteamLearnWardPlacement::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgSteamLearnWardPlacement::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgSteamLearnWardPlacement::GetClassData() const { return &_class_data_; }
+
+
+void CMsgSteamLearnWardPlacement::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgSteamLearnWardPlacement*>(&to_msg);
+  auto& from = static_cast<const CMsgSteamLearnWardPlacement&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgSteamLearnWardPlacement)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.existing_ward_locs_.MergeFrom(from._impl_.existing_ward_locs_);
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_internal_mutable_ward_loc()->::CMsgSteamLearnWardPlacement_Location::MergeFrom(
+          from._internal_ward_loc());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.team_ = from._impl_.team_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgSteamLearnWardPlacement::CopyFrom(const CMsgSteamLearnWardPlacement& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgSteamLearnWardPlacement)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgSteamLearnWardPlacement::IsInitialized() const {
+  return true;
+}
+
+void CMsgSteamLearnWardPlacement::InternalSwap(CMsgSteamLearnWardPlacement* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.existing_ward_locs_.InternalSwap(&other->_impl_.existing_ward_locs_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgSteamLearnWardPlacement, _impl_.team_)
+      + sizeof(CMsgSteamLearnWardPlacement::_impl_.team_)
+      - PROTOBUF_FIELD_OFFSET(CMsgSteamLearnWardPlacement, _impl_.ward_loc_)>(
+          reinterpret_cast<char*>(&_impl_.ward_loc_),
+          reinterpret_cast<char*>(&other->_impl_.ward_loc_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgSteamLearnWardPlacement::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[177]);
 }
 
 // ===================================================================
@@ -63720,7 +65957,502 @@ void CMsgSignOutMuertaMinigame::InternalSwap(CMsgSignOutMuertaMinigame* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutMuertaMinigame::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[171]);
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[178]);
+}
+
+// ===================================================================
+
+class CMsgSignOutMapStats_Player::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgSignOutMapStats_Player>()._impl_._has_bits_);
+  static void set_has_account_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static const ::CMsgMapStatsSnapshot& personal_stats(const CMsgSignOutMapStats_Player* msg);
+  static void set_has_personal_stats(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+const ::CMsgMapStatsSnapshot&
+CMsgSignOutMapStats_Player::_Internal::personal_stats(const CMsgSignOutMapStats_Player* msg) {
+  return *msg->_impl_.personal_stats_;
+}
+void CMsgSignOutMapStats_Player::clear_personal_stats() {
+  if (_impl_.personal_stats_ != nullptr) _impl_.personal_stats_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+CMsgSignOutMapStats_Player::CMsgSignOutMapStats_Player(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgSignOutMapStats.Player)
+}
+CMsgSignOutMapStats_Player::CMsgSignOutMapStats_Player(const CMsgSignOutMapStats_Player& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgSignOutMapStats_Player* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.personal_stats_){nullptr}
+    , decltype(_impl_.account_id_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_personal_stats()) {
+    _this->_impl_.personal_stats_ = new ::CMsgMapStatsSnapshot(*from._impl_.personal_stats_);
+  }
+  _this->_impl_.account_id_ = from._impl_.account_id_;
+  // @@protoc_insertion_point(copy_constructor:CMsgSignOutMapStats.Player)
+}
+
+inline void CMsgSignOutMapStats_Player::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.personal_stats_){nullptr}
+    , decltype(_impl_.account_id_){0u}
+  };
+}
+
+CMsgSignOutMapStats_Player::~CMsgSignOutMapStats_Player() {
+  // @@protoc_insertion_point(destructor:CMsgSignOutMapStats.Player)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgSignOutMapStats_Player::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.personal_stats_;
+}
+
+void CMsgSignOutMapStats_Player::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgSignOutMapStats_Player::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgSignOutMapStats.Player)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(_impl_.personal_stats_ != nullptr);
+    _impl_.personal_stats_->Clear();
+  }
+  _impl_.account_id_ = 0u;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgSignOutMapStats_Player::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint32 account_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_account_id(&has_bits);
+          _impl_.account_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional .CMsgMapStatsSnapshot personal_stats = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_personal_stats(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgSignOutMapStats_Player::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgSignOutMapStats.Player)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 account_id = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_account_id(), target);
+  }
+
+  // optional .CMsgMapStatsSnapshot personal_stats = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::personal_stats(this),
+        _Internal::personal_stats(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgSignOutMapStats.Player)
+  return target;
+}
+
+size_t CMsgSignOutMapStats_Player::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgSignOutMapStats.Player)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional .CMsgMapStatsSnapshot personal_stats = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.personal_stats_);
+    }
+
+    // optional uint32 account_id = 1;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_account_id());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgSignOutMapStats_Player::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgSignOutMapStats_Player::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgSignOutMapStats_Player::GetClassData() const { return &_class_data_; }
+
+
+void CMsgSignOutMapStats_Player::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgSignOutMapStats_Player*>(&to_msg);
+  auto& from = static_cast<const CMsgSignOutMapStats_Player&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgSignOutMapStats.Player)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_internal_mutable_personal_stats()->::CMsgMapStatsSnapshot::MergeFrom(
+          from._internal_personal_stats());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.account_id_ = from._impl_.account_id_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgSignOutMapStats_Player::CopyFrom(const CMsgSignOutMapStats_Player& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgSignOutMapStats.Player)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgSignOutMapStats_Player::IsInitialized() const {
+  return true;
+}
+
+void CMsgSignOutMapStats_Player::InternalSwap(CMsgSignOutMapStats_Player* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgSignOutMapStats_Player, _impl_.account_id_)
+      + sizeof(CMsgSignOutMapStats_Player::_impl_.account_id_)
+      - PROTOBUF_FIELD_OFFSET(CMsgSignOutMapStats_Player, _impl_.personal_stats_)>(
+          reinterpret_cast<char*>(&_impl_.personal_stats_),
+          reinterpret_cast<char*>(&other->_impl_.personal_stats_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutMapStats_Player::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[179]);
+}
+
+// ===================================================================
+
+class CMsgSignOutMapStats::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgSignOutMapStats>()._impl_._has_bits_);
+  static const ::CMsgMapStatsSnapshot& global_stats(const CMsgSignOutMapStats* msg);
+  static void set_has_global_stats(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+const ::CMsgMapStatsSnapshot&
+CMsgSignOutMapStats::_Internal::global_stats(const CMsgSignOutMapStats* msg) {
+  return *msg->_impl_.global_stats_;
+}
+void CMsgSignOutMapStats::clear_global_stats() {
+  if (_impl_.global_stats_ != nullptr) _impl_.global_stats_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+CMsgSignOutMapStats::CMsgSignOutMapStats(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgSignOutMapStats)
+}
+CMsgSignOutMapStats::CMsgSignOutMapStats(const CMsgSignOutMapStats& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgSignOutMapStats* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.players_){from._impl_.players_}
+    , decltype(_impl_.global_stats_){nullptr}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_global_stats()) {
+    _this->_impl_.global_stats_ = new ::CMsgMapStatsSnapshot(*from._impl_.global_stats_);
+  }
+  // @@protoc_insertion_point(copy_constructor:CMsgSignOutMapStats)
+}
+
+inline void CMsgSignOutMapStats::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.players_){arena}
+    , decltype(_impl_.global_stats_){nullptr}
+  };
+}
+
+CMsgSignOutMapStats::~CMsgSignOutMapStats() {
+  // @@protoc_insertion_point(destructor:CMsgSignOutMapStats)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgSignOutMapStats::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.players_.~RepeatedPtrField();
+  if (this != internal_default_instance()) delete _impl_.global_stats_;
+}
+
+void CMsgSignOutMapStats::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgSignOutMapStats::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgSignOutMapStats)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.players_.Clear();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(_impl_.global_stats_ != nullptr);
+    _impl_.global_stats_->Clear();
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgSignOutMapStats::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .CMsgSignOutMapStats.Player players = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_players(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // optional .CMsgMapStatsSnapshot global_stats = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_global_stats(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgSignOutMapStats::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgSignOutMapStats)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .CMsgSignOutMapStats.Player players = 1;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_players_size()); i < n; i++) {
+    const auto& repfield = this->_internal_players(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional .CMsgMapStatsSnapshot global_stats = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::global_stats(this),
+        _Internal::global_stats(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgSignOutMapStats)
+  return target;
+}
+
+size_t CMsgSignOutMapStats::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgSignOutMapStats)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .CMsgSignOutMapStats.Player players = 1;
+  total_size += 1UL * this->_internal_players_size();
+  for (const auto& msg : this->_impl_.players_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // optional .CMsgMapStatsSnapshot global_stats = 2;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.global_stats_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgSignOutMapStats::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgSignOutMapStats::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgSignOutMapStats::GetClassData() const { return &_class_data_; }
+
+
+void CMsgSignOutMapStats::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgSignOutMapStats*>(&to_msg);
+  auto& from = static_cast<const CMsgSignOutMapStats&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgSignOutMapStats)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.players_.MergeFrom(from._impl_.players_);
+  if (from._internal_has_global_stats()) {
+    _this->_internal_mutable_global_stats()->::CMsgMapStatsSnapshot::MergeFrom(
+        from._internal_global_stats());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgSignOutMapStats::CopyFrom(const CMsgSignOutMapStats& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgSignOutMapStats)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgSignOutMapStats::IsInitialized() const {
+  return true;
+}
+
+void CMsgSignOutMapStats::InternalSwap(CMsgSignOutMapStats* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.players_.InternalSwap(&other->_impl_.players_);
+  swap(_impl_.global_stats_, other->_impl_.global_stats_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgSignOutMapStats::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fserver_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fserver_2eproto[180]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -63740,6 +66472,10 @@ Arena::CreateMaybeMessage< ::CMsgGameserverCrash >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::CMsgConnectedPlayers_Player*
 Arena::CreateMaybeMessage< ::CMsgConnectedPlayers_Player >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgConnectedPlayers_Player >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgConnectedPlayers_PlayerDraft*
+Arena::CreateMaybeMessage< ::CMsgConnectedPlayers_PlayerDraft >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgConnectedPlayers_PlayerDraft >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CMsgConnectedPlayers*
 Arena::CreateMaybeMessage< ::CMsgConnectedPlayers >(Arena* arena) {
@@ -64373,6 +67109,10 @@ template<> PROTOBUF_NOINLINE ::CMsgGCToServerSetSteamLearnDisable*
 Arena::CreateMaybeMessage< ::CMsgGCToServerSetSteamLearnDisable >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgGCToServerSetSteamLearnDisable >(arena);
 }
+template<> PROTOBUF_NOINLINE ::CMsgGCToServerSetSteamLearnInferencing*
+Arena::CreateMaybeMessage< ::CMsgGCToServerSetSteamLearnInferencing >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgGCToServerSetSteamLearnInferencing >(arena);
+}
 template<> PROTOBUF_NOINLINE ::CMsgGCToServerSetSteamLearnKeysChanged*
 Arena::CreateMaybeMessage< ::CMsgGCToServerSetSteamLearnKeysChanged >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgGCToServerSetSteamLearnKeysChanged >(arena);
@@ -64380,6 +67120,10 @@ Arena::CreateMaybeMessage< ::CMsgGCToServerSetSteamLearnKeysChanged >(Arena* are
 template<> PROTOBUF_NOINLINE ::CMsgSteamLearnMatchInfo*
 Arena::CreateMaybeMessage< ::CMsgSteamLearnMatchInfo >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgSteamLearnMatchInfo >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgSteamLearnMatchInfoPlayer*
+Arena::CreateMaybeMessage< ::CMsgSteamLearnMatchInfoPlayer >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgSteamLearnMatchInfoPlayer >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CMsgSteamLearnMatchHeroes*
 Arena::CreateMaybeMessage< ::CMsgSteamLearnMatchHeroes >(Arena* arena) {
@@ -64405,13 +67149,37 @@ template<> PROTOBUF_NOINLINE ::CMsgSteamLearnItemPurchase*
 Arena::CreateMaybeMessage< ::CMsgSteamLearnItemPurchase >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgSteamLearnItemPurchase >(arena);
 }
+template<> PROTOBUF_NOINLINE ::CMsgSteamLearnPreGameItemPurchases*
+Arena::CreateMaybeMessage< ::CMsgSteamLearnPreGameItemPurchases >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgSteamLearnPreGameItemPurchases >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgSteamLearnNeutralItemPurchase*
+Arena::CreateMaybeMessage< ::CMsgSteamLearnNeutralItemPurchase >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgSteamLearnNeutralItemPurchase >(arena);
+}
 template<> PROTOBUF_NOINLINE ::CMsgSteamLearnAbilitySkill*
 Arena::CreateMaybeMessage< ::CMsgSteamLearnAbilitySkill >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgSteamLearnAbilitySkill >(arena);
 }
+template<> PROTOBUF_NOINLINE ::CMsgSteamLearnWardPlacement_Location*
+Arena::CreateMaybeMessage< ::CMsgSteamLearnWardPlacement_Location >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgSteamLearnWardPlacement_Location >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgSteamLearnWardPlacement*
+Arena::CreateMaybeMessage< ::CMsgSteamLearnWardPlacement >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgSteamLearnWardPlacement >(arena);
+}
 template<> PROTOBUF_NOINLINE ::CMsgSignOutMuertaMinigame*
 Arena::CreateMaybeMessage< ::CMsgSignOutMuertaMinigame >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgSignOutMuertaMinigame >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgSignOutMapStats_Player*
+Arena::CreateMaybeMessage< ::CMsgSignOutMapStats_Player >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgSignOutMapStats_Player >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgSignOutMapStats*
+Arena::CreateMaybeMessage< ::CMsgSignOutMapStats >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgSignOutMapStats >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

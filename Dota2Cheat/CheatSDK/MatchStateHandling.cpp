@@ -1,50 +1,27 @@
 #include "MatchStateHandling.h"
 
-void FillPlayerList() {
-	auto vec = GameSystems::PlayerResource->GetVecPlayerTeamData();
-	std::cout << "<PLAYERS>\n";
-	for (auto& data : vec) {
-		auto slot = data.GetPlayerSlot();
-
-		auto player = Interfaces::EntitySystem->GetEntity<CDOTAPlayerController>(
-			H2IDX(
-				GameSystems::PlayerResource->PlayerSlotToHandle(slot)
-			)
-			);
-		if (!player)
-			continue;
-
-		auto hero = player->GetAssignedHero();
-		std::cout << "Player " << std::dec << slot << ": " << player;
-		if (hero &&
-			hero->GetUnitName()) {
-			std::cout << "\n\t" << hero->GetUnitName() << " " << hero;
-			ctx.heroes.insert(hero);
-		}
-
-		std::cout << '\n';
-		//players.push_back(player);
-	}
-}
-
-
 void CMatchStateManager::EnteredPreGame() {
 
 	//	Modules::AutoPick.autoBanHero = "sniper";
 	//	Modules::AutoPick.autoPickHero = "arc_warden";
 
-#define DereferenceReallocatingSystem(global) GameSystems::##global = *GameSystems::## global ##Ptr; LogF(LP_DATA, "{}: {}", #global, (void*)GameSystems::global);
+#define DereferenceReallocatingSystem(global) if(!GameSystems::##global) { \
+												GameSystems::##global = *GameSystems::## global ##Ptr;\
+												LogF(LP_DATA, "{}: {}", #global, (void*)GameSystems::global);\
+											  }
 
-	ctx.localPlayer = Interfaces::EntitySystem->GetEntity<CDOTAPlayerController>(Interfaces::Engine->GetLocalPlayerSlot() + 1);
-	// Signatures::GetPlayer(-1);
+	ctx.localPlayer = Signatures::GetPlayer(-1);
+
+
 	if (!ctx.localPlayer)
 		return;
 
-	GameSystems::ParticleManager = GameSystems::ParticleManagerSystem->GetParticleManager();
 	DereferenceReallocatingSystem(PlayerResource);
 	DereferenceReallocatingSystem(GameEventManager);
 	DereferenceReallocatingSystem(ProjectileManager);
 	DereferenceReallocatingSystem(RenderGameSystem);
+
+	GameSystems::ParticleManager = GameSystems::ParticleManagerSystem->GetParticleManager();
 
 	// Panorama's HUD root
 	for (auto& node : Interfaces::UIEngine->GetPanelList<4096>()) {

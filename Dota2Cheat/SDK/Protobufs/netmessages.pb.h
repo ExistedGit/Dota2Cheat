@@ -9529,6 +9529,7 @@ class CSVCMsg_CreateStringTable final :
     kFlagsFieldNumber = 6,
     kUserDataFixedSizeFieldNumber = 3,
     kDataCompressedFieldNumber = 9,
+    kUsingVarintBitcountsFieldNumber = 10,
     kUncompressedSizeFieldNumber = 8,
   };
   // optional string name = 1;
@@ -9645,6 +9646,19 @@ class CSVCMsg_CreateStringTable final :
   void _internal_set_data_compressed(bool value);
   public:
 
+  // optional bool using_varint_bitcounts = 10;
+  bool has_using_varint_bitcounts() const;
+  private:
+  bool _internal_has_using_varint_bitcounts() const;
+  public:
+  void clear_using_varint_bitcounts();
+  bool using_varint_bitcounts() const;
+  void set_using_varint_bitcounts(bool value);
+  private:
+  bool _internal_using_varint_bitcounts() const;
+  void _internal_set_using_varint_bitcounts(bool value);
+  public:
+
   // optional int32 uncompressed_size = 8;
   bool has_uncompressed_size() const;
   private:
@@ -9676,6 +9690,7 @@ class CSVCMsg_CreateStringTable final :
     int32_t flags_;
     bool user_data_fixed_size_;
     bool data_compressed_;
+    bool using_varint_bitcounts_;
     int32_t uncompressed_size_;
   };
   union { Impl_ _impl_; };
@@ -21729,7 +21744,7 @@ inline void CSVCMsg_CreateStringTable::set_allocated_string_data(std::string* st
 
 // optional int32 uncompressed_size = 8;
 inline bool CSVCMsg_CreateStringTable::_internal_has_uncompressed_size() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CSVCMsg_CreateStringTable::has_uncompressed_size() const {
@@ -21737,7 +21752,7 @@ inline bool CSVCMsg_CreateStringTable::has_uncompressed_size() const {
 }
 inline void CSVCMsg_CreateStringTable::clear_uncompressed_size() {
   _impl_.uncompressed_size_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000100u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
 }
 inline int32_t CSVCMsg_CreateStringTable::_internal_uncompressed_size() const {
   return _impl_.uncompressed_size_;
@@ -21747,7 +21762,7 @@ inline int32_t CSVCMsg_CreateStringTable::uncompressed_size() const {
   return _internal_uncompressed_size();
 }
 inline void CSVCMsg_CreateStringTable::_internal_set_uncompressed_size(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000100u;
+  _impl_._has_bits_[0] |= 0x00000200u;
   _impl_.uncompressed_size_ = value;
 }
 inline void CSVCMsg_CreateStringTable::set_uncompressed_size(int32_t value) {
@@ -21781,6 +21796,34 @@ inline void CSVCMsg_CreateStringTable::_internal_set_data_compressed(bool value)
 inline void CSVCMsg_CreateStringTable::set_data_compressed(bool value) {
   _internal_set_data_compressed(value);
   // @@protoc_insertion_point(field_set:CSVCMsg_CreateStringTable.data_compressed)
+}
+
+// optional bool using_varint_bitcounts = 10;
+inline bool CSVCMsg_CreateStringTable::_internal_has_using_varint_bitcounts() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
+  return value;
+}
+inline bool CSVCMsg_CreateStringTable::has_using_varint_bitcounts() const {
+  return _internal_has_using_varint_bitcounts();
+}
+inline void CSVCMsg_CreateStringTable::clear_using_varint_bitcounts() {
+  _impl_.using_varint_bitcounts_ = false;
+  _impl_._has_bits_[0] &= ~0x00000100u;
+}
+inline bool CSVCMsg_CreateStringTable::_internal_using_varint_bitcounts() const {
+  return _impl_.using_varint_bitcounts_;
+}
+inline bool CSVCMsg_CreateStringTable::using_varint_bitcounts() const {
+  // @@protoc_insertion_point(field_get:CSVCMsg_CreateStringTable.using_varint_bitcounts)
+  return _internal_using_varint_bitcounts();
+}
+inline void CSVCMsg_CreateStringTable::_internal_set_using_varint_bitcounts(bool value) {
+  _impl_._has_bits_[0] |= 0x00000100u;
+  _impl_.using_varint_bitcounts_ = value;
+}
+inline void CSVCMsg_CreateStringTable::set_using_varint_bitcounts(bool value) {
+  _internal_set_using_varint_bitcounts(value);
+  // @@protoc_insertion_point(field_set:CSVCMsg_CreateStringTable.using_varint_bitcounts)
 }
 
 // -------------------------------------------------------------------

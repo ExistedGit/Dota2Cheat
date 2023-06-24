@@ -860,11 +860,18 @@ enum EDOTAGCMsg : int {
   k_EMsgGCToServerSetSteamLearnDisable = 8875,
   k_EMsgGCToServerSetSteamLearnKeysChanged = 8876,
   k_EMsgSignOutMuertaMinigame = 8877,
-  k_EMsgGCToServerLobbyHeroRoleStats = 8878
+  k_EMsgGCToServerLobbyHeroRoleStats = 8878,
+  k_EMsgClientToGCRankRequest = 8879,
+  k_EMsgGCToClientRankResponse = 8880,
+  k_EMsgGCToClientRankUpdate = 8881,
+  k_EMsgSignOutMapStats = 8882,
+  k_EMsgClientToGCMapStatsRequest = 8883,
+  k_EMsgGCToClientMapStatsResponse = 8884,
+  k_EMsgGCToServerSetSteamLearnInferencing = 8885
 };
 bool EDOTAGCMsg_IsValid(int value);
 constexpr EDOTAGCMsg EDOTAGCMsg_MIN = k_EMsgGCDOTABase;
-constexpr EDOTAGCMsg EDOTAGCMsg_MAX = k_EMsgGCToServerLobbyHeroRoleStats;
+constexpr EDOTAGCMsg EDOTAGCMsg_MAX = k_EMsgGCToServerSetSteamLearnInferencing;
 constexpr int EDOTAGCMsg_ARRAYSIZE = EDOTAGCMsg_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EDOTAGCMsg_descriptor();

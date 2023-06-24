@@ -136,7 +136,8 @@ enum DOTA_GameState : int {
   DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP = 9,
   DOTA_GAMERULES_STATE_WAIT_FOR_MAP_TO_LOAD = 10,
   DOTA_GAMERULES_STATE_SCENARIO_SETUP = 11,
-  DOTA_GAMERULES_STATE_LAST = 12
+  DOTA_GAMERULES_STATE_PLAYER_DRAFT = 12,
+  DOTA_GAMERULES_STATE_LAST = 13
 };
 bool DOTA_GameState_IsValid(int value);
 constexpr DOTA_GameState DOTA_GameState_MIN = DOTA_GAMERULES_STATE_INIT;
@@ -236,11 +237,12 @@ enum EEvent : int {
   EVENT_ID_PERMANENT_GRANTS = 39,
   EVENT_ID_MUERTA_RELEASE_SPRING2023 = 40,
   EVENT_ID_TEAM_2023_TOUR1 = 41,
-  EVENT_ID_TEAM_2023_TOUR2 = 42
+  EVENT_ID_TEAM_2023_TOUR2 = 42,
+  EVENT_ID_TEAM_2023_TOUR3 = 43
 };
 bool EEvent_IsValid(int value);
 constexpr EEvent EEvent_MIN = EVENT_ID_NONE;
-constexpr EEvent EEvent_MAX = EVENT_ID_TEAM_2023_TOUR2;
+constexpr EEvent EEvent_MAX = EVENT_ID_TEAM_2023_TOUR3;
 constexpr int EEvent_ARRAYSIZE = EEvent_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EEvent_descriptor();
@@ -262,11 +264,17 @@ enum ERankType : int {
   k_ERankType_Casual = 1,
   k_ERankType_Ranked = 2,
   k_ERankType_CasualLegacy = 3,
-  k_ERankType_RankedLegacy = 4
+  k_ERankType_RankedLegacy = 4,
+  k_ERankType_CasualGlicko = 5,
+  k_ERankType_RankedGlicko = 6,
+  k_ERankType_RankMax = 7,
+  k_ERankType_BehaviorPrivate = 100,
+  k_ERankType_BehaviorPublic = 101,
+  k_ERankType_Max = 102
 };
 bool ERankType_IsValid(int value);
 constexpr ERankType ERankType_MIN = k_ERankType_Invalid;
-constexpr ERankType ERankType_MAX = k_ERankType_RankedLegacy;
+constexpr ERankType ERankType_MAX = k_ERankType_Max;
 constexpr int ERankType_ARRAYSIZE = ERankType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ERankType_descriptor();

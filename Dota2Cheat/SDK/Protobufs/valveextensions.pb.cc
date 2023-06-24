@@ -28,30 +28,30 @@ static constexpr ::_pb::Message* const* file_default_instances = nullptr;
 
 const char descriptor_table_protodef_valveextensions_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\025valveextensions.proto\032 google/protobuf"
-  "/descriptor.proto:9\n\tmap_field\022\035.google."
-  "protobuf.FieldOptions\030\310\334\003 \001(\010:\005false:7\n\007"
-  "map_key\022\035.google.protobuf.FieldOptions\030\311"
-  "\334\003 \001(\010:\005false:=\n\021diff_encode_field\022\035.goo"
-  "gle.protobuf.FieldOptions\030\312\334\003 \001(\005:\0010:<\n\014"
-  "delta_ignore\022\035.google.protobuf.FieldOpti"
-  "ons\030\313\334\003 \001(\010:\005false:\?\n\023steamml_max_entrie"
-  "s\022\035.google.protobuf.FieldOptions\030\314\334\003 \001(\r"
-  ":\0010:D\n\024steamml_is_timestamp\022\035.google.pro"
-  "tobuf.FieldOptions\030\315\334\003 \001(\010:\005false:<\n\020ste"
-  "amlearn_count\022\035.google.protobuf.FieldOpt"
-  "ions\030\316\334\003 \001(\r:\0010:@\n\024schema_friendly_name\022"
-  "!.google.protobuf.EnumValueOptions\030\350\007 \001("
-  "\t:>\n\022schema_description\022!.google.protobu"
-  "f.EnumValueOptions\030\351\007 \001(\t:F\n\032schema_supp"
-  "ress_enumerator\022!.google.protobuf.EnumVa"
-  "lueOptions\030\352\007 \001(\010"
+  "/descriptor.proto:\?\n\017valve_map_field\022\035.g"
+  "oogle.protobuf.FieldOptions\030\310\334\003 \001(\010:\005fal"
+  "se:=\n\rvalve_map_key\022\035.google.protobuf.Fi"
+  "eldOptions\030\311\334\003 \001(\010:\005false:=\n\021diff_encode"
+  "_field\022\035.google.protobuf.FieldOptions\030\312\334"
+  "\003 \001(\005:\0010:<\n\014delta_ignore\022\035.google.protob"
+  "uf.FieldOptions\030\313\334\003 \001(\010:\005false:\?\n\023steamm"
+  "l_max_entries\022\035.google.protobuf.FieldOpt"
+  "ions\030\314\334\003 \001(\r:\0010:D\n\024steamml_is_timestamp\022"
+  "\035.google.protobuf.FieldOptions\030\315\334\003 \001(\010:\005"
+  "false:<\n\020steamlearn_count\022\035.google.proto"
+  "buf.FieldOptions\030\316\334\003 \001(\r:\0010:@\n\024schema_fr"
+  "iendly_name\022!.google.protobuf.EnumValueO"
+  "ptions\030\350\007 \001(\t:>\n\022schema_description\022!.go"
+  "ogle.protobuf.EnumValueOptions\030\351\007 \001(\t:F\n"
+  "\032schema_suppress_enumerator\022!.google.pro"
+  "tobuf.EnumValueOptions\030\352\007 \001(\010"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_valveextensions_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_valveextensions_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_valveextensions_2eproto = {
-    false, false, 697, descriptor_table_protodef_valveextensions_2eproto,
+    false, false, 709, descriptor_table_protodef_valveextensions_2eproto,
     "valveextensions.proto",
     &descriptor_table_valveextensions_2eproto_once, descriptor_table_valveextensions_2eproto_deps, 1, 0,
     schemas, file_default_instances, TableStruct_valveextensions_2eproto::offsets,
@@ -66,10 +66,10 @@ PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_valveext
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_valveextensions_2eproto(&descriptor_table_valveextensions_2eproto);
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::PROTOBUF_NAMESPACE_ID::FieldOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::PrimitiveTypeTraits< bool >, 8, false>
-  map_field(kMapFieldFieldNumber, false, nullptr);
+  valve_map_field(kValveMapFieldFieldNumber, false, nullptr);
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::PROTOBUF_NAMESPACE_ID::FieldOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::PrimitiveTypeTraits< bool >, 8, false>
-  map_key(kMapKeyFieldNumber, false, nullptr);
+  valve_map_key(kValveMapKeyFieldNumber, false, nullptr);
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::PROTOBUF_NAMESPACE_ID::FieldOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::PrimitiveTypeTraits< int32_t >, 5, false>
   diff_encode_field(kDiffEncodeFieldFieldNumber, 0, nullptr);

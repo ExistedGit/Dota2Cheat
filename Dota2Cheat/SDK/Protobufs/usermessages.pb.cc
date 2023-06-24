@@ -1006,7 +1006,7 @@ PROTOBUF_CONSTEXPR CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatCo
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.value_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.value_name_hash_)*/0u
   , /*decltype(_impl_.value_)*/0} {}
 struct CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValueDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValueDefaultTypeInternal()
@@ -1021,10 +1021,8 @@ PROTOBUF_CONSTEXPR CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorC
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.value_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.attachment_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.value_)*/nullptr
-  , /*decltype(_impl_.ent_index_)*/16777215u} {}
+  , /*decltype(_impl_.value_name_hash_)*/0u} {}
 struct CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValueDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValueDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1038,11 +1036,9 @@ PROTOBUF_CONSTEXPR CUserMsg_ParticleManager_SetParticleNamedValueContext_Transfo
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.value_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.attachment_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.angles_)*/nullptr
   , /*decltype(_impl_.translation_)*/nullptr
-  , /*decltype(_impl_.ent_index_)*/16777215u} {}
+  , /*decltype(_impl_.value_name_hash_)*/0u} {}
 struct CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValueDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValueDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1052,11 +1048,27 @@ struct CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextVal
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValueDefaultTypeInternal _CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue_default_instance_;
+PROTOBUF_CONSTEXPR CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext::CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.value_name_hash_)*/0u
+  , /*decltype(_impl_.ent_index_)*/16777215u} {}
+struct CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContextDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContextDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContextDefaultTypeInternal() {}
+  union {
+    CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContextDefaultTypeInternal _CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext_default_instance_;
 PROTOBUF_CONSTEXPR CUserMsg_ParticleManager_SetParticleNamedValueContext::CUserMsg_ParticleManager_SetParticleNamedValueContext(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.float_values_)*/{}
   , /*decltype(_impl_.vector_values_)*/{}
   , /*decltype(_impl_.transform_values_)*/{}
+  , /*decltype(_impl_.ehandle_values_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct CUserMsg_ParticleManager_SetParticleNamedValueContextDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CUserMsg_ParticleManager_SetParticleNamedValueContextDefaultTypeInternal()
@@ -1327,7 +1339,9 @@ PROTOBUF_CONSTEXPR CUserMessage_UtilMsg_Response::CUserMessage_UtilMsg_Response(
   , /*decltype(_impl_.item_count2_)*/0
   , /*decltype(_impl_.client_timestamp_)*/0
   , /*decltype(_impl_.platform_)*/0
-  , /*decltype(_impl_.itemgroup_)*/0} {}
+  , /*decltype(_impl_.itemgroup_)*/0
+  , /*decltype(_impl_.total_count_)*/0
+  , /*decltype(_impl_.total_count2_)*/0} {}
 struct CUserMessage_UtilMsg_ResponseDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CUserMessage_UtilMsg_ResponseDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1426,7 +1440,8 @@ PROTOBUF_CONSTEXPR CUserMessage_Inventory_Response::CUserMessage_Inventory_Respo
   , /*decltype(_impl_.client_timestamp_)*/0
   , /*decltype(_impl_.platform_)*/0
   , /*decltype(_impl_.inv_type_)*/0
-  , /*decltype(_impl_.build_version_)*/0} {}
+  , /*decltype(_impl_.build_version_)*/0
+  , /*decltype(_impl_.instance_)*/0} {}
 struct CUserMessage_Inventory_ResponseDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CUserMessage_Inventory_ResponseDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1436,7 +1451,7 @@ struct CUserMessage_Inventory_ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CUserMessage_Inventory_ResponseDefaultTypeInternal _CUserMessage_Inventory_Response_default_instance_;
-static ::_pb::Metadata file_level_metadata_usermessages_2eproto[87];
+static ::_pb::Metadata file_level_metadata_usermessages_2eproto[88];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_usermessages_2eproto[5];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_usermessages_2eproto = nullptr;
 
@@ -2167,7 +2182,7 @@ const uint32_t TableStruct_usermessages_2eproto::offsets[] PROTOBUF_SECTION_VARI
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue, _impl_.value_name_),
+  PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue, _impl_.value_name_hash_),
   PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue, _impl_.value_),
   0,
   1,
@@ -2177,29 +2192,31 @@ const uint32_t TableStruct_usermessages_2eproto::offsets[] PROTOBUF_SECTION_VARI
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue, _impl_.value_name_),
+  PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue, _impl_.value_name_hash_),
   PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue, _impl_.value_),
-  PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue, _impl_.ent_index_),
-  PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue, _impl_.attachment_name_),
-  0,
-  2,
-  3,
   1,
+  0,
   PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue, _impl_.value_name_),
+  PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue, _impl_.value_name_hash_),
   PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue, _impl_.angles_),
   PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue, _impl_.translation_),
-  PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue, _impl_.ent_index_),
-  PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue, _impl_.attachment_name_),
-  0,
   2,
-  3,
-  4,
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext, _impl_.value_name_hash_),
+  PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext, _impl_.ent_index_),
+  0,
   1,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext, _internal_metadata_),
@@ -2210,6 +2227,7 @@ const uint32_t TableStruct_usermessages_2eproto::offsets[] PROTOBUF_SECTION_VARI
   PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext, _impl_.float_values_),
   PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext, _impl_.vector_values_),
   PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext, _impl_.transform_values_),
+  PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager_SetParticleNamedValueContext, _impl_.ehandle_values_),
   PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager, _internal_metadata_),
   PROTOBUF_FIELD_OFFSET(::CUserMsg_ParticleManager, _impl_._extensions_),
@@ -2438,6 +2456,8 @@ const uint32_t TableStruct_usermessages_2eproto::offsets[] PROTOBUF_SECTION_VARI
   PROTOBUF_FIELD_OFFSET(::CUserMessage_UtilMsg_Response, _impl_.platform_),
   PROTOBUF_FIELD_OFFSET(::CUserMessage_UtilMsg_Response, _impl_.itemdetails_),
   PROTOBUF_FIELD_OFFSET(::CUserMessage_UtilMsg_Response, _impl_.itemgroup_),
+  PROTOBUF_FIELD_OFFSET(::CUserMessage_UtilMsg_Response, _impl_.total_count_),
+  PROTOBUF_FIELD_OFFSET(::CUserMessage_UtilMsg_Response, _impl_.total_count2_),
   0,
   1,
   2,
@@ -2448,6 +2468,8 @@ const uint32_t TableStruct_usermessages_2eproto::offsets[] PROTOBUF_SECTION_VARI
   5,
   ~0u,
   6,
+  7,
+  8,
   PROTOBUF_FIELD_OFFSET(::CUserMessage_DllStatus_CVDiagnostic, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CUserMessage_DllStatus_CVDiagnostic, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2536,6 +2558,7 @@ const uint32_t TableStruct_usermessages_2eproto::offsets[] PROTOBUF_SECTION_VARI
   PROTOBUF_FIELD_OFFSET(::CUserMessage_Inventory_Response, _impl_.inventories2_),
   PROTOBUF_FIELD_OFFSET(::CUserMessage_Inventory_Response, _impl_.inv_type_),
   PROTOBUF_FIELD_OFFSET(::CUserMessage_Inventory_Response, _impl_.build_version_),
+  PROTOBUF_FIELD_OFFSET(::CUserMessage_Inventory_Response, _impl_.instance_),
   0,
   1,
   2,
@@ -2546,6 +2569,7 @@ const uint32_t TableStruct_usermessages_2eproto::offsets[] PROTOBUF_SECTION_VARI
   ~0u,
   6,
   7,
+  8,
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 7, -1, sizeof(::CUserMessageAchievementEvent)},
@@ -2612,29 +2636,30 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 704, 711, -1, sizeof(::CUserMsg_ParticleManager_ParticleCanFreeze)},
   { 712, 719, -1, sizeof(::CUserMsg_ParticleManager_ParticleFreezeTransitionOverride)},
   { 720, 728, -1, sizeof(::CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue)},
-  { 730, 740, -1, sizeof(::CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue)},
-  { 744, 755, -1, sizeof(::CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue)},
-  { 760, -1, -1, sizeof(::CUserMsg_ParticleManager_SetParticleNamedValueContext)},
-  { 769, 805, -1, sizeof(::CUserMsg_ParticleManager)},
-  { 835, 842, -1, sizeof(::CUserMsg_HudError)},
-  { 843, 851, -1, sizeof(::CUserMsg_CustomGameEvent)},
-  { 853, 863, -1, sizeof(::CUserMessageHapticsManagerPulse)},
-  { 867, 876, -1, sizeof(::CUserMessageHapticsManagerEffect)},
-  { 879, 887, -1, sizeof(::CUserMessageAnimStateGraphState)},
-  { 889, 899, -1, sizeof(::CUserMessageCommandQueueState_command_queue_info_t)},
-  { 903, 911, -1, sizeof(::CUserMessageCommandQueueState)},
-  { 913, 922, -1, sizeof(::CUserMessageUpdateCssClasses)},
-  { 925, 932, -1, sizeof(::CUserMessageServerFrameTime)},
-  { 933, 940, -1, sizeof(::CUserMessageLagCompensationError)},
-  { 941, 949, -1, sizeof(::CUserMessageRequestDllStatus)},
-  { 951, 962, -1, sizeof(::CUserMessageRequestUtilAction)},
-  { 967, 977, -1, sizeof(::CUserMessage_UtilMsg_Response_ItemDetail)},
-  { 981, 997, -1, sizeof(::CUserMessage_UtilMsg_Response)},
-  { 1007, 1017, -1, sizeof(::CUserMessage_DllStatus_CVDiagnostic)},
-  { 1021, 1034, -1, sizeof(::CUserMessage_DllStatus)},
-  { 1041, 1050, -1, sizeof(::CUserMessageRequestInventory)},
-  { 1053, 1069, -1, sizeof(::CUserMessage_Inventory_Response_InventoryDetail)},
-  { 1079, 1095, -1, sizeof(::CUserMessage_Inventory_Response)},
+  { 730, 738, -1, sizeof(::CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue)},
+  { 740, 749, -1, sizeof(::CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue)},
+  { 752, 760, -1, sizeof(::CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext)},
+  { 762, -1, -1, sizeof(::CUserMsg_ParticleManager_SetParticleNamedValueContext)},
+  { 772, 808, -1, sizeof(::CUserMsg_ParticleManager)},
+  { 838, 845, -1, sizeof(::CUserMsg_HudError)},
+  { 846, 854, -1, sizeof(::CUserMsg_CustomGameEvent)},
+  { 856, 866, -1, sizeof(::CUserMessageHapticsManagerPulse)},
+  { 870, 879, -1, sizeof(::CUserMessageHapticsManagerEffect)},
+  { 882, 890, -1, sizeof(::CUserMessageAnimStateGraphState)},
+  { 892, 902, -1, sizeof(::CUserMessageCommandQueueState_command_queue_info_t)},
+  { 906, 914, -1, sizeof(::CUserMessageCommandQueueState)},
+  { 916, 925, -1, sizeof(::CUserMessageUpdateCssClasses)},
+  { 928, 935, -1, sizeof(::CUserMessageServerFrameTime)},
+  { 936, 943, -1, sizeof(::CUserMessageLagCompensationError)},
+  { 944, 952, -1, sizeof(::CUserMessageRequestDllStatus)},
+  { 954, 965, -1, sizeof(::CUserMessageRequestUtilAction)},
+  { 970, 980, -1, sizeof(::CUserMessage_UtilMsg_Response_ItemDetail)},
+  { 984, 1002, -1, sizeof(::CUserMessage_UtilMsg_Response)},
+  { 1014, 1024, -1, sizeof(::CUserMessage_DllStatus_CVDiagnostic)},
+  { 1028, 1041, -1, sizeof(::CUserMessage_DllStatus)},
+  { 1048, 1057, -1, sizeof(::CUserMessageRequestInventory)},
+  { 1060, 1076, -1, sizeof(::CUserMessage_Inventory_Response_InventoryDetail)},
+  { 1086, 1103, -1, sizeof(::CUserMessage_Inventory_Response)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -2704,6 +2729,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue_default_instance_._instance,
   &::_CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue_default_instance_._instance,
   &::_CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue_default_instance_._instance,
+  &::_CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext_default_instance_._instance,
   &::_CUserMsg_ParticleManager_SetParticleNamedValueContext_default_instance_._instance,
   &::_CUserMsg_ParticleManager_default_instance_._instance,
   &::_CUserMsg_HudError_default_instance_._instance,
@@ -2808,7 +2834,7 @@ const char descriptor_table_protodef_usermessages_2eproto[] PROTOBUF_SECTION_VAR
   "CUserMessageCameraTransition.Transition_"
   "DataDriven\032Y\n\025Transition_DataDriven\022\020\n\010f"
   "ilename\030\001 \001(\t\022\034\n\020attach_ent_index\030\002 \001(\005:"
-  "\002-1\022\020\n\010duration\030\003 \001(\002\"\344+\n\030CUserMsg_Parti"
+  "\002-1\022\020\n\010duration\030\003 \001(\002\"\255,\n\030CUserMsg_Parti"
   "cleManager\022C\n\004type\030\001 \002(\0162\021.PARTICLE_MESS"
   "AGE:\"GAME_PARTICLE_MANAGER_EVENT_CREATE\022"
   "\r\n\005index\030\002 \002(\r\022N\n\026release_particle_index"
@@ -2931,7 +2957,7 @@ const char descriptor_table_protodef_usermessages_2eproto[] PROTOBUF_SECTION_VAR
   "leSkipToTime\022\024\n\014skip_to_time\030\001 \001(\002\032\'\n\021Pa"
   "rticleCanFreeze\022\022\n\ncan_freeze\030\001 \001(\010\032F\n P"
   "articleFreezeTransitionOverride\022\"\n\032freez"
-  "e_transition_override\030\001 \001(\002\032\237\005\n\034SetParti"
+  "e_transition_override\030\001 \001(\002\032\350\005\n\034SetParti"
   "cleNamedValueContext\022^\n\014float_values\030\001 \003"
   "(\0132H.CUserMsg_ParticleManager.SetParticl"
   "eNamedValueContext.FloatContextValue\022`\n\r"
@@ -2939,155 +2965,159 @@ const char descriptor_table_protodef_usermessages_2eproto[] PROTOBUF_SECTION_VAR
   "anager.SetParticleNamedValueContext.Vect"
   "orContextValue\022f\n\020transform_values\030\003 \003(\013"
   "2L.CUserMsg_ParticleManager.SetParticleN"
-  "amedValueContext.TransformContextValue\0326"
-  "\n\021FloatContextValue\022\022\n\nvalue_name\030\001 \001(\t\022"
-  "\r\n\005value\030\002 \001(\002\032z\n\022VectorContextValue\022\022\n\n"
-  "value_name\030\001 \001(\t\022\032\n\005value\030\002 \001(\0132\013.CMsgVe"
-  "ctor\022\033\n\tent_index\030\003 \001(\r:\01016777215\022\027\n\017att"
-  "achment_name\030\004 \001(\t\032\240\001\n\025TransformContextV"
-  "alue\022\022\n\nvalue_name\030\001 \001(\t\022\033\n\006angles\030\002 \001(\013"
-  "2\013.CMsgQAngle\022 \n\013translation\030\003 \001(\0132\013.CMs"
-  "gVector\022\033\n\tent_index\030\004 \001(\r:\01016777215\022\027\n\017"
-  "attachment_name\030\005 \001(\t*\005\010d\020\312\001\"%\n\021CUserMsg"
-  "_HudError\022\020\n\010order_id\030\001 \001(\005\"<\n\030CUserMsg_"
-  "CustomGameEvent\022\022\n\nevent_name\030\001 \001(\t\022\014\n\004d"
-  "ata\030\002 \001(\014\"\177\n\037CUserMessageHapticsManagerP"
-  "ulse\022\017\n\007hand_id\030\001 \001(\005\022\030\n\020effect_amplitud"
-  "e\030\002 \001(\002\022\030\n\020effect_frequency\030\003 \001(\002\022\027\n\017eff"
-  "ect_duration\030\004 \001(\002\"h\n CUserMessageHaptic"
-  "sManagerEffect\022\017\n\007hand_id\030\001 \001(\005\022\035\n\025effec"
-  "t_name_hash_code\030\002 \001(\r\022\024\n\014effect_scale\030\003"
-  " \001(\002\"E\n\037CUserMessageAnimStateGraphState\022"
-  "\024\n\014entity_index\030\001 \001(\005\022\014\n\004data\030\002 \001(\014\"\235\002\n\035"
-  "CUserMessageCommandQueueState\022\027\n\013player_"
-  "slot\030\001 \001(\005:\002-1\022O\n\022command_queue_info\030\002 \001"
-  "(\01323.CUserMessageCommandQueueState.comma"
-  "nd_queue_info_t\032\221\001\n\024command_queue_info_t"
-  "\022\027\n\017commands_queued\030\001 \001(\r\022\"\n\032command_que"
-  "ue_desired_size\030\002 \001(\r\022\035\n\025starved_command"
-  "_ticks\030\003 \001(\r\022\035\n\025time_dilation_percent\030\004 "
-  "\001(\005\"_\n\034CUserMessageUpdateCssClasses\022\032\n\022t"
-  "arget_world_panel\030\001 \001(\005\022\023\n\013css_classes\030\002"
-  " \001(\t\022\016\n\006is_add\030\003 \001(\010\"1\n\033CUserMessageServ"
-  "erFrameTime\022\022\n\nframe_time\030\001 \001(\002\"4\n CUser"
-  "MessageLagCompensationError\022\020\n\010distance\030"
-  "\001 \001(\002\"G\n\034CUserMessageRequestDllStatus\022\022\n"
-  "\ndll_action\030\001 \001(\t\022\023\n\013full_report\030\002 \001(\010\"j"
-  "\n\035CUserMessageRequestUtilAction\022\r\n\005util1"
-  "\030\002 \001(\005\022\r\n\005util2\030\003 \001(\005\022\r\n\005util3\030\004 \001(\005\022\r\n\005"
-  "util4\030\005 \001(\005\022\r\n\005util5\030\006 \001(\005\"\315\002\n\035CUserMess"
-  "age_UtilMsg_Response\022\013\n\003crc\030\001 \001(\007\022\022\n\nite"
-  "m_count\030\002 \001(\005\022\014\n\004crc2\030\003 \001(\007\022\023\n\013item_coun"
-  "t2\030\004 \001(\005\022\020\n\010crc_part\030\005 \003(\005\022\021\n\tcrc_part2\030"
-  "\006 \003(\005\022\030\n\020client_timestamp\030\007 \001(\005\022\020\n\010platf"
-  "orm\030\010 \001(\005\022>\n\013itemdetails\030\t \003(\0132).CUserMe"
-  "ssage_UtilMsg_Response.ItemDetail\022\021\n\tite"
-  "mgroup\030\n \001(\005\032D\n\nItemDetail\022\r\n\005index\030\001 \001("
-  "\005\022\014\n\004hash\030\002 \001(\005\022\013\n\003crc\030\003 \001(\005\022\014\n\004name\030\004 \001"
-  "(\t\"\242\002\n\026CUserMessage_DllStatus\022\023\n\013file_re"
-  "port\030\001 \001(\t\022\024\n\014command_line\030\002 \001(\t\022\023\n\013tota"
-  "l_files\030\003 \001(\r\022\022\n\nprocess_id\030\004 \001(\r\022\021\n\tosv"
-  "ersion\030\005 \001(\005\022\023\n\013client_time\030\006 \001(\004\0229\n\013dia"
-  "gnostics\030\007 \003(\0132$.CUserMessage_DllStatus."
-  "CVDiagnostic\032Q\n\014CVDiagnostic\022\n\n\002id\030\001 \001(\r"
-  "\022\020\n\010extended\030\002 \001(\r\022\r\n\005value\030\003 \001(\004\022\024\n\014str"
-  "ing_value\030\004 \001(\t\"R\n\034CUserMessageRequestIn"
-  "ventory\022\021\n\tinventory\030\001 \001(\005\022\016\n\006offset\030\002 \001"
-  "(\005\022\017\n\007options\030\003 \001(\005\"\211\004\n\037CUserMessage_Inv"
-  "entory_Response\022\013\n\003crc\030\001 \001(\007\022\022\n\nitem_cou"
-  "nt\030\002 \001(\005\022\021\n\tosversion\030\005 \001(\005\022\021\n\tperf_time"
-  "\030\006 \001(\005\022\030\n\020client_timestamp\030\007 \001(\005\022\020\n\010plat"
-  "form\030\010 \001(\005\022E\n\013inventories\030\t \003(\01320.CUserM"
-  "essage_Inventory_Response.InventoryDetai"
-  "l\022F\n\014inventories2\030\n \003(\01320.CUserMessage_I"
-  "nventory_Response.InventoryDetail\022\020\n\010inv"
-  "_type\030\013 \001(\005\022\025\n\rbuild_version\030\014 \001(\005\032\272\001\n\017I"
-  "nventoryDetail\022\r\n\005index\030\001 \001(\005\022\017\n\007primary"
-  "\030\002 \001(\003\022\016\n\006offset\030\003 \001(\003\022\r\n\005first\030\004 \001(\003\022\014\n"
-  "\004base\030\005 \001(\003\022\014\n\004name\030\006 \001(\t\022\021\n\tbase_name\030\007"
-  " \001(\t\022\023\n\013base_detail\030\010 \001(\005\022\021\n\tbase_time\030\t"
-  " \001(\005\022\021\n\tbase_hash\030\n \001(\005*\215\010\n\021EBaseUserMes"
-  "sages\022\027\n\023UM_AchievementEvent\020e\022\023\n\017UM_Clo"
-  "seCaption\020f\022\031\n\025UM_CloseCaptionDirect\020g\022\027"
-  "\n\023UM_CurrentTimescale\020h\022\027\n\023UM_DesiredTim"
-  "escale\020i\022\013\n\007UM_Fade\020j\022\020\n\014UM_GameTitle\020k\022"
-  "\r\n\tUM_HudMsg\020n\022\016\n\nUM_HudText\020o\022\022\n\016UM_Col"
-  "oredText\020q\022\023\n\017UM_RequestState\020r\022\017\n\013UM_Re"
-  "setHUD\020s\022\r\n\tUM_Rumble\020t\022\016\n\nUM_SayText\020u\022"
-  "\017\n\013UM_SayText2\020v\022\025\n\021UM_SayTextChannel\020w\022"
-  "\014\n\010UM_Shake\020x\022\017\n\013UM_ShakeDir\020y\022\016\n\nUM_Tex"
-  "tMsg\020|\022\021\n\rUM_ScreenTilt\020}\022\021\n\014UM_VoiceMas"
-  "k\020\200\001\022\021\n\014UM_SendAudio\020\202\001\022\022\n\rUM_ItemPickup"
-  "\020\203\001\022\022\n\rUM_AmmoDenied\020\204\001\022\020\n\013UM_ShowMenu\020\206"
-  "\001\022\022\n\rUM_CreditsMsg\020\207\001\022\037\n\032UM_CloseCaption"
-  "Placeholder\020\216\001\022\030\n\023UM_CameraTransition\020\217\001"
-  "\022\026\n\021UM_AudioParameter\020\220\001\022\027\n\022UM_ParticleM"
-  "anager\020\221\001\022\020\n\013UM_HudError\020\222\001\022\027\n\022UM_Custom"
-  "GameEvent\020\224\001\022\027\n\022UM_AnimGraphUpdate\020\225\001\022\033\n"
-  "\026UM_HapticsManagerPulse\020\226\001\022\034\n\027UM_Haptics"
-  "ManagerEffect\020\227\001\022\031\n\024UM_CommandQueueState"
-  "\020\230\001\022\030\n\023UM_UpdateCssClasses\020\231\001\022\027\n\022UM_Serv"
-  "erFrameTime\020\232\001\022\034\n\027UM_LagCompensationErro"
-  "r\020\233\001\022\030\n\023UM_RequestDllStatus\020\234\001\022\031\n\024UM_Req"
-  "uestUtilAction\020\235\001\022\032\n\025UM_UtilActionRespon"
-  "se\020\236\001\022\031\n\024UM_DllStatusResponse\020\237\001\022\030\n\023UM_R"
-  "equestInventory\020\240\001\022\031\n\024UM_InventoryRespon"
-  "se\020\241\001\022\020\n\013UM_MAX_BASE\020\310\001*\224\001\n\023EBaseEntityM"
-  "essages\022\022\n\rEM_PlayJingle\020\210\001\022\025\n\020EM_Screen"
-  "Overlay\020\211\001\022\027\n\022EM_RemoveAllDecals\020\212\001\022\026\n\021E"
-  "M_PropagateForce\020\213\001\022\017\n\nEM_DoSpark\020\214\001\022\020\n\013"
-  "EM_FixAngle\020\215\001*o\n\teRollType\022\026\n\tROLL_NONE"
-  "\020\377\377\377\377\377\377\377\377\377\001\022\016\n\nROLL_STATS\020\000\022\020\n\014ROLL_CRED"
-  "ITS\020\001\022\027\n\023ROLL_LATE_JOIN_LOGO\020\002\022\017\n\013ROLL_O"
-  "UTTRO\020\003*\276\013\n\020PARTICLE_MESSAGE\022&\n\"GAME_PAR"
-  "TICLE_MANAGER_EVENT_CREATE\020\000\022&\n\"GAME_PAR"
-  "TICLE_MANAGER_EVENT_UPDATE\020\001\022.\n*GAME_PAR"
-  "TICLE_MANAGER_EVENT_UPDATE_FORWARD\020\002\0222\n."
-  "GAME_PARTICLE_MANAGER_EVENT_UPDATE_ORIEN"
-  "TATION\020\003\022/\n+GAME_PARTICLE_MANAGER_EVENT_"
-  "UPDATE_FALLBACK\020\004\022*\n&GAME_PARTICLE_MANAG"
-  "ER_EVENT_UPDATE_ENT\020\005\022-\n)GAME_PARTICLE_M"
-  "ANAGER_EVENT_UPDATE_OFFSET\020\006\022\'\n#GAME_PAR"
-  "TICLE_MANAGER_EVENT_DESTROY\020\007\0221\n-GAME_PA"
-  "RTICLE_MANAGER_EVENT_DESTROY_INVOLVING\020\010"
-  "\022\'\n#GAME_PARTICLE_MANAGER_EVENT_RELEASE\020"
-  "\t\022\'\n#GAME_PARTICLE_MANAGER_EVENT_LATENCY"
-  "\020\n\022+\n\'GAME_PARTICLE_MANAGER_EVENT_SHOULD"
-  "_DRAW\020\013\022&\n\"GAME_PARTICLE_MANAGER_EVENT_F"
-  "ROZEN\020\014\022\?\n;GAME_PARTICLE_MANAGER_EVENT_C"
-  "HANGE_CONTROL_POINT_ATTACHMENT\020\r\0226\n2GAME"
-  "_PARTICLE_MANAGER_EVENT_UPDATE_ENTITY_PO"
-  "SITION\020\016\0222\n.GAME_PARTICLE_MANAGER_EVENT_"
-  "SET_FOW_PROPERTIES\020\017\022(\n$GAME_PARTICLE_MA"
-  "NAGER_EVENT_SET_TEXT\020\020\0224\n0GAME_PARTICLE_"
-  "MANAGER_EVENT_SET_SHOULD_CHECK_FOW\020\021\0227\n3"
-  "GAME_PARTICLE_MANAGER_EVENT_SET_CONTROL_"
-  "POINT_MODEL\020\022\022:\n6GAME_PARTICLE_MANAGER_E"
-  "VENT_SET_CONTROL_POINT_SNAPSHOT\020\023\0225\n1GAM"
-  "E_PARTICLE_MANAGER_EVENT_SET_TEXTURE_ATT"
-  "RIBUTE\020\024\022=\n9GAME_PARTICLE_MANAGER_EVENT_"
-  "SET_SCENE_OBJECT_GENERIC_FLAG\020\025\022\?\n;GAME_"
-  "PARTICLE_MANAGER_EVENT_SET_SCENE_OBJECT_"
-  "TINT_AND_DESAT\020\026\022-\n)GAME_PARTICLE_MANAGE"
-  "R_EVENT_DESTROY_NAMED\020\027\022,\n(GAME_PARTICLE"
-  "_MANAGER_EVENT_SKIP_TO_TIME\020\030\022*\n&GAME_PA"
-  "RTICLE_MANAGER_EVENT_CAN_FREEZE\020\031\0227\n3GAM"
-  "E_PARTICLE_MANAGER_EVENT_SET_NAMED_VALUE"
-  "_CONTEXT\020\032\0220\n,GAME_PARTICLE_MANAGER_EVEN"
-  "T_UPDATE_TRANSFORM\020\033\022:\n6GAME_PARTICLE_MA"
-  "NAGER_EVENT_FREEZE_TRANSITION_OVERRIDE\020\034"
-  "*t\n\020EHapticPulseType\022\036\n\032VR_HAND_HAPTIC_P"
-  "ULSE_LIGHT\020\000\022\037\n\033VR_HAND_HAPTIC_PULSE_MED"
-  "IUM\020\001\022\037\n\033VR_HAND_HAPTIC_PULSE_STRONG\020\002"
+  "amedValueContext.TransformContextValue\022]"
+  "\n\016ehandle_values\030\004 \003(\0132E.CUserMsg_Partic"
+  "leManager.SetParticleNamedValueContext.E"
+  "HandleContext\032;\n\021FloatContextValue\022\027\n\017va"
+  "lue_name_hash\030\001 \001(\r\022\r\n\005value\030\002 \001(\002\032I\n\022Ve"
+  "ctorContextValue\022\027\n\017value_name_hash\030\001 \001("
+  "\r\022\032\n\005value\030\002 \001(\0132\013.CMsgVector\032o\n\025Transfo"
+  "rmContextValue\022\027\n\017value_name_hash\030\001 \001(\r\022"
+  "\033\n\006angles\030\002 \001(\0132\013.CMsgQAngle\022 \n\013translat"
+  "ion\030\003 \001(\0132\013.CMsgVector\032F\n\016EHandleContext"
+  "\022\027\n\017value_name_hash\030\001 \001(\r\022\033\n\tent_index\030\002"
+  " \001(\r:\01016777215*\005\010d\020\312\001\"%\n\021CUserMsg_HudErr"
+  "or\022\020\n\010order_id\030\001 \001(\005\"<\n\030CUserMsg_CustomG"
+  "ameEvent\022\022\n\nevent_name\030\001 \001(\t\022\014\n\004data\030\002 \001"
+  "(\014\"\177\n\037CUserMessageHapticsManagerPulse\022\017\n"
+  "\007hand_id\030\001 \001(\005\022\030\n\020effect_amplitude\030\002 \001(\002"
+  "\022\030\n\020effect_frequency\030\003 \001(\002\022\027\n\017effect_dur"
+  "ation\030\004 \001(\002\"h\n CUserMessageHapticsManage"
+  "rEffect\022\017\n\007hand_id\030\001 \001(\005\022\035\n\025effect_name_"
+  "hash_code\030\002 \001(\r\022\024\n\014effect_scale\030\003 \001(\002\"E\n"
+  "\037CUserMessageAnimStateGraphState\022\024\n\014enti"
+  "ty_index\030\001 \001(\005\022\014\n\004data\030\002 \001(\014\"\235\002\n\035CUserMe"
+  "ssageCommandQueueState\022\027\n\013player_slot\030\001 "
+  "\001(\005:\002-1\022O\n\022command_queue_info\030\002 \001(\01323.CU"
+  "serMessageCommandQueueState.command_queu"
+  "e_info_t\032\221\001\n\024command_queue_info_t\022\027\n\017com"
+  "mands_queued\030\001 \001(\r\022\"\n\032command_queue_desi"
+  "red_size\030\002 \001(\r\022\035\n\025starved_command_ticks\030"
+  "\003 \001(\r\022\035\n\025time_dilation_percent\030\004 \001(\005\"_\n\034"
+  "CUserMessageUpdateCssClasses\022\032\n\022target_w"
+  "orld_panel\030\001 \001(\005\022\023\n\013css_classes\030\002 \001(\t\022\016\n"
+  "\006is_add\030\003 \001(\010\"1\n\033CUserMessageServerFrame"
+  "Time\022\022\n\nframe_time\030\001 \001(\002\"4\n CUserMessage"
+  "LagCompensationError\022\020\n\010distance\030\001 \001(\002\"G"
+  "\n\034CUserMessageRequestDllStatus\022\022\n\ndll_ac"
+  "tion\030\001 \001(\t\022\023\n\013full_report\030\002 \001(\010\"j\n\035CUser"
+  "MessageRequestUtilAction\022\r\n\005util1\030\002 \001(\005\022"
+  "\r\n\005util2\030\003 \001(\005\022\r\n\005util3\030\004 \001(\005\022\r\n\005util4\030\005"
+  " \001(\005\022\r\n\005util5\030\006 \001(\005\"\370\002\n\035CUserMessage_Uti"
+  "lMsg_Response\022\013\n\003crc\030\001 \001(\007\022\022\n\nitem_count"
+  "\030\002 \001(\005\022\014\n\004crc2\030\003 \001(\007\022\023\n\013item_count2\030\004 \001("
+  "\005\022\020\n\010crc_part\030\005 \003(\005\022\021\n\tcrc_part2\030\006 \003(\005\022\030"
+  "\n\020client_timestamp\030\007 \001(\005\022\020\n\010platform\030\010 \001"
+  "(\005\022>\n\013itemdetails\030\t \003(\0132).CUserMessage_U"
+  "tilMsg_Response.ItemDetail\022\021\n\titemgroup\030"
+  "\n \001(\005\022\023\n\013total_count\030\013 \001(\005\022\024\n\014total_coun"
+  "t2\030\014 \001(\005\032D\n\nItemDetail\022\r\n\005index\030\001 \001(\005\022\014\n"
+  "\004hash\030\002 \001(\005\022\013\n\003crc\030\003 \001(\005\022\014\n\004name\030\004 \001(\t\"\242"
+  "\002\n\026CUserMessage_DllStatus\022\023\n\013file_report"
+  "\030\001 \001(\t\022\024\n\014command_line\030\002 \001(\t\022\023\n\013total_fi"
+  "les\030\003 \001(\r\022\022\n\nprocess_id\030\004 \001(\r\022\021\n\tosversi"
+  "on\030\005 \001(\005\022\023\n\013client_time\030\006 \001(\004\0229\n\013diagnos"
+  "tics\030\007 \003(\0132$.CUserMessage_DllStatus.CVDi"
+  "agnostic\032Q\n\014CVDiagnostic\022\n\n\002id\030\001 \001(\r\022\020\n\010"
+  "extended\030\002 \001(\r\022\r\n\005value\030\003 \001(\004\022\024\n\014string_"
+  "value\030\004 \001(\t\"R\n\034CUserMessageRequestInvent"
+  "ory\022\021\n\tinventory\030\001 \001(\005\022\016\n\006offset\030\002 \001(\005\022\017"
+  "\n\007options\030\003 \001(\005\"\233\004\n\037CUserMessage_Invento"
+  "ry_Response\022\013\n\003crc\030\001 \001(\007\022\022\n\nitem_count\030\002"
+  " \001(\005\022\021\n\tosversion\030\005 \001(\005\022\021\n\tperf_time\030\006 \001"
+  "(\005\022\030\n\020client_timestamp\030\007 \001(\005\022\020\n\010platform"
+  "\030\010 \001(\005\022E\n\013inventories\030\t \003(\01320.CUserMessa"
+  "ge_Inventory_Response.InventoryDetail\022F\n"
+  "\014inventories2\030\n \003(\01320.CUserMessage_Inven"
+  "tory_Response.InventoryDetail\022\020\n\010inv_typ"
+  "e\030\013 \001(\005\022\025\n\rbuild_version\030\014 \001(\005\022\020\n\010instan"
+  "ce\030\r \001(\005\032\272\001\n\017InventoryDetail\022\r\n\005index\030\001 "
+  "\001(\005\022\017\n\007primary\030\002 \001(\003\022\016\n\006offset\030\003 \001(\003\022\r\n\005"
+  "first\030\004 \001(\003\022\014\n\004base\030\005 \001(\003\022\014\n\004name\030\006 \001(\t\022"
+  "\021\n\tbase_name\030\007 \001(\t\022\023\n\013base_detail\030\010 \001(\005\022"
+  "\021\n\tbase_time\030\t \001(\005\022\021\n\tbase_hash\030\n \001(\005*\215\010"
+  "\n\021EBaseUserMessages\022\027\n\023UM_AchievementEve"
+  "nt\020e\022\023\n\017UM_CloseCaption\020f\022\031\n\025UM_CloseCap"
+  "tionDirect\020g\022\027\n\023UM_CurrentTimescale\020h\022\027\n"
+  "\023UM_DesiredTimescale\020i\022\013\n\007UM_Fade\020j\022\020\n\014U"
+  "M_GameTitle\020k\022\r\n\tUM_HudMsg\020n\022\016\n\nUM_HudTe"
+  "xt\020o\022\022\n\016UM_ColoredText\020q\022\023\n\017UM_RequestSt"
+  "ate\020r\022\017\n\013UM_ResetHUD\020s\022\r\n\tUM_Rumble\020t\022\016\n"
+  "\nUM_SayText\020u\022\017\n\013UM_SayText2\020v\022\025\n\021UM_Say"
+  "TextChannel\020w\022\014\n\010UM_Shake\020x\022\017\n\013UM_ShakeD"
+  "ir\020y\022\016\n\nUM_TextMsg\020|\022\021\n\rUM_ScreenTilt\020}\022"
+  "\021\n\014UM_VoiceMask\020\200\001\022\021\n\014UM_SendAudio\020\202\001\022\022\n"
+  "\rUM_ItemPickup\020\203\001\022\022\n\rUM_AmmoDenied\020\204\001\022\020\n"
+  "\013UM_ShowMenu\020\206\001\022\022\n\rUM_CreditsMsg\020\207\001\022\037\n\032U"
+  "M_CloseCaptionPlaceholder\020\216\001\022\030\n\023UM_Camer"
+  "aTransition\020\217\001\022\026\n\021UM_AudioParameter\020\220\001\022\027"
+  "\n\022UM_ParticleManager\020\221\001\022\020\n\013UM_HudError\020\222"
+  "\001\022\027\n\022UM_CustomGameEvent\020\224\001\022\027\n\022UM_AnimGra"
+  "phUpdate\020\225\001\022\033\n\026UM_HapticsManagerPulse\020\226\001"
+  "\022\034\n\027UM_HapticsManagerEffect\020\227\001\022\031\n\024UM_Com"
+  "mandQueueState\020\230\001\022\030\n\023UM_UpdateCssClasses"
+  "\020\231\001\022\027\n\022UM_ServerFrameTime\020\232\001\022\034\n\027UM_LagCo"
+  "mpensationError\020\233\001\022\030\n\023UM_RequestDllStatu"
+  "s\020\234\001\022\031\n\024UM_RequestUtilAction\020\235\001\022\032\n\025UM_Ut"
+  "ilActionResponse\020\236\001\022\031\n\024UM_DllStatusRespo"
+  "nse\020\237\001\022\030\n\023UM_RequestInventory\020\240\001\022\031\n\024UM_I"
+  "nventoryResponse\020\241\001\022\020\n\013UM_MAX_BASE\020\310\001*\224\001"
+  "\n\023EBaseEntityMessages\022\022\n\rEM_PlayJingle\020\210"
+  "\001\022\025\n\020EM_ScreenOverlay\020\211\001\022\027\n\022EM_RemoveAll"
+  "Decals\020\212\001\022\026\n\021EM_PropagateForce\020\213\001\022\017\n\nEM_"
+  "DoSpark\020\214\001\022\020\n\013EM_FixAngle\020\215\001*o\n\teRollTyp"
+  "e\022\026\n\tROLL_NONE\020\377\377\377\377\377\377\377\377\377\001\022\016\n\nROLL_STATS\020"
+  "\000\022\020\n\014ROLL_CREDITS\020\001\022\027\n\023ROLL_LATE_JOIN_LO"
+  "GO\020\002\022\017\n\013ROLL_OUTTRO\020\003*\276\013\n\020PARTICLE_MESSA"
+  "GE\022&\n\"GAME_PARTICLE_MANAGER_EVENT_CREATE"
+  "\020\000\022&\n\"GAME_PARTICLE_MANAGER_EVENT_UPDATE"
+  "\020\001\022.\n*GAME_PARTICLE_MANAGER_EVENT_UPDATE"
+  "_FORWARD\020\002\0222\n.GAME_PARTICLE_MANAGER_EVEN"
+  "T_UPDATE_ORIENTATION\020\003\022/\n+GAME_PARTICLE_"
+  "MANAGER_EVENT_UPDATE_FALLBACK\020\004\022*\n&GAME_"
+  "PARTICLE_MANAGER_EVENT_UPDATE_ENT\020\005\022-\n)G"
+  "AME_PARTICLE_MANAGER_EVENT_UPDATE_OFFSET"
+  "\020\006\022\'\n#GAME_PARTICLE_MANAGER_EVENT_DESTRO"
+  "Y\020\007\0221\n-GAME_PARTICLE_MANAGER_EVENT_DESTR"
+  "OY_INVOLVING\020\010\022\'\n#GAME_PARTICLE_MANAGER_"
+  "EVENT_RELEASE\020\t\022\'\n#GAME_PARTICLE_MANAGER"
+  "_EVENT_LATENCY\020\n\022+\n\'GAME_PARTICLE_MANAGE"
+  "R_EVENT_SHOULD_DRAW\020\013\022&\n\"GAME_PARTICLE_M"
+  "ANAGER_EVENT_FROZEN\020\014\022\?\n;GAME_PARTICLE_M"
+  "ANAGER_EVENT_CHANGE_CONTROL_POINT_ATTACH"
+  "MENT\020\r\0226\n2GAME_PARTICLE_MANAGER_EVENT_UP"
+  "DATE_ENTITY_POSITION\020\016\0222\n.GAME_PARTICLE_"
+  "MANAGER_EVENT_SET_FOW_PROPERTIES\020\017\022(\n$GA"
+  "ME_PARTICLE_MANAGER_EVENT_SET_TEXT\020\020\0224\n0"
+  "GAME_PARTICLE_MANAGER_EVENT_SET_SHOULD_C"
+  "HECK_FOW\020\021\0227\n3GAME_PARTICLE_MANAGER_EVEN"
+  "T_SET_CONTROL_POINT_MODEL\020\022\022:\n6GAME_PART"
+  "ICLE_MANAGER_EVENT_SET_CONTROL_POINT_SNA"
+  "PSHOT\020\023\0225\n1GAME_PARTICLE_MANAGER_EVENT_S"
+  "ET_TEXTURE_ATTRIBUTE\020\024\022=\n9GAME_PARTICLE_"
+  "MANAGER_EVENT_SET_SCENE_OBJECT_GENERIC_F"
+  "LAG\020\025\022\?\n;GAME_PARTICLE_MANAGER_EVENT_SET"
+  "_SCENE_OBJECT_TINT_AND_DESAT\020\026\022-\n)GAME_P"
+  "ARTICLE_MANAGER_EVENT_DESTROY_NAMED\020\027\022,\n"
+  "(GAME_PARTICLE_MANAGER_EVENT_SKIP_TO_TIM"
+  "E\020\030\022*\n&GAME_PARTICLE_MANAGER_EVENT_CAN_F"
+  "REEZE\020\031\0227\n3GAME_PARTICLE_MANAGER_EVENT_S"
+  "ET_NAMED_VALUE_CONTEXT\020\032\0220\n,GAME_PARTICL"
+  "E_MANAGER_EVENT_UPDATE_TRANSFORM\020\033\022:\n6GA"
+  "ME_PARTICLE_MANAGER_EVENT_FREEZE_TRANSIT"
+  "ION_OVERRIDE\020\034*t\n\020EHapticPulseType\022\036\n\032VR"
+  "_HAND_HAPTIC_PULSE_LIGHT\020\000\022\037\n\033VR_HAND_HA"
+  "PTIC_PULSE_MEDIUM\020\001\022\037\n\033VR_HAND_HAPTIC_PU"
+  "LSE_STRONG\020\002"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_usermessages_2eproto_deps[1] = {
   &::descriptor_table_networkbasetypes_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_usermessages_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_usermessages_2eproto = {
-    false, false, 14038, descriptor_table_protodef_usermessages_2eproto,
+    false, false, 14172, descriptor_table_protodef_usermessages_2eproto,
     "usermessages.proto",
-    &descriptor_table_usermessages_2eproto_once, descriptor_table_usermessages_2eproto_deps, 1, 87,
+    &descriptor_table_usermessages_2eproto_once, descriptor_table_usermessages_2eproto_deps, 1, 88,
     schemas, file_default_instances, TableStruct_usermessages_2eproto::offsets,
     file_level_metadata_usermessages_2eproto, file_level_enum_descriptors_usermessages_2eproto,
     file_level_service_descriptors_usermessages_2eproto,
@@ -19708,7 +19738,7 @@ void CUserMsg_ParticleManager_ParticleFreezeTransitionOverride::InternalSwap(CUs
 class CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue::_Internal {
  public:
   using HasBits = decltype(std::declval<CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue>()._impl_._has_bits_);
-  static void set_has_value_name(HasBits* has_bits) {
+  static void set_has_value_name_hash(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_value(HasBits* has_bits) {
@@ -19728,19 +19758,13 @@ CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue::CUserMs
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.value_name_){}
+    , decltype(_impl_.value_name_hash_){}
     , decltype(_impl_.value_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _impl_.value_name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.value_name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (from._internal_has_value_name()) {
-    _this->_impl_.value_name_.Set(from._internal_value_name(), 
-      _this->GetArenaForAllocation());
-  }
-  _this->_impl_.value_ = from._impl_.value_;
+  ::memcpy(&_impl_.value_name_hash_, &from._impl_.value_name_hash_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.value_) -
+    reinterpret_cast<char*>(&_impl_.value_name_hash_)) + sizeof(_impl_.value_));
   // @@protoc_insertion_point(copy_constructor:CUserMsg_ParticleManager.SetParticleNamedValueContext.FloatContextValue)
 }
 
@@ -19751,13 +19775,9 @@ inline void CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextVa
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.value_name_){}
+    , decltype(_impl_.value_name_hash_){0u}
     , decltype(_impl_.value_){0}
   };
-  _impl_.value_name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.value_name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue::~CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue() {
@@ -19771,7 +19791,6 @@ CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue::~CUserM
 
 inline void CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.value_name_.Destroy();
 }
 
 void CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue::SetCachedSize(int size) const {
@@ -19785,10 +19804,11 @@ void CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue::Cl
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    _impl_.value_name_.ClearNonDefaultToEmpty();
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&_impl_.value_name_hash_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.value_) -
+        reinterpret_cast<char*>(&_impl_.value_name_hash_)) + sizeof(_impl_.value_));
   }
-  _impl_.value_ = 0;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -19800,15 +19820,12 @@ const char* CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextVa
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional string value_name = 1;
+      // optional uint32 value_name_hash = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_value_name();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_value_name_hash(&has_bits);
+          _impl_.value_name_hash_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-          #ifndef NDEBUG
-          ::_pbi::VerifyUTF8(str, "CUserMsg_ParticleManager.SetParticleNamedValueContext.FloatContextValue.value_name");
-          #endif  // !NDEBUG
         } else
           goto handle_unusual;
         continue;
@@ -19852,14 +19869,10 @@ uint8_t* CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional string value_name = 1;
+  // optional uint32 value_name_hash = 1;
   if (cached_has_bits & 0x00000001u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_value_name().data(), static_cast<int>(this->_internal_value_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CUserMsg_ParticleManager.SetParticleNamedValueContext.FloatContextValue.value_name");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_value_name(), target);
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_value_name_hash(), target);
   }
 
   // optional float value = 2;
@@ -19886,11 +19899,9 @@ size_t CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue::
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional string value_name = 1;
+    // optional uint32 value_name_hash = 1;
     if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_value_name());
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_value_name_hash());
     }
 
     // optional float value = 2;
@@ -19920,7 +19931,7 @@ void CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue::Me
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_internal_set_value_name(from._internal_value_name());
+      _this->_impl_.value_name_hash_ = from._impl_.value_name_hash_;
     }
     if (cached_has_bits & 0x00000002u) {
       _this->_impl_.value_ = from._impl_.value_;
@@ -19943,15 +19954,14 @@ bool CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue::Is
 
 void CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue::InternalSwap(CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue* other) {
   using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.value_name_, lhs_arena,
-      &other->_impl_.value_name_, rhs_arena
-  );
-  swap(_impl_.value_, other->_impl_.value_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue, _impl_.value_)
+      + sizeof(CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue::_impl_.value_)
+      - PROTOBUF_FIELD_OFFSET(CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue, _impl_.value_name_hash_)>(
+          reinterpret_cast<char*>(&_impl_.value_name_hash_),
+          reinterpret_cast<char*>(&other->_impl_.value_name_hash_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue::GetMetadata() const {
@@ -19965,18 +19975,12 @@ void CUserMsg_ParticleManager_SetParticleNamedValueContext_FloatContextValue::In
 class CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue::_Internal {
  public:
   using HasBits = decltype(std::declval<CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue>()._impl_._has_bits_);
-  static void set_has_value_name(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+  static void set_has_value_name_hash(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
   }
   static const ::CMsgVector& value(const CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue* msg);
   static void set_has_value(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_ent_index(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-  static void set_has_attachment_name(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
 };
 
@@ -19986,7 +19990,7 @@ CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue::_Inter
 }
 void CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue::clear_value() {
   if (_impl_.value_ != nullptr) _impl_.value_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue::CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -20000,32 +20004,14 @@ CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue::CUserM
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.value_name_){}
-    , decltype(_impl_.attachment_name_){}
     , decltype(_impl_.value_){nullptr}
-    , decltype(_impl_.ent_index_){}};
+    , decltype(_impl_.value_name_hash_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _impl_.value_name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.value_name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (from._internal_has_value_name()) {
-    _this->_impl_.value_name_.Set(from._internal_value_name(), 
-      _this->GetArenaForAllocation());
-  }
-  _impl_.attachment_name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.attachment_name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (from._internal_has_attachment_name()) {
-    _this->_impl_.attachment_name_.Set(from._internal_attachment_name(), 
-      _this->GetArenaForAllocation());
-  }
   if (from._internal_has_value()) {
     _this->_impl_.value_ = new ::CMsgVector(*from._impl_.value_);
   }
-  _this->_impl_.ent_index_ = from._impl_.ent_index_;
+  _this->_impl_.value_name_hash_ = from._impl_.value_name_hash_;
   // @@protoc_insertion_point(copy_constructor:CUserMsg_ParticleManager.SetParticleNamedValueContext.VectorContextValue)
 }
 
@@ -20036,19 +20022,9 @@ inline void CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextV
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.value_name_){}
-    , decltype(_impl_.attachment_name_){}
     , decltype(_impl_.value_){nullptr}
-    , decltype(_impl_.ent_index_){16777215u}
+    , decltype(_impl_.value_name_hash_){0u}
   };
-  _impl_.value_name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.value_name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  _impl_.attachment_name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.attachment_name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue::~CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue() {
@@ -20062,8 +20038,6 @@ CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue::~CUser
 
 inline void CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.value_name_.Destroy();
-  _impl_.attachment_name_.Destroy();
   if (this != internal_default_instance()) delete _impl_.value_;
 }
 
@@ -20078,19 +20052,11 @@ void CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue::C
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
-    if (cached_has_bits & 0x00000001u) {
-      _impl_.value_name_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _impl_.attachment_name_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000004u) {
-      GOOGLE_DCHECK(_impl_.value_ != nullptr);
-      _impl_.value_->Clear();
-    }
-    _impl_.ent_index_ = 16777215u;
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(_impl_.value_ != nullptr);
+    _impl_.value_->Clear();
   }
+  _impl_.value_name_hash_ = 0u;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -20102,15 +20068,12 @@ const char* CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextV
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional string value_name = 1;
+      // optional uint32 value_name_hash = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_value_name();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_value_name_hash(&has_bits);
+          _impl_.value_name_hash_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-          #ifndef NDEBUG
-          ::_pbi::VerifyUTF8(str, "CUserMsg_ParticleManager.SetParticleNamedValueContext.VectorContextValue.value_name");
-          #endif  // !NDEBUG
         } else
           goto handle_unusual;
         continue;
@@ -20119,27 +20082,6 @@ const char* CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextV
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_value(), ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // optional uint32 ent_index = 3 [default = 16777215];
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          _Internal::set_has_ent_index(&has_bits);
-          _impl_.ent_index_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // optional string attachment_name = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
-          auto str = _internal_mutable_attachment_name();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-          #ifndef NDEBUG
-          ::_pbi::VerifyUTF8(str, "CUserMsg_ParticleManager.SetParticleNamedValueContext.VectorContextValue.attachment_name");
-          #endif  // !NDEBUG
         } else
           goto handle_unusual;
         continue;
@@ -20174,37 +20116,17 @@ uint8_t* CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValu
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional string value_name = 1;
-  if (cached_has_bits & 0x00000001u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_value_name().data(), static_cast<int>(this->_internal_value_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CUserMsg_ParticleManager.SetParticleNamedValueContext.VectorContextValue.value_name");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_value_name(), target);
+  // optional uint32 value_name_hash = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_value_name_hash(), target);
   }
 
   // optional .CMsgVector value = 2;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000001u) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(2, _Internal::value(this),
         _Internal::value(this).GetCachedSize(), target, stream);
-  }
-
-  // optional uint32 ent_index = 3 [default = 16777215];
-  if (cached_has_bits & 0x00000008u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_ent_index(), target);
-  }
-
-  // optional string attachment_name = 4;
-  if (cached_has_bits & 0x00000002u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_attachment_name().data(), static_cast<int>(this->_internal_attachment_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CUserMsg_ParticleManager.SetParticleNamedValueContext.VectorContextValue.attachment_name");
-    target = stream->WriteStringMaybeAliased(
-        4, this->_internal_attachment_name(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -20224,31 +20146,17 @@ size_t CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue:
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
-    // optional string value_name = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_value_name());
-    }
-
-    // optional string attachment_name = 4;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_attachment_name());
-    }
-
+  if (cached_has_bits & 0x00000003u) {
     // optional .CMsgVector value = 2;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *_impl_.value_);
     }
 
-    // optional uint32 ent_index = 3 [default = 16777215];
-    if (cached_has_bits & 0x00000008u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ent_index());
+    // optional uint32 value_name_hash = 1;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_value_name_hash());
     }
 
   }
@@ -20271,19 +20179,13 @@ void CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue::M
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_internal_set_value_name(from._internal_value_name());
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_internal_set_attachment_name(from._internal_attachment_name());
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_internal_mutable_value()->::CMsgVector::MergeFrom(
           from._internal_value());
     }
-    if (cached_has_bits & 0x00000008u) {
-      _this->_impl_.ent_index_ = from._impl_.ent_index_;
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.value_name_hash_ = from._impl_.value_name_hash_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -20303,20 +20205,14 @@ bool CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue::I
 
 void CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue::InternalSwap(CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue* other) {
   using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.value_name_, lhs_arena,
-      &other->_impl_.value_name_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.attachment_name_, lhs_arena,
-      &other->_impl_.attachment_name_, rhs_arena
-  );
-  swap(_impl_.value_, other->_impl_.value_);
-  swap(_impl_.ent_index_, other->_impl_.ent_index_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue, _impl_.value_name_hash_)
+      + sizeof(CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue::_impl_.value_name_hash_)
+      - PROTOBUF_FIELD_OFFSET(CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue, _impl_.value_)>(
+          reinterpret_cast<char*>(&_impl_.value_),
+          reinterpret_cast<char*>(&other->_impl_.value_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue::GetMetadata() const {
@@ -20330,21 +20226,15 @@ void CUserMsg_ParticleManager_SetParticleNamedValueContext_VectorContextValue::I
 class CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue::_Internal {
  public:
   using HasBits = decltype(std::declval<CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue>()._impl_._has_bits_);
-  static void set_has_value_name(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+  static void set_has_value_name_hash(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
   }
   static const ::CMsgQAngle& angles(const CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue* msg);
   static void set_has_angles(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 1u;
   }
   static const ::CMsgVector& translation(const CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue* msg);
   static void set_has_translation(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-  static void set_has_ent_index(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
-  }
-  static void set_has_attachment_name(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
 };
@@ -20359,11 +20249,11 @@ CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue::_In
 }
 void CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue::clear_angles() {
   if (_impl_.angles_ != nullptr) _impl_.angles_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 void CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue::clear_translation() {
   if (_impl_.translation_ != nullptr) _impl_.translation_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue::CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -20377,36 +20267,18 @@ CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue::CUs
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.value_name_){}
-    , decltype(_impl_.attachment_name_){}
     , decltype(_impl_.angles_){nullptr}
     , decltype(_impl_.translation_){nullptr}
-    , decltype(_impl_.ent_index_){}};
+    , decltype(_impl_.value_name_hash_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _impl_.value_name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.value_name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (from._internal_has_value_name()) {
-    _this->_impl_.value_name_.Set(from._internal_value_name(), 
-      _this->GetArenaForAllocation());
-  }
-  _impl_.attachment_name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.attachment_name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (from._internal_has_attachment_name()) {
-    _this->_impl_.attachment_name_.Set(from._internal_attachment_name(), 
-      _this->GetArenaForAllocation());
-  }
   if (from._internal_has_angles()) {
     _this->_impl_.angles_ = new ::CMsgQAngle(*from._impl_.angles_);
   }
   if (from._internal_has_translation()) {
     _this->_impl_.translation_ = new ::CMsgVector(*from._impl_.translation_);
   }
-  _this->_impl_.ent_index_ = from._impl_.ent_index_;
+  _this->_impl_.value_name_hash_ = from._impl_.value_name_hash_;
   // @@protoc_insertion_point(copy_constructor:CUserMsg_ParticleManager.SetParticleNamedValueContext.TransformContextValue)
 }
 
@@ -20417,20 +20289,10 @@ inline void CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformConte
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.value_name_){}
-    , decltype(_impl_.attachment_name_){}
     , decltype(_impl_.angles_){nullptr}
     , decltype(_impl_.translation_){nullptr}
-    , decltype(_impl_.ent_index_){16777215u}
+    , decltype(_impl_.value_name_hash_){0u}
   };
-  _impl_.value_name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.value_name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  _impl_.attachment_name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.attachment_name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue::~CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue() {
@@ -20444,8 +20306,6 @@ CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue::~CU
 
 inline void CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.value_name_.Destroy();
-  _impl_.attachment_name_.Destroy();
   if (this != internal_default_instance()) delete _impl_.angles_;
   if (this != internal_default_instance()) delete _impl_.translation_;
 }
@@ -20461,23 +20321,17 @@ void CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      _impl_.value_name_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _impl_.attachment_name_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000004u) {
       GOOGLE_DCHECK(_impl_.angles_ != nullptr);
       _impl_.angles_->Clear();
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       GOOGLE_DCHECK(_impl_.translation_ != nullptr);
       _impl_.translation_->Clear();
     }
-    _impl_.ent_index_ = 16777215u;
   }
+  _impl_.value_name_hash_ = 0u;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -20489,15 +20343,12 @@ const char* CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformConte
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional string value_name = 1;
+      // optional uint32 value_name_hash = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_value_name();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_value_name_hash(&has_bits);
+          _impl_.value_name_hash_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-          #ifndef NDEBUG
-          ::_pbi::VerifyUTF8(str, "CUserMsg_ParticleManager.SetParticleNamedValueContext.TransformContextValue.value_name");
-          #endif  // !NDEBUG
         } else
           goto handle_unusual;
         continue;
@@ -20514,27 +20365,6 @@ const char* CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformConte
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_translation(), ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // optional uint32 ent_index = 4 [default = 16777215];
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          _Internal::set_has_ent_index(&has_bits);
-          _impl_.ent_index_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // optional string attachment_name = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
-          auto str = _internal_mutable_attachment_name();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-          #ifndef NDEBUG
-          ::_pbi::VerifyUTF8(str, "CUserMsg_ParticleManager.SetParticleNamedValueContext.TransformContextValue.attachment_name");
-          #endif  // !NDEBUG
         } else
           goto handle_unusual;
         continue;
@@ -20569,44 +20399,24 @@ uint8_t* CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextV
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional string value_name = 1;
-  if (cached_has_bits & 0x00000001u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_value_name().data(), static_cast<int>(this->_internal_value_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CUserMsg_ParticleManager.SetParticleNamedValueContext.TransformContextValue.value_name");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_value_name(), target);
+  // optional uint32 value_name_hash = 1;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_value_name_hash(), target);
   }
 
   // optional .CMsgQAngle angles = 2;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000001u) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(2, _Internal::angles(this),
         _Internal::angles(this).GetCachedSize(), target, stream);
   }
 
   // optional .CMsgVector translation = 3;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000002u) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(3, _Internal::translation(this),
         _Internal::translation(this).GetCachedSize(), target, stream);
-  }
-
-  // optional uint32 ent_index = 4 [default = 16777215];
-  if (cached_has_bits & 0x00000010u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_ent_index(), target);
-  }
-
-  // optional string attachment_name = 5;
-  if (cached_has_bits & 0x00000002u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_attachment_name().data(), static_cast<int>(this->_internal_attachment_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CUserMsg_ParticleManager.SetParticleNamedValueContext.TransformContextValue.attachment_name");
-    target = stream->WriteStringMaybeAliased(
-        5, this->_internal_attachment_name(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -20626,38 +20436,24 @@ size_t CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextVal
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
-    // optional string value_name = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_value_name());
-    }
-
-    // optional string attachment_name = 5;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_attachment_name());
-    }
-
+  if (cached_has_bits & 0x00000007u) {
     // optional .CMsgQAngle angles = 2;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *_impl_.angles_);
     }
 
     // optional .CMsgVector translation = 3;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *_impl_.translation_);
     }
 
-    // optional uint32 ent_index = 4 [default = 16777215];
-    if (cached_has_bits & 0x00000010u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ent_index());
+    // optional uint32 value_name_hash = 1;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_value_name_hash());
     }
 
   }
@@ -20680,23 +20476,17 @@ void CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_internal_set_value_name(from._internal_value_name());
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_internal_set_attachment_name(from._internal_attachment_name());
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_internal_mutable_angles()->::CMsgQAngle::MergeFrom(
           from._internal_angles());
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_internal_mutable_translation()->::CMsgVector::MergeFrom(
           from._internal_translation());
     }
-    if (cached_has_bits & 0x00000010u) {
-      _this->_impl_.ent_index_ = from._impl_.ent_index_;
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.value_name_hash_ = from._impl_.value_name_hash_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -20716,31 +20506,252 @@ bool CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue
 
 void CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue::InternalSwap(CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue* other) {
   using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.value_name_, lhs_arena,
-      &other->_impl_.value_name_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.attachment_name_, lhs_arena,
-      &other->_impl_.attachment_name_, rhs_arena
-  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue, _impl_.translation_)
-      + sizeof(CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue::_impl_.translation_)
+      PROTOBUF_FIELD_OFFSET(CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue, _impl_.value_name_hash_)
+      + sizeof(CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue::_impl_.value_name_hash_)
       - PROTOBUF_FIELD_OFFSET(CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue, _impl_.angles_)>(
           reinterpret_cast<char*>(&_impl_.angles_),
           reinterpret_cast<char*>(&other->_impl_.angles_));
-  swap(_impl_.ent_index_, other->_impl_.ent_index_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
       file_level_metadata_usermessages_2eproto[65]);
+}
+
+// ===================================================================
+
+class CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext>()._impl_._has_bits_);
+  static void set_has_value_name_hash(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_ent_index(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext::CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CUserMsg_ParticleManager.SetParticleNamedValueContext.EHandleContext)
+}
+CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext::CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext(const CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.value_name_hash_){}
+    , decltype(_impl_.ent_index_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.value_name_hash_, &from._impl_.value_name_hash_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.ent_index_) -
+    reinterpret_cast<char*>(&_impl_.value_name_hash_)) + sizeof(_impl_.ent_index_));
+  // @@protoc_insertion_point(copy_constructor:CUserMsg_ParticleManager.SetParticleNamedValueContext.EHandleContext)
+}
+
+inline void CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.value_name_hash_){0u}
+    , decltype(_impl_.ent_index_){16777215u}
+  };
+}
+
+CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext::~CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext() {
+  // @@protoc_insertion_point(destructor:CUserMsg_ParticleManager.SetParticleNamedValueContext.EHandleContext)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext::Clear() {
+// @@protoc_insertion_point(message_clear_start:CUserMsg_ParticleManager.SetParticleNamedValueContext.EHandleContext)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    _impl_.value_name_hash_ = 0u;
+    _impl_.ent_index_ = 16777215u;
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint32 value_name_hash = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_value_name_hash(&has_bits);
+          _impl_.value_name_hash_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 ent_index = 2 [default = 16777215];
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_ent_index(&has_bits);
+          _impl_.ent_index_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CUserMsg_ParticleManager.SetParticleNamedValueContext.EHandleContext)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 value_name_hash = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_value_name_hash(), target);
+  }
+
+  // optional uint32 ent_index = 2 [default = 16777215];
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_ent_index(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CUserMsg_ParticleManager.SetParticleNamedValueContext.EHandleContext)
+  return target;
+}
+
+size_t CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CUserMsg_ParticleManager.SetParticleNamedValueContext.EHandleContext)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional uint32 value_name_hash = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_value_name_hash());
+    }
+
+    // optional uint32 ent_index = 2 [default = 16777215];
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ent_index());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext::GetClassData() const { return &_class_data_; }
+
+
+void CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext*>(&to_msg);
+  auto& from = static_cast<const CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CUserMsg_ParticleManager.SetParticleNamedValueContext.EHandleContext)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.value_name_hash_ = from._impl_.value_name_hash_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.ent_index_ = from._impl_.ent_index_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext::CopyFrom(const CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CUserMsg_ParticleManager.SetParticleNamedValueContext.EHandleContext)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext::IsInitialized() const {
+  return true;
+}
+
+void CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext::InternalSwap(CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  swap(_impl_.value_name_hash_, other->_impl_.value_name_hash_);
+  swap(_impl_.ent_index_, other->_impl_.ent_index_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
+      file_level_metadata_usermessages_2eproto[66]);
 }
 
 // ===================================================================
@@ -20762,6 +20773,7 @@ CUserMsg_ParticleManager_SetParticleNamedValueContext::CUserMsg_ParticleManager_
       decltype(_impl_.float_values_){from._impl_.float_values_}
     , decltype(_impl_.vector_values_){from._impl_.vector_values_}
     , decltype(_impl_.transform_values_){from._impl_.transform_values_}
+    , decltype(_impl_.ehandle_values_){from._impl_.ehandle_values_}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -20776,6 +20788,7 @@ inline void CUserMsg_ParticleManager_SetParticleNamedValueContext::SharedCtor(
       decltype(_impl_.float_values_){arena}
     , decltype(_impl_.vector_values_){arena}
     , decltype(_impl_.transform_values_){arena}
+    , decltype(_impl_.ehandle_values_){arena}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -20794,6 +20807,7 @@ inline void CUserMsg_ParticleManager_SetParticleNamedValueContext::SharedDtor() 
   _impl_.float_values_.~RepeatedPtrField();
   _impl_.vector_values_.~RepeatedPtrField();
   _impl_.transform_values_.~RepeatedPtrField();
+  _impl_.ehandle_values_.~RepeatedPtrField();
 }
 
 void CUserMsg_ParticleManager_SetParticleNamedValueContext::SetCachedSize(int size) const {
@@ -20809,6 +20823,7 @@ void CUserMsg_ParticleManager_SetParticleNamedValueContext::Clear() {
   _impl_.float_values_.Clear();
   _impl_.vector_values_.Clear();
   _impl_.transform_values_.Clear();
+  _impl_.ehandle_values_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -20854,6 +20869,19 @@ const char* CUserMsg_ParticleManager_SetParticleNamedValueContext::_InternalPars
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .CUserMsg_ParticleManager.SetParticleNamedValueContext.EHandleContext ehandle_values = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_ehandle_values(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
         } else
           goto handle_unusual;
         continue;
@@ -20910,6 +20938,14 @@ uint8_t* CUserMsg_ParticleManager_SetParticleNamedValueContext::_InternalSeriali
         InternalWriteMessage(3, repfield, repfield.GetCachedSize(), target, stream);
   }
 
+  // repeated .CUserMsg_ParticleManager.SetParticleNamedValueContext.EHandleContext ehandle_values = 4;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_ehandle_values_size()); i < n; i++) {
+    const auto& repfield = this->_internal_ehandle_values(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(4, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -20947,6 +20983,13 @@ size_t CUserMsg_ParticleManager_SetParticleNamedValueContext::ByteSizeLong() con
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
+  // repeated .CUserMsg_ParticleManager.SetParticleNamedValueContext.EHandleContext ehandle_values = 4;
+  total_size += 1UL * this->_internal_ehandle_values_size();
+  for (const auto& msg : this->_impl_.ehandle_values_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -20968,6 +21011,7 @@ void CUserMsg_ParticleManager_SetParticleNamedValueContext::MergeImpl(::PROTOBUF
   _this->_impl_.float_values_.MergeFrom(from._impl_.float_values_);
   _this->_impl_.vector_values_.MergeFrom(from._impl_.vector_values_);
   _this->_impl_.transform_values_.MergeFrom(from._impl_.transform_values_);
+  _this->_impl_.ehandle_values_.MergeFrom(from._impl_.ehandle_values_);
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -20988,12 +21032,13 @@ void CUserMsg_ParticleManager_SetParticleNamedValueContext::InternalSwap(CUserMs
   _impl_.float_values_.InternalSwap(&other->_impl_.float_values_);
   _impl_.vector_values_.InternalSwap(&other->_impl_.vector_values_);
   _impl_.transform_values_.InternalSwap(&other->_impl_.transform_values_);
+  _impl_.ehandle_values_.InternalSwap(&other->_impl_.ehandle_values_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMsg_ParticleManager_SetParticleNamedValueContext::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
-      file_level_metadata_usermessages_2eproto[66]);
+      file_level_metadata_usermessages_2eproto[67]);
 }
 
 // ===================================================================
@@ -22531,7 +22576,7 @@ void CUserMsg_ParticleManager::InternalSwap(CUserMsg_ParticleManager* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMsg_ParticleManager::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
-      file_level_metadata_usermessages_2eproto[67]);
+      file_level_metadata_usermessages_2eproto[68]);
 }
 
 // ===================================================================
@@ -22722,7 +22767,7 @@ void CUserMsg_HudError::InternalSwap(CUserMsg_HudError* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMsg_HudError::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
-      file_level_metadata_usermessages_2eproto[68]);
+      file_level_metadata_usermessages_2eproto[69]);
 }
 
 // ===================================================================
@@ -22999,7 +23044,7 @@ void CUserMsg_CustomGameEvent::InternalSwap(CUserMsg_CustomGameEvent* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMsg_CustomGameEvent::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
-      file_level_metadata_usermessages_2eproto[69]);
+      file_level_metadata_usermessages_2eproto[70]);
 }
 
 // ===================================================================
@@ -23292,7 +23337,7 @@ void CUserMessageHapticsManagerPulse::InternalSwap(CUserMessageHapticsManagerPul
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMessageHapticsManagerPulse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
-      file_level_metadata_usermessages_2eproto[70]);
+      file_level_metadata_usermessages_2eproto[71]);
 }
 
 // ===================================================================
@@ -23557,7 +23602,7 @@ void CUserMessageHapticsManagerEffect::InternalSwap(CUserMessageHapticsManagerEf
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMessageHapticsManagerEffect::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
-      file_level_metadata_usermessages_2eproto[71]);
+      file_level_metadata_usermessages_2eproto[72]);
 }
 
 // ===================================================================
@@ -23807,7 +23852,7 @@ void CUserMessageAnimStateGraphState::InternalSwap(CUserMessageAnimStateGraphSta
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMessageAnimStateGraphState::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
-      file_level_metadata_usermessages_2eproto[72]);
+      file_level_metadata_usermessages_2eproto[73]);
 }
 
 // ===================================================================
@@ -24100,7 +24145,7 @@ void CUserMessageCommandQueueState_command_queue_info_t::InternalSwap(CUserMessa
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMessageCommandQueueState_command_queue_info_t::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
-      file_level_metadata_usermessages_2eproto[73]);
+      file_level_metadata_usermessages_2eproto[74]);
 }
 
 // ===================================================================
@@ -24345,7 +24390,7 @@ void CUserMessageCommandQueueState::InternalSwap(CUserMessageCommandQueueState* 
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMessageCommandQueueState::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
-      file_level_metadata_usermessages_2eproto[74]);
+      file_level_metadata_usermessages_2eproto[75]);
 }
 
 // ===================================================================
@@ -24641,7 +24686,7 @@ void CUserMessageUpdateCssClasses::InternalSwap(CUserMessageUpdateCssClasses* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMessageUpdateCssClasses::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
-      file_level_metadata_usermessages_2eproto[75]);
+      file_level_metadata_usermessages_2eproto[76]);
 }
 
 // ===================================================================
@@ -24832,7 +24877,7 @@ void CUserMessageServerFrameTime::InternalSwap(CUserMessageServerFrameTime* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMessageServerFrameTime::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
-      file_level_metadata_usermessages_2eproto[76]);
+      file_level_metadata_usermessages_2eproto[77]);
 }
 
 // ===================================================================
@@ -25023,7 +25068,7 @@ void CUserMessageLagCompensationError::InternalSwap(CUserMessageLagCompensationE
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMessageLagCompensationError::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
-      file_level_metadata_usermessages_2eproto[77]);
+      file_level_metadata_usermessages_2eproto[78]);
 }
 
 // ===================================================================
@@ -25280,7 +25325,7 @@ void CUserMessageRequestDllStatus::InternalSwap(CUserMessageRequestDllStatus* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMessageRequestDllStatus::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
-      file_level_metadata_usermessages_2eproto[78]);
+      file_level_metadata_usermessages_2eproto[79]);
 }
 
 // ===================================================================
@@ -25601,7 +25646,7 @@ void CUserMessageRequestUtilAction::InternalSwap(CUserMessageRequestUtilAction* 
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMessageRequestUtilAction::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
-      file_level_metadata_usermessages_2eproto[79]);
+      file_level_metadata_usermessages_2eproto[80]);
 }
 
 // ===================================================================
@@ -25925,7 +25970,7 @@ void CUserMessage_UtilMsg_Response_ItemDetail::InternalSwap(CUserMessage_UtilMsg
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMessage_UtilMsg_Response_ItemDetail::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
-      file_level_metadata_usermessages_2eproto[80]);
+      file_level_metadata_usermessages_2eproto[81]);
 }
 
 // ===================================================================
@@ -25954,6 +25999,12 @@ class CUserMessage_UtilMsg_Response::_Internal {
   static void set_has_itemgroup(HasBits* has_bits) {
     (*has_bits)[0] |= 64u;
   }
+  static void set_has_total_count(HasBits* has_bits) {
+    (*has_bits)[0] |= 128u;
+  }
+  static void set_has_total_count2(HasBits* has_bits) {
+    (*has_bits)[0] |= 256u;
+  }
 };
 
 CUserMessage_UtilMsg_Response::CUserMessage_UtilMsg_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena,
@@ -25977,12 +26028,14 @@ CUserMessage_UtilMsg_Response::CUserMessage_UtilMsg_Response(const CUserMessage_
     , decltype(_impl_.item_count2_){}
     , decltype(_impl_.client_timestamp_){}
     , decltype(_impl_.platform_){}
-    , decltype(_impl_.itemgroup_){}};
+    , decltype(_impl_.itemgroup_){}
+    , decltype(_impl_.total_count_){}
+    , decltype(_impl_.total_count2_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.crc_, &from._impl_.crc_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.itemgroup_) -
-    reinterpret_cast<char*>(&_impl_.crc_)) + sizeof(_impl_.itemgroup_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.total_count2_) -
+    reinterpret_cast<char*>(&_impl_.crc_)) + sizeof(_impl_.total_count2_));
   // @@protoc_insertion_point(copy_constructor:CUserMessage_UtilMsg_Response)
 }
 
@@ -26003,6 +26056,8 @@ inline void CUserMessage_UtilMsg_Response::SharedCtor(
     , decltype(_impl_.client_timestamp_){0}
     , decltype(_impl_.platform_){0}
     , decltype(_impl_.itemgroup_){0}
+    , decltype(_impl_.total_count_){0}
+    , decltype(_impl_.total_count2_){0}
   };
 }
 
@@ -26036,11 +26091,12 @@ void CUserMessage_UtilMsg_Response::Clear() {
   _impl_.crc_part2_.Clear();
   _impl_.itemdetails_.Clear();
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
+  if (cached_has_bits & 0x000000ffu) {
     ::memset(&_impl_.crc_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.itemgroup_) -
-        reinterpret_cast<char*>(&_impl_.crc_)) + sizeof(_impl_.itemgroup_));
+        reinterpret_cast<char*>(&_impl_.total_count_) -
+        reinterpret_cast<char*>(&_impl_.crc_)) + sizeof(_impl_.total_count_));
   }
+  _impl_.total_count2_ = 0;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -26160,6 +26216,24 @@ const char* CUserMessage_UtilMsg_Response::_InternalParse(const char* ptr, ::_pb
         } else
           goto handle_unusual;
         continue;
+      // optional int32 total_count = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 88)) {
+          _Internal::set_has_total_count(&has_bits);
+          _impl_.total_count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional int32 total_count2 = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 96)) {
+          _Internal::set_has_total_count2(&has_bits);
+          _impl_.total_count2_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -26253,6 +26327,18 @@ uint8_t* CUserMessage_UtilMsg_Response::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(10, this->_internal_itemgroup(), target);
   }
 
+  // optional int32 total_count = 11;
+  if (cached_has_bits & 0x00000080u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(11, this->_internal_total_count(), target);
+  }
+
+  // optional int32 total_count2 = 12;
+  if (cached_has_bits & 0x00000100u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(12, this->_internal_total_count2(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -26295,7 +26381,7 @@ size_t CUserMessage_UtilMsg_Response::ByteSizeLong() const {
   }
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
+  if (cached_has_bits & 0x000000ffu) {
     // optional fixed32 crc = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 4;
@@ -26331,7 +26417,17 @@ size_t CUserMessage_UtilMsg_Response::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_itemgroup());
     }
 
+    // optional int32 total_count = 11;
+    if (cached_has_bits & 0x00000080u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_total_count());
+    }
+
   }
+  // optional int32 total_count2 = 12;
+  if (cached_has_bits & 0x00000100u) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_total_count2());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -26354,7 +26450,7 @@ void CUserMessage_UtilMsg_Response::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& 
   _this->_impl_.crc_part2_.MergeFrom(from._impl_.crc_part2_);
   _this->_impl_.itemdetails_.MergeFrom(from._impl_.itemdetails_);
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
+  if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
       _this->_impl_.crc_ = from._impl_.crc_;
     }
@@ -26376,7 +26472,13 @@ void CUserMessage_UtilMsg_Response::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& 
     if (cached_has_bits & 0x00000040u) {
       _this->_impl_.itemgroup_ = from._impl_.itemgroup_;
     }
+    if (cached_has_bits & 0x00000080u) {
+      _this->_impl_.total_count_ = from._impl_.total_count_;
+    }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  if (cached_has_bits & 0x00000100u) {
+    _this->_internal_set_total_count2(from._internal_total_count2());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -26400,8 +26502,8 @@ void CUserMessage_UtilMsg_Response::InternalSwap(CUserMessage_UtilMsg_Response* 
   _impl_.crc_part2_.InternalSwap(&other->_impl_.crc_part2_);
   _impl_.itemdetails_.InternalSwap(&other->_impl_.itemdetails_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CUserMessage_UtilMsg_Response, _impl_.itemgroup_)
-      + sizeof(CUserMessage_UtilMsg_Response::_impl_.itemgroup_)
+      PROTOBUF_FIELD_OFFSET(CUserMessage_UtilMsg_Response, _impl_.total_count2_)
+      + sizeof(CUserMessage_UtilMsg_Response::_impl_.total_count2_)
       - PROTOBUF_FIELD_OFFSET(CUserMessage_UtilMsg_Response, _impl_.crc_)>(
           reinterpret_cast<char*>(&_impl_.crc_),
           reinterpret_cast<char*>(&other->_impl_.crc_));
@@ -26410,7 +26512,7 @@ void CUserMessage_UtilMsg_Response::InternalSwap(CUserMessage_UtilMsg_Response* 
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMessage_UtilMsg_Response::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
-      file_level_metadata_usermessages_2eproto[81]);
+      file_level_metadata_usermessages_2eproto[82]);
 }
 
 // ===================================================================
@@ -26734,7 +26836,7 @@ void CUserMessage_DllStatus_CVDiagnostic::InternalSwap(CUserMessage_DllStatus_CV
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMessage_DllStatus_CVDiagnostic::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
-      file_level_metadata_usermessages_2eproto[82]);
+      file_level_metadata_usermessages_2eproto[83]);
 }
 
 // ===================================================================
@@ -27179,7 +27281,7 @@ void CUserMessage_DllStatus::InternalSwap(CUserMessage_DllStatus* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMessage_DllStatus::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
-      file_level_metadata_usermessages_2eproto[83]);
+      file_level_metadata_usermessages_2eproto[84]);
 }
 
 // ===================================================================
@@ -27444,7 +27546,7 @@ void CUserMessageRequestInventory::InternalSwap(CUserMessageRequestInventory* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMessageRequestInventory::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
-      file_level_metadata_usermessages_2eproto[84]);
+      file_level_metadata_usermessages_2eproto[85]);
 }
 
 // ===================================================================
@@ -27977,7 +28079,7 @@ void CUserMessage_Inventory_Response_InventoryDetail::InternalSwap(CUserMessage_
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMessage_Inventory_Response_InventoryDetail::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
-      file_level_metadata_usermessages_2eproto[85]);
+      file_level_metadata_usermessages_2eproto[86]);
 }
 
 // ===================================================================
@@ -28009,6 +28111,9 @@ class CUserMessage_Inventory_Response::_Internal {
   static void set_has_build_version(HasBits* has_bits) {
     (*has_bits)[0] |= 128u;
   }
+  static void set_has_instance(HasBits* has_bits) {
+    (*has_bits)[0] |= 256u;
+  }
 };
 
 CUserMessage_Inventory_Response::CUserMessage_Inventory_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena,
@@ -28032,12 +28137,13 @@ CUserMessage_Inventory_Response::CUserMessage_Inventory_Response(const CUserMess
     , decltype(_impl_.client_timestamp_){}
     , decltype(_impl_.platform_){}
     , decltype(_impl_.inv_type_){}
-    , decltype(_impl_.build_version_){}};
+    , decltype(_impl_.build_version_){}
+    , decltype(_impl_.instance_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.crc_, &from._impl_.crc_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.build_version_) -
-    reinterpret_cast<char*>(&_impl_.crc_)) + sizeof(_impl_.build_version_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.instance_) -
+    reinterpret_cast<char*>(&_impl_.crc_)) + sizeof(_impl_.instance_));
   // @@protoc_insertion_point(copy_constructor:CUserMessage_Inventory_Response)
 }
 
@@ -28058,6 +28164,7 @@ inline void CUserMessage_Inventory_Response::SharedCtor(
     , decltype(_impl_.platform_){0}
     , decltype(_impl_.inv_type_){0}
     , decltype(_impl_.build_version_){0}
+    , decltype(_impl_.instance_){0}
   };
 }
 
@@ -28094,6 +28201,7 @@ void CUserMessage_Inventory_Response::Clear() {
         reinterpret_cast<char*>(&_impl_.build_version_) -
         reinterpret_cast<char*>(&_impl_.crc_)) + sizeof(_impl_.build_version_));
   }
+  _impl_.instance_ = 0;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -28203,6 +28311,15 @@ const char* CUserMessage_Inventory_Response::_InternalParse(const char* ptr, ::_
         } else
           goto handle_unusual;
         continue;
+      // optional int32 instance = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 104)) {
+          _Internal::set_has_instance(&has_bits);
+          _impl_.instance_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -28298,6 +28415,12 @@ uint8_t* CUserMessage_Inventory_Response::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(12, this->_internal_build_version(), target);
   }
 
+  // optional int32 instance = 13;
+  if (cached_has_bits & 0x00000100u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(13, this->_internal_instance(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -28371,6 +28494,11 @@ size_t CUserMessage_Inventory_Response::ByteSizeLong() const {
     }
 
   }
+  // optional int32 instance = 13;
+  if (cached_has_bits & 0x00000100u) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_instance());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -28419,6 +28547,9 @@ void CUserMessage_Inventory_Response::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
+  if (cached_has_bits & 0x00000100u) {
+    _this->_internal_set_instance(from._internal_instance());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -28440,8 +28571,8 @@ void CUserMessage_Inventory_Response::InternalSwap(CUserMessage_Inventory_Respon
   _impl_.inventories_.InternalSwap(&other->_impl_.inventories_);
   _impl_.inventories2_.InternalSwap(&other->_impl_.inventories2_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CUserMessage_Inventory_Response, _impl_.build_version_)
-      + sizeof(CUserMessage_Inventory_Response::_impl_.build_version_)
+      PROTOBUF_FIELD_OFFSET(CUserMessage_Inventory_Response, _impl_.instance_)
+      + sizeof(CUserMessage_Inventory_Response::_impl_.instance_)
       - PROTOBUF_FIELD_OFFSET(CUserMessage_Inventory_Response, _impl_.crc_)>(
           reinterpret_cast<char*>(&_impl_.crc_),
           reinterpret_cast<char*>(&other->_impl_.crc_));
@@ -28450,7 +28581,7 @@ void CUserMessage_Inventory_Response::InternalSwap(CUserMessage_Inventory_Respon
 ::PROTOBUF_NAMESPACE_ID::Metadata CUserMessage_Inventory_Response::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
-      file_level_metadata_usermessages_2eproto[86]);
+      file_level_metadata_usermessages_2eproto[87]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -28718,6 +28849,10 @@ Arena::CreateMaybeMessage< ::CUserMsg_ParticleManager_SetParticleNamedValueConte
 template<> PROTOBUF_NOINLINE ::CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue*
 Arena::CreateMaybeMessage< ::CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CUserMsg_ParticleManager_SetParticleNamedValueContext_TransformContextValue >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext*
+Arena::CreateMaybeMessage< ::CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CUserMsg_ParticleManager_SetParticleNamedValueContext_EHandleContext >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CUserMsg_ParticleManager_SetParticleNamedValueContext*
 Arena::CreateMaybeMessage< ::CUserMsg_ParticleManager_SetParticleNamedValueContext >(Arena* arena) {

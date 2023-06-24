@@ -358,7 +358,8 @@ PROTOBUF_CONSTEXPR CMsgDPCEvent::CMsgDPCEvent(
   , /*decltype(_impl_.tour_)*/0
   , /*decltype(_impl_.timestamp_drop_lock_)*/0u
   , /*decltype(_impl_.timestamp_add_lock_)*/0u
-  , /*decltype(_impl_.timestamp_content_deadline_)*/0u} {}
+  , /*decltype(_impl_.timestamp_content_deadline_)*/0u
+  , /*decltype(_impl_.timestamp_content_review_deadline_)*/0u} {}
 struct CMsgDPCEventDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgDPCEventDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -512,6 +513,38 @@ struct CMsgDOTAFantasyCardListDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgDOTAFantasyCardListDefaultTypeInternal _CMsgDOTAFantasyCardList_default_instance_;
+PROTOBUF_CONSTEXPR CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.player_account_id_)*/0u
+  , /*decltype(_impl_.num_matches_seen_)*/0u
+  , /*decltype(_impl_.num_messages_)*/0u
+  , /*decltype(_impl_.num_messages_toxic_)*/0u
+  , /*decltype(_impl_.first_match_seen_)*/uint64_t{0u}
+  , /*decltype(_impl_.last_match_seen_)*/uint64_t{0u}} {}
+struct CMsgChatToxicityToxicPlayerMatchesReport_IndividualRowDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgChatToxicityToxicPlayerMatchesReport_IndividualRowDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgChatToxicityToxicPlayerMatchesReport_IndividualRowDefaultTypeInternal() {}
+  union {
+    CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgChatToxicityToxicPlayerMatchesReport_IndividualRowDefaultTypeInternal _CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow_default_instance_;
+PROTOBUF_CONSTEXPR CMsgChatToxicityToxicPlayerMatchesReport::CMsgChatToxicityToxicPlayerMatchesReport(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.rows_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct CMsgChatToxicityToxicPlayerMatchesReportDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgChatToxicityToxicPlayerMatchesReportDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgChatToxicityToxicPlayerMatchesReportDefaultTypeInternal() {}
+  union {
+    CMsgChatToxicityToxicPlayerMatchesReport _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgChatToxicityToxicPlayerMatchesReportDefaultTypeInternal _CMsgChatToxicityToxicPlayerMatchesReport_default_instance_;
 PROTOBUF_CONSTEXPR CMsgChatToxicityReport::CMsgChatToxicityReport(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -520,7 +553,6 @@ PROTOBUF_CONSTEXPR CMsgChatToxicityReport::CMsgChatToxicityReport(
   , /*decltype(_impl_.message_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.num_matches_seen_)*/0u
   , /*decltype(_impl_.num_messages_)*/0u
-  , /*decltype(_impl_.num_messages_human_thinks_toxic_)*/0u
   , /*decltype(_impl_.num_messages_ml_thinks_toxic_)*/0u
   , /*decltype(_impl_.result_)*/0u} {}
 struct CMsgChatToxicityReportDefaultTypeInternal {
@@ -583,7 +615,7 @@ struct CMsgDOTADPCMatchDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgDOTADPCMatchDefaultTypeInternal _CMsgDOTADPCMatch_default_instance_;
-static ::_pb::Metadata file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[32];
+static ::_pb::Metadata file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[34];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_dota_5fgcmessages_5fwebapi_2eproto[10];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_dota_5fgcmessages_5fwebapi_2eproto = nullptr;
 
@@ -893,6 +925,7 @@ const uint32_t TableStruct_dota_5fgcmessages_5fwebapi_2eproto::offsets[] PROTOBU
   PROTOBUF_FIELD_OFFSET(::CMsgDPCEvent, _impl_.timestamp_add_lock_),
   PROTOBUF_FIELD_OFFSET(::CMsgDPCEvent, _impl_.timestamp_content_deadline_),
   PROTOBUF_FIELD_OFFSET(::CMsgDPCEvent, _impl_.is_fantasy_enabled_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDPCEvent, _impl_.timestamp_content_review_deadline_),
   1,
   2,
   ~0u,
@@ -907,6 +940,7 @@ const uint32_t TableStruct_dota_5fgcmessages_5fwebapi_2eproto::offsets[] PROTOBU
   10,
   11,
   7,
+  12,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CMsgDPCEventList, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1018,6 +1052,31 @@ const uint32_t TableStruct_dota_5fgcmessages_5fwebapi_2eproto::offsets[] PROTOBU
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CMsgDOTAFantasyCardList, _impl_.cards_),
+  PROTOBUF_FIELD_OFFSET(::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow, _impl_.player_account_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow, _impl_.num_matches_seen_),
+  PROTOBUF_FIELD_OFFSET(::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow, _impl_.num_messages_),
+  PROTOBUF_FIELD_OFFSET(::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow, _impl_.num_messages_toxic_),
+  PROTOBUF_FIELD_OFFSET(::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow, _impl_.first_match_seen_),
+  PROTOBUF_FIELD_OFFSET(::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow, _impl_.last_match_seen_),
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CMsgChatToxicityToxicPlayerMatchesReport, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgChatToxicityToxicPlayerMatchesReport, _impl_.rows_),
   PROTOBUF_FIELD_OFFSET(::CMsgChatToxicityReport, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgChatToxicityReport, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1026,7 +1085,6 @@ const uint32_t TableStruct_dota_5fgcmessages_5fwebapi_2eproto::offsets[] PROTOBU
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CMsgChatToxicityReport, _impl_.num_matches_seen_),
   PROTOBUF_FIELD_OFFSET(::CMsgChatToxicityReport, _impl_.num_messages_),
-  PROTOBUF_FIELD_OFFSET(::CMsgChatToxicityReport, _impl_.num_messages_human_thinks_toxic_),
   PROTOBUF_FIELD_OFFSET(::CMsgChatToxicityReport, _impl_.num_messages_ml_thinks_toxic_),
   PROTOBUF_FIELD_OFFSET(::CMsgChatToxicityReport, _impl_.status_),
   PROTOBUF_FIELD_OFFSET(::CMsgChatToxicityReport, _impl_.result_),
@@ -1034,9 +1092,8 @@ const uint32_t TableStruct_dota_5fgcmessages_5fwebapi_2eproto::offsets[] PROTOBU
   2,
   3,
   4,
-  5,
   0,
-  6,
+  5,
   1,
   PROTOBUF_FIELD_OFFSET(::CMsgGetTeamAuditInformation_Action, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgGetTeamAuditInformation_Action, _internal_metadata_),
@@ -1100,20 +1157,22 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 254, -1, -1, sizeof(::CMsgTeamFanContentAutographStatus)},
   { 261, 269, -1, sizeof(::CMsgDPCEvent_PhaseInfo)},
   { 271, 281, -1, sizeof(::CMsgDPCEvent_League)},
-  { 285, 305, -1, sizeof(::CMsgDPCEvent)},
-  { 319, -1, -1, sizeof(::CMsgDPCEventList)},
-  { 326, 334, -1, sizeof(::CMsgDOTAFantasyCardLineup_CardBonus)},
-  { 336, 351, -1, sizeof(::CMsgDOTAFantasyCardLineup_Card)},
-  { 360, 369, -1, sizeof(::CMsgDOTAFantasyCardLineup_League)},
-  { 372, 382, -1, sizeof(::CMsgDOTAFantasyCardLineup_Period)},
-  { 386, -1, -1, sizeof(::CMsgDOTAFantasyCardLineup)},
-  { 393, 401, -1, sizeof(::CMsgDOTAFantasyCardList_CardBonus)},
-  { 403, 416, -1, sizeof(::CMsgDOTAFantasyCardList_Card)},
-  { 423, -1, -1, sizeof(::CMsgDOTAFantasyCardList)},
-  { 430, 443, -1, sizeof(::CMsgChatToxicityReport)},
-  { 450, 462, -1, sizeof(::CMsgGetTeamAuditInformation_Action)},
-  { 468, 478, -1, sizeof(::CMsgGetTeamAuditInformation)},
-  { 482, 490, -1, sizeof(::CMsgDOTADPCMatch)},
+  { 285, 306, -1, sizeof(::CMsgDPCEvent)},
+  { 321, -1, -1, sizeof(::CMsgDPCEventList)},
+  { 328, 336, -1, sizeof(::CMsgDOTAFantasyCardLineup_CardBonus)},
+  { 338, 353, -1, sizeof(::CMsgDOTAFantasyCardLineup_Card)},
+  { 362, 371, -1, sizeof(::CMsgDOTAFantasyCardLineup_League)},
+  { 374, 384, -1, sizeof(::CMsgDOTAFantasyCardLineup_Period)},
+  { 388, -1, -1, sizeof(::CMsgDOTAFantasyCardLineup)},
+  { 395, 403, -1, sizeof(::CMsgDOTAFantasyCardList_CardBonus)},
+  { 405, 418, -1, sizeof(::CMsgDOTAFantasyCardList_Card)},
+  { 425, -1, -1, sizeof(::CMsgDOTAFantasyCardList)},
+  { 432, 444, -1, sizeof(::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow)},
+  { 450, -1, -1, sizeof(::CMsgChatToxicityToxicPlayerMatchesReport)},
+  { 457, 469, -1, sizeof(::CMsgChatToxicityReport)},
+  { 475, 487, -1, sizeof(::CMsgGetTeamAuditInformation_Action)},
+  { 493, 503, -1, sizeof(::CMsgGetTeamAuditInformation)},
+  { 507, 515, -1, sizeof(::CMsgDOTADPCMatch)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -1145,6 +1204,8 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CMsgDOTAFantasyCardList_CardBonus_default_instance_._instance,
   &::_CMsgDOTAFantasyCardList_Card_default_instance_._instance,
   &::_CMsgDOTAFantasyCardList_default_instance_._instance,
+  &::_CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow_default_instance_._instance,
+  &::_CMsgChatToxicityToxicPlayerMatchesReport_default_instance_._instance,
   &::_CMsgChatToxicityReport_default_instance_._instance,
   &::_CMsgGetTeamAuditInformation_Action_default_instance_._instance,
   &::_CMsgGetTeamAuditInformation_default_instance_._instance,
@@ -1240,7 +1301,7 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fwebapi_2eproto[] PROTOB
   "\nTeamStatus\022\014\n\004name\030\001 \001(\t\022\017\n\007team_id\030\002 \001"
   "(\r\022F\n\nautographs\030\003 \003(\01322.CMsgTeamFanCont"
   "entAutographStatus.AutographStatus\022\033\n\023wo"
-  "rkshop_account_id\030\004 \001(\r\"\245\r\n\014CMsgDPCEvent"
+  "rkshop_account_id\030\004 \001(\r\"\320\r\n\014CMsgDPCEvent"
   "\0228\n\005event\030\001 \001(\0162\032.CMsgDPCEvent.ELeagueEv"
   "ent:\rEVENT_INVALID\022;\n\nevent_type\030\002 \001(\0162\036"
   ".CMsgDPCEvent.ELeagueEventType:\007UNKNOWN\022"
@@ -1253,91 +1314,98 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fwebapi_2eproto[] PROTOB
   "NONE\022\033\n\023timestamp_drop_lock\030\014 \001(\r\022\032\n\022tim"
   "estamp_add_lock\030\r \001(\r\022\"\n\032timestamp_conte"
   "nt_deadline\030\016 \001(\r\022\032\n\022is_fantasy_enabled\030"
-  "\017 \001(\010\032a\n\tPhaseInfo\022=\n\005phase\030\001 \001(\0162\037.CMsg"
-  "DPCEvent.ELeagueEventPhase:\rPHASE_INVALI"
-  "D\022\025\n\rnode_group_id\030\002 \001(\r\032\264\001\n\006League\0223\n\006r"
-  "egion\030\001 \001(\0162\016.ELeagueRegion:\023LEAGUE_REGI"
-  "ON_UNSET\0229\n\010division\030\002 \001(\0162\020.ELeagueDivi"
-  "sion:\025LEAGUE_DIVISION_UNSET\022\021\n\tleague_id"
-  "\030\003 \001(\r\022\'\n\006phases\030\004 \003(\0132\027.CMsgDPCEvent.Ph"
-  "aseInfo\"\323\004\n\014ELeagueEvent\022\021\n\rEVENT_INVALI"
-  "D\020\000\022\026\n\022SPRING_2021_LEAGUE\020\001\022\025\n\021SPRING_20"
-  "21_MAJOR\020\002\022!\n\035INTERNATIONAL_2021_QUALIFI"
-  "ERS\020\003\022\026\n\022INTERNATIONAL_2021\020\004\022\026\n\022WINTER_"
-  "2021_LEAGUE\020\005\022\035\n\031WINTER_2021_LEAGUE_FINA"
-  "LS\020\006\022\026\n\022SPRING_2022_LEAGUE\020\007\022\025\n\021SPRING_2"
-  "022_MAJOR\020\010\022\026\n\022SUMMER_2022_LEAGUE\020\t\022\025\n\021S"
-  "UMMER_2022_MAJOR\020\n\022\026\n\022INTERNATIONAL_2022"
-  "\020\013\022\031\n\025CHINA_REGIONAL_FINALS\020\014\022*\n&INTERNA"
-  "TIONAL_2022_REGIONAL_QUALIFIERS\020\r\022-\n)INT"
-  "ERNATIONAL_2022_LAST_CHANCE_QUALIFIERS\020\016"
-  "\022\026\n\022WINTER_2023_LEAGUE\020\017\022\025\n\021WINTER_2023_"
-  "MAJOR\020\020\022\026\n\022SPRING_2023_LEAGUE\020\021\022\025\n\021SPRIN"
-  "G_2023_MAJOR\020\022\022\026\n\022SUMMER_2023_LEAGUE\020\023\022\025"
-  "\n\021SUMMER_2023_MAJOR\020\024\022\026\n\022INTERNATIONAL_2"
-  "023\020\025\"\207\001\n\021ELeagueEventPhase\022\021\n\rPHASE_INV"
-  "ALID\020\000\022\r\n\tWILD_CARD\020\001\022\017\n\013GROUP_STAGE\020\002\022\013"
-  "\n\007GROUP_A\020\003\022\013\n\007GROUP_B\020\004\022\013\n\007OVERALL\020\005\022\013\n"
-  "\007PLAYOFF\020\006\022\013\n\007RESULTS\020\007\"z\n\020ELeagueEventT"
-  "ype\022\013\n\007UNKNOWN\020\000\022\n\n\006LEAGUE\020\001\022\t\n\005MAJOR\020\002\022"
-  "\034\n\030INTERNATIONAL_QUALIFIERS\020\003\022\021\n\rINTERNA"
-  "TIONAL\020\004\022\021\n\rLEAGUE_FINALS\020\005\":\n\005ETour\022\r\n\t"
-  "TOUR_NONE\020\000\022\n\n\006TOUR_1\020\001\022\n\n\006TOUR_2\020\002\022\n\n\006T"
-  "OUR_3\020\003\"1\n\020CMsgDPCEventList\022\035\n\006events\030\001 "
-  "\003(\0132\r.CMsgDPCEvent\"\311\004\n\031CMsgDOTAFantasyCa"
-  "rdLineup\0222\n\007periods\030\001 \003(\0132!.CMsgDOTAFant"
-  "asyCardLineup.Period\0324\n\tCardBonus\022\022\n\nbon"
-  "us_stat\030\001 \001(\r\022\023\n\013bonus_value\030\002 \001(\r\032\322\001\n\004C"
-  "ard\022\031\n\021player_account_id\030\001 \001(\r\022\023\n\013player"
-  "_name\030\002 \001(\t\022\017\n\007team_id\030\003 \001(\r\022\021\n\tteam_nam"
-  "e\030\004 \001(\t\022\014\n\004role\030\005 \001(\r\0225\n\007bonuses\030\006 \003(\0132$"
-  ".CMsgDOTAFantasyCardLineup.CardBonus\022\r\n\005"
-  "score\030\007 \001(\002\022\021\n\tfinalized\030\010 \001(\010\022\017\n\007item_i"
-  "d\030\t \001(\004\032Z\n\006League\022\021\n\tleague_id\030\001 \001(\r\022.\n\005"
-  "cards\030\002 \003(\0132\037.CMsgDOTAFantasyCardLineup."
-  "Card\022\r\n\005score\030\003 \001(\002\032\220\001\n\006Period\022\"\n\016fantas"
-  "y_period\030\001 \001(\r:\n4294967295\022\027\n\017timestamp_"
-  "start\030\002 \001(\r\022\025\n\rtimestamp_end\030\003 \001(\r\0222\n\007le"
-  "agues\030\004 \003(\0132!.CMsgDOTAFantasyCardLineup."
-  "League\"\256\002\n\027CMsgDOTAFantasyCardList\022,\n\005ca"
-  "rds\030\001 \003(\0132\035.CMsgDOTAFantasyCardList.Card"
-  "\0324\n\tCardBonus\022\022\n\nbonus_stat\030\001 \001(\r\022\023\n\013bon"
-  "us_value\030\002 \001(\r\032\256\001\n\004Card\022\031\n\021player_accoun"
-  "t_id\030\001 \001(\r\022\023\n\013player_name\030\002 \001(\t\022\017\n\007team_"
-  "id\030\003 \001(\r\022\021\n\tteam_name\030\004 \001(\t\022\014\n\004role\030\005 \001("
-  "\r\0223\n\007bonuses\030\006 \003(\0132\".CMsgDOTAFantasyCard"
-  "List.CardBonus\022\017\n\007item_id\030\010 \001(\004\"\310\001\n\026CMsg"
-  "ChatToxicityReport\022\030\n\020num_matches_seen\030\001"
-  " \001(\r\022\024\n\014num_messages\030\002 \001(\r\022\'\n\037num_messag"
-  "es_human_thinks_toxic\030\003 \001(\r\022$\n\034num_messa"
-  "ges_ml_thinks_toxic\030\004 \001(\r\022\016\n\006status\030\005 \001("
-  "\t\022\016\n\006result\030\006 \001(\r\022\017\n\007message\030\007 \001(\t\"\233\002\n\033C"
-  "MsgGetTeamAuditInformation\022\017\n\007team_id\030\001 "
-  "\001(\r\022\021\n\tteam_name\030\002 \001(\t\0224\n\007actions\030\003 \003(\0132"
-  "#.CMsgGetTeamAuditInformation.Action\022\024\n\014"
-  "last_updated\030\004 \001(\r\032\213\001\n\006Action\022\033\n\023registr"
-  "ation_period\030\001 \001(\r\022\022\n\naccount_id\030\002 \001(\r\022\016"
-  "\n\006action\030\003 \001(\r\022\021\n\ttimestamp\030\004 \001(\r\022\023\n\013pla"
-  "yer_name\030\005 \001(\t\022\030\n\020player_real_name\030\006 \001(\t"
-  "\"X\n\020CMsgDOTADPCMatch\022\035\n\005match\030\001 \001(\0132\016.CM"
-  "sgDOTAMatch\022%\n\010metadata\030\002 \001(\0132\023.CDOTAMat"
-  "chMetadata*\210\001\n\025ETeamFanContentStatus\022#\n\037"
-  "TEAM_FAN_CONTENT_STATUS_INVALID\020\000\022#\n\037TEA"
-  "M_FAN_CONTENT_STATUS_PENDING\020\001\022%\n!TEAM_F"
-  "AN_CONTENT_STATUS_EVALUATED\020\002*\351\002\n\030ETeamF"
-  "anContentAssetType\022\"\n\036k_eFanContentAsset"
-  "Type_LogoPNG\020\001\022\"\n\036k_eFanContentAssetType"
-  "_LogoSVG\020\002\022!\n\035k_eFanContentAssetType_Log"
-  "o3D\020\003\022\"\n\036k_eFanContentAssetType_Players\020"
-  "\004\022!\n\035k_eFanContentAssetType_Sprays\020\005\022%\n!"
-  "k_eFanContentAssetType_Wallpapers\020\006\022$\n k"
-  "_eFanContentAssetType_Emoticons\020\007\022%\n!k_e"
-  "FanContentAssetType_VoiceLines\020\010\022\'\n#k_eF"
-  "anContentAssetType_Localization\020\t*\215\001\n\032ET"
-  "eamFanContentAssetStatus\022!\n\035k_eFanConten"
-  "tAssetStatus_None\020\000\022%\n!k_eFanContentAsse"
-  "tStatus_Approved\020\001\022%\n!k_eFanContentAsset"
-  "Status_Rejected\020\002"
+  "\017 \001(\010\022)\n!timestamp_content_review_deadli"
+  "ne\030\020 \001(\r\032a\n\tPhaseInfo\022=\n\005phase\030\001 \001(\0162\037.C"
+  "MsgDPCEvent.ELeagueEventPhase:\rPHASE_INV"
+  "ALID\022\025\n\rnode_group_id\030\002 \001(\r\032\264\001\n\006League\0223"
+  "\n\006region\030\001 \001(\0162\016.ELeagueRegion:\023LEAGUE_R"
+  "EGION_UNSET\0229\n\010division\030\002 \001(\0162\020.ELeagueD"
+  "ivision:\025LEAGUE_DIVISION_UNSET\022\021\n\tleague"
+  "_id\030\003 \001(\r\022\'\n\006phases\030\004 \003(\0132\027.CMsgDPCEvent"
+  ".PhaseInfo\"\323\004\n\014ELeagueEvent\022\021\n\rEVENT_INV"
+  "ALID\020\000\022\026\n\022SPRING_2021_LEAGUE\020\001\022\025\n\021SPRING"
+  "_2021_MAJOR\020\002\022!\n\035INTERNATIONAL_2021_QUAL"
+  "IFIERS\020\003\022\026\n\022INTERNATIONAL_2021\020\004\022\026\n\022WINT"
+  "ER_2021_LEAGUE\020\005\022\035\n\031WINTER_2021_LEAGUE_F"
+  "INALS\020\006\022\026\n\022SPRING_2022_LEAGUE\020\007\022\025\n\021SPRIN"
+  "G_2022_MAJOR\020\010\022\026\n\022SUMMER_2022_LEAGUE\020\t\022\025"
+  "\n\021SUMMER_2022_MAJOR\020\n\022\026\n\022INTERNATIONAL_2"
+  "022\020\013\022\031\n\025CHINA_REGIONAL_FINALS\020\014\022*\n&INTE"
+  "RNATIONAL_2022_REGIONAL_QUALIFIERS\020\r\022-\n)"
+  "INTERNATIONAL_2022_LAST_CHANCE_QUALIFIER"
+  "S\020\016\022\026\n\022WINTER_2023_LEAGUE\020\017\022\025\n\021WINTER_20"
+  "23_MAJOR\020\020\022\026\n\022SPRING_2023_LEAGUE\020\021\022\025\n\021SP"
+  "RING_2023_MAJOR\020\022\022\026\n\022SUMMER_2023_LEAGUE\020"
+  "\023\022\025\n\021SUMMER_2023_MAJOR\020\024\022\026\n\022INTERNATIONA"
+  "L_2023\020\025\"\207\001\n\021ELeagueEventPhase\022\021\n\rPHASE_"
+  "INVALID\020\000\022\r\n\tWILD_CARD\020\001\022\017\n\013GROUP_STAGE\020"
+  "\002\022\013\n\007GROUP_A\020\003\022\013\n\007GROUP_B\020\004\022\013\n\007OVERALL\020\005"
+  "\022\013\n\007PLAYOFF\020\006\022\013\n\007RESULTS\020\007\"z\n\020ELeagueEve"
+  "ntType\022\013\n\007UNKNOWN\020\000\022\n\n\006LEAGUE\020\001\022\t\n\005MAJOR"
+  "\020\002\022\034\n\030INTERNATIONAL_QUALIFIERS\020\003\022\021\n\rINTE"
+  "RNATIONAL\020\004\022\021\n\rLEAGUE_FINALS\020\005\":\n\005ETour\022"
+  "\r\n\tTOUR_NONE\020\000\022\n\n\006TOUR_1\020\001\022\n\n\006TOUR_2\020\002\022\n"
+  "\n\006TOUR_3\020\003\"1\n\020CMsgDPCEventList\022\035\n\006events"
+  "\030\001 \003(\0132\r.CMsgDPCEvent\"\311\004\n\031CMsgDOTAFantas"
+  "yCardLineup\0222\n\007periods\030\001 \003(\0132!.CMsgDOTAF"
+  "antasyCardLineup.Period\0324\n\tCardBonus\022\022\n\n"
+  "bonus_stat\030\001 \001(\r\022\023\n\013bonus_value\030\002 \001(\r\032\322\001"
+  "\n\004Card\022\031\n\021player_account_id\030\001 \001(\r\022\023\n\013pla"
+  "yer_name\030\002 \001(\t\022\017\n\007team_id\030\003 \001(\r\022\021\n\tteam_"
+  "name\030\004 \001(\t\022\014\n\004role\030\005 \001(\r\0225\n\007bonuses\030\006 \003("
+  "\0132$.CMsgDOTAFantasyCardLineup.CardBonus\022"
+  "\r\n\005score\030\007 \001(\002\022\021\n\tfinalized\030\010 \001(\010\022\017\n\007ite"
+  "m_id\030\t \001(\004\032Z\n\006League\022\021\n\tleague_id\030\001 \001(\r\022"
+  ".\n\005cards\030\002 \003(\0132\037.CMsgDOTAFantasyCardLine"
+  "up.Card\022\r\n\005score\030\003 \001(\002\032\220\001\n\006Period\022\"\n\016fan"
+  "tasy_period\030\001 \001(\r:\n4294967295\022\027\n\017timesta"
+  "mp_start\030\002 \001(\r\022\025\n\rtimestamp_end\030\003 \001(\r\0222\n"
+  "\007leagues\030\004 \003(\0132!.CMsgDOTAFantasyCardLine"
+  "up.League\"\256\002\n\027CMsgDOTAFantasyCardList\022,\n"
+  "\005cards\030\001 \003(\0132\035.CMsgDOTAFantasyCardList.C"
+  "ard\0324\n\tCardBonus\022\022\n\nbonus_stat\030\001 \001(\r\022\023\n\013"
+  "bonus_value\030\002 \001(\r\032\256\001\n\004Card\022\031\n\021player_acc"
+  "ount_id\030\001 \001(\r\022\023\n\013player_name\030\002 \001(\t\022\017\n\007te"
+  "am_id\030\003 \001(\r\022\021\n\tteam_name\030\004 \001(\t\022\014\n\004role\030\005"
+  " \001(\r\0223\n\007bonuses\030\006 \003(\0132\".CMsgDOTAFantasyC"
+  "ardList.CardBonus\022\017\n\007item_id\030\010 \001(\004\"\235\002\n(C"
+  "MsgChatToxicityToxicPlayerMatchesReport\022"
+  "E\n\004rows\030\001 \003(\01327.CMsgChatToxicityToxicPla"
+  "yerMatchesReport.IndividualRow\032\251\001\n\rIndiv"
+  "idualRow\022\031\n\021player_account_id\030\001 \001(\r\022\030\n\020n"
+  "um_matches_seen\030\002 \001(\r\022\024\n\014num_messages\030\003 "
+  "\001(\r\022\032\n\022num_messages_toxic\030\004 \001(\r\022\030\n\020first"
+  "_match_seen\030\005 \001(\004\022\027\n\017last_match_seen\030\006 \001"
+  "(\004\"\237\001\n\026CMsgChatToxicityReport\022\030\n\020num_mat"
+  "ches_seen\030\001 \001(\r\022\024\n\014num_messages\030\002 \001(\r\022$\n"
+  "\034num_messages_ml_thinks_toxic\030\004 \001(\r\022\016\n\006s"
+  "tatus\030\005 \001(\t\022\016\n\006result\030\006 \001(\r\022\017\n\007message\030\007"
+  " \001(\t\"\233\002\n\033CMsgGetTeamAuditInformation\022\017\n\007"
+  "team_id\030\001 \001(\r\022\021\n\tteam_name\030\002 \001(\t\0224\n\007acti"
+  "ons\030\003 \003(\0132#.CMsgGetTeamAuditInformation."
+  "Action\022\024\n\014last_updated\030\004 \001(\r\032\213\001\n\006Action\022"
+  "\033\n\023registration_period\030\001 \001(\r\022\022\n\naccount_"
+  "id\030\002 \001(\r\022\016\n\006action\030\003 \001(\r\022\021\n\ttimestamp\030\004 "
+  "\001(\r\022\023\n\013player_name\030\005 \001(\t\022\030\n\020player_real_"
+  "name\030\006 \001(\t\"X\n\020CMsgDOTADPCMatch\022\035\n\005match\030"
+  "\001 \001(\0132\016.CMsgDOTAMatch\022%\n\010metadata\030\002 \001(\0132"
+  "\023.CDOTAMatchMetadata*\210\001\n\025ETeamFanContent"
+  "Status\022#\n\037TEAM_FAN_CONTENT_STATUS_INVALI"
+  "D\020\000\022#\n\037TEAM_FAN_CONTENT_STATUS_PENDING\020\001"
+  "\022%\n!TEAM_FAN_CONTENT_STATUS_EVALUATED\020\002*"
+  "\351\002\n\030ETeamFanContentAssetType\022\"\n\036k_eFanCo"
+  "ntentAssetType_LogoPNG\020\001\022\"\n\036k_eFanConten"
+  "tAssetType_LogoSVG\020\002\022!\n\035k_eFanContentAss"
+  "etType_Logo3D\020\003\022\"\n\036k_eFanContentAssetTyp"
+  "e_Players\020\004\022!\n\035k_eFanContentAssetType_Sp"
+  "rays\020\005\022%\n!k_eFanContentAssetType_Wallpap"
+  "ers\020\006\022$\n k_eFanContentAssetType_Emoticon"
+  "s\020\007\022%\n!k_eFanContentAssetType_VoiceLines"
+  "\020\010\022\'\n#k_eFanContentAssetType_Localizatio"
+  "n\020\t*\215\001\n\032ETeamFanContentAssetStatus\022!\n\035k_"
+  "eFanContentAssetStatus_None\020\000\022%\n!k_eFanC"
+  "ontentAssetStatus_Approved\020\001\022%\n!k_eFanCo"
+  "ntentAssetStatus_Rejected\020\002"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_deps[5] = {
   &::descriptor_table_dota_5fgcmessages_5fcommon_2eproto,
@@ -1348,9 +1416,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5
 };
 static ::_pbi::once_flag descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fgcmessages_5fwebapi_2eproto = {
-    false, false, 7417, descriptor_table_protodef_dota_5fgcmessages_5fwebapi_2eproto,
+    false, false, 7707, descriptor_table_protodef_dota_5fgcmessages_5fwebapi_2eproto,
     "dota_gcmessages_webapi.proto",
-    &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once, descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_deps, 5, 32,
+    &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once, descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_deps, 5, 34,
     schemas, file_default_instances, TableStruct_dota_5fgcmessages_5fwebapi_2eproto::offsets,
     file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto, file_level_enum_descriptors_dota_5fgcmessages_5fwebapi_2eproto,
     file_level_service_descriptors_dota_5fgcmessages_5fwebapi_2eproto,
@@ -7774,6 +7842,9 @@ class CMsgDPCEvent::_Internal {
   static void set_has_is_fantasy_enabled(HasBits* has_bits) {
     (*has_bits)[0] |= 128u;
   }
+  static void set_has_timestamp_content_review_deadline(HasBits* has_bits) {
+    (*has_bits)[0] |= 4096u;
+  }
 };
 
 CMsgDPCEvent::CMsgDPCEvent(::PROTOBUF_NAMESPACE_ID::Arena* arena,
@@ -7801,7 +7872,8 @@ CMsgDPCEvent::CMsgDPCEvent(const CMsgDPCEvent& from)
     , decltype(_impl_.tour_){}
     , decltype(_impl_.timestamp_drop_lock_){}
     , decltype(_impl_.timestamp_add_lock_){}
-    , decltype(_impl_.timestamp_content_deadline_){}};
+    , decltype(_impl_.timestamp_content_deadline_){}
+    , decltype(_impl_.timestamp_content_review_deadline_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _impl_.event_name_.InitDefault();
@@ -7813,8 +7885,8 @@ CMsgDPCEvent::CMsgDPCEvent(const CMsgDPCEvent& from)
       _this->GetArenaForAllocation());
   }
   ::memcpy(&_impl_.event_, &from._impl_.event_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.timestamp_content_deadline_) -
-    reinterpret_cast<char*>(&_impl_.event_)) + sizeof(_impl_.timestamp_content_deadline_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.timestamp_content_review_deadline_) -
+    reinterpret_cast<char*>(&_impl_.event_)) + sizeof(_impl_.timestamp_content_review_deadline_));
   // @@protoc_insertion_point(copy_constructor:CMsgDPCEvent)
 }
 
@@ -7839,6 +7911,7 @@ inline void CMsgDPCEvent::SharedCtor(
     , decltype(_impl_.timestamp_drop_lock_){0u}
     , decltype(_impl_.timestamp_add_lock_){0u}
     , decltype(_impl_.timestamp_content_deadline_){0u}
+    , decltype(_impl_.timestamp_content_review_deadline_){0u}
   };
   _impl_.event_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -7883,10 +7956,10 @@ void CMsgDPCEvent::Clear() {
         reinterpret_cast<char*>(&_impl_.is_fantasy_enabled_) -
         reinterpret_cast<char*>(&_impl_.event_)) + sizeof(_impl_.is_fantasy_enabled_));
   }
-  if (cached_has_bits & 0x00000f00u) {
+  if (cached_has_bits & 0x00001f00u) {
     ::memset(&_impl_.tour_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.timestamp_content_deadline_) -
-        reinterpret_cast<char*>(&_impl_.tour_)) + sizeof(_impl_.timestamp_content_deadline_));
+        reinterpret_cast<char*>(&_impl_.timestamp_content_review_deadline_) -
+        reinterpret_cast<char*>(&_impl_.tour_)) + sizeof(_impl_.timestamp_content_review_deadline_));
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -8051,6 +8124,15 @@ const char* CMsgDPCEvent::_InternalParse(const char* ptr, ::_pbi::ParseContext* 
         } else
           goto handle_unusual;
         continue;
+      // optional uint32 timestamp_content_review_deadline = 16;
+      case 16:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 128)) {
+          _Internal::set_has_timestamp_content_review_deadline(&has_bits);
+          _impl_.timestamp_content_review_deadline_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -8175,6 +8257,12 @@ uint8_t* CMsgDPCEvent::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteBoolToArray(15, this->_internal_is_fantasy_enabled(), target);
   }
 
+  // optional uint32 timestamp_content_review_deadline = 16;
+  if (cached_has_bits & 0x00001000u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(16, this->_internal_timestamp_content_review_deadline(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -8254,7 +8342,7 @@ size_t CMsgDPCEvent::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x00000f00u) {
+  if (cached_has_bits & 0x00001f00u) {
     // optional .CMsgDPCEvent.ETour tour = 10 [default = TOUR_NONE];
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
@@ -8274,6 +8362,13 @@ size_t CMsgDPCEvent::ByteSizeLong() const {
     // optional uint32 timestamp_content_deadline = 14;
     if (cached_has_bits & 0x00000800u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_timestamp_content_deadline());
+    }
+
+    // optional uint32 timestamp_content_review_deadline = 16;
+    if (cached_has_bits & 0x00001000u) {
+      total_size += 2 +
+        ::_pbi::WireFormatLite::UInt32Size(
+          this->_internal_timestamp_content_review_deadline());
     }
 
   }
@@ -8325,7 +8420,7 @@ void CMsgDPCEvent::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::P
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00000f00u) {
+  if (cached_has_bits & 0x00001f00u) {
     if (cached_has_bits & 0x00000100u) {
       _this->_impl_.tour_ = from._impl_.tour_;
     }
@@ -8337,6 +8432,9 @@ void CMsgDPCEvent::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::P
     }
     if (cached_has_bits & 0x00000800u) {
       _this->_impl_.timestamp_content_deadline_ = from._impl_.timestamp_content_deadline_;
+    }
+    if (cached_has_bits & 0x00001000u) {
+      _this->_impl_.timestamp_content_review_deadline_ = from._impl_.timestamp_content_review_deadline_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -8367,8 +8465,8 @@ void CMsgDPCEvent::InternalSwap(CMsgDPCEvent* other) {
       &other->_impl_.event_name_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgDPCEvent, _impl_.timestamp_content_deadline_)
-      + sizeof(CMsgDPCEvent::_impl_.timestamp_content_deadline_)
+      PROTOBUF_FIELD_OFFSET(CMsgDPCEvent, _impl_.timestamp_content_review_deadline_)
+      + sizeof(CMsgDPCEvent::_impl_.timestamp_content_review_deadline_)
       - PROTOBUF_FIELD_OFFSET(CMsgDPCEvent, _impl_.event_)>(
           reinterpret_cast<char*>(&_impl_.event_),
           reinterpret_cast<char*>(&other->_impl_.event_));
@@ -10929,6 +11027,540 @@ void CMsgDOTAFantasyCardList::InternalSwap(CMsgDOTAFantasyCardList* other) {
 
 // ===================================================================
 
+class CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow>()._impl_._has_bits_);
+  static void set_has_player_account_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_num_matches_seen(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_num_messages(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_num_messages_toxic(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_first_match_seen(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_last_match_seen(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
+  }
+};
+
+CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow)
+}
+CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow(const CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.player_account_id_){}
+    , decltype(_impl_.num_matches_seen_){}
+    , decltype(_impl_.num_messages_){}
+    , decltype(_impl_.num_messages_toxic_){}
+    , decltype(_impl_.first_match_seen_){}
+    , decltype(_impl_.last_match_seen_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.player_account_id_, &from._impl_.player_account_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.last_match_seen_) -
+    reinterpret_cast<char*>(&_impl_.player_account_id_)) + sizeof(_impl_.last_match_seen_));
+  // @@protoc_insertion_point(copy_constructor:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow)
+}
+
+inline void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.player_account_id_){0u}
+    , decltype(_impl_.num_matches_seen_){0u}
+    , decltype(_impl_.num_messages_){0u}
+    , decltype(_impl_.num_messages_toxic_){0u}
+    , decltype(_impl_.first_match_seen_){uint64_t{0u}}
+    , decltype(_impl_.last_match_seen_){uint64_t{0u}}
+  };
+}
+
+CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::~CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow() {
+  // @@protoc_insertion_point(destructor:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000003fu) {
+    ::memset(&_impl_.player_account_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.last_match_seen_) -
+        reinterpret_cast<char*>(&_impl_.player_account_id_)) + sizeof(_impl_.last_match_seen_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint32 player_account_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_player_account_id(&has_bits);
+          _impl_.player_account_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 num_matches_seen = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_num_matches_seen(&has_bits);
+          _impl_.num_matches_seen_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 num_messages = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_num_messages(&has_bits);
+          _impl_.num_messages_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 num_messages_toxic = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _Internal::set_has_num_messages_toxic(&has_bits);
+          _impl_.num_messages_toxic_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint64 first_match_seen = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          _Internal::set_has_first_match_seen(&has_bits);
+          _impl_.first_match_seen_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint64 last_match_seen = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          _Internal::set_has_last_match_seen(&has_bits);
+          _impl_.last_match_seen_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 player_account_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_player_account_id(), target);
+  }
+
+  // optional uint32 num_matches_seen = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_num_matches_seen(), target);
+  }
+
+  // optional uint32 num_messages = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_num_messages(), target);
+  }
+
+  // optional uint32 num_messages_toxic = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_num_messages_toxic(), target);
+  }
+
+  // optional uint64 first_match_seen = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(5, this->_internal_first_match_seen(), target);
+  }
+
+  // optional uint64 last_match_seen = 6;
+  if (cached_has_bits & 0x00000020u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(6, this->_internal_last_match_seen(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow)
+  return target;
+}
+
+size_t CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000003fu) {
+    // optional uint32 player_account_id = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_player_account_id());
+    }
+
+    // optional uint32 num_matches_seen = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_num_matches_seen());
+    }
+
+    // optional uint32 num_messages = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_num_messages());
+    }
+
+    // optional uint32 num_messages_toxic = 4;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_num_messages_toxic());
+    }
+
+    // optional uint64 first_match_seen = 5;
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_first_match_seen());
+    }
+
+    // optional uint64 last_match_seen = 6;
+    if (cached_has_bits & 0x00000020u) {
+      total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_last_match_seen());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::GetClassData() const { return &_class_data_; }
+
+
+void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow*>(&to_msg);
+  auto& from = static_cast<const CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000003fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.player_account_id_ = from._impl_.player_account_id_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.num_matches_seen_ = from._impl_.num_matches_seen_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.num_messages_ = from._impl_.num_messages_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.num_messages_toxic_ = from._impl_.num_messages_toxic_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.first_match_seen_ = from._impl_.first_match_seen_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      _this->_impl_.last_match_seen_ = from._impl_.last_match_seen_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::CopyFrom(const CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::IsInitialized() const {
+  return true;
+}
+
+void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::InternalSwap(CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow, _impl_.last_match_seen_)
+      + sizeof(CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_impl_.last_match_seen_)
+      - PROTOBUF_FIELD_OFFSET(CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow, _impl_.player_account_id_)>(
+          reinterpret_cast<char*>(&_impl_.player_account_id_),
+          reinterpret_cast<char*>(&other->_impl_.player_account_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[28]);
+}
+
+// ===================================================================
+
+class CMsgChatToxicityToxicPlayerMatchesReport::_Internal {
+ public:
+};
+
+CMsgChatToxicityToxicPlayerMatchesReport::CMsgChatToxicityToxicPlayerMatchesReport(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgChatToxicityToxicPlayerMatchesReport)
+}
+CMsgChatToxicityToxicPlayerMatchesReport::CMsgChatToxicityToxicPlayerMatchesReport(const CMsgChatToxicityToxicPlayerMatchesReport& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgChatToxicityToxicPlayerMatchesReport* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.rows_){from._impl_.rows_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CMsgChatToxicityToxicPlayerMatchesReport)
+}
+
+inline void CMsgChatToxicityToxicPlayerMatchesReport::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.rows_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+CMsgChatToxicityToxicPlayerMatchesReport::~CMsgChatToxicityToxicPlayerMatchesReport() {
+  // @@protoc_insertion_point(destructor:CMsgChatToxicityToxicPlayerMatchesReport)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgChatToxicityToxicPlayerMatchesReport::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.rows_.~RepeatedPtrField();
+}
+
+void CMsgChatToxicityToxicPlayerMatchesReport::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgChatToxicityToxicPlayerMatchesReport::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgChatToxicityToxicPlayerMatchesReport)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.rows_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgChatToxicityToxicPlayerMatchesReport::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow rows = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_rows(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgChatToxicityToxicPlayerMatchesReport::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgChatToxicityToxicPlayerMatchesReport)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow rows = 1;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_rows_size()); i < n; i++) {
+    const auto& repfield = this->_internal_rows(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgChatToxicityToxicPlayerMatchesReport)
+  return target;
+}
+
+size_t CMsgChatToxicityToxicPlayerMatchesReport::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgChatToxicityToxicPlayerMatchesReport)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow rows = 1;
+  total_size += 1UL * this->_internal_rows_size();
+  for (const auto& msg : this->_impl_.rows_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgChatToxicityToxicPlayerMatchesReport::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgChatToxicityToxicPlayerMatchesReport::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgChatToxicityToxicPlayerMatchesReport::GetClassData() const { return &_class_data_; }
+
+
+void CMsgChatToxicityToxicPlayerMatchesReport::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgChatToxicityToxicPlayerMatchesReport*>(&to_msg);
+  auto& from = static_cast<const CMsgChatToxicityToxicPlayerMatchesReport&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgChatToxicityToxicPlayerMatchesReport)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.rows_.MergeFrom(from._impl_.rows_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgChatToxicityToxicPlayerMatchesReport::CopyFrom(const CMsgChatToxicityToxicPlayerMatchesReport& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgChatToxicityToxicPlayerMatchesReport)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgChatToxicityToxicPlayerMatchesReport::IsInitialized() const {
+  return true;
+}
+
+void CMsgChatToxicityToxicPlayerMatchesReport::InternalSwap(CMsgChatToxicityToxicPlayerMatchesReport* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.rows_.InternalSwap(&other->_impl_.rows_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgChatToxicityToxicPlayerMatchesReport::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[29]);
+}
+
+// ===================================================================
+
 class CMsgChatToxicityReport::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgChatToxicityReport>()._impl_._has_bits_);
@@ -10938,17 +11570,14 @@ class CMsgChatToxicityReport::_Internal {
   static void set_has_num_messages(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
-  static void set_has_num_messages_human_thinks_toxic(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
-  }
   static void set_has_num_messages_ml_thinks_toxic(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_status(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_result(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
+    (*has_bits)[0] |= 32u;
   }
   static void set_has_message(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
@@ -10971,7 +11600,6 @@ CMsgChatToxicityReport::CMsgChatToxicityReport(const CMsgChatToxicityReport& fro
     , decltype(_impl_.message_){}
     , decltype(_impl_.num_matches_seen_){}
     , decltype(_impl_.num_messages_){}
-    , decltype(_impl_.num_messages_human_thinks_toxic_){}
     , decltype(_impl_.num_messages_ml_thinks_toxic_){}
     , decltype(_impl_.result_){}};
 
@@ -11009,7 +11637,6 @@ inline void CMsgChatToxicityReport::SharedCtor(
     , decltype(_impl_.message_){}
     , decltype(_impl_.num_matches_seen_){0u}
     , decltype(_impl_.num_messages_){0u}
-    , decltype(_impl_.num_messages_human_thinks_toxic_){0u}
     , decltype(_impl_.num_messages_ml_thinks_toxic_){0u}
     , decltype(_impl_.result_){0u}
   };
@@ -11057,7 +11684,7 @@ void CMsgChatToxicityReport::Clear() {
       _impl_.message_.ClearNonDefaultToEmpty();
     }
   }
-  if (cached_has_bits & 0x0000007cu) {
+  if (cached_has_bits & 0x0000003cu) {
     ::memset(&_impl_.num_matches_seen_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.result_) -
         reinterpret_cast<char*>(&_impl_.num_matches_seen_)) + sizeof(_impl_.result_));
@@ -11087,15 +11714,6 @@ const char* CMsgChatToxicityReport::_InternalParse(const char* ptr, ::_pbi::Pars
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_num_messages(&has_bits);
           _impl_.num_messages_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // optional uint32 num_messages_human_thinks_toxic = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          _Internal::set_has_num_messages_human_thinks_toxic(&has_bits);
-          _impl_.num_messages_human_thinks_toxic_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -11185,14 +11803,8 @@ uint8_t* CMsgChatToxicityReport::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_num_messages(), target);
   }
 
-  // optional uint32 num_messages_human_thinks_toxic = 3;
-  if (cached_has_bits & 0x00000010u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_num_messages_human_thinks_toxic(), target);
-  }
-
   // optional uint32 num_messages_ml_thinks_toxic = 4;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_num_messages_ml_thinks_toxic(), target);
   }
@@ -11208,7 +11820,7 @@ uint8_t* CMsgChatToxicityReport::_InternalSerialize(
   }
 
   // optional uint32 result = 6;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_result(), target);
   }
@@ -11240,7 +11852,7 @@ size_t CMsgChatToxicityReport::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
+  if (cached_has_bits & 0x0000003fu) {
     // optional string status = 5;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -11265,18 +11877,13 @@ size_t CMsgChatToxicityReport::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_num_messages());
     }
 
-    // optional uint32 num_messages_human_thinks_toxic = 3;
-    if (cached_has_bits & 0x00000010u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_num_messages_human_thinks_toxic());
-    }
-
     // optional uint32 num_messages_ml_thinks_toxic = 4;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_num_messages_ml_thinks_toxic());
     }
 
     // optional uint32 result = 6;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000020u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_result());
     }
 
@@ -11300,7 +11907,7 @@ void CMsgChatToxicityReport::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg,
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
+  if (cached_has_bits & 0x0000003fu) {
     if (cached_has_bits & 0x00000001u) {
       _this->_internal_set_status(from._internal_status());
     }
@@ -11314,12 +11921,9 @@ void CMsgChatToxicityReport::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg,
       _this->_impl_.num_messages_ = from._impl_.num_messages_;
     }
     if (cached_has_bits & 0x00000010u) {
-      _this->_impl_.num_messages_human_thinks_toxic_ = from._impl_.num_messages_human_thinks_toxic_;
-    }
-    if (cached_has_bits & 0x00000020u) {
       _this->_impl_.num_messages_ml_thinks_toxic_ = from._impl_.num_messages_ml_thinks_toxic_;
     }
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000020u) {
       _this->_impl_.result_ = from._impl_.result_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -11363,7 +11967,7 @@ void CMsgChatToxicityReport::InternalSwap(CMsgChatToxicityReport* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgChatToxicityReport::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[28]);
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[30]);
 }
 
 // ===================================================================
@@ -11774,7 +12378,7 @@ void CMsgGetTeamAuditInformation_Action::InternalSwap(CMsgGetTeamAuditInformatio
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGetTeamAuditInformation_Action::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[29]);
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[31]);
 }
 
 // ===================================================================
@@ -12104,7 +12708,7 @@ void CMsgGetTeamAuditInformation::InternalSwap(CMsgGetTeamAuditInformation* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGetTeamAuditInformation::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[30]);
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[32]);
 }
 
 // ===================================================================
@@ -12374,7 +12978,7 @@ void CMsgDOTADPCMatch::InternalSwap(CMsgDOTADPCMatch* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTADPCMatch::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[31]);
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[33]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -12490,6 +13094,14 @@ Arena::CreateMaybeMessage< ::CMsgDOTAFantasyCardList_Card >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::CMsgDOTAFantasyCardList*
 Arena::CreateMaybeMessage< ::CMsgDOTAFantasyCardList >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgDOTAFantasyCardList >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow*
+Arena::CreateMaybeMessage< ::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgChatToxicityToxicPlayerMatchesReport*
+Arena::CreateMaybeMessage< ::CMsgChatToxicityToxicPlayerMatchesReport >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgChatToxicityToxicPlayerMatchesReport >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CMsgChatToxicityReport*
 Arena::CreateMaybeMessage< ::CMsgChatToxicityReport >(Arena* arena) {

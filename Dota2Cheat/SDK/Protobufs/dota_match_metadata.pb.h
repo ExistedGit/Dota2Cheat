@@ -4040,6 +4040,7 @@ class CDOTAMatchMetadata_Team_Player final :
     kTeamSlotFieldNumber = 52,
     kFeaturedHeroStickerIndexFieldNumber = 54,
     kFeaturedHeroStickerQualityFieldNumber = 55,
+    kGamePlayerIdFieldNumber = 57,
   };
   // repeated int32 ability_upgrades = 2;
   int ability_upgrades_size() const;
@@ -4799,6 +4800,19 @@ class CDOTAMatchMetadata_Team_Player final :
   void _internal_set_featured_hero_sticker_quality(uint32_t value);
   public:
 
+  // optional int32 game_player_id = 57 [default = -1];
+  bool has_game_player_id() const;
+  private:
+  bool _internal_has_game_player_id() const;
+  public:
+  void clear_game_player_id();
+  int32_t game_player_id() const;
+  void set_game_player_id(int32_t value);
+  private:
+  int32_t _internal_game_player_id() const;
+  void _internal_set_game_player_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAMatchMetadata.Team.Player)
  private:
   class _Internal;
@@ -4860,6 +4874,7 @@ class CDOTAMatchMetadata_Team_Player final :
     uint32_t team_slot_;
     uint32_t featured_hero_sticker_index_;
     uint32_t featured_hero_sticker_quality_;
+    int32_t game_player_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fmatch_5fmetadata_2eproto;
@@ -13613,6 +13628,34 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAMatchMetadata_Eco
 CDOTAMatchMetadata_Team_Player::equipped_econ_items() const {
   // @@protoc_insertion_point(field_list:CDOTAMatchMetadata.Team.Player.equipped_econ_items)
   return _impl_.equipped_econ_items_;
+}
+
+// optional int32 game_player_id = 57 [default = -1];
+inline bool CDOTAMatchMetadata_Team_Player::_internal_has_game_player_id() const {
+  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CDOTAMatchMetadata_Team_Player::has_game_player_id() const {
+  return _internal_has_game_player_id();
+}
+inline void CDOTAMatchMetadata_Team_Player::clear_game_player_id() {
+  _impl_.game_player_id_ = -1;
+  _impl_._has_bits_[1] &= ~0x00000020u;
+}
+inline int32_t CDOTAMatchMetadata_Team_Player::_internal_game_player_id() const {
+  return _impl_.game_player_id_;
+}
+inline int32_t CDOTAMatchMetadata_Team_Player::game_player_id() const {
+  // @@protoc_insertion_point(field_get:CDOTAMatchMetadata.Team.Player.game_player_id)
+  return _internal_game_player_id();
+}
+inline void CDOTAMatchMetadata_Team_Player::_internal_set_game_player_id(int32_t value) {
+  _impl_._has_bits_[1] |= 0x00000020u;
+  _impl_.game_player_id_ = value;
+}
+inline void CDOTAMatchMetadata_Team_Player::set_game_player_id(int32_t value) {
+  _internal_set_game_player_id(value);
+  // @@protoc_insertion_point(field_set:CDOTAMatchMetadata.Team.Player.game_player_id)
 }
 
 // -------------------------------------------------------------------

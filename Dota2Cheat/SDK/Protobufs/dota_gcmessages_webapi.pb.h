@@ -59,6 +59,12 @@ extern CMsgArcanaVotes_MatchDefaultTypeInternal _CMsgArcanaVotes_Match_default_i
 class CMsgChatToxicityReport;
 struct CMsgChatToxicityReportDefaultTypeInternal;
 extern CMsgChatToxicityReportDefaultTypeInternal _CMsgChatToxicityReport_default_instance_;
+class CMsgChatToxicityToxicPlayerMatchesReport;
+struct CMsgChatToxicityToxicPlayerMatchesReportDefaultTypeInternal;
+extern CMsgChatToxicityToxicPlayerMatchesReportDefaultTypeInternal _CMsgChatToxicityToxicPlayerMatchesReport_default_instance_;
+class CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow;
+struct CMsgChatToxicityToxicPlayerMatchesReport_IndividualRowDefaultTypeInternal;
+extern CMsgChatToxicityToxicPlayerMatchesReport_IndividualRowDefaultTypeInternal _CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow_default_instance_;
 class CMsgDOTADPCFeed;
 struct CMsgDOTADPCFeedDefaultTypeInternal;
 extern CMsgDOTADPCFeedDefaultTypeInternal _CMsgDOTADPCFeed_default_instance_;
@@ -150,6 +156,8 @@ PROTOBUF_NAMESPACE_OPEN
 template<> ::CMsgArcanaVotes* Arena::CreateMaybeMessage<::CMsgArcanaVotes>(Arena*);
 template<> ::CMsgArcanaVotes_Match* Arena::CreateMaybeMessage<::CMsgArcanaVotes_Match>(Arena*);
 template<> ::CMsgChatToxicityReport* Arena::CreateMaybeMessage<::CMsgChatToxicityReport>(Arena*);
+template<> ::CMsgChatToxicityToxicPlayerMatchesReport* Arena::CreateMaybeMessage<::CMsgChatToxicityToxicPlayerMatchesReport>(Arena*);
+template<> ::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow* Arena::CreateMaybeMessage<::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow>(Arena*);
 template<> ::CMsgDOTADPCFeed* Arena::CreateMaybeMessage<::CMsgDOTADPCFeed>(Arena*);
 template<> ::CMsgDOTADPCFeed_Element* Arena::CreateMaybeMessage<::CMsgDOTADPCFeed_Element>(Arena*);
 template<> ::CMsgDOTADPCMatch* Arena::CreateMaybeMessage<::CMsgDOTADPCMatch>(Arena*);
@@ -4996,6 +5004,7 @@ class CMsgDPCEvent final :
     kTimestampDropLockFieldNumber = 12,
     kTimestampAddLockFieldNumber = 13,
     kTimestampContentDeadlineFieldNumber = 14,
+    kTimestampContentReviewDeadlineFieldNumber = 16,
   };
   // repeated .CMsgDPCEvent.League leagues = 3;
   int leagues_size() const;
@@ -5198,6 +5207,19 @@ class CMsgDPCEvent final :
   void _internal_set_timestamp_content_deadline(uint32_t value);
   public:
 
+  // optional uint32 timestamp_content_review_deadline = 16;
+  bool has_timestamp_content_review_deadline() const;
+  private:
+  bool _internal_has_timestamp_content_review_deadline() const;
+  public:
+  void clear_timestamp_content_review_deadline();
+  uint32_t timestamp_content_review_deadline() const;
+  void set_timestamp_content_review_deadline(uint32_t value);
+  private:
+  uint32_t _internal_timestamp_content_review_deadline() const;
+  void _internal_set_timestamp_content_review_deadline(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgDPCEvent)
  private:
   class _Internal;
@@ -5222,6 +5244,7 @@ class CMsgDPCEvent final :
     uint32_t timestamp_drop_lock_;
     uint32_t timestamp_add_lock_;
     uint32_t timestamp_content_deadline_;
+    uint32_t timestamp_content_review_deadline_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fwebapi_2eproto;
@@ -7043,6 +7066,407 @@ class CMsgDOTAFantasyCardList final :
 };
 // -------------------------------------------------------------------
 
+class CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow) */ {
+ public:
+  inline CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow() : CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow(nullptr) {}
+  ~CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow() override;
+  explicit PROTOBUF_CONSTEXPR CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow(const CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow& from);
+  CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow(CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow&& from) noexcept
+    : CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow& operator=(const CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow& operator=(CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow* internal_default_instance() {
+    return reinterpret_cast<const CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow*>(
+               &_CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    28;
+
+  friend void swap(CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow& a, CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow& from) {
+    CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow";
+  }
+  protected:
+  explicit CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPlayerAccountIdFieldNumber = 1,
+    kNumMatchesSeenFieldNumber = 2,
+    kNumMessagesFieldNumber = 3,
+    kNumMessagesToxicFieldNumber = 4,
+    kFirstMatchSeenFieldNumber = 5,
+    kLastMatchSeenFieldNumber = 6,
+  };
+  // optional uint32 player_account_id = 1;
+  bool has_player_account_id() const;
+  private:
+  bool _internal_has_player_account_id() const;
+  public:
+  void clear_player_account_id();
+  uint32_t player_account_id() const;
+  void set_player_account_id(uint32_t value);
+  private:
+  uint32_t _internal_player_account_id() const;
+  void _internal_set_player_account_id(uint32_t value);
+  public:
+
+  // optional uint32 num_matches_seen = 2;
+  bool has_num_matches_seen() const;
+  private:
+  bool _internal_has_num_matches_seen() const;
+  public:
+  void clear_num_matches_seen();
+  uint32_t num_matches_seen() const;
+  void set_num_matches_seen(uint32_t value);
+  private:
+  uint32_t _internal_num_matches_seen() const;
+  void _internal_set_num_matches_seen(uint32_t value);
+  public:
+
+  // optional uint32 num_messages = 3;
+  bool has_num_messages() const;
+  private:
+  bool _internal_has_num_messages() const;
+  public:
+  void clear_num_messages();
+  uint32_t num_messages() const;
+  void set_num_messages(uint32_t value);
+  private:
+  uint32_t _internal_num_messages() const;
+  void _internal_set_num_messages(uint32_t value);
+  public:
+
+  // optional uint32 num_messages_toxic = 4;
+  bool has_num_messages_toxic() const;
+  private:
+  bool _internal_has_num_messages_toxic() const;
+  public:
+  void clear_num_messages_toxic();
+  uint32_t num_messages_toxic() const;
+  void set_num_messages_toxic(uint32_t value);
+  private:
+  uint32_t _internal_num_messages_toxic() const;
+  void _internal_set_num_messages_toxic(uint32_t value);
+  public:
+
+  // optional uint64 first_match_seen = 5;
+  bool has_first_match_seen() const;
+  private:
+  bool _internal_has_first_match_seen() const;
+  public:
+  void clear_first_match_seen();
+  uint64_t first_match_seen() const;
+  void set_first_match_seen(uint64_t value);
+  private:
+  uint64_t _internal_first_match_seen() const;
+  void _internal_set_first_match_seen(uint64_t value);
+  public:
+
+  // optional uint64 last_match_seen = 6;
+  bool has_last_match_seen() const;
+  private:
+  bool _internal_has_last_match_seen() const;
+  public:
+  void clear_last_match_seen();
+  uint64_t last_match_seen() const;
+  void set_last_match_seen(uint64_t value);
+  private:
+  uint64_t _internal_last_match_seen() const;
+  void _internal_set_last_match_seen(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t player_account_id_;
+    uint32_t num_matches_seen_;
+    uint32_t num_messages_;
+    uint32_t num_messages_toxic_;
+    uint64_t first_match_seen_;
+    uint64_t last_match_seen_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fwebapi_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgChatToxicityToxicPlayerMatchesReport final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgChatToxicityToxicPlayerMatchesReport) */ {
+ public:
+  inline CMsgChatToxicityToxicPlayerMatchesReport() : CMsgChatToxicityToxicPlayerMatchesReport(nullptr) {}
+  ~CMsgChatToxicityToxicPlayerMatchesReport() override;
+  explicit PROTOBUF_CONSTEXPR CMsgChatToxicityToxicPlayerMatchesReport(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgChatToxicityToxicPlayerMatchesReport(const CMsgChatToxicityToxicPlayerMatchesReport& from);
+  CMsgChatToxicityToxicPlayerMatchesReport(CMsgChatToxicityToxicPlayerMatchesReport&& from) noexcept
+    : CMsgChatToxicityToxicPlayerMatchesReport() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgChatToxicityToxicPlayerMatchesReport& operator=(const CMsgChatToxicityToxicPlayerMatchesReport& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgChatToxicityToxicPlayerMatchesReport& operator=(CMsgChatToxicityToxicPlayerMatchesReport&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgChatToxicityToxicPlayerMatchesReport& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgChatToxicityToxicPlayerMatchesReport* internal_default_instance() {
+    return reinterpret_cast<const CMsgChatToxicityToxicPlayerMatchesReport*>(
+               &_CMsgChatToxicityToxicPlayerMatchesReport_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    29;
+
+  friend void swap(CMsgChatToxicityToxicPlayerMatchesReport& a, CMsgChatToxicityToxicPlayerMatchesReport& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgChatToxicityToxicPlayerMatchesReport* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgChatToxicityToxicPlayerMatchesReport* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgChatToxicityToxicPlayerMatchesReport* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgChatToxicityToxicPlayerMatchesReport>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgChatToxicityToxicPlayerMatchesReport& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgChatToxicityToxicPlayerMatchesReport& from) {
+    CMsgChatToxicityToxicPlayerMatchesReport::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgChatToxicityToxicPlayerMatchesReport* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgChatToxicityToxicPlayerMatchesReport";
+  }
+  protected:
+  explicit CMsgChatToxicityToxicPlayerMatchesReport(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow IndividualRow;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRowsFieldNumber = 1,
+  };
+  // repeated .CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow rows = 1;
+  int rows_size() const;
+  private:
+  int _internal_rows_size() const;
+  public:
+  void clear_rows();
+  ::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow* mutable_rows(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow >*
+      mutable_rows();
+  private:
+  const ::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow& _internal_rows(int index) const;
+  ::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow* _internal_add_rows();
+  public:
+  const ::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow& rows(int index) const;
+  ::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow* add_rows();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow >&
+      rows() const;
+
+  // @@protoc_insertion_point(class_scope:CMsgChatToxicityToxicPlayerMatchesReport)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow > rows_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fwebapi_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMsgChatToxicityReport final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgChatToxicityReport) */ {
  public:
@@ -7098,7 +7522,7 @@ class CMsgChatToxicityReport final :
                &_CMsgChatToxicityReport_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    30;
 
   friend void swap(CMsgChatToxicityReport& a, CMsgChatToxicityReport& b) {
     a.Swap(&b);
@@ -7175,7 +7599,6 @@ class CMsgChatToxicityReport final :
     kMessageFieldNumber = 7,
     kNumMatchesSeenFieldNumber = 1,
     kNumMessagesFieldNumber = 2,
-    kNumMessagesHumanThinksToxicFieldNumber = 3,
     kNumMessagesMlThinksToxicFieldNumber = 4,
     kResultFieldNumber = 6,
   };
@@ -7241,19 +7664,6 @@ class CMsgChatToxicityReport final :
   void _internal_set_num_messages(uint32_t value);
   public:
 
-  // optional uint32 num_messages_human_thinks_toxic = 3;
-  bool has_num_messages_human_thinks_toxic() const;
-  private:
-  bool _internal_has_num_messages_human_thinks_toxic() const;
-  public:
-  void clear_num_messages_human_thinks_toxic();
-  uint32_t num_messages_human_thinks_toxic() const;
-  void set_num_messages_human_thinks_toxic(uint32_t value);
-  private:
-  uint32_t _internal_num_messages_human_thinks_toxic() const;
-  void _internal_set_num_messages_human_thinks_toxic(uint32_t value);
-  public:
-
   // optional uint32 num_messages_ml_thinks_toxic = 4;
   bool has_num_messages_ml_thinks_toxic() const;
   private:
@@ -7294,7 +7704,6 @@ class CMsgChatToxicityReport final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr message_;
     uint32_t num_matches_seen_;
     uint32_t num_messages_;
-    uint32_t num_messages_human_thinks_toxic_;
     uint32_t num_messages_ml_thinks_toxic_;
     uint32_t result_;
   };
@@ -7358,7 +7767,7 @@ class CMsgGetTeamAuditInformation_Action final :
                &_CMsgGetTeamAuditInformation_Action_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    31;
 
   friend void swap(CMsgGetTeamAuditInformation_Action& a, CMsgGetTeamAuditInformation_Action& b) {
     a.Swap(&b);
@@ -7603,7 +8012,7 @@ class CMsgGetTeamAuditInformation final :
                &_CMsgGetTeamAuditInformation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    32;
 
   friend void swap(CMsgGetTeamAuditInformation& a, CMsgGetTeamAuditInformation& b) {
     a.Swap(&b);
@@ -7820,7 +8229,7 @@ class CMsgDOTADPCMatch final :
                &_CMsgDOTADPCMatch_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    33;
 
   friend void swap(CMsgDOTADPCMatch& a, CMsgDOTADPCMatch& b) {
     a.Swap(&b);
@@ -11667,6 +12076,34 @@ inline void CMsgDPCEvent::set_is_fantasy_enabled(bool value) {
   // @@protoc_insertion_point(field_set:CMsgDPCEvent.is_fantasy_enabled)
 }
 
+// optional uint32 timestamp_content_review_deadline = 16;
+inline bool CMsgDPCEvent::_internal_has_timestamp_content_review_deadline() const {
+  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
+  return value;
+}
+inline bool CMsgDPCEvent::has_timestamp_content_review_deadline() const {
+  return _internal_has_timestamp_content_review_deadline();
+}
+inline void CMsgDPCEvent::clear_timestamp_content_review_deadline() {
+  _impl_.timestamp_content_review_deadline_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00001000u;
+}
+inline uint32_t CMsgDPCEvent::_internal_timestamp_content_review_deadline() const {
+  return _impl_.timestamp_content_review_deadline_;
+}
+inline uint32_t CMsgDPCEvent::timestamp_content_review_deadline() const {
+  // @@protoc_insertion_point(field_get:CMsgDPCEvent.timestamp_content_review_deadline)
+  return _internal_timestamp_content_review_deadline();
+}
+inline void CMsgDPCEvent::_internal_set_timestamp_content_review_deadline(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00001000u;
+  _impl_.timestamp_content_review_deadline_ = value;
+}
+inline void CMsgDPCEvent::set_timestamp_content_review_deadline(uint32_t value) {
+  _internal_set_timestamp_content_review_deadline(value);
+  // @@protoc_insertion_point(field_set:CMsgDPCEvent.timestamp_content_review_deadline)
+}
+
 // -------------------------------------------------------------------
 
 // CMsgDPCEventList
@@ -12789,6 +13226,222 @@ CMsgDOTAFantasyCardList::cards() const {
 
 // -------------------------------------------------------------------
 
+// CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow
+
+// optional uint32 player_account_id = 1;
+inline bool CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_internal_has_player_account_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::has_player_account_id() const {
+  return _internal_has_player_account_id();
+}
+inline void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::clear_player_account_id() {
+  _impl_.player_account_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_internal_player_account_id() const {
+  return _impl_.player_account_id_;
+}
+inline uint32_t CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::player_account_id() const {
+  // @@protoc_insertion_point(field_get:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow.player_account_id)
+  return _internal_player_account_id();
+}
+inline void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_internal_set_player_account_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.player_account_id_ = value;
+}
+inline void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::set_player_account_id(uint32_t value) {
+  _internal_set_player_account_id(value);
+  // @@protoc_insertion_point(field_set:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow.player_account_id)
+}
+
+// optional uint32 num_matches_seen = 2;
+inline bool CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_internal_has_num_matches_seen() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::has_num_matches_seen() const {
+  return _internal_has_num_matches_seen();
+}
+inline void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::clear_num_matches_seen() {
+  _impl_.num_matches_seen_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_internal_num_matches_seen() const {
+  return _impl_.num_matches_seen_;
+}
+inline uint32_t CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::num_matches_seen() const {
+  // @@protoc_insertion_point(field_get:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow.num_matches_seen)
+  return _internal_num_matches_seen();
+}
+inline void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_internal_set_num_matches_seen(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.num_matches_seen_ = value;
+}
+inline void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::set_num_matches_seen(uint32_t value) {
+  _internal_set_num_matches_seen(value);
+  // @@protoc_insertion_point(field_set:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow.num_matches_seen)
+}
+
+// optional uint32 num_messages = 3;
+inline bool CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_internal_has_num_messages() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::has_num_messages() const {
+  return _internal_has_num_messages();
+}
+inline void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::clear_num_messages() {
+  _impl_.num_messages_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline uint32_t CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_internal_num_messages() const {
+  return _impl_.num_messages_;
+}
+inline uint32_t CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::num_messages() const {
+  // @@protoc_insertion_point(field_get:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow.num_messages)
+  return _internal_num_messages();
+}
+inline void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_internal_set_num_messages(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.num_messages_ = value;
+}
+inline void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::set_num_messages(uint32_t value) {
+  _internal_set_num_messages(value);
+  // @@protoc_insertion_point(field_set:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow.num_messages)
+}
+
+// optional uint32 num_messages_toxic = 4;
+inline bool CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_internal_has_num_messages_toxic() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::has_num_messages_toxic() const {
+  return _internal_has_num_messages_toxic();
+}
+inline void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::clear_num_messages_toxic() {
+  _impl_.num_messages_toxic_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline uint32_t CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_internal_num_messages_toxic() const {
+  return _impl_.num_messages_toxic_;
+}
+inline uint32_t CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::num_messages_toxic() const {
+  // @@protoc_insertion_point(field_get:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow.num_messages_toxic)
+  return _internal_num_messages_toxic();
+}
+inline void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_internal_set_num_messages_toxic(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.num_messages_toxic_ = value;
+}
+inline void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::set_num_messages_toxic(uint32_t value) {
+  _internal_set_num_messages_toxic(value);
+  // @@protoc_insertion_point(field_set:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow.num_messages_toxic)
+}
+
+// optional uint64 first_match_seen = 5;
+inline bool CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_internal_has_first_match_seen() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::has_first_match_seen() const {
+  return _internal_has_first_match_seen();
+}
+inline void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::clear_first_match_seen() {
+  _impl_.first_match_seen_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline uint64_t CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_internal_first_match_seen() const {
+  return _impl_.first_match_seen_;
+}
+inline uint64_t CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::first_match_seen() const {
+  // @@protoc_insertion_point(field_get:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow.first_match_seen)
+  return _internal_first_match_seen();
+}
+inline void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_internal_set_first_match_seen(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.first_match_seen_ = value;
+}
+inline void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::set_first_match_seen(uint64_t value) {
+  _internal_set_first_match_seen(value);
+  // @@protoc_insertion_point(field_set:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow.first_match_seen)
+}
+
+// optional uint64 last_match_seen = 6;
+inline bool CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_internal_has_last_match_seen() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::has_last_match_seen() const {
+  return _internal_has_last_match_seen();
+}
+inline void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::clear_last_match_seen() {
+  _impl_.last_match_seen_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000020u;
+}
+inline uint64_t CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_internal_last_match_seen() const {
+  return _impl_.last_match_seen_;
+}
+inline uint64_t CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::last_match_seen() const {
+  // @@protoc_insertion_point(field_get:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow.last_match_seen)
+  return _internal_last_match_seen();
+}
+inline void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::_internal_set_last_match_seen(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_.last_match_seen_ = value;
+}
+inline void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::set_last_match_seen(uint64_t value) {
+  _internal_set_last_match_seen(value);
+  // @@protoc_insertion_point(field_set:CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow.last_match_seen)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgChatToxicityToxicPlayerMatchesReport
+
+// repeated .CMsgChatToxicityToxicPlayerMatchesReport.IndividualRow rows = 1;
+inline int CMsgChatToxicityToxicPlayerMatchesReport::_internal_rows_size() const {
+  return _impl_.rows_.size();
+}
+inline int CMsgChatToxicityToxicPlayerMatchesReport::rows_size() const {
+  return _internal_rows_size();
+}
+inline void CMsgChatToxicityToxicPlayerMatchesReport::clear_rows() {
+  _impl_.rows_.Clear();
+}
+inline ::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow* CMsgChatToxicityToxicPlayerMatchesReport::mutable_rows(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgChatToxicityToxicPlayerMatchesReport.rows)
+  return _impl_.rows_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow >*
+CMsgChatToxicityToxicPlayerMatchesReport::mutable_rows() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgChatToxicityToxicPlayerMatchesReport.rows)
+  return &_impl_.rows_;
+}
+inline const ::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow& CMsgChatToxicityToxicPlayerMatchesReport::_internal_rows(int index) const {
+  return _impl_.rows_.Get(index);
+}
+inline const ::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow& CMsgChatToxicityToxicPlayerMatchesReport::rows(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgChatToxicityToxicPlayerMatchesReport.rows)
+  return _internal_rows(index);
+}
+inline ::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow* CMsgChatToxicityToxicPlayerMatchesReport::_internal_add_rows() {
+  return _impl_.rows_.Add();
+}
+inline ::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow* CMsgChatToxicityToxicPlayerMatchesReport::add_rows() {
+  ::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow* _add = _internal_add_rows();
+  // @@protoc_insertion_point(field_add:CMsgChatToxicityToxicPlayerMatchesReport.rows)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow >&
+CMsgChatToxicityToxicPlayerMatchesReport::rows() const {
+  // @@protoc_insertion_point(field_list:CMsgChatToxicityToxicPlayerMatchesReport.rows)
+  return _impl_.rows_;
+}
+
+// -------------------------------------------------------------------
+
 // CMsgChatToxicityReport
 
 // optional uint32 num_matches_seen = 1;
@@ -12847,37 +13500,9 @@ inline void CMsgChatToxicityReport::set_num_messages(uint32_t value) {
   // @@protoc_insertion_point(field_set:CMsgChatToxicityReport.num_messages)
 }
 
-// optional uint32 num_messages_human_thinks_toxic = 3;
-inline bool CMsgChatToxicityReport::_internal_has_num_messages_human_thinks_toxic() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
-  return value;
-}
-inline bool CMsgChatToxicityReport::has_num_messages_human_thinks_toxic() const {
-  return _internal_has_num_messages_human_thinks_toxic();
-}
-inline void CMsgChatToxicityReport::clear_num_messages_human_thinks_toxic() {
-  _impl_.num_messages_human_thinks_toxic_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
-}
-inline uint32_t CMsgChatToxicityReport::_internal_num_messages_human_thinks_toxic() const {
-  return _impl_.num_messages_human_thinks_toxic_;
-}
-inline uint32_t CMsgChatToxicityReport::num_messages_human_thinks_toxic() const {
-  // @@protoc_insertion_point(field_get:CMsgChatToxicityReport.num_messages_human_thinks_toxic)
-  return _internal_num_messages_human_thinks_toxic();
-}
-inline void CMsgChatToxicityReport::_internal_set_num_messages_human_thinks_toxic(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
-  _impl_.num_messages_human_thinks_toxic_ = value;
-}
-inline void CMsgChatToxicityReport::set_num_messages_human_thinks_toxic(uint32_t value) {
-  _internal_set_num_messages_human_thinks_toxic(value);
-  // @@protoc_insertion_point(field_set:CMsgChatToxicityReport.num_messages_human_thinks_toxic)
-}
-
 // optional uint32 num_messages_ml_thinks_toxic = 4;
 inline bool CMsgChatToxicityReport::_internal_has_num_messages_ml_thinks_toxic() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CMsgChatToxicityReport::has_num_messages_ml_thinks_toxic() const {
@@ -12885,7 +13510,7 @@ inline bool CMsgChatToxicityReport::has_num_messages_ml_thinks_toxic() const {
 }
 inline void CMsgChatToxicityReport::clear_num_messages_ml_thinks_toxic() {
   _impl_.num_messages_ml_thinks_toxic_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline uint32_t CMsgChatToxicityReport::_internal_num_messages_ml_thinks_toxic() const {
   return _impl_.num_messages_ml_thinks_toxic_;
@@ -12895,7 +13520,7 @@ inline uint32_t CMsgChatToxicityReport::num_messages_ml_thinks_toxic() const {
   return _internal_num_messages_ml_thinks_toxic();
 }
 inline void CMsgChatToxicityReport::_internal_set_num_messages_ml_thinks_toxic(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.num_messages_ml_thinks_toxic_ = value;
 }
 inline void CMsgChatToxicityReport::set_num_messages_ml_thinks_toxic(uint32_t value) {
@@ -12973,7 +13598,7 @@ inline void CMsgChatToxicityReport::set_allocated_status(std::string* status) {
 
 // optional uint32 result = 6;
 inline bool CMsgChatToxicityReport::_internal_has_result() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgChatToxicityReport::has_result() const {
@@ -12981,7 +13606,7 @@ inline bool CMsgChatToxicityReport::has_result() const {
 }
 inline void CMsgChatToxicityReport::clear_result() {
   _impl_.result_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline uint32_t CMsgChatToxicityReport::_internal_result() const {
   return _impl_.result_;
@@ -12991,7 +13616,7 @@ inline uint32_t CMsgChatToxicityReport::result() const {
   return _internal_result();
 }
 inline void CMsgChatToxicityReport::_internal_set_result(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.result_ = value;
 }
 inline void CMsgChatToxicityReport::set_result(uint32_t value) {
@@ -13668,6 +14293,10 @@ inline void CMsgDOTADPCMatch::set_allocated_metadata(::CDOTAMatchMetadata* metad
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
