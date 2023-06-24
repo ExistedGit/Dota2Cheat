@@ -2488,12 +2488,13 @@ class CMsgPracticeLobbySetDetails final :
     kCustomDifficultyFieldNumber = 28,
     kCustomMinPlayersFieldNumber = 30,
     kCustomMaxPlayersFieldNumber = 31,
+    kVisibilityFieldNumber = 33,
+    kCustomGameCrcFieldNumber = 34,
+    kCustomGameTimestampFieldNumber = 37,
     kAllchatFieldNumber = 23,
     kLanFieldNumber = 25,
     kCustomGamePenaltiesFieldNumber = 47,
-    kCustomGameCrcFieldNumber = 34,
-    kVisibilityFieldNumber = 33,
-    kCustomGameTimestampFieldNumber = 37,
+    kDoPlayerDraftFieldNumber = 53,
     kPreviousMatchOverrideFieldNumber = 38,
     kPauseSettingFieldNumber = 42,
     kBotDifficultyDireFieldNumber = 43,
@@ -2929,6 +2930,45 @@ class CMsgPracticeLobbySetDetails final :
   void _internal_set_custom_max_players(uint32_t value);
   public:
 
+  // optional .DOTALobbyVisibility visibility = 33 [default = DOTALobbyVisibility_Public];
+  bool has_visibility() const;
+  private:
+  bool _internal_has_visibility() const;
+  public:
+  void clear_visibility();
+  ::DOTALobbyVisibility visibility() const;
+  void set_visibility(::DOTALobbyVisibility value);
+  private:
+  ::DOTALobbyVisibility _internal_visibility() const;
+  void _internal_set_visibility(::DOTALobbyVisibility value);
+  public:
+
+  // optional fixed64 custom_game_crc = 34;
+  bool has_custom_game_crc() const;
+  private:
+  bool _internal_has_custom_game_crc() const;
+  public:
+  void clear_custom_game_crc();
+  uint64_t custom_game_crc() const;
+  void set_custom_game_crc(uint64_t value);
+  private:
+  uint64_t _internal_custom_game_crc() const;
+  void _internal_set_custom_game_crc(uint64_t value);
+  public:
+
+  // optional fixed32 custom_game_timestamp = 37;
+  bool has_custom_game_timestamp() const;
+  private:
+  bool _internal_has_custom_game_timestamp() const;
+  public:
+  void clear_custom_game_timestamp();
+  uint32_t custom_game_timestamp() const;
+  void set_custom_game_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_custom_game_timestamp() const;
+  void _internal_set_custom_game_timestamp(uint32_t value);
+  public:
+
   // optional bool allchat = 23 [default = false];
   bool has_allchat() const;
   private:
@@ -2968,43 +3008,17 @@ class CMsgPracticeLobbySetDetails final :
   void _internal_set_custom_game_penalties(bool value);
   public:
 
-  // optional fixed64 custom_game_crc = 34;
-  bool has_custom_game_crc() const;
+  // optional bool do_player_draft = 53;
+  bool has_do_player_draft() const;
   private:
-  bool _internal_has_custom_game_crc() const;
+  bool _internal_has_do_player_draft() const;
   public:
-  void clear_custom_game_crc();
-  uint64_t custom_game_crc() const;
-  void set_custom_game_crc(uint64_t value);
+  void clear_do_player_draft();
+  bool do_player_draft() const;
+  void set_do_player_draft(bool value);
   private:
-  uint64_t _internal_custom_game_crc() const;
-  void _internal_set_custom_game_crc(uint64_t value);
-  public:
-
-  // optional .DOTALobbyVisibility visibility = 33 [default = DOTALobbyVisibility_Public];
-  bool has_visibility() const;
-  private:
-  bool _internal_has_visibility() const;
-  public:
-  void clear_visibility();
-  ::DOTALobbyVisibility visibility() const;
-  void set_visibility(::DOTALobbyVisibility value);
-  private:
-  ::DOTALobbyVisibility _internal_visibility() const;
-  void _internal_set_visibility(::DOTALobbyVisibility value);
-  public:
-
-  // optional fixed32 custom_game_timestamp = 37;
-  bool has_custom_game_timestamp() const;
-  private:
-  bool _internal_has_custom_game_timestamp() const;
-  public:
-  void clear_custom_game_timestamp();
-  uint32_t custom_game_timestamp() const;
-  void set_custom_game_timestamp(uint32_t value);
-  private:
-  uint32_t _internal_custom_game_timestamp() const;
-  void _internal_set_custom_game_timestamp(uint32_t value);
+  bool _internal_do_player_draft() const;
+  void _internal_set_do_player_draft(bool value);
   public:
 
   // optional uint64 previous_match_override = 38;
@@ -3150,12 +3164,13 @@ class CMsgPracticeLobbySetDetails final :
     uint32_t custom_difficulty_;
     uint32_t custom_min_players_;
     uint32_t custom_max_players_;
+    int visibility_;
+    uint64_t custom_game_crc_;
+    uint32_t custom_game_timestamp_;
     bool allchat_;
     bool lan_;
     bool custom_game_penalties_;
-    uint64_t custom_game_crc_;
-    int visibility_;
-    uint32_t custom_game_timestamp_;
+    bool do_player_draft_;
     uint64_t previous_match_override_;
     int pause_setting_;
     int bot_difficulty_dire_;
@@ -15424,7 +15439,7 @@ inline void CMsgPracticeLobbySetDetails::set_dire_series_wins(uint32_t value) {
 
 // optional bool allchat = 23 [default = false];
 inline bool CMsgPracticeLobbySetDetails::_internal_has_allchat() const {
-  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_allchat() const {
@@ -15432,7 +15447,7 @@ inline bool CMsgPracticeLobbySetDetails::has_allchat() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_allchat() {
   _impl_.allchat_ = false;
-  _impl_._has_bits_[0] &= ~0x08000000u;
+  _impl_._has_bits_[0] &= ~0x40000000u;
 }
 inline bool CMsgPracticeLobbySetDetails::_internal_allchat() const {
   return _impl_.allchat_;
@@ -15442,7 +15457,7 @@ inline bool CMsgPracticeLobbySetDetails::allchat() const {
   return _internal_allchat();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_allchat(bool value) {
-  _impl_._has_bits_[0] |= 0x08000000u;
+  _impl_._has_bits_[0] |= 0x40000000u;
   _impl_.allchat_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_allchat(bool value) {
@@ -15452,7 +15467,7 @@ inline void CMsgPracticeLobbySetDetails::set_allchat(bool value) {
 
 // optional .LobbyDotaTVDelay dota_tv_delay = 24 [default = LobbyDotaTV_120];
 inline bool CMsgPracticeLobbySetDetails::_internal_has_dota_tv_delay() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000200u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_dota_tv_delay() const {
@@ -15460,7 +15475,7 @@ inline bool CMsgPracticeLobbySetDetails::has_dota_tv_delay() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_dota_tv_delay() {
   _impl_.dota_tv_delay_ = 1;
-  _impl_._has_bits_[1] &= ~0x00000100u;
+  _impl_._has_bits_[1] &= ~0x00000200u;
 }
 inline ::LobbyDotaTVDelay CMsgPracticeLobbySetDetails::_internal_dota_tv_delay() const {
   return static_cast< ::LobbyDotaTVDelay >(_impl_.dota_tv_delay_);
@@ -15471,7 +15486,7 @@ inline ::LobbyDotaTVDelay CMsgPracticeLobbySetDetails::dota_tv_delay() const {
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_dota_tv_delay(::LobbyDotaTVDelay value) {
   assert(::LobbyDotaTVDelay_IsValid(value));
-  _impl_._has_bits_[1] |= 0x00000100u;
+  _impl_._has_bits_[1] |= 0x00000200u;
   _impl_.dota_tv_delay_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_dota_tv_delay(::LobbyDotaTVDelay value) {
@@ -15481,7 +15496,7 @@ inline void CMsgPracticeLobbySetDetails::set_dota_tv_delay(::LobbyDotaTVDelay va
 
 // optional bool lan = 25;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_lan() const {
-  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_lan() const {
@@ -15489,7 +15504,7 @@ inline bool CMsgPracticeLobbySetDetails::has_lan() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_lan() {
   _impl_.lan_ = false;
-  _impl_._has_bits_[0] &= ~0x10000000u;
+  _impl_._has_bits_[0] &= ~0x80000000u;
 }
 inline bool CMsgPracticeLobbySetDetails::_internal_lan() const {
   return _impl_.lan_;
@@ -15499,7 +15514,7 @@ inline bool CMsgPracticeLobbySetDetails::lan() const {
   return _internal_lan();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_lan(bool value) {
-  _impl_._has_bits_[0] |= 0x10000000u;
+  _impl_._has_bits_[0] |= 0x80000000u;
   _impl_.lan_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_lan(bool value) {
@@ -15757,7 +15772,7 @@ inline void CMsgPracticeLobbySetDetails::set_custom_max_players(uint32_t value) 
 
 // optional .DOTALobbyVisibility visibility = 33 [default = DOTALobbyVisibility_Public];
 inline bool CMsgPracticeLobbySetDetails::_internal_has_visibility() const {
-  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_visibility() const {
@@ -15765,7 +15780,7 @@ inline bool CMsgPracticeLobbySetDetails::has_visibility() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_visibility() {
   _impl_.visibility_ = 0;
-  _impl_._has_bits_[0] &= ~0x80000000u;
+  _impl_._has_bits_[0] &= ~0x08000000u;
 }
 inline ::DOTALobbyVisibility CMsgPracticeLobbySetDetails::_internal_visibility() const {
   return static_cast< ::DOTALobbyVisibility >(_impl_.visibility_);
@@ -15776,7 +15791,7 @@ inline ::DOTALobbyVisibility CMsgPracticeLobbySetDetails::visibility() const {
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_visibility(::DOTALobbyVisibility value) {
   assert(::DOTALobbyVisibility_IsValid(value));
-  _impl_._has_bits_[0] |= 0x80000000u;
+  _impl_._has_bits_[0] |= 0x08000000u;
   _impl_.visibility_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_visibility(::DOTALobbyVisibility value) {
@@ -15786,7 +15801,7 @@ inline void CMsgPracticeLobbySetDetails::set_visibility(::DOTALobbyVisibility va
 
 // optional fixed64 custom_game_crc = 34;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_custom_game_crc() const {
-  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_custom_game_crc() const {
@@ -15794,7 +15809,7 @@ inline bool CMsgPracticeLobbySetDetails::has_custom_game_crc() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_custom_game_crc() {
   _impl_.custom_game_crc_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x40000000u;
+  _impl_._has_bits_[0] &= ~0x10000000u;
 }
 inline uint64_t CMsgPracticeLobbySetDetails::_internal_custom_game_crc() const {
   return _impl_.custom_game_crc_;
@@ -15804,7 +15819,7 @@ inline uint64_t CMsgPracticeLobbySetDetails::custom_game_crc() const {
   return _internal_custom_game_crc();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_custom_game_crc(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x40000000u;
+  _impl_._has_bits_[0] |= 0x10000000u;
   _impl_.custom_game_crc_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_custom_game_crc(uint64_t value) {
@@ -15814,7 +15829,7 @@ inline void CMsgPracticeLobbySetDetails::set_custom_game_crc(uint64_t value) {
 
 // optional fixed32 custom_game_timestamp = 37;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_custom_game_timestamp() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_custom_game_timestamp() const {
@@ -15822,7 +15837,7 @@ inline bool CMsgPracticeLobbySetDetails::has_custom_game_timestamp() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_custom_game_timestamp() {
   _impl_.custom_game_timestamp_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x20000000u;
 }
 inline uint32_t CMsgPracticeLobbySetDetails::_internal_custom_game_timestamp() const {
   return _impl_.custom_game_timestamp_;
@@ -15832,7 +15847,7 @@ inline uint32_t CMsgPracticeLobbySetDetails::custom_game_timestamp() const {
   return _internal_custom_game_timestamp();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_custom_game_timestamp(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x20000000u;
   _impl_.custom_game_timestamp_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_custom_game_timestamp(uint32_t value) {
@@ -15842,7 +15857,7 @@ inline void CMsgPracticeLobbySetDetails::set_custom_game_timestamp(uint32_t valu
 
 // optional uint64 previous_match_override = 38;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_previous_match_override() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_previous_match_override() const {
@@ -15850,7 +15865,7 @@ inline bool CMsgPracticeLobbySetDetails::has_previous_match_override() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_previous_match_override() {
   _impl_.previous_match_override_ = uint64_t{0u};
-  _impl_._has_bits_[1] &= ~0x00000002u;
+  _impl_._has_bits_[1] &= ~0x00000004u;
 }
 inline uint64_t CMsgPracticeLobbySetDetails::_internal_previous_match_override() const {
   return _impl_.previous_match_override_;
@@ -15860,7 +15875,7 @@ inline uint64_t CMsgPracticeLobbySetDetails::previous_match_override() const {
   return _internal_previous_match_override();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_previous_match_override(uint64_t value) {
-  _impl_._has_bits_[1] |= 0x00000002u;
+  _impl_._has_bits_[1] |= 0x00000004u;
   _impl_.previous_match_override_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_previous_match_override(uint64_t value) {
@@ -15870,7 +15885,7 @@ inline void CMsgPracticeLobbySetDetails::set_previous_match_override(uint64_t va
 
 // optional .LobbyDotaPauseSetting pause_setting = 42 [default = LobbyDotaPauseSetting_Unlimited];
 inline bool CMsgPracticeLobbySetDetails::_internal_has_pause_setting() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_pause_setting() const {
@@ -15878,7 +15893,7 @@ inline bool CMsgPracticeLobbySetDetails::has_pause_setting() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_pause_setting() {
   _impl_.pause_setting_ = 0;
-  _impl_._has_bits_[1] &= ~0x00000004u;
+  _impl_._has_bits_[1] &= ~0x00000008u;
 }
 inline ::LobbyDotaPauseSetting CMsgPracticeLobbySetDetails::_internal_pause_setting() const {
   return static_cast< ::LobbyDotaPauseSetting >(_impl_.pause_setting_);
@@ -15889,7 +15904,7 @@ inline ::LobbyDotaPauseSetting CMsgPracticeLobbySetDetails::pause_setting() cons
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_pause_setting(::LobbyDotaPauseSetting value) {
   assert(::LobbyDotaPauseSetting_IsValid(value));
-  _impl_._has_bits_[1] |= 0x00000004u;
+  _impl_._has_bits_[1] |= 0x00000008u;
   _impl_.pause_setting_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_pause_setting(::LobbyDotaPauseSetting value) {
@@ -15899,7 +15914,7 @@ inline void CMsgPracticeLobbySetDetails::set_pause_setting(::LobbyDotaPauseSetti
 
 // optional .DOTABotDifficulty bot_difficulty_dire = 43 [default = BOT_DIFFICULTY_PASSIVE];
 inline bool CMsgPracticeLobbySetDetails::_internal_has_bot_difficulty_dire() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000010u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_bot_difficulty_dire() const {
@@ -15907,7 +15922,7 @@ inline bool CMsgPracticeLobbySetDetails::has_bot_difficulty_dire() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_bot_difficulty_dire() {
   _impl_.bot_difficulty_dire_ = 0;
-  _impl_._has_bits_[1] &= ~0x00000008u;
+  _impl_._has_bits_[1] &= ~0x00000010u;
 }
 inline ::DOTABotDifficulty CMsgPracticeLobbySetDetails::_internal_bot_difficulty_dire() const {
   return static_cast< ::DOTABotDifficulty >(_impl_.bot_difficulty_dire_);
@@ -15918,7 +15933,7 @@ inline ::DOTABotDifficulty CMsgPracticeLobbySetDetails::bot_difficulty_dire() co
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_bot_difficulty_dire(::DOTABotDifficulty value) {
   assert(::DOTABotDifficulty_IsValid(value));
-  _impl_._has_bits_[1] |= 0x00000008u;
+  _impl_._has_bits_[1] |= 0x00000010u;
   _impl_.bot_difficulty_dire_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_bot_difficulty_dire(::DOTABotDifficulty value) {
@@ -15928,7 +15943,7 @@ inline void CMsgPracticeLobbySetDetails::set_bot_difficulty_dire(::DOTABotDiffic
 
 // optional uint64 bot_radiant = 44;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_bot_radiant() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_bot_radiant() const {
@@ -15936,7 +15951,7 @@ inline bool CMsgPracticeLobbySetDetails::has_bot_radiant() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_bot_radiant() {
   _impl_.bot_radiant_ = uint64_t{0u};
-  _impl_._has_bits_[1] &= ~0x00000010u;
+  _impl_._has_bits_[1] &= ~0x00000020u;
 }
 inline uint64_t CMsgPracticeLobbySetDetails::_internal_bot_radiant() const {
   return _impl_.bot_radiant_;
@@ -15946,7 +15961,7 @@ inline uint64_t CMsgPracticeLobbySetDetails::bot_radiant() const {
   return _internal_bot_radiant();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_bot_radiant(uint64_t value) {
-  _impl_._has_bits_[1] |= 0x00000010u;
+  _impl_._has_bits_[1] |= 0x00000020u;
   _impl_.bot_radiant_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_bot_radiant(uint64_t value) {
@@ -15956,7 +15971,7 @@ inline void CMsgPracticeLobbySetDetails::set_bot_radiant(uint64_t value) {
 
 // optional uint64 bot_dire = 45;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_bot_dire() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_bot_dire() const {
@@ -15964,7 +15979,7 @@ inline bool CMsgPracticeLobbySetDetails::has_bot_dire() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_bot_dire() {
   _impl_.bot_dire_ = uint64_t{0u};
-  _impl_._has_bits_[1] &= ~0x00000020u;
+  _impl_._has_bits_[1] &= ~0x00000040u;
 }
 inline uint64_t CMsgPracticeLobbySetDetails::_internal_bot_dire() const {
   return _impl_.bot_dire_;
@@ -15974,7 +15989,7 @@ inline uint64_t CMsgPracticeLobbySetDetails::bot_dire() const {
   return _internal_bot_dire();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_bot_dire(uint64_t value) {
-  _impl_._has_bits_[1] |= 0x00000020u;
+  _impl_._has_bits_[1] |= 0x00000040u;
   _impl_.bot_dire_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_bot_dire(uint64_t value) {
@@ -15984,7 +15999,7 @@ inline void CMsgPracticeLobbySetDetails::set_bot_dire(uint64_t value) {
 
 // optional .DOTASelectionPriorityRules selection_priority_rules = 46 [default = k_DOTASelectionPriorityRules_Manual];
 inline bool CMsgPracticeLobbySetDetails::_internal_has_selection_priority_rules() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000080u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_selection_priority_rules() const {
@@ -15992,7 +16007,7 @@ inline bool CMsgPracticeLobbySetDetails::has_selection_priority_rules() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_selection_priority_rules() {
   _impl_.selection_priority_rules_ = 0;
-  _impl_._has_bits_[1] &= ~0x00000040u;
+  _impl_._has_bits_[1] &= ~0x00000080u;
 }
 inline ::DOTASelectionPriorityRules CMsgPracticeLobbySetDetails::_internal_selection_priority_rules() const {
   return static_cast< ::DOTASelectionPriorityRules >(_impl_.selection_priority_rules_);
@@ -16003,7 +16018,7 @@ inline ::DOTASelectionPriorityRules CMsgPracticeLobbySetDetails::selection_prior
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_selection_priority_rules(::DOTASelectionPriorityRules value) {
   assert(::DOTASelectionPriorityRules_IsValid(value));
-  _impl_._has_bits_[1] |= 0x00000040u;
+  _impl_._has_bits_[1] |= 0x00000080u;
   _impl_.selection_priority_rules_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_selection_priority_rules(::DOTASelectionPriorityRules value) {
@@ -16013,7 +16028,7 @@ inline void CMsgPracticeLobbySetDetails::set_selection_priority_rules(::DOTASele
 
 // optional bool custom_game_penalties = 47;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_custom_game_penalties() const {
-  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_custom_game_penalties() const {
@@ -16021,7 +16036,7 @@ inline bool CMsgPracticeLobbySetDetails::has_custom_game_penalties() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_custom_game_penalties() {
   _impl_.custom_game_penalties_ = false;
-  _impl_._has_bits_[0] &= ~0x20000000u;
+  _impl_._has_bits_[1] &= ~0x00000001u;
 }
 inline bool CMsgPracticeLobbySetDetails::_internal_custom_game_penalties() const {
   return _impl_.custom_game_penalties_;
@@ -16031,7 +16046,7 @@ inline bool CMsgPracticeLobbySetDetails::custom_game_penalties() const {
   return _internal_custom_game_penalties();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_custom_game_penalties(bool value) {
-  _impl_._has_bits_[0] |= 0x20000000u;
+  _impl_._has_bits_[1] |= 0x00000001u;
   _impl_.custom_game_penalties_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_custom_game_penalties(bool value) {
@@ -16109,7 +16124,7 @@ inline void CMsgPracticeLobbySetDetails::set_allocated_lan_host_ping_location(st
 
 // optional uint32 league_node_id = 49;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_league_node_id() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000100u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_league_node_id() const {
@@ -16117,7 +16132,7 @@ inline bool CMsgPracticeLobbySetDetails::has_league_node_id() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_league_node_id() {
   _impl_.league_node_id_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000080u;
+  _impl_._has_bits_[1] &= ~0x00000100u;
 }
 inline uint32_t CMsgPracticeLobbySetDetails::_internal_league_node_id() const {
   return _impl_.league_node_id_;
@@ -16127,7 +16142,7 @@ inline uint32_t CMsgPracticeLobbySetDetails::league_node_id() const {
   return _internal_league_node_id();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_league_node_id(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000080u;
+  _impl_._has_bits_[1] |= 0x00000100u;
   _impl_.league_node_id_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_league_node_id(uint32_t value) {
@@ -16360,6 +16375,34 @@ inline void CMsgPracticeLobbySetDetails::set_allocated_ability_draft_specific_de
   }
   _impl_.ability_draft_specific_details_ = ability_draft_specific_details;
   // @@protoc_insertion_point(field_set_allocated:CMsgPracticeLobbySetDetails.ability_draft_specific_details)
+}
+
+// optional bool do_player_draft = 53;
+inline bool CMsgPracticeLobbySetDetails::_internal_has_do_player_draft() const {
+  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgPracticeLobbySetDetails::has_do_player_draft() const {
+  return _internal_has_do_player_draft();
+}
+inline void CMsgPracticeLobbySetDetails::clear_do_player_draft() {
+  _impl_.do_player_draft_ = false;
+  _impl_._has_bits_[1] &= ~0x00000002u;
+}
+inline bool CMsgPracticeLobbySetDetails::_internal_do_player_draft() const {
+  return _impl_.do_player_draft_;
+}
+inline bool CMsgPracticeLobbySetDetails::do_player_draft() const {
+  // @@protoc_insertion_point(field_get:CMsgPracticeLobbySetDetails.do_player_draft)
+  return _internal_do_player_draft();
+}
+inline void CMsgPracticeLobbySetDetails::_internal_set_do_player_draft(bool value) {
+  _impl_._has_bits_[1] |= 0x00000002u;
+  _impl_.do_player_draft_ = value;
+}
+inline void CMsgPracticeLobbySetDetails::set_do_player_draft(bool value) {
+  _internal_set_do_player_draft(value);
+  // @@protoc_insertion_point(field_set:CMsgPracticeLobbySetDetails.do_player_draft)
 }
 
 // -------------------------------------------------------------------

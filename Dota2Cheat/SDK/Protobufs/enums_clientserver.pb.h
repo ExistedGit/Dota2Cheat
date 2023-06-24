@@ -121,7 +121,6 @@ enum EMsg : int {
   k_EMsgLicenseProcessingComplete = 316,
   k_EMsgSetTestFlag = 317,
   k_EMsgQueuedEmailsComplete = 318,
-  k_EMsgGMReportPHPError = 319,
   k_EMsgGMDRMSync = 320,
   k_EMsgPhysicalBoxInventory = 321,
   k_EMsgUpdateConfigFile = 322,
@@ -139,6 +138,8 @@ enum EMsg : int {
   k_EMsgExpectShellRestart = 336,
   k_EMsgHotFixProgress = 337,
   k_EMsgGMStatsForwardToAdminConnections = 338,
+  k_EMsgGMGetModifiedConVars = 339,
+  k_EMsgGMGetModifiedConVarsResponse = 340,
   k_EMsgBaseAIS = 400,
   k_EMsgAISRequestContentDescription = 402,
   k_EMsgAISUpdateAppInfo = 403,
@@ -547,11 +548,8 @@ enum EMsg : int {
   k_EMsgClientDPSendSpecialSurveyResponse = 1622,
   k_EMsgClientDPSendSpecialSurveyResponseReply = 1623,
   k_EMsgDPStoreSaleStatistics = 1624,
-  k_EMsgClientDPUpdateAppJobReport = 1625,
-  k_EMsgClientDPUnsignedInstallScript = 1627,
   k_EMsgDPPartnerMicroTxns = 1628,
   k_EMsgDPPartnerMicroTxnsResponse = 1629,
-  k_EMsgClientDPContentStatsReport = 1630,
   k_EMsgDPVRUniquePlayersStat = 1631,
   k_EMsgBaseCM = 1700,
   k_EMsgCMSetAllowState = 1701,
@@ -597,6 +595,9 @@ enum EMsg : int {
   k_EMsgGCHAppCheersReceived = 2242,
   k_EMsgGCHAppCheersGetAllowedTypes = 2243,
   k_EMsgGCHAppCheersGetAllowedTypesResponse = 2244,
+  k_EMsgGCHRoutingRulesFromGCHtoGM = 2245,
+  k_EMsgGCHRoutingRulesToGCHfromGM = 2246,
+  k_EMsgUpdateCMMessageRateRules = 2247,
   k_EMsgBaseP2P = 2500,
   k_EMsgP2PIntroducerMessage = 2502,
   k_EMsgBaseSM = 2900,
@@ -743,8 +744,6 @@ enum EMsg : int {
   k_EMsgAMSendQueuedEmails = 4152,
   k_EMsgAMSetLicenseFlags = 4153,
   k_EMsgCommunityDeleteUserNews = 4155,
-  k_EMsgAMAllowUserFilesRequest = 4156,
-  k_EMsgAMAllowUserFilesResponse = 4157,
   k_EMsgAMGetAccountStatus = 4158,
   k_EMsgAMGetAccountStatusResponse = 4159,
   k_EMsgAMEditBanReason = 4160,
@@ -772,7 +771,6 @@ enum EMsg : int {
   k_EMsgAMSupportIsAccountEnabledResponse = 4210,
   k_EMsgUGSGetUserStats = 4211,
   k_EMsgAMGSSearch = 4213,
-  k_EMsgMarketingMessageUpdate = 4216,
   k_EMsgChatServerRouteFriendMsg = 4219,
   k_EMsgAMTicketAuthRequestOrResponse = 4220,
   k_EMsgAMAddFreeLicense = 4224,
@@ -799,7 +797,6 @@ enum EMsg : int {
   k_EMsgAMCreateFinancialAdjustment = 4265,
   k_EMsgAMPlayerNicknameList = 4266,
   k_EMsgAMPlayerNicknameListResponse = 4267,
-  k_EMsgAMSetDRMTestConfig = 4268,
   k_EMsgAMGetUserCurrentGameInfo = 4269,
   k_EMsgAMGetUserCurrentGameInfoResponse = 4270,
   k_EMsgAMGetGSPlayerList = 4271,
@@ -930,6 +927,7 @@ enum EMsg : int {
   k_EMsgAMPerfectWorldPaymentResponse = 4422,
   k_EMsgAMECommPayPayment = 4423,
   k_EMsgAMECommPayPaymentResponse = 4424,
+  k_EMsgAMSetRemoteClientID = 4425,
   k_EMsgBasePSRange = 5000,
   k_EMsgPSCreateShoppingCart = 5001,
   k_EMsgPSCreateShoppingCartResponse = 5002,
@@ -1019,7 +1017,6 @@ enum EMsg : int {
   k_EMsgClientP2PConnectionFailInfo = 5435,
   k_EMsgClientGetDepotDecryptionKey = 5438,
   k_EMsgClientGetDepotDecryptionKeyResponse = 5439,
-  k_EMsgGSPerformHardwareSurvey = 5440,
   k_EMsgClientEnableTestLicense = 5443,
   k_EMsgClientEnableTestLicenseResponse = 5444,
   k_EMsgClientDisableTestLicense = 5445,
@@ -1059,8 +1056,10 @@ enum EMsg : int {
   k_EMsgClientOGSEndSession = 5492,
   k_EMsgClientOGSEndSessionResponse = 5493,
   k_EMsgClientOGSWriteRow = 5494,
-  k_EMsgClientDRMTest = 5495,
-  k_EMsgClientDRMTestResult = 5496,
+  k_EMsgClientGetPeerContentInfo = 5495,
+  k_EMsgClientGetPeerContentInfoResponse = 5496,
+  k_EMsgClientStartPeerContentServer = 5497,
+  k_EMsgClientStartPeerContentServerResponse = 5498,
   k_EMsgClientServerUnavailable = 5500,
   k_EMsgClientServersAvailable = 5501,
   k_EMsgClientRegisterAuthTicketWithCM = 5502,
@@ -1070,7 +1069,6 @@ enum EMsg : int {
   k_EMsgClientMicroTxnAuthorizeResponse = 5506,
   k_EMsgClientGetMicroTxnInfo = 5508,
   k_EMsgClientGetMicroTxnInfoResponse = 5509,
-  k_EMsgClientMarketingMessageUpdate2 = 5510,
   k_EMsgClientDeregisterWithServer = 5511,
   k_EMsgClientSubscribeToPersonaFeed = 5512,
   k_EMsgClientLogon = 5514,
@@ -1285,8 +1283,6 @@ enum EMsg : int {
   k_EMsgClientUCMUpdatePublishedFileResponse = 7326,
   k_EMsgUCMUpdatePublishedFile = 7327,
   k_EMsgUCMUpdatePublishedFileResponse = 7328,
-  k_EMsgUCMDeletePublishedFile = 7329,
-  k_EMsgUCMDeletePublishedFileResponse = 7330,
   k_EMsgUCMUpdatePublishedFileStat = 7331,
   k_EMsgUCMReloadPublishedFile = 7337,
   k_EMsgUCMReloadUserFileListCaches = 7338,
@@ -1315,8 +1311,6 @@ enum EMsg : int {
   k_EMsgClientUCMEnumerateUserSubscribedFilesWithUpdatesResponse = 7379,
   k_EMsgUCMPublishedFileContentUpdated = 7380,
   k_EMsgClientUCMPublishedFileUpdated = 7381,
-  k_EMsgClientWorkshopItemChangesRequest = 7382,
-  k_EMsgClientWorkshopItemChangesResponse = 7383,
   k_EMsgFSBase = 7500,
   k_EMsgClientRichPresenceUpload = 7501,
   k_EMsgClientRichPresenceRequest = 7502,
@@ -1487,14 +1481,14 @@ enum EMsg : int {
   k_EMsgRemoteClientStartStreamResponse = 9504,
   k_EMsgRemoteClientPing = 9505,
   k_EMsgRemoteClientPingResponse = 9506,
-  k_EMsgClientUnlockStreaming = 9507,
-  k_EMsgClientUnlockStreamingResponse = 9508,
+  k_EMsgClientUnlockH264 = 9507,
+  k_EMsgClientUnlockH264Response = 9508,
   k_EMsgRemoteClientAcceptEULA = 9509,
   k_EMsgRemoteClientGetControllerConfig = 9510,
   k_EMsgRemoteClientGetControllerConfigResponse = 9511,
   k_EMsgRemoteClientStreamingEnabled = 9512,
-  k_EMsgClientUnlockHEVC = 9513,
-  k_EMsgClientUnlockHEVCResponse = 9514,
+  k_EMsgClientUnlockHEVC_OBSOLETE = 9513,
+  k_EMsgClientUnlockHEVCResponse_OBSOLETE = 9514,
   k_EMsgRemoteClientStatusRequest = 9515,
   k_EMsgRemoteClientStatusResponse = 9516,
   k_EMsgClientConcurrentSessionsBase = 9600,
@@ -1504,7 +1498,6 @@ enum EMsg : int {
   k_EMsgClientBroadcastInit = 9700,
   k_EMsgClientBroadcastFrames = 9701,
   k_EMsgClientBroadcastDisconnect = 9702,
-  k_EMsgClientBroadcastScreenshot = 9703,
   k_EMsgClientBroadcastUploadConfig = 9704,
   k_EMsgBaseClient3 = 9800,
   k_EMsgClientVoiceCallPreAuthorize = 9800,
@@ -1513,9 +1506,13 @@ enum EMsg : int {
   k_EMsgClientServerTimestampResponse = 9803,
   k_EMsgServiceMethodCallFromClientNonAuthed = 9804,
   k_EMsgClientHello = 9805,
+  k_EMsgClientEnableOrDisableDownloads = 9806,
+  k_EMsgClientEnableOrDisableDownloadsResponse = 9807,
   k_EMsgClientLANP2PBase = 9900,
   k_EMsgClientLANP2PRequestChunk = 9900,
   k_EMsgClientLANP2PRequestChunkResponse = 9901,
+  k_EMsgClientPeerChunkRequest = 9902,
+  k_EMsgClientPeerChunkResponse = 9903,
   k_EMsgClientLANP2PMax = 9999,
   k_EMsgBaseWatchdogServer = 10000,
   k_EMsgNotifyWatchdog = 10000,
@@ -1531,11 +1528,17 @@ enum EMsg : int {
   k_EMsgChatServerGetPendingNotificationCount = 12000,
   k_EMsgChatServerGetPendingNotificationCountResponse = 12001,
   k_EMsgBaseSecretServer = 12100,
-  k_EMsgServerSecretChanged = 12100
+  k_EMsgServerSecretChanged = 12100,
+  k_EMsgBaseWG = 12200,
+  k_EMsgWGConnectionProtocolError = 12200,
+  k_EMsgWGConnectionValidateUserToken = 12201,
+  k_EMsgWGConnectionValidateUserTokenResponse = 12202,
+  k_EMsgWGConnectionLegacyWGRequest = 12203,
+  k_EMsgWGConnectionLegacyWGResponse = 12204
 };
 bool EMsg_IsValid(int value);
 constexpr EMsg EMsg_MIN = k_EMsgInvalid;
-constexpr EMsg EMsg_MAX = k_EMsgBaseSecretServer;
+constexpr EMsg EMsg_MAX = k_EMsgWGConnectionLegacyWGResponse;
 constexpr int EMsg_ARRAYSIZE = EMsg_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EMsg_descriptor();
@@ -1644,6 +1647,57 @@ inline bool ESteamReviewScore_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ESteamReviewScore>(
     ESteamReviewScore_descriptor(), name, value);
 }
+enum ECodecUsagePlatform : int {
+  k_ECodecUsagePlatformUnknown = 0,
+  k_ECodecUsagePlatformWindows = 1,
+  k_ECodecUsagePlatformMacOS = 2,
+  k_ECodecUsagePlatformLinux = 3,
+  k_ECodecUsagePlatformSteamDeck = 4
+};
+bool ECodecUsagePlatform_IsValid(int value);
+constexpr ECodecUsagePlatform ECodecUsagePlatform_MIN = k_ECodecUsagePlatformUnknown;
+constexpr ECodecUsagePlatform ECodecUsagePlatform_MAX = k_ECodecUsagePlatformSteamDeck;
+constexpr int ECodecUsagePlatform_ARRAYSIZE = ECodecUsagePlatform_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECodecUsagePlatform_descriptor();
+template<typename T>
+inline const std::string& ECodecUsagePlatform_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, ECodecUsagePlatform>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function ECodecUsagePlatform_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    ECodecUsagePlatform_descriptor(), enum_t_value);
+}
+inline bool ECodecUsagePlatform_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ECodecUsagePlatform* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ECodecUsagePlatform>(
+    ECodecUsagePlatform_descriptor(), name, value);
+}
+enum ECodecUsageReason : int {
+  k_ECodecUsageReasonUnknown = 0,
+  k_ECodecUsageReasonRemotePlay = 1,
+  k_ECodecUsageReasonBroadcasting = 2,
+  k_ECodecUsageReasonGameVideo = 3
+};
+bool ECodecUsageReason_IsValid(int value);
+constexpr ECodecUsageReason ECodecUsageReason_MIN = k_ECodecUsageReasonUnknown;
+constexpr ECodecUsageReason ECodecUsageReason_MAX = k_ECodecUsageReasonGameVideo;
+constexpr int ECodecUsageReason_ARRAYSIZE = ECodecUsageReason_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECodecUsageReason_descriptor();
+template<typename T>
+inline const std::string& ECodecUsageReason_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, ECodecUsageReason>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function ECodecUsageReason_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    ECodecUsageReason_descriptor(), enum_t_value);
+}
+inline bool ECodecUsageReason_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ECodecUsageReason* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ECodecUsageReason>(
+    ECodecUsageReason_descriptor(), name, value);
+}
 // ===================================================================
 
 
@@ -1684,6 +1738,16 @@ template <> struct is_proto_enum< ::ESteamReviewScore> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ESteamReviewScore>() {
   return ::ESteamReviewScore_descriptor();
+}
+template <> struct is_proto_enum< ::ECodecUsagePlatform> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ECodecUsagePlatform>() {
+  return ::ECodecUsagePlatform_descriptor();
+}
+template <> struct is_proto_enum< ::ECodecUsageReason> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ECodecUsageReason>() {
+  return ::ECodecUsageReason_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

@@ -6150,6 +6150,7 @@ class CNETMsg_DebugOverlay final :
     kTimesFieldNumber = 5,
     kBoolsFieldNumber = 6,
     kUint64SFieldNumber = 7,
+    kStringsFieldNumber = 8,
     kEtypeFieldNumber = 1,
   };
   // repeated .CMsgVector vectors = 2;
@@ -6276,6 +6277,30 @@ class CNETMsg_DebugOverlay final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
       mutable_uint64s();
 
+  // repeated string strings = 8;
+  int strings_size() const;
+  private:
+  int _internal_strings_size() const;
+  public:
+  void clear_strings();
+  const std::string& strings(int index) const;
+  std::string* mutable_strings(int index);
+  void set_strings(int index, const std::string& value);
+  void set_strings(int index, std::string&& value);
+  void set_strings(int index, const char* value);
+  void set_strings(int index, const char* value, size_t size);
+  std::string* add_strings();
+  void add_strings(const std::string& value);
+  void add_strings(std::string&& value);
+  void add_strings(const char* value);
+  void add_strings(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& strings() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_strings();
+  private:
+  const std::string& _internal_strings(int index) const;
+  std::string* _internal_add_strings();
+  public:
+
   // optional int32 etype = 1;
   bool has_etype() const;
   private:
@@ -6305,6 +6330,7 @@ class CNETMsg_DebugOverlay final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > times_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< bool > bools_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > uint64s_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> strings_;
     int32_t etype_;
   };
   union { Impl_ _impl_; };
@@ -11316,6 +11342,81 @@ inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
 CNETMsg_DebugOverlay::mutable_uint64s() {
   // @@protoc_insertion_point(field_mutable_list:CNETMsg_DebugOverlay.uint64s)
   return _internal_mutable_uint64s();
+}
+
+// repeated string strings = 8;
+inline int CNETMsg_DebugOverlay::_internal_strings_size() const {
+  return _impl_.strings_.size();
+}
+inline int CNETMsg_DebugOverlay::strings_size() const {
+  return _internal_strings_size();
+}
+inline void CNETMsg_DebugOverlay::clear_strings() {
+  _impl_.strings_.Clear();
+}
+inline std::string* CNETMsg_DebugOverlay::add_strings() {
+  std::string* _s = _internal_add_strings();
+  // @@protoc_insertion_point(field_add_mutable:CNETMsg_DebugOverlay.strings)
+  return _s;
+}
+inline const std::string& CNETMsg_DebugOverlay::_internal_strings(int index) const {
+  return _impl_.strings_.Get(index);
+}
+inline const std::string& CNETMsg_DebugOverlay::strings(int index) const {
+  // @@protoc_insertion_point(field_get:CNETMsg_DebugOverlay.strings)
+  return _internal_strings(index);
+}
+inline std::string* CNETMsg_DebugOverlay::mutable_strings(int index) {
+  // @@protoc_insertion_point(field_mutable:CNETMsg_DebugOverlay.strings)
+  return _impl_.strings_.Mutable(index);
+}
+inline void CNETMsg_DebugOverlay::set_strings(int index, const std::string& value) {
+  _impl_.strings_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:CNETMsg_DebugOverlay.strings)
+}
+inline void CNETMsg_DebugOverlay::set_strings(int index, std::string&& value) {
+  _impl_.strings_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:CNETMsg_DebugOverlay.strings)
+}
+inline void CNETMsg_DebugOverlay::set_strings(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.strings_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:CNETMsg_DebugOverlay.strings)
+}
+inline void CNETMsg_DebugOverlay::set_strings(int index, const char* value, size_t size) {
+  _impl_.strings_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:CNETMsg_DebugOverlay.strings)
+}
+inline std::string* CNETMsg_DebugOverlay::_internal_add_strings() {
+  return _impl_.strings_.Add();
+}
+inline void CNETMsg_DebugOverlay::add_strings(const std::string& value) {
+  _impl_.strings_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:CNETMsg_DebugOverlay.strings)
+}
+inline void CNETMsg_DebugOverlay::add_strings(std::string&& value) {
+  _impl_.strings_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:CNETMsg_DebugOverlay.strings)
+}
+inline void CNETMsg_DebugOverlay::add_strings(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.strings_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:CNETMsg_DebugOverlay.strings)
+}
+inline void CNETMsg_DebugOverlay::add_strings(const char* value, size_t size) {
+  _impl_.strings_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:CNETMsg_DebugOverlay.strings)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+CNETMsg_DebugOverlay::strings() const {
+  // @@protoc_insertion_point(field_list:CNETMsg_DebugOverlay.strings)
+  return _impl_.strings_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+CNETMsg_DebugOverlay::mutable_strings() {
+  // @@protoc_insertion_point(field_mutable_list:CNETMsg_DebugOverlay.strings)
+  return &_impl_.strings_;
 }
 
 #ifdef __GNUC__

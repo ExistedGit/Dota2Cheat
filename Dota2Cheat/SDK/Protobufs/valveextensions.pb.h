@@ -51,14 +51,14 @@ PROTOBUF_NAMESPACE_CLOSE
 
 // ===================================================================
 
-static const int kMapFieldFieldNumber = 61000;
+static const int kValveMapFieldFieldNumber = 61000;
 extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::PROTOBUF_NAMESPACE_ID::FieldOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::PrimitiveTypeTraits< bool >, 8, false >
-  map_field;
-static const int kMapKeyFieldNumber = 61001;
+  valve_map_field;
+static const int kValveMapKeyFieldNumber = 61001;
 extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::PROTOBUF_NAMESPACE_ID::FieldOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::PrimitiveTypeTraits< bool >, 8, false >
-  map_key;
+  valve_map_key;
 static const int kDiffEncodeFieldFieldNumber = 61002;
 extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::PROTOBUF_NAMESPACE_ID::FieldOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::PrimitiveTypeTraits< int32_t >, 5, false >

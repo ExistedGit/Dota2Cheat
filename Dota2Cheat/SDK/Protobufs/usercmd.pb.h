@@ -589,6 +589,7 @@ class CBaseUserCmdPB final :
     kMousedxFieldNumber = 11,
     kMousedyFieldNumber = 12,
     kHasbeenpredictedFieldNumber = 13,
+    kFixangleTickFieldNumber = 20,
     kPawnEntityHandleFieldNumber = 14,
   };
   // repeated .CSubtickMoveStep subtick_moves = 18;
@@ -806,6 +807,19 @@ class CBaseUserCmdPB final :
   void _internal_set_hasbeenpredicted(bool value);
   public:
 
+  // optional int32 fixangle_tick = 20;
+  bool has_fixangle_tick() const;
+  private:
+  bool _internal_has_fixangle_tick() const;
+  public:
+  void clear_fixangle_tick();
+  int32_t fixangle_tick() const;
+  void set_fixangle_tick(int32_t value);
+  private:
+  int32_t _internal_fixangle_tick() const;
+  void _internal_set_fixangle_tick(int32_t value);
+  public:
+
   // optional uint32 pawn_entity_handle = 14 [default = 16777215];
   bool has_pawn_entity_handle() const;
   private:
@@ -844,6 +858,7 @@ class CBaseUserCmdPB final :
     int32_t mousedx_;
     int32_t mousedy_;
     bool hasbeenpredicted_;
+    int32_t fixangle_tick_;
     uint32_t pawn_entity_handle_;
   };
   union { Impl_ _impl_; };
@@ -1688,7 +1703,7 @@ inline void CBaseUserCmdPB::set_hasbeenpredicted(bool value) {
 
 // optional uint32 pawn_entity_handle = 14 [default = 16777215];
 inline bool CBaseUserCmdPB::_internal_has_pawn_entity_handle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CBaseUserCmdPB::has_pawn_entity_handle() const {
@@ -1696,7 +1711,7 @@ inline bool CBaseUserCmdPB::has_pawn_entity_handle() const {
 }
 inline void CBaseUserCmdPB::clear_pawn_entity_handle() {
   _impl_.pawn_entity_handle_ = 16777215u;
-  _impl_._has_bits_[0] &= ~0x00004000u;
+  _impl_._has_bits_[0] &= ~0x00008000u;
 }
 inline uint32_t CBaseUserCmdPB::_internal_pawn_entity_handle() const {
   return _impl_.pawn_entity_handle_;
@@ -1706,7 +1721,7 @@ inline uint32_t CBaseUserCmdPB::pawn_entity_handle() const {
   return _internal_pawn_entity_handle();
 }
 inline void CBaseUserCmdPB::_internal_set_pawn_entity_handle(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00004000u;
+  _impl_._has_bits_[0] |= 0x00008000u;
   _impl_.pawn_entity_handle_ = value;
 }
 inline void CBaseUserCmdPB::set_pawn_entity_handle(uint32_t value) {
@@ -1820,6 +1835,34 @@ inline void CBaseUserCmdPB::set_allocated_move_crc(std::string* move_crc) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:CBaseUserCmdPB.move_crc)
+}
+
+// optional int32 fixangle_tick = 20;
+inline bool CBaseUserCmdPB::_internal_has_fixangle_tick() const {
+  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
+  return value;
+}
+inline bool CBaseUserCmdPB::has_fixangle_tick() const {
+  return _internal_has_fixangle_tick();
+}
+inline void CBaseUserCmdPB::clear_fixangle_tick() {
+  _impl_.fixangle_tick_ = 0;
+  _impl_._has_bits_[0] &= ~0x00004000u;
+}
+inline int32_t CBaseUserCmdPB::_internal_fixangle_tick() const {
+  return _impl_.fixangle_tick_;
+}
+inline int32_t CBaseUserCmdPB::fixangle_tick() const {
+  // @@protoc_insertion_point(field_get:CBaseUserCmdPB.fixangle_tick)
+  return _internal_fixangle_tick();
+}
+inline void CBaseUserCmdPB::_internal_set_fixangle_tick(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00004000u;
+  _impl_.fixangle_tick_ = value;
+}
+inline void CBaseUserCmdPB::set_fixangle_tick(int32_t value) {
+  _internal_set_fixangle_tick(value);
+  // @@protoc_insertion_point(field_set:CBaseUserCmdPB.fixangle_tick)
 }
 
 // -------------------------------------------------------------------

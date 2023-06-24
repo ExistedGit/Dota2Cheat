@@ -533,7 +533,7 @@ class CMsgBotWorldState_Player final :
       ::CMsgBotWorldState_Vector* location);
   ::CMsgBotWorldState_Vector* unsafe_arena_release_location();
 
-  // optional int32 player_id = 1 [(.map_key) = true];
+  // optional int32 player_id = 1 [(.valve_map_key) = true];
   bool has_player_id() const;
   private:
   bool _internal_has_player_id() const;
@@ -837,7 +837,7 @@ class CMsgBotWorldState_Ability final :
     kAbilityIdFieldNumber = 2,
     kCasterHandleFieldNumber = 5,
   };
-  // optional uint32 handle = 1 [(.map_key) = true];
+  // optional uint32 handle = 1 [(.valve_map_key) = true];
   bool has_handle() const;
   private:
   bool _internal_has_handle() const;
@@ -1892,7 +1892,7 @@ class CMsgBotWorldState_Modifier final :
   void _internal_set_remaining_duration(float value);
   public:
 
-  // optional uint32 handle = 7 [(.map_key) = true];
+  // optional uint32 handle = 7 [(.valve_map_key) = true];
   bool has_handle() const;
   private:
   bool _internal_has_handle() const;
@@ -2128,7 +2128,7 @@ class CMsgBotWorldState_LinearProjectile final :
       ::CMsgBotWorldState_Vector* velocity);
   ::CMsgBotWorldState_Vector* unsafe_arena_release_velocity();
 
-  // optional uint32 handle = 1 [(.map_key) = true];
+  // optional uint32 handle = 1 [(.valve_map_key) = true];
   bool has_handle() const;
   private:
   bool _internal_has_handle() const;
@@ -2466,7 +2466,7 @@ class CMsgBotWorldState_TrackingProjectile final :
   void _internal_set_caster_unit_type(::CMsgBotWorldState_UnitType value);
   public:
 
-  // optional uint32 handle = 10 [(.map_key) = true];
+  // optional uint32 handle = 10 [(.valve_map_key) = true];
   bool has_handle() const;
   private:
   bool _internal_has_handle() const;
@@ -2931,7 +2931,7 @@ class CMsgBotWorldState_Courier final :
     kPlayerIdFieldNumber = 3,
     kStateFieldNumber = 2,
   };
-  // optional uint32 handle = 1 [(.map_key) = true];
+  // optional uint32 handle = 1 [(.valve_map_key) = true];
   bool has_handle() const;
   private:
   bool _internal_has_handle() const;
@@ -4274,7 +4274,7 @@ class CMsgBotWorldState_Unit final :
     kAbilityTargetHandleFieldNumber = 101,
     kReliableGoldFieldNumber = 122,
   };
-  // repeated .CMsgBotWorldState.Ability abilities = 90 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.Ability abilities = 90 [(.valve_map_field) = true];
   int abilities_size() const;
   private:
   int _internal_abilities_size() const;
@@ -4292,7 +4292,7 @@ class CMsgBotWorldState_Unit final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBotWorldState_Ability >&
       abilities() const;
 
-  // repeated .CMsgBotWorldState.Ability items = 91 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.Ability items = 91 [(.valve_map_field) = true];
   int items_size() const;
   private:
   int _internal_items_size() const;
@@ -4310,7 +4310,7 @@ class CMsgBotWorldState_Unit final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBotWorldState_Ability >&
       items() const;
 
-  // repeated .CMsgBotWorldState.Modifier modifiers = 92 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.Modifier modifiers = 92 [(.valve_map_field) = true];
   int modifiers_size() const;
   private:
   int _internal_modifiers_size() const;
@@ -4328,7 +4328,7 @@ class CMsgBotWorldState_Unit final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBotWorldState_Modifier >&
       modifiers() const;
 
-  // repeated .CMsgBotWorldState.TrackingProjectile incoming_tracking_projectiles = 93 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.TrackingProjectile incoming_tracking_projectiles = 93 [(.valve_map_field) = true];
   int incoming_tracking_projectiles_size() const;
   private:
   int _internal_incoming_tracking_projectiles_size() const;
@@ -4418,7 +4418,7 @@ class CMsgBotWorldState_Unit final :
       ::CMsgBotWorldState_Vector* location);
   ::CMsgBotWorldState_Vector* unsafe_arena_release_location();
 
-  // optional uint32 handle = 1 [(.map_key) = true];
+  // optional uint32 handle = 1 [(.valve_map_key) = true];
   bool has_handle() const;
   private:
   bool _internal_has_handle() const;
@@ -5866,7 +5866,7 @@ class CMsgBotWorldState final :
     kGlyphCooldownFieldNumber = 7,
     kGlyphCooldownEnemyFieldNumber = 8,
   };
-  // repeated .CMsgBotWorldState.Player players = 10 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.Player players = 10 [(.valve_map_field) = true];
   int players_size() const;
   private:
   int _internal_players_size() const;
@@ -5884,7 +5884,7 @@ class CMsgBotWorldState final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBotWorldState_Player >&
       players() const;
 
-  // repeated .CMsgBotWorldState.Unit units = 11 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.Unit units = 11 [(.valve_map_field) = true];
   int units_size() const;
   private:
   int _internal_units_size() const;
@@ -5956,7 +5956,7 @@ class CMsgBotWorldState final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBotWorldState_TeleportInfo >&
       incoming_teleports() const;
 
-  // repeated .CMsgBotWorldState.LinearProjectile linear_projectiles = 15 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.LinearProjectile linear_projectiles = 15 [(.valve_map_field) = true];
   int linear_projectiles_size() const;
   private:
   int _internal_linear_projectiles_size() const;
@@ -5992,7 +5992,7 @@ class CMsgBotWorldState final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBotWorldState_AvoidanceZone >&
       avoidance_zones() const;
 
-  // repeated .CMsgBotWorldState.Courier couriers = 17 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.Courier couriers = 17 [(.valve_map_field) = true];
   int couriers_size() const;
   private:
   int _internal_couriers_size() const;
@@ -6384,7 +6384,7 @@ inline void CMsgBotWorldState_Vector::set_z(float value) {
 
 // CMsgBotWorldState_Player
 
-// optional int32 player_id = 1 [(.map_key) = true];
+// optional int32 player_id = 1 [(.valve_map_key) = true];
 inline bool CMsgBotWorldState_Player::_internal_has_player_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -6758,7 +6758,7 @@ inline void CMsgBotWorldState_Player::set_allocated_location(::CMsgBotWorldState
 
 // CMsgBotWorldState_Ability
 
-// optional uint32 handle = 1 [(.map_key) = true];
+// optional uint32 handle = 1 [(.valve_map_key) = true];
 inline bool CMsgBotWorldState_Ability::_internal_has_handle() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -7716,7 +7716,7 @@ inline void CMsgBotWorldState_TeleportInfo::set_time_remaining(float value) {
 
 // CMsgBotWorldState_Modifier
 
-// optional uint32 handle = 7 [(.map_key) = true];
+// optional uint32 handle = 7 [(.valve_map_key) = true];
 inline bool CMsgBotWorldState_Modifier::_internal_has_handle() const {
   bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -7975,7 +7975,7 @@ CMsgBotWorldState_Modifier::mutable_auxiliary_units_handles() {
 
 // CMsgBotWorldState_LinearProjectile
 
-// optional uint32 handle = 1 [(.map_key) = true];
+// optional uint32 handle = 1 [(.valve_map_key) = true];
 inline bool CMsgBotWorldState_LinearProjectile::_internal_has_handle() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -8356,7 +8356,7 @@ inline void CMsgBotWorldState_LinearProjectile::set_radius(uint32_t value) {
 
 // CMsgBotWorldState_TrackingProjectile
 
-// optional uint32 handle = 10 [(.map_key) = true];
+// optional uint32 handle = 10 [(.valve_map_key) = true];
 inline bool CMsgBotWorldState_TrackingProjectile::_internal_has_handle() const {
   bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -8966,7 +8966,7 @@ inline void CMsgBotWorldState_AvoidanceZone::set_radius(uint32_t value) {
 
 // CMsgBotWorldState_Courier
 
-// optional uint32 handle = 1 [(.map_key) = true];
+// optional uint32 handle = 1 [(.valve_map_key) = true];
 inline bool CMsgBotWorldState_Courier::_internal_has_handle() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -9815,7 +9815,7 @@ inline void CMsgBotWorldState_EventTree::set_delayed(bool value) {
 
 // CMsgBotWorldState_Unit
 
-// optional uint32 handle = 1 [(.map_key) = true];
+// optional uint32 handle = 1 [(.valve_map_key) = true];
 inline bool CMsgBotWorldState_Unit::_internal_has_handle() const {
   bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -11638,7 +11638,7 @@ inline void CMsgBotWorldState_Unit::set_is_specially_undeniable(bool value) {
   // @@protoc_insertion_point(field_set:CMsgBotWorldState.Unit.is_specially_undeniable)
 }
 
-// repeated .CMsgBotWorldState.Ability abilities = 90 [(.map_field) = true];
+// repeated .CMsgBotWorldState.Ability abilities = 90 [(.valve_map_field) = true];
 inline int CMsgBotWorldState_Unit::_internal_abilities_size() const {
   return _impl_.abilities_.size();
 }
@@ -11678,7 +11678,7 @@ CMsgBotWorldState_Unit::abilities() const {
   return _impl_.abilities_;
 }
 
-// repeated .CMsgBotWorldState.Ability items = 91 [(.map_field) = true];
+// repeated .CMsgBotWorldState.Ability items = 91 [(.valve_map_field) = true];
 inline int CMsgBotWorldState_Unit::_internal_items_size() const {
   return _impl_.items_.size();
 }
@@ -11718,7 +11718,7 @@ CMsgBotWorldState_Unit::items() const {
   return _impl_.items_;
 }
 
-// repeated .CMsgBotWorldState.Modifier modifiers = 92 [(.map_field) = true];
+// repeated .CMsgBotWorldState.Modifier modifiers = 92 [(.valve_map_field) = true];
 inline int CMsgBotWorldState_Unit::_internal_modifiers_size() const {
   return _impl_.modifiers_.size();
 }
@@ -11758,7 +11758,7 @@ CMsgBotWorldState_Unit::modifiers() const {
   return _impl_.modifiers_;
 }
 
-// repeated .CMsgBotWorldState.TrackingProjectile incoming_tracking_projectiles = 93 [(.map_field) = true];
+// repeated .CMsgBotWorldState.TrackingProjectile incoming_tracking_projectiles = 93 [(.valve_map_field) = true];
 inline int CMsgBotWorldState_Unit::_internal_incoming_tracking_projectiles_size() const {
   return _impl_.incoming_tracking_projectiles_.size();
 }
@@ -12822,7 +12822,7 @@ inline void CMsgBotWorldState::set_glyph_cooldown_enemy(float value) {
   // @@protoc_insertion_point(field_set:CMsgBotWorldState.glyph_cooldown_enemy)
 }
 
-// repeated .CMsgBotWorldState.Player players = 10 [(.map_field) = true];
+// repeated .CMsgBotWorldState.Player players = 10 [(.valve_map_field) = true];
 inline int CMsgBotWorldState::_internal_players_size() const {
   return _impl_.players_.size();
 }
@@ -12862,7 +12862,7 @@ CMsgBotWorldState::players() const {
   return _impl_.players_;
 }
 
-// repeated .CMsgBotWorldState.Unit units = 11 [(.map_field) = true];
+// repeated .CMsgBotWorldState.Unit units = 11 [(.valve_map_field) = true];
 inline int CMsgBotWorldState::_internal_units_size() const {
   return _impl_.units_.size();
 }
@@ -13116,7 +13116,7 @@ CMsgBotWorldState::incoming_teleports() const {
   return _impl_.incoming_teleports_;
 }
 
-// repeated .CMsgBotWorldState.LinearProjectile linear_projectiles = 15 [(.map_field) = true];
+// repeated .CMsgBotWorldState.LinearProjectile linear_projectiles = 15 [(.valve_map_field) = true];
 inline int CMsgBotWorldState::_internal_linear_projectiles_size() const {
   return _impl_.linear_projectiles_.size();
 }
@@ -13196,7 +13196,7 @@ CMsgBotWorldState::avoidance_zones() const {
   return _impl_.avoidance_zones_;
 }
 
-// repeated .CMsgBotWorldState.Courier couriers = 17 [(.map_field) = true];
+// repeated .CMsgBotWorldState.Courier couriers = 17 [(.valve_map_field) = true];
 inline int CMsgBotWorldState::_internal_couriers_size() const {
   return _impl_.couriers_.size();
 }

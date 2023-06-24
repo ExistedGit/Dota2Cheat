@@ -739,6 +739,7 @@ PROTOBUF_CONSTEXPR CSVCMsg_CreateStringTable::CSVCMsg_CreateStringTable(
   , /*decltype(_impl_.flags_)*/0
   , /*decltype(_impl_.user_data_fixed_size_)*/false
   , /*decltype(_impl_.data_compressed_)*/false
+  , /*decltype(_impl_.using_varint_bitcounts_)*/false
   , /*decltype(_impl_.uncompressed_size_)*/0} {}
 struct CSVCMsg_CreateStringTableDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CSVCMsg_CreateStringTableDefaultTypeInternal()
@@ -1778,6 +1779,7 @@ const uint32_t TableStruct_netmessages_2eproto::offsets[] PROTOBUF_SECTION_VARIA
   PROTOBUF_FIELD_OFFSET(::CSVCMsg_CreateStringTable, _impl_.string_data_),
   PROTOBUF_FIELD_OFFSET(::CSVCMsg_CreateStringTable, _impl_.uncompressed_size_),
   PROTOBUF_FIELD_OFFSET(::CSVCMsg_CreateStringTable, _impl_.data_compressed_),
+  PROTOBUF_FIELD_OFFSET(::CSVCMsg_CreateStringTable, _impl_.using_varint_bitcounts_),
   0,
   2,
   6,
@@ -1785,8 +1787,9 @@ const uint32_t TableStruct_netmessages_2eproto::offsets[] PROTOBUF_SECTION_VARIA
   4,
   5,
   1,
-  8,
+  9,
   7,
+  8,
   PROTOBUF_FIELD_OFFSET(::CSVCMsg_UpdateStringTable, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CSVCMsg_UpdateStringTable, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2210,33 +2213,33 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 502, 510, -1, sizeof(::CSVCMsg_PacketEntities_alternate_baseline_t)},
   { 512, 533, -1, sizeof(::CSVCMsg_PacketEntities)},
   { 548, 557, -1, sizeof(::CSVCMsg_TempEntities)},
-  { 560, 575, -1, sizeof(::CSVCMsg_CreateStringTable)},
-  { 584, 593, -1, sizeof(::CSVCMsg_UpdateStringTable)},
-  { 596, 608, -1, sizeof(::CSVCMsg_VoiceData)},
-  { 614, 623, -1, sizeof(::CSVCMsg_PacketReliable)},
-  { 626, 636, -1, sizeof(::CSVCMsg_FullFrameSplit)},
-  { 640, 650, -1, sizeof(::CSVCMsg_HLTVStatus)},
-  { 654, 661, -1, sizeof(::CSVCMsg_ServerSteamID)},
-  { 662, 669, -1, sizeof(::CSVCMsg_CmdKeyValues)},
-  { 670, 678, -1, sizeof(::CSVCMsg_RconServerDetails)},
-  { 680, 688, -1, sizeof(::CMsgIPCAddress)},
-  { 690, 702, -1, sizeof(::CMsgServerPeer)},
-  { 708, -1, -1, sizeof(::CSVCMsg_PeerList)},
-  { 715, 722, -1, sizeof(::CSVCMsg_ClearAllStringTables)},
-  { 723, 739, -1, sizeof(::ProtoFlattenedSerializerField_t)},
-  { 749, 758, -1, sizeof(::ProtoFlattenedSerializer_t)},
-  { 761, -1, -1, sizeof(::CSVCMsg_FlattenedSerializer)},
-  { 770, 777, -1, sizeof(::CSVCMsg_StopSound)},
-  { 778, 788, -1, sizeof(::CBidirMsg_RebroadcastGameEvent)},
-  { 792, 799, -1, sizeof(::CBidirMsg_RebroadcastSource)},
-  { 800, 808, -1, sizeof(::CMsgServerNetworkStats_Port)},
-  { 810, 822, -1, sizeof(::CMsgServerNetworkStats_Player)},
-  { 828, 859, -1, sizeof(::CMsgServerNetworkStats)},
-  { 884, 898, -1, sizeof(::CSVCMsg_HltvReplay)},
-  { 906, 917, -1, sizeof(::CCLCMsg_HltvReplay)},
-  { 922, 929, -1, sizeof(::CSVCMsg_Broadcast_Command)},
-  { 930, 944, -1, sizeof(::CCLCMsg_HltvFixupOperatorTick)},
-  { 952, 960, -1, sizeof(::CSVCMsg_HltvFixupOperatorStatus)},
+  { 560, 576, -1, sizeof(::CSVCMsg_CreateStringTable)},
+  { 586, 595, -1, sizeof(::CSVCMsg_UpdateStringTable)},
+  { 598, 610, -1, sizeof(::CSVCMsg_VoiceData)},
+  { 616, 625, -1, sizeof(::CSVCMsg_PacketReliable)},
+  { 628, 638, -1, sizeof(::CSVCMsg_FullFrameSplit)},
+  { 642, 652, -1, sizeof(::CSVCMsg_HLTVStatus)},
+  { 656, 663, -1, sizeof(::CSVCMsg_ServerSteamID)},
+  { 664, 671, -1, sizeof(::CSVCMsg_CmdKeyValues)},
+  { 672, 680, -1, sizeof(::CSVCMsg_RconServerDetails)},
+  { 682, 690, -1, sizeof(::CMsgIPCAddress)},
+  { 692, 704, -1, sizeof(::CMsgServerPeer)},
+  { 710, -1, -1, sizeof(::CSVCMsg_PeerList)},
+  { 717, 724, -1, sizeof(::CSVCMsg_ClearAllStringTables)},
+  { 725, 741, -1, sizeof(::ProtoFlattenedSerializerField_t)},
+  { 751, 760, -1, sizeof(::ProtoFlattenedSerializer_t)},
+  { 763, -1, -1, sizeof(::CSVCMsg_FlattenedSerializer)},
+  { 772, 779, -1, sizeof(::CSVCMsg_StopSound)},
+  { 780, 790, -1, sizeof(::CBidirMsg_RebroadcastGameEvent)},
+  { 794, 801, -1, sizeof(::CBidirMsg_RebroadcastSource)},
+  { 802, 810, -1, sizeof(::CMsgServerNetworkStats_Port)},
+  { 812, 824, -1, sizeof(::CMsgServerNetworkStats_Player)},
+  { 830, 861, -1, sizeof(::CMsgServerNetworkStats)},
+  { 886, 900, -1, sizeof(::CSVCMsg_HltvReplay)},
+  { 908, 919, -1, sizeof(::CCLCMsg_HltvReplay)},
+  { 924, 931, -1, sizeof(::CSVCMsg_Broadcast_Command)},
+  { 932, 946, -1, sizeof(::CCLCMsg_HltvFixupOperatorTick)},
+  { 954, 962, -1, sizeof(::CSVCMsg_HltvFixupOperatorStatus)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -2427,151 +2430,151 @@ const char descriptor_table_protodef_netmessages_2eproto[] PROTOBUF_SECTION_VARI
   "line_t\022\024\n\014entity_index\030\001 \001(\005\022\026\n\016baseline"
   "_index\030\002 \001(\005\"R\n\024CSVCMsg_TempEntities\022\020\n\010"
   "reliable\030\001 \001(\010\022\023\n\013num_entries\030\002 \001(\005\022\023\n\013e"
-  "ntity_data\030\003 \001(\014\"\351\001\n\031CSVCMsg_CreateStrin"
+  "ntity_data\030\003 \001(\014\"\211\002\n\031CSVCMsg_CreateStrin"
   "gTable\022\014\n\004name\030\001 \001(\t\022\023\n\013num_entries\030\002 \001("
   "\005\022\034\n\024user_data_fixed_size\030\003 \001(\010\022\026\n\016user_"
   "data_size\030\004 \001(\005\022\033\n\023user_data_size_bits\030\005"
   " \001(\005\022\r\n\005flags\030\006 \001(\005\022\023\n\013string_data\030\007 \001(\014"
   "\022\031\n\021uncompressed_size\030\010 \001(\005\022\027\n\017data_comp"
-  "ressed\030\t \001(\010\"_\n\031CSVCMsg_UpdateStringTabl"
-  "e\022\020\n\010table_id\030\001 \001(\005\022\033\n\023num_changed_entri"
-  "es\030\002 \001(\005\022\023\n\013string_data\030\003 \001(\014\"\214\001\n\021CSVCMs"
-  "g_VoiceData\022\036\n\005audio\030\001 \001(\0132\017.CMsgVoiceAu"
-  "dio\022\022\n\006client\030\002 \001(\005:\002-1\022\021\n\tproximity\030\003 \001"
-  "(\010\022\014\n\004xuid\030\004 \001(\006\022\024\n\014audible_mask\030\005 \001(\005\022\014"
-  "\n\004tick\030\006 \001(\r\"K\n\026CSVCMsg_PacketReliable\022\014"
-  "\n\004tick\030\001 \001(\005\022\024\n\014messagessize\030\002 \001(\005\022\r\n\005st"
-  "ate\030\003 \001(\010\"T\n\026CSVCMsg_FullFrameSplit\022\014\n\004t"
-  "ick\030\001 \001(\005\022\017\n\007section\030\002 \001(\005\022\r\n\005total\030\003 \001("
-  "\005\022\014\n\004data\030\004 \001(\014\"U\n\022CSVCMsg_HLTVStatus\022\016\n"
-  "\006master\030\001 \001(\t\022\017\n\007clients\030\002 \001(\005\022\r\n\005slots\030"
-  "\003 \001(\005\022\017\n\007proxies\030\004 \001(\005\")\n\025CSVCMsg_Server"
-  "SteamID\022\020\n\010steam_id\030\001 \001(\004\"$\n\024CSVCMsg_Cmd"
-  "KeyValues\022\014\n\004data\030\001 \001(\014\";\n\031CSVCMsg_RconS"
-  "erverDetails\022\r\n\005token\030\001 \001(\014\022\017\n\007details\030\002"
-  " \001(\t\";\n\016CMsgIPCAddress\022\025\n\rcomputer_guid\030"
-  "\001 \001(\006\022\022\n\nprocess_id\030\002 \001(\r\"\244\001\n\016CMsgServer"
-  "Peer\022\027\n\013player_slot\030\001 \001(\005:\002-1\022\017\n\007steamid"
-  "\030\002 \001(\006\022\034\n\003ipc\030\003 \001(\0132\017.CMsgIPCAddress\022\025\n\r"
-  "they_hear_you\030\004 \001(\010\022\025\n\ryou_hear_them\030\005 \001"
-  "(\010\022\034\n\024is_listenserver_host\030\006 \001(\010\"1\n\020CSVC"
-  "Msg_PeerList\022\035\n\004peer\030\001 \003(\0132\017.CMsgServerP"
-  "eer\"/\n\034CSVCMsg_ClearAllStringTables\022\017\n\007m"
-  "apname\030\001 \001(\t\"\222\002\n\037ProtoFlattenedSerialize"
-  "rField_t\022\024\n\014var_type_sym\030\001 \001(\005\022\024\n\014var_na"
-  "me_sym\030\002 \001(\005\022\021\n\tbit_count\030\003 \001(\005\022\021\n\tlow_v"
-  "alue\030\004 \001(\002\022\022\n\nhigh_value\030\005 \001(\002\022\024\n\014encode"
-  "_flags\030\006 \001(\005\022!\n\031field_serializer_name_sy"
-  "m\030\007 \001(\005\022 \n\030field_serializer_version\030\010 \001("
-  "\005\022\025\n\rsend_node_sym\030\t \001(\005\022\027\n\017var_encoder_"
-  "sym\030\n \001(\005\"k\n\032ProtoFlattenedSerializer_t\022"
-  "\033\n\023serializer_name_sym\030\001 \001(\005\022\032\n\022serializ"
-  "er_version\030\002 \001(\005\022\024\n\014fields_index\030\003 \003(\005\"\222"
-  "\001\n\033CSVCMsg_FlattenedSerializer\0220\n\013serial"
-  "izers\030\001 \003(\0132\033.ProtoFlattenedSerializer_t"
-  "\022\017\n\007symbols\030\002 \003(\t\0220\n\006fields\030\003 \003(\0132 .Prot"
-  "oFlattenedSerializerField_t\"!\n\021CSVCMsg_S"
-  "topSound\022\014\n\004guid\030\001 \001(\007\"y\n\036CBidirMsg_Rebr"
-  "oadcastGameEvent\022\024\n\014posttoserver\030\001 \001(\010\022\017"
-  "\n\007buftype\030\002 \001(\005\022\026\n\016clientbitcount\030\003 \001(\r\022"
-  "\030\n\020receivingclients\030\004 \001(\004\"2\n\033CBidirMsg_R"
-  "ebroadcastSource\022\023\n\013eventsource\030\001 \001(\005\"\233\006"
-  "\n\026CMsgServerNetworkStats\022\021\n\tdedicated\030\001 "
-  "\001(\010\022\021\n\tcpu_usage\030\002 \001(\005\022\026\n\016memory_used_mb"
-  "\030\003 \001(\005\022\026\n\016memory_free_mb\030\004 \001(\005\022\016\n\006uptime"
-  "\030\005 \001(\005\022\023\n\013spawn_count\030\006 \001(\005\022\023\n\013num_clien"
-  "ts\030\010 \001(\005\022\020\n\010num_bots\030\t \001(\005\022\026\n\016num_specta"
-  "tors\030\n \001(\005\022\025\n\rnum_tv_relays\030\013 \001(\005\022\013\n\003fps"
-  "\030\014 \001(\002\022+\n\005ports\030\021 \003(\0132\034.CMsgServerNetwor"
-  "kStats.Port\022\027\n\017avg_latency_out\030\022 \001(\002\022\026\n\016"
-  "avg_latency_in\030\023 \001(\002\022\027\n\017avg_packets_out\030"
-  "\024 \001(\002\022\026\n\016avg_packets_in\030\025 \001(\002\022\024\n\014avg_los"
-  "s_out\030\026 \001(\002\022\023\n\013avg_loss_in\030\027 \001(\002\022\024\n\014avg_"
-  "data_out\030\030 \001(\002\022\023\n\013avg_data_in\030\031 \001(\002\022\025\n\rt"
-  "otal_data_in\030\032 \001(\004\022\030\n\020total_packets_in\030\033"
-  " \001(\004\022\026\n\016total_data_out\030\034 \001(\004\022\031\n\021total_pa"
-  "ckets_out\030\035 \001(\004\022/\n\007players\030\036 \003(\0132\036.CMsgS"
-  "erverNetworkStats.Player\032\"\n\004Port\022\014\n\004port"
-  "\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\032\204\001\n\006Player\022\017\n\007steam"
-  "id\030\001 \001(\004\022\023\n\013remote_addr\030\002 \001(\t\022\026\n\016ping_st"
-  "ddev_ms\030\003 \001(\005\022\023\n\013ping_avg_ms\030\004 \001(\005\022\027\n\017pa"
-  "cket_loss_pct\030\005 \001(\002\022\016\n\006is_bot\030\006 \001(\010\"\332\001\n\022"
-  "CSVCMsg_HltvReplay\022\r\n\005delay\030\001 \001(\005\022\032\n\016pri"
-  "mary_target\030\002 \001(\005:\002-1\022\026\n\016replay_stop_at\030"
-  "\003 \001(\005\022\027\n\017replay_start_at\030\004 \001(\005\022\035\n\025replay"
-  "_slowdown_begin\030\005 \001(\005\022\033\n\023replay_slowdown"
-  "_end\030\006 \001(\005\022\034\n\024replay_slowdown_rate\030\007 \001(\002"
-  "\022\016\n\006reason\030\010 \001(\005\"\205\001\n\022CCLCMsg_HltvReplay\022"
-  "\017\n\007request\030\001 \001(\005\022\027\n\017slowdown_length\030\002 \001("
-  "\002\022\025\n\rslowdown_rate\030\003 \001(\002\022\032\n\016primary_targ"
-  "et\030\004 \001(\005:\002-1\022\022\n\nevent_time\030\005 \001(\002\"(\n\031CSVC"
-  "Msg_Broadcast_Command\022\013\n\003cmd\030\001 \001(\t\"\357\001\n\035C"
-  "CLCMsg_HltvFixupOperatorTick\022\014\n\004tick\030\001 \001"
-  "(\005\022\022\n\nprops_data\030\002 \001(\014\022\033\n\006origin\030\003 \001(\0132\013"
-  ".CMsgVector\022\037\n\neye_angles\030\004 \001(\0132\013.CMsgQA"
-  "ngle\022\025\n\robserver_mode\030\005 \001(\005\022\034\n\024cameraman"
-  "_scoreboard\030\006 \001(\010\022\027\n\017observer_target\030\007 \001"
-  "(\005\022 \n\013view_offset\030\010 \001(\0132\013.CMsgVector\"O\n\037"
-  "CSVCMsg_HltvFixupOperatorStatus\022\014\n\004mode\030"
-  "\001 \001(\r\022\036\n\026override_operator_name\030\002 \001(\t*\216\003"
-  "\n\014CLC_Messages\022\022\n\016clc_ClientInfo\020\024\022\014\n\010cl"
-  "c_Move\020\025\022\021\n\rclc_VoiceData\020\026\022\023\n\017clc_Basel"
-  "ineAck\020\027\022\024\n\020clc_ListenEvents\020\030\022\030\n\024clc_Re"
-  "spondCvarValue\020\031\022\024\n\020clc_FileCRCCheck\020\032\022\027"
-  "\n\023clc_LoadingProgress\020\033\022\032\n\026clc_SplitPlay"
-  "erConnect\020\034\022\025\n\021clc_ClientMessage\020\035\022\035\n\031cl"
-  "c_SplitPlayerDisconnect\020\036\022\024\n\020clc_ServerS"
-  "tatus\020\037\022\022\n\016clc_ServerPing\020 \022\024\n\020clc_Reque"
-  "stPause\020!\022\024\n\020clc_CmdKeyValues\020\"\022\031\n\025clc_R"
-  "conServerDetails\020#\022\022\n\016clc_HltvReplay\020$*\231"
-  "\005\n\014SVC_Messages\022\022\n\016svc_ServerInfo\020(\022\033\n\027s"
-  "vc_FlattenedSerializer\020)\022\021\n\rsvc_ClassInf"
-  "o\020*\022\020\n\014svc_SetPause\020+\022\031\n\025svc_CreateStrin"
-  "gTable\020,\022\031\n\025svc_UpdateStringTable\020-\022\021\n\rs"
-  "vc_VoiceInit\020.\022\021\n\rsvc_VoiceData\020/\022\r\n\tsvc"
-  "_Print\0200\022\016\n\nsvc_Sounds\0201\022\017\n\013svc_SetView\020"
-  "2\022\034\n\030svc_ClearAllStringTables\0203\022\024\n\020svc_C"
-  "mdKeyValues\0204\022\020\n\014svc_BSPDecal\0205\022\023\n\017svc_S"
-  "plitScreen\0206\022\026\n\022svc_PacketEntities\0207\022\020\n\014"
-  "svc_Prefetch\0208\022\014\n\010svc_Menu\0209\022\024\n\020svc_GetC"
-  "varValue\020:\022\021\n\rsvc_StopSound\020;\022\020\n\014svc_Pee"
-  "rList\020<\022\026\n\022svc_PacketReliable\020=\022\022\n\016svc_H"
-  "LTVStatus\020>\022\025\n\021svc_ServerSteamID\020\?\022\026\n\022sv"
-  "c_FullFrameSplit\020F\022\031\n\025svc_RconServerDeta"
-  "ils\020G\022\023\n\017svc_UserMessage\020H\022\022\n\016svc_HltvRe"
-  "play\020I\022\031\n\025svc_Broadcast_Command\020J\022\037\n\033svc"
-  "_HltvFixupOperatorStatus\020K*L\n\021VoiceDataF"
-  "ormat_t\022\032\n\026VOICEDATA_FORMAT_STEAM\020\000\022\033\n\027V"
-  "OICEDATA_FORMAT_ENGINE\020\001*B\n\016RequestPause"
-  "_t\022\014\n\010RP_PAUSE\020\000\022\016\n\nRP_UNPAUSE\020\001\022\022\n\016RP_T"
-  "OGGLEPAUSE\020\002*\035\n\014PrefetchType\022\r\n\tPFT_SOUN"
-  "D\020\000*V\n\027ESplitScreenMessageType\022\033\n\027MSG_SP"
-  "LITSCREEN_ADDUSER\020\000\022\036\n\032MSG_SPLITSCREEN_R"
-  "EMOVEUSER\020\001*\263\001\n\025EQueryCvarValueStatus\022%\n"
-  "!eQueryCvarValueStatus_ValueIntact\020\000\022&\n\""
-  "eQueryCvarValueStatus_CvarNotFound\020\001\022\"\n\036"
-  "eQueryCvarValueStatus_NotACvar\020\002\022\'\n#eQue"
-  "ryCvarValueStatus_CvarProtected\020\003*h\n\013DIA"
-  "LOG_TYPE\022\016\n\nDIALOG_MSG\020\000\022\017\n\013DIALOG_MENU\020"
-  "\001\022\017\n\013DIALOG_TEXT\020\002\022\020\n\014DIALOG_ENTRY\020\003\022\025\n\021"
-  "DIALOG_ASKCONNECT\020\004*+\n\031SVC_Messages_LowF"
-  "requency\022\016\n\tsvc_dummy\020\330\004*a\n\026Bidirectiona"
-  "l_Messages\022\033\n\027bi_RebroadcastGameEvent\020\020\022"
-  "\030\n\024bi_RebroadcastSource\020\021\022\020\n\014bi_GameEven"
-  "t\020\022*M\n#Bidirectional_Messages_LowFrequen"
-  "cy\022\021\n\014bi_RelayInfo\020\274\005\022\023\n\016bi_RelayPacket\020"
-  "\275\005*\241\001\n\021ReplayEventType_t\022\027\n\023REPLAY_EVENT"
-  "_CANCEL\020\000\022\026\n\022REPLAY_EVENT_DEATH\020\001\022\030\n\024REP"
-  "LAY_EVENT_GENERIC\020\002\022\'\n#REPLAY_EVENT_STUC"
-  "K_NEED_FULL_UPDATE\020\003\022\030\n\024REPLAY_EVENT_VIC"
-  "TORY\020\004"
+  "ressed\030\t \001(\010\022\036\n\026using_varint_bitcounts\030\n"
+  " \001(\010\"_\n\031CSVCMsg_UpdateStringTable\022\020\n\010tab"
+  "le_id\030\001 \001(\005\022\033\n\023num_changed_entries\030\002 \001(\005"
+  "\022\023\n\013string_data\030\003 \001(\014\"\214\001\n\021CSVCMsg_VoiceD"
+  "ata\022\036\n\005audio\030\001 \001(\0132\017.CMsgVoiceAudio\022\022\n\006c"
+  "lient\030\002 \001(\005:\002-1\022\021\n\tproximity\030\003 \001(\010\022\014\n\004xu"
+  "id\030\004 \001(\006\022\024\n\014audible_mask\030\005 \001(\005\022\014\n\004tick\030\006"
+  " \001(\r\"K\n\026CSVCMsg_PacketReliable\022\014\n\004tick\030\001"
+  " \001(\005\022\024\n\014messagessize\030\002 \001(\005\022\r\n\005state\030\003 \001("
+  "\010\"T\n\026CSVCMsg_FullFrameSplit\022\014\n\004tick\030\001 \001("
+  "\005\022\017\n\007section\030\002 \001(\005\022\r\n\005total\030\003 \001(\005\022\014\n\004dat"
+  "a\030\004 \001(\014\"U\n\022CSVCMsg_HLTVStatus\022\016\n\006master\030"
+  "\001 \001(\t\022\017\n\007clients\030\002 \001(\005\022\r\n\005slots\030\003 \001(\005\022\017\n"
+  "\007proxies\030\004 \001(\005\")\n\025CSVCMsg_ServerSteamID\022"
+  "\020\n\010steam_id\030\001 \001(\004\"$\n\024CSVCMsg_CmdKeyValue"
+  "s\022\014\n\004data\030\001 \001(\014\";\n\031CSVCMsg_RconServerDet"
+  "ails\022\r\n\005token\030\001 \001(\014\022\017\n\007details\030\002 \001(\t\";\n\016"
+  "CMsgIPCAddress\022\025\n\rcomputer_guid\030\001 \001(\006\022\022\n"
+  "\nprocess_id\030\002 \001(\r\"\244\001\n\016CMsgServerPeer\022\027\n\013"
+  "player_slot\030\001 \001(\005:\002-1\022\017\n\007steamid\030\002 \001(\006\022\034"
+  "\n\003ipc\030\003 \001(\0132\017.CMsgIPCAddress\022\025\n\rthey_hea"
+  "r_you\030\004 \001(\010\022\025\n\ryou_hear_them\030\005 \001(\010\022\034\n\024is"
+  "_listenserver_host\030\006 \001(\010\"1\n\020CSVCMsg_Peer"
+  "List\022\035\n\004peer\030\001 \003(\0132\017.CMsgServerPeer\"/\n\034C"
+  "SVCMsg_ClearAllStringTables\022\017\n\007mapname\030\001"
+  " \001(\t\"\222\002\n\037ProtoFlattenedSerializerField_t"
+  "\022\024\n\014var_type_sym\030\001 \001(\005\022\024\n\014var_name_sym\030\002"
+  " \001(\005\022\021\n\tbit_count\030\003 \001(\005\022\021\n\tlow_value\030\004 \001"
+  "(\002\022\022\n\nhigh_value\030\005 \001(\002\022\024\n\014encode_flags\030\006"
+  " \001(\005\022!\n\031field_serializer_name_sym\030\007 \001(\005\022"
+  " \n\030field_serializer_version\030\010 \001(\005\022\025\n\rsen"
+  "d_node_sym\030\t \001(\005\022\027\n\017var_encoder_sym\030\n \001("
+  "\005\"k\n\032ProtoFlattenedSerializer_t\022\033\n\023seria"
+  "lizer_name_sym\030\001 \001(\005\022\032\n\022serializer_versi"
+  "on\030\002 \001(\005\022\024\n\014fields_index\030\003 \003(\005\"\222\001\n\033CSVCM"
+  "sg_FlattenedSerializer\0220\n\013serializers\030\001 "
+  "\003(\0132\033.ProtoFlattenedSerializer_t\022\017\n\007symb"
+  "ols\030\002 \003(\t\0220\n\006fields\030\003 \003(\0132 .ProtoFlatten"
+  "edSerializerField_t\"!\n\021CSVCMsg_StopSound"
+  "\022\014\n\004guid\030\001 \001(\007\"y\n\036CBidirMsg_RebroadcastG"
+  "ameEvent\022\024\n\014posttoserver\030\001 \001(\010\022\017\n\007buftyp"
+  "e\030\002 \001(\005\022\026\n\016clientbitcount\030\003 \001(\r\022\030\n\020recei"
+  "vingclients\030\004 \001(\004\"2\n\033CBidirMsg_Rebroadca"
+  "stSource\022\023\n\013eventsource\030\001 \001(\005\"\233\006\n\026CMsgSe"
+  "rverNetworkStats\022\021\n\tdedicated\030\001 \001(\010\022\021\n\tc"
+  "pu_usage\030\002 \001(\005\022\026\n\016memory_used_mb\030\003 \001(\005\022\026"
+  "\n\016memory_free_mb\030\004 \001(\005\022\016\n\006uptime\030\005 \001(\005\022\023"
+  "\n\013spawn_count\030\006 \001(\005\022\023\n\013num_clients\030\010 \001(\005"
+  "\022\020\n\010num_bots\030\t \001(\005\022\026\n\016num_spectators\030\n \001"
+  "(\005\022\025\n\rnum_tv_relays\030\013 \001(\005\022\013\n\003fps\030\014 \001(\002\022+"
+  "\n\005ports\030\021 \003(\0132\034.CMsgServerNetworkStats.P"
+  "ort\022\027\n\017avg_latency_out\030\022 \001(\002\022\026\n\016avg_late"
+  "ncy_in\030\023 \001(\002\022\027\n\017avg_packets_out\030\024 \001(\002\022\026\n"
+  "\016avg_packets_in\030\025 \001(\002\022\024\n\014avg_loss_out\030\026 "
+  "\001(\002\022\023\n\013avg_loss_in\030\027 \001(\002\022\024\n\014avg_data_out"
+  "\030\030 \001(\002\022\023\n\013avg_data_in\030\031 \001(\002\022\025\n\rtotal_dat"
+  "a_in\030\032 \001(\004\022\030\n\020total_packets_in\030\033 \001(\004\022\026\n\016"
+  "total_data_out\030\034 \001(\004\022\031\n\021total_packets_ou"
+  "t\030\035 \001(\004\022/\n\007players\030\036 \003(\0132\036.CMsgServerNet"
+  "workStats.Player\032\"\n\004Port\022\014\n\004port\030\001 \001(\005\022\014"
+  "\n\004name\030\002 \001(\t\032\204\001\n\006Player\022\017\n\007steamid\030\001 \001(\004"
+  "\022\023\n\013remote_addr\030\002 \001(\t\022\026\n\016ping_stddev_ms\030"
+  "\003 \001(\005\022\023\n\013ping_avg_ms\030\004 \001(\005\022\027\n\017packet_los"
+  "s_pct\030\005 \001(\002\022\016\n\006is_bot\030\006 \001(\010\"\332\001\n\022CSVCMsg_"
+  "HltvReplay\022\r\n\005delay\030\001 \001(\005\022\032\n\016primary_tar"
+  "get\030\002 \001(\005:\002-1\022\026\n\016replay_stop_at\030\003 \001(\005\022\027\n"
+  "\017replay_start_at\030\004 \001(\005\022\035\n\025replay_slowdow"
+  "n_begin\030\005 \001(\005\022\033\n\023replay_slowdown_end\030\006 \001"
+  "(\005\022\034\n\024replay_slowdown_rate\030\007 \001(\002\022\016\n\006reas"
+  "on\030\010 \001(\005\"\205\001\n\022CCLCMsg_HltvReplay\022\017\n\007reque"
+  "st\030\001 \001(\005\022\027\n\017slowdown_length\030\002 \001(\002\022\025\n\rslo"
+  "wdown_rate\030\003 \001(\002\022\032\n\016primary_target\030\004 \001(\005"
+  ":\002-1\022\022\n\nevent_time\030\005 \001(\002\"(\n\031CSVCMsg_Broa"
+  "dcast_Command\022\013\n\003cmd\030\001 \001(\t\"\357\001\n\035CCLCMsg_H"
+  "ltvFixupOperatorTick\022\014\n\004tick\030\001 \001(\005\022\022\n\npr"
+  "ops_data\030\002 \001(\014\022\033\n\006origin\030\003 \001(\0132\013.CMsgVec"
+  "tor\022\037\n\neye_angles\030\004 \001(\0132\013.CMsgQAngle\022\025\n\r"
+  "observer_mode\030\005 \001(\005\022\034\n\024cameraman_scorebo"
+  "ard\030\006 \001(\010\022\027\n\017observer_target\030\007 \001(\005\022 \n\013vi"
+  "ew_offset\030\010 \001(\0132\013.CMsgVector\"O\n\037CSVCMsg_"
+  "HltvFixupOperatorStatus\022\014\n\004mode\030\001 \001(\r\022\036\n"
+  "\026override_operator_name\030\002 \001(\t*\216\003\n\014CLC_Me"
+  "ssages\022\022\n\016clc_ClientInfo\020\024\022\014\n\010clc_Move\020\025"
+  "\022\021\n\rclc_VoiceData\020\026\022\023\n\017clc_BaselineAck\020\027"
+  "\022\024\n\020clc_ListenEvents\020\030\022\030\n\024clc_RespondCva"
+  "rValue\020\031\022\024\n\020clc_FileCRCCheck\020\032\022\027\n\023clc_Lo"
+  "adingProgress\020\033\022\032\n\026clc_SplitPlayerConnec"
+  "t\020\034\022\025\n\021clc_ClientMessage\020\035\022\035\n\031clc_SplitP"
+  "layerDisconnect\020\036\022\024\n\020clc_ServerStatus\020\037\022"
+  "\022\n\016clc_ServerPing\020 \022\024\n\020clc_RequestPause\020"
+  "!\022\024\n\020clc_CmdKeyValues\020\"\022\031\n\025clc_RconServe"
+  "rDetails\020#\022\022\n\016clc_HltvReplay\020$*\231\005\n\014SVC_M"
+  "essages\022\022\n\016svc_ServerInfo\020(\022\033\n\027svc_Flatt"
+  "enedSerializer\020)\022\021\n\rsvc_ClassInfo\020*\022\020\n\014s"
+  "vc_SetPause\020+\022\031\n\025svc_CreateStringTable\020,"
+  "\022\031\n\025svc_UpdateStringTable\020-\022\021\n\rsvc_Voice"
+  "Init\020.\022\021\n\rsvc_VoiceData\020/\022\r\n\tsvc_Print\0200"
+  "\022\016\n\nsvc_Sounds\0201\022\017\n\013svc_SetView\0202\022\034\n\030svc"
+  "_ClearAllStringTables\0203\022\024\n\020svc_CmdKeyVal"
+  "ues\0204\022\020\n\014svc_BSPDecal\0205\022\023\n\017svc_SplitScre"
+  "en\0206\022\026\n\022svc_PacketEntities\0207\022\020\n\014svc_Pref"
+  "etch\0208\022\014\n\010svc_Menu\0209\022\024\n\020svc_GetCvarValue"
+  "\020:\022\021\n\rsvc_StopSound\020;\022\020\n\014svc_PeerList\020<\022"
+  "\026\n\022svc_PacketReliable\020=\022\022\n\016svc_HLTVStatu"
+  "s\020>\022\025\n\021svc_ServerSteamID\020\?\022\026\n\022svc_FullFr"
+  "ameSplit\020F\022\031\n\025svc_RconServerDetails\020G\022\023\n"
+  "\017svc_UserMessage\020H\022\022\n\016svc_HltvReplay\020I\022\031"
+  "\n\025svc_Broadcast_Command\020J\022\037\n\033svc_HltvFix"
+  "upOperatorStatus\020K*L\n\021VoiceDataFormat_t\022"
+  "\032\n\026VOICEDATA_FORMAT_STEAM\020\000\022\033\n\027VOICEDATA"
+  "_FORMAT_ENGINE\020\001*B\n\016RequestPause_t\022\014\n\010RP"
+  "_PAUSE\020\000\022\016\n\nRP_UNPAUSE\020\001\022\022\n\016RP_TOGGLEPAU"
+  "SE\020\002*\035\n\014PrefetchType\022\r\n\tPFT_SOUND\020\000*V\n\027E"
+  "SplitScreenMessageType\022\033\n\027MSG_SPLITSCREE"
+  "N_ADDUSER\020\000\022\036\n\032MSG_SPLITSCREEN_REMOVEUSE"
+  "R\020\001*\263\001\n\025EQueryCvarValueStatus\022%\n!eQueryC"
+  "varValueStatus_ValueIntact\020\000\022&\n\"eQueryCv"
+  "arValueStatus_CvarNotFound\020\001\022\"\n\036eQueryCv"
+  "arValueStatus_NotACvar\020\002\022\'\n#eQueryCvarVa"
+  "lueStatus_CvarProtected\020\003*h\n\013DIALOG_TYPE"
+  "\022\016\n\nDIALOG_MSG\020\000\022\017\n\013DIALOG_MENU\020\001\022\017\n\013DIA"
+  "LOG_TEXT\020\002\022\020\n\014DIALOG_ENTRY\020\003\022\025\n\021DIALOG_A"
+  "SKCONNECT\020\004*+\n\031SVC_Messages_LowFrequency"
+  "\022\016\n\tsvc_dummy\020\330\004*a\n\026Bidirectional_Messag"
+  "es\022\033\n\027bi_RebroadcastGameEvent\020\020\022\030\n\024bi_Re"
+  "broadcastSource\020\021\022\020\n\014bi_GameEvent\020\022*M\n#B"
+  "idirectional_Messages_LowFrequency\022\021\n\014bi"
+  "_RelayInfo\020\274\005\022\023\n\016bi_RelayPacket\020\275\005*\241\001\n\021R"
+  "eplayEventType_t\022\027\n\023REPLAY_EVENT_CANCEL\020"
+  "\000\022\026\n\022REPLAY_EVENT_DEATH\020\001\022\030\n\024REPLAY_EVEN"
+  "T_GENERIC\020\002\022\'\n#REPLAY_EVENT_STUCK_NEED_F"
+  "ULL_UPDATE\020\003\022\030\n\024REPLAY_EVENT_VICTORY\020\004"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_netmessages_2eproto_deps[1] = {
   &::descriptor_table_networkbasetypes_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_netmessages_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_netmessages_2eproto = {
-    false, false, 10046, descriptor_table_protodef_netmessages_2eproto,
+    false, false, 10078, descriptor_table_protodef_netmessages_2eproto,
     "netmessages.proto",
     &descriptor_table_netmessages_2eproto_once, descriptor_table_netmessages_2eproto_deps, 1, 70,
     schemas, file_default_instances, TableStruct_netmessages_2eproto::offsets,
@@ -15518,10 +15521,13 @@ class CSVCMsg_CreateStringTable::_Internal {
     (*has_bits)[0] |= 2u;
   }
   static void set_has_uncompressed_size(HasBits* has_bits) {
-    (*has_bits)[0] |= 256u;
+    (*has_bits)[0] |= 512u;
   }
   static void set_has_data_compressed(HasBits* has_bits) {
     (*has_bits)[0] |= 128u;
+  }
+  static void set_has_using_varint_bitcounts(HasBits* has_bits) {
+    (*has_bits)[0] |= 256u;
   }
 };
 
@@ -15545,6 +15551,7 @@ CSVCMsg_CreateStringTable::CSVCMsg_CreateStringTable(const CSVCMsg_CreateStringT
     , decltype(_impl_.flags_){}
     , decltype(_impl_.user_data_fixed_size_){}
     , decltype(_impl_.data_compressed_){}
+    , decltype(_impl_.using_varint_bitcounts_){}
     , decltype(_impl_.uncompressed_size_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -15585,6 +15592,7 @@ inline void CSVCMsg_CreateStringTable::SharedCtor(
     , decltype(_impl_.flags_){0}
     , decltype(_impl_.user_data_fixed_size_){false}
     , decltype(_impl_.data_compressed_){false}
+    , decltype(_impl_.using_varint_bitcounts_){false}
     , decltype(_impl_.uncompressed_size_){0}
   };
   _impl_.name_.InitDefault();
@@ -15636,7 +15644,11 @@ void CSVCMsg_CreateStringTable::Clear() {
         reinterpret_cast<char*>(&_impl_.data_compressed_) -
         reinterpret_cast<char*>(&_impl_.num_entries_)) + sizeof(_impl_.data_compressed_));
   }
-  _impl_.uncompressed_size_ = 0;
+  if (cached_has_bits & 0x00000300u) {
+    ::memset(&_impl_.using_varint_bitcounts_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.uncompressed_size_) -
+        reinterpret_cast<char*>(&_impl_.using_varint_bitcounts_)) + sizeof(_impl_.uncompressed_size_));
+  }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -15732,6 +15744,15 @@ const char* CSVCMsg_CreateStringTable::_InternalParse(const char* ptr, ::_pbi::P
         } else
           goto handle_unusual;
         continue;
+      // optional bool using_varint_bitcounts = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 80)) {
+          _Internal::set_has_using_varint_bitcounts(&has_bits);
+          _impl_.using_varint_bitcounts_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -15810,7 +15831,7 @@ uint8_t* CSVCMsg_CreateStringTable::_InternalSerialize(
   }
 
   // optional int32 uncompressed_size = 8;
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(8, this->_internal_uncompressed_size(), target);
   }
@@ -15819,6 +15840,12 @@ uint8_t* CSVCMsg_CreateStringTable::_InternalSerialize(
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(9, this->_internal_data_compressed(), target);
+  }
+
+  // optional bool using_varint_bitcounts = 10;
+  if (cached_has_bits & 0x00000100u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(10, this->_internal_using_varint_bitcounts(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -15884,11 +15911,18 @@ size_t CSVCMsg_CreateStringTable::ByteSizeLong() const {
     }
 
   }
-  // optional int32 uncompressed_size = 8;
-  if (cached_has_bits & 0x00000100u) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_uncompressed_size());
-  }
+  if (cached_has_bits & 0x00000300u) {
+    // optional bool using_varint_bitcounts = 10;
+    if (cached_has_bits & 0x00000100u) {
+      total_size += 1 + 1;
+    }
 
+    // optional int32 uncompressed_size = 8;
+    if (cached_has_bits & 0x00000200u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_uncompressed_size());
+    }
+
+  }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -15935,8 +15969,14 @@ void CSVCMsg_CreateStringTable::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_m
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00000100u) {
-    _this->_internal_set_uncompressed_size(from._internal_uncompressed_size());
+  if (cached_has_bits & 0x00000300u) {
+    if (cached_has_bits & 0x00000100u) {
+      _this->_impl_.using_varint_bitcounts_ = from._impl_.using_varint_bitcounts_;
+    }
+    if (cached_has_bits & 0x00000200u) {
+      _this->_impl_.uncompressed_size_ = from._impl_.uncompressed_size_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }

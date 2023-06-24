@@ -234,6 +234,9 @@ extern CMsgSerializedSOCache_Cache_VersionDefaultTypeInternal _CMsgSerializedSOC
 class CMsgSerializedSOCache_TypeCache;
 struct CMsgSerializedSOCache_TypeCacheDefaultTypeInternal;
 extern CMsgSerializedSOCache_TypeCacheDefaultTypeInternal _CMsgSerializedSOCache_TypeCache_default_instance_;
+class CMsgSteamLearnServerInfo;
+struct CMsgSteamLearnServerInfoDefaultTypeInternal;
+extern CMsgSteamLearnServerInfoDefaultTypeInternal _CMsgSteamLearnServerInfo_default_instance_;
 class CWorkshop_GetContributors_Request;
 struct CWorkshop_GetContributors_RequestDefaultTypeInternal;
 extern CWorkshop_GetContributors_RequestDefaultTypeInternal _CWorkshop_GetContributors_Request_default_instance_;
@@ -327,6 +330,7 @@ template<> ::CMsgSerializedSOCache* Arena::CreateMaybeMessage<::CMsgSerializedSO
 template<> ::CMsgSerializedSOCache_Cache* Arena::CreateMaybeMessage<::CMsgSerializedSOCache_Cache>(Arena*);
 template<> ::CMsgSerializedSOCache_Cache_Version* Arena::CreateMaybeMessage<::CMsgSerializedSOCache_Cache_Version>(Arena*);
 template<> ::CMsgSerializedSOCache_TypeCache* Arena::CreateMaybeMessage<::CMsgSerializedSOCache_TypeCache>(Arena*);
+template<> ::CMsgSteamLearnServerInfo* Arena::CreateMaybeMessage<::CMsgSteamLearnServerInfo>(Arena*);
 template<> ::CWorkshop_GetContributors_Request* Arena::CreateMaybeMessage<::CWorkshop_GetContributors_Request>(Arena*);
 template<> ::CWorkshop_GetContributors_Response* Arena::CreateMaybeMessage<::CWorkshop_GetContributors_Response>(Arena*);
 template<> ::CWorkshop_PopulateItemDescriptions_Request* Arena::CreateMaybeMessage<::CWorkshop_PopulateItemDescriptions_Request>(Arena*);
@@ -626,6 +630,216 @@ class CExtraMsgBlock final :
 };
 // -------------------------------------------------------------------
 
+class CMsgSteamLearnServerInfo final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnServerInfo) */ {
+ public:
+  inline CMsgSteamLearnServerInfo() : CMsgSteamLearnServerInfo(nullptr) {}
+  ~CMsgSteamLearnServerInfo() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnServerInfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearnServerInfo(const CMsgSteamLearnServerInfo& from);
+  CMsgSteamLearnServerInfo(CMsgSteamLearnServerInfo&& from) noexcept
+    : CMsgSteamLearnServerInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearnServerInfo& operator=(const CMsgSteamLearnServerInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearnServerInfo& operator=(CMsgSteamLearnServerInfo&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearnServerInfo& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearnServerInfo* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearnServerInfo*>(
+               &_CMsgSteamLearnServerInfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(CMsgSteamLearnServerInfo& a, CMsgSteamLearnServerInfo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearnServerInfo* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearnServerInfo* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearnServerInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearnServerInfo>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearnServerInfo& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearnServerInfo& from) {
+    CMsgSteamLearnServerInfo::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearnServerInfo* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearnServerInfo";
+  }
+  protected:
+  explicit CMsgSteamLearnServerInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kHmacKeysFieldNumber = 3,
+    kEnableDataSubmissionFieldNumber = 1,
+    kEnableInferencingFieldNumber = 2,
+    kEnableTestInferencingFieldNumber = 4,
+  };
+  // optional .CMsgSteamLearnHMACKeys hmac_keys = 3;
+  bool has_hmac_keys() const;
+  private:
+  bool _internal_has_hmac_keys() const;
+  public:
+  void clear_hmac_keys();
+  const ::CMsgSteamLearnHMACKeys& hmac_keys() const;
+  PROTOBUF_NODISCARD ::CMsgSteamLearnHMACKeys* release_hmac_keys();
+  ::CMsgSteamLearnHMACKeys* mutable_hmac_keys();
+  void set_allocated_hmac_keys(::CMsgSteamLearnHMACKeys* hmac_keys);
+  private:
+  const ::CMsgSteamLearnHMACKeys& _internal_hmac_keys() const;
+  ::CMsgSteamLearnHMACKeys* _internal_mutable_hmac_keys();
+  public:
+  void unsafe_arena_set_allocated_hmac_keys(
+      ::CMsgSteamLearnHMACKeys* hmac_keys);
+  ::CMsgSteamLearnHMACKeys* unsafe_arena_release_hmac_keys();
+
+  // optional bool enable_data_submission = 1;
+  bool has_enable_data_submission() const;
+  private:
+  bool _internal_has_enable_data_submission() const;
+  public:
+  void clear_enable_data_submission();
+  bool enable_data_submission() const;
+  void set_enable_data_submission(bool value);
+  private:
+  bool _internal_enable_data_submission() const;
+  void _internal_set_enable_data_submission(bool value);
+  public:
+
+  // optional bool enable_inferencing = 2;
+  bool has_enable_inferencing() const;
+  private:
+  bool _internal_has_enable_inferencing() const;
+  public:
+  void clear_enable_inferencing();
+  bool enable_inferencing() const;
+  void set_enable_inferencing(bool value);
+  private:
+  bool _internal_enable_inferencing() const;
+  void _internal_set_enable_inferencing(bool value);
+  public:
+
+  // optional bool enable_test_inferencing = 4;
+  bool has_enable_test_inferencing() const;
+  private:
+  bool _internal_has_enable_test_inferencing() const;
+  public:
+  void clear_enable_test_inferencing();
+  bool enable_test_inferencing() const;
+  void set_enable_test_inferencing(bool value);
+  private:
+  bool _internal_enable_test_inferencing() const;
+  void _internal_set_enable_test_inferencing(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearnServerInfo)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::CMsgSteamLearnHMACKeys* hmac_keys_;
+    bool enable_data_submission_;
+    bool enable_inferencing_;
+    bool enable_test_inferencing_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_gcsdk_5fgcmessages_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMsgGCAssertJobData final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGCAssertJobData) */ {
  public:
@@ -681,7 +895,7 @@ class CMsgGCAssertJobData final :
                &_CMsgGCAssertJobData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(CMsgGCAssertJobData& a, CMsgGCAssertJobData& b) {
     a.Swap(&b);
@@ -866,7 +1080,7 @@ class CMsgGCConCommand final :
                &_CMsgGCConCommand_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(CMsgGCConCommand& a, CMsgGCConCommand& b) {
     a.Swap(&b);
@@ -1031,7 +1245,7 @@ class CMsgSDOAssert_Request final :
                &_CMsgSDOAssert_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(CMsgSDOAssert_Request& a, CMsgSDOAssert_Request& b) {
     a.Swap(&b);
@@ -1220,7 +1434,7 @@ class CMsgSDOAssert final :
                &_CMsgSDOAssert_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(CMsgSDOAssert& a, CMsgSDOAssert& b) {
     a.Swap(&b);
@@ -1402,7 +1616,7 @@ class CMsgSOIDOwner final :
                &_CMsgSOIDOwner_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(CMsgSOIDOwner& a, CMsgSOIDOwner& b) {
     a.Swap(&b);
@@ -1577,7 +1791,7 @@ class CMsgSOSingleObject final :
                &_CMsgSOSingleObject_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(CMsgSOSingleObject& a, CMsgSOSingleObject& b) {
     a.Swap(&b);
@@ -1807,7 +2021,7 @@ class CMsgSOMultipleObjects_SingleObject final :
                &_CMsgSOMultipleObjects_SingleObject_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(CMsgSOMultipleObjects_SingleObject& a, CMsgSOMultipleObjects_SingleObject& b) {
     a.Swap(&b);
@@ -1987,7 +2201,7 @@ class CMsgSOMultipleObjects final :
                &_CMsgSOMultipleObjects_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(CMsgSOMultipleObjects& a, CMsgSOMultipleObjects& b) {
     a.Swap(&b);
@@ -2244,7 +2458,7 @@ class CMsgSOCacheSubscribed_SubscribedType final :
                &_CMsgSOCacheSubscribed_SubscribedType_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(CMsgSOCacheSubscribed_SubscribedType& a, CMsgSOCacheSubscribed_SubscribedType& b) {
     a.Swap(&b);
@@ -2430,7 +2644,7 @@ class CMsgSOCacheSubscribed final :
                &_CMsgSOCacheSubscribed_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(CMsgSOCacheSubscribed& a, CMsgSOCacheSubscribed& b) {
     a.Swap(&b);
@@ -2686,7 +2900,7 @@ class CMsgSOCacheSubscribedUpToDate final :
                &_CMsgSOCacheSubscribedUpToDate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(CMsgSOCacheSubscribedUpToDate& a, CMsgSOCacheSubscribedUpToDate& b) {
     a.Swap(&b);
@@ -2920,7 +3134,7 @@ class CMsgSOCacheUnsubscribed final :
                &_CMsgSOCacheUnsubscribed_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(CMsgSOCacheUnsubscribed& a, CMsgSOCacheUnsubscribed& b) {
     a.Swap(&b);
@@ -3085,7 +3299,7 @@ class CMsgSOCacheSubscriptionCheck final :
                &_CMsgSOCacheSubscriptionCheck_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(CMsgSOCacheSubscriptionCheck& a, CMsgSOCacheSubscriptionCheck& b) {
     a.Swap(&b);
@@ -3319,7 +3533,7 @@ class CMsgSOCacheSubscriptionRefresh final :
                &_CMsgSOCacheSubscriptionRefresh_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(CMsgSOCacheSubscriptionRefresh& a, CMsgSOCacheSubscriptionRefresh& b) {
     a.Swap(&b);
@@ -3484,7 +3698,7 @@ class CMsgSOCacheVersion final :
                &_CMsgSOCacheVersion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(CMsgSOCacheVersion& a, CMsgSOCacheVersion& b) {
     a.Swap(&b);
@@ -3644,7 +3858,7 @@ class CMsgGCMultiplexMessage final :
                &_CMsgGCMultiplexMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(CMsgGCMultiplexMessage& a, CMsgGCMultiplexMessage& b) {
     a.Swap(&b);
@@ -3848,7 +4062,7 @@ class CMsgGCToGCSubGCStarting final :
                &_CMsgGCToGCSubGCStarting_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(CMsgGCToGCSubGCStarting& a, CMsgGCToGCSubGCStarting& b) {
     a.Swap(&b);
@@ -4008,7 +4222,7 @@ class CGCToGCMsgMasterAck_Process final :
                &_CGCToGCMsgMasterAck_Process_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(CGCToGCMsgMasterAck_Process& a, CGCToGCMsgMasterAck_Process& b) {
     a.Swap(&b);
@@ -4192,7 +4406,7 @@ class CGCToGCMsgMasterAck final :
                &_CGCToGCMsgMasterAck_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(CGCToGCMsgMasterAck& a, CGCToGCMsgMasterAck& b) {
     a.Swap(&b);
@@ -4414,7 +4628,7 @@ class CGCToGCMsgMasterAck_Response final :
                &_CGCToGCMsgMasterAck_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(CGCToGCMsgMasterAck_Response& a, CGCToGCMsgMasterAck_Response& b) {
     a.Swap(&b);
@@ -4574,7 +4788,7 @@ class CMsgGCToGCUniverseStartup final :
                &_CMsgGCToGCUniverseStartup_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(CMsgGCToGCUniverseStartup& a, CMsgGCToGCUniverseStartup& b) {
     a.Swap(&b);
@@ -4734,7 +4948,7 @@ class CMsgGCToGCUniverseStartupResponse final :
                &_CMsgGCToGCUniverseStartupResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(CMsgGCToGCUniverseStartupResponse& a, CMsgGCToGCUniverseStartupResponse& b) {
     a.Swap(&b);
@@ -4894,7 +5108,7 @@ class CGCToGCMsgMasterStartupComplete_GCInfo final :
                &_CGCToGCMsgMasterStartupComplete_GCInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(CGCToGCMsgMasterStartupComplete_GCInfo& a, CGCToGCMsgMasterStartupComplete_GCInfo& b) {
     a.Swap(&b);
@@ -5074,7 +5288,7 @@ class CGCToGCMsgMasterStartupComplete final :
                &_CGCToGCMsgMasterStartupComplete_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   friend void swap(CGCToGCMsgMasterStartupComplete& a, CGCToGCMsgMasterStartupComplete& b) {
     a.Swap(&b);
@@ -5240,7 +5454,7 @@ class CGCToGCMsgRouted final :
                &_CGCToGCMsgRouted_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    26;
 
   friend void swap(CGCToGCMsgRouted& a, CGCToGCMsgRouted& b) {
     a.Swap(&b);
@@ -5435,7 +5649,7 @@ class CGCToGCMsgRoutedReply final :
                &_CGCToGCMsgRoutedReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    27;
 
   friend void swap(CGCToGCMsgRoutedReply& a, CGCToGCMsgRoutedReply& b) {
     a.Swap(&b);
@@ -5615,7 +5829,7 @@ class CMsgGCUpdateSubGCSessionInfo_CMsgUpdate final :
                &_CMsgGCUpdateSubGCSessionInfo_CMsgUpdate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    28;
 
   friend void swap(CMsgGCUpdateSubGCSessionInfo_CMsgUpdate& a, CMsgGCUpdateSubGCSessionInfo_CMsgUpdate& b) {
     a.Swap(&b);
@@ -5805,7 +6019,7 @@ class CMsgGCUpdateSubGCSessionInfo final :
                &_CMsgGCUpdateSubGCSessionInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    29;
 
   friend void swap(CMsgGCUpdateSubGCSessionInfo& a, CMsgGCUpdateSubGCSessionInfo& b) {
     a.Swap(&b);
@@ -5971,7 +6185,7 @@ class CMsgGCRequestSubGCSessionInfo final :
                &_CMsgGCRequestSubGCSessionInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    30;
 
   friend void swap(CMsgGCRequestSubGCSessionInfo& a, CMsgGCRequestSubGCSessionInfo& b) {
     a.Swap(&b);
@@ -6131,7 +6345,7 @@ class CMsgGCRequestSubGCSessionInfoResponse final :
                &_CMsgGCRequestSubGCSessionInfoResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    31;
 
   friend void swap(CMsgGCRequestSubGCSessionInfoResponse& a, CMsgGCRequestSubGCSessionInfoResponse& b) {
     a.Swap(&b);
@@ -6336,7 +6550,7 @@ class CMsgSOCacheHaveVersion final :
                &_CMsgSOCacheHaveVersion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    32;
 
   friend void swap(CMsgSOCacheHaveVersion& a, CMsgSOCacheHaveVersion& b) {
     a.Swap(&b);
@@ -6546,7 +6760,7 @@ class CMsgClientHello final :
                &_CMsgClientHello_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    33;
 
   friend void swap(CMsgClientHello& a, CMsgClientHello& b) {
     a.Swap(&b);
@@ -7061,7 +7275,7 @@ class CMsgClientWelcome_Location final :
                &_CMsgClientWelcome_Location_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    34;
 
   friend void swap(CMsgClientWelcome_Location& a, CMsgClientWelcome_Location& b) {
     a.Swap(&b);
@@ -7256,7 +7470,7 @@ class CMsgClientWelcome final :
                &_CMsgClientWelcome_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    35;
 
   friend void swap(CMsgClientWelcome& a, CMsgClientWelcome& b) {
     a.Swap(&b);
@@ -7340,7 +7554,7 @@ class CMsgClientWelcome final :
     kBalanceUrlFieldNumber = 15,
     kLocationFieldNumber = 5,
     kAdditionalWelcomeMsgsFieldNumber = 18,
-    kSteamLearnHmacKeysFieldNumber = 19,
+    kSteamLearnServerInfoFieldNumber = 20,
     kVersionFieldNumber = 1,
     kGcSocacheFileVersionFieldNumber = 9,
     kRtime32GcWelcomeTimestampFieldNumber = 12,
@@ -7511,23 +7725,23 @@ class CMsgClientWelcome final :
       ::CExtraMsgBlock* additional_welcome_msgs);
   ::CExtraMsgBlock* unsafe_arena_release_additional_welcome_msgs();
 
-  // optional .CMsgSteamLearnHMACKeys steam_learn_hmac_keys = 19;
-  bool has_steam_learn_hmac_keys() const;
+  // optional .CMsgSteamLearnServerInfo steam_learn_server_info = 20;
+  bool has_steam_learn_server_info() const;
   private:
-  bool _internal_has_steam_learn_hmac_keys() const;
+  bool _internal_has_steam_learn_server_info() const;
   public:
-  void clear_steam_learn_hmac_keys();
-  const ::CMsgSteamLearnHMACKeys& steam_learn_hmac_keys() const;
-  PROTOBUF_NODISCARD ::CMsgSteamLearnHMACKeys* release_steam_learn_hmac_keys();
-  ::CMsgSteamLearnHMACKeys* mutable_steam_learn_hmac_keys();
-  void set_allocated_steam_learn_hmac_keys(::CMsgSteamLearnHMACKeys* steam_learn_hmac_keys);
+  void clear_steam_learn_server_info();
+  const ::CMsgSteamLearnServerInfo& steam_learn_server_info() const;
+  PROTOBUF_NODISCARD ::CMsgSteamLearnServerInfo* release_steam_learn_server_info();
+  ::CMsgSteamLearnServerInfo* mutable_steam_learn_server_info();
+  void set_allocated_steam_learn_server_info(::CMsgSteamLearnServerInfo* steam_learn_server_info);
   private:
-  const ::CMsgSteamLearnHMACKeys& _internal_steam_learn_hmac_keys() const;
-  ::CMsgSteamLearnHMACKeys* _internal_mutable_steam_learn_hmac_keys();
+  const ::CMsgSteamLearnServerInfo& _internal_steam_learn_server_info() const;
+  ::CMsgSteamLearnServerInfo* _internal_mutable_steam_learn_server_info();
   public:
-  void unsafe_arena_set_allocated_steam_learn_hmac_keys(
-      ::CMsgSteamLearnHMACKeys* steam_learn_hmac_keys);
-  ::CMsgSteamLearnHMACKeys* unsafe_arena_release_steam_learn_hmac_keys();
+  void unsafe_arena_set_allocated_steam_learn_server_info(
+      ::CMsgSteamLearnServerInfo* steam_learn_server_info);
+  ::CMsgSteamLearnServerInfo* unsafe_arena_release_steam_learn_server_info();
 
   // optional uint32 version = 1;
   bool has_version() const;
@@ -7639,7 +7853,7 @@ class CMsgClientWelcome final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr balance_url_;
     ::CMsgClientWelcome_Location* location_;
     ::CExtraMsgBlock* additional_welcome_msgs_;
-    ::CMsgSteamLearnHMACKeys* steam_learn_hmac_keys_;
+    ::CMsgSteamLearnServerInfo* steam_learn_server_info_;
     uint32_t version_;
     uint32_t gc_socache_file_version_;
     uint32_t rtime32_gc_welcome_timestamp_;
@@ -7708,7 +7922,7 @@ class CMsgConnectionStatus final :
                &_CMsgConnectionStatus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    36;
 
   friend void swap(CMsgConnectionStatus& a, CMsgConnectionStatus& b) {
     a.Swap(&b);
@@ -7943,7 +8157,7 @@ class CMsgGCToGCSOCacheSubscribe_CMsgHaveVersions final :
                &_CMsgGCToGCSOCacheSubscribe_CMsgHaveVersions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    37;
 
   friend void swap(CMsgGCToGCSOCacheSubscribe_CMsgHaveVersions& a, CMsgGCToGCSOCacheSubscribe_CMsgHaveVersions& b) {
     a.Swap(&b);
@@ -8118,7 +8332,7 @@ class CMsgGCToGCSOCacheSubscribe final :
                &_CMsgGCToGCSOCacheSubscribe_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    38;
 
   friend void swap(CMsgGCToGCSOCacheSubscribe& a, CMsgGCToGCSOCacheSubscribe& b) {
     a.Swap(&b);
@@ -8345,7 +8559,7 @@ class CMsgGCToGCSOCacheUnsubscribe final :
                &_CMsgGCToGCSOCacheUnsubscribe_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    39;
 
   friend void swap(CMsgGCToGCSOCacheUnsubscribe& a, CMsgGCToGCSOCacheUnsubscribe& b) {
     a.Swap(&b);
@@ -8534,7 +8748,7 @@ class CMsgGCClientPing final :
                &_CMsgGCClientPing_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    40;
 
   friend void swap(CMsgGCClientPing& a, CMsgGCClientPing& b) {
     a.Swap(&b);
@@ -8660,7 +8874,7 @@ class CMsgGCToGCForwardAccountDetails final :
                &_CMsgGCToGCForwardAccountDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    41;
 
   friend void swap(CMsgGCToGCForwardAccountDetails& a, CMsgGCToGCForwardAccountDetails& b) {
     a.Swap(&b);
@@ -8855,7 +9069,7 @@ class CMsgGCToGCLoadSessionSOCache final :
                &_CMsgGCToGCLoadSessionSOCache_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    42;
 
   friend void swap(CMsgGCToGCLoadSessionSOCache& a, CMsgGCToGCLoadSessionSOCache& b) {
     a.Swap(&b);
@@ -9034,7 +9248,7 @@ class CMsgGCToGCLoadSessionSOCacheResponse final :
                &_CMsgGCToGCLoadSessionSOCacheResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    43;
 
   friend void swap(CMsgGCToGCLoadSessionSOCacheResponse& a, CMsgGCToGCLoadSessionSOCacheResponse& b) {
     a.Swap(&b);
@@ -9160,7 +9374,7 @@ class CMsgGCToGCUpdateSessionStats final :
                &_CMsgGCToGCUpdateSessionStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    44;
 
   friend void swap(CMsgGCToGCUpdateSessionStats& a, CMsgGCToGCUpdateSessionStats& b) {
     a.Swap(&b);
@@ -9349,7 +9563,7 @@ class CMsgGCToClientRequestDropped final :
                &_CMsgGCToClientRequestDropped_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    45;
 
   friend void swap(CMsgGCToClientRequestDropped& a, CMsgGCToClientRequestDropped& b) {
     a.Swap(&b);
@@ -9475,7 +9689,7 @@ class CWorkshop_PopulateItemDescriptions_Request_SingleItemDescription final :
                &_CWorkshop_PopulateItemDescriptions_Request_SingleItemDescription_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    46;
 
   friend void swap(CWorkshop_PopulateItemDescriptions_Request_SingleItemDescription& a, CWorkshop_PopulateItemDescriptions_Request_SingleItemDescription& b) {
     a.Swap(&b);
@@ -9655,7 +9869,7 @@ class CWorkshop_PopulateItemDescriptions_Request_ItemDescriptionsLanguageBlock f
                &_CWorkshop_PopulateItemDescriptions_Request_ItemDescriptionsLanguageBlock_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    47;
 
   friend void swap(CWorkshop_PopulateItemDescriptions_Request_ItemDescriptionsLanguageBlock& a, CWorkshop_PopulateItemDescriptions_Request_ItemDescriptionsLanguageBlock& b) {
     a.Swap(&b);
@@ -9840,7 +10054,7 @@ class CWorkshop_PopulateItemDescriptions_Request final :
                &_CWorkshop_PopulateItemDescriptions_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    48;
 
   friend void swap(CWorkshop_PopulateItemDescriptions_Request& a, CWorkshop_PopulateItemDescriptions_Request& b) {
     a.Swap(&b);
@@ -10023,7 +10237,7 @@ class CWorkshop_GetContributors_Request final :
                &_CWorkshop_GetContributors_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    49;
 
   friend void swap(CWorkshop_GetContributors_Request& a, CWorkshop_GetContributors_Request& b) {
     a.Swap(&b);
@@ -10198,7 +10412,7 @@ class CWorkshop_GetContributors_Response final :
                &_CWorkshop_GetContributors_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    50;
 
   friend void swap(CWorkshop_GetContributors_Response& a, CWorkshop_GetContributors_Response& b) {
     a.Swap(&b);
@@ -10366,7 +10580,7 @@ class CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule final :
                &_CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    51;
 
   friend void swap(CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule& a, CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule& b) {
     a.Swap(&b);
@@ -10576,7 +10790,7 @@ class CWorkshop_SetItemPaymentRules_Request_WorkshopDirectPaymentRule final :
                &_CWorkshop_SetItemPaymentRules_Request_WorkshopDirectPaymentRule_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    52;
 
   friend void swap(CWorkshop_SetItemPaymentRules_Request_WorkshopDirectPaymentRule& a, CWorkshop_SetItemPaymentRules_Request_WorkshopDirectPaymentRule& b) {
     a.Swap(&b);
@@ -10756,7 +10970,7 @@ class CWorkshop_SetItemPaymentRules_Request_PartnerItemPaymentRule final :
                &_CWorkshop_SetItemPaymentRules_Request_PartnerItemPaymentRule_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    52;
+    53;
 
   friend void swap(CWorkshop_SetItemPaymentRules_Request_PartnerItemPaymentRule& a, CWorkshop_SetItemPaymentRules_Request_PartnerItemPaymentRule& b) {
     a.Swap(&b);
@@ -10951,7 +11165,7 @@ class CWorkshop_SetItemPaymentRules_Request final :
                &_CWorkshop_SetItemPaymentRules_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    53;
+    54;
 
   friend void swap(CWorkshop_SetItemPaymentRules_Request& a, CWorkshop_SetItemPaymentRules_Request& b) {
     a.Swap(&b);
@@ -11220,7 +11434,7 @@ class CWorkshop_SetItemPaymentRules_Response final :
                &_CWorkshop_SetItemPaymentRules_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    54;
+    55;
 
   friend void swap(CWorkshop_SetItemPaymentRules_Response& a, CWorkshop_SetItemPaymentRules_Response& b) {
     a.Swap(&b);
@@ -11390,7 +11604,7 @@ class CCommunity_ClanAnnouncementInfo final :
                &_CCommunity_ClanAnnouncementInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    55;
+    56;
 
   friend void swap(CCommunity_ClanAnnouncementInfo& a, CCommunity_ClanAnnouncementInfo& b) {
     a.Swap(&b);
@@ -11736,7 +11950,7 @@ class CCommunity_GetClanAnnouncements_Request final :
                &_CCommunity_GetClanAnnouncements_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    56;
+    57;
 
   friend void swap(CCommunity_GetClanAnnouncements_Request& a, CCommunity_GetClanAnnouncements_Request& b) {
     a.Swap(&b);
@@ -12096,7 +12310,7 @@ class CCommunity_GetClanAnnouncements_Response final :
                &_CCommunity_GetClanAnnouncements_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    57;
+    58;
 
   friend void swap(CCommunity_GetClanAnnouncements_Response& a, CCommunity_GetClanAnnouncements_Response& b) {
     a.Swap(&b);
@@ -12291,7 +12505,7 @@ class CBroadcast_PostGameDataFrame_Request final :
                &_CBroadcast_PostGameDataFrame_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    58;
+    59;
 
   friend void swap(CBroadcast_PostGameDataFrame_Request& a, CBroadcast_PostGameDataFrame_Request& b) {
     a.Swap(&b);
@@ -12501,7 +12715,7 @@ class CMsgSerializedSOCache_TypeCache final :
                &_CMsgSerializedSOCache_TypeCache_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    59;
+    60;
 
   friend void swap(CMsgSerializedSOCache_TypeCache& a, CMsgSerializedSOCache_TypeCache& b) {
     a.Swap(&b);
@@ -12702,7 +12916,7 @@ class CMsgSerializedSOCache_Cache_Version final :
                &_CMsgSerializedSOCache_Cache_Version_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    60;
+    61;
 
   friend void swap(CMsgSerializedSOCache_Cache_Version& a, CMsgSerializedSOCache_Cache_Version& b) {
     a.Swap(&b);
@@ -12877,7 +13091,7 @@ class CMsgSerializedSOCache_Cache final :
                &_CMsgSerializedSOCache_Cache_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    61;
+    62;
 
   friend void swap(CMsgSerializedSOCache_Cache& a, CMsgSerializedSOCache_Cache& b) {
     a.Swap(&b);
@@ -13094,7 +13308,7 @@ class CMsgSerializedSOCache final :
                &_CMsgSerializedSOCache_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    62;
+    63;
 
   friend void swap(CMsgSerializedSOCache& a, CMsgSerializedSOCache& b) {
     a.Swap(&b);
@@ -13292,7 +13506,7 @@ class CMsgGCToClientPollConvarRequest final :
                &_CMsgGCToClientPollConvarRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    63;
+    64;
 
   friend void swap(CMsgGCToClientPollConvarRequest& a, CMsgGCToClientPollConvarRequest& b) {
     a.Swap(&b);
@@ -13472,7 +13686,7 @@ class CMsgGCToClientPollConvarResponse final :
                &_CMsgGCToClientPollConvarResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    64;
+    65;
 
   friend void swap(CMsgGCToClientPollConvarResponse& a, CMsgGCToClientPollConvarResponse& b) {
     a.Swap(&b);
@@ -13652,7 +13866,7 @@ class CGCMsgCompressedMsgToClient final :
                &_CGCMsgCompressedMsgToClient_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    65;
+    66;
 
   friend void swap(CGCMsgCompressedMsgToClient& a, CGCMsgCompressedMsgToClient& b) {
     a.Swap(&b);
@@ -13832,7 +14046,7 @@ class CMsgGCToGCMasterBroadcastMessage final :
                &_CMsgGCToGCMasterBroadcastMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    66;
+    67;
 
   friend void swap(CMsgGCToGCMasterBroadcastMessage& a, CMsgGCToGCMasterBroadcastMessage& b) {
     a.Swap(&b);
@@ -14057,7 +14271,7 @@ class CMsgGCToGCMasterSubscribeToCache final :
                &_CMsgGCToGCMasterSubscribeToCache_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    67;
+    68;
 
   friend void swap(CMsgGCToGCMasterSubscribeToCache& a, CMsgGCToGCMasterSubscribeToCache& b) {
     a.Swap(&b);
@@ -14279,7 +14493,7 @@ class CMsgGCToGCMasterSubscribeToCacheResponse final :
                &_CMsgGCToGCMasterSubscribeToCacheResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    68;
+    69;
 
   friend void swap(CMsgGCToGCMasterSubscribeToCacheResponse& a, CMsgGCToGCMasterSubscribeToCacheResponse& b) {
     a.Swap(&b);
@@ -14405,7 +14619,7 @@ class CMsgGCToGCMasterSubscribeToCacheAsync final :
                &_CMsgGCToGCMasterSubscribeToCacheAsync_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    69;
+    70;
 
   friend void swap(CMsgGCToGCMasterSubscribeToCacheAsync& a, CMsgGCToGCMasterSubscribeToCacheAsync& b) {
     a.Swap(&b);
@@ -14570,7 +14784,7 @@ class CMsgGCToGCMasterUnsubscribeFromCache final :
                &_CMsgGCToGCMasterUnsubscribeFromCache_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    70;
+    71;
 
   friend void swap(CMsgGCToGCMasterUnsubscribeFromCache& a, CMsgGCToGCMasterUnsubscribeFromCache& b) {
     a.Swap(&b);
@@ -14793,7 +15007,7 @@ class CMsgGCToGCMasterDestroyCache final :
                &_CMsgGCToGCMasterDestroyCache_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    71;
+    72;
 
   friend void swap(CMsgGCToGCMasterDestroyCache& a, CMsgGCToGCMasterDestroyCache& b) {
     a.Swap(&b);
@@ -15072,6 +15286,181 @@ inline void CExtraMsgBlock::_internal_set_is_compressed(bool value) {
 inline void CExtraMsgBlock::set_is_compressed(bool value) {
   _internal_set_is_compressed(value);
   // @@protoc_insertion_point(field_set:CExtraMsgBlock.is_compressed)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearnServerInfo
+
+// optional bool enable_data_submission = 1;
+inline bool CMsgSteamLearnServerInfo::_internal_has_enable_data_submission() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnServerInfo::has_enable_data_submission() const {
+  return _internal_has_enable_data_submission();
+}
+inline void CMsgSteamLearnServerInfo::clear_enable_data_submission() {
+  _impl_.enable_data_submission_ = false;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline bool CMsgSteamLearnServerInfo::_internal_enable_data_submission() const {
+  return _impl_.enable_data_submission_;
+}
+inline bool CMsgSteamLearnServerInfo::enable_data_submission() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnServerInfo.enable_data_submission)
+  return _internal_enable_data_submission();
+}
+inline void CMsgSteamLearnServerInfo::_internal_set_enable_data_submission(bool value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.enable_data_submission_ = value;
+}
+inline void CMsgSteamLearnServerInfo::set_enable_data_submission(bool value) {
+  _internal_set_enable_data_submission(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnServerInfo.enable_data_submission)
+}
+
+// optional bool enable_inferencing = 2;
+inline bool CMsgSteamLearnServerInfo::_internal_has_enable_inferencing() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnServerInfo::has_enable_inferencing() const {
+  return _internal_has_enable_inferencing();
+}
+inline void CMsgSteamLearnServerInfo::clear_enable_inferencing() {
+  _impl_.enable_inferencing_ = false;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline bool CMsgSteamLearnServerInfo::_internal_enable_inferencing() const {
+  return _impl_.enable_inferencing_;
+}
+inline bool CMsgSteamLearnServerInfo::enable_inferencing() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnServerInfo.enable_inferencing)
+  return _internal_enable_inferencing();
+}
+inline void CMsgSteamLearnServerInfo::_internal_set_enable_inferencing(bool value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.enable_inferencing_ = value;
+}
+inline void CMsgSteamLearnServerInfo::set_enable_inferencing(bool value) {
+  _internal_set_enable_inferencing(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnServerInfo.enable_inferencing)
+}
+
+// optional .CMsgSteamLearnHMACKeys hmac_keys = 3;
+inline bool CMsgSteamLearnServerInfo::_internal_has_hmac_keys() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.hmac_keys_ != nullptr);
+  return value;
+}
+inline bool CMsgSteamLearnServerInfo::has_hmac_keys() const {
+  return _internal_has_hmac_keys();
+}
+inline const ::CMsgSteamLearnHMACKeys& CMsgSteamLearnServerInfo::_internal_hmac_keys() const {
+  const ::CMsgSteamLearnHMACKeys* p = _impl_.hmac_keys_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearnHMACKeys&>(
+      ::_CMsgSteamLearnHMACKeys_default_instance_);
+}
+inline const ::CMsgSteamLearnHMACKeys& CMsgSteamLearnServerInfo::hmac_keys() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnServerInfo.hmac_keys)
+  return _internal_hmac_keys();
+}
+inline void CMsgSteamLearnServerInfo::unsafe_arena_set_allocated_hmac_keys(
+    ::CMsgSteamLearnHMACKeys* hmac_keys) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.hmac_keys_);
+  }
+  _impl_.hmac_keys_ = hmac_keys;
+  if (hmac_keys) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearnServerInfo.hmac_keys)
+}
+inline ::CMsgSteamLearnHMACKeys* CMsgSteamLearnServerInfo::release_hmac_keys() {
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgSteamLearnHMACKeys* temp = _impl_.hmac_keys_;
+  _impl_.hmac_keys_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CMsgSteamLearnHMACKeys* CMsgSteamLearnServerInfo::unsafe_arena_release_hmac_keys() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearnServerInfo.hmac_keys)
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgSteamLearnHMACKeys* temp = _impl_.hmac_keys_;
+  _impl_.hmac_keys_ = nullptr;
+  return temp;
+}
+inline ::CMsgSteamLearnHMACKeys* CMsgSteamLearnServerInfo::_internal_mutable_hmac_keys() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.hmac_keys_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgSteamLearnHMACKeys>(GetArenaForAllocation());
+    _impl_.hmac_keys_ = p;
+  }
+  return _impl_.hmac_keys_;
+}
+inline ::CMsgSteamLearnHMACKeys* CMsgSteamLearnServerInfo::mutable_hmac_keys() {
+  ::CMsgSteamLearnHMACKeys* _msg = _internal_mutable_hmac_keys();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearnServerInfo.hmac_keys)
+  return _msg;
+}
+inline void CMsgSteamLearnServerInfo::set_allocated_hmac_keys(::CMsgSteamLearnHMACKeys* hmac_keys) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.hmac_keys_);
+  }
+  if (hmac_keys) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(hmac_keys));
+    if (message_arena != submessage_arena) {
+      hmac_keys = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, hmac_keys, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.hmac_keys_ = hmac_keys;
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearnServerInfo.hmac_keys)
+}
+
+// optional bool enable_test_inferencing = 4;
+inline bool CMsgSteamLearnServerInfo::_internal_has_enable_test_inferencing() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnServerInfo::has_enable_test_inferencing() const {
+  return _internal_has_enable_test_inferencing();
+}
+inline void CMsgSteamLearnServerInfo::clear_enable_test_inferencing() {
+  _impl_.enable_test_inferencing_ = false;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline bool CMsgSteamLearnServerInfo::_internal_enable_test_inferencing() const {
+  return _impl_.enable_test_inferencing_;
+}
+inline bool CMsgSteamLearnServerInfo::enable_test_inferencing() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnServerInfo.enable_test_inferencing)
+  return _internal_enable_test_inferencing();
+}
+inline void CMsgSteamLearnServerInfo::_internal_set_enable_test_inferencing(bool value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.enable_test_inferencing_ = value;
+}
+inline void CMsgSteamLearnServerInfo::set_enable_test_inferencing(bool value) {
+  _internal_set_enable_test_inferencing(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnServerInfo.enable_test_inferencing)
 }
 
 // -------------------------------------------------------------------
@@ -20337,41 +20726,45 @@ inline void CMsgClientWelcome::set_allocated_additional_welcome_msgs(::CExtraMsg
   // @@protoc_insertion_point(field_set_allocated:CMsgClientWelcome.additional_welcome_msgs)
 }
 
-// optional .CMsgSteamLearnHMACKeys steam_learn_hmac_keys = 19;
-inline bool CMsgClientWelcome::_internal_has_steam_learn_hmac_keys() const {
+// optional .CMsgSteamLearnServerInfo steam_learn_server_info = 20;
+inline bool CMsgClientWelcome::_internal_has_steam_learn_server_info() const {
   bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.steam_learn_hmac_keys_ != nullptr);
+  PROTOBUF_ASSUME(!value || _impl_.steam_learn_server_info_ != nullptr);
   return value;
 }
-inline bool CMsgClientWelcome::has_steam_learn_hmac_keys() const {
-  return _internal_has_steam_learn_hmac_keys();
+inline bool CMsgClientWelcome::has_steam_learn_server_info() const {
+  return _internal_has_steam_learn_server_info();
 }
-inline const ::CMsgSteamLearnHMACKeys& CMsgClientWelcome::_internal_steam_learn_hmac_keys() const {
-  const ::CMsgSteamLearnHMACKeys* p = _impl_.steam_learn_hmac_keys_;
-  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearnHMACKeys&>(
-      ::_CMsgSteamLearnHMACKeys_default_instance_);
+inline void CMsgClientWelcome::clear_steam_learn_server_info() {
+  if (_impl_.steam_learn_server_info_ != nullptr) _impl_.steam_learn_server_info_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
-inline const ::CMsgSteamLearnHMACKeys& CMsgClientWelcome::steam_learn_hmac_keys() const {
-  // @@protoc_insertion_point(field_get:CMsgClientWelcome.steam_learn_hmac_keys)
-  return _internal_steam_learn_hmac_keys();
+inline const ::CMsgSteamLearnServerInfo& CMsgClientWelcome::_internal_steam_learn_server_info() const {
+  const ::CMsgSteamLearnServerInfo* p = _impl_.steam_learn_server_info_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearnServerInfo&>(
+      ::_CMsgSteamLearnServerInfo_default_instance_);
 }
-inline void CMsgClientWelcome::unsafe_arena_set_allocated_steam_learn_hmac_keys(
-    ::CMsgSteamLearnHMACKeys* steam_learn_hmac_keys) {
+inline const ::CMsgSteamLearnServerInfo& CMsgClientWelcome::steam_learn_server_info() const {
+  // @@protoc_insertion_point(field_get:CMsgClientWelcome.steam_learn_server_info)
+  return _internal_steam_learn_server_info();
+}
+inline void CMsgClientWelcome::unsafe_arena_set_allocated_steam_learn_server_info(
+    ::CMsgSteamLearnServerInfo* steam_learn_server_info) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.steam_learn_hmac_keys_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.steam_learn_server_info_);
   }
-  _impl_.steam_learn_hmac_keys_ = steam_learn_hmac_keys;
-  if (steam_learn_hmac_keys) {
+  _impl_.steam_learn_server_info_ = steam_learn_server_info;
+  if (steam_learn_server_info) {
     _impl_._has_bits_[0] |= 0x00000080u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000080u;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgClientWelcome.steam_learn_hmac_keys)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgClientWelcome.steam_learn_server_info)
 }
-inline ::CMsgSteamLearnHMACKeys* CMsgClientWelcome::release_steam_learn_hmac_keys() {
+inline ::CMsgSteamLearnServerInfo* CMsgClientWelcome::release_steam_learn_server_info() {
   _impl_._has_bits_[0] &= ~0x00000080u;
-  ::CMsgSteamLearnHMACKeys* temp = _impl_.steam_learn_hmac_keys_;
-  _impl_.steam_learn_hmac_keys_ = nullptr;
+  ::CMsgSteamLearnServerInfo* temp = _impl_.steam_learn_server_info_;
+  _impl_.steam_learn_server_info_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
@@ -20383,45 +20776,44 @@ inline ::CMsgSteamLearnHMACKeys* CMsgClientWelcome::release_steam_learn_hmac_key
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::CMsgSteamLearnHMACKeys* CMsgClientWelcome::unsafe_arena_release_steam_learn_hmac_keys() {
-  // @@protoc_insertion_point(field_release:CMsgClientWelcome.steam_learn_hmac_keys)
+inline ::CMsgSteamLearnServerInfo* CMsgClientWelcome::unsafe_arena_release_steam_learn_server_info() {
+  // @@protoc_insertion_point(field_release:CMsgClientWelcome.steam_learn_server_info)
   _impl_._has_bits_[0] &= ~0x00000080u;
-  ::CMsgSteamLearnHMACKeys* temp = _impl_.steam_learn_hmac_keys_;
-  _impl_.steam_learn_hmac_keys_ = nullptr;
+  ::CMsgSteamLearnServerInfo* temp = _impl_.steam_learn_server_info_;
+  _impl_.steam_learn_server_info_ = nullptr;
   return temp;
 }
-inline ::CMsgSteamLearnHMACKeys* CMsgClientWelcome::_internal_mutable_steam_learn_hmac_keys() {
+inline ::CMsgSteamLearnServerInfo* CMsgClientWelcome::_internal_mutable_steam_learn_server_info() {
   _impl_._has_bits_[0] |= 0x00000080u;
-  if (_impl_.steam_learn_hmac_keys_ == nullptr) {
-    auto* p = CreateMaybeMessage<::CMsgSteamLearnHMACKeys>(GetArenaForAllocation());
-    _impl_.steam_learn_hmac_keys_ = p;
+  if (_impl_.steam_learn_server_info_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgSteamLearnServerInfo>(GetArenaForAllocation());
+    _impl_.steam_learn_server_info_ = p;
   }
-  return _impl_.steam_learn_hmac_keys_;
+  return _impl_.steam_learn_server_info_;
 }
-inline ::CMsgSteamLearnHMACKeys* CMsgClientWelcome::mutable_steam_learn_hmac_keys() {
-  ::CMsgSteamLearnHMACKeys* _msg = _internal_mutable_steam_learn_hmac_keys();
-  // @@protoc_insertion_point(field_mutable:CMsgClientWelcome.steam_learn_hmac_keys)
+inline ::CMsgSteamLearnServerInfo* CMsgClientWelcome::mutable_steam_learn_server_info() {
+  ::CMsgSteamLearnServerInfo* _msg = _internal_mutable_steam_learn_server_info();
+  // @@protoc_insertion_point(field_mutable:CMsgClientWelcome.steam_learn_server_info)
   return _msg;
 }
-inline void CMsgClientWelcome::set_allocated_steam_learn_hmac_keys(::CMsgSteamLearnHMACKeys* steam_learn_hmac_keys) {
+inline void CMsgClientWelcome::set_allocated_steam_learn_server_info(::CMsgSteamLearnServerInfo* steam_learn_server_info) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.steam_learn_hmac_keys_);
+    delete _impl_.steam_learn_server_info_;
   }
-  if (steam_learn_hmac_keys) {
+  if (steam_learn_server_info) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(steam_learn_hmac_keys));
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(steam_learn_server_info);
     if (message_arena != submessage_arena) {
-      steam_learn_hmac_keys = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, steam_learn_hmac_keys, submessage_arena);
+      steam_learn_server_info = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, steam_learn_server_info, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000080u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000080u;
   }
-  _impl_.steam_learn_hmac_keys_ = steam_learn_hmac_keys;
-  // @@protoc_insertion_point(field_set_allocated:CMsgClientWelcome.steam_learn_hmac_keys)
+  _impl_.steam_learn_server_info_ = steam_learn_server_info;
+  // @@protoc_insertion_point(field_set_allocated:CMsgClientWelcome.steam_learn_server_info)
 }
 
 // -------------------------------------------------------------------
@@ -24959,6 +25351,8 @@ inline void CMsgGCToGCMasterDestroyCache::set_soid_id(uint64_t value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

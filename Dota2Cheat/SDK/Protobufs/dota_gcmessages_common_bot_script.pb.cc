@@ -1732,7 +1732,7 @@ const char* CMsgBotWorldState_Player::_InternalParse(const char* ptr, ::_pbi::Pa
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 player_id = 1 [(.map_key) = true];
+      // optional int32 player_id = 1 [(.valve_map_key) = true];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_id(&has_bits);
@@ -1861,7 +1861,7 @@ uint8_t* CMsgBotWorldState_Player::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 player_id = 1 [(.map_key) = true];
+  // optional int32 player_id = 1 [(.valve_map_key) = true];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
@@ -1953,7 +1953,7 @@ size_t CMsgBotWorldState_Player::ByteSizeLong() const {
           *_impl_.location_);
     }
 
-    // optional int32 player_id = 1 [(.map_key) = true];
+    // optional int32 player_id = 1 [(.valve_map_key) = true];
     if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
@@ -2275,7 +2275,7 @@ const char* CMsgBotWorldState_Ability::_InternalParse(const char* ptr, ::_pbi::P
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 handle = 1 [(.map_key) = true];
+      // optional uint32 handle = 1 [(.valve_map_key) = true];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_handle(&has_bits);
@@ -2468,7 +2468,7 @@ uint8_t* CMsgBotWorldState_Ability::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 handle = 1 [(.map_key) = true];
+  // optional uint32 handle = 1 [(.valve_map_key) = true];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_handle(), target);
@@ -2594,7 +2594,7 @@ size_t CMsgBotWorldState_Ability::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional uint32 handle = 1 [(.map_key) = true];
+    // optional uint32 handle = 1 [(.valve_map_key) = true];
     if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_handle());
     }
@@ -3840,7 +3840,7 @@ const char* CMsgBotWorldState_Modifier::_InternalParse(const char* ptr, ::_pbi::
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 handle = 7 [(.map_key) = true];
+      // optional uint32 handle = 7 [(.valve_map_key) = true];
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
           _Internal::set_has_handle(&has_bits);
@@ -3920,7 +3920,7 @@ uint8_t* CMsgBotWorldState_Modifier::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_auxiliary_units_handles(i), target);
   }
 
-  // optional uint32 handle = 7 [(.map_key) = true];
+  // optional uint32 handle = 7 [(.valve_map_key) = true];
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(7, this->_internal_handle(), target);
@@ -3970,7 +3970,7 @@ size_t CMsgBotWorldState_Modifier::ByteSizeLong() const {
       total_size += 1 + 4;
     }
 
-    // optional uint32 handle = 7 [(.map_key) = true];
+    // optional uint32 handle = 7 [(.valve_map_key) = true];
     if (cached_has_bits & 0x00000008u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_handle());
     }
@@ -4221,7 +4221,7 @@ const char* CMsgBotWorldState_LinearProjectile::_InternalParse(const char* ptr, 
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 handle = 1 [(.map_key) = true];
+      // optional uint32 handle = 1 [(.valve_map_key) = true];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_handle(&has_bits);
@@ -4335,7 +4335,7 @@ uint8_t* CMsgBotWorldState_LinearProjectile::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 handle = 1 [(.map_key) = true];
+  // optional uint32 handle = 1 [(.valve_map_key) = true];
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_handle(), target);
@@ -4424,7 +4424,7 @@ size_t CMsgBotWorldState_LinearProjectile::ByteSizeLong() const {
           *_impl_.velocity_);
     }
 
-    // optional uint32 handle = 1 [(.map_key) = true];
+    // optional uint32 handle = 1 [(.valve_map_key) = true];
     if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_handle());
     }
@@ -4776,7 +4776,7 @@ const char* CMsgBotWorldState_TrackingProjectile::_InternalParse(const char* ptr
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 handle = 10 [(.map_key) = true];
+      // optional uint32 handle = 10 [(.valve_map_key) = true];
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 80)) {
           _Internal::set_has_handle(&has_bits);
@@ -4872,7 +4872,7 @@ uint8_t* CMsgBotWorldState_TrackingProjectile::_InternalSerialize(
       9, this->_internal_caster_unit_type(), target);
   }
 
-  // optional uint32 handle = 10 [(.map_key) = true];
+  // optional uint32 handle = 10 [(.valve_map_key) = true];
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(10, this->_internal_handle(), target);
@@ -4929,7 +4929,7 @@ size_t CMsgBotWorldState_TrackingProjectile::ByteSizeLong() const {
         ::_pbi::WireFormatLite::EnumSize(this->_internal_caster_unit_type());
     }
 
-    // optional uint32 handle = 10 [(.map_key) = true];
+    // optional uint32 handle = 10 [(.valve_map_key) = true];
     if (cached_has_bits & 0x00000040u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_handle());
     }
@@ -5541,7 +5541,7 @@ const char* CMsgBotWorldState_Courier::_InternalParse(const char* ptr, ::_pbi::P
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 handle = 1 [(.map_key) = true];
+      // optional uint32 handle = 1 [(.valve_map_key) = true];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_handle(&has_bits);
@@ -5603,7 +5603,7 @@ uint8_t* CMsgBotWorldState_Courier::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 handle = 1 [(.map_key) = true];
+  // optional uint32 handle = 1 [(.valve_map_key) = true];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_handle(), target);
@@ -5640,7 +5640,7 @@ size_t CMsgBotWorldState_Courier::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional uint32 handle = 1 [(.map_key) = true];
+    // optional uint32 handle = 1 [(.valve_map_key) = true];
     if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_handle());
     }
@@ -7929,7 +7929,7 @@ const char* CMsgBotWorldState_Unit::_InternalParse(const char* ptr, ::_pbi::Pars
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 handle = 1 [(.map_key) = true];
+      // optional uint32 handle = 1 [(.valve_map_key) = true];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_handle(&_impl_._has_bits_);
@@ -8469,7 +8469,7 @@ const char* CMsgBotWorldState_Unit::_InternalParse(const char* ptr, ::_pbi::Pars
         } else
           goto handle_unusual;
         continue;
-      // repeated .CMsgBotWorldState.Ability abilities = 90 [(.map_field) = true];
+      // repeated .CMsgBotWorldState.Ability abilities = 90 [(.valve_map_field) = true];
       case 90:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 210)) {
           ptr -= 2;
@@ -8482,7 +8482,7 @@ const char* CMsgBotWorldState_Unit::_InternalParse(const char* ptr, ::_pbi::Pars
         } else
           goto handle_unusual;
         continue;
-      // repeated .CMsgBotWorldState.Ability items = 91 [(.map_field) = true];
+      // repeated .CMsgBotWorldState.Ability items = 91 [(.valve_map_field) = true];
       case 91:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 218)) {
           ptr -= 2;
@@ -8495,7 +8495,7 @@ const char* CMsgBotWorldState_Unit::_InternalParse(const char* ptr, ::_pbi::Pars
         } else
           goto handle_unusual;
         continue;
-      // repeated .CMsgBotWorldState.Modifier modifiers = 92 [(.map_field) = true];
+      // repeated .CMsgBotWorldState.Modifier modifiers = 92 [(.valve_map_field) = true];
       case 92:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 226)) {
           ptr -= 2;
@@ -8508,7 +8508,7 @@ const char* CMsgBotWorldState_Unit::_InternalParse(const char* ptr, ::_pbi::Pars
         } else
           goto handle_unusual;
         continue;
-      // repeated .CMsgBotWorldState.TrackingProjectile incoming_tracking_projectiles = 93 [(.map_field) = true];
+      // repeated .CMsgBotWorldState.TrackingProjectile incoming_tracking_projectiles = 93 [(.valve_map_field) = true];
       case 93:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 234)) {
           ptr -= 2;
@@ -8806,7 +8806,7 @@ uint8_t* CMsgBotWorldState_Unit::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 handle = 1 [(.map_key) = true];
+  // optional uint32 handle = 1 [(.valve_map_key) = true];
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_handle(), target);
@@ -9178,7 +9178,7 @@ uint8_t* CMsgBotWorldState_Unit::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteBoolToArray(88, this->_internal_has_scepter(), target);
   }
 
-  // repeated .CMsgBotWorldState.Ability abilities = 90 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.Ability abilities = 90 [(.valve_map_field) = true];
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_abilities_size()); i < n; i++) {
     const auto& repfield = this->_internal_abilities(i);
@@ -9186,7 +9186,7 @@ uint8_t* CMsgBotWorldState_Unit::_InternalSerialize(
         InternalWriteMessage(90, repfield, repfield.GetCachedSize(), target, stream);
   }
 
-  // repeated .CMsgBotWorldState.Ability items = 91 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.Ability items = 91 [(.valve_map_field) = true];
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_items_size()); i < n; i++) {
     const auto& repfield = this->_internal_items(i);
@@ -9194,7 +9194,7 @@ uint8_t* CMsgBotWorldState_Unit::_InternalSerialize(
         InternalWriteMessage(91, repfield, repfield.GetCachedSize(), target, stream);
   }
 
-  // repeated .CMsgBotWorldState.Modifier modifiers = 92 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.Modifier modifiers = 92 [(.valve_map_field) = true];
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_modifiers_size()); i < n; i++) {
     const auto& repfield = this->_internal_modifiers(i);
@@ -9202,7 +9202,7 @@ uint8_t* CMsgBotWorldState_Unit::_InternalSerialize(
         InternalWriteMessage(92, repfield, repfield.GetCachedSize(), target, stream);
   }
 
-  // repeated .CMsgBotWorldState.TrackingProjectile incoming_tracking_projectiles = 93 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.TrackingProjectile incoming_tracking_projectiles = 93 [(.valve_map_field) = true];
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_incoming_tracking_projectiles_size()); i < n; i++) {
     const auto& repfield = this->_internal_incoming_tracking_projectiles(i);
@@ -9405,28 +9405,28 @@ size_t CMsgBotWorldState_Unit::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CMsgBotWorldState.Ability abilities = 90 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.Ability abilities = 90 [(.valve_map_field) = true];
   total_size += 2UL * this->_internal_abilities_size();
   for (const auto& msg : this->_impl_.abilities_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .CMsgBotWorldState.Ability items = 91 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.Ability items = 91 [(.valve_map_field) = true];
   total_size += 2UL * this->_internal_items_size();
   for (const auto& msg : this->_impl_.items_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .CMsgBotWorldState.Modifier modifiers = 92 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.Modifier modifiers = 92 [(.valve_map_field) = true];
   total_size += 2UL * this->_internal_modifiers_size();
   for (const auto& msg : this->_impl_.modifiers_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .CMsgBotWorldState.TrackingProjectile incoming_tracking_projectiles = 93 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.TrackingProjectile incoming_tracking_projectiles = 93 [(.valve_map_field) = true];
   total_size += 2UL * this->_internal_incoming_tracking_projectiles_size();
   for (const auto& msg : this->_impl_.incoming_tracking_projectiles_) {
     total_size +=
@@ -9463,7 +9463,7 @@ size_t CMsgBotWorldState_Unit::ByteSizeLong() const {
           *_impl_.location_);
     }
 
-    // optional uint32 handle = 1 [(.map_key) = true];
+    // optional uint32 handle = 1 [(.valve_map_key) = true];
     if (cached_has_bits & 0x00000010u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_handle());
     }
@@ -10600,7 +10600,7 @@ const char* CMsgBotWorldState::_InternalParse(const char* ptr, ::_pbi::ParseCont
         } else
           goto handle_unusual;
         continue;
-      // repeated .CMsgBotWorldState.Player players = 10 [(.map_field) = true];
+      // repeated .CMsgBotWorldState.Player players = 10 [(.valve_map_field) = true];
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
           ptr -= 1;
@@ -10613,7 +10613,7 @@ const char* CMsgBotWorldState::_InternalParse(const char* ptr, ::_pbi::ParseCont
         } else
           goto handle_unusual;
         continue;
-      // repeated .CMsgBotWorldState.Unit units = 11 [(.map_field) = true];
+      // repeated .CMsgBotWorldState.Unit units = 11 [(.valve_map_field) = true];
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 90)) {
           ptr -= 1;
@@ -10665,7 +10665,7 @@ const char* CMsgBotWorldState::_InternalParse(const char* ptr, ::_pbi::ParseCont
         } else
           goto handle_unusual;
         continue;
-      // repeated .CMsgBotWorldState.LinearProjectile linear_projectiles = 15 [(.map_field) = true];
+      // repeated .CMsgBotWorldState.LinearProjectile linear_projectiles = 15 [(.valve_map_field) = true];
       case 15:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 122)) {
           ptr -= 1;
@@ -10691,7 +10691,7 @@ const char* CMsgBotWorldState::_InternalParse(const char* ptr, ::_pbi::ParseCont
         } else
           goto handle_unusual;
         continue;
-      // repeated .CMsgBotWorldState.Courier couriers = 17 [(.map_field) = true];
+      // repeated .CMsgBotWorldState.Courier couriers = 17 [(.valve_map_field) = true];
       case 17:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 138)) {
           ptr -= 2;
@@ -10880,7 +10880,7 @@ uint8_t* CMsgBotWorldState::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteFloatToArray(8, this->_internal_glyph_cooldown_enemy(), target);
   }
 
-  // repeated .CMsgBotWorldState.Player players = 10 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.Player players = 10 [(.valve_map_field) = true];
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_players_size()); i < n; i++) {
     const auto& repfield = this->_internal_players(i);
@@ -10888,7 +10888,7 @@ uint8_t* CMsgBotWorldState::_InternalSerialize(
         InternalWriteMessage(10, repfield, repfield.GetCachedSize(), target, stream);
   }
 
-  // repeated .CMsgBotWorldState.Unit units = 11 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.Unit units = 11 [(.valve_map_field) = true];
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_units_size()); i < n; i++) {
     const auto& repfield = this->_internal_units(i);
@@ -10920,7 +10920,7 @@ uint8_t* CMsgBotWorldState::_InternalSerialize(
         InternalWriteMessage(14, repfield, repfield.GetCachedSize(), target, stream);
   }
 
-  // repeated .CMsgBotWorldState.LinearProjectile linear_projectiles = 15 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.LinearProjectile linear_projectiles = 15 [(.valve_map_field) = true];
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_linear_projectiles_size()); i < n; i++) {
     const auto& repfield = this->_internal_linear_projectiles(i);
@@ -10936,7 +10936,7 @@ uint8_t* CMsgBotWorldState::_InternalSerialize(
         InternalWriteMessage(16, repfield, repfield.GetCachedSize(), target, stream);
   }
 
-  // repeated .CMsgBotWorldState.Courier couriers = 17 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.Courier couriers = 17 [(.valve_map_field) = true];
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_couriers_size()); i < n; i++) {
     const auto& repfield = this->_internal_couriers(i);
@@ -11012,14 +11012,14 @@ size_t CMsgBotWorldState::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CMsgBotWorldState.Player players = 10 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.Player players = 10 [(.valve_map_field) = true];
   total_size += 1UL * this->_internal_players_size();
   for (const auto& msg : this->_impl_.players_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .CMsgBotWorldState.Unit units = 11 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.Unit units = 11 [(.valve_map_field) = true];
   total_size += 1UL * this->_internal_units_size();
   for (const auto& msg : this->_impl_.units_) {
     total_size +=
@@ -11047,7 +11047,7 @@ size_t CMsgBotWorldState::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .CMsgBotWorldState.LinearProjectile linear_projectiles = 15 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.LinearProjectile linear_projectiles = 15 [(.valve_map_field) = true];
   total_size += 1UL * this->_internal_linear_projectiles_size();
   for (const auto& msg : this->_impl_.linear_projectiles_) {
     total_size +=
@@ -11061,7 +11061,7 @@ size_t CMsgBotWorldState::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .CMsgBotWorldState.Courier couriers = 17 [(.map_field) = true];
+  // repeated .CMsgBotWorldState.Courier couriers = 17 [(.valve_map_field) = true];
   total_size += 2UL * this->_internal_couriers_size();
   for (const auto& msg : this->_impl_.couriers_) {
     total_size +=

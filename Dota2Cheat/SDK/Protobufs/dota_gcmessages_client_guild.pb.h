@@ -310,11 +310,12 @@ enum CMsgClientToGCCreateGuildResponse_EResponse : int {
   CMsgClientToGCCreateGuildResponse_EResponse_k_eDoesNotOwnEvent = 12,
   CMsgClientToGCCreateGuildResponse_EResponse_k_eGuildLimit = 13,
   CMsgClientToGCCreateGuildResponse_EResponse_k_eInvalidMotD = 14,
-  CMsgClientToGCCreateGuildResponse_EResponse_k_eBlocked = 15
+  CMsgClientToGCCreateGuildResponse_EResponse_k_eBlocked = 15,
+  CMsgClientToGCCreateGuildResponse_EResponse_k_eFreeTrialNotAllowed = 16
 };
 bool CMsgClientToGCCreateGuildResponse_EResponse_IsValid(int value);
 constexpr CMsgClientToGCCreateGuildResponse_EResponse CMsgClientToGCCreateGuildResponse_EResponse_EResponse_MIN = CMsgClientToGCCreateGuildResponse_EResponse_k_eInternalError;
-constexpr CMsgClientToGCCreateGuildResponse_EResponse CMsgClientToGCCreateGuildResponse_EResponse_EResponse_MAX = CMsgClientToGCCreateGuildResponse_EResponse_k_eBlocked;
+constexpr CMsgClientToGCCreateGuildResponse_EResponse CMsgClientToGCCreateGuildResponse_EResponse_EResponse_MAX = CMsgClientToGCCreateGuildResponse_EResponse_k_eFreeTrialNotAllowed;
 constexpr int CMsgClientToGCCreateGuildResponse_EResponse_EResponse_ARRAYSIZE = CMsgClientToGCCreateGuildResponse_EResponse_EResponse_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCCreateGuildResponse_EResponse_descriptor();
@@ -4103,6 +4104,8 @@ class CMsgClientToGCCreateGuildResponse final :
     CMsgClientToGCCreateGuildResponse_EResponse_k_eInvalidMotD;
   static constexpr EResponse k_eBlocked =
     CMsgClientToGCCreateGuildResponse_EResponse_k_eBlocked;
+  static constexpr EResponse k_eFreeTrialNotAllowed =
+    CMsgClientToGCCreateGuildResponse_EResponse_k_eFreeTrialNotAllowed;
   static inline bool EResponse_IsValid(int value) {
     return CMsgClientToGCCreateGuildResponse_EResponse_IsValid(value);
   }

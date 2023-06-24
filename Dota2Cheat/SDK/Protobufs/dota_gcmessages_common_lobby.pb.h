@@ -7301,6 +7301,7 @@ class CSODOTAStaticLobby final :
 
   enum : int {
     kAllMembersFieldNumber = 1,
+    kIsPlayerDraftFieldNumber = 2,
   };
   // repeated .CSODOTAStaticLobbyMember all_members = 1;
   int all_members_size() const;
@@ -7320,6 +7321,19 @@ class CSODOTAStaticLobby final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTAStaticLobbyMember >&
       all_members() const;
 
+  // optional bool is_player_draft = 2;
+  bool has_is_player_draft() const;
+  private:
+  bool _internal_has_is_player_draft() const;
+  public:
+  void clear_is_player_draft();
+  bool is_player_draft() const;
+  void set_is_player_draft(bool value);
+  private:
+  bool _internal_is_player_draft() const;
+  void _internal_set_is_player_draft(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CSODOTAStaticLobby)
  private:
   class _Internal;
@@ -7328,8 +7342,10 @@ class CSODOTAStaticLobby final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTAStaticLobbyMember > all_members_;
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTAStaticLobbyMember > all_members_;
+    bool is_player_draft_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fcommon_5flobby_2eproto;
@@ -16629,6 +16645,34 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTAStaticLobbyMemb
 CSODOTAStaticLobby::all_members() const {
   // @@protoc_insertion_point(field_list:CSODOTAStaticLobby.all_members)
   return _impl_.all_members_;
+}
+
+// optional bool is_player_draft = 2;
+inline bool CSODOTAStaticLobby::_internal_has_is_player_draft() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CSODOTAStaticLobby::has_is_player_draft() const {
+  return _internal_has_is_player_draft();
+}
+inline void CSODOTAStaticLobby::clear_is_player_draft() {
+  _impl_.is_player_draft_ = false;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline bool CSODOTAStaticLobby::_internal_is_player_draft() const {
+  return _impl_.is_player_draft_;
+}
+inline bool CSODOTAStaticLobby::is_player_draft() const {
+  // @@protoc_insertion_point(field_get:CSODOTAStaticLobby.is_player_draft)
+  return _internal_is_player_draft();
+}
+inline void CSODOTAStaticLobby::_internal_set_is_player_draft(bool value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.is_player_draft_ = value;
+}
+inline void CSODOTAStaticLobby::set_is_player_draft(bool value) {
+  _internal_set_is_player_draft(value);
+  // @@protoc_insertion_point(field_set:CSODOTAStaticLobby.is_player_draft)
 }
 
 // -------------------------------------------------------------------

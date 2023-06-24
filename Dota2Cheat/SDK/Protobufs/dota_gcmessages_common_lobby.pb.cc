@@ -521,8 +521,10 @@ struct CSODOTAServerLobbyDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CSODOTAServerLobbyDefaultTypeInternal _CSODOTAServerLobby_default_instance_;
 PROTOBUF_CONSTEXPR CSODOTAStaticLobby::CSODOTAStaticLobby(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.all_members_)*/{}
-  , /*decltype(_impl_._cached_size_)*/{}} {}
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.all_members_)*/{}
+  , /*decltype(_impl_.is_player_draft_)*/false} {}
 struct CSODOTAStaticLobbyDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CSODOTAStaticLobbyDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1238,13 +1240,16 @@ const uint32_t TableStruct_dota_5fgcmessages_5fcommon_5flobby_2eproto::offsets[]
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CSODOTAServerLobby, _impl_.all_members_),
-  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CSODOTAStaticLobby, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CSODOTAStaticLobby, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CSODOTAStaticLobby, _impl_.all_members_),
+  PROTOBUF_FIELD_OFFSET(::CSODOTAStaticLobby, _impl_.is_player_draft_),
+  ~0u,
+  0,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CSODOTAServerStaticLobby, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1372,15 +1377,15 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 353, 361, -1, sizeof(::CSODOTALobby_CExtraMsg)},
   { 363, 467, -1, sizeof(::CSODOTALobby)},
   { 565, -1, -1, sizeof(::CSODOTAServerLobby)},
-  { 572, -1, -1, sizeof(::CSODOTAStaticLobby)},
-  { 579, -1, -1, sizeof(::CSODOTAServerStaticLobby)},
-  { 586, 594, -1, sizeof(::CMsgAdditionalLobbyStartupAccountData_ChatWheelMessageRange)},
-  { 596, 604, -1, sizeof(::CMsgAdditionalLobbyStartupAccountData_PingWheelMessageRange)},
-  { 606, 616, -1, sizeof(::CMsgAdditionalLobbyStartupAccountData)},
-  { 620, -1, -1, sizeof(::CMsgLobbyInitializationComplete)},
-  { 626, 633, -1, sizeof(::CMsgLobbyPlaytestDetails)},
-  { 634, 649, -1, sizeof(::CMsgLocalServerGuildData)},
-  { 658, 673, -1, sizeof(::CMsgLocalServerFakeLobbyData)},
+  { 572, 580, -1, sizeof(::CSODOTAStaticLobby)},
+  { 582, -1, -1, sizeof(::CSODOTAServerStaticLobby)},
+  { 589, 597, -1, sizeof(::CMsgAdditionalLobbyStartupAccountData_ChatWheelMessageRange)},
+  { 599, 607, -1, sizeof(::CMsgAdditionalLobbyStartupAccountData_PingWheelMessageRange)},
+  { 609, 619, -1, sizeof(::CMsgAdditionalLobbyStartupAccountData)},
+  { 623, -1, -1, sizeof(::CMsgLobbyInitializationComplete)},
+  { 629, 636, -1, sizeof(::CMsgLobbyPlaytestDetails)},
+  { 637, 652, -1, sizeof(::CMsgLocalServerGuildData)},
+  { 661, 676, -1, sizeof(::CMsgLocalServerFakeLobbyData)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -1621,51 +1626,52 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fcommon_5flobby_2eproto[
   "MATCH\020\014\022\023\n\017NEW_PLAYER_POOL\020\016\022\025\n\021FEATURED"
   "_GAMEMODE\020\017\"D\n\022CSODOTAServerLobby\022.\n\013all"
   "_members\030\001 \003(\0132\031.CSODOTAServerLobbyMembe"
-  "r\"D\n\022CSODOTAStaticLobby\022.\n\013all_members\030\001"
-  " \003(\0132\031.CSODOTAStaticLobbyMember\"P\n\030CSODO"
-  "TAServerStaticLobby\0224\n\013all_members\030\001 \003(\013"
-  "2\037.CSODOTAServerStaticLobbyMember\"\216\004\n%CM"
-  "sgAdditionalLobbyStartupAccountData\022\022\n\na"
-  "ccount_id\030\001 \001(\r\0227\n\tplus_data\030\002 \001(\0132$.CMs"
-  "gLobbyPlayerPlusSubscriptionData\022h\n\"unlo"
-  "cked_chat_wheel_message_ranges\030\003 \003(\0132<.C"
-  "MsgAdditionalLobbyStartupAccountData.Cha"
-  "tWheelMessageRange\022h\n\"unlocked_ping_whee"
-  "l_message_ranges\030\004 \003(\0132<.CMsgAdditionalL"
-  "obbyStartupAccountData.PingWheelMessageR"
-  "ange\032a\n\025ChatWheelMessageRange\022$\n\020message"
-  "_id_start\030\001 \001(\r:\n4294967295\022\"\n\016message_i"
-  "d_end\030\002 \001(\r:\n4294967295\032a\n\025PingWheelMess"
-  "ageRange\022$\n\020message_id_start\030\001 \001(\r:\n4294"
-  "967295\022\"\n\016message_id_end\030\002 \001(\r:\n42949672"
-  "95\"!\n\037CMsgLobbyInitializationComplete\"(\n"
-  "\030CMsgLobbyPlaytestDetails\022\014\n\004json\030\001 \001(\t\""
-  "\211\002\n\030CMsgLocalServerGuildData\022\020\n\010guild_id"
-  "\030\001 \001(\r\022(\n\010event_id\030\002 \001(\0162\007.EEvent:\rEVENT"
-  "_ID_NONE\022\024\n\014guild_points\030\003 \001(\r\022\022\n\nguild_"
-  "logo\030\004 \001(\004\022\033\n\023guild_primary_color\030\005 \001(\r\022"
-  "\035\n\025guild_secondary_color\030\006 \001(\r\022\025\n\rguild_"
-  "pattern\030\007 \001(\r\022\023\n\013guild_flags\030\010 \001(\r\022\037\n\027gu"
-  "ild_weekly_percentile\030\t \001(\r\"\326\002\n\034CMsgLoca"
-  "lServerFakeLobbyData\022\022\n\naccount_id\030\001 \001(\r"
-  "\022+\n\014event_points\030\002 \003(\0132\025.CMsgLobbyEventP"
-  "oints\022\032\n\022is_plus_subscriber\030\003 \001(\010\022\030\n\020pri"
-  "mary_event_id\030\004 \001(\r\022\025\n\rfavorite_team\030\005 \001"
-  "(\r\022\035\n\025favorite_team_quality\030\006 \001(\r\022-\n\ngui"
-  "ld_info\030\007 \001(\0132\031.CMsgLocalServerGuildData"
-  "\022\031\n\021teleport_fx_level\030\010 \001(\r\022\?\n\017additiona"
-  "l_data\030\t \001(\0132&.CMsgAdditionalLobbyStartu"
-  "pAccountData*\245\001\n\035ELobbyMemberCoachReques"
-  "tState\022(\n$k_eLobbyMemberCoachRequestStat"
-  "e_None\020\000\022,\n(k_eLobbyMemberCoachRequestSt"
-  "ate_Accepted\020\001\022,\n(k_eLobbyMemberCoachReq"
-  "uestState_Rejected\020\002*e\n\020LobbyDotaTVDelay"
-  "\022\022\n\016LobbyDotaTV_10\020\000\022\023\n\017LobbyDotaTV_120\020"
-  "\001\022\023\n\017LobbyDotaTV_300\020\002\022\023\n\017LobbyDotaTV_90"
-  "0\020\003*\203\001\n\025LobbyDotaPauseSetting\022#\n\037LobbyDo"
-  "taPauseSetting_Unlimited\020\000\022!\n\035LobbyDotaP"
-  "auseSetting_Limited\020\001\022\"\n\036LobbyDotaPauseS"
-  "etting_Disabled\020\002"
+  "r\"]\n\022CSODOTAStaticLobby\022.\n\013all_members\030\001"
+  " \003(\0132\031.CSODOTAStaticLobbyMember\022\027\n\017is_pl"
+  "ayer_draft\030\002 \001(\010\"P\n\030CSODOTAServerStaticL"
+  "obby\0224\n\013all_members\030\001 \003(\0132\037.CSODOTAServe"
+  "rStaticLobbyMember\"\216\004\n%CMsgAdditionalLob"
+  "byStartupAccountData\022\022\n\naccount_id\030\001 \001(\r"
+  "\0227\n\tplus_data\030\002 \001(\0132$.CMsgLobbyPlayerPlu"
+  "sSubscriptionData\022h\n\"unlocked_chat_wheel"
+  "_message_ranges\030\003 \003(\0132<.CMsgAdditionalLo"
+  "bbyStartupAccountData.ChatWheelMessageRa"
+  "nge\022h\n\"unlocked_ping_wheel_message_range"
+  "s\030\004 \003(\0132<.CMsgAdditionalLobbyStartupAcco"
+  "untData.PingWheelMessageRange\032a\n\025ChatWhe"
+  "elMessageRange\022$\n\020message_id_start\030\001 \001(\r"
+  ":\n4294967295\022\"\n\016message_id_end\030\002 \001(\r:\n42"
+  "94967295\032a\n\025PingWheelMessageRange\022$\n\020mes"
+  "sage_id_start\030\001 \001(\r:\n4294967295\022\"\n\016messa"
+  "ge_id_end\030\002 \001(\r:\n4294967295\"!\n\037CMsgLobby"
+  "InitializationComplete\"(\n\030CMsgLobbyPlayt"
+  "estDetails\022\014\n\004json\030\001 \001(\t\"\211\002\n\030CMsgLocalSe"
+  "rverGuildData\022\020\n\010guild_id\030\001 \001(\r\022(\n\010event"
+  "_id\030\002 \001(\0162\007.EEvent:\rEVENT_ID_NONE\022\024\n\014gui"
+  "ld_points\030\003 \001(\r\022\022\n\nguild_logo\030\004 \001(\004\022\033\n\023g"
+  "uild_primary_color\030\005 \001(\r\022\035\n\025guild_second"
+  "ary_color\030\006 \001(\r\022\025\n\rguild_pattern\030\007 \001(\r\022\023"
+  "\n\013guild_flags\030\010 \001(\r\022\037\n\027guild_weekly_perc"
+  "entile\030\t \001(\r\"\326\002\n\034CMsgLocalServerFakeLobb"
+  "yData\022\022\n\naccount_id\030\001 \001(\r\022+\n\014event_point"
+  "s\030\002 \003(\0132\025.CMsgLobbyEventPoints\022\032\n\022is_plu"
+  "s_subscriber\030\003 \001(\010\022\030\n\020primary_event_id\030\004"
+  " \001(\r\022\025\n\rfavorite_team\030\005 \001(\r\022\035\n\025favorite_"
+  "team_quality\030\006 \001(\r\022-\n\nguild_info\030\007 \001(\0132\031"
+  ".CMsgLocalServerGuildData\022\031\n\021teleport_fx"
+  "_level\030\010 \001(\r\022\?\n\017additional_data\030\t \001(\0132&."
+  "CMsgAdditionalLobbyStartupAccountData*\245\001"
+  "\n\035ELobbyMemberCoachRequestState\022(\n$k_eLo"
+  "bbyMemberCoachRequestState_None\020\000\022,\n(k_e"
+  "LobbyMemberCoachRequestState_Accepted\020\001\022"
+  ",\n(k_eLobbyMemberCoachRequestState_Rejec"
+  "ted\020\002*e\n\020LobbyDotaTVDelay\022\022\n\016LobbyDotaTV"
+  "_10\020\000\022\023\n\017LobbyDotaTV_120\020\001\022\023\n\017LobbyDotaT"
+  "V_300\020\002\022\023\n\017LobbyDotaTV_900\020\003*\203\001\n\025LobbyDo"
+  "taPauseSetting\022#\n\037LobbyDotaPauseSetting_"
+  "Unlimited\020\000\022!\n\035LobbyDotaPauseSetting_Lim"
+  "ited\020\001\022\"\n\036LobbyDotaPauseSetting_Disabled"
+  "\020\002"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5fcommon_5flobby_2eproto_deps[2] = {
   &::descriptor_table_dota_5fshared_5fenums_2eproto,
@@ -1673,7 +1679,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5
 };
 static ::_pbi::once_flag descriptor_table_dota_5fgcmessages_5fcommon_5flobby_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fgcmessages_5fcommon_5flobby_2eproto = {
-    false, false, 9897, descriptor_table_protodef_dota_5fgcmessages_5fcommon_5flobby_2eproto,
+    false, false, 9922, descriptor_table_protodef_dota_5fgcmessages_5fcommon_5flobby_2eproto,
     "dota_gcmessages_common_lobby.proto",
     &descriptor_table_dota_5fgcmessages_5fcommon_5flobby_2eproto_once, descriptor_table_dota_5fgcmessages_5fcommon_5flobby_2eproto_deps, 2, 31,
     schemas, file_default_instances, TableStruct_dota_5fgcmessages_5fcommon_5flobby_2eproto::offsets,
@@ -12746,6 +12752,10 @@ void CSODOTAServerLobby::InternalSwap(CSODOTAServerLobby* other) {
 
 class CSODOTAStaticLobby::_Internal {
  public:
+  using HasBits = decltype(std::declval<CSODOTAStaticLobby>()._impl_._has_bits_);
+  static void set_has_is_player_draft(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
 };
 
 CSODOTAStaticLobby::CSODOTAStaticLobby(::PROTOBUF_NAMESPACE_ID::Arena* arena,
@@ -12758,10 +12768,13 @@ CSODOTAStaticLobby::CSODOTAStaticLobby(const CSODOTAStaticLobby& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   CSODOTAStaticLobby* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.all_members_){from._impl_.all_members_}
-    , /*decltype(_impl_._cached_size_)*/{}};
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.all_members_){from._impl_.all_members_}
+    , decltype(_impl_.is_player_draft_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.is_player_draft_ = from._impl_.is_player_draft_;
   // @@protoc_insertion_point(copy_constructor:CSODOTAStaticLobby)
 }
 
@@ -12770,8 +12783,10 @@ inline void CSODOTAStaticLobby::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.all_members_){arena}
+      decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.all_members_){arena}
+    , decltype(_impl_.is_player_draft_){false}
   };
 }
 
@@ -12800,11 +12815,14 @@ void CSODOTAStaticLobby::Clear() {
   (void) cached_has_bits;
 
   _impl_.all_members_.Clear();
+  _impl_.is_player_draft_ = false;
+  _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* CSODOTAStaticLobby::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
@@ -12819,6 +12837,15 @@ const char* CSODOTAStaticLobby::_InternalParse(const char* ptr, ::_pbi::ParseCon
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // optional bool is_player_draft = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_is_player_draft(&has_bits);
+          _impl_.is_player_draft_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -12838,6 +12865,7 @@ const char* CSODOTAStaticLobby::_InternalParse(const char* ptr, ::_pbi::ParseCon
     CHK_(ptr != nullptr);
   }  // while
 message_done:
+  _impl_._has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -12857,6 +12885,13 @@ uint8_t* CSODOTAStaticLobby::_InternalSerialize(
     const auto& repfield = this->_internal_all_members(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
         InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional bool is_player_draft = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_is_player_draft(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -12882,6 +12917,12 @@ size_t CSODOTAStaticLobby::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
+  // optional bool is_player_draft = 2;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 + 1;
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -12901,6 +12942,9 @@ void CSODOTAStaticLobby::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, con
   (void) cached_has_bits;
 
   _this->_impl_.all_members_.MergeFrom(from._impl_.all_members_);
+  if (from._internal_has_is_player_draft()) {
+    _this->_internal_set_is_player_draft(from._internal_is_player_draft());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -12918,7 +12962,9 @@ bool CSODOTAStaticLobby::IsInitialized() const {
 void CSODOTAStaticLobby::InternalSwap(CSODOTAStaticLobby* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.all_members_.InternalSwap(&other->_impl_.all_members_);
+  swap(_impl_.is_player_draft_, other->_impl_.is_player_draft_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CSODOTAStaticLobby::GetMetadata() const {

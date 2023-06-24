@@ -27,7 +27,7 @@ static constexpr ::_pbi::MigrationSchema* schemas = nullptr;
 static constexpr ::_pb::Message* const* file_default_instances = nullptr;
 
 const char descriptor_table_protodef_dota_5fgcmessages_5fmsgid_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\033dota_gcmessages_msgid.proto*\365\217\002\n\nEDOTA"
+  "\n\033dota_gcmessages_msgid.proto*\363\221\002\n\nEDOTA"
   "GCMsg\022\025\n\020k_EMsgGCDOTABase\020\3306\022\035\n\030k_EMsgGC"
   "GameMatchSignOut\020\3346\022%\n k_EMsgGCGameMatch"
   "SignOutResponse\020\3356\022\034\n\027k_EMsgGCJoinChatCh"
@@ -897,11 +897,18 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fmsgid_2eproto[] PROTOBU
   "MsgGCToServerSetSteamLearnDisable\020\253E\022-\n("
   "k_EMsgGCToServerSetSteamLearnKeysChanged"
   "\020\254E\022 \n\033k_EMsgSignOutMuertaMinigame\020\255E\022\'\n"
-  "\"k_EMsgGCToServerLobbyHeroRoleStats\020\256E"
+  "\"k_EMsgGCToServerLobbyHeroRoleStats\020\256E\022 "
+  "\n\033k_EMsgClientToGCRankRequest\020\257E\022!\n\034k_EM"
+  "sgGCToClientRankResponse\020\260E\022\037\n\032k_EMsgGCT"
+  "oClientRankUpdate\020\261E\022\032\n\025k_EMsgSignOutMap"
+  "Stats\020\262E\022$\n\037k_EMsgClientToGCMapStatsRequ"
+  "est\020\263E\022%\n k_EMsgGCToClientMapStatsRespon"
+  "se\020\264E\022-\n(k_EMsgGCToServerSetSteamLearnIn"
+  "ferencing\020\265E"
   ;
 static ::_pbi::once_flag descriptor_table_dota_5fgcmessages_5fmsgid_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fgcmessages_5fmsgid_2eproto = {
-    false, false, 34838, descriptor_table_protodef_dota_5fgcmessages_5fmsgid_2eproto,
+    false, false, 35092, descriptor_table_protodef_dota_5fgcmessages_5fmsgid_2eproto,
     "dota_gcmessages_msgid.proto",
     &descriptor_table_dota_5fgcmessages_5fmsgid_2eproto_once, nullptr, 0, 0,
     schemas, file_default_instances, TableStruct_dota_5fgcmessages_5fmsgid_2eproto::offsets,
@@ -1734,6 +1741,13 @@ bool EDOTAGCMsg_IsValid(int value) {
     case 8876:
     case 8877:
     case 8878:
+    case 8879:
+    case 8880:
+    case 8881:
+    case 8882:
+    case 8883:
+    case 8884:
+    case 8885:
       return true;
     default:
       return false;

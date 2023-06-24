@@ -63,6 +63,9 @@ extern CMatchPlayerAbilityUpgradeDefaultTypeInternal _CMatchPlayerAbilityUpgrade
 class CMatchPlayerPermanentBuff;
 struct CMatchPlayerPermanentBuffDefaultTypeInternal;
 extern CMatchPlayerPermanentBuffDefaultTypeInternal _CMatchPlayerPermanentBuff_default_instance_;
+class CMatchPlayerTimedCustomStat;
+struct CMatchPlayerTimedCustomStatDefaultTypeInternal;
+extern CMatchPlayerTimedCustomStatDefaultTypeInternal _CMatchPlayerTimedCustomStat_default_instance_;
 class CMatchPlayerTimedStats;
 struct CMatchPlayerTimedStatsDefaultTypeInternal;
 extern CMatchPlayerTimedStatsDefaultTypeInternal _CMatchPlayerTimedStats_default_instance_;
@@ -327,6 +330,9 @@ extern CMsgGameDataSpecialValueBonusDefaultTypeInternal _CMsgGameDataSpecialValu
 class CMsgGameDataSpecialValues;
 struct CMsgGameDataSpecialValuesDefaultTypeInternal;
 extern CMsgGameDataSpecialValuesDefaultTypeInternal _CMsgGameDataSpecialValues_default_instance_;
+class CMsgGlobalMapStats;
+struct CMsgGlobalMapStatsDefaultTypeInternal;
+extern CMsgGlobalMapStatsDefaultTypeInternal _CMsgGlobalMapStats_default_instance_;
 class CMsgHeroRoleAllRanksStats;
 struct CMsgHeroRoleAllRanksStatsDefaultTypeInternal;
 extern CMsgHeroRoleAllRanksStatsDefaultTypeInternal _CMsgHeroRoleAllRanksStats_default_instance_;
@@ -369,6 +375,9 @@ extern CMsgLobbyFeaturedGamemodeProgressDefaultTypeInternal _CMsgLobbyFeaturedGa
 class CMsgLobbyFeaturedGamemodeProgress_AccountProgress;
 struct CMsgLobbyFeaturedGamemodeProgress_AccountProgressDefaultTypeInternal;
 extern CMsgLobbyFeaturedGamemodeProgress_AccountProgressDefaultTypeInternal _CMsgLobbyFeaturedGamemodeProgress_AccountProgress_default_instance_;
+class CMsgMapStatsSnapshot;
+struct CMsgMapStatsSnapshotDefaultTypeInternal;
+extern CMsgMapStatsSnapshotDefaultTypeInternal _CMsgMapStatsSnapshot_default_instance_;
 class CMsgMatchConsumableUsage;
 struct CMsgMatchConsumableUsageDefaultTypeInternal;
 extern CMsgMatchConsumableUsageDefaultTypeInternal _CMsgMatchConsumableUsage_default_instance_;
@@ -501,6 +510,7 @@ template<> ::CMatchClip* Arena::CreateMaybeMessage<::CMatchClip>(Arena*);
 template<> ::CMatchHeroSelectEvent* Arena::CreateMaybeMessage<::CMatchHeroSelectEvent>(Arena*);
 template<> ::CMatchPlayerAbilityUpgrade* Arena::CreateMaybeMessage<::CMatchPlayerAbilityUpgrade>(Arena*);
 template<> ::CMatchPlayerPermanentBuff* Arena::CreateMaybeMessage<::CMatchPlayerPermanentBuff>(Arena*);
+template<> ::CMatchPlayerTimedCustomStat* Arena::CreateMaybeMessage<::CMatchPlayerTimedCustomStat>(Arena*);
 template<> ::CMatchPlayerTimedStats* Arena::CreateMaybeMessage<::CMatchPlayerTimedStats>(Arena*);
 template<> ::CMatchTeamTimedStats* Arena::CreateMaybeMessage<::CMatchTeamTimedStats>(Arena*);
 template<> ::CMsgArcanaVoteMatchVotes* Arena::CreateMaybeMessage<::CMsgArcanaVoteMatchVotes>(Arena*);
@@ -589,6 +599,7 @@ template<> ::CMsgGameDataItemAbilityList_ItemAbilityInfo* Arena::CreateMaybeMess
 template<> ::CMsgGameDataItems* Arena::CreateMaybeMessage<::CMsgGameDataItems>(Arena*);
 template<> ::CMsgGameDataSpecialValueBonus* Arena::CreateMaybeMessage<::CMsgGameDataSpecialValueBonus>(Arena*);
 template<> ::CMsgGameDataSpecialValues* Arena::CreateMaybeMessage<::CMsgGameDataSpecialValues>(Arena*);
+template<> ::CMsgGlobalMapStats* Arena::CreateMaybeMessage<::CMsgGlobalMapStats>(Arena*);
 template<> ::CMsgHeroRoleAllRanksStats* Arena::CreateMaybeMessage<::CMsgHeroRoleAllRanksStats>(Arena*);
 template<> ::CMsgHeroRoleHeroStats* Arena::CreateMaybeMessage<::CMsgHeroRoleHeroStats>(Arena*);
 template<> ::CMsgHeroRoleRankStats* Arena::CreateMaybeMessage<::CMsgHeroRoleRankStats>(Arena*);
@@ -603,6 +614,7 @@ template<> ::CMsgLobbyAbilityDraftData* Arena::CreateMaybeMessage<::CMsgLobbyAbi
 template<> ::CMsgLobbyBattleCupVictoryList* Arena::CreateMaybeMessage<::CMsgLobbyBattleCupVictoryList>(Arena*);
 template<> ::CMsgLobbyFeaturedGamemodeProgress* Arena::CreateMaybeMessage<::CMsgLobbyFeaturedGamemodeProgress>(Arena*);
 template<> ::CMsgLobbyFeaturedGamemodeProgress_AccountProgress* Arena::CreateMaybeMessage<::CMsgLobbyFeaturedGamemodeProgress_AccountProgress>(Arena*);
+template<> ::CMsgMapStatsSnapshot* Arena::CreateMaybeMessage<::CMsgMapStatsSnapshot>(Arena*);
 template<> ::CMsgMatchConsumableUsage* Arena::CreateMaybeMessage<::CMsgMatchConsumableUsage>(Arena*);
 template<> ::CMsgMatchConsumableUsage_PlayerUsage* Arena::CreateMaybeMessage<::CMsgMatchConsumableUsage_PlayerUsage>(Arena*);
 template<> ::CMsgMatchEventActionGrants* Arena::CreateMaybeMessage<::CMsgMatchEventActionGrants>(Arena*);
@@ -1046,6 +1058,30 @@ inline bool EDOTAGCSessionNeed_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EDOTAGCSessionNeed* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EDOTAGCSessionNeed>(
     EDOTAGCSessionNeed_descriptor(), name, value);
+}
+enum EDOTAMatchPlayerTimeCustomStat : int {
+  k_EDOTA_MatchPlayerTimeCustomStat_HPRegenUnderT1Towers = 1,
+  k_EDOTA_MatchPlayerTimeCustomStat_MagicDamageReducedWithNewFormula_Absolute = 2,
+  k_EDOTA_MatchPlayerTimeCustomStat_MagicDamageReducedWithNewFormula_PercentOfTotalHP = 3
+};
+bool EDOTAMatchPlayerTimeCustomStat_IsValid(int value);
+constexpr EDOTAMatchPlayerTimeCustomStat EDOTAMatchPlayerTimeCustomStat_MIN = k_EDOTA_MatchPlayerTimeCustomStat_HPRegenUnderT1Towers;
+constexpr EDOTAMatchPlayerTimeCustomStat EDOTAMatchPlayerTimeCustomStat_MAX = k_EDOTA_MatchPlayerTimeCustomStat_MagicDamageReducedWithNewFormula_PercentOfTotalHP;
+constexpr int EDOTAMatchPlayerTimeCustomStat_ARRAYSIZE = EDOTAMatchPlayerTimeCustomStat_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EDOTAMatchPlayerTimeCustomStat_descriptor();
+template<typename T>
+inline const std::string& EDOTAMatchPlayerTimeCustomStat_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EDOTAMatchPlayerTimeCustomStat>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EDOTAMatchPlayerTimeCustomStat_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EDOTAMatchPlayerTimeCustomStat_descriptor(), enum_t_value);
+}
+inline bool EDOTAMatchPlayerTimeCustomStat_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EDOTAMatchPlayerTimeCustomStat* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EDOTAMatchPlayerTimeCustomStat>(
+    EDOTAMatchPlayerTimeCustomStat_descriptor(), name, value);
 }
 enum DOTA_TournamentEvents : int {
   TE_FIRST_BLOOD = 0,
@@ -1599,8 +1635,6 @@ class CSODOTAGameAccountClient final :
     kMatchDisabledCountFieldNumber = 42,
     kShutdownlawterminatetimestampFieldNumber = 47,
     kLowPriorityGamesRemainingFieldNumber = 48,
-    kCompetitiveRankFieldNumber = 49,
-    kCompetitiveCalibrationGamesRemainingFieldNumber = 51,
     kRecruitmentLevelFieldNumber = 55,
     kSecondaryLeaverCountFieldNumber = 58,
     kLastSecondaryAbandonedGameDateFieldNumber = 59,
@@ -1900,32 +1934,6 @@ class CSODOTAGameAccountClient final :
   private:
   uint32_t _internal_low_priority_games_remaining() const;
   void _internal_set_low_priority_games_remaining(uint32_t value);
-  public:
-
-  // optional uint32 competitive_rank = 49;
-  bool has_competitive_rank() const;
-  private:
-  bool _internal_has_competitive_rank() const;
-  public:
-  void clear_competitive_rank();
-  uint32_t competitive_rank() const;
-  void set_competitive_rank(uint32_t value);
-  private:
-  uint32_t _internal_competitive_rank() const;
-  void _internal_set_competitive_rank(uint32_t value);
-  public:
-
-  // optional uint32 competitive_calibration_games_remaining = 51;
-  bool has_competitive_calibration_games_remaining() const;
-  private:
-  bool _internal_has_competitive_calibration_games_remaining() const;
-  public:
-  void clear_competitive_calibration_games_remaining();
-  uint32_t competitive_calibration_games_remaining() const;
-  void set_competitive_calibration_games_remaining(uint32_t value);
-  private:
-  uint32_t _internal_competitive_calibration_games_remaining() const;
-  void _internal_set_competitive_calibration_games_remaining(uint32_t value);
   public:
 
   // optional uint32 recruitment_level = 55;
@@ -2413,8 +2421,6 @@ class CSODOTAGameAccountClient final :
     uint32_t match_disabled_count_;
     uint32_t shutdownlawterminatetimestamp_;
     uint32_t low_priority_games_remaining_;
-    uint32_t competitive_rank_;
-    uint32_t competitive_calibration_games_remaining_;
     uint32_t recruitment_level_;
     uint32_t secondary_leaver_count_;
     uint32_t last_secondary_abandoned_game_date_;
@@ -4154,6 +4160,181 @@ class CMatchPlayerAbilityUpgrade final :
 };
 // -------------------------------------------------------------------
 
+class CMatchPlayerTimedCustomStat final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMatchPlayerTimedCustomStat) */ {
+ public:
+  inline CMatchPlayerTimedCustomStat() : CMatchPlayerTimedCustomStat(nullptr) {}
+  ~CMatchPlayerTimedCustomStat() override;
+  explicit PROTOBUF_CONSTEXPR CMatchPlayerTimedCustomStat(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMatchPlayerTimedCustomStat(const CMatchPlayerTimedCustomStat& from);
+  CMatchPlayerTimedCustomStat(CMatchPlayerTimedCustomStat&& from) noexcept
+    : CMatchPlayerTimedCustomStat() {
+    *this = ::std::move(from);
+  }
+
+  inline CMatchPlayerTimedCustomStat& operator=(const CMatchPlayerTimedCustomStat& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMatchPlayerTimedCustomStat& operator=(CMatchPlayerTimedCustomStat&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMatchPlayerTimedCustomStat& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMatchPlayerTimedCustomStat* internal_default_instance() {
+    return reinterpret_cast<const CMatchPlayerTimedCustomStat*>(
+               &_CMatchPlayerTimedCustomStat_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  friend void swap(CMatchPlayerTimedCustomStat& a, CMatchPlayerTimedCustomStat& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMatchPlayerTimedCustomStat* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMatchPlayerTimedCustomStat* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMatchPlayerTimedCustomStat* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMatchPlayerTimedCustomStat>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMatchPlayerTimedCustomStat& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMatchPlayerTimedCustomStat& from) {
+    CMatchPlayerTimedCustomStat::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMatchPlayerTimedCustomStat* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMatchPlayerTimedCustomStat";
+  }
+  protected:
+  explicit CMatchPlayerTimedCustomStat(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValueFieldNumber = 3,
+    kStatFieldNumber = 2,
+  };
+  // optional float value = 3;
+  bool has_value() const;
+  private:
+  bool _internal_has_value() const;
+  public:
+  void clear_value();
+  float value() const;
+  void set_value(float value);
+  private:
+  float _internal_value() const;
+  void _internal_set_value(float value);
+  public:
+
+  // optional .EDOTAMatchPlayerTimeCustomStat stat = 2 [default = k_EDOTA_MatchPlayerTimeCustomStat_HPRegenUnderT1Towers];
+  bool has_stat() const;
+  private:
+  bool _internal_has_stat() const;
+  public:
+  void clear_stat();
+  ::EDOTAMatchPlayerTimeCustomStat stat() const;
+  void set_stat(::EDOTAMatchPlayerTimeCustomStat value);
+  private:
+  ::EDOTAMatchPlayerTimeCustomStat _internal_stat() const;
+  void _internal_set_stat(::EDOTAMatchPlayerTimeCustomStat value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMatchPlayerTimedCustomStat)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    float value_;
+    int stat_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fcommon_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMatchPlayerTimedStats final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMatchPlayerTimedStats) */ {
  public:
@@ -4209,7 +4390,7 @@ class CMatchPlayerTimedStats final :
                &_CMatchPlayerTimedStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(CMatchPlayerTimedStats& a, CMatchPlayerTimedStats& b) {
     a.Swap(&b);
@@ -4282,6 +4463,7 @@ class CMatchPlayerTimedStats final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kCustomStatsFieldNumber = 42,
     kTimeFieldNumber = 1,
     kKillsFieldNumber = 2,
     kDeathsFieldNumber = 3,
@@ -4312,11 +4494,6 @@ class CMatchPlayerTimedStats final :
     kCourierGoldFieldNumber = 28,
     kRoshanGoldFieldNumber = 29,
     kIncomeGoldFieldNumber = 30,
-    kCustomStats1FieldNumber = 31,
-    kCustomStats2FieldNumber = 32,
-    kCustomStats3FieldNumber = 33,
-    kCustomStats4FieldNumber = 34,
-    kCustomStats5FieldNumber = 35,
     kItemValueFieldNumber = 36,
     kSupportGoldSpentFieldNumber = 37,
     kCampsStackedFieldNumber = 38,
@@ -4324,6 +4501,24 @@ class CMatchPlayerTimedStats final :
     kTripleKillsFieldNumber = 40,
     kRampagesFieldNumber = 41,
   };
+  // repeated .CMatchPlayerTimedCustomStat custom_stats = 42;
+  int custom_stats_size() const;
+  private:
+  int _internal_custom_stats_size() const;
+  public:
+  void clear_custom_stats();
+  ::CMatchPlayerTimedCustomStat* mutable_custom_stats(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMatchPlayerTimedCustomStat >*
+      mutable_custom_stats();
+  private:
+  const ::CMatchPlayerTimedCustomStat& _internal_custom_stats(int index) const;
+  ::CMatchPlayerTimedCustomStat* _internal_add_custom_stats();
+  public:
+  const ::CMatchPlayerTimedCustomStat& custom_stats(int index) const;
+  ::CMatchPlayerTimedCustomStat* add_custom_stats();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMatchPlayerTimedCustomStat >&
+      custom_stats() const;
+
   // optional uint32 time = 1;
   bool has_time() const;
   private:
@@ -4714,71 +4909,6 @@ class CMatchPlayerTimedStats final :
   void _internal_set_income_gold(uint32_t value);
   public:
 
-  // optional uint32 custom_stats_1 = 31;
-  bool has_custom_stats_1() const;
-  private:
-  bool _internal_has_custom_stats_1() const;
-  public:
-  void clear_custom_stats_1();
-  uint32_t custom_stats_1() const;
-  void set_custom_stats_1(uint32_t value);
-  private:
-  uint32_t _internal_custom_stats_1() const;
-  void _internal_set_custom_stats_1(uint32_t value);
-  public:
-
-  // optional uint32 custom_stats_2 = 32;
-  bool has_custom_stats_2() const;
-  private:
-  bool _internal_has_custom_stats_2() const;
-  public:
-  void clear_custom_stats_2();
-  uint32_t custom_stats_2() const;
-  void set_custom_stats_2(uint32_t value);
-  private:
-  uint32_t _internal_custom_stats_2() const;
-  void _internal_set_custom_stats_2(uint32_t value);
-  public:
-
-  // optional uint32 custom_stats_3 = 33;
-  bool has_custom_stats_3() const;
-  private:
-  bool _internal_has_custom_stats_3() const;
-  public:
-  void clear_custom_stats_3();
-  uint32_t custom_stats_3() const;
-  void set_custom_stats_3(uint32_t value);
-  private:
-  uint32_t _internal_custom_stats_3() const;
-  void _internal_set_custom_stats_3(uint32_t value);
-  public:
-
-  // optional uint32 custom_stats_4 = 34;
-  bool has_custom_stats_4() const;
-  private:
-  bool _internal_has_custom_stats_4() const;
-  public:
-  void clear_custom_stats_4();
-  uint32_t custom_stats_4() const;
-  void set_custom_stats_4(uint32_t value);
-  private:
-  uint32_t _internal_custom_stats_4() const;
-  void _internal_set_custom_stats_4(uint32_t value);
-  public:
-
-  // optional uint32 custom_stats_5 = 35;
-  bool has_custom_stats_5() const;
-  private:
-  bool _internal_has_custom_stats_5() const;
-  public:
-  void clear_custom_stats_5();
-  uint32_t custom_stats_5() const;
-  void set_custom_stats_5(uint32_t value);
-  private:
-  uint32_t _internal_custom_stats_5() const;
-  void _internal_set_custom_stats_5(uint32_t value);
-  public:
-
   // optional uint32 item_value = 36;
   bool has_item_value() const;
   private:
@@ -4867,6 +4997,7 @@ class CMatchPlayerTimedStats final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<2> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMatchPlayerTimedCustomStat > custom_stats_;
     uint32_t time_;
     uint32_t kills_;
     uint32_t deaths_;
@@ -4897,11 +5028,6 @@ class CMatchPlayerTimedStats final :
     uint32_t courier_gold_;
     uint32_t roshan_gold_;
     uint32_t income_gold_;
-    uint32_t custom_stats_1_;
-    uint32_t custom_stats_2_;
-    uint32_t custom_stats_3_;
-    uint32_t custom_stats_4_;
-    uint32_t custom_stats_5_;
     uint32_t item_value_;
     uint32_t support_gold_spent_;
     uint32_t camps_stacked_;
@@ -4969,7 +5095,7 @@ class CMatchTeamTimedStats final :
                &_CMatchTeamTimedStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(CMatchTeamTimedStats& a, CMatchTeamTimedStats& b) {
     a.Swap(&b);
@@ -5189,7 +5315,7 @@ class CMatchAdditionalUnitInventory final :
                &_CMatchAdditionalUnitInventory_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(CMatchAdditionalUnitInventory& a, CMatchAdditionalUnitInventory& b) {
     a.Swap(&b);
@@ -5378,7 +5504,7 @@ class CMatchPlayerPermanentBuff final :
                &_CMatchPlayerPermanentBuff_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(CMatchPlayerPermanentBuff& a, CMatchPlayerPermanentBuff& b) {
     a.Swap(&b);
@@ -5568,7 +5694,7 @@ class CMatchHeroSelectEvent final :
                &_CMatchHeroSelectEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(CMatchHeroSelectEvent& a, CMatchHeroSelectEvent& b) {
     a.Swap(&b);
@@ -5758,7 +5884,7 @@ class CMatchClip final :
                &_CMatchClip_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(CMatchClip& a, CMatchClip& b) {
     a.Swap(&b);
@@ -6043,7 +6169,7 @@ class CPartySearchClientParty final :
                &_CPartySearchClientParty_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(CPartySearchClientParty& a, CPartySearchClientParty& b) {
     a.Swap(&b);
@@ -6242,7 +6368,7 @@ class CMsgDOTAHasItemQuery final :
                &_CMsgDOTAHasItemQuery_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(CMsgDOTAHasItemQuery& a, CMsgDOTAHasItemQuery& b) {
     a.Swap(&b);
@@ -6417,7 +6543,7 @@ class CMsgDOTAHasItemResponse final :
                &_CMsgDOTAHasItemResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(CMsgDOTAHasItemResponse& a, CMsgDOTAHasItemResponse& b) {
     a.Swap(&b);
@@ -6577,7 +6703,7 @@ class CMsgGCGetPlayerCardItemInfo final :
                &_CMsgGCGetPlayerCardItemInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(CMsgGCGetPlayerCardItemInfo& a, CMsgGCGetPlayerCardItemInfo& b) {
     a.Swap(&b);
@@ -6776,7 +6902,7 @@ class CMsgGCGetPlayerCardItemInfoResponse_PlayerCardInfo final :
                &_CMsgGCGetPlayerCardItemInfoResponse_PlayerCardInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(CMsgGCGetPlayerCardItemInfoResponse_PlayerCardInfo& a, CMsgGCGetPlayerCardItemInfoResponse_PlayerCardInfo& b) {
     a.Swap(&b);
@@ -6966,7 +7092,7 @@ class CMsgGCGetPlayerCardItemInfoResponse final :
                &_CMsgGCGetPlayerCardItemInfoResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(CMsgGCGetPlayerCardItemInfoResponse& a, CMsgGCGetPlayerCardItemInfoResponse& b) {
     a.Swap(&b);
@@ -7132,7 +7258,7 @@ class CSODOTAMapLocationState final :
                &_CSODOTAMapLocationState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(CSODOTAMapLocationState& a, CSODOTAMapLocationState& b) {
     a.Swap(&b);
@@ -7322,7 +7448,7 @@ class CMsgLeagueAdminList final :
                &_CMsgLeagueAdminList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(CMsgLeagueAdminList& a, CMsgLeagueAdminList& b) {
     a.Swap(&b);
@@ -7490,7 +7616,7 @@ class CMsgDOTAProfileCard_Slot_Trophy final :
                &_CMsgDOTAProfileCard_Slot_Trophy_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   friend void swap(CMsgDOTAProfileCard_Slot_Trophy& a, CMsgDOTAProfileCard_Slot_Trophy& b) {
     a.Swap(&b);
@@ -7665,7 +7791,7 @@ class CMsgDOTAProfileCard_Slot_Stat final :
                &_CMsgDOTAProfileCard_Slot_Stat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    26;
 
   friend void swap(CMsgDOTAProfileCard_Slot_Stat& a, CMsgDOTAProfileCard_Slot_Stat& b) {
     a.Swap(&b);
@@ -7840,7 +7966,7 @@ class CMsgDOTAProfileCard_Slot_Item final :
                &_CMsgDOTAProfileCard_Slot_Item_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    27;
 
   friend void swap(CMsgDOTAProfileCard_Slot_Item& a, CMsgDOTAProfileCard_Slot_Item& b) {
     a.Swap(&b);
@@ -8020,7 +8146,7 @@ class CMsgDOTAProfileCard_Slot_Hero final :
                &_CMsgDOTAProfileCard_Slot_Hero_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    28;
 
   friend void swap(CMsgDOTAProfileCard_Slot_Hero& a, CMsgDOTAProfileCard_Slot_Hero& b) {
     a.Swap(&b);
@@ -8210,7 +8336,7 @@ class CMsgDOTAProfileCard_Slot_Emoticon final :
                &_CMsgDOTAProfileCard_Slot_Emoticon_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    29;
 
   friend void swap(CMsgDOTAProfileCard_Slot_Emoticon& a, CMsgDOTAProfileCard_Slot_Emoticon& b) {
     a.Swap(&b);
@@ -8370,7 +8496,7 @@ class CMsgDOTAProfileCard_Slot_Team final :
                &_CMsgDOTAProfileCard_Slot_Team_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    30;
 
   friend void swap(CMsgDOTAProfileCard_Slot_Team& a, CMsgDOTAProfileCard_Slot_Team& b) {
     a.Swap(&b);
@@ -8530,7 +8656,7 @@ class CMsgDOTAProfileCard_Slot final :
                &_CMsgDOTAProfileCard_Slot_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    31;
 
   friend void swap(CMsgDOTAProfileCard_Slot& a, CMsgDOTAProfileCard_Slot& b) {
     a.Swap(&b);
@@ -8817,7 +8943,7 @@ class CMsgDOTAProfileCard final :
                &_CMsgDOTAProfileCard_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    32;
 
   friend void swap(CMsgDOTAProfileCard& a, CMsgDOTAProfileCard& b) {
     a.Swap(&b);
@@ -9237,7 +9363,7 @@ class CSODOTAPlayerChallenge final :
                &_CSODOTAPlayerChallenge_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    33;
 
   friend void swap(CSODOTAPlayerChallenge& a, CSODOTAPlayerChallenge& b) {
     a.Swap(&b);
@@ -9637,7 +9763,7 @@ class CMsgClientToGCRerollPlayerChallenge final :
                &_CMsgClientToGCRerollPlayerChallenge_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    34;
 
   friend void swap(CMsgClientToGCRerollPlayerChallenge& a, CMsgClientToGCRerollPlayerChallenge& b) {
     a.Swap(&b);
@@ -9827,7 +9953,7 @@ class CMsgGCRerollPlayerChallengeResponse final :
                &_CMsgGCRerollPlayerChallengeResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    35;
 
   friend void swap(CMsgGCRerollPlayerChallengeResponse& a, CMsgGCRerollPlayerChallengeResponse& b) {
     a.Swap(&b);
@@ -10023,7 +10149,7 @@ class CMsgGCTopCustomGamesList final :
                &_CMsgGCTopCustomGamesList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    36;
 
   friend void swap(CMsgGCTopCustomGamesList& a, CMsgGCTopCustomGamesList& b) {
     a.Swap(&b);
@@ -10207,7 +10333,7 @@ class CMsgDOTARealtimeGameStats_TeamDetails final :
                &_CMsgDOTARealtimeGameStats_TeamDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    37;
 
   friend void swap(CMsgDOTARealtimeGameStats_TeamDetails& a, CMsgDOTARealtimeGameStats_TeamDetails& b) {
     a.Swap(&b);
@@ -10537,7 +10663,7 @@ class CMsgDOTARealtimeGameStats_ItemDetails final :
                &_CMsgDOTARealtimeGameStats_ItemDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    38;
 
   friend void swap(CMsgDOTARealtimeGameStats_ItemDetails& a, CMsgDOTARealtimeGameStats_ItemDetails& b) {
     a.Swap(&b);
@@ -10762,7 +10888,7 @@ class CMsgDOTARealtimeGameStats_AbilityDetails final :
                &_CMsgDOTARealtimeGameStats_AbilityDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    39;
 
   friend void swap(CMsgDOTARealtimeGameStats_AbilityDetails& a, CMsgDOTARealtimeGameStats_AbilityDetails& b) {
     a.Swap(&b);
@@ -10987,7 +11113,7 @@ class CMsgDOTARealtimeGameStats_HeroToHeroStats final :
                &_CMsgDOTARealtimeGameStats_HeroToHeroStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    40;
 
   friend void swap(CMsgDOTARealtimeGameStats_HeroToHeroStats& a, CMsgDOTARealtimeGameStats_HeroToHeroStats& b) {
     a.Swap(&b);
@@ -11177,7 +11303,7 @@ class CMsgDOTARealtimeGameStats_AbilityList final :
                &_CMsgDOTARealtimeGameStats_AbilityList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    41;
 
   friend void swap(CMsgDOTARealtimeGameStats_AbilityList& a, CMsgDOTARealtimeGameStats_AbilityList& b) {
     a.Swap(&b);
@@ -11345,7 +11471,7 @@ class CMsgDOTARealtimeGameStats_PlayerDetails final :
                &_CMsgDOTARealtimeGameStats_PlayerDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    42;
 
   friend void swap(CMsgDOTARealtimeGameStats_PlayerDetails& a, CMsgDOTARealtimeGameStats_PlayerDetails& b) {
     a.Swap(&b);
@@ -12260,7 +12386,7 @@ class CMsgDOTARealtimeGameStats_BuildingDetails final :
                &_CMsgDOTARealtimeGameStats_BuildingDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    43;
 
   friend void swap(CMsgDOTARealtimeGameStats_BuildingDetails& a, CMsgDOTARealtimeGameStats_BuildingDetails& b) {
     a.Swap(&b);
@@ -12525,7 +12651,7 @@ class CMsgDOTARealtimeGameStats_KillDetails final :
                &_CMsgDOTARealtimeGameStats_KillDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    44;
 
   friend void swap(CMsgDOTARealtimeGameStats_KillDetails& a, CMsgDOTARealtimeGameStats_KillDetails& b) {
     a.Swap(&b);
@@ -12715,7 +12841,7 @@ class CMsgDOTARealtimeGameStats_BroadcasterDetails final :
                &_CMsgDOTARealtimeGameStats_BroadcasterDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    45;
 
   friend void swap(CMsgDOTARealtimeGameStats_BroadcasterDetails& a, CMsgDOTARealtimeGameStats_BroadcasterDetails& b) {
     a.Swap(&b);
@@ -12875,7 +13001,7 @@ class CMsgDOTARealtimeGameStats_PickBanDetails final :
                &_CMsgDOTARealtimeGameStats_PickBanDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    46;
 
   friend void swap(CMsgDOTARealtimeGameStats_PickBanDetails& a, CMsgDOTARealtimeGameStats_PickBanDetails& b) {
     a.Swap(&b);
@@ -13050,7 +13176,7 @@ class CMsgDOTARealtimeGameStats_MatchDetails final :
                &_CMsgDOTARealtimeGameStats_MatchDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    47;
 
   friend void swap(CMsgDOTARealtimeGameStats_MatchDetails& a, CMsgDOTARealtimeGameStats_MatchDetails& b) {
     a.Swap(&b);
@@ -13515,7 +13641,7 @@ class CMsgDOTARealtimeGameStats_GraphData_LocationStats final :
                &_CMsgDOTARealtimeGameStats_GraphData_LocationStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    48;
 
   friend void swap(CMsgDOTARealtimeGameStats_GraphData_LocationStats& a, CMsgDOTARealtimeGameStats_GraphData_LocationStats& b) {
     a.Swap(&b);
@@ -13683,7 +13809,7 @@ class CMsgDOTARealtimeGameStats_GraphData_TeamLocationStats final :
                &_CMsgDOTARealtimeGameStats_GraphData_TeamLocationStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    49;
 
   friend void swap(CMsgDOTARealtimeGameStats_GraphData_TeamLocationStats& a, CMsgDOTARealtimeGameStats_GraphData_TeamLocationStats& b) {
     a.Swap(&b);
@@ -13847,7 +13973,7 @@ class CMsgDOTARealtimeGameStats_GraphData final :
                &_CMsgDOTARealtimeGameStats_GraphData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    50;
 
   friend void swap(CMsgDOTARealtimeGameStats_GraphData& a, CMsgDOTARealtimeGameStats_GraphData& b) {
     a.Swap(&b);
@@ -14206,7 +14332,7 @@ class CMsgDOTARealtimeGameStats final :
                &_CMsgDOTARealtimeGameStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    51;
 
   friend void swap(CMsgDOTARealtimeGameStats& a, CMsgDOTARealtimeGameStats& b) {
     a.Swap(&b);
@@ -14459,7 +14585,7 @@ class CMsgDOTARealtimeGameStatsTerse_TeamDetails final :
                &_CMsgDOTARealtimeGameStatsTerse_TeamDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    52;
 
   friend void swap(CMsgDOTARealtimeGameStatsTerse_TeamDetails& a, CMsgDOTARealtimeGameStatsTerse_TeamDetails& b) {
     a.Swap(&b);
@@ -14759,7 +14885,7 @@ class CMsgDOTARealtimeGameStatsTerse_PlayerDetails final :
                &_CMsgDOTARealtimeGameStatsTerse_PlayerDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    52;
+    53;
 
   friend void swap(CMsgDOTARealtimeGameStatsTerse_PlayerDetails& a, CMsgDOTARealtimeGameStatsTerse_PlayerDetails& b) {
     a.Swap(&b);
@@ -15182,7 +15308,7 @@ class CMsgDOTARealtimeGameStatsTerse_BuildingDetails final :
                &_CMsgDOTARealtimeGameStatsTerse_BuildingDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    53;
+    54;
 
   friend void swap(CMsgDOTARealtimeGameStatsTerse_BuildingDetails& a, CMsgDOTARealtimeGameStatsTerse_BuildingDetails& b) {
     a.Swap(&b);
@@ -15447,7 +15573,7 @@ class CMsgDOTARealtimeGameStatsTerse_PickBanDetails final :
                &_CMsgDOTARealtimeGameStatsTerse_PickBanDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    54;
+    55;
 
   friend void swap(CMsgDOTARealtimeGameStatsTerse_PickBanDetails& a, CMsgDOTARealtimeGameStatsTerse_PickBanDetails& b) {
     a.Swap(&b);
@@ -15622,7 +15748,7 @@ class CMsgDOTARealtimeGameStatsTerse_MatchDetails final :
                &_CMsgDOTARealtimeGameStatsTerse_MatchDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    55;
+    56;
 
   friend void swap(CMsgDOTARealtimeGameStatsTerse_MatchDetails& a, CMsgDOTARealtimeGameStatsTerse_MatchDetails& b) {
     a.Swap(&b);
@@ -15981,7 +16107,7 @@ class CMsgDOTARealtimeGameStatsTerse_GraphData final :
                &_CMsgDOTARealtimeGameStatsTerse_GraphData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    56;
+    57;
 
   friend void swap(CMsgDOTARealtimeGameStatsTerse_GraphData& a, CMsgDOTARealtimeGameStatsTerse_GraphData& b) {
     a.Swap(&b);
@@ -16149,7 +16275,7 @@ class CMsgDOTARealtimeGameStatsTerse final :
                &_CMsgDOTARealtimeGameStatsTerse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    57;
+    58;
 
   friend void swap(CMsgDOTARealtimeGameStatsTerse& a, CMsgDOTARealtimeGameStatsTerse& b) {
     a.Swap(&b);
@@ -16396,7 +16522,7 @@ class CMsgDOTABroadcastTimelineEvent final :
                &_CMsgDOTABroadcastTimelineEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    58;
+    59;
 
   friend void swap(CMsgDOTABroadcastTimelineEvent& a, CMsgDOTABroadcastTimelineEvent& b) {
     a.Swap(&b);
@@ -16606,7 +16732,7 @@ class CMsgGCToClientMatchGroupsVersion final :
                &_CMsgGCToClientMatchGroupsVersion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    59;
+    60;
 
   friend void swap(CMsgGCToClientMatchGroupsVersion& a, CMsgGCToClientMatchGroupsVersion& b) {
     a.Swap(&b);
@@ -16766,7 +16892,7 @@ class CMsgDOTASDOHeroStatsHistory final :
                &_CMsgDOTASDOHeroStatsHistory_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    60;
+    61;
 
   friend void swap(CMsgDOTASDOHeroStatsHistory& a, CMsgDOTASDOHeroStatsHistory& b) {
     a.Swap(&b);
@@ -17061,7 +17187,7 @@ class CMsgPredictionChoice final :
                &_CMsgPredictionChoice_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    61;
+    62;
 
   friend void swap(CMsgPredictionChoice& a, CMsgPredictionChoice& b) {
     a.Swap(&b);
@@ -17271,7 +17397,7 @@ class CMsgInGamePrediction_QueryKeyValues final :
                &_CMsgInGamePrediction_QueryKeyValues_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    62;
+    63;
 
   friend void swap(CMsgInGamePrediction_QueryKeyValues& a, CMsgInGamePrediction_QueryKeyValues& b) {
     a.Swap(&b);
@@ -17456,7 +17582,7 @@ class CMsgInGamePrediction final :
                &_CMsgInGamePrediction_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    63;
+    64;
 
   friend void swap(CMsgInGamePrediction& a, CMsgInGamePrediction& b) {
     a.Swap(&b);
@@ -17997,7 +18123,7 @@ class CMsgDOTASeasonPredictions_Prediction_Answers final :
                &_CMsgDOTASeasonPredictions_Prediction_Answers_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    64;
+    65;
 
   friend void swap(CMsgDOTASeasonPredictions_Prediction_Answers& a, CMsgDOTASeasonPredictions_Prediction_Answers& b) {
     a.Swap(&b);
@@ -18157,7 +18283,7 @@ class CMsgDOTASeasonPredictions_Prediction final :
                &_CMsgDOTASeasonPredictions_Prediction_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    65;
+    66;
 
   friend void swap(CMsgDOTASeasonPredictions_Prediction& a, CMsgDOTASeasonPredictions_Prediction& b) {
     a.Swap(&b);
@@ -18682,7 +18808,7 @@ class CMsgDOTASeasonPredictions final :
                &_CMsgDOTASeasonPredictions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    66;
+    67;
 
   friend void swap(CMsgDOTASeasonPredictions& a, CMsgDOTASeasonPredictions& b) {
     a.Swap(&b);
@@ -18899,7 +19025,7 @@ class CMsgAvailablePredictions_MatchPrediction final :
                &_CMsgAvailablePredictions_MatchPrediction_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    67;
+    68;
 
   friend void swap(CMsgAvailablePredictions_MatchPrediction& a, CMsgAvailablePredictions_MatchPrediction& b) {
     a.Swap(&b);
@@ -19079,7 +19205,7 @@ class CMsgAvailablePredictions final :
                &_CMsgAvailablePredictions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    68;
+    69;
 
   friend void swap(CMsgAvailablePredictions& a, CMsgAvailablePredictions& b) {
     a.Swap(&b);
@@ -19245,7 +19371,7 @@ class CMsgLeagueWatchedGames_Series final :
                &_CMsgLeagueWatchedGames_Series_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    69;
+    70;
 
   friend void swap(CMsgLeagueWatchedGames_Series& a, CMsgLeagueWatchedGames_Series& b) {
     a.Swap(&b);
@@ -19429,7 +19555,7 @@ class CMsgLeagueWatchedGames_League final :
                &_CMsgLeagueWatchedGames_League_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    70;
+    71;
 
   friend void swap(CMsgLeagueWatchedGames_League& a, CMsgLeagueWatchedGames_League& b) {
     a.Swap(&b);
@@ -19609,7 +19735,7 @@ class CMsgLeagueWatchedGames final :
                &_CMsgLeagueWatchedGames_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    71;
+    72;
 
   friend void swap(CMsgLeagueWatchedGames& a, CMsgLeagueWatchedGames& b) {
     a.Swap(&b);
@@ -19776,7 +19902,7 @@ class CMsgDOTAMatch_Player_CustomGameData final :
                &_CMsgDOTAMatch_Player_CustomGameData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    72;
+    73;
 
   friend void swap(CMsgDOTAMatch_Player_CustomGameData& a, CMsgDOTAMatch_Player_CustomGameData& b) {
     a.Swap(&b);
@@ -19951,7 +20077,7 @@ class CMsgDOTAMatch_Player_HeroDamageReceived final :
                &_CMsgDOTAMatch_Player_HeroDamageReceived_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    73;
+    74;
 
   friend void swap(CMsgDOTAMatch_Player_HeroDamageReceived& a, CMsgDOTAMatch_Player_HeroDamageReceived& b) {
     a.Swap(&b);
@@ -20141,7 +20267,7 @@ class CMsgDOTAMatch_Player final :
                &_CMsgDOTAMatch_Player_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    74;
+    75;
 
   friend void swap(CMsgDOTAMatch_Player& a, CMsgDOTAMatch_Player& b) {
     a.Swap(&b);
@@ -21461,7 +21587,7 @@ class CMsgDOTAMatch_BroadcasterInfo final :
                &_CMsgDOTAMatch_BroadcasterInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    75;
+    76;
 
   friend void swap(CMsgDOTAMatch_BroadcasterInfo& a, CMsgDOTAMatch_BroadcasterInfo& b) {
     a.Swap(&b);
@@ -21641,7 +21767,7 @@ class CMsgDOTAMatch_BroadcasterChannel final :
                &_CMsgDOTAMatch_BroadcasterChannel_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    76;
+    77;
 
   friend void swap(CMsgDOTAMatch_BroadcasterChannel& a, CMsgDOTAMatch_BroadcasterChannel& b) {
     a.Swap(&b);
@@ -21866,7 +21992,7 @@ class CMsgDOTAMatch_Coach final :
                &_CMsgDOTAMatch_Coach_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    77;
+    78;
 
   friend void swap(CMsgDOTAMatch_Coach& a, CMsgDOTAMatch_Coach& b) {
     a.Swap(&b);
@@ -22106,7 +22232,7 @@ class CMsgDOTAMatch_CustomGameData final :
                &_CMsgDOTAMatch_CustomGameData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    78;
+    79;
 
   friend void swap(CMsgDOTAMatch_CustomGameData& a, CMsgDOTAMatch_CustomGameData& b) {
     a.Swap(&b);
@@ -22286,7 +22412,7 @@ class CMsgDOTAMatch final :
                &_CMsgDOTAMatch_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    79;
+    80;
 
   friend void swap(CMsgDOTAMatch& a, CMsgDOTAMatch& b) {
     a.Swap(&b);
@@ -23292,7 +23418,7 @@ class CMsgPlayerCard_StatModifier final :
                &_CMsgPlayerCard_StatModifier_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    80;
+    81;
 
   friend void swap(CMsgPlayerCard_StatModifier& a, CMsgPlayerCard_StatModifier& b) {
     a.Swap(&b);
@@ -23467,7 +23593,7 @@ class CMsgPlayerCard final :
                &_CMsgPlayerCard_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    81;
+    82;
 
   friend void swap(CMsgPlayerCard& a, CMsgPlayerCard& b) {
     a.Swap(&b);
@@ -23649,7 +23775,7 @@ class CMsgDOTAFantasyPlayerStats final :
                &_CMsgDOTAFantasyPlayerStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    82;
+    83;
 
   friend void swap(CMsgDOTAFantasyPlayerStats& a, CMsgDOTAFantasyPlayerStats& b) {
     a.Swap(&b);
@@ -24094,7 +24220,7 @@ class CMsgDOTAFantasyPlayerMatchStats final :
                &_CMsgDOTAFantasyPlayerMatchStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    83;
+    84;
 
   friend void swap(CMsgDOTAFantasyPlayerMatchStats& a, CMsgDOTAFantasyPlayerMatchStats& b) {
     a.Swap(&b);
@@ -24258,7 +24384,7 @@ class CMsgDOTABotDebugInfo_Bot_Mode final :
                &_CMsgDOTABotDebugInfo_Bot_Mode_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    84;
+    85;
 
   friend void swap(CMsgDOTABotDebugInfo_Bot_Mode& a, CMsgDOTABotDebugInfo_Bot_Mode& b) {
     a.Swap(&b);
@@ -24493,7 +24619,7 @@ class CMsgDOTABotDebugInfo_Bot_Action final :
                &_CMsgDOTABotDebugInfo_Bot_Action_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    85;
+    86;
 
   friend void swap(CMsgDOTABotDebugInfo_Bot_Action& a, CMsgDOTABotDebugInfo_Bot_Action& b) {
     a.Swap(&b);
@@ -24673,7 +24799,7 @@ class CMsgDOTABotDebugInfo_Bot final :
                &_CMsgDOTABotDebugInfo_Bot_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    86;
+    87;
 
   friend void swap(CMsgDOTABotDebugInfo_Bot& a, CMsgDOTABotDebugInfo_Bot& b) {
     a.Swap(&b);
@@ -25011,7 +25137,7 @@ class CMsgDOTABotDebugInfo final :
                &_CMsgDOTABotDebugInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    87;
+    88;
 
   friend void swap(CMsgDOTABotDebugInfo& a, CMsgDOTABotDebugInfo& b) {
     a.Swap(&b);
@@ -25367,7 +25493,7 @@ class CMsgSuccessfulHero final :
                &_CMsgSuccessfulHero_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    88;
+    89;
 
   friend void swap(CMsgSuccessfulHero& a, CMsgSuccessfulHero& b) {
     a.Swap(&b);
@@ -25557,7 +25683,7 @@ class CMsgRecentMatchInfo final :
                &_CMsgRecentMatchInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    89;
+    90;
 
   friend void swap(CMsgRecentMatchInfo& a, CMsgRecentMatchInfo& b) {
     a.Swap(&b);
@@ -25867,7 +25993,7 @@ class CMsgMatchTips_SingleTip final :
                &_CMsgMatchTips_SingleTip_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    90;
+    91;
 
   friend void swap(CMsgMatchTips_SingleTip& a, CMsgMatchTips_SingleTip& b) {
     a.Swap(&b);
@@ -26072,7 +26198,7 @@ class CMsgMatchTips final :
                &_CMsgMatchTips_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    91;
+    92;
 
   friend void swap(CMsgMatchTips& a, CMsgMatchTips& b) {
     a.Swap(&b);
@@ -26238,7 +26364,7 @@ class CMsgDOTAMatchMinimal_Player final :
                &_CMsgDOTAMatchMinimal_Player_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    92;
+    93;
 
   friend void swap(CMsgDOTAMatchMinimal_Player& a, CMsgDOTAMatchMinimal_Player& b) {
     a.Swap(&b);
@@ -26547,7 +26673,7 @@ class CMsgDOTAMatchMinimal_Tourney final :
                &_CMsgDOTAMatchMinimal_Tourney_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    93;
+    94;
 
   friend void swap(CMsgDOTAMatchMinimal_Tourney& a, CMsgDOTAMatchMinimal_Tourney& b) {
     a.Swap(&b);
@@ -26937,7 +27063,7 @@ class CMsgDOTAMatchMinimal final :
                &_CMsgDOTAMatchMinimal_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    94;
+    95;
 
   friend void swap(CMsgDOTAMatchMinimal& a, CMsgDOTAMatchMinimal& b) {
     a.Swap(&b);
@@ -27245,7 +27371,7 @@ class CMsgConsumableUsage final :
                &_CMsgConsumableUsage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    95;
+    96;
 
   friend void swap(CMsgConsumableUsage& a, CMsgConsumableUsage& b) {
     a.Swap(&b);
@@ -27420,7 +27546,7 @@ class CMsgMatchConsumableUsage_PlayerUsage final :
                &_CMsgMatchConsumableUsage_PlayerUsage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    96;
+    97;
 
   friend void swap(CMsgMatchConsumableUsage_PlayerUsage& a, CMsgMatchConsumableUsage_PlayerUsage& b) {
     a.Swap(&b);
@@ -27600,7 +27726,7 @@ class CMsgMatchConsumableUsage final :
                &_CMsgMatchConsumableUsage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    97;
+    98;
 
   friend void swap(CMsgMatchConsumableUsage& a, CMsgMatchConsumableUsage& b) {
     a.Swap(&b);
@@ -27766,7 +27892,7 @@ class CMsgMatchEventActionGrants_PlayerGrants final :
                &_CMsgMatchEventActionGrants_PlayerGrants_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    98;
+    99;
 
   friend void swap(CMsgMatchEventActionGrants_PlayerGrants& a, CMsgMatchEventActionGrants_PlayerGrants& b) {
     a.Swap(&b);
@@ -27946,7 +28072,7 @@ class CMsgMatchEventActionGrants final :
                &_CMsgMatchEventActionGrants_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    99;
+    100;
 
   friend void swap(CMsgMatchEventActionGrants& a, CMsgMatchEventActionGrants& b) {
     a.Swap(&b);
@@ -28112,7 +28238,7 @@ class CMsgCustomGameWhitelist final :
                &_CMsgCustomGameWhitelist_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    100;
+    101;
 
   friend void swap(CMsgCustomGameWhitelist& a, CMsgCustomGameWhitelist& b) {
     a.Swap(&b);
@@ -28311,7 +28437,7 @@ class CMsgCustomGameWhitelistForEdit_WhitelistEntry final :
                &_CMsgCustomGameWhitelistForEdit_WhitelistEntry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    101;
+    102;
 
   friend void swap(CMsgCustomGameWhitelistForEdit_WhitelistEntry& a, CMsgCustomGameWhitelistForEdit_WhitelistEntry& b) {
     a.Swap(&b);
@@ -28486,7 +28612,7 @@ class CMsgCustomGameWhitelistForEdit final :
                &_CMsgCustomGameWhitelistForEdit_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    102;
+    103;
 
   friend void swap(CMsgCustomGameWhitelistForEdit& a, CMsgCustomGameWhitelistForEdit& b) {
     a.Swap(&b);
@@ -28652,7 +28778,7 @@ class CMsgPlayerRecentMatchInfo final :
                &_CMsgPlayerRecentMatchInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    103;
+    104;
 
   friend void swap(CMsgPlayerRecentMatchInfo& a, CMsgPlayerRecentMatchInfo& b) {
     a.Swap(&b);
@@ -28917,7 +29043,7 @@ class CMsgPlayerMatchRecord final :
                &_CMsgPlayerMatchRecord_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    104;
+    105;
 
   friend void swap(CMsgPlayerMatchRecord& a, CMsgPlayerMatchRecord& b) {
     a.Swap(&b);
@@ -29092,7 +29218,7 @@ class CMsgPlayerRecentMatchOutcomes final :
                &_CMsgPlayerRecentMatchOutcomes_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    105;
+    106;
 
   friend void swap(CMsgPlayerRecentMatchOutcomes& a, CMsgPlayerRecentMatchOutcomes& b) {
     a.Swap(&b);
@@ -29267,7 +29393,7 @@ class CMsgPlayerRecentCommends final :
                &_CMsgPlayerRecentCommends_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    106;
+    107;
 
   friend void swap(CMsgPlayerRecentCommends& a, CMsgPlayerRecentCommends& b) {
     a.Swap(&b);
@@ -29442,7 +29568,7 @@ class CMsgPlayerRecentAccomplishments final :
                &_CMsgPlayerRecentAccomplishments_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    107;
+    108;
 
   friend void swap(CMsgPlayerRecentAccomplishments& a, CMsgPlayerRecentAccomplishments& b) {
     a.Swap(&b);
@@ -29732,7 +29858,7 @@ class CMsgPlayerHeroRecentAccomplishments final :
                &_CMsgPlayerHeroRecentAccomplishments_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    108;
+    109;
 
   friend void swap(CMsgPlayerHeroRecentAccomplishments& a, CMsgPlayerHeroRecentAccomplishments& b) {
     a.Swap(&b);
@@ -29937,7 +30063,7 @@ class CMsgRecentAccomplishments final :
                &_CMsgRecentAccomplishments_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    109;
+    110;
 
   friend void swap(CMsgRecentAccomplishments& a, CMsgRecentAccomplishments& b) {
     a.Swap(&b);
@@ -30122,7 +30248,7 @@ class CMsgServerToGCRequestPlayerRecentAccomplishments final :
                &_CMsgServerToGCRequestPlayerRecentAccomplishments_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    110;
+    111;
 
   friend void swap(CMsgServerToGCRequestPlayerRecentAccomplishments& a, CMsgServerToGCRequestPlayerRecentAccomplishments& b) {
     a.Swap(&b);
@@ -30297,7 +30423,7 @@ class CMsgServerToGCRequestPlayerRecentAccomplishmentsResponse final :
                &_CMsgServerToGCRequestPlayerRecentAccomplishmentsResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    111;
+    112;
 
   friend void swap(CMsgServerToGCRequestPlayerRecentAccomplishmentsResponse& a, CMsgServerToGCRequestPlayerRecentAccomplishmentsResponse& b) {
     a.Swap(&b);
@@ -30511,7 +30637,7 @@ class CMsgArcanaVoteMatchVotes final :
                &_CMsgArcanaVoteMatchVotes_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    112;
+    113;
 
   friend void swap(CMsgArcanaVoteMatchVotes& a, CMsgArcanaVoteMatchVotes& b) {
     a.Swap(&b);
@@ -30701,7 +30827,7 @@ class CMsgGCtoGCAssociatedExploiterAccountInfo final :
                &_CMsgGCtoGCAssociatedExploiterAccountInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    113;
+    114;
 
   friend void swap(CMsgGCtoGCAssociatedExploiterAccountInfo& a, CMsgGCtoGCAssociatedExploiterAccountInfo& b) {
     a.Swap(&b);
@@ -30906,7 +31032,7 @@ class CMsgGCtoGCAssociatedExploiterAccountInfoResponse_Account final :
                &_CMsgGCtoGCAssociatedExploiterAccountInfoResponse_Account_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    114;
+    115;
 
   friend void swap(CMsgGCtoGCAssociatedExploiterAccountInfoResponse_Account& a, CMsgGCtoGCAssociatedExploiterAccountInfoResponse_Account& b) {
     a.Swap(&b);
@@ -31161,7 +31287,7 @@ class CMsgGCtoGCAssociatedExploiterAccountInfoResponse final :
                &_CMsgGCtoGCAssociatedExploiterAccountInfoResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    115;
+    116;
 
   friend void swap(CMsgGCtoGCAssociatedExploiterAccountInfoResponse& a, CMsgGCtoGCAssociatedExploiterAccountInfoResponse& b) {
     a.Swap(&b);
@@ -31327,7 +31453,7 @@ class CMsgPullTabsData_Slot final :
                &_CMsgPullTabsData_Slot_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    116;
+    117;
 
   friend void swap(CMsgPullTabsData_Slot& a, CMsgPullTabsData_Slot& b) {
     a.Swap(&b);
@@ -31547,7 +31673,7 @@ class CMsgPullTabsData_Jackpot final :
                &_CMsgPullTabsData_Jackpot_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    117;
+    118;
 
   friend void swap(CMsgPullTabsData_Jackpot& a, CMsgPullTabsData_Jackpot& b) {
     a.Swap(&b);
@@ -31737,7 +31863,7 @@ class CMsgPullTabsData final :
                &_CMsgPullTabsData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    118;
+    119;
 
   friend void swap(CMsgPullTabsData& a, CMsgPullTabsData& b) {
     a.Swap(&b);
@@ -31940,7 +32066,7 @@ class CMsgUnderDraftData_BenchSlot final :
                &_CMsgUnderDraftData_BenchSlot_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    119;
+    120;
 
   friend void swap(CMsgUnderDraftData_BenchSlot& a, CMsgUnderDraftData_BenchSlot& b) {
     a.Swap(&b);
@@ -32130,7 +32256,7 @@ class CMsgUnderDraftData_ShopSlot final :
                &_CMsgUnderDraftData_ShopSlot_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    120;
+    121;
 
   friend void swap(CMsgUnderDraftData_ShopSlot& a, CMsgUnderDraftData_ShopSlot& b) {
     a.Swap(&b);
@@ -32320,7 +32446,7 @@ class CMsgUnderDraftData final :
                &_CMsgUnderDraftData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    121;
+    122;
 
   friend void swap(CMsgUnderDraftData& a, CMsgUnderDraftData& b) {
     a.Swap(&b);
@@ -32553,7 +32679,7 @@ class CMsgPlayerTitleData final :
                &_CMsgPlayerTitleData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    122;
+    123;
 
   friend void swap(CMsgPlayerTitleData& a, CMsgPlayerTitleData& b) {
     a.Swap(&b);
@@ -32761,7 +32887,7 @@ class CMsgDOTATriviaQuestion final :
                &_CMsgDOTATriviaQuestion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    123;
+    124;
 
   friend void swap(CMsgDOTATriviaQuestion& a, CMsgDOTATriviaQuestion& b) {
     a.Swap(&b);
@@ -33012,7 +33138,7 @@ class CMsgDOTATriviaQuestionAnswersSummary final :
                &_CMsgDOTATriviaQuestionAnswersSummary_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    124;
+    125;
 
   friend void swap(CMsgDOTATriviaQuestionAnswersSummary& a, CMsgDOTATriviaQuestionAnswersSummary& b) {
     a.Swap(&b);
@@ -33196,7 +33322,7 @@ class CMsgGameDataSpecialValueBonus final :
                &_CMsgGameDataSpecialValueBonus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    125;
+    126;
 
   friend void swap(CMsgGameDataSpecialValueBonus& a, CMsgGameDataSpecialValueBonus& b) {
     a.Swap(&b);
@@ -33391,7 +33517,7 @@ class CMsgGameDataSpecialValues final :
                &_CMsgGameDataSpecialValues_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    126;
+    127;
 
   friend void swap(CMsgGameDataSpecialValues& a, CMsgGameDataSpecialValues& b) {
     a.Swap(&b);
@@ -33466,6 +33592,8 @@ class CMsgGameDataSpecialValues final :
   enum : int {
     kValuesFloatFieldNumber = 2,
     kBonusesFieldNumber = 6,
+    kValuesShardFieldNumber = 7,
+    kValuesScepterFieldNumber = 8,
     kNameFieldNumber = 1,
     kHeadingLocFieldNumber = 5,
     kIsPercentageFieldNumber = 4,
@@ -33509,6 +33637,50 @@ class CMsgGameDataSpecialValues final :
   ::CMsgGameDataSpecialValueBonus* add_bonuses();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgGameDataSpecialValueBonus >&
       bonuses() const;
+
+  // repeated float values_shard = 7;
+  int values_shard_size() const;
+  private:
+  int _internal_values_shard_size() const;
+  public:
+  void clear_values_shard();
+  private:
+  float _internal_values_shard(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      _internal_values_shard() const;
+  void _internal_add_values_shard(float value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      _internal_mutable_values_shard();
+  public:
+  float values_shard(int index) const;
+  void set_values_shard(int index, float value);
+  void add_values_shard(float value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      values_shard() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      mutable_values_shard();
+
+  // repeated float values_scepter = 8;
+  int values_scepter_size() const;
+  private:
+  int _internal_values_scepter_size() const;
+  public:
+  void clear_values_scepter();
+  private:
+  float _internal_values_scepter(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      _internal_values_scepter() const;
+  void _internal_add_values_scepter(float value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      _internal_mutable_values_scepter();
+  public:
+  float values_scepter(int index) const;
+  void set_values_scepter(int index, float value);
+  void add_values_scepter(float value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      values_scepter() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      mutable_values_scepter();
 
   // optional string name = 1;
   bool has_name() const;
@@ -33571,6 +33743,8 @@ class CMsgGameDataSpecialValues final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > values_float_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgGameDataSpecialValueBonus > bonuses_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > values_shard_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > values_scepter_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr heading_loc_;
     bool is_percentage_;
@@ -33635,7 +33809,7 @@ class CMsgGameDataAbilityOrItem final :
                &_CMsgGameDataAbilityOrItem_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    127;
+    128;
 
   friend void swap(CMsgGameDataAbilityOrItem& a, CMsgGameDataAbilityOrItem& b) {
     a.Swap(&b);
@@ -33717,6 +33891,7 @@ class CMsgGameDataAbilityOrItem final :
     kDamagesFieldNumber = 35,
     kManaCostsFieldNumber = 36,
     kGoldCostsFieldNumber = 37,
+    kHealthCostsFieldNumber = 38,
     kSpecialValuesFieldNumber = 40,
     kNameFieldNumber = 2,
     kNameLocFieldNumber = 5,
@@ -33945,6 +34120,28 @@ class CMsgGameDataAbilityOrItem final :
       gold_costs() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
       mutable_gold_costs();
+
+  // repeated uint32 health_costs = 38;
+  int health_costs_size() const;
+  private:
+  int _internal_health_costs_size() const;
+  public:
+  void clear_health_costs();
+  private:
+  uint32_t _internal_health_costs(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_health_costs() const;
+  void _internal_add_health_costs(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_health_costs();
+  public:
+  uint32_t health_costs(int index) const;
+  void set_health_costs(int index, uint32_t value);
+  void add_health_costs(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      health_costs() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_health_costs();
 
   // repeated .CMsgGameDataSpecialValues special_values = 40;
   int special_values_size() const;
@@ -34364,6 +34561,7 @@ class CMsgGameDataAbilityOrItem final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > damages_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > mana_costs_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > gold_costs_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > health_costs_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgGameDataSpecialValues > special_values_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_loc_;
@@ -34453,7 +34651,7 @@ class CMsgGameDataHero final :
                &_CMsgGameDataHero_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    128;
+    129;
 
   friend void swap(CMsgGameDataHero& a, CMsgGameDataHero& b) {
     a.Swap(&b);
@@ -34852,30 +35050,30 @@ class CMsgGameDataHero final :
   void _internal_set_attack_capability(uint32_t value);
   public:
 
-  // optional uint32 damage_min = 24;
+  // optional int32 damage_min = 24;
   bool has_damage_min() const;
   private:
   bool _internal_has_damage_min() const;
   public:
   void clear_damage_min();
-  uint32_t damage_min() const;
-  void set_damage_min(uint32_t value);
+  int32_t damage_min() const;
+  void set_damage_min(int32_t value);
   private:
-  uint32_t _internal_damage_min() const;
-  void _internal_set_damage_min(uint32_t value);
+  int32_t _internal_damage_min() const;
+  void _internal_set_damage_min(int32_t value);
   public:
 
-  // optional uint32 damage_max = 25;
+  // optional int32 damage_max = 25;
   bool has_damage_max() const;
   private:
   bool _internal_has_damage_max() const;
   public:
   void clear_damage_max();
-  uint32_t damage_max() const;
-  void set_damage_max(uint32_t value);
+  int32_t damage_max() const;
+  void set_damage_max(int32_t value);
   private:
-  uint32_t _internal_damage_max() const;
-  void _internal_set_damage_max(uint32_t value);
+  int32_t _internal_damage_max() const;
+  void _internal_set_damage_max(int32_t value);
   public:
 
   // optional float attack_rate = 26;
@@ -35076,8 +35274,8 @@ class CMsgGameDataHero final :
     uint32_t primary_attr_;
     uint32_t complexity_;
     uint32_t attack_capability_;
-    uint32_t damage_min_;
-    uint32_t damage_max_;
+    int32_t damage_min_;
+    int32_t damage_max_;
     float attack_rate_;
     uint32_t attack_range_;
     uint32_t projectile_speed_;
@@ -35152,7 +35350,7 @@ class CMsgGameDataAbilities final :
                &_CMsgGameDataAbilities_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    129;
+    130;
 
   friend void swap(CMsgGameDataAbilities& a, CMsgGameDataAbilities& b) {
     a.Swap(&b);
@@ -35316,7 +35514,7 @@ class CMsgGameDataItems final :
                &_CMsgGameDataItems_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    130;
+    131;
 
   friend void swap(CMsgGameDataItems& a, CMsgGameDataItems& b) {
     a.Swap(&b);
@@ -35480,7 +35678,7 @@ class CMsgGameDataHeroes final :
                &_CMsgGameDataHeroes_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    131;
+    132;
 
   friend void swap(CMsgGameDataHeroes& a, CMsgGameDataHeroes& b) {
     a.Swap(&b);
@@ -35644,7 +35842,7 @@ class CMsgGameDataHeroList_HeroInfo final :
                &_CMsgGameDataHeroList_HeroInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    132;
+    133;
 
   friend void swap(CMsgGameDataHeroList_HeroInfo& a, CMsgGameDataHeroList_HeroInfo& b) {
     a.Swap(&b);
@@ -35894,7 +36092,7 @@ class CMsgGameDataHeroList final :
                &_CMsgGameDataHeroList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    133;
+    134;
 
   friend void swap(CMsgGameDataHeroList& a, CMsgGameDataHeroList& b) {
     a.Swap(&b);
@@ -36060,7 +36258,7 @@ class CMsgGameDataItemAbilityList_ItemAbilityInfo final :
                &_CMsgGameDataItemAbilityList_ItemAbilityInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    134;
+    135;
 
   friend void swap(CMsgGameDataItemAbilityList_ItemAbilityInfo& a, CMsgGameDataItemAbilityList_ItemAbilityInfo& b) {
     a.Swap(&b);
@@ -36295,7 +36493,7 @@ class CMsgGameDataItemAbilityList final :
                &_CMsgGameDataItemAbilityList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    135;
+    136;
 
   friend void swap(CMsgGameDataItemAbilityList& a, CMsgGameDataItemAbilityList& b) {
     a.Swap(&b);
@@ -36461,7 +36659,7 @@ class CMsgLobbyAbilityDraftData final :
                &_CMsgLobbyAbilityDraftData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    136;
+    137;
 
   friend void swap(CMsgLobbyAbilityDraftData& a, CMsgLobbyAbilityDraftData& b) {
     a.Swap(&b);
@@ -36621,7 +36819,7 @@ class CSOEconItemDropRateBonus final :
                &_CSOEconItemDropRateBonus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    137;
+    138;
 
   friend void swap(CSOEconItemDropRateBonus& a, CSOEconItemDropRateBonus& b) {
     a.Swap(&b);
@@ -36886,7 +37084,7 @@ class CSOEconItemTournamentPassport final :
                &_CSOEconItemTournamentPassport_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    138;
+    139;
 
   friend void swap(CSOEconItemTournamentPassport& a, CSOEconItemTournamentPassport& b) {
     a.Swap(&b);
@@ -37151,7 +37349,7 @@ class CMsgStickerbookSticker final :
                &_CMsgStickerbookSticker_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    139;
+    140;
 
   friend void swap(CMsgStickerbookSticker& a, CMsgStickerbookSticker& b) {
     a.Swap(&b);
@@ -37446,7 +37644,7 @@ class CMsgStickerbookPage final :
                &_CMsgStickerbookPage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    140;
+    141;
 
   friend void swap(CMsgStickerbookPage& a, CMsgStickerbookPage& b) {
     a.Swap(&b);
@@ -37671,7 +37869,7 @@ class CMsgStickerbookTeamPageOrderSequence final :
                &_CMsgStickerbookTeamPageOrderSequence_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    141;
+    142;
 
   friend void swap(CMsgStickerbookTeamPageOrderSequence& a, CMsgStickerbookTeamPageOrderSequence& b) {
     a.Swap(&b);
@@ -37839,7 +38037,7 @@ class CMsgStickerbook final :
                &_CMsgStickerbook_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    142;
+    143;
 
   friend void swap(CMsgStickerbook& a, CMsgStickerbook& b) {
     a.Swap(&b);
@@ -38039,7 +38237,7 @@ class CMsgStickerHero final :
                &_CMsgStickerHero_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    143;
+    144;
 
   friend void swap(CMsgStickerHero& a, CMsgStickerHero& b) {
     a.Swap(&b);
@@ -38244,7 +38442,7 @@ class CMsgStickerHeroes final :
                &_CMsgStickerHeroes_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    144;
+    145;
 
   friend void swap(CMsgStickerHeroes& a, CMsgStickerHeroes& b) {
     a.Swap(&b);
@@ -38408,7 +38606,7 @@ class CMsgHeroRoleStats final :
                &_CMsgHeroRoleStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    145;
+    146;
 
   friend void swap(CMsgHeroRoleStats& a, CMsgHeroRoleStats& b) {
     a.Swap(&b);
@@ -38598,7 +38796,7 @@ class CMsgHeroRoleHeroStats final :
                &_CMsgHeroRoleHeroStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    146;
+    147;
 
   friend void swap(CMsgHeroRoleHeroStats& a, CMsgHeroRoleHeroStats& b) {
     a.Swap(&b);
@@ -38778,7 +38976,7 @@ class CMsgHeroRoleRankStats final :
                &_CMsgHeroRoleRankStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    147;
+    148;
 
   friend void swap(CMsgHeroRoleRankStats& a, CMsgHeroRoleRankStats& b) {
     a.Swap(&b);
@@ -38958,7 +39156,7 @@ class CMsgHeroRoleAllRanksStats final :
                &_CMsgHeroRoleAllRanksStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    148;
+    149;
 
   friend void swap(CMsgHeroRoleAllRanksStats& a, CMsgHeroRoleAllRanksStats& b) {
     a.Swap(&b);
@@ -39092,6 +39290,506 @@ class CMsgHeroRoleAllRanksStats final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgHeroRoleRankStats > rank_stats_;
     uint32_t start_timestamp_;
     uint32_t end_timestamp_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fcommon_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgMapStatsSnapshot final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgMapStatsSnapshot) */ {
+ public:
+  inline CMsgMapStatsSnapshot() : CMsgMapStatsSnapshot(nullptr) {}
+  ~CMsgMapStatsSnapshot() override;
+  explicit PROTOBUF_CONSTEXPR CMsgMapStatsSnapshot(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgMapStatsSnapshot(const CMsgMapStatsSnapshot& from);
+  CMsgMapStatsSnapshot(CMsgMapStatsSnapshot&& from) noexcept
+    : CMsgMapStatsSnapshot() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgMapStatsSnapshot& operator=(const CMsgMapStatsSnapshot& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgMapStatsSnapshot& operator=(CMsgMapStatsSnapshot&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgMapStatsSnapshot& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgMapStatsSnapshot* internal_default_instance() {
+    return reinterpret_cast<const CMsgMapStatsSnapshot*>(
+               &_CMsgMapStatsSnapshot_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    150;
+
+  friend void swap(CMsgMapStatsSnapshot& a, CMsgMapStatsSnapshot& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgMapStatsSnapshot* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgMapStatsSnapshot* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgMapStatsSnapshot* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgMapStatsSnapshot>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgMapStatsSnapshot& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgMapStatsSnapshot& from) {
+    CMsgMapStatsSnapshot::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgMapStatsSnapshot* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgMapStatsSnapshot";
+  }
+  protected:
+  explicit CMsgMapStatsSnapshot(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFamangosGainedFieldNumber = 2,
+    kWisdomRunesGainedFieldNumber = 3,
+    kRoshanKillsDayFieldNumber = 4,
+    kRoshanKillsNightFieldNumber = 5,
+    kPortalsUsedFieldNumber = 6,
+    kLanternsLitFieldNumber = 7,
+    kMinibossKillsFieldNumber = 8,
+    kOutpostsCapturedFieldNumber = 9,
+    kShieldRunesGainedFieldNumber = 10,
+    kTimestampFieldNumber = 1,
+  };
+  // optional uint64 famangos_gained = 2;
+  bool has_famangos_gained() const;
+  private:
+  bool _internal_has_famangos_gained() const;
+  public:
+  void clear_famangos_gained();
+  uint64_t famangos_gained() const;
+  void set_famangos_gained(uint64_t value);
+  private:
+  uint64_t _internal_famangos_gained() const;
+  void _internal_set_famangos_gained(uint64_t value);
+  public:
+
+  // optional uint64 wisdom_runes_gained = 3;
+  bool has_wisdom_runes_gained() const;
+  private:
+  bool _internal_has_wisdom_runes_gained() const;
+  public:
+  void clear_wisdom_runes_gained();
+  uint64_t wisdom_runes_gained() const;
+  void set_wisdom_runes_gained(uint64_t value);
+  private:
+  uint64_t _internal_wisdom_runes_gained() const;
+  void _internal_set_wisdom_runes_gained(uint64_t value);
+  public:
+
+  // optional uint64 roshan_kills_day = 4;
+  bool has_roshan_kills_day() const;
+  private:
+  bool _internal_has_roshan_kills_day() const;
+  public:
+  void clear_roshan_kills_day();
+  uint64_t roshan_kills_day() const;
+  void set_roshan_kills_day(uint64_t value);
+  private:
+  uint64_t _internal_roshan_kills_day() const;
+  void _internal_set_roshan_kills_day(uint64_t value);
+  public:
+
+  // optional uint64 roshan_kills_night = 5;
+  bool has_roshan_kills_night() const;
+  private:
+  bool _internal_has_roshan_kills_night() const;
+  public:
+  void clear_roshan_kills_night();
+  uint64_t roshan_kills_night() const;
+  void set_roshan_kills_night(uint64_t value);
+  private:
+  uint64_t _internal_roshan_kills_night() const;
+  void _internal_set_roshan_kills_night(uint64_t value);
+  public:
+
+  // optional uint64 portals_used = 6;
+  bool has_portals_used() const;
+  private:
+  bool _internal_has_portals_used() const;
+  public:
+  void clear_portals_used();
+  uint64_t portals_used() const;
+  void set_portals_used(uint64_t value);
+  private:
+  uint64_t _internal_portals_used() const;
+  void _internal_set_portals_used(uint64_t value);
+  public:
+
+  // optional uint64 lanterns_lit = 7;
+  bool has_lanterns_lit() const;
+  private:
+  bool _internal_has_lanterns_lit() const;
+  public:
+  void clear_lanterns_lit();
+  uint64_t lanterns_lit() const;
+  void set_lanterns_lit(uint64_t value);
+  private:
+  uint64_t _internal_lanterns_lit() const;
+  void _internal_set_lanterns_lit(uint64_t value);
+  public:
+
+  // optional uint64 miniboss_kills = 8;
+  bool has_miniboss_kills() const;
+  private:
+  bool _internal_has_miniboss_kills() const;
+  public:
+  void clear_miniboss_kills();
+  uint64_t miniboss_kills() const;
+  void set_miniboss_kills(uint64_t value);
+  private:
+  uint64_t _internal_miniboss_kills() const;
+  void _internal_set_miniboss_kills(uint64_t value);
+  public:
+
+  // optional uint64 outposts_captured = 9;
+  bool has_outposts_captured() const;
+  private:
+  bool _internal_has_outposts_captured() const;
+  public:
+  void clear_outposts_captured();
+  uint64_t outposts_captured() const;
+  void set_outposts_captured(uint64_t value);
+  private:
+  uint64_t _internal_outposts_captured() const;
+  void _internal_set_outposts_captured(uint64_t value);
+  public:
+
+  // optional uint64 shield_runes_gained = 10;
+  bool has_shield_runes_gained() const;
+  private:
+  bool _internal_has_shield_runes_gained() const;
+  public:
+  void clear_shield_runes_gained();
+  uint64_t shield_runes_gained() const;
+  void set_shield_runes_gained(uint64_t value);
+  private:
+  uint64_t _internal_shield_runes_gained() const;
+  void _internal_set_shield_runes_gained(uint64_t value);
+  public:
+
+  // optional uint32 timestamp = 1;
+  bool has_timestamp() const;
+  private:
+  bool _internal_has_timestamp() const;
+  public:
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgMapStatsSnapshot)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint64_t famangos_gained_;
+    uint64_t wisdom_runes_gained_;
+    uint64_t roshan_kills_day_;
+    uint64_t roshan_kills_night_;
+    uint64_t portals_used_;
+    uint64_t lanterns_lit_;
+    uint64_t miniboss_kills_;
+    uint64_t outposts_captured_;
+    uint64_t shield_runes_gained_;
+    uint32_t timestamp_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fcommon_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgGlobalMapStats final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGlobalMapStats) */ {
+ public:
+  inline CMsgGlobalMapStats() : CMsgGlobalMapStats(nullptr) {}
+  ~CMsgGlobalMapStats() override;
+  explicit PROTOBUF_CONSTEXPR CMsgGlobalMapStats(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgGlobalMapStats(const CMsgGlobalMapStats& from);
+  CMsgGlobalMapStats(CMsgGlobalMapStats&& from) noexcept
+    : CMsgGlobalMapStats() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgGlobalMapStats& operator=(const CMsgGlobalMapStats& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgGlobalMapStats& operator=(CMsgGlobalMapStats&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgGlobalMapStats& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgGlobalMapStats* internal_default_instance() {
+    return reinterpret_cast<const CMsgGlobalMapStats*>(
+               &_CMsgGlobalMapStats_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    151;
+
+  friend void swap(CMsgGlobalMapStats& a, CMsgGlobalMapStats& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgGlobalMapStats* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgGlobalMapStats* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgGlobalMapStats* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgGlobalMapStats>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgGlobalMapStats& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgGlobalMapStats& from) {
+    CMsgGlobalMapStats::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgGlobalMapStats* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgGlobalMapStats";
+  }
+  protected:
+  explicit CMsgGlobalMapStats(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCurrentFieldNumber = 1,
+    kWindowStartFieldNumber = 2,
+    kWindowEndFieldNumber = 3,
+  };
+  // optional .CMsgMapStatsSnapshot current = 1;
+  bool has_current() const;
+  private:
+  bool _internal_has_current() const;
+  public:
+  void clear_current();
+  const ::CMsgMapStatsSnapshot& current() const;
+  PROTOBUF_NODISCARD ::CMsgMapStatsSnapshot* release_current();
+  ::CMsgMapStatsSnapshot* mutable_current();
+  void set_allocated_current(::CMsgMapStatsSnapshot* current);
+  private:
+  const ::CMsgMapStatsSnapshot& _internal_current() const;
+  ::CMsgMapStatsSnapshot* _internal_mutable_current();
+  public:
+  void unsafe_arena_set_allocated_current(
+      ::CMsgMapStatsSnapshot* current);
+  ::CMsgMapStatsSnapshot* unsafe_arena_release_current();
+
+  // optional .CMsgMapStatsSnapshot window_start = 2;
+  bool has_window_start() const;
+  private:
+  bool _internal_has_window_start() const;
+  public:
+  void clear_window_start();
+  const ::CMsgMapStatsSnapshot& window_start() const;
+  PROTOBUF_NODISCARD ::CMsgMapStatsSnapshot* release_window_start();
+  ::CMsgMapStatsSnapshot* mutable_window_start();
+  void set_allocated_window_start(::CMsgMapStatsSnapshot* window_start);
+  private:
+  const ::CMsgMapStatsSnapshot& _internal_window_start() const;
+  ::CMsgMapStatsSnapshot* _internal_mutable_window_start();
+  public:
+  void unsafe_arena_set_allocated_window_start(
+      ::CMsgMapStatsSnapshot* window_start);
+  ::CMsgMapStatsSnapshot* unsafe_arena_release_window_start();
+
+  // optional .CMsgMapStatsSnapshot window_end = 3;
+  bool has_window_end() const;
+  private:
+  bool _internal_has_window_end() const;
+  public:
+  void clear_window_end();
+  const ::CMsgMapStatsSnapshot& window_end() const;
+  PROTOBUF_NODISCARD ::CMsgMapStatsSnapshot* release_window_end();
+  ::CMsgMapStatsSnapshot* mutable_window_end();
+  void set_allocated_window_end(::CMsgMapStatsSnapshot* window_end);
+  private:
+  const ::CMsgMapStatsSnapshot& _internal_window_end() const;
+  ::CMsgMapStatsSnapshot* _internal_mutable_window_end();
+  public:
+  void unsafe_arena_set_allocated_window_end(
+      ::CMsgMapStatsSnapshot* window_end);
+  ::CMsgMapStatsSnapshot* unsafe_arena_release_window_end();
+
+  // @@protoc_insertion_point(class_scope:CMsgGlobalMapStats)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::CMsgMapStatsSnapshot* current_;
+    ::CMsgMapStatsSnapshot* window_start_;
+    ::CMsgMapStatsSnapshot* window_end_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fcommon_2eproto;
@@ -39365,7 +40063,7 @@ inline void CSODOTAGameAccountClient::set_leaver_count(uint32_t value) {
 
 // optional uint32 secondary_leaver_count = 58;
 inline bool CSODOTAGameAccountClient::_internal_has_secondary_leaver_count() const {
-  bool value = (_impl_._has_bits_[0] & 0x00400000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_secondary_leaver_count() const {
@@ -39373,7 +40071,7 @@ inline bool CSODOTAGameAccountClient::has_secondary_leaver_count() const {
 }
 inline void CSODOTAGameAccountClient::clear_secondary_leaver_count() {
   _impl_.secondary_leaver_count_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00400000u;
+  _impl_._has_bits_[0] &= ~0x00100000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_secondary_leaver_count() const {
   return _impl_.secondary_leaver_count_;
@@ -39383,7 +40081,7 @@ inline uint32_t CSODOTAGameAccountClient::secondary_leaver_count() const {
   return _internal_secondary_leaver_count();
 }
 inline void CSODOTAGameAccountClient::_internal_set_secondary_leaver_count(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00400000u;
+  _impl_._has_bits_[0] |= 0x00100000u;
   _impl_.secondary_leaver_count_ = value;
 }
 inline void CSODOTAGameAccountClient::set_secondary_leaver_count(uint32_t value) {
@@ -39477,7 +40175,7 @@ inline void CSODOTAGameAccountClient::set_prevent_voice_until_date(uint32_t valu
 
 // optional uint32 prevent_public_text_chat_until_date = 86;
 inline bool CSODOTAGameAccountClient::_internal_has_prevent_public_text_chat_until_date() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_prevent_public_text_chat_until_date() const {
@@ -39485,7 +40183,7 @@ inline bool CSODOTAGameAccountClient::has_prevent_public_text_chat_until_date() 
 }
 inline void CSODOTAGameAccountClient::clear_prevent_public_text_chat_until_date() {
   _impl_.prevent_public_text_chat_until_date_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000080u;
+  _impl_._has_bits_[1] &= ~0x00000020u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_prevent_public_text_chat_until_date() const {
   return _impl_.prevent_public_text_chat_until_date_;
@@ -39495,7 +40193,7 @@ inline uint32_t CSODOTAGameAccountClient::prevent_public_text_chat_until_date() 
   return _internal_prevent_public_text_chat_until_date();
 }
 inline void CSODOTAGameAccountClient::_internal_set_prevent_public_text_chat_until_date(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000080u;
+  _impl_._has_bits_[1] |= 0x00000020u;
   _impl_.prevent_public_text_chat_until_date_ = value;
 }
 inline void CSODOTAGameAccountClient::set_prevent_public_text_chat_until_date(uint32_t value) {
@@ -39505,7 +40203,7 @@ inline void CSODOTAGameAccountClient::set_prevent_public_text_chat_until_date(ui
 
 // optional uint32 prevent_new_player_chat_until_date = 122;
 inline bool CSODOTAGameAccountClient::_internal_has_prevent_new_player_chat_until_date() const {
-  bool value = (_impl_._has_bits_[1] & 0x00800000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00200000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_prevent_new_player_chat_until_date() const {
@@ -39513,7 +40211,7 @@ inline bool CSODOTAGameAccountClient::has_prevent_new_player_chat_until_date() c
 }
 inline void CSODOTAGameAccountClient::clear_prevent_new_player_chat_until_date() {
   _impl_.prevent_new_player_chat_until_date_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00800000u;
+  _impl_._has_bits_[1] &= ~0x00200000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_prevent_new_player_chat_until_date() const {
   return _impl_.prevent_new_player_chat_until_date_;
@@ -39523,7 +40221,7 @@ inline uint32_t CSODOTAGameAccountClient::prevent_new_player_chat_until_date() c
   return _internal_prevent_new_player_chat_until_date();
 }
 inline void CSODOTAGameAccountClient::_internal_set_prevent_new_player_chat_until_date(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00800000u;
+  _impl_._has_bits_[1] |= 0x00200000u;
   _impl_.prevent_new_player_chat_until_date_ = value;
 }
 inline void CSODOTAGameAccountClient::set_prevent_new_player_chat_until_date(uint32_t value) {
@@ -39561,7 +40259,7 @@ inline void CSODOTAGameAccountClient::set_last_abandoned_game_date(uint32_t valu
 
 // optional uint32 last_secondary_abandoned_game_date = 59;
 inline bool CSODOTAGameAccountClient::_internal_has_last_secondary_abandoned_game_date() const {
-  bool value = (_impl_._has_bits_[0] & 0x00800000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00200000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_last_secondary_abandoned_game_date() const {
@@ -39569,7 +40267,7 @@ inline bool CSODOTAGameAccountClient::has_last_secondary_abandoned_game_date() c
 }
 inline void CSODOTAGameAccountClient::clear_last_secondary_abandoned_game_date() {
   _impl_.last_secondary_abandoned_game_date_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00800000u;
+  _impl_._has_bits_[0] &= ~0x00200000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_last_secondary_abandoned_game_date() const {
   return _impl_.last_secondary_abandoned_game_date_;
@@ -39579,7 +40277,7 @@ inline uint32_t CSODOTAGameAccountClient::last_secondary_abandoned_game_date() c
   return _internal_last_secondary_abandoned_game_date();
 }
 inline void CSODOTAGameAccountClient::_internal_set_last_secondary_abandoned_game_date(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00800000u;
+  _impl_._has_bits_[0] |= 0x00200000u;
   _impl_.last_secondary_abandoned_game_date_ = value;
 }
 inline void CSODOTAGameAccountClient::set_last_secondary_abandoned_game_date(uint32_t value) {
@@ -39811,65 +40509,9 @@ inline void CSODOTAGameAccountClient::set_low_priority_games_remaining(uint32_t 
   // @@protoc_insertion_point(field_set:CSODOTAGameAccountClient.low_priority_games_remaining)
 }
 
-// optional uint32 competitive_rank = 49;
-inline bool CSODOTAGameAccountClient::_internal_has_competitive_rank() const {
-  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
-  return value;
-}
-inline bool CSODOTAGameAccountClient::has_competitive_rank() const {
-  return _internal_has_competitive_rank();
-}
-inline void CSODOTAGameAccountClient::clear_competitive_rank() {
-  _impl_.competitive_rank_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00080000u;
-}
-inline uint32_t CSODOTAGameAccountClient::_internal_competitive_rank() const {
-  return _impl_.competitive_rank_;
-}
-inline uint32_t CSODOTAGameAccountClient::competitive_rank() const {
-  // @@protoc_insertion_point(field_get:CSODOTAGameAccountClient.competitive_rank)
-  return _internal_competitive_rank();
-}
-inline void CSODOTAGameAccountClient::_internal_set_competitive_rank(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00080000u;
-  _impl_.competitive_rank_ = value;
-}
-inline void CSODOTAGameAccountClient::set_competitive_rank(uint32_t value) {
-  _internal_set_competitive_rank(value);
-  // @@protoc_insertion_point(field_set:CSODOTAGameAccountClient.competitive_rank)
-}
-
-// optional uint32 competitive_calibration_games_remaining = 51;
-inline bool CSODOTAGameAccountClient::_internal_has_competitive_calibration_games_remaining() const {
-  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
-  return value;
-}
-inline bool CSODOTAGameAccountClient::has_competitive_calibration_games_remaining() const {
-  return _internal_has_competitive_calibration_games_remaining();
-}
-inline void CSODOTAGameAccountClient::clear_competitive_calibration_games_remaining() {
-  _impl_.competitive_calibration_games_remaining_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00100000u;
-}
-inline uint32_t CSODOTAGameAccountClient::_internal_competitive_calibration_games_remaining() const {
-  return _impl_.competitive_calibration_games_remaining_;
-}
-inline uint32_t CSODOTAGameAccountClient::competitive_calibration_games_remaining() const {
-  // @@protoc_insertion_point(field_get:CSODOTAGameAccountClient.competitive_calibration_games_remaining)
-  return _internal_competitive_calibration_games_remaining();
-}
-inline void CSODOTAGameAccountClient::_internal_set_competitive_calibration_games_remaining(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00100000u;
-  _impl_.competitive_calibration_games_remaining_ = value;
-}
-inline void CSODOTAGameAccountClient::set_competitive_calibration_games_remaining(uint32_t value) {
-  _internal_set_competitive_calibration_games_remaining(value);
-  // @@protoc_insertion_point(field_set:CSODOTAGameAccountClient.competitive_calibration_games_remaining)
-}
-
 // optional uint32 recruitment_level = 55;
 inline bool CSODOTAGameAccountClient::_internal_has_recruitment_level() const {
-  bool value = (_impl_._has_bits_[0] & 0x00200000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_recruitment_level() const {
@@ -39877,7 +40519,7 @@ inline bool CSODOTAGameAccountClient::has_recruitment_level() const {
 }
 inline void CSODOTAGameAccountClient::clear_recruitment_level() {
   _impl_.recruitment_level_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00200000u;
+  _impl_._has_bits_[0] &= ~0x00080000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_recruitment_level() const {
   return _impl_.recruitment_level_;
@@ -39887,7 +40529,7 @@ inline uint32_t CSODOTAGameAccountClient::recruitment_level() const {
   return _internal_recruitment_level();
 }
 inline void CSODOTAGameAccountClient::_internal_set_recruitment_level(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00200000u;
+  _impl_._has_bits_[0] |= 0x00080000u;
   _impl_.recruitment_level_ = value;
 }
 inline void CSODOTAGameAccountClient::set_recruitment_level(uint32_t value) {
@@ -39897,7 +40539,7 @@ inline void CSODOTAGameAccountClient::set_recruitment_level(uint32_t value) {
 
 // optional bool has_new_notifications = 56;
 inline bool CSODOTAGameAccountClient::_internal_has_has_new_notifications() const {
-  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x02000000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_has_new_notifications() const {
@@ -39905,7 +40547,7 @@ inline bool CSODOTAGameAccountClient::has_has_new_notifications() const {
 }
 inline void CSODOTAGameAccountClient::clear_has_new_notifications() {
   _impl_.has_new_notifications_ = false;
-  _impl_._has_bits_[0] &= ~0x08000000u;
+  _impl_._has_bits_[0] &= ~0x02000000u;
 }
 inline bool CSODOTAGameAccountClient::_internal_has_new_notifications() const {
   return _impl_.has_new_notifications_;
@@ -39915,7 +40557,7 @@ inline bool CSODOTAGameAccountClient::has_new_notifications() const {
   return _internal_has_new_notifications();
 }
 inline void CSODOTAGameAccountClient::_internal_set_has_new_notifications(bool value) {
-  _impl_._has_bits_[0] |= 0x08000000u;
+  _impl_._has_bits_[0] |= 0x02000000u;
   _impl_.has_new_notifications_ = value;
 }
 inline void CSODOTAGameAccountClient::set_has_new_notifications(bool value) {
@@ -39925,7 +40567,7 @@ inline void CSODOTAGameAccountClient::set_has_new_notifications(bool value) {
 
 // optional bool is_league_admin = 57;
 inline bool CSODOTAGameAccountClient::_internal_has_is_league_admin() const {
-  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_is_league_admin() const {
@@ -39933,7 +40575,7 @@ inline bool CSODOTAGameAccountClient::has_is_league_admin() const {
 }
 inline void CSODOTAGameAccountClient::clear_is_league_admin() {
   _impl_.is_league_admin_ = false;
-  _impl_._has_bits_[0] &= ~0x10000000u;
+  _impl_._has_bits_[0] &= ~0x04000000u;
 }
 inline bool CSODOTAGameAccountClient::_internal_is_league_admin() const {
   return _impl_.is_league_admin_;
@@ -39943,7 +40585,7 @@ inline bool CSODOTAGameAccountClient::is_league_admin() const {
   return _internal_is_league_admin();
 }
 inline void CSODOTAGameAccountClient::_internal_set_is_league_admin(bool value) {
-  _impl_._has_bits_[0] |= 0x10000000u;
+  _impl_._has_bits_[0] |= 0x04000000u;
   _impl_.is_league_admin_ = value;
 }
 inline void CSODOTAGameAccountClient::set_is_league_admin(bool value) {
@@ -39953,7 +40595,7 @@ inline void CSODOTAGameAccountClient::set_is_league_admin(bool value) {
 
 // optional uint32 casual_games_played = 60;
 inline bool CSODOTAGameAccountClient::_internal_has_casual_games_played() const {
-  bool value = (_impl_._has_bits_[0] & 0x01000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00400000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_casual_games_played() const {
@@ -39961,7 +40603,7 @@ inline bool CSODOTAGameAccountClient::has_casual_games_played() const {
 }
 inline void CSODOTAGameAccountClient::clear_casual_games_played() {
   _impl_.casual_games_played_ = 0u;
-  _impl_._has_bits_[0] &= ~0x01000000u;
+  _impl_._has_bits_[0] &= ~0x00400000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_casual_games_played() const {
   return _impl_.casual_games_played_;
@@ -39971,7 +40613,7 @@ inline uint32_t CSODOTAGameAccountClient::casual_games_played() const {
   return _internal_casual_games_played();
 }
 inline void CSODOTAGameAccountClient::_internal_set_casual_games_played(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x01000000u;
+  _impl_._has_bits_[0] |= 0x00400000u;
   _impl_.casual_games_played_ = value;
 }
 inline void CSODOTAGameAccountClient::set_casual_games_played(uint32_t value) {
@@ -39981,7 +40623,7 @@ inline void CSODOTAGameAccountClient::set_casual_games_played(uint32_t value) {
 
 // optional uint32 solo_competitive_games_played = 61;
 inline bool CSODOTAGameAccountClient::_internal_has_solo_competitive_games_played() const {
-  bool value = (_impl_._has_bits_[0] & 0x02000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00800000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_solo_competitive_games_played() const {
@@ -39989,7 +40631,7 @@ inline bool CSODOTAGameAccountClient::has_solo_competitive_games_played() const 
 }
 inline void CSODOTAGameAccountClient::clear_solo_competitive_games_played() {
   _impl_.solo_competitive_games_played_ = 0u;
-  _impl_._has_bits_[0] &= ~0x02000000u;
+  _impl_._has_bits_[0] &= ~0x00800000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_solo_competitive_games_played() const {
   return _impl_.solo_competitive_games_played_;
@@ -39999,7 +40641,7 @@ inline uint32_t CSODOTAGameAccountClient::solo_competitive_games_played() const 
   return _internal_solo_competitive_games_played();
 }
 inline void CSODOTAGameAccountClient::_internal_set_solo_competitive_games_played(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x02000000u;
+  _impl_._has_bits_[0] |= 0x00800000u;
   _impl_.solo_competitive_games_played_ = value;
 }
 inline void CSODOTAGameAccountClient::set_solo_competitive_games_played(uint32_t value) {
@@ -40009,7 +40651,7 @@ inline void CSODOTAGameAccountClient::set_solo_competitive_games_played(uint32_t
 
 // optional uint32 party_competitive_games_played = 62;
 inline bool CSODOTAGameAccountClient::_internal_has_party_competitive_games_played() const {
-  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x01000000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_party_competitive_games_played() const {
@@ -40017,7 +40659,7 @@ inline bool CSODOTAGameAccountClient::has_party_competitive_games_played() const
 }
 inline void CSODOTAGameAccountClient::clear_party_competitive_games_played() {
   _impl_.party_competitive_games_played_ = 0u;
-  _impl_._has_bits_[0] &= ~0x04000000u;
+  _impl_._has_bits_[0] &= ~0x01000000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_party_competitive_games_played() const {
   return _impl_.party_competitive_games_played_;
@@ -40027,7 +40669,7 @@ inline uint32_t CSODOTAGameAccountClient::party_competitive_games_played() const
   return _internal_party_competitive_games_played();
 }
 inline void CSODOTAGameAccountClient::_internal_set_party_competitive_games_played(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x04000000u;
+  _impl_._has_bits_[0] |= 0x01000000u;
   _impl_.party_competitive_games_played_ = value;
 }
 inline void CSODOTAGameAccountClient::set_party_competitive_games_played(uint32_t value) {
@@ -40037,7 +40679,7 @@ inline void CSODOTAGameAccountClient::set_party_competitive_games_played(uint32_
 
 // optional uint32 casual_1v1_games_played = 65;
 inline bool CSODOTAGameAccountClient::_internal_has_casual_1v1_games_played() const {
-  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_casual_1v1_games_played() const {
@@ -40045,7 +40687,7 @@ inline bool CSODOTAGameAccountClient::has_casual_1v1_games_played() const {
 }
 inline void CSODOTAGameAccountClient::clear_casual_1v1_games_played() {
   _impl_.casual_1v1_games_played_ = 0u;
-  _impl_._has_bits_[0] &= ~0x40000000u;
+  _impl_._has_bits_[0] &= ~0x10000000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_casual_1v1_games_played() const {
   return _impl_.casual_1v1_games_played_;
@@ -40055,7 +40697,7 @@ inline uint32_t CSODOTAGameAccountClient::casual_1v1_games_played() const {
   return _internal_casual_1v1_games_played();
 }
 inline void CSODOTAGameAccountClient::_internal_set_casual_1v1_games_played(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x40000000u;
+  _impl_._has_bits_[0] |= 0x10000000u;
   _impl_.casual_1v1_games_played_ = value;
 }
 inline void CSODOTAGameAccountClient::set_casual_1v1_games_played(uint32_t value) {
@@ -40065,7 +40707,7 @@ inline void CSODOTAGameAccountClient::set_casual_1v1_games_played(uint32_t value
 
 // optional uint32 curr_all_hero_challenge_id = 67;
 inline bool CSODOTAGameAccountClient::_internal_has_curr_all_hero_challenge_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_curr_all_hero_challenge_id() const {
@@ -40073,7 +40715,7 @@ inline bool CSODOTAGameAccountClient::has_curr_all_hero_challenge_id() const {
 }
 inline void CSODOTAGameAccountClient::clear_curr_all_hero_challenge_id() {
   _impl_.curr_all_hero_challenge_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x80000000u;
+  _impl_._has_bits_[0] &= ~0x20000000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_curr_all_hero_challenge_id() const {
   return _impl_.curr_all_hero_challenge_id_;
@@ -40083,7 +40725,7 @@ inline uint32_t CSODOTAGameAccountClient::curr_all_hero_challenge_id() const {
   return _internal_curr_all_hero_challenge_id();
 }
 inline void CSODOTAGameAccountClient::_internal_set_curr_all_hero_challenge_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x80000000u;
+  _impl_._has_bits_[0] |= 0x20000000u;
   _impl_.curr_all_hero_challenge_id_ = value;
 }
 inline void CSODOTAGameAccountClient::set_curr_all_hero_challenge_id(uint32_t value) {
@@ -40093,7 +40735,7 @@ inline void CSODOTAGameAccountClient::set_curr_all_hero_challenge_id(uint32_t va
 
 // optional uint32 play_time_points = 68;
 inline bool CSODOTAGameAccountClient::_internal_has_play_time_points() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_play_time_points() const {
@@ -40101,7 +40743,7 @@ inline bool CSODOTAGameAccountClient::has_play_time_points() const {
 }
 inline void CSODOTAGameAccountClient::clear_play_time_points() {
   _impl_.play_time_points_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x40000000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_play_time_points() const {
   return _impl_.play_time_points_;
@@ -40111,7 +40753,7 @@ inline uint32_t CSODOTAGameAccountClient::play_time_points() const {
   return _internal_play_time_points();
 }
 inline void CSODOTAGameAccountClient::_internal_set_play_time_points(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x40000000u;
   _impl_.play_time_points_ = value;
 }
 inline void CSODOTAGameAccountClient::set_play_time_points(uint32_t value) {
@@ -40121,7 +40763,7 @@ inline void CSODOTAGameAccountClient::set_play_time_points(uint32_t value) {
 
 // optional uint32 account_flags = 69;
 inline bool CSODOTAGameAccountClient::_internal_has_account_flags() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_account_flags() const {
@@ -40129,7 +40771,7 @@ inline bool CSODOTAGameAccountClient::has_account_flags() const {
 }
 inline void CSODOTAGameAccountClient::clear_account_flags() {
   _impl_.account_flags_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x80000000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_account_flags() const {
   return _impl_.account_flags_;
@@ -40139,7 +40781,7 @@ inline uint32_t CSODOTAGameAccountClient::account_flags() const {
   return _internal_account_flags();
 }
 inline void CSODOTAGameAccountClient::_internal_set_account_flags(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x80000000u;
   _impl_.account_flags_ = value;
 }
 inline void CSODOTAGameAccountClient::set_account_flags(uint32_t value) {
@@ -40149,7 +40791,7 @@ inline void CSODOTAGameAccountClient::set_account_flags(uint32_t value) {
 
 // optional uint32 play_time_level = 70;
 inline bool CSODOTAGameAccountClient::_internal_has_play_time_level() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_play_time_level() const {
@@ -40157,7 +40799,7 @@ inline bool CSODOTAGameAccountClient::has_play_time_level() const {
 }
 inline void CSODOTAGameAccountClient::clear_play_time_level() {
   _impl_.play_time_level_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000004u;
+  _impl_._has_bits_[1] &= ~0x00000001u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_play_time_level() const {
   return _impl_.play_time_level_;
@@ -40167,7 +40809,7 @@ inline uint32_t CSODOTAGameAccountClient::play_time_level() const {
   return _internal_play_time_level();
 }
 inline void CSODOTAGameAccountClient::_internal_set_play_time_level(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000004u;
+  _impl_._has_bits_[1] |= 0x00000001u;
   _impl_.play_time_level_ = value;
 }
 inline void CSODOTAGameAccountClient::set_play_time_level(uint32_t value) {
@@ -40177,7 +40819,7 @@ inline void CSODOTAGameAccountClient::set_play_time_level(uint32_t value) {
 
 // optional uint32 player_behavior_seq_num_last_report = 71;
 inline bool CSODOTAGameAccountClient::_internal_has_player_behavior_seq_num_last_report() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_player_behavior_seq_num_last_report() const {
@@ -40185,7 +40827,7 @@ inline bool CSODOTAGameAccountClient::has_player_behavior_seq_num_last_report() 
 }
 inline void CSODOTAGameAccountClient::clear_player_behavior_seq_num_last_report() {
   _impl_.player_behavior_seq_num_last_report_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000008u;
+  _impl_._has_bits_[1] &= ~0x00000002u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_player_behavior_seq_num_last_report() const {
   return _impl_.player_behavior_seq_num_last_report_;
@@ -40195,7 +40837,7 @@ inline uint32_t CSODOTAGameAccountClient::player_behavior_seq_num_last_report() 
   return _internal_player_behavior_seq_num_last_report();
 }
 inline void CSODOTAGameAccountClient::_internal_set_player_behavior_seq_num_last_report(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000008u;
+  _impl_._has_bits_[1] |= 0x00000002u;
   _impl_.player_behavior_seq_num_last_report_ = value;
 }
 inline void CSODOTAGameAccountClient::set_player_behavior_seq_num_last_report(uint32_t value) {
@@ -40205,7 +40847,7 @@ inline void CSODOTAGameAccountClient::set_player_behavior_seq_num_last_report(ui
 
 // optional uint32 player_behavior_score_last_report = 72;
 inline bool CSODOTAGameAccountClient::_internal_has_player_behavior_score_last_report() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_player_behavior_score_last_report() const {
@@ -40213,7 +40855,7 @@ inline bool CSODOTAGameAccountClient::has_player_behavior_score_last_report() co
 }
 inline void CSODOTAGameAccountClient::clear_player_behavior_score_last_report() {
   _impl_.player_behavior_score_last_report_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000010u;
+  _impl_._has_bits_[1] &= ~0x00000004u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_player_behavior_score_last_report() const {
   return _impl_.player_behavior_score_last_report_;
@@ -40223,7 +40865,7 @@ inline uint32_t CSODOTAGameAccountClient::player_behavior_score_last_report() co
   return _internal_player_behavior_score_last_report();
 }
 inline void CSODOTAGameAccountClient::_internal_set_player_behavior_score_last_report(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000010u;
+  _impl_._has_bits_[1] |= 0x00000004u;
   _impl_.player_behavior_score_last_report_ = value;
 }
 inline void CSODOTAGameAccountClient::set_player_behavior_score_last_report(uint32_t value) {
@@ -40233,7 +40875,7 @@ inline void CSODOTAGameAccountClient::set_player_behavior_score_last_report(uint
 
 // optional bool player_behavior_report_old_data = 73;
 inline bool CSODOTAGameAccountClient::_internal_has_player_behavior_report_old_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_player_behavior_report_old_data() const {
@@ -40241,7 +40883,7 @@ inline bool CSODOTAGameAccountClient::has_player_behavior_report_old_data() cons
 }
 inline void CSODOTAGameAccountClient::clear_player_behavior_report_old_data() {
   _impl_.player_behavior_report_old_data_ = false;
-  _impl_._has_bits_[0] &= ~0x20000000u;
+  _impl_._has_bits_[0] &= ~0x08000000u;
 }
 inline bool CSODOTAGameAccountClient::_internal_player_behavior_report_old_data() const {
   return _impl_.player_behavior_report_old_data_;
@@ -40251,7 +40893,7 @@ inline bool CSODOTAGameAccountClient::player_behavior_report_old_data() const {
   return _internal_player_behavior_report_old_data();
 }
 inline void CSODOTAGameAccountClient::_internal_set_player_behavior_report_old_data(bool value) {
-  _impl_._has_bits_[0] |= 0x20000000u;
+  _impl_._has_bits_[0] |= 0x08000000u;
   _impl_.player_behavior_report_old_data_ = value;
 }
 inline void CSODOTAGameAccountClient::set_player_behavior_report_old_data(bool value) {
@@ -40261,7 +40903,7 @@ inline void CSODOTAGameAccountClient::set_player_behavior_report_old_data(bool v
 
 // optional uint32 tourney_skill_level = 74;
 inline bool CSODOTAGameAccountClient::_internal_has_tourney_skill_level() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_tourney_skill_level() const {
@@ -40269,7 +40911,7 @@ inline bool CSODOTAGameAccountClient::has_tourney_skill_level() const {
 }
 inline void CSODOTAGameAccountClient::clear_tourney_skill_level() {
   _impl_.tourney_skill_level_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000020u;
+  _impl_._has_bits_[1] &= ~0x00000008u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_tourney_skill_level() const {
   return _impl_.tourney_skill_level_;
@@ -40279,7 +40921,7 @@ inline uint32_t CSODOTAGameAccountClient::tourney_skill_level() const {
   return _internal_tourney_skill_level();
 }
 inline void CSODOTAGameAccountClient::_internal_set_tourney_skill_level(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000020u;
+  _impl_._has_bits_[1] |= 0x00000008u;
   _impl_.tourney_skill_level_ = value;
 }
 inline void CSODOTAGameAccountClient::set_tourney_skill_level(uint32_t value) {
@@ -40289,7 +40931,7 @@ inline void CSODOTAGameAccountClient::set_tourney_skill_level(uint32_t value) {
 
 // optional uint32 tourney_recent_participation_date = 85;
 inline bool CSODOTAGameAccountClient::_internal_has_tourney_recent_participation_date() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000010u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_tourney_recent_participation_date() const {
@@ -40297,7 +40939,7 @@ inline bool CSODOTAGameAccountClient::has_tourney_recent_participation_date() co
 }
 inline void CSODOTAGameAccountClient::clear_tourney_recent_participation_date() {
   _impl_.tourney_recent_participation_date_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000040u;
+  _impl_._has_bits_[1] &= ~0x00000010u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_tourney_recent_participation_date() const {
   return _impl_.tourney_recent_participation_date_;
@@ -40307,7 +40949,7 @@ inline uint32_t CSODOTAGameAccountClient::tourney_recent_participation_date() co
   return _internal_tourney_recent_participation_date();
 }
 inline void CSODOTAGameAccountClient::_internal_set_tourney_recent_participation_date(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000040u;
+  _impl_._has_bits_[1] |= 0x00000010u;
   _impl_.tourney_recent_participation_date_ = value;
 }
 inline void CSODOTAGameAccountClient::set_tourney_recent_participation_date(uint32_t value) {
@@ -40317,7 +40959,7 @@ inline void CSODOTAGameAccountClient::set_tourney_recent_participation_date(uint
 
 // optional uint64 anchored_phone_number_id = 88;
 inline bool CSODOTAGameAccountClient::_internal_has_anchored_phone_number_id() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000040u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_anchored_phone_number_id() const {
@@ -40325,7 +40967,7 @@ inline bool CSODOTAGameAccountClient::has_anchored_phone_number_id() const {
 }
 inline void CSODOTAGameAccountClient::clear_anchored_phone_number_id() {
   _impl_.anchored_phone_number_id_ = uint64_t{0u};
-  _impl_._has_bits_[1] &= ~0x00000100u;
+  _impl_._has_bits_[1] &= ~0x00000040u;
 }
 inline uint64_t CSODOTAGameAccountClient::_internal_anchored_phone_number_id() const {
   return _impl_.anchored_phone_number_id_;
@@ -40335,7 +40977,7 @@ inline uint64_t CSODOTAGameAccountClient::anchored_phone_number_id() const {
   return _internal_anchored_phone_number_id();
 }
 inline void CSODOTAGameAccountClient::_internal_set_anchored_phone_number_id(uint64_t value) {
-  _impl_._has_bits_[1] |= 0x00000100u;
+  _impl_._has_bits_[1] |= 0x00000040u;
   _impl_.anchored_phone_number_id_ = value;
 }
 inline void CSODOTAGameAccountClient::set_anchored_phone_number_id(uint64_t value) {
@@ -40345,7 +40987,7 @@ inline void CSODOTAGameAccountClient::set_anchored_phone_number_id(uint64_t valu
 
 // optional uint32 ranked_matchmaking_ban_until_date = 89;
 inline bool CSODOTAGameAccountClient::_internal_has_ranked_matchmaking_ban_until_date() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000200u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000080u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_ranked_matchmaking_ban_until_date() const {
@@ -40353,7 +40995,7 @@ inline bool CSODOTAGameAccountClient::has_ranked_matchmaking_ban_until_date() co
 }
 inline void CSODOTAGameAccountClient::clear_ranked_matchmaking_ban_until_date() {
   _impl_.ranked_matchmaking_ban_until_date_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000200u;
+  _impl_._has_bits_[1] &= ~0x00000080u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_ranked_matchmaking_ban_until_date() const {
   return _impl_.ranked_matchmaking_ban_until_date_;
@@ -40363,7 +41005,7 @@ inline uint32_t CSODOTAGameAccountClient::ranked_matchmaking_ban_until_date() co
   return _internal_ranked_matchmaking_ban_until_date();
 }
 inline void CSODOTAGameAccountClient::_internal_set_ranked_matchmaking_ban_until_date(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000200u;
+  _impl_._has_bits_[1] |= 0x00000080u;
   _impl_.ranked_matchmaking_ban_until_date_ = value;
 }
 inline void CSODOTAGameAccountClient::set_ranked_matchmaking_ban_until_date(uint32_t value) {
@@ -40373,7 +41015,7 @@ inline void CSODOTAGameAccountClient::set_ranked_matchmaking_ban_until_date(uint
 
 // optional uint32 recent_game_time_1 = 90;
 inline bool CSODOTAGameAccountClient::_internal_has_recent_game_time_1() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000400u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000100u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_recent_game_time_1() const {
@@ -40381,7 +41023,7 @@ inline bool CSODOTAGameAccountClient::has_recent_game_time_1() const {
 }
 inline void CSODOTAGameAccountClient::clear_recent_game_time_1() {
   _impl_.recent_game_time_1_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000400u;
+  _impl_._has_bits_[1] &= ~0x00000100u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_recent_game_time_1() const {
   return _impl_.recent_game_time_1_;
@@ -40391,7 +41033,7 @@ inline uint32_t CSODOTAGameAccountClient::recent_game_time_1() const {
   return _internal_recent_game_time_1();
 }
 inline void CSODOTAGameAccountClient::_internal_set_recent_game_time_1(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000400u;
+  _impl_._has_bits_[1] |= 0x00000100u;
   _impl_.recent_game_time_1_ = value;
 }
 inline void CSODOTAGameAccountClient::set_recent_game_time_1(uint32_t value) {
@@ -40401,7 +41043,7 @@ inline void CSODOTAGameAccountClient::set_recent_game_time_1(uint32_t value) {
 
 // optional uint32 recent_game_time_2 = 91;
 inline bool CSODOTAGameAccountClient::_internal_has_recent_game_time_2() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000800u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000200u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_recent_game_time_2() const {
@@ -40409,7 +41051,7 @@ inline bool CSODOTAGameAccountClient::has_recent_game_time_2() const {
 }
 inline void CSODOTAGameAccountClient::clear_recent_game_time_2() {
   _impl_.recent_game_time_2_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000800u;
+  _impl_._has_bits_[1] &= ~0x00000200u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_recent_game_time_2() const {
   return _impl_.recent_game_time_2_;
@@ -40419,7 +41061,7 @@ inline uint32_t CSODOTAGameAccountClient::recent_game_time_2() const {
   return _internal_recent_game_time_2();
 }
 inline void CSODOTAGameAccountClient::_internal_set_recent_game_time_2(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000800u;
+  _impl_._has_bits_[1] |= 0x00000200u;
   _impl_.recent_game_time_2_ = value;
 }
 inline void CSODOTAGameAccountClient::set_recent_game_time_2(uint32_t value) {
@@ -40429,7 +41071,7 @@ inline void CSODOTAGameAccountClient::set_recent_game_time_2(uint32_t value) {
 
 // optional uint32 recent_game_time_3 = 92;
 inline bool CSODOTAGameAccountClient::_internal_has_recent_game_time_3() const {
-  bool value = (_impl_._has_bits_[1] & 0x00001000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000400u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_recent_game_time_3() const {
@@ -40437,7 +41079,7 @@ inline bool CSODOTAGameAccountClient::has_recent_game_time_3() const {
 }
 inline void CSODOTAGameAccountClient::clear_recent_game_time_3() {
   _impl_.recent_game_time_3_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00001000u;
+  _impl_._has_bits_[1] &= ~0x00000400u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_recent_game_time_3() const {
   return _impl_.recent_game_time_3_;
@@ -40447,7 +41089,7 @@ inline uint32_t CSODOTAGameAccountClient::recent_game_time_3() const {
   return _internal_recent_game_time_3();
 }
 inline void CSODOTAGameAccountClient::_internal_set_recent_game_time_3(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00001000u;
+  _impl_._has_bits_[1] |= 0x00000400u;
   _impl_.recent_game_time_3_ = value;
 }
 inline void CSODOTAGameAccountClient::set_recent_game_time_3(uint32_t value) {
@@ -40457,7 +41099,7 @@ inline void CSODOTAGameAccountClient::set_recent_game_time_3(uint32_t value) {
 
 // optional uint64 favorite_team_packed = 103;
 inline bool CSODOTAGameAccountClient::_internal_has_favorite_team_packed() const {
-  bool value = (_impl_._has_bits_[1] & 0x00002000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000800u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_favorite_team_packed() const {
@@ -40465,7 +41107,7 @@ inline bool CSODOTAGameAccountClient::has_favorite_team_packed() const {
 }
 inline void CSODOTAGameAccountClient::clear_favorite_team_packed() {
   _impl_.favorite_team_packed_ = uint64_t{0u};
-  _impl_._has_bits_[1] &= ~0x00002000u;
+  _impl_._has_bits_[1] &= ~0x00000800u;
 }
 inline uint64_t CSODOTAGameAccountClient::_internal_favorite_team_packed() const {
   return _impl_.favorite_team_packed_;
@@ -40475,7 +41117,7 @@ inline uint64_t CSODOTAGameAccountClient::favorite_team_packed() const {
   return _internal_favorite_team_packed();
 }
 inline void CSODOTAGameAccountClient::_internal_set_favorite_team_packed(uint64_t value) {
-  _impl_._has_bits_[1] |= 0x00002000u;
+  _impl_._has_bits_[1] |= 0x00000800u;
   _impl_.favorite_team_packed_ = value;
 }
 inline void CSODOTAGameAccountClient::set_favorite_team_packed(uint64_t value) {
@@ -40485,7 +41127,7 @@ inline void CSODOTAGameAccountClient::set_favorite_team_packed(uint64_t value) {
 
 // optional uint32 recent_report_time = 104;
 inline bool CSODOTAGameAccountClient::_internal_has_recent_report_time() const {
-  bool value = (_impl_._has_bits_[1] & 0x00004000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00001000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_recent_report_time() const {
@@ -40493,7 +41135,7 @@ inline bool CSODOTAGameAccountClient::has_recent_report_time() const {
 }
 inline void CSODOTAGameAccountClient::clear_recent_report_time() {
   _impl_.recent_report_time_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00004000u;
+  _impl_._has_bits_[1] &= ~0x00001000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_recent_report_time() const {
   return _impl_.recent_report_time_;
@@ -40503,7 +41145,7 @@ inline uint32_t CSODOTAGameAccountClient::recent_report_time() const {
   return _internal_recent_report_time();
 }
 inline void CSODOTAGameAccountClient::_internal_set_recent_report_time(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00004000u;
+  _impl_._has_bits_[1] |= 0x00001000u;
   _impl_.recent_report_time_ = value;
 }
 inline void CSODOTAGameAccountClient::set_recent_report_time(uint32_t value) {
@@ -40513,7 +41155,7 @@ inline void CSODOTAGameAccountClient::set_recent_report_time(uint32_t value) {
 
 // optional uint32 custom_game_disabled_until_date = 105;
 inline bool CSODOTAGameAccountClient::_internal_has_custom_game_disabled_until_date() const {
-  bool value = (_impl_._has_bits_[1] & 0x00008000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00002000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_custom_game_disabled_until_date() const {
@@ -40521,7 +41163,7 @@ inline bool CSODOTAGameAccountClient::has_custom_game_disabled_until_date() cons
 }
 inline void CSODOTAGameAccountClient::clear_custom_game_disabled_until_date() {
   _impl_.custom_game_disabled_until_date_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00008000u;
+  _impl_._has_bits_[1] &= ~0x00002000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_custom_game_disabled_until_date() const {
   return _impl_.custom_game_disabled_until_date_;
@@ -40531,7 +41173,7 @@ inline uint32_t CSODOTAGameAccountClient::custom_game_disabled_until_date() cons
   return _internal_custom_game_disabled_until_date();
 }
 inline void CSODOTAGameAccountClient::_internal_set_custom_game_disabled_until_date(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00008000u;
+  _impl_._has_bits_[1] |= 0x00002000u;
   _impl_.custom_game_disabled_until_date_ = value;
 }
 inline void CSODOTAGameAccountClient::set_custom_game_disabled_until_date(uint32_t value) {
@@ -40541,7 +41183,7 @@ inline void CSODOTAGameAccountClient::set_custom_game_disabled_until_date(uint32
 
 // optional uint32 recent_win_time_1 = 106;
 inline bool CSODOTAGameAccountClient::_internal_has_recent_win_time_1() const {
-  bool value = (_impl_._has_bits_[1] & 0x00010000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00004000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_recent_win_time_1() const {
@@ -40549,7 +41191,7 @@ inline bool CSODOTAGameAccountClient::has_recent_win_time_1() const {
 }
 inline void CSODOTAGameAccountClient::clear_recent_win_time_1() {
   _impl_.recent_win_time_1_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00010000u;
+  _impl_._has_bits_[1] &= ~0x00004000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_recent_win_time_1() const {
   return _impl_.recent_win_time_1_;
@@ -40559,7 +41201,7 @@ inline uint32_t CSODOTAGameAccountClient::recent_win_time_1() const {
   return _internal_recent_win_time_1();
 }
 inline void CSODOTAGameAccountClient::_internal_set_recent_win_time_1(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00010000u;
+  _impl_._has_bits_[1] |= 0x00004000u;
   _impl_.recent_win_time_1_ = value;
 }
 inline void CSODOTAGameAccountClient::set_recent_win_time_1(uint32_t value) {
@@ -40569,7 +41211,7 @@ inline void CSODOTAGameAccountClient::set_recent_win_time_1(uint32_t value) {
 
 // optional uint32 recent_win_time_2 = 107;
 inline bool CSODOTAGameAccountClient::_internal_has_recent_win_time_2() const {
-  bool value = (_impl_._has_bits_[1] & 0x00020000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00008000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_recent_win_time_2() const {
@@ -40577,7 +41219,7 @@ inline bool CSODOTAGameAccountClient::has_recent_win_time_2() const {
 }
 inline void CSODOTAGameAccountClient::clear_recent_win_time_2() {
   _impl_.recent_win_time_2_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00020000u;
+  _impl_._has_bits_[1] &= ~0x00008000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_recent_win_time_2() const {
   return _impl_.recent_win_time_2_;
@@ -40587,7 +41229,7 @@ inline uint32_t CSODOTAGameAccountClient::recent_win_time_2() const {
   return _internal_recent_win_time_2();
 }
 inline void CSODOTAGameAccountClient::_internal_set_recent_win_time_2(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00020000u;
+  _impl_._has_bits_[1] |= 0x00008000u;
   _impl_.recent_win_time_2_ = value;
 }
 inline void CSODOTAGameAccountClient::set_recent_win_time_2(uint32_t value) {
@@ -40597,7 +41239,7 @@ inline void CSODOTAGameAccountClient::set_recent_win_time_2(uint32_t value) {
 
 // optional uint32 recent_win_time_3 = 108;
 inline bool CSODOTAGameAccountClient::_internal_has_recent_win_time_3() const {
-  bool value = (_impl_._has_bits_[1] & 0x00040000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00010000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_recent_win_time_3() const {
@@ -40605,7 +41247,7 @@ inline bool CSODOTAGameAccountClient::has_recent_win_time_3() const {
 }
 inline void CSODOTAGameAccountClient::clear_recent_win_time_3() {
   _impl_.recent_win_time_3_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00040000u;
+  _impl_._has_bits_[1] &= ~0x00010000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_recent_win_time_3() const {
   return _impl_.recent_win_time_3_;
@@ -40615,7 +41257,7 @@ inline uint32_t CSODOTAGameAccountClient::recent_win_time_3() const {
   return _internal_recent_win_time_3();
 }
 inline void CSODOTAGameAccountClient::_internal_set_recent_win_time_3(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00040000u;
+  _impl_._has_bits_[1] |= 0x00010000u;
   _impl_.recent_win_time_3_ = value;
 }
 inline void CSODOTAGameAccountClient::set_recent_win_time_3(uint32_t value) {
@@ -40625,7 +41267,7 @@ inline void CSODOTAGameAccountClient::set_recent_win_time_3(uint32_t value) {
 
 // optional uint32 coach_rating = 109;
 inline bool CSODOTAGameAccountClient::_internal_has_coach_rating() const {
-  bool value = (_impl_._has_bits_[1] & 0x00080000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00020000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_coach_rating() const {
@@ -40633,7 +41275,7 @@ inline bool CSODOTAGameAccountClient::has_coach_rating() const {
 }
 inline void CSODOTAGameAccountClient::clear_coach_rating() {
   _impl_.coach_rating_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00080000u;
+  _impl_._has_bits_[1] &= ~0x00020000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_coach_rating() const {
   return _impl_.coach_rating_;
@@ -40643,7 +41285,7 @@ inline uint32_t CSODOTAGameAccountClient::coach_rating() const {
   return _internal_coach_rating();
 }
 inline void CSODOTAGameAccountClient::_internal_set_coach_rating(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00080000u;
+  _impl_._has_bits_[1] |= 0x00020000u;
   _impl_.coach_rating_ = value;
 }
 inline void CSODOTAGameAccountClient::set_coach_rating(uint32_t value) {
@@ -40653,7 +41295,7 @@ inline void CSODOTAGameAccountClient::set_coach_rating(uint32_t value) {
 
 // optional uint32 queue_points = 114;
 inline bool CSODOTAGameAccountClient::_internal_has_queue_points() const {
-  bool value = (_impl_._has_bits_[1] & 0x00100000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00040000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_queue_points() const {
@@ -40661,7 +41303,7 @@ inline bool CSODOTAGameAccountClient::has_queue_points() const {
 }
 inline void CSODOTAGameAccountClient::clear_queue_points() {
   _impl_.queue_points_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00100000u;
+  _impl_._has_bits_[1] &= ~0x00040000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_queue_points() const {
   return _impl_.queue_points_;
@@ -40671,7 +41313,7 @@ inline uint32_t CSODOTAGameAccountClient::queue_points() const {
   return _internal_queue_points();
 }
 inline void CSODOTAGameAccountClient::_internal_set_queue_points(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00100000u;
+  _impl_._has_bits_[1] |= 0x00040000u;
   _impl_.queue_points_ = value;
 }
 inline void CSODOTAGameAccountClient::set_queue_points(uint32_t value) {
@@ -40721,7 +41363,7 @@ CSODOTAGameAccountClient::role_handicaps() const {
 
 // optional uint32 event_mode_recent_time = 120;
 inline bool CSODOTAGameAccountClient::_internal_has_event_mode_recent_time() const {
-  bool value = (_impl_._has_bits_[1] & 0x00200000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00080000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_event_mode_recent_time() const {
@@ -40729,7 +41371,7 @@ inline bool CSODOTAGameAccountClient::has_event_mode_recent_time() const {
 }
 inline void CSODOTAGameAccountClient::clear_event_mode_recent_time() {
   _impl_.event_mode_recent_time_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00200000u;
+  _impl_._has_bits_[1] &= ~0x00080000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_event_mode_recent_time() const {
   return _impl_.event_mode_recent_time_;
@@ -40739,7 +41381,7 @@ inline uint32_t CSODOTAGameAccountClient::event_mode_recent_time() const {
   return _internal_event_mode_recent_time();
 }
 inline void CSODOTAGameAccountClient::_internal_set_event_mode_recent_time(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00200000u;
+  _impl_._has_bits_[1] |= 0x00080000u;
   _impl_.event_mode_recent_time_ = value;
 }
 inline void CSODOTAGameAccountClient::set_event_mode_recent_time(uint32_t value) {
@@ -40749,7 +41391,7 @@ inline void CSODOTAGameAccountClient::set_event_mode_recent_time(uint32_t value)
 
 // optional uint32 mmr_recalibration_time = 121;
 inline bool CSODOTAGameAccountClient::_internal_has_mmr_recalibration_time() const {
-  bool value = (_impl_._has_bits_[1] & 0x00400000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00100000u) != 0;
   return value;
 }
 inline bool CSODOTAGameAccountClient::has_mmr_recalibration_time() const {
@@ -40757,7 +41399,7 @@ inline bool CSODOTAGameAccountClient::has_mmr_recalibration_time() const {
 }
 inline void CSODOTAGameAccountClient::clear_mmr_recalibration_time() {
   _impl_.mmr_recalibration_time_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00400000u;
+  _impl_._has_bits_[1] &= ~0x00100000u;
 }
 inline uint32_t CSODOTAGameAccountClient::_internal_mmr_recalibration_time() const {
   return _impl_.mmr_recalibration_time_;
@@ -40767,7 +41409,7 @@ inline uint32_t CSODOTAGameAccountClient::mmr_recalibration_time() const {
   return _internal_mmr_recalibration_time();
 }
 inline void CSODOTAGameAccountClient::_internal_set_mmr_recalibration_time(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00400000u;
+  _impl_._has_bits_[1] |= 0x00100000u;
   _impl_.mmr_recalibration_time_ = value;
 }
 inline void CSODOTAGameAccountClient::set_mmr_recalibration_time(uint32_t value) {
@@ -41915,6 +42557,67 @@ inline void CMatchPlayerAbilityUpgrade::set_time(uint32_t value) {
 
 // -------------------------------------------------------------------
 
+// CMatchPlayerTimedCustomStat
+
+// optional .EDOTAMatchPlayerTimeCustomStat stat = 2 [default = k_EDOTA_MatchPlayerTimeCustomStat_HPRegenUnderT1Towers];
+inline bool CMatchPlayerTimedCustomStat::_internal_has_stat() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMatchPlayerTimedCustomStat::has_stat() const {
+  return _internal_has_stat();
+}
+inline void CMatchPlayerTimedCustomStat::clear_stat() {
+  _impl_.stat_ = 1;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline ::EDOTAMatchPlayerTimeCustomStat CMatchPlayerTimedCustomStat::_internal_stat() const {
+  return static_cast< ::EDOTAMatchPlayerTimeCustomStat >(_impl_.stat_);
+}
+inline ::EDOTAMatchPlayerTimeCustomStat CMatchPlayerTimedCustomStat::stat() const {
+  // @@protoc_insertion_point(field_get:CMatchPlayerTimedCustomStat.stat)
+  return _internal_stat();
+}
+inline void CMatchPlayerTimedCustomStat::_internal_set_stat(::EDOTAMatchPlayerTimeCustomStat value) {
+  assert(::EDOTAMatchPlayerTimeCustomStat_IsValid(value));
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.stat_ = value;
+}
+inline void CMatchPlayerTimedCustomStat::set_stat(::EDOTAMatchPlayerTimeCustomStat value) {
+  _internal_set_stat(value);
+  // @@protoc_insertion_point(field_set:CMatchPlayerTimedCustomStat.stat)
+}
+
+// optional float value = 3;
+inline bool CMatchPlayerTimedCustomStat::_internal_has_value() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMatchPlayerTimedCustomStat::has_value() const {
+  return _internal_has_value();
+}
+inline void CMatchPlayerTimedCustomStat::clear_value() {
+  _impl_.value_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline float CMatchPlayerTimedCustomStat::_internal_value() const {
+  return _impl_.value_;
+}
+inline float CMatchPlayerTimedCustomStat::value() const {
+  // @@protoc_insertion_point(field_get:CMatchPlayerTimedCustomStat.value)
+  return _internal_value();
+}
+inline void CMatchPlayerTimedCustomStat::_internal_set_value(float value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.value_ = value;
+}
+inline void CMatchPlayerTimedCustomStat::set_value(float value) {
+  _internal_set_value(value);
+  // @@protoc_insertion_point(field_set:CMatchPlayerTimedCustomStat.value)
+}
+
+// -------------------------------------------------------------------
+
 // CMatchPlayerTimedStats
 
 // optional uint32 time = 1;
@@ -42757,149 +43460,9 @@ inline void CMatchPlayerTimedStats::set_income_gold(uint32_t value) {
   // @@protoc_insertion_point(field_set:CMatchPlayerTimedStats.income_gold)
 }
 
-// optional uint32 custom_stats_1 = 31;
-inline bool CMatchPlayerTimedStats::_internal_has_custom_stats_1() const {
-  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
-  return value;
-}
-inline bool CMatchPlayerTimedStats::has_custom_stats_1() const {
-  return _internal_has_custom_stats_1();
-}
-inline void CMatchPlayerTimedStats::clear_custom_stats_1() {
-  _impl_.custom_stats_1_ = 0u;
-  _impl_._has_bits_[0] &= ~0x40000000u;
-}
-inline uint32_t CMatchPlayerTimedStats::_internal_custom_stats_1() const {
-  return _impl_.custom_stats_1_;
-}
-inline uint32_t CMatchPlayerTimedStats::custom_stats_1() const {
-  // @@protoc_insertion_point(field_get:CMatchPlayerTimedStats.custom_stats_1)
-  return _internal_custom_stats_1();
-}
-inline void CMatchPlayerTimedStats::_internal_set_custom_stats_1(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x40000000u;
-  _impl_.custom_stats_1_ = value;
-}
-inline void CMatchPlayerTimedStats::set_custom_stats_1(uint32_t value) {
-  _internal_set_custom_stats_1(value);
-  // @@protoc_insertion_point(field_set:CMatchPlayerTimedStats.custom_stats_1)
-}
-
-// optional uint32 custom_stats_2 = 32;
-inline bool CMatchPlayerTimedStats::_internal_has_custom_stats_2() const {
-  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
-  return value;
-}
-inline bool CMatchPlayerTimedStats::has_custom_stats_2() const {
-  return _internal_has_custom_stats_2();
-}
-inline void CMatchPlayerTimedStats::clear_custom_stats_2() {
-  _impl_.custom_stats_2_ = 0u;
-  _impl_._has_bits_[0] &= ~0x80000000u;
-}
-inline uint32_t CMatchPlayerTimedStats::_internal_custom_stats_2() const {
-  return _impl_.custom_stats_2_;
-}
-inline uint32_t CMatchPlayerTimedStats::custom_stats_2() const {
-  // @@protoc_insertion_point(field_get:CMatchPlayerTimedStats.custom_stats_2)
-  return _internal_custom_stats_2();
-}
-inline void CMatchPlayerTimedStats::_internal_set_custom_stats_2(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x80000000u;
-  _impl_.custom_stats_2_ = value;
-}
-inline void CMatchPlayerTimedStats::set_custom_stats_2(uint32_t value) {
-  _internal_set_custom_stats_2(value);
-  // @@protoc_insertion_point(field_set:CMatchPlayerTimedStats.custom_stats_2)
-}
-
-// optional uint32 custom_stats_3 = 33;
-inline bool CMatchPlayerTimedStats::_internal_has_custom_stats_3() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMatchPlayerTimedStats::has_custom_stats_3() const {
-  return _internal_has_custom_stats_3();
-}
-inline void CMatchPlayerTimedStats::clear_custom_stats_3() {
-  _impl_.custom_stats_3_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000001u;
-}
-inline uint32_t CMatchPlayerTimedStats::_internal_custom_stats_3() const {
-  return _impl_.custom_stats_3_;
-}
-inline uint32_t CMatchPlayerTimedStats::custom_stats_3() const {
-  // @@protoc_insertion_point(field_get:CMatchPlayerTimedStats.custom_stats_3)
-  return _internal_custom_stats_3();
-}
-inline void CMatchPlayerTimedStats::_internal_set_custom_stats_3(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000001u;
-  _impl_.custom_stats_3_ = value;
-}
-inline void CMatchPlayerTimedStats::set_custom_stats_3(uint32_t value) {
-  _internal_set_custom_stats_3(value);
-  // @@protoc_insertion_point(field_set:CMatchPlayerTimedStats.custom_stats_3)
-}
-
-// optional uint32 custom_stats_4 = 34;
-inline bool CMatchPlayerTimedStats::_internal_has_custom_stats_4() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMatchPlayerTimedStats::has_custom_stats_4() const {
-  return _internal_has_custom_stats_4();
-}
-inline void CMatchPlayerTimedStats::clear_custom_stats_4() {
-  _impl_.custom_stats_4_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000002u;
-}
-inline uint32_t CMatchPlayerTimedStats::_internal_custom_stats_4() const {
-  return _impl_.custom_stats_4_;
-}
-inline uint32_t CMatchPlayerTimedStats::custom_stats_4() const {
-  // @@protoc_insertion_point(field_get:CMatchPlayerTimedStats.custom_stats_4)
-  return _internal_custom_stats_4();
-}
-inline void CMatchPlayerTimedStats::_internal_set_custom_stats_4(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000002u;
-  _impl_.custom_stats_4_ = value;
-}
-inline void CMatchPlayerTimedStats::set_custom_stats_4(uint32_t value) {
-  _internal_set_custom_stats_4(value);
-  // @@protoc_insertion_point(field_set:CMatchPlayerTimedStats.custom_stats_4)
-}
-
-// optional uint32 custom_stats_5 = 35;
-inline bool CMatchPlayerTimedStats::_internal_has_custom_stats_5() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CMatchPlayerTimedStats::has_custom_stats_5() const {
-  return _internal_has_custom_stats_5();
-}
-inline void CMatchPlayerTimedStats::clear_custom_stats_5() {
-  _impl_.custom_stats_5_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000004u;
-}
-inline uint32_t CMatchPlayerTimedStats::_internal_custom_stats_5() const {
-  return _impl_.custom_stats_5_;
-}
-inline uint32_t CMatchPlayerTimedStats::custom_stats_5() const {
-  // @@protoc_insertion_point(field_get:CMatchPlayerTimedStats.custom_stats_5)
-  return _internal_custom_stats_5();
-}
-inline void CMatchPlayerTimedStats::_internal_set_custom_stats_5(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000004u;
-  _impl_.custom_stats_5_ = value;
-}
-inline void CMatchPlayerTimedStats::set_custom_stats_5(uint32_t value) {
-  _internal_set_custom_stats_5(value);
-  // @@protoc_insertion_point(field_set:CMatchPlayerTimedStats.custom_stats_5)
-}
-
 // optional uint32 item_value = 36;
 inline bool CMatchPlayerTimedStats::_internal_has_item_value() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
   return value;
 }
 inline bool CMatchPlayerTimedStats::has_item_value() const {
@@ -42907,7 +43470,7 @@ inline bool CMatchPlayerTimedStats::has_item_value() const {
 }
 inline void CMatchPlayerTimedStats::clear_item_value() {
   _impl_.item_value_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x40000000u;
 }
 inline uint32_t CMatchPlayerTimedStats::_internal_item_value() const {
   return _impl_.item_value_;
@@ -42917,7 +43480,7 @@ inline uint32_t CMatchPlayerTimedStats::item_value() const {
   return _internal_item_value();
 }
 inline void CMatchPlayerTimedStats::_internal_set_item_value(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x40000000u;
   _impl_.item_value_ = value;
 }
 inline void CMatchPlayerTimedStats::set_item_value(uint32_t value) {
@@ -42927,7 +43490,7 @@ inline void CMatchPlayerTimedStats::set_item_value(uint32_t value) {
 
 // optional uint32 support_gold_spent = 37;
 inline bool CMatchPlayerTimedStats::_internal_has_support_gold_spent() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
   return value;
 }
 inline bool CMatchPlayerTimedStats::has_support_gold_spent() const {
@@ -42935,7 +43498,7 @@ inline bool CMatchPlayerTimedStats::has_support_gold_spent() const {
 }
 inline void CMatchPlayerTimedStats::clear_support_gold_spent() {
   _impl_.support_gold_spent_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x80000000u;
 }
 inline uint32_t CMatchPlayerTimedStats::_internal_support_gold_spent() const {
   return _impl_.support_gold_spent_;
@@ -42945,7 +43508,7 @@ inline uint32_t CMatchPlayerTimedStats::support_gold_spent() const {
   return _internal_support_gold_spent();
 }
 inline void CMatchPlayerTimedStats::_internal_set_support_gold_spent(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x80000000u;
   _impl_.support_gold_spent_ = value;
 }
 inline void CMatchPlayerTimedStats::set_support_gold_spent(uint32_t value) {
@@ -42955,7 +43518,7 @@ inline void CMatchPlayerTimedStats::set_support_gold_spent(uint32_t value) {
 
 // optional uint32 camps_stacked = 38;
 inline bool CMatchPlayerTimedStats::_internal_has_camps_stacked() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
   return value;
 }
 inline bool CMatchPlayerTimedStats::has_camps_stacked() const {
@@ -42963,7 +43526,7 @@ inline bool CMatchPlayerTimedStats::has_camps_stacked() const {
 }
 inline void CMatchPlayerTimedStats::clear_camps_stacked() {
   _impl_.camps_stacked_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000020u;
+  _impl_._has_bits_[1] &= ~0x00000001u;
 }
 inline uint32_t CMatchPlayerTimedStats::_internal_camps_stacked() const {
   return _impl_.camps_stacked_;
@@ -42973,7 +43536,7 @@ inline uint32_t CMatchPlayerTimedStats::camps_stacked() const {
   return _internal_camps_stacked();
 }
 inline void CMatchPlayerTimedStats::_internal_set_camps_stacked(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000020u;
+  _impl_._has_bits_[1] |= 0x00000001u;
   _impl_.camps_stacked_ = value;
 }
 inline void CMatchPlayerTimedStats::set_camps_stacked(uint32_t value) {
@@ -42983,7 +43546,7 @@ inline void CMatchPlayerTimedStats::set_camps_stacked(uint32_t value) {
 
 // optional uint32 wards_placed = 39;
 inline bool CMatchPlayerTimedStats::_internal_has_wards_placed() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
   return value;
 }
 inline bool CMatchPlayerTimedStats::has_wards_placed() const {
@@ -42991,7 +43554,7 @@ inline bool CMatchPlayerTimedStats::has_wards_placed() const {
 }
 inline void CMatchPlayerTimedStats::clear_wards_placed() {
   _impl_.wards_placed_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000040u;
+  _impl_._has_bits_[1] &= ~0x00000002u;
 }
 inline uint32_t CMatchPlayerTimedStats::_internal_wards_placed() const {
   return _impl_.wards_placed_;
@@ -43001,7 +43564,7 @@ inline uint32_t CMatchPlayerTimedStats::wards_placed() const {
   return _internal_wards_placed();
 }
 inline void CMatchPlayerTimedStats::_internal_set_wards_placed(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000040u;
+  _impl_._has_bits_[1] |= 0x00000002u;
   _impl_.wards_placed_ = value;
 }
 inline void CMatchPlayerTimedStats::set_wards_placed(uint32_t value) {
@@ -43011,7 +43574,7 @@ inline void CMatchPlayerTimedStats::set_wards_placed(uint32_t value) {
 
 // optional uint32 triple_kills = 40;
 inline bool CMatchPlayerTimedStats::_internal_has_triple_kills() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMatchPlayerTimedStats::has_triple_kills() const {
@@ -43019,7 +43582,7 @@ inline bool CMatchPlayerTimedStats::has_triple_kills() const {
 }
 inline void CMatchPlayerTimedStats::clear_triple_kills() {
   _impl_.triple_kills_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000080u;
+  _impl_._has_bits_[1] &= ~0x00000004u;
 }
 inline uint32_t CMatchPlayerTimedStats::_internal_triple_kills() const {
   return _impl_.triple_kills_;
@@ -43029,7 +43592,7 @@ inline uint32_t CMatchPlayerTimedStats::triple_kills() const {
   return _internal_triple_kills();
 }
 inline void CMatchPlayerTimedStats::_internal_set_triple_kills(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000080u;
+  _impl_._has_bits_[1] |= 0x00000004u;
   _impl_.triple_kills_ = value;
 }
 inline void CMatchPlayerTimedStats::set_triple_kills(uint32_t value) {
@@ -43039,7 +43602,7 @@ inline void CMatchPlayerTimedStats::set_triple_kills(uint32_t value) {
 
 // optional uint32 rampages = 41;
 inline bool CMatchPlayerTimedStats::_internal_has_rampages() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMatchPlayerTimedStats::has_rampages() const {
@@ -43047,7 +43610,7 @@ inline bool CMatchPlayerTimedStats::has_rampages() const {
 }
 inline void CMatchPlayerTimedStats::clear_rampages() {
   _impl_.rampages_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000100u;
+  _impl_._has_bits_[1] &= ~0x00000008u;
 }
 inline uint32_t CMatchPlayerTimedStats::_internal_rampages() const {
   return _impl_.rampages_;
@@ -43057,12 +43620,52 @@ inline uint32_t CMatchPlayerTimedStats::rampages() const {
   return _internal_rampages();
 }
 inline void CMatchPlayerTimedStats::_internal_set_rampages(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000100u;
+  _impl_._has_bits_[1] |= 0x00000008u;
   _impl_.rampages_ = value;
 }
 inline void CMatchPlayerTimedStats::set_rampages(uint32_t value) {
   _internal_set_rampages(value);
   // @@protoc_insertion_point(field_set:CMatchPlayerTimedStats.rampages)
+}
+
+// repeated .CMatchPlayerTimedCustomStat custom_stats = 42;
+inline int CMatchPlayerTimedStats::_internal_custom_stats_size() const {
+  return _impl_.custom_stats_.size();
+}
+inline int CMatchPlayerTimedStats::custom_stats_size() const {
+  return _internal_custom_stats_size();
+}
+inline void CMatchPlayerTimedStats::clear_custom_stats() {
+  _impl_.custom_stats_.Clear();
+}
+inline ::CMatchPlayerTimedCustomStat* CMatchPlayerTimedStats::mutable_custom_stats(int index) {
+  // @@protoc_insertion_point(field_mutable:CMatchPlayerTimedStats.custom_stats)
+  return _impl_.custom_stats_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMatchPlayerTimedCustomStat >*
+CMatchPlayerTimedStats::mutable_custom_stats() {
+  // @@protoc_insertion_point(field_mutable_list:CMatchPlayerTimedStats.custom_stats)
+  return &_impl_.custom_stats_;
+}
+inline const ::CMatchPlayerTimedCustomStat& CMatchPlayerTimedStats::_internal_custom_stats(int index) const {
+  return _impl_.custom_stats_.Get(index);
+}
+inline const ::CMatchPlayerTimedCustomStat& CMatchPlayerTimedStats::custom_stats(int index) const {
+  // @@protoc_insertion_point(field_get:CMatchPlayerTimedStats.custom_stats)
+  return _internal_custom_stats(index);
+}
+inline ::CMatchPlayerTimedCustomStat* CMatchPlayerTimedStats::_internal_add_custom_stats() {
+  return _impl_.custom_stats_.Add();
+}
+inline ::CMatchPlayerTimedCustomStat* CMatchPlayerTimedStats::add_custom_stats() {
+  ::CMatchPlayerTimedCustomStat* _add = _internal_add_custom_stats();
+  // @@protoc_insertion_point(field_add:CMatchPlayerTimedStats.custom_stats)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMatchPlayerTimedCustomStat >&
+CMatchPlayerTimedStats::custom_stats() const {
+  // @@protoc_insertion_point(field_list:CMatchPlayerTimedStats.custom_stats)
+  return _impl_.custom_stats_;
 }
 
 // -------------------------------------------------------------------
@@ -67773,6 +68376,100 @@ CMsgGameDataSpecialValues::bonuses() const {
   return _impl_.bonuses_;
 }
 
+// repeated float values_shard = 7;
+inline int CMsgGameDataSpecialValues::_internal_values_shard_size() const {
+  return _impl_.values_shard_.size();
+}
+inline int CMsgGameDataSpecialValues::values_shard_size() const {
+  return _internal_values_shard_size();
+}
+inline void CMsgGameDataSpecialValues::clear_values_shard() {
+  _impl_.values_shard_.Clear();
+}
+inline float CMsgGameDataSpecialValues::_internal_values_shard(int index) const {
+  return _impl_.values_shard_.Get(index);
+}
+inline float CMsgGameDataSpecialValues::values_shard(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgGameDataSpecialValues.values_shard)
+  return _internal_values_shard(index);
+}
+inline void CMsgGameDataSpecialValues::set_values_shard(int index, float value) {
+  _impl_.values_shard_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgGameDataSpecialValues.values_shard)
+}
+inline void CMsgGameDataSpecialValues::_internal_add_values_shard(float value) {
+  _impl_.values_shard_.Add(value);
+}
+inline void CMsgGameDataSpecialValues::add_values_shard(float value) {
+  _internal_add_values_shard(value);
+  // @@protoc_insertion_point(field_add:CMsgGameDataSpecialValues.values_shard)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+CMsgGameDataSpecialValues::_internal_values_shard() const {
+  return _impl_.values_shard_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+CMsgGameDataSpecialValues::values_shard() const {
+  // @@protoc_insertion_point(field_list:CMsgGameDataSpecialValues.values_shard)
+  return _internal_values_shard();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+CMsgGameDataSpecialValues::_internal_mutable_values_shard() {
+  return &_impl_.values_shard_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+CMsgGameDataSpecialValues::mutable_values_shard() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgGameDataSpecialValues.values_shard)
+  return _internal_mutable_values_shard();
+}
+
+// repeated float values_scepter = 8;
+inline int CMsgGameDataSpecialValues::_internal_values_scepter_size() const {
+  return _impl_.values_scepter_.size();
+}
+inline int CMsgGameDataSpecialValues::values_scepter_size() const {
+  return _internal_values_scepter_size();
+}
+inline void CMsgGameDataSpecialValues::clear_values_scepter() {
+  _impl_.values_scepter_.Clear();
+}
+inline float CMsgGameDataSpecialValues::_internal_values_scepter(int index) const {
+  return _impl_.values_scepter_.Get(index);
+}
+inline float CMsgGameDataSpecialValues::values_scepter(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgGameDataSpecialValues.values_scepter)
+  return _internal_values_scepter(index);
+}
+inline void CMsgGameDataSpecialValues::set_values_scepter(int index, float value) {
+  _impl_.values_scepter_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgGameDataSpecialValues.values_scepter)
+}
+inline void CMsgGameDataSpecialValues::_internal_add_values_scepter(float value) {
+  _impl_.values_scepter_.Add(value);
+}
+inline void CMsgGameDataSpecialValues::add_values_scepter(float value) {
+  _internal_add_values_scepter(value);
+  // @@protoc_insertion_point(field_add:CMsgGameDataSpecialValues.values_scepter)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+CMsgGameDataSpecialValues::_internal_values_scepter() const {
+  return _impl_.values_scepter_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+CMsgGameDataSpecialValues::values_scepter() const {
+  // @@protoc_insertion_point(field_list:CMsgGameDataSpecialValues.values_scepter)
+  return _internal_values_scepter();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+CMsgGameDataSpecialValues::_internal_mutable_values_scepter() {
+  return &_impl_.values_scepter_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+CMsgGameDataSpecialValues::mutable_values_scepter() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgGameDataSpecialValues.values_scepter)
+  return _internal_mutable_values_scepter();
+}
+
 // -------------------------------------------------------------------
 
 // CMsgGameDataAbilityOrItem
@@ -68916,6 +69613,53 @@ CMsgGameDataAbilityOrItem::mutable_gold_costs() {
   return _internal_mutable_gold_costs();
 }
 
+// repeated uint32 health_costs = 38;
+inline int CMsgGameDataAbilityOrItem::_internal_health_costs_size() const {
+  return _impl_.health_costs_.size();
+}
+inline int CMsgGameDataAbilityOrItem::health_costs_size() const {
+  return _internal_health_costs_size();
+}
+inline void CMsgGameDataAbilityOrItem::clear_health_costs() {
+  _impl_.health_costs_.Clear();
+}
+inline uint32_t CMsgGameDataAbilityOrItem::_internal_health_costs(int index) const {
+  return _impl_.health_costs_.Get(index);
+}
+inline uint32_t CMsgGameDataAbilityOrItem::health_costs(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgGameDataAbilityOrItem.health_costs)
+  return _internal_health_costs(index);
+}
+inline void CMsgGameDataAbilityOrItem::set_health_costs(int index, uint32_t value) {
+  _impl_.health_costs_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgGameDataAbilityOrItem.health_costs)
+}
+inline void CMsgGameDataAbilityOrItem::_internal_add_health_costs(uint32_t value) {
+  _impl_.health_costs_.Add(value);
+}
+inline void CMsgGameDataAbilityOrItem::add_health_costs(uint32_t value) {
+  _internal_add_health_costs(value);
+  // @@protoc_insertion_point(field_add:CMsgGameDataAbilityOrItem.health_costs)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgGameDataAbilityOrItem::_internal_health_costs() const {
+  return _impl_.health_costs_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgGameDataAbilityOrItem::health_costs() const {
+  // @@protoc_insertion_point(field_list:CMsgGameDataAbilityOrItem.health_costs)
+  return _internal_health_costs();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgGameDataAbilityOrItem::_internal_mutable_health_costs() {
+  return &_impl_.health_costs_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgGameDataAbilityOrItem::mutable_health_costs() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgGameDataAbilityOrItem.health_costs)
+  return _internal_mutable_health_costs();
+}
+
 // repeated .CMsgGameDataSpecialValues special_values = 40;
 inline int CMsgGameDataAbilityOrItem::_internal_special_values_size() const {
   return _impl_.special_values_.size();
@@ -69963,7 +70707,7 @@ CMsgGameDataHero::mutable_role_levels() {
   return _internal_mutable_role_levels();
 }
 
-// optional uint32 damage_min = 24;
+// optional int32 damage_min = 24;
 inline bool CMsgGameDataHero::_internal_has_damage_min() const {
   bool value = (_impl_._has_bits_[0] & 0x00010000u) != 0;
   return value;
@@ -69972,26 +70716,26 @@ inline bool CMsgGameDataHero::has_damage_min() const {
   return _internal_has_damage_min();
 }
 inline void CMsgGameDataHero::clear_damage_min() {
-  _impl_.damage_min_ = 0u;
+  _impl_.damage_min_ = 0;
   _impl_._has_bits_[0] &= ~0x00010000u;
 }
-inline uint32_t CMsgGameDataHero::_internal_damage_min() const {
+inline int32_t CMsgGameDataHero::_internal_damage_min() const {
   return _impl_.damage_min_;
 }
-inline uint32_t CMsgGameDataHero::damage_min() const {
+inline int32_t CMsgGameDataHero::damage_min() const {
   // @@protoc_insertion_point(field_get:CMsgGameDataHero.damage_min)
   return _internal_damage_min();
 }
-inline void CMsgGameDataHero::_internal_set_damage_min(uint32_t value) {
+inline void CMsgGameDataHero::_internal_set_damage_min(int32_t value) {
   _impl_._has_bits_[0] |= 0x00010000u;
   _impl_.damage_min_ = value;
 }
-inline void CMsgGameDataHero::set_damage_min(uint32_t value) {
+inline void CMsgGameDataHero::set_damage_min(int32_t value) {
   _internal_set_damage_min(value);
   // @@protoc_insertion_point(field_set:CMsgGameDataHero.damage_min)
 }
 
-// optional uint32 damage_max = 25;
+// optional int32 damage_max = 25;
 inline bool CMsgGameDataHero::_internal_has_damage_max() const {
   bool value = (_impl_._has_bits_[0] & 0x00020000u) != 0;
   return value;
@@ -70000,21 +70744,21 @@ inline bool CMsgGameDataHero::has_damage_max() const {
   return _internal_has_damage_max();
 }
 inline void CMsgGameDataHero::clear_damage_max() {
-  _impl_.damage_max_ = 0u;
+  _impl_.damage_max_ = 0;
   _impl_._has_bits_[0] &= ~0x00020000u;
 }
-inline uint32_t CMsgGameDataHero::_internal_damage_max() const {
+inline int32_t CMsgGameDataHero::_internal_damage_max() const {
   return _impl_.damage_max_;
 }
-inline uint32_t CMsgGameDataHero::damage_max() const {
+inline int32_t CMsgGameDataHero::damage_max() const {
   // @@protoc_insertion_point(field_get:CMsgGameDataHero.damage_max)
   return _internal_damage_max();
 }
-inline void CMsgGameDataHero::_internal_set_damage_max(uint32_t value) {
+inline void CMsgGameDataHero::_internal_set_damage_max(int32_t value) {
   _impl_._has_bits_[0] |= 0x00020000u;
   _impl_.damage_max_ = value;
 }
-inline void CMsgGameDataHero::set_damage_max(uint32_t value) {
+inline void CMsgGameDataHero::set_damage_max(int32_t value) {
   _internal_set_damage_max(value);
   // @@protoc_insertion_point(field_set:CMsgGameDataHero.damage_max)
 }
@@ -72874,9 +73618,573 @@ CMsgHeroRoleAllRanksStats::rank_stats() const {
   return _impl_.rank_stats_;
 }
 
+// -------------------------------------------------------------------
+
+// CMsgMapStatsSnapshot
+
+// optional uint32 timestamp = 1;
+inline bool CMsgMapStatsSnapshot::_internal_has_timestamp() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
+  return value;
+}
+inline bool CMsgMapStatsSnapshot::has_timestamp() const {
+  return _internal_has_timestamp();
+}
+inline void CMsgMapStatsSnapshot::clear_timestamp() {
+  _impl_.timestamp_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
+}
+inline uint32_t CMsgMapStatsSnapshot::_internal_timestamp() const {
+  return _impl_.timestamp_;
+}
+inline uint32_t CMsgMapStatsSnapshot::timestamp() const {
+  // @@protoc_insertion_point(field_get:CMsgMapStatsSnapshot.timestamp)
+  return _internal_timestamp();
+}
+inline void CMsgMapStatsSnapshot::_internal_set_timestamp(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_.timestamp_ = value;
+}
+inline void CMsgMapStatsSnapshot::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:CMsgMapStatsSnapshot.timestamp)
+}
+
+// optional uint64 famangos_gained = 2;
+inline bool CMsgMapStatsSnapshot::_internal_has_famangos_gained() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgMapStatsSnapshot::has_famangos_gained() const {
+  return _internal_has_famangos_gained();
+}
+inline void CMsgMapStatsSnapshot::clear_famangos_gained() {
+  _impl_.famangos_gained_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint64_t CMsgMapStatsSnapshot::_internal_famangos_gained() const {
+  return _impl_.famangos_gained_;
+}
+inline uint64_t CMsgMapStatsSnapshot::famangos_gained() const {
+  // @@protoc_insertion_point(field_get:CMsgMapStatsSnapshot.famangos_gained)
+  return _internal_famangos_gained();
+}
+inline void CMsgMapStatsSnapshot::_internal_set_famangos_gained(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.famangos_gained_ = value;
+}
+inline void CMsgMapStatsSnapshot::set_famangos_gained(uint64_t value) {
+  _internal_set_famangos_gained(value);
+  // @@protoc_insertion_point(field_set:CMsgMapStatsSnapshot.famangos_gained)
+}
+
+// optional uint64 wisdom_runes_gained = 3;
+inline bool CMsgMapStatsSnapshot::_internal_has_wisdom_runes_gained() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgMapStatsSnapshot::has_wisdom_runes_gained() const {
+  return _internal_has_wisdom_runes_gained();
+}
+inline void CMsgMapStatsSnapshot::clear_wisdom_runes_gained() {
+  _impl_.wisdom_runes_gained_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint64_t CMsgMapStatsSnapshot::_internal_wisdom_runes_gained() const {
+  return _impl_.wisdom_runes_gained_;
+}
+inline uint64_t CMsgMapStatsSnapshot::wisdom_runes_gained() const {
+  // @@protoc_insertion_point(field_get:CMsgMapStatsSnapshot.wisdom_runes_gained)
+  return _internal_wisdom_runes_gained();
+}
+inline void CMsgMapStatsSnapshot::_internal_set_wisdom_runes_gained(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.wisdom_runes_gained_ = value;
+}
+inline void CMsgMapStatsSnapshot::set_wisdom_runes_gained(uint64_t value) {
+  _internal_set_wisdom_runes_gained(value);
+  // @@protoc_insertion_point(field_set:CMsgMapStatsSnapshot.wisdom_runes_gained)
+}
+
+// optional uint64 roshan_kills_day = 4;
+inline bool CMsgMapStatsSnapshot::_internal_has_roshan_kills_day() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgMapStatsSnapshot::has_roshan_kills_day() const {
+  return _internal_has_roshan_kills_day();
+}
+inline void CMsgMapStatsSnapshot::clear_roshan_kills_day() {
+  _impl_.roshan_kills_day_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline uint64_t CMsgMapStatsSnapshot::_internal_roshan_kills_day() const {
+  return _impl_.roshan_kills_day_;
+}
+inline uint64_t CMsgMapStatsSnapshot::roshan_kills_day() const {
+  // @@protoc_insertion_point(field_get:CMsgMapStatsSnapshot.roshan_kills_day)
+  return _internal_roshan_kills_day();
+}
+inline void CMsgMapStatsSnapshot::_internal_set_roshan_kills_day(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.roshan_kills_day_ = value;
+}
+inline void CMsgMapStatsSnapshot::set_roshan_kills_day(uint64_t value) {
+  _internal_set_roshan_kills_day(value);
+  // @@protoc_insertion_point(field_set:CMsgMapStatsSnapshot.roshan_kills_day)
+}
+
+// optional uint64 roshan_kills_night = 5;
+inline bool CMsgMapStatsSnapshot::_internal_has_roshan_kills_night() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMsgMapStatsSnapshot::has_roshan_kills_night() const {
+  return _internal_has_roshan_kills_night();
+}
+inline void CMsgMapStatsSnapshot::clear_roshan_kills_night() {
+  _impl_.roshan_kills_night_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline uint64_t CMsgMapStatsSnapshot::_internal_roshan_kills_night() const {
+  return _impl_.roshan_kills_night_;
+}
+inline uint64_t CMsgMapStatsSnapshot::roshan_kills_night() const {
+  // @@protoc_insertion_point(field_get:CMsgMapStatsSnapshot.roshan_kills_night)
+  return _internal_roshan_kills_night();
+}
+inline void CMsgMapStatsSnapshot::_internal_set_roshan_kills_night(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.roshan_kills_night_ = value;
+}
+inline void CMsgMapStatsSnapshot::set_roshan_kills_night(uint64_t value) {
+  _internal_set_roshan_kills_night(value);
+  // @@protoc_insertion_point(field_set:CMsgMapStatsSnapshot.roshan_kills_night)
+}
+
+// optional uint64 portals_used = 6;
+inline bool CMsgMapStatsSnapshot::_internal_has_portals_used() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CMsgMapStatsSnapshot::has_portals_used() const {
+  return _internal_has_portals_used();
+}
+inline void CMsgMapStatsSnapshot::clear_portals_used() {
+  _impl_.portals_used_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline uint64_t CMsgMapStatsSnapshot::_internal_portals_used() const {
+  return _impl_.portals_used_;
+}
+inline uint64_t CMsgMapStatsSnapshot::portals_used() const {
+  // @@protoc_insertion_point(field_get:CMsgMapStatsSnapshot.portals_used)
+  return _internal_portals_used();
+}
+inline void CMsgMapStatsSnapshot::_internal_set_portals_used(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.portals_used_ = value;
+}
+inline void CMsgMapStatsSnapshot::set_portals_used(uint64_t value) {
+  _internal_set_portals_used(value);
+  // @@protoc_insertion_point(field_set:CMsgMapStatsSnapshot.portals_used)
+}
+
+// optional uint64 lanterns_lit = 7;
+inline bool CMsgMapStatsSnapshot::_internal_has_lanterns_lit() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CMsgMapStatsSnapshot::has_lanterns_lit() const {
+  return _internal_has_lanterns_lit();
+}
+inline void CMsgMapStatsSnapshot::clear_lanterns_lit() {
+  _impl_.lanterns_lit_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000020u;
+}
+inline uint64_t CMsgMapStatsSnapshot::_internal_lanterns_lit() const {
+  return _impl_.lanterns_lit_;
+}
+inline uint64_t CMsgMapStatsSnapshot::lanterns_lit() const {
+  // @@protoc_insertion_point(field_get:CMsgMapStatsSnapshot.lanterns_lit)
+  return _internal_lanterns_lit();
+}
+inline void CMsgMapStatsSnapshot::_internal_set_lanterns_lit(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_.lanterns_lit_ = value;
+}
+inline void CMsgMapStatsSnapshot::set_lanterns_lit(uint64_t value) {
+  _internal_set_lanterns_lit(value);
+  // @@protoc_insertion_point(field_set:CMsgMapStatsSnapshot.lanterns_lit)
+}
+
+// optional uint64 miniboss_kills = 8;
+inline bool CMsgMapStatsSnapshot::_internal_has_miniboss_kills() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool CMsgMapStatsSnapshot::has_miniboss_kills() const {
+  return _internal_has_miniboss_kills();
+}
+inline void CMsgMapStatsSnapshot::clear_miniboss_kills() {
+  _impl_.miniboss_kills_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000040u;
+}
+inline uint64_t CMsgMapStatsSnapshot::_internal_miniboss_kills() const {
+  return _impl_.miniboss_kills_;
+}
+inline uint64_t CMsgMapStatsSnapshot::miniboss_kills() const {
+  // @@protoc_insertion_point(field_get:CMsgMapStatsSnapshot.miniboss_kills)
+  return _internal_miniboss_kills();
+}
+inline void CMsgMapStatsSnapshot::_internal_set_miniboss_kills(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_.miniboss_kills_ = value;
+}
+inline void CMsgMapStatsSnapshot::set_miniboss_kills(uint64_t value) {
+  _internal_set_miniboss_kills(value);
+  // @@protoc_insertion_point(field_set:CMsgMapStatsSnapshot.miniboss_kills)
+}
+
+// optional uint64 outposts_captured = 9;
+inline bool CMsgMapStatsSnapshot::_internal_has_outposts_captured() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  return value;
+}
+inline bool CMsgMapStatsSnapshot::has_outposts_captured() const {
+  return _internal_has_outposts_captured();
+}
+inline void CMsgMapStatsSnapshot::clear_outposts_captured() {
+  _impl_.outposts_captured_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000080u;
+}
+inline uint64_t CMsgMapStatsSnapshot::_internal_outposts_captured() const {
+  return _impl_.outposts_captured_;
+}
+inline uint64_t CMsgMapStatsSnapshot::outposts_captured() const {
+  // @@protoc_insertion_point(field_get:CMsgMapStatsSnapshot.outposts_captured)
+  return _internal_outposts_captured();
+}
+inline void CMsgMapStatsSnapshot::_internal_set_outposts_captured(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_.outposts_captured_ = value;
+}
+inline void CMsgMapStatsSnapshot::set_outposts_captured(uint64_t value) {
+  _internal_set_outposts_captured(value);
+  // @@protoc_insertion_point(field_set:CMsgMapStatsSnapshot.outposts_captured)
+}
+
+// optional uint64 shield_runes_gained = 10;
+inline bool CMsgMapStatsSnapshot::_internal_has_shield_runes_gained() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
+  return value;
+}
+inline bool CMsgMapStatsSnapshot::has_shield_runes_gained() const {
+  return _internal_has_shield_runes_gained();
+}
+inline void CMsgMapStatsSnapshot::clear_shield_runes_gained() {
+  _impl_.shield_runes_gained_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000100u;
+}
+inline uint64_t CMsgMapStatsSnapshot::_internal_shield_runes_gained() const {
+  return _impl_.shield_runes_gained_;
+}
+inline uint64_t CMsgMapStatsSnapshot::shield_runes_gained() const {
+  // @@protoc_insertion_point(field_get:CMsgMapStatsSnapshot.shield_runes_gained)
+  return _internal_shield_runes_gained();
+}
+inline void CMsgMapStatsSnapshot::_internal_set_shield_runes_gained(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000100u;
+  _impl_.shield_runes_gained_ = value;
+}
+inline void CMsgMapStatsSnapshot::set_shield_runes_gained(uint64_t value) {
+  _internal_set_shield_runes_gained(value);
+  // @@protoc_insertion_point(field_set:CMsgMapStatsSnapshot.shield_runes_gained)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgGlobalMapStats
+
+// optional .CMsgMapStatsSnapshot current = 1;
+inline bool CMsgGlobalMapStats::_internal_has_current() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.current_ != nullptr);
+  return value;
+}
+inline bool CMsgGlobalMapStats::has_current() const {
+  return _internal_has_current();
+}
+inline void CMsgGlobalMapStats::clear_current() {
+  if (_impl_.current_ != nullptr) _impl_.current_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::CMsgMapStatsSnapshot& CMsgGlobalMapStats::_internal_current() const {
+  const ::CMsgMapStatsSnapshot* p = _impl_.current_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgMapStatsSnapshot&>(
+      ::_CMsgMapStatsSnapshot_default_instance_);
+}
+inline const ::CMsgMapStatsSnapshot& CMsgGlobalMapStats::current() const {
+  // @@protoc_insertion_point(field_get:CMsgGlobalMapStats.current)
+  return _internal_current();
+}
+inline void CMsgGlobalMapStats::unsafe_arena_set_allocated_current(
+    ::CMsgMapStatsSnapshot* current) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.current_);
+  }
+  _impl_.current_ = current;
+  if (current) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgGlobalMapStats.current)
+}
+inline ::CMsgMapStatsSnapshot* CMsgGlobalMapStats::release_current() {
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgMapStatsSnapshot* temp = _impl_.current_;
+  _impl_.current_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CMsgMapStatsSnapshot* CMsgGlobalMapStats::unsafe_arena_release_current() {
+  // @@protoc_insertion_point(field_release:CMsgGlobalMapStats.current)
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgMapStatsSnapshot* temp = _impl_.current_;
+  _impl_.current_ = nullptr;
+  return temp;
+}
+inline ::CMsgMapStatsSnapshot* CMsgGlobalMapStats::_internal_mutable_current() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.current_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgMapStatsSnapshot>(GetArenaForAllocation());
+    _impl_.current_ = p;
+  }
+  return _impl_.current_;
+}
+inline ::CMsgMapStatsSnapshot* CMsgGlobalMapStats::mutable_current() {
+  ::CMsgMapStatsSnapshot* _msg = _internal_mutable_current();
+  // @@protoc_insertion_point(field_mutable:CMsgGlobalMapStats.current)
+  return _msg;
+}
+inline void CMsgGlobalMapStats::set_allocated_current(::CMsgMapStatsSnapshot* current) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.current_;
+  }
+  if (current) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(current);
+    if (message_arena != submessage_arena) {
+      current = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, current, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.current_ = current;
+  // @@protoc_insertion_point(field_set_allocated:CMsgGlobalMapStats.current)
+}
+
+// optional .CMsgMapStatsSnapshot window_start = 2;
+inline bool CMsgGlobalMapStats::_internal_has_window_start() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.window_start_ != nullptr);
+  return value;
+}
+inline bool CMsgGlobalMapStats::has_window_start() const {
+  return _internal_has_window_start();
+}
+inline void CMsgGlobalMapStats::clear_window_start() {
+  if (_impl_.window_start_ != nullptr) _impl_.window_start_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline const ::CMsgMapStatsSnapshot& CMsgGlobalMapStats::_internal_window_start() const {
+  const ::CMsgMapStatsSnapshot* p = _impl_.window_start_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgMapStatsSnapshot&>(
+      ::_CMsgMapStatsSnapshot_default_instance_);
+}
+inline const ::CMsgMapStatsSnapshot& CMsgGlobalMapStats::window_start() const {
+  // @@protoc_insertion_point(field_get:CMsgGlobalMapStats.window_start)
+  return _internal_window_start();
+}
+inline void CMsgGlobalMapStats::unsafe_arena_set_allocated_window_start(
+    ::CMsgMapStatsSnapshot* window_start) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.window_start_);
+  }
+  _impl_.window_start_ = window_start;
+  if (window_start) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgGlobalMapStats.window_start)
+}
+inline ::CMsgMapStatsSnapshot* CMsgGlobalMapStats::release_window_start() {
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  ::CMsgMapStatsSnapshot* temp = _impl_.window_start_;
+  _impl_.window_start_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CMsgMapStatsSnapshot* CMsgGlobalMapStats::unsafe_arena_release_window_start() {
+  // @@protoc_insertion_point(field_release:CMsgGlobalMapStats.window_start)
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  ::CMsgMapStatsSnapshot* temp = _impl_.window_start_;
+  _impl_.window_start_ = nullptr;
+  return temp;
+}
+inline ::CMsgMapStatsSnapshot* CMsgGlobalMapStats::_internal_mutable_window_start() {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  if (_impl_.window_start_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgMapStatsSnapshot>(GetArenaForAllocation());
+    _impl_.window_start_ = p;
+  }
+  return _impl_.window_start_;
+}
+inline ::CMsgMapStatsSnapshot* CMsgGlobalMapStats::mutable_window_start() {
+  ::CMsgMapStatsSnapshot* _msg = _internal_mutable_window_start();
+  // @@protoc_insertion_point(field_mutable:CMsgGlobalMapStats.window_start)
+  return _msg;
+}
+inline void CMsgGlobalMapStats::set_allocated_window_start(::CMsgMapStatsSnapshot* window_start) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.window_start_;
+  }
+  if (window_start) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(window_start);
+    if (message_arena != submessage_arena) {
+      window_start = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, window_start, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  _impl_.window_start_ = window_start;
+  // @@protoc_insertion_point(field_set_allocated:CMsgGlobalMapStats.window_start)
+}
+
+// optional .CMsgMapStatsSnapshot window_end = 3;
+inline bool CMsgGlobalMapStats::_internal_has_window_end() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.window_end_ != nullptr);
+  return value;
+}
+inline bool CMsgGlobalMapStats::has_window_end() const {
+  return _internal_has_window_end();
+}
+inline void CMsgGlobalMapStats::clear_window_end() {
+  if (_impl_.window_end_ != nullptr) _impl_.window_end_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline const ::CMsgMapStatsSnapshot& CMsgGlobalMapStats::_internal_window_end() const {
+  const ::CMsgMapStatsSnapshot* p = _impl_.window_end_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgMapStatsSnapshot&>(
+      ::_CMsgMapStatsSnapshot_default_instance_);
+}
+inline const ::CMsgMapStatsSnapshot& CMsgGlobalMapStats::window_end() const {
+  // @@protoc_insertion_point(field_get:CMsgGlobalMapStats.window_end)
+  return _internal_window_end();
+}
+inline void CMsgGlobalMapStats::unsafe_arena_set_allocated_window_end(
+    ::CMsgMapStatsSnapshot* window_end) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.window_end_);
+  }
+  _impl_.window_end_ = window_end;
+  if (window_end) {
+    _impl_._has_bits_[0] |= 0x00000004u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000004u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgGlobalMapStats.window_end)
+}
+inline ::CMsgMapStatsSnapshot* CMsgGlobalMapStats::release_window_end() {
+  _impl_._has_bits_[0] &= ~0x00000004u;
+  ::CMsgMapStatsSnapshot* temp = _impl_.window_end_;
+  _impl_.window_end_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CMsgMapStatsSnapshot* CMsgGlobalMapStats::unsafe_arena_release_window_end() {
+  // @@protoc_insertion_point(field_release:CMsgGlobalMapStats.window_end)
+  _impl_._has_bits_[0] &= ~0x00000004u;
+  ::CMsgMapStatsSnapshot* temp = _impl_.window_end_;
+  _impl_.window_end_ = nullptr;
+  return temp;
+}
+inline ::CMsgMapStatsSnapshot* CMsgGlobalMapStats::_internal_mutable_window_end() {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  if (_impl_.window_end_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgMapStatsSnapshot>(GetArenaForAllocation());
+    _impl_.window_end_ = p;
+  }
+  return _impl_.window_end_;
+}
+inline ::CMsgMapStatsSnapshot* CMsgGlobalMapStats::mutable_window_end() {
+  ::CMsgMapStatsSnapshot* _msg = _internal_mutable_window_end();
+  // @@protoc_insertion_point(field_mutable:CMsgGlobalMapStats.window_end)
+  return _msg;
+}
+inline void CMsgGlobalMapStats::set_allocated_window_end(::CMsgMapStatsSnapshot* window_end) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.window_end_;
+  }
+  if (window_end) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(window_end);
+    if (message_arena != submessage_arena) {
+      window_end = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, window_end, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000004u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000004u;
+  }
+  _impl_.window_end_ = window_end;
+  // @@protoc_insertion_point(field_set_allocated:CMsgGlobalMapStats.window_end)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -73253,6 +74561,11 @@ template <> struct is_proto_enum< ::EDOTAGCSessionNeed> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::EDOTAGCSessionNeed>() {
   return ::EDOTAGCSessionNeed_descriptor();
+}
+template <> struct is_proto_enum< ::EDOTAMatchPlayerTimeCustomStat> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EDOTAMatchPlayerTimeCustomStat>() {
+  return ::EDOTAMatchPlayerTimeCustomStat_descriptor();
 }
 template <> struct is_proto_enum< ::DOTA_TournamentEvents> : ::std::true_type {};
 template <>

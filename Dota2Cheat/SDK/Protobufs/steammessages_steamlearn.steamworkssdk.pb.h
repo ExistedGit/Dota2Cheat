@@ -97,6 +97,66 @@ extern CMsgSteamLearn_GetHMACKeys_RequestDefaultTypeInternal _CMsgSteamLearn_Get
 class CMsgSteamLearn_GetHMACKeys_Response;
 struct CMsgSteamLearn_GetHMACKeys_ResponseDefaultTypeInternal;
 extern CMsgSteamLearn_GetHMACKeys_ResponseDefaultTypeInternal _CMsgSteamLearn_GetHMACKeys_Response_default_instance_;
+class CMsgSteamLearn_InferenceBackend_Response;
+struct CMsgSteamLearn_InferenceBackend_ResponseDefaultTypeInternal;
+extern CMsgSteamLearn_InferenceBackend_ResponseDefaultTypeInternal _CMsgSteamLearn_InferenceBackend_Response_default_instance_;
+class CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput;
+struct CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutputDefaultTypeInternal;
+extern CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutputDefaultTypeInternal _CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput_default_instance_;
+class CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput;
+struct CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutputDefaultTypeInternal;
+extern CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutputDefaultTypeInternal _CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput_default_instance_;
+class CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput;
+struct CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutputDefaultTypeInternal;
+extern CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutputDefaultTypeInternal _CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput_default_instance_;
+class CMsgSteamLearn_InferenceBackend_Response_Output;
+struct CMsgSteamLearn_InferenceBackend_Response_OutputDefaultTypeInternal;
+extern CMsgSteamLearn_InferenceBackend_Response_OutputDefaultTypeInternal _CMsgSteamLearn_InferenceBackend_Response_Output_default_instance_;
+class CMsgSteamLearn_InferenceMetadataBackend_Request;
+struct CMsgSteamLearn_InferenceMetadataBackend_RequestDefaultTypeInternal;
+extern CMsgSteamLearn_InferenceMetadataBackend_RequestDefaultTypeInternal _CMsgSteamLearn_InferenceMetadataBackend_Request_default_instance_;
+class CMsgSteamLearn_InferenceMetadata_Request;
+struct CMsgSteamLearn_InferenceMetadata_RequestDefaultTypeInternal;
+extern CMsgSteamLearn_InferenceMetadata_RequestDefaultTypeInternal _CMsgSteamLearn_InferenceMetadata_Request_default_instance_;
+class CMsgSteamLearn_InferenceMetadata_Response;
+struct CMsgSteamLearn_InferenceMetadata_ResponseDefaultTypeInternal;
+extern CMsgSteamLearn_InferenceMetadata_ResponseDefaultTypeInternal _CMsgSteamLearn_InferenceMetadata_Response_default_instance_;
+class CMsgSteamLearn_InferenceMetadata_Response_CompactTable;
+struct CMsgSteamLearn_InferenceMetadata_Response_CompactTableDefaultTypeInternal;
+extern CMsgSteamLearn_InferenceMetadata_Response_CompactTableDefaultTypeInternal _CMsgSteamLearn_InferenceMetadata_Response_CompactTable_default_instance_;
+class CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry;
+struct CMsgSteamLearn_InferenceMetadata_Response_CompactTable_EntryDefaultTypeInternal;
+extern CMsgSteamLearn_InferenceMetadata_Response_CompactTable_EntryDefaultTypeInternal _CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry_default_instance_;
+class CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry;
+struct CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntryDefaultTypeInternal;
+extern CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntryDefaultTypeInternal _CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry_default_instance_;
+class CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry;
+struct CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntryDefaultTypeInternal;
+extern CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntryDefaultTypeInternal _CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry_default_instance_;
+class CMsgSteamLearn_InferenceMetadata_Response_KMeans;
+struct CMsgSteamLearn_InferenceMetadata_Response_KMeansDefaultTypeInternal;
+extern CMsgSteamLearn_InferenceMetadata_Response_KMeansDefaultTypeInternal _CMsgSteamLearn_InferenceMetadata_Response_KMeans_default_instance_;
+class CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster;
+struct CMsgSteamLearn_InferenceMetadata_Response_KMeans_ClusterDefaultTypeInternal;
+extern CMsgSteamLearn_InferenceMetadata_Response_KMeans_ClusterDefaultTypeInternal _CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster_default_instance_;
+class CMsgSteamLearn_InferenceMetadata_Response_Range;
+struct CMsgSteamLearn_InferenceMetadata_Response_RangeDefaultTypeInternal;
+extern CMsgSteamLearn_InferenceMetadata_Response_RangeDefaultTypeInternal _CMsgSteamLearn_InferenceMetadata_Response_Range_default_instance_;
+class CMsgSteamLearn_InferenceMetadata_Response_RowRange;
+struct CMsgSteamLearn_InferenceMetadata_Response_RowRangeDefaultTypeInternal;
+extern CMsgSteamLearn_InferenceMetadata_Response_RowRangeDefaultTypeInternal _CMsgSteamLearn_InferenceMetadata_Response_RowRange_default_instance_;
+class CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram;
+struct CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogramDefaultTypeInternal;
+extern CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogramDefaultTypeInternal _CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram_default_instance_;
+class CMsgSteamLearn_InferenceMetadata_Response_StdDev;
+struct CMsgSteamLearn_InferenceMetadata_Response_StdDevDefaultTypeInternal;
+extern CMsgSteamLearn_InferenceMetadata_Response_StdDevDefaultTypeInternal _CMsgSteamLearn_InferenceMetadata_Response_StdDev_default_instance_;
+class CMsgSteamLearn_Inference_Request;
+struct CMsgSteamLearn_Inference_RequestDefaultTypeInternal;
+extern CMsgSteamLearn_Inference_RequestDefaultTypeInternal _CMsgSteamLearn_Inference_Request_default_instance_;
+class CMsgSteamLearn_Inference_Response;
+struct CMsgSteamLearn_Inference_ResponseDefaultTypeInternal;
+extern CMsgSteamLearn_Inference_ResponseDefaultTypeInternal _CMsgSteamLearn_Inference_Response_default_instance_;
 class CMsgSteamLearn_RegisterDataSource_Request;
 struct CMsgSteamLearn_RegisterDataSource_RequestDefaultTypeInternal;
 extern CMsgSteamLearn_RegisterDataSource_RequestDefaultTypeInternal _CMsgSteamLearn_RegisterDataSource_Request_default_instance_;
@@ -127,6 +187,26 @@ template<> ::CMsgSteamLearn_CacheData_Request* Arena::CreateMaybeMessage<::CMsgS
 template<> ::CMsgSteamLearn_CacheData_Response* Arena::CreateMaybeMessage<::CMsgSteamLearn_CacheData_Response>(Arena*);
 template<> ::CMsgSteamLearn_GetHMACKeys_Request* Arena::CreateMaybeMessage<::CMsgSteamLearn_GetHMACKeys_Request>(Arena*);
 template<> ::CMsgSteamLearn_GetHMACKeys_Response* Arena::CreateMaybeMessage<::CMsgSteamLearn_GetHMACKeys_Response>(Arena*);
+template<> ::CMsgSteamLearn_InferenceBackend_Response* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceBackend_Response>(Arena*);
+template<> ::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput>(Arena*);
+template<> ::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput>(Arena*);
+template<> ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput>(Arena*);
+template<> ::CMsgSteamLearn_InferenceBackend_Response_Output* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceBackend_Response_Output>(Arena*);
+template<> ::CMsgSteamLearn_InferenceMetadataBackend_Request* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceMetadataBackend_Request>(Arena*);
+template<> ::CMsgSteamLearn_InferenceMetadata_Request* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceMetadata_Request>(Arena*);
+template<> ::CMsgSteamLearn_InferenceMetadata_Response* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceMetadata_Response>(Arena*);
+template<> ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceMetadata_Response_CompactTable>(Arena*);
+template<> ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry>(Arena*);
+template<> ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry>(Arena*);
+template<> ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry>(Arena*);
+template<> ::CMsgSteamLearn_InferenceMetadata_Response_KMeans* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceMetadata_Response_KMeans>(Arena*);
+template<> ::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster>(Arena*);
+template<> ::CMsgSteamLearn_InferenceMetadata_Response_Range* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceMetadata_Response_Range>(Arena*);
+template<> ::CMsgSteamLearn_InferenceMetadata_Response_RowRange* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceMetadata_Response_RowRange>(Arena*);
+template<> ::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram>(Arena*);
+template<> ::CMsgSteamLearn_InferenceMetadata_Response_StdDev* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceMetadata_Response_StdDev>(Arena*);
+template<> ::CMsgSteamLearn_Inference_Request* Arena::CreateMaybeMessage<::CMsgSteamLearn_Inference_Request>(Arena*);
+template<> ::CMsgSteamLearn_Inference_Response* Arena::CreateMaybeMessage<::CMsgSteamLearn_Inference_Response>(Arena*);
 template<> ::CMsgSteamLearn_RegisterDataSource_Request* Arena::CreateMaybeMessage<::CMsgSteamLearn_RegisterDataSource_Request>(Arena*);
 template<> ::CMsgSteamLearn_RegisterDataSource_Response* Arena::CreateMaybeMessage<::CMsgSteamLearn_RegisterDataSource_Response>(Arena*);
 template<> ::CMsgSteamLearn_SnapshotProject_Request* Arena::CreateMaybeMessage<::CMsgSteamLearn_SnapshotProject_Request>(Arena*);
@@ -276,6 +356,66 @@ inline bool ESteamLearnGetHMACKeysResult_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ESteamLearnGetHMACKeysResult* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ESteamLearnGetHMACKeysResult>(
     ESteamLearnGetHMACKeysResult_descriptor(), name, value);
+}
+enum ESteamLearnInferenceResult : int {
+  STEAMLEARN_INFERENCE_ERROR = 0,
+  STEAMLEARN_INFERENCE_SUCCESS = 1,
+  STEAMLEARN_INFERENCE_ERROR_INVALID_PROJECT_ID = 2,
+  STEAMLEARN_INFERENCE_ERROR_MISSING_CACHED_SCHEMA_DATA = 3,
+  STEAMLEARN_INFERENCE_ERROR_NO_PUBLISHED_CONFIG = 4,
+  STEAMLEARN_INFERENCE_ERROR_FORBIDDEN = 5,
+  STEAMLEARN_INFERENCE_ERROR_INVALID_TIMESTAMP = 6,
+  STEAMLEARN_INFERENCE_ERROR_INVALID_PUBLISHED_VERSION = 7,
+  STEAMLEARN_INFERENCE_ERROR_NO_FETCH_ID_FOUND = 8,
+  STEAMLEARN_INFERENCE_ERROR_TOO_BUSY = 9
+};
+bool ESteamLearnInferenceResult_IsValid(int value);
+constexpr ESteamLearnInferenceResult ESteamLearnInferenceResult_MIN = STEAMLEARN_INFERENCE_ERROR;
+constexpr ESteamLearnInferenceResult ESteamLearnInferenceResult_MAX = STEAMLEARN_INFERENCE_ERROR_TOO_BUSY;
+constexpr int ESteamLearnInferenceResult_ARRAYSIZE = ESteamLearnInferenceResult_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ESteamLearnInferenceResult_descriptor();
+template<typename T>
+inline const std::string& ESteamLearnInferenceResult_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, ESteamLearnInferenceResult>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function ESteamLearnInferenceResult_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    ESteamLearnInferenceResult_descriptor(), enum_t_value);
+}
+inline bool ESteamLearnInferenceResult_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ESteamLearnInferenceResult* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ESteamLearnInferenceResult>(
+    ESteamLearnInferenceResult_descriptor(), name, value);
+}
+enum ESteamLearnInferenceMetadataResult : int {
+  STEAMLEARN_INFERENCE_METADATA_ERROR = 0,
+  STEAMLEARN_INFERENCE_METADATA_SUCCESS = 1,
+  STEAMLEARN_INFERENCE_METADATA_ERROR_INVALID_PROJECT_ID = 2,
+  STEAMLEARN_INFERENCE_METADATA_ERROR_NO_PUBLISHED_CONFIG = 3,
+  STEAMLEARN_INFERENCE_METADATA_ERROR_FORBIDDEN = 4,
+  STEAMLEARN_INFERENCE_METADATA_ERROR_INVALID_TIMESTAMP = 5,
+  STEAMLEARN_INFERENCE_METADATA_ERROR_INVALID_PUBLISHED_VERSION = 6,
+  STEAMLEARN_INFERENCE_METADATA_ERROR_NO_FETCH_ID_FOUND = 7
+};
+bool ESteamLearnInferenceMetadataResult_IsValid(int value);
+constexpr ESteamLearnInferenceMetadataResult ESteamLearnInferenceMetadataResult_MIN = STEAMLEARN_INFERENCE_METADATA_ERROR;
+constexpr ESteamLearnInferenceMetadataResult ESteamLearnInferenceMetadataResult_MAX = STEAMLEARN_INFERENCE_METADATA_ERROR_NO_FETCH_ID_FOUND;
+constexpr int ESteamLearnInferenceMetadataResult_ARRAYSIZE = ESteamLearnInferenceMetadataResult_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ESteamLearnInferenceMetadataResult_descriptor();
+template<typename T>
+inline const std::string& ESteamLearnInferenceMetadataResult_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, ESteamLearnInferenceMetadataResult>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function ESteamLearnInferenceMetadataResult_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    ESteamLearnInferenceMetadataResult_descriptor(), enum_t_value);
+}
+inline bool ESteamLearnInferenceMetadataResult_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ESteamLearnInferenceMetadataResult* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ESteamLearnInferenceMetadataResult>(
+    ESteamLearnInferenceMetadataResult_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -4416,6 +4556,4020 @@ class CMsgSteamLearn_GetHMACKeys_Response final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
 };
+// -------------------------------------------------------------------
+
+class CMsgSteamLearn_Inference_Request final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_Inference_Request) */ {
+ public:
+  inline CMsgSteamLearn_Inference_Request() : CMsgSteamLearn_Inference_Request(nullptr) {}
+  ~CMsgSteamLearn_Inference_Request() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_Inference_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearn_Inference_Request(const CMsgSteamLearn_Inference_Request& from);
+  CMsgSteamLearn_Inference_Request(CMsgSteamLearn_Inference_Request&& from) noexcept
+    : CMsgSteamLearn_Inference_Request() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearn_Inference_Request& operator=(const CMsgSteamLearn_Inference_Request& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearn_Inference_Request& operator=(CMsgSteamLearn_Inference_Request&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearn_Inference_Request& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearn_Inference_Request* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_Inference_Request*>(
+               &_CMsgSteamLearn_Inference_Request_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    21;
+
+  friend void swap(CMsgSteamLearn_Inference_Request& a, CMsgSteamLearn_Inference_Request& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearn_Inference_Request* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearn_Inference_Request* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearn_Inference_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_Inference_Request>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearn_Inference_Request& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearn_Inference_Request& from) {
+    CMsgSteamLearn_Inference_Request::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearn_Inference_Request* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearn_Inference_Request";
+  }
+  protected:
+  explicit CMsgSteamLearn_Inference_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAdditionalDataFieldNumber = 7,
+    kAccessTokenFieldNumber = 1,
+    kAccessDataFieldNumber = 2,
+    kDataFieldNumber = 6,
+    kProjectIdFieldNumber = 3,
+    kPublishedVersionFieldNumber = 4,
+    kOverrideTrainIdFieldNumber = 5,
+  };
+  // repeated float additional_data = 7;
+  int additional_data_size() const;
+  private:
+  int _internal_additional_data_size() const;
+  public:
+  void clear_additional_data();
+  private:
+  float _internal_additional_data(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      _internal_additional_data() const;
+  void _internal_add_additional_data(float value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      _internal_mutable_additional_data();
+  public:
+  float additional_data(int index) const;
+  void set_additional_data(int index, float value);
+  void add_additional_data(float value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      additional_data() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      mutable_additional_data();
+
+  // optional string access_token = 1;
+  bool has_access_token() const;
+  private:
+  bool _internal_has_access_token() const;
+  public:
+  void clear_access_token();
+  const std::string& access_token() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_access_token(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_access_token();
+  PROTOBUF_NODISCARD std::string* release_access_token();
+  void set_allocated_access_token(std::string* access_token);
+  private:
+  const std::string& _internal_access_token() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_access_token(const std::string& value);
+  std::string* _internal_mutable_access_token();
+  public:
+
+  // optional .CMsgSteamLearn_AccessData access_data = 2;
+  bool has_access_data() const;
+  private:
+  bool _internal_has_access_data() const;
+  public:
+  void clear_access_data();
+  const ::CMsgSteamLearn_AccessData& access_data() const;
+  PROTOBUF_NODISCARD ::CMsgSteamLearn_AccessData* release_access_data();
+  ::CMsgSteamLearn_AccessData* mutable_access_data();
+  void set_allocated_access_data(::CMsgSteamLearn_AccessData* access_data);
+  private:
+  const ::CMsgSteamLearn_AccessData& _internal_access_data() const;
+  ::CMsgSteamLearn_AccessData* _internal_mutable_access_data();
+  public:
+  void unsafe_arena_set_allocated_access_data(
+      ::CMsgSteamLearn_AccessData* access_data);
+  ::CMsgSteamLearn_AccessData* unsafe_arena_release_access_data();
+
+  // optional .CMsgSteamLearnDataList data = 6;
+  bool has_data() const;
+  private:
+  bool _internal_has_data() const;
+  public:
+  void clear_data();
+  const ::CMsgSteamLearnDataList& data() const;
+  PROTOBUF_NODISCARD ::CMsgSteamLearnDataList* release_data();
+  ::CMsgSteamLearnDataList* mutable_data();
+  void set_allocated_data(::CMsgSteamLearnDataList* data);
+  private:
+  const ::CMsgSteamLearnDataList& _internal_data() const;
+  ::CMsgSteamLearnDataList* _internal_mutable_data();
+  public:
+  void unsafe_arena_set_allocated_data(
+      ::CMsgSteamLearnDataList* data);
+  ::CMsgSteamLearnDataList* unsafe_arena_release_data();
+
+  // optional uint32 project_id = 3;
+  bool has_project_id() const;
+  private:
+  bool _internal_has_project_id() const;
+  public:
+  void clear_project_id();
+  uint32_t project_id() const;
+  void set_project_id(uint32_t value);
+  private:
+  uint32_t _internal_project_id() const;
+  void _internal_set_project_id(uint32_t value);
+  public:
+
+  // optional uint32 published_version = 4;
+  bool has_published_version() const;
+  private:
+  bool _internal_has_published_version() const;
+  public:
+  void clear_published_version();
+  uint32_t published_version() const;
+  void set_published_version(uint32_t value);
+  private:
+  uint32_t _internal_published_version() const;
+  void _internal_set_published_version(uint32_t value);
+  public:
+
+  // optional uint32 override_train_id = 5;
+  bool has_override_train_id() const;
+  private:
+  bool _internal_has_override_train_id() const;
+  public:
+  void clear_override_train_id();
+  uint32_t override_train_id() const;
+  void set_override_train_id(uint32_t value);
+  private:
+  uint32_t _internal_override_train_id() const;
+  void _internal_set_override_train_id(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_Inference_Request)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > additional_data_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr access_token_;
+    ::CMsgSteamLearn_AccessData* access_data_;
+    ::CMsgSteamLearnDataList* data_;
+    uint32_t project_id_;
+    uint32_t published_version_;
+    uint32_t override_train_id_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearn_InferenceMetadata_Request final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_InferenceMetadata_Request) */ {
+ public:
+  inline CMsgSteamLearn_InferenceMetadata_Request() : CMsgSteamLearn_InferenceMetadata_Request(nullptr) {}
+  ~CMsgSteamLearn_InferenceMetadata_Request() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceMetadata_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearn_InferenceMetadata_Request(const CMsgSteamLearn_InferenceMetadata_Request& from);
+  CMsgSteamLearn_InferenceMetadata_Request(CMsgSteamLearn_InferenceMetadata_Request&& from) noexcept
+    : CMsgSteamLearn_InferenceMetadata_Request() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearn_InferenceMetadata_Request& operator=(const CMsgSteamLearn_InferenceMetadata_Request& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearn_InferenceMetadata_Request& operator=(CMsgSteamLearn_InferenceMetadata_Request&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearn_InferenceMetadata_Request& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearn_InferenceMetadata_Request* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_InferenceMetadata_Request*>(
+               &_CMsgSteamLearn_InferenceMetadata_Request_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    22;
+
+  friend void swap(CMsgSteamLearn_InferenceMetadata_Request& a, CMsgSteamLearn_InferenceMetadata_Request& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearn_InferenceMetadata_Request* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearn_InferenceMetadata_Request* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearn_InferenceMetadata_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_InferenceMetadata_Request>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearn_InferenceMetadata_Request& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearn_InferenceMetadata_Request& from) {
+    CMsgSteamLearn_InferenceMetadata_Request::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearn_InferenceMetadata_Request* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearn_InferenceMetadata_Request";
+  }
+  protected:
+  explicit CMsgSteamLearn_InferenceMetadata_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAccessTokenFieldNumber = 1,
+    kAccessDataFieldNumber = 2,
+    kProjectIdFieldNumber = 3,
+    kPublishedVersionFieldNumber = 4,
+    kOverrideTrainIdFieldNumber = 5,
+  };
+  // optional string access_token = 1;
+  bool has_access_token() const;
+  private:
+  bool _internal_has_access_token() const;
+  public:
+  void clear_access_token();
+  const std::string& access_token() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_access_token(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_access_token();
+  PROTOBUF_NODISCARD std::string* release_access_token();
+  void set_allocated_access_token(std::string* access_token);
+  private:
+  const std::string& _internal_access_token() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_access_token(const std::string& value);
+  std::string* _internal_mutable_access_token();
+  public:
+
+  // optional .CMsgSteamLearn_AccessData access_data = 2;
+  bool has_access_data() const;
+  private:
+  bool _internal_has_access_data() const;
+  public:
+  void clear_access_data();
+  const ::CMsgSteamLearn_AccessData& access_data() const;
+  PROTOBUF_NODISCARD ::CMsgSteamLearn_AccessData* release_access_data();
+  ::CMsgSteamLearn_AccessData* mutable_access_data();
+  void set_allocated_access_data(::CMsgSteamLearn_AccessData* access_data);
+  private:
+  const ::CMsgSteamLearn_AccessData& _internal_access_data() const;
+  ::CMsgSteamLearn_AccessData* _internal_mutable_access_data();
+  public:
+  void unsafe_arena_set_allocated_access_data(
+      ::CMsgSteamLearn_AccessData* access_data);
+  ::CMsgSteamLearn_AccessData* unsafe_arena_release_access_data();
+
+  // optional uint32 project_id = 3;
+  bool has_project_id() const;
+  private:
+  bool _internal_has_project_id() const;
+  public:
+  void clear_project_id();
+  uint32_t project_id() const;
+  void set_project_id(uint32_t value);
+  private:
+  uint32_t _internal_project_id() const;
+  void _internal_set_project_id(uint32_t value);
+  public:
+
+  // optional uint32 published_version = 4;
+  bool has_published_version() const;
+  private:
+  bool _internal_has_published_version() const;
+  public:
+  void clear_published_version();
+  uint32_t published_version() const;
+  void set_published_version(uint32_t value);
+  private:
+  uint32_t _internal_published_version() const;
+  void _internal_set_published_version(uint32_t value);
+  public:
+
+  // optional uint32 override_train_id = 5;
+  bool has_override_train_id() const;
+  private:
+  bool _internal_has_override_train_id() const;
+  public:
+  void clear_override_train_id();
+  uint32_t override_train_id() const;
+  void set_override_train_id(uint32_t value);
+  private:
+  uint32_t _internal_override_train_id() const;
+  void _internal_set_override_train_id(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceMetadata_Request)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr access_token_;
+    ::CMsgSteamLearn_AccessData* access_data_;
+    uint32_t project_id_;
+    uint32_t published_version_;
+    uint32_t override_train_id_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearn_InferenceMetadataBackend_Request final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_InferenceMetadataBackend_Request) */ {
+ public:
+  inline CMsgSteamLearn_InferenceMetadataBackend_Request() : CMsgSteamLearn_InferenceMetadataBackend_Request(nullptr) {}
+  ~CMsgSteamLearn_InferenceMetadataBackend_Request() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceMetadataBackend_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearn_InferenceMetadataBackend_Request(const CMsgSteamLearn_InferenceMetadataBackend_Request& from);
+  CMsgSteamLearn_InferenceMetadataBackend_Request(CMsgSteamLearn_InferenceMetadataBackend_Request&& from) noexcept
+    : CMsgSteamLearn_InferenceMetadataBackend_Request() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearn_InferenceMetadataBackend_Request& operator=(const CMsgSteamLearn_InferenceMetadataBackend_Request& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearn_InferenceMetadataBackend_Request& operator=(CMsgSteamLearn_InferenceMetadataBackend_Request&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearn_InferenceMetadataBackend_Request& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearn_InferenceMetadataBackend_Request* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_InferenceMetadataBackend_Request*>(
+               &_CMsgSteamLearn_InferenceMetadataBackend_Request_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    23;
+
+  friend void swap(CMsgSteamLearn_InferenceMetadataBackend_Request& a, CMsgSteamLearn_InferenceMetadataBackend_Request& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearn_InferenceMetadataBackend_Request* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearn_InferenceMetadataBackend_Request* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearn_InferenceMetadataBackend_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_InferenceMetadataBackend_Request>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearn_InferenceMetadataBackend_Request& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearn_InferenceMetadataBackend_Request& from) {
+    CMsgSteamLearn_InferenceMetadataBackend_Request::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearn_InferenceMetadataBackend_Request* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearn_InferenceMetadataBackend_Request";
+  }
+  protected:
+  explicit CMsgSteamLearn_InferenceMetadataBackend_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kProjectIdFieldNumber = 1,
+    kFetchIdFieldNumber = 2,
+  };
+  // optional uint32 project_id = 1;
+  bool has_project_id() const;
+  private:
+  bool _internal_has_project_id() const;
+  public:
+  void clear_project_id();
+  uint32_t project_id() const;
+  void set_project_id(uint32_t value);
+  private:
+  uint32_t _internal_project_id() const;
+  void _internal_set_project_id(uint32_t value);
+  public:
+
+  // optional uint32 fetch_id = 2;
+  bool has_fetch_id() const;
+  private:
+  bool _internal_has_fetch_id() const;
+  public:
+  void clear_fetch_id();
+  uint32_t fetch_id() const;
+  void set_fetch_id(uint32_t value);
+  private:
+  uint32_t _internal_fetch_id() const;
+  void _internal_set_fetch_id(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceMetadataBackend_Request)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t project_id_;
+    uint32_t fetch_id_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearn_InferenceMetadata_Response_RowRange final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_InferenceMetadata_Response.RowRange) */ {
+ public:
+  inline CMsgSteamLearn_InferenceMetadata_Response_RowRange() : CMsgSteamLearn_InferenceMetadata_Response_RowRange(nullptr) {}
+  ~CMsgSteamLearn_InferenceMetadata_Response_RowRange() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceMetadata_Response_RowRange(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearn_InferenceMetadata_Response_RowRange(const CMsgSteamLearn_InferenceMetadata_Response_RowRange& from);
+  CMsgSteamLearn_InferenceMetadata_Response_RowRange(CMsgSteamLearn_InferenceMetadata_Response_RowRange&& from) noexcept
+    : CMsgSteamLearn_InferenceMetadata_Response_RowRange() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearn_InferenceMetadata_Response_RowRange& operator=(const CMsgSteamLearn_InferenceMetadata_Response_RowRange& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearn_InferenceMetadata_Response_RowRange& operator=(CMsgSteamLearn_InferenceMetadata_Response_RowRange&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearn_InferenceMetadata_Response_RowRange& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearn_InferenceMetadata_Response_RowRange* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_InferenceMetadata_Response_RowRange*>(
+               &_CMsgSteamLearn_InferenceMetadata_Response_RowRange_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    24;
+
+  friend void swap(CMsgSteamLearn_InferenceMetadata_Response_RowRange& a, CMsgSteamLearn_InferenceMetadata_Response_RowRange& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearn_InferenceMetadata_Response_RowRange* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearn_InferenceMetadata_Response_RowRange* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearn_InferenceMetadata_Response_RowRange* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_InferenceMetadata_Response_RowRange>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearn_InferenceMetadata_Response_RowRange& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearn_InferenceMetadata_Response_RowRange& from) {
+    CMsgSteamLearn_InferenceMetadata_Response_RowRange::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearn_InferenceMetadata_Response_RowRange* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearn_InferenceMetadata_Response.RowRange";
+  }
+  protected:
+  explicit CMsgSteamLearn_InferenceMetadata_Response_RowRange(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kMinRowFieldNumber = 1,
+    kMaxRowFieldNumber = 2,
+  };
+  // optional uint64 min_row = 1;
+  bool has_min_row() const;
+  private:
+  bool _internal_has_min_row() const;
+  public:
+  void clear_min_row();
+  uint64_t min_row() const;
+  void set_min_row(uint64_t value);
+  private:
+  uint64_t _internal_min_row() const;
+  void _internal_set_min_row(uint64_t value);
+  public:
+
+  // optional uint64 max_row = 2;
+  bool has_max_row() const;
+  private:
+  bool _internal_has_max_row() const;
+  public:
+  void clear_max_row();
+  uint64_t max_row() const;
+  void set_max_row(uint64_t value);
+  private:
+  uint64_t _internal_max_row() const;
+  void _internal_set_max_row(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceMetadata_Response.RowRange)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint64_t min_row_;
+    uint64_t max_row_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearn_InferenceMetadata_Response_Range final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_InferenceMetadata_Response.Range) */ {
+ public:
+  inline CMsgSteamLearn_InferenceMetadata_Response_Range() : CMsgSteamLearn_InferenceMetadata_Response_Range(nullptr) {}
+  ~CMsgSteamLearn_InferenceMetadata_Response_Range() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceMetadata_Response_Range(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearn_InferenceMetadata_Response_Range(const CMsgSteamLearn_InferenceMetadata_Response_Range& from);
+  CMsgSteamLearn_InferenceMetadata_Response_Range(CMsgSteamLearn_InferenceMetadata_Response_Range&& from) noexcept
+    : CMsgSteamLearn_InferenceMetadata_Response_Range() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearn_InferenceMetadata_Response_Range& operator=(const CMsgSteamLearn_InferenceMetadata_Response_Range& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearn_InferenceMetadata_Response_Range& operator=(CMsgSteamLearn_InferenceMetadata_Response_Range&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearn_InferenceMetadata_Response_Range& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearn_InferenceMetadata_Response_Range* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_InferenceMetadata_Response_Range*>(
+               &_CMsgSteamLearn_InferenceMetadata_Response_Range_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    25;
+
+  friend void swap(CMsgSteamLearn_InferenceMetadata_Response_Range& a, CMsgSteamLearn_InferenceMetadata_Response_Range& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearn_InferenceMetadata_Response_Range* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearn_InferenceMetadata_Response_Range* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearn_InferenceMetadata_Response_Range* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_InferenceMetadata_Response_Range>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearn_InferenceMetadata_Response_Range& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearn_InferenceMetadata_Response_Range& from) {
+    CMsgSteamLearn_InferenceMetadata_Response_Range::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearn_InferenceMetadata_Response_Range* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearn_InferenceMetadata_Response.Range";
+  }
+  protected:
+  explicit CMsgSteamLearn_InferenceMetadata_Response_Range(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kDataElementPathFieldNumber = 1,
+    kMinValueFieldNumber = 2,
+    kMaxValuesFieldNumber = 3,
+  };
+  // optional string data_element_path = 1;
+  bool has_data_element_path() const;
+  private:
+  bool _internal_has_data_element_path() const;
+  public:
+  void clear_data_element_path();
+  const std::string& data_element_path() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_data_element_path(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_data_element_path();
+  PROTOBUF_NODISCARD std::string* release_data_element_path();
+  void set_allocated_data_element_path(std::string* data_element_path);
+  private:
+  const std::string& _internal_data_element_path() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_data_element_path(const std::string& value);
+  std::string* _internal_mutable_data_element_path();
+  public:
+
+  // optional int32 min_value = 2;
+  bool has_min_value() const;
+  private:
+  bool _internal_has_min_value() const;
+  public:
+  void clear_min_value();
+  int32_t min_value() const;
+  void set_min_value(int32_t value);
+  private:
+  int32_t _internal_min_value() const;
+  void _internal_set_min_value(int32_t value);
+  public:
+
+  // optional int32 max_values = 3;
+  bool has_max_values() const;
+  private:
+  bool _internal_has_max_values() const;
+  public:
+  void clear_max_values();
+  int32_t max_values() const;
+  void set_max_values(int32_t value);
+  private:
+  int32_t _internal_max_values() const;
+  void _internal_set_max_values(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceMetadata_Response.Range)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr data_element_path_;
+    int32_t min_value_;
+    int32_t max_values_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearn_InferenceMetadata_Response_StdDev final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_InferenceMetadata_Response.StdDev) */ {
+ public:
+  inline CMsgSteamLearn_InferenceMetadata_Response_StdDev() : CMsgSteamLearn_InferenceMetadata_Response_StdDev(nullptr) {}
+  ~CMsgSteamLearn_InferenceMetadata_Response_StdDev() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceMetadata_Response_StdDev(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearn_InferenceMetadata_Response_StdDev(const CMsgSteamLearn_InferenceMetadata_Response_StdDev& from);
+  CMsgSteamLearn_InferenceMetadata_Response_StdDev(CMsgSteamLearn_InferenceMetadata_Response_StdDev&& from) noexcept
+    : CMsgSteamLearn_InferenceMetadata_Response_StdDev() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearn_InferenceMetadata_Response_StdDev& operator=(const CMsgSteamLearn_InferenceMetadata_Response_StdDev& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearn_InferenceMetadata_Response_StdDev& operator=(CMsgSteamLearn_InferenceMetadata_Response_StdDev&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearn_InferenceMetadata_Response_StdDev& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearn_InferenceMetadata_Response_StdDev* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_InferenceMetadata_Response_StdDev*>(
+               &_CMsgSteamLearn_InferenceMetadata_Response_StdDev_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    26;
+
+  friend void swap(CMsgSteamLearn_InferenceMetadata_Response_StdDev& a, CMsgSteamLearn_InferenceMetadata_Response_StdDev& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearn_InferenceMetadata_Response_StdDev* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearn_InferenceMetadata_Response_StdDev* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearn_InferenceMetadata_Response_StdDev* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_InferenceMetadata_Response_StdDev>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearn_InferenceMetadata_Response_StdDev& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearn_InferenceMetadata_Response_StdDev& from) {
+    CMsgSteamLearn_InferenceMetadata_Response_StdDev::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearn_InferenceMetadata_Response_StdDev* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearn_InferenceMetadata_Response.StdDev";
+  }
+  protected:
+  explicit CMsgSteamLearn_InferenceMetadata_Response_StdDev(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kDataElementPathFieldNumber = 1,
+    kMeanFieldNumber = 2,
+    kStdDevFieldNumber = 3,
+  };
+  // optional string data_element_path = 1;
+  bool has_data_element_path() const;
+  private:
+  bool _internal_has_data_element_path() const;
+  public:
+  void clear_data_element_path();
+  const std::string& data_element_path() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_data_element_path(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_data_element_path();
+  PROTOBUF_NODISCARD std::string* release_data_element_path();
+  void set_allocated_data_element_path(std::string* data_element_path);
+  private:
+  const std::string& _internal_data_element_path() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_data_element_path(const std::string& value);
+  std::string* _internal_mutable_data_element_path();
+  public:
+
+  // optional int32 mean = 2;
+  bool has_mean() const;
+  private:
+  bool _internal_has_mean() const;
+  public:
+  void clear_mean();
+  int32_t mean() const;
+  void set_mean(int32_t value);
+  private:
+  int32_t _internal_mean() const;
+  void _internal_set_mean(int32_t value);
+  public:
+
+  // optional uint32 std_dev = 3;
+  bool has_std_dev() const;
+  private:
+  bool _internal_has_std_dev() const;
+  public:
+  void clear_std_dev();
+  uint32_t std_dev() const;
+  void set_std_dev(uint32_t value);
+  private:
+  uint32_t _internal_std_dev() const;
+  void _internal_set_std_dev(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceMetadata_Response.StdDev)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr data_element_path_;
+    int32_t mean_;
+    uint32_t std_dev_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.Entry) */ {
+ public:
+  inline CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry() : CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry(nullptr) {}
+  ~CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry(const CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry& from);
+  CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry(CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry&& from) noexcept
+    : CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry& operator=(const CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry& operator=(CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry*>(
+               &_CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    27;
+
+  friend void swap(CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry& a, CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry& from) {
+    CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearn_InferenceMetadata_Response.CompactTable.Entry";
+  }
+  protected:
+  explicit CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValueFieldNumber = 1,
+    kMappingFieldNumber = 2,
+    kCountFieldNumber = 3,
+  };
+  // optional uint32 value = 1;
+  bool has_value() const;
+  private:
+  bool _internal_has_value() const;
+  public:
+  void clear_value();
+  uint32_t value() const;
+  void set_value(uint32_t value);
+  private:
+  uint32_t _internal_value() const;
+  void _internal_set_value(uint32_t value);
+  public:
+
+  // optional uint32 mapping = 2;
+  bool has_mapping() const;
+  private:
+  bool _internal_has_mapping() const;
+  public:
+  void clear_mapping();
+  uint32_t mapping() const;
+  void set_mapping(uint32_t value);
+  private:
+  uint32_t _internal_mapping() const;
+  void _internal_set_mapping(uint32_t value);
+  public:
+
+  // optional uint64 count = 3;
+  bool has_count() const;
+  private:
+  bool _internal_has_count() const;
+  public:
+  void clear_count();
+  uint64_t count() const;
+  void set_count(uint64_t value);
+  private:
+  uint64_t _internal_count() const;
+  void _internal_set_count(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.Entry)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t value_;
+    uint32_t mapping_;
+    uint64_t count_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapValuesEntry) */ {
+ public:
+  inline CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry() : CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry(nullptr) {}
+  ~CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry(const CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry& from);
+  CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry(CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry&& from) noexcept
+    : CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry& operator=(const CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry& operator=(CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry*>(
+               &_CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    28;
+
+  friend void swap(CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry& a, CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry& from) {
+    CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapValuesEntry";
+  }
+  protected:
+  explicit CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValueFieldNumber = 2,
+    kKeyFieldNumber = 1,
+  };
+  // optional .CMsgSteamLearn_InferenceMetadata_Response.CompactTable.Entry value = 2;
+  bool has_value() const;
+  private:
+  bool _internal_has_value() const;
+  public:
+  void clear_value();
+  const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry& value() const;
+  PROTOBUF_NODISCARD ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* release_value();
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* mutable_value();
+  void set_allocated_value(::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* value);
+  private:
+  const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry& _internal_value() const;
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* _internal_mutable_value();
+  public:
+  void unsafe_arena_set_allocated_value(
+      ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* value);
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* unsafe_arena_release_value();
+
+  // optional uint32 key = 1;
+  bool has_key() const;
+  private:
+  bool _internal_has_key() const;
+  public:
+  void clear_key();
+  uint32_t key() const;
+  void set_key(uint32_t value);
+  private:
+  uint32_t _internal_key() const;
+  void _internal_set_key(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapValuesEntry)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* value_;
+    uint32_t key_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapMappingsEntry) */ {
+ public:
+  inline CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry() : CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry(nullptr) {}
+  ~CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry(const CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry& from);
+  CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry(CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry&& from) noexcept
+    : CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry& operator=(const CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry& operator=(CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry*>(
+               &_CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    29;
+
+  friend void swap(CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry& a, CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry& from) {
+    CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapMappingsEntry";
+  }
+  protected:
+  explicit CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValueFieldNumber = 2,
+    kKeyFieldNumber = 1,
+  };
+  // optional .CMsgSteamLearn_InferenceMetadata_Response.CompactTable.Entry value = 2;
+  bool has_value() const;
+  private:
+  bool _internal_has_value() const;
+  public:
+  void clear_value();
+  const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry& value() const;
+  PROTOBUF_NODISCARD ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* release_value();
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* mutable_value();
+  void set_allocated_value(::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* value);
+  private:
+  const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry& _internal_value() const;
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* _internal_mutable_value();
+  public:
+  void unsafe_arena_set_allocated_value(
+      ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* value);
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* unsafe_arena_release_value();
+
+  // optional uint32 key = 1;
+  bool has_key() const;
+  private:
+  bool _internal_has_key() const;
+  public:
+  void clear_key();
+  uint32_t key() const;
+  void set_key(uint32_t value);
+  private:
+  uint32_t _internal_key() const;
+  void _internal_set_key(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapMappingsEntry)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* value_;
+    uint32_t key_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearn_InferenceMetadata_Response_CompactTable final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_InferenceMetadata_Response.CompactTable) */ {
+ public:
+  inline CMsgSteamLearn_InferenceMetadata_Response_CompactTable() : CMsgSteamLearn_InferenceMetadata_Response_CompactTable(nullptr) {}
+  ~CMsgSteamLearn_InferenceMetadata_Response_CompactTable() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceMetadata_Response_CompactTable(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearn_InferenceMetadata_Response_CompactTable(const CMsgSteamLearn_InferenceMetadata_Response_CompactTable& from);
+  CMsgSteamLearn_InferenceMetadata_Response_CompactTable(CMsgSteamLearn_InferenceMetadata_Response_CompactTable&& from) noexcept
+    : CMsgSteamLearn_InferenceMetadata_Response_CompactTable() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearn_InferenceMetadata_Response_CompactTable& operator=(const CMsgSteamLearn_InferenceMetadata_Response_CompactTable& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearn_InferenceMetadata_Response_CompactTable& operator=(CMsgSteamLearn_InferenceMetadata_Response_CompactTable&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearn_InferenceMetadata_Response_CompactTable& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearn_InferenceMetadata_Response_CompactTable* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_InferenceMetadata_Response_CompactTable*>(
+               &_CMsgSteamLearn_InferenceMetadata_Response_CompactTable_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    30;
+
+  friend void swap(CMsgSteamLearn_InferenceMetadata_Response_CompactTable& a, CMsgSteamLearn_InferenceMetadata_Response_CompactTable& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearn_InferenceMetadata_Response_CompactTable* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearn_InferenceMetadata_Response_CompactTable* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearn_InferenceMetadata_Response_CompactTable* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_InferenceMetadata_Response_CompactTable>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearn_InferenceMetadata_Response_CompactTable& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearn_InferenceMetadata_Response_CompactTable& from) {
+    CMsgSteamLearn_InferenceMetadata_Response_CompactTable::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearn_InferenceMetadata_Response_CompactTable* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearn_InferenceMetadata_Response.CompactTable";
+  }
+  protected:
+  explicit CMsgSteamLearn_InferenceMetadata_Response_CompactTable(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry Entry;
+  typedef CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry MapValuesEntry;
+  typedef CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry MapMappingsEntry;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kMapValuesFieldNumber = 2,
+    kMapMappingsFieldNumber = 3,
+    kNameFieldNumber = 1,
+  };
+  // repeated .CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapValuesEntry map_values = 2;
+  int map_values_size() const;
+  private:
+  int _internal_map_values_size() const;
+  public:
+  void clear_map_values();
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry* mutable_map_values(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry >*
+      mutable_map_values();
+  private:
+  const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry& _internal_map_values(int index) const;
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry* _internal_add_map_values();
+  public:
+  const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry& map_values(int index) const;
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry* add_map_values();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry >&
+      map_values() const;
+
+  // repeated .CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapMappingsEntry map_mappings = 3;
+  int map_mappings_size() const;
+  private:
+  int _internal_map_mappings_size() const;
+  public:
+  void clear_map_mappings();
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry* mutable_map_mappings(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry >*
+      mutable_map_mappings();
+  private:
+  const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry& _internal_map_mappings(int index) const;
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry* _internal_add_map_mappings();
+  public:
+  const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry& map_mappings(int index) const;
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry* add_map_mappings();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry >&
+      map_mappings() const;
+
+  // optional string name = 1;
+  bool has_name() const;
+  private:
+  bool _internal_has_name() const;
+  public:
+  void clear_name();
+  const std::string& name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_name();
+  PROTOBUF_NODISCARD std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceMetadata_Response.CompactTable)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry > map_values_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry > map_mappings_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster) */ {
+ public:
+  inline CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster() : CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster(nullptr) {}
+  ~CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster(const CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster& from);
+  CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster(CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster&& from) noexcept
+    : CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster& operator=(const CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster& operator=(CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster*>(
+               &_CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    31;
+
+  friend void swap(CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster& a, CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster& from) {
+    CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster";
+  }
+  protected:
+  explicit CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kXFieldNumber = 1,
+    kYFieldNumber = 2,
+    kRadiusFieldNumber = 3,
+    kRadius80PctFieldNumber = 4,
+  };
+  // optional float x = 1;
+  bool has_x() const;
+  private:
+  bool _internal_has_x() const;
+  public:
+  void clear_x();
+  float x() const;
+  void set_x(float value);
+  private:
+  float _internal_x() const;
+  void _internal_set_x(float value);
+  public:
+
+  // optional float y = 2;
+  bool has_y() const;
+  private:
+  bool _internal_has_y() const;
+  public:
+  void clear_y();
+  float y() const;
+  void set_y(float value);
+  private:
+  float _internal_y() const;
+  void _internal_set_y(float value);
+  public:
+
+  // optional float radius = 3;
+  bool has_radius() const;
+  private:
+  bool _internal_has_radius() const;
+  public:
+  void clear_radius();
+  float radius() const;
+  void set_radius(float value);
+  private:
+  float _internal_radius() const;
+  void _internal_set_radius(float value);
+  public:
+
+  // optional float radius_80pct = 4;
+  bool has_radius_80pct() const;
+  private:
+  bool _internal_has_radius_80pct() const;
+  public:
+  void clear_radius_80pct();
+  float radius_80pct() const;
+  void set_radius_80pct(float value);
+  private:
+  float _internal_radius_80pct() const;
+  void _internal_set_radius_80pct(float value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    float x_;
+    float y_;
+    float radius_;
+    float radius_80pct_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearn_InferenceMetadata_Response_KMeans final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_InferenceMetadata_Response.KMeans) */ {
+ public:
+  inline CMsgSteamLearn_InferenceMetadata_Response_KMeans() : CMsgSteamLearn_InferenceMetadata_Response_KMeans(nullptr) {}
+  ~CMsgSteamLearn_InferenceMetadata_Response_KMeans() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceMetadata_Response_KMeans(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearn_InferenceMetadata_Response_KMeans(const CMsgSteamLearn_InferenceMetadata_Response_KMeans& from);
+  CMsgSteamLearn_InferenceMetadata_Response_KMeans(CMsgSteamLearn_InferenceMetadata_Response_KMeans&& from) noexcept
+    : CMsgSteamLearn_InferenceMetadata_Response_KMeans() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearn_InferenceMetadata_Response_KMeans& operator=(const CMsgSteamLearn_InferenceMetadata_Response_KMeans& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearn_InferenceMetadata_Response_KMeans& operator=(CMsgSteamLearn_InferenceMetadata_Response_KMeans&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearn_InferenceMetadata_Response_KMeans& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearn_InferenceMetadata_Response_KMeans* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_InferenceMetadata_Response_KMeans*>(
+               &_CMsgSteamLearn_InferenceMetadata_Response_KMeans_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    32;
+
+  friend void swap(CMsgSteamLearn_InferenceMetadata_Response_KMeans& a, CMsgSteamLearn_InferenceMetadata_Response_KMeans& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearn_InferenceMetadata_Response_KMeans* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearn_InferenceMetadata_Response_KMeans* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearn_InferenceMetadata_Response_KMeans* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_InferenceMetadata_Response_KMeans>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearn_InferenceMetadata_Response_KMeans& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearn_InferenceMetadata_Response_KMeans& from) {
+    CMsgSteamLearn_InferenceMetadata_Response_KMeans::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearn_InferenceMetadata_Response_KMeans* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearn_InferenceMetadata_Response.KMeans";
+  }
+  protected:
+  explicit CMsgSteamLearn_InferenceMetadata_Response_KMeans(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster Cluster;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kClustersFieldNumber = 2,
+    kNameFieldNumber = 1,
+  };
+  // repeated .CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster clusters = 2;
+  int clusters_size() const;
+  private:
+  int _internal_clusters_size() const;
+  public:
+  void clear_clusters();
+  ::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster* mutable_clusters(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster >*
+      mutable_clusters();
+  private:
+  const ::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster& _internal_clusters(int index) const;
+  ::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster* _internal_add_clusters();
+  public:
+  const ::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster& clusters(int index) const;
+  ::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster* add_clusters();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster >&
+      clusters() const;
+
+  // optional string name = 1;
+  bool has_name() const;
+  private:
+  bool _internal_has_name() const;
+  public:
+  void clear_name();
+  const std::string& name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_name();
+  PROTOBUF_NODISCARD std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceMetadata_Response.KMeans)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster > clusters_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_InferenceMetadata_Response.SnapshotHistogram) */ {
+ public:
+  inline CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram() : CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram(nullptr) {}
+  ~CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram(const CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram& from);
+  CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram(CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram&& from) noexcept
+    : CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram& operator=(const CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram& operator=(CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram*>(
+               &_CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    33;
+
+  friend void swap(CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram& a, CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram& from) {
+    CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearn_InferenceMetadata_Response.SnapshotHistogram";
+  }
+  protected:
+  explicit CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kBucketCountsFieldNumber = 4,
+    kMinValueFieldNumber = 1,
+    kMaxValueFieldNumber = 2,
+    kNumBucketsFieldNumber = 3,
+  };
+  // repeated uint32 bucket_counts = 4;
+  int bucket_counts_size() const;
+  private:
+  int _internal_bucket_counts_size() const;
+  public:
+  void clear_bucket_counts();
+  private:
+  uint32_t _internal_bucket_counts(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_bucket_counts() const;
+  void _internal_add_bucket_counts(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_bucket_counts();
+  public:
+  uint32_t bucket_counts(int index) const;
+  void set_bucket_counts(int index, uint32_t value);
+  void add_bucket_counts(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      bucket_counts() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_bucket_counts();
+
+  // optional float min_value = 1;
+  bool has_min_value() const;
+  private:
+  bool _internal_has_min_value() const;
+  public:
+  void clear_min_value();
+  float min_value() const;
+  void set_min_value(float value);
+  private:
+  float _internal_min_value() const;
+  void _internal_set_min_value(float value);
+  public:
+
+  // optional float max_value = 2;
+  bool has_max_value() const;
+  private:
+  bool _internal_has_max_value() const;
+  public:
+  void clear_max_value();
+  float max_value() const;
+  void set_max_value(float value);
+  private:
+  float _internal_max_value() const;
+  void _internal_set_max_value(float value);
+  public:
+
+  // optional uint32 num_buckets = 3;
+  bool has_num_buckets() const;
+  private:
+  bool _internal_has_num_buckets() const;
+  public:
+  void clear_num_buckets();
+  uint32_t num_buckets() const;
+  void set_num_buckets(uint32_t value);
+  private:
+  uint32_t _internal_num_buckets() const;
+  void _internal_set_num_buckets(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceMetadata_Response.SnapshotHistogram)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > bucket_counts_;
+    float min_value_;
+    float max_value_;
+    uint32_t num_buckets_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearn_InferenceMetadata_Response final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_InferenceMetadata_Response) */ {
+ public:
+  inline CMsgSteamLearn_InferenceMetadata_Response() : CMsgSteamLearn_InferenceMetadata_Response(nullptr) {}
+  ~CMsgSteamLearn_InferenceMetadata_Response() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceMetadata_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearn_InferenceMetadata_Response(const CMsgSteamLearn_InferenceMetadata_Response& from);
+  CMsgSteamLearn_InferenceMetadata_Response(CMsgSteamLearn_InferenceMetadata_Response&& from) noexcept
+    : CMsgSteamLearn_InferenceMetadata_Response() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearn_InferenceMetadata_Response& operator=(const CMsgSteamLearn_InferenceMetadata_Response& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearn_InferenceMetadata_Response& operator=(CMsgSteamLearn_InferenceMetadata_Response&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearn_InferenceMetadata_Response& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearn_InferenceMetadata_Response* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_InferenceMetadata_Response*>(
+               &_CMsgSteamLearn_InferenceMetadata_Response_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    34;
+
+  friend void swap(CMsgSteamLearn_InferenceMetadata_Response& a, CMsgSteamLearn_InferenceMetadata_Response& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearn_InferenceMetadata_Response* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearn_InferenceMetadata_Response* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearn_InferenceMetadata_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_InferenceMetadata_Response>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearn_InferenceMetadata_Response& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearn_InferenceMetadata_Response& from) {
+    CMsgSteamLearn_InferenceMetadata_Response::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearn_InferenceMetadata_Response* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearn_InferenceMetadata_Response";
+  }
+  protected:
+  explicit CMsgSteamLearn_InferenceMetadata_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef CMsgSteamLearn_InferenceMetadata_Response_RowRange RowRange;
+  typedef CMsgSteamLearn_InferenceMetadata_Response_Range Range;
+  typedef CMsgSteamLearn_InferenceMetadata_Response_StdDev StdDev;
+  typedef CMsgSteamLearn_InferenceMetadata_Response_CompactTable CompactTable;
+  typedef CMsgSteamLearn_InferenceMetadata_Response_KMeans KMeans;
+  typedef CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram SnapshotHistogram;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRangesFieldNumber = 3,
+    kStdDevsFieldNumber = 4,
+    kCompactTablesFieldNumber = 5,
+    kKmeansFieldNumber = 6,
+    kRowRangeFieldNumber = 2,
+    kSnapshotHistogramFieldNumber = 7,
+    kInferenceMetadataResultFieldNumber = 1,
+  };
+  // repeated .CMsgSteamLearn_InferenceMetadata_Response.Range ranges = 3;
+  int ranges_size() const;
+  private:
+  int _internal_ranges_size() const;
+  public:
+  void clear_ranges();
+  ::CMsgSteamLearn_InferenceMetadata_Response_Range* mutable_ranges(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_Range >*
+      mutable_ranges();
+  private:
+  const ::CMsgSteamLearn_InferenceMetadata_Response_Range& _internal_ranges(int index) const;
+  ::CMsgSteamLearn_InferenceMetadata_Response_Range* _internal_add_ranges();
+  public:
+  const ::CMsgSteamLearn_InferenceMetadata_Response_Range& ranges(int index) const;
+  ::CMsgSteamLearn_InferenceMetadata_Response_Range* add_ranges();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_Range >&
+      ranges() const;
+
+  // repeated .CMsgSteamLearn_InferenceMetadata_Response.StdDev std_devs = 4;
+  int std_devs_size() const;
+  private:
+  int _internal_std_devs_size() const;
+  public:
+  void clear_std_devs();
+  ::CMsgSteamLearn_InferenceMetadata_Response_StdDev* mutable_std_devs(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_StdDev >*
+      mutable_std_devs();
+  private:
+  const ::CMsgSteamLearn_InferenceMetadata_Response_StdDev& _internal_std_devs(int index) const;
+  ::CMsgSteamLearn_InferenceMetadata_Response_StdDev* _internal_add_std_devs();
+  public:
+  const ::CMsgSteamLearn_InferenceMetadata_Response_StdDev& std_devs(int index) const;
+  ::CMsgSteamLearn_InferenceMetadata_Response_StdDev* add_std_devs();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_StdDev >&
+      std_devs() const;
+
+  // repeated .CMsgSteamLearn_InferenceMetadata_Response.CompactTable compact_tables = 5;
+  int compact_tables_size() const;
+  private:
+  int _internal_compact_tables_size() const;
+  public:
+  void clear_compact_tables();
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable* mutable_compact_tables(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable >*
+      mutable_compact_tables();
+  private:
+  const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable& _internal_compact_tables(int index) const;
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable* _internal_add_compact_tables();
+  public:
+  const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable& compact_tables(int index) const;
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable* add_compact_tables();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable >&
+      compact_tables() const;
+
+  // repeated .CMsgSteamLearn_InferenceMetadata_Response.KMeans kmeans = 6;
+  int kmeans_size() const;
+  private:
+  int _internal_kmeans_size() const;
+  public:
+  void clear_kmeans();
+  ::CMsgSteamLearn_InferenceMetadata_Response_KMeans* mutable_kmeans(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_KMeans >*
+      mutable_kmeans();
+  private:
+  const ::CMsgSteamLearn_InferenceMetadata_Response_KMeans& _internal_kmeans(int index) const;
+  ::CMsgSteamLearn_InferenceMetadata_Response_KMeans* _internal_add_kmeans();
+  public:
+  const ::CMsgSteamLearn_InferenceMetadata_Response_KMeans& kmeans(int index) const;
+  ::CMsgSteamLearn_InferenceMetadata_Response_KMeans* add_kmeans();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_KMeans >&
+      kmeans() const;
+
+  // optional .CMsgSteamLearn_InferenceMetadata_Response.RowRange row_range = 2;
+  bool has_row_range() const;
+  private:
+  bool _internal_has_row_range() const;
+  public:
+  void clear_row_range();
+  const ::CMsgSteamLearn_InferenceMetadata_Response_RowRange& row_range() const;
+  PROTOBUF_NODISCARD ::CMsgSteamLearn_InferenceMetadata_Response_RowRange* release_row_range();
+  ::CMsgSteamLearn_InferenceMetadata_Response_RowRange* mutable_row_range();
+  void set_allocated_row_range(::CMsgSteamLearn_InferenceMetadata_Response_RowRange* row_range);
+  private:
+  const ::CMsgSteamLearn_InferenceMetadata_Response_RowRange& _internal_row_range() const;
+  ::CMsgSteamLearn_InferenceMetadata_Response_RowRange* _internal_mutable_row_range();
+  public:
+  void unsafe_arena_set_allocated_row_range(
+      ::CMsgSteamLearn_InferenceMetadata_Response_RowRange* row_range);
+  ::CMsgSteamLearn_InferenceMetadata_Response_RowRange* unsafe_arena_release_row_range();
+
+  // optional .CMsgSteamLearn_InferenceMetadata_Response.SnapshotHistogram snapshot_histogram = 7;
+  bool has_snapshot_histogram() const;
+  private:
+  bool _internal_has_snapshot_histogram() const;
+  public:
+  void clear_snapshot_histogram();
+  const ::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram& snapshot_histogram() const;
+  PROTOBUF_NODISCARD ::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* release_snapshot_histogram();
+  ::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* mutable_snapshot_histogram();
+  void set_allocated_snapshot_histogram(::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* snapshot_histogram);
+  private:
+  const ::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram& _internal_snapshot_histogram() const;
+  ::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* _internal_mutable_snapshot_histogram();
+  public:
+  void unsafe_arena_set_allocated_snapshot_histogram(
+      ::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* snapshot_histogram);
+  ::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* unsafe_arena_release_snapshot_histogram();
+
+  // optional .ESteamLearnInferenceMetadataResult inference_metadata_result = 1 [default = STEAMLEARN_INFERENCE_METADATA_ERROR];
+  bool has_inference_metadata_result() const;
+  private:
+  bool _internal_has_inference_metadata_result() const;
+  public:
+  void clear_inference_metadata_result();
+  ::ESteamLearnInferenceMetadataResult inference_metadata_result() const;
+  void set_inference_metadata_result(::ESteamLearnInferenceMetadataResult value);
+  private:
+  ::ESteamLearnInferenceMetadataResult _internal_inference_metadata_result() const;
+  void _internal_set_inference_metadata_result(::ESteamLearnInferenceMetadataResult value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceMetadata_Response)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_Range > ranges_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_StdDev > std_devs_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable > compact_tables_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_KMeans > kmeans_;
+    ::CMsgSteamLearn_InferenceMetadata_Response_RowRange* row_range_;
+    ::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* snapshot_histogram_;
+    int inference_metadata_result_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_InferenceBackend_Response.BinaryCrossEntropyOutput) */ {
+ public:
+  inline CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput() : CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput(nullptr) {}
+  ~CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput(const CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput& from);
+  CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput(CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput&& from) noexcept
+    : CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput& operator=(const CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput& operator=(CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput*>(
+               &_CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    35;
+
+  friend void swap(CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput& a, CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput& from) {
+    CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearn_InferenceBackend_Response.BinaryCrossEntropyOutput";
+  }
+  protected:
+  explicit CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValueFieldNumber = 1,
+  };
+  // optional float value = 1;
+  bool has_value() const;
+  private:
+  bool _internal_has_value() const;
+  public:
+  void clear_value();
+  float value() const;
+  void set_value(float value);
+  private:
+  float _internal_value() const;
+  void _internal_set_value(float value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceBackend_Response.BinaryCrossEntropyOutput)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    float value_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_InferenceBackend_Response.MutliBinaryCrossEntropyOutput) */ {
+ public:
+  inline CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput() : CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput(nullptr) {}
+  ~CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput(const CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput& from);
+  CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput(CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput&& from) noexcept
+    : CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput& operator=(const CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput& operator=(CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput*>(
+               &_CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    36;
+
+  friend void swap(CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput& a, CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput& from) {
+    CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearn_InferenceBackend_Response.MutliBinaryCrossEntropyOutput";
+  }
+  protected:
+  explicit CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kWeightFieldNumber = 1,
+    kValueFieldNumber = 2,
+  };
+  // repeated float weight = 1;
+  int weight_size() const;
+  private:
+  int _internal_weight_size() const;
+  public:
+  void clear_weight();
+  private:
+  float _internal_weight(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      _internal_weight() const;
+  void _internal_add_weight(float value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      _internal_mutable_weight();
+  public:
+  float weight(int index) const;
+  void set_weight(int index, float value);
+  void add_weight(float value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      weight() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      mutable_weight();
+
+  // repeated float value = 2;
+  int value_size() const;
+  private:
+  int _internal_value_size() const;
+  public:
+  void clear_value();
+  private:
+  float _internal_value(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      _internal_value() const;
+  void _internal_add_value(float value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      _internal_mutable_value();
+  public:
+  float value(int index) const;
+  void set_value(int index, float value);
+  void add_value(float value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      value() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      mutable_value();
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceBackend_Response.MutliBinaryCrossEntropyOutput)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > weight_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > value_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_InferenceBackend_Response.CategoricalCrossEntropyOutput) */ {
+ public:
+  inline CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput() : CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput(nullptr) {}
+  ~CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput(const CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput& from);
+  CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput(CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput&& from) noexcept
+    : CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput& operator=(const CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput& operator=(CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput*>(
+               &_CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    37;
+
+  friend void swap(CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput& a, CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput& from) {
+    CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearn_InferenceBackend_Response.CategoricalCrossEntropyOutput";
+  }
+  protected:
+  explicit CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kWeightFieldNumber = 1,
+    kValueFieldNumber = 2,
+  };
+  // repeated float weight = 1;
+  int weight_size() const;
+  private:
+  int _internal_weight_size() const;
+  public:
+  void clear_weight();
+  private:
+  float _internal_weight(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      _internal_weight() const;
+  void _internal_add_weight(float value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      _internal_mutable_weight();
+  public:
+  float weight(int index) const;
+  void set_weight(int index, float value);
+  void add_weight(float value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      weight() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      mutable_weight();
+
+  // repeated float value = 2;
+  int value_size() const;
+  private:
+  int _internal_value_size() const;
+  public:
+  void clear_value();
+  private:
+  float _internal_value(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      _internal_value() const;
+  void _internal_add_value(float value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      _internal_mutable_value();
+  public:
+  float value(int index) const;
+  void set_value(int index, float value);
+  void add_value(float value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      value() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      mutable_value();
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceBackend_Response.CategoricalCrossEntropyOutput)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > weight_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > value_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearn_InferenceBackend_Response_Output final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_InferenceBackend_Response.Output) */ {
+ public:
+  inline CMsgSteamLearn_InferenceBackend_Response_Output() : CMsgSteamLearn_InferenceBackend_Response_Output(nullptr) {}
+  ~CMsgSteamLearn_InferenceBackend_Response_Output() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceBackend_Response_Output(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearn_InferenceBackend_Response_Output(const CMsgSteamLearn_InferenceBackend_Response_Output& from);
+  CMsgSteamLearn_InferenceBackend_Response_Output(CMsgSteamLearn_InferenceBackend_Response_Output&& from) noexcept
+    : CMsgSteamLearn_InferenceBackend_Response_Output() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearn_InferenceBackend_Response_Output& operator=(const CMsgSteamLearn_InferenceBackend_Response_Output& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearn_InferenceBackend_Response_Output& operator=(CMsgSteamLearn_InferenceBackend_Response_Output&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearn_InferenceBackend_Response_Output& default_instance() {
+    return *internal_default_instance();
+  }
+  enum ResponseTypeCase {
+    kBinaryCrossentropy = 1,
+    kCategoricalCrossentropy = 2,
+    kMultiBinaryCrossentropy = 3,
+    RESPONSETYPE_NOT_SET = 0,
+  };
+
+  static inline const CMsgSteamLearn_InferenceBackend_Response_Output* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_InferenceBackend_Response_Output*>(
+               &_CMsgSteamLearn_InferenceBackend_Response_Output_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    38;
+
+  friend void swap(CMsgSteamLearn_InferenceBackend_Response_Output& a, CMsgSteamLearn_InferenceBackend_Response_Output& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearn_InferenceBackend_Response_Output* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearn_InferenceBackend_Response_Output* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearn_InferenceBackend_Response_Output* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_InferenceBackend_Response_Output>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearn_InferenceBackend_Response_Output& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearn_InferenceBackend_Response_Output& from) {
+    CMsgSteamLearn_InferenceBackend_Response_Output::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearn_InferenceBackend_Response_Output* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearn_InferenceBackend_Response.Output";
+  }
+  protected:
+  explicit CMsgSteamLearn_InferenceBackend_Response_Output(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kBinaryCrossentropyFieldNumber = 1,
+    kCategoricalCrossentropyFieldNumber = 2,
+    kMultiBinaryCrossentropyFieldNumber = 3,
+  };
+  // .CMsgSteamLearn_InferenceBackend_Response.BinaryCrossEntropyOutput binary_crossentropy = 1;
+  bool has_binary_crossentropy() const;
+  private:
+  bool _internal_has_binary_crossentropy() const;
+  public:
+  void clear_binary_crossentropy();
+  const ::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput& binary_crossentropy() const;
+  PROTOBUF_NODISCARD ::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* release_binary_crossentropy();
+  ::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* mutable_binary_crossentropy();
+  void set_allocated_binary_crossentropy(::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* binary_crossentropy);
+  private:
+  const ::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput& _internal_binary_crossentropy() const;
+  ::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* _internal_mutable_binary_crossentropy();
+  public:
+  void unsafe_arena_set_allocated_binary_crossentropy(
+      ::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* binary_crossentropy);
+  ::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* unsafe_arena_release_binary_crossentropy();
+
+  // .CMsgSteamLearn_InferenceBackend_Response.CategoricalCrossEntropyOutput categorical_crossentropy = 2;
+  bool has_categorical_crossentropy() const;
+  private:
+  bool _internal_has_categorical_crossentropy() const;
+  public:
+  void clear_categorical_crossentropy();
+  const ::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput& categorical_crossentropy() const;
+  PROTOBUF_NODISCARD ::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* release_categorical_crossentropy();
+  ::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* mutable_categorical_crossentropy();
+  void set_allocated_categorical_crossentropy(::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* categorical_crossentropy);
+  private:
+  const ::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput& _internal_categorical_crossentropy() const;
+  ::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* _internal_mutable_categorical_crossentropy();
+  public:
+  void unsafe_arena_set_allocated_categorical_crossentropy(
+      ::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* categorical_crossentropy);
+  ::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* unsafe_arena_release_categorical_crossentropy();
+
+  // .CMsgSteamLearn_InferenceBackend_Response.MutliBinaryCrossEntropyOutput multi_binary_crossentropy = 3;
+  bool has_multi_binary_crossentropy() const;
+  private:
+  bool _internal_has_multi_binary_crossentropy() const;
+  public:
+  void clear_multi_binary_crossentropy();
+  const ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput& multi_binary_crossentropy() const;
+  PROTOBUF_NODISCARD ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* release_multi_binary_crossentropy();
+  ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* mutable_multi_binary_crossentropy();
+  void set_allocated_multi_binary_crossentropy(::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* multi_binary_crossentropy);
+  private:
+  const ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput& _internal_multi_binary_crossentropy() const;
+  ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* _internal_mutable_multi_binary_crossentropy();
+  public:
+  void unsafe_arena_set_allocated_multi_binary_crossentropy(
+      ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* multi_binary_crossentropy);
+  ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* unsafe_arena_release_multi_binary_crossentropy();
+
+  void clear_ResponseType();
+  ResponseTypeCase ResponseType_case() const;
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceBackend_Response.Output)
+ private:
+  class _Internal;
+  void set_has_binary_crossentropy();
+  void set_has_categorical_crossentropy();
+  void set_has_multi_binary_crossentropy();
+
+  inline bool has_ResponseType() const;
+  inline void clear_has_ResponseType();
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    union ResponseTypeUnion {
+      constexpr ResponseTypeUnion() : _constinit_{} {}
+        ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+      ::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* binary_crossentropy_;
+      ::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* categorical_crossentropy_;
+      ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* multi_binary_crossentropy_;
+    } ResponseType_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t _oneof_case_[1];
+
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearn_InferenceBackend_Response final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_InferenceBackend_Response) */ {
+ public:
+  inline CMsgSteamLearn_InferenceBackend_Response() : CMsgSteamLearn_InferenceBackend_Response(nullptr) {}
+  ~CMsgSteamLearn_InferenceBackend_Response() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceBackend_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearn_InferenceBackend_Response(const CMsgSteamLearn_InferenceBackend_Response& from);
+  CMsgSteamLearn_InferenceBackend_Response(CMsgSteamLearn_InferenceBackend_Response&& from) noexcept
+    : CMsgSteamLearn_InferenceBackend_Response() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearn_InferenceBackend_Response& operator=(const CMsgSteamLearn_InferenceBackend_Response& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearn_InferenceBackend_Response& operator=(CMsgSteamLearn_InferenceBackend_Response&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearn_InferenceBackend_Response& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearn_InferenceBackend_Response* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_InferenceBackend_Response*>(
+               &_CMsgSteamLearn_InferenceBackend_Response_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    39;
+
+  friend void swap(CMsgSteamLearn_InferenceBackend_Response& a, CMsgSteamLearn_InferenceBackend_Response& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearn_InferenceBackend_Response* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearn_InferenceBackend_Response* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearn_InferenceBackend_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_InferenceBackend_Response>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearn_InferenceBackend_Response& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearn_InferenceBackend_Response& from) {
+    CMsgSteamLearn_InferenceBackend_Response::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearn_InferenceBackend_Response* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearn_InferenceBackend_Response";
+  }
+  protected:
+  explicit CMsgSteamLearn_InferenceBackend_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput BinaryCrossEntropyOutput;
+  typedef CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput MutliBinaryCrossEntropyOutput;
+  typedef CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput CategoricalCrossEntropyOutput;
+  typedef CMsgSteamLearn_InferenceBackend_Response_Output Output;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kOutputsFieldNumber = 1,
+  };
+  // repeated .CMsgSteamLearn_InferenceBackend_Response.Output outputs = 1;
+  int outputs_size() const;
+  private:
+  int _internal_outputs_size() const;
+  public:
+  void clear_outputs();
+  ::CMsgSteamLearn_InferenceBackend_Response_Output* mutable_outputs(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceBackend_Response_Output >*
+      mutable_outputs();
+  private:
+  const ::CMsgSteamLearn_InferenceBackend_Response_Output& _internal_outputs(int index) const;
+  ::CMsgSteamLearn_InferenceBackend_Response_Output* _internal_add_outputs();
+  public:
+  const ::CMsgSteamLearn_InferenceBackend_Response_Output& outputs(int index) const;
+  ::CMsgSteamLearn_InferenceBackend_Response_Output* add_outputs();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceBackend_Response_Output >&
+      outputs() const;
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceBackend_Response)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceBackend_Response_Output > outputs_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearn_Inference_Response final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_Inference_Response) */ {
+ public:
+  inline CMsgSteamLearn_Inference_Response() : CMsgSteamLearn_Inference_Response(nullptr) {}
+  ~CMsgSteamLearn_Inference_Response() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_Inference_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearn_Inference_Response(const CMsgSteamLearn_Inference_Response& from);
+  CMsgSteamLearn_Inference_Response(CMsgSteamLearn_Inference_Response&& from) noexcept
+    : CMsgSteamLearn_Inference_Response() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearn_Inference_Response& operator=(const CMsgSteamLearn_Inference_Response& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearn_Inference_Response& operator=(CMsgSteamLearn_Inference_Response&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearn_Inference_Response& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearn_Inference_Response* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_Inference_Response*>(
+               &_CMsgSteamLearn_Inference_Response_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    40;
+
+  friend void swap(CMsgSteamLearn_Inference_Response& a, CMsgSteamLearn_Inference_Response& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearn_Inference_Response* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearn_Inference_Response* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearn_Inference_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_Inference_Response>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearn_Inference_Response& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearn_Inference_Response& from) {
+    CMsgSteamLearn_Inference_Response::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearn_Inference_Response* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearn_Inference_Response";
+  }
+  protected:
+  explicit CMsgSteamLearn_Inference_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kBackendResponseFieldNumber = 2,
+    kInferenceResultFieldNumber = 1,
+  };
+  // optional .CMsgSteamLearn_InferenceBackend_Response backend_response = 2;
+  bool has_backend_response() const;
+  private:
+  bool _internal_has_backend_response() const;
+  public:
+  void clear_backend_response();
+  const ::CMsgSteamLearn_InferenceBackend_Response& backend_response() const;
+  PROTOBUF_NODISCARD ::CMsgSteamLearn_InferenceBackend_Response* release_backend_response();
+  ::CMsgSteamLearn_InferenceBackend_Response* mutable_backend_response();
+  void set_allocated_backend_response(::CMsgSteamLearn_InferenceBackend_Response* backend_response);
+  private:
+  const ::CMsgSteamLearn_InferenceBackend_Response& _internal_backend_response() const;
+  ::CMsgSteamLearn_InferenceBackend_Response* _internal_mutable_backend_response();
+  public:
+  void unsafe_arena_set_allocated_backend_response(
+      ::CMsgSteamLearn_InferenceBackend_Response* backend_response);
+  ::CMsgSteamLearn_InferenceBackend_Response* unsafe_arena_release_backend_response();
+
+  // optional .ESteamLearnInferenceResult inference_result = 1 [default = STEAMLEARN_INFERENCE_ERROR];
+  bool has_inference_result() const;
+  private:
+  bool _internal_has_inference_result() const;
+  public:
+  void clear_inference_result();
+  ::ESteamLearnInferenceResult inference_result() const;
+  void set_inference_result(::ESteamLearnInferenceResult value);
+  private:
+  ::ESteamLearnInferenceResult _internal_inference_result() const;
+  void _internal_set_inference_result(::ESteamLearnInferenceResult value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_Inference_Response)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::CMsgSteamLearn_InferenceBackend_Response* backend_response_;
+    int inference_result_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+};
 // ===================================================================
 
 
@@ -7458,9 +11612,2904 @@ inline void CMsgSteamLearn_GetHMACKeys_Response::set_allocated_keys(::CMsgSteamL
   // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_GetHMACKeys_Response.keys)
 }
 
+// -------------------------------------------------------------------
+
+// CMsgSteamLearn_Inference_Request
+
+// optional string access_token = 1;
+inline bool CMsgSteamLearn_Inference_Request::_internal_has_access_token() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_Inference_Request::has_access_token() const {
+  return _internal_has_access_token();
+}
+inline void CMsgSteamLearn_Inference_Request::clear_access_token() {
+  _impl_.access_token_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CMsgSteamLearn_Inference_Request::access_token() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_Inference_Request.access_token)
+  return _internal_access_token();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CMsgSteamLearn_Inference_Request::set_access_token(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.access_token_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_Inference_Request.access_token)
+}
+inline std::string* CMsgSteamLearn_Inference_Request::mutable_access_token() {
+  std::string* _s = _internal_mutable_access_token();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_Inference_Request.access_token)
+  return _s;
+}
+inline const std::string& CMsgSteamLearn_Inference_Request::_internal_access_token() const {
+  return _impl_.access_token_.Get();
+}
+inline void CMsgSteamLearn_Inference_Request::_internal_set_access_token(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.access_token_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CMsgSteamLearn_Inference_Request::_internal_mutable_access_token() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.access_token_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CMsgSteamLearn_Inference_Request::release_access_token() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearn_Inference_Request.access_token)
+  if (!_internal_has_access_token()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.access_token_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.access_token_.IsDefault()) {
+    _impl_.access_token_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void CMsgSteamLearn_Inference_Request::set_allocated_access_token(std::string* access_token) {
+  if (access_token != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.access_token_.SetAllocated(access_token, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.access_token_.IsDefault()) {
+    _impl_.access_token_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_Inference_Request.access_token)
+}
+
+// optional .CMsgSteamLearn_AccessData access_data = 2;
+inline bool CMsgSteamLearn_Inference_Request::_internal_has_access_data() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.access_data_ != nullptr);
+  return value;
+}
+inline bool CMsgSteamLearn_Inference_Request::has_access_data() const {
+  return _internal_has_access_data();
+}
+inline void CMsgSteamLearn_Inference_Request::clear_access_data() {
+  if (_impl_.access_data_ != nullptr) _impl_.access_data_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline const ::CMsgSteamLearn_AccessData& CMsgSteamLearn_Inference_Request::_internal_access_data() const {
+  const ::CMsgSteamLearn_AccessData* p = _impl_.access_data_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearn_AccessData&>(
+      ::_CMsgSteamLearn_AccessData_default_instance_);
+}
+inline const ::CMsgSteamLearn_AccessData& CMsgSteamLearn_Inference_Request::access_data() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_Inference_Request.access_data)
+  return _internal_access_data();
+}
+inline void CMsgSteamLearn_Inference_Request::unsafe_arena_set_allocated_access_data(
+    ::CMsgSteamLearn_AccessData* access_data) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.access_data_);
+  }
+  _impl_.access_data_ = access_data;
+  if (access_data) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearn_Inference_Request.access_data)
+}
+inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_Inference_Request::release_access_data() {
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  ::CMsgSteamLearn_AccessData* temp = _impl_.access_data_;
+  _impl_.access_data_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_Inference_Request::unsafe_arena_release_access_data() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearn_Inference_Request.access_data)
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  ::CMsgSteamLearn_AccessData* temp = _impl_.access_data_;
+  _impl_.access_data_ = nullptr;
+  return temp;
+}
+inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_Inference_Request::_internal_mutable_access_data() {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  if (_impl_.access_data_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgSteamLearn_AccessData>(GetArenaForAllocation());
+    _impl_.access_data_ = p;
+  }
+  return _impl_.access_data_;
+}
+inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_Inference_Request::mutable_access_data() {
+  ::CMsgSteamLearn_AccessData* _msg = _internal_mutable_access_data();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_Inference_Request.access_data)
+  return _msg;
+}
+inline void CMsgSteamLearn_Inference_Request::set_allocated_access_data(::CMsgSteamLearn_AccessData* access_data) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.access_data_;
+  }
+  if (access_data) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(access_data);
+    if (message_arena != submessage_arena) {
+      access_data = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, access_data, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  _impl_.access_data_ = access_data;
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_Inference_Request.access_data)
+}
+
+// optional uint32 project_id = 3;
+inline bool CMsgSteamLearn_Inference_Request::_internal_has_project_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_Inference_Request::has_project_id() const {
+  return _internal_has_project_id();
+}
+inline void CMsgSteamLearn_Inference_Request::clear_project_id() {
+  _impl_.project_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline uint32_t CMsgSteamLearn_Inference_Request::_internal_project_id() const {
+  return _impl_.project_id_;
+}
+inline uint32_t CMsgSteamLearn_Inference_Request::project_id() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_Inference_Request.project_id)
+  return _internal_project_id();
+}
+inline void CMsgSteamLearn_Inference_Request::_internal_set_project_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.project_id_ = value;
+}
+inline void CMsgSteamLearn_Inference_Request::set_project_id(uint32_t value) {
+  _internal_set_project_id(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_Inference_Request.project_id)
+}
+
+// optional uint32 published_version = 4;
+inline bool CMsgSteamLearn_Inference_Request::_internal_has_published_version() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_Inference_Request::has_published_version() const {
+  return _internal_has_published_version();
+}
+inline void CMsgSteamLearn_Inference_Request::clear_published_version() {
+  _impl_.published_version_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline uint32_t CMsgSteamLearn_Inference_Request::_internal_published_version() const {
+  return _impl_.published_version_;
+}
+inline uint32_t CMsgSteamLearn_Inference_Request::published_version() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_Inference_Request.published_version)
+  return _internal_published_version();
+}
+inline void CMsgSteamLearn_Inference_Request::_internal_set_published_version(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.published_version_ = value;
+}
+inline void CMsgSteamLearn_Inference_Request::set_published_version(uint32_t value) {
+  _internal_set_published_version(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_Inference_Request.published_version)
+}
+
+// optional uint32 override_train_id = 5;
+inline bool CMsgSteamLearn_Inference_Request::_internal_has_override_train_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_Inference_Request::has_override_train_id() const {
+  return _internal_has_override_train_id();
+}
+inline void CMsgSteamLearn_Inference_Request::clear_override_train_id() {
+  _impl_.override_train_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
+}
+inline uint32_t CMsgSteamLearn_Inference_Request::_internal_override_train_id() const {
+  return _impl_.override_train_id_;
+}
+inline uint32_t CMsgSteamLearn_Inference_Request::override_train_id() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_Inference_Request.override_train_id)
+  return _internal_override_train_id();
+}
+inline void CMsgSteamLearn_Inference_Request::_internal_set_override_train_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_.override_train_id_ = value;
+}
+inline void CMsgSteamLearn_Inference_Request::set_override_train_id(uint32_t value) {
+  _internal_set_override_train_id(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_Inference_Request.override_train_id)
+}
+
+// optional .CMsgSteamLearnDataList data = 6;
+inline bool CMsgSteamLearn_Inference_Request::_internal_has_data() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.data_ != nullptr);
+  return value;
+}
+inline bool CMsgSteamLearn_Inference_Request::has_data() const {
+  return _internal_has_data();
+}
+inline void CMsgSteamLearn_Inference_Request::clear_data() {
+  if (_impl_.data_ != nullptr) _impl_.data_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline const ::CMsgSteamLearnDataList& CMsgSteamLearn_Inference_Request::_internal_data() const {
+  const ::CMsgSteamLearnDataList* p = _impl_.data_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearnDataList&>(
+      ::_CMsgSteamLearnDataList_default_instance_);
+}
+inline const ::CMsgSteamLearnDataList& CMsgSteamLearn_Inference_Request::data() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_Inference_Request.data)
+  return _internal_data();
+}
+inline void CMsgSteamLearn_Inference_Request::unsafe_arena_set_allocated_data(
+    ::CMsgSteamLearnDataList* data) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.data_);
+  }
+  _impl_.data_ = data;
+  if (data) {
+    _impl_._has_bits_[0] |= 0x00000004u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000004u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearn_Inference_Request.data)
+}
+inline ::CMsgSteamLearnDataList* CMsgSteamLearn_Inference_Request::release_data() {
+  _impl_._has_bits_[0] &= ~0x00000004u;
+  ::CMsgSteamLearnDataList* temp = _impl_.data_;
+  _impl_.data_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CMsgSteamLearnDataList* CMsgSteamLearn_Inference_Request::unsafe_arena_release_data() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearn_Inference_Request.data)
+  _impl_._has_bits_[0] &= ~0x00000004u;
+  ::CMsgSteamLearnDataList* temp = _impl_.data_;
+  _impl_.data_ = nullptr;
+  return temp;
+}
+inline ::CMsgSteamLearnDataList* CMsgSteamLearn_Inference_Request::_internal_mutable_data() {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  if (_impl_.data_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgSteamLearnDataList>(GetArenaForAllocation());
+    _impl_.data_ = p;
+  }
+  return _impl_.data_;
+}
+inline ::CMsgSteamLearnDataList* CMsgSteamLearn_Inference_Request::mutable_data() {
+  ::CMsgSteamLearnDataList* _msg = _internal_mutable_data();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_Inference_Request.data)
+  return _msg;
+}
+inline void CMsgSteamLearn_Inference_Request::set_allocated_data(::CMsgSteamLearnDataList* data) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.data_;
+  }
+  if (data) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(data);
+    if (message_arena != submessage_arena) {
+      data = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, data, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000004u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000004u;
+  }
+  _impl_.data_ = data;
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_Inference_Request.data)
+}
+
+// repeated float additional_data = 7;
+inline int CMsgSteamLearn_Inference_Request::_internal_additional_data_size() const {
+  return _impl_.additional_data_.size();
+}
+inline int CMsgSteamLearn_Inference_Request::additional_data_size() const {
+  return _internal_additional_data_size();
+}
+inline void CMsgSteamLearn_Inference_Request::clear_additional_data() {
+  _impl_.additional_data_.Clear();
+}
+inline float CMsgSteamLearn_Inference_Request::_internal_additional_data(int index) const {
+  return _impl_.additional_data_.Get(index);
+}
+inline float CMsgSteamLearn_Inference_Request::additional_data(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_Inference_Request.additional_data)
+  return _internal_additional_data(index);
+}
+inline void CMsgSteamLearn_Inference_Request::set_additional_data(int index, float value) {
+  _impl_.additional_data_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_Inference_Request.additional_data)
+}
+inline void CMsgSteamLearn_Inference_Request::_internal_add_additional_data(float value) {
+  _impl_.additional_data_.Add(value);
+}
+inline void CMsgSteamLearn_Inference_Request::add_additional_data(float value) {
+  _internal_add_additional_data(value);
+  // @@protoc_insertion_point(field_add:CMsgSteamLearn_Inference_Request.additional_data)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+CMsgSteamLearn_Inference_Request::_internal_additional_data() const {
+  return _impl_.additional_data_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+CMsgSteamLearn_Inference_Request::additional_data() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearn_Inference_Request.additional_data)
+  return _internal_additional_data();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+CMsgSteamLearn_Inference_Request::_internal_mutable_additional_data() {
+  return &_impl_.additional_data_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+CMsgSteamLearn_Inference_Request::mutable_additional_data() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearn_Inference_Request.additional_data)
+  return _internal_mutable_additional_data();
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearn_InferenceMetadata_Request
+
+// optional string access_token = 1;
+inline bool CMsgSteamLearn_InferenceMetadata_Request::_internal_has_access_token() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Request::has_access_token() const {
+  return _internal_has_access_token();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Request::clear_access_token() {
+  _impl_.access_token_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CMsgSteamLearn_InferenceMetadata_Request::access_token() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Request.access_token)
+  return _internal_access_token();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CMsgSteamLearn_InferenceMetadata_Request::set_access_token(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.access_token_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Request.access_token)
+}
+inline std::string* CMsgSteamLearn_InferenceMetadata_Request::mutable_access_token() {
+  std::string* _s = _internal_mutable_access_token();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceMetadata_Request.access_token)
+  return _s;
+}
+inline const std::string& CMsgSteamLearn_InferenceMetadata_Request::_internal_access_token() const {
+  return _impl_.access_token_.Get();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Request::_internal_set_access_token(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.access_token_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CMsgSteamLearn_InferenceMetadata_Request::_internal_mutable_access_token() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.access_token_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CMsgSteamLearn_InferenceMetadata_Request::release_access_token() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearn_InferenceMetadata_Request.access_token)
+  if (!_internal_has_access_token()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.access_token_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.access_token_.IsDefault()) {
+    _impl_.access_token_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Request::set_allocated_access_token(std::string* access_token) {
+  if (access_token != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.access_token_.SetAllocated(access_token, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.access_token_.IsDefault()) {
+    _impl_.access_token_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_InferenceMetadata_Request.access_token)
+}
+
+// optional .CMsgSteamLearn_AccessData access_data = 2;
+inline bool CMsgSteamLearn_InferenceMetadata_Request::_internal_has_access_data() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.access_data_ != nullptr);
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Request::has_access_data() const {
+  return _internal_has_access_data();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Request::clear_access_data() {
+  if (_impl_.access_data_ != nullptr) _impl_.access_data_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline const ::CMsgSteamLearn_AccessData& CMsgSteamLearn_InferenceMetadata_Request::_internal_access_data() const {
+  const ::CMsgSteamLearn_AccessData* p = _impl_.access_data_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearn_AccessData&>(
+      ::_CMsgSteamLearn_AccessData_default_instance_);
+}
+inline const ::CMsgSteamLearn_AccessData& CMsgSteamLearn_InferenceMetadata_Request::access_data() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Request.access_data)
+  return _internal_access_data();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Request::unsafe_arena_set_allocated_access_data(
+    ::CMsgSteamLearn_AccessData* access_data) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.access_data_);
+  }
+  _impl_.access_data_ = access_data;
+  if (access_data) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearn_InferenceMetadata_Request.access_data)
+}
+inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_InferenceMetadata_Request::release_access_data() {
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  ::CMsgSteamLearn_AccessData* temp = _impl_.access_data_;
+  _impl_.access_data_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_InferenceMetadata_Request::unsafe_arena_release_access_data() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearn_InferenceMetadata_Request.access_data)
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  ::CMsgSteamLearn_AccessData* temp = _impl_.access_data_;
+  _impl_.access_data_ = nullptr;
+  return temp;
+}
+inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_InferenceMetadata_Request::_internal_mutable_access_data() {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  if (_impl_.access_data_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgSteamLearn_AccessData>(GetArenaForAllocation());
+    _impl_.access_data_ = p;
+  }
+  return _impl_.access_data_;
+}
+inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_InferenceMetadata_Request::mutable_access_data() {
+  ::CMsgSteamLearn_AccessData* _msg = _internal_mutable_access_data();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceMetadata_Request.access_data)
+  return _msg;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Request::set_allocated_access_data(::CMsgSteamLearn_AccessData* access_data) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.access_data_;
+  }
+  if (access_data) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(access_data);
+    if (message_arena != submessage_arena) {
+      access_data = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, access_data, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  _impl_.access_data_ = access_data;
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_InferenceMetadata_Request.access_data)
+}
+
+// optional uint32 project_id = 3;
+inline bool CMsgSteamLearn_InferenceMetadata_Request::_internal_has_project_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Request::has_project_id() const {
+  return _internal_has_project_id();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Request::clear_project_id() {
+  _impl_.project_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadata_Request::_internal_project_id() const {
+  return _impl_.project_id_;
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadata_Request::project_id() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Request.project_id)
+  return _internal_project_id();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Request::_internal_set_project_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.project_id_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Request::set_project_id(uint32_t value) {
+  _internal_set_project_id(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Request.project_id)
+}
+
+// optional uint32 published_version = 4;
+inline bool CMsgSteamLearn_InferenceMetadata_Request::_internal_has_published_version() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Request::has_published_version() const {
+  return _internal_has_published_version();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Request::clear_published_version() {
+  _impl_.published_version_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadata_Request::_internal_published_version() const {
+  return _impl_.published_version_;
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadata_Request::published_version() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Request.published_version)
+  return _internal_published_version();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Request::_internal_set_published_version(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.published_version_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Request::set_published_version(uint32_t value) {
+  _internal_set_published_version(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Request.published_version)
+}
+
+// optional uint32 override_train_id = 5;
+inline bool CMsgSteamLearn_InferenceMetadata_Request::_internal_has_override_train_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Request::has_override_train_id() const {
+  return _internal_has_override_train_id();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Request::clear_override_train_id() {
+  _impl_.override_train_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadata_Request::_internal_override_train_id() const {
+  return _impl_.override_train_id_;
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadata_Request::override_train_id() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Request.override_train_id)
+  return _internal_override_train_id();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Request::_internal_set_override_train_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.override_train_id_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Request::set_override_train_id(uint32_t value) {
+  _internal_set_override_train_id(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Request.override_train_id)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearn_InferenceMetadataBackend_Request
+
+// optional uint32 project_id = 1;
+inline bool CMsgSteamLearn_InferenceMetadataBackend_Request::_internal_has_project_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadataBackend_Request::has_project_id() const {
+  return _internal_has_project_id();
+}
+inline void CMsgSteamLearn_InferenceMetadataBackend_Request::clear_project_id() {
+  _impl_.project_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadataBackend_Request::_internal_project_id() const {
+  return _impl_.project_id_;
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadataBackend_Request::project_id() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadataBackend_Request.project_id)
+  return _internal_project_id();
+}
+inline void CMsgSteamLearn_InferenceMetadataBackend_Request::_internal_set_project_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.project_id_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadataBackend_Request::set_project_id(uint32_t value) {
+  _internal_set_project_id(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadataBackend_Request.project_id)
+}
+
+// optional uint32 fetch_id = 2;
+inline bool CMsgSteamLearn_InferenceMetadataBackend_Request::_internal_has_fetch_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadataBackend_Request::has_fetch_id() const {
+  return _internal_has_fetch_id();
+}
+inline void CMsgSteamLearn_InferenceMetadataBackend_Request::clear_fetch_id() {
+  _impl_.fetch_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadataBackend_Request::_internal_fetch_id() const {
+  return _impl_.fetch_id_;
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadataBackend_Request::fetch_id() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadataBackend_Request.fetch_id)
+  return _internal_fetch_id();
+}
+inline void CMsgSteamLearn_InferenceMetadataBackend_Request::_internal_set_fetch_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.fetch_id_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadataBackend_Request::set_fetch_id(uint32_t value) {
+  _internal_set_fetch_id(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadataBackend_Request.fetch_id)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearn_InferenceMetadata_Response_RowRange
+
+// optional uint64 min_row = 1;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_RowRange::_internal_has_min_row() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_RowRange::has_min_row() const {
+  return _internal_has_min_row();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_RowRange::clear_min_row() {
+  _impl_.min_row_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint64_t CMsgSteamLearn_InferenceMetadata_Response_RowRange::_internal_min_row() const {
+  return _impl_.min_row_;
+}
+inline uint64_t CMsgSteamLearn_InferenceMetadata_Response_RowRange::min_row() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.RowRange.min_row)
+  return _internal_min_row();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_RowRange::_internal_set_min_row(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.min_row_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_RowRange::set_min_row(uint64_t value) {
+  _internal_set_min_row(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.RowRange.min_row)
+}
+
+// optional uint64 max_row = 2;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_RowRange::_internal_has_max_row() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_RowRange::has_max_row() const {
+  return _internal_has_max_row();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_RowRange::clear_max_row() {
+  _impl_.max_row_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint64_t CMsgSteamLearn_InferenceMetadata_Response_RowRange::_internal_max_row() const {
+  return _impl_.max_row_;
+}
+inline uint64_t CMsgSteamLearn_InferenceMetadata_Response_RowRange::max_row() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.RowRange.max_row)
+  return _internal_max_row();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_RowRange::_internal_set_max_row(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.max_row_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_RowRange::set_max_row(uint64_t value) {
+  _internal_set_max_row(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.RowRange.max_row)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearn_InferenceMetadata_Response_Range
+
+// optional string data_element_path = 1;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_Range::_internal_has_data_element_path() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_Range::has_data_element_path() const {
+  return _internal_has_data_element_path();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_Range::clear_data_element_path() {
+  _impl_.data_element_path_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CMsgSteamLearn_InferenceMetadata_Response_Range::data_element_path() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.Range.data_element_path)
+  return _internal_data_element_path();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CMsgSteamLearn_InferenceMetadata_Response_Range::set_data_element_path(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.data_element_path_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.Range.data_element_path)
+}
+inline std::string* CMsgSteamLearn_InferenceMetadata_Response_Range::mutable_data_element_path() {
+  std::string* _s = _internal_mutable_data_element_path();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceMetadata_Response.Range.data_element_path)
+  return _s;
+}
+inline const std::string& CMsgSteamLearn_InferenceMetadata_Response_Range::_internal_data_element_path() const {
+  return _impl_.data_element_path_.Get();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_Range::_internal_set_data_element_path(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.data_element_path_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CMsgSteamLearn_InferenceMetadata_Response_Range::_internal_mutable_data_element_path() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.data_element_path_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CMsgSteamLearn_InferenceMetadata_Response_Range::release_data_element_path() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearn_InferenceMetadata_Response.Range.data_element_path)
+  if (!_internal_has_data_element_path()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.data_element_path_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.data_element_path_.IsDefault()) {
+    _impl_.data_element_path_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_Range::set_allocated_data_element_path(std::string* data_element_path) {
+  if (data_element_path != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.data_element_path_.SetAllocated(data_element_path, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.data_element_path_.IsDefault()) {
+    _impl_.data_element_path_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_InferenceMetadata_Response.Range.data_element_path)
+}
+
+// optional int32 min_value = 2;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_Range::_internal_has_min_value() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_Range::has_min_value() const {
+  return _internal_has_min_value();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_Range::clear_min_value() {
+  _impl_.min_value_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline int32_t CMsgSteamLearn_InferenceMetadata_Response_Range::_internal_min_value() const {
+  return _impl_.min_value_;
+}
+inline int32_t CMsgSteamLearn_InferenceMetadata_Response_Range::min_value() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.Range.min_value)
+  return _internal_min_value();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_Range::_internal_set_min_value(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.min_value_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_Range::set_min_value(int32_t value) {
+  _internal_set_min_value(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.Range.min_value)
+}
+
+// optional int32 max_values = 3;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_Range::_internal_has_max_values() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_Range::has_max_values() const {
+  return _internal_has_max_values();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_Range::clear_max_values() {
+  _impl_.max_values_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline int32_t CMsgSteamLearn_InferenceMetadata_Response_Range::_internal_max_values() const {
+  return _impl_.max_values_;
+}
+inline int32_t CMsgSteamLearn_InferenceMetadata_Response_Range::max_values() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.Range.max_values)
+  return _internal_max_values();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_Range::_internal_set_max_values(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.max_values_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_Range::set_max_values(int32_t value) {
+  _internal_set_max_values(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.Range.max_values)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearn_InferenceMetadata_Response_StdDev
+
+// optional string data_element_path = 1;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_StdDev::_internal_has_data_element_path() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_StdDev::has_data_element_path() const {
+  return _internal_has_data_element_path();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_StdDev::clear_data_element_path() {
+  _impl_.data_element_path_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CMsgSteamLearn_InferenceMetadata_Response_StdDev::data_element_path() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.StdDev.data_element_path)
+  return _internal_data_element_path();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CMsgSteamLearn_InferenceMetadata_Response_StdDev::set_data_element_path(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.data_element_path_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.StdDev.data_element_path)
+}
+inline std::string* CMsgSteamLearn_InferenceMetadata_Response_StdDev::mutable_data_element_path() {
+  std::string* _s = _internal_mutable_data_element_path();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceMetadata_Response.StdDev.data_element_path)
+  return _s;
+}
+inline const std::string& CMsgSteamLearn_InferenceMetadata_Response_StdDev::_internal_data_element_path() const {
+  return _impl_.data_element_path_.Get();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_StdDev::_internal_set_data_element_path(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.data_element_path_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CMsgSteamLearn_InferenceMetadata_Response_StdDev::_internal_mutable_data_element_path() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.data_element_path_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CMsgSteamLearn_InferenceMetadata_Response_StdDev::release_data_element_path() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearn_InferenceMetadata_Response.StdDev.data_element_path)
+  if (!_internal_has_data_element_path()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.data_element_path_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.data_element_path_.IsDefault()) {
+    _impl_.data_element_path_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_StdDev::set_allocated_data_element_path(std::string* data_element_path) {
+  if (data_element_path != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.data_element_path_.SetAllocated(data_element_path, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.data_element_path_.IsDefault()) {
+    _impl_.data_element_path_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_InferenceMetadata_Response.StdDev.data_element_path)
+}
+
+// optional int32 mean = 2;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_StdDev::_internal_has_mean() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_StdDev::has_mean() const {
+  return _internal_has_mean();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_StdDev::clear_mean() {
+  _impl_.mean_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline int32_t CMsgSteamLearn_InferenceMetadata_Response_StdDev::_internal_mean() const {
+  return _impl_.mean_;
+}
+inline int32_t CMsgSteamLearn_InferenceMetadata_Response_StdDev::mean() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.StdDev.mean)
+  return _internal_mean();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_StdDev::_internal_set_mean(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.mean_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_StdDev::set_mean(int32_t value) {
+  _internal_set_mean(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.StdDev.mean)
+}
+
+// optional uint32 std_dev = 3;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_StdDev::_internal_has_std_dev() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_StdDev::has_std_dev() const {
+  return _internal_has_std_dev();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_StdDev::clear_std_dev() {
+  _impl_.std_dev_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadata_Response_StdDev::_internal_std_dev() const {
+  return _impl_.std_dev_;
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadata_Response_StdDev::std_dev() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.StdDev.std_dev)
+  return _internal_std_dev();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_StdDev::_internal_set_std_dev(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.std_dev_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_StdDev::set_std_dev(uint32_t value) {
+  _internal_set_std_dev(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.StdDev.std_dev)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry
+
+// optional uint32 value = 1;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry::_internal_has_value() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry::has_value() const {
+  return _internal_has_value();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry::clear_value() {
+  _impl_.value_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry::_internal_value() const {
+  return _impl_.value_;
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry::value() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.Entry.value)
+  return _internal_value();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry::_internal_set_value(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.value_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry::set_value(uint32_t value) {
+  _internal_set_value(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.Entry.value)
+}
+
+// optional uint32 mapping = 2;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry::_internal_has_mapping() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry::has_mapping() const {
+  return _internal_has_mapping();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry::clear_mapping() {
+  _impl_.mapping_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry::_internal_mapping() const {
+  return _impl_.mapping_;
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry::mapping() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.Entry.mapping)
+  return _internal_mapping();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry::_internal_set_mapping(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.mapping_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry::set_mapping(uint32_t value) {
+  _internal_set_mapping(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.Entry.mapping)
+}
+
+// optional uint64 count = 3;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry::_internal_has_count() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry::has_count() const {
+  return _internal_has_count();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry::clear_count() {
+  _impl_.count_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline uint64_t CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry::_internal_count() const {
+  return _impl_.count_;
+}
+inline uint64_t CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry::count() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.Entry.count)
+  return _internal_count();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry::_internal_set_count(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.count_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry::set_count(uint64_t value) {
+  _internal_set_count(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.Entry.count)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry
+
+// optional uint32 key = 1;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry::_internal_has_key() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry::has_key() const {
+  return _internal_has_key();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry::clear_key() {
+  _impl_.key_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry::_internal_key() const {
+  return _impl_.key_;
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry::key() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapValuesEntry.key)
+  return _internal_key();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry::_internal_set_key(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.key_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry::set_key(uint32_t value) {
+  _internal_set_key(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapValuesEntry.key)
+}
+
+// optional .CMsgSteamLearn_InferenceMetadata_Response.CompactTable.Entry value = 2;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry::_internal_has_value() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.value_ != nullptr);
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry::has_value() const {
+  return _internal_has_value();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry::clear_value() {
+  if (_impl_.value_ != nullptr) _impl_.value_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry& CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry::_internal_value() const {
+  const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* p = _impl_.value_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry&>(
+      ::_CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry_default_instance_);
+}
+inline const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry& CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry::value() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapValuesEntry.value)
+  return _internal_value();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry::unsafe_arena_set_allocated_value(
+    ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* value) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.value_);
+  }
+  _impl_.value_ = value;
+  if (value) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapValuesEntry.value)
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry::release_value() {
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* temp = _impl_.value_;
+  _impl_.value_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry::unsafe_arena_release_value() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapValuesEntry.value)
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* temp = _impl_.value_;
+  _impl_.value_ = nullptr;
+  return temp;
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry::_internal_mutable_value() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.value_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry>(GetArenaForAllocation());
+    _impl_.value_ = p;
+  }
+  return _impl_.value_;
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry::mutable_value() {
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* _msg = _internal_mutable_value();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapValuesEntry.value)
+  return _msg;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry::set_allocated_value(::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* value) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.value_;
+  }
+  if (value) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(value);
+    if (message_arena != submessage_arena) {
+      value = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.value_ = value;
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapValuesEntry.value)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry
+
+// optional uint32 key = 1;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry::_internal_has_key() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry::has_key() const {
+  return _internal_has_key();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry::clear_key() {
+  _impl_.key_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry::_internal_key() const {
+  return _impl_.key_;
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry::key() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapMappingsEntry.key)
+  return _internal_key();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry::_internal_set_key(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.key_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry::set_key(uint32_t value) {
+  _internal_set_key(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapMappingsEntry.key)
+}
+
+// optional .CMsgSteamLearn_InferenceMetadata_Response.CompactTable.Entry value = 2;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry::_internal_has_value() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.value_ != nullptr);
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry::has_value() const {
+  return _internal_has_value();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry::clear_value() {
+  if (_impl_.value_ != nullptr) _impl_.value_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry& CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry::_internal_value() const {
+  const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* p = _impl_.value_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry&>(
+      ::_CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry_default_instance_);
+}
+inline const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry& CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry::value() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapMappingsEntry.value)
+  return _internal_value();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry::unsafe_arena_set_allocated_value(
+    ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* value) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.value_);
+  }
+  _impl_.value_ = value;
+  if (value) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapMappingsEntry.value)
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry::release_value() {
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* temp = _impl_.value_;
+  _impl_.value_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry::unsafe_arena_release_value() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapMappingsEntry.value)
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* temp = _impl_.value_;
+  _impl_.value_ = nullptr;
+  return temp;
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry::_internal_mutable_value() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.value_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry>(GetArenaForAllocation());
+    _impl_.value_ = p;
+  }
+  return _impl_.value_;
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry::mutable_value() {
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* _msg = _internal_mutable_value();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapMappingsEntry.value)
+  return _msg;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry::set_allocated_value(::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry* value) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.value_;
+  }
+  if (value) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(value);
+    if (message_arena != submessage_arena) {
+      value = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.value_ = value;
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapMappingsEntry.value)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearn_InferenceMetadata_Response_CompactTable
+
+// optional string name = 1;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_CompactTable::_internal_has_name() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_CompactTable::has_name() const {
+  return _internal_has_name();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable::clear_name() {
+  _impl_.name_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CMsgSteamLearn_InferenceMetadata_Response_CompactTable::name() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.name)
+  return _internal_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CMsgSteamLearn_InferenceMetadata_Response_CompactTable::set_name(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.name)
+}
+inline std::string* CMsgSteamLearn_InferenceMetadata_Response_CompactTable::mutable_name() {
+  std::string* _s = _internal_mutable_name();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.name)
+  return _s;
+}
+inline const std::string& CMsgSteamLearn_InferenceMetadata_Response_CompactTable::_internal_name() const {
+  return _impl_.name_.Get();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable::_internal_set_name(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CMsgSteamLearn_InferenceMetadata_Response_CompactTable::_internal_mutable_name() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CMsgSteamLearn_InferenceMetadata_Response_CompactTable::release_name() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.name)
+  if (!_internal_has_name()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.name_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.name_.IsDefault()) {
+    _impl_.name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.name_.IsDefault()) {
+    _impl_.name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.name)
+}
+
+// repeated .CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapValuesEntry map_values = 2;
+inline int CMsgSteamLearn_InferenceMetadata_Response_CompactTable::_internal_map_values_size() const {
+  return _impl_.map_values_.size();
+}
+inline int CMsgSteamLearn_InferenceMetadata_Response_CompactTable::map_values_size() const {
+  return _internal_map_values_size();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable::clear_map_values() {
+  _impl_.map_values_.Clear();
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry* CMsgSteamLearn_InferenceMetadata_Response_CompactTable::mutable_map_values(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.map_values)
+  return _impl_.map_values_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry >*
+CMsgSteamLearn_InferenceMetadata_Response_CompactTable::mutable_map_values() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.map_values)
+  return &_impl_.map_values_;
+}
+inline const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry& CMsgSteamLearn_InferenceMetadata_Response_CompactTable::_internal_map_values(int index) const {
+  return _impl_.map_values_.Get(index);
+}
+inline const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry& CMsgSteamLearn_InferenceMetadata_Response_CompactTable::map_values(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.map_values)
+  return _internal_map_values(index);
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry* CMsgSteamLearn_InferenceMetadata_Response_CompactTable::_internal_add_map_values() {
+  return _impl_.map_values_.Add();
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry* CMsgSteamLearn_InferenceMetadata_Response_CompactTable::add_map_values() {
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry* _add = _internal_add_map_values();
+  // @@protoc_insertion_point(field_add:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.map_values)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry >&
+CMsgSteamLearn_InferenceMetadata_Response_CompactTable::map_values() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.map_values)
+  return _impl_.map_values_;
+}
+
+// repeated .CMsgSteamLearn_InferenceMetadata_Response.CompactTable.MapMappingsEntry map_mappings = 3;
+inline int CMsgSteamLearn_InferenceMetadata_Response_CompactTable::_internal_map_mappings_size() const {
+  return _impl_.map_mappings_.size();
+}
+inline int CMsgSteamLearn_InferenceMetadata_Response_CompactTable::map_mappings_size() const {
+  return _internal_map_mappings_size();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_CompactTable::clear_map_mappings() {
+  _impl_.map_mappings_.Clear();
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry* CMsgSteamLearn_InferenceMetadata_Response_CompactTable::mutable_map_mappings(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.map_mappings)
+  return _impl_.map_mappings_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry >*
+CMsgSteamLearn_InferenceMetadata_Response_CompactTable::mutable_map_mappings() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.map_mappings)
+  return &_impl_.map_mappings_;
+}
+inline const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry& CMsgSteamLearn_InferenceMetadata_Response_CompactTable::_internal_map_mappings(int index) const {
+  return _impl_.map_mappings_.Get(index);
+}
+inline const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry& CMsgSteamLearn_InferenceMetadata_Response_CompactTable::map_mappings(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.map_mappings)
+  return _internal_map_mappings(index);
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry* CMsgSteamLearn_InferenceMetadata_Response_CompactTable::_internal_add_map_mappings() {
+  return _impl_.map_mappings_.Add();
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry* CMsgSteamLearn_InferenceMetadata_Response_CompactTable::add_map_mappings() {
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry* _add = _internal_add_map_mappings();
+  // @@protoc_insertion_point(field_add:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.map_mappings)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry >&
+CMsgSteamLearn_InferenceMetadata_Response_CompactTable::map_mappings() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearn_InferenceMetadata_Response.CompactTable.map_mappings)
+  return _impl_.map_mappings_;
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster
+
+// optional float x = 1;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_has_x() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::has_x() const {
+  return _internal_has_x();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::clear_x() {
+  _impl_.x_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline float CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_x() const {
+  return _impl_.x_;
+}
+inline float CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::x() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster.x)
+  return _internal_x();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_set_x(float value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.x_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::set_x(float value) {
+  _internal_set_x(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster.x)
+}
+
+// optional float y = 2;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_has_y() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::has_y() const {
+  return _internal_has_y();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::clear_y() {
+  _impl_.y_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline float CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_y() const {
+  return _impl_.y_;
+}
+inline float CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::y() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster.y)
+  return _internal_y();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_set_y(float value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.y_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::set_y(float value) {
+  _internal_set_y(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster.y)
+}
+
+// optional float radius = 3;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_has_radius() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::has_radius() const {
+  return _internal_has_radius();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::clear_radius() {
+  _impl_.radius_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline float CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_radius() const {
+  return _impl_.radius_;
+}
+inline float CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::radius() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster.radius)
+  return _internal_radius();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_set_radius(float value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.radius_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::set_radius(float value) {
+  _internal_set_radius(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster.radius)
+}
+
+// optional float radius_80pct = 4;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_has_radius_80pct() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::has_radius_80pct() const {
+  return _internal_has_radius_80pct();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::clear_radius_80pct() {
+  _impl_.radius_80pct_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline float CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_radius_80pct() const {
+  return _impl_.radius_80pct_;
+}
+inline float CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::radius_80pct() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster.radius_80pct)
+  return _internal_radius_80pct();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_set_radius_80pct(float value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.radius_80pct_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::set_radius_80pct(float value) {
+  _internal_set_radius_80pct(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster.radius_80pct)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearn_InferenceMetadata_Response_KMeans
+
+// optional string name = 1;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_KMeans::_internal_has_name() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_KMeans::has_name() const {
+  return _internal_has_name();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans::clear_name() {
+  _impl_.name_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CMsgSteamLearn_InferenceMetadata_Response_KMeans::name() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.KMeans.name)
+  return _internal_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CMsgSteamLearn_InferenceMetadata_Response_KMeans::set_name(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.KMeans.name)
+}
+inline std::string* CMsgSteamLearn_InferenceMetadata_Response_KMeans::mutable_name() {
+  std::string* _s = _internal_mutable_name();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceMetadata_Response.KMeans.name)
+  return _s;
+}
+inline const std::string& CMsgSteamLearn_InferenceMetadata_Response_KMeans::_internal_name() const {
+  return _impl_.name_.Get();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans::_internal_set_name(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CMsgSteamLearn_InferenceMetadata_Response_KMeans::_internal_mutable_name() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CMsgSteamLearn_InferenceMetadata_Response_KMeans::release_name() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearn_InferenceMetadata_Response.KMeans.name)
+  if (!_internal_has_name()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.name_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.name_.IsDefault()) {
+    _impl_.name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.name_.IsDefault()) {
+    _impl_.name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_InferenceMetadata_Response.KMeans.name)
+}
+
+// repeated .CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster clusters = 2;
+inline int CMsgSteamLearn_InferenceMetadata_Response_KMeans::_internal_clusters_size() const {
+  return _impl_.clusters_.size();
+}
+inline int CMsgSteamLearn_InferenceMetadata_Response_KMeans::clusters_size() const {
+  return _internal_clusters_size();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans::clear_clusters() {
+  _impl_.clusters_.Clear();
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster* CMsgSteamLearn_InferenceMetadata_Response_KMeans::mutable_clusters(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceMetadata_Response.KMeans.clusters)
+  return _impl_.clusters_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster >*
+CMsgSteamLearn_InferenceMetadata_Response_KMeans::mutable_clusters() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearn_InferenceMetadata_Response.KMeans.clusters)
+  return &_impl_.clusters_;
+}
+inline const ::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster& CMsgSteamLearn_InferenceMetadata_Response_KMeans::_internal_clusters(int index) const {
+  return _impl_.clusters_.Get(index);
+}
+inline const ::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster& CMsgSteamLearn_InferenceMetadata_Response_KMeans::clusters(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.KMeans.clusters)
+  return _internal_clusters(index);
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster* CMsgSteamLearn_InferenceMetadata_Response_KMeans::_internal_add_clusters() {
+  return _impl_.clusters_.Add();
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster* CMsgSteamLearn_InferenceMetadata_Response_KMeans::add_clusters() {
+  ::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster* _add = _internal_add_clusters();
+  // @@protoc_insertion_point(field_add:CMsgSteamLearn_InferenceMetadata_Response.KMeans.clusters)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster >&
+CMsgSteamLearn_InferenceMetadata_Response_KMeans::clusters() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearn_InferenceMetadata_Response.KMeans.clusters)
+  return _impl_.clusters_;
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram
+
+// optional float min_value = 1;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::_internal_has_min_value() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::has_min_value() const {
+  return _internal_has_min_value();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::clear_min_value() {
+  _impl_.min_value_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline float CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::_internal_min_value() const {
+  return _impl_.min_value_;
+}
+inline float CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::min_value() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.SnapshotHistogram.min_value)
+  return _internal_min_value();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::_internal_set_min_value(float value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.min_value_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::set_min_value(float value) {
+  _internal_set_min_value(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.SnapshotHistogram.min_value)
+}
+
+// optional float max_value = 2;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::_internal_has_max_value() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::has_max_value() const {
+  return _internal_has_max_value();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::clear_max_value() {
+  _impl_.max_value_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline float CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::_internal_max_value() const {
+  return _impl_.max_value_;
+}
+inline float CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::max_value() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.SnapshotHistogram.max_value)
+  return _internal_max_value();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::_internal_set_max_value(float value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.max_value_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::set_max_value(float value) {
+  _internal_set_max_value(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.SnapshotHistogram.max_value)
+}
+
+// optional uint32 num_buckets = 3;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::_internal_has_num_buckets() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::has_num_buckets() const {
+  return _internal_has_num_buckets();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::clear_num_buckets() {
+  _impl_.num_buckets_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::_internal_num_buckets() const {
+  return _impl_.num_buckets_;
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::num_buckets() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.SnapshotHistogram.num_buckets)
+  return _internal_num_buckets();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::_internal_set_num_buckets(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.num_buckets_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::set_num_buckets(uint32_t value) {
+  _internal_set_num_buckets(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.SnapshotHistogram.num_buckets)
+}
+
+// repeated uint32 bucket_counts = 4;
+inline int CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::_internal_bucket_counts_size() const {
+  return _impl_.bucket_counts_.size();
+}
+inline int CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::bucket_counts_size() const {
+  return _internal_bucket_counts_size();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::clear_bucket_counts() {
+  _impl_.bucket_counts_.Clear();
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::_internal_bucket_counts(int index) const {
+  return _impl_.bucket_counts_.Get(index);
+}
+inline uint32_t CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::bucket_counts(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.SnapshotHistogram.bucket_counts)
+  return _internal_bucket_counts(index);
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::set_bucket_counts(int index, uint32_t value) {
+  _impl_.bucket_counts_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.SnapshotHistogram.bucket_counts)
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::_internal_add_bucket_counts(uint32_t value) {
+  _impl_.bucket_counts_.Add(value);
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::add_bucket_counts(uint32_t value) {
+  _internal_add_bucket_counts(value);
+  // @@protoc_insertion_point(field_add:CMsgSteamLearn_InferenceMetadata_Response.SnapshotHistogram.bucket_counts)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::_internal_bucket_counts() const {
+  return _impl_.bucket_counts_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::bucket_counts() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearn_InferenceMetadata_Response.SnapshotHistogram.bucket_counts)
+  return _internal_bucket_counts();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::_internal_mutable_bucket_counts() {
+  return &_impl_.bucket_counts_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram::mutable_bucket_counts() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearn_InferenceMetadata_Response.SnapshotHistogram.bucket_counts)
+  return _internal_mutable_bucket_counts();
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearn_InferenceMetadata_Response
+
+// optional .ESteamLearnInferenceMetadataResult inference_metadata_result = 1 [default = STEAMLEARN_INFERENCE_METADATA_ERROR];
+inline bool CMsgSteamLearn_InferenceMetadata_Response::_internal_has_inference_metadata_result() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response::has_inference_metadata_result() const {
+  return _internal_has_inference_metadata_result();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response::clear_inference_metadata_result() {
+  _impl_.inference_metadata_result_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline ::ESteamLearnInferenceMetadataResult CMsgSteamLearn_InferenceMetadata_Response::_internal_inference_metadata_result() const {
+  return static_cast< ::ESteamLearnInferenceMetadataResult >(_impl_.inference_metadata_result_);
+}
+inline ::ESteamLearnInferenceMetadataResult CMsgSteamLearn_InferenceMetadata_Response::inference_metadata_result() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.inference_metadata_result)
+  return _internal_inference_metadata_result();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response::_internal_set_inference_metadata_result(::ESteamLearnInferenceMetadataResult value) {
+  assert(::ESteamLearnInferenceMetadataResult_IsValid(value));
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.inference_metadata_result_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response::set_inference_metadata_result(::ESteamLearnInferenceMetadataResult value) {
+  _internal_set_inference_metadata_result(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.inference_metadata_result)
+}
+
+// optional .CMsgSteamLearn_InferenceMetadata_Response.RowRange row_range = 2;
+inline bool CMsgSteamLearn_InferenceMetadata_Response::_internal_has_row_range() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.row_range_ != nullptr);
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response::has_row_range() const {
+  return _internal_has_row_range();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response::clear_row_range() {
+  if (_impl_.row_range_ != nullptr) _impl_.row_range_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::CMsgSteamLearn_InferenceMetadata_Response_RowRange& CMsgSteamLearn_InferenceMetadata_Response::_internal_row_range() const {
+  const ::CMsgSteamLearn_InferenceMetadata_Response_RowRange* p = _impl_.row_range_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearn_InferenceMetadata_Response_RowRange&>(
+      ::_CMsgSteamLearn_InferenceMetadata_Response_RowRange_default_instance_);
+}
+inline const ::CMsgSteamLearn_InferenceMetadata_Response_RowRange& CMsgSteamLearn_InferenceMetadata_Response::row_range() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.row_range)
+  return _internal_row_range();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response::unsafe_arena_set_allocated_row_range(
+    ::CMsgSteamLearn_InferenceMetadata_Response_RowRange* row_range) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.row_range_);
+  }
+  _impl_.row_range_ = row_range;
+  if (row_range) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearn_InferenceMetadata_Response.row_range)
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_RowRange* CMsgSteamLearn_InferenceMetadata_Response::release_row_range() {
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgSteamLearn_InferenceMetadata_Response_RowRange* temp = _impl_.row_range_;
+  _impl_.row_range_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_RowRange* CMsgSteamLearn_InferenceMetadata_Response::unsafe_arena_release_row_range() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearn_InferenceMetadata_Response.row_range)
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgSteamLearn_InferenceMetadata_Response_RowRange* temp = _impl_.row_range_;
+  _impl_.row_range_ = nullptr;
+  return temp;
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_RowRange* CMsgSteamLearn_InferenceMetadata_Response::_internal_mutable_row_range() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.row_range_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgSteamLearn_InferenceMetadata_Response_RowRange>(GetArenaForAllocation());
+    _impl_.row_range_ = p;
+  }
+  return _impl_.row_range_;
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_RowRange* CMsgSteamLearn_InferenceMetadata_Response::mutable_row_range() {
+  ::CMsgSteamLearn_InferenceMetadata_Response_RowRange* _msg = _internal_mutable_row_range();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceMetadata_Response.row_range)
+  return _msg;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response::set_allocated_row_range(::CMsgSteamLearn_InferenceMetadata_Response_RowRange* row_range) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.row_range_;
+  }
+  if (row_range) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(row_range);
+    if (message_arena != submessage_arena) {
+      row_range = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, row_range, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.row_range_ = row_range;
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_InferenceMetadata_Response.row_range)
+}
+
+// repeated .CMsgSteamLearn_InferenceMetadata_Response.Range ranges = 3;
+inline int CMsgSteamLearn_InferenceMetadata_Response::_internal_ranges_size() const {
+  return _impl_.ranges_.size();
+}
+inline int CMsgSteamLearn_InferenceMetadata_Response::ranges_size() const {
+  return _internal_ranges_size();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response::clear_ranges() {
+  _impl_.ranges_.Clear();
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_Range* CMsgSteamLearn_InferenceMetadata_Response::mutable_ranges(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceMetadata_Response.ranges)
+  return _impl_.ranges_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_Range >*
+CMsgSteamLearn_InferenceMetadata_Response::mutable_ranges() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearn_InferenceMetadata_Response.ranges)
+  return &_impl_.ranges_;
+}
+inline const ::CMsgSteamLearn_InferenceMetadata_Response_Range& CMsgSteamLearn_InferenceMetadata_Response::_internal_ranges(int index) const {
+  return _impl_.ranges_.Get(index);
+}
+inline const ::CMsgSteamLearn_InferenceMetadata_Response_Range& CMsgSteamLearn_InferenceMetadata_Response::ranges(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.ranges)
+  return _internal_ranges(index);
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_Range* CMsgSteamLearn_InferenceMetadata_Response::_internal_add_ranges() {
+  return _impl_.ranges_.Add();
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_Range* CMsgSteamLearn_InferenceMetadata_Response::add_ranges() {
+  ::CMsgSteamLearn_InferenceMetadata_Response_Range* _add = _internal_add_ranges();
+  // @@protoc_insertion_point(field_add:CMsgSteamLearn_InferenceMetadata_Response.ranges)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_Range >&
+CMsgSteamLearn_InferenceMetadata_Response::ranges() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearn_InferenceMetadata_Response.ranges)
+  return _impl_.ranges_;
+}
+
+// repeated .CMsgSteamLearn_InferenceMetadata_Response.StdDev std_devs = 4;
+inline int CMsgSteamLearn_InferenceMetadata_Response::_internal_std_devs_size() const {
+  return _impl_.std_devs_.size();
+}
+inline int CMsgSteamLearn_InferenceMetadata_Response::std_devs_size() const {
+  return _internal_std_devs_size();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response::clear_std_devs() {
+  _impl_.std_devs_.Clear();
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_StdDev* CMsgSteamLearn_InferenceMetadata_Response::mutable_std_devs(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceMetadata_Response.std_devs)
+  return _impl_.std_devs_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_StdDev >*
+CMsgSteamLearn_InferenceMetadata_Response::mutable_std_devs() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearn_InferenceMetadata_Response.std_devs)
+  return &_impl_.std_devs_;
+}
+inline const ::CMsgSteamLearn_InferenceMetadata_Response_StdDev& CMsgSteamLearn_InferenceMetadata_Response::_internal_std_devs(int index) const {
+  return _impl_.std_devs_.Get(index);
+}
+inline const ::CMsgSteamLearn_InferenceMetadata_Response_StdDev& CMsgSteamLearn_InferenceMetadata_Response::std_devs(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.std_devs)
+  return _internal_std_devs(index);
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_StdDev* CMsgSteamLearn_InferenceMetadata_Response::_internal_add_std_devs() {
+  return _impl_.std_devs_.Add();
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_StdDev* CMsgSteamLearn_InferenceMetadata_Response::add_std_devs() {
+  ::CMsgSteamLearn_InferenceMetadata_Response_StdDev* _add = _internal_add_std_devs();
+  // @@protoc_insertion_point(field_add:CMsgSteamLearn_InferenceMetadata_Response.std_devs)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_StdDev >&
+CMsgSteamLearn_InferenceMetadata_Response::std_devs() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearn_InferenceMetadata_Response.std_devs)
+  return _impl_.std_devs_;
+}
+
+// repeated .CMsgSteamLearn_InferenceMetadata_Response.CompactTable compact_tables = 5;
+inline int CMsgSteamLearn_InferenceMetadata_Response::_internal_compact_tables_size() const {
+  return _impl_.compact_tables_.size();
+}
+inline int CMsgSteamLearn_InferenceMetadata_Response::compact_tables_size() const {
+  return _internal_compact_tables_size();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response::clear_compact_tables() {
+  _impl_.compact_tables_.Clear();
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable* CMsgSteamLearn_InferenceMetadata_Response::mutable_compact_tables(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceMetadata_Response.compact_tables)
+  return _impl_.compact_tables_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable >*
+CMsgSteamLearn_InferenceMetadata_Response::mutable_compact_tables() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearn_InferenceMetadata_Response.compact_tables)
+  return &_impl_.compact_tables_;
+}
+inline const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable& CMsgSteamLearn_InferenceMetadata_Response::_internal_compact_tables(int index) const {
+  return _impl_.compact_tables_.Get(index);
+}
+inline const ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable& CMsgSteamLearn_InferenceMetadata_Response::compact_tables(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.compact_tables)
+  return _internal_compact_tables(index);
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable* CMsgSteamLearn_InferenceMetadata_Response::_internal_add_compact_tables() {
+  return _impl_.compact_tables_.Add();
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable* CMsgSteamLearn_InferenceMetadata_Response::add_compact_tables() {
+  ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable* _add = _internal_add_compact_tables();
+  // @@protoc_insertion_point(field_add:CMsgSteamLearn_InferenceMetadata_Response.compact_tables)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_CompactTable >&
+CMsgSteamLearn_InferenceMetadata_Response::compact_tables() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearn_InferenceMetadata_Response.compact_tables)
+  return _impl_.compact_tables_;
+}
+
+// repeated .CMsgSteamLearn_InferenceMetadata_Response.KMeans kmeans = 6;
+inline int CMsgSteamLearn_InferenceMetadata_Response::_internal_kmeans_size() const {
+  return _impl_.kmeans_.size();
+}
+inline int CMsgSteamLearn_InferenceMetadata_Response::kmeans_size() const {
+  return _internal_kmeans_size();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response::clear_kmeans() {
+  _impl_.kmeans_.Clear();
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_KMeans* CMsgSteamLearn_InferenceMetadata_Response::mutable_kmeans(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceMetadata_Response.kmeans)
+  return _impl_.kmeans_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_KMeans >*
+CMsgSteamLearn_InferenceMetadata_Response::mutable_kmeans() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearn_InferenceMetadata_Response.kmeans)
+  return &_impl_.kmeans_;
+}
+inline const ::CMsgSteamLearn_InferenceMetadata_Response_KMeans& CMsgSteamLearn_InferenceMetadata_Response::_internal_kmeans(int index) const {
+  return _impl_.kmeans_.Get(index);
+}
+inline const ::CMsgSteamLearn_InferenceMetadata_Response_KMeans& CMsgSteamLearn_InferenceMetadata_Response::kmeans(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.kmeans)
+  return _internal_kmeans(index);
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_KMeans* CMsgSteamLearn_InferenceMetadata_Response::_internal_add_kmeans() {
+  return _impl_.kmeans_.Add();
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_KMeans* CMsgSteamLearn_InferenceMetadata_Response::add_kmeans() {
+  ::CMsgSteamLearn_InferenceMetadata_Response_KMeans* _add = _internal_add_kmeans();
+  // @@protoc_insertion_point(field_add:CMsgSteamLearn_InferenceMetadata_Response.kmeans)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceMetadata_Response_KMeans >&
+CMsgSteamLearn_InferenceMetadata_Response::kmeans() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearn_InferenceMetadata_Response.kmeans)
+  return _impl_.kmeans_;
+}
+
+// optional .CMsgSteamLearn_InferenceMetadata_Response.SnapshotHistogram snapshot_histogram = 7;
+inline bool CMsgSteamLearn_InferenceMetadata_Response::_internal_has_snapshot_histogram() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.snapshot_histogram_ != nullptr);
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response::has_snapshot_histogram() const {
+  return _internal_has_snapshot_histogram();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response::clear_snapshot_histogram() {
+  if (_impl_.snapshot_histogram_ != nullptr) _impl_.snapshot_histogram_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline const ::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram& CMsgSteamLearn_InferenceMetadata_Response::_internal_snapshot_histogram() const {
+  const ::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* p = _impl_.snapshot_histogram_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram&>(
+      ::_CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram_default_instance_);
+}
+inline const ::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram& CMsgSteamLearn_InferenceMetadata_Response::snapshot_histogram() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.snapshot_histogram)
+  return _internal_snapshot_histogram();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response::unsafe_arena_set_allocated_snapshot_histogram(
+    ::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* snapshot_histogram) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.snapshot_histogram_);
+  }
+  _impl_.snapshot_histogram_ = snapshot_histogram;
+  if (snapshot_histogram) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearn_InferenceMetadata_Response.snapshot_histogram)
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* CMsgSteamLearn_InferenceMetadata_Response::release_snapshot_histogram() {
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  ::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* temp = _impl_.snapshot_histogram_;
+  _impl_.snapshot_histogram_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* CMsgSteamLearn_InferenceMetadata_Response::unsafe_arena_release_snapshot_histogram() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearn_InferenceMetadata_Response.snapshot_histogram)
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  ::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* temp = _impl_.snapshot_histogram_;
+  _impl_.snapshot_histogram_ = nullptr;
+  return temp;
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* CMsgSteamLearn_InferenceMetadata_Response::_internal_mutable_snapshot_histogram() {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  if (_impl_.snapshot_histogram_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram>(GetArenaForAllocation());
+    _impl_.snapshot_histogram_ = p;
+  }
+  return _impl_.snapshot_histogram_;
+}
+inline ::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* CMsgSteamLearn_InferenceMetadata_Response::mutable_snapshot_histogram() {
+  ::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* _msg = _internal_mutable_snapshot_histogram();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceMetadata_Response.snapshot_histogram)
+  return _msg;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response::set_allocated_snapshot_histogram(::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram* snapshot_histogram) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.snapshot_histogram_;
+  }
+  if (snapshot_histogram) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(snapshot_histogram);
+    if (message_arena != submessage_arena) {
+      snapshot_histogram = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, snapshot_histogram, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  _impl_.snapshot_histogram_ = snapshot_histogram;
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_InferenceMetadata_Response.snapshot_histogram)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput
+
+// optional float value = 1;
+inline bool CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput::_internal_has_value() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput::has_value() const {
+  return _internal_has_value();
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput::clear_value() {
+  _impl_.value_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline float CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput::_internal_value() const {
+  return _impl_.value_;
+}
+inline float CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput::value() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceBackend_Response.BinaryCrossEntropyOutput.value)
+  return _internal_value();
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput::_internal_set_value(float value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.value_ = value;
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput::set_value(float value) {
+  _internal_set_value(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceBackend_Response.BinaryCrossEntropyOutput.value)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput
+
+// repeated float weight = 1;
+inline int CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::_internal_weight_size() const {
+  return _impl_.weight_.size();
+}
+inline int CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::weight_size() const {
+  return _internal_weight_size();
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::clear_weight() {
+  _impl_.weight_.Clear();
+}
+inline float CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::_internal_weight(int index) const {
+  return _impl_.weight_.Get(index);
+}
+inline float CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::weight(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceBackend_Response.MutliBinaryCrossEntropyOutput.weight)
+  return _internal_weight(index);
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::set_weight(int index, float value) {
+  _impl_.weight_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceBackend_Response.MutliBinaryCrossEntropyOutput.weight)
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::_internal_add_weight(float value) {
+  _impl_.weight_.Add(value);
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::add_weight(float value) {
+  _internal_add_weight(value);
+  // @@protoc_insertion_point(field_add:CMsgSteamLearn_InferenceBackend_Response.MutliBinaryCrossEntropyOutput.weight)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::_internal_weight() const {
+  return _impl_.weight_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::weight() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearn_InferenceBackend_Response.MutliBinaryCrossEntropyOutput.weight)
+  return _internal_weight();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::_internal_mutable_weight() {
+  return &_impl_.weight_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::mutable_weight() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearn_InferenceBackend_Response.MutliBinaryCrossEntropyOutput.weight)
+  return _internal_mutable_weight();
+}
+
+// repeated float value = 2;
+inline int CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::_internal_value_size() const {
+  return _impl_.value_.size();
+}
+inline int CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::value_size() const {
+  return _internal_value_size();
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::clear_value() {
+  _impl_.value_.Clear();
+}
+inline float CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::_internal_value(int index) const {
+  return _impl_.value_.Get(index);
+}
+inline float CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::value(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceBackend_Response.MutliBinaryCrossEntropyOutput.value)
+  return _internal_value(index);
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::set_value(int index, float value) {
+  _impl_.value_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceBackend_Response.MutliBinaryCrossEntropyOutput.value)
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::_internal_add_value(float value) {
+  _impl_.value_.Add(value);
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::add_value(float value) {
+  _internal_add_value(value);
+  // @@protoc_insertion_point(field_add:CMsgSteamLearn_InferenceBackend_Response.MutliBinaryCrossEntropyOutput.value)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::_internal_value() const {
+  return _impl_.value_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::value() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearn_InferenceBackend_Response.MutliBinaryCrossEntropyOutput.value)
+  return _internal_value();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::_internal_mutable_value() {
+  return &_impl_.value_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput::mutable_value() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearn_InferenceBackend_Response.MutliBinaryCrossEntropyOutput.value)
+  return _internal_mutable_value();
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput
+
+// repeated float weight = 1;
+inline int CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::_internal_weight_size() const {
+  return _impl_.weight_.size();
+}
+inline int CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::weight_size() const {
+  return _internal_weight_size();
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::clear_weight() {
+  _impl_.weight_.Clear();
+}
+inline float CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::_internal_weight(int index) const {
+  return _impl_.weight_.Get(index);
+}
+inline float CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::weight(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceBackend_Response.CategoricalCrossEntropyOutput.weight)
+  return _internal_weight(index);
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::set_weight(int index, float value) {
+  _impl_.weight_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceBackend_Response.CategoricalCrossEntropyOutput.weight)
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::_internal_add_weight(float value) {
+  _impl_.weight_.Add(value);
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::add_weight(float value) {
+  _internal_add_weight(value);
+  // @@protoc_insertion_point(field_add:CMsgSteamLearn_InferenceBackend_Response.CategoricalCrossEntropyOutput.weight)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::_internal_weight() const {
+  return _impl_.weight_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::weight() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearn_InferenceBackend_Response.CategoricalCrossEntropyOutput.weight)
+  return _internal_weight();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::_internal_mutable_weight() {
+  return &_impl_.weight_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::mutable_weight() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearn_InferenceBackend_Response.CategoricalCrossEntropyOutput.weight)
+  return _internal_mutable_weight();
+}
+
+// repeated float value = 2;
+inline int CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::_internal_value_size() const {
+  return _impl_.value_.size();
+}
+inline int CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::value_size() const {
+  return _internal_value_size();
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::clear_value() {
+  _impl_.value_.Clear();
+}
+inline float CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::_internal_value(int index) const {
+  return _impl_.value_.Get(index);
+}
+inline float CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::value(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceBackend_Response.CategoricalCrossEntropyOutput.value)
+  return _internal_value(index);
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::set_value(int index, float value) {
+  _impl_.value_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceBackend_Response.CategoricalCrossEntropyOutput.value)
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::_internal_add_value(float value) {
+  _impl_.value_.Add(value);
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::add_value(float value) {
+  _internal_add_value(value);
+  // @@protoc_insertion_point(field_add:CMsgSteamLearn_InferenceBackend_Response.CategoricalCrossEntropyOutput.value)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::_internal_value() const {
+  return _impl_.value_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::value() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearn_InferenceBackend_Response.CategoricalCrossEntropyOutput.value)
+  return _internal_value();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::_internal_mutable_value() {
+  return &_impl_.value_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput::mutable_value() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearn_InferenceBackend_Response.CategoricalCrossEntropyOutput.value)
+  return _internal_mutable_value();
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearn_InferenceBackend_Response_Output
+
+// .CMsgSteamLearn_InferenceBackend_Response.BinaryCrossEntropyOutput binary_crossentropy = 1;
+inline bool CMsgSteamLearn_InferenceBackend_Response_Output::_internal_has_binary_crossentropy() const {
+  return ResponseType_case() == kBinaryCrossentropy;
+}
+inline bool CMsgSteamLearn_InferenceBackend_Response_Output::has_binary_crossentropy() const {
+  return _internal_has_binary_crossentropy();
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_Output::set_has_binary_crossentropy() {
+  _impl_._oneof_case_[0] = kBinaryCrossentropy;
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_Output::clear_binary_crossentropy() {
+  if (_internal_has_binary_crossentropy()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.ResponseType_.binary_crossentropy_;
+    }
+    clear_has_ResponseType();
+  }
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* CMsgSteamLearn_InferenceBackend_Response_Output::release_binary_crossentropy() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearn_InferenceBackend_Response.Output.binary_crossentropy)
+  if (_internal_has_binary_crossentropy()) {
+    clear_has_ResponseType();
+    ::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* temp = _impl_.ResponseType_.binary_crossentropy_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.ResponseType_.binary_crossentropy_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput& CMsgSteamLearn_InferenceBackend_Response_Output::_internal_binary_crossentropy() const {
+  return _internal_has_binary_crossentropy()
+      ? *_impl_.ResponseType_.binary_crossentropy_
+      : reinterpret_cast< ::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput&>(::_CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput_default_instance_);
+}
+inline const ::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput& CMsgSteamLearn_InferenceBackend_Response_Output::binary_crossentropy() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceBackend_Response.Output.binary_crossentropy)
+  return _internal_binary_crossentropy();
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* CMsgSteamLearn_InferenceBackend_Response_Output::unsafe_arena_release_binary_crossentropy() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:CMsgSteamLearn_InferenceBackend_Response.Output.binary_crossentropy)
+  if (_internal_has_binary_crossentropy()) {
+    clear_has_ResponseType();
+    ::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* temp = _impl_.ResponseType_.binary_crossentropy_;
+    _impl_.ResponseType_.binary_crossentropy_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_Output::unsafe_arena_set_allocated_binary_crossentropy(::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* binary_crossentropy) {
+  clear_ResponseType();
+  if (binary_crossentropy) {
+    set_has_binary_crossentropy();
+    _impl_.ResponseType_.binary_crossentropy_ = binary_crossentropy;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearn_InferenceBackend_Response.Output.binary_crossentropy)
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* CMsgSteamLearn_InferenceBackend_Response_Output::_internal_mutable_binary_crossentropy() {
+  if (!_internal_has_binary_crossentropy()) {
+    clear_ResponseType();
+    set_has_binary_crossentropy();
+    _impl_.ResponseType_.binary_crossentropy_ = CreateMaybeMessage< ::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput >(GetArenaForAllocation());
+  }
+  return _impl_.ResponseType_.binary_crossentropy_;
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* CMsgSteamLearn_InferenceBackend_Response_Output::mutable_binary_crossentropy() {
+  ::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* _msg = _internal_mutable_binary_crossentropy();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceBackend_Response.Output.binary_crossentropy)
+  return _msg;
+}
+
+// .CMsgSteamLearn_InferenceBackend_Response.CategoricalCrossEntropyOutput categorical_crossentropy = 2;
+inline bool CMsgSteamLearn_InferenceBackend_Response_Output::_internal_has_categorical_crossentropy() const {
+  return ResponseType_case() == kCategoricalCrossentropy;
+}
+inline bool CMsgSteamLearn_InferenceBackend_Response_Output::has_categorical_crossentropy() const {
+  return _internal_has_categorical_crossentropy();
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_Output::set_has_categorical_crossentropy() {
+  _impl_._oneof_case_[0] = kCategoricalCrossentropy;
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_Output::clear_categorical_crossentropy() {
+  if (_internal_has_categorical_crossentropy()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.ResponseType_.categorical_crossentropy_;
+    }
+    clear_has_ResponseType();
+  }
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* CMsgSteamLearn_InferenceBackend_Response_Output::release_categorical_crossentropy() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearn_InferenceBackend_Response.Output.categorical_crossentropy)
+  if (_internal_has_categorical_crossentropy()) {
+    clear_has_ResponseType();
+    ::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* temp = _impl_.ResponseType_.categorical_crossentropy_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.ResponseType_.categorical_crossentropy_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput& CMsgSteamLearn_InferenceBackend_Response_Output::_internal_categorical_crossentropy() const {
+  return _internal_has_categorical_crossentropy()
+      ? *_impl_.ResponseType_.categorical_crossentropy_
+      : reinterpret_cast< ::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput&>(::_CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput_default_instance_);
+}
+inline const ::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput& CMsgSteamLearn_InferenceBackend_Response_Output::categorical_crossentropy() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceBackend_Response.Output.categorical_crossentropy)
+  return _internal_categorical_crossentropy();
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* CMsgSteamLearn_InferenceBackend_Response_Output::unsafe_arena_release_categorical_crossentropy() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:CMsgSteamLearn_InferenceBackend_Response.Output.categorical_crossentropy)
+  if (_internal_has_categorical_crossentropy()) {
+    clear_has_ResponseType();
+    ::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* temp = _impl_.ResponseType_.categorical_crossentropy_;
+    _impl_.ResponseType_.categorical_crossentropy_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_Output::unsafe_arena_set_allocated_categorical_crossentropy(::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* categorical_crossentropy) {
+  clear_ResponseType();
+  if (categorical_crossentropy) {
+    set_has_categorical_crossentropy();
+    _impl_.ResponseType_.categorical_crossentropy_ = categorical_crossentropy;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearn_InferenceBackend_Response.Output.categorical_crossentropy)
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* CMsgSteamLearn_InferenceBackend_Response_Output::_internal_mutable_categorical_crossentropy() {
+  if (!_internal_has_categorical_crossentropy()) {
+    clear_ResponseType();
+    set_has_categorical_crossentropy();
+    _impl_.ResponseType_.categorical_crossentropy_ = CreateMaybeMessage< ::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput >(GetArenaForAllocation());
+  }
+  return _impl_.ResponseType_.categorical_crossentropy_;
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* CMsgSteamLearn_InferenceBackend_Response_Output::mutable_categorical_crossentropy() {
+  ::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* _msg = _internal_mutable_categorical_crossentropy();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceBackend_Response.Output.categorical_crossentropy)
+  return _msg;
+}
+
+// .CMsgSteamLearn_InferenceBackend_Response.MutliBinaryCrossEntropyOutput multi_binary_crossentropy = 3;
+inline bool CMsgSteamLearn_InferenceBackend_Response_Output::_internal_has_multi_binary_crossentropy() const {
+  return ResponseType_case() == kMultiBinaryCrossentropy;
+}
+inline bool CMsgSteamLearn_InferenceBackend_Response_Output::has_multi_binary_crossentropy() const {
+  return _internal_has_multi_binary_crossentropy();
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_Output::set_has_multi_binary_crossentropy() {
+  _impl_._oneof_case_[0] = kMultiBinaryCrossentropy;
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_Output::clear_multi_binary_crossentropy() {
+  if (_internal_has_multi_binary_crossentropy()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.ResponseType_.multi_binary_crossentropy_;
+    }
+    clear_has_ResponseType();
+  }
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* CMsgSteamLearn_InferenceBackend_Response_Output::release_multi_binary_crossentropy() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearn_InferenceBackend_Response.Output.multi_binary_crossentropy)
+  if (_internal_has_multi_binary_crossentropy()) {
+    clear_has_ResponseType();
+    ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* temp = _impl_.ResponseType_.multi_binary_crossentropy_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.ResponseType_.multi_binary_crossentropy_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput& CMsgSteamLearn_InferenceBackend_Response_Output::_internal_multi_binary_crossentropy() const {
+  return _internal_has_multi_binary_crossentropy()
+      ? *_impl_.ResponseType_.multi_binary_crossentropy_
+      : reinterpret_cast< ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput&>(::_CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput_default_instance_);
+}
+inline const ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput& CMsgSteamLearn_InferenceBackend_Response_Output::multi_binary_crossentropy() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceBackend_Response.Output.multi_binary_crossentropy)
+  return _internal_multi_binary_crossentropy();
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* CMsgSteamLearn_InferenceBackend_Response_Output::unsafe_arena_release_multi_binary_crossentropy() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:CMsgSteamLearn_InferenceBackend_Response.Output.multi_binary_crossentropy)
+  if (_internal_has_multi_binary_crossentropy()) {
+    clear_has_ResponseType();
+    ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* temp = _impl_.ResponseType_.multi_binary_crossentropy_;
+    _impl_.ResponseType_.multi_binary_crossentropy_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_Output::unsafe_arena_set_allocated_multi_binary_crossentropy(::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* multi_binary_crossentropy) {
+  clear_ResponseType();
+  if (multi_binary_crossentropy) {
+    set_has_multi_binary_crossentropy();
+    _impl_.ResponseType_.multi_binary_crossentropy_ = multi_binary_crossentropy;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearn_InferenceBackend_Response.Output.multi_binary_crossentropy)
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* CMsgSteamLearn_InferenceBackend_Response_Output::_internal_mutable_multi_binary_crossentropy() {
+  if (!_internal_has_multi_binary_crossentropy()) {
+    clear_ResponseType();
+    set_has_multi_binary_crossentropy();
+    _impl_.ResponseType_.multi_binary_crossentropy_ = CreateMaybeMessage< ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput >(GetArenaForAllocation());
+  }
+  return _impl_.ResponseType_.multi_binary_crossentropy_;
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* CMsgSteamLearn_InferenceBackend_Response_Output::mutable_multi_binary_crossentropy() {
+  ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* _msg = _internal_mutable_multi_binary_crossentropy();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceBackend_Response.Output.multi_binary_crossentropy)
+  return _msg;
+}
+
+inline bool CMsgSteamLearn_InferenceBackend_Response_Output::has_ResponseType() const {
+  return ResponseType_case() != RESPONSETYPE_NOT_SET;
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_Output::clear_has_ResponseType() {
+  _impl_._oneof_case_[0] = RESPONSETYPE_NOT_SET;
+}
+inline CMsgSteamLearn_InferenceBackend_Response_Output::ResponseTypeCase CMsgSteamLearn_InferenceBackend_Response_Output::ResponseType_case() const {
+  return CMsgSteamLearn_InferenceBackend_Response_Output::ResponseTypeCase(_impl_._oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// CMsgSteamLearn_InferenceBackend_Response
+
+// repeated .CMsgSteamLearn_InferenceBackend_Response.Output outputs = 1;
+inline int CMsgSteamLearn_InferenceBackend_Response::_internal_outputs_size() const {
+  return _impl_.outputs_.size();
+}
+inline int CMsgSteamLearn_InferenceBackend_Response::outputs_size() const {
+  return _internal_outputs_size();
+}
+inline void CMsgSteamLearn_InferenceBackend_Response::clear_outputs() {
+  _impl_.outputs_.Clear();
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response_Output* CMsgSteamLearn_InferenceBackend_Response::mutable_outputs(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceBackend_Response.outputs)
+  return _impl_.outputs_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceBackend_Response_Output >*
+CMsgSteamLearn_InferenceBackend_Response::mutable_outputs() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearn_InferenceBackend_Response.outputs)
+  return &_impl_.outputs_;
+}
+inline const ::CMsgSteamLearn_InferenceBackend_Response_Output& CMsgSteamLearn_InferenceBackend_Response::_internal_outputs(int index) const {
+  return _impl_.outputs_.Get(index);
+}
+inline const ::CMsgSteamLearn_InferenceBackend_Response_Output& CMsgSteamLearn_InferenceBackend_Response::outputs(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceBackend_Response.outputs)
+  return _internal_outputs(index);
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response_Output* CMsgSteamLearn_InferenceBackend_Response::_internal_add_outputs() {
+  return _impl_.outputs_.Add();
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response_Output* CMsgSteamLearn_InferenceBackend_Response::add_outputs() {
+  ::CMsgSteamLearn_InferenceBackend_Response_Output* _add = _internal_add_outputs();
+  // @@protoc_insertion_point(field_add:CMsgSteamLearn_InferenceBackend_Response.outputs)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_InferenceBackend_Response_Output >&
+CMsgSteamLearn_InferenceBackend_Response::outputs() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearn_InferenceBackend_Response.outputs)
+  return _impl_.outputs_;
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearn_Inference_Response
+
+// optional .ESteamLearnInferenceResult inference_result = 1 [default = STEAMLEARN_INFERENCE_ERROR];
+inline bool CMsgSteamLearn_Inference_Response::_internal_has_inference_result() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_Inference_Response::has_inference_result() const {
+  return _internal_has_inference_result();
+}
+inline void CMsgSteamLearn_Inference_Response::clear_inference_result() {
+  _impl_.inference_result_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline ::ESteamLearnInferenceResult CMsgSteamLearn_Inference_Response::_internal_inference_result() const {
+  return static_cast< ::ESteamLearnInferenceResult >(_impl_.inference_result_);
+}
+inline ::ESteamLearnInferenceResult CMsgSteamLearn_Inference_Response::inference_result() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_Inference_Response.inference_result)
+  return _internal_inference_result();
+}
+inline void CMsgSteamLearn_Inference_Response::_internal_set_inference_result(::ESteamLearnInferenceResult value) {
+  assert(::ESteamLearnInferenceResult_IsValid(value));
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.inference_result_ = value;
+}
+inline void CMsgSteamLearn_Inference_Response::set_inference_result(::ESteamLearnInferenceResult value) {
+  _internal_set_inference_result(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_Inference_Response.inference_result)
+}
+
+// optional .CMsgSteamLearn_InferenceBackend_Response backend_response = 2;
+inline bool CMsgSteamLearn_Inference_Response::_internal_has_backend_response() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.backend_response_ != nullptr);
+  return value;
+}
+inline bool CMsgSteamLearn_Inference_Response::has_backend_response() const {
+  return _internal_has_backend_response();
+}
+inline void CMsgSteamLearn_Inference_Response::clear_backend_response() {
+  if (_impl_.backend_response_ != nullptr) _impl_.backend_response_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::CMsgSteamLearn_InferenceBackend_Response& CMsgSteamLearn_Inference_Response::_internal_backend_response() const {
+  const ::CMsgSteamLearn_InferenceBackend_Response* p = _impl_.backend_response_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearn_InferenceBackend_Response&>(
+      ::_CMsgSteamLearn_InferenceBackend_Response_default_instance_);
+}
+inline const ::CMsgSteamLearn_InferenceBackend_Response& CMsgSteamLearn_Inference_Response::backend_response() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_Inference_Response.backend_response)
+  return _internal_backend_response();
+}
+inline void CMsgSteamLearn_Inference_Response::unsafe_arena_set_allocated_backend_response(
+    ::CMsgSteamLearn_InferenceBackend_Response* backend_response) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.backend_response_);
+  }
+  _impl_.backend_response_ = backend_response;
+  if (backend_response) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearn_Inference_Response.backend_response)
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response* CMsgSteamLearn_Inference_Response::release_backend_response() {
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgSteamLearn_InferenceBackend_Response* temp = _impl_.backend_response_;
+  _impl_.backend_response_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response* CMsgSteamLearn_Inference_Response::unsafe_arena_release_backend_response() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearn_Inference_Response.backend_response)
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgSteamLearn_InferenceBackend_Response* temp = _impl_.backend_response_;
+  _impl_.backend_response_ = nullptr;
+  return temp;
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response* CMsgSteamLearn_Inference_Response::_internal_mutable_backend_response() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.backend_response_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgSteamLearn_InferenceBackend_Response>(GetArenaForAllocation());
+    _impl_.backend_response_ = p;
+  }
+  return _impl_.backend_response_;
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response* CMsgSteamLearn_Inference_Response::mutable_backend_response() {
+  ::CMsgSteamLearn_InferenceBackend_Response* _msg = _internal_mutable_backend_response();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_Inference_Response.backend_response)
+  return _msg;
+}
+inline void CMsgSteamLearn_Inference_Response::set_allocated_backend_response(::CMsgSteamLearn_InferenceBackend_Response* backend_response) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.backend_response_;
+  }
+  if (backend_response) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(backend_response);
+    if (message_arena != submessage_arena) {
+      backend_response = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, backend_response, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.backend_response_ = backend_response;
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_Inference_Response.backend_response)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -7531,6 +14580,16 @@ template <> struct is_proto_enum< ::ESteamLearnGetHMACKeysResult> : ::std::true_
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ESteamLearnGetHMACKeysResult>() {
   return ::ESteamLearnGetHMACKeysResult_descriptor();
+}
+template <> struct is_proto_enum< ::ESteamLearnInferenceResult> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ESteamLearnInferenceResult>() {
+  return ::ESteamLearnInferenceResult_descriptor();
+}
+template <> struct is_proto_enum< ::ESteamLearnInferenceMetadataResult> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ESteamLearnInferenceMetadataResult>() {
+  return ::ESteamLearnInferenceMetadataResult_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE
