@@ -2,6 +2,8 @@
 #include "ISharedObjectListener.h"
 #include "../../Protobufs/dota_gcmessages_common_lobby.pb.h"
 
+// Reversed in cooperation with Morphling
+
 struct dota_dynamic_lobby_t {
 	void* pad;
 	CSODOTALobby* dynamic_lobby;
@@ -13,7 +15,7 @@ struct dota_static_lobby_t {
 
 class CDOTALobby : public VClass {
 public:
-	uint64_t lobby_id() {
+	uint64_t GetLobbyId() {
 		return Member<VClass*>(0x18)->Member<uint64_t>(0x1D8);
 	}
 };
@@ -29,35 +31,30 @@ struct LobbyData {
 
 
 class CDOTAGCClientLobbyManager : public ISharedObjectListener {
-public:
 	uint64_t unk;
+public:
 	LobbyData lobbyData;
 
+	// Can't be bothered to check what's at these offsets and rename variables
+	// Just made Morphling's IDA paste a bit more appealing
 	CDOTALobby* FindLobby() {
-		int v1; // r9d
-		int v2; // eax
-		__int64 i; // rdx
-		__int64 v5; // rcx
-		__int64 a1 = (uintptr_t)this;
-
-		v1 = Member<uint32_t>(24);
-		v2 = 0;
+		auto v1 = Member<uint32_t>(24);
 		if (v1 <= 0)
 			return 0;
-		for (i = 0; ; i += 64)
+
+		int v2 = 0;
+		uintptr_t v5 = Member<uintptr_t>(16);
+		uint64_t i = 0;
+		for (; ; i += 64)
 		{
-			if (v2 >= 0 && v2 < v1 && v2 <= *(DWORD*)(a1 + 44))
-			{
-				v5 = *(uintptr_t*)(a1 + 16);
-				if (*(DWORD*)(i + v5) != v2)
-				{
-					if (*(uintptr_t*)(i + v5 + 24))
-						break;
-				}
-			}
+			if (v2 >= 0 && v2 < v1 && v2 <= Member<uint32_t>(44)
+				&& *(DWORD*)(i + v5) != v2
+				&& *(uintptr_t*)(i + v5 + 24))
+				break;
+
 			if (++v2 >= v1)
-				return 0;
+				return nullptr;
 		}
-		return *(CDOTALobby**)(((__int64)v2 << 6) + v5 + 24);
+		return *(CDOTALobby**)(i + v5 + 24);
 	}
 };

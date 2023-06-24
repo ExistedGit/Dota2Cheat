@@ -265,6 +265,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Hooks\SteamGC.cpp" />
+    <ClCompile Include="Modules\Utility\OrderRouter.cpp" />
     <ClCompile Include="SDK\GameSystems\CDOTA_MinimapObjectManager.cpp" />
     <ClCompile Include="CheatSDK\Config.cpp" />
     <ClCompile Include="CheatSDK\Hooking.cpp" />
@@ -554,6 +555,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hooks\SteamGC.h" />
+    <ClInclude Include="Modules\Utility\OrderRouter.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="SDK\GameSystems\CDOTA_MinimapObjectManager.h" />
     <ClInclude Include="CheatSDK\DrawData.h" />
     <ClInclude Include="CheatSDK\EventManager.h" />

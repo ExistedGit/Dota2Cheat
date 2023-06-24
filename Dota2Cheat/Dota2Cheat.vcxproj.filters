@@ -143,6 +143,7 @@
     <ClCompile Include="SDK\GameSystems\CRenderGameSystem.cpp" />
     <ClCompile Include="SDK\GameSystems\CGlobalVars.cpp" />
     <ClCompile Include="Hooks\SteamGC.cpp" />
+    <ClCompile Include="Modules\Utility\OrderRouter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
@@ -361,5 +362,6 @@
     <ClInclude Include="SDK\Interfaces\Network\INetworkClientService.h" />
     <ClInclude Include="SDK\Interfaces\IAppSystem.h" />
     <ClInclude Include="SDK\Interfaces\CSoundOpSystem.h" />
+    <ClInclude Include="Modules\Utility\OrderRouter.h" />
   </ItemGroup>
 </Project>

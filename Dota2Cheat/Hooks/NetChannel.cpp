@@ -1,11 +1,13 @@
 #include "NetChannel.h"
 
-
 void Hooks::hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits) {
 	NetChan = thisptr;
 
-	if (messageHandle->messageID != 4 // not CNetMsg_Tick [4]
-		&& ctx.gameStage == GameStage::IN_GAME)
+	if (
+		messageHandle->messageID != 4 // not CNetMsg_Tick [4]
+		&& messageHandle->messageID != 21
+		&& ctx.gameStage == GameStage::IN_GAME
+		)
 	{
 		Modules::ShakerAttackAnimFix.ChangeAttackAnimIfNeeded(messageHandle, msg);
 		Modules::LinearProjectileWarner.ProcessLinearProjectileMsg(messageHandle, msg);
@@ -21,5 +23,11 @@ void Hooks::hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* m
 bool Hooks::hkSendNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, NetChannelBufType_t type) {
 	NetChan = thisptr;
 
+	//if (messageHandle->messageID == 4
+	//	|| ctx.gameStage != GameStage::IN_GAME)
+	//	return oSendNetMessage(thisptr, messageHandle, msg, type);
+
+	//Modules::OrderRouter.RouteOrder(messageHandle, msg);
+		
 	return oSendNetMessage(thisptr, messageHandle, msg, type);
 }

@@ -4,7 +4,10 @@
 
 void Hooks::InstallHooks() {
 	HOOKFUNC_SIGNATURES(PrepareUnitOrders);
+
+#ifndef _TESTING
 	HOOKFUNC_SIGNATURES(CDOTA_DB_Popup_AcceptMatch);
+#endif
 
 #if defined(_DEBUG) && !defined(_TESTING)
 	{
@@ -13,16 +16,13 @@ void Hooks::InstallHooks() {
 	}
 	HOOKFUNC_SIGNATURES(SaveSerializedSOCache);
 #endif // _DEBUG
-	{
+
+#ifdef _TESTING
 	{
 		auto RetrieveMessage = VMT(Interfaces::SteamGC).GetVM(2);
 		HookFunc(RetrieveMessage, &Hooks::hkRetrieveMessage, &Hooks::oRetrieveMessage, "ISteamGameCoordinator::RetrieveMessage");
 	}
-		//uintptr_t** vtable = Memory::Scan("48 8D 05 ? ? ? ? 48 8B D9 48 89 01 48 8B 49 50", "client.dll").GetAbsoluteAddress(3);
-		//uintptr_t* SetAbsOrigin = vtable[21];
-		//HOOKFUNC(SetAbsOrigin);
-	}
-
+#endif
 	{
 		// NetChan constructor
 		// vtable ptr at 0x15
@@ -31,7 +31,7 @@ void Hooks::InstallHooks() {
 			.GetAbsoluteAddress(3, 7);
 		uintptr_t* PostReceivedNetMessage = vtable[86], * SendNetMessage = vtable[69]; // bytehooking through vtables, how's that, Elon Musk?
 		HOOKFUNC(PostReceivedNetMessage);
-		HOOKFUNC(SendNetMessage);
+		// HOOKFUNC(SendNetMessage);
 	}
 	{
 		// CDOTA_Buff destructor

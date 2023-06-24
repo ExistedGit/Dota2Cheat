@@ -1,8 +1,8 @@
 #include "PerfectBlink.h"
 
-void Hacks::PerfectBlink::AdjustIfBlink(Vector* position, uint32_t abilityIndex, CBaseEntity* issuer) {
+bool Modules::M_PerfectBlink::AdjustIfBlink(Vector* position, uint32_t abilityIndex, CBaseEntity* issuer) {
 	if (!Config::PerfectBlink)
-		return;
+		return false;
 
 	// Blink overshoot bypass
 	auto item = Interfaces::EntitySystem->GetEntity<CDOTABaseAbility>(abilityIndex);
@@ -10,14 +10,14 @@ void Hacks::PerfectBlink::AdjustIfBlink(Vector* position, uint32_t abilityIndex,
 	std::string_view itemName = item->GetIdentity()->GetName();
 	if (!itemName.starts_with("item_") ||
 		itemName.find("blink") == -1 )
-		return;
+		return false;
 
 
 	auto maxDist = item->GetEffectiveCastRange();
 	auto castPos2D = position->As<Vector2D>();
 
 	if (IsWithinRadius(issuer->GetPos(), *position, maxDist))
-		return;
+		return false;
 
 	auto dist = issuer->GetPos().As<Vector2D>().DistTo(castPos2D);
 	// Relative vector from the hero to the click point
@@ -31,4 +31,6 @@ void Hacks::PerfectBlink::AdjustIfBlink(Vector* position, uint32_t abilityIndex,
 
 	position->x = vec.x;
 	position->y = vec.y;
+
+	return true;
 }

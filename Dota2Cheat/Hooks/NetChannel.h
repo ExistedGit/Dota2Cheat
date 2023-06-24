@@ -12,6 +12,7 @@
 #include "../Modules/UI/ParticleMaphack.h"
 
 #include "../Modules/Utility/AttackAnimTracker.h"
+#include "../Modules/Utility/OrderRouter.h"
 
 namespace Hooks {
 	inline INetChannel* NetChan{};

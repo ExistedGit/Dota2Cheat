@@ -46,9 +46,5 @@ namespace Interfaces {
 	inline CBaseFileSystem* FileSystem{};
 	inline void* NetworkSystem;
 
-	// Gets a public interface via CreateInterface() export
-	// vmCount can be specified to check if the vtable has changed
-	void* GetInterface(const char* dllName, const char* interfaceName);
-
 	void FindInterfaces();
 }
