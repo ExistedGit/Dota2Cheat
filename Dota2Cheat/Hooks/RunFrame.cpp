@@ -41,13 +41,13 @@ void EntityIteration() {
 	}
 
 	if (Config::AutoPickUpRunes) {
-		Hooks::NetChan ? nullptr : throw "netchan = nullptr";
 
 		for (auto& rune : ctx.runes) {
 			if (!IsValidReadPtr(rune) ||
 				!IsValidReadPtr(rune->GetIdentity()) ||
 				rune->GetIdentity()->IsDormant())
 				continue;
+			Hooks::NetChan ? nullptr : throw "netchan = nullptr";
 			// Morphling's snake_case technologies
 			static long long last_pickup_time = 0;
 			if (IsWithinRadius(rune->GetPos(), ctx.localHero->GetPos(), 140.0f) &&
@@ -63,6 +63,7 @@ void EntityIteration() {
 				order->add_units(ctx.localHero->GetIndex());
 
 				Hooks::oSendNetMessage(Hooks::NetChan, msg_id, &orders_message, BUF_DEFAULT);
+
 				last_pickup_time = GetTickCount64();
 			}
 		}

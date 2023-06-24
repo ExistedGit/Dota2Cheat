@@ -31,7 +31,7 @@ void Hooks::InstallHooks() {
 			.GetAbsoluteAddress(3, 7);
 		uintptr_t* PostReceivedNetMessage = vtable[86], * SendNetMessage = vtable[69]; // bytehooking through vtables, how's that, Elon Musk?
 		HOOKFUNC(PostReceivedNetMessage);
-		// HOOKFUNC(SendNetMessage);
+		HOOKFUNC(SendNetMessage);
 	}
 	{
 		// CDOTA_Buff destructor
