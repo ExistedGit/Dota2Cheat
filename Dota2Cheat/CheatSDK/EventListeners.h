@@ -25,9 +25,6 @@ class EntityEventListener : public IEntityListener {
 
 		Modules::AegisSnatcher.RemoveIfAegis(ent);
 	}
-
-	void OnEntitySpawned(CBaseEntity* ent) override { }
-	void OnEntityParentChanged(CBaseEntity* ent, CBaseEntity* parent) override { };
 };
 
 class RoshanListener : public IGameEventListener2 {

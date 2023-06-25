@@ -100,7 +100,11 @@ void Pages::MainMenu::Draw() {
 		};
 		// https://github.com/SK68-ph/Shadow-Dance-Menu
 		ImGui::Combo("Weather", &Config::Changer::WeatherListIdx, WeatherList, IM_ARRAYSIZE(WeatherList));
-
+		if (ImGui::Combo("Tree Models", &Config::Changer::TreeModelIdx, TreeNameList, IM_ARRAYSIZE(TreeNameList))
+			&& Config::Changer::TreeModelIdx != 0
+			&& ctx.gameStage == GameStage::IN_GAME) {
+			Modules::TreeChanger.QueueModelUpdate(TreeModelList[Config::Changer::TreeModelIdx - 1]);
+		}
 		// credits to the screenshot https://yougame.biz/threads/283404/
 		// and to Wolf49406 himself
 		// should've figured out it's controlled by a convar like the weather :)

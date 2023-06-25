@@ -58,6 +58,7 @@ void GameSystems::FindGameSystems() {
 	RichPresence = FindStaticGameSystem<CDOTARichPresence>("CDOTARichPresence");
 	GCClientSystem = FindStaticGameSystem<CDOTAGCClientSystem>("CDOTAGCClientSystem");
 	SET_VAR(MinimapObjManager, FindStaticGameSystem<CDOTA_MinimapObjectManager>("CDOTA_MinimapObjectManager"));
+	SET_VAR(BinaryObjectSystem, FindStaticGameSystem<CDOTA_BinaryObjectSystem>("CDOTA_BinaryObjectSystem"));
 	SET_VAR(InventoryManager, FindStaticGameSystem<VClass>("CDOTAInventoryManager"));
 	SET_VAR(ParticleManagerSystem, FindStaticGameSystem<CGameParticleManagerSystem>("CGameParticleManagerSystem"));
 	ProjectileManagerPtr = FindReallocatingGameSystemPtr<C_DOTA_ProjectileManager>("C_DOTA_ProjectileManager");

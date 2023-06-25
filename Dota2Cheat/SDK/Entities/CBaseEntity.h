@@ -37,7 +37,19 @@ public:
 	GETTER(DOTA_GC_TEAM, GetTeam, Netvars::C_BaseEntity::m_iTeamNum);
 	GETTER(int8_t, GetLifeState, Netvars::C_BaseEntity::m_lifeState);
 	GETTER(ENT_HANDLE, GetOwnerEntityHandle, Netvars::C_BaseEntity::m_hOwnerEntity);
+	GETTER(VClass*, GetGameSceneNode, Netvars::C_BaseEntity::m_pGameSceneNode);
 
+	struct CStrongModelHandle {
+		void* model;
+		const char* modelName;
+	};
+
+	const char* GetModelName() {
+		// og's explanation:
+		// CSkeletonInstance has 3 CStrongHandle pointers at 0x200 and below
+		// These strong handles have a model pointer and its name
+		return GetGameSceneNode()->Member<CStrongModelHandle*>(0x200)->modelName;
+	}
 
 	bool IsSameTeam(CBaseEntity* other) {
 		return GetTeam() == other->GetTeam();
@@ -52,6 +64,10 @@ public:
 	uint32_t GetIndex();
 
 	void SetColor(Color clr);
+
+	float& ModelScale() {
+		return Member<VClass*>(Netvars::C_BaseEntity::m_pGameSceneNode)->Field<float>(Netvars::CGameSceneNode::m_flScale);
+	}
 
 	Vector GetPos();
 

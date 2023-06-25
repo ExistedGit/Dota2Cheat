@@ -10,13 +10,22 @@ void CMatchStateManager::EnteredPreGame() {
 												LogF(LP_DATA, "{}: {}", #global, (void*)GameSystems::global);\
 											  }
 
+	DereferenceReallocatingSystem(PlayerResource);
+	if (!GameSystems::PlayerResource)
+		return;
+
 	ctx.localPlayer = Signatures::GetPlayer(-1);
 
+#ifdef _TESTING
+	LogF(LP_INFO, "Player indices:\n\t+1: {}\n\tGetPlayer: {}\n\tPlayerResource: {}",
+		Interfaces::Engine->GetLocalPlayerID() + 1,
+		Signatures::GetPlayer(-1)->GetIndex(),
+		H2IDX(GameSystems::PlayerResource->PlayerIDToHandle(Interfaces::Engine->GetLocalPlayerID()).val));
+#endif
 
 	if (!ctx.localPlayer)
 		return;
 
-	DereferenceReallocatingSystem(PlayerResource);
 	DereferenceReallocatingSystem(GameEventManager);
 	DereferenceReallocatingSystem(ProjectileManager);
 	DereferenceReallocatingSystem(RenderGameSystem);

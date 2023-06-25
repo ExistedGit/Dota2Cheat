@@ -17,7 +17,7 @@ inline void SortEntToCollections(CBaseEntity* ent) {
 
 	if (className.starts_with("C_DOTA_Unit_Hero")
 		|| className.starts_with("CDOTA_Unit_Hero"))
-		ctx.heroes.insert((CDOTABaseNPC_Hero*)(ent));
+		ctx.heroes.insert((CDOTABaseNPC_Hero*)ent);
 	else if (className.find("Creep") != -1)
 		ctx.creeps.insert((CDOTABaseNPC*)ent);
 

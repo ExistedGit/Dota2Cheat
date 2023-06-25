@@ -14,6 +14,7 @@
 #include "../Modules/Hacks/AutoMidas.h"
 #include "../Modules/Hacks/DotaPlusUnlocker.h"
 #include "../Modules/Hacks/SkinChanger.h"
+#include "../Modules/Hacks/TreeChanger.h"
 
 #include "../Modules/UI/UIOverhaul.h"
 #include "../Modules/UI/AbilityESP.h"
