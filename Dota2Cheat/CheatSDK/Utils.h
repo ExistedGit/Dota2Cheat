@@ -24,10 +24,10 @@ inline void PlayUISoundScript(const std::string_view& name) {
 
 inline ImVec2 WorldToScreen(const Vector& pos) {
 	Vector2D xy{};
-	if (!GameSystems::RenderGameSystem)
+	if (!IsValidReadPtr(*GameSystems::RenderGameSystemPtr))
 		return ImVecFromVec2D(xy);
 
-	GameSystems::RenderGameSystem->GetVectorInScreenSpace(pos, xy);
+	(*GameSystems::RenderGameSystemPtr)->GetVectorInScreenSpace(pos, xy);
 	return ImVecFromVec2D(xy);
 }
 

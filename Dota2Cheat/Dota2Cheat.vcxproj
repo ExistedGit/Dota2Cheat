@@ -265,6 +265,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Hooks\SteamGC.cpp" />
+    <ClCompile Include="Modules\Hacks\TreeChanger.cpp" />
     <ClCompile Include="Modules\Utility\OrderRouter.cpp" />
     <ClCompile Include="SDK\GameSystems\CDOTA_MinimapObjectManager.cpp" />
     <ClCompile Include="CheatSDK\Config.cpp" />

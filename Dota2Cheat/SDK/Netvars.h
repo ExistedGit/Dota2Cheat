@@ -661,6 +661,50 @@ namespace Netvars {
 		constexpr uint32_t m_pkvControlGroupKV = 0xc90; // KeyValues*
 		constexpr uint32_t m_flAltHeldStartTime = 0xcf0; // float32
 	}
+	namespace CSkeletonInstance {
+		constexpr uint32_t m_bDirtyMotionType = 0x0; // bitfield:1
+		constexpr uint32_t m_modelState = 0x160; // CModelState
+		constexpr uint32_t m_bIsAnimationEnabled = 0x390; // bool
+		constexpr uint32_t m_bUseParentRenderBounds = 0x391; // bool
+		constexpr uint32_t m_bDisableSolidCollisionsForHierarchy = 0x392; // bool
+		constexpr uint32_t m_materialGroup = 0x394; // CUtlStringToken
+		constexpr uint32_t m_nHitboxSet = 0x398; // uint8
+	}
+	namespace CGameSceneNode {
+		constexpr uint32_t m_bDirtyHierarchy = 0x0; // bitfield:1
+		constexpr uint32_t m_nodeToWorld = 0x10; // CTransform
+		constexpr uint32_t m_pOwner = 0x30; // CEntityInstance*
+		constexpr uint32_t m_pParent = 0x38; // CGameSceneNode*
+		constexpr uint32_t m_pChild = 0x40; // CGameSceneNode*
+		constexpr uint32_t m_pNextSibling = 0x48; // CGameSceneNode*
+		constexpr uint32_t m_hParent = 0x70; // CGameSceneNodeHandle
+		constexpr uint32_t m_vecOrigin = 0x80; // CNetworkOriginCellCoordQuantizedVector
+		constexpr uint32_t m_angRotation = 0xb8; // QAngle
+		constexpr uint32_t m_flScale = 0xc4; // float32
+		constexpr uint32_t m_vecAbsOrigin = 0xc8; // Vector
+		constexpr uint32_t m_angAbsRotation = 0xd4; // QAngle
+		constexpr uint32_t m_flAbsScale = 0xe0; // float32
+		constexpr uint32_t m_nParentAttachmentOrBone = 0xe4; // int16
+		constexpr uint32_t m_bDebugAbsOriginChanges = 0xe6; // bool
+		constexpr uint32_t m_bDormant = 0xe7; // bool
+		constexpr uint32_t m_bForceParentToBeNetworked = 0xe8; // bool
+		constexpr uint32_t m_nHierarchicalDepth = 0xeb; // uint8
+		constexpr uint32_t m_nHierarchyType = 0xec; // uint8
+		constexpr uint32_t m_nDoNotSetAnimTimeInInvalidatePhysicsCount = 0xed; // uint8
+		constexpr uint32_t m_name = 0xf0; // CUtlStringToken
+		constexpr uint32_t m_hierarchyAttachName = 0x130; // CUtlStringToken
+		constexpr uint32_t m_flZOffset = 0x134; // float32
+		constexpr uint32_t m_vRenderOrigin = 0x138; // Vector
+	}
+	namespace CModelState {
+		constexpr uint32_t m_hModel = 0xa0; // CStrongHandle< InfoForResourceTypeCModel >
+		constexpr uint32_t m_ModelName = 0xa8; // CUtlSymbolLarge
+		constexpr uint32_t m_bClientClothCreationSuppressed = 0xe8; // bool
+		constexpr uint32_t m_MeshGroupMask = 0x180; // uint64
+		constexpr uint32_t m_nIdealMotionType = 0x222; // int8
+		constexpr uint32_t m_nForceLOD = 0x223; // int8
+		constexpr uint32_t m_nClothUpdateFlags = 0x224; // int8
+	}
 	namespace C_DOTA_PlayerResource {
 		constexpr uint32_t m_bWasDataUpdateCreated = 0x538; // bool
 		constexpr uint32_t m_vecPlayerTeamData = 0x540; // C_UtlVectorEmbeddedNetworkVar< PlayerResourcePlayerTeamData_t >
@@ -986,32 +1030,6 @@ namespace Netvars {
 		constexpr uint32_t m_flLastPerfSampleSendTime = 0x1e10; // float64
 		constexpr uint32_t m_bDidSeeStrategyTime = 0x1e18; // bool
 		constexpr uint32_t m_flLastUnfocusedSleepTime = 0xab70; // float64
-	}
-	namespace CGameSceneNode {
-		constexpr uint32_t m_bDirtyHierarchy = 0x0; // bitfield:1
-		constexpr uint32_t m_nodeToWorld = 0x10; // CTransform
-		constexpr uint32_t m_pOwner = 0x30; // CEntityInstance*
-		constexpr uint32_t m_pParent = 0x38; // CGameSceneNode*
-		constexpr uint32_t m_pChild = 0x40; // CGameSceneNode*
-		constexpr uint32_t m_pNextSibling = 0x48; // CGameSceneNode*
-		constexpr uint32_t m_hParent = 0x70; // CGameSceneNodeHandle
-		constexpr uint32_t m_vecOrigin = 0x80; // CNetworkOriginCellCoordQuantizedVector
-		constexpr uint32_t m_angRotation = 0xb8; // QAngle
-		constexpr uint32_t m_flScale = 0xc4; // float32
-		constexpr uint32_t m_vecAbsOrigin = 0xc8; // Vector
-		constexpr uint32_t m_angAbsRotation = 0xd4; // QAngle
-		constexpr uint32_t m_flAbsScale = 0xe0; // float32
-		constexpr uint32_t m_nParentAttachmentOrBone = 0xe4; // int16
-		constexpr uint32_t m_bDebugAbsOriginChanges = 0xe6; // bool
-		constexpr uint32_t m_bDormant = 0xe7; // bool
-		constexpr uint32_t m_bForceParentToBeNetworked = 0xe8; // bool
-		constexpr uint32_t m_nHierarchicalDepth = 0xeb; // uint8
-		constexpr uint32_t m_nHierarchyType = 0xec; // uint8
-		constexpr uint32_t m_nDoNotSetAnimTimeInInvalidatePhysicsCount = 0xed; // uint8
-		constexpr uint32_t m_name = 0xf0; // CUtlStringToken
-		constexpr uint32_t m_hierarchyAttachName = 0x130; // CUtlStringToken
-		constexpr uint32_t m_flZOffset = 0x134; // float32
-		constexpr uint32_t m_vRenderOrigin = 0x138; // Vector
 	}
 	namespace C_DOTA_Item_Rune {
 		constexpr uint32_t m_iRuneType = 0x7d0; // int32

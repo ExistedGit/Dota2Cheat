@@ -144,6 +144,7 @@
     <ClCompile Include="SDK\GameSystems\CGlobalVars.cpp" />
     <ClCompile Include="Hooks\SteamGC.cpp" />
     <ClCompile Include="Modules\Utility\OrderRouter.cpp" />
+    <ClCompile Include="Modules\Hacks\TreeChanger.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />

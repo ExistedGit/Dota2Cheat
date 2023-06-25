@@ -82,6 +82,7 @@ void CMatchStateManager::LeftMatch() {
 
 	Modules::TargetedSpellHighlighter.Reset();
 	Modules::AutoPick.Reset();
+	Modules::TreeChanger.Reset();
 	Modules::ParticleGC.Reset();
 	Modules::AbilityESP.Reset();
 	Modules::UIOverhaul.Reset();
