@@ -145,6 +145,7 @@
     <ClCompile Include="Hooks\SteamGC.cpp" />
     <ClCompile Include="Modules\Utility\OrderRouter.cpp" />
     <ClCompile Include="Modules\Hacks\TreeChanger.cpp" />
+    <ClCompile Include="Modules\Utility\CVarSpoofer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
@@ -366,5 +367,6 @@
     <ClInclude Include="Modules\Utility\OrderRouter.h" />
     <ClInclude Include="SDK\GameSystems\CDOTA_BinaryObjectSystem.h" />
     <ClInclude Include="Modules\Hacks\TreeChanger.h" />
+    <ClInclude Include="Modules\Utility\CVarSpoofer.h" />
   </ItemGroup>
 </Project>

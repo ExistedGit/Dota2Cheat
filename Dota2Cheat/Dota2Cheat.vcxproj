@@ -201,7 +201,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook.x64.lib;opengl32.lib;lua54.lib;ws2_32.lib;Normaliz.lib;Crypt32.lib;Wldap32.lib;libcurl_a.lib;libprotobufd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook.x64.lib;opengl32.lib;lua54.lib;libprotobufd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)lib\</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>msvcrt.lib;libcmtd.lib;libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
@@ -228,7 +228,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook.x64.lib;opengl32.lib;lua54.lib;ws2_32.lib;Normaliz.lib;Crypt32.lib;Wldap32.lib;libcurl_a.lib;libprotobufd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook.x64.lib;opengl32.lib;lua54.lib;libprotobufd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)lib\</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>msvcrt.lib;libcmtd.lib;libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
@@ -258,7 +258,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook.x64.lib;opengl32.lib;lua54.lib;ws2_32.lib;Normaliz.lib;Crypt32.lib;Wldap32.lib;libcurl_a.lib;libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;libMinHook.x64.lib;opengl32.lib;lua54.lib;libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)lib\;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>libcmtd.lib;libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
@@ -266,6 +266,7 @@
   <ItemGroup>
     <ClCompile Include="Hooks\SteamGC.cpp" />
     <ClCompile Include="Modules\Hacks\TreeChanger.cpp" />
+    <ClCompile Include="Modules\Utility\CVarSpoofer.cpp" />
     <ClCompile Include="Modules\Utility\OrderRouter.cpp" />
     <ClCompile Include="SDK\GameSystems\CDOTA_MinimapObjectManager.cpp" />
     <ClCompile Include="CheatSDK\Config.cpp" />
@@ -557,6 +558,10 @@
   <ItemGroup>
     <ClInclude Include="Hooks\SteamGC.h" />
     <ClInclude Include="Modules\Hacks\TreeChanger.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Modules\Utility\CVarSpoofer.h">
       <SubType>
       </SubType>
     </ClInclude>

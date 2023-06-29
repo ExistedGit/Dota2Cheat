@@ -54,14 +54,12 @@ void Pages::MainMenu::Draw() {
 	if (ImGui::TreeNode("AutoAccept")) {
 		ImGui::Checkbox("Enabled", &Config::AutoAccept::Enabled);
 		if (Config::AutoAccept::Enabled) {
-
 			ImGui::SliderInt("Delay", &Config::AutoAccept::Delay, 0, 6);
-			ImGui::Checkbox("Send telegram notifications", &Config::AutoAccept::SendTelegramNotifications);
-			if (Config::AutoAccept::SendTelegramNotifications) {
-				ImGui::InputUInt64("Telegram ID", &Config::API::TelegramID);
-				ImGui::SameLine(); HelpMarker("First, start the bot at t.me/dotacheatnotifybot\nThen get your ID at t.me/getmyid_bot");
-			}
-
+			//ImGui::Checkbox("Send telegram notifications", &Config::AutoAccept::SendTelegramNotifications);
+			//if (Config::AutoAccept::SendTelegramNotifications) {
+			//	ImGui::InputUInt64("Telegram ID", &Config::API::TelegramID);
+			//	ImGui::SameLine(); HelpMarker("First, start the bot at t.me/dotacheatnotifybot\nThen get your ID at t.me/getmyid_bot");
+			//}
 		}
 		ImGui::TreePop();
 	}

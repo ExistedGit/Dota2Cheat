@@ -47,7 +47,7 @@ namespace Hacks {
 			{
 				"modifier_bounty_hunter_track",
 				ParticleCreationInfo(
-					"particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_shield.vpcf"
+					"particles/econ/items/bounty_hunter/bounty_hunter_hunters_hoard/bounty_hunter_hoard_shield.vpcf"
 				)
 				.SetControlPoint(0, Vector::Zero)
 				.SetControlPoint(3, Vector::Zero)

@@ -8,6 +8,9 @@
 #include "../Base/Definitions.h"
 #include "../Base/VClass.h"
 
+// defines from TF2 sources. All hail the Source Engine!
+#define FCVAR_CHEAT	(1<<14)
+
 enum class EConvarType : std::uint8_t
 {
 	BOOL = 0,
@@ -44,15 +47,14 @@ union CVarValue
 struct CVar {
 	const char* name{};
 	CVar* m_pNext{};
-	uintptr_t unk1{};
-	uintptr_t unk2{};
+	PAD(16);
 	const char* desc{};
 	EConvarType type{};
-	int unk_maybe_number_of_times_changed{};
-	int flags{};
-	int unk4{};
+	uint32_t timesChanged{};
+	uint32_t flags{};
+	PAD(4);
 	int m_iCallbackIndex{};
-	int unk5{};
+	PAD(4);
 	CVarValue value{};
 	CVarValue defaultValue{};
 };
@@ -81,11 +83,13 @@ struct CVarID
 	}
 };
 
-class CVarSystem : VClass {
+// CCVar / ICVar
+// tier0.dll
+class CVarSystem : public VClass {
 public:
 
 	static inline std::map<std::string, CVarID> CVars{};
-	using CVarCallbackFn = void*(*)(const CVarID& id, int unk1, const CVarValue* val, const CVarValue* old_val);
+	using CVarCallbackFn = void* (*)(const CVarID& id, int unk1, const CVarValue* val, const CVarValue* old_val);
 
 	CVarCallbackFn& GetCallback(int id) {
 		return *(CVarCallbackFn*)(Member<uintptr_t>(0x80) + 24 * id);

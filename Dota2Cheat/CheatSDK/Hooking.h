@@ -21,7 +21,9 @@ namespace Hooks {
 
 	// Removes any custom, non-MinHook hooks
 	inline void RemoveHooks() {
-		*HUDFlipCallback = oOnHUDFlipped;
+		if (HUDFlipCallback)
+			*HUDFlipCallback = oOnHUDFlipped;
+
 		Interfaces::EntitySystem->GetListeners().remove_by_value(EntEventListener);
 		CMemAlloc::Instance()->Free(EntEventListener);
 		Interfaces::UIEngine->GetListeners().remove_by_value(hkRunFrame);

@@ -1,6 +1,5 @@
 #include "Signatures.h"
 #include "../Base/Logging.h"
-#include <curl/curl.h>
 
 #define SET_VAR(var, data) var = (data); \
 if(var) \

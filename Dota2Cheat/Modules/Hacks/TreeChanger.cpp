@@ -1,11 +1,11 @@
 #include "TreeChanger.h"
 
 void Modules::M_TreeChanger::SetTreeModel(CBaseEntity* tree, const TreeModelInfo& mdl) {
-	static Function setMdl = Memory::Scan("E8 ? ? ? ? 8B 7D 6F", "client.dll").GetAbsoluteAddress(1);
+	static Function setMdl = nullptr;
 
-	if (!setMdl.ptr)
-		return;
-
+	if (!setMdl.ptr) 
+		setMdl = Address(tree->GetVFunc(7).ptr).Offset(0x1c0).GetAbsoluteAddress(1);
+	
 	setMdl(tree, mdl.modelName);
 	if (tree->ModelScale() != mdl.scale) {
 		tree->ModelScale() = mdl.scale;
@@ -17,9 +17,8 @@ void Modules::M_TreeChanger::RestoreTreeModels() {
 	static Function setMeshGroupMask = Memory::Scan("E8 ? ? ? ? 48 8B 07 48 8D 55 7F", "client.dll").GetAbsoluteAddress(1);
 
 	auto trees = GameSystems::BinaryObjectSystem->GetTrees();
-	for (auto& [idx, mdlInfo] : originalTrees) {
-		auto tree = trees[idx];
-		if (!tree)
+	for (auto& [tree, mdlInfo] : originalTrees) {
+		if (!IsValidReadPtr(tree))
 			continue;
 
 		SetTreeModel(tree, mdlInfo);
@@ -36,15 +35,21 @@ void Modules::M_TreeChanger::UpdateTreeModels() {
 	if (needsUpdate) {
 		auto trees = GameSystems::BinaryObjectSystem->GetTrees();
 		bool shouldSaveOriginalTrees = originalTrees.empty();
+		bool isGGBranch = !strcmp(queuedModel.modelName, "models/props_tree/ti7/ggbranch.vmdl");
 		for (int i = 0; i < trees.m_Size; i++) {
 			auto tree = trees[i];
 			if (!tree)
 				continue;
 
 			if (shouldSaveOriginalTrees)
-				originalTrees[i] = { tree->GetModelName(), tree->ModelScale(), tree->GetGameSceneNode()->GetModelState()->GetMeshGroupMask() };
+				originalTrees[tree] = { tree->GetModelName(), tree->ModelScale(), tree->GetGameSceneNode()->GetModelState()->GetMeshGroupMask() };
 
 			SetTreeModel(tree, queuedModel);
+
+			if (isGGBranch)
+				tree->SetColor({ 200,165,0,255 });
+			else
+				tree->SetColor({ 255,255,255,255 });
 		}
 	}
 	else if (needsRestore)

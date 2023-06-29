@@ -19,6 +19,7 @@
 #include "Modules/UI/Indicators/HookIndicator.h"
 #include "Modules/UI/BarAugmenter.h"
 #include "Modules/Hacks/LastHitMarker.h"
+#include "Modules/Utility/CVarSpoofer.h"
 #include "SDK/Interfaces/GC/CEconWearable.h"
 #include "CheatSDK/EventManager.h"
 #include "UI/Pages/MainMenu.h"
@@ -90,7 +91,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		.GetAbsoluteAddress(2, 7)
 		.Set(false);
 
-
 	ctx.lua.open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::math);
 
 	ctx.lua.script("print(\"works!\")");
@@ -107,7 +107,12 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	auto iconLoadThread = std::async(std::launch::async, Pages::AutoPickHeroGrid::InitList);
 
 	Interfaces::CVar->DumpConVarsToMap();
-
+	Modules::CVarSpoofer.SpoofVars(
+		"dota_camera_distance",
+		"r_farz",
+		"fog_enable",
+		"dota_hud_chat_enable_all_emoticons"
+	);
 	Interfaces::CVar->CVars["dota_hud_chat_enable_all_emoticons"].m_pVar->value.boolean = Config::Changer::UnlockEmoticons;
 
 	SignatureDB::LoadSignaturesFromFile(ctx.cheatFolderPath + "\\signatures.json");

@@ -2,7 +2,6 @@
 #include "../SDK/pch.h"
 #include "../CheatSDK/include.h"
 #include "../Modules/Hacks/AutoAccept.h"
-#include <curl/curl.h>
 
 // AutoAccept logic
 // We wait until the accept popup appears, and then BAM! Game accepted
@@ -21,7 +20,7 @@ namespace Hooks {
 
 	inline Signatures::CDOTA_DB_Popup_AcceptMatchFn oCDOTA_DB_Popup_AcceptMatch;
 	inline void* hkCDOTA_DB_Popup_AcceptMatch(VClass* thisptr, Panorama::CPanel2D* unk0, const char* caption, Panorama::CPanel2D* unk1, bool isLP, const char* subtitle) {
-		Modules::AutoAccept.SetNotificationGameMode(subtitle);
+		// Modules::AutoAccept.SetNotificationGameMode(subtitle);
 		Modules::AutoAccept.AcceptMatch();
 		return oCDOTA_DB_Popup_AcceptMatch(thisptr, unk0, caption, unk1, isLP, subtitle);
 	}

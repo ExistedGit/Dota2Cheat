@@ -16,7 +16,7 @@ namespace Modules {
 			uint64_t meshGroupMask;
 		};
 
-		std::map<uint32, SavedModelInfo> originalTrees;
+		std::map<CBaseEntity*, SavedModelInfo> originalTrees;
 
 		TreeModelInfo queuedModel;
 
