@@ -25,6 +25,17 @@ struct CSchemaClassBinding {
 
 class CBaseEntity : public VClass {
 public:
+	struct CModelState : public NormalClass {
+		GETTER(uint64_t, GetMeshGroupMask, Netvars::CModelState::m_MeshGroupMask)
+	};
+	struct CSkeletonInstance : public VClass {
+		//reversed from xref: "CBaseModelEntity::SetBodygroup(%d,%d) failed: CBaseModelEntity has no model!\n"
+		// last two subs are get and set
+		// GETTER(uint64_t, GetMeshGroupMask, 0x2e0);
+
+		IGETTER(CModelState, GetModelState, Netvars::CSkeletonInstance::m_modelState)
+	};
+
 	CSchemaClassBinding* SchemaBinding() {
 		return CallVFunc<0, CSchemaClassBinding*>();
 	};
@@ -37,7 +48,14 @@ public:
 	GETTER(DOTA_GC_TEAM, GetTeam, Netvars::C_BaseEntity::m_iTeamNum);
 	GETTER(int8_t, GetLifeState, Netvars::C_BaseEntity::m_lifeState);
 	GETTER(ENT_HANDLE, GetOwnerEntityHandle, Netvars::C_BaseEntity::m_hOwnerEntity);
+	GETTER(CSkeletonInstance*, GetGameSceneNode, Netvars::C_BaseEntity::m_pGameSceneNode);
 
+	const char* GetModelName() {
+		// og's explanation:
+		// CSkeletonInstance has 3 CStrongHandle pointers at 0x200 and below
+		// These strong handles have a model pointer and its name
+		return *GetGameSceneNode()->Member<NormalClass*>(0x200)->Member<const char**>(8);
+	}
 
 	bool IsSameTeam(CBaseEntity* other) {
 		return GetTeam() == other->GetTeam();
@@ -52,6 +70,10 @@ public:
 	uint32_t GetIndex();
 
 	void SetColor(Color clr);
+
+	float& ModelScale() {
+		return Member<VClass*>(Netvars::C_BaseEntity::m_pGameSceneNode)->Field<float>(Netvars::CGameSceneNode::m_flScale);
+	}
 
 	Vector GetPos();
 

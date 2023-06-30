@@ -230,6 +230,7 @@ void SaveInterfacesToFile(std::ofstream& fout) {
 	const char* modules[] = {
 		"client.dll",
 		"steamclient64.dll",
+		"host.dll",
 		"soundsystem.dll",
 		"engine2.dll"
 	};
@@ -334,6 +335,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		"C_DOTA_BaseNPC_Hero",
 		"C_DOTAPlayerController",
 		"C_DOTA_UnitInventory",
+		"CSkeletonInstance",
+		"CModelState",
 		"C_DOTABaseAbility",
 		"C_DOTA_PlayerResource",
 		"PlayerResourcePlayerTeamData_t",

@@ -99,7 +99,11 @@ public:
 		return PatternScanInModule(moduleName.c_str(), ParseCombo(signature).c_str());
 	}
 
-	static void MemCopy(auto* dst, auto* src, size_t size) {
+	template<typename T>
+	static void Copy(T* dst, T* src) {
+		memcpy((void*)dst, (const void*)src, sizeof(T));
+	}
+	static void Copy(auto* dst, const auto* src, size_t size) {
 		memcpy((void*)dst, (const void*)src, size);
 	}
 	template<typename T = void>

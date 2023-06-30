@@ -2,7 +2,6 @@
 #include <json.hpp>
 #include <map>
 #include <string>
-#include <curl/curl.h>
 #include "../Base/Memory.h"
 
 // Used to process JSON signatures
@@ -64,23 +63,23 @@ struct SignatureDB {
 		}
 	};
 
-	static bool LoadSignaturesFromNetwork(const std::string& url) {
-		LogF(LP_INFO, "Loading signatures from {}\n", url);
+	//static bool LoadSignaturesFromNetwork(const std::string& url) {
+	//	LogF(LP_INFO, "Loading signatures from {}\n", url);
 
-		std::stringstream out;
-		CURL* curl = curl_easy_init();
-		curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
-		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteRemoteString);
-		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &out);
-		curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0);
-		curl_easy_setopt(curl, CURLOPT_USERAGENT, "Dota2Cheat/0.1");
-		CURLcode CURLresult = curl_easy_perform(curl);
-		curl_easy_cleanup(curl);
+	//	std::stringstream out;
+	//	CURL* curl = curl_easy_init();
+	//	curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
+	//	curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteRemoteString);
+	//	curl_easy_setopt(curl, CURLOPT_WRITEDATA, &out);
+	//	curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0);
+	//	curl_easy_setopt(curl, CURLOPT_USERAGENT, "Dota2Cheat/0.1");
+	//	CURLcode CURLresult = curl_easy_perform(curl);
+	//	curl_easy_cleanup(curl);
 
-		if (CURLresult != CURLE_OK)
-			// std::cout << "FAILED TO LOAD SIGNATURES FROM " << url << ", USING LOCAL COPY" << '\n';
-			return false;
-		Data = nlohmann::json::parse(out.str());
-		return true;
-	}
+	//	if (CURLresult != CURLE_OK)
+	//		// std::cout << "FAILED TO LOAD SIGNATURES FROM " << url << ", USING LOCAL COPY" << '\n';
+	//		return false;
+	//	Data = nlohmann::json::parse(out.str());
+	//	return true;
+	//}
 };

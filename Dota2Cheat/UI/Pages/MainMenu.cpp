@@ -54,14 +54,12 @@ void Pages::MainMenu::Draw() {
 	if (ImGui::TreeNode("AutoAccept")) {
 		ImGui::Checkbox("Enabled", &Config::AutoAccept::Enabled);
 		if (Config::AutoAccept::Enabled) {
-
 			ImGui::SliderInt("Delay", &Config::AutoAccept::Delay, 0, 6);
-			ImGui::Checkbox("Send telegram notifications", &Config::AutoAccept::SendTelegramNotifications);
-			if (Config::AutoAccept::SendTelegramNotifications) {
-				ImGui::InputUInt64("Telegram ID", &Config::API::TelegramID);
-				ImGui::SameLine(); HelpMarker("First, start the bot at t.me/dotacheatnotifybot\nThen get your ID at t.me/getmyid_bot");
-			}
-
+			//ImGui::Checkbox("Send telegram notifications", &Config::AutoAccept::SendTelegramNotifications);
+			//if (Config::AutoAccept::SendTelegramNotifications) {
+			//	ImGui::InputUInt64("Telegram ID", &Config::API::TelegramID);
+			//	ImGui::SameLine(); HelpMarker("First, start the bot at t.me/dotacheatnotifybot\nThen get your ID at t.me/getmyid_bot");
+			//}
 		}
 		ImGui::TreePop();
 	}
@@ -100,7 +98,13 @@ void Pages::MainMenu::Draw() {
 		};
 		// https://github.com/SK68-ph/Shadow-Dance-Menu
 		ImGui::Combo("Weather", &Config::Changer::WeatherListIdx, WeatherList, IM_ARRAYSIZE(WeatherList));
-
+		if (ImGui::Combo("Tree Models", &Config::Changer::TreeModelIdx, TreeNameList, IM_ARRAYSIZE(TreeNameList))
+			&& ctx.gameStage == GameStage::IN_GAME) {
+			if (Config::Changer::TreeModelIdx != 0)
+				Modules::TreeChanger.QueueModelUpdate(TreeModelList[Config::Changer::TreeModelIdx - 1]);
+			else
+				Modules::TreeChanger.QueueModelRestore();
+		}
 		// credits to the screenshot https://yougame.biz/threads/283404/
 		// and to Wolf49406 himself
 		// should've figured out it's controlled by a convar like the weather :)

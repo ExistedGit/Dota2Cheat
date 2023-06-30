@@ -3,13 +3,14 @@
 ImVec2 WorldToMap(const Vector& EntityPos) {
 	if (!GameSystems::MinimapRenderer)
 		return { 0,0 };
+	static auto dota_hud_flip = Interfaces::CVar->CVars["dota_hud_flip"].m_pVar;
 	const auto ScreenSize = ImVecFromVec2D(GameSystems::DotaHud->GetScreenSize());
 
 	// The border around the actual map panel is around 12px
 	auto ActualMinimapSize = static_cast<float>(GameSystems::MinimapRenderer->GetMinimapSize().x * 0.94);
 	auto MinimapPosMin = Vector2D(0, static_cast<float>(ScreenSize.y - ActualMinimapSize));
 
-	if (DrawData.IsHUDFlipped) {
+	if (dota_hud_flip->value.boolean) {
 		float offset = ScreenSize.x - ActualMinimapSize;
 		MinimapPosMin.x = MinimapPosMin.x + offset;
 	}

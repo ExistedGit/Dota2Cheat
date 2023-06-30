@@ -137,6 +137,7 @@ namespace Config {
 
 	namespace Changer {
 		inline int WeatherListIdx;
+		inline int TreeModelIdx;
 		inline int RiverListIdx;
 		inline bool UnlockDotaPlus;
 		inline bool UnlockEmoticons;

@@ -77,7 +77,7 @@ void InGameLogic() {
 
 	UpdateCameraDistance();
 	UpdateWeather();
-
+	Modules::TreeChanger.UpdateTreeModels();
 	for (auto hero : ctx.heroes) {
 		HeroData[hero].AbsOrigin = hero->GetPos();
 		HeroData[hero].HealthbarW2S = WorldToScreen(hero->GetHealthBarPos());
@@ -109,7 +109,22 @@ void InGameLogic() {
 		ctx.lua.safe_script("Modules.Core:EntityIteration()");
 	}
 #ifdef _DEBUG
-	if (IsKeyPressed(VK_NUMPAD8)) {
+	if (IsKeyPressed(VK_NUMPAD7)) {
+		//static Function setMdl = Memory::Scan("E8 ? ? ? ? 8B 7D 6F", "client.dll").GetAbsoluteAddress(1);
+
+		//if (!setMdl.ptr)
+		//	return;
+
+		//for (auto tree : GameSystems::BinaryObjectSystem->GetTrees()) {
+		//	if (tree) {
+		//		setMdl(tree, "models/props_tree/newbloom_tree.vmdl");
+		//		tree->ModelScale() = 4.5f;
+		//		tree->Member<VClass*>(Netvars::C_BaseEntity::m_pGameSceneNode)->CallVFunc<10>(4);
+		//	}
+		//}
+		Log(LP_INFO, "Hero model: ", ctx.localHero->GetModelName());
+	}
+	else if (IsKeyPressed(VK_NUMPAD8)) {
 		auto selected = ctx.localPlayer->GetSelectedUnits();
 		auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(selected[0]);
 		auto pos = ent->GetPos();

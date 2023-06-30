@@ -59,11 +59,11 @@ void Hooks::InstallHooks() {
 	{
 		// Hooking HUD flip's callback to avoid sigging IsHUDFlipped
 		// (and lowering performance, according to Wolf49406...)
-		auto cvar = Interfaces::CVar->CVars["dota_hud_flip"];
-		auto& callback = Interfaces::CVar->GetCallback(cvar.m_pVar->m_iCallbackIndex);
-		oOnHUDFlipped = callback;
-		HUDFlipCallback = (void**)&callback;
-		callback = hkOnHUDFlipped;
+		//auto cvar = Interfaces::CVar->CVars["dota_hud_flip"];
+		//auto& callback = Interfaces::CVar->GetCallback(cvar.m_pVar->m_iCallbackIndex);
+		//oOnHUDFlipped = callback;
+		//HUDFlipCallback = (void**)&callback;
+		//callback = hkOnHUDFlipped;
 	}
 	{
 		EntEventListener = CMemAlloc::Instance()->AllocInit<EntityEventListener>();

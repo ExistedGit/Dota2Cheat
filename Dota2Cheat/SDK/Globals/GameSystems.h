@@ -10,6 +10,7 @@
 #include "../GameSystems/C_DOTA_ProjectileManager.h"
 #include "../GameSystems/CGameEventManager.h"
 #include "../GameSystems/CDOTARichPresence.h"
+#include "../GameSystems/CDOTA_BinaryObjectSystem.h"
 #include "../GameSystems/CDOTA_MinimapObjectManager.h"
 #include "../GameSystems/CGameParticleManagerSystem.h"
 #include "../GameSystems/CDOTA_PanoramaMinimapRenderer.h"
@@ -27,6 +28,7 @@ namespace GameSystems {
 	inline IGameSystemFactory* GameSystemFactory{};
 
 	inline CDOTAPanoramaMinimapRenderer* MinimapRenderer{};
+	inline CDOTA_BinaryObjectSystem* BinaryObjectSystem{};
 	inline Panorama::DotaHud* DotaHud{};
 	void InitMinimapRenderer();
 
