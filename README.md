@@ -60,7 +60,7 @@ This list is no longer subject to frequent change as I'm only refining existing 
   * ~~Visible by Enemy~~ RIP on 21.02.2023, you shall not be forgotten
   
 * Convars:
-  * `sv_cheats` spoofing
+  * Using ConVar spoofing to counter serverside detection mechanisms 
   * customizable `dota_camera_distance` with proper `r_farz` and `fog_enable`(no clipping or blue fog)
   * ~~`dota_use_particle_fow`~~ RIP too
 
@@ -73,6 +73,7 @@ This list is no longer subject to frequent change as I'm only refining existing 
   * River painting
   * Unlocks emoticons
   * Dota Plus Unlocker
+  * Tree changer(can revert to default trees without reconnecting)
   * Allows playing with VPK mods
   
 * Work in progress:
