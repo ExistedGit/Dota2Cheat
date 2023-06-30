@@ -13,11 +13,9 @@ also using [Minhook](https://github.com/TsudaKageyu/minhook) for bytehooking
 
 also using Google's [Protocol Buffers](https://github.com/protocolbuffers/protobuf) library for net message handling
 
-also using [Lua 5.4](https://www.lua.org/) and [sol2](https://github.com/ThePhD/sol2) for scripting
+also using [Lua 5.4](https://www.lua.org/) and [sol2](https://github.com/ThePhD/sol2) for [REDACTED]
 
 also using DarthTon's [BlackBone](https://github.com/DarthTon/Blackbone) for injection
-
-also using [libcurl](https://github.com/curl/curl) for network requests
 
 `assets` folder contents are property of Valve Corporation
 
@@ -31,7 +29,6 @@ This list is no longer subject to frequent change as I'm only refining existing 
 * Automation:
   * AutoAccept:
     * Customizable delay
-    * Optional notifications sent straight to your Telegram(start [our bot](https://t.me/dotacheatnotifybot), get [your user ID](https://t.me/getmyid_bot) and plug it into the input field!)
   * Uses Magic Wand and Faerie Fire with customizable health tresholds
   * AutoMidas with customizable min XP reward
   * Bounty rune & Aegis pickup
