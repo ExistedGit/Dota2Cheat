@@ -28,6 +28,7 @@ void Signatures::FindSignatures() {
 	////			static_cast<float>(iScreenSize[1])
 	////	};
 	////}
+	
 	//// 2nd vfunc of CDOTA_PanoramaMinimapRenderer
 	//SET_VAR(CDOTAPanoramaMinimapRenderer__Render, Memory::Scan("48 8B C4 48 89 58 08 48 89 68 10 48 89 70 18 57 41 56 41 57 48 83 EC 40 F3 0F 10 84 24", "client.dll"));
 
@@ -58,7 +59,7 @@ void Signatures::FindSignatures() {
 	////xref: "CProtoBufMsg::BAsyncSendProto"
 	//SET_VAR(BAsyncSendProto, Memory::Scan("E8 ? ? ? ? 48 8B 4D 90 48 89 7C 24", "client.dll").GetAbsoluteAddress(1));
 	//SET_VAR(GetItemSchema, Memory::Scan("E8 ? ? ? ? 48 89 5D 18", "client.dll").GetAbsoluteAddress(1));
-
+		
 	////xref: "RP: Setting %s's status to %s (%s).\n"
 	//SET_VAR(CDOTARichPresence::SetRPStatusFunc, Memory::Scan("4C 89 4C 24 20 55 53 57 41 54", "client.dll"));
 

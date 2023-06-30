@@ -17,14 +17,14 @@ namespace Modules {
 				uint32_t m_iDefVal;
 				uint64_t m_pDefVal;
 			};
-			PAD(8 * 6);
-			bool unk5;
-			char type;
-			PAD(7);
+			PAD(1);
+			PAD(8 * 5);
+			void(*callback)() = nullptr;
+			uint64_t type;
 		};
 #pragma pack(pop)
 
-		static_assert(sizeof(CVarRegInfo) == 72);
+		static_assert(sizeof(CVarRegInfo) == 0x48);
 
 		// map of dummy vars to their original versions
 		// used for swapping names back at revert

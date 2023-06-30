@@ -103,7 +103,7 @@ void Pages::MainMenu::Draw() {
 			if (Config::Changer::TreeModelIdx != 0)
 				Modules::TreeChanger.QueueModelUpdate(TreeModelList[Config::Changer::TreeModelIdx - 1]);
 			else
-				Modules::TreeChanger.RestoreTreeModels();
+				Modules::TreeChanger.QueueModelRestore();
 		}
 		// credits to the screenshot https://yougame.biz/threads/283404/
 		// and to Wolf49406 himself
