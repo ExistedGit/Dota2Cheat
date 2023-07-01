@@ -1,6 +1,6 @@
 # Dota2Cheat: now with Dota Plus!
 
-![cheat preview 27 03 2023](https://user-images.githubusercontent.com/66470490/228053121-ed8cbc2b-8f9f-4db7-914c-81db2dad518d.png)
+![D2C image v3](https://github.com/ExistedGit/Dota2Cheat/assets/66470490/552662f9-3ca3-4617-aac9-8eb9fb56a392)
 
 There weren't many open-source Dota cheats. And so I decided to fix that.
 Written in C++20 with love
