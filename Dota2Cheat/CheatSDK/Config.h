@@ -103,6 +103,7 @@ namespace Config {
 	inline bool AutoPickUpAegis;
 
 	inline bool BlinkRevealer;
+	
 	namespace Indicators {
 		inline bool Speed;
 		inline bool Kill;

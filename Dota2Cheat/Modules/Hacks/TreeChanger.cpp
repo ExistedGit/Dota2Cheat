@@ -9,7 +9,7 @@ void Modules::M_TreeChanger::SetTreeModel(CBaseEntity* tree, const TreeModelInfo
 	setMdl(tree, mdl.modelName);
 	if (tree->ModelScale() != mdl.scale) {
 		tree->ModelScale() = mdl.scale;
-		tree->Member<VClass*>(Netvars::C_BaseEntity::m_pGameSceneNode)->CallVFunc<10>(4);
+		tree->GetGameSceneNode()->CallVFunc<10>(4);
 	}
 }
 
@@ -25,10 +25,6 @@ void Modules::M_TreeChanger::RestoreTreeModels() {
 		SetTreeModel(tree, mdlInfo);
 		setMeshGroupMask(tree->GetGameSceneNode(), mdlInfo.meshGroupMask);
 		tree->SetColor({ 255,255,255,255 });
-		if (tree->ModelScale() != mdlInfo.scale) {
-			tree->ModelScale() = mdlInfo.scale;
-			tree->Member<VClass*>(Netvars::C_BaseEntity::m_pGameSceneNode)->CallVFunc<10>(4);
-		}
 	}
 
 	originalTrees.clear();

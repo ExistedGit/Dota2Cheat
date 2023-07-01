@@ -7,6 +7,7 @@ namespace Modules {
 
 		bool needsUpdate = false;
 		bool needsRestore = false;
+
 	public:
 		struct TreeModelInfo {
 			const char* modelName;

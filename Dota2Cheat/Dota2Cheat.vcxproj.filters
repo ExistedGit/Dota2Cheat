@@ -368,5 +368,6 @@
     <ClInclude Include="SDK\GameSystems\CDOTA_BinaryObjectSystem.h" />
     <ClInclude Include="Modules\Hacks\TreeChanger.h" />
     <ClInclude Include="Modules\Utility\CVarSpoofer.h" />
+    <ClInclude Include="CheatSDK\UIData.h" />
   </ItemGroup>
 </Project>

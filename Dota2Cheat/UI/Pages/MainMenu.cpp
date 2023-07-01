@@ -98,10 +98,10 @@ void Pages::MainMenu::Draw() {
 		};
 		// https://github.com/SK68-ph/Shadow-Dance-Menu
 		ImGui::Combo("Weather", &Config::Changer::WeatherListIdx, WeatherList, IM_ARRAYSIZE(WeatherList));
-		if (ImGui::Combo("Tree Models", &Config::Changer::TreeModelIdx, TreeNameList, IM_ARRAYSIZE(TreeNameList))
+		if (ImGui::Combo("Tree Models", &Config::Changer::TreeModelIdx, UIData::TreeNameList, IM_ARRAYSIZE(UIData::TreeNameList))
 			&& ctx.gameStage == GameStage::IN_GAME) {
 			if (Config::Changer::TreeModelIdx != 0)
-				Modules::TreeChanger.QueueModelUpdate(TreeModelList[Config::Changer::TreeModelIdx - 1]);
+				Modules::TreeChanger.QueueModelUpdate(UIData::TreeModelList[Config::Changer::TreeModelIdx - 1]);
 			else
 				Modules::TreeChanger.QueueModelRestore();
 		}

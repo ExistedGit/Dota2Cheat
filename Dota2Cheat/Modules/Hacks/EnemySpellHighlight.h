@@ -34,7 +34,7 @@ namespace Hacks {
 			{
 				"modifier_kunkka_torrent_thinker",
 				ParticleCreationInfo(
-					"particles/units/heroes/hero_kunkka/kunkka_spell_torrent_bubbles.vpcf"
+					"particles/econ/items/kunkka/divine_anchor/hero_kunkka_dafx_skills/kunkka_spell_torrent_bubbles_fxset.vpcf"
 				).SetDieTime(2)
 			},
 			{
