@@ -66,6 +66,8 @@ void CMatchStateManager::EnteredInGame() {
 
 	GameSystems::InitMinimapRenderer();
 	// Modules::UIOverhaul.Init();
+	if (Config::Changer::TreeModelIdx != 0)
+		Modules::TreeChanger.QueueModelUpdate(UIData::TreeModelList[Config::Changer::TreeModelIdx - 1]);
 
 	Lua::SetGlobals(ctx.lua);
 	Lua::CallModuleFunc("OnJoinedMatch");

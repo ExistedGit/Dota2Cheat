@@ -7,6 +7,7 @@
 #include "../Hooks/RunFrame.h"
 #include "../Hooks/ModifierEvents.h"
 
+#include "UIData.h"
 #include "../Modules/Hacks/AutoBuyTome.h"
 #include "../Modules/UI/AbilityESP.h"
 #include "../Modules/UI/UIOverhaul.h"

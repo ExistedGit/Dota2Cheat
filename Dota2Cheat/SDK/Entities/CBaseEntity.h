@@ -26,7 +26,11 @@ struct CSchemaClassBinding {
 class CBaseEntity : public VClass {
 public:
 	struct CModelState : public NormalClass {
-		GETTER(uint64_t, GetMeshGroupMask, Netvars::CModelState::m_MeshGroupMask)
+		GETTER(uint64_t, GetMeshGroupMask, Netvars::CModelState::m_MeshGroupMask);
+		GETTER(const char*, GetModelName, Netvars::CModelState::m_ModelName);
+		auto GetModel() {
+			return *Member<NormalClass**>(Netvars::CModelState::m_hModel);
+		};
 	};
 	struct CSkeletonInstance : public VClass {
 		//reversed from xref: "CBaseModelEntity::SetBodygroup(%d,%d) failed: CBaseModelEntity has no model!\n"
@@ -39,8 +43,7 @@ public:
 	CSchemaClassBinding* SchemaBinding() {
 		return CallVFunc<0, CSchemaClassBinding*>();
 	};
-	typedef void(__fastcall* EntityCallback)(void* thisptr);
-	static inline EntityCallback OnColorChanged{};
+	inline static void(__fastcall* OnColorChanged)(void*) = {};
 
 	GETTER(CEntityIdentity*, GetIdentity, Netvars::CEntityInstance::m_pEntity);
 	GETTER(int, GetHealth, Netvars::C_BaseEntity::m_iHealth);
@@ -52,9 +55,9 @@ public:
 
 	const char* GetModelName() {
 		// og's explanation:
-		// CSkeletonInstance has 3 CStrongHandle pointers at 0x200 and below
+		// CModelState has 3 CStrongHandle pointers at 0xA0 and below
 		// These strong handles have a model pointer and its name
-		return *GetGameSceneNode()->Member<NormalClass*>(0x200)->Member<const char**>(8);
+		return GetGameSceneNode()->GetModelState()->GetModelName();
 	}
 
 	bool IsSameTeam(CBaseEntity* other) {

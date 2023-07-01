@@ -556,6 +556,7 @@
     <ClCompile Include="Utils\Drawing.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CheatSDK\UIData.h" />
     <ClInclude Include="Hooks\SteamGC.h" />
     <ClInclude Include="Modules\Hacks\TreeChanger.h">
       <SubType>
