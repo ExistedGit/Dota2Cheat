@@ -93,7 +93,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	ctx.lua.open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::math);
 
-	ctx.lua.script("print(\"works!\")");
+	ctx.lua.script("print(\"lUA ENGINE START!\")");
 
 	Interfaces::FindInterfaces();
 
