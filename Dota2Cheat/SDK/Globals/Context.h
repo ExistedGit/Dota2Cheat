@@ -21,7 +21,7 @@ enum class GameStage {
 	IN_GAME = 2 // In the game proper
 };
 
-struct Context {
+inline struct GameContext {
 	CDOTAPlayerController* localPlayer{};
 	CDOTABaseNPC_Hero* localHero{};
 
@@ -34,13 +34,7 @@ struct Context {
 	std::set<CDOTABaseNPC_Hero*> heroes;
 	std::set<CreepWrapper, CreepWrapper_less> creeps;
 
-
-	std::string cheatFolderPath;
-	sol::state lua;
-
 	// For Lua compatibility
-	Context() {};
-	Context(const Context& other) { };
-};
-
-inline Context ctx{};
+	GameContext() {};
+	GameContext(const GameContext& other) { };
+} ctx{};

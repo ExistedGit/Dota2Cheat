@@ -2,6 +2,7 @@
 
 #include "Config.h"
 #include "Utils.h"
-#include "DrawData.h"
-#include "HeroData.h"
+#include "Data/DrawData.h"
+#include "Data/HeroData.h"
+#include "Systems/TextureManager.h"
 #include "Lua/LuaModules.h"

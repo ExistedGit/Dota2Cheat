@@ -1,4 +1,5 @@
 #include "BlinkRevealer.h"
+#include "../../CheatSDK/Systems/CheatManager.h"
 
 void Hacks::BlinkRevealer::Draw() {
 	if (!Config::BlinkRevealer)
@@ -15,8 +16,8 @@ void Hacks::BlinkRevealer::Draw() {
 		auto icon = texManager.GetNamedTexture(iconName);
 		if (!icon)
 		{
-			auto iconPath = ctx.cheatFolderPath + "\\assets\\spellicons\\" + iconName + "_png.png";
-			texManager.LoadTextureNamed(iconPath.c_str(), icon, iconName);
+			auto iconPath = d2c.cheatFolderPath + "\\assets\\spellicons\\" + iconName + "_png.png";
+			texManager.LoadTextureNamed(iconPath.c_str(), &icon, iconName);
 		}
 		auto fade = int(data.fadeCounter / data.fadeTime * 255);
 		auto drawPos = WorldToScreen(data.pos);

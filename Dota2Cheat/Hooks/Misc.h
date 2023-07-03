@@ -1,7 +1,8 @@
 #pragma once
 #include "../SDK/pch.h"
 #include "../CheatSDK/Config.h"
-#include "../CheatSDK/DrawData.h"
+#include "../CheatSDK/Data/DrawData.h"
+
 namespace Hooks {
 
 	inline CVarSystem::CVarCallbackFn oOnHUDFlipped;
@@ -15,12 +16,12 @@ namespace Hooks {
 		auto result = oSaveSerializedSOCache(thisptr);
 		Modules::SkinChanger.DeleteSOCacheFiles();
 		{
-			std::ofstream fout(ctx.cheatFolderPath + "\\config\\base.json");
+			std::ofstream fout(d2c.cheatFolderPath + "\\config\\base.json");
 			Config::cfg.SaveConfig(fout);
 			fout.close();
 		}
 		{
-			std::ofstream fout(ctx.cheatFolderPath + "\\config\\inventory.json");
+			std::ofstream fout(d2c.cheatFolderPath + "\\config\\inventory.json");
 			Config::cfg.SaveEquippedItems(fout);
 			fout.close();
 		}

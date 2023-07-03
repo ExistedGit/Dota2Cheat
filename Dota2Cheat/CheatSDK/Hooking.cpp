@@ -71,5 +71,6 @@ void Hooks::InstallHooks() {
 
 		Interfaces::UIEngine->GetListeners().push_back(Hooks::hkRunFrame);
 	}
+	Hooks::HookDirectX();
 }
 

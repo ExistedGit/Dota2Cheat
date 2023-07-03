@@ -1,5 +1,7 @@
 #include "LuaInitialization.h"
-#include "../EventManager.h"
+#include "../Systems/EventManager.h"
+#include "../Systems/CheatManager.h"
+#include "../Utils.h"
 
 void Lua::InitEnums(sol::state& lua) {
 #define LUA_ENUM_TABLE_ENTRY(x) #x, x
@@ -156,7 +158,7 @@ void Lua::SetGlobals(sol::state& lua) {
 	lua["ParticleManager"] = GameSystems::ParticleManager;
 	lua["GameRules"] = GameSystems::GameRules;
 
-	ctx.lua["localPlayer"] = ctx.localPlayer;
+	d2c.lua["localPlayer"] = ctx.localPlayer;
 }
 
 void Lua::InitInterfaces(sol::state& lua) {
@@ -209,9 +211,9 @@ void Lua::InitClasses(sol::state& lua) {
 	CDOTAParticleManager::BindLua(lua);
 	CDOTAGameRules::BindLua(lua);
 	{
-		auto type = lua.new_usertype<Context>("Context");
-		type["heroes"] = &Context::heroes;
-		type["entities"] = &Context::entities;
+		auto type = lua.new_usertype<GameContext>("Context");
+		type["heroes"] = &GameContext::heroes;
+		type["entities"] = &GameContext::entities;
 		lua["ctx"] = std::ref(ctx);
 	}
 }

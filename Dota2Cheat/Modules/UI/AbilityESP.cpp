@@ -217,8 +217,8 @@ void ESP::AbilityESP::LoadItemTexIfNeeded(AbilityData& data) {
 	data.icon = texManager.GetNamedTexture(itemName.substr(5));
 
 	if (!data.icon) {
-		auto iconPath = ctx.cheatFolderPath + "\\assets\\items\\" + itemName.substr(5) + "_png.png";
-		texManager.LoadTextureNamed(iconPath.c_str(), data.icon, itemName.substr(5));
+		auto iconPath = d2c.cheatFolderPath + "\\assets\\items\\" + itemName.substr(5) + "_png.png";
+		texManager.LoadTextureNamed(iconPath.c_str(), &data.icon, itemName.substr(5));
 	}
 
 }
@@ -555,7 +555,7 @@ void ESP::AbilityESP::UpdateAbilities(CDOTABaseNPC_Hero* hero) {
 		auto abilityName = ability->GetIdentity()->GetName();
 		if (!abilityName)
 			return;
-		auto iconPath = ctx.cheatFolderPath + "\\assets\\spellicons\\" + abilityName + "_png.png";
+		auto iconPath = d2c.cheatFolderPath + "\\assets\\spellicons\\" + abilityName + "_png.png";
 		auto& data = heroAbilities[validAbilities] = AbilityData{
 			.ability = ability
 		};
@@ -583,7 +583,7 @@ void ESP::AbilityESP::UpdateItems(CDOTABaseNPC_Hero* hero) {
 
 		// Image name doesn't use the "item_" prefix
 		std::string itemName = item->GetIdentity()->GetName();
-		auto iconPath = ctx.cheatFolderPath + "\\assets\\items\\" + itemName.substr(5) + "_png.png";
+		auto iconPath = d2c.cheatFolderPath + "\\assets\\items\\" + itemName.substr(5) + "_png.png";
 		EnemyItems[hero][i] = AbilityData{
 			.ability = item
 		};

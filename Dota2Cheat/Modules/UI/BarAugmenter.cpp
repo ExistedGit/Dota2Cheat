@@ -24,9 +24,11 @@ void Hacks::BarAugmenter::DrawHPNumbers() {
 
 		int hbo = hero->Member<int>(Netvars::C_DOTA_BaseNPC::m_iHealthBarOffset);
 
-		Vector pos = hero->IsMoving()
-			? pos = hero->GetForwardVector(hero->GetMoveSpeed() * (-0.0167f)) // Going back 1 frame to synchronize with the game
-			: pos = hero->GetPos();
+		Vector pos =
+			//hero->IsMoving()
+			//? pos = hero->GetForwardVector(hero->GetMoveSpeed() * (-0.0167f)) // Going back 1 frame to synchronize with the game
+			//:
+			pos = hero->GetPos();
 		pos.z += hbo;
 
 		ImVec2 drawPos = WorldToScreen(pos);
@@ -49,11 +51,13 @@ void Hacks::BarAugmenter::DrawManabars()
 
 		int hbo = hero->Member<int>(Netvars::C_DOTA_BaseNPC::m_iHealthBarOffset);
 
-		Vector pos = hero->IsMoving()
-			? pos = hero->GetForwardVector(hero->GetMoveSpeed() * (-0.0167f)) // Going back 1 frame to synchronize with the game
-			: pos = hero->GetPos();
+		Vector pos =
+			//hero->IsMoving()
+			//? pos = hero->GetForwardVector(hero->GetMoveSpeed() * (-0.0167f)) // Going back 1 frame to synchronize with the game
+			//:
+			pos = hero->GetPos();
 		pos.z += hbo;
-
+		
 		ImVec2 drawPos = WorldToScreen(pos) + ImVec2(4, -16);
 		// Background
 		DrawRectFilled(
@@ -62,7 +66,7 @@ void Hacks::BarAugmenter::DrawManabars()
 		// Manabar
 		DrawRectFilled(
 			drawPos - ImVec2(110, manabarSize.y) / 2 + ImVec2(1, 1),
-			ImVec2(manabarSize.x * (hero->GetMana() / hero->GetMaxMana()) - 2, manabarSize.y - 2), ImVec4(0, 0.5, 1, 1));
+			ImVec2(manabarSize.x * (hero->GetMana() / hero->GetMaxMana()) - 2, manabarSize.y - 2), ImColor(0.f, 0.5f, 1.f));
 	}
 
 }

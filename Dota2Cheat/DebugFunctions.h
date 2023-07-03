@@ -3,8 +3,6 @@
 #include "SDK/Globals/Interfaces.h"
 #include "SDK/Base/VMT.h"
 
-extern GLFWwindow* window_menu;
-
 #ifdef _DEBUG
 inline void LogEntities() {
 	std::stringstream buf;
@@ -19,7 +17,6 @@ inline void LogEntities() {
 
 	const auto str = buf.str( );
 	std::cout << str;
-	glfwSetClipboardString( window_menu, str.c_str( ) );
 }
 inline void LogModifiers(CDOTABaseNPC* npc) {
 	std::cout << "modifiers:\n";

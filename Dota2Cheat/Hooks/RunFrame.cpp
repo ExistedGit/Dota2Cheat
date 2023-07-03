@@ -106,7 +106,7 @@ void InGameLogic() {
 
 		EntityIteration();
 
-		ctx.lua.safe_script("Modules.Core:EntityIteration()");
+		d2c.lua.safe_script("Modules.Core:EntityIteration()");
 	}
 #ifdef _DEBUG
 	if (IsKeyPressed(VK_NUMPAD7)) {

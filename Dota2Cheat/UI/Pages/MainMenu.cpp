@@ -12,7 +12,7 @@ void Pages::MainMenu::Draw() {
 		ImGui::Begin("Scripting");
 		ImGui::InputTextMultiline("Lua script", scriptBuf, 4096, ImVec2(300, 500));
 		if (CheatGui::Button("Execute"))
-			ctx.lua.script(scriptBuf);
+			d2c.lua.script(scriptBuf);
 
 		ImGui::End();
 	}
@@ -232,7 +232,7 @@ void Pages::MainMenu::Draw() {
 	ImGui::SliderFloat("Camera distance", &Config::CameraDistance, 1200, 3000, "%.0f");
 
 	if (CheatGui::Button("EXIT", ImVec2(100, 50)))
-		glfwSetWindowShouldClose(window_menu, 1);
+		d2c.shouldUnload = true;
 
 	ImGui::End();
 
