@@ -24,14 +24,11 @@ void Hacks::BarAugmenter::DrawHPNumbers() {
 
 		int hbo = hero->Member<int>(Netvars::C_DOTA_BaseNPC::m_iHealthBarOffset);
 
-		Vector pos =
-			//hero->IsMoving()
-			//? pos = hero->GetForwardVector(hero->GetMoveSpeed() * (-0.0167f)) // Going back 1 frame to synchronize with the game
-			//:
-			pos = hero->GetPos();
-		pos.z += hbo;
-
-		ImVec2 drawPos = WorldToScreen(pos);
+		Vector pos = hero->GetHealthBarPos();
+		
+		ImVec2 drawPos =
+			HeroData[hero].HealthbarW2S;
+			//WorldToScreen(pos);
 		drawPos.y -= 32;
 
 		DrawTextForeground(DrawData.GetFont("Monofonto", fontSize), std::to_string(hero->GetHealth()), drawPos, fontSize, ImColor{ 255,255,255 }, true);
@@ -51,14 +48,9 @@ void Hacks::BarAugmenter::DrawManabars()
 
 		int hbo = hero->Member<int>(Netvars::C_DOTA_BaseNPC::m_iHealthBarOffset);
 
-		Vector pos =
-			//hero->IsMoving()
-			//? pos = hero->GetForwardVector(hero->GetMoveSpeed() * (-0.0167f)) // Going back 1 frame to synchronize with the game
-			//:
-			pos = hero->GetPos();
-		pos.z += hbo;
-		
-		ImVec2 drawPos = WorldToScreen(pos) + ImVec2(4, -16);
+		Vector pos = hero->GetHealthBarPos();
+
+		ImVec2 drawPos = HeroData[hero].HealthbarW2S + ImVec2(4, -16);
 		// Background
 		DrawRectFilled(
 			drawPos - ImVec2(110, manabarSize.y) / 2,

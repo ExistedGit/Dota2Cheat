@@ -7,16 +7,16 @@
 #include "../CheatSDK/KeyHandler.h"
 #include "../UI/Pages/MainMenu.h"
 
+// DirectX11's SwapChain::Present, used to draw things
+
 extern IMGUI_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
-
 namespace Hooks {
-	inline int itemDefId = 6996;
 	typedef long(*PresentFn)(IDXGISwapChain*, UINT, UINT);
 	inline PresentFn oPresent;
 
 	LRESULT __stdcall WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
-	void InitImGui();
+
 	long hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags);
 
 	inline void SAFE_RELEASE(auto* t) {

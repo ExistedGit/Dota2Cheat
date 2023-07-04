@@ -80,6 +80,7 @@ void InGameLogic() {
 	Modules::TreeChanger.UpdateTreeModels();
 	for (auto hero : ctx.heroes) {
 		HeroData[hero].AbsOrigin = hero->GetPos();
+		HeroData[hero].W2S = WorldToScreen(hero->GetPos());
 		HeroData[hero].HealthbarW2S = WorldToScreen(hero->GetHealthBarPos());
 	}
 

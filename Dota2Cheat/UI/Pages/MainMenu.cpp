@@ -1,5 +1,6 @@
 #include "MainMenu.h"
 #include "../../Modules/UI/AbilityESP.h"
+#include "../../Modules/Hacks/SkinChanger.h"
 
 void Pages::MainMenu::Draw() {
 	ImGui::Begin("Main", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
@@ -17,7 +18,7 @@ void Pages::MainMenu::Draw() {
 		ImGui::End();
 	}
 	static auto& cl_particle_log_creates = Interfaces::CVar->CVars["cl_particle_log_creates"].m_pVar->value.boolean;
-#ifdef _DEBUG
+#if defined(_DEBUG) && !defined(_TESTING)
 	ImGui::Begin("Debug", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
 
 	ImGui::Checkbox("cl_particle_log_creates", &cl_particle_log_creates);
@@ -43,6 +44,11 @@ void Pages::MainMenu::Draw() {
 		auto ent = (CDOTABaseNPC*)Interfaces::EntitySystem->GetEntity(selected[0]);
 		LogModifiers(ent);
 	}
+
+	ImGui::InputInt("ItemDef ID", &itemDefId);
+	if (ImGui::Button("Create item"))
+		Modules::SkinChanger.QueueAddItem(itemDefId);
+
 
 	ImGui::End();
 #endif // _DEBUG
@@ -92,7 +98,7 @@ void Pages::MainMenu::Draw() {
 
 
 		ImGui::Checkbox("Unlock Dota Plus", &Config::Changer::UnlockDotaPlus);
-		if(ImGui::Checkbox("Unlock emoticons", &Config::Changer::UnlockEmoticons)) {
+		if (ImGui::Checkbox("Unlock emoticons", &Config::Changer::UnlockEmoticons)) {
 			static auto dota_hud_chat_enable_all_emoticons = Interfaces::CVar->CVars["dota_hud_chat_enable_all_emoticons"].m_pVar;
 			dota_hud_chat_enable_all_emoticons->value.boolean = Config::Changer::UnlockEmoticons;
 		};

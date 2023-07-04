@@ -44,6 +44,10 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	//	}
 	//}
 
+	// Note to everyone: do not remove
+	// this is a historical exclamation by myself when something finally works
+	Log(LP_NONE,"works!");
+
 	Modules::SkinChanger.DeleteSOCacheFiles();
 
 	d2c.FindCheatFolder();
@@ -56,9 +60,6 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	iconLoadThread.wait();
 
-	// Note to everyone: do not remove
-	// this is a historical exclamation by myself when something finally works
-	d2c.lua.script("print(\"works!\")");
 
 	MatchStateManager.CheckForOngoingGame();
 

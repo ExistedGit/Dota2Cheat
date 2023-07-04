@@ -9,6 +9,7 @@ struct _HeroData {
 	std::map<std::string, CDOTAModifier*> Modifiers;
 	std::map<std::string, CDOTAItem*> Items;
 	ImVec2 HealthbarW2S; // healthbar's screen pos
+	ImVec2 W2S; // W2S(AbsOrigin)
 	Vector AbsOrigin;
 };
 

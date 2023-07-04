@@ -22,7 +22,7 @@ LRESULT __stdcall Hooks::WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPAR
 		return CallWindowProcA(DrawData.Dx.oWndProc, hWnd, uMsg, wParam, lParam);
 }
 
-void Hooks::InitImGui() {
+void InitImGui() {
 	ImGui::CreateContext();
 	ImGuiIO& io = ImGui::GetIO();
 	io.ConfigFlags = ImGuiConfigFlags_NoMouseCursorChange;
@@ -32,40 +32,44 @@ void Hooks::InitImGui() {
 	// Setup Dear ImGui style
 	ImGui::StyleColorsClassic();
 }
+bool InitDX11(IDXGISwapChain* pSwapChain) {
+	if (!SUCCEEDED(pSwapChain->GetDevice(__uuidof(ID3D11Device), (void**)&DrawData.Dx.pDevice)))
+		return false;
 
-long Hooks::hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags) {
-	if (!DrawData.Initialized) {
-		if (SUCCEEDED(pSwapChain->GetDevice(__uuidof(ID3D11Device), (void**)&DrawData.Dx.pDevice))) {
-			DrawData.Dx.pDevice->GetImmediateContext(&DrawData.Dx.pContext);
-			DXGI_SWAP_CHAIN_DESC sd;
-			pSwapChain->GetDesc(&sd);
-			DrawData.Dx.Window = sd.OutputWindow;
-			ID3D11Texture2D* pBackBuffer = nullptr;
-			pSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pBackBuffer);
-			DrawData.Dx.pDevice->CreateRenderTargetView(pBackBuffer, NULL, &DrawData.Dx.mainRenderTargetView);
-			pBackBuffer->Release();
-			DrawData.Dx.oWndProc = (WNDPROC)SetWindowLongPtr(DrawData.Dx.Window, GWLP_WNDPROC, (LONG_PTR)WndProc);
-			InitImGui();
+	DrawData.Dx.pDevice->GetImmediateContext(&DrawData.Dx.pContext);
+	DXGI_SWAP_CHAIN_DESC sd;
+	pSwapChain->GetDesc(&sd);
+	DrawData.Dx.Window = sd.OutputWindow;
+	ID3D11Texture2D* pBackBuffer = nullptr;
+	pSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pBackBuffer);
+	DrawData.Dx.pDevice->CreateRenderTargetView(pBackBuffer, NULL, &DrawData.Dx.mainRenderTargetView);
+	pBackBuffer->Release();
+	DrawData.Dx.oWndProc = (WNDPROC)SetWindowLongPtr(DrawData.Dx.Window, GWLP_WNDPROC, (LONG_PTR)Hooks::WndProc);
+	InitImGui();
 
-			Log(LP_INFO, "Loading fonts...");
-			auto& io = ImGui::GetIO();
-			{
-				// ImGui takes ownership of the loaded memory by default
-				// Of course, we don't want to try to delete a constant array and get a SEGFAULT
-				ImFontConfig fontCfg{};
-				fontCfg.FontDataOwnedByAtlas = false;
-				for (int i = 2; i < 30; i += 2) {
-					DrawData.Fonts["MSTrebuchet"][i] = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", i, nullptr, io.Fonts->GetGlyphRangesDefault());
-					DrawData.Fonts["Monofonto"][i] = io.Fonts->AddFontFromMemoryTTF((void*)Fonts::Monofonto, IM_ARRAYSIZE(Fonts::Monofonto), i, &fontCfg, io.Fonts->GetGlyphRangesDefault());
-				}
-			}
-
-			DrawData.ShowMenu = true;
-			DrawData.Initialized = true;
+	Log(LP_INFO, "Loading fonts...");
+	auto& io = ImGui::GetIO();
+	{
+		// ImGui takes ownership of the loaded memory by default
+		// Of course, we don't want to try to delete a constant array and get a SEGFAULT
+		ImFontConfig fontCfg{};
+		fontCfg.FontDataOwnedByAtlas = false;
+		for (int i = 2; i < 30; i += 2) {
+			DrawData.Fonts["MSTrebuchet"][i] = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", i, nullptr, io.Fonts->GetGlyphRangesDefault());
+			DrawData.Fonts["Monofonto"][i] = io.Fonts->AddFontFromMemoryTTF((void*)Fonts::Monofonto, IM_ARRAYSIZE(Fonts::Monofonto), i, &fontCfg, io.Fonts->GetGlyphRangesDefault());
 		}
-		else
-			return oPresent(pSwapChain, SyncInterval, Flags);
 	}
+
+	DrawData.ShowMenu = true;
+	DrawData.Initialized = true;
+
+	return true;
+}
+long Hooks::hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags) {
+	if (!DrawData.Initialized)
+		if (!InitDX11(pSwapChain))
+			return oPresent(pSwapChain, SyncInterval, Flags);
+	
 	auto& io = ImGui::GetIO();
 	static auto defaultFont = io.Fonts->AddFontDefault();
 
@@ -99,15 +103,9 @@ long Hooks::hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags)
 
 	ImGui::PushFont(defaultFont);
 
-#if defined(_DEBUG) && !defined(_TESTING)
-	ImGui::InputInt("ItemDef ID", &itemDefId);
-	if (ImGui::Button("Create item"))
-		Modules::SkinChanger.QueueAddItem(itemDefId);
-#endif // _DEBUG
-
-
 	if (DrawData.ShowMenu)
 		Pages::MainMenu::Draw();
+
 	ImGui::PopFont();
 
 	ImGui::EndFrame();
