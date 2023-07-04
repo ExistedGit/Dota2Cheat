@@ -3,9 +3,24 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
+static bool LookupTableFilled = false;
+// Used to quickly convert integer RGB representations,
+// since there is a finite amount of values
+static int LookupTable[256] = { 0 };
+
+void FillLookupTable() {
+	for (int i = 0; i < 256; i++)
+		LookupTable[i] = SRGB2Linear(i);
+	LookupTableFilled = true;
+}
+
+// Converts image data from sRGB to linear
 void ConvertSRGBImageData(BYTE* image_data, int image_width, int image_height) {
+	if (!LookupTableFilled)
+		FillLookupTable();
+
 	for (int i = 0; i < image_width * image_height * 4; i++)
-		image_data[i] = SRGB2Linear(image_data[i]);
+		image_data[i] = LookupTable[image_data[i]];
 }
 
 void TextureManager::InitDX11Texture(int image_width, int image_height, unsigned char* image_data, ID3D11ShaderResourceView** out_srv) {
