@@ -10,13 +10,13 @@ void Hacks::KillIndicator::DrawIndicatorFor(CDOTABaseNPC* ent) {
 	auto nuke = ctx.localHero->GetAbility(curData.idx);
 	if (nuke->GetLevel() == 0)
 		return;
-	ImTextureID icon = 0;
+	ID3D11ShaderResourceView* icon = 0;
 	{
 		auto abilityName = nuke->GetIdentity()->GetName();
 		if (abilityName) {
 			if (icon = texManager.GetNamedTexture(abilityName); !icon) {
-				auto iconPath = ctx.cheatFolderPath + "\\assets\\spellicons\\" + abilityName + "_png.png";
-				texManager.LoadTextureNamed(iconPath.c_str(), icon, abilityName);
+				auto iconPath = d2c.cheatFolderPath + "\\assets\\spellicons\\" + abilityName + "_png.png";
+				texManager.LoadTextureNamed(iconPath.c_str(), &icon, abilityName);
 			}
 		}
 	}

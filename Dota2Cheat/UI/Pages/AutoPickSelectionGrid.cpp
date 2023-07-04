@@ -1,15 +1,16 @@
 #include "AutoPickSelectionGrid.h"
+#include "../../CheatSDK/Systems/TextureManager.h"
 
 void Pages::AutoPickHeroGrid::InitList() {
 	using json = nlohmann::json;
-	std::ifstream fin(ctx.cheatFolderPath + "\\assets\\json\\npc_heroes.json");
+	std::ifstream fin(d2c.cheatFolderPath + "\\assets\\json\\npc_heroes.json");
 	if (!fin.is_open()) {
 		std::cout << "Failed hero icons initialization: can't open file\n";
 		return;
 	}
 	auto data = json::parse(fin);
 	for (auto& [heroName, _] : data["DOTAHeroes"].items()) {
-		auto path = ctx.cheatFolderPath + "\\assets\\heroicons\\" + heroName + "_png.png";
+		auto path = d2c.cheatFolderPath + "\\assets\\heroicons\\" + heroName + "_png.png";
 		if (std::filesystem::exists(path)) {
 			heroNames.push_back(heroName);
 			texManager.QueueForLoading(path, "icon_" + heroName.substr(14));

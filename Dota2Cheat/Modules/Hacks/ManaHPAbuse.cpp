@@ -97,27 +97,29 @@ void Modules::M_ManaHPAbuse::GetItemsForExclusion(CDOTABaseNPC* npc, std::set<CD
 }
 
 void Modules::M_ManaHPAbuse::DropMode(CDOTABaseNPC* npc, CDOTAItem* ability, std::map<CDOTAItem*, int>& cachedPositions, std::stack<CDOTAItem*>& itemsToExclude) {
-	if (itemsToExclude.size() != 0) {
-		// Wouldn't want to drop items near enemies
-		bool enemiesAround = false;
-		for (auto hero : ctx.heroes)
-			if (hero != npc && hero->IsTargetable() && !hero->IsSameTeam(npc) && IsWithinRadius(hero->GetPos(), npc->GetPos(), Config::ManaAbuse::SafetyRadius))
-				enemiesAround = true;
+	if (itemsToExclude.size() == 0)
+		return;
 
-		if (!enemiesAround)
-			while (itemsToExclude.size() != 0) {
-				auto item = itemsToExclude.top();
-				ctx.localPlayer->PrepareOrder(
-					Order()
-					.SetType(DOTA_UNIT_ORDER_DROP_ITEM)
-					.SetAbilityIndex(item->GetIndex())
-					.SetPosition(npc->GetPos())
-					.SetQueue(true)
-					.SetIssuer(npc));
+	// Wouldn't want to drop items near enemies
+	bool enemiesAround = false;
+	for (auto hero : ctx.heroes)
+		if (hero != npc && hero->IsTargetable() && !hero->IsSameTeam(npc) && IsWithinRadius(hero->GetPos(), npc->GetPos(), Config::ManaAbuse::SafetyRadius))
+			enemiesAround = true;
 
-				itemsToExclude.pop();
-			}
-	}
+	if (!enemiesAround)
+		while (itemsToExclude.size() != 0) {
+			auto item = itemsToExclude.top();
+			ctx.localPlayer->PrepareOrder(
+				Order()
+				.SetType(DOTA_UNIT_ORDER_DROP_ITEM)
+				.SetAbilityIndex(item->GetIndex())
+				.SetPosition(npc->GetPos())
+				.SetQueue(true)
+				.SetIssuer(npc));
+
+			itemsToExclude.pop();
+		}
+
 }
 
 void Modules::M_ManaHPAbuse::MoveMode(CDOTABaseNPC* npc, CDOTAItem* ability, std::map<CDOTAItem*, int>& cachedPositions, std::stack<CDOTAItem*>& itemsToExclude) {
@@ -176,26 +178,23 @@ void Modules::M_ManaHPAbuse::PerformAbuse(CDOTABaseNPC* npc, CDOTAItem* ability)
 		ability
 	};
 
-	auto bonusType = abusedItems[ability->GetIdentity()->GetName()];
-	if (auto power_treads = HeroData[ctx.localHero].Items["power_treads"]) {
-		if (bonusType == Mana && power_treads->GetItemStat() == ItemStat::INTELLIGENCE
-			|| bonusType == Health && power_treads->GetItemStat() == ItemStat::STRENGTH
-			|| bonusType == Both) {
-			origItemStats[power_treads] = power_treads->GetItemStat();
-			ChangeItemStatTo(power_treads, ItemStat::AGILITY, npc);
-			preservedItems.insert(power_treads);
+	// Switches an item's stat if it doesn't already have the required one
+	// Records the original stat so it can be restored later
+	auto adjustItemStat = [this, &origItemStats, &preservedItems, ability, npc](const char* itemName) mutable {
+		auto bonusType = abusedItems[ability->GetIdentity()->GetName()];
+		if (auto statItem = HeroData[ctx.localHero].Items[itemName]) {
+			if (bonusType == Mana && statItem->GetItemStat() == ItemStat::INTELLIGENCE
+				|| bonusType == Health && statItem->GetItemStat() == ItemStat::STRENGTH
+				|| bonusType == Both && statItem->GetItemStat() != ItemStat::AGILITY) {
+				origItemStats[statItem] = statItem->GetItemStat();
+				ChangeItemStatTo(statItem, ItemStat::AGILITY, npc);
+				preservedItems.insert(statItem);
+			}
 		}
-	}
+	};
 
-	if (auto vambrace = HeroData[ctx.localHero].Items["vambrace"]) {
-		if (bonusType == Mana && vambrace->GetItemStat() == ItemStat::INTELLIGENCE
-			|| bonusType == Health && vambrace->GetItemStat() == ItemStat::STRENGTH
-			|| bonusType == Both) {
-			origItemStats[vambrace] = vambrace->GetItemStat();
-			ChangeItemStatTo(vambrace, ItemStat::AGILITY, npc);
-			preservedItems.insert(vambrace);
-		}
-	}
+	adjustItemStat("power_treads");
+	adjustItemStat("vambrace");
 
 	std::stack<CDOTAItem*> itemsToExclude;
 	std::map<CDOTAItem*, int> itemPositions;

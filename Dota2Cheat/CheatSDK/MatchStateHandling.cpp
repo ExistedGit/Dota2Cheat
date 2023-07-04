@@ -69,7 +69,7 @@ void CMatchStateManager::EnteredInGame() {
 	if (Config::Changer::TreeModelIdx != 0)
 		Modules::TreeChanger.QueueModelUpdate(UIData::TreeModelList[Config::Changer::TreeModelIdx - 1]);
 
-	Lua::SetGlobals(ctx.lua);
+	Lua::SetGlobals(d2c.lua);
 	Lua::CallModuleFunc("OnJoinedMatch");
 
 	ctx.gameStage = GameStage::IN_GAME;
@@ -103,7 +103,7 @@ void CMatchStateManager::LeftMatch() {
 	ctx.localPlayer = nullptr;
 	ctx.localHero = nullptr;
 
-	Lua::SetGlobals(ctx.lua);
+	Lua::SetGlobals(d2c.lua);
 	texManager.QueueTextureUnload();
 
 	Log(LP_INFO, "GAME STAGE: NONE");
@@ -158,7 +158,7 @@ void CMatchStateManager::OnUpdatedAssignedHero() {
 
 	LogF(LP_INFO, "Changed hero: \n\tEntity: {}\n\tName: {}", (void*)assignedHero, assignedHero->GetUnitName());
 
-	ctx.lua["localHero"] = ctx.localHero;
+	d2c.lua["localHero"] = ctx.localHero;
 
 	Modules::AbilityESP.SubscribeHeroes();
 	Modules::KillIndicator.Init();

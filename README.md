@@ -7,7 +7,7 @@ Written in C++20 with love
 
 Some SDK bits were fully or partionally taken from [McDota](https://github.com/LWSS/McDota) by LWSS. It's a very helpful source regarding memory structures
 
-Using [GLFW](https://github.com/glfw/glfw), [GLEW](https://glew.sourceforge.net/) and [ImGui](https://github.com/ocornut/imgui) for the interface, cheers to their wonderful creators!
+Using [ImGui](https://github.com/ocornut/imgui) with DirectX 11 for the interface
 
 also using [Minhook](https://github.com/TsudaKageyu/minhook) for bytehooking
 
@@ -16,6 +16,8 @@ also using Google's [Protocol Buffers](https://github.com/protocolbuffers/protob
 also using [Lua 5.4](https://www.lua.org/) and [sol2](https://github.com/ThePhD/sol2) for [REDACTED]
 
 also using DarthTon's [BlackBone](https://github.com/DarthTon/Blackbone) for injection
+
+Cheers to their wonderful creators!
 
 `assets` folder contents are property of Valve Corporation
 

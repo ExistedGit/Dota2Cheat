@@ -46,8 +46,6 @@
     <ClCompile Include="include\imgui\imgui.cpp" />
     <ClCompile Include="include\imgui\imgui_demo.cpp" />
     <ClCompile Include="include\imgui\imgui_draw.cpp" />
-    <ClCompile Include="include\imgui\imgui_impl_glfw.cpp" />
-    <ClCompile Include="include\imgui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="include\imgui\imgui_tables.cpp" />
     <ClCompile Include="include\imgui\imgui_widgets.cpp" />
     <ClCompile Include="SDK\GameSystems\C_DOTAGameRules.cpp" />
@@ -146,6 +144,11 @@
     <ClCompile Include="Modules\Utility\OrderRouter.cpp" />
     <ClCompile Include="Modules\Hacks\TreeChanger.cpp" />
     <ClCompile Include="Modules\Utility\CVarSpoofer.cpp" />
+    <ClCompile Include="include\imgui\imgui_impl_win32.cpp" />
+    <ClCompile Include="include\imgui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="CheatSDK\Systems\TextureManager.cpp" />
+    <ClCompile Include="CheatSDK\Systems\CheatManager.cpp" />
+    <ClCompile Include="Hooks\Present.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
@@ -332,12 +335,12 @@
     <ClInclude Include="Modules\UI\Indicators\SpeedIndicator.h" />
     <ClInclude Include="Modules\UI\Indicators\KillIndicator.h" />
     <ClInclude Include="SDK\Bytes\Fonts.h" />
-    <ClInclude Include="CheatSDK\DrawData.h" />
+    <ClInclude Include="CheatSDK\Data\DrawData.h" />
     <ClInclude Include="Modules\UI\BlinkRevealer.h" />
     <ClInclude Include="SDK\Base\Address.h" />
     <ClInclude Include="Modules\UI\ParticleMaphack.h" />
     <ClInclude Include="Modules\UI\MultiThreadModule.h" />
-    <ClInclude Include="CheatSDK\HeroData.h" />
+    <ClInclude Include="CheatSDK\Data\HeroData.h" />
     <ClInclude Include="Modules\UI\BarAugmenter.h" />
     <ClInclude Include="Modules\Hacks\AutoAccept.h" />
     <ClInclude Include="Modules\UI\Indicators\HookIndicator.h" />
@@ -347,7 +350,7 @@
     <ClInclude Include="Hooks\GameCoordinator.h" />
     <ClInclude Include="SDK\GameSystems\CGlobalVars.h" />
     <ClInclude Include="SDK\Base\MemAlloc.h" />
-    <ClInclude Include="CheatSDK\EventManager.h" />
+    <ClInclude Include="CheatSDK\Systems\EventManager.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\map_shutdown.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\dota_player_update_assigned_hero.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\dota_game_state_change.h" />
@@ -368,6 +371,12 @@
     <ClInclude Include="SDK\GameSystems\CDOTA_BinaryObjectSystem.h" />
     <ClInclude Include="Modules\Hacks\TreeChanger.h" />
     <ClInclude Include="Modules\Utility\CVarSpoofer.h" />
-    <ClInclude Include="CheatSDK\UIData.h" />
+    <ClInclude Include="CheatSDK\Data\UIData.h" />
+    <ClInclude Include="Hooks\Present.h" />
+    <ClInclude Include="CheatSDK\KeyHandler.h" />
+    <ClInclude Include="CheatSDK\Systems\CheatManager.h" />
+    <ClInclude Include="CheatSDK\Systems\TextureManager.h" />
+    <ClInclude Include="include\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="include\imgui\imgui_impl_dx11.h" />
   </ItemGroup>
 </Project>

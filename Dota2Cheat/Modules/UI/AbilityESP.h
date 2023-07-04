@@ -9,7 +9,7 @@ namespace ESP {
 	class AbilityESP : public MultiThreadModule {
 		struct AbilityData {
 			CDOTABaseAbility* ability{};
-			ImTextureID icon{};
+			ID3D11ShaderResourceView* icon{};
 		};
 
 		enum class LevelCounterType {

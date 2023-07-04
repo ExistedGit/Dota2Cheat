@@ -1,6 +1,6 @@
 #pragma once
-#include <sol/sol.hpp>
 #include "../SDK/pch.h"
+#include <sol/sol.hpp>
 
 namespace Lua {
 	void InitEnums(sol::state& lua);

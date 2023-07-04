@@ -76,7 +76,7 @@ void ESP::AbilityESP::DrawAbilities() {
 			if (data.ability)
 				++abilityCount;
 
-		auto drawPos = WorldToScreen(HeroData[hero].AbsOrigin);
+		auto drawPos = HeroData[hero].W2S;
 		drawPos.x -= (abilityCount - 1) * iconSize / 2.0f;
 		drawPos.y += 30;
 
@@ -88,7 +88,7 @@ void ESP::AbilityESP::DrawAbilities() {
 			if (!data.icon)
 				data.icon = texManager.GetNamedTexture(data.ability->GetIdentity()->GetName());
 
-			// Top-Left and Bottom-Right points of ability icon
+			// Top-Left, Bottom-Right and Center points of ability icon
 			ImVec2 imgXY1, imgXY2, imgCenter;
 			float centeringOffset = -outlineThickness + iconSize / 2;
 			{
@@ -99,42 +99,53 @@ void ESP::AbilityESP::DrawAbilities() {
 				imgCenter = imgXY1 + ImVec2(centeringOffset, centeringOffset);
 			}
 
+			// Black outline by default
+			ImU32 outlineColor = ImColor{ 0,0,0 };
+
 			DrawList->AddRectFilled(
 				imgXY1 - outlineSize,
 				imgXY2 + outlineSize,
-				ImGui::GetColorU32(ImVec4(0, 0, 0, 1)), rounding);
+				ImColor(0, 0, 0), rounding);
+
 
 			if (data.ability->Member<bool>(Netvars::C_DOTABaseAbility::m_bAutoCastState))
-				DrawList->AddRectFilled(
-					imgXY1 - outlineSize,
-					imgXY2 + outlineSize,
-					ImGui::GetColorU32(ImVec4(255.0f / 255, 191.0f / 255, 0, 1)), rounding);
+				outlineColor = ImColor(255, 191, 0);
 
 			if (data.ability->IsToggled())
-				DrawList->AddRectFilled(
-					imgXY1 - outlineSize,
-					imgXY2 + outlineSize,
-					ImGui::GetColorU32(ImVec4(0x3 / 255.0f, 0xAC / 255.0f, 0x13 / 255.0f, 1)), rounding);
+				outlineColor = ImColor(3, 0xAC, 0x13);
 
+			DrawList->AddRectFilled(
+				imgXY1 - outlineSize,
+				imgXY2 + outlineSize,
+				outlineColor, rounding);
+
+			// Ability icon itself
 			DrawList->AddImageRounded(data.icon, imgXY1, imgXY2, { 0,0 }, { 1,1 }, ImColor{ 255,255,255 }, rounding);
 
-			if (data.ability->GetLevel() == 0)
-				// Darkens the picture
+			auto getCooldown = [](CDOTABaseAbility* ent)->float {
+				if (
+					ent->GetCooldown() != 0 || // if on cooldown
+					(ent->GetCharges() == 0 && // or has 0 charges and a charge cooldown
+						ent->GetChargeRestoreCooldown() > 0)
+					)
+					return ent->GetCooldown() // choosing either of these cooldowns, since they're mutually exclusive
+					? ent->GetCooldown()
+					: ent->GetChargeRestoreCooldown();
+
+				return 0.0f;
+			};
+			auto cooldown = getCooldown(data.ability);
+			// If the icon must be darker
+			bool darkOverlay =
+				data.ability->GetLevel() == 0 || // if not learned
+				cooldown != 0; // or on cooldown
+
+			if (darkOverlay)
 				DrawList->AddRectFilled(imgXY1, imgXY2, ImColor(0, 0, 0, 128), rounding);
 
-			if (
-				data.ability->GetCooldown() != 0 || // if on cooldown
-				(data.ability->GetCharges() == 0 && // or has 0 charges and a charge cooldown
-					data.ability->GetChargeRestoreCooldown() > 0)
-				) {
-				auto cd = data.ability->GetCooldown() // choosing either of these cooldowns, since they're mutually exclusive
-					? data.ability->GetCooldown()
-					: data.ability->GetChargeRestoreCooldown();
-
+			if (cooldown) {
 				int cdFontSize = iconSize - ScaleVar(8);
 				bool decimals = Config::AbilityESP::ShowCooldownDecimals;
-				// Darkens the picture
-				DrawList->AddRectFilled(imgXY1, imgXY2, ImColor(0, 0, 0, 128), rounding);
 				if (floorf(data.ability->GetCooldown()) >= 100) {
 					cdFontSize = iconSize - ScaleVar(12);
 					decimals = false;
@@ -142,11 +153,11 @@ void ESP::AbilityESP::DrawAbilities() {
 
 				if (decimals)
 					cdFontSize = iconSize - ScaleVar(14);
-				auto textPos = imgCenter - ImVec2{ 0, cdFontSize / 2.f };
 
+				auto textPos = imgCenter - ImVec2{ 0, cdFontSize / 2.f };
 				// Draws the cooldown
 				DrawTextForeground(DrawData.GetFont("Monofonto", cdFontSize),
-					std::vformat(decimals ? "{:.1f}" : "{:.0f}", std::make_format_args(cd)),
+					std::vformat(decimals ? "{:.1f}" : "{:.0f}", std::make_format_args(cooldown)),
 					textPos,
 					cdFontSize,
 					ImColor{ 255,255,255 },
@@ -162,6 +173,7 @@ void ESP::AbilityESP::DrawAbilities() {
 				)
 				DrawChargeCounter(data.ability->GetCharges(), imgXY1, ScaleVar(8));
 
+			// Channeling countdown
 			if (const auto channelTime = data.ability->Member<float>(Netvars::C_DOTABaseAbility::m_flChannelStartTime); channelTime != 0) {
 				float indicatorHeight = ScaleVar(4);
 				auto channelLength = data.ability->GetLevelSpecialValueFor("AbilityChannelTime");
@@ -175,7 +187,7 @@ void ESP::AbilityESP::DrawAbilities() {
 				float indicatorWidth = abs(imgXY2.x - imgXY1.x) * (1 - ((GameSystems::GameRules->GetGameTime() - channelTime) / channelLength));
 				DrawList->AddRectFilled(
 					ImVec2(imgXY1.x, imgXY1.y - indicatorHeight),
-					ImVec2(imgXY1.x + indicatorWidth, imgXY1.y), ImGui::GetColorU32(ImVec4(1, 1, 1, 0.7)), rounding);
+					ImVec2(imgXY1.x + indicatorWidth, imgXY1.y), ImColor(1, 1, 1, 0.7), rounding);
 			}
 			// If it's being cast
 			else if (data.ability->Member<bool>(Netvars::C_DOTABaseAbility::m_bInAbilityPhase)) {
@@ -183,12 +195,12 @@ void ESP::AbilityESP::DrawAbilities() {
 					castStartTime = data.ability->Member<float>(Netvars::C_DOTABaseAbility::m_flCastStartTime);
 				int fontSize = ScaleVar(18);
 				float indicatorWidthFactor = abs(imgXY1.x - imgXY2.x) * ((GameSystems::GameRules->GetGameTime() - castStartTime) / castPoint);
-				DrawList->AddRectFilled(imgXY1, ImVec2(imgXY1.x + indicatorWidthFactor, imgXY2.y), ImGui::GetColorU32(ImVec4(0, 1, 0, 0.5)), rounding);
+				DrawList->AddRectFilled(imgXY1, ImVec2(imgXY1.x + indicatorWidthFactor, imgXY2.y), ImColor(0.f, 1.f, 0.f, 0.5f), rounding);
 				DrawTextForeground(DrawData.GetFont("Monofonto", fontSize),
 					std::format("{:.1f}", castPoint - (GameSystems::GameRules->GetGameTime() - castStartTime)),
 					imgXY1 + ImVec2(centeringOffset, -fontSize - 2),
 					fontSize,
-					ImVec4(0, 1, 60 / 255.0f, 1),
+					ImColor(0, 255, 60),
 					true);
 			}
 
@@ -217,13 +229,13 @@ void ESP::AbilityESP::LoadItemTexIfNeeded(AbilityData& data) {
 	data.icon = texManager.GetNamedTexture(itemName.substr(5));
 
 	if (!data.icon) {
-		auto iconPath = ctx.cheatFolderPath + "\\assets\\items\\" + itemName.substr(5) + "_png.png";
-		texManager.LoadTextureNamed(iconPath.c_str(), data.icon, itemName.substr(5));
+		auto iconPath = d2c.cheatFolderPath + "\\assets\\items\\" + itemName.substr(5) + "_png.png";
+		texManager.LoadTextureNamed(iconPath.c_str(), &data.icon, itemName.substr(5));
 	}
 
 }
 
-// Draws the same blok sequence like for abilities + two circles for TP and neutral slot on the right and left respectively
+// Draws the same block sequence like for abilities + two circles for TP and neutral slot on the right and left respectively
 // Only draws slots occupied by an item
 // If the item is toggled(like armlet), a green frame is drawn
 // If the item has charges(like wand), a counter is displayed in the top left corner of the image
@@ -327,7 +339,7 @@ void ESP::AbilityESP::DrawItemGrids() {
 				continue;
 
 			int x = validItemsDrawn % col,
-				y = validItemsDrawn / 3;
+				y = validItemsDrawn / col;
 
 			DrawItemIcon(inv, slot, basePos + ImVec2{ (float)x, (float)y } *(iconSize.x + gap), iconSize);
 
@@ -375,7 +387,7 @@ void ESP::AbilityESP::DrawItemIcon(std::map<int, AbilityData>& inv, int slot, co
 
 	float cd = itemData.ability->GetCooldown();
 	if (cd != 0) {
-		DrawList->AddRectFilled(imgXY1, imgXY2, ImGui::GetColorU32(ImVec4(0, 0, 0, 0.25f)), rounding);
+		DrawList->AddRectFilled(imgXY1, imgXY2, ImColor(0, 0, 0, 0.25), rounding);
 		auto fontSize = size.y - ScaleVar<float>(2);
 		bool decimals = Config::AbilityESP::ShowCooldownDecimals;
 		if (cd >= 100) {
@@ -555,7 +567,7 @@ void ESP::AbilityESP::UpdateAbilities(CDOTABaseNPC_Hero* hero) {
 		auto abilityName = ability->GetIdentity()->GetName();
 		if (!abilityName)
 			return;
-		auto iconPath = ctx.cheatFolderPath + "\\assets\\spellicons\\" + abilityName + "_png.png";
+		auto iconPath = d2c.cheatFolderPath + "\\assets\\spellicons\\" + abilityName + "_png.png";
 		auto& data = heroAbilities[validAbilities] = AbilityData{
 			.ability = ability
 		};
@@ -583,7 +595,7 @@ void ESP::AbilityESP::UpdateItems(CDOTABaseNPC_Hero* hero) {
 
 		// Image name doesn't use the "item_" prefix
 		std::string itemName = item->GetIdentity()->GetName();
-		auto iconPath = ctx.cheatFolderPath + "\\assets\\items\\" + itemName.substr(5) + "_png.png";
+		auto iconPath = d2c.cheatFolderPath + "\\assets\\items\\" + itemName.substr(5) + "_png.png";
 		EnemyItems[hero][i] = AbilityData{
 			.ability = item
 		};

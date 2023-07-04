@@ -1,6 +1,4 @@
 #pragma once
-#define STB_IMAGE_IMPLEMENTATION
-
 #include <cstdio>
 #include <iostream>
 #include "CheatSDK/Hooking.h"
@@ -14,18 +12,11 @@
 #include "CheatSDK/Lua/LuaInitialization.h"
 
 #include "Hooks/InvalidateUEF.h"
-#include "Modules/UI/Indicators/SpeedIndicator.h"
-#include "Modules/UI/Indicators/KillIndicator.h"
-#include "Modules/UI/Indicators/HookIndicator.h"
-#include "Modules/UI/BarAugmenter.h"
-#include "Modules/Hacks/LastHitMarker.h"
 #include "Modules/Utility/CVarSpoofer.h"
 #include "SDK/Interfaces/GC/CEconWearable.h"
-#include "CheatSDK/EventManager.h"
 #include "UI/Pages/MainMenu.h"
 #include "UI/Pages/AutoPickSelectionGrid.h"
-
-GLFWwindow* window_menu{};
+#include "CheatSDK/Systems/CheatManager.h"
 
 #pragma region Static variables
 
@@ -44,273 +35,55 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	if (MH_Initialize() != MH_OK)
 		FreeLibraryAndExitThread(hModule, 0);
 
-	Hooks::InvalidateUEF::Create();
-	AllocConsole();
-	FILE* f;
-	freopen_s(&f, "CONOUT$", "w", stdout);
-	Config::cfg.SetupVars();
+	//if (useChangerCode) {
+	//	std::ifstream fin(d2c.cheatFolderPath + "\\config\\inventory.json");
+	//	if (fin.is_open()) {
+	//		Config::cfg.LoadEquippedItems(fin);
+	//		fin.close();
+	//		std::cout << "Loaded inventory from " << d2c.cheatFolderPath + "\\config\\inventory.json\n";
+	//	}
+	//}
 
-	{
-		char buf[256];
-		SHGetSpecialFolderPathA(0, buf, CSIDL_PROFILE, false);
-		ctx.cheatFolderPath = buf;
-		ctx.cheatFolderPath += "\\Documents\\Dota2Cheat";
-		{
-			std::ifstream fin(ctx.cheatFolderPath + "\\config\\base.json");
-			if (fin.is_open()) {
-				Config::cfg.LoadConfig(fin);
-				fin.close();
-				std::cout << "Loaded config from " << ctx.cheatFolderPath + "\\config\\base.json\n";
-			}
-		}
+	// Note to everyone: do not remove
+	// this is a historical exclamation by myself when something finally works
+	Log(LP_NONE,"works!");
 
-		for (auto& file : std::filesystem::directory_iterator(ctx.cheatFolderPath + "\\assets\\misc")) {
-			auto path = file.path();
-			auto fileName = path.filename().string();
-			texManager.QueueForLoading(path.string(), fileName.substr(0, fileName.size() - 4));
-		}
-		if (useChangerCode) {
-			std::ifstream fin(ctx.cheatFolderPath + "\\config\\inventory.json");
-			if (fin.is_open()) {
-				Config::cfg.LoadEquippedItems(fin);
-				fin.close();
-				std::cout << "Loaded inventory from " << ctx.cheatFolderPath + "\\config\\inventory.json\n";
-			}
-		}
+	Modules::SkinChanger.DeleteSOCacheFiles();
 
-		Modules::SkinChanger.DeleteSOCacheFiles();
-	}
+	d2c.FindCheatFolder();
 
-	// Allows VPK mods
-	if (auto gi = Memory::Scan("74 ? 84 C9 75 ? 83 BF", "client.dll"))
-		Memory::Patch(gi, { 0xEB });
-	// Disables gameoverlayrenderer64's WINAPI hook checks
-	if (auto enableVACHooks = Memory::Scan("75 04 84 DB", "gameoverlayrenderer64.dll"))
-		enableVACHooks
-		.Offset(6)
-		.GetAbsoluteAddress(2, 7)
-		.Set(false);
-
-	ctx.lua.open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::math);
-
-	ctx.lua.script("print(\"works!\")");
-
-	Interfaces::FindInterfaces();
-
-	// It's supposed to be a CUtlSymbolTable, but we don't yet have the technology...
-	for (auto data : Interfaces::NetworkMessages->GetNetvarCallbacks())
-		if (IsValidReadPtr(data.m_szCallbackName) && std::string_view(data.m_szCallbackName) == "OnColorChanged") {
-			CBaseEntity::OnColorChanged = data.m_CallbackFn;
-			LogF(LP_DATA, "{}::{}: {}", data.m_szClassName, data.m_szCallbackName, (void*)data.m_CallbackFn);
-		}
-
+	Log(LP_INFO, "Loading assets...");
 	auto iconLoadThread = std::async(std::launch::async, Pages::AutoPickHeroGrid::InitList);
 
-	Interfaces::CVar->DumpConVarsToMap();
-	Modules::CVarSpoofer.SpoofVars(
-		"dota_camera_distance",
-		"r_farz",
-		"fog_enable",
-		"dota_hud_chat_enable_all_emoticons"
-	);
-	Interfaces::CVar->CVars["dota_hud_chat_enable_all_emoticons"].m_pVar->value.boolean = Config::Changer::UnlockEmoticons;
+	Log(LP_INFO, "Initializing cheat...");
+	d2c.Initialize(hModule);
 
-	SignatureDB::LoadSignaturesFromFile(ctx.cheatFolderPath + "\\signatures.json");
+	iconLoadThread.wait();
 
-	Signatures::FindSignatures();
-	GameSystems::FindGameSystems();
-
-#if defined(_DEBUG) && !defined(_TESTING)
-	Log(LP_DATA, "ItemSchema: ", Signatures::GetItemSchema());
-#endif
-
-	Hooks::InstallHooks();
-
-	EventManager.InstallListeners();
-
-	Lua::InitEnums(ctx.lua);
-	Lua::InitClasses(ctx.lua);
-	Lua::InitInterfaces(ctx.lua);
-	Lua::InitFunctions(ctx.lua);
-	Lua::SetGlobals(ctx.lua);
-	Lua::LoadScriptFiles(ctx.lua);
-
-	std::cout << "Loading finished, initializing UI\n";
 
 	MatchStateManager.CheckForOngoingGame();
 
 	// auto res = GameSystems::MinimapRenderer->WorldToMap(ctx.localHero->GetPos());
 
-	if (useChangerCode) {
-		std::ifstream fin(ctx.cheatFolderPath + "\\assets\\itemdefs.txt");
-		if (fin.is_open())
-		{
-			Modules::SkinChanger.ParseItemDefs(fin);
-			fin.close();
-		}
+	//if (useChangerCode) {
+	//	std::ifstream fin(d2c.cheatFolderPath + "\\assets\\itemdefs.txt");
+	//	if (fin.is_open())
+	//	{
+	//		Modules::SkinChanger.ParseItemDefs(fin);
+	//		fin.close();
+	//	}
+	//}
+
+	//{
+	//	std::ofstream fout(d2c.cheatFolderPath + "\\config\\inventory.json");
+	//	Config::cfg.SaveEquippedItems(fout);
+	//	fout.close();
+	//}
+	while (!d2c.shouldUnload) {
+		Sleep(10);
 	}
 
-	glfwSetErrorCallback(glfw_error_callback);
-	if (!glfwInit())
-		return 1;
-	// GL 3.0 + GLSL 130
-	constexpr const char* glsl_version = "#version 130";
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
-	glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, 1);
-
-	// wouldn't want the window to obscure the screen on a breakpoint
-#if !defined(_DEBUG) || defined(_TESTING)
-	glfwWindowHint(GLFW_FLOATING, 1);
-#endif // DEBUG
-	glfwWindowHint(GLFW_DECORATED, 0);
-	glfwWindowHint(GLFW_RESIZABLE, 0);
-	glfwWindowHint(GLFW_MAXIMIZED, 1);
-	glfwWindowHint(GLFW_MOUSE_PASSTHROUGH, 0);
-	auto* monitor = glfwGetPrimaryMonitor();
-	if (!monitor)
-		return 0;
-
-	const auto videoMode = glfwGetVideoMode(monitor);
-
-	window_menu = glfwCreateWindow(videoMode->width, videoMode->height, "Dota2Cheat", NULL, NULL);
-	if (window_menu == NULL)
-		return 1;
-
-	glfwMakeContextCurrent(window_menu);
-	glfwSwapInterval(1); // Enable vsync
-
-	// Setup Dear ImGui context
-	IMGUI_CHECKVERSION();
-	ImGui::CreateContext();
-	ImGuiIO& io = ImGui::GetIO(); (void)io;
-
-	// Setup Dear ImGui style
-	ImGui::StyleColorsClassic();
-
-	// Setup Platform/Renderer backends
-	ImGui_ImplGlfw_InitForOpenGL(window_menu, true);
-	ImGui_ImplOpenGL3_Init(glsl_version);
-
-	Log(LP_INFO, "Loading fonts...");
-	auto defaultFont = io.Fonts->AddFontDefault();
-	{
-		ImFontConfig fontCfg{};
-		fontCfg.FontDataOwnedByAtlas = false;
-		for (int i = 2; i < 30; i += 2) {
-			DrawData.Fonts["MSTrebuchet"][i] = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", i, nullptr, io.Fonts->GetGlyphRangesDefault());
-			DrawData.Fonts["Monofonto"][i] = io.Fonts->AddFontFromMemoryTTF((void*)Fonts::Monofonto, IM_ARRAYSIZE(Fonts::Monofonto), i, &fontCfg, io.Fonts->GetGlyphRangesDefault());
-		}
-	}
-	bool menuVisible = true;
-
-	iconLoadThread.wait();
-
-	int itemDefId = 6996;
-	// Main loop
-	while (!glfwWindowShouldClose(window_menu))
-	{
-		glfwPollEvents();
-
-		// Start the Dear ImGui frame
-		ImGui_ImplOpenGL3_NewFrame();
-		ImGui_ImplGlfw_NewFrame();
-		ImGui::NewFrame();
-
-		texManager.ExecuteLoadCycle();
-
-#ifdef _DEBUG
-		// Pages::AutoPickHeroGrid::Draw();
-#endif // _DEBUG
-		ImGui::PushFont(DrawData.Fonts["MSTrebuchet"][24]);
-		if (
-			Interfaces::GameUI->GetUIState() == DOTA_GAME_UI_DOTA_INGAME
-			&& ctx.gameStage == GameStage::IN_GAME
-			&& ctx.localHero
-			) {
-			Modules::AbilityESP.DrawESP();
-			// Modules::UIOverhaul.DrawBars();
-			Modules::TPTracker.DrawMapTeleports();
-			Modules::LastHitMarker.Draw();
-			Modules::BlinkRevealer.Draw();
-			Modules::ParticleMaphack.Draw();
-			Modules::BarAugmenter.Draw();
-
-			Modules::SpeedIndicator.Draw();
-			Modules::KillIndicator.Draw();
-			//Modules::HookIndicator.Draw();
-
-			//const auto ScreenSize = glfwGetVideoMode(glfwGetPrimaryMonitor());
-			//auto ActualMinimapSize = static_cast<float>(GameSystems::MinimapRenderer->GetMinimapSize().y - 28);
-			//auto MinimapPosMin = ImVec2(16, static_cast<float>(ScreenSize->height - ActualMinimapSize - 12));
-
-			//ImGui::GetForegroundDrawList()->AddRectFilled(MinimapPosMin, MinimapPosMin + ImVec2{ ActualMinimapSize, ActualMinimapSize }, ImColor{ 255,0,0 });
-
-		}
-		ImGui::PopFont();
-
-		ImGui::PushFont(defaultFont);
-
-		if (menuVisible)
-			Pages::MainMenu::Draw();
-
-		if (IsKeyPressed(VK_INSERT)) {
-			glfwSetWindowAttrib(window_menu, GLFW_MOUSE_PASSTHROUGH, menuVisible);
-			menuVisible = !menuVisible;
-		}
-
-
-#if defined(_DEBUG) && !defined(_TESTING)
-		ImGui::InputInt("ItemDef ID", &itemDefId);
-		if (ImGui::Button("Create item"))
-			Modules::SkinChanger.QueueAddItem(itemDefId);
-#endif // _DEBUG
-
-		ImGui::PopFont();
-
-		// Rendering
-		ImGui::Render();
-		int display_w, display_h;
-		glfwGetFramebufferSize(window_menu, &display_w, &display_h);
-		glViewport(0, 0, display_w, display_h);
-		glClear(GL_COLOR_BUFFER_BIT);
-		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
-		glfwSwapBuffers(window_menu);
-	}
-
-	{
-		std::ofstream fout(ctx.cheatFolderPath + "\\config\\base.json");
-		Config::cfg.SaveConfig(fout);
-		fout.close();
-	}
-	{
-		std::ofstream fout(ctx.cheatFolderPath + "\\config\\inventory.json");
-		Config::cfg.SaveEquippedItems(fout);
-		fout.close();
-	}
-
-	// Cleanup
-	ImGui_ImplOpenGL3_Shutdown();
-	ImGui_ImplGlfw_Shutdown();
-	ImGui::DestroyContext();
-
-	glfwDestroyWindow(window_menu);
-	glfwTerminate();
-
-	if (ctx.gameStage != GameStage::NONE)
-		MatchStateManager.LeftMatch();
-
-	Modules::TargetedSpellHighlighter.OnDisableTargetedSpells();
-	Modules::TargetedSpellHighlighter.OnDisableLinken();
-	EventManager.ClearListeners();
-
-	Hooks::RemoveHooks();
-	Hooks::InvalidateUEF::Remove();
-	MH_Uninitialize();
-	if (f) fclose(f);
-	FreeConsole();
-	FreeLibraryAndExitThread(hModule, 0);
+	d2c.Unload();
 }
 
 BOOL APIENTRY DllMain(HMODULE hModule,

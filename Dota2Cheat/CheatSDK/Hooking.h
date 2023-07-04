@@ -11,6 +11,7 @@
 #include "../Hooks/ParticleRendering.h"
 #include "../Hooks/SteamGC.h"
 #include "../Hooks/ModifierEvents.h"
+#include "../Hooks/Present.h"
 
 #include "../Hooks/Misc.h"
 
