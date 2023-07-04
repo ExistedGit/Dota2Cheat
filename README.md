@@ -15,6 +15,8 @@ also using Google's [Protocol Buffers](https://github.com/protocolbuffers/protob
 
 also using [Lua 5.4](https://www.lua.org/) and [sol2](https://github.com/ThePhD/sol2) for [REDACTED]
 
+also using [gcem](https://github.com/kthohr/gcem) for compile-time computations
+
 also using DarthTon's [BlackBone](https://github.com/DarthTon/Blackbone) for injection
 
 Cheers to their wonderful creators!
@@ -92,6 +94,8 @@ This will install the heavier static version of the library.
 
 Once the process completes, go to `installed/x64-windows-static-md`. Copy libprotobuf.lib and libprotobuf-lite.lib files from /lib to Dota2Cheat/lib. You can also copy the libs with a `d` suffix from debug/lib if you want to compile it in Debug
 
+You also need to install the [June 2010 DirectX SDK](https://www.microsoft.com/en-us/download/details.aspx?id=6812)
+
 Open the project in Visual Studio and build both Dota2Cheat and Dota2Loader as **Release x64**
 
 ## Injecting
@@ -101,7 +105,7 @@ Build Dota2Loader and launch it, it will move the necessary resources around and
 
 **I KNOW IT DOESN'T WORK ON WIN11, STOP MESSAGING ME ABOUT IT. TRY TO [USE](https://github.com/ExistedGit/Dota2Cheat/issues/124) SOME [OTHER](https://github.com/ExistedGit/Dota2Cheat/issues/120) INJECTOR THAT WORKS ON WIN11(JUST DON'T FORGET TO STILL LAUNCH IT, TO MOVE ASSETS)**
 
-**Use at own risk. Though I use methods that make detection chances as low as possible, there are no guarantees.** (also consider not using non-legit features that you can get reported for)
+**Use at own risk. Though I use all available methods to lower the detection chance, there are no guarantees.** (also consider not using non-legit features that you can get reported/flagged for)
 
 ## Troubleshooting
 
@@ -111,7 +115,7 @@ If you encounter a crash and want to inform me of it, do the following:
 
 This method is for errors that are easily reproducible. You're meant to be playing either in the demo mode or a lobby(not on a VAC-protected server!)
 Build both the cheat and loader in Debug. Launch dota 2, then In Visual Studio Ctrl + Alt + P and select dota2.exe.
-Now that you're debugging the process, inject the cheat. VS will show you where the exception occurs.
+Now that you're debugging the process, inject the cheat and trigger the error. VS will show you where the exception occurs.
 
 ### Testing
 
