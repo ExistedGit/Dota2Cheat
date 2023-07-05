@@ -378,5 +378,6 @@
     <ClInclude Include="CheatSDK\Systems\TextureManager.h" />
     <ClInclude Include="include\imgui\imgui_impl_win32.h" />
     <ClInclude Include="include\imgui\imgui_impl_dx11.h" />
+    <ClInclude Include="Modules\UI\ModifierESP.h" />
   </ItemGroup>
 </Project>

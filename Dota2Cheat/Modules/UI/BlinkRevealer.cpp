@@ -54,7 +54,7 @@ void Hacks::BlinkRevealer::FrameBasedLogic() {
 	}
 }
 
-void Hacks::BlinkRevealer::ProcessParticleMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
+void Hacks::BlinkRevealer::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
 	if (msgHandle->messageID != 145)
 		return;
 

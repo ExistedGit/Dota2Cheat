@@ -44,7 +44,7 @@ namespace Hacks {
 		// 
 		// Update: velocity = control point 1
 
-		void ProcessParticleMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg);
+		void OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg);
 	};
 }
 namespace Modules {

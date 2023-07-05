@@ -9,12 +9,12 @@ void Hooks::hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* m
 		&& ctx.gameStage == GameStage::IN_GAME
 		)
 	{
-		Modules::ShakerAttackAnimFix.ChangeAttackAnimIfNeeded(messageHandle, msg);
-		Modules::LinearProjectileWarner.ProcessLinearProjectileMsg(messageHandle, msg);
-		Modules::TPTracker.ProcessParticleMsg(messageHandle, msg);
-		Modules::ParticleAbilityWarner.ProcessParticleMsg(messageHandle, msg);
-		Modules::BlinkRevealer.ProcessParticleMsg(messageHandle, msg);
-		Modules::ParticleMaphack.ProcessParticleMsg(messageHandle, msg);
+		Modules::ShakerAttackAnimFix.OnReceivedMsg(messageHandle, msg);
+		Modules::LinearProjectileWarner.OnReceivedMsg(messageHandle, msg);
+		Modules::TPTracker.OnReceivedMsg(messageHandle, msg);
+		Modules::ParticleAbilityWarner.OnReceivedMsg(messageHandle, msg);
+		Modules::BlinkRevealer.OnReceivedMsg(messageHandle, msg);
+		Modules::ParticleMaphack.OnReceivedMsg(messageHandle, msg);
 		//Modules::AttackAnimTracker.ProcessAttackAnimMessage(messageHandle, msg);
 	}
 	return oPostReceivedNetMessage(thisptr, messageHandle, msg, type, bits);

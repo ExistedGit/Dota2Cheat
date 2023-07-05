@@ -32,7 +32,7 @@ namespace Hacks {
 		// Mostly calculating fade duration
 		void FrameBasedLogic();
 		void DrawMapTeleports();
-		void ProcessParticleMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg);;
+		void OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg);;
 	};
 }
 namespace Modules {

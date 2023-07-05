@@ -81,7 +81,7 @@ void Hacks::TPTracker::DrawMapTeleports() {
 	}
 }
 
-void Hacks::TPTracker::ProcessParticleMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
+void Hacks::TPTracker::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
 	if (msgHandle->messageID != 145)
 		return;
 

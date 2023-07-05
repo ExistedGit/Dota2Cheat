@@ -72,12 +72,16 @@ void Hacks::TargetedSpellHighlighter::RemoveParticleIfTargetedSpell(CDOTAModifie
 void Hacks::TargetedSpellHighlighter::DrawParticleIfTargetedSpell(CDOTAModifier* modifier) {
 	if (!Config::ModifierRevealer::TargetedSpells)
 		return;
-	if (!ModifierParticles.count(modifier->GetName()))
-		return;
-	if (modifier->GetOwner()->GetTeam() != ctx.localHero->GetTeam())
+	auto buffName = modifier->GetName();
+	if (!buffName || !ModifierParticles.count(buffName))
 		return;
 
-	auto entry = ModifierParticles[modifier->GetName()];
+	if (modifier->IsSameTeam(ctx.localHero))
+		return;
+
+	auto entry = ModifierParticles[buffName];
+	if (AdditionalChecks.contains(buffName) && !AdditionalChecks[buffName](modifier))
+		return;
 
 	TrackedModifiers[modifier] = GameSystems::ParticleManager->CreateParticle(
 		entry.particleName,

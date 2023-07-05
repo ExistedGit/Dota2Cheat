@@ -141,7 +141,7 @@ void ESP::AbilityESP::DrawAbilities() {
 				cooldown != 0; // or on cooldown
 
 			if (darkOverlay)
-				DrawList->AddRectFilled(imgXY1, imgXY2, ImColor(0, 0, 0, 128), rounding);
+				DrawList->AddRectFilled(imgXY1, imgXY2, ImColor(0, 0, 0, 160), rounding);
 
 			if (cooldown) {
 				int cdFontSize = iconSize - ScaleVar(8);
@@ -178,12 +178,14 @@ void ESP::AbilityESP::DrawAbilities() {
 				float indicatorHeight = ScaleVar(4);
 				auto channelLength = data.ability->GetLevelSpecialValueFor("AbilityChannelTime");
 				int fontSize = ScaleVar(18);
+
 				DrawTextForeground(DrawData.GetFont("Monofonto", fontSize),
 					std::format("{:.1f}", channelLength - (GameSystems::GameRules->GetGameTime() - channelTime)),
 					ImVec2(imgXY1.x + centeringOffset, imgXY1.y - fontSize - 2 - indicatorHeight),
 					fontSize,
 					ImVec4(1, 1, 1, 1),
 					true);
+
 				float indicatorWidth = abs(imgXY2.x - imgXY1.x) * (1 - ((GameSystems::GameRules->GetGameTime() - channelTime) / channelLength));
 				DrawList->AddRectFilled(
 					ImVec2(imgXY1.x, imgXY1.y - indicatorHeight),
@@ -387,7 +389,7 @@ void ESP::AbilityESP::DrawItemIcon(std::map<int, AbilityData>& inv, int slot, co
 
 	float cd = itemData.ability->GetCooldown();
 	if (cd != 0) {
-		DrawList->AddRectFilled(imgXY1, imgXY2, ImColor(0, 0, 0, 0.25), rounding);
+		DrawList->AddRectFilled(imgXY1, imgXY2, ImColor(0, 0, 0, 130), rounding);
 		auto fontSize = size.y - ScaleVar<float>(2);
 		bool decimals = Config::AbilityESP::ShowCooldownDecimals;
 		if (cd >= 100) {
@@ -438,7 +440,7 @@ void ESP::AbilityESP::DrawItemCircle(const AbilityData& data, const ImVec2& xy1,
 	if (Config::AbilityESP::ShowCooldownDecimals)
 		cdFontSize -= 4;
 	// Darkens the picture
-	DrawList->AddCircleFilled(center, radius, ImColor(0, 0, 0, 128));
+	DrawList->AddCircleFilled(center, radius, ImColor(0, 0, 0, 130));
 	// Draws the cooldown
 	DrawTextForeground(DrawData.GetFont("Monofonto", cdFontSize),
 		std::vformat(Config::AbilityESP::ShowCooldownDecimals ? "{:.1f}" : "{:.0f}", std::make_format_args(cd)),

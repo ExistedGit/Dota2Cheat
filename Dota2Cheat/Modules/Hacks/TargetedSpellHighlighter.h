@@ -25,12 +25,38 @@ namespace Hacks {
 				return *this;
 			}
 		};
-
-		std::map<std::string_view, ParticleCreationInfo> ModifierParticles = {
+		std::unordered_map<std::string, std::function<bool(CDOTAModifier*)>> AdditionalChecks = {
+			{
+				"modifier_life_stealer_infest_effect",
+				[](CDOTAModifier* buff) {
+					// We ignore LS infesting allied heroes, as the particle is created on its own
+					if (buff->GetOwner()->IsSameTeam(ctx.localHero))
+						return false;
+					return true;
+				}
+			}
+		};
+		std::unordered_map<std::string, ParticleCreationInfo> ModifierParticles = {
 			{
 				"modifier_spirit_breaker_charge_of_darkness_vision",
 				ParticleCreationInfo(
 					"particles/units/heroes/hero_spirit_breaker/spirit_breaker_charge_target.vpcf"
+				)
+				.SetControlPoint(0, Vector::Zero)
+				.SetControlPoint(1, Vector::Zero)
+			},
+			{
+				"modifier_life_stealer_infest_effect",
+				ParticleCreationInfo(
+					"particles/econ/items/lifestealer/ls_ti10_immortal/ls_ti10_immortal_infest_icon_glow.vpcf"
+				)
+				.SetControlPoint(0, Vector::Zero)
+				.SetControlPoint(1, Vector::Zero)
+			},
+			{
+				"modifier_tusk_snowball_target",
+				ParticleCreationInfo(
+					"particles/units/heroes/hero_tusk/tusk_snowball_target.vpcf"
 				)
 				.SetControlPoint(0, Vector::Zero)
 				.SetControlPoint(1, Vector::Zero)

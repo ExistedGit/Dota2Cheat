@@ -79,7 +79,7 @@ namespace Hacks {
 		void RemoveParticleIfTrajectoryModifier(CDOTAModifier* modifier);
 
 
-		void ProcessLinearProjectileMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg);
+		void OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg);
 
 	};
 }

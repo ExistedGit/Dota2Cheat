@@ -40,7 +40,7 @@ CDOTABaseNPC_Hero* Hacks::ParticleAbilityWarner::FindParticleOwner(const char* n
 	return nullptr;
 }
 
-void Hacks::ParticleAbilityWarner::ProcessParticleMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
+void Hacks::ParticleAbilityWarner::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
 	if (msgHandle->messageID != 145)
 		return;
 

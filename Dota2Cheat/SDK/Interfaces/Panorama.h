@@ -3,18 +3,14 @@
 #include "../Base/Vector.h"
 #include <span>
 #include <string_view>
-//#include <D3DX11.h>
+#include <d3d11.h>
 
 namespace Panorama {
 
 	class CTextureDx11 : public VClass {
 	public:
-		//auto GetShader1() {
-		//	return Member<ID3D11ShaderResourceView*>(0x10);
-		//}
-		//auto GetShader2() {
-		//	return Member<ID3D11ShaderResourceView*>(0x18);
-		//}
+		GETTER(ID3D11ShaderResourceView*, GetShaderSRGB, 0x10);
+		GETTER(ID3D11ShaderResourceView*, GetShaderUNORM, 0x18);
 	};
 	class CSource2UITexture : public VClass {
 	public:
@@ -33,12 +29,19 @@ namespace Panorama {
 
 	class CPanel2D : public VClass {
 	public:
+		struct CImageData : public VClass {
+			GETTER(CSource2UITexture*, GetTexture, 0x30);
+		};
+		struct CImageProxySource : public VClass {
+			GETTER(CImageData*, GetImageData, 0x10);
+		};
 		Vector2D GetPositionWithinWindow() {
 			Vector2D result{ 0, 0 };
 			CallVFunc<44>(0, &result.x, &result.y);
 			return result;
 		}
 		GETTER(CUIPanel*, GetUIPanel, 0x8);
+		GETTER(CImageProxySource*, GetImageProxySource, 0xC8);
 	};
 
 	class CUIPanel : public VClass {

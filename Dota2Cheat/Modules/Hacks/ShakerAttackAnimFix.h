@@ -22,7 +22,7 @@ namespace Hacks {
 			}
 		}
 
-		void ChangeAttackAnimIfNeeded(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
+		void OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
 			if (msgHandle->messageID != 521 || !shaker)
 				return;
 

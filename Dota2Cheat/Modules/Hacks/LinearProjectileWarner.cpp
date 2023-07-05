@@ -58,7 +58,7 @@ void Hacks::LinearProjectileWarner::FrameBasedLogic() {
 	}
 }
 
-void Hacks::LinearProjectileWarner::ProcessLinearProjectileMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
+void Hacks::LinearProjectileWarner::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
 	if (msgHandle->messageID == 471) {
 		auto linProjMsg = reinterpret_cast<CDOTAUserMsg_CreateLinearProjectile*>(msg);
 		auto& newProj =

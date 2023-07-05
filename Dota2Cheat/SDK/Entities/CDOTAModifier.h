@@ -1,8 +1,9 @@
 #pragma once
 #include "../Netvars.h"
 #include "../Globals/Interfaces.h"
-
+#include "CHandle.h"
 #include <sol/sol.hpp>
+#include "CBaseEntity.h"
 
 class CDOTABaseNPC;
 
@@ -14,8 +15,13 @@ public:
 	GETTER(float, GetDuration, Netvars::CDOTA_Buff::m_flDuration);
 	GETTER(float, GetDieTime, Netvars::CDOTA_Buff::m_flDieTime);
 	GETTER(int, GetStackCount, Netvars::CDOTA_Buff::m_iStackCount);
-	GETTER(ENT_HANDLE, GetCaster, Netvars::CDOTA_Buff::m_hCaster);
-	GETTER(ENT_HANDLE, GetAbility, Netvars::CDOTA_Buff::m_hAbility);
+	GETTER(bool, IsAura, Netvars::CDOTA_Buff::m_bIsAura);
+	GETTER(DOTA_GC_TEAM, GetTeam, Netvars::CDOTA_Buff::m_iTeam);
+	bool IsSameTeam(CBaseEntity* ent) {
+		return ent->GetTeam() == GetTeam();
+	}
+	GETTER(CHandle<CDOTABaseNPC>, GetCaster, Netvars::CDOTA_Buff::m_hCaster);
+	GETTER(CHandle<CDOTABaseNPC>, GetAbility, Netvars::CDOTA_Buff::m_hAbility);
 
 	CDOTABaseNPC* GetOwner();
 
