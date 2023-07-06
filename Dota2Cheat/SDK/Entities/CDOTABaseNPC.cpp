@@ -57,34 +57,3 @@ bool CDOTABaseNPC::HasState(ModifierState state) {
 	auto unitState = Member<int64>(Netvars::C_DOTA_BaseNPC::m_nUnitState64);
 	return (unitState & (1Ui64 << (int)state));
 }
-
-
-void CDOTABaseNPC::BindLua(sol::state& lua) {
-	auto type = lua.new_usertype<CDOTABaseNPC>("CDOTABaseNPC", sol::base_classes, sol::bases<CBaseEntity>());
-
-	type["GetModifierManager"] = &CDOTABaseNPC::GetModifierManager;
-	type["IsTargetable"] = &CDOTABaseNPC::IsTargetable;
-	type["IsWaitingToSpawn"] = &CDOTABaseNPC::IsWaitingToSpawn;
-	type["IsAncient"] = &CDOTABaseNPC::IsAncient;
-	type["IsRoshan"] = &CDOTABaseNPC::IsRoshan;
-	type["GetAttackRange"] = &CDOTABaseNPC::GetAttackRange;
-	type["GetUnitName"] = &CDOTABaseNPC::GetUnitName;
-	type["GetAbilities"] = &CDOTABaseNPC::GetAbilities;
-	type["GetAbilityByIndex"] = sol::resolve<CDOTABaseAbility*(int idx)>(&CDOTABaseNPC::GetAbility);
-	type["GetAbilityByName"] = sol::resolve<CDOTABaseAbility*(const std::string_view& str)>(&CDOTABaseNPC::GetAbility);
-	type["FindItemBySubstring"] = &CDOTABaseNPC::FindItemBySubstring;
-	type["GetInventory"] = &CDOTABaseNPC::GetInventory;
-	type["GetItems"] = &CDOTABaseNPC::GetItems;;
-	type["GetHealthRegen"] = &CDOTABaseNPC::GetHealthRegen;
-	type["GetBaseMagicalResistance"] = &CDOTABaseNPC::GetBaseMagicalResistance;
-	type["GetMana"] = &CDOTABaseNPC::GetMana;
-	type["GetMaxMana"] = &CDOTABaseNPC::GetMaxMana;
-	type["HasState"] = &CDOTABaseNPC::HasState;
-	type["GetBaseAttackTime"] = &CDOTABaseNPC::GetBaseAttackTime;
-	type["GetHullRadius"] = &CDOTABaseNPC::GetHullRadius;
-	// type["GetAttackSpeed"] = &CDOTABaseNPC::GetAttackSpeed;
-	type["CanUseAbility"] = &CDOTABaseNPC::CanUseAbility;
-	type["IsDisabled"] = &CDOTABaseNPC::IsDisabled;
-	type["GetMagicalArmorValue"] = &CDOTABaseNPC::GetMagicalArmorValue;
-	lua["CDOTABaseNPC"] = [](CBaseEntity* ent) { return (CDOTABaseNPC*)ent; };
-}

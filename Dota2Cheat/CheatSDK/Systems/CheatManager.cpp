@@ -7,35 +7,11 @@
 #include "../Config.h"
 #include "TextureManager.h"
 #include "EventManager.h"
-#include <ShlObj.h>
 
-#include "../Lua/LuaInitialization.h"
 #include "../Hooking.h"
 
 // Loads and executes scripts from the cheat's folder in C:\Users\%USER%\Documents\Dota2Cheat\scripts
 
-void CCheatManager::LoadScriptFiles() {
-	lua.create_named_table("Modules");
-	auto scriptsPath = cheatFolderPath + R"(\scripts)";
-	if (!std::filesystem::exists(scriptsPath))
-		std::cout << scriptsPath << " not found! No scripts for you\n";
-
-	for (auto& file : directory_iterator(scriptsPath)) {
-		auto path = file.path();
-		if (path.string().substr(path.string().size() - 3) == "lua")
-			lua.load_file(path.string())();
-	}
-}
-
-void CCheatManager::LoadLua() {
-	d2c.lua.open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::math);
-
-	Lua::InitEnums(d2c.lua);
-	Lua::InitClasses(d2c.lua);
-	Lua::InitInterfaces(d2c.lua);
-	Lua::InitFunctions(d2c.lua);
-	Lua::SetGlobals(d2c.lua);
-}
 
 void CCheatManager::LoadGameSpecific() {
 
@@ -84,8 +60,6 @@ void CCheatManager::LoadGameSpecific() {
 		}
 		else if (IsValidReadPtr(data.m_szCallbackName) && std::string_view(data.m_szCallbackName) == "OnWearablesChanged")
 			LogF(LP_DATA, "{}::{}: {}", data.m_szClassName, data.m_szCallbackName, (void*)data.m_CallbackFn);
-		//else if (IsValidReadPtr(data.m_szCallbackName) && std::string_view(data.m_szCallbackName) == "skeletonMeshGroupMaskChanged")
-		//	LogF(LP_DATA, "{}::{}: {}", data.m_szClassName, data.m_szCallbackName, (void*)data.m_CallbackFn);
 }
 
 void CCheatManager::LoadFiles() {
@@ -114,8 +88,6 @@ void CCheatManager::Initialize(HMODULE hModule) {
 
 	Config::cfg.SetupVars();
 	LoadGameSpecific();
-	LoadLua();
-	LoadScriptFiles();
 	LoadFiles();
 }
 

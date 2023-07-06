@@ -1,6 +1,6 @@
 #pragma once
 #include "../Protobufs/dota_shared_enums.pb.h"
-#include <sol/sol.hpp>
+
 
 #include "../Base/VClass.h"
 #include "../Base/Definitions.h"
@@ -19,8 +19,6 @@ struct CSchemaClassBinding {
 	void* classInfoN;
 	void* thisModuleBindingPointer;
 	void* pSchemaType;
-
-	static void BindLua(sol::state& lua);
 };
 
 class CBaseEntity : public VClass {
@@ -85,6 +83,4 @@ public:
 
 	// Gets the point in front of the entity at the specified distance
 	Vector GetForwardVector(float dist);
-
-	static void BindLua(sol::state& lua);
 };

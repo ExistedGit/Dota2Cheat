@@ -9,7 +9,6 @@
     <ClCompile Include="Hooks\RunFrame.cpp" />
     <ClCompile Include="ImGuiSDK\Elements.cpp" />
     <ClCompile Include="include\imgui\imgui_stdlib.cpp" />
-    <ClCompile Include="CheatSDK\Lua\LuaInitialization.cpp" />
     <ClCompile Include="CheatSDK\MatchStateHandling.cpp" />
     <ClCompile Include="Modules\Hacks\AegisSnatcher.cpp" />
     <ClCompile Include="Modules\Hacks\AutoBuyTome.cpp" />
@@ -225,8 +224,6 @@
     <ClInclude Include="CheatSDK\EventListeners.h" />
     <ClInclude Include="CheatSDK\Hooking.h" />
     <ClInclude Include="Modules\Hacks\LinearProjectileWarner.h" />
-    <ClInclude Include="CheatSDK\Lua\LuaModules.h" />
-    <ClInclude Include="CheatSDK\Lua\LuaInitialization.h" />
     <ClInclude Include="Hooks\NetChannel.h" />
     <ClInclude Include="Hooks\ModifierEvents.h" />
     <ClInclude Include="SDK\Globals\Interfaces.h" />
@@ -354,7 +351,6 @@
     <ClInclude Include="CheatSDK\GameEventListeners\map_shutdown.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\dota_player_update_assigned_hero.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\dota_game_state_change.h" />
-    <ClInclude Include="CheatSDK\GameEventListeners\LuaListener.h" />
     <ClInclude Include="Modules\Hacks\ManaHPAbuse.h" />
     <ClInclude Include="SDK\GameSystems\CDOTA_MinimapObjectManager.h" />
     <ClInclude Include="SDK\Interfaces\ISteamGameCoordinator.h" />

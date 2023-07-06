@@ -53,5 +53,4 @@ public:
 	void PrepareOrder(const Order& order) {
 		PrepareOrder(order.Type, order.TargetIndex, (Vector*)&order.Position, order.AbilityIndex, order.IssuerType, order.Issuer, order.Queue, order.ShowEffects);
 	}
-	static void BindLua(sol::state& lua);
 };

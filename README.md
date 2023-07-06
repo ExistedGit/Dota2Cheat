@@ -13,8 +13,6 @@ also using [Minhook](https://github.com/TsudaKageyu/minhook) for bytehooking
 
 also using Google's [Protocol Buffers](https://github.com/protocolbuffers/protobuf) library for net message handling
 
-also using [Lua 5.4](https://www.lua.org/) and [sol2](https://github.com/ThePhD/sol2) for [REDACTED]
-
 also using [gcem](https://github.com/kthohr/gcem) for compile-time computations
 
 also using DarthTon's [BlackBone](https://github.com/DarthTon/Blackbone) for injection

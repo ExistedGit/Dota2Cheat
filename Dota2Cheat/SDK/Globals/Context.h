@@ -2,7 +2,7 @@
 #include <Windows.h>
 #include <set>
 #include <string>
-#include <sol/sol.hpp>
+
 #include "../Wrappers/Creep.h"
 
 // Context of an ongoing Dota game
@@ -33,8 +33,4 @@ inline struct GameContext {
 	std::set<CBaseEntity*> physicalItems;
 	std::set<CDOTABaseNPC_Hero*> heroes;
 	std::set<CreepWrapper, CreepWrapper_less> creeps;
-
-	// For Lua compatibility
-	GameContext() {};
-	GameContext(const GameContext& other) { };
 } ctx{};

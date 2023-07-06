@@ -46,29 +46,6 @@ public:
 	void* GetDataKeys() {
 		return *(void**)((uintptr_t)this + 0x10);
 	};
-
-	static void BindLua(sol::state& lua) {
-		auto type = lua.new_usertype<CGameEvent>("CGameEvent");
-		type["SetBool"] = &CGameEvent::SetBool;
-		type["SetInt"] = &CGameEvent::SetInt;
-		type["SetUint64"] = &CGameEvent::SetUint64;
-		type["SetFloat"] = &CGameEvent::SetFloat;
-		type["SetString"] = &CGameEvent::SetString;
-		type["SetPtr"] = &CGameEvent::SetPtr;
-		type["GetName"] = &CGameEvent::GetName;
-		type["GetID"] = &CGameEvent::GetID;
-
-		type["IsReliable"] = &CGameEvent::IsReliable;
-		type["IsLocal"] = &CGameEvent::IsLocal;
-		type["IsEmpty"] = &CGameEvent::IsEmpty;
-
-		type["GetBool"] = &CGameEvent::GetBool;
-		type["GetInt"] = &CGameEvent::GetInt;
-		type["GetUint64"] = &CGameEvent::GetUint64;
-		type["GetFloat"] = &CGameEvent::GetFloat;
-		type["GetString"] = &CGameEvent::GetString;
-		type["GetPtr"] = &CGameEvent::GetPtr;
-	}
 };
 
 class IGameEventListener2

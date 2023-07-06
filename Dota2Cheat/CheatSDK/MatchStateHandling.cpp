@@ -69,16 +69,12 @@ void CMatchStateManager::EnteredInGame() {
 	if (Config::Changer::TreeModelIdx != 0)
 		Modules::TreeChanger.QueueModelUpdate(UIData::TreeModelList[Config::Changer::TreeModelIdx - 1]);
 
-	Lua::SetGlobals(d2c.lua);
-	Lua::CallModuleFunc("OnJoinedMatch");
-
 	ctx.gameStage = GameStage::IN_GAME;
 }
 
 void CMatchStateManager::LeftMatch() {
 	ctx.gameStage = GameStage::NONE;
 
-	Lua::CallModuleFunc("OnLeftMatch");
 
 	GameSystems::ParticleManager->OnExitMatch();
 
@@ -103,7 +99,6 @@ void CMatchStateManager::LeftMatch() {
 	ctx.localPlayer = nullptr;
 	ctx.localHero = nullptr;
 
-	Lua::SetGlobals(d2c.lua);
 	texManager.QueueTextureUnload();
 
 	Log(LP_INFO, "GAME STAGE: NONE");
@@ -158,13 +153,9 @@ void CMatchStateManager::OnUpdatedAssignedHero() {
 
 	LogF(LP_INFO, "Changed hero: \n\tEntity: {}\n\tName: {}", (void*)assignedHero, assignedHero->GetUnitName());
 
-	d2c.lua["localHero"] = ctx.localHero;
-
 	Modules::AbilityESP.SubscribeHeroes();
 	Modules::KillIndicator.Init();
 	Modules::ShakerAttackAnimFix.SubscribeEntity(ctx.localHero);
-
-	Lua::CallModuleFunc("OnUpdatedAssignedHero");
 }
 
 void CMatchStateManager::OnStateChanged(DOTA_GameState newState) {

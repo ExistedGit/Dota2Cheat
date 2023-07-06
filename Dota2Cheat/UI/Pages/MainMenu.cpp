@@ -5,18 +5,6 @@
 void Pages::MainMenu::Draw() {
 	ImGui::Begin("Main", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
 
-	if (CheatGui::Button("Scripting"))
-		scriptMenuVisible = !scriptMenuVisible;
-
-	if (scriptMenuVisible) {
-
-		ImGui::Begin("Scripting");
-		ImGui::InputTextMultiline("Lua script", scriptBuf, 4096, ImVec2(300, 500));
-		if (CheatGui::Button("Execute"))
-			d2c.lua.script(scriptBuf);
-
-		ImGui::End();
-	}
 	static auto& cl_particle_log_creates = Interfaces::CVar->CVars["cl_particle_log_creates"].m_pVar->value.boolean;
 #if defined(_DEBUG) && !defined(_TESTING)
 	ImGui::Begin("Debug", nullptr, ImGuiWindowFlags_AlwaysAutoResize);

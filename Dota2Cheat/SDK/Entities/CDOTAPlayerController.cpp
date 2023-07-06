@@ -61,20 +61,3 @@ void CDOTAPlayerController::PrepareOrder(dotaunitorder_t orderType, uint32_t tar
 
 	Hooks::oPrepareUnitOrders(this, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
 }
-
-void CDOTAPlayerController::BindLua(sol::state& lua) {
-	auto type = lua.new_usertype<CDOTAPlayerController>("CDOTAPlayerController", sol::base_classes, sol::bases<CBaseEntity>());
-	type["GetAssignedHeroHandle"] = &CDOTAPlayerController::GetAssignedHeroHandle;
-	type["GetSelectedUnits"] = &CDOTAPlayerController::GetSelectedUnits;
-	type["GetAssignedHero"] = &CDOTAPlayerController::GetAssignedHero;
-	type["GetSteamID"] = &CDOTAPlayerController::GetSteamID;
-
-	type["PrepareOrder"] = sol::overload(
-		sol::resolve<void(const Order&)>( & CDOTAPlayerController::PrepareOrder),
-		sol::resolve<void(dotaunitorder_t, uint32_t, Vector*, uint32_t, PlayerOrderIssuer_t, CBaseEntity*, bool, bool)>(&CDOTAPlayerController::PrepareOrder)
-	);
-	type["CastNoTarget"] = &CDOTAPlayerController::CastNoTarget;
-	type["CastTarget"] = &CDOTAPlayerController::CastTarget;
-	type["OrderMoveTo"] = &CDOTAPlayerController::OrderMoveTo;
-	type["BuyItem"] = &CDOTAPlayerController::BuyItem;
-}

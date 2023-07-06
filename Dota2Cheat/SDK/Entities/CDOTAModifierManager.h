@@ -66,9 +66,4 @@ public:
 			sum += node.GetPropertyValue();
 		return sum;
 	}
-
-	static void BindLua(sol::state& lua) {
-		auto type = lua.new_usertype<CDOTAModifierManager>("CDOTAModifierManager");
-		type["GetModifierList"] = &CDOTAModifierManager::GetModifierList;
-	}
 };

@@ -206,8 +206,6 @@ public:
 	int GetEffectiveCastRange();
 
 	int GetAOERadius();
-
-	static void BindLua(sol::state& lua);
 };
 
 //template<typename T>

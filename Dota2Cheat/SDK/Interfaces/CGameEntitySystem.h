@@ -2,7 +2,7 @@
 #include "../Base/Definitions.h"
 #include "../Entities/CEntityIdentity.h"
 #include "../Base/CUtlVector.h"
-#include <sol/sol.hpp>
+
 
 #define MAX_ENTITIES_IN_LIST 512
 #define MAX_ENTITY_LISTS 64 // 0x3F

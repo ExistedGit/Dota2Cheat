@@ -2,7 +2,7 @@
 #include "../Netvars.h"
 #include "../Globals/Interfaces.h"
 #include "CHandle.h"
-#include <sol/sol.hpp>
+
 #include "CBaseEntity.h"
 
 class CDOTABaseNPC;
@@ -24,7 +24,5 @@ public:
 	GETTER(CHandle<CDOTABaseNPC>, GetAbility, Netvars::CDOTA_Buff::m_hAbility);
 
 	CDOTABaseNPC* GetOwner();
-
-	static void BindLua(sol::state& lua);
 };
 

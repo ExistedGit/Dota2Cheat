@@ -4,7 +4,7 @@
 #include "../Base/Definitions.h"
 #include "../Base/CUtlVector.h"
 #include "../Interfaces/Network/CNetworkMessages.h"
-#include "sol/sol.hpp"
+
 #include "../Base/Vector.h"
 #include "../VTableIndexes.h"
 
@@ -70,10 +70,6 @@ struct CNewParticleEffect : public VClass {
 		coll->CallVFunc<VTableIndexes::CParticleCollection::SetControlPoint>(idx, &pos);
 		return this;
 	}
-	static void BindLua(sol::state& lua) {
-		auto type = lua.new_usertype<CNewParticleEffect>("Particle");
-		type["SetControlPoint"] = &CNewParticleEffect::SetControlPoint;
-	}
 };
 
 struct ParticleWrapper {
@@ -85,13 +81,6 @@ struct ParticleWrapper {
 		particle = nullptr;
 		handle = INVALID_HANDLE;
 		info = CreateParticleInfo{};
-	}
-
-	static void BindLua(sol::state& lua) {
-		auto type = lua.new_usertype<ParticleWrapper>("ParticleWrapper");
-		type["info"] = &ParticleWrapper::info;
-		type["particle"] = &ParticleWrapper::particle;
-		type["handle"] = &ParticleWrapper::handle;
 	}
 };
 
@@ -154,18 +143,5 @@ public:
 	//}
 
 	void OnExitMatch();
-
-	static void BindLua(sol::state& lua) {
-		auto type = lua.new_usertype<CDOTAParticleManager>(
-			"CDOTAParticleManager"
-			);
-		//type["GetParticles"] = &CDOTAParticleManager::GetParticles;
-		type["CreateParticle"] = &CDOTAParticleManager::CreateParticle;
-
-		type["DestroyParticle"] = sol::overload(
-			sol::resolve<void(uint32_t)>(&CDOTAParticleManager::DestroyParticle),
-			sol::resolve<void(ParticleWrapper&)>(&CDOTAParticleManager::DestroyParticle)
-		);
-	}
 };
 

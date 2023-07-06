@@ -1,9 +1,6 @@
 #pragma once
 #include "../SDK/pch.h"
 
-#include "Lua/LuaModules.h"
-#include "Lua/LuaInitialization.h"
-
 #include "../Hooks/RunFrame.h"
 #include "../Hooks/ModifierEvents.h"
 

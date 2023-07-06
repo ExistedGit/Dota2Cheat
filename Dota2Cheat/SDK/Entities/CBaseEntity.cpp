@@ -1,16 +1,5 @@
 #include "CBaseEntity.h"
 
-void CSchemaClassBinding::BindLua(sol::state& lua) {
-	sol::usertype<CSchemaClassBinding> type = lua.new_usertype<CSchemaClassBinding>("CSchemaClassBinding");
-	type["parent"] = &CSchemaClassBinding::parent;
-	type["binaryName"] = &CSchemaClassBinding::binaryName; // ex: C_World
-	type["className"] = &CSchemaClassBinding::className; // ex: client
-	type["classInfoOldSynthesized"] = &CSchemaClassBinding::classInfoOldSynthesized;
-	type["classInfoN"] = &CSchemaClassBinding::classInfoN;
-	type["thisModuleBindingPointer"] = &CSchemaClassBinding::thisModuleBindingPointer;
-	type["pSchemaType"] = &CSchemaClassBinding::pSchemaType;
-}
-
 // Returns the index of this entity in the entity system
 uint32_t CBaseEntity::GetIndex() {
 	return H2IDX(GetHandle());
@@ -47,21 +36,4 @@ Vector CBaseEntity::GetForwardVector(float dist) {
 	float sine = sinf(rotation), cosine = cosf(rotation);
 	auto forwardVec = Vector(cosine * dist, sine * dist, 0);
 	return pos + forwardVec;
-}
-
-void CBaseEntity::BindLua(sol::state& lua) {
-	sol::usertype<CBaseEntity> type = lua.new_usertype<CBaseEntity>("CBaseEntity");
-	type["GetSchemaBinding"] = &CBaseEntity::SchemaBinding;
-
-	type["GetIdentity"] = &CBaseEntity::GetIdentity;
-
-	type["SetColor"] = &CBaseEntity::SetColor;
-	type["GetOwnerEntityHandle"] = &CBaseEntity::GetOwnerEntityHandle;
-	type["GetPos"] = &CBaseEntity::GetPos;
-	type["GetRotation"] = &CBaseEntity::GetRotation;
-	type["GetForwardVector"] = &CBaseEntity::GetForwardVector;
-	type["GetMaxHealth"] = &CBaseEntity::GetMaxHealth;
-	type["GetHealth"] = &CBaseEntity::GetHealth;
-	type["GetTeam"] = &CBaseEntity::GetTeam;
-	type["GetLifeState"] = &CBaseEntity::GetLifeState;
 }

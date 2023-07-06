@@ -1,5 +1,5 @@
 #pragma once
-#include <sol/sol.hpp>
+
 #include "../Protobufs/dota_shared_enums.pb.h"
 #include "../Base/VClass.h"
 #include "../Base/Definitions.h"
@@ -34,6 +34,4 @@ public:
 
 	float GetGameTime();
 	std::vector<ItemStockInfo*> GetItemStockInfo();
-
-	static void BindLua(sol::state& lua);
 };

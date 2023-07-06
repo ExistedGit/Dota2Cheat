@@ -5,4 +5,4 @@
 #include "Data/DrawData.h"
 #include "Data/HeroData.h"
 #include "Systems/TextureManager.h"
-#include "Lua/LuaModules.h"
+#include "Systems/CheatManager.h"

@@ -2,6 +2,7 @@
 #include <vector>
 #include <cstdint>
 #include "MemAlloc.h"
+#include <cassert>
 
 // Source engine's own analog to std::vector
 template <class T>

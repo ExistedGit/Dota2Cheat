@@ -15,22 +15,3 @@ int CDOTABaseAbility::GetEffectiveCastRange() {
 int CDOTABaseAbility::GetAOERadius() {
 	return GetLevelSpecialValueFor<int>("radius", -1);
 }
-
-void CDOTABaseAbility::BindLua(sol::state& lua) {
-	auto type = lua.new_usertype< CDOTABaseAbility>("CDOTABaseAbility", sol::base_classes, sol::bases<CBaseEntity>());
-	type["IsToggled"] = &CDOTABaseAbility::IsToggled;
-	type["IsHidden"] = &CDOTABaseAbility::IsHidden;
-	type["GetCooldown"] = &CDOTABaseAbility::GetCooldown;
-	type["GetCooldownLength"] = &CDOTABaseAbility::GetCooldownLength;
-	type["GetLevel"] = &CDOTABaseAbility::GetLevel;
-	type["GetMaxLevel"] = &CDOTABaseAbility::GetMaxLevel;
-	type["GetCharges"] = &CDOTABaseAbility::GetCharges;
-	type["GetChargeRestoreCooldown"] = &CDOTABaseAbility::GetChargeRestoreCooldown;
-	type["GetManaCost"] = &CDOTABaseAbility::GetManaCost;
-	type["IsInAbilityPhase"] = &CDOTABaseAbility::IsInAbilityPhase;
-	type["GetCastRange"] = &CDOTABaseAbility::GetCastRange;
-	type["GetEffectiveCastRange"] = &CDOTABaseAbility::GetEffectiveCastRange;
-	type["GetLevelSpecialValueFor"] = &CDOTABaseAbility::GetLevelSpecialValueFor<float>;
-	type["GetAOERadius"] = &CDOTABaseAbility::GetAOERadius;
-}
-

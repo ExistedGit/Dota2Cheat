@@ -7,14 +7,3 @@ CDOTABaseNPC* CDOTAModifier::GetOwner() {
 		)
 		);
 }
-
-void CDOTAModifier::BindLua(sol::state& lua) {
-	auto type = lua.new_usertype<CDOTAModifier>("CDOTAModifier");
-
-	type["GetName"] = &CDOTAModifier::GetName;
-	type["GetDuration"] = &CDOTAModifier::GetDuration;
-	type["GetDieTime"] = &CDOTAModifier::GetDieTime;
-	type["GetCaster"] = &CDOTAModifier::GetCaster;
-	type["GetAbility"] = &CDOTAModifier::GetAbility;
-	type["GetOwner"] = &CDOTAModifier::GetOwner;
-}

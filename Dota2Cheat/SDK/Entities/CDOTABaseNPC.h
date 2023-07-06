@@ -154,5 +154,4 @@ public:
 			&& !ability->IsInAbilityPhase();
 	}
 
-	static void BindLua(sol::state& lua);
 };

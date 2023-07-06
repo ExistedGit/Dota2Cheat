@@ -106,8 +106,6 @@ void InGameLogic() {
 		Modules::ParticleGC.FrameBasedLogic();
 
 		EntityIteration();
-
-		d2c.lua.safe_script("Modules.Core:EntityIteration()");
 	}
 #ifdef _DEBUG
 	if (IsKeyPressed(VK_NUMPAD7)) {

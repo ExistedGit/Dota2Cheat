@@ -1,6 +1,6 @@
 #pragma once
 #include "../Base/Definitions.h"
-#include <sol/sol.hpp>
+
 
 class CBaseEntity;
 
@@ -35,12 +35,5 @@ public:
 
 	bool IsDormant() const {
 		return (flags[0] & 0x80);
-	}	
-
-	static void BindLua(sol::state& lua) {
-		sol::usertype<CEntityIdentity> type = lua.new_usertype<CEntityIdentity>("CEntityIdentity");
-		type["entHandle"] = &CEntityIdentity::entHandle;
-		type["GetName"] = &CEntityIdentity::GetName;
-		type["IsDormant"] = &CEntityIdentity::IsDormant;
 	}
 };
