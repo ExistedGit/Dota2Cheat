@@ -82,6 +82,10 @@ void CCheatManager::LoadGameSpecific() {
 			CBaseEntity::OnColorChanged = data.m_CallbackFn;
 			LogF(LP_DATA, "{}::{}: {}", data.m_szClassName, data.m_szCallbackName, (void*)data.m_CallbackFn);
 		}
+		else if (IsValidReadPtr(data.m_szCallbackName) && std::string_view(data.m_szCallbackName) == "OnWearablesChanged")
+			LogF(LP_DATA, "{}::{}: {}", data.m_szClassName, data.m_szCallbackName, (void*)data.m_CallbackFn);
+		//else if (IsValidReadPtr(data.m_szCallbackName) && std::string_view(data.m_szCallbackName) == "skeletonMeshGroupMaskChanged")
+		//	LogF(LP_DATA, "{}::{}: {}", data.m_szClassName, data.m_szCallbackName, (void*)data.m_CallbackFn);
 }
 
 void CCheatManager::LoadFiles() {
@@ -103,6 +107,10 @@ void CCheatManager::Initialize(HMODULE hModule) {
 	this->hModule = hModule;
 	AllocConsole();
 	freopen_s(&consoleStream, "CONOUT$", "w", stdout);
+
+	// Note to everyone: do not remove
+	// this is a historical exclamation by myself when something finally works
+	Log(LP_NONE, "works!");
 
 	Config::cfg.SetupVars();
 	LoadGameSpecific();

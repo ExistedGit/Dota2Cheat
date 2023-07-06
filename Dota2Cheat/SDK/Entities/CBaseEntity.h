@@ -26,7 +26,7 @@ struct CSchemaClassBinding {
 class CBaseEntity : public VClass {
 public:
 	struct CModelState : public NormalClass {
-		GETTER(uint64_t, GetMeshGroupMask, Netvars::CModelState::m_MeshGroupMask);
+		FIELD(uint64_t, MeshGroupMask, Netvars::CModelState::m_MeshGroupMask);
 		GETTER(const char*, GetModelName, Netvars::CModelState::m_ModelName);
 		auto GetModel() {
 			return *Member<NormalClass**>(Netvars::CModelState::m_hModel);

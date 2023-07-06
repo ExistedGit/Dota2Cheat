@@ -28,6 +28,8 @@
 // Dota2Cheat mainly operates on a frame-by-frame basis
 // This is not a hook, but a listener that's called in RunFrame
 
+inline bool updateWearables = false;
+
 namespace Hooks {
 	void hkRunFrame();
 }

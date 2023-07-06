@@ -18,12 +18,27 @@
 #include "UI/Pages/AutoPickSelectionGrid.h"
 #include "CheatSDK/Systems/CheatManager.h"
 
-#pragma region Static variables
-
 Vector Vector::Zero = Vector(0, 0, 0);
 
-#pragma endregion
+static void* oPostDataUpdate{};
 
+void hkPostDataUpdate(void* thisptr, void* a2) {
+	if (updateWearables) {
+		updateWearables = false;
+		static Function init = Memory::Scan("E8 ? ? ? ? 8B C6 3B F3", "client.dll").GetAbsoluteAddress(1);
+		auto& wearables = ctx.localHero->Field<CUtlVector<CHandle<CEconWearable>>>(Netvars::C_BaseCombatCharacter::m_hMyWearables);
+		auto* item = wearables[2].Entity()->GetAttributeManager()->GetItem();
+		init(item, Modules::SkinChanger.FakeItems.begin()->second, static_cast<BYTE>(0xFF));
+
+		auto& oldWearables = ctx.localHero->Field<CUtlVector<CHandle<CEconWearable>>>(Netvars::C_DOTA_BaseNPC::m_hOldWearables);
+		for (auto& handle : oldWearables)
+			handle.val = 0;
+
+		Log(LP_INFO, "OnWearablesChanged()");
+		ctx.localHero->OnWearablesChanged();
+	}
+	(decltype(&hkPostDataUpdate)(oPostDataUpdate))(thisptr, a2);
+}
 static inline void glfw_error_callback(int error, const char* description)
 {
 	fprintf(stderr, "Glfw Error %d: %s\n", error, description);
@@ -44,9 +59,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	//	}
 	//}
 
-	// Note to everyone: do not remove
-	// this is a historical exclamation by myself when something finally works
-	Log(LP_NONE,"works!");
+	//auto PostDataUpdate = Memory::Scan("40 55 48 83 EC 40 48 8D 6C 24", "client.dll");
+	//HOOKFUNC(PostDataUpdate);
 
 	Modules::SkinChanger.DeleteSOCacheFiles();
 
@@ -60,10 +74,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	iconLoadThread.wait();
 
-
 	MatchStateManager.CheckForOngoingGame();
-
-	// auto res = GameSystems::MinimapRenderer->WorldToMap(ctx.localHero->GetPos());
 
 	//if (useChangerCode) {
 	//	std::ifstream fin(d2c.cheatFolderPath + "\\assets\\itemdefs.txt");
@@ -79,9 +90,9 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	//	Config::cfg.SaveEquippedItems(fout);
 	//	fout.close();
 	//}
-	while (!d2c.shouldUnload) {
+
+	while (!d2c.shouldUnload)
 		Sleep(10);
-	}
 
 	d2c.Unload();
 }

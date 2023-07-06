@@ -2,6 +2,7 @@
 #include "../../Base/VClass.h"
 #include "../../Base/CUtlVector.h"
 #include "../../Base/Definitions.h"
+#include "ItemSchema.h"
 #include "../../Protobufs/base_gcmessages.pb.h"
 
 typedef uint8_t	style_index_t;
@@ -10,7 +11,12 @@ typedef uint16_t item_definition_index_t;
 class CEconItem : public VClass {
 	void* vmt2;
 public:
-	inline static void (*DeserializeFromProtobufItemFunc)(CEconItem*, CSOEconItem* );
+
+	auto GetItemDef() {
+		return Function(*(uintptr_t*)vmt2 + 0x58).Call<CDOTAItemDefinition*>(this + 1);
+	}
+
+	inline static void (*DeserializeFromProtobufItemFunc)(CEconItem*, CSOEconItem*);
 	inline static void (*EnsureCustomDataExistsFunc)(CEconItem*);
 
 	void EnsureCustomDataExists() {
@@ -31,18 +37,10 @@ public:
 	uint8_t m_unOrigin;
 	style_index_t m_unStyle;
 
-	uint8_t& Style() {
-		return Field<uint8_t>(0x30);
-	}
-	uint8_t& Flag() {
-		return Field<uint8_t>(0x31);
-	}
-	uint16_t& Class() {
-		return Field<uint16_t>(0x32);
-	}
-	uint16_t& Slot() {
-		return Field<uint16_t>(0x34);
-	}
+	FIELD(uint8_t, Style, 0x30);
+	FIELD(uint8_t, Flag, 0x31);
+	FIELD(uint16_t, Class, 0x32);
+	FIELD(uint16_t, Slot, 0x34);
 
 	GETTER(uint64_t*, GetCustomData, 0x48);
 };

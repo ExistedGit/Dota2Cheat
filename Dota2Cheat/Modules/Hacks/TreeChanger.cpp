@@ -14,7 +14,15 @@ void Modules::M_TreeChanger::SetTreeModel(CBaseEntity* tree, const TreeModelInfo
 }
 
 void Modules::M_TreeChanger::RestoreTreeModels() {
-	static Function setMeshGroupMask = Memory::Scan("E8 ? ? ? ? 48 8B 07 48 8D 55 7F", "client.dll").GetAbsoluteAddress(1);
+
+	static void(*skeletonMeshGroupMaskChanged)(CBaseEntity::CModelState * mdl, CBaseEntity * owner, uint64_t * mask) = nullptr;
+
+	if (!skeletonMeshGroupMaskChanged)
+		for (const auto& data : Interfaces::NetworkMessages->GetNetvarCallbacks())
+			if (IsValidReadPtr(data.m_szCallbackName) && std::string_view(data.m_szCallbackName) == "skeletonMeshGroupMaskChanged") {
+				skeletonMeshGroupMaskChanged = (decltype(skeletonMeshGroupMaskChanged))data.m_CallbackFn;
+				break;
+			}
 
 	auto trees = GameSystems::BinaryObjectSystem->GetTrees();
 
@@ -23,7 +31,7 @@ void Modules::M_TreeChanger::RestoreTreeModels() {
 			continue;
 
 		SetTreeModel(tree, mdlInfo);
-		setMeshGroupMask(tree->GetGameSceneNode(), mdlInfo.meshGroupMask);
+		skeletonMeshGroupMaskChanged(tree->GetGameSceneNode()->GetModelState(), tree, &mdlInfo.meshGroupMask);
 		tree->SetColor({ 255,255,255,255 });
 	}
 
@@ -43,7 +51,7 @@ void Modules::M_TreeChanger::UpdateTreeModels() {
 				continue;
 
 			if (shouldSaveOriginalTrees)
-				originalTrees[tree] = { tree->GetModelName(), tree->ModelScale(), tree->GetGameSceneNode()->GetModelState()->GetMeshGroupMask() };
+				originalTrees[tree] = { tree->GetModelName(), tree->ModelScale(), tree->GetGameSceneNode()->GetModelState()->MeshGroupMask() };
 
 			SetTreeModel(tree, queuedModel);
 

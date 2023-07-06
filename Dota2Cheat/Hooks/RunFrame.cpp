@@ -126,21 +126,12 @@ void InGameLogic() {
 		Log(LP_INFO, "Hero model: ", ctx.localHero->GetModelName());
 	}
 	else if (IsKeyPressed(VK_NUMPAD8)) {
-		auto selected = ctx.localPlayer->GetSelectedUnits();
-		auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(selected[0]);
-		auto pos = ent->GetPos();
+		updateWearables = true;
 
-		static Function init = Memory::Scan("E8 ? ? ? ? 8B C6 3B F3", "client.dll").GetAbsoluteAddress(1);
-		auto& wearables = ctx.localHero->Field<CUtlVector<CHandle<CEconWearable>>>(Netvars::C_BaseCombatCharacter::m_hMyWearables);
-		auto* item = wearables[0].Entity()->GetAttributeManager()->GetItem();
-		init(item, Modules::SkinChanger.FakeItems.begin()->second, static_cast<BYTE>(0xFF));
+		//auto selected = ctx.localPlayer->GetSelectedUnits();
+		//auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(selected[0]);
+		//auto pos = ent->GetPos();
 
-		auto& oldWearables = ctx.localHero->Field<CUtlVector<CHandle<CEconWearable>>>(Netvars::C_DOTA_BaseNPC::m_hOldWearables);
-		for (auto& handle : oldWearables)
-			handle.val = 0;
-
-		Log(LP_INFO, "OnWearablesChanged()");
-		ent->OnWearablesChanged();
 		//LogF(LP_INFO, "OnWearablesChanged(): {}\nResult: {}",
 		//	(void*)ctx.localHero->GetVFunc(VTableIndexes::CDOTABaseNPC::OnWearablesChanged),
 		//	ent->OnWearablesChanged());
