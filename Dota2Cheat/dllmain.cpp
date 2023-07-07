@@ -20,7 +20,6 @@
 Vector Vector::Zero = Vector(0, 0, 0);
 
 uintptr_t WINAPI HackThread(HMODULE hModule) {
-	constexpr bool useChangerCode = false;
 	// Initialize MinHook.
 	if (MH_Initialize() != MH_OK)
 		FreeLibraryAndExitThread(hModule, 0);
@@ -50,17 +49,9 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 	LPVOID lpReserved
 )
 {
-	switch (ul_reason_for_call)
-	{
-	case DLL_PROCESS_ATTACH: {
+	if (ul_reason_for_call == DLL_PROCESS_ATTACH)
 		if (HANDLE thread = CreateThread(0, 0, (LPTHREAD_START_ROUTINE)HackThread, hModule, 0, 0); thread)
 			CloseHandle(thread);
-		break;
-	}
-	case DLL_THREAD_ATTACH:
-	case DLL_THREAD_DETACH:
-	case DLL_PROCESS_DETACH:
-		break;
-	}
+
 	return TRUE;
 }
