@@ -15,7 +15,7 @@ void Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t o
 		case DOTA_ORDER_ISSUER_CURRENT_UNIT_ONLY:
 		case DOTA_ORDER_ISSUER_SELECTED_UNITS:
 			if (ctx.localPlayer && !ctx.localPlayer->GetSelectedUnits().empty())
-				issuer = Interfaces::EntitySystem->GetEntity(ctx.localPlayer->GetSelectedUnits().front());
+				issuer = Interfaces::EntitySystem->GetEntity(ctx.localPlayer->GetSelectedUnits().first());
 			break;
 		}
 	}

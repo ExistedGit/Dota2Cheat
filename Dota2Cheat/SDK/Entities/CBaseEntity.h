@@ -11,6 +11,8 @@
 
 #include "CEntityIdentity.h"
 
+class CDOTAPlayerController;
+
 struct CSchemaClassBinding {
 	CSchemaClassBinding* parent;
 	const char* binaryName; // ex: C_World
@@ -48,7 +50,7 @@ public:
 	GETTER(int, GetMaxHealth, Netvars::C_BaseEntity::m_iMaxHealth);
 	GETTER(DOTA_GC_TEAM, GetTeam, Netvars::C_BaseEntity::m_iTeamNum);
 	GETTER(int8_t, GetLifeState, Netvars::C_BaseEntity::m_lifeState);
-	GETTER(ENT_HANDLE, GetOwnerEntityHandle, Netvars::C_BaseEntity::m_hOwnerEntity);
+	GETTER(CHandle<CDOTAPlayerController>, GetOwnerEntityHandle, Netvars::C_BaseEntity::m_hOwnerEntity);
 	GETTER(CSkeletonInstance*, GetGameSceneNode, Netvars::C_BaseEntity::m_pGameSceneNode);
 
 	const char* GetModelName() {

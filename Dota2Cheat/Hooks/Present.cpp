@@ -13,10 +13,10 @@
 #include "../Modules/Hacks/SkinChanger.h"
 #include "../Modules/Hacks/LastHitMarker.h"
 
-LRESULT __stdcall Hooks::WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
+LRESULT WINAPI Hooks::WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 	KeyHandler.OnWindowMessage(uMsg, wParam);
 
-	if (DrawData.ShowMenu) // ImGui_ImplDX11_WndProcHandler
+	if (DrawData.ShowMenu)
 		return ImGui_ImplWin32_WndProcHandler(hWnd, uMsg, wParam, lParam);
 	else
 		return CallWindowProcA(DrawData.Dx.oWndProc, hWnd, uMsg, wParam, lParam);
@@ -24,41 +24,48 @@ LRESULT __stdcall Hooks::WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPAR
 
 void InitImGui() {
 	ImGui::CreateContext();
+
 	ImGuiIO& io = ImGui::GetIO();
 	io.ConfigFlags = ImGuiConfigFlags_NoMouseCursorChange;
 	ImGui_ImplWin32_Init(DrawData.Dx.Window);
 	ImGui_ImplDX11_Init(DrawData.Dx.pDevice, DrawData.Dx.pContext);
 
+	Log(LP_INFO, "Loading fonts...");
+
+	// ImGui takes ownership of the loaded memory by default
+	// Of course, we don't want to try to delete a constant array and get a SEGFAULT
+	ImFontConfig fontCfg{};
+	fontCfg.FontDataOwnedByAtlas = false;
+	for (int i = 2; i < 30; i += 2) {
+		DrawData.Fonts["MSTrebuchet"][i] = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", i, nullptr, io.Fonts->GetGlyphRangesDefault());
+		DrawData.Fonts["Monofonto"][i] = io.Fonts->AddFontFromMemoryTTF((void*)Fonts::Monofonto, IM_ARRAYSIZE(Fonts::Monofonto), i, &fontCfg, io.Fonts->GetGlyphRangesDefault());
+	}
+
 	// Setup Dear ImGui style
 	ImGui::StyleColorsClassic();
 }
+
 bool InitDX11(IDXGISwapChain* pSwapChain) {
 	if (!SUCCEEDED(pSwapChain->GetDevice(__uuidof(ID3D11Device), (void**)&DrawData.Dx.pDevice)))
 		return false;
-
+	// D3D Context
 	DrawData.Dx.pDevice->GetImmediateContext(&DrawData.Dx.pContext);
+
+	// Saves HWND
 	DXGI_SWAP_CHAIN_DESC sd;
 	pSwapChain->GetDesc(&sd);
 	DrawData.Dx.Window = sd.OutputWindow;
+
+	// Initializes D3D render target view
 	ID3D11Texture2D* pBackBuffer = nullptr;
 	pSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pBackBuffer);
 	DrawData.Dx.pDevice->CreateRenderTargetView(pBackBuffer, NULL, &DrawData.Dx.mainRenderTargetView);
 	pBackBuffer->Release();
-	DrawData.Dx.oWndProc = (WNDPROC)SetWindowLongPtr(DrawData.Dx.Window, GWLP_WNDPROC, (LONG_PTR)Hooks::WndProc);
-	InitImGui();
 
-	Log(LP_INFO, "Loading fonts...");
-	auto& io = ImGui::GetIO();
-	{
-		// ImGui takes ownership of the loaded memory by default
-		// Of course, we don't want to try to delete a constant array and get a SEGFAULT
-		ImFontConfig fontCfg{};
-		fontCfg.FontDataOwnedByAtlas = false;
-		for (int i = 2; i < 30; i += 2) {
-			DrawData.Fonts["MSTrebuchet"][i] = io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\trebuc.ttf)", i, nullptr, io.Fonts->GetGlyphRangesDefault());
-			DrawData.Fonts["Monofonto"][i] = io.Fonts->AddFontFromMemoryTTF((void*)Fonts::Monofonto, IM_ARRAYSIZE(Fonts::Monofonto), i, &fontCfg, io.Fonts->GetGlyphRangesDefault());
-		}
-	}
+	// Hooks WndProc
+	DrawData.Dx.oWndProc = (WNDPROC)SetWindowLongPtr(DrawData.Dx.Window, GWLP_WNDPROC, (LONG_PTR)Hooks::WndProc);
+
+	InitImGui();
 
 	DrawData.ShowMenu = true;
 	DrawData.Initialized = true;
@@ -69,7 +76,7 @@ long Hooks::hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags)
 	if (!DrawData.Initialized)
 		if (!InitDX11(pSwapChain))
 			return oPresent(pSwapChain, SyncInterval, Flags);
-	
+
 	auto& io = ImGui::GetIO();
 	static auto defaultFont = io.Fonts->AddFontDefault();
 
@@ -114,66 +121,4 @@ long Hooks::hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags)
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 
 	return oPresent(pSwapChain, SyncInterval, Flags);
-}
-
-bool Hooks::GetD3D11SwapchainDeviceContext(void** pSwapchainTable, size_t Size_Swapchain, void** pDeviceTable, size_t Size_Device, void** pContextTable, size_t Size_Context) {
-	WNDCLASSEX wc{ 0 };
-	wc.cbSize = sizeof(wc);
-	wc.lpfnWndProc = DefWindowProc;
-	wc.lpszClassName = TEXT("dummy class");
-
-	if (!RegisterClassEx(&wc))
-		return false;
-
-	HWND hWnd = CreateWindow(wc.lpszClassName, TEXT(""), WS_DISABLED, 0, 0, 0, 0, NULL, NULL, NULL, nullptr);
-
-	DXGI_SWAP_CHAIN_DESC swapChainDesc{ 0 };
-	swapChainDesc.BufferCount = 1;
-	swapChainDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
-	swapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
-	swapChainDesc.OutputWindow = hWnd;
-	swapChainDesc.SampleDesc.Count = 1;
-	swapChainDesc.BufferDesc.ScanlineOrdering = DXGI_MODE_SCANLINE_ORDER_UNSPECIFIED;
-	swapChainDesc.BufferDesc.Scaling = DXGI_MODE_SCALING_UNSPECIFIED;
-	swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;
-	swapChainDesc.Windowed = TRUE;
-
-	D3D_FEATURE_LEVEL featureLevel[] =
-	{
-		D3D_FEATURE_LEVEL_9_1,
-		D3D_FEATURE_LEVEL_9_2,
-		D3D_FEATURE_LEVEL_9_3,
-		D3D_FEATURE_LEVEL_10_0,
-		D3D_FEATURE_LEVEL_10_1,
-		D3D_FEATURE_LEVEL_11_0
-	};
-
-	IDXGISwapChain* pDummySwapChain = nullptr;
-	ID3D11Device* pDummyDevice = nullptr;
-	ID3D11DeviceContext* pDummyContext = nullptr;
-
-	if (FAILED(D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_HARDWARE, NULL, NULL, featureLevel, 1, D3D11_SDK_VERSION, &swapChainDesc, &pDummySwapChain, &pDummyDevice, nullptr, &pDummyContext))) {
-		DestroyWindow(swapChainDesc.OutputWindow);
-		UnregisterClass(wc.lpszClassName, GetModuleHandle(nullptr));
-
-		return false;
-	}
-
-	if (pSwapchainTable && pDummySwapChain)
-		memcpy(pSwapchainTable, *reinterpret_cast<void***>(pDummySwapChain), Size_Swapchain);
-
-	if (pDeviceTable && pDummyDevice)
-		memcpy(pDeviceTable, *reinterpret_cast<void***>(pDummyDevice), Size_Device);
-
-	if (pContextTable && pDummyContext)
-		memcpy(pContextTable, *reinterpret_cast<void***>(pDummyContext), Size_Context);
-
-	SAFE_RELEASE(pDummySwapChain);
-	SAFE_RELEASE(pDummyDevice);
-	SAFE_RELEASE(pDummyContext);
-
-	DestroyWindow(swapChainDesc.OutputWindow);
-	UnregisterClass(wc.lpszClassName, GetModuleHandle(nullptr));
-
-	return true;
 }

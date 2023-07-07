@@ -39,7 +39,7 @@ void Hacks::AegisSnatcher::FrameBasedLogic() {
 		ctx.localPlayer->PrepareOrder(
 			DOTA_UNIT_ORDER_PICKUP_ITEM,
 			aegis->GetIndex(),
-			&Vector::Zero,
+			Vector::Zero,
 			0,
 			DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
 			ctx.localHero,

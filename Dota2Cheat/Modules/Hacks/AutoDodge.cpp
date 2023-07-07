@@ -47,7 +47,7 @@ void Hacks::AutoDodge::FrameBasedLogic() {
 		ctx.localPlayer->PrepareOrder(
 			DOTA_UNIT_ORDER_CAST_NO_TARGET,
 			0,
-			&Vector::Zero,
+			Vector::Zero,
 			usedItem->GetIndex(),
 			DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
 			ctx.localHero);

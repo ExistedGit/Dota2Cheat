@@ -101,11 +101,6 @@ void CCheatManager::SaveConfig() {
 void CCheatManager::Unload() {
 	SaveConfig();
 
-	// Cleanup
-	//ImGui_ImplDX11_Shutdown();
-	//ImGui_ImplWin32_Shutdown();
-	//ImGui::DestroyContext();
-
 	if (ctx.gameStage != GameStage::NONE)
 		MatchStateManager.LeftMatch();
 

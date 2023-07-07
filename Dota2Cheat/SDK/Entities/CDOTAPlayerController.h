@@ -37,20 +37,22 @@ struct Order {
 class CDOTAPlayerController : public CBaseEntity {
 public:
 	GETTER(CHandle<CDOTABaseNPC_Hero>, GetAssignedHeroHandle, Netvars::C_DOTAPlayerController::m_hAssignedHero);
+
+	auto GetAssignedHero() {
+		return GetAssignedHeroHandle().Entity();
+	}
+
+	GETTER(CUtlVector<uint32_t>, GetSelectedUnits, Netvars::C_DOTAPlayerController::m_nSelectedUnits);
 	GETTER(int32_t, GetSequenceNum, Netvars::C_DOTAPlayerController::m_nOutgoingOrderSequenceNumber);
 	GETTER(uint32_t, GetPlayerID, Netvars::C_DOTAPlayerController::m_nPlayerID);
 	GETTER(uint64_t, GetSteamID, Netvars::CBasePlayerController::m_steamID);
 
-	std::vector<uint32_t> GetSelectedUnits();
-	CDOTABaseNPC_Hero* GetAssignedHero();
-
-
 	void CastNoTarget(CDOTABaseAbility* ability, CBaseEntity* issuer = nullptr);
 	void CastTarget(CDOTABaseAbility* ability, CBaseEntity* target, CBaseEntity* issuer = nullptr);
 	void BuyItem(int itemId);
-	void OrderMoveTo(Vector* pos, bool directMovement = false, CBaseEntity* issuer = nullptr);
-	void PrepareOrder(dotaunitorder_t orderType, uint32_t targetIndex, Vector* position, uint32_t abilityIndex, PlayerOrderIssuer_t orderIssuer, CBaseEntity* issuer, bool queue = false, bool showEffects = true);
+	void OrderMoveTo(const Vector& pos, bool directMovement = false, CBaseEntity* issuer = nullptr);
+	void PrepareOrder(dotaunitorder_t orderType, uint32_t targetIndex, const Vector& position, uint32_t abilityIndex, PlayerOrderIssuer_t orderIssuer, CBaseEntity* issuer, bool queue = false, bool showEffects = true);
 	void PrepareOrder(const Order& order) {
-		PrepareOrder(order.Type, order.TargetIndex, (Vector*)&order.Position, order.AbilityIndex, order.IssuerType, order.Issuer, order.Queue, order.ShowEffects);
+		PrepareOrder(order.Type, order.TargetIndex, order.Position, order.AbilityIndex, order.IssuerType, order.Issuer, order.Queue, order.ShowEffects);
 	}
 };

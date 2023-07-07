@@ -47,7 +47,7 @@ void Hacks::AutoMidas::FrameBasedLogic() {
 		ctx.localPlayer->PrepareOrder(
 			DOTA_UNIT_ORDER_CAST_TARGET,
 			creep->GetIndex(),
-			&Vector::Zero,
+			Vector::Zero,
 			midas->GetIndex(),
 			DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
 			ctx.localHero);

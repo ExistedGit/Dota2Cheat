@@ -7,33 +7,28 @@
 #include "../CheatSDK/KeyHandler.h"
 #include "../UI/Pages/MainMenu.h"
 
-// DirectX11's SwapChain::Present, used to draw things
+// DirectX11's SwapChain::Present, used to render things
+// Its hooking is different from the "classical" method of creating a dummy window
+// The first problem is that the Steam overlay doesn't work after such manipulations
+// The second problem is that that same overlay's own hkPresent is called by our one,
+// creating a possibility for Valve to make a retar~ retaddr check and detect the cheat
+// Not saying they made one, but we don't take any chances.
 
-extern IMGUI_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 namespace Hooks {
 	typedef long(*PresentFn)(IDXGISwapChain*, UINT, UINT);
 	inline PresentFn oPresent;
 
-	LRESULT __stdcall WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+	LRESULT WINAPI WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 	long hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags);
 
-	inline void SAFE_RELEASE(auto* t) {
-		if (t)
-			t->Release();
-	}
-
-	bool GetD3D11SwapchainDeviceContext(void** pSwapchainTable, size_t Size_Swapchain, void** pDeviceTable, size_t Size_Device, void** pContextTable, size_t Size_Context);
-
 	inline bool HookDirectX() {
-		if (GetD3D11SwapchainDeviceContext(
-			DrawData.Dx.SwapChain, sizeof(DrawData.Dx.SwapChain),
-			DrawData.Dx.Device, sizeof(DrawData.Dx.Device),
-			DrawData.Dx.Context, sizeof(DrawData.Dx.Context)))
-			if (HookFunc(DrawData.Dx.SwapChain[8], hkPresent, &oPresent, "Present"))
-				return true;
-
-		return false;
+		// xref: "Hooking vtable for swap chain\n"
+		auto Present = *Memory::Scan("48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 48 8B 01 48 8B F2", "gameoverlayrenderer64.dll")
+			.Offset(0x9e)
+			.GetAbsoluteAddress<Address*>(3);
+		return HOOKFUNC(Present);
 	}
 }

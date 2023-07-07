@@ -17,8 +17,6 @@
 #include "UI/Pages/AutoPickSelectionGrid.h"
 #include "CheatSDK/Systems/CheatManager.h"
 
-Vector Vector::Zero = Vector(0, 0, 0);
-
 uintptr_t WINAPI HackThread(HMODULE hModule) {
 	// Initialize MinHook.
 	if (MH_Initialize() != MH_OK)

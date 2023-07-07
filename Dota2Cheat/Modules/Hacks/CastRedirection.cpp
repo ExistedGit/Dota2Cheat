@@ -9,10 +9,7 @@ bool Hacks::CastRedirection::RedirectIfIllusionCast(uint32_t& targetIndex, CBase
 		!reinterpret_cast<CDOTABaseNPC_Hero*>(npc)->IsIllusion())
 		return false;
 
-	auto illusionOwner = Interfaces::EntitySystem->GetEntity<CDOTAPlayerController>(
-		H2IDX(npc->GetOwnerEntityHandle())
-		)
-		->GetAssignedHero();
+	CDOTABaseNPC_Hero* illusionOwner = npc->GetOwnerEntityHandle().Entity()->GetAssignedHeroHandle();
 
 	auto range = Interfaces::EntitySystem->GetEntity<CDOTABaseAbility>(abilityIndex)->GetEffectiveCastRange();
 	if (!illusionOwner->IsTargetable() ||
