@@ -20,9 +20,11 @@ T* GameSystems::FindStaticGameSystem(const char* name) {
 	while (pFactory) {
 		if (pFactory->m_szName && !strcmp(pFactory->m_szName, name))
 			return (T*)pFactory->GetGameSystem();
-		
+
 		pFactory = pFactory->m_pNextFactory;
 	}
+
+	return nullptr;
 }
 
 template<typename T>
@@ -34,6 +36,8 @@ T** GameSystems::FindReallocatingGameSystemPtr(const char* name) {
 
 		pFactory = pFactory->m_pNextFactory;
 	}
+
+	return nullptr;
 }
 
 void GameSystems::FindGameSystems() {

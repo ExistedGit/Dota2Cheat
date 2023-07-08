@@ -34,10 +34,7 @@
     <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp" />
     <ClCompile Include="Modules\Utility\AttackTargetFinder.cpp" />
     <ClCompile Include="Modules\Utility\ParticleGC.cpp" />
-    <ClCompile Include="SDK\Entities\CBaseEntity.cpp" />
-    <ClCompile Include="SDK\Entities\CDOTABaseAbility.cpp" />
     <ClCompile Include="SDK\Entities\CDOTABaseNPC.cpp" />
-    <ClCompile Include="SDK\Entities\CDOTAModifier.cpp" />
     <ClCompile Include="SDK\Entities\CDOTAPlayerController.cpp" />
     <ClCompile Include="SDK\Entities\CDOTAUnitInventory.cpp" />
     <ClCompile Include="SDK\GameSystems\CDOTAParticleManager.cpp" />
@@ -136,7 +133,6 @@
     <ClCompile Include="UI\Pages\MainMenu.cpp" />
     <ClCompile Include="Hooks\GameCoordinator.cpp" />
     <ClCompile Include="Modules\Hacks\ManaHPAbuse.cpp" />
-    <ClCompile Include="SDK\GameSystems\CDOTA_MinimapObjectManager.cpp" />
     <ClCompile Include="SDK\GameSystems\CRenderGameSystem.cpp" />
     <ClCompile Include="SDK\GameSystems\CGlobalVars.cpp" />
     <ClCompile Include="Hooks\SteamGC.cpp" />
@@ -220,7 +216,6 @@
     <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h" />
     <ClInclude Include="Utils\Drawing.h" />
     <ClInclude Include="SDK\Globals\Context.h" />
-    <ClInclude Include="Hooks\EntityEvents.h" />
     <ClInclude Include="CheatSDK\EventListeners.h" />
     <ClInclude Include="CheatSDK\Hooking.h" />
     <ClInclude Include="Modules\Hacks\LinearProjectileWarner.h" />
@@ -375,5 +370,6 @@
     <ClInclude Include="include\imgui\imgui_impl_win32.h" />
     <ClInclude Include="include\imgui\imgui_impl_dx11.h" />
     <ClInclude Include="Modules\UI\ModifierESP.h" />
+    <ClInclude Include="Modules\Hacks\ParticleRevealer.h" />
   </ItemGroup>
 </Project>

@@ -273,7 +273,6 @@
     <ClCompile Include="Modules\Hacks\TreeChanger.cpp" />
     <ClCompile Include="Modules\Utility\CVarSpoofer.cpp" />
     <ClCompile Include="Modules\Utility\OrderRouter.cpp" />
-    <ClCompile Include="SDK\GameSystems\CDOTA_MinimapObjectManager.cpp" />
     <ClCompile Include="CheatSDK\Config.cpp" />
     <ClCompile Include="CheatSDK\Hooking.cpp" />
     <ClCompile Include="CheatSDK\Utils.cpp" />
@@ -319,10 +318,7 @@
     <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp" />
     <ClCompile Include="Modules\Utility\AttackTargetFinder.cpp" />
     <ClCompile Include="Modules\Utility\ParticleGC.cpp" />
-    <ClCompile Include="SDK\Entities\CBaseEntity.cpp" />
-    <ClCompile Include="SDK\Entities\CDOTABaseAbility.cpp" />
     <ClCompile Include="SDK\Entities\CDOTABaseNPC.cpp" />
-    <ClCompile Include="SDK\Entities\CDOTAModifier.cpp" />
     <ClCompile Include="SDK\Entities\CDOTAPlayerController.cpp" />
     <ClCompile Include="SDK\Entities\CDOTAUnitInventory.cpp" />
     <ClCompile Include="SDK\GameSystems\CDOTAParticleManager.cpp" />
@@ -566,6 +562,10 @@
     <ClInclude Include="Hooks\SteamGC.h" />
     <ClInclude Include="include\imgui\imgui_impl_dx11.h" />
     <ClInclude Include="include\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="Modules\Hacks\ParticleRevealer.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Modules\Hacks\TreeChanger.h">
       <SubType>
       </SubType>
@@ -766,7 +766,6 @@
     <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h" />
     <ClInclude Include="Utils\Drawing.h" />
     <ClInclude Include="SDK\Globals\Context.h" />
-    <ClInclude Include="Hooks\EntityEvents.h" />
     <ClInclude Include="CheatSDK\EventListeners.h" />
     <ClInclude Include="CheatSDK\Hooking.h" />
     <ClInclude Include="Modules\Hacks\LinearProjectileWarner.h" />

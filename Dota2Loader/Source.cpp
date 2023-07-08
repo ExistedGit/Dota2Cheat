@@ -69,7 +69,6 @@ int main() {
 	const wstring curDir = current_path().wstring();
 	const wstring injectPath = curDir + L"\\Dota2Cheat.dll";
 	{
-		//notepad.CreateAndAttach( L"C:\\windows\\system32\\notepad.exe", true );
 		std::string userFolderPath;
 		{
 			char buf[256];

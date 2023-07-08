@@ -6,7 +6,6 @@ namespace Hooks {
 	using CParticleCollection = Signatures::CParticleCollection;
 
 	typedef void(*SetRenderingEnabledFn)(CParticleCollection*, bool);
-	inline SetRenderingEnabledFn SetRenderingEnabled{};
 	inline SetRenderingEnabledFn oSetRenderingEnabled{};
 	
 	inline void hkSetRenderingEnabled(CParticleCollection* thisptr, bool state) {

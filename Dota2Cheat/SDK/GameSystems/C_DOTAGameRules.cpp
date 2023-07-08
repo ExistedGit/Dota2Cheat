@@ -13,12 +13,3 @@ float CDOTAGameRules::GetGameTime() {
 	return gpGlobals->Member<float>(44) - totalPausedTicks * tickToSeconds;
 }
 
-std::vector<ItemStockInfo*> CDOTAGameRules::GetItemStockInfo() {
-	auto arr = MemberInline<CUtlVector<ItemStockInfo>>(Netvars::C_DOTAGamerules::m_vecItemStockInfo);
-	auto result = std::vector<ItemStockInfo*>{};
-	result.reserve(arr->m_Size);
-	for (int i = 0; i < arr->m_Size; i++)
-		result.push_back(&arr->at(i));
-
-	return result;
-}

@@ -50,7 +50,9 @@ public:
 
 class IGameEventListener2
 {
-	virtual void DESTROY() = 0;
+	virtual void DESTROY()
+	{
+	};
 
 	virtual void FireGameEvent(CGameEvent* event) = 0;
 };

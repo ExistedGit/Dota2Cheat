@@ -3,6 +3,7 @@
 
 
 #include "../Base/VClass.h"
+#include "../Base/NormalClass.h"
 #include "../Base/Definitions.h"
 #include "../Base/Vector.h"
 #include "../Base/Color.h"
@@ -33,9 +34,8 @@ public:
 		};
 	};
 	struct CSkeletonInstance : public VClass {
-		//reversed from xref: "CBaseModelEntity::SetBodygroup(%d,%d) failed: CBaseModelEntity has no model!\n"
+		// reversed from xref: "CBaseModelEntity::SetBodygroup(%d,%d) failed: CBaseModelEntity has no model!\n"
 		// last two subs are get and set
-		// GETTER(uint64_t, GetMeshGroupMask, 0x2e0);
 
 		IGETTER(CModelState, GetModelState, Netvars::CSkeletonInstance::m_modelState)
 	};
@@ -69,20 +69,41 @@ public:
 			return INVALID_HANDLE;
 		return id->entHandle;
 	}
+
 	// Returns the index of this entity in the entity system
-	uint32_t GetIndex();
-
-	void SetColor(Color clr);
-
-	float& ModelScale() {
-		return Member<VClass*>(Netvars::C_BaseEntity::m_pGameSceneNode)->Field<float>(Netvars::CGameSceneNode::m_flScale);
+	uint32_t GetIndex() {
+		return H2IDX(GetHandle());
 	}
 
-	Vector GetPos();
+	void SetColor(Color clr)
+	{
+		Field<Color>(Netvars::C_BaseModelEntity::m_clrRender) = clr;
+		OnColorChanged(this);
+	}
+
+	float& ModelScale() {
+		return Member<VClass*>(Netvars::C_BaseEntity::m_pGameSceneNode)
+			->Field<float>(Netvars::CGameSceneNode::m_flScale);
+	}
+
+	Vector GetPos() {
+		return Member<VClass*>(Netvars::C_BaseEntity::m_pGameSceneNode)
+			->Member<Vector>(Netvars::CGameSceneNode::m_vecAbsOrigin); 
+	}
 
 	// In degrees from 180 to -180(on 0 it looks right)
-	float GetRotation();
+	float GetRotation() {
+		return Member<VClass*>(Netvars::C_BaseEntity::m_pGameSceneNode)
+			->Member<Vector>(Netvars::CGameSceneNode::m_angRotation).y;
+	}
 
 	// Gets the point in front of the entity at the specified distance
-	Vector GetForwardVector(float dist);
+	Vector GetForwardVector(float dist) {
+		auto pos = GetPos();
+		float rotation = GetRotation() * M_PI / 180;
+
+		float sine = sinf(rotation), cosine = cosf(rotation);
+		auto forwardVec = Vector(cosine * dist, sine * dist, 0);
+		return pos + forwardVec;
+	}
 };

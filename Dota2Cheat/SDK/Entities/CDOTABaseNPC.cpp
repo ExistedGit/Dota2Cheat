@@ -3,15 +3,14 @@
 [[nodiscard]]
 std::vector<CDOTABaseAbility*> CDOTABaseNPC::GetAbilities() {
 	std::vector<CDOTABaseAbility*> result{};
-	ENT_HANDLE* hAbilities = MemberInline<ENT_HANDLE>(Netvars::C_DOTA_BaseNPC::m_hAbilities);
+	auto hAbilities = MemberInline<CHandle<CDOTABaseAbility>>(Netvars::C_DOTA_BaseNPC::m_hAbilities);
 	for (int j = 0; j < 35; j++) {
-		ENT_HANDLE handle = hAbilities[j];
-		if (!HVALID(handle))
+		auto handle = hAbilities[j];
+		if (!handle.IsValid())
 			continue;
 
-		if (auto ability = Interfaces::EntitySystem->GetEntity<CDOTABaseAbility>(H2IDX(handle)))
+		if (auto ability = handle)
 			result.push_back(ability);
-
 	}
 	return result;
 }
@@ -31,10 +30,6 @@ CDOTAItem* CDOTABaseNPC::FindItemBySubstring(const char* str) {
 	return nullptr;
 }
 
-CDOTAUnitInventory* CDOTABaseNPC::GetInventory() {
-	return MemberInline<CDOTAUnitInventory>(Netvars::C_DOTA_BaseNPC::m_Inventory);
-}
-
 [[nodiscard]]
 std::vector<CDOTAItem*> CDOTABaseNPC::GetItems() {
 	std::vector<CDOTAItem*> result{};
@@ -44,16 +39,12 @@ std::vector<CDOTAItem*> CDOTABaseNPC::GetItems() {
 
 	auto itemsHandle = inv->GetItems();
 	for (auto& handle : itemsHandle) {
-		if (!HVALID(handle))
+		if (!handle.IsValid())
 			continue;
 
-		result.push_back(Interfaces::EntitySystem->GetEntity<CDOTAItem>(H2IDX(handle)));
+		result.push_back(handle);
 	}
 
 	return result;
 }
 
-bool CDOTABaseNPC::HasState(ModifierState state) {
-	auto unitState = Member<int64>(Netvars::C_DOTA_BaseNPC::m_nUnitState64);
-	return (unitState & (1Ui64 << (int)state));
-}

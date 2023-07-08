@@ -6,30 +6,33 @@ void Pages::MainMenu::Draw() {
 	ImGui::Begin("Main", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
 
 	static auto& cl_particle_log_creates = Interfaces::CVar->CVars["cl_particle_log_creates"].m_pVar->value.boolean;
+	static auto net_showreliable = Interfaces::CVar->CVars["net_showreliable"].m_pVar;
+	static bool net_showreliable_bool = strcmp(net_showreliable->value.str, "0");
 #if defined(_DEBUG) && !defined(_TESTING)
 	ImGui::Begin("Debug", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+
+	if (ImGui::Checkbox("net_showreliable", &net_showreliable_bool))
+		net_showreliable->SetStrVal(net_showreliable_bool);
 
 	ImGui::Checkbox("cl_particle_log_creates", &cl_particle_log_creates);
 
 	ImGui::InputText("Sound name", &uiSoundBuf);
 
-	if (ImGui::Button("PLAY SOUND")) {
+	if (ImGui::Button("PLAY SOUND"))
 		PlayUISoundScript(uiSoundBuf);
-	}
 
 	if (ImGui::Button("Log Entities"))
 		LogEntities();
 
-
 	if (ImGui::Button("Log Inventory")) {
 		auto selected = ctx.localPlayer->GetSelectedUnits();
-		auto ent = (CDOTABaseNPC*)Interfaces::EntitySystem->GetEntity(selected[0]);
+		auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(selected[0]);
 		LogInvAndAbilities(ent);
 	}
 
 	if (ImGui::Button("Log Modifiers")) {
 		auto selected = ctx.localPlayer->GetSelectedUnits();
-		auto ent = (CDOTABaseNPC*)Interfaces::EntitySystem->GetEntity(selected[0]);
+		auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(selected[0]);
 		LogModifiers(ent);
 	}
 
@@ -80,9 +83,9 @@ void Pages::MainMenu::Draw() {
 
 	if (ImGui::CollapsingHeader("Changer")) {
 
-		ImGui::InputText("Rich Presence status", &rpStatusBuf);
-		if (CheatGui::Button("Apply status"))
-			GameSystems::RichPresence->SetRPStatus(rpStatusBuf.c_str());
+		//ImGui::InputText("Rich Presence status", &rpStatusBuf);
+		//if (CheatGui::Button("Apply status"))
+		//	GameSystems::RichPresence->SetRPStatus(rpStatusBuf.c_str());
 
 
 		ImGui::Checkbox("Unlock Dota Plus", &Config::Changer::UnlockDotaPlus);

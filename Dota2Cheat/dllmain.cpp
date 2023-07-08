@@ -11,11 +11,8 @@
 #include "CheatSDK/MatchStateHandling.h"
 
 #include "Hooks/InvalidateUEF.h"
-#include "Modules/Utility/CVarSpoofer.h"
-#include "SDK/Interfaces/GC/CEconWearable.h"
 #include "UI/Pages/MainMenu.h"
 #include "UI/Pages/AutoPickSelectionGrid.h"
-#include "CheatSDK/Systems/CheatManager.h"
 
 uintptr_t WINAPI HackThread(HMODULE hModule) {
 	// Initialize MinHook.

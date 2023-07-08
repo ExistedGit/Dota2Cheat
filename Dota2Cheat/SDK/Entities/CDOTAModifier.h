@@ -20,9 +20,18 @@ public:
 	bool IsSameTeam(CBaseEntity* ent) {
 		return ent->GetTeam() == GetTeam();
 	}
-	GETTER(CHandle<CDOTABaseNPC>, GetCaster, Netvars::CDOTA_Buff::m_hCaster);
-	GETTER(CHandle<CDOTABaseNPC>, GetAbility, Netvars::CDOTA_Buff::m_hAbility);
+	GETTER(CHandle<CDOTABaseNPC>, GetCasterHandle, Netvars::CDOTA_Buff::m_hCaster);
+	GETTER(CHandle<CDOTABaseNPC>, GetAbilityHandle, Netvars::CDOTA_Buff::m_hAbility);
+	GETTER(CHandle<CDOTABaseNPC>, GetOwnerHandle, Netvars::CDOTA_Buff::m_hParent);
 
-	CDOTABaseNPC* GetOwner();
+	CDOTABaseNPC* GetOwner() {
+		return GetOwnerHandle();
+	}
+	CDOTABaseNPC* GetCaster() {
+		return GetCasterHandle();
+	}
+	CDOTABaseNPC* GetAbility() {
+		return GetAbilityHandle();
+	}
 };
 

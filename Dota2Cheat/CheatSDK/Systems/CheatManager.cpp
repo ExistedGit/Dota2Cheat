@@ -10,9 +10,6 @@
 
 #include "../Hooking.h"
 
-// Loads and executes scripts from the cheat's folder in C:\Users\%USER%\Documents\Dota2Cheat\scripts
-
-
 void CCheatManager::LoadGameSpecific() {
 
 	// Allows VPK mods
@@ -28,7 +25,8 @@ void CCheatManager::LoadGameSpecific() {
 
 	Interfaces::FindInterfaces();
 	Interfaces::CVar->DumpConVarsToMap();
-
+	Interfaces::CVar->UnlockHiddenConVars();
+	
 	Modules::CVarSpoofer.SpoofVars(
 		"dota_camera_distance",
 		"r_farz",

@@ -30,8 +30,8 @@ public:
 	GETTER(float, GetGameStartTime, Netvars::C_DOTAGamerules::m_flGameStartTime);
 	GETTER(float, GetGameLoadTime, Netvars::C_DOTAGamerules::m_flGameLoadTime);
 	GETTER(float, GetGameEndTime, Netvars::C_DOTAGamerules::m_flGameEndTime);
-	
 
 	float GetGameTime();
-	std::vector<ItemStockInfo*> GetItemStockInfo();
+
+	GETTER(CUtlVector<ItemStockInfo>, GetItemStockInfo, Netvars::C_DOTAGamerules::m_vecItemStockInfo);
 };

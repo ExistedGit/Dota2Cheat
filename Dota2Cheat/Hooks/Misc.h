@@ -4,13 +4,6 @@
 #include "../CheatSDK/Data/DrawData.h"
 
 namespace Hooks {
-
-	inline CVarSystem::CVarCallbackFn oOnHUDFlipped;
-	inline void* hkOnHUDFlipped(const CVarID& id, int unk1, const CVarValue* val, const CVarValue* old_val) {
-		DrawData.IsHUDFlipped = val->boolean;
-		return oOnHUDFlipped(id, unk1, val, old_val);
-	};
-
 	inline Signatures::SaveSerializedSOCacheFn oSaveSerializedSOCache{};
 	inline void* hkSaveSerializedSOCache(void* thisptr) {
 		auto result = oSaveSerializedSOCache(thisptr);

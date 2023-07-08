@@ -1,5 +1,6 @@
 #pragma once
 #include "CBaseEntity.h"
+#include "../Base/CUtlVector.h"
 
 enum class EDOTASpecialBonusOperation : uint8_t
 {
@@ -200,12 +201,19 @@ public:
 
 	// xref: "GetCastRange" to lea rcx, above that is lea rax, [XXXXXXXXX]
 	// In the end of the func is a call to [rcx + 0x???] <--- that divided by 8 gives you the index
-	int GetCastRange();
+	int GetCastRange() {
+		// Still using GetLevelSpecialValueFor because that has clearer usage
+		return GetLevelSpecialValueFor<int>("AbilityCastRange");
+	}
 
 	// Goes right after GetCastRange ^
-	int GetEffectiveCastRange();
+	int GetEffectiveCastRange() {
+		return CallVFunc<VTableIndexes::CDOTABaseAbility::GetEffectiveCastRange, int>(nullptr, nullptr, nullptr);
+	}
 
-	int GetAOERadius();
+	int GetAOERadius() {
+		return GetLevelSpecialValueFor<int>("radius", -1);
+	}
 };
 
 //template<typename T>

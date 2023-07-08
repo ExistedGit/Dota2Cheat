@@ -11,6 +11,12 @@
 // defines from TF2 sources. All hail the Source Engine!
 #define FCVAR_CHEAT	(1<<14)
 
+#define FCVAR_UNREGISTERED		(1<<0)	// If this is set, don't add to linked list, etc.
+#define FCVAR_DEVELOPMENTONLY	(1<<1)	// Hidden in released products. Flag is removed automatically if ALLOW_DEVELOPMENT_CVARS is defined.
+#define FCVAR_GAMEDLL			(1<<2)	// defined by the game DLL
+#define FCVAR_CLIENTDLL			(1<<3)  // defined by the client DLL
+#define FCVAR_HIDDEN			(1<<4)	// Hidden. Doesn't appear in find or auto complete. Like DEVELOPMENTONLY, but can't be compiled out.
+
 enum class EConvarType : std::uint8_t
 {
 	BOOL = 0,
@@ -37,7 +43,7 @@ union CVarValue
 	std::int32_t i32;
 	float flt;
 	double dbl;
-	const char* str;
+	char* str;
 	std::uint32_t clr_rgba;
 	std::array<float, 2> two_floats;
 	std::array<float, 3> three_floats;
@@ -57,6 +63,11 @@ struct CVar {
 	PAD(4);
 	CVarValue value{};
 	CVarValue defaultValue{};
+
+	// Sets string value to a stringified integer
+	void SetStrVal(int val) {
+		_itoa(val, value.str, 10);
+	}
 };
 
 // Element of the convar list
@@ -102,6 +113,18 @@ public:
 
 	GETTER(uint32_t, GetCVarCount, 0xA0);
 	GETTER(CVarNode*, GetCVarNodeList, 0x40);
+
+	// Removes "hidden" and "dev only" flags from convars
+	void UnlockHiddenConVars() {
+		auto list = GetCVarNodeList();
+		for (int i = 0; i < GetCVarCount(); i++) {
+			if (!list[i].var)
+				continue;
+
+			list[i].var->flags &= ~FCVAR_HIDDEN;
+			list[i].var->flags &= ~FCVAR_DEVELOPMENTONLY;
+		}
+	}
 
 	void DumpConVarsToMap() {
 		auto list = GetCVarNodeList();

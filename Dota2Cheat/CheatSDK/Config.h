@@ -27,19 +27,22 @@ namespace Config {
 			vars[name] = ConfigVar{ .val = (void*)var, .type = type };
 		}
 
-		// Used to infer the type of a ConfigVar to avoid manually specifying it
-#define ADDVAR_TEMPLATE(codeType, enumType) void AddVar(codeType* var, codeType val, const std::string& name) { \
-												AddVar<codeType>(enumType, var, val, name); \
-											}
+// Used to infer the type of a ConfigVar to avoid manually specifying it
+// Essentially links a type to an enum value
+#define CFGVAR_INFER(cType, eType) if constexpr (std::is_same_v<T, cType>) \
+										AddVar(eType, var, value, name);
 
-		ADDVAR_TEMPLATE(bool, ConfigVarType::BOOL);
-		ADDVAR_TEMPLATE(int, ConfigVarType::INT);
-		ADDVAR_TEMPLATE(float, ConfigVarType::FLOAT);
-		ADDVAR_TEMPLATE(Vector, ConfigVarType::VECTOR3D);
-		ADDVAR_TEMPLATE(Vector2D, ConfigVarType::VECTOR2D);
-		ADDVAR_TEMPLATE(uint64_t, ConfigVarType::UINT_64);
+		template<typename T>
+		void AddVar(T* var, T value, const std::string& name) {
+			CFGVAR_INFER(bool, ConfigVarType::BOOL);
+			CFGVAR_INFER(int, ConfigVarType::INT);
+			CFGVAR_INFER(float, ConfigVarType::FLOAT);
+			CFGVAR_INFER(Vector, ConfigVarType::VECTOR3D);
+			CFGVAR_INFER(Vector2D, ConfigVarType::VECTOR2D);
+			CFGVAR_INFER(uint64_t, ConfigVarType::UINT_64);
+		}
 
-#undef ADDVAR_TEMPLATE
+#undef CFGVAR_INFER
 
 		void SaveConfig(std::ofstream& stream);
 		void LoadConfig(std::ifstream& stream);
@@ -103,7 +106,7 @@ namespace Config {
 	inline bool AutoPickUpAegis;
 
 	inline bool BlinkRevealer;
-	
+
 	namespace Indicators {
 		inline bool Speed;
 		inline bool Kill;

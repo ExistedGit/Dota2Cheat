@@ -26,19 +26,17 @@ public:
 
 	GETTER(BarrierData, GetBarriers, 0x16d4);
 
-	CDOTAModifierManager* GetModifierManager() {
-		// Inlined into the object instead of a pointer
-		return MemberInline<CDOTAModifierManager>(Netvars::C_DOTA_BaseNPC::m_ModifierManager);
-	}
+	IGETTER(CDOTAModifierManager, GetModifierManager, Netvars::C_DOTA_BaseNPC::m_ModifierManager);
+
 	bool HasOneOfModifiers(std::vector<const char*> modifiers) {
-		for (auto& modifier : *GetModifierManager()->GetModifierListRaw()) {
+		for (auto& modifier : GetModifierManager()->GetModifierList()) {
 			if (TestStringFilters(modifier->GetName(), modifiers))
 				return true;
 		}
 		return false;
 	}
 	CDOTAModifier* GetModifier(std::string_view name) {
-		for (auto& modifier : *GetModifierManager()->GetModifierListRaw())
+		for (auto& modifier : GetModifierManager()->GetModifierList())
 			if (modifier->GetName() == name)
 				return modifier;
 
@@ -102,8 +100,8 @@ public:
 	{
 		if (index < 0 || index >= 35)
 			return nullptr;
-		auto handle = MemberInline<ENT_HANDLE>(Netvars::C_DOTA_BaseNPC::m_hAbilities)[index];
-		return Interfaces::EntitySystem->GetEntity<CDOTABaseAbility>(H2IDX(handle));
+
+		return MemberInline<CHandle<CDOTABaseAbility>>(Netvars::C_DOTA_BaseNPC::m_hAbilities)[index];
 	}
 	CDOTABaseAbility* GetAbility(const std::string_view& name)
 	{
@@ -122,12 +120,15 @@ public:
 
 	CDOTAItem* FindItemBySubstring(const char* str);
 
-	CDOTAUnitInventory* GetInventory();
+	IGETTER(CDOTAUnitInventory, GetInventory, Netvars::C_DOTA_BaseNPC::m_Inventory);
 
 	[[nodiscard]]
 	std::vector<CDOTAItem*> GetItems();
 
-	bool HasState(ModifierState state);
+	bool HasState(ModifierState state) {
+		auto unitState = Member<int64>(Netvars::C_DOTA_BaseNPC::m_nUnitState64);
+		return (unitState & (1Ui64 << (int)state));
+	}
 
 	// This checks for modifier states under which you cannot give orders to the hero
 	bool IsDisabled() {

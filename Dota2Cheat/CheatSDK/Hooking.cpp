@@ -4,11 +4,6 @@
 
 void Hooks::InstallHooks() {
 	HOOKFUNC_SIGNATURES(PrepareUnitOrders);
-
-#ifndef _TESTING
-	HOOKFUNC_SIGNATURES(CDOTA_DB_Popup_AcceptMatch);
-#endif
-
 #if defined(_DEBUG) && !defined(_TESTING)
 	{
 		auto SendMsg = VMT(Interfaces::SteamGC).GetVM(0);
@@ -52,18 +47,9 @@ void Hooks::InstallHooks() {
 		auto SetRenderingEnabled = vtable[VTableIndexes::CParticleCollection::SetRenderingEnabled];
 		HOOKFUNC(SetRenderingEnabled);
 	}
-	//{
-	//	void* RunScript = Interfaces::UIEngine->GetVFunc(88).ptr;
-	//	HOOKFUNC(RunScript);
-	//}
 	{
-		// Hooking HUD flip's callback to avoid sigging IsHUDFlipped
-		// (and lowering performance, according to Wolf49406...)
-		//auto cvar = Interfaces::CVar->CVars["dota_hud_flip"];
-		//auto& callback = Interfaces::CVar->GetCallback(cvar.m_pVar->m_iCallbackIndex);
-		//oOnHUDFlipped = callback;
-		//HUDFlipCallback = (void**)&callback;
-		//callback = hkOnHUDFlipped;
+		void* RunScript = Interfaces::UIEngine->GetVFunc(88).ptr;
+		HOOKFUNC(RunScript);
 	}
 	{
 		EntEventListener = CMemAlloc::Instance()->AllocInit<EntityEventListener>();

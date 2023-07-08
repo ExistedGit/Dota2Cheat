@@ -11,9 +11,9 @@ void Hacks::AutoBuyTome::Init() {
 
 	auto vec = GameSystems::GameRules->GetItemStockInfo();
 	for (auto& info : vec) {
-		if (info->iTeamNumber == ctx.localHero->GetTeam() &&
-			info->nItemAbilityID == 0x101) { // tome's id is 257
-			tomeStockInfo = info;
+		if (info.iTeamNumber == ctx.localHero->GetTeam() &&
+			info.nItemAbilityID == 0x101) { // tome's id is 257
+			tomeStockInfo = &info;
 			Log(LP_INFO, "Found Tome of Knowledge stock info");
 			break;
 		}

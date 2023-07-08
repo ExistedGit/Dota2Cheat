@@ -21,9 +21,6 @@ class CDOTAPlayerController;
 class CDOTAModifier;
 
 namespace Signatures {
-	typedef void* (*CDOTA_DB_Popup_AcceptMatchFn)(VClass*, Panorama::CPanel2D*, const char*, Panorama::CPanel2D*, bool, const char*);
-	inline CDOTA_DB_Popup_AcceptMatchFn CDOTA_DB_Popup_AcceptMatch{};
-
 	inline CDOTAItemSchema* (*GetItemSchema)() = nullptr;
 	inline CEconItem* (*CreateEconItem)() = nullptr;
 
@@ -79,12 +76,11 @@ namespace Signatures {
 #endif
 
 		SIGMAP_ENTRY(GetPlayer),
-		SIGMAP_ENTRY(CDOTA_DB_Popup_AcceptMatch),
 
 		SIGMAP_ENTRY(CDOTABaseNPC::GetAttackSpeed),
 
 		{"CDOTAParticleManager::DestroyParticle", (void**)&CDOTAParticleManager::DestroyParticleFunc},
-		{"CDOTARichPresence::SetRPStatus", (void**)&CDOTARichPresence::SetRPStatusFunc},
+		// {"CDOTARichPresence::SetRPStatus", (void**)&CDOTARichPresence::SetRPStatusFunc},
 		{"CDOTABaseAbility::GetLevelSpecialValueFor", (void**)&CDOTABaseAbility::GetLevelSpecialValueForFunc},
 	};
 

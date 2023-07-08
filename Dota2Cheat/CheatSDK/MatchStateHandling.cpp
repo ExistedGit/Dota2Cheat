@@ -162,7 +162,8 @@ void CMatchStateManager::OnStateChanged(DOTA_GameState newState) {
 	switch (newState) {
 	case DOTA_GAMERULES_STATE_PRE_GAME:
 	case DOTA_GAMERULES_STATE_GAME_IN_PROGRESS:
-		EnteredInGame();
+		if (ctx.gameStage != GameStage::IN_GAME)
+			EnteredInGame();
 		break;
 	default:
 		if (ctx.gameStage == GameStage::NONE)

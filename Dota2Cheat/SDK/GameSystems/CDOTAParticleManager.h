@@ -62,8 +62,16 @@ private:
 	};
 };
 
+class CParticleCollection : public VClass {
+public:
+	VGETTER(bool, GetRenderingEnabled, VTableIndexes::CParticleCollection::SetRenderingEnabled - 1);
+	void SetRenderingEnabled(bool value) {
+		CallVFunc<VTableIndexes::CParticleCollection::SetRenderingEnabled>(value);
+	}
+};
+
 struct CNewParticleEffect : public VClass {
-	GETTER(VClass*, GetParticleCollection, 0x20);
+	GETTER(CParticleCollection*, GetParticleCollection, 0x20);
 
 	CNewParticleEffect* SetControlPoint(int idx, const Vector& pos) {
 		auto coll = GetParticleCollection();
@@ -98,7 +106,7 @@ class CDOTAParticleManager : public VClass {
 	static inline std::vector<ParticleWrapper> particles{};
 public:
 	struct ParticleContainer : NormalClass {
-		GETTER(CNewParticleEffect*, GetParticle, 0x10);
+		GETTER(CNewParticleEffect*, GetParticle, 0x20);
 		GETTER(uint32_t, GetHandle, 0x2C);
 
 	};
