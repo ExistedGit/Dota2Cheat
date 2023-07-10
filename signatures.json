@@ -16,6 +16,36 @@
     "module": "client.dll"
   },
 
+  "IDXGISwapChain::Present": {
+    "signature": "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 48 8B 01 48 8B F2",
+    "module": "gameoverlayrenderer64.dll",
+    "steps": [
+      [1, 158],
+      [0, 3]
+    ]
+  },
+  "CParticleCollection::~CParticleCollection": {
+    "signature": "E8 ? ? ? ? 40 F6 C7 01 74 34",
+    "module": "particles.dll",
+    "steps": [
+      [0, 1],
+      [1, 25],
+      [0, 3]
+    ]
+  },
+  "CNetChan::vftable": {
+    "signature": "40 53 56 57 41 56 48 83 EC ? 45 33 F6 48 8D 71",
+    "module": "networksystem.dll",
+    "steps": [
+      [1, 21],
+      [0, 3]
+    ]
+  },
+  "CDOTA_Buff::~CDOTA_Buff": {
+    "signature": "4C 8B DC 56 41 57",
+    "module": "client.dll"
+  },
+
   "WorldToScreen": {
     "signature": "E8 ? ? ? ? 39 6C 24 68",
     "module": "client.dll",

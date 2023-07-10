@@ -570,6 +570,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Modules\MListeners.h" />
     <ClInclude Include="Modules\UI\ModifierESP.h">
       <SubType>
       </SubType>
@@ -635,6 +636,7 @@
     <ClInclude Include="SDK\GameSystems\CDOTA_PanoramaMinimapRenderer.h" />
     <ClInclude Include="SDK\GameSystems\CGameParticleManagerSystem.h" />
     <ClInclude Include="SDK\GameSystems\CRenderGameSystem.h" />
+    <ClInclude Include="CheatSDK\Data\EntityList.h" />
     <ClInclude Include="SDK\Interfaces\CGameUI.h" />
     <ClInclude Include="Hooks\InvalidateUEF.h" />
     <ClInclude Include="Hooks\Misc.h" />
@@ -644,7 +646,6 @@
     <ClInclude Include="include\json.hpp" />
     <ClInclude Include="Modules\UI\AbilityESP.h" />
     <ClInclude Include="Modules\Hacks\AegisSnatcher.h" />
-    <ClInclude Include="Modules\Hacks\ArmletAbuse.h" />
     <ClInclude Include="Modules\Hacks\ClaimTutorialRewards.h" />
     <ClInclude Include="Modules\Hacks\DotaPlusUnlocker.h" />
     <ClInclude Include="Modules\Hacks\LastHitMarker.h" />
@@ -760,9 +761,7 @@
     <ClInclude Include="SDK\Protobufs\uifontfile_format.pb.h" />
     <ClInclude Include="SDK\Protobufs\usercmd.pb.h" />
     <ClInclude Include="SDK\Protobufs\valveextensions.pb.h" />
-    <ClInclude Include="SDK\Wrappers\Creep.h" />
-    <ClInclude Include="SDK\Wrappers\EntitySorting.h" />
-    <ClInclude Include="SDK\Wrappers\MapThreadSafe.h" />
+    <ClInclude Include="CheatSDK\MapThreadSafe.h" />
     <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h" />
     <ClInclude Include="Utils\Drawing.h" />
     <ClInclude Include="SDK\Globals\Context.h" />

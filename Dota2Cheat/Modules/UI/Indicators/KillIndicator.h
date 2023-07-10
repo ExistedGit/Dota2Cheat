@@ -2,10 +2,11 @@
 #include "../../../SDK/pch.h"
 #include "../../../CheatSDK/include.h"
 #include "../../../Utils/Drawing.h"
+#include "../MultiThreadModule.h"
 #include <functional>
 
 namespace Hacks {
-	class KillIndicator {
+	class KillIndicator : public MultiThreadModule {
 		struct NukeData {
 			uint32_t idx = 0;
 			bool isPure = false;
@@ -123,6 +124,8 @@ namespace Hacks {
 		bool Initialized = false;
 	public:
 		void Init() {
+			MTM_LOCK;
+
 			auto unitName = ctx.localHero->GetUnitName();
 			if (HeroNukes.contains(unitName)) {
 				curData = HeroNukes.at(unitName);
@@ -133,6 +136,8 @@ namespace Hacks {
 			Initialized = false;
 		}
 		void Draw() {
+			MTM_LOCK;
+
 			if (!Config::Indicators::Kill || !Initialized)
 				return;
 

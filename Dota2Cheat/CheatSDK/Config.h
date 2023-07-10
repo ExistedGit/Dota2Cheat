@@ -174,11 +174,11 @@ namespace Config {
 
 	namespace IllusionColoring {
 		inline bool Enabled;
-		inline Vector Color{ 1,0,0 };
+		inline Vector Color;
 	}
 
-	inline int CircleRadius = 1200;
-	inline Vector CircleRGB{ 0,0,0 };
+	inline int CircleRadius;
+	inline Vector CircleRGB;
 
 	namespace API {
 		inline uint64_t TelegramID;

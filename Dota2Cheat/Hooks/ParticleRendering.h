@@ -3,8 +3,6 @@
 #include "../CheatSDK/Config.h"
 
 namespace Hooks {
-	using CParticleCollection = Signatures::CParticleCollection;
-
 	typedef void(*SetRenderingEnabledFn)(CParticleCollection*, bool);
 	inline SetRenderingEnabledFn oSetRenderingEnabled{};
 	

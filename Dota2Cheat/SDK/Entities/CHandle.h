@@ -3,7 +3,9 @@
 #include "../Globals/Interfaces.h"
 template<typename T = CBaseEntity>
 struct CHandle {
-	uint32_t val;
+	constexpr static uint32_t INVALID_HANDLE = 0XFFFFFFFF;
+
+	uint32_t val = INVALID_HANDLE;
 	operator uint32_t() {
 		return val;
 	}
@@ -17,8 +19,12 @@ struct CHandle {
 		return Entity();
 	}
 
+	T* operator->() {
+		return Entity();
+	}
+
 	bool IsValid() {
-		return val != static_cast<uint32_t>(-1);
+		return val != INVALID_HANDLE;
 	}
 
 	bool operator==(const CHandle<T> other) {

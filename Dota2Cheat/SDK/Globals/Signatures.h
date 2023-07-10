@@ -52,10 +52,8 @@ namespace Signatures {
 
 	//inline LoadUITextureFn LoadUITexture{};
 
-	using CParticleCollection = void;
 	//typedef CParticleCollection* (*CreateParticleCollectionFn)(CNewParticleEffect* thisptr, void* particleMgr, void* unk, void** query, int particleIndex);
 	//CreateParticleCollectionFn CreateParticleCollection{};
-
 	
 	inline PrepareUnitOrdersFn PrepareUnitOrders{};
 

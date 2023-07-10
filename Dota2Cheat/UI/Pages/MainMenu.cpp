@@ -147,9 +147,10 @@ void Pages::MainMenu::Draw() {
 		//	ImGui::SameLine(); HelpMarker("Shows HP and Mana bars for enemies in the top bar. Like pressing Alt does for your allies");
 		ImGui::TreePop();
 	}
-	if (ImGui::TreeNode("Illusion coloring")) {
+	if (ImGui::TreeNode("IllusionESP")) {
 		ImGui::Checkbox("Enable", &Config::IllusionColoring::Enabled);
-		ImGui::ColorEdit3("Color", &Config::IllusionColoring::Color.x);
+		
+		ImGui::ColorEdit3("Illusion color", &Config::IllusionColoring::Color.x);
 		ImGui::TreePop();
 	}
 	if (ImGui::TreeNode("Show enemy spells")) {

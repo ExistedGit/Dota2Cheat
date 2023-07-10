@@ -23,7 +23,7 @@ private:
 
 class CDOTAModifierManager : public VClass {
 public:
-	GETTER(CUtlVector<CDOTAModifier*>, GetModifierList, 0x10);
+	FIELD(CUtlVector<CDOTAModifier*>, GetModifierList, 0x10);
 
 	// Basically how this works:
 	// You have a 272-element array of uint16

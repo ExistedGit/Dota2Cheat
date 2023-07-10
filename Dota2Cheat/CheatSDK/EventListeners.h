@@ -3,27 +3,15 @@
 #include "../Modules/Hacks/AegisSnatcher.h"
 #include "MatchStateHandling.h"
 #include <format>
-
+#include "EntitySorting.h"
 class EntityEventListener : public IEntityListener {
 
 	void OnEntityCreated(CBaseEntity* ent) override {
-		SortEntToCollections(ent);
-
-		if (ent->SchemaBinding()->binaryName && !strcmp(ent->SchemaBinding()->binaryName, "C_DOTAGamerulesProxy"))
-			GameSystems::GameRules = ent->Member<CDOTAGameRules*>(Netvars::C_DOTAGamerulesProxy::m_pGameRules);
+		EntitySorter::QueueAdd(ent);
 	}
 
 	void OnEntityDeleted(CBaseEntity* ent) override {
-		if (!ent->SchemaBinding()->binaryName)
-			return;
-
-		ctx.physicalItems.erase(ent);
-		ctx.heroes.erase((CDOTABaseNPC_Hero*)ent);
-		ctx.creeps.erase((CDOTABaseNPC*)ent);
-		ctx.entities.erase(ent);
-		ctx.runes.erase((CDOTAItemRune*)ent);
-
-		Modules::AegisSnatcher.RemoveIfAegis(ent);
+		EntitySorter::QueueRemove(ent);
 	}
 };
 

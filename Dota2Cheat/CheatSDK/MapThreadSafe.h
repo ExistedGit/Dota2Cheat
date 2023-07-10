@@ -19,14 +19,26 @@ public:
 		_m.unlock();
 	}
 
+	auto begin() const {
+		std::lock_guard<std::mutex> lk(this->_m);
+		return this->_map.begin();
+	}
+
 	auto begin() {
 		std::lock_guard<std::mutex> lk(this->_m);
 		return this->_map.begin();
 	}
+
+	auto end() const {
+		std::lock_guard<std::mutex> lk(this->_m);
+		return this->_map.end();
+	}
+
 	auto end() {
 		std::lock_guard<std::mutex> lk(this->_m);
 		return this->_map.end();
 	}
+
 	void set(const K& key, const V& value) {
 		std::lock_guard<std::mutex> lk(this->_m);
 		this->_map[key] = value;
@@ -42,7 +54,7 @@ public:
 		return this->_map[key];
 	}
 
-	bool empty() {
+	bool empty() const {
 		std::lock_guard<std::mutex> lk(this->_m);
 		return this->_map.empty();
 	}
@@ -61,7 +73,7 @@ public:
 		return this->_map.count(key);
 	}
 
-	size_t size() {
+	size_t size()  const {
 		std::lock_guard<std::mutex> lk(this->_m);
 		return this->_map.size();
 	}

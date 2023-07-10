@@ -13,24 +13,24 @@ void Hacks::AutoMidas::FrameBasedLogic() {
 	if (!midas || midas->GetCooldown() != 0)
 		return;
 
-	for (auto& wrapper : ctx.creeps) {
-		auto creep = wrapper.ent;
+	const auto canMidas = [this, midas](auto& wrap) -> bool {
+		auto creep = wrap.As<CDOTABaseNPC>();
 		// If the creep is visible, not one of ours, is alive, is within Midas's radius and its name matches one of the filters
 		if (creep->IsSameTeam(ctx.localHero))
-			continue;
+			return false;
 
 		if (!creep->IsTargetable())
-			continue;
+			return false;
 
 		if (creep->IsAncient() ||
 			creep->IsRoshan())
-			continue;
+			return false;
 
 		if (creep->Member<int>(Netvars::C_DOTA_BaseNPC::m_iXPBounty) < Config::AutoMidas::XPTreshold)
-			continue;
+			return false;
 
 		if (creep->HasState(MODIFIER_STATE_MAGIC_IMMUNE))
-			continue;
+			return false;
 		if (!IsWithinRadius
 		(
 			creep->GetPos(),
@@ -38,20 +38,27 @@ void Hacks::AutoMidas::FrameBasedLogic() {
 			midas->GetEffectiveCastRange()
 		)
 			)
-			continue;
+			return false;
 
 		// Don't want to hurt ourselves
 		if (strstr(creep->GetUnitName(), "necronomicon_warrior"))
-			continue;
+			return false;
 
-		ctx.localPlayer->PrepareOrder(
-			DOTA_UNIT_ORDER_CAST_TARGET,
-			creep->GetIndex(),
-			Vector::Zero,
-			midas->GetIndex(),
-			DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
-			ctx.localHero);
+		return true;
+	};
 
-		lastTime = GameSystems::GameRules->GetGameTime();
-	}
+	EntityList.ForEachOfType(EntityType::Creep, [this, midas, canMidas](auto& wrap) {
+		if (canMidas(wrap))
+		{
+			ctx.localPlayer->PrepareOrder(
+				DOTA_UNIT_ORDER_CAST_TARGET,
+				wrap->GetIndex(),
+				Vector::Zero,
+				midas->GetIndex(),
+				DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
+				ctx.localHero);
+
+			lastTime = GameSystems::GameRules->GetGameTime();
+		}
+		});
 }

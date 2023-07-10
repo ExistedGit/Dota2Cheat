@@ -1,4 +1,6 @@
 #include "ParticleMaphack.h"
+#include <cityhash/city.h>
+#include <consthash/cityhash32.hxx>
 
 void Hacks::ParticleMaphack::DrawScreenAppearances() {
 	static constexpr ImVec2 iconSize{ 32, 32 };

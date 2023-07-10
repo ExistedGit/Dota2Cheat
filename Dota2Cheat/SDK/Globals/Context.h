@@ -3,8 +3,6 @@
 #include <set>
 #include <string>
 
-#include "../Wrappers/Creep.h"
-
 // Context of an ongoing Dota game
 
 class CBaseEntity;
@@ -30,7 +28,5 @@ inline struct GameContext {
 	std::set<CDOTAItemRune*> runes;
 	std::set<CBaseEntity*> entities;
 	std::set<CDOTAPlayerController*> players;
-	std::set<CBaseEntity*> physicalItems;
 	std::set<CDOTABaseNPC_Hero*> heroes;
-	std::set<CreepWrapper, CreepWrapper_less> creeps;
 } ctx{};

@@ -1,13 +1,15 @@
 #pragma once
 #include "../../SDK/pch.h"
+#include "../../CheatSDK/include.h"
+#include "../MListeners.h"
 
 namespace Hacks {
-	class AegisSnatcher {
+	class AegisSnatcher : public IM_RunFrameListener, IM_EntityListener {
 		CBaseEntity* aegis = nullptr;
 		float lastPickupTime = 0;
 	public:
-		void RemoveIfAegis(CBaseEntity* ent);
-		void FrameBasedLogic();
+		void OnEntityRemoved(const EntityWrapper& ent) override;
+		void OnFrame() override;
 	};
 }
 namespace Modules {

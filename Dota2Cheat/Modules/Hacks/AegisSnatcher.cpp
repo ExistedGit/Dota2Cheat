@@ -1,33 +1,34 @@
 #include "AegisSnatcher.h"
 
-void Hacks::AegisSnatcher::RemoveIfAegis(CBaseEntity* ent) {
-	if (ent == aegis)
+void Hacks::AegisSnatcher::OnEntityRemoved(const EntityWrapper& wrap) {
+	if (wrap.ent == aegis)
 		aegis = nullptr;
 }
 
-void Hacks::AegisSnatcher::FrameBasedLogic() {
-
+void Hacks::AegisSnatcher::OnFrame() {
 	if (!aegis) {
-		for (auto& physItem : ctx.physicalItems) {
-			auto item = Interfaces::EntitySystem->GetEntity(H2IDX(physItem->Member<ENT_HANDLE>(Netvars::C_DOTA_Item_Physical::m_hItem)));
+		auto findAegis = [this](auto& physItem) {
+			auto item = physItem->Member<CHandle<>>(Netvars::C_DOTA_Item_Physical::m_hItem);
 			if (item &&
 				strstr(item->GetIdentity()->GetName(), "aegis"))
 				aegis = physItem;
-		}
+		};
+
+		EntityList.ForEachOfType(EntityType::PhysicalItem, findAegis);
+
 		if (!aegis)
 			return;
 	}
 
-	bool slotsFull = true;
+	bool hasEmptySlot = false;
 	auto items = ctx.localHero->GetInventory()->GetItems();
 	for (int i = 0; i < 6; ++i)
 		if (!HVALID(items[i])) {
-			slotsFull = false;
+			hasEmptySlot = true;
 			break;
 		}
 
-	//TODO: implement a slot switcher for items
-	if (slotsFull)
+	if (!hasEmptySlot)
 		return;
 
 	if (!IsWithinRadius(aegis->GetPos(), ctx.localHero->GetPos(), 130))
@@ -37,14 +38,10 @@ void Hacks::AegisSnatcher::FrameBasedLogic() {
 	if (gameTime - lastPickupTime >= 0.2f) {
 
 		ctx.localPlayer->PrepareOrder(
-			DOTA_UNIT_ORDER_PICKUP_ITEM,
-			aegis->GetIndex(),
-			Vector::Zero,
-			0,
-			DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
-			ctx.localHero,
-			false,
-			true);
+			Order().SetType(DOTA_UNIT_ORDER_PICKUP_ITEM)
+			.SetTargetIndex(aegis->GetIndex())
+			.SetIssuer(ctx.localHero)
+		);
 
 		lastPickupTime = gameTime;
 	}

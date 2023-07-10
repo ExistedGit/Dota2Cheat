@@ -2,6 +2,7 @@
 #include "RunFrame.h"
 #include <format>
 #include "../SDK/Interfaces/GC/CEconWearable.h"
+#include "../CheatSDK/EntitySorting.h"
 
 template<typename T = CBaseEntity>
 std::set<T*> GetEntitiesByFilter(const std::vector<const char*>& filters) {
@@ -37,7 +38,7 @@ void EntityIteration() {
 		if (IsValidReadPtr(hero) &&
 			IsValidReadPtr(hero->GetIdentity()) &&
 			!hero->GetIdentity()->IsDormant())
-			Modules::IllusionColoring.ColorIfIllusion(hero);
+			Modules::IllusionESP.ColorIfIllusion(hero);
 	}
 
 	if (Config::AutoPickUpRunes) {
@@ -108,84 +109,21 @@ void InGameLogic() {
 		EntityIteration();
 	}
 #ifdef _DEBUG
-	if (IsKeyPressed(VK_NUMPAD7)) {
-		//static Function setMdl = Memory::Scan("E8 ? ? ? ? 8B 7D 6F", "client.dll").GetAbsoluteAddress(1);
-
-		//if (!setMdl.ptr)
-		//	return;
-
-		//for (auto tree : GameSystems::BinaryObjectSystem->GetTrees()) {
-		//	if (tree) {
-		//		setMdl(tree, "models/props_tree/newbloom_tree.vmdl");
-		//		tree->ModelScale() = 4.5f;
-		//		tree->Member<VClass*>(Netvars::C_BaseEntity::m_pGameSceneNode)->CallVFunc<10>(4);
-		//	}
-		//}
+	if (IsKeyPressed(VK_NUMPAD7))
 		Log(LP_INFO, "Hero model: ", ctx.localHero->GetModelName());
-	}
+	
 	else if (IsKeyPressed(VK_NUMPAD8)) {
-		updateWearables = true;
+		// updateWearables = true;
 
-		//auto selected = ctx.localPlayer->GetSelectedUnits();
-		//auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(selected[0]);
-		//auto pos = ent->GetPos();
-
-		//LogF(LP_INFO, "OnWearablesChanged(): {}\nResult: {}",
-		//	(void*)ctx.localHero->GetVFunc(VTableIndexes::CDOTABaseNPC::OnWearablesChanged),
-		//	ent->OnWearablesChanged());
-
-		//auto buffs = ent->GetModifierManager()->GetBuffsByModifierFunction((ModifierFunction)62);
-		//if (buffs)
-		//	std::cout << std::dec << "ENT " << selected[0] << " -> " << ent
-		//	<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
-		//	// << "\n\tAttack Time: " << std::clamp(ent->GetBaseAttackTime() / ent->GetAttackSpeed(), 0.24f, 2.0f)
-		//	//<< "\n\tIsRoshan: " << ent->IsRoshan()
-		//	//<< "\n\tStunned: " << ent->HasState(ModifierState::MODIFIER_STATE_STUNNED)
-		//	<< "\n\tValue:" << buffs->at(0).GetPropertyValue()
-		//	<< '\n';
-	}
-	//if (GameSystems::ProjectileManager && IsKeyPressed(VK_NUMPAD3)) {
-	//	auto arr = GameSystems::ProjectileManager->m_pTrackingProjectiles;
-	//	std::cout << "[PROJECTILES]\n";
-	//	for (int i = 0; i < 1024; i++) {
-	//		auto proj = arr[i];
-	//		if (!proj)
-	//			continue;
-	//		auto target = proj->GetTarget();
-	//		auto source = proj->GetSource();
-	//		std::cout << std::format("[{}] Move speed {} Source {} Target {} Dodgeable {} Attack {} Evaded {}\n",
-	//			i,
-	//			proj->GetMoveSpeed(),
-	//			source ? source->GetUnitName() : "unknown",
-	//			target ? target->GetUnitName() : "unknown",
-	//			proj->IsDodgeable() ? "YES" : "NO",
-	//			proj->IsAttack() ? "YES" : "NO",
-	//			proj->IsEvaded() ? "YES" : "NO"
-	//		);
-	//	};
-	//}
-	if (IsKeyPressed(VK_RMENU)) {
-		//auto type = GameSystems::GameRules->GetRiverType();
-		//std::cout << "r: " << type << std::endl;
-
-		//if (ctx.runes.size() > 0) {
-		//	auto rune = *ctx.runes.begin();
-
-		//	CDOTAClientMsg_ExecuteOrders orders_message;
-		//	auto msg_id = Interfaces::NetworkMessages->FindNetworkMessageByID(350);
-		//	auto order = orders_message.add_orders();
-		//	order->set_order_type(DOTA_UNIT_ORDER_PICKUP_RUNE);
-		//	order->set_target_index(rune->GetIndex());
-		//	order->set_ability_index(0);
-		//	order->set_sequence_number(ctx.localPlayer->GetSequenceNum() + 1);
-		//	order->add_units(ctx.localHero->GetIndex());
-
-		//	Hooks::oSendNetMessage(Hooks::NetChan, msg_id, &orders_message, BUF_DEFAULT);
-		//}
+		auto selected = ctx.localPlayer->GetSelectedUnits();
+		auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(selected[0]);
+		auto pos = ent->GetPos();
+		std::cout << "ENT " << selected[0] << " -> " << ent
+			<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
+			<< '\n';
 	}
 #endif 
 }
-
 
 void Hooks::hkRunFrame() {
 	bool isInGame = Interfaces::Engine->IsInGame();
@@ -225,13 +163,4 @@ void Hooks::hkRunFrame() {
 	//	pingMsg.set_allocated_location_ping(loc);
 	//	oSendNetMessage(Hooks::NetChan, msg_id, &pingMsg, BUF_DEFAULT);
 	//}
-
-
-	if (IsKeyPressed(VK_NUMPAD7)) {
-		//auto wearables = ctx.localHero->MemberInline<CUtlVector<CHandle<>>>(Netvars::C_BaseCombatCharacter::m_hMyWearables);
-		//LogF(LP_INFO, "Wearables: {}", (void*)wearables);
-		//for (auto& handle : *wearables) {
-		//	LogF(LP_DATA, "{} | {}", (void*)handle.Entity(), handle.Entity()->MemberInline<VClass>(0x960 + 0x68)->Member<uint32_t>(0x8));
-		//};
-	}
 }

@@ -30,9 +30,7 @@ namespace Hacks {
 				"modifier_life_stealer_infest_effect",
 				[](CDOTAModifier* buff) {
 					// We ignore LS infesting allied heroes, as the particle is created on its own
-					if (buff->GetOwner()->IsSameTeam(ctx.localHero))
-						return false;
-					return true;
+					return !buff->GetOwner()->IsSameTeam(ctx.localHero);
 				}
 			}
 		};

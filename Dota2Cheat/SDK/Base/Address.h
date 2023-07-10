@@ -35,4 +35,9 @@ public:
 		return (T*)ptr;
 	}
 
+	template<typename T = Address>
+	T Dereference()const{
+		return (T)(*(uintptr_t*)ptr);
+	}
+
 };

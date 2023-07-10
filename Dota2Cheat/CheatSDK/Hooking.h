@@ -16,6 +16,7 @@
 
 namespace Hooks {
 	inline EntityEventListener* EntEventListener{};
+
 	void InstallHooks();
 
 	// Removes any custom, non-MinHook hooks

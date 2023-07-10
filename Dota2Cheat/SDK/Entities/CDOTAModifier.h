@@ -1,11 +1,14 @@
 #pragma once
+#include "../Base/CUtlVector.h"
 #include "../Netvars.h"
-#include "../Globals/Interfaces.h"
 #include "CHandle.h"
-
 #include "CBaseEntity.h"
 
 class CDOTABaseNPC;
+
+struct CDOTA_BuffParticle {
+	uint32_t particleHandle, unk = 10000, entIdx;
+};
 
 // server.dll
 // CDOTA_Buff
@@ -16,6 +19,7 @@ public:
 	GETTER(float, GetDieTime, Netvars::CDOTA_Buff::m_flDieTime);
 	GETTER(int, GetStackCount, Netvars::CDOTA_Buff::m_iStackCount);
 	GETTER(bool, IsAura, Netvars::CDOTA_Buff::m_bIsAura);
+	FIELD(CUtlVector<CDOTA_BuffParticle>, Particles, Netvars::CDOTA_Buff::m_iParticles);
 	GETTER(DOTA_GC_TEAM, GetTeam, Netvars::CDOTA_Buff::m_iTeam);
 	bool IsSameTeam(CBaseEntity* ent) {
 		return ent->GetTeam() == GetTeam();
@@ -33,5 +37,6 @@ public:
 	CDOTABaseNPC* GetAbility() {
 		return GetAbilityHandle();
 	}
+	VGETTER(const char*, GetTexture, 3);
 };
 

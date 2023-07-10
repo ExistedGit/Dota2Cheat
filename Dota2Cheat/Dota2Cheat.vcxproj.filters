@@ -158,7 +158,6 @@
     <ClInclude Include="include\json.hpp" />
     <ClInclude Include="Modules\UI\AbilityESP.h" />
     <ClInclude Include="Modules\Hacks\AegisSnatcher.h" />
-    <ClInclude Include="Modules\Hacks\ArmletAbuse.h" />
     <ClInclude Include="Modules\Hacks\ClaimTutorialRewards.h" />
     <ClInclude Include="Modules\Hacks\DotaPlusUnlocker.h" />
     <ClInclude Include="Modules\Hacks\LastHitMarker.h" />
@@ -211,8 +210,6 @@
     <ClInclude Include="SDK\Interfaces\ISteamClient.h" />
     <ClInclude Include="SDK\Protobufs\base_gcmessages.pb.h" />
     <ClInclude Include="SDK\Protobufs\dota_gcmessages_common.pb.h" />
-    <ClInclude Include="SDK\Wrappers\Creep.h" />
-    <ClInclude Include="SDK\Wrappers\EntitySorting.h" />
     <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h" />
     <ClInclude Include="Utils\Drawing.h" />
     <ClInclude Include="SDK\Globals\Context.h" />
@@ -321,7 +318,7 @@
     <ClInclude Include="SDK\Protobufs\uifontfile_format.pb.h" />
     <ClInclude Include="SDK\Protobufs\usercmd.pb.h" />
     <ClInclude Include="SDK\Protobufs\valveextensions.pb.h" />
-    <ClInclude Include="SDK\Wrappers\MapThreadSafe.h" />
+    <ClInclude Include="CheatSDK\MapThreadSafe.h" />
     <ClInclude Include="CheatSDK\Utils.h" />
     <ClInclude Include="CheatSDK\include.h" />
     <ClInclude Include="Modules\UI\Indicators\SpeedIndicator.h" />
@@ -371,5 +368,7 @@
     <ClInclude Include="include\imgui\imgui_impl_dx11.h" />
     <ClInclude Include="Modules\UI\ModifierESP.h" />
     <ClInclude Include="Modules\Hacks\ParticleRevealer.h" />
+    <ClInclude Include="CheatSDK\Data\EntityList.h" />
+    <ClInclude Include="Modules\MListeners.h" />
   </ItemGroup>
 </Project>

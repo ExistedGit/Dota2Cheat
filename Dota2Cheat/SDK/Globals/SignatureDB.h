@@ -7,43 +7,53 @@
 // Used to process JSON signatures
 
 #define SIGMAP_ENTRY(var) {#var, (void**)&var}
-struct SignatureDB {
+class SignatureDB {
 	inline static nlohmann::json Data;
-
-	// Uses an array of signature names to storage variable pointers to perform a sigscan
-	static void ParseSignatures(const std::map <std::string, void**>& signatureMap) {
+	static void _FindSignature(std::string_view sigName, void** sigVar) {
 		enum SignatureAction {
 			GetAbsoluteAddress,
 			Offset
 		};
 
-		for (auto& [sigName, sigVar] : signatureMap) {
-			if (!Data.contains(sigName))
-				continue;
+		if (!Data.contains(sigName))
+			return;
 
-			auto& info = Data[sigName];
-			std::string sigStr = info["signature"], sigModule = info["module"];
-			auto result = Memory::Scan(sigStr, sigModule);
+		auto& info = Data[sigName];
+		std::string sigStr = info["signature"], sigModule = info["module"];
+		auto result = Memory::Scan(sigStr, sigModule);
 
-			if (!result)
-				continue;
+		if (!result)
+			return;
 
-			if (info.contains("steps")) {
-				for (auto& pair : info["steps"].items()) {
-					SignatureAction type = pair.value()[0];
-					int value = pair.value()[1];
-					switch (type) {
-					case GetAbsoluteAddress:
-						result = result.GetAbsoluteAddress(value);
-						break;
-					case Offset:
-						result = result.Offset(value);
-						break;
-					}
+		if (info.contains("steps")) {
+			for (auto& pair : info["steps"].items()) {
+				SignatureAction type = pair.value()[0];
+				int value = pair.value()[1];
+				switch (type) {
+				case GetAbsoluteAddress:
+					result = result.GetAbsoluteAddress(value);
+					break;
+				case Offset:
+					result = result.Offset(value);
+					break;
 				}
 			}
-			*sigVar = result;
 		}
+		*sigVar = result;
+	}
+public:
+
+	// Find a singular sig
+	static Address FindSignature(const std::string& name) {
+		void* ret{};
+		_FindSignature(name, &ret);
+		return ret;
+	}
+
+	// Uses a map of signature names to storage variable pointers to perform a sigscan
+	static void ParseSignatures(const std::map <std::string, void**>& signatureMap) {
+		for (auto& [sigName, sigVar] : signatureMap)
+			_FindSignature(sigName, sigVar);
 
 		bool brokenSig = false;
 		for (auto& [sigName, sigVar] : signatureMap) {

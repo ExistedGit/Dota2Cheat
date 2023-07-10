@@ -139,12 +139,12 @@ void Config::ConfigManager::SetupVars() {
 	CFG_VAR(ParticleMapHack::FadeDuration, 5);
 
 	CFG_VAR(IllusionColoring::Enabled, true);
-	CFG_VAR(IllusionColoring::Color, Vector(1, 0, 0));
+	CFG_VAR(IllusionColoring::Color, Vector(1,1,1));
 
 	CFG_VAR(ManaAbuse::Enabled, false);
 	CFG_VAR(ManaAbuse::Mode, 0);
 	CFG_VAR(ManaAbuse::SafetyRadius, 1000);
-	
+
 	CFG_VAR(AutoAccept::Enabled, true);
 	CFG_VAR(AutoAccept::Delay, 1);
 	CFG_VAR(AutoAccept::SendTelegramNotifications, false);

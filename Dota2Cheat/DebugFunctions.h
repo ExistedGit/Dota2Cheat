@@ -7,16 +7,15 @@
 inline void LogEntities() {
 	std::stringstream buf;
 	for (int idx = 0; idx <= Interfaces::EntitySystem->GetHighestEntityIndex(); ++idx) {
-		if ( CBaseEntity* entity = Interfaces::EntitySystem->GetEntity( idx ); ( entity && IsValidReadPtr( entity ) ) ) {
-			const auto schema_bind = entity->SchemaBinding( );
-			if ( entity->GetIdentity( )->GetName( ) && schema_bind && schema_bind->binaryName ) {
-				buf << (void*)entity << ", " << entity->GetIdentity( )->GetName( ) << ", " << schema_bind->binaryName << std::endl;
+		if (CBaseEntity* entity = Interfaces::EntitySystem->GetEntity(idx); (entity && IsValidReadPtr(entity))) {
+			const auto schema_bind = entity->SchemaBinding();
+			if (entity->GetIdentity()->GetName() && schema_bind && schema_bind->binaryName) {
+				buf << (void*)entity << ", " << entity->GetIdentity()->GetName() << ", " << schema_bind->binaryName << std::endl;
 			}
 		}
 	}
 
-	const auto str = buf.str( );
-	std::cout << str;
+	std::cout << buf.str();
 }
 inline void LogModifiers(CDOTABaseNPC* npc) {
 	std::cout << "modifiers:\n";

@@ -26,9 +26,7 @@ namespace Hooks {
 
 	inline bool HookDirectX() {
 		// xref: "Hooking vtable for swap chain\n"
-		auto Present = *Memory::Scan("48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 48 8B 01 48 8B F2", "gameoverlayrenderer64.dll")
-			.Offset(0x9e)
-			.GetAbsoluteAddress<Address*>(3);
+		auto Present = SignatureDB::FindSignature("IDXGISwapChain::Present").Dereference();
 		return HOOKFUNC(Present);
 	}
 }
