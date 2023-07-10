@@ -98,7 +98,7 @@ namespace Hacks {
 
 		void DrawLinkenEffectFor(CBaseEntity* ent);
 
-		void FrameBasedLogic();
+		void OnFrame();
 
 		void RemoveParticleIfTargetedSpell(CDOTAModifier* modifier);
 

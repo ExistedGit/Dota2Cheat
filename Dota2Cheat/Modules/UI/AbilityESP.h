@@ -5,7 +5,8 @@
 #include "MultiThreadModule.h"
 #include <map>
 
-namespace ESP {
+namespace Modules {
+inline 
 	class AbilityESP : public MultiThreadModule {
 		struct AbilityData {
 			CDOTABaseAbility* ability{};
@@ -60,8 +61,5 @@ namespace ESP {
 		void SubscribeHeroes();
 		void Reset();
 		void DrawESP();
-	};
-}
-namespace Modules {
-	inline ESP::AbilityESP AbilityESP{};
+	} AbilityESP;
 }

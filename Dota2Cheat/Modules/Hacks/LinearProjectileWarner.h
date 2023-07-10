@@ -16,7 +16,8 @@
 // particles/ui_mouseactions/range_finder_tower_line.vpcf
 // is the owner of control points 2, 6, 7
 
-namespace Hacks {
+namespace Modules {
+inline 
 
 	// Shows linear projectile trajectories with a red line
 	// Also shows potential trajectories for aiming heroes like Hoodwink
@@ -75,14 +76,11 @@ namespace Hacks {
 
 
 		void DrawIfTrajectoryModifier(CDOTAModifier* modifier);
-		void FrameBasedLogic();
+		void OnFrame();
 		void RemoveParticleIfTrajectoryModifier(CDOTAModifier* modifier);
 
 
 		void OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg);
 
-	};
-}
-namespace Modules {
-	inline Hacks::LinearProjectileWarner LinearProjectileWarner{};
+	} LinearProjectileWarner;
 }

@@ -3,7 +3,8 @@
 #include "../../CheatSDK/Config.h"
 #include "../Utility/ParticleGC.h"
 
-namespace Hacks {
+namespace Modules {
+inline 
 	class EnemySpellHighlighter {
 	private:
 		struct ParticleCreationInfo {
@@ -48,8 +49,5 @@ namespace Hacks {
 		void DrawParticleAt(Vector pos, ParticleCreationInfo info);
 
 		void RenderIfThinkerModifier(CDOTAModifier* modifier);
-	};
-}
-namespace Modules {
-	inline Hacks::EnemySpellHighlighter EnemySpellHighlighter{};
+	} EnemySpellHighlighter;
 }

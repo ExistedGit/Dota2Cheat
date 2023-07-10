@@ -4,7 +4,7 @@
 
 // Mostly calculating fade duration
 
-void Hacks::TPTracker::FrameBasedLogic() {
+void Modules::M_TPTracker::OnFrame() {
 	MTM_LOCK;
 
 	auto timeDelta = GameSystems::GameRules->GetGameTime() - lastTime;
@@ -29,7 +29,7 @@ void Hacks::TPTracker::FrameBasedLogic() {
 	}
 }
 
-void Hacks::TPTracker::DrawMapTeleports() {
+void Modules::M_TPTracker::DrawMapTeleports() {
 	if (!Config::TPTracker::Enabled)
 		return;
 
@@ -52,15 +52,9 @@ void Hacks::TPTracker::DrawMapTeleports() {
 				startXY2,
 				{ 0,0 },
 				{ 1,1 },
-				data.isFading ?
-				(ImU32)ImColor {
-				255, 255, 255, (int)(192 * ImColor{ data.color }.Value.w)
-			}
-			:
-				(ImU32)ImColor {
-				255, 255, 255, 255
-			}
-			);
+				ImColor(255, 255, 255, (int)(192 * ImColor{ data.color }.Value.w)
+
+				);
 		}
 
 		if (!data.isFading || (data.isFading && !data.cancelled)) {
@@ -81,7 +75,7 @@ void Hacks::TPTracker::DrawMapTeleports() {
 	}
 }
 
-void Hacks::TPTracker::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
+void Modules::M_TPTracker::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
 	if (msgHandle->messageID != 145)
 		return;
 
@@ -171,7 +165,7 @@ void Hacks::TPTracker::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::prot
 				data.isFading = true;
 				if (cancelled) {
 					data.color = ImColor{ 255,0,0 };
-					data.fadeDuration = data.fadeCounter = Config::TPTracker::FadeDuration/3;
+					data.fadeDuration = data.fadeCounter = Config::TPTracker::FadeDuration / 3;
 				}
 				else {
 					data.color = ImColor{ 0,255,0 };

@@ -3,9 +3,10 @@
 #include "../../CheatSDK/include.h"
 #include "../../Utils/Drawing.h"
 #include "MultiThreadModule.h"
+#include "../MListeners.h"
 
-namespace Hacks {
-	class ParticleMaphack : public MultiThreadModule {
+namespace Modules {
+	inline class M_ParticleMaphack : public MultiThreadModule, INetChanListener, IRunFrameListener {
 		struct AppearanceData {
 			Vector worldPos{ 0, 0,0 };
 			ImVec2 mapPos{ 0, 0 };
@@ -35,11 +36,8 @@ namespace Hacks {
 		}
 	public:
 		void Draw();
-		void FrameBasedLogic();
-		void OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg);
+		void OnFrame() override;
+		void OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) override;
 		void GetHeroIcon(CDOTABaseNPC* npc, ImTextureID& icon);
-	};
-}
-namespace Modules {
-	inline Hacks::ParticleMaphack ParticleMaphack{};
+	} ParticleMaphack{};
 }

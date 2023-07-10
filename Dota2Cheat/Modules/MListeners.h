@@ -1,5 +1,9 @@
 #pragma once
+#include "../SDK/pch.h"
 
-struct IM_RunFrameListener {
+struct IRunFrameListener {
 	virtual void OnFrame() = 0;
+};
+struct INetChanListener {
+	virtual void OnReceivedMsg(NetMessageHandle_t* messageHandle, google::protobuf::Message* msg) = 0;
 };

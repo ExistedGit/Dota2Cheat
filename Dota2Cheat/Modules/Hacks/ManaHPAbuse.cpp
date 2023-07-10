@@ -221,16 +221,16 @@ void Modules::M_ManaHPAbuse::PerformAbuse(CDOTABaseNPC* npc, CDOTAItem* ability)
 			(Mode)Config::ManaAbuse::Mode == Mode::Drop
 			|| npc->Member<uint32_t>(Netvars::C_DOTA_BaseNPC::m_iCurShop) != 8
 			) {
-			for (auto& item : ctx.physicalItems)
+			EntityList.ForEachOfType(EntityType::PhysicalItem, [this, npc](auto& item) {
 				if (IsWithinRadius(item->GetPos(), ctx.localHero->GetPos(), 150))
-					ctx.localPlayer->PrepareOrder(
-						Order()
-						.SetType(DOTA_UNIT_ORDER_PICKUP_ITEM)
-						.SetTargetIndex(item->GetIndex())
-						.SetQueue(true)
-						.SetIssuer(npc)
-					);
-
+				ctx.localPlayer->PrepareOrder(
+					Order()
+					.SetType(DOTA_UNIT_ORDER_PICKUP_ITEM)
+					.SetTargetIndex(item->GetIndex())
+					.SetQueue(true)
+					.SetIssuer(npc)
+				);
+				});
 		}
 		ReorderItems(itemPositions);
 

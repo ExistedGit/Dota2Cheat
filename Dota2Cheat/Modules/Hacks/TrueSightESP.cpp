@@ -1,13 +1,13 @@
 #include "TrueSightESP.h"
 
-void Hacks::TrueSightESP::RemoveParticleIfTrueSight(CDOTAModifier* modifier) {
+void Modules::TrueSightESP::RemoveParticleIfTrueSight(CDOTAModifier* modifier) {
 	if (!TrackedModifiers.count(modifier))
 		return;
 	GameSystems::ParticleManager->DestroyParticle(TrackedModifiers[modifier]);
 	TrackedModifiers.erase(modifier);
 }
 
-void Hacks::TrueSightESP::DrawParticleIfTrueSight(CDOTAModifier* modifier) {
+void Modules::TrueSightESP::DrawParticleIfTrueSight(CDOTAModifier* modifier) {
 	if (!Config::ModifierRevealer::TrueSight)
 		return;
 

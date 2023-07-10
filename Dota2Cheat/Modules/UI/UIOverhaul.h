@@ -6,10 +6,10 @@
 
 using namespace Panorama;
 
-namespace Hacks {
+namespace Modules {
 	// Augments Dota's own UI built on Panorama
 	// We only use Panorama's functions to obtain data on where and what to draw with ImGui
-	class UIOverhaul : public MultiThreadModule {
+	inline class UIOverhaul : public MultiThreadModule {
 		// The slope is 2-way
 		static constexpr ImVec2 topBarImgSize{ 66 - 4, 36 };
 		static constexpr int topBarImgSlope = 4;
@@ -57,8 +57,5 @@ namespace Hacks {
 
 			topBar.clear();
 		}
-	};
-}
-namespace Modules {
-	inline Hacks::UIOverhaul UIOverhaul{};
+	} UIOverhaul;
 }

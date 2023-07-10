@@ -1,6 +1,6 @@
 #include "AutoHeal.h"
 
-void Hacks::AutoHeal::UseWand(CDOTABaseNPC* hero) {
+void Modules::AutoHeal::UseWand(CDOTABaseNPC* hero) {
 	if (!Config::AutoHeal::WandHPTreshold)
 		return;
 
@@ -21,7 +21,7 @@ void Hacks::AutoHeal::UseWand(CDOTABaseNPC* hero) {
 
 }
 
-void Hacks::AutoHeal::UseFaerieFire(CDOTABaseNPC* hero) {
+void Modules::AutoHeal::UseFaerieFire(CDOTABaseNPC* hero) {
 	if (!Config::AutoHeal::WandHPTreshold)
 		return;
 

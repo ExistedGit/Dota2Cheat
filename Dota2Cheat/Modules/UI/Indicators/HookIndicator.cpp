@@ -1,13 +1,13 @@
 #include "HookIndicator.h"
 
-Vector Hacks::HookIndicator::CalculateHook(CDOTABaseNPC* enemy) {
+Vector Modules::HookIndicator::CalculateHook(CDOTABaseNPC* enemy) {
 	Vector myPos = ctx.localHero->GetPos(),
 		enemyPos = enemy->GetPos();
 
 	return myPos + (((enemyPos - myPos) * enemy->GetIdealSpeed()) / (enemy->GetIdealSpeed() * 1450)) * 1450;
 }
 
-void Hacks::HookIndicator::Draw() {
+void Modules::HookIndicator::Draw() {
 	constexpr ImVec2 iconSize{ 16,16 };
 	for (auto& hero : ctx.heroes) {
 		if (hero->IsSameTeam(ctx.localHero)

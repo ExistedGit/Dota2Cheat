@@ -1,6 +1,6 @@
 #include "LastHitMarker.h"
 
-void Hacks::LastHitMarker::DrawCircleFor(CDOTABaseNPC* creep) {
+void Modules::LastHitMarker::DrawCircleFor(CDOTABaseNPC* creep) {
 	ImColor color = creep->IsSameTeam(ctx.localHero) ?
 		ImColor{ 0,255,0 } :
 		ImColor{ 255,0,0 };
@@ -8,33 +8,34 @@ void Hacks::LastHitMarker::DrawCircleFor(CDOTABaseNPC* creep) {
 	ImGui::GetForegroundDrawList()->AddCircleFilled(WorldToScreen(creep->GetHealthBarPos()), radius, color);
 }
 
-void Hacks::LastHitMarker::Draw() {
+void Modules::LastHitMarker::Draw() {
 	if (!Config::LastHitMarker)
 		return;
 
-	bool hasQBlade = ctx.localHero->HasOneOfModifiers({
-			"modifier_item_quelling_blade",
-			"modifier_item_battlefury"
-		});
+	bool hasQBlade =
+		HeroData[ctx.localHero].Modifiers.contains("modifier_item_quelling_blade") ||
+		HeroData[ctx.localHero].Modifiers.contains("modifier_item_battlefury");
+
 	auto attackRange = ctx.localHero->GetAttackRange();
-	for (auto& wrapper : ctx.creeps) {
-		auto creep = wrapper.ent;
+	const auto DrawForCreep = [this, hasQBlade, attackRange](const auto& wrapper) {
+
+		auto creep = wrapper.As<CDOTABaseNPC>();
 		if (!IsValidReadPtr(creep)
 			|| !IsValidReadPtr(creep->GetIdentity())
 			|| !creep->IsTargetable())
-			continue;
+			return;
 
 		// Distance check
 		if (!IsWithinRadius(
 			creep->GetPos(),
 			ctx.localHero->GetPos(),
 			ctx.localHero->GetAttackCapabilities() == DOTA_UNIT_CAP_MELEE_ATTACK ? 1000 : attackRange * 1.2
-			))
-			continue;
+		))
+			return;
 
 		// Deny check
 		if (creep->IsSameTeam(ctx.localHero) && (float)creep->GetHealth() / creep->GetMaxHealth() >= 0.5f)
-			continue;
+			return;
 
 		int dmg = ctx.localHero->GetAttackDamageMin();
 
@@ -47,8 +48,9 @@ void Hacks::LastHitMarker::Draw() {
 		float dmgReduction = (0.06f * creep->GetPhysicalArmorValue()) / (1 + 0.06f * abs(creep->GetPhysicalArmorValue()));
 		// Damage check
 		if (creep->GetHealth() >= dmg * (1 - dmgReduction))
-			continue;
+			return;
 
 		DrawCircleFor(creep);
-	}
+	};
+	EntityList.ForEachOfType(EntityType::Creep, DrawForCreep);
 }

@@ -24,9 +24,4 @@ inline struct GameContext {
 	CDOTABaseNPC_Hero* localHero{};
 
 	GameStage gameStage = GameStage::NONE;
-
-	std::set<CDOTAItemRune*> runes;
-	std::set<CBaseEntity*> entities;
-	std::set<CDOTAPlayerController*> players;
-	std::set<CDOTABaseNPC_Hero*> heroes;
 } ctx{};

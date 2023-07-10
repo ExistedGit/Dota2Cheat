@@ -1,6 +1,6 @@
 #include "UIOverhaul.h"
 
-CDOTABaseNPC_Hero* Hacks::UIOverhaul::FindHeroByUnitName(std::string_view name) {
+CDOTABaseNPC_Hero* Modules::UIOverhaul::FindHeroByUnitName(std::string_view name) {
 	for (auto& hero : ctx.heroes) {
 		auto unitName = hero->GetUnitName();
 		if (unitName && unitName == name)
@@ -9,7 +9,7 @@ CDOTABaseNPC_Hero* Hacks::UIOverhaul::FindHeroByUnitName(std::string_view name) 
 	return nullptr;
 }
 
-CUIPanel* Hacks::UIOverhaul::GetTopBarImgForHero(CDOTABaseNPC_Hero* hero) {
+CUIPanel* Modules::UIOverhaul::GetTopBarImgForHero(CDOTABaseNPC_Hero* hero) {
 	auto topbarImages = GameSystems::DotaHud->FindChildrenWithClassTraverse(TopBarClass);
 	for (auto& panel : topbarImages) {
 		if (!panel->GetId() || strcmp(panel->GetId(), "HeroImage") != 0)
@@ -27,7 +27,7 @@ CUIPanel* Hacks::UIOverhaul::GetTopBarImgForHero(CDOTABaseNPC_Hero* hero) {
 	return nullptr;
 }
 
-void Hacks::UIOverhaul::UpdateHeroes() {
+void Modules::UIOverhaul::UpdateHeroes() {
 	topBar.clear();
 	auto topbarImages = GameSystems::DotaHud->FindChildrenWithClassTraverse(TopBarClass);
 	for (auto& panel : topbarImages) {
@@ -48,7 +48,7 @@ void Hacks::UIOverhaul::UpdateHeroes() {
 }
 
 // Mana and Health bars
-void Hacks::UIOverhaul::DrawBars() {
+void Modules::UIOverhaul::DrawBars() {
 	if (!Config::UIOverhaul::TopBars)
 		return;
 
@@ -81,7 +81,7 @@ void Hacks::UIOverhaul::DrawBars() {
 	}
 }
 
-void Hacks::UIOverhaul::Init() {
+void Modules::UIOverhaul::Init() {
 	if (!GameSystems::DotaHud)
 		return;
 	MTM_LOCK;

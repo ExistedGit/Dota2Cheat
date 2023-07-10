@@ -1,6 +1,6 @@
 #include "AutoPing.h"
 
-void Hacks::AutoPing::FrameBasedLogic() {
+void Modules::AutoPing::OnFrame() {
 	if (!Config::AutoPingEnabled ||
 		!Config::AutoPingTarget ||
 		lastGameTime == 0) {

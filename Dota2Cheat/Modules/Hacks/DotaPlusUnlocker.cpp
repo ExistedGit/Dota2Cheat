@@ -2,7 +2,7 @@
 
 // rebuilt from xref: "Failed to find CDOTAGameAccountPlus"
 
-void Hacks::DotaPlusUnlocker::UpdateDotaPlusStatus() {
+void Modules::DotaPlusUnlocker::UpdateDotaPlusStatus() {
 	auto inventory = Interfaces::GCClient->GetSOListeners()[1];
 
 	auto objCache = inventory->GetSOCache();

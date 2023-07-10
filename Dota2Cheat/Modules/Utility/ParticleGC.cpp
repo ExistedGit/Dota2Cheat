@@ -21,7 +21,7 @@ void Particles::ParticleGarbageCollector::RemoveFromGC(ParticleWrapper particle)
 		gcInfo.erase(foundIterator);
 }
 
-void Particles::ParticleGarbageCollector::FrameBasedLogic() {
+void Particles::ParticleGarbageCollector::OnFrame() {
 	for (auto it = gcInfo.begin(); it != gcInfo.end(); )
 	{
 		if (HVALID(it->particleWrap.handle)) {

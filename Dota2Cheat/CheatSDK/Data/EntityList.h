@@ -46,10 +46,7 @@ struct IM_EntityListener {
 	virtual void OnEntityRemoved(const EntityWrapper& ent) {};
 };
 
-#define ENTLIST_LOCK std::lock_guard<std::mutex> _EntListLock(EntityList.mEntities);
-
-inline class CEntityList {
-	std::mutex mEntities;
+inline class CEntityList : public IEntityListener {
 	qwemap<uint32_t, EntityWrapper> Entities;
 
 	std::vector<IM_EntityListener*> Listeners;
@@ -63,51 +60,11 @@ inline class CEntityList {
 		for (auto l : Listeners)
 			l->OnEntityRemoved(ent);
 	}
+
 public:
+	std::mutex mEntities;
 
-	void AddListener(IM_EntityListener& l) {
-		Listeners.push_back(&l);
-	}
-	template<size_t lSize>
-	void AddListeners(IM_EntityListener* const (&_listeners)[lSize]) {
-		for (auto l : _listeners)
-			Listeners.push_back(l);
-	}
-
-	std::vector<EntityWrapper> FilterByType(EntityType type, std::function<bool(const EntityWrapper&)> predicate) {
-		std::lock_guard<std::mutex> lock(mEntities);
-		std::vector<EntityWrapper> ret;
-		Entities.begin();
-		for (const auto& [idx, wrap] : Entities)
-			if (predicate(wrap))
-				ret.push_back(wrap);
-
-		return ret;
-	}
-	std::vector<EntityWrapper> Filter(std::function<bool(const EntityWrapper&)> predicate) {
-		std::lock_guard<std::mutex> lock(mEntities);
-		std::vector<EntityWrapper> ret;
-		Entities.begin();
-		for (const auto& [idx, wrap] : Entities)
-			if (predicate(wrap))
-				ret.push_back(wrap);
-
-		return ret;
-	}
-
-	void ForEach(std::function<void(EntityWrapper&)> func) {
-		std::lock_guard<std::mutex> lock(mEntities);
-		for (auto& [idx, wrap] : Entities)
-			func(wrap);
-	}
-	void ForEachOfType(EntityType type, std::function<void(EntityWrapper&)> func) {
-		std::lock_guard<std::mutex> lock(mEntities);
-		for (auto& [idx, wrap] : Entities)
-			if (wrap.type == type)
-				func(wrap);
-	}
-
-	void Add(CBaseEntity* ent) {
+	void OnEntityCreated(CBaseEntity* ent) override {
 		std::lock_guard<std::mutex> lock(mEntities);
 		if (!ent->SchemaBinding()->binaryName || Entities.contains(ent->GetIndex()))
 			return;
@@ -149,12 +106,85 @@ public:
 		Entities[ent->GetIndex()] = wrap;
 		DispatchEntityAdded(wrap);
 	}
-
-	void Remove(CBaseEntity* ent) {
+	void OnEntityDeleted(CBaseEntity* ent) override {
 		std::lock_guard<std::mutex> lock(mEntities);
 		if (Entities.contains(ent->GetIndex())) {
 			DispatchEntityRemoved(Entities[ent->GetIndex()]);
 			Entities.erase(ent->GetIndex());
 		}
 	}
+
+	void AddListener(IM_EntityListener& l) {
+		Listeners.push_back(&l);
+	}
+	template<size_t lSize>
+	void AddListeners(IM_EntityListener* const (&_listeners)[lSize]) {
+		for (auto l : _listeners)
+			Listeners.push_back(l);
+	}
+
+	template<typename ...Args>
+	bool ContainsTypes(std::function<bool(const EntityWrapper&)> predicate, Args&&... _types) {
+		std::lock_guard<std::mutex> lock(mEntities);
+
+		EntityType types[] = { std::forward<Args>(_types) };
+		
+		for (const auto& [idx, wrap] : Entities) {
+			bool proceed = false;
+			for (auto type : types)
+				if (wrap.type == type) {
+					proceed = true; break;
+				}
+
+			if (proceed)
+				return true;
+		}
+
+		return false;
+	}
+
+	template<typename ...Args>
+	std::vector<EntityWrapper> FilterByType(std::function<bool(const EntityWrapper&)> predicate, Args&&... _types) {
+		std::lock_guard<std::mutex> lock(mEntities);
+
+		EntityType types[] = { std::forward<Args>(_types) };
+		std::vector<EntityWrapper> ret;
+
+		for (const auto& [idx, wrap] : Entities) {
+			bool proceed = false;
+			for (auto type : types)
+				if (wrap.type == type) {
+					proceed = true; break;
+				}
+
+			if (proceed && predicate(wrap))
+				ret.push_back(wrap);
+		}
+
+		return ret;
+	}
+
+	std::vector<EntityWrapper> Filter(std::function<bool(const EntityWrapper&)> predicate) {
+		std::lock_guard<std::mutex> lock(mEntities);
+		std::vector<EntityWrapper> ret;
+
+		for (const auto& [idx, wrap] : Entities)
+			if (predicate(wrap))
+				ret.push_back(wrap);
+
+		return ret;
+	}
+
+	void ForEach(std::function<void(EntityWrapper&)> func) {
+		std::lock_guard<std::mutex> lock(mEntities);
+		for (auto& [idx, wrap] : Entities)
+			func(wrap);
+	}
+	void ForEachOfType(EntityType type, std::function<void(EntityWrapper&)> func) {
+		std::lock_guard<std::mutex> lock(mEntities);
+		for (auto& [idx, wrap] : Entities)
+			if (wrap.type == type)
+				func(wrap);
+	}
+
 } EntityList;

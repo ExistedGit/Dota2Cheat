@@ -11,7 +11,7 @@ namespace Hacks {
 	public:
 		void Reset();
 		void Init();
-		void FrameBasedLogic();
+		void OnFrame();
 	};
 
 }

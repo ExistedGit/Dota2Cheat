@@ -3,7 +3,8 @@
 #include "../Utility/ParticleGC.h"
 #include "../../CheatSDK/Config.h"
 
-namespace Hacks {
+namespace Modules {
+inline 
 	class ParticleAbilityWarner {
 		// Draws a dashed red line from begin to end
 		// Returns the wrapper for the created particle
@@ -45,8 +46,5 @@ namespace Hacks {
 		// Update: velocity = control point 1
 
 		void OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg);
-	};
-}
-namespace Modules {
-	inline Hacks::ParticleAbilityWarner ParticleAbilityWarner{};
+	} ParticleAbilityWarner;
 }

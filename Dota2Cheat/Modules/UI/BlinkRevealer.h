@@ -3,13 +3,14 @@
 #include "../../CheatSDK/include.h"
 #include "../../Utils/Drawing.h"
 #include "MultiThreadModule.h"
+#include "../MListeners.h"
 
 #include "consthash/cityhash32.hxx"
 #include "cityhash/city.h"
 
-namespace Hacks {
+namespace Modules {
 	// Shows the exact point of QoP's and Antimage's blinks
-	class BlinkRevealer : public MultiThreadModule {
+	class M_BlinkRevealer : public MultiThreadModule, IRunFrameListener, INetChanListener{
 		struct BlinkData {
 			Vector pos{ 0, 0,0 };
 			bool qop;
@@ -20,10 +21,7 @@ namespace Hacks {
 		float lastTime = 0;
 	public:
 		void Draw();
-		void FrameBasedLogic();
-		void OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg);
-	};
-}
-namespace Modules {
-	inline Hacks::BlinkRevealer BlinkRevealer{};
+		void OnFrame() override;
+		void OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) override;
+	} BlinkRevealer{};
 }

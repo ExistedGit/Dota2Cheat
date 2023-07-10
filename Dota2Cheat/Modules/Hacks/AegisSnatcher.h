@@ -3,15 +3,13 @@
 #include "../../CheatSDK/include.h"
 #include "../MListeners.h"
 
-namespace Hacks {
+namespace Modules {
+inline 
 	class AegisSnatcher : public IM_RunFrameListener, IM_EntityListener {
 		CBaseEntity* aegis = nullptr;
 		float lastPickupTime = 0;
 	public:
 		void OnEntityRemoved(const EntityWrapper& ent) override;
 		void OnFrame() override;
-	};
-}
-namespace Modules {
-	inline Hacks::AegisSnatcher AegisSnatcher{};
+	} AegisSnatcher;
 }

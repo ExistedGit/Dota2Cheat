@@ -3,9 +3,10 @@
 #include "../../Utils/Drawing.h"
 #include "../../CheatSDK/include.h"
 #include "MultiThreadModule.h"
+#include "../MListeners.h"
 
-namespace Hacks {
-	class TPTracker : public MultiThreadModule {
+namespace Modules {
+	inline class M_TPTracker : public MultiThreadModule, IRunFrameListener, INetChanListener {
 		struct TPData {
 			Vector pos{ 0,0,0 };
 			uint32_t msgIdx = 0;
@@ -30,11 +31,8 @@ namespace Hacks {
 			teleports.clear();
 		}
 		// Mostly calculating fade duration
-		void FrameBasedLogic();
+		void OnFrame() override;
 		void DrawMapTeleports();
-		void OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg);;
-	};
-}
-namespace Modules {
-	inline Hacks::TPTracker TPTracker{};
+		void OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) override;
+	} TPTracker{};
 }

@@ -3,13 +3,17 @@
 #include "../../../CheatSDK/include.h"
 #include "../../../Utils/Drawing.h"
 
-namespace Hacks {
+namespace Modules {
 	// Created together with Wolf49406
-	class SpeedIndicator {
+	inline class M_SpeedIndicator {
+		bool DrawCondition(const EntityWrapper& wrap) {
+			CDOTABaseNPC_Hero* hero = wrap;
+			return !hero->IsSameTeam(ctx.localHero)
+				&& hero->IsTargetable()
+				&& !hero->IsIllusion()
+				&& IsEntityOnScreen(hero);
+		}
 	public:
 		void Draw();
-	};
-}
-namespace Modules {
-	inline Hacks::SpeedIndicator SpeedIndicator{};
+	} SpeedIndicator;
 }

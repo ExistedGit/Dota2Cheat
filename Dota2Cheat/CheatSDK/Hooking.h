@@ -15,14 +15,11 @@
 #include "../Hooks/Misc.h"
 
 namespace Hooks {
-	inline EntityEventListener* EntEventListener{};
-
 	void InstallHooks();
 
 	// Removes any custom, non-MinHook hooks
 	inline void RemoveHooks() {
-		Interfaces::EntitySystem->GetListeners().remove_by_value(EntEventListener);
-		CMemAlloc::Instance()->Free(EntEventListener);
+		Interfaces::EntitySystem->GetListeners().remove_by_value(&EntityList);
 		Interfaces::UIEngine->GetListeners().remove_by_value(hkRunFrame);
 	}
 }

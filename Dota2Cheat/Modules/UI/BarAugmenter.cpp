@@ -1,6 +1,6 @@
 #include "BarAugmenter.h"
 
-bool Hacks::BarAugmenter::CanDraw(CDOTABaseNPC_Hero* hero) {
+bool Modules::BarAugmenter::CanDraw(CDOTABaseNPC_Hero* hero) {
 	bool ret = IsValidReadPtr(hero)
 		&& IsValidReadPtr(hero->GetIdentity())
 		&& !hero->GetIdentity()->IsDormant()
@@ -12,7 +12,7 @@ bool Hacks::BarAugmenter::CanDraw(CDOTABaseNPC_Hero* hero) {
 	return ret;
 }
 
-void Hacks::BarAugmenter::DrawHPNumbers() {
+void Modules::BarAugmenter::DrawHPNumbers() {
 	constexpr static ImVec2 manabarSize{ 101, 8 };
 	const int fontSize = 14;
 	for (auto& hero : ctx.heroes) {
@@ -35,7 +35,7 @@ void Hacks::BarAugmenter::DrawHPNumbers() {
 	}
 }
 
-void Hacks::BarAugmenter::DrawManabars()
+void Modules::BarAugmenter::DrawManabars()
 {
 	// Fine-tuned values
 	// idk why it's this strange

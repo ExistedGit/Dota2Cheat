@@ -1,6 +1,6 @@
 #include "AutoDodge.h"
 
-void Hacks::AutoDodge::FrameBasedLogic() {
+void Modules::AutoDodge::OnFrame() {
 	if (!Config::AutoDodge::Enabled
 		|| !GameSystems::ProjectileManager)
 		return;

@@ -1,6 +1,6 @@
 #include "KillIndicator.h"
 
-void Hacks::KillIndicator::DrawIndicatorFor(CDOTABaseNPC* ent) {
+void Modules::KillIndicator::DrawIndicatorFor(CDOTABaseNPC* ent) {
 	if (!ent)
 		return;
 

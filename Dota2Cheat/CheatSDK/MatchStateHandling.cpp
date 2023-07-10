@@ -1,5 +1,4 @@
 #include "MatchStateHandling.h"
-#include "EntitySorting.h"
 
 void CMatchStateManager::EnteredPreGame() {
 
@@ -141,7 +140,7 @@ void CMatchStateManager::CacheAllEntities() {
 			!IsValidReadPtr(ent->SchemaBinding()->binaryName))
 			continue;
 
-		EntitySorter::QueueAdd(ent);
+		EntityList.OnEntityCreated(ent);
 	}
 }
 

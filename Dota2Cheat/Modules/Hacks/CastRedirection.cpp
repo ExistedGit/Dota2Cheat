@@ -1,6 +1,6 @@
 #include "CastRedirection.h"
 
-bool Hacks::CastRedirection::RedirectIfIllusionCast(uint32_t& targetIndex, CBaseEntity* issuer, uint32_t abilityIndex, bool& giveOrder) {
+bool Modules::CastRedirection::RedirectIfIllusionCast(uint32_t& targetIndex, CBaseEntity* issuer, uint32_t abilityIndex, bool& giveOrder) {
 	if (!Config::CastRedirection)
 		return false;
 	auto npc = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(targetIndex);

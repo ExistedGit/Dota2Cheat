@@ -3,18 +3,16 @@
 #include "../CheatSDK/include.h"
 
 
-namespace Hacks {
+namespace Modules {
+inline 
 	// Uses Wand/Stick/Locket and/or FaerieFire at low health
 	class AutoHeal {
 		void UseWand(CDOTABaseNPC* hero);
 		void UseFaerieFire(CDOTABaseNPC* hero);
 	public:
-		void FrameBasedLogic(CDOTABaseNPC* hero) {
+		void OnFrame(CDOTABaseNPC* hero) {
 			UseWand(hero);
 			UseFaerieFire(hero);
 		}
-	};
-}
-namespace Modules {
-	inline Hacks::AutoHeal AutoHeal{};
+	} AutoHeal;
 }

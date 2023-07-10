@@ -2,7 +2,8 @@
 #include "../../SDK/pch.h"
 #include <format>
 
-namespace Hacks {
+namespace Modules {
+inline 
 	class AutoPick {
 		bool triedAutoBan = false,
 			triedAutoPick = false;
@@ -18,8 +19,5 @@ namespace Hacks {
 		void Reset();
 
 		void TryAutoBan();
-	};
-}
-namespace Modules {
-	inline Hacks::AutoPick AutoPick{};
+	} AutoPick;
 }

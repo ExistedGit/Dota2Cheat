@@ -1,11 +1,11 @@
 #include "AegisSnatcher.h"
 
-void Hacks::AegisSnatcher::OnEntityRemoved(const EntityWrapper& wrap) {
+void Modules::AegisSnatcher::OnEntityRemoved(const EntityWrapper& wrap) {
 	if (wrap.ent == aegis)
 		aegis = nullptr;
 }
 
-void Hacks::AegisSnatcher::OnFrame() {
+void Modules::AegisSnatcher::OnFrame() {
 	if (!aegis) {
 		auto findAegis = [this](auto& physItem) {
 			auto item = physItem->Member<CHandle<>>(Netvars::C_DOTA_Item_Physical::m_hItem);

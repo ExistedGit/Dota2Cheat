@@ -5,7 +5,7 @@
 // Draws a dashed red line from begin to end
 // Returns the wrapper for the created particle
 
-ParticleWrapper Hacks::ParticleAbilityWarner::DrawTrajectory(Vector begin, Vector end) {
+ParticleWrapper Modules::ParticleAbilityWarner::DrawTrajectory(Vector begin, Vector end) {
 	auto pw = GameSystems::ParticleManager->CreateParticle(
 		"particles/ui_mouseactions/range_finder_tower_line.vpcf",
 		PATTACH_WORLDORIGIN,
@@ -18,7 +18,7 @@ ParticleWrapper Hacks::ParticleAbilityWarner::DrawTrajectory(Vector begin, Vecto
 	return pw;
 }
 
-ParticleWrapper Hacks::ParticleAbilityWarner::DrawRadius(Vector pos, float radius) {
+ParticleWrapper Modules::ParticleAbilityWarner::DrawRadius(Vector pos, float radius) {
 	auto pw = GameSystems::ParticleManager->CreateParticle(
 		"particles/units/heroes/hero_snapfire/hero_snapfire_range_finder_aoe.vpcf",
 		PATTACH_WORLDORIGIN,
@@ -30,7 +30,7 @@ ParticleWrapper Hacks::ParticleAbilityWarner::DrawRadius(Vector pos, float radiu
 	return pw;
 }
 
-CDOTABaseNPC_Hero* Hacks::ParticleAbilityWarner::FindParticleOwner(const char* name) {
+CDOTABaseNPC_Hero* Modules::ParticleAbilityWarner::FindParticleOwner(const char* name) {
 	for (auto& hero : ctx.heroes) {
 		if (auto unitName = hero->GetUnitName())
 			if (!strcmp(unitName, name)) {
@@ -40,7 +40,7 @@ CDOTABaseNPC_Hero* Hacks::ParticleAbilityWarner::FindParticleOwner(const char* n
 	return nullptr;
 }
 
-void Hacks::ParticleAbilityWarner::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
+void Modules::ParticleAbilityWarner::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
 	if (msgHandle->messageID != 145)
 		return;
 

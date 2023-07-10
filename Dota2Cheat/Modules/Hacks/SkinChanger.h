@@ -4,7 +4,8 @@
 
 // I mean, I tried
 // maybe someone else figures it out.
-namespace Hacks {
+namespace Modules {
+inline 
 	class SkinChanger {
 	public:
 		struct ItemData {
@@ -69,8 +70,5 @@ namespace Hacks {
 			inv->SOUpdated(&soid, item, eSOCacheEvent_Incremental);
 		}
 		bool AddItem(uint32_t unDefIndex);
-	};
-}
-namespace Modules {
-	inline Hacks::SkinChanger SkinChanger{};
+	} SkinChanger;
 }

@@ -2,7 +2,7 @@
 #include <cityhash/city.h>
 #include <consthash/cityhash32.hxx>
 
-void Hacks::ParticleMaphack::DrawScreenAppearances() {
+void Modules::M_ParticleMaphack::DrawScreenAppearances() {
 	static constexpr ImVec2 iconSize{ 32, 32 };
 	for (auto& [hero, data] : Appearances) {
 		if (!IsValidReadPtr(hero)
@@ -28,7 +28,7 @@ void Hacks::ParticleMaphack::DrawScreenAppearances() {
 	}
 }
 
-void Hacks::ParticleMaphack::DrawMapAppearances()
+void Modules::M_ParticleMaphack::DrawMapAppearances()
 {
 	static constexpr ImVec2 iconSize{ 24, 24 };
 	auto DrawList = ImGui::GetForegroundDrawList();
@@ -59,7 +59,7 @@ void Hacks::ParticleMaphack::DrawMapAppearances()
 	}
 }
 
-void Hacks::ParticleMaphack::Draw() {
+void Modules::M_ParticleMaphack::Draw() {
 	if (!Config::ParticleMapHack::Enabled)
 		return;
 
@@ -68,7 +68,7 @@ void Hacks::ParticleMaphack::Draw() {
 	DrawMapAppearances();
 }
 
-void Hacks::ParticleMaphack::FrameBasedLogic() {
+void Modules::M_ParticleMaphack::OnFrame() {
 	MTM_LOCK;
 
 	const float timeDelta = GameSystems::GameRules->GetGameTime() - lastTime;
@@ -83,7 +83,7 @@ void Hacks::ParticleMaphack::FrameBasedLogic() {
 	}
 }
 
-void Hacks::ParticleMaphack::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
+void Modules::M_ParticleMaphack::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
 	if (msgHandle->messageID != 145)
 		return;
 
@@ -158,7 +158,7 @@ void Hacks::ParticleMaphack::OnReceivedMsg(NetMessageHandle_t* msgHandle, google
 	};
 }
 
-void Hacks::ParticleMaphack::GetHeroIcon(CDOTABaseNPC* npc, ImTextureID& icon)
+void Modules::M_ParticleMaphack::GetHeroIcon(CDOTABaseNPC* npc, ImTextureID& icon)
 {
 	if (ctx.heroes.contains((CDOTABaseNPC_Hero*)npc)) {
 		std::string iconName = "icon_";

@@ -1,6 +1,6 @@
 #include "SkinChanger.h"
 
-void Hacks::SkinChanger::ParseItemDefs(std::istream& stream) {
+void Modules::SkinChanger::ParseItemDefs(std::istream& stream) {
 	using namespace nlohmann;
 	json data = json::parse(stream);
 	for (auto& pair: data["items"].items()) {
@@ -21,7 +21,7 @@ void Hacks::SkinChanger::ParseItemDefs(std::istream& stream) {
 
 // structure reversed from CEconItem::IsStyleUnlocked
 // xref: "unlocked styles"
-void Hacks::SkinChanger::UnlockAllStyles(CEconItem* pItem) {
+void Modules::SkinChanger::UnlockAllStyles(CEconItem* pItem) {
 	using namespace Signatures;
 	auto itemSchema = GetItemSchema();
 	auto itemDef = CDOTAItemSchema::GetItemDefByIndex(itemSchema, pItem->m_unDefIndex);
@@ -36,7 +36,7 @@ void Hacks::SkinChanger::UnlockAllStyles(CEconItem* pItem) {
 			style->Field<uint32_t>(0x30) = 0;
 	}
 }
-void Hacks::SkinChanger::Equip(CEconItem* pItem, uint16_t unClass, uint16_t unSlot) {
+void Modules::SkinChanger::Equip(CEconItem* pItem, uint16_t unClass, uint16_t unSlot) {
 	EquippedItems[unClass][unSlot] = pItem;
 
 	// pItem->EnsureCustomDataExists();
@@ -47,7 +47,7 @@ void Hacks::SkinChanger::Equip(CEconItem* pItem, uint16_t unClass, uint16_t unSl
 
 	SOUpdated(pItem);
 }
-bool Hacks::SkinChanger::AddItem(uint32_t unDefIndex) {
+bool Modules::SkinChanger::AddItem(uint32_t unDefIndex) {
 	static auto inv = Interfaces::GCClient->GetSOListeners()[1];
 	static auto soid = inv->GetSOCache()->GetOwner();
 	const uint32_t accId = soid.m_unSteamID;

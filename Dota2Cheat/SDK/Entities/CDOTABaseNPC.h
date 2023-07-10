@@ -28,13 +28,6 @@ public:
 
 	IGETTER(CDOTAModifierManager, GetModifierManager, Netvars::C_DOTA_BaseNPC::m_ModifierManager);
 
-	bool HasOneOfModifiers(std::vector<const char*> modifiers) {
-		for (auto& modifier : GetModifierManager()->GetModifierList()) {
-			if (TestStringFilters(modifier->GetName(), modifiers))
-				return true;
-		}
-		return false;
-	}
 	CDOTAModifier* GetModifier(std::string_view name) {
 		for (auto& modifier : GetModifierManager()->GetModifierList())
 			if (modifier->GetName() == name)

@@ -5,7 +5,8 @@
 #include "../MultiThreadModule.h"
 #include <functional>
 
-namespace Hacks {
+namespace Modules {
+inline 
 	class KillIndicator : public MultiThreadModule {
 		struct NukeData {
 			uint32_t idx = 0;
@@ -151,8 +152,5 @@ namespace Hacks {
 			}
 		}
 
-	};
-}
-namespace Modules {
-	inline Hacks::KillIndicator KillIndicator{};
+	} KillIndicator;
 }

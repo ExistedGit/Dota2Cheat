@@ -3,12 +3,12 @@
 #include "../../Utils/Drawing.h"
 #include "../../CheatSDK/include.h"
 
-namespace Hacks {
+namespace Modules {
 	// Adds manabars to enemies and displays their HP as a number
-	class BarAugmenter {
+	inline class BarAugmenter {
 		bool CanDraw(CDOTABaseNPC_Hero* hero);
 		void DrawHPNumbers();
-		void DrawManabars();;
+		void DrawManabars();
 	public:
 		void Draw() {
 			if (Config::Bars::ManaBar)
@@ -16,8 +16,5 @@ namespace Hacks {
 			if (Config::Bars::HPNumbers)
 				DrawHPNumbers();
 		}
-	};
-}
-namespace Modules {
-	inline Hacks::BarAugmenter BarAugmenter{};
+	} BarAugmenter{};
 }

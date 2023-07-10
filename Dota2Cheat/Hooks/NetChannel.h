@@ -17,11 +17,9 @@
 namespace Hooks {
 	inline INetChannel* NetChan{};
 
-	typedef void(__fastcall* PostReceivedNetMessageFn)(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits);
-	inline PostReceivedNetMessageFn oPostReceivedNetMessage{};
+	inline void* oPostReceivedNetMessage{};
 	void hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits);
 
-	typedef bool(__fastcall* SendNetMessageFn)(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, NetChannelBufType_t type);
-	inline SendNetMessageFn oSendNetMessage{};
+	inline void* oSendNetMessage{};
 	bool hkSendNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, NetChannelBufType_t type);
 }

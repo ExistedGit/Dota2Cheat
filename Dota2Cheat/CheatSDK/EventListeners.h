@@ -3,17 +3,6 @@
 #include "../Modules/Hacks/AegisSnatcher.h"
 #include "MatchStateHandling.h"
 #include <format>
-#include "EntitySorting.h"
-class EntityEventListener : public IEntityListener {
-
-	void OnEntityCreated(CBaseEntity* ent) override {
-		EntitySorter::QueueAdd(ent);
-	}
-
-	void OnEntityDeleted(CBaseEntity* ent) override {
-		EntitySorter::QueueRemove(ent);
-	}
-};
 
 class RoshanListener : public IGameEventListener2 {
 public:

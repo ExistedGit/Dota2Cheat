@@ -2,7 +2,6 @@
 #include "RunFrame.h"
 #include <format>
 #include "../SDK/Interfaces/GC/CEconWearable.h"
-#include "../CheatSDK/EntitySorting.h"
 
 template<typename T = CBaseEntity>
 std::set<T*> GetEntitiesByFilter(const std::vector<const char*>& filters) {
@@ -84,27 +83,31 @@ void InGameLogic() {
 		HeroData[hero].W2S = WorldToScreen(hero->GetPos());
 		HeroData[hero].HealthbarW2S = WorldToScreen(hero->GetHealthBarPos());
 	}
+	static IRunFrameListener* RunFrameListeners[] = {
+		&Modules::TPTracker,
+		&Modules::BlinkRevealer,
+	};
 
 	if (!GameSystems::GameRules->IsGamePaused()) {
 
-		Modules::TPTracker.FrameBasedLogic();
-		Modules::BlinkRevealer.FrameBasedLogic();
-		Modules::ParticleMaphack.FrameBasedLogic();
+		Modules::TPTracker.OnFrame();
+		Modules::BlinkRevealer.OnFrame();
+		Modules::ParticleMaphack.OnFrame();
 
 		if (ctx.localHero->GetLifeState() == 0) {
-			Modules::AutoHeal.FrameBasedLogic(ctx.localHero);
-			Modules::AutoPing.FrameBasedLogic();
-			Modules::AutoDodge.FrameBasedLogic();
-			Modules::AutoMidas.FrameBasedLogic();
-			Modules::AegisSnatcher.FrameBasedLogic();
+			Modules::AutoHeal.OnFrame(ctx.localHero);
+			Modules::AutoPing.OnFrame();
+			Modules::AutoDodge.OnFrame();
+			Modules::AutoMidas.OnFrame();
+			Modules::AegisSnatcher.OnFrame();
 		}
 
-		Modules::RiverPaint.FrameBasedLogic();
+		Modules::RiverPaint.OnFrame();
 
-		Modules::TargetedSpellHighlighter.FrameBasedLogic();
-		Modules::LinearProjectileWarner.FrameBasedLogic();
+		Modules::TargetedSpellHighlighter.OnFrame();
+		Modules::LinearProjectileWarner.OnFrame();
 
-		Modules::ParticleGC.FrameBasedLogic();
+		Modules::ParticleGC.OnFrame();
 
 		EntityIteration();
 	}

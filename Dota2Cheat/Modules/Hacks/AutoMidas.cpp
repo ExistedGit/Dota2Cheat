@@ -1,6 +1,6 @@
 #include "AutoMidas.h"
 
-void Hacks::AutoMidas::FrameBasedLogic() {
+void Modules::AutoMidas::OnFrame() {
 	if (!Config::AutoMidas::Enabled)
 		return;
 

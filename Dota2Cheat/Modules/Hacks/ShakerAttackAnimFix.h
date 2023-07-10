@@ -2,7 +2,8 @@
 #include "../../SDK/pch.h"
 #include "../../SDK/Protobufs/dota_usermessages.pb.h"
 
-namespace Hacks {
+namespace Modules {
+inline 
 	// Changes Shaker's default attack animation to Enchant Totem's one
 	// rofl feature from melonity :)
 	class ShakerAttackAnimFix {
@@ -32,8 +33,5 @@ namespace Hacks {
 				animMsg->set_sequence_variant(3);
 
 		}
-	};
-}
-namespace Modules {
-	inline Hacks::ShakerAttackAnimFix ShakerAttackAnimFix{};
+	} ShakerAttackAnimFix;
 }

@@ -1,20 +1,18 @@
 #include "BadCastPrevention.h"
 #include "../../CheatSDK/Config.h"
 
-bool Hacks::BadCastPrevention::AreEnemyUnitsInArea(const Vector& center, int radius) {
-	for (int i = 0; i <= Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
-		auto ent = Interfaces::EntitySystem->GetEntity(i);
-		if (ent
-			&& !ent->IsSameTeam(ctx.localHero)
+bool Modules::BadCastPrevention::AreEnemyUnitsInArea(const Vector& center, int radius) {
+
+
+	const auto condition = [this, center, radius](const auto& ent) ->bool {
+		return !ent->IsSameTeam(ctx.localHero)
 			&& IsWithinRadius(center, ent->GetPos(), radius)
-			&& (ctx.heroes.contains((CDOTABaseNPC_Hero*)ent) || ctx.creeps.contains((CDOTABaseNPC*)ent))
-			&& reinterpret_cast<CDOTABaseNPC*>(ent)->IsTargetable())
-			return true;
-	}
-	return false;
+			&& reinterpret_cast<CDOTABaseNPC*>(ent)->IsTargetable());
+	};
+	return EntityList.ContainsTypes(condition, EntityType::Hero, EntityType::Creep);
 }
 
-bool Hacks::BadCastPrevention::AreEnemyHeroesInArea(const Vector& center, int radius) {
+bool Modules::BadCastPrevention::AreEnemyHeroesInArea(const Vector& center, int radius) {
 	for (auto& hero : ctx.heroes) {
 		if (
 			hero->IsTargetable()
@@ -27,7 +25,7 @@ bool Hacks::BadCastPrevention::AreEnemyHeroesInArea(const Vector& center, int ra
 }
 
 // Checks whether the ability is cast at an area without enemy heroes/units
-bool Hacks::BadCastPrevention::IsBadCast(dotaunitorder_t orderType, UINT32 targetIdx, Vector* pos, UINT32 abilityIdx, CBaseEntity* issuer) {
+bool Modules::BadCastPrevention::IsBadCast(dotaunitorder_t orderType, UINT32 targetIdx, Vector* pos, UINT32 abilityIdx, CBaseEntity* issuer) {
 	if (!Config::BadCastPrevention)
 		return false;
 

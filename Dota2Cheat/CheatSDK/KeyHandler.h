@@ -18,10 +18,7 @@ public:
 	}
 	void OnWindowMessage(UINT uMsg, WPARAM wParam) {
 		switch (uMsg) {
-		case WM_KEYUP: {
-			KeyHandler.OnKeyUp(wParam);
-			break;
-		}
+		case WM_KEYUP: KeyHandler.OnKeyUp(wParam); break;
 		}
 	}
 } KeyHandler;

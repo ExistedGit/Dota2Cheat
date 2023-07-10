@@ -12,7 +12,7 @@ namespace Hacks {
 	class AutoPing {
 		float lastGameTime = 0;
 	public:
-		void FrameBasedLogic();
+		void OnFrame();
 	};
 }
 namespace Modules {

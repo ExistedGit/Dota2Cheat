@@ -1,11 +1,11 @@
 #include "AutoAccept.h"
 #include "../../SDK/Protobufs/dota_gcmessages_client_match_management.pb.h"
 
-//void Hacks::AutoAccept::SetNotificationGameMode(const char* gm) {
+//void Modules::AutoAccept::SetNotificationGameMode(const char* gm) {
 //	notificationGameMode = gm;
 //}
 //
-//void Hacks::AutoAccept::SendTGNotification() {
+//void Modules::AutoAccept::SendTGNotification() {
 //	const std::string URL =
 //		"https://dota2cheat-bot-api.glitch.me/notify" +
 //		std::format("?chat_id={}&delay={}&cheat={}&gamemode={}",
@@ -25,7 +25,7 @@
 //	curl_easy_cleanup(curl);
 //}
 
-void Hacks::AutoAccept::RunAcceptTimer() {
+void Modules::AutoAccept::RunAcceptTimer() {
 	std::this_thread::sleep_for(std::chrono::seconds(Config::AutoAccept::Delay));
 	// All that rebuilt from CDOTAGCClientSystem::SendReadyUpMessageForCurrentLobby(), see signatures.json
 	CMsgReadyUp msg;
@@ -35,7 +35,7 @@ void Hacks::AutoAccept::RunAcceptTimer() {
 	acceptingMatch = false;
 }
 
-void Hacks::AutoAccept::AcceptMatch() {
+void Modules::AutoAccept::AcceptMatch() {
 	if (!Config::AutoAccept::Enabled ||
 		acceptingMatch)
 		return;

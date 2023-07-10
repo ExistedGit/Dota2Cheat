@@ -1,20 +1,20 @@
 #include "AutoPick.h"
 
-void Hacks::AutoPick::BanHero(const char* name) {
+void Modules::AutoPick::BanHero(const char* name) {
 	auto command = std::format("dota_captain_ban_hero npc_dota_hero_{}", name);
 	Interfaces::InputService->CmdCommand(command.c_str());
 }
 
-void Hacks::AutoPick::PickHero(const char* name) {
+void Modules::AutoPick::PickHero(const char* name) {
 	auto command = std::format("dota_select_hero npc_dota_hero_{}", name);
 	Interfaces::InputService->CmdCommand(command.c_str());
 }
 
-void Hacks::AutoPick::Reset() {
+void Modules::AutoPick::Reset() {
 	triedAutoBan = triedAutoPick = false;
 }
 
-void Hacks::AutoPick::TryAutoBan() {
+void Modules::AutoPick::TryAutoBan() {
 	if (ctx.gameStage != GameStage::PRE_GAME ||
 		(!autoBanHero && !autoPickHero)
 		|| GameSystems::GameRules->GetGameState() != DOTA_GAMERULES_STATE_HERO_SELECTION

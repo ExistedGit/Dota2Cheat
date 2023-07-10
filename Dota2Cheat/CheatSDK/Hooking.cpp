@@ -46,8 +46,7 @@ void Hooks::InstallHooks() {
 		HOOKFUNC(RunScript);
 	}
 	{
-		EntEventListener = CMemAlloc::Instance()->AllocInit<EntityEventListener>();
-		Interfaces::EntitySystem->GetListeners().push_back(EntEventListener);
+		Interfaces::EntitySystem->GetListeners().push_back(&EntityList);
 
 		Interfaces::UIEngine->GetListeners().push_back(Hooks::hkRunFrame);
 	}

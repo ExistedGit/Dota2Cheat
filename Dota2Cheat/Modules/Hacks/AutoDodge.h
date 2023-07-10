@@ -2,12 +2,10 @@
 #include "../../SDK/pch.h"
 #include "../../CheatSDK/include.h"
 
-namespace Hacks {
+namespace Modules {
+inline 
 	class AutoDodge {
 	public:
-		void FrameBasedLogic();
-	};
-}
-namespace Modules {
-	inline Hacks::AutoDodge AutoDodge{};
+		void OnFrame();
+	} AutoDodge;
 }

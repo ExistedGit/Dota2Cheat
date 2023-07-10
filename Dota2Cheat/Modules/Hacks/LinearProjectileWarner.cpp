@@ -4,7 +4,7 @@
 // Draws a dashed red line from begin to end
 // Returns the wrapper for the created particle
 
-ParticleWrapper Hacks::LinearProjectileWarner::DrawTrajectory(const Vector& begin, const Vector& end) {
+ParticleWrapper Modules::LinearProjectileWarner::DrawTrajectory(const Vector& begin, const Vector& end) {
 	auto pw = GameSystems::ParticleManager->CreateParticle(
 		"particles/ui_mouseactions/range_finder_tower_line.vpcf",
 		PATTACH_WORLDORIGIN,
@@ -17,7 +17,7 @@ ParticleWrapper Hacks::LinearProjectileWarner::DrawTrajectory(const Vector& begi
 	return pw;
 }
 
-void Hacks::LinearProjectileWarner::DrawIfTrajectoryModifier(CDOTAModifier* modifier) {
+void Modules::LinearProjectileWarner::DrawIfTrajectoryModifier(CDOTAModifier* modifier) {
 	if (!Config::ShowLinearProjTrajectory)
 		return;
 
@@ -43,14 +43,14 @@ void Hacks::LinearProjectileWarner::DrawIfTrajectoryModifier(CDOTAModifier* modi
 	}
 }
 
-void Hacks::LinearProjectileWarner::RemoveParticleIfTrajectoryModifier(CDOTAModifier* modifier) {
+void Modules::LinearProjectileWarner::RemoveParticleIfTrajectoryModifier(CDOTAModifier* modifier) {
 	if (EntityTrajectories.count(modifier)) {
 		GameSystems::ParticleManager->DestroyParticle(EntityTrajectories[modifier].particleWrap);
 		EntityTrajectories.erase(modifier);
 	}
 }
 
-void Hacks::LinearProjectileWarner::FrameBasedLogic() {
+void Modules::LinearProjectileWarner::OnFrame() {
 	for (auto& [modifier, info] : EntityTrajectories) {
 		auto owner = modifier->GetOwner();
 		auto forwardVec = modifier->GetOwner()->GetForwardVector(info.offset);
@@ -58,7 +58,7 @@ void Hacks::LinearProjectileWarner::FrameBasedLogic() {
 	}
 }
 
-void Hacks::LinearProjectileWarner::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
+void Modules::LinearProjectileWarner::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
 	if (msgHandle->messageID == 471) {
 		auto linProjMsg = reinterpret_cast<CDOTAUserMsg_CreateLinearProjectile*>(msg);
 		auto& newProj =

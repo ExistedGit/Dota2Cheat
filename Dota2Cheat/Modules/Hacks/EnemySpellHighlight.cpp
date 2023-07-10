@@ -1,6 +1,6 @@
 #include "EnemySpellHighlight.h"
 
-void Hacks::EnemySpellHighlighter::DrawParticleAt(Vector pos, ParticleCreationInfo info) {
+void Modules::EnemySpellHighlighter::DrawParticleAt(Vector pos, ParticleCreationInfo info) {
 	auto particleWrap = GameSystems::ParticleManager->CreateParticle(
 		info.particleName,
 		PATTACH_WORLDORIGIN,
@@ -14,7 +14,7 @@ void Hacks::EnemySpellHighlighter::DrawParticleAt(Vector pos, ParticleCreationIn
 		Modules::ParticleGC.SetDieTime(particleWrap, info.dieTime);
 }
 
-void Hacks::EnemySpellHighlighter::RenderIfThinkerModifier(CDOTAModifier* modifier) {
+void Modules::EnemySpellHighlighter::RenderIfThinkerModifier(CDOTAModifier* modifier) {
 	if (!Config::ShowEnemyPointSpells)
 		return;
 

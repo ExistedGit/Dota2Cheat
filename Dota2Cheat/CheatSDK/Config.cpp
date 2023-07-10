@@ -85,7 +85,7 @@ void Config::ConfigManager::LoadEquippedItems(std::ifstream& stream) {
 	json data = json::parse(stream);
 	if (!data.is_null())
 		for (auto& [itemDef, equip] : data.items())
-			Modules::SkinChanger.itemsToEquip[stoi(itemDef)] = Hacks::SkinChanger::QueuedEquip{
+			Modules::SkinChanger.itemsToEquip[stoi(itemDef)] = Modules::SkinChanger::QueuedEquip{
 			.unClass = equip[0],
 			.unSlot = equip[1]
 		};

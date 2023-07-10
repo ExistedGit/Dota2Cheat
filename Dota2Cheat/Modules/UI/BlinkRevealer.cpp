@@ -1,7 +1,7 @@
 #include "BlinkRevealer.h"
 #include "../../CheatSDK/Systems/CheatManager.h"
 
-void Hacks::BlinkRevealer::Draw() {
+void Modules::M_BlinkRevealer::Draw() {
 	if (!Config::BlinkRevealer)
 		return;
 	MTM_LOCK;
@@ -39,7 +39,7 @@ void Hacks::BlinkRevealer::Draw() {
 	}
 }
 
-void Hacks::BlinkRevealer::FrameBasedLogic() {
+void Modules::M_BlinkRevealer::OnFrame() {
 	MTM_LOCK;
 
 	auto timeDelta = GameSystems::GameRules->GetGameTime() - lastTime;
@@ -54,7 +54,7 @@ void Hacks::BlinkRevealer::FrameBasedLogic() {
 	}
 }
 
-void Hacks::BlinkRevealer::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
+void Modules::M_BlinkRevealer::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
 	if (msgHandle->messageID != 145)
 		return;
 

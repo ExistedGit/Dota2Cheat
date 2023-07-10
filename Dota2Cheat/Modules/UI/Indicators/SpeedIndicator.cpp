@@ -1,6 +1,6 @@
 #include "SpeedIndicator.h"
 
-void Hacks::SpeedIndicator::Draw() {
+void Modules::SpeedIndicator::Draw() {
 	if (!Config::Indicators::Speed)
 		return;
 
