@@ -1,4 +1,4 @@
-# Dota2Cheat: now with Dota Plus!
+# Dota2Cheat: soon crash-free!
 
 ![D2C image v3](https://github.com/ExistedGit/Dota2Cheat/assets/66470490/2b5a66ba-c6fe-4f27-9009-914135948216)
 
