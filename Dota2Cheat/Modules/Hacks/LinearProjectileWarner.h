@@ -1,8 +1,8 @@
 #pragma once
-#include <map>
-#include "../../CheatSDK/Config.h"
 #include "../../SDK/pch.h"
 #include "../../SDK/Protobufs/dota_usermessages.pb.h"
+#include "../../CheatSDK/include.h"
+#include "../MListeners.h"
 
 // particles\ui_mouseactions\range_finder_tower_aoe.vpcf
 // Point 0: nothing
@@ -17,11 +17,9 @@
 // is the owner of control points 2, 6, 7
 
 namespace Modules {
-inline 
-
 	// Shows linear projectile trajectories with a red line
 	// Also shows potential trajectories for aiming heroes like Hoodwink
-	class LinearProjectileWarner {
+	inline class M_LinearProjectileWarner : public IRunFrameListener {
 	public:
 
 		struct LinearProjectile {
@@ -75,10 +73,9 @@ inline
 		ParticleWrapper DrawTrajectory(const Vector& begin, const Vector& end);
 
 
-		void DrawIfTrajectoryModifier(CDOTAModifier* modifier);
-		void OnFrame();
-		void RemoveParticleIfTrajectoryModifier(CDOTAModifier* modifier);
-
+		void OnModifierAdded(CDOTAModifier* modifier);
+		void OnFrame() override ;
+		void OnModifierRemoved(CDOTAModifier* modifier);
 
 		void OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg);
 

@@ -171,7 +171,7 @@ void Pages::MainMenu::Draw() {
 
 		if (ImGui::Checkbox("True Sight", &Config::ModifierRevealer::TrueSight)
 			&& !Config::ModifierRevealer::TrueSight)
-			Modules::TrueSightESP.OnDisable();
+			Modules::TrueSightESP.OnDisabled();
 
 		if (ImGui::Checkbox("Linken Sphere", &Config::ModifierRevealer::LinkenSphere) &&
 			!Config::ModifierRevealer::LinkenSphere)

@@ -100,7 +100,7 @@ void Modules::M_ParticleMaphack::OnReceivedMsg(NetMessageHandle_t* msgHandle, go
 			|| !IsValidReadPtr(npc->GetIdentity())
 			|| !npc->GetIdentity()->IsDormant()
 			|| npc->GetLifeState() != 0
-			|| !ctx.heroes.contains(npc))
+			|| !EntityList.IsHero(npc))
 			return;
 
 		const auto particleName = Interfaces::ResourceSystem->GetResourceName(pmMsg->create_particle().particle_name_index());
@@ -158,11 +158,11 @@ void Modules::M_ParticleMaphack::OnReceivedMsg(NetMessageHandle_t* msgHandle, go
 	};
 }
 
-void Modules::M_ParticleMaphack::GetHeroIcon(CDOTABaseNPC* npc, ImTextureID& icon)
-{
-	if (ctx.heroes.contains((CDOTABaseNPC_Hero*)npc)) {
-		std::string iconName = "icon_";
-		iconName += std::string_view(npc->GetIdentity()->GetName()).substr(14);
-		icon = texManager.GetNamedTexture(iconName);
-	}
+void Modules::M_ParticleMaphack::GetHeroIcon(CDOTABaseNPC* npc, ImTextureID& icon) {
+	if (!EntityList.IsHero(npc))
+		return;
+
+	std::string iconName = "icon_";
+	iconName += std::string_view(npc->GetIdentity()->GetName()).substr(14);
+	icon = texManager.GetNamedTexture(iconName);
 }

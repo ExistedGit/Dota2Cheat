@@ -2,7 +2,6 @@
 
 #include "../Modules/UI/Indicators/SpeedIndicator.h"
 #include "../Modules/UI/Indicators/KillIndicator.h"
-// #include "../Modules/UI/Indicators/HookIndicator.h"
 
 #include "../Modules/UI/BlinkRevealer.h"
 #include "../Modules/UI/TPTracker.h"

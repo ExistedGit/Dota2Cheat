@@ -34,8 +34,6 @@ inline
 		};
 		std::map<uint32_t, AbilityParticleInfo> queuedParticleIndexes{};
 		std::map<uint32_t, TrackedParticlesData> TrackedAbilityParticles{};
-
-		CDOTABaseNPC_Hero* FindParticleOwner(const char* name);
 	public:
 		// Meat hook:
 		// On create: begin = fallback_position 

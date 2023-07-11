@@ -6,7 +6,7 @@
 #include "../MListeners.h"
 
 namespace Modules {
-	inline class M_ParticleMaphack : public MultiThreadModule, INetChanListener, IRunFrameListener {
+	inline class M_ParticleMaphack : public MultiThreadModule, INetChanListener, public IRunFrameListener {
 		struct AppearanceData {
 			Vector worldPos{ 0, 0,0 };
 			ImVec2 mapPos{ 0, 0 };

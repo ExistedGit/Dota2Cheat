@@ -30,16 +30,6 @@ ParticleWrapper Modules::ParticleAbilityWarner::DrawRadius(Vector pos, float rad
 	return pw;
 }
 
-CDOTABaseNPC_Hero* Modules::ParticleAbilityWarner::FindParticleOwner(const char* name) {
-	for (auto& hero : ctx.heroes) {
-		if (auto unitName = hero->GetUnitName())
-			if (!strcmp(unitName, name)) {
-				return hero;
-			}
-	}
-	return nullptr;
-}
-
 void Modules::ParticleAbilityWarner::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
 	if (msgHandle->messageID != 145)
 		return;

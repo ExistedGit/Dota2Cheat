@@ -129,7 +129,6 @@
     <ClCompile Include="Modules\UI\ParticleMaphack.cpp" />
     <ClCompile Include="Modules\UI\BarAugmenter.cpp" />
     <ClCompile Include="Modules\Hacks\AutoAccept.cpp" />
-    <ClCompile Include="Modules\UI\Indicators\HookIndicator.cpp" />
     <ClCompile Include="UI\Pages\MainMenu.cpp" />
     <ClCompile Include="Hooks\GameCoordinator.cpp" />
     <ClCompile Include="Modules\Hacks\ManaHPAbuse.cpp" />
@@ -150,7 +149,6 @@
     <ClInclude Include="Modules\UI\UIOverhaul.h" />
     <ClInclude Include="SDK\GameSystems\CDOTA_PanoramaMinimapRenderer.h" />
     <ClInclude Include="SDK\Interfaces\CGameUI.h" />
-    <ClInclude Include="Hooks\InvalidateUEF.h" />
     <ClInclude Include="Hooks\Misc.h" />
     <ClInclude Include="Hooks\AcceptEvents.h" />
     <ClInclude Include="ImGuiSDK\Elements.h" />
@@ -332,7 +330,6 @@
     <ClInclude Include="CheatSDK\Data\HeroData.h" />
     <ClInclude Include="Modules\UI\BarAugmenter.h" />
     <ClInclude Include="Modules\Hacks\AutoAccept.h" />
-    <ClInclude Include="Modules\UI\Indicators\HookIndicator.h" />
     <ClInclude Include="SDK\Globals\SignatureDB.h" />
     <ClInclude Include="SDK\Entities\CHandle.h" />
     <ClInclude Include="SDK\Interfaces\GC\CEconWearable.h" />

@@ -1,11 +1,11 @@
 #include "CastRedirection.h"
 
-bool Modules::CastRedirection::RedirectIfIllusionCast(uint32_t& targetIndex, CBaseEntity* issuer, uint32_t abilityIndex, bool& giveOrder) {
+bool Modules::M_CastRedirection::RedirectIfIllusionCast(uint32_t& targetIndex, CBaseEntity* issuer, uint32_t abilityIndex, bool& giveOrder) {
 	if (!Config::CastRedirection)
 		return false;
-	auto npc = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(targetIndex);
+	auto npc = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(targetIndex);
 
-	if (!ctx.heroes.count((CDOTABaseNPC_Hero*)npc) ||
+	if (EntityList.IsHero(npc) ||
 		!reinterpret_cast<CDOTABaseNPC_Hero*>(npc)->IsIllusion())
 		return false;
 

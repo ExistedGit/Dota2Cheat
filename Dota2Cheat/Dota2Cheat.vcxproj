@@ -195,6 +195,7 @@
       <ExceptionHandling>false</ExceptionHandling>
       <AdditionalOptions>/bigobj /FI"pch.h"</AdditionalOptions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DisableSpecificWarnings>4244; 4267</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -222,6 +223,7 @@
       <ExceptionHandling>false</ExceptionHandling>
       <AdditionalOptions>/bigobj /FI"pch.h"</AdditionalOptions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DisableSpecificWarnings>4244; 4267</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -250,6 +252,7 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <AdditionalOptions>/bigobj /FI"pch.h"</AdditionalOptions>
       <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <DisableSpecificWarnings>4244; 4267</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -308,7 +311,6 @@
     <ClCompile Include="Modules\UI\AbilityESP.cpp" />
     <ClCompile Include="Modules\UI\BarAugmenter.cpp" />
     <ClCompile Include="Modules\UI\BlinkRevealer.cpp" />
-    <ClCompile Include="Modules\UI\Indicators\HookIndicator.cpp" />
     <ClCompile Include="Modules\UI\Indicators\KillIndicator.cpp" />
     <ClCompile Include="Modules\UI\Indicators\SpeedIndicator.cpp" />
     <ClCompile Include="Modules\UI\ParticleMaphack.cpp" />
@@ -607,10 +609,6 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="Modules\UI\Indicators\HookIndicator.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
     <ClInclude Include="Modules\UI\MultiThreadModule.h" />
     <ClInclude Include="Modules\UI\ParticleMaphack.h">
       <SubType>
@@ -638,7 +636,6 @@
     <ClInclude Include="SDK\GameSystems\CRenderGameSystem.h" />
     <ClInclude Include="CheatSDK\Data\EntityList.h" />
     <ClInclude Include="SDK\Interfaces\CGameUI.h" />
-    <ClInclude Include="Hooks\InvalidateUEF.h" />
     <ClInclude Include="Hooks\Misc.h" />
     <ClInclude Include="Hooks\AcceptEvents.h" />
     <ClInclude Include="ImGuiSDK\Elements.h" />

@@ -48,6 +48,6 @@ inline
 	public:
 		void DrawParticleAt(Vector pos, ParticleCreationInfo info);
 
-		void RenderIfThinkerModifier(CDOTAModifier* modifier);
+		void OnModifierAdded(CDOTAModifier* modifier);
 	} EnemySpellHighlighter;
 }

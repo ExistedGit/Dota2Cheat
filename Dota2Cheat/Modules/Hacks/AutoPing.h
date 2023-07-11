@@ -1,6 +1,7 @@
 #pragma once
 #include "../../SDK/Protobufs/dota_clientmessages.pb.h"
 #include "../../Hooks/NetChannel.h"
+#include "../MListeners.h"
 
 namespace Config {
 	inline bool AutoPingEnabled = false;
@@ -8,13 +9,10 @@ namespace Config {
 	inline float AutoPingDelay = 1;
 }
 
-namespace Hacks {
-	class AutoPing {
+namespace Modules {
+	inline class M_AutoPing  : public IRunFrameListener {
 		float lastGameTime = 0;
 	public:
-		void OnFrame();
-	};
-}
-namespace Modules {
-	inline Hacks::AutoPing AutoPing;
+		void OnFrame() override;
+	} AutoPing;
 }

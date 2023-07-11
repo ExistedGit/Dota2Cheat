@@ -1,18 +1,14 @@
 #pragma once
 #include "../../SDK/pch.h"
-#include "../../CheatSDK/Config.h"
-
-namespace Hacks {
+#include "../../CheatSDK/include.h"
+#include "../MListeners.h"
+namespace Modules {
 	// River paint is controlled by a hidden ConVar
-	class RiverPaint {
+	inline class M_RiverPaint: public  IRunFrameListener{
 	public:
-		void OnFrame() {
+		void OnFrame() override {
 			static auto cvar = CVarSystem::CVars["dota_river_type"];
 			cvar.m_pVar->value.ui32 = Config::Changer::RiverListIdx;
 		}
-	};
-}
-
-namespace Modules {
-	inline Hacks::RiverPaint RiverPaint{};
+	} RiverPaint{};
 }

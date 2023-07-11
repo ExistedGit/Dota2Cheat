@@ -1,6 +1,6 @@
 #include "AutoMidas.h"
 
-void Modules::AutoMidas::OnFrame() {
+void Modules::M_AutoMidas::OnFrame() {
 	if (!Config::AutoMidas::Enabled)
 		return;
 

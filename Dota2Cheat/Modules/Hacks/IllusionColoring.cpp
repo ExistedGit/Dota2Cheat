@@ -1,11 +1,11 @@
 #include "IllusionColoring.h"
 
 void Modules::M_IllusionESP::ColorIfIllusion(CBaseEntity* ent) {
-	if (!Config::IllusionColoring::Enabled)
+	if (!Config::IllusionColoring::Enabled || frameDone)
 		return;
 
 	auto hero = (CDOTABaseNPC_Hero*)ent;
-	if (!ctx.heroes.contains(hero))
+	if (!EntityList.IsEntityOfType(hero, EntityType::Hero))
 		return;
 
 	const char* className = ent->SchemaBinding()->binaryName;
@@ -48,7 +48,7 @@ void Modules::M_IllusionESP::ColorIfIllusion(CBaseEntity* ent) {
 		list.push_back(modifier);
 
 		isSeenAsIllusion = true;
-
+		frameDone = true;
 		return;
 	}
 

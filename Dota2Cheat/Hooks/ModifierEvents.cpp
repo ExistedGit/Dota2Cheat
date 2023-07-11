@@ -41,13 +41,13 @@ void Hooks::hkOnAddModifier(CDOTAModifier* modifier, int unk) {
 	if (ctx.gameStage == GameStage::IN_GAME) {
 		CacheIfItemModifier(modifier);
 		CacheModifier(modifier);
-		Modules::TargetedSpellHighlighter.DrawParticleIfTargetedSpell(modifier);
-		Modules::TrueSightESP.DrawParticleIfTrueSight(modifier);
-		Modules::EnemySpellHighlighter.RenderIfThinkerModifier(modifier);
-		Modules::LinearProjectileWarner.DrawIfTrajectoryModifier(modifier);
+		Modules::TargetedSpellHighlighter.OnModifierAdded(modifier);
+		Modules::TrueSightESP.OnModifierAdded(modifier);
+		Modules::EnemySpellHighlighter.OnModifierAdded(modifier);
+		Modules::LinearProjectileWarner.OnModifierAdded(modifier);
 	}
 
-	oOnAddModifier(modifier, unk);
+	((decltype(&hkOnAddModifier))oOnAddModifier)(modifier, unk);
 }
 
 void Hooks::hkOnRemoveModifier(CDOTAModifier* modifier) {
@@ -69,9 +69,9 @@ void Hooks::hkOnRemoveModifier(CDOTAModifier* modifier) {
 				Modules::TargetedSpellHighlighter.UnsubscribeLinkenRendering(modifier->GetOwner());
 		}
 		UncacheModifier(modifier);
-		Modules::TargetedSpellHighlighter.RemoveParticleIfTargetedSpell(modifier);
-		Modules::LinearProjectileWarner.RemoveParticleIfTrajectoryModifier(modifier);
-		Modules::TrueSightESP.RemoveParticleIfTrueSight(modifier);
+		Modules::TargetedSpellHighlighter.OnModifierRemoved(modifier);
+		Modules::LinearProjectileWarner.OnModifierRemoved(modifier);
+		Modules::TrueSightESP.OnModifierRemoved(modifier);
 	}
-	oOnRemoveModifier(modifier);
+	((decltype(&hkOnRemoveModifier))oOnRemoveModifier)(modifier);
 }

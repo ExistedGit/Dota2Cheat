@@ -106,9 +106,8 @@ class CDOTAParticleManager : public VClass {
 	static inline std::vector<ParticleWrapper> particles{};
 public:
 	struct ParticleContainer : NormalClass {
-		GETTER(CNewParticleEffect*, GetParticle, 0x20);
+		GETTER(CNewParticleEffect*, GetParticle, 0x18);
 		GETTER(uint32_t, GetHandle, 0x2C);
-
 	};
 	typedef void(__fastcall* DestroyParticleFn)(void* thisptr, ENT_HANDLE handle, bool unk);
 	static inline DestroyParticleFn DestroyParticleFunc{};

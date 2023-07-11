@@ -75,12 +75,12 @@ bool TextureManager::LoadTextureFromMemory(unsigned char* data, size_t size, ID3
 	return true;
 }
 
-bool TextureManager::LoadTextureFromFile(const char* filename, ID3D11ShaderResourceView** tex)
+bool TextureManager::LoadTextureFromFile(std::string_view filename, ID3D11ShaderResourceView** tex)
 {
 	// Load from file
 	int image_width = 0;
 	int image_height = 0;
-	unsigned char* image_data = stbi_load(filename, &image_width, &image_height, NULL, 4);
+	unsigned char* image_data = stbi_load(filename.data(), &image_width, &image_height, NULL, 4);
 	if (image_data == NULL)
 		return false;
 
@@ -88,8 +88,3 @@ bool TextureManager::LoadTextureFromFile(const char* filename, ID3D11ShaderResou
 	return true;
 }
 
-bool TextureManager::LoadTextureNamed(const char* filename, ID3D11ShaderResourceView** tex, const std::string& texName) {
-	auto result = LoadTextureFromFile(filename, tex);
-	namedTex[texName] = *tex;
-	return result;
-}

@@ -101,24 +101,31 @@ void Modules::M_ManaHPAbuse::DropMode(CDOTABaseNPC* npc, CDOTAItem* ability, std
 		return;
 
 	// Wouldn't want to drop items near enemies
-	bool enemiesAround = false;
-	for (auto hero : ctx.heroes)
-		if (hero != npc && hero->IsTargetable() && !hero->IsSameTeam(npc) && IsWithinRadius(hero->GetPos(), npc->GetPos(), Config::ManaAbuse::SafetyRadius))
-			enemiesAround = true;
+	bool enemiesAround = EntityList.ContainsTypes([npc](const auto& wrap) {
+		auto hero = wrap.As<CDOTABaseNPC_Hero>();
+	return hero != npc
+		&& !hero->IsSameTeam(npc)
+		&& hero->IsTargetable()
+		&& IsWithinRadius(hero->GetPos(),
+			npc->GetPos(),
+			Config::ManaAbuse::SafetyRadius);
+		}, EntityType::Hero);
 
-	if (!enemiesAround)
-		while (itemsToExclude.size() != 0) {
-			auto item = itemsToExclude.top();
-			ctx.localPlayer->PrepareOrder(
-				Order()
-				.SetType(DOTA_UNIT_ORDER_DROP_ITEM)
-				.SetAbilityIndex(item->GetIndex())
-				.SetPosition(npc->GetPos())
-				.SetQueue(true)
-				.SetIssuer(npc));
+	if (enemiesAround)
+		return;
 
-			itemsToExclude.pop();
-		}
+	while (itemsToExclude.size() != 0) {
+		auto item = itemsToExclude.top();
+		ctx.localPlayer->PrepareOrder(
+			Order()
+			.SetType(DOTA_UNIT_ORDER_DROP_ITEM)
+			.SetAbilityIndex(item->GetIndex())
+			.SetPosition(npc->GetPos())
+			.SetQueue(true)
+			.SetIssuer(npc));
+
+		itemsToExclude.pop();
+	}
 
 }
 

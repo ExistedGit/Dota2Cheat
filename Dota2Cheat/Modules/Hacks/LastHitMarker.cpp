@@ -1,6 +1,6 @@
 #include "LastHitMarker.h"
 
-void Modules::LastHitMarker::DrawCircleFor(CDOTABaseNPC* creep) {
+void Modules::M_LastHitMarker::DrawCircleFor(CDOTABaseNPC* creep) {
 	ImColor color = creep->IsSameTeam(ctx.localHero) ?
 		ImColor{ 0,255,0 } :
 		ImColor{ 255,0,0 };
@@ -8,7 +8,7 @@ void Modules::LastHitMarker::DrawCircleFor(CDOTABaseNPC* creep) {
 	ImGui::GetForegroundDrawList()->AddCircleFilled(WorldToScreen(creep->GetHealthBarPos()), radius, color);
 }
 
-void Modules::LastHitMarker::Draw() {
+void Modules::M_LastHitMarker::Draw() {
 	if (!Config::LastHitMarker)
 		return;
 

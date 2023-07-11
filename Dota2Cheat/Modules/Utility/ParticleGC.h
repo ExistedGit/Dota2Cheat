@@ -1,8 +1,9 @@
 #pragma once
 #include "../../SDK/pch.h"
+#include "../MListeners.h"
 
 namespace Modules {
-	inline class M_ParticleGarbageCollector {
+	inline class M_ParticleGarbageCollector : public IRunFrameListener {
 		private:
 			struct ParticleGCInfo {
 				float assignTime;
@@ -12,9 +13,19 @@ namespace Modules {
 			std::vector<ParticleGCInfo> gcInfo;
 		public:
 
-			void SetDieTime(ParticleWrapper particle, float dieTime);
+			void SetDieTime(ParticleWrapper particle, float dieTime) {
+				gcInfo.push_back(
+					ParticleGCInfo{
+						.assignTime = GameSystems::GameRules->GetGameTime(),
+						.dieTime = dieTime,
+						.particleWrap = particle
+					}
+				);
+			}
 			void RemoveFromGC(ParticleWrapper particle);
 			void OnFrame();
-			void Reset();
+			void Reset() {
+				gcInfo.clear();
+			}
 	} ParticleGC;
 }

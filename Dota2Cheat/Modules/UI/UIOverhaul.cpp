@@ -1,11 +1,11 @@
 #include "UIOverhaul.h"
 
 CDOTABaseNPC_Hero* Modules::UIOverhaul::FindHeroByUnitName(std::string_view name) {
-	for (auto& hero : ctx.heroes) {
-		auto unitName = hero->GetUnitName();
-		if (unitName && unitName == name)
-			return hero;
-	}
+	//for (auto& hero : ctx.heroes) {
+	//	auto unitName = hero->GetUnitName();
+	//	if (unitName && unitName == name)
+	//		return hero;
+	//}
 	return nullptr;
 }
 

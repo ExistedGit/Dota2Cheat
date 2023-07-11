@@ -4,6 +4,7 @@ bool Modules::BarAugmenter::CanDraw(CDOTABaseNPC_Hero* hero) {
 	bool ret = IsValidReadPtr(hero)
 		&& IsValidReadPtr(hero->GetIdentity())
 		&& !hero->GetIdentity()->IsDormant()
+		&& !hero->IsSameTeam(ctx.localHero)
 		&& !hero->IsIllusion()
 		&& hero != ctx.localHero
 		&& hero->GetLifeState() == 0
@@ -12,53 +13,3 @@ bool Modules::BarAugmenter::CanDraw(CDOTABaseNPC_Hero* hero) {
 	return ret;
 }
 
-void Modules::BarAugmenter::DrawHPNumbers() {
-	constexpr static ImVec2 manabarSize{ 101, 8 };
-	const int fontSize = 14;
-	for (auto& hero : ctx.heroes) {
-		if (!CanDraw(hero))
-			continue;
-		if (hero->IsSameTeam(ctx.localHero))
-			continue;
-
-
-		int hbo = hero->Member<int>(Netvars::C_DOTA_BaseNPC::m_iHealthBarOffset);
-
-		Vector pos = hero->GetHealthBarPos();
-		
-		ImVec2 drawPos =
-			HeroData[hero].HealthbarW2S;
-			//WorldToScreen(pos);
-		drawPos.y -= 32;
-
-		DrawTextForeground(DrawData.GetFont("Monofonto", fontSize), std::to_string(hero->GetHealth()), drawPos, fontSize, ImColor{ 255,255,255 }, true);
-	}
-}
-
-void Modules::BarAugmenter::DrawManabars()
-{
-	// Fine-tuned values
-	// idk why it's this strange
-	constexpr static ImVec2 manabarSize{ 101, 6 };
-	for (auto& hero : ctx.heroes) {
-		if (!CanDraw(hero))
-			continue;
-		if (hero->IsSameTeam(ctx.localHero))
-			continue;
-
-		int hbo = hero->Member<int>(Netvars::C_DOTA_BaseNPC::m_iHealthBarOffset);
-
-		Vector pos = hero->GetHealthBarPos();
-
-		ImVec2 drawPos = HeroData[hero].HealthbarW2S + ImVec2(4, -16);
-		// Background
-		DrawRectFilled(
-			drawPos - ImVec2(110, manabarSize.y) / 2,
-			manabarSize, ImVec4(0, 0, 0, 1));
-		// Manabar
-		DrawRectFilled(
-			drawPos - ImVec2(110, manabarSize.y) / 2 + ImVec2(1, 1),
-			ImVec2(manabarSize.x * (hero->GetMana() / hero->GetMaxMana()) - 2, manabarSize.y - 2), ImColor(0.f, 0.5f, 1.f));
-	}
-
-}

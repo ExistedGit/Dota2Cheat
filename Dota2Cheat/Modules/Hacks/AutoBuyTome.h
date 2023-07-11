@@ -2,20 +2,15 @@
 #include "../../SDK/pch.h"
 #include "../../CheatSDK/Config.h"
 
-namespace Hacks {
+namespace Modules {
 	// Restock info is stored inside CDOTA_GameRules
 	// It has two of ItemStockInfo for each item(one for each team)
-	class AutoBuyTome {
+	inline class M_AutoBuyTome {
 	private:
 		ItemStockInfo* tomeStockInfo;
 	public:
 		void Reset();
 		void Init();
 		void OnFrame();
-	};
-
-}
-
-namespace Modules {
-	inline Hacks::AutoBuyTome AutoBuyTome{};
+	}  AutoBuyTome{};
 }

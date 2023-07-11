@@ -1,10 +1,10 @@
 #include "AutoBuyTome.h"
 
-void Modules::AutoBuyTome::Reset() {
+void Modules::M_AutoBuyTome::Reset() {
 	tomeStockInfo = nullptr;
 }
 
-void Modules::AutoBuyTome::Init() {
+void Modules::M_AutoBuyTome::Init() {
 	if (!GameSystems::GameRules ||
 		!ctx.localHero)
 		return;
@@ -20,7 +20,7 @@ void Modules::AutoBuyTome::Init() {
 	}
 }
 
-void Modules::AutoBuyTome::OnFrame() {
+void Modules::M_AutoBuyTome::OnFrame() {
 	if (// !Config::AutoBuyTome ||
 		tomeStockInfo->nItemAbilityID != 0x101) // maybe the tome stock info was not found
 		return;

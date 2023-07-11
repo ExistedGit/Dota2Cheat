@@ -35,8 +35,12 @@ public:
 	}
 	bool LoadTextureFromMemory(unsigned char* data, size_t size, ID3D11ShaderResourceView** tex);
 
-	bool LoadTextureFromFile(const char* filename, ID3D11ShaderResourceView** tex);
-	bool LoadTextureNamed(const char* filename, ID3D11ShaderResourceView** tex, const std::string& texName);
+	bool LoadTextureFromFile(std::string_view filename, ID3D11ShaderResourceView** tex);
+	bool LoadTextureNamed(std::string_view filename, ID3D11ShaderResourceView** tex, const std::string& texName) {
+		auto result = LoadTextureFromFile(filename, tex);
+		namedTex[texName] = *tex;
+		return result;
+	}
 
 	void QueueTextureUnload()
 	{

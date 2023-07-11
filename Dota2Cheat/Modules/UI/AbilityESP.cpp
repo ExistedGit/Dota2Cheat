@@ -1,26 +1,28 @@
 #include "AbilityESP.h"
 #include <format>
 
-void ESP::AbilityESP::SubscribeHeroes() {
+void Modules::M_AbilityESP::SubscribeHeroes() {
 	// Clean up anything unneeded
 	for (auto it = EnemyAbilities.begin(); it != EnemyAbilities.end(); )
 	{
-		if (!ctx.heroes.count((*it).first))
+		if (EntityList.IsEntityOfType(it->first, EntityType::Hero))
 			it = EnemyAbilities.erase(it);
 		else ++it;
 	}
-	for (auto& hero : ctx.heroes) {
-		if (!CanDraw(hero))
-			continue;
 
-		if (!EnemyAbilities.count(hero))
-			EnemyAbilities[hero].resize(6);
-		if (!EnemyItems.count(hero))
-			EnemyItems[hero] = {};
-	}
+	EntityList.ForEach<CDOTABaseNPC_Hero>([this](auto hero) {
+		if (!CanDraw(hero))
+		return;
+
+	if (!EnemyAbilities.count(hero))
+		EnemyAbilities[hero].resize(6);
+	if (!EnemyItems.count(hero))
+		EnemyItems[hero] = {};
+
+		});
 }
 
-void ESP::AbilityESP::Reset() {
+void Modules::M_AbilityESP::Reset() {
 	MTM_LOCK;
 
 	Initialized = false;
@@ -28,25 +30,28 @@ void ESP::AbilityESP::Reset() {
 	EnemyItems.clear();
 }
 
-void ESP::AbilityESP::UpdateHeroData() {
+void Modules::M_AbilityESP::UpdateHeroData() {
 	MTM_LOCK;
 
 	SubscribeHeroes();
-	for (auto& hero : ctx.heroes) {
+	const auto updateHeroData = [this](CDOTABaseNPC_Hero* hero) {
 		DrawableHeroes[hero] =
 			IsValidReadPtr(hero) &&
 			IsValidReadPtr(hero->GetIdentity()) &&
 			!hero->GetIdentity()->IsDormant();
+
 		if (EnemyAbilities.count(hero))
 			UpdateAbilities(hero);
 
 		if (EnemyItems.count(hero))
 			UpdateItems(hero);
-	}
+	};
+
+	EntityList.ForEach<CDOTABaseNPC_Hero>(updateHeroData);
 	Initialized = true;
 }
 
-bool ESP::AbilityESP::CanDraw(CDOTABaseNPC_Hero* hero) {
+bool Modules::M_AbilityESP::CanDraw(CDOTABaseNPC_Hero* hero) {
 	bool ret = hero
 		&& DrawableHeroes[hero]
 		&& !hero->IsIllusion()
@@ -59,7 +64,7 @@ bool ESP::AbilityESP::CanDraw(CDOTABaseNPC_Hero* hero) {
 	return ret;
 }
 
-void ESP::AbilityESP::DrawAbilities() {
+void Modules::M_AbilityESP::DrawAbilities() {
 	float iconSize = ScaleVar(AbilityIconSize);
 	constexpr float outlineThickness = 1;
 	constexpr ImVec2 outlineSize{ outlineThickness, outlineThickness };
@@ -218,7 +223,7 @@ void ESP::AbilityESP::DrawAbilities() {
 	}
 }
 
-void ESP::AbilityESP::LoadItemTexIfNeeded(AbilityData& data) {
+void Modules::M_AbilityESP::LoadItemTexIfNeeded(AbilityData& data) {
 	if (data.icon)
 		return;
 
@@ -241,7 +246,7 @@ void ESP::AbilityESP::LoadItemTexIfNeeded(AbilityData& data) {
 // Only draws slots occupied by an item
 // If the item is toggled(like armlet), a green frame is drawn
 // If the item has charges(like wand), a counter is displayed in the top left corner of the image
-void ESP::AbilityESP::DrawItemSequences() {
+void Modules::M_AbilityESP::DrawItemSequences() {
 	const ImVec2 iconSize{ (float)ScaleVar(AbilityIconSize), (float)ScaleVar(AbilityIconSize) };
 
 	const int gap = 1;
@@ -294,7 +299,7 @@ void ESP::AbilityESP::DrawItemSequences() {
 	}
 }
 
-void ESP::AbilityESP::DrawItemGrids() {
+void Modules::M_AbilityESP::DrawItemGrids() {
 	const ImVec2 iconSize{ ScaleVar<float>(AbilityIconSize), ScaleVar<float>(AbilityIconSize) };
 
 	const int
@@ -353,7 +358,7 @@ void ESP::AbilityESP::DrawItemGrids() {
 
 }
 
-void ESP::AbilityESP::DrawItemIcon(std::map<int, AbilityData>& inv, int slot, const ImVec2& pos, const ImVec2& size) {
+void Modules::M_AbilityESP::DrawItemIcon(std::map<int, AbilityData>& inv, int slot, const ImVec2& pos, const ImVec2& size) {
 	auto DrawList = ImGui::GetForegroundDrawList();
 	// used to convert native rectangular item images to SQUARES
 	constexpr float aspectRatio = (1 - 64. / 88) / 2;
@@ -414,7 +419,7 @@ void ESP::AbilityESP::DrawItemIcon(std::map<int, AbilityData>& inv, int slot, co
 }
 
 
-void ESP::AbilityESP::DrawItemCircle(const AbilityData& data, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius) {
+void Modules::M_AbilityESP::DrawItemCircle(const AbilityData& data, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius) {
 	auto DrawList = ImGui::GetForegroundDrawList();
 	const ImVec2 center = (xy1 + xy2) / 2;
 	constexpr float aspectRatio = (1 - 64.f / 88) / 2;
@@ -450,7 +455,7 @@ void ESP::AbilityESP::DrawItemCircle(const AbilityData& data, const ImVec2& xy1,
 		true);
 }
 
-void ESP::AbilityESP::DrawESP() {
+void Modules::M_AbilityESP::DrawESP() {
 
 	if (!Initialized || !Config::AbilityESP::Enabled)
 		return;
@@ -466,7 +471,7 @@ void ESP::AbilityESP::DrawESP() {
 		DrawItemGrids();
 }
 
-void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, const ImVec2& pos) {
+void Modules::M_AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, const ImVec2& pos) {
 	int lvl = ability->GetLevel();
 	if (lvl == 0 || lvl == 1 && ability->GetMaxLevel() == 1)
 		return;
@@ -494,7 +499,7 @@ void ESP::AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, const ImVec2& 
 		true);
 }
 
-void ESP::AbilityESP::DrawLevelBars(CDOTABaseAbility* ability, const ImVec2& xy1, const ImVec2& xy2) {
+void Modules::M_AbilityESP::DrawLevelBars(CDOTABaseAbility* ability, const ImVec2& xy1, const ImVec2& xy2) {
 	const auto clrLearned = ImColor(193, 254, 0);
 
 	int lvl = ability->GetLevel(), maxLvl = ability->GetMaxLevel();
@@ -522,7 +527,7 @@ void ESP::AbilityESP::DrawLevelBars(CDOTABaseAbility* ability, const ImVec2& xy1
 	}
 }
 
-void ESP::AbilityESP::DrawChargeCounter(int charges, const ImVec2& pos, int radius) {
+void Modules::M_AbilityESP::DrawChargeCounter(int charges, const ImVec2& pos, int radius) {
 	auto DrawList = ImGui::GetForegroundDrawList();
 
 	// Green outline
@@ -539,7 +544,7 @@ void ESP::AbilityESP::DrawChargeCounter(int charges, const ImVec2& pos, int radi
 		true);
 }
 
-void ESP::AbilityESP::UpdateAbilities(CDOTABaseNPC_Hero* hero) {
+void Modules::M_AbilityESP::UpdateAbilities(CDOTABaseNPC_Hero* hero) {
 	auto abilityList = hero->GetAbilities();
 	if (abilityList.empty())
 		return;
@@ -579,7 +584,7 @@ void ESP::AbilityESP::UpdateAbilities(CDOTABaseNPC_Hero* hero) {
 
 }
 
-void ESP::AbilityESP::UpdateItems(CDOTABaseNPC_Hero* hero) {
+void Modules::M_AbilityESP::UpdateItems(CDOTABaseNPC_Hero* hero) {
 	auto heroItems = hero->GetInventory()->GetItems();
 	for (int i = 0; i < heroItems.size(); ++i) {
 		auto& entry = EnemyItems[hero];

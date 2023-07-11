@@ -1,11 +1,10 @@
 #pragma once
 #include "../../SDK/pch.h"
 #include "../../CheatSDK/include.h"
-
+#include "../MListeners.h"
 namespace Modules {
-inline 
-	class AutoDodge {
+	inline class AutoDodge : public IRunFrameListener {
 	public:
-		void OnFrame();
+		void OnFrame() override;
 	} AutoDodge;
 }

@@ -10,7 +10,6 @@
 #include "CheatSDK/include.h"
 #include "CheatSDK/MatchStateHandling.h"
 
-#include "Hooks/InvalidateUEF.h"
 #include "UI/Pages/MainMenu.h"
 #include "UI/Pages/AutoPickSelectionGrid.h"
 

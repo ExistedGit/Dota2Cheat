@@ -4,7 +4,7 @@
 
 namespace Hacks {
 	// Absolutely ebin stubb :DDDD
-	class AutoLastHit {
+	class M_AutoLastHit {
 	public:
 		int GetHealthAfterProjectiles(CDOTABaseNPC* creep, float time) {
 			if (!GameSystems::ProjectileManager)

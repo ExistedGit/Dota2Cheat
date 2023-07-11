@@ -14,7 +14,7 @@ void Modules::EnemySpellHighlighter::DrawParticleAt(Vector pos, ParticleCreation
 		Modules::ParticleGC.SetDieTime(particleWrap, info.dieTime);
 }
 
-void Modules::EnemySpellHighlighter::RenderIfThinkerModifier(CDOTAModifier* modifier) {
+void Modules::EnemySpellHighlighter::OnModifierAdded(CDOTAModifier* modifier) {
 	if (!Config::ShowEnemyPointSpells)
 		return;
 

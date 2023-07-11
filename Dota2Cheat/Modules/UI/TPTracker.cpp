@@ -52,9 +52,8 @@ void Modules::M_TPTracker::DrawMapTeleports() {
 				startXY2,
 				{ 0,0 },
 				{ 1,1 },
-				ImColor(255, 255, 255, (int)(192 * ImColor{ data.color }.Value.w)
-
-				);
+				ImColor(255, 255, 255, data.isFading ? (int)(192 * ImColor{ data.color }.Value.w) : 255)
+			);
 		}
 
 		if (!data.isFading || (data.isFading && !data.cancelled)) {
@@ -64,12 +63,7 @@ void Modules::M_TPTracker::DrawMapTeleports() {
 				endXY2,
 				{ 0,0 },
 				{ 1,1 },
-				data.isFading
-				? (ImU32)ImColor { 255, 255, 255, 255 }
-			:
-				(ImU32)ImColor {
-				255, 255, 255, 128
-			}
+				ImColor { 255, 255, 255, data.isFading ? 255 : 128 }
 			);
 		}
 	}

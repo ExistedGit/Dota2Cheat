@@ -1,15 +1,15 @@
 #pragma once
 #include "../../SDK/pch.h"
 #include "../../CheatSDK/include.h"
-
+#include "../MListeners.h"
 namespace Modules {
 inline 
 	// Automatically uses Hand of Midas on non-ancient creeps
 	// Compares XP bounty for them to the config setting
-	class AutoMidas {
+	class M_AutoMidas : public IRunFrameListener{
 	public:
 		const float usePeriod = 0.6f;
 		float lastTime = 0;
-		void OnFrame();
+		void OnFrame() override;
 	} AutoMidas;
 }

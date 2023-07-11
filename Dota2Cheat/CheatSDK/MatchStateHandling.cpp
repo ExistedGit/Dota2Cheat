@@ -164,7 +164,7 @@ void CMatchStateManager::OnStateChanged(DOTA_GameState newState) {
 			EnteredInGame();
 		break;
 	default:
-		// if (ctx.gameStage == GameStage::NONE)
+		if (ctx.gameStage == GameStage::NONE)
 			EnteredPreGame();
 		break;
 	}

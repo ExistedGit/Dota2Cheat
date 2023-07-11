@@ -27,13 +27,7 @@ namespace Signatures {
 	// typedef void* (*CGameUI__ChangeGameUIStateFn)(void* thisptr, DOTAGameUIState_t state);
 	// inline CGameUI__ChangeGameUIStateFn CGameUI__ChangeGameUIState{};
 
-	// I don't know what its actual name is, but it's called every frame and has a call with xref "Minimap Objects"
-	// which in client.dylib corresponds to CDotaMinimapRenderer's Render function
-	// typedef void* (*CDOTAPanoramaMinimapRenderer__RenderFn)(void* thisptr, void*, void**, void*, float, float, float, float);
-	// inline CDOTAPanoramaMinimapRenderer__RenderFn CDOTAPanoramaMinimapRenderer__Render{};
-
-	typedef void* (__fastcall* SaveSerializedSOCacheFn)(void* thisptr);
-	inline SaveSerializedSOCacheFn SaveSerializedSOCache{};
+	inline void* SaveSerializedSOCache{};
 
 	inline void(__fastcall* CMsg)(const char* format, ...);
 	inline void(__fastcall* CMsgColor)(Color* color, const char* format, ...);
@@ -44,9 +38,6 @@ namespace Signatures {
 
 	typedef bool (*BAsyncSendProtoFn)(CProtobufMsgBase<>* protobufMsg, IProtoBufSendHandler* handler);
 	typedef bool (*DispatchPacketFn)(void*, IMsgNetPacket*);
-
-	typedef void(*OnAddModifierFn)(CDOTAModifier*, int);
-	typedef void(*OnRemoveModifierFn)(CDOTAModifier*);
 
 	inline CDOTAPlayerController* (*GetPlayer)(int idx);
 

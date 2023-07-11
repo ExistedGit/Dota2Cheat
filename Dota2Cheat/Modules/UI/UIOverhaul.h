@@ -40,17 +40,17 @@ namespace Modules {
 		void DrawBars();
 		void Init();
 		void Update() {
-			if (!Config::UIOverhaul::TopBars)
-				return;
+			//if (!Config::UIOverhaul::TopBars)
+			//	return;
 
-			MTM_LOCK;
+			//MTM_LOCK;
 
-			for (auto& hero : ctx.heroes) {
-				if (hero->IsIllusion() || hero->IsSameTeam(ctx.localHero) || topBar.contains(hero))
-					continue;
-				UpdateHeroes();
-				break;
-			}
+			//for (auto& hero : ctx.heroes) {
+			//	if (hero->IsIllusion() || hero->IsSameTeam(ctx.localHero) || topBar.contains(hero))
+			//		continue;
+			//	UpdateHeroes();
+			//	break;
+			//}
 		}
 		void Reset() {
 			MTM_LOCK;

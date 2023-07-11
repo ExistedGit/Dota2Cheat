@@ -32,42 +32,41 @@ void UpdateWeather() {
 }
 
 void EntityIteration() {
-	for (auto& hero : ctx.heroes) {
+	//for (auto& hero : ctx.heroes) {
 
-		if (IsValidReadPtr(hero) &&
-			IsValidReadPtr(hero->GetIdentity()) &&
-			!hero->GetIdentity()->IsDormant())
-			Modules::IllusionESP.ColorIfIllusion(hero);
-	}
+	//	if (IsValidReadPtr(hero) &&
+	//		IsValidReadPtr(hero->GetIdentity()) &&
+	//		!hero->GetIdentity()->IsDormant())
+	//		Modules::IllusionESP.ColorIfIllusion(hero);
+	//}
 
-	if (Config::AutoPickUpRunes) {
+	// if (Config::AutoPickUpRunes) {
+	//	for (auto& rune : ctx.runes) {
+	//		if (!IsValidReadPtr(rune) ||
+	//			!IsValidReadPtr(rune->GetIdentity()) ||
+	//			rune->GetIdentity()->IsDormant())
+	//			continue;
+	//		Hooks::NetChan ? nullptr : throw "netchan = nullptr";
+	//		// Morphling's snake_case technologies
+	//		static long long last_pickup_time = 0;
+	//		if (IsWithinRadius(rune->GetPos(), ctx.localHero->GetPos(), 140.0f) &&
+	//			GetTickCount64() - last_pickup_time >= 200) {
 
-		for (auto& rune : ctx.runes) {
-			if (!IsValidReadPtr(rune) ||
-				!IsValidReadPtr(rune->GetIdentity()) ||
-				rune->GetIdentity()->IsDormant())
-				continue;
-			Hooks::NetChan ? nullptr : throw "netchan = nullptr";
-			// Morphling's snake_case technologies
-			static long long last_pickup_time = 0;
-			if (IsWithinRadius(rune->GetPos(), ctx.localHero->GetPos(), 140.0f) &&
-				GetTickCount64() - last_pickup_time >= 200) {
+	//			CDOTAClientMsg_ExecuteOrders orders_message;
+	//			auto msg_id = Interfaces::NetworkMessages->FindNetworkMessageByID(350);
+	//			auto order = orders_message.add_orders();
+	//			order->set_order_type(DOTA_UNIT_ORDER_PICKUP_RUNE);
+	//			order->set_target_index(rune->GetIndex());
+	//			order->set_ability_index(0);
+	//			order->set_sequence_number(ctx.localPlayer->GetSequenceNum() + 1);
+	//			order->add_units(ctx.localHero->GetIndex());
 
-				CDOTAClientMsg_ExecuteOrders orders_message;
-				auto msg_id = Interfaces::NetworkMessages->FindNetworkMessageByID(350);
-				auto order = orders_message.add_orders();
-				order->set_order_type(DOTA_UNIT_ORDER_PICKUP_RUNE);
-				order->set_target_index(rune->GetIndex());
-				order->set_ability_index(0);
-				order->set_sequence_number(ctx.localPlayer->GetSequenceNum() + 1);
-				order->add_units(ctx.localHero->GetIndex());
+	//			Hooks::oSendNetMessage(Hooks::NetChan, msg_id, &orders_message, BUF_DEFAULT);
 
-				Hooks::oSendNetMessage(Hooks::NetChan, msg_id, &orders_message, BUF_DEFAULT);
-
-				last_pickup_time = GetTickCount64();
-			}
-		}
-	}
+	//			last_pickup_time = GetTickCount64();
+	//		}
+	//	}
+	//}
 }
 
 void InGameLogic() {
@@ -75,46 +74,46 @@ void InGameLogic() {
 	Modules::AbilityESP.UpdateHeroData();
 	//Modules::UIOverhaul.Update();
 
+	Modules::IllusionESP.frameDone = false;
+
 	UpdateCameraDistance();
 	UpdateWeather();
 	Modules::TreeChanger.UpdateTreeModels();
-	for (auto hero : ctx.heroes) {
+	EntityList.ForEachOfType(EntityType::Hero, [](const auto& wrap) {
+		auto hero = wrap.As<CDOTABaseNPC>();
 		HeroData[hero].AbsOrigin = hero->GetPos();
-		HeroData[hero].W2S = WorldToScreen(hero->GetPos());
-		HeroData[hero].HealthbarW2S = WorldToScreen(hero->GetHealthBarPos());
-	}
+	HeroData[hero].W2S = WorldToScreen(hero->GetPos());
+	HeroData[hero].HealthbarW2S = WorldToScreen(hero->GetHealthBarPos());
+		});
 	static IRunFrameListener* RunFrameListeners[] = {
 		&Modules::TPTracker,
 		&Modules::BlinkRevealer,
+		&Modules::ParticleMaphack,
+		&Modules::RiverPaint,
+		&Modules::LinearProjectileWarner,
+		&Modules::ParticleGC,
 	};
-
+	EntityList.ForEach<CDOTABaseNPC_Hero>([](const auto hero) {
+		Modules::IllusionESP.ColorIfIllusion(hero);
+		});
 	if (!GameSystems::GameRules->IsGamePaused()) {
-
-		Modules::TPTracker.OnFrame();
-		Modules::BlinkRevealer.OnFrame();
-		Modules::ParticleMaphack.OnFrame();
+		for (auto l : RunFrameListeners)
+			l->OnFrame();
 
 		if (ctx.localHero->GetLifeState() == 0) {
-			Modules::AutoHeal.OnFrame(ctx.localHero);
+			Modules::AutoHeal.OnFrame();
 			Modules::AutoPing.OnFrame();
 			Modules::AutoDodge.OnFrame();
 			Modules::AutoMidas.OnFrame();
 			Modules::AegisSnatcher.OnFrame();
 		}
 
-		Modules::RiverPaint.OnFrame();
-
-		Modules::TargetedSpellHighlighter.OnFrame();
-		Modules::LinearProjectileWarner.OnFrame();
-
-		Modules::ParticleGC.OnFrame();
-
 		EntityIteration();
 	}
 #ifdef _DEBUG
 	if (IsKeyPressed(VK_NUMPAD7))
 		Log(LP_INFO, "Hero model: ", ctx.localHero->GetModelName());
-	
+
 	else if (IsKeyPressed(VK_NUMPAD8)) {
 		// updateWearables = true;
 

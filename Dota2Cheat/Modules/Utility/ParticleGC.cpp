@@ -1,16 +1,6 @@
 #include "ParticleGC.h"
 
-void Particles::ParticleGarbageCollector::SetDieTime(ParticleWrapper particle, float dieTime) {
-	gcInfo.push_back(
-		ParticleGCInfo{
-			.assignTime = GameSystems::GameRules->GetGameTime(),
-			.dieTime = dieTime,
-			.particleWrap = particle
-		}
-	);
-}
-
-void Particles::ParticleGarbageCollector::RemoveFromGC(ParticleWrapper particle) {
+void Modules::M_ParticleGarbageCollector::RemoveFromGC(ParticleWrapper particle) {
 	decltype(gcInfo)::iterator foundIterator = gcInfo.end();
 	for (auto it = gcInfo.begin(); it != gcInfo.end(); ++it)
 		if ((*it).particleWrap.particle == particle.particle) {
@@ -21,7 +11,7 @@ void Particles::ParticleGarbageCollector::RemoveFromGC(ParticleWrapper particle)
 		gcInfo.erase(foundIterator);
 }
 
-void Particles::ParticleGarbageCollector::OnFrame() {
+void Modules::M_ParticleGarbageCollector::OnFrame() {
 	for (auto it = gcInfo.begin(); it != gcInfo.end(); )
 	{
 		if (HVALID(it->particleWrap.handle)) {
@@ -35,6 +25,3 @@ void Particles::ParticleGarbageCollector::OnFrame() {
 	}
 }
 
-void Particles::ParticleGarbageCollector::Reset() {
-	gcInfo.clear();
-}

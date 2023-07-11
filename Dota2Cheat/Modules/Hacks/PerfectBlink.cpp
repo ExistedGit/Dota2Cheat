@@ -4,7 +4,6 @@ bool Modules::M_PerfectBlink::AdjustIfBlink(Vector* position, uint32_t abilityIn
 	if (!Config::PerfectBlink)
 		return false;
 
-	// Blink overshoot bypass
 	auto item = Interfaces::EntitySystem->GetEntity<CDOTABaseAbility>(abilityIndex);
 
 	std::string_view itemName = item->GetIdentity()->GetName();

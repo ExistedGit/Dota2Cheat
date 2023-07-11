@@ -6,8 +6,7 @@
 #include <map>
 
 namespace Modules {
-inline 
-	class AbilityESP : public MultiThreadModule {
+	inline class M_AbilityESP : public MultiThreadModule {
 		struct AbilityData {
 			CDOTABaseAbility* ability{};
 			ID3D11ShaderResourceView* icon{};
@@ -31,9 +30,9 @@ inline
 
 		int AbilityIconSize = 32;
 		bool Initialized = false;
-		static inline std::map<CDOTABaseNPC_Hero*, std::vector<AbilityData>> EnemyAbilities{};
+		std::map<CDOTABaseNPC_Hero*, std::vector<AbilityData>> EnemyAbilities{};
 		// For each hero there's a map of slot indexes to ability data(for items tho, but they're abilities too)
-		static inline std::map<CDOTABaseNPC_Hero*, std::map<int, AbilityData>> EnemyItems{};
+		std::map<CDOTABaseNPC_Hero*, std::map<int, AbilityData>> EnemyItems{};
 
 		std::map<CDOTABaseNPC_Hero*, bool> DrawableHeroes;
 		bool CanDraw(CDOTABaseNPC_Hero* hero);;

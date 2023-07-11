@@ -1,11 +1,14 @@
 #include "KillIndicator.h"
 
-void Modules::KillIndicator::DrawIndicatorFor(CDOTABaseNPC* ent) {
-	if (!ent)
+void Modules::KillIndicator::DrawIndicatorFor(CDOTABaseNPC_Hero* hero) {
+	if (hero->IsSameTeam(ctx.localHero)
+		|| !hero->IsTargetable()
+		|| hero->IsIllusion()
+		|| !IsEntityOnScreen(hero))
 		return;
 
 	float scale = Config::Indicators::KillScale;
-	const auto hbPos = HeroData[ent].HealthbarW2S;
+	const auto hbPos = HeroData[hero].HealthbarW2S;
 
 	auto nuke = ctx.localHero->GetAbility(curData.idx);
 	if (nuke->GetLevel() == 0)
@@ -16,16 +19,16 @@ void Modules::KillIndicator::DrawIndicatorFor(CDOTABaseNPC* ent) {
 		if (abilityName) {
 			if (icon = texManager.GetNamedTexture(abilityName); !icon) {
 				auto iconPath = d2c.cheatFolderPath + "\\assets\\spellicons\\" + abilityName + "_png.png";
-				texManager.LoadTextureNamed(iconPath.c_str(), &icon, abilityName);
+				texManager.LoadTextureNamed(iconPath, &icon, abilityName);
 			}
 		}
 	}
 
 	int diff = 0;
 	if (CustomBehaviors.count(ctx.localHero->GetUnitName()))
-		diff = CustomBehaviors.at(ctx.localHero->GetUnitName())(ent);
+		diff = CustomBehaviors.at(ctx.localHero->GetUnitName())(hero);
 	else
-		diff = DefaultBehavior(ent);
+		diff = DefaultBehavior(hero);
 
 	auto indicatorBase = hbPos - ImVec2(76, 6);
 	auto plaqueXY = indicatorBase - ImVec2(26, 0) * scale;

@@ -1,35 +1,35 @@
 #include "TargetedSpellHighlighter.h"
 
-void Modules::TargetedSpellHighlighter::Reset() {
+void Modules::M_TargetedSpellHighlighter::Reset() {
 	OnDisableTargetedSpells();
 	OnDisableLinken();
 	HeroesWithLinken.clear();
 }
 
-void Modules::TargetedSpellHighlighter::OnDisableTargetedSpells() {
+void Modules::M_TargetedSpellHighlighter::OnDisableTargetedSpells() {
 	for (auto& [_, pw] : TrackedModifiers)
 		if (HVALID(pw.handle))
 			GameSystems::ParticleManager->DestroyParticle(pw);
 	TrackedModifiers.clear();
 }
 
-void Modules::TargetedSpellHighlighter::OnDisableLinken() {
+void Modules::M_TargetedSpellHighlighter::OnDisableLinken() {
 	for (auto& [hero, _] : HeroesWithLinken)
 		GameSystems::ParticleManager->DestroyParticle(LinkenSphereParticles[hero]);
 
 	LinkenSphereParticles.clear();
 }
 
-void Modules::TargetedSpellHighlighter::SubscribeLinkenRendering(CBaseEntity* ent, CDOTABaseAbility* sphere) {
+void Modules::M_TargetedSpellHighlighter::SubscribeLinkenRendering(CBaseEntity* ent, CDOTABaseAbility* sphere) {
 	HeroesWithLinken[ent] = sphere;
 }
 
-void Modules::TargetedSpellHighlighter::UnsubscribeLinkenRendering(CBaseEntity* ent) {
+void Modules::M_TargetedSpellHighlighter::UnsubscribeLinkenRendering(CBaseEntity* ent) {
 	RemoveLinkenEffectFor(ent);
 	HeroesWithLinken.erase(ent);
 }
 
-void Modules::TargetedSpellHighlighter::RemoveLinkenEffectFor(CBaseEntity* ent) {
+void Modules::M_TargetedSpellHighlighter::RemoveLinkenEffectFor(CBaseEntity* ent) {
 	if (!LinkenSphereParticles.count(ent))
 		return;
 
@@ -37,7 +37,7 @@ void Modules::TargetedSpellHighlighter::RemoveLinkenEffectFor(CBaseEntity* ent) 
 	LinkenSphereParticles.erase(ent);
 }
 
-void Modules::TargetedSpellHighlighter::DrawLinkenEffectFor(CBaseEntity* ent) {
+void Modules::M_TargetedSpellHighlighter::DrawLinkenEffectFor(CBaseEntity* ent) {
 	if (!Config::ModifierRevealer::LinkenSphere)
 		return;
 
@@ -52,7 +52,7 @@ void Modules::TargetedSpellHighlighter::DrawLinkenEffectFor(CBaseEntity* ent) {
 
 }
 
-void Modules::TargetedSpellHighlighter::OnFrame() {
+void Modules::M_TargetedSpellHighlighter::OnFrame() {
 
 	for (auto& [hero, ability] : HeroesWithLinken) {
 		if (!hero->GetIdentity()->IsDormant() && ability->GetCooldown() == 0)
@@ -62,14 +62,14 @@ void Modules::TargetedSpellHighlighter::OnFrame() {
 	}
 }
 
-void Modules::TargetedSpellHighlighter::RemoveParticleIfTargetedSpell(CDOTAModifier* modifier) {
+void Modules::M_TargetedSpellHighlighter::OnModifierRemoved(CDOTAModifier* modifier) {
 	if (!TrackedModifiers.count(modifier))
 		return;
 	GameSystems::ParticleManager->DestroyParticle(TrackedModifiers[modifier]);
 	TrackedModifiers.erase(modifier);
 }
 
-void Modules::TargetedSpellHighlighter::DrawParticleIfTargetedSpell(CDOTAModifier* modifier) {
+void Modules::M_TargetedSpellHighlighter::OnModifierAdded(CDOTAModifier* modifier) {
 	if (!Config::ModifierRevealer::TargetedSpells)
 		return;
 	auto buffName = modifier->GetName();

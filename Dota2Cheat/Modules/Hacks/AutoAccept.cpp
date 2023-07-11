@@ -1,16 +1,16 @@
 #include "AutoAccept.h"
 #include "../../SDK/Protobufs/dota_gcmessages_client_match_management.pb.h"
 
-//void Modules::AutoAccept::SetNotificationGameMode(const char* gm) {
+//void Modules::M_AutoAccept::SetNotificationGameMode(const char* gm) {
 //	notificationGameMode = gm;
 //}
 //
-//void Modules::AutoAccept::SendTGNotification() {
+//void Modules::M_AutoAccept::SendTGNotification() {
 //	const std::string URL =
 //		"https://dota2cheat-bot-api.glitch.me/notify" +
 //		std::format("?chat_id={}&delay={}&cheat={}&gamemode={}",
 //			Config::API::TelegramID,
-//			Config::AutoAccept::Delay,
+//			Config::M_AutoAccept::Delay,
 //			"Dota2Cheat",
 //			encodeURI(notificationGameMode)
 //		);
@@ -25,7 +25,7 @@
 //	curl_easy_cleanup(curl);
 //}
 
-void Modules::AutoAccept::RunAcceptTimer() {
+void Modules::M_AutoAccept::RunAcceptTimer() {
 	std::this_thread::sleep_for(std::chrono::seconds(Config::AutoAccept::Delay));
 	// All that rebuilt from CDOTAGCClientSystem::SendReadyUpMessageForCurrentLobby(), see signatures.json
 	CMsgReadyUp msg;
@@ -35,14 +35,14 @@ void Modules::AutoAccept::RunAcceptTimer() {
 	acceptingMatch = false;
 }
 
-void Modules::AutoAccept::AcceptMatch() {
+void Modules::M_AutoAccept::AcceptMatch() {
 	if (!Config::AutoAccept::Enabled ||
 		acceptingMatch)
 		return;
 	acceptingMatch = true;
 	Log(LP_INFO, "Trying to accept match");
-	//if (Config::AutoAccept::SendTelegramNotifications && Config::API::TelegramID != 0)
+	//if (Config::M_AutoAccept::SendTelegramNotifications && Config::API::TelegramID != 0)
 	//	std::thread(&AutoAccept::SendTGNotification, this).detach();
 
-	std::thread(&AutoAccept::RunAcceptTimer, this).detach();
+	std::thread(&M_AutoAccept::RunAcceptTimer, this).detach();
 }

@@ -3,14 +3,10 @@
 #include "../Utils/Drawing.h"
 #include "../CheatSDK/include.h"
 
-namespace Hacks {
-	class LastHitMarker {
+namespace Modules {
+	inline class M_LastHitMarker {
 	public:
 		void DrawCircleFor(CDOTABaseNPC* creep);
 		void Draw();
-	};
-}
-
-namespace Modules {
-	inline Hacks::LastHitMarker LastHitMarker{};
+	} LastHitMarker{};
 }

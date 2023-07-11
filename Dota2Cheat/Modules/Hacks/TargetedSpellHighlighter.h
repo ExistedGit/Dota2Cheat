@@ -5,8 +5,8 @@
 #include "../../CheatSDK/Config.h"
 
 
-namespace Hacks {
-	class TargetedSpellHighlighter {
+namespace Modules {
+	inline class M_TargetedSpellHighlighter {
 	private:
 		struct ParticleCreationInfo {
 			std::map<int, Vector> controlPoints{};
@@ -30,7 +30,7 @@ namespace Hacks {
 				"modifier_life_stealer_infest_effect",
 				[](CDOTAModifier* buff) {
 					// We ignore LS infesting allied heroes, as the particle is created on its own
-					return !buff->GetOwner()->IsSameTeam(ctx.localHero);
+					return !buff->IsSameTeam(ctx.localHero);
 				}
 			}
 		};
@@ -100,13 +100,9 @@ namespace Hacks {
 
 		void OnFrame();
 
-		void RemoveParticleIfTargetedSpell(CDOTAModifier* modifier);
+		void OnModifierRemoved(CDOTAModifier* modifier);
 
-		void DrawParticleIfTargetedSpell(CDOTAModifier* modifier);
+		void OnModifierAdded(CDOTAModifier* modifier);
 
-	};
-}
-
-namespace Modules {
-	inline Hacks::TargetedSpellHighlighter TargetedSpellHighlighter{};
+	} TargetedSpellHighlighter{};
 }

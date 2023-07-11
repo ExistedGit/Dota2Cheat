@@ -6,8 +6,7 @@
 #include <functional>
 
 namespace Modules {
-inline 
-	class KillIndicator : public MultiThreadModule {
+	inline class KillIndicator : public MultiThreadModule {
 		struct NukeData {
 			uint32_t idx = 0;
 			bool isPure = false;
@@ -21,7 +20,7 @@ inline
 		int CalcDmgWithResists(CDOTABaseNPC* ent, float dmg, bool pure = false) {
 			auto barriers = ent->GetBarriers();
 			auto effectiveDamage = dmg - (barriers.all + barriers.magic);
-			if(!pure)
+			if (!pure)
 				effectiveDamage *= (1 - ent->GetMagicalArmorValue());
 
 			return ent->GetHealth() - effectiveDamage;
@@ -52,7 +51,7 @@ inline
 			{ "npc_dota_hero_spectre", 0 },
 			{ "npc_dota_hero_ursa", 0 },
 			{ "npc_dota_hero_vengefulspirit", 0 },
-			{ "npc_dota_hero_weaver", 1 },
+			// { "npc_dota_hero_weaver", 1 },
 			{ "npc_dota_hero_crystal_maiden", 0 },
 			{ "npc_dota_hero_death_prophet", 0 },
 			// { "npc_dota_hero_invoker", NukeData{ 2, true }},
@@ -121,7 +120,7 @@ inline
 
 			return CalcDmgWithResists(ent, dmg, curData.isPure);
 		}
-		void DrawIndicatorFor(CDOTABaseNPC* ent);
+		void DrawIndicatorFor(CDOTABaseNPC_Hero* ent);
 		bool Initialized = false;
 	public:
 		void Init() {
@@ -142,14 +141,7 @@ inline
 			if (!Config::Indicators::Kill || !Initialized)
 				return;
 
-			for (auto& hero : ctx.heroes) {
-				if (hero->IsSameTeam(ctx.localHero)
-					|| !hero->IsTargetable()
-					|| hero->IsIllusion()
-					|| !IsEntityOnScreen(hero))
-					continue;
-				DrawIndicatorFor(hero);
-			}
+			EntityList.ForEachOfType(EntityType::Hero, [this](const auto& hero) { DrawIndicatorFor(hero); });
 		}
 
 	} KillIndicator;

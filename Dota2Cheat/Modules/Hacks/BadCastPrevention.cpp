@@ -2,26 +2,21 @@
 #include "../../CheatSDK/Config.h"
 
 bool Modules::BadCastPrevention::AreEnemyUnitsInArea(const Vector& center, int radius) {
-
-
 	const auto condition = [this, center, radius](const auto& ent) ->bool {
 		return !ent->IsSameTeam(ctx.localHero)
 			&& IsWithinRadius(center, ent->GetPos(), radius)
-			&& reinterpret_cast<CDOTABaseNPC*>(ent)->IsTargetable());
+			&& ((CDOTABaseNPC*)ent)->IsTargetable();
 	};
 	return EntityList.ContainsTypes(condition, EntityType::Hero, EntityType::Creep);
 }
 
 bool Modules::BadCastPrevention::AreEnemyHeroesInArea(const Vector& center, int radius) {
-	for (auto& hero : ctx.heroes) {
-		if (
-			hero->IsTargetable()
-			&& !hero->IsSameTeam(ctx.localHero)
-			&& IsWithinRadius(center, hero->GetPos(), radius)
-			)
-			return true;
-	}
-	return false;
+	const auto condition = [this, center, radius](const auto& ent) ->bool {
+		return !ent->IsSameTeam(ctx.localHero)
+			&& IsWithinRadius(center, ent->GetPos(), radius)
+			&& ((CDOTABaseNPC*)ent)->IsTargetable();
+	};
+	return EntityList.ContainsTypes(condition, EntityType::Hero);
 }
 
 // Checks whether the ability is cast at an area without enemy heroes/units

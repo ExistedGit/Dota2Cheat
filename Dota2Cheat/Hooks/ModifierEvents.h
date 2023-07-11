@@ -8,19 +8,19 @@
 #include "../Modules/Hacks/TrueSightESP.h"
 
 namespace Hooks {
-	inline Signatures::OnRemoveModifierFn oOnRemoveModifier = nullptr;
-	inline Signatures::OnAddModifierFn oOnAddModifier = nullptr;
+	inline void* oOnRemoveModifier = nullptr;
+	inline void* oOnAddModifier = nullptr;
 
 	inline void CacheModifier(CDOTAModifier* modifier) {
 		auto owner = (CDOTABaseNPC_Hero*)modifier->GetOwner();
-		if (!ctx.heroes.contains(owner))
+		if (!EntityList.IsEntityOfType(owner, EntityType::Hero))
 			return;
 
 		HeroData[owner].Modifiers[modifier->GetName()] = modifier;
 	}
 	inline void UncacheModifier(CDOTAModifier* modifier) {
 		auto owner = (CDOTABaseNPC_Hero*)modifier->GetOwner();
-		if (!ctx.heroes.contains(owner))
+		if (!EntityList.IsEntityOfType(owner, EntityType::Hero))
 			return;
 
 		HeroData[owner].Modifiers.erase(modifier->GetName());

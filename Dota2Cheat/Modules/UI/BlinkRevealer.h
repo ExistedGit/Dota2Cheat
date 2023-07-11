@@ -10,7 +10,7 @@
 
 namespace Modules {
 	// Shows the exact point of QoP's and Antimage's blinks
-	class M_BlinkRevealer : public MultiThreadModule, IRunFrameListener, INetChanListener{
+	inline class M_BlinkRevealer : public MultiThreadModule, public IRunFrameListener, public INetChanListener{
 		struct BlinkData {
 			Vector pos{ 0, 0,0 };
 			bool qop;

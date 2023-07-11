@@ -73,24 +73,28 @@ public:
 		if (className == "C_DOTAGamerulesProxy")
 			GameSystems::GameRules = ent->Member<CDOTAGameRules*>(Netvars::C_DOTAGamerulesProxy::m_pGameRules);
 
-		EntityWrapper wrap;
 
 		using enum EntityType;
+		EntityType entType = Undefined;
 		switch (CityHash32(className)) {
-		case "C_DOTA_Item_Physical"_city32: wrap.type = PhysicalItem; break;
-		case "C_DOTA_Item_Rune"_city32: wrap.type = Rune; break;
+		case "C_DOTA_Item_Physical"_city32: entType = PhysicalItem; break;
+		case "C_DOTA_Item_Rune"_city32: entType = Rune; break;
 		}
 
-		if (wrap.type != Undefined)
+		if (entType == Undefined)
 			if (className.starts_with("C_DOTA_Unit_Hero")
 				|| className.starts_with("CDOTA_Unit_Hero"))
-				wrap.type = Hero;
+				entType = Hero;
 			else if (className.find("Creep") != -1)
-				wrap.type = Creep;
+				entType = Creep;
 
-		if (wrap.type == Undefined)
+		if (entType == Undefined)
 			return;
 
+		EntityWrapper wrap{
+			.ent = ent,
+			.type = entType
+		};
 
 		if (wrap.type == Creep) {
 			if (className == "C_DOTA_BaseNPC_Creep_Siege")
@@ -102,10 +106,10 @@ public:
 					wrap.creepType = CreepType::LaneRanged;
 			}
 		}
-
 		Entities[ent->GetIndex()] = wrap;
 		DispatchEntityAdded(wrap);
 	}
+
 	void OnEntityDeleted(CBaseEntity* ent) override {
 		std::lock_guard<std::mutex> lock(mEntities);
 		if (Entities.contains(ent->GetIndex())) {
@@ -123,12 +127,14 @@ public:
 			Listeners.push_back(l);
 	}
 
+
+
 	template<typename ...Args>
 	bool ContainsTypes(std::function<bool(const EntityWrapper&)> predicate, Args&&... _types) {
 		std::lock_guard<std::mutex> lock(mEntities);
 
-		EntityType types[] = { std::forward<Args>(_types) };
-		
+		EntityType types[] = { std::forward<Args>(_types)... };
+
 		for (const auto& [idx, wrap] : Entities) {
 			bool proceed = false;
 			for (auto type : types)
@@ -143,36 +149,14 @@ public:
 		return false;
 	}
 
-	template<typename ...Args>
-	std::vector<EntityWrapper> FilterByType(std::function<bool(const EntityWrapper&)> predicate, Args&&... _types) {
+	CBaseEntity* Find(std::function<bool(const EntityWrapper&)> predicate) {
 		std::lock_guard<std::mutex> lock(mEntities);
-
-		EntityType types[] = { std::forward<Args>(_types) };
-		std::vector<EntityWrapper> ret;
-
-		for (const auto& [idx, wrap] : Entities) {
-			bool proceed = false;
-			for (auto type : types)
-				if (wrap.type == type) {
-					proceed = true; break;
-				}
-
-			if (proceed && predicate(wrap))
-				ret.push_back(wrap);
-		}
-
-		return ret;
-	}
-
-	std::vector<EntityWrapper> Filter(std::function<bool(const EntityWrapper&)> predicate) {
-		std::lock_guard<std::mutex> lock(mEntities);
-		std::vector<EntityWrapper> ret;
 
 		for (const auto& [idx, wrap] : Entities)
 			if (predicate(wrap))
-				ret.push_back(wrap);
+				return wrap;
 
-		return ret;
+		return nullptr;
 	}
 
 	void ForEach(std::function<void(EntityWrapper&)> func) {
@@ -180,11 +164,38 @@ public:
 		for (auto& [idx, wrap] : Entities)
 			func(wrap);
 	}
+
 	void ForEachOfType(EntityType type, std::function<void(EntityWrapper&)> func) {
 		std::lock_guard<std::mutex> lock(mEntities);
 		for (auto& [idx, wrap] : Entities)
 			if (wrap.type == type)
 				func(wrap);
 	}
+	template<typename T>
+	void ForEach(std::function<void(T*)> func) {
+		std::lock_guard<std::mutex> lock(mEntities);
+
+		EntityType type = EntityType::Undefined;
+
+		if constexpr (std::is_same_v<T, CDOTABaseNPC_Hero>)
+			type = EntityType::Hero;
+
+		if (type == EntityType::Undefined)
+			return;
+
+		for (auto& [idx, wrap] : Entities)
+			if (wrap.type == type)
+				func(wrap);
+	}
+
+	bool IsEntityOfType(CBaseEntity* ent, EntityType type) {
+		return Entities.contains(ent->GetIndex()) && Entities[ent->GetIndex()].type == type;
+	}
+
+#define ISOFTYPE_TEMPLATE(name, type) bool name(CBaseEntity* ent) { \
+										return IsEntityOfType(ent, type);\
+									  }
+	ISOFTYPE_TEMPLATE(IsHero, EntityType::Hero);
+#undef ISOFTYPE_TEMPLATE
 
 } EntityList;
