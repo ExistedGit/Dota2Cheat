@@ -8,10 +8,10 @@ ParticleWrapper CDOTAParticleManager::CreateParticle(const char* name, ParticleA
 	info.m_pTargetEntity = ent;
 
 	CallVFunc<VTableIndexes::CDOTAParticleManager::CreateParticle>(GetHandle(), &info);
-
+	auto container = GetParticles().last();
 	ParticleWrapper result{};
 	result.info = info;
-	result.particle = GetParticles().last()->GetParticle();
+	result.particle = container->GetParticle();
 	result.handle = GetHandle()++;
 
 	particles.push_back(result);

@@ -74,30 +74,34 @@ void InGameLogic() {
 	Modules::AbilityESP.UpdateHeroData();
 	//Modules::UIOverhaul.Update();
 
-	Modules::IllusionESP.frameDone = false;
-
 	UpdateCameraDistance();
 	UpdateWeather();
 	Modules::TreeChanger.UpdateTreeModels();
 	EntityList.ForEachOfType(EntityType::Hero, [](const auto& wrap) {
 		auto hero = wrap.As<CDOTABaseNPC>();
-		HeroData[hero].AbsOrigin = hero->GetPos();
+	HeroData[hero].AbsOrigin = hero->GetPos();
 	HeroData[hero].W2S = WorldToScreen(hero->GetPos());
 	HeroData[hero].HealthbarW2S = WorldToScreen(hero->GetHealthBarPos());
 		});
-	static IRunFrameListener* RunFrameListeners[] = {
-		&Modules::TPTracker,
-		&Modules::BlinkRevealer,
-		&Modules::ParticleMaphack,
+
+	static IRunFrameListener* PassiveListeners[] = {
 		&Modules::RiverPaint,
-		&Modules::LinearProjectileWarner,
-		&Modules::ParticleGC,
+		&Modules::IllusionESP
 	};
-	EntityList.ForEach<CDOTABaseNPC_Hero>([](const auto hero) {
-		Modules::IllusionESP.ColorIfIllusion(hero);
-		});
+
+	for (auto l : PassiveListeners)
+		l->OnFrame();
+
 	if (!GameSystems::GameRules->IsGamePaused()) {
-		for (auto l : RunFrameListeners)
+		static IRunFrameListener* ActiveListeners[] = {
+			&Modules::TPTracker,
+			&Modules::BlinkRevealer,
+			&Modules::ParticleMaphack,
+			&Modules::LinearProjectileWarner,
+			&Modules::ParticleGC,
+		};
+
+		for (auto l : ActiveListeners)
 			l->OnFrame();
 
 		if (ctx.localHero->GetLifeState() == 0) {

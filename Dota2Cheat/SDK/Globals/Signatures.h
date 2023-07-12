@@ -65,10 +65,8 @@ namespace Signatures {
 #endif
 
 		SIGMAP_ENTRY(GetPlayer),
-
 		SIGMAP_ENTRY(CDOTABaseNPC::GetAttackSpeed),
 
-		{"CDOTAParticleManager::DestroyParticle", (void**)&CDOTAParticleManager::DestroyParticleFunc},
 		// {"CDOTARichPresence::SetRPStatus", (void**)&CDOTARichPresence::SetRPStatusFunc},
 		{"CDOTABaseAbility::GetLevelSpecialValueFor", (void**)&CDOTABaseAbility::GetLevelSpecialValueForFunc},
 	};

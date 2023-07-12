@@ -4,7 +4,7 @@
 #include "../MListeners.h"
 
 namespace Modules {
-inline class AegisSnatcher : public IRunFrameListener, IM_EntityListener {
+inline class AegisSnatcher : public IRunFrameListener, IEntityListListener {
 		CBaseEntity* aegis = nullptr;
 		float lastPickupTime = 0;
 	public:

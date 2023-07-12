@@ -41,7 +41,7 @@ struct EntityWrapper {
 	}
 };
 
-struct IM_EntityListener {
+struct IEntityListListener {
 	virtual void OnEntityAdded(const EntityWrapper& ent) {};
 	virtual void OnEntityRemoved(const EntityWrapper& ent) {};
 };
@@ -49,7 +49,7 @@ struct IM_EntityListener {
 inline class CEntityList : public IEntityListener {
 	qwemap<uint32_t, EntityWrapper> Entities;
 
-	std::vector<IM_EntityListener*> Listeners;
+	std::vector<IEntityListListener*> Listeners;
 
 	void DispatchEntityAdded(const EntityWrapper& ent) {
 		for (auto l : Listeners)
@@ -118,11 +118,11 @@ public:
 		}
 	}
 
-	void AddListener(IM_EntityListener& l) {
+	void AddListener(IEntityListListener& l) {
 		Listeners.push_back(&l);
 	}
 	template<size_t lSize>
-	void AddListeners(IM_EntityListener* const (&_listeners)[lSize]) {
+	void AddListeners(IEntityListListener* const (&_listeners)[lSize]) {
 		for (auto l : _listeners)
 			Listeners.push_back(l);
 	}
@@ -142,7 +142,7 @@ public:
 					proceed = true; break;
 				}
 
-			if (proceed)
+			if (proceed && predicate(wrap))
 				return true;
 		}
 

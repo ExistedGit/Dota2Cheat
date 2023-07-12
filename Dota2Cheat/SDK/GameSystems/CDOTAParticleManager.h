@@ -105,49 +105,18 @@ struct ParticleWrapper {
 class CDOTAParticleManager : public VClass {
 	static inline std::vector<ParticleWrapper> particles{};
 public:
-	struct ParticleContainer : NormalClass {
-		GETTER(CNewParticleEffect*, GetParticle, 0x18);
+	struct ParticleContainer : public NormalClass {
+		GETTER(CNewParticleEffect*, GetParticle, 0x10);
 		GETTER(uint32_t, GetHandle, 0x2C);
 	};
-	typedef void(__fastcall* DestroyParticleFn)(void* thisptr, ENT_HANDLE handle, bool unk);
-	static inline DestroyParticleFn DestroyParticleFunc{};
-
+	static inline void(__fastcall* DestroyParticleFunc)(void* thisptr, ENT_HANDLE handle, bool unk);
+	
 	GETTER(CUtlVector<ParticleContainer*>, GetParticles, 0x80);
 	FIELD(uint32_t, GetHandle, 0xb8);
 
 	ParticleWrapper CreateParticle(const char* name, ParticleAttachment_t attachType, CBaseEntity* ent);
 	void DestroyParticle(uint32_t handle);
 	void DestroyParticle(ParticleWrapper& info);
-	//void firstSub(CNewParticleEffect* p, bool zero, int idx) {
-	//	auto pc = p->GetParticleCollection();
-	//	if (!p->Member<bool>(0x7E) ||
-	//		pc->CallVFunc<76, bool>() == zero)
-	//		return;
-
-	//	// pc->CallVFunc<77>(0);
-	//}
-	//void DPRebuild(uint32_t handle, bool destroyImmediately) {
-	//	if (!HVALID(handle))
-	//		return;
-
-	//	auto list = GetParticles();
-	//	if (list.empty())
-	//		return;
-	//	ParticleContainer* pc{};
-	//	int idx = 0;
-	//	for (; idx < list.m_Size; ++idx)
-	//		if (list[idx]->GetHandle() == handle)
-	//			pc = list[idx];
-
-	//	if (!pc)
-	//		return;
-
-	//	auto npe = pc->GetParticle();
-	//	if (!npe)
-	//		return;
-
-	//	firstSub(npe, 0, idx);
-	//}
 
 	void OnExitMatch();
 };

@@ -5,7 +5,7 @@ bool Modules::M_CastRedirection::RedirectIfIllusionCast(uint32_t& targetIndex, C
 		return false;
 	auto npc = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(targetIndex);
 
-	if (EntityList.IsHero(npc) ||
+	if (!EntityList.IsHero(npc) ||
 		!reinterpret_cast<CDOTABaseNPC_Hero*>(npc)->IsIllusion())
 		return false;
 
