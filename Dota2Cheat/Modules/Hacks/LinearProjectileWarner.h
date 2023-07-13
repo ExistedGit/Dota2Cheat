@@ -19,7 +19,7 @@
 namespace Modules {
 	// Shows linear projectile trajectories with a red line
 	// Also shows potential trajectories for aiming heroes like Hoodwink
-	inline class M_LinearProjectileWarner : public IRunFrameListener {
+	inline class M_LinearProjectileWarner : public IRunFrameListener, public INetChanListener {
 	public:
 
 		struct LinearProjectile {
@@ -74,10 +74,10 @@ namespace Modules {
 
 
 		void OnModifierAdded(CDOTAModifier* modifier);
-		void OnFrame() override ;
+		void OnFrame() override;
 		void OnModifierRemoved(CDOTAModifier* modifier);
 
-		void OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg);
+		void OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) override;
 
 	} LinearProjectileWarner;
 }

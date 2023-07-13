@@ -99,6 +99,7 @@ void InGameLogic() {
 			&Modules::ParticleMaphack,
 			&Modules::LinearProjectileWarner,
 			&Modules::ParticleGC,
+			&Modules::TargetedSpellHighlighter,
 		};
 
 		for (auto l : ActiveListeners)

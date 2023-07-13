@@ -1,12 +1,12 @@
 #pragma once
-#include <vector>
 #include "../../SDK/pch.h"
-#include "../Utility/ParticleGC.h"
-#include "../../CheatSDK/Config.h"
+#include "../../CheatSDK/include.h"
 
+#include "../MListeners.h"
+#include "../Utility/ParticleGC.h"
 
 namespace Modules {
-	inline class M_TargetedSpellHighlighter {
+	inline class M_TargetedSpellHighlighter : public IRunFrameListener { 
 	private:
 		struct ParticleCreationInfo {
 			std::map<int, Vector> controlPoints{};
@@ -98,7 +98,7 @@ namespace Modules {
 
 		void DrawLinkenEffectFor(CBaseEntity* ent);
 
-		void OnFrame();
+		void OnFrame() override;
 
 		void OnModifierRemoved(CDOTAModifier* modifier);
 

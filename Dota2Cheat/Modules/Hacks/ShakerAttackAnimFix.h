@@ -2,11 +2,13 @@
 #include "../../SDK/pch.h"
 #include "../../SDK/Protobufs/dota_usermessages.pb.h"
 
+#include "../MListeners.h"
+
 namespace Modules {
 inline 
 	// Changes Shaker's default attack animation to Enchant Totem's one
-	// rofl feature from melonity :)
-	class ShakerAttackAnimFix {
+	// rofl feature from memelonity :)
+	class ShakerAttackAnimFix : public INetChanListener {
 	private:
 		CDOTABaseNPC* shaker = nullptr;
 	public:
@@ -23,7 +25,7 @@ inline
 			}
 		}
 
-		void OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
+		void OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) override {
 			if (msgHandle->messageID != 521 || !shaker)
 				return;
 

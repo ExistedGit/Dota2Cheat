@@ -3,9 +3,11 @@
 #include "../Utility/ParticleGC.h"
 #include "../../CheatSDK/Config.h"
 
+#include "../MListeners.h"
+
 namespace Modules {
 inline 
-	class ParticleAbilityWarner {
+	class ParticleAbilityWarner : public INetChanListener {
 		// Draws a dashed red line from begin to end
 		// Returns the wrapper for the created particle
 		ParticleWrapper DrawTrajectory(Vector begin, Vector end);
@@ -40,9 +42,8 @@ inline
 		// Update: end = control point 1
 
 		// Illuminate, Crypt Swarm:
-		// 
 		// Update: velocity = control point 1
 
-		void OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg);
+		void OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) override;
 	} ParticleAbilityWarner;
 }
