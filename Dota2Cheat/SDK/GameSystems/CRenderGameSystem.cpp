@@ -1,5 +1,5 @@
 #include "CRenderGameSystem.h"
-#include "../Globals/Interfaces.h"
+#include "../../CheatSDK/include.h"
 
 bool CRenderGameSystem::GetVectorInScreenSpace(const Vector& point, Vector2D& screen)
 {

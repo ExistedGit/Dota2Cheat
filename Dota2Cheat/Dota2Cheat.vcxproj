@@ -183,7 +183,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;DOTA2CHEAT_EXPORTS;_WINDOWS;_USRDLL;IMGUI_DEFINE_MATH_OPERATORS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;DOTA2CHEAT_EXPORTS;_WINDOWS;_USRDLL;IMGUI_DEFINE_MATH_OPERATORS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -195,7 +195,7 @@
       <ExceptionHandling>false</ExceptionHandling>
       <AdditionalOptions>/bigobj /FI"pch.h"</AdditionalOptions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <DisableSpecificWarnings>4244; 4267</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4244; 4267; 4005</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -211,7 +211,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;DOTA2CHEAT_EXPORTS;_WINDOWS;_USRDLL;IMGUI_DEFINE_MATH_OPERATORS;_TESTING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;DOTA2CHEAT_EXPORTS;_WINDOWS;_USRDLL;IMGUI_DEFINE_MATH_OPERATORS;_TESTING;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -223,7 +223,7 @@
       <ExceptionHandling>false</ExceptionHandling>
       <AdditionalOptions>/bigobj /FI"pch.h"</AdditionalOptions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <DisableSpecificWarnings>4244; 4267</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4244; 4267; 4005</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -241,7 +241,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;DOTA2CHEAT_EXPORTS;_WINDOWS;_USRDLL;IMGUI_DEFINE_MATH_OPERATORS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;DOTA2CHEAT_EXPORTS;_WINDOWS;_USRDLL;IMGUI_DEFINE_MATH_OPERATORS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -252,7 +252,7 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <AdditionalOptions>/bigobj /FI"pch.h"</AdditionalOptions>
       <MultiProcessorCompilation>false</MultiProcessorCompilation>
-      <DisableSpecificWarnings>4244; 4267</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4244; 4267; 4005</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -333,10 +333,10 @@
     <ClCompile Include="SDK\GameSystems\CGlobalVars.cpp" />
     <ClCompile Include="SDK\GameSystems\CRenderGameSystem.cpp" />
     <ClCompile Include="SDK\GameSystems\C_DOTAGameRules.cpp" />
-    <ClCompile Include="SDK\Globals\GameSystems.cpp" />
-    <ClCompile Include="SDK\Globals\Interfaces.cpp" />
-    <ClCompile Include="SDK\Globals\Signatures.cpp" />
-    <ClCompile Include="SDK\pch.cpp">
+    <ClCompile Include="CheatSDK\Globals\GameSystems.cpp" />
+    <ClCompile Include="CheatSDK\Globals\Interfaces.cpp" />
+    <ClCompile Include="CheatSDK\Globals\Signatures.cpp" />
+    <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Testing|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -556,6 +556,7 @@
     <ClCompile Include="Utils\Drawing.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CheatSDK\Globals\include.h" />
     <ClInclude Include="CheatSDK\Systems\CheatManager.h" />
     <ClInclude Include="CheatSDK\KeyHandler.h" />
     <ClInclude Include="CheatSDK\Data\UIData.h" />
@@ -585,6 +586,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="pch.h" />
     <ClInclude Include="SDK\GameSystems\CDOTA_BinaryObjectSystem.h" />
     <ClInclude Include="SDK\GameSystems\CDOTA_MinimapObjectManager.h" />
     <ClInclude Include="CheatSDK\Data\DrawData.h" />
@@ -616,7 +618,7 @@
     </ClInclude>
     <ClInclude Include="SDK\Base\Address.h" />
     <ClInclude Include="SDK\Base\MemAlloc.h" />
-    <ClInclude Include="SDK\Bytes\Fonts.h" />
+    <ClInclude Include="CheatSDK\Bytes\Fonts.h" />
     <ClInclude Include="CheatSDK\include.h" />
     <ClInclude Include="CheatSDK\Utils.h" />
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
@@ -635,6 +637,7 @@
     <ClInclude Include="SDK\GameSystems\CGameParticleManagerSystem.h" />
     <ClInclude Include="SDK\GameSystems\CRenderGameSystem.h" />
     <ClInclude Include="CheatSDK\Data\EntityList.h" />
+    <ClInclude Include="SDK\include.h" />
     <ClInclude Include="SDK\Interfaces\CGameUI.h" />
     <ClInclude Include="Hooks\Misc.h" />
     <ClInclude Include="Hooks\AcceptEvents.h" />
@@ -681,9 +684,9 @@
     <ClInclude Include="SDK\GameSystems\C_DOTAGameRules.h" />
     <ClInclude Include="SDK\GameSystems\C_DOTA_PlayerResource.h" />
     <ClInclude Include="SDK\GameSystems\C_DOTA_ProjectileManager.h" />
-    <ClInclude Include="SDK\Globals\GameSystems.h" />
+    <ClInclude Include="CheatSDK\Globals\GameSystems.h" />
     <ClInclude Include="CheatSDK\Data\HeroData.h" />
-    <ClInclude Include="SDK\Globals\SignatureDB.h" />
+    <ClInclude Include="CheatSDK\Globals\SignatureDB.h" />
     <ClInclude Include="SDK\Interfaces\CBaseFileSystem.h" />
     <ClInclude Include="SDK\GameSystems\CDOTAParticleManager.h" />
     <ClInclude Include="SDK\Interfaces\CGameEntitySystem.h" />
@@ -761,13 +764,13 @@
     <ClInclude Include="CheatSDK\MapThreadSafe.h" />
     <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h" />
     <ClInclude Include="Utils\Drawing.h" />
-    <ClInclude Include="SDK\Globals\Context.h" />
+    <ClInclude Include="CheatSDK\Globals\Context.h" />
     <ClInclude Include="CheatSDK\EventListeners.h" />
     <ClInclude Include="CheatSDK\Hooking.h" />
     <ClInclude Include="Modules\Hacks\LinearProjectileWarner.h" />
     <ClInclude Include="Hooks\NetChannel.h" />
     <ClInclude Include="Hooks\ModifierEvents.h" />
-    <ClInclude Include="SDK\Globals\Interfaces.h" />
+    <ClInclude Include="CheatSDK\Globals\Interfaces.h" />
     <ClInclude Include="SDK\Interfaces\Network\bf_read.h" />
     <ClInclude Include="SDK\Interfaces\Network\bf_write.h" />
     <ClInclude Include="SDK\Interfaces\Network\CNetworkMessages.h" />
@@ -780,7 +783,6 @@
     <ClInclude Include="SDK\Interfaces\Panorama.h" />
     <ClInclude Include="Modules\Hacks\ParticleAbilityWarner.h" />
     <ClInclude Include="Modules\Utility\ParticleGC.h" />
-    <ClInclude Include="SDK\pch.h" />
     <ClInclude Include="Modules\Hacks\PerfectBlink.h" />
     <ClInclude Include="SDK\Protobufs\dota_clientmessages.pb.h" />
     <ClInclude Include="SDK\Protobufs\dota_commonmessages.pb.h" />
@@ -808,7 +810,7 @@
     <ClInclude Include="SDK\Interfaces\IEngineClient.h" />
     <ClInclude Include="CheatSDK\MatchStateHandling.h" />
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h" />
-    <ClInclude Include="SDK\Globals\Signatures.h" />
+    <ClInclude Include="CheatSDK\Globals\Signatures.h" />
     <ClInclude Include="SDK\Entities\CBaseEntity.h" />
     <ClInclude Include="SDK\Entities\CDOTABaseNPC.h" />
     <ClInclude Include="SDK\Entities\CEntityIdentity.h" />

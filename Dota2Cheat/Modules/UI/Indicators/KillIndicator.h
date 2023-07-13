@@ -1,5 +1,5 @@
 #pragma once
-#include "../../../SDK/pch.h"
+#include "../../../pch.h"
 #include "../../../CheatSDK/include.h"
 #include "../../../Utils/Drawing.h"
 #include "../MultiThreadModule.h"
@@ -141,7 +141,7 @@ namespace Modules {
 			if (!Config::Indicators::Kill || !Initialized)
 				return;
 
-			EntityList.ForEachOfType(EntityType::Hero, [this](const auto& hero) { DrawIndicatorFor(hero); });
+			EntityList.ForEach<CDOTABaseNPC_Hero>([this](auto hero) { DrawIndicatorFor(hero); });
 		}
 
 	} KillIndicator;

@@ -1,17 +1,9 @@
 #pragma once
-#include <Windows.h>
 #include <set>
-#include <string>
+#include "../../SDK/Entities/CDOTAPlayerController.h"
+#include "../../SDK/Entities/CDOTABaseNPCHero.h"
 
 // Context of an ongoing Dota game
-
-class CBaseEntity;
-class CDOTABaseNPC;
-class CDOTABaseNPC_Hero;
-class CDOTAPlayerController;
-class CDOTABaseAbility;
-class CDOTAItem;
-class CDOTAItemRune;
 
 enum class GameStage {
 	NONE = 0, // In menu

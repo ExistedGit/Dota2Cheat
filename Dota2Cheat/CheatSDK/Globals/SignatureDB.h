@@ -2,7 +2,7 @@
 #include <json.hpp>
 #include <map>
 #include <string>
-#include "../Base/Memory.h"
+#include "../../SDK/Base/Memory.h"
 
 // Used to process JSON signatures
 

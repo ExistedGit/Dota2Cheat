@@ -1,5 +1,4 @@
 #include "C_DOTAGameRules.h"
-#include "../Globals/GameSystems.h"
 #include "CGlobalVars.h"
 
 // Suggested by og, reversed by Morphling and rewritten by ExistedDim4

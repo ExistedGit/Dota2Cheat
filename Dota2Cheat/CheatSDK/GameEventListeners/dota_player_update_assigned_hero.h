@@ -1,5 +1,5 @@
 #pragma once
-#include "../SDK/pch.h"
+#include "../pch.h"
 #include "../MatchStateHandling.h"
 #include "../../Modules/Hacks/ShakerAttackAnimFix.h"
 #include "../../Modules/UI/Indicators/KillIndicator.h"

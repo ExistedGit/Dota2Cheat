@@ -1,7 +1,6 @@
 #pragma once
 #include "../Base/Definitions.h"
 
-
 class CBaseEntity;
 
 class CEntityIdentity {
@@ -29,7 +28,6 @@ public:
 	CEntityIdentity* m_pNextByClass;
 public:
 	const char* GetName() const {
-		sizeof(CEntityIdentity);
 		return internalName ? internalName : entityName;
 	}
 

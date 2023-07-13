@@ -1,5 +1,5 @@
 #pragma once
-#include "../../SDK/pch.h"
+#include "../../pch.h"
 #include "../../CheatSDK/include.h"
 #include "../MListeners.h"
 namespace Modules {
@@ -7,7 +7,7 @@ namespace Modules {
 	inline class M_RiverPaint: public  IRunFrameListener{
 	public:
 		void OnFrame() override {
-			static auto cvar = CVarSystem::CVars["dota_river_type"];
+			static auto cvar = CCVar::CVars["dota_river_type"];
 			cvar.m_pVar->value.ui32 = Config::Changer::RiverListIdx;
 		}
 	} RiverPaint{};

@@ -1,5 +1,5 @@
 #pragma once
-#include "../SDK/pch.h"
+#include "../pch.h"
 #include "../MatchStateHandling.h"
 
 // Gets fired when exiting a match

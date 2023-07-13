@@ -96,7 +96,7 @@ struct CVarID
 
 // CCVar / ICVar
 // tier0.dll
-class CVarSystem : public VClass {
+class CCVar : public VClass {
 public:
 
 	static inline std::map<std::string, CVarID> CVars{};

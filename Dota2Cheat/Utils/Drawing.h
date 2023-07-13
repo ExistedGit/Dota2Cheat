@@ -1,5 +1,5 @@
 #pragma once
-#include "../SDK/pch.h"
+#include "../pch.h"
 #include <imgui/imgui.h>
 #include <imgui/imgui_stdlib.h>
 #include <imgui/imgui_internal.h>

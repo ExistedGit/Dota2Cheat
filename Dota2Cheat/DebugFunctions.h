@@ -1,7 +1,5 @@
 #pragma once
-#include "SDK/Entities/CDOTABaseNPC.h"
-#include "SDK/Globals/Interfaces.h"
-#include "SDK/Base/VMT.h"
+#include "../../CheatSDK/include.h"
 
 #ifdef _DEBUG
 inline void LogEntities() {

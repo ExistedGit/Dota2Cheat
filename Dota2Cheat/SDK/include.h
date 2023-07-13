@@ -1,38 +1,5 @@
-#define _CRT_SECURE_NO_WARNINGS
-#ifndef PCH_H
-#define PCH_H
+#pragma once
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdarg.h>
-#include <stddef.h>
-#include <memory>
-#include <string.h>
-#include <limits.h>
-#include <float.h>
-#include <time.h>
-#include <ctype.h>
-#include <wchar.h>
-#include <wctype.h>
-#include <malloc.h>
-#include <locale.h>
-#include <math.h>
-
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-
-#include <TlHelp32.h>
-
-#include <iostream>
-
-#include <string>
-#include <map>
-#include <vector>
-#include <set>
-
-#include <stdio.h>
-#include <fstream>
-#include <sstream> 
 
 #include "Base/Definitions.h"
 #include "Base/Bytehook.h"
@@ -49,10 +16,10 @@
 #include "Entities/CDOTAModifier.h"
 #include "Entities/CDOTAItem.h"
 
-#include "Globals/Context.h"
-#include "Globals/GameSystems.h"
-#include "Globals/Interfaces.h"
-#include "Globals/Signatures.h"
+#include "Interfaces/GC/CEconItem.h"
+#include "Interfaces/GC/CEconWearable.h"
+#include "Interfaces/GC/ItemSchema.h"
+#include "Interfaces/GC/CGCClient.h"
 
 #include "Protobufs/dota_clientmessages.pb.h"
 #include "Protobufs/dota_commonmessages.pb.h"
@@ -70,7 +37,3 @@
 #include "Protobufs/steammessages_steamlearn.steamworkssdk.pb.h"
 #include "Protobufs/steammessages_unified_base.steamworkssdk.pb.h"
 #include "Protobufs/usermessages.pb.h"
-
-#include "Bytes/Fonts.h"
-
-#endif // !PCH_H

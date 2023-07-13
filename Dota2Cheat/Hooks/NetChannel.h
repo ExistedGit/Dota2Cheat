@@ -1,5 +1,5 @@
 #pragma once
-#include "../SDK/pch.h"
+#include "../pch.h"
 #include "../SDK/Interfaces/Network/INetChannel.h"
 
 #include "../Modules/Hacks/ShakerAttackAnimFix.h"

@@ -1,5 +1,6 @@
 #pragma once
-#include "../SDK/pch.h"
+#include "../../pch.h"
+#include "../Globals/include.h"
 #include "../MapThreadSafe.h"
 #include <functional>
 #include <mutex>

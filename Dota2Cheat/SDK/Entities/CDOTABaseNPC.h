@@ -1,5 +1,4 @@
 #pragma once
-#include "../Globals/Interfaces.h"
 #include "CBaseEntity.h"
 #include "CDOTAItem.h"
 #include "CDOTAUnitInventory.h"

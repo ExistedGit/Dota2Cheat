@@ -1,5 +1,5 @@
 #include "CGlobalVars.h"
-#include "../Globals/Interfaces.h"
+#include "../CheatSDK/Globals/Interfaces.h"
 
 CGlobalVars* CGlobalVars::GetInstance() {
 	return (CGlobalVars*)Interfaces::NetworkClientService->GetIGameClient()->GetGlobals();

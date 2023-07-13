@@ -1,5 +1,5 @@
 #pragma once
-#include "../../SDK/pch.h"
+#include "../../pch.h"
 #include "../../Utils/Drawing.h"
 #include "../../CheatSDK/include.h"
 #include "MultiThreadModule.h"

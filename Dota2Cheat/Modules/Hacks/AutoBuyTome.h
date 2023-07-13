@@ -1,6 +1,6 @@
 #pragma once
-#include "../../SDK/pch.h"
-#include "../../CheatSDK/Config.h"
+#include "../../pch.h"
+#include "../../CheatSDK/include.h"
 
 namespace Modules {
 	// Restock info is stored inside CDOTA_GameRules

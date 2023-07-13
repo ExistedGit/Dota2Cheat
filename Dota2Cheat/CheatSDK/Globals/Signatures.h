@@ -1,21 +1,22 @@
 #pragma once
-#include "../Base/Memory.h"
 #include "SignatureDB.h"
 
-#include "Context.h"
+#include "../../SDK/Base/Logging.h"
+#include "../../SDK/Enums.h"
+#include "../../SDK/Protobufs/dota_commonmessages.pb.h"
 
-#include "../Enums.h"
-#include "../Protobufs/dota_commonmessages.pb.h"
-#include "../GameSystems/CDOTAParticleManager.h"
-#include "../GameSystems/C_DOTAGameRules.h"
-#include "../GameSystems/CDOTARichPresence.h"
+#include "../../SDK/GameSystems/CDOTAParticleManager.h"
+#include "../../SDK/GameSystems/C_DOTAGameRules.h"
+#include "../../SDK/GameSystems/CDOTARichPresence.h"
 
-#include "../Interfaces/GC/CGCClient.h"
-#include "../Interfaces/GC/ItemSchema.h"
-#include "../Interfaces/GC/CEconItem.h"
+#include "../../SDK/Interfaces/GC/CGCClient.h"
+#include "../../SDK/Interfaces/GC/ItemSchema.h"
+#include "../../SDK/Interfaces/GC/CEconItem.h"
 
-#include "../Interfaces/Network/CNetworkMessages.h"
-#include "../Entities/CDOTABaseAbility.h"
+#include "../../SDK/Interfaces/Network/CNetworkMessages.h"
+
+#include "../../SDK/Entities/CDOTABaseAbility.h"
+#include "../../SDK/Entities/CDOTABaseNPC.h"
 
 class CDOTAPlayerController;
 class CDOTAModifier;

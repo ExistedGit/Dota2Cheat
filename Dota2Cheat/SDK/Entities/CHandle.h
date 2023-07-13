@@ -1,6 +1,7 @@
 #pragma once
 #include <cstdint>
-#include "../Globals/Interfaces.h"
+#include "../../CheatSDK/Globals/Interfaces.h"
+
 template<typename T = CBaseEntity>
 struct CHandle {
 	constexpr static uint32_t INVALID_HANDLE = 0XFFFFFFFF;
@@ -31,3 +32,4 @@ struct CHandle {
 		return other.val == val;
 	}
 };
+

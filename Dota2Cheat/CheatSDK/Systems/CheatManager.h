@@ -1,5 +1,5 @@
 #pragma once
-#include "../../SDK/pch.h"
+#include "../../pch.h"
 #include <Windows.h>
 #include <string>
 #include <ShlObj.h>

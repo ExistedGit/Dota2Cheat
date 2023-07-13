@@ -1,6 +1,6 @@
 #pragma once
 #include <d3d11.h>
-#include "../../SDK/pch.h"
+#include "../../pch.h"
 #include "../../CheatSDK/Config.h"
 #include "../../Utils/Drawing.h"
 #include "../../CheatSDK/Systems/CheatManager.h"

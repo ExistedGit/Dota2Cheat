@@ -1,5 +1,5 @@
 #pragma once
-#include "../../SDK/pch.h"
+#include "../../pch.h"
 #include "../../CheatSDK/Config.h"
 
 namespace Modules {

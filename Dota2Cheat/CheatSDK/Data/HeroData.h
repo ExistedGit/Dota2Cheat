@@ -1,5 +1,5 @@
 #pragma once
-#include "../SDK/pch.h"
+#include "../pch.h"
 #include <imgui/imgui.h>
 
 // Centralized storage for data about heroes

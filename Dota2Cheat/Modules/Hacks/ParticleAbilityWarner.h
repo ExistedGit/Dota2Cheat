@@ -1,7 +1,7 @@
 #pragma once
 #include <map>
 #include "../Utility/ParticleGC.h"
-#include "../../CheatSDK/Config.h"
+#include "../../CheatSDK/include.h"
 
 #include "../MListeners.h"
 

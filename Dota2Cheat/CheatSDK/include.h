@@ -7,3 +7,4 @@
 #include "Data/EntityList.h"
 #include "Systems/TextureManager.h"
 #include "Systems/CheatManager.h"
+#include "Globals/include.h"

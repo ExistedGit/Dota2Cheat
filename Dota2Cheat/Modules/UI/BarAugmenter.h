@@ -1,5 +1,5 @@
 #pragma once
-#include "../SDK/pch.h"
+#include "../pch.h"
 #include "../../Utils/Drawing.h"
 #include "../../CheatSDK/include.h"
 
@@ -18,7 +18,6 @@ namespace Modules {
 			drawPos.y -= 32;
 
 			DrawTextForeground(DrawData.GetFont("Monofonto", fontSize), std::to_string(hero->GetHealth()), drawPos, fontSize, ImColor{ 255,255,255 }, true);
-			constexpr static ImVec2 manabarSize{ 101, 8 };
 		}
 		void DrawManabar(CDOTABaseNPC_Hero* hero)
 		{

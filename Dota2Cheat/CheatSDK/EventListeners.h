@@ -1,5 +1,5 @@
 #pragma once
-#include "../SDK/pch.h"
+#include "../pch.h"
 #include "../Modules/Hacks/AegisSnatcher.h"
 #include "MatchStateHandling.h"
 #include <format>

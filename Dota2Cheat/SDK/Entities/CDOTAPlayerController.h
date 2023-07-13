@@ -1,9 +1,9 @@
 #pragma once
 #include "../Base/CUtlVector.h"
 #include "../Enums.h"
-#include "CDOTABaseNPCHero.h"
-#include "../Globals/Signatures.h"
 #include "../Protobufs/dota_commonmessages.pb.h"
+
+#include "CDOTABaseNPCHero.h"
 
 struct Order {
 	dotaunitorder_t Type{};

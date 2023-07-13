@@ -1,5 +1,5 @@
 #pragma once
-#include "../SDK/pch.h"
+#include "../pch.h"
 #include "../GameEventListeners/dota_player_update_assigned_hero.h"
 #include "../GameEventListeners/map_shutdown.h"
 #include "../GameEventListeners/dota_game_state_change.h"

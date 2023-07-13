@@ -1,5 +1,5 @@
 #pragma once
-#include "../SDK/pch.h"
+#include "../pch.h"
 #include "../SDK/Protobufs/dota_gcmessages_client_match_management.pb.h"
 
 namespace Hooks {

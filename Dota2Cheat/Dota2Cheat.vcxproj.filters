@@ -45,10 +45,10 @@
     <ClCompile Include="include\imgui\imgui_tables.cpp" />
     <ClCompile Include="include\imgui\imgui_widgets.cpp" />
     <ClCompile Include="SDK\GameSystems\C_DOTAGameRules.cpp" />
-    <ClCompile Include="SDK\Globals\GameSystems.cpp" />
-    <ClCompile Include="SDK\Globals\Interfaces.cpp" />
-    <ClCompile Include="SDK\Globals\Signatures.cpp" />
-    <ClCompile Include="SDK\pch.cpp" />
+    <ClCompile Include="CheatSDK\Globals\GameSystems.cpp" />
+    <ClCompile Include="CheatSDK\Globals\Interfaces.cpp" />
+    <ClCompile Include="CheatSDK\Globals\Signatures.cpp" />
+    <ClCompile Include="pch.cpp" />
     <ClCompile Include="SDK\Protobufs\base_gcmessages.pb.cc" />
     <ClCompile Include="SDK\Protobufs\dota_clientmessages.pb.cc" />
     <ClCompile Include="SDK\Protobufs\dota_commonmessages.pb.cc" />
@@ -193,7 +193,7 @@
     <ClInclude Include="SDK\GameSystems\C_DOTAGameRules.h" />
     <ClInclude Include="SDK\GameSystems\C_DOTA_PlayerResource.h" />
     <ClInclude Include="SDK\GameSystems\C_DOTA_ProjectileManager.h" />
-    <ClInclude Include="SDK\Globals\GameSystems.h" />
+    <ClInclude Include="CheatSDK\Globals\GameSystems.h" />
     <ClInclude Include="SDK\Interfaces\CBaseFileSystem.h" />
     <ClInclude Include="SDK\GameSystems\CDOTAParticleManager.h" />
     <ClInclude Include="SDK\Interfaces\CGameEntitySystem.h" />
@@ -210,13 +210,13 @@
     <ClInclude Include="SDK\Protobufs\dota_gcmessages_common.pb.h" />
     <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h" />
     <ClInclude Include="Utils\Drawing.h" />
-    <ClInclude Include="SDK\Globals\Context.h" />
+    <ClInclude Include="CheatSDK\Globals\Context.h" />
     <ClInclude Include="CheatSDK\EventListeners.h" />
     <ClInclude Include="CheatSDK\Hooking.h" />
     <ClInclude Include="Modules\Hacks\LinearProjectileWarner.h" />
     <ClInclude Include="Hooks\NetChannel.h" />
     <ClInclude Include="Hooks\ModifierEvents.h" />
-    <ClInclude Include="SDK\Globals\Interfaces.h" />
+    <ClInclude Include="CheatSDK\Globals\Interfaces.h" />
     <ClInclude Include="SDK\Interfaces\Network\bf_read.h" />
     <ClInclude Include="SDK\Interfaces\Network\bf_write.h" />
     <ClInclude Include="SDK\Interfaces\Network\CNetworkMessages.h" />
@@ -229,7 +229,6 @@
     <ClInclude Include="SDK\Interfaces\Panorama.h" />
     <ClInclude Include="Modules\Hacks\ParticleAbilityWarner.h" />
     <ClInclude Include="Modules\Utility\ParticleGC.h" />
-    <ClInclude Include="SDK\pch.h" />
     <ClInclude Include="Modules\Hacks\PerfectBlink.h" />
     <ClInclude Include="SDK\Protobufs\dota_clientmessages.pb.h" />
     <ClInclude Include="SDK\Protobufs\dota_commonmessages.pb.h" />
@@ -257,7 +256,7 @@
     <ClInclude Include="SDK\Interfaces\IEngineClient.h" />
     <ClInclude Include="CheatSDK\MatchStateHandling.h" />
     <ClInclude Include="SDK\Interfaces\SchemaSystem.h" />
-    <ClInclude Include="SDK\Globals\Signatures.h" />
+    <ClInclude Include="CheatSDK\Globals\Signatures.h" />
     <ClInclude Include="SDK\Entities\CBaseEntity.h" />
     <ClInclude Include="SDK\Entities\CDOTABaseNPC.h" />
     <ClInclude Include="SDK\Entities\CEntityIdentity.h" />
@@ -321,7 +320,7 @@
     <ClInclude Include="CheatSDK\include.h" />
     <ClInclude Include="Modules\UI\Indicators\SpeedIndicator.h" />
     <ClInclude Include="Modules\UI\Indicators\KillIndicator.h" />
-    <ClInclude Include="SDK\Bytes\Fonts.h" />
+    <ClInclude Include="CheatSDK\Bytes\Fonts.h" />
     <ClInclude Include="CheatSDK\Data\DrawData.h" />
     <ClInclude Include="Modules\UI\BlinkRevealer.h" />
     <ClInclude Include="SDK\Base\Address.h" />
@@ -330,7 +329,7 @@
     <ClInclude Include="CheatSDK\Data\HeroData.h" />
     <ClInclude Include="Modules\UI\BarAugmenter.h" />
     <ClInclude Include="Modules\Hacks\AutoAccept.h" />
-    <ClInclude Include="SDK\Globals\SignatureDB.h" />
+    <ClInclude Include="CheatSDK\Globals\SignatureDB.h" />
     <ClInclude Include="SDK\Entities\CHandle.h" />
     <ClInclude Include="SDK\Interfaces\GC\CEconWearable.h" />
     <ClInclude Include="Hooks\GameCoordinator.h" />
@@ -367,5 +366,8 @@
     <ClInclude Include="Modules\Hacks\ParticleRevealer.h" />
     <ClInclude Include="CheatSDK\Data\EntityList.h" />
     <ClInclude Include="Modules\MListeners.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="SDK\include.h" />
+    <ClInclude Include="CheatSDK\Globals\include.h" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,5 @@
 #pragma once
-#include "../../SDK/pch.h"
+#include "../../pch.h"
 #include "../../SDK/Protobufs/dota_usermessages.pb.h"
 #include "../../CheatSDK/include.h"
 #include "../MListeners.h"

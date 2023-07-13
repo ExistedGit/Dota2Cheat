@@ -1,5 +1,4 @@
 #include "Signatures.h"
-#include "../Base/Logging.h"
 
 #define SET_VAR(var, data) var = (data); \
 if(var) \

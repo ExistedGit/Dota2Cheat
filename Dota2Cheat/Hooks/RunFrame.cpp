@@ -19,7 +19,7 @@ std::set<T*> GetEntitiesByFilter(const std::vector<const char*>& filters) {
 };
 
 void UpdateCameraDistance() {
-	static auto varInfo = CVarSystem::CVars["dota_camera_distance"];
+	static auto varInfo = CCVar::CVars["dota_camera_distance"];
 	if (Config::CameraDistance != varInfo.m_pVar->value.flt) {
 		varInfo.m_pVar->value.flt = Config::CameraDistance;
 		Interfaces::CVar->TriggerCallback(varInfo);
@@ -27,7 +27,7 @@ void UpdateCameraDistance() {
 }
 
 void UpdateWeather() {
-	static auto varInfo = CVarSystem::CVars["cl_weather"];
+	static auto varInfo = CCVar::CVars["cl_weather"];
 	varInfo.m_pVar->value.i32 = Config::Changer::WeatherListIdx;
 }
 
@@ -77,11 +77,10 @@ void InGameLogic() {
 	UpdateCameraDistance();
 	UpdateWeather();
 	Modules::TreeChanger.UpdateTreeModels();
-	EntityList.ForEachOfType(EntityType::Hero, [](const auto& wrap) {
-		auto hero = wrap.As<CDOTABaseNPC>();
-	HeroData[hero].AbsOrigin = hero->GetPos();
-	HeroData[hero].W2S = WorldToScreen(hero->GetPos());
-	HeroData[hero].HealthbarW2S = WorldToScreen(hero->GetHealthBarPos());
+	EntityList.ForEach<CDOTABaseNPC_Hero>([](auto hero) {
+		HeroData[hero].AbsOrigin = hero->GetPos();
+		HeroData[hero].W2S = WorldToScreen(hero->GetPos());
+		HeroData[hero].HealthbarW2S = WorldToScreen(hero->GetHealthBarPos());
 		});
 
 	static IRunFrameListener* PassiveListeners[] = {

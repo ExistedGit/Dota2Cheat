@@ -1,5 +1,6 @@
 #pragma once
-#include "../../SDK/pch.h"
+#include "../../pch.h"
+#include "../../CheatSDK/include.h"
 #include "../MListeners.h"
 
 namespace Modules {
