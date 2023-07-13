@@ -110,7 +110,28 @@ public:
 		return pos;
 	};
 
-	CDOTAItem* FindItemBySubstring(const char* str);
+	CDOTAItem* FindItemBySubstring(const char* str) {
+		for (const auto& item : GetItems())
+			if (
+				item
+				&& item->GetIdentity()->GetName()
+				&& strstr(item->GetIdentity()->GetName(), str)
+				)
+				return item;
+
+		return nullptr;
+	}
+	CDOTAItem* FindItem(const char* str) {
+		for (const auto& item : GetItems())
+			if (
+				item
+				&& item->GetIdentity()->GetName()
+				&& !strcmp(item->GetIdentity()->GetName(), str)
+				)
+				return item;
+
+		return nullptr;
+	}
 
 	IGETTER(CDOTAUnitInventory, GetInventory, Netvars::C_DOTA_BaseNPC::m_Inventory);
 

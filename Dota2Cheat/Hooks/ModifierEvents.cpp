@@ -28,9 +28,9 @@ void Hooks::CacheIfItemModifier(CDOTAModifier* modifier) {
 			HeroData[ctx.localHero].Items[searchName] = item;
 	}
 
-	auto item = modifier->GetOwner()->FindItemBySubstring(itemName.data());
-	if (item) {
-		if (!((CDOTABaseNPC_Hero*)modifier->GetOwner())->IsIllusion())
+	if (modName == "modifier_item_sphere") {
+		auto item = modifier->GetOwner()->FindItem("item_sphere");
+		if (item && !((CDOTABaseNPC_Hero*)modifier->GetOwner())->IsIllusion())
 			Modules::TargetedSpellHighlighter.SubscribeLinkenRendering(modifier->GetOwner(), item);
 	}
 
@@ -64,7 +64,7 @@ void Hooks::hkOnRemoveModifier(CDOTAModifier* modifier) {
 				HeroData[ctx.localHero].Items.erase(searchName);
 			}
 
-			if (itemName.find("sphere", 0) != -1)
+			if (itemName == "item_sphere")
 				Modules::TargetedSpellHighlighter.UnsubscribeLinkenRendering(modifier->GetOwner());
 		}
 		UncacheModifier(modifier);

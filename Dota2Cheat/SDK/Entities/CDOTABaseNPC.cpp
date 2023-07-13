@@ -15,21 +15,6 @@ std::vector<CDOTABaseAbility*> CDOTABaseNPC::GetAbilities() {
 	return result;
 }
 
-CDOTAItem* CDOTABaseNPC::FindItemBySubstring(const char* str) {
-	if (!str)
-		return nullptr;
-
-	for (const auto& item : GetItems())
-		if (
-			item
-			&& item->GetIdentity()->GetName()
-			&& strstr(item->GetIdentity()->GetName(), str)
-			)
-			return item;
-
-	return nullptr;
-}
-
 [[nodiscard]]
 std::vector<CDOTAItem*> CDOTABaseNPC::GetItems() {
 	std::vector<CDOTAItem*> result{};

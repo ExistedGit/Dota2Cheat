@@ -25,9 +25,6 @@ namespace Signatures {
 	inline CDOTAItemSchema* (*GetItemSchema)() = nullptr;
 	inline CEconItem* (*CreateEconItem)() = nullptr;
 
-	// typedef void* (*CGameUI__ChangeGameUIStateFn)(void* thisptr, DOTAGameUIState_t state);
-	// inline CGameUI__ChangeGameUIStateFn CGameUI__ChangeGameUIState{};
-
 	inline void* SaveSerializedSOCache{};
 
 	inline void(__fastcall* CMsg)(const char* format, ...);
