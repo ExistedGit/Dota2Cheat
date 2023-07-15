@@ -5,3 +5,4 @@
 #include "Interfaces.h"
 #include "SignatureDB.h"
 #include "Signatures.h"
+#include "Panorama.h"

@@ -31,5 +31,10 @@ struct CHandle {
 	bool operator==(const CHandle<T> other) {
 		return other.val == val;
 	}
+
+	CHandle<T>& operator=(uint32_t val) {
+		this->val = val;
+		return *this;
+	}
 };
 

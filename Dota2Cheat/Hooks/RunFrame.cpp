@@ -79,8 +79,8 @@ void InGameLogic() {
 	Modules::TreeChanger.UpdateTreeModels();
 	EntityList.ForEach<CDOTABaseNPC_Hero>([](auto hero) {
 		HeroData[hero].AbsOrigin = hero->GetPos();
-		HeroData[hero].W2S = WorldToScreen(hero->GetPos());
-		HeroData[hero].HealthbarW2S = WorldToScreen(hero->GetHealthBarPos());
+	HeroData[hero].W2S = WorldToScreen(hero->GetPos());
+	HeroData[hero].HealthbarW2S = WorldToScreen(hero->GetHealthBarPos());
 		});
 
 	static IRunFrameListener* PassiveListeners[] = {
@@ -115,10 +115,7 @@ void InGameLogic() {
 		EntityIteration();
 	}
 #ifdef _DEBUG
-	if (IsKeyPressed(VK_NUMPAD7))
-		Log(LP_INFO, "Hero model: ", ctx.localHero->GetModelName());
-
-	else if (IsKeyPressed(VK_NUMPAD8)) {
+	if (IsKeyPressed(VK_NUMPAD8)) {
 		// updateWearables = true;
 
 		auto selected = ctx.localPlayer->GetSelectedUnits();
@@ -152,6 +149,10 @@ void Hooks::hkRunFrame() {
 		ctx.localHero &&
 		ctx.gameStage == GameStage::IN_GAME)
 		InGameLogic();
+
+	//if (IsKeyPressed(VK_NUMPAD7)) {
+	//	Signatures::ShowHUDError(Panorama::ErrorMessages, "Kurwa, ja pierdolę!");
+	//}
 
 	//static float lastPingTime = 0;
 	//if (GameSystems::GameRules->GetGameTime() - lastPingTime >= 1.) {

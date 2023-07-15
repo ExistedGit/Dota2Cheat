@@ -33,18 +33,6 @@ void CMatchStateManager::EnteredPreGame() {
 	GameSystems::ParticleManager = GameSystems::ParticleManagerSystem->GetParticleManager();
 	LogF(LP_DATA, "ParticleManager: {} / CreateParticle: {}", (void*)GameSystems::ParticleManager, (void*)GameSystems::ParticleManager->GetVFunc(VTableIndexes::CDOTAParticleManager::CreateParticle));
 
-	// Panorama's HUD root
-	for (auto& node : Interfaces::UIEngine->GetPanelList<4096>()) {
-		auto uiPanel = node.uiPanel;
-		if (!uiPanel->GetId())
-			continue;
-		std::string_view id = uiPanel->GetId();
-		if (id != "DotaHud")
-			continue;
-
-		GameSystems::DotaHud = (Panorama::DotaHud*)uiPanel;
-		break;
-	}
 
 	ctx.gameStage = GameStage::PRE_GAME;
 
@@ -65,6 +53,7 @@ void CMatchStateManager::EnteredInGame() {
 	Interfaces::CVar->CVars["r_farz"].m_pVar->value.flt = 10000.0f;
 	Interfaces::CVar->CVars["fog_enable"].m_pVar->value.boolean = false;
 
+	Panorama::FindPanels();
 	GameSystems::InitMinimapRenderer();
 	// Modules::UIOverhaul.Init();
 	if (Config::Changer::TreeModelIdx != 0)
@@ -93,9 +82,11 @@ void CMatchStateManager::LeftMatch() {
 	GameSystems::ParticleManager = nullptr;
 	GameSystems::ProjectileManager = nullptr;
 	GameSystems::MinimapRenderer = nullptr;
-	GameSystems::DotaHud = nullptr;
 	GameSystems::GameEventManager = nullptr;
 	ClearHeroData();
+
+	Panorama::DotaHud = nullptr;
+	Panorama::ErrorMessages = nullptr;
 
 	ctx.localPlayer = nullptr;
 	ctx.localHero = nullptr;

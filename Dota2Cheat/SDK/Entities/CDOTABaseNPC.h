@@ -23,7 +23,7 @@ public:
 			all; // blocks all forms of damage
 	};
 
-	GETTER(BarrierData, GetBarriers, 0x16d4);
+	GETTER(BarrierData, GetBarriers, 0x16dc);
 
 	IGETTER(CDOTAModifierManager, GetModifierManager, Netvars::C_DOTA_BaseNPC::m_ModifierManager);
 
@@ -47,7 +47,7 @@ public:
 	}
 
 	VGETTER(float, GetIdealSpeed, VTableIndexes::CDOTABaseNPC::GetIdealSpeed);
-	VGETTER(void*, OnWearablesChanged, VTableIndexes::CDOTABaseNPC::OnWearablesChanged);
+	VGETTER(void, OnWearablesChanged, VTableIndexes::CDOTABaseNPC::OnWearablesChanged);
 
 	// Wrapper function combining the following conditions: 
 	// Is not dormant

@@ -9,8 +9,11 @@
 #include "EventManager.h"
 
 #include "../Hooking.h"
+#include "../../Modules/UI/BarAugmenter.h"
+#include "../../UI/Pages/AutoPickSelectionGrid.h"
 
 void CCheatManager::LoadGameSpecific() {
+	Modules::BarAugmenter.Init();
 
 	// Allows VPK mods
 	if (auto gi = Memory::Scan("74 ? 84 C9 75 ? 83 BF", "client.dll"))
@@ -24,9 +27,10 @@ void CCheatManager::LoadGameSpecific() {
 		.Set(false);
 
 	Interfaces::FindInterfaces();
+
 	Interfaces::CVar->DumpConVarsToMap();
 	Interfaces::CVar->UnlockHiddenConVars();
-	
+
 	Modules::CVarSpoofer.SpoofVars(
 		"dota_camera_distance",
 		"r_farz",
@@ -53,7 +57,7 @@ void CCheatManager::LoadGameSpecific() {
 	EntityList.AddListener(Modules::IllusionESP);
 
 	// It's supposed to be a CUtlSymbolTable, but we don't yet have the technology...
-	for (auto data : Interfaces::NetworkMessages->GetNetvarCallbacks())
+	for (const auto& data : Interfaces::NetworkMessages->GetNetvarCallbacks())
 		if (IsValidReadPtr(data.m_szCallbackName) && std::string_view(data.m_szCallbackName) == "OnColorChanged") {
 			CBaseEntity::OnColorChanged = data.m_CallbackFn;
 			LogF(LP_DATA, "{}::{}: {}", data.m_szClassName, data.m_szCallbackName, (void*)data.m_CallbackFn);
@@ -66,7 +70,8 @@ void CCheatManager::LoadFiles() {
 	if (auto fin = std::ifstream(cheatFolderPath + "\\config\\base.json")) {
 		Config::cfg.LoadConfig(fin);
 		fin.close();
-		std::cout << "Loaded config from " << cheatFolderPath + "\\config\\base.json\n";
+
+		Log(LP_INFO, "Loaded config from ", cheatFolderPath, "\\config\\base.json\n");
 	}
 
 	for (auto& file : std::filesystem::directory_iterator(cheatFolderPath + "\\assets\\misc")) {
@@ -86,8 +91,11 @@ void CCheatManager::Initialize(HMODULE hModule) {
 	// this is a historical exclamation by myself when something finally works
 	Log(LP_NONE, "works!");
 
+	d2c.FindCheatFolder();
+
 	Config::cfg.SetupVars();
 	LoadGameSpecific();
+
 	LoadFiles();
 }
 
@@ -109,8 +117,8 @@ void CCheatManager::Unload() {
 	EventManager.ClearListeners();
 
 	Hooks::RemoveHooks();
+	Memory::RevertPatches();
 	MH_Uninitialize();
-
 	if (DrawData.Dx.Window)
 		SetWindowLongPtrA(DrawData.Dx.Window, GWLP_WNDPROC, (LONG_PTR)DrawData.Dx.oWndProc);
 

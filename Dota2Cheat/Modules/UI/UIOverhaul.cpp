@@ -10,12 +10,12 @@ CDOTABaseNPC_Hero* Modules::UIOverhaul::FindHeroByUnitName(std::string_view name
 }
 
 CUIPanel* Modules::UIOverhaul::GetTopBarImgForHero(CDOTABaseNPC_Hero* hero) {
-	auto topbarImages = GameSystems::DotaHud->FindChildrenWithClassTraverse(TopBarClass);
+	auto topbarImages = Panorama::DotaHud->FindChildrenWithClassTraverse(TopBarClass);
 	for (auto& panel : topbarImages) {
 		if (!panel->GetId() || strcmp(panel->GetId(), "HeroImage") != 0)
 			continue;
 
-		auto heroImg = (Panorama::CDOTA_UI_HeroImage*)panel->GetPanel2D();
+		auto heroImg = (CDOTA_UI_HeroImage*)panel->GetPanel2D();
 		if (!IsValidReadPtr(heroImg->GetSrc()))
 			continue;
 
@@ -29,12 +29,12 @@ CUIPanel* Modules::UIOverhaul::GetTopBarImgForHero(CDOTABaseNPC_Hero* hero) {
 
 void Modules::UIOverhaul::UpdateHeroes() {
 	topBar.clear();
-	auto topbarImages = GameSystems::DotaHud->FindChildrenWithClassTraverse(TopBarClass);
+	auto topbarImages = Panorama::DotaHud->FindChildrenWithClassTraverse(TopBarClass);
 	for (auto& panel : topbarImages) {
 		if (!panel->GetId() || strcmp(panel->GetId(), "HeroImage") != 0)
 			continue;
 
-		auto heroImg = (Panorama::CDOTA_UI_HeroImage*)panel->GetPanel2D();
+		auto heroImg = (CDOTA_UI_HeroImage*)panel->GetPanel2D();
 		//LogF(LP_DATA, "TopBarHeroImage: {} {}", (void*)panel, (void*)panel->GetPanel2D());
 		if (!IsValidReadPtr(heroImg->GetSrc()))
 			continue;
@@ -82,8 +82,9 @@ void Modules::UIOverhaul::DrawBars() {
 }
 
 void Modules::UIOverhaul::Init() {
-	if (!GameSystems::DotaHud)
+	if (!Panorama::DotaHud)
 		return;
+
 	MTM_LOCK;
 
 	if (!TopBarClass)

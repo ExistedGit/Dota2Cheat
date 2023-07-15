@@ -9,12 +9,13 @@
 #include "../../SDK/Interfaces/Network/INetworkClientService.h"
 #include "../../SDK/Interfaces/GC/CGCClient.h"
 #include "../../SDK/Interfaces/CVarSystem.h"
-#include "../../SDK/Interfaces/Panorama.h"
 #include "../../SDK/Interfaces/CResourceSystem.h"
 #include "../../SDK/Interfaces/CSoundOpSystem.h"
 #include "../../SDK/Interfaces/ISteamClient.h"
 #include "../../SDK/Interfaces/ISteamGameCoordinator.h"
 #include "../../SDK/Interfaces/CGameUI.h"
+
+#include "../../SDK/Panorama/CUIEngineSource2.h"
 
 #include "../../SDK/Base/Memory.h"
 #include "../../SDK/Base/Address.h"
@@ -28,7 +29,7 @@ namespace Interfaces {
 	inline CEngineClient* Engine{}; // CEngineClient
 	inline CResourceSystem* ResourceSystem{};
 	inline VClass* Panorama{};
-	inline Panorama::CUIEngineSource2* UIEngine{};
+	inline CUIEngineSource2* UIEngine{};
 	inline VClass* Client{}; // CSource2Client 
 	inline CGameEntitySystem* EntitySystem{};
 	inline ISteamClient* SteamClient{};

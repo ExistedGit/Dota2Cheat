@@ -4,7 +4,7 @@ ImVec2 WorldToMap(const Vector& EntityPos) {
 	if (!GameSystems::MinimapRenderer)
 		return { 0,0 };
 	static auto dota_hud_flip = Interfaces::CVar->CVars["dota_hud_flip"].m_pVar;
-	const auto ScreenSize = ImVecFromVec2D(GameSystems::DotaHud->GetScreenSize());
+	const auto ScreenSize = ImVecFromVec2D(Panorama::DotaHud->GetScreenSize());
 
 	// The border around the actual map panel is around 12px
 	auto ActualMinimapSize = static_cast<float>(GameSystems::MinimapRenderer->GetMinimapSize().x * 0.94);

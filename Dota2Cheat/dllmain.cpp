@@ -1,6 +1,4 @@
 #pragma once
-#include <cstdio>
-#include <iostream>
 #include "CheatSDK/Hooking.h"
 
 #include "DebugFunctions.h"
@@ -20,15 +18,8 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 
 	Modules::SkinChanger.DeleteSOCacheFiles();
 
-	d2c.FindCheatFolder();
-
-	Log(LP_INFO, "Loading assets...");
-	auto iconLoadThread = std::async(std::launch::async, Pages::AutoPickHeroGrid::InitList);
-
 	Log(LP_INFO, "Initializing cheat...");
 	d2c.Initialize(hModule);
-
-	iconLoadThread.wait();
 
 	MatchStateManager.CheckForOngoingGame();
 

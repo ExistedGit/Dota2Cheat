@@ -1,33 +1,54 @@
 #include "AutoPickSelectionGrid.h"
 #include "../../CheatSDK/Systems/TextureManager.h"
 
-void Pages::AutoPickHeroGrid::InitList() {
-	using json = nlohmann::json;
-	std::ifstream fin(d2c.cheatFolderPath + "\\assets\\json\\npc_heroes.json");
-	if (!fin.is_open()) {
-		std::cout << "Failed hero icons initialization: can't open file\n";
-		return;
+struct KeyValues {
+	static KeyValues* MakeKV(const char* name) {
+		auto kv = CMemAlloc::Instance()->Alloc<KeyValues>(0x14);
+		auto ctor = Memory::GetExport("tier0.dll", "??0KeyValues@@QEAA@PEBD@Z");
+		ctor(kv, name);
+		return kv;
 	}
-	auto data = json::parse(fin);
-	for (auto& [heroName, _] : data["DOTAHeroes"].items()) {
+	bool LoadFromFile(const char* path) {
+		auto func = Memory::GetExport("tier0.dll", "?LoadFromFile@KeyValues@@QEAA_NPEAVIFileSystem@@PEBD1P6A_N1PEAX@Z21@Z");
+		return func.Call<bool>(this, Interfaces::FileSystem, path, "GAME", nullptr, nullptr, nullptr);
+	}
+	KeyValues* GetFirstSubKey() {
+		auto func = Memory::GetExport("tier0.dll", "?GetFirstSubKey@KeyValues@@QEBAPEAV1@XZ");
+		return func.Call<KeyValues*>(this);
+	}
+	KeyValues* GetNextKey() {
+		auto func = Memory::GetExport("tier0.dll", "?GetNextKey@KeyValues@@QEBAPEAV1@XZ");
+		return func.Call<KeyValues*>(this);
+	}
+	const char* GetName() {
+		auto func = Memory::GetExport("tier0.dll", "?GetName@KeyValues@@QEBAPEBDXZ");
+		return func.Call<const char*>(this);
+	}
+	void Destroy() {
+		auto func = Memory::GetExport("tier0.dll", "??1KeyValues@@QEAA@XZ");
+		func(this);
+	}
+};
+
+void Pages::AutoPickHeroGrid::InitList() {
+	auto npc_heroes = KeyValues::MakeKV("Shit");
+	npc_heroes->LoadFromFile("scripts/npc/npc_heroes.txt");
+	for (auto node = npc_heroes->GetFirstSubKey(); node; node = node->GetNextKey()) {
+		if (!node->GetFirstSubKey()) // not considering non-hero nodes
+			continue;
+
+		std::string heroName = node->GetName();
 		auto path = d2c.cheatFolderPath + "\\assets\\heroicons\\" + heroName + "_png.png";
 		if (std::filesystem::exists(path)) {
 			heroNames.push_back(heroName);
-			texManager.QueueForLoading(path, "icon_" + heroName.substr(14));
+			texManager.LoadTextureNamed(path, &heroIcons[heroName], "icon_" + heroName.substr(14));
 		}
 	}
-}
-
-void Pages::AutoPickHeroGrid::InitImages() {
-	for (auto& heroName : heroNames)
-		heroIcons[heroName] = texManager.GetNamedTexture("icon_" + heroName.substr(14));
-	Initialized = true;
+	npc_heroes->Destroy();
+	CMemAlloc::Instance()->Free(npc_heroes);
 }
 
 void Pages::AutoPickHeroGrid::Draw() {
-	if (!Initialized)
-		InitImages();
-
 	ImGui::Begin("AutoPick/AutoBan menu");
 	ImGuiStyle* style = &ImGui::GetStyle();
 	ImVec4* colors = style->Colors;

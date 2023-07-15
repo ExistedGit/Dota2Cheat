@@ -14,7 +14,6 @@
 #include "../../SDK/GameSystems/CGameParticleManagerSystem.h"
 #include "../../SDK/GameSystems/CDOTA_PanoramaMinimapRenderer.h"
 #include "../../SDK/GameSystems/CRenderGameSystem.h"
-#include "../../SDK/Interfaces/Panorama.h"
 
 namespace GameSystems {
 	struct IGameSystemFactory : public VClass {
@@ -28,7 +27,6 @@ namespace GameSystems {
 
 	inline CDOTAPanoramaMinimapRenderer* MinimapRenderer{};
 	inline CDOTA_BinaryObjectSystem* BinaryObjectSystem{};
-	inline Panorama::DotaHud* DotaHud{};
 	void InitMinimapRenderer();
 
 	inline CDOTAGCClientSystem* GCClientSystem{};

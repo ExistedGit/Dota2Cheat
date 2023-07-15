@@ -1,7 +1,7 @@
 #include "BarAugmenter.h"
 
 bool Modules::BarAugmenter::CanDraw(CDOTABaseNPC_Hero* hero) {
-	bool ret = IsValidReadPtr(hero)
+	return IsValidReadPtr(hero)
 		&& IsValidReadPtr(hero->GetIdentity())
 		&& !hero->GetIdentity()->IsDormant()
 		&& !hero->IsSameTeam(ctx.localHero)
@@ -9,7 +9,5 @@ bool Modules::BarAugmenter::CanDraw(CDOTABaseNPC_Hero* hero) {
 		&& hero != ctx.localHero
 		&& hero->GetLifeState() == 0
 		&& IsEntityOnScreen(hero);
-
-	return ret;
 }
 

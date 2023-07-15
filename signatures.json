@@ -56,6 +56,11 @@
     "module": "client.dll",
     "steps": [[0, 1]]
   },
+  "ShowHUDError": {
+    "signature": "E8 ? ? ? ? 48 85 DB 74 10",
+    "module": "client.dll",
+    "steps": [[0, 1]]
+  },
   "DispatchPacket": {
     "signature": "E8 ? ? ? ? 39 6C 24 68",
     "module": "client.dll",

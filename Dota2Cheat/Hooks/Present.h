@@ -9,10 +9,7 @@
 
 // DirectX11's SwapChain::Present, used to render things
 // Its hooking is different from the "classical" method of creating a dummy window
-// The first problem is that the Steam overlay doesn't work after such manipulations
-// The second problem is that that same overlay's own hkPresent is called by our one,
-// creating a possibility for Valve to make a retar~ retaddr check and detect the cheat
-// Not saying they made one, but we don't take any chances.
+// We just hook the overlay's hook!
 
 extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 

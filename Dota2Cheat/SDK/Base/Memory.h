@@ -81,21 +81,20 @@ class Memory {
 		return nullptr;
 	}
 
-	struct PatchData {
-		Address addr;
-		std::vector<BYTE> originalBytes;
-	};
-	static inline std::vector<PatchData> patches;
+
+	using PatchSequence = std::vector<BYTE>;
+	static inline std::map<uintptr_t, PatchSequence> patches;
 public:
 
 	static void RevertPatches() {
 		static auto NtProtectVirtualMemory = Memory::GetExport("ntdll.dll", "NtProtectVirtualMemory");
-		for (auto& patch : patches) {
+		for (auto& [ pAddr, sequence] : patches) {
+			Address addr = pAddr;
 			MEMORY_BASIC_INFORMATION mbi;
-			VirtualQuery(patch.addr, &mbi, sizeof(mbi));
-
+			VirtualQuery(addr, &mbi, sizeof(mbi));
+			
 			NtProtectVirtualMemory(GetCurrentProcess(), &mbi.BaseAddress, (unsigned long*)&mbi.RegionSize, PAGE_EXECUTE_READWRITE, &mbi.Protect);
-			memcpy(patch.addr, patch.originalBytes.data(), patch.originalBytes.size());
+			memcpy(addr, sequence.data(), sequence.size());
 			NtProtectVirtualMemory(GetCurrentProcess(), &mbi.BaseAddress, (unsigned long*)&mbi.RegionSize, mbi.Protect, &mbi.Protect);
 		}
 	}
@@ -113,9 +112,10 @@ public:
 		memcpy(addr, replacement, replSize);
 		NtProtectVirtualMemory(GetCurrentProcess(), &mbi.BaseAddress, (unsigned long*)&mbi.RegionSize, mbi.Protect, &mbi.Protect);
 
-		std::vector<BYTE> data;
+		PatchSequence data;
 		data.assign(replacement, replacement + replSize);
-		patches.push_back({ addr, data });
+		if (!patches.contains(addr)) // not to break the reversion for dynamic patches
+			patches[addr] = data;
 	}
 
 	static Address Scan(const std::string& signature, const std::string& moduleName) {

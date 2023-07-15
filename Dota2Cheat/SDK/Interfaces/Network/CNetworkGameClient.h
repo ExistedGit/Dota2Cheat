@@ -3,6 +3,8 @@
 #include "INetChannel.h"
 #include "../../Protobufs/networkbasetypes.pb.h"
 
+struct CGlobalVars;
+
 struct EventClientSimulate_t;
 struct EventClientPollNetworking_t;
 struct EventClientProcessNetworking_t;
@@ -68,7 +70,7 @@ public:
     virtual void SetGameSpawnGroupMgr(void *IGameSpawnGroupMgr) = 0;
     virtual void AddRef(void) = 0;
     virtual void Release(void) = 0;
-    virtual void* GetGlobals(void) = 0;
+    virtual CGlobalVars* GetGlobals(void) = 0;
     virtual int GetClientTickCount(void) = 0;
     virtual int GetServerTickCount(void) = 0;
     virtual void SetFrameTime(float value) = 0;

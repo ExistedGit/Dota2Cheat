@@ -1,5 +1,6 @@
 #include "GameSystems.h"
 #include "Interfaces.h"
+#include "Panorama.h"
 #include <consthash/cityhash32.hxx>
 #include <cityhash/city.h>
 #define SET_VAR(var, data) var = (decltype(var))(data); \
@@ -9,8 +10,8 @@ else \
 	LogF(LP_ERROR, "{}: {}", #var, (void*)var);
 
 void GameSystems::InitMinimapRenderer() {
-	while (!DotaHud->FindChildWithIdTraverse("minimap")) {};
-	auto minimap = DotaHud->FindChildWithIdTraverse("minimap");
+	while (!Panorama::DotaHud->FindChildWithIdTraverse("minimap")) {};
+	auto minimap = Panorama::DotaHud->FindChildWithIdTraverse("minimap");
 
 	SET_VAR(MinimapRenderer, minimap->GetPanel2D()->Member<CDOTAPanoramaMinimapRenderer*>(0x20));
 }

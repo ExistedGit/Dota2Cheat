@@ -557,6 +557,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CheatSDK\Globals\include.h" />
+    <ClInclude Include="CheatSDK\Globals\Panorama.h" />
     <ClInclude Include="CheatSDK\Systems\CheatManager.h" />
     <ClInclude Include="CheatSDK\KeyHandler.h" />
     <ClInclude Include="CheatSDK\Data\UIData.h" />
@@ -691,6 +692,7 @@
     <ClInclude Include="SDK\GameSystems\CDOTAParticleManager.h" />
     <ClInclude Include="SDK\Interfaces\CGameEntitySystem.h" />
     <ClInclude Include="SDK\GameSystems\CGameEventManager.h" />
+    <ClInclude Include="SDK\Panorama\CLocalization.h" />
     <ClInclude Include="SDK\Interfaces\CSoundOpSystem.h" />
     <ClInclude Include="SDK\Interfaces\GC\CEconItem.h" />
     <ClInclude Include="SDK\Interfaces\GC\CEconWearable.h" />
@@ -707,6 +709,10 @@
     <ClInclude Include="SDK\Interfaces\ISteamGameCoordinator.h" />
     <ClInclude Include="SDK\Interfaces\Network\CNetworkGameClient.h" />
     <ClInclude Include="SDK\Interfaces\Network\INetworkClientService.h" />
+    <ClInclude Include="SDK\Panorama\CPanel2D.h" />
+    <ClInclude Include="SDK\Panorama\CSource2UITexture.h" />
+    <ClInclude Include="SDK\Panorama\CUIEngineSource2.h" />
+    <ClInclude Include="SDK\Panorama\CUIPanel.h" />
     <ClInclude Include="SDK\Protobufs\base_gcmessages.pb.h" />
     <ClInclude Include="SDK\Protobufs\clientmessages.pb.h" />
     <ClInclude Include="SDK\Protobufs\connectionless_netmessages.pb.h" />
@@ -780,7 +786,7 @@
     <ClInclude Include="Hooks\RunFrame.h" />
     <ClInclude Include="Modules\Hacks\IllusionColoring.h" />
     <ClInclude Include="Hooks\ParticleRendering.h" />
-    <ClInclude Include="SDK\Interfaces\Panorama.h" />
+    <ClInclude Include="SDK\Panorama\CUIRenderDeviceSource2.h" />
     <ClInclude Include="Modules\Hacks\ParticleAbilityWarner.h" />
     <ClInclude Include="Modules\Utility\ParticleGC.h" />
     <ClInclude Include="Modules\Hacks\PerfectBlink.h" />

@@ -42,8 +42,10 @@ void Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t o
 	if (orderType == DOTA_UNIT_ORDER_CAST_NO_TARGET ||
 		orderType == DOTA_UNIT_ORDER_CAST_POSITION ||
 		orderType == DOTA_UNIT_ORDER_CAST_TARGET)
-		if (Modules::BadCastPrevention.IsBadCast(orderType, targetIndex, position, abilityIndex, issuer))
+		if (Modules::BadCastPrevention.IsBadCast(orderType, targetIndex, position, abilityIndex, issuer)) {
+			ShowHUDError("Bad cast: no targets!", "General.CastFail_NoTarget");
 			return;
+		}
 
 	if (giveOrder)
 		oPrepareUnitOrders(player, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);

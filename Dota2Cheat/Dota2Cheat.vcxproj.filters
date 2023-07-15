@@ -226,7 +226,7 @@
     <ClInclude Include="Hooks\RunFrame.h" />
     <ClInclude Include="Modules\Hacks\IllusionColoring.h" />
     <ClInclude Include="Hooks\ParticleRendering.h" />
-    <ClInclude Include="SDK\Interfaces\Panorama.h" />
+    <ClInclude Include="SDK\Panorama\CUIRenderDeviceSource2.h" />
     <ClInclude Include="Modules\Hacks\ParticleAbilityWarner.h" />
     <ClInclude Include="Modules\Utility\ParticleGC.h" />
     <ClInclude Include="Modules\Hacks\PerfectBlink.h" />
@@ -369,5 +369,11 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="SDK\include.h" />
     <ClInclude Include="CheatSDK\Globals\include.h" />
+    <ClInclude Include="CheatSDK\Globals\Panorama.h" />
+    <ClInclude Include="SDK\Panorama\CLocalization.h" />
+    <ClInclude Include="SDK\Panorama\CUIEngineSource2.h" />
+    <ClInclude Include="SDK\Panorama\CUIPanel.h" />
+    <ClInclude Include="SDK\Panorama\CPanel2D.h" />
+    <ClInclude Include="SDK\Panorama\CSource2UITexture.h" />
   </ItemGroup>
 </Project>
