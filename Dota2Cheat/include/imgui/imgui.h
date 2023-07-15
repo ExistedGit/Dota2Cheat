@@ -2451,50 +2451,25 @@ IM_MSVC_RUNTIME_CHECKS_RESTORE
 #define IM_COL32_BLACK       IM_COL32(0,0,0,255)        // Opaque black
 #define IM_COL32_BLACK_TRANS IM_COL32(0,0,0,0)          // Transparent black = 0x00000000
 
-#include <gcem.hpp>
-
-// For 0-255 color representation
-constexpr int SRGB2Linear(int n) {
-	return gcem::pow(n / 255.f, 2.2f) * 255;
-}
-// For 0-255 color representation
-constexpr unsigned char SRGB2Linear(unsigned char n) {
-	return gcem::pow(n / 255.f, 2.2f) * 255;
-}
-// For 0-1 color representation
-constexpr float SRGB2Linear(float n) {
-	return gcem::pow(n , 2.2f);
-}
-// For RGBA ImVec4
-constexpr ImVec4 SRGB2Linear(const ImVec4& vec) {
-	return ImVec4{
-		SRGB2Linear(vec.x),
-		SRGB2Linear(vec.y),
-		SRGB2Linear(vec.z),
-		vec.w
-	};
-}
-
-
 // Helper: ImColor() implicitly converts colors to either ImU32 (packed 4x1 byte) or ImVec4 (4x1 float)
 // Prefer using IM_COL32() macros if you want a guaranteed compile-time ImU32 for usage with ImDrawList API.
 // **Avoid storing ImColor! Store either u32 of ImVec4. This is not a full-featured color class. MAY OBSOLETE.
 // **None of the ImGui API are using ImColor directly but you can use it as a convenience to pass colors in either ImU32 or ImVec4 formats. Explicitly cast to ImU32 or ImVec4 if needed.
 struct ImColor
 {
-    ImVec4          Value;
+	ImVec4          Value;
 
-    constexpr ImColor()                                             { }
-	constexpr ImColor(float r, float g, float b, float a = 1.0f) : Value(SRGB2Linear(ImVec4{ r, g, b, a })) { }
-    constexpr ImColor(const ImVec4& col)                            : Value(SRGB2Linear(col)) {}
-	ImColor(int r, int g, int b, int a = 255) { float sc = 1.0f / 255.0f; Value.x = (float)r * sc; Value.y = (float)g * sc; Value.z = (float)b * sc; Value.w = (float)a * sc; Value = SRGB2Linear(Value); }
-    ImColor(ImU32 rgba)                                             { float sc = 1.0f / 255.0f; Value.x = (float)((rgba >> IM_COL32_R_SHIFT) & 0xFF) * sc; Value.y = (float)((rgba >> IM_COL32_G_SHIFT) & 0xFF) * sc; Value.z = (float)((rgba >> IM_COL32_B_SHIFT) & 0xFF) * sc; Value.w = (float)((rgba >> IM_COL32_A_SHIFT) & 0xFF) * sc; Value = SRGB2Linear(Value); }
-    inline operator ImU32() const                                   { return ImGui::ColorConvertFloat4ToU32(Value); }
-    inline operator ImVec4() const                                  { return Value; }
+	constexpr ImColor() { }
+	constexpr ImColor(float r, float g, float b, float a = 1.0f) : Value(r, g, b, a) { }
+	constexpr ImColor(const ImVec4& col) : Value(col) {}
+	ImColor(int r, int g, int b, int a = 255) { float sc = 1.0f / 255.0f; Value.x = (float)r * sc; Value.y = (float)g * sc; Value.z = (float)b * sc; Value.w = (float)a * sc; }
+	ImColor(ImU32 rgba) { float sc = 1.0f / 255.0f; Value.x = (float)((rgba >> IM_COL32_R_SHIFT) & 0xFF) * sc; Value.y = (float)((rgba >> IM_COL32_G_SHIFT) & 0xFF) * sc; Value.z = (float)((rgba >> IM_COL32_B_SHIFT) & 0xFF) * sc; Value.w = (float)((rgba >> IM_COL32_A_SHIFT) & 0xFF) * sc; }
+	inline operator ImU32() const { return ImGui::ColorConvertFloat4ToU32(Value); }
+	inline operator ImVec4() const { return Value; }
 
-    // FIXME-OBSOLETE: May need to obsolete/cleanup those helpers.
-    inline void    SetHSV(float h, float s, float v, float a = 1.0f){ ImGui::ColorConvertHSVtoRGB(h, s, v, Value.x, Value.y, Value.z); Value.w = a; }
-    static ImColor HSV(float h, float s, float v, float a = 1.0f)   { float r, g, b; ImGui::ColorConvertHSVtoRGB(h, s, v, r, g, b); return ImColor(r, g, b, a); }
+	// FIXME-OBSOLETE: May need to obsolete/cleanup those helpers.
+	inline void    SetHSV(float h, float s, float v, float a = 1.0f) { ImGui::ColorConvertHSVtoRGB(h, s, v, Value.x, Value.y, Value.z); Value.w = a; }
+	static ImColor HSV(float h, float s, float v, float a = 1.0f) { float r, g, b; ImGui::ColorConvertHSVtoRGB(h, s, v, r, g, b); return ImColor(r, g, b, a); }
 };
 
 //-----------------------------------------------------------------------------

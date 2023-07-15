@@ -50,15 +50,20 @@ bool InitDX11(IDXGISwapChain* pSwapChain) {
 	// D3D Context
 	DrawData.Dx.pDevice->GetImmediateContext(&DrawData.Dx.pContext);
 
+	D3D11_RENDER_TARGET_VIEW_DESC desc{};
+	memset(&desc, 0, sizeof(desc));
+	desc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+	desc.ViewDimension = D3D11_RTV_DIMENSION_TEXTURE2D;
+
 	// Saves HWND
 	DXGI_SWAP_CHAIN_DESC sd;
 	pSwapChain->GetDesc(&sd);
 	DrawData.Dx.Window = sd.OutputWindow;
-
+	
 	// Initializes D3D render target view
 	ID3D11Texture2D* pBackBuffer = nullptr;
 	pSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pBackBuffer);
-	DrawData.Dx.pDevice->CreateRenderTargetView(pBackBuffer, NULL, &DrawData.Dx.mainRenderTargetView);
+	DrawData.Dx.pDevice->CreateRenderTargetView(pBackBuffer, &desc, &DrawData.Dx.mainRenderTargetView);
 	pBackBuffer->Release();
 
 	// Hooks WndProc
