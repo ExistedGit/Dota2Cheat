@@ -43,6 +43,8 @@ bool Modules::BadCastPrevention::IsBadCast(dotaunitorder_t orderType, UINT32 tar
 		// don't ask why RP's radius is stored as cast range.
 		// I don't know
 		return !AreEnemyHeroesInArea(issuer->GetPos(), ability->GetCastRange());
+	case "tinker_heat_seeking_missile"_city32:
+		return !AreEnemyHeroesInArea(issuer->GetPos(), ability->GetCastRange());
 	case "earthshaker_echo_slam"_city32:
 		return !AreEnemyHeroesInArea(issuer->GetPos(), ability->GetLevelSpecialValueFor("echo_slam_echo_search_range"));
 	case "ember_spirit_sleight_of_fist"_city32:
