@@ -1,5 +1,5 @@
 #pragma once
-#include "../../CheatSDK/include.h"
+#include "CheatSDK/include.h"
 
 #ifdef _DEBUG
 inline void LogEntities() {
