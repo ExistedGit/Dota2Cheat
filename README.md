@@ -96,6 +96,8 @@ You also need to install the [June 2010 DirectX SDK](https://www.microsoft.com/e
 
 Open the project in Visual Studio and build both Dota2Cheat and Dota2Loader as **Release x64**
 
+**Note**: If you got an error compiling `Dota2Loader` and `BlackBone` you must add these https://github.com/paulhobbel/Blackbone/tree/master/DIA/x64 files to the `Dota2Loader/DIA/x64` folder. The `msdia140.dll` and `symsrv.dll` DLL's are important files for injecting, especially on `Windows 11`.
+
 ## Injecting
 This cheat can be safely reinjected at any point of the game
 
