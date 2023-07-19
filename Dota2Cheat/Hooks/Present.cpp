@@ -15,10 +15,12 @@
 LRESULT WINAPI Hooks::WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 	KeyHandler.OnWindowMessage(uMsg, wParam);
 
-	if (DrawData.ShowMenu)
-		return ImGui_ImplWin32_WndProcHandler(hWnd, uMsg, wParam, lParam);
-	else
-		return CallWindowProcA(DrawData.Dx.oWndProc, hWnd, uMsg, wParam, lParam);
+	if (DrawData.ShowMenu) {
+		ImGui_ImplWin32_WndProcHandler(hWnd, uMsg, wParam, lParam);
+		return 1;
+	}
+
+	return CallWindowProcA(DrawData.Dx.oWndProc, hWnd, uMsg, wParam, lParam);
 }
 
 void InitImGui() {
