@@ -19,11 +19,11 @@ inline void PlayUISoundScript(std::string_view name) {
 }
 
 inline void ShowHUDError(std::string_view caption) {
-	Signatures::ShowHUDError(Panorama::ErrorMessages, caption.data());
+	Panorama::ErrorMessages->ShowErrorMessage(caption.data());
 }
 
 inline void ShowHUDError(std::string_view caption, std::string_view sound) {
-	Signatures::ShowHUDError(Panorama::ErrorMessages, caption.data());
+	Panorama::ErrorMessages->ShowErrorMessage(caption.data());
 	PlayUISoundScript(sound);
 }
 

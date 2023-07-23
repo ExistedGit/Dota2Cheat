@@ -8,6 +8,7 @@
 #include "../Modules/UI/ParticleMaphack.h"
 #include "../Modules/UI/AbilityESP.h"
 #include "../Modules/UI/BarAugmenter.h"
+#include "../Modules/UI/UIOverhaul.h"
 
 #include "../Modules/Hacks/SkinChanger.h"
 #include "../Modules/Hacks/LastHitMarker.h"
@@ -102,7 +103,7 @@ long Hooks::hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags)
 		&& ctx.localHero
 		) {
 		Modules::AbilityESP.DrawESP();
-		// Modules::UIOverhaul.DrawBars();
+		Modules::UIOverhaul.DrawBars();
 		Modules::TPTracker.DrawMapTeleports();
 		Modules::LastHitMarker.Draw();
 		Modules::BlinkRevealer.Draw();

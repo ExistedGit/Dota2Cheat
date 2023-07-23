@@ -127,6 +127,7 @@ void Config::ConfigManager::SetupVars() {
 	CFG_VAR(PerfectBlink, false);
 
 	CFG_VAR(UIOverhaul::TopBars, true);
+	CFG_VAR(UIOverhaul::NetworthPanel, true);
 
 	CFG_VAR(ModifierRevealer::LinkenSphere, true);
 	CFG_VAR(ModifierRevealer::TargetedSpells, true);

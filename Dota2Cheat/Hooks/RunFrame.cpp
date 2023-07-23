@@ -1,6 +1,7 @@
 #pragma once
 #include "RunFrame.h"
 #include <format>
+#include "../Modules/Hacks/ClaimTutorialRewards.h"
 #include "../SDK/Interfaces/GC/CEconWearable.h"
 
 template<typename T = CBaseEntity>
@@ -85,7 +86,8 @@ void InGameLogic() {
 
 	static IRunFrameListener* PassiveListeners[] = {
 		&Modules::RiverPaint,
-		&Modules::IllusionESP
+		&Modules::IllusionESP,
+		&Modules::UIOverhaul,
 	};
 
 	for (auto l : PassiveListeners)
@@ -116,14 +118,18 @@ void InGameLogic() {
 	}
 #ifdef _DEBUG
 	if (IsKeyPressed(VK_NUMPAD8)) {
-		// updateWearables = true;
+		//auto& w = ctx.localHero->Field<CUtlVector<CHandle<CEconWearable>>>(Netvars::C_BaseCombatCharacter::m_hMyWearables);
+		//w[0]->GetAttributeManager()->GetItem()
+		//ctx.localHero
 
-		auto selected = ctx.localPlayer->GetSelectedUnits();
-		auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(selected[0]);
-		auto pos = ent->GetPos();
-		std::cout << "ENT " << selected[0] << " -> " << ent
-			<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
-			<< '\n';
+			//updateWearables = true;
+
+			//auto selected = ctx.localPlayer->GetSelectedUnits();
+			//auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(selected[0]);
+			//auto pos = ent->GetPos();
+			//std::cout << "ENT " << selected[0] << " -> " << ent
+			//	<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
+			//	<< '\n';
 	}
 #endif 
 }
@@ -150,9 +156,10 @@ void Hooks::hkRunFrame() {
 		ctx.gameStage == GameStage::IN_GAME)
 		InGameLogic();
 
-	//if (IsKeyPressed(VK_NUMPAD7)) {
-	//	Signatures::ShowHUDError(Panorama::ErrorMessages, "Kurwa, ja pierdolę!");
-	//}
+	if (IsKeyPressed(VK_NUMPAD7)) {
+		// Modules::ClaimTutorialRewards.ExecuteGCRequests();
+		// Signatures::ShowHUDError(Panorama::ErrorMessages, "Kurwa, ja pierdolę!");
+	}
 
 	//static float lastPingTime = 0;
 	//if (GameSystems::GameRules->GetGameTime() - lastPingTime >= 1.) {

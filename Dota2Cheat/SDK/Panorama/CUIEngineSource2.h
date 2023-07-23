@@ -7,9 +7,10 @@
 #include <string_view>
 #include "CUIPanel.h"
 #include "CLocalization.h"
+#include "CUIRenderDeviceSource2.h"
 
 class PanelListNode {
-	void* unk0, * unk1;
+	void* unk0, *unk1;
 public:
 	CUIPanel* uiPanel;
 private:
@@ -24,9 +25,12 @@ public:
 		return std::span{ Member<PanelListNode*>(0xf8), size };
 	}
 
+	GETTER(CUIRenderDeviceSource2*, GetRenderDevice, 0xBA8);
+
 	uint16_t MakeSymbol(const char* string) {
 		uint16_t result = 0;
-		return CallVFunc<121, uint16_t>(&result, string);
+		CallVFunc<121, uint16_t>(&result, string);
+		return result;
 	}
 
 	bool IsValidPanelPointer(CUIPanel* panel) {

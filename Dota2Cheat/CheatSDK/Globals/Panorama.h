@@ -5,7 +5,7 @@
 
 namespace Panorama {
 	inline CDOTA_Hud* DotaHud{};
-	inline CPanel2D* ErrorMessages{};
+	inline CDOTA_Hud_ErrorMsg* ErrorMessages{};
 
 	inline void FindPanels() {
 		// Panorama's HUD root
@@ -21,6 +21,6 @@ namespace Panorama {
 			break;
 		}
 
-		ErrorMessages = DotaHud->FindChildWithIdTraverse("ErrorMessages")->GetPanel2D();
+		ErrorMessages = (CDOTA_Hud_ErrorMsg*)DotaHud->FindChildWithIdTraverse("ErrorMessages")->GetPanel2D();
 	}
 }

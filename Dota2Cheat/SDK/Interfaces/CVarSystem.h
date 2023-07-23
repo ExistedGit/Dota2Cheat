@@ -80,7 +80,7 @@ struct CVarNode {
 struct CVarID
 {
 	static inline constexpr auto BAD_ID = 0xFFFFFFFF;
-	std::uint64_t impl{};
+	std::uint64_t impl = 0xFFFFFFFF;
 	CVar* m_pVar{};
 
 	bool IsGood() const noexcept

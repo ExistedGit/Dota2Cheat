@@ -7,8 +7,10 @@ namespace Modules {
 	// We disguise the original convar and present the server with the "original", "untouched" dummy
 	inline class M_CVarSpoofer {
 
+		// Reversed by looking at various calls to RegisterConVar and CCVar's 35th vfunc
+		// Not sure if all of it is correct
 #pragma pack(push, 1)
-		struct CVarRegInfo {
+		struct CVarInitInfo {
 			PAD(4);
 			bool idk = true;
 			PAD(2);
@@ -23,8 +25,20 @@ namespace Modules {
 			uint64_t type;
 		};
 #pragma pack(pop)
+		struct CVarID2 : public CVarID {
+			uint32_t id2 = 0xFFFFFFFF;
+		};
 
-		static_assert(sizeof(CVarRegInfo) == 0x48);
+		struct RegisterConVarInfo {
+			const char
+				* name, * desc;
+			uint64_t flags;
+			CVarInitInfo info;
+			CVarID2* extendedId;
+			void* id;
+		};
+
+		static_assert(sizeof(CVarInitInfo) == 0x48);
 
 		// map of dummy vars to their original versions
 		// used for swapping names back at revert

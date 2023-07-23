@@ -143,6 +143,9 @@
     <ClCompile Include="CheatSDK\Systems\TextureManager.cpp" />
     <ClCompile Include="CheatSDK\Systems\CheatManager.cpp" />
     <ClCompile Include="Hooks\Present.cpp" />
+    <ClCompile Include="Modules\Hacks\ClaimTutorialRewards.cpp" />
+    <ClCompile Include="SDK\Base\KeyValues.cpp" />
+    <ClCompile Include="SDK\Panorama\CUIPanel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
@@ -375,5 +378,6 @@
     <ClInclude Include="SDK\Panorama\CUIPanel.h" />
     <ClInclude Include="SDK\Panorama\CPanel2D.h" />
     <ClInclude Include="SDK\Panorama\CSource2UITexture.h" />
+    <ClInclude Include="SDK\Base\KeyValues.h" />
   </ItemGroup>
 </Project>

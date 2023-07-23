@@ -29,8 +29,11 @@ void CCheatManager::LoadGameSpecific() {
 	Interfaces::FindInterfaces();
 
 	Interfaces::CVar->DumpConVarsToMap();
+#ifdef _DEBUG
 	Interfaces::CVar->UnlockHiddenConVars();
+#endif
 
+	Log(LP_WARNING, "dota_camera_distance: {}", (void*)Interfaces::CVar->CVars["dota_camera_distance"].m_pVar);
 	Modules::CVarSpoofer.SpoofVars(
 		"dota_camera_distance",
 		"r_farz",
@@ -91,7 +94,7 @@ void CCheatManager::Initialize(HMODULE hModule) {
 	// this is a historical exclamation by myself when something finally works
 	Log(LP_NONE, "works!");
 
-	d2c.FindCheatFolder();
+	FindCheatFolder();
 
 	Config::cfg.SetupVars();
 	LoadGameSpecific();

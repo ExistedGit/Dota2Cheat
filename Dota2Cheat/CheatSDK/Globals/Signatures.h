@@ -26,7 +26,7 @@ namespace Signatures {
 	inline CEconItem* (*CreateEconItem)() = nullptr;
 
 	inline void* SaveSerializedSOCache{};
-	inline void(*ShowHUDError)(CPanel2D*, const char*);
+	// inline void(*ShowHUDError)(CPanel2D*, const char*);
 	inline void(__fastcall* CMsg)(const char* format, ...);
 	inline void(__fastcall* CMsgColor)(Color* color, const char* format, ...);
 
@@ -51,7 +51,7 @@ namespace Signatures {
 
 	static inline std::map<std::string, void**> NamedSignatures{
 		SIGMAP_ENTRY(PrepareUnitOrders),
-		SIGMAP_ENTRY(ShowHUDError),
+		// SIGMAP_ENTRY(ShowHUDError),
 
 #if defined(_DEBUG) && !defined(_TESTING)
 		//SIGMAP_ENTRY(DispatchPacket),

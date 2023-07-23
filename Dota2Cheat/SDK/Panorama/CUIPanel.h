@@ -2,8 +2,9 @@
 #include "../Base/VClass.h"
 #include "../Base/CUtlVector.h"
 #include "../Base/Definitions.h"
-#include "CPanel2D.h"
 #include <vector>
+
+class CPanel2D;
 
 class CUIPanel : public VClass {
 	void _FindChildrenWithIdTraverse(const std::string_view& id, std::vector<CUIPanel*>& result) {
@@ -57,6 +58,20 @@ public:
 		}
 		return nullptr;
 	}
+
+	void SetActive(bool state) {
+		CallVFunc<31>(state);
+	}
+
+	void ApplyStyles(char unk = 1) {
+		CallVFunc<70>(unk);
+	}
+
+	void AddClass(const char* class_);
+
+	void RemoveClass(uint16_t class_);
+
+	void RemoveClass(const char* class_);
 
 	bool BHasClass(uint16_t unClass) {
 		auto classes = GetClasses();

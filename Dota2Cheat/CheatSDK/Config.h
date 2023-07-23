@@ -153,6 +153,7 @@ namespace Config {
 	}
 	namespace UIOverhaul {
 		inline bool TopBars;
+		inline bool NetworthPanel;
 	}
 	namespace ManaAbuse {
 		inline bool Enabled;

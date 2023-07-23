@@ -5,7 +5,5 @@
 
 class CUIRenderDeviceSource2 : public VClass {
 public:
-	bool LoadVPK(CSource2UITexture** tex, const char* path) {
-		return CallVFunc<0, bool>(tex, path);
-	}
+	virtual bool LoadVPK(CSource2UITexture** tex, const char* path) = 0;
 };

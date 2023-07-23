@@ -1,35 +1,6 @@
 #include "AutoPickSelectionGrid.h"
 #include "../../CheatSDK/Systems/TextureManager.h"
 
-struct KeyValues {
-	static KeyValues* MakeKV(const char* name) {
-		auto kv = CMemAlloc::Instance()->Alloc<KeyValues>(0x14);
-		auto ctor = Memory::GetExport("tier0.dll", "??0KeyValues@@QEAA@PEBD@Z");
-		ctor(kv, name);
-		return kv;
-	}
-	bool LoadFromFile(const char* path) {
-		auto func = Memory::GetExport("tier0.dll", "?LoadFromFile@KeyValues@@QEAA_NPEAVIFileSystem@@PEBD1P6A_N1PEAX@Z21@Z");
-		return func.Call<bool>(this, Interfaces::FileSystem, path, "GAME", nullptr, nullptr, nullptr);
-	}
-	KeyValues* GetFirstSubKey() {
-		auto func = Memory::GetExport("tier0.dll", "?GetFirstSubKey@KeyValues@@QEBAPEAV1@XZ");
-		return func.Call<KeyValues*>(this);
-	}
-	KeyValues* GetNextKey() {
-		auto func = Memory::GetExport("tier0.dll", "?GetNextKey@KeyValues@@QEBAPEAV1@XZ");
-		return func.Call<KeyValues*>(this);
-	}
-	const char* GetName() {
-		auto func = Memory::GetExport("tier0.dll", "?GetName@KeyValues@@QEBAPEBDXZ");
-		return func.Call<const char*>(this);
-	}
-	void Destroy() {
-		auto func = Memory::GetExport("tier0.dll", "??1KeyValues@@QEAA@XZ");
-		func(this);
-	}
-};
-
 void Pages::AutoPickHeroGrid::InitList() {
 	auto npc_heroes = KeyValues::MakeKV("Shit");
 	npc_heroes->LoadFromFile("scripts/npc/npc_heroes.txt");

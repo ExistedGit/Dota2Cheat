@@ -1,6 +1,7 @@
 #include "MainMenu.h"
 #include "../../Modules/UI/AbilityESP.h"
 #include "../../Modules/Hacks/SkinChanger.h"
+#include "../../Modules/UI/UIOverhaul.h"
 
 void Pages::MainMenu::Draw() {
 	ImGui::Begin("Main", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
@@ -143,13 +144,18 @@ void Pages::MainMenu::Draw() {
 			"If your hero has a nuke spell, its icon will be displayed near the enemy's healthbar, signifying whether you can kill them with it. "
 			"If you can't, it shows how much health is left until you can kill them");
 		ImGui::SliderFloat("Kill indicator scale", &Config::Indicators::KillScale, 1, 1.4, "%.1f");
-		//	ImGui::Checkbox("Top bars", &Config::UIOverhaul::TopBars);
-		//	ImGui::SameLine(); HelpMarker("Shows HP and Mana bars for enemies in the top bar. Like pressing Alt does for your allies");
+		ImGui::TreePop();
+	}
+	if (ImGui::TreeNode("UIOverhaul")) {
+		if (ImGui::Checkbox("Networth panel", &Config::UIOverhaul::NetworthPanel))
+			Modules::UIOverhaul.QueueUpdateNetworthPanel();
+		ImGui::Checkbox("Top bars", &Config::UIOverhaul::TopBars);
+		ImGui::SameLine(); HelpMarker("Shows HP and Mana bars for enemies in the top bar. Like pressing Alt does for your allies");
 		ImGui::TreePop();
 	}
 	if (ImGui::TreeNode("IllusionESP")) {
 		ImGui::Checkbox("Enable", &Config::IllusionColoring::Enabled);
-		
+
 		ImGui::ColorEdit3("Illusion color", &Config::IllusionColoring::Color.x);
 		ImGui::TreePop();
 	}

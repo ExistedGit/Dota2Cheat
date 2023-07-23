@@ -159,6 +159,24 @@ public:
 
 		return nullptr;
 	}
+	template<typename T>
+	T* Find(std::function<bool(T*)> predicate) {
+		std::lock_guard<std::mutex> lock(mEntities);
+
+		EntityType type = EntityType::Undefined;
+
+		if constexpr (std::is_same_v<T, CDOTABaseNPC_Hero>)
+			type = EntityType::Hero;
+
+		if (type == EntityType::Undefined)
+			return nullptr;
+
+		for (const auto& [idx, wrap] : Entities)
+			if (wrap.type == type && predicate(wrap))
+				return wrap;
+
+		return nullptr;
+	}
 
 	void ForEach(std::function<void(EntityWrapper&)> func) {
 		std::lock_guard<std::mutex> lock(mEntities);

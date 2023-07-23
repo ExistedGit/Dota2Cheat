@@ -33,7 +33,6 @@ void CMatchStateManager::EnteredPreGame() {
 	GameSystems::ParticleManager = GameSystems::ParticleManagerSystem->GetParticleManager();
 	LogF(LP_DATA, "ParticleManager: {} / CreateParticle: {}", (void*)GameSystems::ParticleManager, (void*)GameSystems::ParticleManager->GetVFunc(VTableIndexes::CDOTAParticleManager::CreateParticle));
 
-
 	ctx.gameStage = GameStage::PRE_GAME;
 
 	Log(LP_INFO, "GAME STAGE: PRE-GAME");
@@ -54,6 +53,8 @@ void CMatchStateManager::EnteredInGame() {
 	Interfaces::CVar->CVars["fog_enable"].m_pVar->value.boolean = false;
 
 	Panorama::FindPanels();
+	Modules::UIOverhaul.QueueUpdateNetworthPanel();
+
 	GameSystems::InitMinimapRenderer();
 	// Modules::UIOverhaul.Init();
 	if (Config::Changer::TreeModelIdx != 0)

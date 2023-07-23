@@ -3,18 +3,18 @@
 #include "../../Utils/Drawing.h"
 #include "../../CheatSDK/include.h"
 #include "MultiThreadModule.h"
+#include "../MListeners.h"
 
 using namespace Panorama;
 
 namespace Modules {
 	// Augments Dota's own UI built on Panorama
 	// We only use Panorama's functions to obtain data on where and what to draw with ImGui
-	inline class UIOverhaul : public MultiThreadModule {
+	inline class UIOverhaul : public MultiThreadModule, public IRunFrameListener {
 		// The slope is 2-way
 		static constexpr ImVec2 topBarImgSize{ 66 - 4, 36 };
 		static constexpr int topBarImgSlope = 4;
-		uint16_t TopBarClass{};
-
+		
 		struct TopBarImgData {
 			ImVec2 imgPos{};
 			CUIPanel* panel;
@@ -30,27 +30,38 @@ namespace Modules {
 
 		// Top bar images linked with the heroes they are for
 		std::map<CDOTABaseNPC_Hero*, TopBarImgData> topBar;
-		CDOTABaseNPC_Hero* FindHeroByUnitName(std::string_view name);
 
 		CUIPanel* GetTopBarImgForHero(CDOTABaseNPC_Hero* hero);
 
 		void UpdateHeroes();
+		bool NWPanelStateQueued;
+		void UpdateNetworthPanel();
 	public:
+		void QueueUpdateNetworthPanel() {
+			MTM_LOCK;
+			NWPanelStateQueued = true;
+		}
+
 		// Mana and Health bars
 		void DrawBars();
 		void Init();
-		void Update() {
-			//if (!Config::UIOverhaul::TopBars)
-			//	return;
 
-			//MTM_LOCK;
+		void OnFrame() override {
+			MTM_LOCK;
+			UpdateNetworthPanel();
 
-			//for (auto& hero : ctx.heroes) {
-			//	if (hero->IsIllusion() || hero->IsSameTeam(ctx.localHero) || topBar.contains(hero))
-			//		continue;
-			//	UpdateHeroes();
-			//	break;
-			//}
+			if (!Config::UIOverhaul::TopBars)
+				return;
+
+			bool needsUpdate = false;
+			EntityList.ForEach<CDOTABaseNPC_Hero>([this, &needsUpdate](auto* hero) {
+				if (needsUpdate || hero->IsIllusion() || hero->IsSameTeam(ctx.localHero) || topBar.contains(hero))
+				return;
+			needsUpdate = true;
+				});
+
+			if (needsUpdate)
+				UpdateHeroes();
 		}
 		void Reset() {
 			MTM_LOCK;

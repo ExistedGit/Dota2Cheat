@@ -7,6 +7,7 @@
 #include "Base/NormalClass.h"
 #include "Base/StringUtils.h"
 #include "Base/Logging.h"
+#include "Base/KeyValues.h"
 
 #include "Enums.h"
 

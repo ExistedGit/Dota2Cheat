@@ -1,16 +1,7 @@
 #include "UIOverhaul.h"
 
-CDOTABaseNPC_Hero* Modules::UIOverhaul::FindHeroByUnitName(std::string_view name) {
-	//for (auto& hero : ctx.heroes) {
-	//	auto unitName = hero->GetUnitName();
-	//	if (unitName && unitName == name)
-	//		return hero;
-	//}
-	return nullptr;
-}
-
 CUIPanel* Modules::UIOverhaul::GetTopBarImgForHero(CDOTABaseNPC_Hero* hero) {
-	auto topbarImages = Panorama::DotaHud->FindChildrenWithClassTraverse(TopBarClass);
+	auto topbarImages = Panorama::DotaHud->FindChildrenWithIdTraverse("HeroImage");
 	for (auto& panel : topbarImages) {
 		if (!panel->GetId() || strcmp(panel->GetId(), "HeroImage") != 0)
 			continue;
@@ -28,23 +19,32 @@ CUIPanel* Modules::UIOverhaul::GetTopBarImgForHero(CDOTABaseNPC_Hero* hero) {
 }
 
 void Modules::UIOverhaul::UpdateHeroes() {
+	static auto classSym = Interfaces::UIEngine->MakeSymbol("TopBarHeroImage");
 	topBar.clear();
-	auto topbarImages = Panorama::DotaHud->FindChildrenWithClassTraverse(TopBarClass);
+	auto topbarImages = Panorama::DotaHud->FindChildrenWithClassTraverse(classSym);
 	for (auto& panel : topbarImages) {
 		if (!panel->GetId() || strcmp(panel->GetId(), "HeroImage") != 0)
 			continue;
 
 		auto heroImg = (CDOTA_UI_HeroImage*)panel->GetPanel2D();
-		//LogF(LP_DATA, "TopBarHeroImage: {} {}", (void*)panel, (void*)panel->GetPanel2D());
-		if (!IsValidReadPtr(heroImg->GetSrc()))
-			continue;
-		std::string heroName(heroImg->GetSrc());
-		heroName = heroName.substr(23, heroName.size() - 23 - 4);
-		//LogF(LP_DATA, "\tHERO: {} XY: {} {}", heroName, POS.x, POS.y);
-		auto hero = FindHeroByUnitName(heroName);
+
+		auto hero = EntityList.Find<CDOTABaseNPC_Hero>([this, heroImg](auto* hero) {
+			return hero->Member<int>(Netvars::C_DOTA_BaseNPC_Hero::m_iHeroID) == heroImg->GetHeroID();
+			});
+
 		if (hero)
 			topBar[hero] = panel;
 	}
+}
+
+void Modules::UIOverhaul::UpdateNetworthPanel() {
+	if (!NWPanelStateQueued)
+		return;
+
+	if (auto panel = Panorama::DotaHud->FindChildWithIdTraverse("SpectatorGoldDisplay"))
+		panel->SetActive(Config::UIOverhaul::NetworthPanel);
+
+	NWPanelStateQueued = false;
 }
 
 // Mana and Health bars
@@ -86,9 +86,6 @@ void Modules::UIOverhaul::Init() {
 		return;
 
 	MTM_LOCK;
-
-	if (!TopBarClass)
-		TopBarClass = Interfaces::UIEngine->MakeSymbol("TopBarHeroImage");
 
 	UpdateHeroes();
 }

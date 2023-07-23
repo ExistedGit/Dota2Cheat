@@ -4,7 +4,9 @@
 #include "../Base/Definitions.h"
 #include "CSource2UITexture.h"
 
-class CUIPanel;
+#include "CUIPanel.h"
+
+// CPanel2D and its descendants
 
 class CPanel2D : public VClass {
 public:
@@ -26,5 +28,31 @@ public:
 class CDOTA_UI_HeroImage : public CPanel2D {
 public:
 	GETTER(const char*, GetSrc, 0x98);
+	GETTER(int, GetHeroID, 0xDC); // xref: "heroimagestyle", lesser offset
 };
 
+// discovered by me and rebuilt by Morphling
+class CDOTA_Hud_ErrorMsg : public CPanel2D {
+	PAD(0x28);
+public:
+	float m_flTotalTime; // 0x30
+	float m_flErrorDurationTime; // 0x34
+
+	void SetDialogVariable(const char* variable, const char* value) {
+		GetUIPanel()->CallVFunc<292, void>(variable, value);
+	}
+
+	void ShowErrorMessage(const char* text) {
+		auto panel = GetUIPanel();
+
+		panel->RemoveClass("PopOutEffect");
+		panel->ApplyStyles();
+		panel->AddClass("ShowErrorMsg");
+
+		panel->RemoveClass("Hidden");
+		SetDialogVariable("error_msg", text);
+		panel->AddClass("PopOutEffect");
+		double flTime = Memory::GetExport("tier0.dll", "Plat_FloatTime").Call<float>();
+		m_flTotalTime = static_cast<float>(flTime) + m_flErrorDurationTime;
+	}
+};

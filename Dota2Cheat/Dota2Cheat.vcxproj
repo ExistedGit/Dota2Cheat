@@ -273,6 +273,7 @@
     <ClCompile Include="Hooks\SteamGC.cpp" />
     <ClCompile Include="include\imgui\imgui_impl_dx11.cpp" />
     <ClCompile Include="include\imgui\imgui_impl_win32.cpp" />
+    <ClCompile Include="Modules\Hacks\ClaimTutorialRewards.cpp" />
     <ClCompile Include="Modules\Hacks\TreeChanger.cpp" />
     <ClCompile Include="Modules\Utility\CVarSpoofer.cpp" />
     <ClCompile Include="Modules\Utility\OrderRouter.cpp" />
@@ -320,6 +321,7 @@
     <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp" />
     <ClCompile Include="Modules\Utility\AttackTargetFinder.cpp" />
     <ClCompile Include="Modules\Utility\ParticleGC.cpp" />
+    <ClCompile Include="SDK\Base\KeyValues.cpp" />
     <ClCompile Include="SDK\Entities\CDOTABaseNPC.cpp" />
     <ClCompile Include="SDK\Entities\CDOTAPlayerController.cpp" />
     <ClCompile Include="SDK\Entities\CDOTAUnitInventory.cpp" />
@@ -344,6 +346,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="SDK\Panorama\CUIPanel.cpp" />
     <ClCompile Include="SDK\Protobufs\base_gcmessages.pb.cc">
       <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
     </ClCompile>
@@ -588,6 +591,7 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="SDK\Base\KeyValues.h" />
     <ClInclude Include="SDK\GameSystems\CDOTA_BinaryObjectSystem.h" />
     <ClInclude Include="SDK\GameSystems\CDOTA_MinimapObjectManager.h" />
     <ClInclude Include="CheatSDK\Data\DrawData.h" />

@@ -3,39 +3,44 @@
 #include "../../CheatSDK/include.h"
 
 namespace Modules {
-	//inline class M_ModifierESP {
-	//	std::map<CDOTABaseNPC_Hero*, std::vector<>> HeroModifiers;
-	//public:
-	//	enum class ModifierPriority {
-	//		Aura,
-	//		NoExpire, // buffs that don't expire, like SF's soul stacks or Lion's finger stacks 
-	//		Debuff,
-	//		Buff,
-	//		Count
-	//	};
-	//	struct BuffData{
-	//		ModifierPriri
-	//	};
-	//	void OnModifierCreated(CDOTAModifier* buff) {
-	//		using enum ModifierPriority;
+	inline class M_ModifierESP {
+	public:
+		enum ModifierPriority {
+			AuraDebuff,
+			AuraBuff,
+			NoExpire, // buffs that don't expire, like SF's soul stacks or Lion's finger stacks 
+			Debuff,
+			Buff,
+			Count
+		};
+		std::map<CDOTABaseNPC*, std::map<ModifierPriority, std::set<CDOTAModifier*>>> HeroModifiers;
 
-	//		auto owner = (CDOTABaseNPC_Hero*)buff->GetOwner();
+		void OnModifierCreated(CDOTAModifier* buff) {
+			using enum ModifierPriority;
 
-	//		if (!ctx.heroes.contains(owner) && owner->IsSameTeam(ctx.localHero))
-	//			return;
-	//		auto insertPriority = Buff;
-	//		if (!buff->IsSameTeam(ctx.localHero))
-	//			insertPriority = Debuff;
+			auto owner = (CDOTABaseNPC_Hero*)buff->GetOwner();
 
-	//		HeroModifiers[owner].
+			if (!EntityList.IsHero(owner) && owner->IsSameTeam(ctx.localHero) || owner->IsIllusion())
+				return;
 
-	//		HeroModifiers[owner];
-	//	}
-	//	void DrawESP() {
+			ModifierPriority priority = buff->IsAura() ? AuraBuff : Buff;
+			if (!buff->IsSameTeam(ctx.localHero))
+				priority = buff->IsAura() ? AuraDebuff : Debuff;
+			
+			HeroModifiers[owner][priority].insert(buff);
+		}
 
-	//	}
-	//	void UpdateHeroData() {
+		void OnModifierRemoved(CDOTAModifier* buff) {
+			for (auto& [p, s] : HeroModifiers[buff->GetOwner()])
+				s.erase(buff);
+		}
 
-	//	}
-	//} ModifierESP{};
+		void DrawESP() {
+
+		}
+
+		void UpdateHeroData() {
+
+		}
+	} ModifierESP{};
 }
