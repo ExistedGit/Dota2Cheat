@@ -33,7 +33,7 @@ void CCheatManager::LoadGameSpecific() {
 	Interfaces::CVar->UnlockHiddenConVars();
 #endif
 
-	Log(LP_WARNING, "dota_camera_distance: {}", (void*)Interfaces::CVar->CVars["dota_camera_distance"].m_pVar);
+	// Log(LP_WARNING, "dota_camera_distance: ", (void*)Interfaces::CVar->CVars["dota_camera_distance"].m_pVar);
 	Modules::CVarSpoofer.SpoofVars(
 		"dota_camera_distance",
 		"r_farz",
@@ -124,6 +124,8 @@ void CCheatManager::Unload() {
 	MH_Uninitialize();
 	if (DrawData.Dx.Window)
 		SetWindowLongPtrA(DrawData.Dx.Window, GWLP_WNDPROC, (LONG_PTR)DrawData.Dx.oWndProc);
+
+	Modules::CVarSpoofer.RestoreVars();
 
 	if (consoleStream) fclose(consoleStream);
 	FreeConsole();

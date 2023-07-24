@@ -40,9 +40,12 @@ namespace Modules {
 
 		static_assert(sizeof(CVarInitInfo) == 0x48);
 
-		// map of dummy vars to their original versions
-		// used for swapping names back at revert
-		std::map<CVar*, CVar*> originalVars;
+		struct SpoofedCVarData {
+			CVar* original;
+			uint64_t impl;
+		};
+
+		std::map<CVar*, SpoofedCVarData> spoofedVars;
 		void SpoofVar(const char* varName);
 	public:
 		template<typename ...Args>
@@ -51,5 +54,6 @@ namespace Modules {
 			for (auto varName : varNames)
 				SpoofVar(varName);
 		}
+		void RestoreVars();
 	} CVarSpoofer{};
 }

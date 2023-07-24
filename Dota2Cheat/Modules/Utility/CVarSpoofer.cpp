@@ -1,36 +1,39 @@
 #include "CVarSpoofer.h"
 
 void Modules::M_CVarSpoofer::SpoofVar(const char* varName) {
-	auto var = Interfaces::CVar->CVars[varName].m_pVar;
-	if (originalVars.contains(var))
+	auto origVar = Interfaces::CVar->CVars[varName].m_pVar;
+	if (spoofedVars.contains(origVar))
 		return;
 
 	auto info = CMemAlloc::Instance()->AllocInit<CVarInitInfo>();
 
-	info->m_pDefVal = var->defaultValue.i64;
+	info->m_pDefVal = origVar->defaultValue.i64;
 
-	auto mem = CMemAlloc::Instance()->AllocInit<CVarID>();
-	auto InitConvar = [var](CVarID* s) {
-		auto undefinedCvar = CMemAlloc::Instance()->AllocInit<CVar>();
-		s->impl = 0xFFFF;
-		undefinedCvar->flags = FCVAR_CHEAT;
-		undefinedCvar->type = var->type;
-		s->m_pVar = undefinedCvar;
-	};
+	auto dummyVar = CMemAlloc::Instance()->AllocInit<CVar>();
+	dummyVar->flags = FCVAR_CHEAT;
+	dummyVar->type = origVar->type;
 
-	auto dummyName = CMemAlloc::Instance()->Alloc<char>(strlen(var->name) + 1 + 4);
-	sprintf(dummyName, "d2c_%s", var->name);
+	auto dummyName = CMemAlloc::Instance()->Alloc<char>(strlen(origVar->name) + 1 + 4);
+	sprintf(dummyName, "d2c_%s", origVar->name);
 
-	InitConvar(mem);
-
-	Memory::Copy(mem->m_pVar, var);
-	var->name = dummyName;
+	Memory::Copy(dummyVar, origVar);
+	origVar->name = dummyName;
 
 	CVarID2 id{};
-	id.m_pVar = mem->m_pVar;
+	id.m_pVar = dummyVar;
 
 	RegisterConVarInfo regInfo{ varName, nullptr, FCVAR_CHEAT, *info, &id, (void*)((uintptr_t)&id + 8) };
 	Interfaces::CVar->CallVFunc<35>(&regInfo, 8);
 
-	originalVars[mem->m_pVar] = var;
+	spoofedVars[dummyVar] = {
+		.original = origVar,
+		.impl = regInfo.extendedId->impl,
+	};
+}
+
+void Modules::M_CVarSpoofer::RestoreVars() {
+	//for (auto& [cvar, data] : spoofedVars) {
+	//	data.original->name = cvar->name;
+	//	Interfaces::CVar->CallVFunc<38>(data.impl);
+	//}
 }
