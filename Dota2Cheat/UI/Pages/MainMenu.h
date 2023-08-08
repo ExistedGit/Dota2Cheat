@@ -7,6 +7,7 @@
 #include "../../Modules/Hacks/TrueSightESP.h" 
 #include "../../Modules/Hacks/TreeChanger.h" 
 #include "../../CheatSDK/Data/UIData.h"
+inline bool DoChanging = true;
 namespace Pages {
 	namespace MainMenu {
 		inline int itemDefId = 6996;

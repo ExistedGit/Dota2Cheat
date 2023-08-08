@@ -106,7 +106,7 @@ void Config::ConfigManager::SetupVars() {
 	CFG_VAR(AbilityESP::ShowAllies, true);
 	CFG_VAR(AbilityESP::ShowCooldownDecimals, false);
 
-	CFG_VAR(Bars::ManaBar, true);
+	CFG_VAR(Bars::ManaBars, true);
 	CFG_VAR(Bars::HPNumbers, true);
 
 	CFG_VAR(Indicators::Speed, true);
@@ -136,7 +136,8 @@ void Config::ConfigManager::SetupVars() {
 	CFG_VAR(TPTracker::Enabled, true);
 	CFG_VAR(TPTracker::FadeDuration, 5);
 
-	CFG_VAR(ParticleMapHack::Enabled, true);
+	CFG_VAR(ParticleMapHack::ShowSource, true);
+	CFG_VAR(ParticleMapHack::ShowParticles, true);
 	CFG_VAR(ParticleMapHack::FadeDuration, 5);
 
 	CFG_VAR(IllusionColoring::Enabled, true);
@@ -148,9 +149,6 @@ void Config::ConfigManager::SetupVars() {
 
 	CFG_VAR(AutoAccept::Enabled, true);
 	CFG_VAR(AutoAccept::Delay, 1);
-	CFG_VAR(AutoAccept::SendTelegramNotifications, false);
-
-	CFG_VAR(API::TelegramID, 0ull);
 
 	CFG_VAR(AutoPickUpRunes, true);
 	CFG_VAR(AutoPickUpAegis, true);
@@ -172,6 +170,4 @@ void Config::ConfigManager::SetupVars() {
 
 	CFG_VAR(AutoMidas::Enabled, false);
 	CFG_VAR(AutoMidas::XPTreshold, 60);
-
-	CFG_VAR(RenderAllParticles, true);
 }

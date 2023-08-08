@@ -5,9 +5,7 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dota2Cheat", "Dota2Cheat\Dota2Cheat.vcxproj", "{31159CB4-C0B0-4E13-9AFE-F3088805C3A6}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dota2Loader", "Dota2Loader\Dota2Loader.vcxproj", "{ABF71969-1BD2-41E0-88B2-343FD0655F47}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BlackBone", "Dota2Loader\include\BlackBone\BlackBone.vcxproj", "{A2C53563-46F5-4D87-903F-3F1F2FDB2DEB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "D2CUpdater", "D2CUpdater\Dota2Loader.vcxproj", "{ABF71969-1BD2-41E0-88B2-343FD0655F47}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,18 +41,6 @@ Global
 		{ABF71969-1BD2-41E0-88B2-343FD0655F47}.Testing|x64.Build.0 = Debug|x64
 		{ABF71969-1BD2-41E0-88B2-343FD0655F47}.Testing|x86.ActiveCfg = Testing|Win32
 		{ABF71969-1BD2-41E0-88B2-343FD0655F47}.Testing|x86.Build.0 = Testing|Win32
-		{A2C53563-46F5-4D87-903F-3F1F2FDB2DEB}.Debug|x64.ActiveCfg = Debug|x64
-		{A2C53563-46F5-4D87-903F-3F1F2FDB2DEB}.Debug|x64.Build.0 = Debug|x64
-		{A2C53563-46F5-4D87-903F-3F1F2FDB2DEB}.Debug|x86.ActiveCfg = Debug|Win32
-		{A2C53563-46F5-4D87-903F-3F1F2FDB2DEB}.Debug|x86.Build.0 = Debug|Win32
-		{A2C53563-46F5-4D87-903F-3F1F2FDB2DEB}.Release|x64.ActiveCfg = Release|x64
-		{A2C53563-46F5-4D87-903F-3F1F2FDB2DEB}.Release|x64.Build.0 = Release|x64
-		{A2C53563-46F5-4D87-903F-3F1F2FDB2DEB}.Release|x86.ActiveCfg = Release|Win32
-		{A2C53563-46F5-4D87-903F-3F1F2FDB2DEB}.Release|x86.Build.0 = Release|Win32
-		{A2C53563-46F5-4D87-903F-3F1F2FDB2DEB}.Testing|x64.ActiveCfg = Debug|x64
-		{A2C53563-46F5-4D87-903F-3F1F2FDB2DEB}.Testing|x64.Build.0 = Debug|x64
-		{A2C53563-46F5-4D87-903F-3F1F2FDB2DEB}.Testing|x86.ActiveCfg = Testing|Win32
-		{A2C53563-46F5-4D87-903F-3F1F2FDB2DEB}.Testing|x86.Build.0 = Testing|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,6 +2,7 @@
 #include "../../Modules/UI/AbilityESP.h"
 #include "../../Modules/Hacks/SkinChanger.h"
 #include "../../Modules/UI/UIOverhaul.h"
+#include "../../Modules/Hacks/DotaPlusUnlocker.h"
 
 void Pages::MainMenu::Draw() {
 	ImGui::Begin("Main", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
@@ -11,6 +12,8 @@ void Pages::MainMenu::Draw() {
 	static bool net_showreliable_bool = strcmp(net_showreliable->value.str, "0");
 #if defined(_DEBUG) && !defined(_TESTING)
 	ImGui::Begin("Debug", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+
+	ImGui::Checkbox("Changing", &DoChanging);
 
 	if (ImGui::Checkbox("net_showreliable", &net_showreliable_bool))
 		net_showreliable->SetStrVal(net_showreliable_bool);
@@ -62,7 +65,7 @@ void Pages::MainMenu::Draw() {
 		ImGui::TreePop();
 	}
 	if (ImGui::TreeNode("Bars")) {
-		ImGui::Checkbox("Manabars", &Config::Bars::ManaBar);
+		ImGui::Checkbox("Manabars", &Config::Bars::ManaBars);
 		ImGui::Checkbox("HP amount on healthbar", &Config::Bars::HPNumbers);
 		ImGui::TreePop();
 	}
@@ -70,15 +73,19 @@ void Pages::MainMenu::Draw() {
 		ImGui::Text("Shows enemy teleports on the map");
 
 		ImGui::Checkbox("Enabled", &Config::TPTracker::Enabled);
-		ImGui::SameLine(); HelpMarker("In case of Boots of Travel it only shows the position the receiver was at when the TP started");
+		ImGui::SameLine(); HelpMarker("Only displays initial recipient pos for Boots of Travel");
 		ImGui::SliderInt("Fade duration", &Config::TPTracker::FadeDuration, 3, 10);
 		ImGui::TreePop();
 	}
 	if (ImGui::TreeNode("Particle Maphack")) {
-		ImGui::Text("Shows enemies on both the map and the screen when they create a particle with position information in it(like casting a spell).");
 
-		ImGui::Checkbox("Enabled", &Config::ParticleMapHack::Enabled);
-		ImGui::SliderInt("Fade duration", &Config::ParticleMapHack::FadeDuration, 3, 10);
+		ImGui::Checkbox("Show particles", &Config::ParticleMapHack::ShowParticles);
+		ImGui::SameLine(); HelpMarker("Render particles in FoW");
+
+		ImGui::Checkbox("Show source", &Config::ParticleMapHack::ShowSource);
+		ImGui::SameLine(); HelpMarker("Show who created the particle");
+
+		ImGui::SliderInt("Icon fade duration", &Config::ParticleMapHack::FadeDuration, 3, 10);
 		ImGui::TreePop();
 	}
 
@@ -88,8 +95,9 @@ void Pages::MainMenu::Draw() {
 		//if (CheatGui::Button("Apply status"))
 		//	GameSystems::RichPresence->SetRPStatus(rpStatusBuf.c_str());
 
-
-		ImGui::Checkbox("Unlock Dota Plus", &Config::Changer::UnlockDotaPlus);
+		if (ImGui::Checkbox("Unlock Dota Plus", &Config::Changer::UnlockDotaPlus)) {
+			Modules::DotaPlusUnlocker.QueueUpdate();
+		};
 		if (ImGui::Checkbox("Unlock emoticons", &Config::Changer::UnlockEmoticons)) {
 			static auto dota_hud_chat_enable_all_emoticons = Interfaces::CVar->CVars["dota_hud_chat_enable_all_emoticons"].m_pVar;
 			dota_hud_chat_enable_all_emoticons->value.boolean = Config::Changer::UnlockEmoticons;
@@ -217,18 +225,14 @@ void Pages::MainMenu::Draw() {
 	ImGui::SameLine(); HelpMarker("Reveals the location of Queen of Pain's or Antimage's blink");
 
 	ImGui::Checkbox("AutoDodge", &Config::AutoDodge::Enabled);
-	ImGui::SameLine(); HelpMarker("Can use Manta Style, Bottled Illusion Rune");
+	ImGui::SameLine(); HelpMarker("Can use Manta Style & Bottled Illusion Rune");
 
-	ImGui::Checkbox("Show all particles", &Config::RenderAllParticles);
-	ImGui::SameLine(); HelpMarker("Renders any possible particle, even in FoW");
 	ImGui::Checkbox("Last hit marker", &Config::LastHitMarker);
 	ImGui::SameLine(); HelpMarker("Shows a dot on creeps when you can last hit/deny them");
 
-
-
 	ImGui::Checkbox("Perfect Blink", &Config::PerfectBlink);
 	ImGui::Checkbox("Prevent bad casts", &Config::BadCastPrevention);
-	ImGui::SameLine(); HelpMarker("Detect if there are enemy heroes within range of some AOE skills to prevent bad casts. e.g, Chronosphere, Black hole, Reverse polarity, etc.");
+	ImGui::SameLine(); HelpMarker("Detects if there are enemy heroes within range of some AOE skills to prevent bad casts. e.g, Chronosphere, Black hole, Reverse polarity, etc.");
 
 	ImGui::Checkbox("Redirect illusion casts", &Config::CastRedirection);
 	ImGui::SameLine(); HelpMarker("You cast something on an illusion - it aims for the real hero(if they're in range, of course)");

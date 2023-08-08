@@ -19,7 +19,14 @@ public:
 		GETTER(const char*, GetModelPath, 0x20);
 	};
 	struct CAssetModifierContainer : public VClass {
+		struct AssetListNode {
+			PAD(8);
+			uint32_t id, idk;
+			CUtlVector<VClass*> assetModifiers;
+		};
+		GETTER(AssetListNode*, GetAssetList, 0x18);
 		GETTER(CUtlVector<CEconStyleInfo*>*, GetStyles, 0x48);
+		GETTER(int, GetMaxAssetIndex, 0x28);
 	};
 
 	GETTER(CEconItemSetDefinition*, GetItemSetDef, 0xA0);

@@ -5,7 +5,7 @@
 
 class VClass {
 public:
-	virtual void dummy_fn() = 0; // so that the classes have a vtable
+	virtual void dummy_fn() = 0; // so that classes have a vtable
 
 	template<typename T>
 	T& Field(int offset) const {

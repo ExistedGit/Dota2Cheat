@@ -3,6 +3,9 @@
 // rebuilt from xref: "Failed to find CDOTAGameAccountPlus"
 
 void Modules::DotaPlusUnlocker::UpdateDotaPlusStatus() {
+	if (!updateQueued)
+		return;
+
 	auto inventory = Interfaces::GCClient->GetSOListeners()[1];
 
 	auto objCache = inventory->GetSOCache();
@@ -10,13 +13,15 @@ void Modules::DotaPlusUnlocker::UpdateDotaPlusStatus() {
 		if (typeCache->GetEconTypeID() != EEconTypeID::k_CDOTAGameAccountPlus)
 			continue;
 
-		auto message = (CSODOTAGameAccountPlus*)typeCache->GetProtobufSO()->GetPObject();
+		updateQueued = false;
 
-		if (message->plus_status() == Config::Changer::UnlockDotaPlus)
+		auto proto = (CSODOTAGameAccountPlus*)typeCache->GetProtobufSO()->GetPObject();
+
+		if (proto->plus_status() == Config::Changer::UnlockDotaPlus)
 			return;
 
-		message->set_plus_flags(!Config::Changer::UnlockDotaPlus);
-		message->set_plus_status(Config::Changer::UnlockDotaPlus);
+		proto->set_plus_flags(!Config::Changer::UnlockDotaPlus);
+		proto->set_plus_status(Config::Changer::UnlockDotaPlus);
 		Interfaces::GCClient->DispatchSOUpdated(objCache->GetOwner(), typeCache->GetProtobufSO(), eSOCacheEvent_Incremental);
 	}
 }

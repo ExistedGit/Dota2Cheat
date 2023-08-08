@@ -11,9 +11,8 @@ typedef uint16_t item_definition_index_t;
 class CEconItem : public VClass {
 	void* vmt2;
 public:
-
 	auto GetItemDef() {
-		return Function(*(uintptr_t*)vmt2 + 0x58).Call<CDOTAItemDefinition*>(this + 1);
+		return MemberInline<VClass>(0x8)->CallVFunc<0x58/8, CDOTAItemDefinition*>();
 	}
 
 	inline static void (*DeserializeFromProtobufItemFunc)(CEconItem*, CSOEconItem*);

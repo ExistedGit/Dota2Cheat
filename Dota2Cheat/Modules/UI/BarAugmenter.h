@@ -22,8 +22,8 @@ namespace Modules {
 			DrawTextForeground(DrawData.GetFont("Monofonto", fontSize), std::to_string(hero->GetHealth()), drawPos, fontSize, ImColor{ 255,255,255 }, true);
 		}
 		void UpdateManabarSwitch() {
-			if (*ManaBarSwitch != Config::Bars::ManaBar)
-				Memory::Patch(ManaBarSwitch, { Config::Bars::ManaBar });
+			if (*ManaBarSwitch != Config::Bars::ManaBars)
+				Memory::Patch(ManaBarSwitch, { Config::Bars::ManaBars });
 		}
 		//void DrawManabar(CDOTABaseNPC_Hero* hero)
 		//{
@@ -51,7 +51,7 @@ namespace Modules {
 		}
 		void Draw() {
 			UpdateManabarSwitch();
-			//if (Config::Bars::ManaBar)
+			//if (Config::Bars::ManaBars)
 			//	EntityList.ForEach<CDOTABaseNPC_Hero>([this](auto* hero) { DrawManabar(hero); });
 			if (Config::Bars::HPNumbers)
 				EntityList.ForEach<CDOTABaseNPC_Hero>([this](auto* hero) { DrawHPNumbers(hero); });

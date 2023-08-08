@@ -87,14 +87,13 @@ namespace Config {
 	}
 
 	namespace Bars {
-		inline bool ManaBar;
+		inline bool ManaBars;
 		inline bool HPNumbers;
 	}
 
 	namespace AutoAccept {
 		inline bool Enabled;
 		inline int Delay;
-		inline bool SendTelegramNotifications;
 	}
 	namespace AutoDodge {
 		inline bool Enabled;
@@ -162,15 +161,15 @@ namespace Config {
 		inline int SafetyRadius;
 	}
 	namespace ParticleMapHack {
-		inline bool Enabled;
+		inline bool ShowSource;
 		inline int FadeDuration;
+		inline bool ShowParticles;
 	}
 
 	inline bool LastHitMarker;
 
 	inline float CameraDistance;
 
-	inline bool RenderAllParticles;
 	inline bool PerfectBlink;
 
 	namespace IllusionColoring {
@@ -180,8 +179,4 @@ namespace Config {
 
 	inline int CircleRadius;
 	inline Vector CircleRGB;
-
-	namespace API {
-		inline uint64_t TelegramID;
-	}
 }

@@ -7,6 +7,6 @@ namespace Hooks {
 	inline SetRenderingEnabledFn oSetRenderingEnabled{};
 	
 	inline void hkSetRenderingEnabled(CParticleCollection* thisptr, bool state) {
-		oSetRenderingEnabled(thisptr, state || Config::RenderAllParticles);
+		oSetRenderingEnabled(thisptr, state || Config::ParticleMapHack::ShowParticles);
 	}
 }

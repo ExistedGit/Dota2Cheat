@@ -41,6 +41,8 @@ void Interfaces::FindInterfaces() {
 	InitInterface(&NetworkClientService, "engine2.dll", "NetworkClientService_001");
 	// InitInterface(&NetworkSystem, "networksystem.dll", "NetworkSystemVersion001", 62);
 	InitInterface(&NetworkMessages, "networksystem.dll", "NetworkMessagesVersion001", 36);
+	InitInterface(&FlattenedSerializers, "networksystem.dll", "FlattenedSerializersVersion001");
+
 	EntitySystem = *Address(Interfaces::Client->GetVFunc(25).ptr).GetAbsoluteAddress<CGameEntitySystem**>(3, 7);
 	UIEngine = Panorama->Member<CUIEngineSource2*>(0x28);
 

@@ -267,6 +267,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CheatSDK\Data\EntityList.cpp" />
     <ClCompile Include="CheatSDK\Systems\CheatManager.cpp" />
     <ClCompile Include="CheatSDK\Systems\TextureManager.cpp" />
     <ClCompile Include="Hooks\Present.cpp" />
@@ -569,10 +570,6 @@
     <ClInclude Include="Hooks\SteamGC.h" />
     <ClInclude Include="include\imgui\imgui_impl_dx11.h" />
     <ClInclude Include="include\imgui\imgui_impl_win32.h" />
-    <ClInclude Include="Modules\Hacks\ParticleRevealer.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
     <ClInclude Include="Modules\Hacks\TreeChanger.h">
       <SubType>
       </SubType>
@@ -592,6 +589,7 @@
     </ClInclude>
     <ClInclude Include="pch.h" />
     <ClInclude Include="SDK\Base\KeyValues.h" />
+    <ClInclude Include="SDK\GameSystems\CDOTAInventoryManager.h" />
     <ClInclude Include="SDK\GameSystems\CDOTA_BinaryObjectSystem.h" />
     <ClInclude Include="SDK\GameSystems\CDOTA_MinimapObjectManager.h" />
     <ClInclude Include="CheatSDK\Data\DrawData.h" />
@@ -626,7 +624,6 @@
     <ClInclude Include="CheatSDK\Bytes\Fonts.h" />
     <ClInclude Include="CheatSDK\include.h" />
     <ClInclude Include="CheatSDK\Utils.h" />
-    <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
     <ClInclude Include="Modules\Hacks\TrueSightESP.h" />
     <ClInclude Include="Modules\UI\Indicators\KillIndicator.h">
       <SubType>
@@ -643,6 +640,7 @@
     <ClInclude Include="SDK\GameSystems\CRenderGameSystem.h" />
     <ClInclude Include="CheatSDK\Data\EntityList.h" />
     <ClInclude Include="SDK\include.h" />
+    <ClInclude Include="SDK\Interfaces\CFlattenedSerializers.h" />
     <ClInclude Include="SDK\Interfaces\CGameUI.h" />
     <ClInclude Include="Hooks\Misc.h" />
     <ClInclude Include="Hooks\AcceptEvents.h" />

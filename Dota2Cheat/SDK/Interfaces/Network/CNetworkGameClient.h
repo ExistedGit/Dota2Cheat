@@ -107,7 +107,7 @@ public:
     virtual void SplitScreenConnect(int splitScreenSlot) = 0;
     virtual int GetMaxSplitScreenPlayers(void) = 0;
     virtual void* GetViewEntity(void) = 0;
-    virtual INetChannel* GetNetChannel(int splitScreenSlot) = 0;
+    virtual INetChannel* GetNetChannel(int splitScreenSlot = 0) = 0;
     virtual void UpdateAudioState(AudioState_t *, int splitScreenSlot) = 0;
     virtual void ClockDrift_AdjustFrameTime(float) = 0;
     virtual float GetTickInterval(void) = 0;

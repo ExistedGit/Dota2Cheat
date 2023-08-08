@@ -1,8 +1,6 @@
 #include "NetChannel.h"
 
 void Hooks::hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits) {
-	NetChan = thisptr;
-
 	using namespace Modules;
 	static INetChanListener* Listeners[] {
 		&ShakerAttackAnimFix,
@@ -27,8 +25,6 @@ void Hooks::hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* m
 }
 
 bool Hooks::hkSendNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, NetChannelBufType_t type) {
-	NetChan = thisptr;
-
 	//if (messageHandle->messageID == 4
 	//	|| ctx.gameStage != GameStage::IN_GAME)
 	//	return oSendNetMessage(thisptr, messageHandle, msg, type);

@@ -36,7 +36,7 @@ public:
 	struct CSkeletonInstance : public VClass {
 		// reversed from xref: "CBaseModelEntity::SetBodygroup(%d,%d) failed: CBaseModelEntity has no model!\n"
 		// last two subs are get and set
-
+		GETTER(CBaseEntity*, GetOwner, Netvars::CGameSceneNode::m_pOwner);
 		IGETTER(CModelState, GetModelState, Netvars::CSkeletonInstance::m_modelState)
 	};
 

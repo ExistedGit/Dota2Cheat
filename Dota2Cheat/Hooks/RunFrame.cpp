@@ -4,21 +4,6 @@
 #include "../Modules/Hacks/ClaimTutorialRewards.h"
 #include "../SDK/Interfaces/GC/CEconWearable.h"
 
-template<typename T = CBaseEntity>
-std::set<T*> GetEntitiesByFilter(const std::vector<const char*>& filters) {
-	std::set<T*> vec{};
-	for (int i = 0; i <= Interfaces::EntitySystem->GetHighestEntityIndex(); ++i) {
-		auto* ent = Interfaces::EntitySystem->GetEntity(i);
-		if (!ent || ent->GetIdentity()->IsDormant())
-			continue;
-		//std::cout << ent->SchemaBinding() << '\n';
-		const char* className = ent->SchemaBinding()->binaryName;
-		if (className && TestStringFilters(className, filters))
-			vec.insert((T*)ent);
-	}
-	return vec;
-};
-
 void UpdateCameraDistance() {
 	static auto varInfo = CCVar::CVars["dota_camera_distance"];
 	if (Config::CameraDistance != varInfo.m_pVar->value.flt) {
@@ -118,29 +103,21 @@ void InGameLogic() {
 	}
 #ifdef _DEBUG
 	if (IsKeyPressed(VK_NUMPAD8)) {
-		//auto& w = ctx.localHero->Field<CUtlVector<CHandle<CEconWearable>>>(Netvars::C_BaseCombatCharacter::m_hMyWearables);
-		//w[0]->GetAttributeManager()->GetItem()
-		//ctx.localHero
-
-			//updateWearables = true;
-
-			//auto selected = ctx.localPlayer->GetSelectedUnits();
-			//auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(selected[0]);
-			//auto pos = ent->GetPos();
-			//std::cout << "ENT " << selected[0] << " -> " << ent
-			//	<< "\n\t" << "POS " << pos.x << ' ' << pos.y << ' ' << pos.z
-			//	<< '\n';
+		auto& w = ctx.localHero->Wearables();
+		Log(LP_NONE, "Wearables:");
+		for (CEconWearable* h : w) {
+			Log(LP_NONE, (void*)h);
+		}
+		static Function apply = Memory::Scan("41 55 48 83 EC 70 4C 8B E9", "client.dll");
+		apply(ctx.localHero);
 	}
 #endif 
 }
 
 void Hooks::hkRunFrame() {
 	bool isInGame = Interfaces::Engine->IsInGame();
-	static bool DotaPlusStatus = false;
-	if (DotaPlusStatus != Config::Changer::UnlockDotaPlus) {
-		DotaPlusStatus = Config::Changer::UnlockDotaPlus;
-		Modules::DotaPlusUnlocker.UpdateDotaPlusStatus();
-	}
+
+	Modules::DotaPlusUnlocker.UpdateDotaPlusStatus();
 
 	if (Modules::SkinChanger.ItemsCreated) {
 		Modules::SkinChanger.ItemsCreated = false;

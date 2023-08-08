@@ -14,7 +14,10 @@ public:
 private:
 	void* unkptr3;
 public:
-	char flags[4];
+	union {
+		char m_bFlags[4];
+		DWORD m_nFlags;
+	};
 private:
 	char pad[4];
 	void* unkptr4;
@@ -32,6 +35,6 @@ public:
 	}
 
 	bool IsDormant() const {
-		return (flags[0] & 0x80);
+		return (m_bFlags[0] & 0x80);
 	}
 };

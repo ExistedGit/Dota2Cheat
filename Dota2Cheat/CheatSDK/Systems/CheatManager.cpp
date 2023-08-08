@@ -65,8 +65,9 @@ void CCheatManager::LoadGameSpecific() {
 			CBaseEntity::OnColorChanged = data.m_CallbackFn;
 			LogF(LP_DATA, "{}::{}: {}", data.m_szClassName, data.m_szCallbackName, (void*)data.m_CallbackFn);
 		}
-		else if (IsValidReadPtr(data.m_szCallbackName) && std::string_view(data.m_szCallbackName) == "OnWearablesChanged")
+		else if (IsValidReadPtr(data.m_szCallbackName) && std::string_view(data.m_szCallbackName) == "OnWearablesChanged") {
 			LogF(LP_DATA, "{}::{}: {}", data.m_szClassName, data.m_szCallbackName, (void*)data.m_CallbackFn);
+		}
 }
 
 void CCheatManager::LoadFiles() {

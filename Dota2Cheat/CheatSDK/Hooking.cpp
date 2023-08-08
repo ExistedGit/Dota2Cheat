@@ -24,7 +24,7 @@ void Hooks::InstallHooks() {
 		uintptr_t** vtable = SignatureDB::FindSignature("CNetChan::vftable");
 		uintptr_t* PostReceivedNetMessage = vtable[86], * SendNetMessage = vtable[69]; // bytehooking through vtables, how's that, Elon Musk?
 		HOOKFUNC(PostReceivedNetMessage);
-		HOOKFUNC(SendNetMessage);
+		// HOOKFUNC(SendNetMessage);
 	}
 	{
 		// CDOTA_Buff destructor
@@ -42,10 +42,12 @@ void Hooks::InstallHooks() {
 		auto SetRenderingEnabled = vtable[VTableIndexes::CParticleCollection::SetRenderingEnabled];
 		HOOKFUNC(SetRenderingEnabled);
 	}
+#ifndef _TESTING
 	{
 		void* RunScript = Interfaces::UIEngine->GetVFunc(88).ptr;
 		HOOKFUNC(RunScript);
 	}
+#endif
 	{
 		Interfaces::EntitySystem->GetListeners().push_back(&EntityList);
 

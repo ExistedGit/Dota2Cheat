@@ -60,7 +60,7 @@ void Modules::M_ParticleMaphack::DrawMapAppearances()
 }
 
 void Modules::M_ParticleMaphack::Draw() {
-	if (!Config::ParticleMapHack::Enabled)
+	if (!Config::ParticleMapHack::ShowSource)
 		return;
 
 	MTM_LOCK;

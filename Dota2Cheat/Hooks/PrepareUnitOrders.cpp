@@ -1,11 +1,11 @@
 #include "PrepareUnitOrders.h"
 
-void Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t orderType, UINT32 targetIndex, Vector* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, CBaseEntity* issuer, bool queue, bool showEffects) {
+bool Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t orderType, UINT32 targetIndex, Vector* position, UINT32 abilityIndex, PlayerOrderIssuer_t orderIssuer, CBaseEntity* issuer, bool queue, bool showEffects) {
 	// whether or not the execution will continue
 	bool giveOrder = true;
 
 	if (!Modules::ManaHPAbuse.IsInterruptible())
-		return;
+		return oPrepareUnitOrders(player, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
 
 	if (!issuer) { // issuer may be nullptr if it's HERO_ONLY or something
 		switch (orderIssuer) {
@@ -44,9 +44,9 @@ void Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t o
 		orderType == DOTA_UNIT_ORDER_CAST_TARGET)
 		if (Modules::BadCastPrevention.IsBadCast(orderType, targetIndex, position, abilityIndex, issuer)) {
 			ShowHUDError("Bad cast: no targets!", "General.CastFail_NoTarget");
-			return;
+			return oPrepareUnitOrders(player, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
 		}
 
 	if (giveOrder)
-		oPrepareUnitOrders(player, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
+		return oPrepareUnitOrders(player, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
 }

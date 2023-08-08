@@ -7,6 +7,8 @@ bool Modules::M_OrderRouter::RouteOrder(NetMessageHandle_t* messageHandle, googl
 	bool execOrder = true;
 	auto orderMsg = (CDOTAClientMsg_ExecuteOrders*)msg;
 	auto& order = orderMsg->mutable_orders()->at(0);
+	auto s = orderMsg->mutable_orders()->begin() + 1;
+	orderMsg->mutable_orders()->erase(s);
 
 	auto pos = order.mutable_position();
 	Vector vectorPos{ pos->x(), pos->y(), pos->z() };

@@ -4,6 +4,7 @@
 #include <string_view>
 #include <format>
 
+inline std::mutex mLogging;
 inline HANDLE hStdOut = nullptr;
 
 enum class ConColor {
@@ -65,6 +66,7 @@ void Log(LogPrefix prefixType, Args&&... args) {
 	if (prefixType != LP_ERROR && prefixType != LP_WARNING)
 		return;
 #endif
+	std::lock_guard<std::mutex> lk(mLogging);
 	std::string prefix = GetLogPrefix(prefixType);
 	((std::cout << prefix) << ... << args) << '\n';
 	SetConsoleColor();
@@ -77,6 +79,7 @@ void LogF(LogPrefix prefixType, const char* fmtString, Args&&... args) {
 	if (prefixType != LP_ERROR && prefixType != LP_WARNING)
 		return;
 #endif
+	std::lock_guard<std::mutex> lk(mLogging);
 	std::string prefix = GetLogPrefix(prefixType);
 	std::cout << prefix << std::vformat(fmtString, std::make_format_args(std::forward<Args>(args)...)) << '\n';
 	SetConsoleColor();

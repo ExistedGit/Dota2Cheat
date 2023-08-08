@@ -146,9 +146,9 @@
     <ClCompile Include="Modules\Hacks\ClaimTutorialRewards.cpp" />
     <ClCompile Include="SDK\Base\KeyValues.cpp" />
     <ClCompile Include="SDK\Panorama\CUIPanel.cpp" />
+    <ClCompile Include="CheatSDK\Data\EntityList.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Modules\Hacks\AutoLastHit.h" />
     <ClInclude Include="Modules\UI\UIOverhaul.h" />
     <ClInclude Include="SDK\GameSystems\CDOTA_PanoramaMinimapRenderer.h" />
     <ClInclude Include="SDK\Interfaces\CGameUI.h" />
@@ -366,7 +366,6 @@
     <ClInclude Include="include\imgui\imgui_impl_win32.h" />
     <ClInclude Include="include\imgui\imgui_impl_dx11.h" />
     <ClInclude Include="Modules\UI\ModifierESP.h" />
-    <ClInclude Include="Modules\Hacks\ParticleRevealer.h" />
     <ClInclude Include="CheatSDK\Data\EntityList.h" />
     <ClInclude Include="Modules\MListeners.h" />
     <ClInclude Include="pch.h" />
@@ -379,5 +378,7 @@
     <ClInclude Include="SDK\Panorama\CPanel2D.h" />
     <ClInclude Include="SDK\Panorama\CSource2UITexture.h" />
     <ClInclude Include="SDK\Base\KeyValues.h" />
+    <ClInclude Include="SDK\Interfaces\CFlattenedSerializers.h" />
+    <ClInclude Include="SDK\GameSystems\CDOTAInventoryManager.h" />
   </ItemGroup>
 </Project>

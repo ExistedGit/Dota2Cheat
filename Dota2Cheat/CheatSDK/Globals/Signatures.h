@@ -26,24 +26,21 @@ namespace Signatures {
 	inline CEconItem* (*CreateEconItem)() = nullptr;
 
 	inline void* SaveSerializedSOCache{};
-	// inline void(*ShowHUDError)(CPanel2D*, const char*);
+
 	inline void(__fastcall* CMsg)(const char* format, ...);
 	inline void(__fastcall* CMsgColor)(Color* color, const char* format, ...);
 
-	typedef void(__fastcall* PrepareUnitOrdersFn)(CDOTAPlayerController* player, dotaunitorder_t orderType, uint32_t targetIndex, Vector* position, uint32_t abilityIndex, PlayerOrderIssuer_t orderIssuer, CBaseEntity* issuer, bool queue, bool showEffects);
+	typedef bool(__fastcall* PrepareUnitOrdersFn)(CDOTAPlayerController* player, dotaunitorder_t orderType, uint32_t targetIndex, Vector* position, uint32_t abilityIndex, PlayerOrderIssuer_t orderIssuer, CBaseEntity* issuer, bool queue, bool showEffects);
 
-	//typedef bool (*LoadUITextureFn)(void* thisptr, void** texturePtr, const char* textureName);
 
 	typedef bool (*BAsyncSendProtoFn)(CProtobufMsgBase<>* protobufMsg, IProtoBufSendHandler* handler);
 	typedef bool (*DispatchPacketFn)(void*, IMsgNetPacket*);
 
 	inline CDOTAPlayerController* (*GetPlayer)(int idx);
 
+	//typedef bool (*LoadUITextureFn)(void* thisptr, void** texturePtr, const char* textureName);
 	//inline LoadUITextureFn LoadUITexture{};
 
-	//typedef CParticleCollection* (*CreateParticleCollectionFn)(CNewParticleEffect* thisptr, void* particleMgr, void* unk, void** query, int particleIndex);
-	//CreateParticleCollectionFn CreateParticleCollection{};
-	
 	inline PrepareUnitOrdersFn PrepareUnitOrders{};
 
 	inline DispatchPacketFn DispatchPacket{};
@@ -51,7 +48,6 @@ namespace Signatures {
 
 	static inline std::map<std::string, void**> NamedSignatures{
 		SIGMAP_ENTRY(PrepareUnitOrders),
-		// SIGMAP_ENTRY(ShowHUDError),
 
 #if defined(_DEBUG) && !defined(_TESTING)
 		//SIGMAP_ENTRY(DispatchPacket),

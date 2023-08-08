@@ -7,6 +7,8 @@
 #include "../CheatSDK/KeyHandler.h"
 #include "../UI/Pages/MainMenu.h"
 
+inline std::map<std::string, int> writes;
+
 // DirectX11's SwapChain::Present, used to render things
 // Its hooking is different from the "classical" method of creating a dummy window
 // We just hook the overlay's hook!

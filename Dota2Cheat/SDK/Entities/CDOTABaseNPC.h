@@ -5,6 +5,7 @@
 #include "CDOTAModifierManager.h"
 #include "../Enums.h"
 #include "../Base/StringUtils.h"
+#include "../Interfaces/GC/CEconWearable.h"
 
 class CDOTABaseNPC : public CBaseEntity {
 public:
@@ -24,6 +25,8 @@ public:
 	};
 
 	GETTER(BarrierData, GetBarriers, 0x16dc);
+
+	// GETTER(CAssetModifierContainer*, GetAssetModifierContainer, 0xa20);
 
 	IGETTER(CDOTAModifierManager, GetModifierManager, Netvars::C_DOTA_BaseNPC::m_ModifierManager);
 
@@ -84,6 +87,9 @@ public:
 	GETTER(float, GetHullRadius, Netvars::C_DOTA_BaseNPC::m_flHullRadius);
 	GETTER(int, GetMoveSpeed, Netvars::C_DOTA_BaseNPC::m_iMoveSpeed);
 	GETTER(bool, IsMoving, Netvars::C_DOTA_BaseNPC::m_bIsMoving);
+
+	FIELD(CUtlVector<CHandle<CEconWearable>>, Wearables, Netvars::C_BaseCombatCharacter::m_hMyWearables);
+	FIELD(CUtlVector<CHandle<CEconWearable>>, OldWearables, Netvars::C_DOTA_BaseNPC::m_hOldWearables);
 
 	[[nodiscard]]
 	std::vector<CDOTABaseAbility*> GetAbilities();

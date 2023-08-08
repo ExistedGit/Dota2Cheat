@@ -9,6 +9,7 @@
 #include "../../SDK/Interfaces/Network/INetworkClientService.h"
 #include "../../SDK/Interfaces/GC/CGCClient.h"
 #include "../../SDK/Interfaces/CVarSystem.h"
+#include "../../SDK/Interfaces/CFlattenedSerializers.h"
 #include "../../SDK/Interfaces/CResourceSystem.h"
 #include "../../SDK/Interfaces/CSoundOpSystem.h"
 #include "../../SDK/Interfaces/ISteamClient.h"
@@ -34,6 +35,7 @@ namespace Interfaces {
 	inline CGameEntitySystem* EntitySystem{};
 	inline ISteamClient* SteamClient{};
 	inline ISteamGameCoordinator* SteamGC{};
+	inline CFlattenedSerializers* FlattenedSerializers{};
 	inline CSoundOpSystem* SoundOpSystem{};
 	inline CGameUI* GameUI{};
 	inline CGCClient* GCClient{};
