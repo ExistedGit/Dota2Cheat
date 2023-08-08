@@ -1,19 +1,17 @@
-# Dota2Cheat: now crash-free!
+# Dota2Cheat
 
 ![D2C image v3](https://github.com/ExistedGit/Dota2Cheat/assets/66470490/2b5a66ba-c6fe-4f27-9009-914135948216)
 
 There weren't many open-source Dota cheats. And so I decided to fix that.
 Written in C++20 with love
 
-Some SDK bits were fully or partionally taken from [McDota](https://github.com/LWSS/McDota) by LWSS. It's a very helpful source regarding memory structures
+Some SDK bits were fully or partionally taken from [McDota](https://github.com/LWSS/McDota) by LWSS, which D2C was inspired by.
 
 Using [ImGui](https://github.com/ocornut/imgui) with DirectX 11 for the interface
 
-also using [Minhook](https://github.com/TsudaKageyu/minhook) for bytehooking
+also using [Minhook](https://github.com/TsudaKageyu/minhook) for them trampolines
 
-also using Google's [Protocol Buffers](https://github.com/protocolbuffers/protobuf) library for net message handling
-
-also using DarthTon's [BlackBone](https://github.com/DarthTon/Blackbone) for injection
+also using Google's [Protocol Buffers](https://github.com/protocolbuffers/protobuf) for net message handling
 
 Cheers to their wonderful creators!
 
@@ -89,7 +87,7 @@ Once the process completes, go to `installed/x64-windows-static-md`. Copy libpro
 
 You also need to install the [June 2010 DirectX SDK](https://www.microsoft.com/en-us/download/details.aspx?id=6812)
 
-Open the project in Visual Studio and build both Dota2Cheat and Dota2Loader as **Release x64**
+Open the project in Visual Studio and build Dota2Cheat as **Release x64**
 
 ## Injecting
 This cheat can be safely reinjected at any point of the game
