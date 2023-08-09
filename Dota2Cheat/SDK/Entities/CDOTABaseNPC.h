@@ -14,17 +14,18 @@ public:
 	// in the beginning after the repeated section with xrefs the hero is acquired
 	// trace the variable in the call with "max_physical_barrier" to the assignment of a value where an offset to hero is used
 	// that offset ultimately leads to such a structure
+	// sig to opcode: "F3 45 0F 10 AE"
 	struct BarrierData {
 		float
-			physMax,
-			magicMax,
-			allMax,
+			maxPhys,
+			maxMagic,
+			maxAll, 
 			phys,  // blocks physical damage
 			magic, // blocks magical damage
 			all; // blocks all forms of damage
 	};
 
-	GETTER(BarrierData, GetBarriers, 0x16dc);
+	GETTER(BarrierData, GetBarriers, 0x16e4);
 
 	// GETTER(CAssetModifierContainer*, GetAssetModifierContainer, 0xa20);
 
@@ -60,7 +61,7 @@ public:
 		return !GetIdentity()->IsDormant() && GetLifeState() == 0 && !IsWaitingToSpawn();
 	}
 
-	// JS func, uses another vtable at 0xA10
+	// JS func, uses another vtable at 0xA08
 	bool IsRoshan() {
 		return MemberInline<VClass>(0xA08)->CallVFunc<59, bool>();
 	}
@@ -69,6 +70,7 @@ public:
 		return Member<int>(Netvars::C_DOTA_BaseNPC::m_iDamageMin)
 			+ Member<int>(Netvars::C_DOTA_BaseNPC::m_iDamageBonus);
 	}
+
 	float GetAttackRange() {
 		return CallVFunc<VTableIndexes::CDOTABaseNPC::GetAttackRange, float>(0, 1);
 	};

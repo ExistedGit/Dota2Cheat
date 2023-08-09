@@ -270,6 +270,7 @@
     <ClCompile Include="CheatSDK\Data\EntityList.cpp" />
     <ClCompile Include="CheatSDK\Systems\CheatManager.cpp" />
     <ClCompile Include="CheatSDK\Systems\TextureManager.cpp" />
+    <ClCompile Include="DebugFunctions.cpp" />
     <ClCompile Include="Hooks\Present.cpp" />
     <ClCompile Include="Hooks\SteamGC.cpp" />
     <ClCompile Include="include\imgui\imgui_impl_dx11.cpp" />

@@ -13,14 +13,14 @@ namespace Hooks {
 
 	inline void CacheModifier(CDOTAModifier* modifier) {
 		auto owner = (CDOTABaseNPC_Hero*)modifier->GetOwner();
-		if (!EntityList.IsEntityOfType(owner, EntityType::Hero))
+		if (!EntityList.IsHero(owner))
 			return;
 
 		HeroData[owner].Modifiers[modifier->GetName()] = modifier;
 	}
 	inline void UncacheModifier(CDOTAModifier* modifier) {
 		auto owner = (CDOTABaseNPC_Hero*)modifier->GetOwner();
-		if (!EntityList.IsEntityOfType(owner, EntityType::Hero))
+		if (!EntityList.IsHero(owner))
 			return;
 
 		HeroData[owner].Modifiers.erase(modifier->GetName());

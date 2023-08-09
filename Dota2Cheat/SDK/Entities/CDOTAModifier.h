@@ -25,7 +25,7 @@ public:
 		return ent->GetTeam() == GetTeam();
 	}
 	GETTER(CHandle<CDOTABaseNPC>, GetCasterHandle, Netvars::CDOTA_Buff::m_hCaster);
-	GETTER(CHandle<CDOTABaseNPC>, GetAbilityHandle, Netvars::CDOTA_Buff::m_hAbility);
+	GETTER(CHandle<CDOTABaseAbility>, GetAbilityHandle, Netvars::CDOTA_Buff::m_hAbility);
 	GETTER(CHandle<CDOTABaseNPC>, GetOwnerHandle, Netvars::CDOTA_Buff::m_hParent);
 
 	CDOTABaseNPC* GetOwner() {
@@ -34,7 +34,7 @@ public:
 	CDOTABaseNPC* GetCaster() {
 		return GetCasterHandle();
 	}
-	CDOTABaseNPC* GetAbility() {
+	CDOTABaseAbility* GetAbility() {
 		return GetAbilityHandle();
 	}
 	VGETTER(const char*, GetTexture, 3);
