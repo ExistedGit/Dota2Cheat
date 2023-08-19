@@ -15,7 +15,7 @@ public:
 
 	void LoadGameSpecific();
 	void LoadFiles();
-
+	
 	void FindCheatFolder() {
 		char buf[256];
 		SHGetSpecialFolderPathA(0, buf, CSIDL_PROFILE, false);

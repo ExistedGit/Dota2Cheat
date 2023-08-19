@@ -125,7 +125,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 		FreeLibraryAndExitThread(hModule, 0);
 
 	Modules::SkinChanger.DeleteSOCacheFiles();
-
+	
 	Log(LP_INFO, "Initializing cheat...");
 	d2c.Initialize(hModule);
 
@@ -151,7 +151,7 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	//	auto Decode = Memory::Scan("E8 ? ? ? ? E9 ? ? ? ? 8B CA", "networksystem.dll").GetAbsoluteAddress(1);
 	//	HOOKFUNC(Decode);
 	//}
-	
+
 	auto& nc = Interfaces::FlattenedSerializers->NetworkedClasses();
 	for (auto& c : nc) {
 		if (!c.className || !std::string_view(c.className).starts_with("client.dll"))

@@ -2,6 +2,8 @@
 #include "CBaseEntity.h"
 #include "../Base/CUtlVector.h"
 
+// structs and enums from source2sdk aka NL dumper
+
 enum class EDOTASpecialBonusOperation : uint8_t
 {
 	SPECIAL_BONUS_ADD = 0x0,
@@ -174,58 +176,36 @@ public:
 	using GetLevelSpecialValueForFn = float(__fastcall*)(void* thisptr, const char* value, int level, void* unk1, bool noOverride, bool* result);
 	static inline GetLevelSpecialValueForFn GetLevelSpecialValueForFunc{};
 
-	//typedef AbilityKVEntry* (__fastcall* GetKVEntryFn)(CDOTABaseAbility* thisptr, const char* value);
-	//static inline GetKVEntryFn GetKVEntry{};
-
 	template<typename T = float>
 	T GetLevelSpecialValueFor(const char* value, int level = -1) {
 		return (T)GetLevelSpecialValueForFunc(this, value, level, nullptr, 0, nullptr);
 	}
 
-	// For things like Pudge's Rot or Armlet
-	GETTER(bool, IsToggled, Netvars::C_DOTABaseAbility::m_bToggleState);
-	GETTER(bool, IsHidden, Netvars::C_DOTABaseAbility::m_bHidden);
-	GETTER(float, GetCooldown, Netvars::C_DOTABaseAbility::m_fCooldown);
-	GETTER(float, GetCooldownLength, Netvars::C_DOTABaseAbility::m_flCooldownLength);
-	GETTER(int, GetLevel, Netvars::C_DOTABaseAbility::m_iLevel);
-
+	NETVAR(bool, IsToggled, "C_DOTABaseAbility/m_bToggleState"); // For things like Pudge's Rot or Armlet
+	NETVAR(bool, IsHidden, "C_DOTABaseAbility/m_bHidden");
+	NETVAR(float, GetCooldown, "C_DOTABaseAbility/m_fCooldown");
+	NETVAR(float, GetCooldownLength, "C_DOTABaseAbility/m_flCooldownLength");
+	NETVAR(int, GetLevel, "C_DOTABaseAbility/m_iLevel");
+	NETVAR(int, GetCharges, "C_DOTABaseAbility/m_nAbilityCurrentCharges");
+	NETVAR(float, GetChargeRestoreCooldown, "C_DOTABaseAbility/m_fAbilityChargeRestoreTimeRemaining");
+	NETVAR(int, GetManaCost, "C_DOTABaseAbility/m_iManaCost");
+	NETVAR(bool, IsInAbilityPhase, "C_DOTABaseAbility/m_bInAbilityPhase");
 	GETTER(DOTAAbilityDefinition_t*, GetDefinition, 0x528);
 
 	int GetMaxLevel() {
 		return GetDefinition()->m_iMaxLevel;
 	};
-	GETTER(int, GetCharges, Netvars::C_DOTABaseAbility::m_nAbilityCurrentCharges);
-	GETTER(float, GetChargeRestoreCooldown, Netvars::C_DOTABaseAbility::m_fAbilityChargeRestoreTimeRemaining);
-	GETTER(int, GetManaCost, Netvars::C_DOTABaseAbility::m_iManaCost);
-	GETTER(bool, IsInAbilityPhase, Netvars::C_DOTABaseAbility::m_bInAbilityPhase);
 
-	// xref: "GetCastRange" to lea rcx, above that is lea rax, [XXXXXXXXX]
-	// In the end of the func is a call to [rcx + 0x???] <--- that divided by 8 gives you the index
-	int GetCastRange() {
-		// Still using GetLevelSpecialValueFor because that has clearer usage
-		return GetLevelSpecialValueFor<int>("AbilityCastRange");
-	}
+#define SPECVAL_GETTER(type, name, val) type name() { return GetLevelSpecialValueFor<type>(val); }
 
-	// Goes right after GetCastRange ^
+	SPECVAL_GETTER(int, GetCastRange, "AbilityCastRange");
+	SPECVAL_GETTER(int, GetAOERadius, "radius");
+
+#undef SPECVAL_GETTER
+
+	// JS Func
 	int GetEffectiveCastRange() {
 		return CallVFunc<VTableIndexes::CDOTABaseAbility::GetEffectiveCastRange, int>(nullptr, nullptr, nullptr);
 	}
 
-	int GetAOERadius() {
-		return GetLevelSpecialValueFor<int>("radius", -1);
-	}
 };
-
-//template<typename T>
-//T CDOTABaseAbility::GetLevelSpecialValueFor(const char* valName, int level) {
-//	auto entry = GetKVEntry(this, valName);
-//
-//	// Clamping the level value
-//	if (level < 0)
-//		level = GetLevel();
-//	if (level > entry->GetValuesSize() - 1)
-//		level = entry->GetValuesSize();
-//
-//	auto values = entry->GetValues();
-//	return (T)values[level - 1];
-//}

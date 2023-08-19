@@ -81,6 +81,11 @@ class Memory {
 		return nullptr;
 	}
 
+	struct InterfaceInfo {
+		void*(*Create)();
+		const char* m_szName;
+		InterfaceInfo* m_pNext;
+	};
 
 	using PatchSequence = std::vector<BYTE>;
 	static inline std::map<uintptr_t, PatchSequence> patches;
@@ -129,11 +134,27 @@ public:
 	static void Copy(auto* dst, const auto* src, size_t size) {
 		memcpy((void*)dst, (const void*)src, size);
 	}
+
 	template<typename T = void>
 	static T* GetInterface(const char* dllName, const char* interfaceName) {
 		auto CreateInterface = GetExport(dllName, "CreateInterface");
 		return (T*)CreateInterface(interfaceName, nullptr);
 	}
+
+	template<typename T = void>
+	static T* GetInterfaceBySubstr(const char* dllName, const char* substr) {
+		auto pInterface = *Memory::GetExport<Address>(dllName, "CreateInterface").GetAbsoluteAddress<InterfaceInfo**>(3);
+
+		while (pInterface) {
+			if (strstr(pInterface->m_szName, substr))
+				return (T*)pInterface->Create();
+
+			pInterface = pInterface->m_pNext;
+		}
+
+		return nullptr;
+	}
+
 	template<typename T = Function>
 	// Returns an exported function, if it's available
 	static T GetExport(const char* dllName, const char* exportName) {
