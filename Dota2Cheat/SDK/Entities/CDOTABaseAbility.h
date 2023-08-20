@@ -181,15 +181,15 @@ public:
 		return (T)GetLevelSpecialValueForFunc(this, value, level, nullptr, 0, nullptr);
 	}
 
-	NETVAR(bool, IsToggled, "C_DOTABaseAbility/m_bToggleState"); // For things like Pudge's Rot or Armlet
-	NETVAR(bool, IsHidden, "C_DOTABaseAbility/m_bHidden");
-	NETVAR(float, GetCooldown, "C_DOTABaseAbility/m_fCooldown");
-	NETVAR(float, GetCooldownLength, "C_DOTABaseAbility/m_flCooldownLength");
-	NETVAR(int, GetLevel, "C_DOTABaseAbility/m_iLevel");
-	NETVAR(int, GetCharges, "C_DOTABaseAbility/m_nAbilityCurrentCharges");
-	NETVAR(float, GetChargeRestoreCooldown, "C_DOTABaseAbility/m_fAbilityChargeRestoreTimeRemaining");
-	NETVAR(int, GetManaCost, "C_DOTABaseAbility/m_iManaCost");
-	NETVAR(bool, IsInAbilityPhase, "C_DOTABaseAbility/m_bInAbilityPhase");
+	GETTER(bool, IsToggled, Netvars::C_DOTABaseAbility::m_bToggleState); // For things like Pudge's Rot or Armlet
+	GETTER(bool, IsHidden, Netvars::C_DOTABaseAbility::m_bHidden);
+	GETTER(float, GetCooldown, Netvars::C_DOTABaseAbility::m_fCooldown);
+	GETTER(float, GetCooldownLength, Netvars::C_DOTABaseAbility::m_flCooldownLength);
+	GETTER(int, GetLevel, Netvars::C_DOTABaseAbility::m_iLevel);
+	GETTER(int, GetCharges, Netvars::C_DOTABaseAbility::m_nAbilityCurrentCharges);
+	GETTER(float, GetChargeRestoreCooldown, Netvars::C_DOTABaseAbility::m_fAbilityChargeRestoreTimeRemaining);
+	GETTER(int, GetManaCost, Netvars::C_DOTABaseAbility::m_iManaCost);
+	GETTER(bool, IsInAbilityPhase, Netvars::C_DOTABaseAbility::m_bInAbilityPhase);
 	GETTER(DOTAAbilityDefinition_t*, GetDefinition, 0x528);
 
 	int GetMaxLevel() {

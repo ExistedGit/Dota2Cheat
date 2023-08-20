@@ -12,7 +12,7 @@ struct CDOTA_BuffParticle {
 
 // server.dll
 // CDOTA_Buff
-class CDOTAModifier : public VClass, public INetworkedClass<"server.dll"> {
+class CDOTAModifier : public VClass {
 public:
 	GETTER(const char*, GetName, Netvars::CDOTA_Buff::m_name);
 	GETTER(float, GetDuration, Netvars::CDOTA_Buff::m_flDuration);
@@ -20,7 +20,7 @@ public:
 	GETTER(int, GetStackCount, Netvars::CDOTA_Buff::m_iStackCount);
 	GETTER(bool, IsAura, Netvars::CDOTA_Buff::m_bIsAura);
 	FIELD(CUtlVector<CDOTA_BuffParticle>, Particles, Netvars::CDOTA_Buff::m_iParticles);
-	NETVAR(DOTA_GC_TEAM, GetTeam, "CDOTA_Buff/m_iTeam");
+	GETTER(DOTA_GC_TEAM, GetTeam, Netvars::CDOTA_Buff::m_iTeam);
 	GETTER(CHandle<CDOTABaseNPC>, GetCasterHandle, Netvars::CDOTA_Buff::m_hCaster);
 	GETTER(CHandle<CDOTABaseAbility>, GetAbilityHandle, Netvars::CDOTA_Buff::m_hAbility);
 	GETTER(CHandle<CDOTABaseNPC>, GetOwnerHandle, Netvars::CDOTA_Buff::m_hParent);
