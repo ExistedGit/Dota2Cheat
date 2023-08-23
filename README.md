@@ -1,6 +1,6 @@
 # Dota2Cheat
 
-![D2C image v3](https://github.com/ExistedGit/Dota2Cheat/assets/66470490/2b5a66ba-c6fe-4f27-9009-914135948216)
+![v4 image](https://github.com/ExistedGit/Dota2Cheat/assets/66470490/88dbfa94-0ba3-4d53-b355-8cb18de98d71)
 
 There weren't many open-source Dota cheats. And so I decided to fix that.
 Written in C++20 with love
