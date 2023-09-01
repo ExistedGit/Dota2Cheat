@@ -421,7 +421,7 @@ PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceMetadata_Response_Range::CMsgSteamLea
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.data_element_path_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.min_value_)*/0
-  , /*decltype(_impl_.max_values_)*/0} {}
+  , /*decltype(_impl_.max_value_)*/0} {}
 struct CMsgSteamLearn_InferenceMetadata_Response_RangeDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceMetadata_Response_RangeDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -437,7 +437,7 @@ PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceMetadata_Response_StdDev::CMsgSteamLe
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.data_element_path_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.mean_)*/0
-  , /*decltype(_impl_.std_dev_)*/0u} {}
+  , /*decltype(_impl_.std_dev_)*/0} {}
 struct CMsgSteamLearn_InferenceMetadata_Response_StdDevDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceMetadata_Response_StdDevDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -516,7 +516,9 @@ PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::CMs
   , /*decltype(_impl_.x_)*/0
   , /*decltype(_impl_.y_)*/0
   , /*decltype(_impl_.radius_)*/0
-  , /*decltype(_impl_.radius_80pct_)*/0} {}
+  , /*decltype(_impl_.radius_75pct_)*/0
+  , /*decltype(_impl_.radius_50pct_)*/0
+  , /*decltype(_impl_.radius_25pct_)*/0} {}
 struct CMsgSteamLearn_InferenceMetadata_Response_KMeans_ClusterDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceMetadata_Response_KMeans_ClusterDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -968,7 +970,7 @@ const uint32_t TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto::o
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CMsgSteamLearn_InferenceMetadata_Response_Range, _impl_.data_element_path_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamLearn_InferenceMetadata_Response_Range, _impl_.min_value_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearn_InferenceMetadata_Response_Range, _impl_.max_values_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearn_InferenceMetadata_Response_Range, _impl_.max_value_),
   0,
   1,
   2,
@@ -1037,11 +1039,15 @@ const uint32_t TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto::o
   PROTOBUF_FIELD_OFFSET(::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster, _impl_.x_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster, _impl_.y_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster, _impl_.radius_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster, _impl_.radius_80pct_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster, _impl_.radius_75pct_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster, _impl_.radius_50pct_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster, _impl_.radius_25pct_),
   0,
   1,
   2,
   3,
+  4,
+  5,
   PROTOBUF_FIELD_OFFSET(::CMsgSteamLearn_InferenceMetadata_Response_KMeans, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamLearn_InferenceMetadata_Response_KMeans, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1170,16 +1176,16 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 329, 337, -1, sizeof(::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapValuesEntry)},
   { 339, 347, -1, sizeof(::CMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry)},
   { 349, 358, -1, sizeof(::CMsgSteamLearn_InferenceMetadata_Response_CompactTable)},
-  { 361, 371, -1, sizeof(::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster)},
-  { 375, 383, -1, sizeof(::CMsgSteamLearn_InferenceMetadata_Response_KMeans)},
-  { 385, 395, -1, sizeof(::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram)},
-  { 399, 412, -1, sizeof(::CMsgSteamLearn_InferenceMetadata_Response)},
-  { 419, 426, -1, sizeof(::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput)},
-  { 427, -1, -1, sizeof(::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput)},
-  { 435, -1, -1, sizeof(::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput)},
-  { 443, -1, -1, sizeof(::CMsgSteamLearn_InferenceBackend_Response_Output)},
-  { 453, -1, -1, sizeof(::CMsgSteamLearn_InferenceBackend_Response)},
-  { 460, 468, -1, sizeof(::CMsgSteamLearn_Inference_Response)},
+  { 361, 373, -1, sizeof(::CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster)},
+  { 379, 387, -1, sizeof(::CMsgSteamLearn_InferenceMetadata_Response_KMeans)},
+  { 389, 399, -1, sizeof(::CMsgSteamLearn_InferenceMetadata_Response_SnapshotHistogram)},
+  { 403, 416, -1, sizeof(::CMsgSteamLearn_InferenceMetadata_Response)},
+  { 423, 430, -1, sizeof(::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput)},
+  { 431, -1, -1, sizeof(::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput)},
+  { 439, -1, -1, sizeof(::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput)},
+  { 447, -1, -1, sizeof(::CMsgSteamLearn_InferenceBackend_Response_Output)},
+  { 457, -1, -1, sizeof(::CMsgSteamLearn_InferenceBackend_Response)},
+  { 464, 472, -1, sizeof(::CMsgSteamLearn_Inference_Response)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -1316,7 +1322,7 @@ const char descriptor_table_protodef_steammessages_5fsteamlearn_2esteamworkssdk_
   " \001(\r\022\031\n\021override_train_id\030\005 \001(\r\"W\n/CMsgS"
   "teamLearn_InferenceMetadataBackend_Reque"
   "st\022\022\n\nproject_id\030\001 \001(\r\022\020\n\010fetch_id\030\002 \001(\r"
-  "\"\225\014\n)CMsgSteamLearn_InferenceMetadata_Re"
+  "\"\300\014\n)CMsgSteamLearn_InferenceMetadata_Re"
   "sponse\022k\n\031inference_metadata_result\030\001 \001("
   "\0162#.ESteamLearnInferenceMetadataResult:#"
   "STEAMLEARN_INFERENCE_METADATA_ERROR\022F\n\tr"
@@ -1332,167 +1338,168 @@ const char descriptor_table_protodef_steammessages_5fsteamlearn_2esteamworkssdk_
   "ot_histogram\030\007 \001(\0132<.CMsgSteamLearn_Infe"
   "renceMetadata_Response.SnapshotHistogram"
   "\032,\n\010RowRange\022\017\n\007min_row\030\001 \001(\004\022\017\n\007max_row"
-  "\030\002 \001(\004\032I\n\005Range\022\031\n\021data_element_path\030\001 \001"
-  "(\t\022\021\n\tmin_value\030\002 \001(\005\022\022\n\nmax_values\030\003 \001("
-  "\005\032B\n\006StdDev\022\031\n\021data_element_path\030\001 \001(\t\022\014"
-  "\n\004mean\030\002 \001(\005\022\017\n\007std_dev\030\003 \001(\r\032\354\003\n\014Compac"
-  "tTable\022\014\n\004name\030\001 \001(\t\022Z\n\nmap_values\030\002 \003(\013"
-  "2F.CMsgSteamLearn_InferenceMetadata_Resp"
-  "onse.CompactTable.MapValuesEntry\022^\n\014map_"
-  "mappings\030\003 \003(\0132H.CMsgSteamLearn_Inferenc"
-  "eMetadata_Response.CompactTable.MapMappi"
-  "ngsEntry\0326\n\005Entry\022\r\n\005value\030\001 \001(\r\022\017\n\007mapp"
-  "ing\030\002 \001(\r\022\r\n\005count\030\003 \001(\004\032k\n\016MapValuesEnt"
-  "ry\022\013\n\003key\030\001 \001(\r\022L\n\005value\030\002 \001(\0132=.CMsgSte"
-  "amLearn_InferenceMetadata_Response.Compa"
-  "ctTable.Entry\032m\n\020MapMappingsEntry\022\013\n\003key"
-  "\030\001 \001(\r\022L\n\005value\030\002 \001(\0132=.CMsgSteamLearn_I"
-  "nferenceMetadata_Response.CompactTable.E"
-  "ntry\032\252\001\n\006KMeans\022\014\n\004name\030\001 \001(\t\022K\n\010cluster"
-  "s\030\002 \003(\01329.CMsgSteamLearn_InferenceMetada"
-  "ta_Response.KMeans.Cluster\032E\n\007Cluster\022\t\n"
-  "\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\016\n\006radius\030\003 \001(\002\022\024\n\014r"
-  "adius_80pct\030\004 \001(\002\032e\n\021SnapshotHistogram\022\021"
-  "\n\tmin_value\030\001 \001(\002\022\021\n\tmax_value\030\002 \001(\002\022\023\n\013"
-  "num_buckets\030\003 \001(\r\022\025\n\rbucket_counts\030\004 \003(\r"
-  "\"\361\004\n(CMsgSteamLearn_InferenceBackend_Res"
-  "ponse\022A\n\007outputs\030\001 \003(\01320.CMsgSteamLearn_"
-  "InferenceBackend_Response.Output\032)\n\030Bina"
-  "ryCrossEntropyOutput\022\r\n\005value\030\001 \001(\002\032>\n\035M"
-  "utliBinaryCrossEntropyOutput\022\016\n\006weight\030\001"
-  " \003(\002\022\r\n\005value\030\002 \003(\002\032>\n\035CategoricalCrossE"
-  "ntropyOutput\022\016\n\006weight\030\001 \003(\002\022\r\n\005value\030\002 "
-  "\003(\002\032\326\002\n\006Output\022a\n\023binary_crossentropy\030\001 "
-  "\001(\0132B.CMsgSteamLearn_InferenceBackend_Re"
-  "sponse.BinaryCrossEntropyOutputH\000\022k\n\030cat"
-  "egorical_crossentropy\030\002 \001(\0132G.CMsgSteamL"
-  "earn_InferenceBackend_Response.Categoric"
-  "alCrossEntropyOutputH\000\022l\n\031multi_binary_c"
-  "rossentropy\030\003 \001(\0132G.CMsgSteamLearn_Infer"
-  "enceBackend_Response.MutliBinaryCrossEnt"
-  "ropyOutputH\000B\016\n\014ResponseType\"\273\001\n!CMsgSte"
-  "amLearn_Inference_Response\022Q\n\020inference_"
-  "result\030\001 \001(\0162\033.ESteamLearnInferenceResul"
-  "t:\032STEAMLEARN_INFERENCE_ERROR\022C\n\020backend"
-  "_response\030\002 \001(\0132).CMsgSteamLearn_Inferen"
-  "ceBackend_Response*\324\001\n\023ESteamLearnDataTy"
-  "pe\022\037\n\033STEAMLEARN_DATATYPE_INVALID\020\000\022\035\n\031S"
-  "TEAMLEARN_DATATYPE_INT32\020\001\022\037\n\033STEAMLEARN"
-  "_DATATYPE_FLOAT32\020\002\022\034\n\030STEAMLEARN_DATATY"
-  "PE_BOOL\020\003\022\036\n\032STEAMLEARN_DATATYPE_STRING\020"
-  "\004\022\036\n\032STEAMLEARN_DATATYPE_OBJECT\020\005*\274\005\n$ES"
-  "teammLearnRegisterDataSourceResult\0220\n,ST"
-  "EAMLEARN_REGISTER_DATA_SOURCE_RESULT_ERR"
-  "OR\020\000\022:\n6STEAMLEARN_REGISTER_DATA_SOURCE_"
-  "RESULT_SUCCESS_CREATED\020\001\0228\n4STEAMLEARN_R"
-  "EGISTER_DATA_SOURCE_RESULT_SUCCESS_FOUND"
-  "\020\002\0228\n4STEAMLEARN_REGISTER_DATA_SOURCE_RE"
-  "SULT_ERROR_GENERIC\020\003\022=\n9STEAMLEARN_REGIS"
-  "TER_DATA_SOURCE_RESULT_ERROR_INVALID_NAM"
-  "E\020\004\022@\n<STEAMLEARN_REGISTER_DATA_SOURCE_R"
-  "ESULT_ERROR_INVALID_VERSION\020\005\022=\n9STEAMLE"
-  "ARN_REGISTER_DATA_SOURCE_RESULT_ERROR_DA"
-  "TA_CHANGED\020\006\022=\n9STEAMLEARN_REGISTER_DATA"
-  "_SOURCE_RESULT_ERROR_DATA_INVALID\020\007\022:\n6S"
-  "TEAMLEARN_REGISTER_DATA_SOURCE_RESULT_ER"
-  "ROR_FORBIDDEN\020\010\022B\n>STEAMLEARN_REGISTER_D"
-  "ATA_SOURCE_RESULT_ERROR_INVALID_TIMESTAM"
-  "P\020\t\0223\n/STEAMLEARN_REGISTER_DATA_SOURCE_R"
-  "ESULT_DISABLED\020\n*\373\002\n\032ESteamLearnCacheDat"
-  "aResult\022\037\n\033STEAMLEARN_CACHE_DATA_ERROR\020\000"
-  "\022!\n\035STEAMLEARN_CACHE_DATA_SUCCESS\020\001\0223\n/S"
-  "TEAMLEARN_CACHE_DATA_ERROR_UNKNOWN_DATA_"
-  "SOURCE\020\002\0224\n0STEAMLEARN_CACHE_DATA_ERROR_"
-  "UNCACHED_DATA_SOURCE\020\003\022,\n(STEAMLEARN_CAC"
-  "HE_DATA_ERROR_INVALID_KEYS\020\004\022)\n%STEAMLEA"
-  "RN_CACHE_DATA_ERROR_FORBIDDEN\020\005\0221\n-STEAM"
-  "LEARN_CACHE_DATA_ERROR_INVALID_TIMESTAMP"
-  "\020\006\022\"\n\036STEAMLEARN_CACHE_DATA_DISABLED\020\007*\355"
-  "\005\n ESteamLearnSnapshotProjectResult\022%\n!S"
-  "TEAMLEARN_SNAPSHOT_PROJECT_ERROR\020\000\022.\n*ST"
-  "EAMLEARN_SNAPSHOT_PROJECT_SUCCESS_STORED"
-  "\020\001\022.\n*STEAMLEARN_SNAPSHOT_PROJECT_SUCCES"
-  "S_QUEUED\020\002\0228\n4STEAMLEARN_SNAPSHOT_PROJEC"
-  "T_ERROR_INVALID_PROJECT_ID\020\003\0229\n5STEAMLEA"
-  "RN_SNAPSHOT_PROJECT_ERROR_UNKNOWN_DATA_S"
-  "OURCE\020\004\022=\n9STEAMLEARN_SNAPSHOT_PROJECT_E"
-  "RROR_INVALID_DATA_SOURCE_KEY\020\005\022<\n8STEAML"
-  "EARN_SNAPSHOT_PROJECT_ERROR_MISSING_CACH"
-  "E_DURATION\020\006\0229\n5STEAMLEARN_SNAPSHOT_PROJ"
-  "ECT_ERROR_NO_PUBLISHED_CONFIG\020\007\022/\n+STEAM"
-  "LEARN_SNAPSHOT_PROJECT_ERROR_FORBIDDEN\020\010"
-  "\0227\n3STEAMLEARN_SNAPSHOT_PROJECT_ERROR_IN"
-  "VALID_TIMESTAMP\020\t\022@\n<STEAMLEARN_SNAPSHOT"
-  "_PROJECT_ERROR_INTERNAL_DATA_SOURCE_ERRO"
-  "R\020\n\022(\n$STEAMLEARN_SNAPSHOT_PROJECT_DISAB"
-  "LED\020\013\022\?\n;STEAMLEARN_SNAPSHOT_PROJECT_ERR"
-  "OR_INVALID_PUBLISHED_VERSION\020\014*D\n\034ESteam"
-  "LearnGetHMACKeysResult\022$\n STEAMLEARN_GET"
-  "_HMAC_KEYS_SUCCESS\020\000*\361\003\n\032ESteamLearnInfe"
-  "renceResult\022\036\n\032STEAMLEARN_INFERENCE_ERRO"
-  "R\020\000\022 \n\034STEAMLEARN_INFERENCE_SUCCESS\020\001\0221\n"
-  "-STEAMLEARN_INFERENCE_ERROR_INVALID_PROJ"
-  "ECT_ID\020\002\0229\n5STEAMLEARN_INFERENCE_ERROR_M"
-  "ISSING_CACHED_SCHEMA_DATA\020\003\0222\n.STEAMLEAR"
-  "N_INFERENCE_ERROR_NO_PUBLISHED_CONFIG\020\004\022"
-  "(\n$STEAMLEARN_INFERENCE_ERROR_FORBIDDEN\020"
-  "\005\0220\n,STEAMLEARN_INFERENCE_ERROR_INVALID_"
-  "TIMESTAMP\020\006\0228\n4STEAMLEARN_INFERENCE_ERRO"
-  "R_INVALID_PUBLISHED_VERSION\020\007\0220\n,STEAMLE"
-  "ARN_INFERENCE_ERROR_NO_FETCH_ID_FOUND\020\010\022"
-  "\'\n#STEAMLEARN_INFERENCE_ERROR_TOO_BUSY\020\t"
-  "*\335\003\n\"ESteamLearnInferenceMetadataResult\022"
-  "\'\n#STEAMLEARN_INFERENCE_METADATA_ERROR\020\000"
-  "\022)\n%STEAMLEARN_INFERENCE_METADATA_SUCCES"
-  "S\020\001\022:\n6STEAMLEARN_INFERENCE_METADATA_ERR"
-  "OR_INVALID_PROJECT_ID\020\002\022;\n7STEAMLEARN_IN"
-  "FERENCE_METADATA_ERROR_NO_PUBLISHED_CONF"
-  "IG\020\003\0221\n-STEAMLEARN_INFERENCE_METADATA_ER"
-  "ROR_FORBIDDEN\020\004\0229\n5STEAMLEARN_INFERENCE_"
-  "METADATA_ERROR_INVALID_TIMESTAMP\020\005\022A\n=ST"
-  "EAMLEARN_INFERENCE_METADATA_ERROR_INVALI"
-  "D_PUBLISHED_VERSION\020\006\0229\n5STEAMLEARN_INFE"
-  "RENCE_METADATA_ERROR_NO_FETCH_ID_FOUND\020\007"
-  "2\203\n\n\nSteamLearn\022\273\001\n\022RegisterDataSource\022*"
-  ".CMsgSteamLearn_RegisterDataSource_Reque"
-  "st\032+.CMsgSteamLearn_RegisterDataSource_R"
-  "esponse\"L\202\265\030HRegisters a data desc (or f"
-  "inds a data desc if it\'s already registe"
-  "red).\022t\n\tCacheData\022!.CMsgSteamLearn_Cach"
-  "eData_Request\032\".CMsgSteamLearn_CacheData"
-  "_Response\" \202\265\030\034Updates a cached data ent"
-  "ry.\022\223\001\n\017SnapshotProject\022\'.CMsgSteamLearn"
-  "_SnapshotProject_Request\032(.CMsgSteamLear"
-  "n_SnapshotProject_Response\"-\202\265\030)Snapshot"
-  "s the current data for a project.\022\272\001\n\016Ba"
-  "tchOperation\022&.CMsgSteamLearn_BatchOpera"
-  "tion_Request\032\'.CMsgSteamLearn_BatchOpera"
-  "tion_Response\"W\202\265\030SBatches multiple data"
-  " updates, snapshots, and inference reque"
-  "sts into a single call\022\310\001\n\013GetHMACKeys\022#"
-  ".CMsgSteamLearn_GetHMACKeys_Request\032$.CM"
-  "sgSteamLearn_GetHMACKeys_Response\"n\202\265\030jG"
-  "ets the HMAC keys needed for registering"
-  " data sources, submitting data to them, "
-  "and snapshotting projects\022\242\001\n\tInference\022"
-  "!.CMsgSteamLearn_Inference_Request\032\".CMs"
-  "gSteamLearn_Inference_Response\"N\202\265\030JInfe"
-  "rences using supplied data, or data asso"
-  "ciated with the specified key.\022\260\001\n\021Infer"
-  "enceMetadata\022).CMsgSteamLearn_InferenceM"
-  "etadata_Request\032*.CMsgSteamLearn_Inferen"
-  "ceMetadata_Response\"D\202\265\030@Requests the me"
-  "tadata that was generated from a specifi"
-  "ed fetch.\032K\202\265\030GService for submitting da"
-  "ta, training, and inferencing with Steam"
-  "Learn."
+  "\030\002 \001(\004\032H\n\005Range\022\031\n\021data_element_path\030\001 \001"
+  "(\t\022\021\n\tmin_value\030\002 \001(\002\022\021\n\tmax_value\030\003 \001(\002"
+  "\032B\n\006StdDev\022\031\n\021data_element_path\030\001 \001(\t\022\014\n"
+  "\004mean\030\002 \001(\002\022\017\n\007std_dev\030\003 \001(\002\032\354\003\n\014Compact"
+  "Table\022\014\n\004name\030\001 \001(\t\022Z\n\nmap_values\030\002 \003(\0132"
+  "F.CMsgSteamLearn_InferenceMetadata_Respo"
+  "nse.CompactTable.MapValuesEntry\022^\n\014map_m"
+  "appings\030\003 \003(\0132H.CMsgSteamLearn_Inference"
+  "Metadata_Response.CompactTable.MapMappin"
+  "gsEntry\0326\n\005Entry\022\r\n\005value\030\001 \001(\r\022\017\n\007mappi"
+  "ng\030\002 \001(\r\022\r\n\005count\030\003 \001(\004\032k\n\016MapValuesEntr"
+  "y\022\013\n\003key\030\001 \001(\r\022L\n\005value\030\002 \001(\0132=.CMsgStea"
+  "mLearn_InferenceMetadata_Response.Compac"
+  "tTable.Entry\032m\n\020MapMappingsEntry\022\013\n\003key\030"
+  "\001 \001(\r\022L\n\005value\030\002 \001(\0132=.CMsgSteamLearn_In"
+  "ferenceMetadata_Response.CompactTable.En"
+  "try\032\326\001\n\006KMeans\022\014\n\004name\030\001 \001(\t\022K\n\010clusters"
+  "\030\002 \003(\01329.CMsgSteamLearn_InferenceMetadat"
+  "a_Response.KMeans.Cluster\032q\n\007Cluster\022\t\n\001"
+  "x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\016\n\006radius\030\003 \001(\002\022\024\n\014ra"
+  "dius_75pct\030\004 \001(\002\022\024\n\014radius_50pct\030\005 \001(\002\022\024"
+  "\n\014radius_25pct\030\006 \001(\002\032e\n\021SnapshotHistogra"
+  "m\022\021\n\tmin_value\030\001 \001(\002\022\021\n\tmax_value\030\002 \001(\002\022"
+  "\023\n\013num_buckets\030\003 \001(\r\022\025\n\rbucket_counts\030\004 "
+  "\003(\r\"\361\004\n(CMsgSteamLearn_InferenceBackend_"
+  "Response\022A\n\007outputs\030\001 \003(\01320.CMsgSteamLea"
+  "rn_InferenceBackend_Response.Output\032)\n\030B"
+  "inaryCrossEntropyOutput\022\r\n\005value\030\001 \001(\002\032>"
+  "\n\035MutliBinaryCrossEntropyOutput\022\016\n\006weigh"
+  "t\030\001 \003(\002\022\r\n\005value\030\002 \003(\002\032>\n\035CategoricalCro"
+  "ssEntropyOutput\022\016\n\006weight\030\001 \003(\002\022\r\n\005value"
+  "\030\002 \003(\002\032\326\002\n\006Output\022a\n\023binary_crossentropy"
+  "\030\001 \001(\0132B.CMsgSteamLearn_InferenceBackend"
+  "_Response.BinaryCrossEntropyOutputH\000\022k\n\030"
+  "categorical_crossentropy\030\002 \001(\0132G.CMsgSte"
+  "amLearn_InferenceBackend_Response.Catego"
+  "ricalCrossEntropyOutputH\000\022l\n\031multi_binar"
+  "y_crossentropy\030\003 \001(\0132G.CMsgSteamLearn_In"
+  "ferenceBackend_Response.MutliBinaryCross"
+  "EntropyOutputH\000B\016\n\014ResponseType\"\273\001\n!CMsg"
+  "SteamLearn_Inference_Response\022Q\n\020inferen"
+  "ce_result\030\001 \001(\0162\033.ESteamLearnInferenceRe"
+  "sult:\032STEAMLEARN_INFERENCE_ERROR\022C\n\020back"
+  "end_response\030\002 \001(\0132).CMsgSteamLearn_Infe"
+  "renceBackend_Response*\324\001\n\023ESteamLearnDat"
+  "aType\022\037\n\033STEAMLEARN_DATATYPE_INVALID\020\000\022\035"
+  "\n\031STEAMLEARN_DATATYPE_INT32\020\001\022\037\n\033STEAMLE"
+  "ARN_DATATYPE_FLOAT32\020\002\022\034\n\030STEAMLEARN_DAT"
+  "ATYPE_BOOL\020\003\022\036\n\032STEAMLEARN_DATATYPE_STRI"
+  "NG\020\004\022\036\n\032STEAMLEARN_DATATYPE_OBJECT\020\005*\274\005\n"
+  "$ESteammLearnRegisterDataSourceResult\0220\n"
+  ",STEAMLEARN_REGISTER_DATA_SOURCE_RESULT_"
+  "ERROR\020\000\022:\n6STEAMLEARN_REGISTER_DATA_SOUR"
+  "CE_RESULT_SUCCESS_CREATED\020\001\0228\n4STEAMLEAR"
+  "N_REGISTER_DATA_SOURCE_RESULT_SUCCESS_FO"
+  "UND\020\002\0228\n4STEAMLEARN_REGISTER_DATA_SOURCE"
+  "_RESULT_ERROR_GENERIC\020\003\022=\n9STEAMLEARN_RE"
+  "GISTER_DATA_SOURCE_RESULT_ERROR_INVALID_"
+  "NAME\020\004\022@\n<STEAMLEARN_REGISTER_DATA_SOURC"
+  "E_RESULT_ERROR_INVALID_VERSION\020\005\022=\n9STEA"
+  "MLEARN_REGISTER_DATA_SOURCE_RESULT_ERROR"
+  "_DATA_CHANGED\020\006\022=\n9STEAMLEARN_REGISTER_D"
+  "ATA_SOURCE_RESULT_ERROR_DATA_INVALID\020\007\022:"
+  "\n6STEAMLEARN_REGISTER_DATA_SOURCE_RESULT"
+  "_ERROR_FORBIDDEN\020\010\022B\n>STEAMLEARN_REGISTE"
+  "R_DATA_SOURCE_RESULT_ERROR_INVALID_TIMES"
+  "TAMP\020\t\0223\n/STEAMLEARN_REGISTER_DATA_SOURC"
+  "E_RESULT_DISABLED\020\n*\373\002\n\032ESteamLearnCache"
+  "DataResult\022\037\n\033STEAMLEARN_CACHE_DATA_ERRO"
+  "R\020\000\022!\n\035STEAMLEARN_CACHE_DATA_SUCCESS\020\001\0223"
+  "\n/STEAMLEARN_CACHE_DATA_ERROR_UNKNOWN_DA"
+  "TA_SOURCE\020\002\0224\n0STEAMLEARN_CACHE_DATA_ERR"
+  "OR_UNCACHED_DATA_SOURCE\020\003\022,\n(STEAMLEARN_"
+  "CACHE_DATA_ERROR_INVALID_KEYS\020\004\022)\n%STEAM"
+  "LEARN_CACHE_DATA_ERROR_FORBIDDEN\020\005\0221\n-ST"
+  "EAMLEARN_CACHE_DATA_ERROR_INVALID_TIMEST"
+  "AMP\020\006\022\"\n\036STEAMLEARN_CACHE_DATA_DISABLED\020"
+  "\007*\355\005\n ESteamLearnSnapshotProjectResult\022%"
+  "\n!STEAMLEARN_SNAPSHOT_PROJECT_ERROR\020\000\022.\n"
+  "*STEAMLEARN_SNAPSHOT_PROJECT_SUCCESS_STO"
+  "RED\020\001\022.\n*STEAMLEARN_SNAPSHOT_PROJECT_SUC"
+  "CESS_QUEUED\020\002\0228\n4STEAMLEARN_SNAPSHOT_PRO"
+  "JECT_ERROR_INVALID_PROJECT_ID\020\003\0229\n5STEAM"
+  "LEARN_SNAPSHOT_PROJECT_ERROR_UNKNOWN_DAT"
+  "A_SOURCE\020\004\022=\n9STEAMLEARN_SNAPSHOT_PROJEC"
+  "T_ERROR_INVALID_DATA_SOURCE_KEY\020\005\022<\n8STE"
+  "AMLEARN_SNAPSHOT_PROJECT_ERROR_MISSING_C"
+  "ACHE_DURATION\020\006\0229\n5STEAMLEARN_SNAPSHOT_P"
+  "ROJECT_ERROR_NO_PUBLISHED_CONFIG\020\007\022/\n+ST"
+  "EAMLEARN_SNAPSHOT_PROJECT_ERROR_FORBIDDE"
+  "N\020\010\0227\n3STEAMLEARN_SNAPSHOT_PROJECT_ERROR"
+  "_INVALID_TIMESTAMP\020\t\022@\n<STEAMLEARN_SNAPS"
+  "HOT_PROJECT_ERROR_INTERNAL_DATA_SOURCE_E"
+  "RROR\020\n\022(\n$STEAMLEARN_SNAPSHOT_PROJECT_DI"
+  "SABLED\020\013\022\?\n;STEAMLEARN_SNAPSHOT_PROJECT_"
+  "ERROR_INVALID_PUBLISHED_VERSION\020\014*D\n\034ESt"
+  "eamLearnGetHMACKeysResult\022$\n STEAMLEARN_"
+  "GET_HMAC_KEYS_SUCCESS\020\000*\361\003\n\032ESteamLearnI"
+  "nferenceResult\022\036\n\032STEAMLEARN_INFERENCE_E"
+  "RROR\020\000\022 \n\034STEAMLEARN_INFERENCE_SUCCESS\020\001"
+  "\0221\n-STEAMLEARN_INFERENCE_ERROR_INVALID_P"
+  "ROJECT_ID\020\002\0229\n5STEAMLEARN_INFERENCE_ERRO"
+  "R_MISSING_CACHED_SCHEMA_DATA\020\003\0222\n.STEAML"
+  "EARN_INFERENCE_ERROR_NO_PUBLISHED_CONFIG"
+  "\020\004\022(\n$STEAMLEARN_INFERENCE_ERROR_FORBIDD"
+  "EN\020\005\0220\n,STEAMLEARN_INFERENCE_ERROR_INVAL"
+  "ID_TIMESTAMP\020\006\0228\n4STEAMLEARN_INFERENCE_E"
+  "RROR_INVALID_PUBLISHED_VERSION\020\007\0220\n,STEA"
+  "MLEARN_INFERENCE_ERROR_NO_FETCH_ID_FOUND"
+  "\020\010\022\'\n#STEAMLEARN_INFERENCE_ERROR_TOO_BUS"
+  "Y\020\t*\335\003\n\"ESteamLearnInferenceMetadataResu"
+  "lt\022\'\n#STEAMLEARN_INFERENCE_METADATA_ERRO"
+  "R\020\000\022)\n%STEAMLEARN_INFERENCE_METADATA_SUC"
+  "CESS\020\001\022:\n6STEAMLEARN_INFERENCE_METADATA_"
+  "ERROR_INVALID_PROJECT_ID\020\002\022;\n7STEAMLEARN"
+  "_INFERENCE_METADATA_ERROR_NO_PUBLISHED_C"
+  "ONFIG\020\003\0221\n-STEAMLEARN_INFERENCE_METADATA"
+  "_ERROR_FORBIDDEN\020\004\0229\n5STEAMLEARN_INFEREN"
+  "CE_METADATA_ERROR_INVALID_TIMESTAMP\020\005\022A\n"
+  "=STEAMLEARN_INFERENCE_METADATA_ERROR_INV"
+  "ALID_PUBLISHED_VERSION\020\006\0229\n5STEAMLEARN_I"
+  "NFERENCE_METADATA_ERROR_NO_FETCH_ID_FOUN"
+  "D\020\0072\203\n\n\nSteamLearn\022\273\001\n\022RegisterDataSourc"
+  "e\022*.CMsgSteamLearn_RegisterDataSource_Re"
+  "quest\032+.CMsgSteamLearn_RegisterDataSourc"
+  "e_Response\"L\202\265\030HRegisters a data desc (o"
+  "r finds a data desc if it\'s already regi"
+  "stered).\022t\n\tCacheData\022!.CMsgSteamLearn_C"
+  "acheData_Request\032\".CMsgSteamLearn_CacheD"
+  "ata_Response\" \202\265\030\034Updates a cached data "
+  "entry.\022\223\001\n\017SnapshotProject\022\'.CMsgSteamLe"
+  "arn_SnapshotProject_Request\032(.CMsgSteamL"
+  "earn_SnapshotProject_Response\"-\202\265\030)Snaps"
+  "hots the current data for a project.\022\272\001\n"
+  "\016BatchOperation\022&.CMsgSteamLearn_BatchOp"
+  "eration_Request\032\'.CMsgSteamLearn_BatchOp"
+  "eration_Response\"W\202\265\030SBatches multiple d"
+  "ata updates, snapshots, and inference re"
+  "quests into a single call\022\310\001\n\013GetHMACKey"
+  "s\022#.CMsgSteamLearn_GetHMACKeys_Request\032$"
+  ".CMsgSteamLearn_GetHMACKeys_Response\"n\202\265"
+  "\030jGets the HMAC keys needed for register"
+  "ing data sources, submitting data to the"
+  "m, and snapshotting projects\022\242\001\n\tInferen"
+  "ce\022!.CMsgSteamLearn_Inference_Request\032\"."
+  "CMsgSteamLearn_Inference_Response\"N\202\265\030JI"
+  "nferences using supplied data, or data a"
+  "ssociated with the specified key.\022\260\001\n\021In"
+  "ferenceMetadata\022).CMsgSteamLearn_Inferen"
+  "ceMetadata_Request\032*.CMsgSteamLearn_Infe"
+  "renceMetadata_Response\"D\202\265\030@Requests the"
+  " metadata that was generated from a spec"
+  "ified fetch.\032K\202\265\030GService for submitting"
+  " data, training, and inferencing with St"
+  "eamLearn."
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_steammessages_5fsteamlearn_2esteamworkssdk_2eproto_deps[1] = {
   &::descriptor_table_steammessages_5funified_5fbase_2esteamworkssdk_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_steammessages_5fsteamlearn_2esteamworkssdk_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_steammessages_5fsteamlearn_2esteamworkssdk_2eproto = {
-    false, false, 10326, descriptor_table_protodef_steammessages_5fsteamlearn_2esteamworkssdk_2eproto,
+    false, false, 10369, descriptor_table_protodef_steammessages_5fsteamlearn_2esteamworkssdk_2eproto,
     "steammessages_steamlearn.steamworkssdk.proto",
     &descriptor_table_steammessages_5fsteamlearn_2esteamworkssdk_2eproto_once, descriptor_table_steammessages_5fsteamlearn_2esteamworkssdk_2eproto_deps, 1, 41,
     schemas, file_default_instances, TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto::offsets,
@@ -8758,7 +8765,7 @@ class CMsgSteamLearn_InferenceMetadata_Response_Range::_Internal {
   static void set_has_min_value(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
-  static void set_has_max_values(HasBits* has_bits) {
+  static void set_has_max_value(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
 };
@@ -8777,7 +8784,7 @@ CMsgSteamLearn_InferenceMetadata_Response_Range::CMsgSteamLearn_InferenceMetadat
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.data_element_path_){}
     , decltype(_impl_.min_value_){}
-    , decltype(_impl_.max_values_){}};
+    , decltype(_impl_.max_value_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _impl_.data_element_path_.InitDefault();
@@ -8789,8 +8796,8 @@ CMsgSteamLearn_InferenceMetadata_Response_Range::CMsgSteamLearn_InferenceMetadat
       _this->GetArenaForAllocation());
   }
   ::memcpy(&_impl_.min_value_, &from._impl_.min_value_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.max_values_) -
-    reinterpret_cast<char*>(&_impl_.min_value_)) + sizeof(_impl_.max_values_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.max_value_) -
+    reinterpret_cast<char*>(&_impl_.min_value_)) + sizeof(_impl_.max_value_));
   // @@protoc_insertion_point(copy_constructor:CMsgSteamLearn_InferenceMetadata_Response.Range)
 }
 
@@ -8803,7 +8810,7 @@ inline void CMsgSteamLearn_InferenceMetadata_Response_Range::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.data_element_path_){}
     , decltype(_impl_.min_value_){0}
-    , decltype(_impl_.max_values_){0}
+    , decltype(_impl_.max_value_){0}
   };
   _impl_.data_element_path_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -8841,8 +8848,8 @@ void CMsgSteamLearn_InferenceMetadata_Response_Range::Clear() {
   }
   if (cached_has_bits & 0x00000006u) {
     ::memset(&_impl_.min_value_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.max_values_) -
-        reinterpret_cast<char*>(&_impl_.min_value_)) + sizeof(_impl_.max_values_));
+        reinterpret_cast<char*>(&_impl_.max_value_) -
+        reinterpret_cast<char*>(&_impl_.min_value_)) + sizeof(_impl_.max_value_));
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -8867,21 +8874,21 @@ const char* CMsgSteamLearn_InferenceMetadata_Response_Range::_InternalParse(cons
         } else
           goto handle_unusual;
         continue;
-      // optional int32 min_value = 2;
+      // optional float min_value = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 21)) {
           _Internal::set_has_min_value(&has_bits);
-          _impl_.min_value_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
+          _impl_.min_value_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
         } else
           goto handle_unusual;
         continue;
-      // optional int32 max_values = 3;
+      // optional float max_value = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          _Internal::set_has_max_values(&has_bits);
-          _impl_.max_values_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 29)) {
+          _Internal::set_has_max_value(&has_bits);
+          _impl_.max_value_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
         } else
           goto handle_unusual;
         continue;
@@ -8926,16 +8933,16 @@ uint8_t* CMsgSteamLearn_InferenceMetadata_Response_Range::_InternalSerialize(
         1, this->_internal_data_element_path(), target);
   }
 
-  // optional int32 min_value = 2;
+  // optional float min_value = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_min_value(), target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(2, this->_internal_min_value(), target);
   }
 
-  // optional int32 max_values = 3;
+  // optional float max_value = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_max_values(), target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_max_value(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -8963,14 +8970,14 @@ size_t CMsgSteamLearn_InferenceMetadata_Response_Range::ByteSizeLong() const {
           this->_internal_data_element_path());
     }
 
-    // optional int32 min_value = 2;
+    // optional float min_value = 2;
     if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_min_value());
+      total_size += 1 + 4;
     }
 
-    // optional int32 max_values = 3;
+    // optional float max_value = 3;
     if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_max_values());
+      total_size += 1 + 4;
     }
 
   }
@@ -9001,7 +9008,7 @@ void CMsgSteamLearn_InferenceMetadata_Response_Range::MergeImpl(::PROTOBUF_NAMES
       _this->_impl_.min_value_ = from._impl_.min_value_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.max_values_ = from._impl_.max_values_;
+      _this->_impl_.max_value_ = from._impl_.max_value_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -9030,8 +9037,8 @@ void CMsgSteamLearn_InferenceMetadata_Response_Range::InternalSwap(CMsgSteamLear
       &other->_impl_.data_element_path_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgSteamLearn_InferenceMetadata_Response_Range, _impl_.max_values_)
-      + sizeof(CMsgSteamLearn_InferenceMetadata_Response_Range::_impl_.max_values_)
+      PROTOBUF_FIELD_OFFSET(CMsgSteamLearn_InferenceMetadata_Response_Range, _impl_.max_value_)
+      + sizeof(CMsgSteamLearn_InferenceMetadata_Response_Range::_impl_.max_value_)
       - PROTOBUF_FIELD_OFFSET(CMsgSteamLearn_InferenceMetadata_Response_Range, _impl_.min_value_)>(
           reinterpret_cast<char*>(&_impl_.min_value_),
           reinterpret_cast<char*>(&other->_impl_.min_value_));
@@ -9099,7 +9106,7 @@ inline void CMsgSteamLearn_InferenceMetadata_Response_StdDev::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.data_element_path_){}
     , decltype(_impl_.mean_){0}
-    , decltype(_impl_.std_dev_){0u}
+    , decltype(_impl_.std_dev_){0}
   };
   _impl_.data_element_path_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -9163,21 +9170,21 @@ const char* CMsgSteamLearn_InferenceMetadata_Response_StdDev::_InternalParse(con
         } else
           goto handle_unusual;
         continue;
-      // optional int32 mean = 2;
+      // optional float mean = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 21)) {
           _Internal::set_has_mean(&has_bits);
-          _impl_.mean_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
+          _impl_.mean_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 std_dev = 3;
+      // optional float std_dev = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 29)) {
           _Internal::set_has_std_dev(&has_bits);
-          _impl_.std_dev_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
+          _impl_.std_dev_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
         } else
           goto handle_unusual;
         continue;
@@ -9222,16 +9229,16 @@ uint8_t* CMsgSteamLearn_InferenceMetadata_Response_StdDev::_InternalSerialize(
         1, this->_internal_data_element_path(), target);
   }
 
-  // optional int32 mean = 2;
+  // optional float mean = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_mean(), target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(2, this->_internal_mean(), target);
   }
 
-  // optional uint32 std_dev = 3;
+  // optional float std_dev = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_std_dev(), target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_std_dev(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -9259,14 +9266,14 @@ size_t CMsgSteamLearn_InferenceMetadata_Response_StdDev::ByteSizeLong() const {
           this->_internal_data_element_path());
     }
 
-    // optional int32 mean = 2;
+    // optional float mean = 2;
     if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_mean());
+      total_size += 1 + 4;
     }
 
-    // optional uint32 std_dev = 3;
+    // optional float std_dev = 3;
     if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_std_dev());
+      total_size += 1 + 4;
     }
 
   }
@@ -10400,8 +10407,14 @@ class CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_Internal {
   static void set_has_radius(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
-  static void set_has_radius_80pct(HasBits* has_bits) {
+  static void set_has_radius_75pct(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
+  }
+  static void set_has_radius_50pct(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_radius_25pct(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
   }
 };
 
@@ -10420,12 +10433,14 @@ CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::CMsgSteamLearn_Inferen
     , decltype(_impl_.x_){}
     , decltype(_impl_.y_){}
     , decltype(_impl_.radius_){}
-    , decltype(_impl_.radius_80pct_){}};
+    , decltype(_impl_.radius_75pct_){}
+    , decltype(_impl_.radius_50pct_){}
+    , decltype(_impl_.radius_25pct_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.x_, &from._impl_.x_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.radius_80pct_) -
-    reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.radius_80pct_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.radius_25pct_) -
+    reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.radius_25pct_));
   // @@protoc_insertion_point(copy_constructor:CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster)
 }
 
@@ -10439,7 +10454,9 @@ inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::SharedCtor
     , decltype(_impl_.x_){0}
     , decltype(_impl_.y_){0}
     , decltype(_impl_.radius_){0}
-    , decltype(_impl_.radius_80pct_){0}
+    , decltype(_impl_.radius_75pct_){0}
+    , decltype(_impl_.radius_50pct_){0}
+    , decltype(_impl_.radius_25pct_){0}
   };
 }
 
@@ -10467,10 +10484,10 @@ void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000003fu) {
     ::memset(&_impl_.x_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.radius_80pct_) -
-        reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.radius_80pct_));
+        reinterpret_cast<char*>(&_impl_.radius_25pct_) -
+        reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.radius_25pct_));
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -10510,11 +10527,29 @@ const char* CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_InternalP
         } else
           goto handle_unusual;
         continue;
-      // optional float radius_80pct = 4;
+      // optional float radius_75pct = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 37)) {
-          _Internal::set_has_radius_80pct(&has_bits);
-          _impl_.radius_80pct_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          _Internal::set_has_radius_75pct(&has_bits);
+          _impl_.radius_75pct_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional float radius_50pct = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 45)) {
+          _Internal::set_has_radius_50pct(&has_bits);
+          _impl_.radius_50pct_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional float radius_25pct = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 53)) {
+          _Internal::set_has_radius_25pct(&has_bits);
+          _impl_.radius_25pct_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
           goto handle_unusual;
@@ -10568,10 +10603,22 @@ uint8_t* CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_InternalSeri
     target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_radius(), target);
   }
 
-  // optional float radius_80pct = 4;
+  // optional float radius_75pct = 4;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteFloatToArray(4, this->_internal_radius_80pct(), target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(4, this->_internal_radius_75pct(), target);
+  }
+
+  // optional float radius_50pct = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(5, this->_internal_radius_50pct(), target);
+  }
+
+  // optional float radius_25pct = 6;
+  if (cached_has_bits & 0x00000020u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(6, this->_internal_radius_25pct(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -10591,7 +10638,7 @@ size_t CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::ByteSizeLong() 
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000003fu) {
     // optional float x = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 4;
@@ -10607,8 +10654,18 @@ size_t CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::ByteSizeLong() 
       total_size += 1 + 4;
     }
 
-    // optional float radius_80pct = 4;
+    // optional float radius_75pct = 4;
     if (cached_has_bits & 0x00000008u) {
+      total_size += 1 + 4;
+    }
+
+    // optional float radius_50pct = 5;
+    if (cached_has_bits & 0x00000010u) {
+      total_size += 1 + 4;
+    }
+
+    // optional float radius_25pct = 6;
+    if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 4;
     }
 
@@ -10632,7 +10689,7 @@ void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::MergeImpl(::PROTO
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000003fu) {
     if (cached_has_bits & 0x00000001u) {
       _this->_impl_.x_ = from._impl_.x_;
     }
@@ -10643,7 +10700,13 @@ void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::MergeImpl(::PROTO
       _this->_impl_.radius_ = from._impl_.radius_;
     }
     if (cached_has_bits & 0x00000008u) {
-      _this->_impl_.radius_80pct_ = from._impl_.radius_80pct_;
+      _this->_impl_.radius_75pct_ = from._impl_.radius_75pct_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.radius_50pct_ = from._impl_.radius_50pct_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      _this->_impl_.radius_25pct_ = from._impl_.radius_25pct_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -10666,8 +10729,8 @@ void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::InternalSwap(CMsg
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster, _impl_.radius_80pct_)
-      + sizeof(CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_impl_.radius_80pct_)
+      PROTOBUF_FIELD_OFFSET(CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster, _impl_.radius_25pct_)
+      + sizeof(CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_impl_.radius_25pct_)
       - PROTOBUF_FIELD_OFFSET(CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster, _impl_.x_)>(
           reinterpret_cast<char*>(&_impl_.x_),
           reinterpret_cast<char*>(&other->_impl_.x_));

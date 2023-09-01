@@ -1192,6 +1192,7 @@ class CMsgSteamDatagramLinkLifetimeStats final :
     kPacketsRecvOutOfOrderFieldNumber = 9,
     kPacketsRecvDuplicateFieldNumber = 10,
     kPacketsRecvLurchFieldNumber = 11,
+    kPacketsRecvOutOfOrderCorrectedFieldNumber = 15,
     kQualityHistogram100FieldNumber = 21,
     kQualityHistogram99FieldNumber = 22,
     kQualityHistogram97FieldNumber = 23,
@@ -1439,6 +1440,19 @@ class CMsgSteamDatagramLinkLifetimeStats final :
   private:
   uint64_t _internal_packets_recv_lurch() const;
   void _internal_set_packets_recv_lurch(uint64_t value);
+  public:
+
+  // optional uint64 packets_recv_out_of_order_corrected = 15;
+  bool has_packets_recv_out_of_order_corrected() const;
+  private:
+  bool _internal_has_packets_recv_out_of_order_corrected() const;
+  public:
+  void clear_packets_recv_out_of_order_corrected();
+  uint64_t packets_recv_out_of_order_corrected() const;
+  void set_packets_recv_out_of_order_corrected(uint64_t value);
+  private:
+  uint64_t _internal_packets_recv_out_of_order_corrected() const;
+  void _internal_set_packets_recv_out_of_order_corrected(uint64_t value);
   public:
 
   // optional uint32 quality_histogram_100 = 21;
@@ -2257,6 +2271,7 @@ class CMsgSteamDatagramLinkLifetimeStats final :
     uint64_t packets_recv_out_of_order_;
     uint64_t packets_recv_duplicate_;
     uint64_t packets_recv_lurch_;
+    uint64_t packets_recv_out_of_order_corrected_;
     uint32_t quality_histogram_100_;
     uint32_t quality_histogram_99_;
     uint32_t quality_histogram_97_;
@@ -5695,6 +5710,34 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_packets_recv_out_of_order(ui
   // @@protoc_insertion_point(field_set:CMsgSteamDatagramLinkLifetimeStats.packets_recv_out_of_order)
 }
 
+// optional uint64 packets_recv_out_of_order_corrected = 15;
+inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_packets_recv_out_of_order_corrected() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
+  return value;
+}
+inline bool CMsgSteamDatagramLinkLifetimeStats::has_packets_recv_out_of_order_corrected() const {
+  return _internal_has_packets_recv_out_of_order_corrected();
+}
+inline void CMsgSteamDatagramLinkLifetimeStats::clear_packets_recv_out_of_order_corrected() {
+  _impl_.packets_recv_out_of_order_corrected_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000800u;
+}
+inline uint64_t CMsgSteamDatagramLinkLifetimeStats::_internal_packets_recv_out_of_order_corrected() const {
+  return _impl_.packets_recv_out_of_order_corrected_;
+}
+inline uint64_t CMsgSteamDatagramLinkLifetimeStats::packets_recv_out_of_order_corrected() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamDatagramLinkLifetimeStats.packets_recv_out_of_order_corrected)
+  return _internal_packets_recv_out_of_order_corrected();
+}
+inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_packets_recv_out_of_order_corrected(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000800u;
+  _impl_.packets_recv_out_of_order_corrected_ = value;
+}
+inline void CMsgSteamDatagramLinkLifetimeStats::set_packets_recv_out_of_order_corrected(uint64_t value) {
+  _internal_set_packets_recv_out_of_order_corrected(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamDatagramLinkLifetimeStats.packets_recv_out_of_order_corrected)
+}
+
 // optional uint64 packets_recv_duplicate = 10;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_packets_recv_duplicate() const {
   bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
@@ -5875,7 +5918,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_multipath_send_enabled(uint3
 
 // optional uint32 quality_histogram_100 = 21;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_quality_histogram_100() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_histogram_100() const {
@@ -5883,7 +5926,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_histogram_100() cons
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_quality_histogram_100() {
   _impl_.quality_histogram_100_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000800u;
+  _impl_._has_bits_[0] &= ~0x00001000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_quality_histogram_100() const {
   return _impl_.quality_histogram_100_;
@@ -5893,7 +5936,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::quality_histogram_100() cons
   return _internal_quality_histogram_100();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_quality_histogram_100(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000800u;
+  _impl_._has_bits_[0] |= 0x00001000u;
   _impl_.quality_histogram_100_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_histogram_100(uint32_t value) {
@@ -5903,7 +5946,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_histogram_100(uint32
 
 // optional uint32 quality_histogram_99 = 22;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_quality_histogram_99() const {
-  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_histogram_99() const {
@@ -5911,7 +5954,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_histogram_99() const
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_quality_histogram_99() {
   _impl_.quality_histogram_99_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00001000u;
+  _impl_._has_bits_[0] &= ~0x00002000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_quality_histogram_99() const {
   return _impl_.quality_histogram_99_;
@@ -5921,7 +5964,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::quality_histogram_99() const
   return _internal_quality_histogram_99();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_quality_histogram_99(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00001000u;
+  _impl_._has_bits_[0] |= 0x00002000u;
   _impl_.quality_histogram_99_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_histogram_99(uint32_t value) {
@@ -5931,7 +5974,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_histogram_99(uint32_
 
 // optional uint32 quality_histogram_97 = 23;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_quality_histogram_97() const {
-  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_histogram_97() const {
@@ -5939,7 +5982,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_histogram_97() const
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_quality_histogram_97() {
   _impl_.quality_histogram_97_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00002000u;
+  _impl_._has_bits_[0] &= ~0x00004000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_quality_histogram_97() const {
   return _impl_.quality_histogram_97_;
@@ -5949,7 +5992,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::quality_histogram_97() const
   return _internal_quality_histogram_97();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_quality_histogram_97(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00002000u;
+  _impl_._has_bits_[0] |= 0x00004000u;
   _impl_.quality_histogram_97_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_histogram_97(uint32_t value) {
@@ -5959,7 +6002,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_histogram_97(uint32_
 
 // optional uint32 quality_histogram_95 = 24;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_quality_histogram_95() const {
-  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_histogram_95() const {
@@ -5967,7 +6010,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_histogram_95() const
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_quality_histogram_95() {
   _impl_.quality_histogram_95_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00004000u;
+  _impl_._has_bits_[0] &= ~0x00008000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_quality_histogram_95() const {
   return _impl_.quality_histogram_95_;
@@ -5977,7 +6020,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::quality_histogram_95() const
   return _internal_quality_histogram_95();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_quality_histogram_95(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00004000u;
+  _impl_._has_bits_[0] |= 0x00008000u;
   _impl_.quality_histogram_95_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_histogram_95(uint32_t value) {
@@ -5987,7 +6030,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_histogram_95(uint32_
 
 // optional uint32 quality_histogram_90 = 25;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_quality_histogram_90() const {
-  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00010000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_histogram_90() const {
@@ -5995,7 +6038,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_histogram_90() const
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_quality_histogram_90() {
   _impl_.quality_histogram_90_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00008000u;
+  _impl_._has_bits_[0] &= ~0x00010000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_quality_histogram_90() const {
   return _impl_.quality_histogram_90_;
@@ -6005,7 +6048,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::quality_histogram_90() const
   return _internal_quality_histogram_90();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_quality_histogram_90(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00008000u;
+  _impl_._has_bits_[0] |= 0x00010000u;
   _impl_.quality_histogram_90_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_histogram_90(uint32_t value) {
@@ -6015,7 +6058,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_histogram_90(uint32_
 
 // optional uint32 quality_histogram_75 = 26;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_quality_histogram_75() const {
-  bool value = (_impl_._has_bits_[0] & 0x00010000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00020000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_histogram_75() const {
@@ -6023,7 +6066,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_histogram_75() const
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_quality_histogram_75() {
   _impl_.quality_histogram_75_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00010000u;
+  _impl_._has_bits_[0] &= ~0x00020000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_quality_histogram_75() const {
   return _impl_.quality_histogram_75_;
@@ -6033,7 +6076,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::quality_histogram_75() const
   return _internal_quality_histogram_75();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_quality_histogram_75(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00010000u;
+  _impl_._has_bits_[0] |= 0x00020000u;
   _impl_.quality_histogram_75_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_histogram_75(uint32_t value) {
@@ -6043,7 +6086,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_histogram_75(uint32_
 
 // optional uint32 quality_histogram_50 = 27;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_quality_histogram_50() const {
-  bool value = (_impl_._has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00040000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_histogram_50() const {
@@ -6051,7 +6094,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_histogram_50() const
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_quality_histogram_50() {
   _impl_.quality_histogram_50_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00020000u;
+  _impl_._has_bits_[0] &= ~0x00040000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_quality_histogram_50() const {
   return _impl_.quality_histogram_50_;
@@ -6061,7 +6104,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::quality_histogram_50() const
   return _internal_quality_histogram_50();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_quality_histogram_50(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00020000u;
+  _impl_._has_bits_[0] |= 0x00040000u;
   _impl_.quality_histogram_50_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_histogram_50(uint32_t value) {
@@ -6071,7 +6114,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_histogram_50(uint32_
 
 // optional uint32 quality_histogram_1 = 28;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_quality_histogram_1() const {
-  bool value = (_impl_._has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_histogram_1() const {
@@ -6079,7 +6122,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_histogram_1() const 
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_quality_histogram_1() {
   _impl_.quality_histogram_1_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00040000u;
+  _impl_._has_bits_[0] &= ~0x00080000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_quality_histogram_1() const {
   return _impl_.quality_histogram_1_;
@@ -6089,7 +6132,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::quality_histogram_1() const 
   return _internal_quality_histogram_1();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_quality_histogram_1(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00040000u;
+  _impl_._has_bits_[0] |= 0x00080000u;
   _impl_.quality_histogram_1_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_histogram_1(uint32_t value) {
@@ -6099,7 +6142,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_histogram_1(uint32_t
 
 // optional uint32 quality_histogram_dead = 29;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_quality_histogram_dead() const {
-  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_histogram_dead() const {
@@ -6107,7 +6150,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_histogram_dead() con
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_quality_histogram_dead() {
   _impl_.quality_histogram_dead_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00080000u;
+  _impl_._has_bits_[0] &= ~0x00100000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_quality_histogram_dead() const {
   return _impl_.quality_histogram_dead_;
@@ -6117,7 +6160,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::quality_histogram_dead() con
   return _internal_quality_histogram_dead();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_quality_histogram_dead(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00080000u;
+  _impl_._has_bits_[0] |= 0x00100000u;
   _impl_.quality_histogram_dead_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_histogram_dead(uint32_t value) {
@@ -6127,7 +6170,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_histogram_dead(uint3
 
 // optional uint32 quality_ntile_2nd = 30;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_quality_ntile_2nd() const {
-  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00200000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_ntile_2nd() const {
@@ -6135,7 +6178,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_ntile_2nd() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_quality_ntile_2nd() {
   _impl_.quality_ntile_2nd_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00100000u;
+  _impl_._has_bits_[0] &= ~0x00200000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_quality_ntile_2nd() const {
   return _impl_.quality_ntile_2nd_;
@@ -6145,7 +6188,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::quality_ntile_2nd() const {
   return _internal_quality_ntile_2nd();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_quality_ntile_2nd(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00100000u;
+  _impl_._has_bits_[0] |= 0x00200000u;
   _impl_.quality_ntile_2nd_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_ntile_2nd(uint32_t value) {
@@ -6155,7 +6198,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_ntile_2nd(uint32_t v
 
 // optional uint32 quality_ntile_5th = 31;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_quality_ntile_5th() const {
-  bool value = (_impl_._has_bits_[0] & 0x00200000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00400000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_ntile_5th() const {
@@ -6163,7 +6206,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_ntile_5th() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_quality_ntile_5th() {
   _impl_.quality_ntile_5th_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00200000u;
+  _impl_._has_bits_[0] &= ~0x00400000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_quality_ntile_5th() const {
   return _impl_.quality_ntile_5th_;
@@ -6173,7 +6216,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::quality_ntile_5th() const {
   return _internal_quality_ntile_5th();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_quality_ntile_5th(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00200000u;
+  _impl_._has_bits_[0] |= 0x00400000u;
   _impl_.quality_ntile_5th_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_ntile_5th(uint32_t value) {
@@ -6183,7 +6226,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_ntile_5th(uint32_t v
 
 // optional uint32 quality_ntile_25th = 32;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_quality_ntile_25th() const {
-  bool value = (_impl_._has_bits_[0] & 0x00400000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00800000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_ntile_25th() const {
@@ -6191,7 +6234,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_ntile_25th() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_quality_ntile_25th() {
   _impl_.quality_ntile_25th_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00400000u;
+  _impl_._has_bits_[0] &= ~0x00800000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_quality_ntile_25th() const {
   return _impl_.quality_ntile_25th_;
@@ -6201,7 +6244,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::quality_ntile_25th() const {
   return _internal_quality_ntile_25th();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_quality_ntile_25th(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00400000u;
+  _impl_._has_bits_[0] |= 0x00800000u;
   _impl_.quality_ntile_25th_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_ntile_25th(uint32_t value) {
@@ -6211,7 +6254,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_ntile_25th(uint32_t 
 
 // optional uint32 quality_ntile_50th = 33;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_quality_ntile_50th() const {
-  bool value = (_impl_._has_bits_[0] & 0x00800000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x01000000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_ntile_50th() const {
@@ -6219,7 +6262,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_quality_ntile_50th() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_quality_ntile_50th() {
   _impl_.quality_ntile_50th_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00800000u;
+  _impl_._has_bits_[0] &= ~0x01000000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_quality_ntile_50th() const {
   return _impl_.quality_ntile_50th_;
@@ -6229,7 +6272,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::quality_ntile_50th() const {
   return _internal_quality_ntile_50th();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_quality_ntile_50th(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00800000u;
+  _impl_._has_bits_[0] |= 0x01000000u;
   _impl_.quality_ntile_50th_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_ntile_50th(uint32_t value) {
@@ -6239,7 +6282,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_quality_ntile_50th(uint32_t 
 
 // optional uint32 ping_histogram_25 = 41;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_ping_histogram_25() const {
-  bool value = (_impl_._has_bits_[0] & 0x01000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x02000000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_histogram_25() const {
@@ -6247,7 +6290,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_histogram_25() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_ping_histogram_25() {
   _impl_.ping_histogram_25_ = 0u;
-  _impl_._has_bits_[0] &= ~0x01000000u;
+  _impl_._has_bits_[0] &= ~0x02000000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_ping_histogram_25() const {
   return _impl_.ping_histogram_25_;
@@ -6257,7 +6300,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::ping_histogram_25() const {
   return _internal_ping_histogram_25();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_ping_histogram_25(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x01000000u;
+  _impl_._has_bits_[0] |= 0x02000000u;
   _impl_.ping_histogram_25_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_histogram_25(uint32_t value) {
@@ -6267,7 +6310,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_histogram_25(uint32_t v
 
 // optional uint32 ping_histogram_50 = 42;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_ping_histogram_50() const {
-  bool value = (_impl_._has_bits_[0] & 0x02000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_histogram_50() const {
@@ -6275,7 +6318,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_histogram_50() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_ping_histogram_50() {
   _impl_.ping_histogram_50_ = 0u;
-  _impl_._has_bits_[0] &= ~0x02000000u;
+  _impl_._has_bits_[0] &= ~0x04000000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_ping_histogram_50() const {
   return _impl_.ping_histogram_50_;
@@ -6285,7 +6328,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::ping_histogram_50() const {
   return _internal_ping_histogram_50();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_ping_histogram_50(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x02000000u;
+  _impl_._has_bits_[0] |= 0x04000000u;
   _impl_.ping_histogram_50_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_histogram_50(uint32_t value) {
@@ -6295,7 +6338,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_histogram_50(uint32_t v
 
 // optional uint32 ping_histogram_75 = 43;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_ping_histogram_75() const {
-  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_histogram_75() const {
@@ -6303,7 +6346,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_histogram_75() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_ping_histogram_75() {
   _impl_.ping_histogram_75_ = 0u;
-  _impl_._has_bits_[0] &= ~0x04000000u;
+  _impl_._has_bits_[0] &= ~0x08000000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_ping_histogram_75() const {
   return _impl_.ping_histogram_75_;
@@ -6313,7 +6356,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::ping_histogram_75() const {
   return _internal_ping_histogram_75();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_ping_histogram_75(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x04000000u;
+  _impl_._has_bits_[0] |= 0x08000000u;
   _impl_.ping_histogram_75_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_histogram_75(uint32_t value) {
@@ -6323,7 +6366,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_histogram_75(uint32_t v
 
 // optional uint32 ping_histogram_100 = 44;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_ping_histogram_100() const {
-  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_histogram_100() const {
@@ -6331,7 +6374,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_histogram_100() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_ping_histogram_100() {
   _impl_.ping_histogram_100_ = 0u;
-  _impl_._has_bits_[0] &= ~0x08000000u;
+  _impl_._has_bits_[0] &= ~0x10000000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_ping_histogram_100() const {
   return _impl_.ping_histogram_100_;
@@ -6341,7 +6384,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::ping_histogram_100() const {
   return _internal_ping_histogram_100();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_ping_histogram_100(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x08000000u;
+  _impl_._has_bits_[0] |= 0x10000000u;
   _impl_.ping_histogram_100_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_histogram_100(uint32_t value) {
@@ -6351,7 +6394,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_histogram_100(uint32_t 
 
 // optional uint32 ping_histogram_125 = 45;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_ping_histogram_125() const {
-  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_histogram_125() const {
@@ -6359,7 +6402,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_histogram_125() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_ping_histogram_125() {
   _impl_.ping_histogram_125_ = 0u;
-  _impl_._has_bits_[0] &= ~0x10000000u;
+  _impl_._has_bits_[0] &= ~0x20000000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_ping_histogram_125() const {
   return _impl_.ping_histogram_125_;
@@ -6369,7 +6412,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::ping_histogram_125() const {
   return _internal_ping_histogram_125();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_ping_histogram_125(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x10000000u;
+  _impl_._has_bits_[0] |= 0x20000000u;
   _impl_.ping_histogram_125_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_histogram_125(uint32_t value) {
@@ -6379,7 +6422,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_histogram_125(uint32_t 
 
 // optional uint32 ping_histogram_150 = 46;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_ping_histogram_150() const {
-  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_histogram_150() const {
@@ -6387,7 +6430,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_histogram_150() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_ping_histogram_150() {
   _impl_.ping_histogram_150_ = 0u;
-  _impl_._has_bits_[0] &= ~0x20000000u;
+  _impl_._has_bits_[0] &= ~0x40000000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_ping_histogram_150() const {
   return _impl_.ping_histogram_150_;
@@ -6397,7 +6440,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::ping_histogram_150() const {
   return _internal_ping_histogram_150();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_ping_histogram_150(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x20000000u;
+  _impl_._has_bits_[0] |= 0x40000000u;
   _impl_.ping_histogram_150_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_histogram_150(uint32_t value) {
@@ -6407,7 +6450,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_histogram_150(uint32_t 
 
 // optional uint32 ping_histogram_200 = 47;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_ping_histogram_200() const {
-  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_histogram_200() const {
@@ -6415,7 +6458,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_histogram_200() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_ping_histogram_200() {
   _impl_.ping_histogram_200_ = 0u;
-  _impl_._has_bits_[0] &= ~0x40000000u;
+  _impl_._has_bits_[0] &= ~0x80000000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_ping_histogram_200() const {
   return _impl_.ping_histogram_200_;
@@ -6425,7 +6468,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::ping_histogram_200() const {
   return _internal_ping_histogram_200();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_ping_histogram_200(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x40000000u;
+  _impl_._has_bits_[0] |= 0x80000000u;
   _impl_.ping_histogram_200_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_histogram_200(uint32_t value) {
@@ -6435,7 +6478,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_histogram_200(uint32_t 
 
 // optional uint32 ping_histogram_300 = 48;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_ping_histogram_300() const {
-  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_histogram_300() const {
@@ -6443,7 +6486,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_histogram_300() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_ping_histogram_300() {
   _impl_.ping_histogram_300_ = 0u;
-  _impl_._has_bits_[0] &= ~0x80000000u;
+  _impl_._has_bits_[1] &= ~0x00000001u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_ping_histogram_300() const {
   return _impl_.ping_histogram_300_;
@@ -6453,7 +6496,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::ping_histogram_300() const {
   return _internal_ping_histogram_300();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_ping_histogram_300(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x80000000u;
+  _impl_._has_bits_[1] |= 0x00000001u;
   _impl_.ping_histogram_300_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_histogram_300(uint32_t value) {
@@ -6463,7 +6506,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_histogram_300(uint32_t 
 
 // optional uint32 ping_histogram_max = 49;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_ping_histogram_max() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_histogram_max() const {
@@ -6471,7 +6514,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_histogram_max() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_ping_histogram_max() {
   _impl_.ping_histogram_max_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000001u;
+  _impl_._has_bits_[1] &= ~0x00000002u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_ping_histogram_max() const {
   return _impl_.ping_histogram_max_;
@@ -6481,7 +6524,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::ping_histogram_max() const {
   return _internal_ping_histogram_max();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_ping_histogram_max(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000001u;
+  _impl_._has_bits_[1] |= 0x00000002u;
   _impl_.ping_histogram_max_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_histogram_max(uint32_t value) {
@@ -6491,7 +6534,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_histogram_max(uint32_t 
 
 // optional uint32 ping_ntile_5th = 50;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_ping_ntile_5th() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_ntile_5th() const {
@@ -6499,7 +6542,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_ntile_5th() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_ping_ntile_5th() {
   _impl_.ping_ntile_5th_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000002u;
+  _impl_._has_bits_[1] &= ~0x00000004u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_ping_ntile_5th() const {
   return _impl_.ping_ntile_5th_;
@@ -6509,7 +6552,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::ping_ntile_5th() const {
   return _internal_ping_ntile_5th();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_ping_ntile_5th(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000002u;
+  _impl_._has_bits_[1] |= 0x00000004u;
   _impl_.ping_ntile_5th_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_ntile_5th(uint32_t value) {
@@ -6519,7 +6562,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_ntile_5th(uint32_t valu
 
 // optional uint32 ping_ntile_50th = 51;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_ping_ntile_50th() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_ntile_50th() const {
@@ -6527,7 +6570,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_ntile_50th() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_ping_ntile_50th() {
   _impl_.ping_ntile_50th_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000004u;
+  _impl_._has_bits_[1] &= ~0x00000008u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_ping_ntile_50th() const {
   return _impl_.ping_ntile_50th_;
@@ -6537,7 +6580,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::ping_ntile_50th() const {
   return _internal_ping_ntile_50th();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_ping_ntile_50th(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000004u;
+  _impl_._has_bits_[1] |= 0x00000008u;
   _impl_.ping_ntile_50th_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_ntile_50th(uint32_t value) {
@@ -6547,7 +6590,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_ntile_50th(uint32_t val
 
 // optional uint32 ping_ntile_75th = 52;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_ping_ntile_75th() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000010u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_ntile_75th() const {
@@ -6555,7 +6598,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_ntile_75th() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_ping_ntile_75th() {
   _impl_.ping_ntile_75th_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000008u;
+  _impl_._has_bits_[1] &= ~0x00000010u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_ping_ntile_75th() const {
   return _impl_.ping_ntile_75th_;
@@ -6565,7 +6608,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::ping_ntile_75th() const {
   return _internal_ping_ntile_75th();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_ping_ntile_75th(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000008u;
+  _impl_._has_bits_[1] |= 0x00000010u;
   _impl_.ping_ntile_75th_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_ntile_75th(uint32_t value) {
@@ -6575,7 +6618,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_ntile_75th(uint32_t val
 
 // optional uint32 ping_ntile_95th = 53;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_ping_ntile_95th() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_ntile_95th() const {
@@ -6583,7 +6626,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_ntile_95th() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_ping_ntile_95th() {
   _impl_.ping_ntile_95th_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000010u;
+  _impl_._has_bits_[1] &= ~0x00000020u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_ping_ntile_95th() const {
   return _impl_.ping_ntile_95th_;
@@ -6593,7 +6636,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::ping_ntile_95th() const {
   return _internal_ping_ntile_95th();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_ping_ntile_95th(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000010u;
+  _impl_._has_bits_[1] |= 0x00000020u;
   _impl_.ping_ntile_95th_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_ntile_95th(uint32_t value) {
@@ -6603,7 +6646,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_ntile_95th(uint32_t val
 
 // optional uint32 ping_ntile_98th = 54;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_ping_ntile_98th() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_ntile_98th() const {
@@ -6611,7 +6654,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_ping_ntile_98th() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_ping_ntile_98th() {
   _impl_.ping_ntile_98th_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000020u;
+  _impl_._has_bits_[1] &= ~0x00000040u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_ping_ntile_98th() const {
   return _impl_.ping_ntile_98th_;
@@ -6621,7 +6664,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::ping_ntile_98th() const {
   return _internal_ping_ntile_98th();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_ping_ntile_98th(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000020u;
+  _impl_._has_bits_[1] |= 0x00000040u;
   _impl_.ping_ntile_98th_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_ntile_98th(uint32_t value) {
@@ -6631,7 +6674,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_ping_ntile_98th(uint32_t val
 
 // optional uint32 jitter_histogram_negligible = 61;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_jitter_histogram_negligible() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000080u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_jitter_histogram_negligible() const {
@@ -6639,7 +6682,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_jitter_histogram_negligible(
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_jitter_histogram_negligible() {
   _impl_.jitter_histogram_negligible_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000040u;
+  _impl_._has_bits_[1] &= ~0x00000080u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_jitter_histogram_negligible() const {
   return _impl_.jitter_histogram_negligible_;
@@ -6649,7 +6692,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::jitter_histogram_negligible(
   return _internal_jitter_histogram_negligible();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_jitter_histogram_negligible(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000040u;
+  _impl_._has_bits_[1] |= 0x00000080u;
   _impl_.jitter_histogram_negligible_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_jitter_histogram_negligible(uint32_t value) {
@@ -6659,7 +6702,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_jitter_histogram_negligible(
 
 // optional uint32 jitter_histogram_1 = 62;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_jitter_histogram_1() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000100u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_jitter_histogram_1() const {
@@ -6667,7 +6710,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_jitter_histogram_1() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_jitter_histogram_1() {
   _impl_.jitter_histogram_1_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000080u;
+  _impl_._has_bits_[1] &= ~0x00000100u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_jitter_histogram_1() const {
   return _impl_.jitter_histogram_1_;
@@ -6677,7 +6720,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::jitter_histogram_1() const {
   return _internal_jitter_histogram_1();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_jitter_histogram_1(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000080u;
+  _impl_._has_bits_[1] |= 0x00000100u;
   _impl_.jitter_histogram_1_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_jitter_histogram_1(uint32_t value) {
@@ -6687,7 +6730,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_jitter_histogram_1(uint32_t 
 
 // optional uint32 jitter_histogram_2 = 63;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_jitter_histogram_2() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000200u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_jitter_histogram_2() const {
@@ -6695,7 +6738,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_jitter_histogram_2() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_jitter_histogram_2() {
   _impl_.jitter_histogram_2_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000100u;
+  _impl_._has_bits_[1] &= ~0x00000200u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_jitter_histogram_2() const {
   return _impl_.jitter_histogram_2_;
@@ -6705,7 +6748,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::jitter_histogram_2() const {
   return _internal_jitter_histogram_2();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_jitter_histogram_2(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000100u;
+  _impl_._has_bits_[1] |= 0x00000200u;
   _impl_.jitter_histogram_2_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_jitter_histogram_2(uint32_t value) {
@@ -6715,7 +6758,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_jitter_histogram_2(uint32_t 
 
 // optional uint32 jitter_histogram_5 = 64;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_jitter_histogram_5() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000200u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000400u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_jitter_histogram_5() const {
@@ -6723,7 +6766,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_jitter_histogram_5() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_jitter_histogram_5() {
   _impl_.jitter_histogram_5_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000200u;
+  _impl_._has_bits_[1] &= ~0x00000400u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_jitter_histogram_5() const {
   return _impl_.jitter_histogram_5_;
@@ -6733,7 +6776,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::jitter_histogram_5() const {
   return _internal_jitter_histogram_5();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_jitter_histogram_5(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000200u;
+  _impl_._has_bits_[1] |= 0x00000400u;
   _impl_.jitter_histogram_5_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_jitter_histogram_5(uint32_t value) {
@@ -6743,7 +6786,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_jitter_histogram_5(uint32_t 
 
 // optional uint32 jitter_histogram_10 = 65;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_jitter_histogram_10() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000400u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000800u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_jitter_histogram_10() const {
@@ -6751,7 +6794,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_jitter_histogram_10() const 
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_jitter_histogram_10() {
   _impl_.jitter_histogram_10_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000400u;
+  _impl_._has_bits_[1] &= ~0x00000800u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_jitter_histogram_10() const {
   return _impl_.jitter_histogram_10_;
@@ -6761,7 +6804,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::jitter_histogram_10() const 
   return _internal_jitter_histogram_10();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_jitter_histogram_10(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000400u;
+  _impl_._has_bits_[1] |= 0x00000800u;
   _impl_.jitter_histogram_10_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_jitter_histogram_10(uint32_t value) {
@@ -6771,7 +6814,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_jitter_histogram_10(uint32_t
 
 // optional uint32 jitter_histogram_20 = 66;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_jitter_histogram_20() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000800u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00001000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_jitter_histogram_20() const {
@@ -6779,7 +6822,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_jitter_histogram_20() const 
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_jitter_histogram_20() {
   _impl_.jitter_histogram_20_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000800u;
+  _impl_._has_bits_[1] &= ~0x00001000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_jitter_histogram_20() const {
   return _impl_.jitter_histogram_20_;
@@ -6789,7 +6832,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::jitter_histogram_20() const 
   return _internal_jitter_histogram_20();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_jitter_histogram_20(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000800u;
+  _impl_._has_bits_[1] |= 0x00001000u;
   _impl_.jitter_histogram_20_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_jitter_histogram_20(uint32_t value) {
@@ -6799,7 +6842,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_jitter_histogram_20(uint32_t
 
 // optional uint32 txspeed_max = 67;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_txspeed_max() const {
-  bool value = (_impl_._has_bits_[1] & 0x00001000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00002000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_max() const {
@@ -6807,7 +6850,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_max() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_txspeed_max() {
   _impl_.txspeed_max_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00001000u;
+  _impl_._has_bits_[1] &= ~0x00002000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_txspeed_max() const {
   return _impl_.txspeed_max_;
@@ -6817,7 +6860,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::txspeed_max() const {
   return _internal_txspeed_max();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_txspeed_max(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00001000u;
+  _impl_._has_bits_[1] |= 0x00002000u;
   _impl_.txspeed_max_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_max(uint32_t value) {
@@ -6827,7 +6870,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_max(uint32_t value) 
 
 // optional uint32 txspeed_histogram_16 = 68;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_txspeed_histogram_16() const {
-  bool value = (_impl_._has_bits_[1] & 0x00002000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00004000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_histogram_16() const {
@@ -6835,7 +6878,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_histogram_16() const
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_txspeed_histogram_16() {
   _impl_.txspeed_histogram_16_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00002000u;
+  _impl_._has_bits_[1] &= ~0x00004000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_txspeed_histogram_16() const {
   return _impl_.txspeed_histogram_16_;
@@ -6845,7 +6888,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::txspeed_histogram_16() const
   return _internal_txspeed_histogram_16();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_txspeed_histogram_16(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00002000u;
+  _impl_._has_bits_[1] |= 0x00004000u;
   _impl_.txspeed_histogram_16_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_histogram_16(uint32_t value) {
@@ -6855,7 +6898,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_histogram_16(uint32_
 
 // optional uint32 txspeed_histogram_32 = 69;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_txspeed_histogram_32() const {
-  bool value = (_impl_._has_bits_[1] & 0x00004000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00008000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_histogram_32() const {
@@ -6863,7 +6906,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_histogram_32() const
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_txspeed_histogram_32() {
   _impl_.txspeed_histogram_32_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00004000u;
+  _impl_._has_bits_[1] &= ~0x00008000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_txspeed_histogram_32() const {
   return _impl_.txspeed_histogram_32_;
@@ -6873,7 +6916,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::txspeed_histogram_32() const
   return _internal_txspeed_histogram_32();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_txspeed_histogram_32(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00004000u;
+  _impl_._has_bits_[1] |= 0x00008000u;
   _impl_.txspeed_histogram_32_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_histogram_32(uint32_t value) {
@@ -6883,7 +6926,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_histogram_32(uint32_
 
 // optional uint32 txspeed_histogram_64 = 70;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_txspeed_histogram_64() const {
-  bool value = (_impl_._has_bits_[1] & 0x00008000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00010000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_histogram_64() const {
@@ -6891,7 +6934,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_histogram_64() const
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_txspeed_histogram_64() {
   _impl_.txspeed_histogram_64_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00008000u;
+  _impl_._has_bits_[1] &= ~0x00010000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_txspeed_histogram_64() const {
   return _impl_.txspeed_histogram_64_;
@@ -6901,7 +6944,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::txspeed_histogram_64() const
   return _internal_txspeed_histogram_64();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_txspeed_histogram_64(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00008000u;
+  _impl_._has_bits_[1] |= 0x00010000u;
   _impl_.txspeed_histogram_64_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_histogram_64(uint32_t value) {
@@ -6911,7 +6954,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_histogram_64(uint32_
 
 // optional uint32 txspeed_histogram_128 = 71;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_txspeed_histogram_128() const {
-  bool value = (_impl_._has_bits_[1] & 0x00010000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00020000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_histogram_128() const {
@@ -6919,7 +6962,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_histogram_128() cons
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_txspeed_histogram_128() {
   _impl_.txspeed_histogram_128_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00010000u;
+  _impl_._has_bits_[1] &= ~0x00020000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_txspeed_histogram_128() const {
   return _impl_.txspeed_histogram_128_;
@@ -6929,7 +6972,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::txspeed_histogram_128() cons
   return _internal_txspeed_histogram_128();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_txspeed_histogram_128(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00010000u;
+  _impl_._has_bits_[1] |= 0x00020000u;
   _impl_.txspeed_histogram_128_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_histogram_128(uint32_t value) {
@@ -6939,7 +6982,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_histogram_128(uint32
 
 // optional uint32 txspeed_histogram_256 = 72;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_txspeed_histogram_256() const {
-  bool value = (_impl_._has_bits_[1] & 0x00020000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00040000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_histogram_256() const {
@@ -6947,7 +6990,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_histogram_256() cons
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_txspeed_histogram_256() {
   _impl_.txspeed_histogram_256_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00020000u;
+  _impl_._has_bits_[1] &= ~0x00040000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_txspeed_histogram_256() const {
   return _impl_.txspeed_histogram_256_;
@@ -6957,7 +7000,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::txspeed_histogram_256() cons
   return _internal_txspeed_histogram_256();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_txspeed_histogram_256(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00020000u;
+  _impl_._has_bits_[1] |= 0x00040000u;
   _impl_.txspeed_histogram_256_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_histogram_256(uint32_t value) {
@@ -6967,7 +7010,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_histogram_256(uint32
 
 // optional uint32 txspeed_histogram_512 = 73;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_txspeed_histogram_512() const {
-  bool value = (_impl_._has_bits_[1] & 0x00040000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00080000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_histogram_512() const {
@@ -6975,7 +7018,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_histogram_512() cons
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_txspeed_histogram_512() {
   _impl_.txspeed_histogram_512_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00040000u;
+  _impl_._has_bits_[1] &= ~0x00080000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_txspeed_histogram_512() const {
   return _impl_.txspeed_histogram_512_;
@@ -6985,7 +7028,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::txspeed_histogram_512() cons
   return _internal_txspeed_histogram_512();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_txspeed_histogram_512(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00040000u;
+  _impl_._has_bits_[1] |= 0x00080000u;
   _impl_.txspeed_histogram_512_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_histogram_512(uint32_t value) {
@@ -6995,7 +7038,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_histogram_512(uint32
 
 // optional uint32 txspeed_histogram_1024 = 74;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_txspeed_histogram_1024() const {
-  bool value = (_impl_._has_bits_[1] & 0x00080000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00100000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_histogram_1024() const {
@@ -7003,7 +7046,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_histogram_1024() con
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_txspeed_histogram_1024() {
   _impl_.txspeed_histogram_1024_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00080000u;
+  _impl_._has_bits_[1] &= ~0x00100000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_txspeed_histogram_1024() const {
   return _impl_.txspeed_histogram_1024_;
@@ -7013,7 +7056,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::txspeed_histogram_1024() con
   return _internal_txspeed_histogram_1024();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_txspeed_histogram_1024(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00080000u;
+  _impl_._has_bits_[1] |= 0x00100000u;
   _impl_.txspeed_histogram_1024_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_histogram_1024(uint32_t value) {
@@ -7023,7 +7066,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_histogram_1024(uint3
 
 // optional uint32 txspeed_histogram_max = 75;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_txspeed_histogram_max() const {
-  bool value = (_impl_._has_bits_[1] & 0x00100000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00200000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_histogram_max() const {
@@ -7031,7 +7074,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_histogram_max() cons
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_txspeed_histogram_max() {
   _impl_.txspeed_histogram_max_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00100000u;
+  _impl_._has_bits_[1] &= ~0x00200000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_txspeed_histogram_max() const {
   return _impl_.txspeed_histogram_max_;
@@ -7041,7 +7084,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::txspeed_histogram_max() cons
   return _internal_txspeed_histogram_max();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_txspeed_histogram_max(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00100000u;
+  _impl_._has_bits_[1] |= 0x00200000u;
   _impl_.txspeed_histogram_max_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_histogram_max(uint32_t value) {
@@ -7051,7 +7094,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_histogram_max(uint32
 
 // optional uint32 txspeed_ntile_5th = 76;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_txspeed_ntile_5th() const {
-  bool value = (_impl_._has_bits_[1] & 0x00200000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00400000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_ntile_5th() const {
@@ -7059,7 +7102,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_ntile_5th() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_txspeed_ntile_5th() {
   _impl_.txspeed_ntile_5th_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00200000u;
+  _impl_._has_bits_[1] &= ~0x00400000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_txspeed_ntile_5th() const {
   return _impl_.txspeed_ntile_5th_;
@@ -7069,7 +7112,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::txspeed_ntile_5th() const {
   return _internal_txspeed_ntile_5th();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_txspeed_ntile_5th(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00200000u;
+  _impl_._has_bits_[1] |= 0x00400000u;
   _impl_.txspeed_ntile_5th_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_ntile_5th(uint32_t value) {
@@ -7079,7 +7122,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_ntile_5th(uint32_t v
 
 // optional uint32 txspeed_ntile_50th = 77;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_txspeed_ntile_50th() const {
-  bool value = (_impl_._has_bits_[1] & 0x00400000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00800000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_ntile_50th() const {
@@ -7087,7 +7130,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_ntile_50th() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_txspeed_ntile_50th() {
   _impl_.txspeed_ntile_50th_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00400000u;
+  _impl_._has_bits_[1] &= ~0x00800000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_txspeed_ntile_50th() const {
   return _impl_.txspeed_ntile_50th_;
@@ -7097,7 +7140,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::txspeed_ntile_50th() const {
   return _internal_txspeed_ntile_50th();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_txspeed_ntile_50th(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00400000u;
+  _impl_._has_bits_[1] |= 0x00800000u;
   _impl_.txspeed_ntile_50th_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_ntile_50th(uint32_t value) {
@@ -7107,7 +7150,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_ntile_50th(uint32_t 
 
 // optional uint32 txspeed_ntile_75th = 78;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_txspeed_ntile_75th() const {
-  bool value = (_impl_._has_bits_[1] & 0x00800000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x01000000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_ntile_75th() const {
@@ -7115,7 +7158,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_ntile_75th() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_txspeed_ntile_75th() {
   _impl_.txspeed_ntile_75th_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00800000u;
+  _impl_._has_bits_[1] &= ~0x01000000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_txspeed_ntile_75th() const {
   return _impl_.txspeed_ntile_75th_;
@@ -7125,7 +7168,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::txspeed_ntile_75th() const {
   return _internal_txspeed_ntile_75th();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_txspeed_ntile_75th(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00800000u;
+  _impl_._has_bits_[1] |= 0x01000000u;
   _impl_.txspeed_ntile_75th_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_ntile_75th(uint32_t value) {
@@ -7135,7 +7178,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_ntile_75th(uint32_t 
 
 // optional uint32 txspeed_ntile_95th = 79;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_txspeed_ntile_95th() const {
-  bool value = (_impl_._has_bits_[1] & 0x01000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x02000000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_ntile_95th() const {
@@ -7143,7 +7186,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_ntile_95th() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_txspeed_ntile_95th() {
   _impl_.txspeed_ntile_95th_ = 0u;
-  _impl_._has_bits_[1] &= ~0x01000000u;
+  _impl_._has_bits_[1] &= ~0x02000000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_txspeed_ntile_95th() const {
   return _impl_.txspeed_ntile_95th_;
@@ -7153,7 +7196,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::txspeed_ntile_95th() const {
   return _internal_txspeed_ntile_95th();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_txspeed_ntile_95th(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x01000000u;
+  _impl_._has_bits_[1] |= 0x02000000u;
   _impl_.txspeed_ntile_95th_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_ntile_95th(uint32_t value) {
@@ -7163,7 +7206,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_ntile_95th(uint32_t 
 
 // optional uint32 txspeed_ntile_98th = 80;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_txspeed_ntile_98th() const {
-  bool value = (_impl_._has_bits_[1] & 0x02000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x04000000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_ntile_98th() const {
@@ -7171,7 +7214,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_txspeed_ntile_98th() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_txspeed_ntile_98th() {
   _impl_.txspeed_ntile_98th_ = 0u;
-  _impl_._has_bits_[1] &= ~0x02000000u;
+  _impl_._has_bits_[1] &= ~0x04000000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_txspeed_ntile_98th() const {
   return _impl_.txspeed_ntile_98th_;
@@ -7181,7 +7224,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::txspeed_ntile_98th() const {
   return _internal_txspeed_ntile_98th();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_txspeed_ntile_98th(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x02000000u;
+  _impl_._has_bits_[1] |= 0x04000000u;
   _impl_.txspeed_ntile_98th_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_ntile_98th(uint32_t value) {
@@ -7191,7 +7234,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_txspeed_ntile_98th(uint32_t 
 
 // optional uint32 rxspeed_max = 81;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_rxspeed_max() const {
-  bool value = (_impl_._has_bits_[1] & 0x04000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x08000000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_max() const {
@@ -7199,7 +7242,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_max() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_rxspeed_max() {
   _impl_.rxspeed_max_ = 0u;
-  _impl_._has_bits_[1] &= ~0x04000000u;
+  _impl_._has_bits_[1] &= ~0x08000000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_rxspeed_max() const {
   return _impl_.rxspeed_max_;
@@ -7209,7 +7252,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::rxspeed_max() const {
   return _internal_rxspeed_max();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_rxspeed_max(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x04000000u;
+  _impl_._has_bits_[1] |= 0x08000000u;
   _impl_.rxspeed_max_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_max(uint32_t value) {
@@ -7219,7 +7262,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_max(uint32_t value) 
 
 // optional uint32 rxspeed_histogram_16 = 82;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_rxspeed_histogram_16() const {
-  bool value = (_impl_._has_bits_[1] & 0x08000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x10000000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_histogram_16() const {
@@ -7227,7 +7270,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_histogram_16() const
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_rxspeed_histogram_16() {
   _impl_.rxspeed_histogram_16_ = 0u;
-  _impl_._has_bits_[1] &= ~0x08000000u;
+  _impl_._has_bits_[1] &= ~0x10000000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_rxspeed_histogram_16() const {
   return _impl_.rxspeed_histogram_16_;
@@ -7237,7 +7280,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::rxspeed_histogram_16() const
   return _internal_rxspeed_histogram_16();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_rxspeed_histogram_16(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x08000000u;
+  _impl_._has_bits_[1] |= 0x10000000u;
   _impl_.rxspeed_histogram_16_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_histogram_16(uint32_t value) {
@@ -7247,7 +7290,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_histogram_16(uint32_
 
 // optional uint32 rxspeed_histogram_32 = 83;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_rxspeed_histogram_32() const {
-  bool value = (_impl_._has_bits_[1] & 0x10000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x20000000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_histogram_32() const {
@@ -7255,7 +7298,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_histogram_32() const
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_rxspeed_histogram_32() {
   _impl_.rxspeed_histogram_32_ = 0u;
-  _impl_._has_bits_[1] &= ~0x10000000u;
+  _impl_._has_bits_[1] &= ~0x20000000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_rxspeed_histogram_32() const {
   return _impl_.rxspeed_histogram_32_;
@@ -7265,7 +7308,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::rxspeed_histogram_32() const
   return _internal_rxspeed_histogram_32();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_rxspeed_histogram_32(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x10000000u;
+  _impl_._has_bits_[1] |= 0x20000000u;
   _impl_.rxspeed_histogram_32_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_histogram_32(uint32_t value) {
@@ -7275,7 +7318,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_histogram_32(uint32_
 
 // optional uint32 rxspeed_histogram_64 = 84;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_rxspeed_histogram_64() const {
-  bool value = (_impl_._has_bits_[1] & 0x20000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x40000000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_histogram_64() const {
@@ -7283,7 +7326,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_histogram_64() const
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_rxspeed_histogram_64() {
   _impl_.rxspeed_histogram_64_ = 0u;
-  _impl_._has_bits_[1] &= ~0x20000000u;
+  _impl_._has_bits_[1] &= ~0x40000000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_rxspeed_histogram_64() const {
   return _impl_.rxspeed_histogram_64_;
@@ -7293,7 +7336,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::rxspeed_histogram_64() const
   return _internal_rxspeed_histogram_64();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_rxspeed_histogram_64(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x20000000u;
+  _impl_._has_bits_[1] |= 0x40000000u;
   _impl_.rxspeed_histogram_64_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_histogram_64(uint32_t value) {
@@ -7303,7 +7346,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_histogram_64(uint32_
 
 // optional uint32 rxspeed_histogram_128 = 85;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_rxspeed_histogram_128() const {
-  bool value = (_impl_._has_bits_[1] & 0x40000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x80000000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_histogram_128() const {
@@ -7311,7 +7354,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_histogram_128() cons
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_rxspeed_histogram_128() {
   _impl_.rxspeed_histogram_128_ = 0u;
-  _impl_._has_bits_[1] &= ~0x40000000u;
+  _impl_._has_bits_[1] &= ~0x80000000u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_rxspeed_histogram_128() const {
   return _impl_.rxspeed_histogram_128_;
@@ -7321,7 +7364,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::rxspeed_histogram_128() cons
   return _internal_rxspeed_histogram_128();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_rxspeed_histogram_128(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x40000000u;
+  _impl_._has_bits_[1] |= 0x80000000u;
   _impl_.rxspeed_histogram_128_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_histogram_128(uint32_t value) {
@@ -7331,7 +7374,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_histogram_128(uint32
 
 // optional uint32 rxspeed_histogram_256 = 86;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_rxspeed_histogram_256() const {
-  bool value = (_impl_._has_bits_[1] & 0x80000000u) != 0;
+  bool value = (_impl_._has_bits_[2] & 0x00000001u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_histogram_256() const {
@@ -7339,7 +7382,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_histogram_256() cons
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_rxspeed_histogram_256() {
   _impl_.rxspeed_histogram_256_ = 0u;
-  _impl_._has_bits_[1] &= ~0x80000000u;
+  _impl_._has_bits_[2] &= ~0x00000001u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_rxspeed_histogram_256() const {
   return _impl_.rxspeed_histogram_256_;
@@ -7349,7 +7392,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::rxspeed_histogram_256() cons
   return _internal_rxspeed_histogram_256();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_rxspeed_histogram_256(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x80000000u;
+  _impl_._has_bits_[2] |= 0x00000001u;
   _impl_.rxspeed_histogram_256_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_histogram_256(uint32_t value) {
@@ -7359,7 +7402,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_histogram_256(uint32
 
 // optional uint32 rxspeed_histogram_512 = 87;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_rxspeed_histogram_512() const {
-  bool value = (_impl_._has_bits_[2] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[2] & 0x00000002u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_histogram_512() const {
@@ -7367,7 +7410,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_histogram_512() cons
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_rxspeed_histogram_512() {
   _impl_.rxspeed_histogram_512_ = 0u;
-  _impl_._has_bits_[2] &= ~0x00000001u;
+  _impl_._has_bits_[2] &= ~0x00000002u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_rxspeed_histogram_512() const {
   return _impl_.rxspeed_histogram_512_;
@@ -7377,7 +7420,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::rxspeed_histogram_512() cons
   return _internal_rxspeed_histogram_512();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_rxspeed_histogram_512(uint32_t value) {
-  _impl_._has_bits_[2] |= 0x00000001u;
+  _impl_._has_bits_[2] |= 0x00000002u;
   _impl_.rxspeed_histogram_512_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_histogram_512(uint32_t value) {
@@ -7387,7 +7430,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_histogram_512(uint32
 
 // optional uint32 rxspeed_histogram_1024 = 88;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_rxspeed_histogram_1024() const {
-  bool value = (_impl_._has_bits_[2] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[2] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_histogram_1024() const {
@@ -7395,7 +7438,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_histogram_1024() con
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_rxspeed_histogram_1024() {
   _impl_.rxspeed_histogram_1024_ = 0u;
-  _impl_._has_bits_[2] &= ~0x00000002u;
+  _impl_._has_bits_[2] &= ~0x00000004u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_rxspeed_histogram_1024() const {
   return _impl_.rxspeed_histogram_1024_;
@@ -7405,7 +7448,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::rxspeed_histogram_1024() con
   return _internal_rxspeed_histogram_1024();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_rxspeed_histogram_1024(uint32_t value) {
-  _impl_._has_bits_[2] |= 0x00000002u;
+  _impl_._has_bits_[2] |= 0x00000004u;
   _impl_.rxspeed_histogram_1024_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_histogram_1024(uint32_t value) {
@@ -7415,7 +7458,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_histogram_1024(uint3
 
 // optional uint32 rxspeed_histogram_max = 89;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_rxspeed_histogram_max() const {
-  bool value = (_impl_._has_bits_[2] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[2] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_histogram_max() const {
@@ -7423,7 +7466,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_histogram_max() cons
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_rxspeed_histogram_max() {
   _impl_.rxspeed_histogram_max_ = 0u;
-  _impl_._has_bits_[2] &= ~0x00000004u;
+  _impl_._has_bits_[2] &= ~0x00000008u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_rxspeed_histogram_max() const {
   return _impl_.rxspeed_histogram_max_;
@@ -7433,7 +7476,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::rxspeed_histogram_max() cons
   return _internal_rxspeed_histogram_max();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_rxspeed_histogram_max(uint32_t value) {
-  _impl_._has_bits_[2] |= 0x00000004u;
+  _impl_._has_bits_[2] |= 0x00000008u;
   _impl_.rxspeed_histogram_max_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_histogram_max(uint32_t value) {
@@ -7443,7 +7486,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_histogram_max(uint32
 
 // optional uint32 rxspeed_ntile_5th = 90;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_rxspeed_ntile_5th() const {
-  bool value = (_impl_._has_bits_[2] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[2] & 0x00000010u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_ntile_5th() const {
@@ -7451,7 +7494,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_ntile_5th() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_rxspeed_ntile_5th() {
   _impl_.rxspeed_ntile_5th_ = 0u;
-  _impl_._has_bits_[2] &= ~0x00000008u;
+  _impl_._has_bits_[2] &= ~0x00000010u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_rxspeed_ntile_5th() const {
   return _impl_.rxspeed_ntile_5th_;
@@ -7461,7 +7504,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::rxspeed_ntile_5th() const {
   return _internal_rxspeed_ntile_5th();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_rxspeed_ntile_5th(uint32_t value) {
-  _impl_._has_bits_[2] |= 0x00000008u;
+  _impl_._has_bits_[2] |= 0x00000010u;
   _impl_.rxspeed_ntile_5th_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_ntile_5th(uint32_t value) {
@@ -7471,7 +7514,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_ntile_5th(uint32_t v
 
 // optional uint32 rxspeed_ntile_50th = 91;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_rxspeed_ntile_50th() const {
-  bool value = (_impl_._has_bits_[2] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[2] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_ntile_50th() const {
@@ -7479,7 +7522,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_ntile_50th() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_rxspeed_ntile_50th() {
   _impl_.rxspeed_ntile_50th_ = 0u;
-  _impl_._has_bits_[2] &= ~0x00000010u;
+  _impl_._has_bits_[2] &= ~0x00000020u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_rxspeed_ntile_50th() const {
   return _impl_.rxspeed_ntile_50th_;
@@ -7489,7 +7532,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::rxspeed_ntile_50th() const {
   return _internal_rxspeed_ntile_50th();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_rxspeed_ntile_50th(uint32_t value) {
-  _impl_._has_bits_[2] |= 0x00000010u;
+  _impl_._has_bits_[2] |= 0x00000020u;
   _impl_.rxspeed_ntile_50th_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_ntile_50th(uint32_t value) {
@@ -7499,7 +7542,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_ntile_50th(uint32_t 
 
 // optional uint32 rxspeed_ntile_75th = 92;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_rxspeed_ntile_75th() const {
-  bool value = (_impl_._has_bits_[2] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[2] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_ntile_75th() const {
@@ -7507,7 +7550,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_ntile_75th() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_rxspeed_ntile_75th() {
   _impl_.rxspeed_ntile_75th_ = 0u;
-  _impl_._has_bits_[2] &= ~0x00000020u;
+  _impl_._has_bits_[2] &= ~0x00000040u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_rxspeed_ntile_75th() const {
   return _impl_.rxspeed_ntile_75th_;
@@ -7517,7 +7560,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::rxspeed_ntile_75th() const {
   return _internal_rxspeed_ntile_75th();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_rxspeed_ntile_75th(uint32_t value) {
-  _impl_._has_bits_[2] |= 0x00000020u;
+  _impl_._has_bits_[2] |= 0x00000040u;
   _impl_.rxspeed_ntile_75th_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_ntile_75th(uint32_t value) {
@@ -7527,7 +7570,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_ntile_75th(uint32_t 
 
 // optional uint32 rxspeed_ntile_95th = 93;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_rxspeed_ntile_95th() const {
-  bool value = (_impl_._has_bits_[2] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[2] & 0x00000080u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_ntile_95th() const {
@@ -7535,7 +7578,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_ntile_95th() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_rxspeed_ntile_95th() {
   _impl_.rxspeed_ntile_95th_ = 0u;
-  _impl_._has_bits_[2] &= ~0x00000040u;
+  _impl_._has_bits_[2] &= ~0x00000080u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_rxspeed_ntile_95th() const {
   return _impl_.rxspeed_ntile_95th_;
@@ -7545,7 +7588,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::rxspeed_ntile_95th() const {
   return _internal_rxspeed_ntile_95th();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_rxspeed_ntile_95th(uint32_t value) {
-  _impl_._has_bits_[2] |= 0x00000040u;
+  _impl_._has_bits_[2] |= 0x00000080u;
   _impl_.rxspeed_ntile_95th_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_ntile_95th(uint32_t value) {
@@ -7555,7 +7598,7 @@ inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_ntile_95th(uint32_t 
 
 // optional uint32 rxspeed_ntile_98th = 94;
 inline bool CMsgSteamDatagramLinkLifetimeStats::_internal_has_rxspeed_ntile_98th() const {
-  bool value = (_impl_._has_bits_[2] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[2] & 0x00000100u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_ntile_98th() const {
@@ -7563,7 +7606,7 @@ inline bool CMsgSteamDatagramLinkLifetimeStats::has_rxspeed_ntile_98th() const {
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::clear_rxspeed_ntile_98th() {
   _impl_.rxspeed_ntile_98th_ = 0u;
-  _impl_._has_bits_[2] &= ~0x00000080u;
+  _impl_._has_bits_[2] &= ~0x00000100u;
 }
 inline uint32_t CMsgSteamDatagramLinkLifetimeStats::_internal_rxspeed_ntile_98th() const {
   return _impl_.rxspeed_ntile_98th_;
@@ -7573,7 +7616,7 @@ inline uint32_t CMsgSteamDatagramLinkLifetimeStats::rxspeed_ntile_98th() const {
   return _internal_rxspeed_ntile_98th();
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::_internal_set_rxspeed_ntile_98th(uint32_t value) {
-  _impl_._has_bits_[2] |= 0x00000080u;
+  _impl_._has_bits_[2] |= 0x00000100u;
   _impl_.rxspeed_ntile_98th_ = value;
 }
 inline void CMsgSteamDatagramLinkLifetimeStats::set_rxspeed_ntile_98th(uint32_t value) {

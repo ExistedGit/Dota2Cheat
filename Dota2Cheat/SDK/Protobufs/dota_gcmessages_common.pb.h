@@ -468,6 +468,9 @@ extern CMsgStickerbookTeamPageOrderSequenceDefaultTypeInternal _CMsgStickerbookT
 class CMsgSuccessfulHero;
 struct CMsgSuccessfulHeroDefaultTypeInternal;
 extern CMsgSuccessfulHeroDefaultTypeInternal _CMsgSuccessfulHero_default_instance_;
+class CMsgTrackedStat;
+struct CMsgTrackedStatDefaultTypeInternal;
+extern CMsgTrackedStatDefaultTypeInternal _CMsgTrackedStat_default_instance_;
 class CMsgUnderDraftData;
 struct CMsgUnderDraftDataDefaultTypeInternal;
 extern CMsgUnderDraftDataDefaultTypeInternal _CMsgUnderDraftData_default_instance_;
@@ -645,6 +648,7 @@ template<> ::CMsgStickerbookPage* Arena::CreateMaybeMessage<::CMsgStickerbookPag
 template<> ::CMsgStickerbookSticker* Arena::CreateMaybeMessage<::CMsgStickerbookSticker>(Arena*);
 template<> ::CMsgStickerbookTeamPageOrderSequence* Arena::CreateMaybeMessage<::CMsgStickerbookTeamPageOrderSequence>(Arena*);
 template<> ::CMsgSuccessfulHero* Arena::CreateMaybeMessage<::CMsgSuccessfulHero>(Arena*);
+template<> ::CMsgTrackedStat* Arena::CreateMaybeMessage<::CMsgTrackedStat>(Arena*);
 template<> ::CMsgUnderDraftData* Arena::CreateMaybeMessage<::CMsgUnderDraftData>(Arena*);
 template<> ::CMsgUnderDraftData_BenchSlot* Arena::CreateMaybeMessage<::CMsgUnderDraftData_BenchSlot>(Arena*);
 template<> ::CMsgUnderDraftData_ShopSlot* Arena::CreateMaybeMessage<::CMsgUnderDraftData_ShopSlot>(Arena*);
@@ -22555,8 +22559,6 @@ class CMsgDOTAMatch final :
     kDireTeamLogoFieldNumber = 26,
     kRadiantTeamCompleteFieldNumber = 27,
     kDireTeamCompleteFieldNumber = 28,
-    kPositiveVotesFieldNumber = 29,
-    kNegativeVotesFieldNumber = 30,
     kGameModeFieldNumber = 31,
     kReplayStateFieldNumber = 34,
     kMatchSeqNumFieldNumber = 33,
@@ -23063,32 +23065,6 @@ class CMsgDOTAMatch final :
   void _internal_set_dire_team_complete(uint32_t value);
   public:
 
-  // optional uint32 positive_votes = 29;
-  bool has_positive_votes() const;
-  private:
-  bool _internal_has_positive_votes() const;
-  public:
-  void clear_positive_votes();
-  uint32_t positive_votes() const;
-  void set_positive_votes(uint32_t value);
-  private:
-  uint32_t _internal_positive_votes() const;
-  void _internal_set_positive_votes(uint32_t value);
-  public:
-
-  // optional uint32 negative_votes = 30;
-  bool has_negative_votes() const;
-  private:
-  bool _internal_has_negative_votes() const;
-  public:
-  void clear_negative_votes();
-  uint32_t negative_votes() const;
-  void set_negative_votes(uint32_t value);
-  private:
-  uint32_t _internal_negative_votes() const;
-  void _internal_set_negative_votes(uint32_t value);
-  public:
-
   // optional .DOTA_GameMode game_mode = 31 [default = DOTA_GAMEMODE_NONE];
   bool has_game_mode() const;
   private:
@@ -23339,8 +23315,6 @@ class CMsgDOTAMatch final :
     uint64_t dire_team_logo_;
     uint32_t radiant_team_complete_;
     uint32_t dire_team_complete_;
-    uint32_t positive_votes_;
-    uint32_t negative_votes_;
     int game_mode_;
     int replay_state_;
     uint64_t match_seq_num_;
@@ -23868,6 +23842,12 @@ class CMsgDOTAFantasyPlayerStats final :
     kRunesGrabbedFieldNumber = 19,
     kFirstBloodFieldNumber = 20,
     kStunsFieldNumber = 21,
+    kSmokesFieldNumber = 22,
+    kNeutralTokensFieldNumber = 23,
+    kWatchersFieldNumber = 24,
+    kLotusesFieldNumber = 25,
+    kTormentorsFieldNumber = 26,
+    kCourierKillsFieldNumber = 27,
   };
   // optional uint64 match_id = 2;
   bool has_match_id() const;
@@ -24129,6 +24109,84 @@ class CMsgDOTAFantasyPlayerStats final :
   void _internal_set_stuns(float value);
   public:
 
+  // optional uint32 smokes = 22;
+  bool has_smokes() const;
+  private:
+  bool _internal_has_smokes() const;
+  public:
+  void clear_smokes();
+  uint32_t smokes() const;
+  void set_smokes(uint32_t value);
+  private:
+  uint32_t _internal_smokes() const;
+  void _internal_set_smokes(uint32_t value);
+  public:
+
+  // optional uint32 neutral_tokens = 23;
+  bool has_neutral_tokens() const;
+  private:
+  bool _internal_has_neutral_tokens() const;
+  public:
+  void clear_neutral_tokens();
+  uint32_t neutral_tokens() const;
+  void set_neutral_tokens(uint32_t value);
+  private:
+  uint32_t _internal_neutral_tokens() const;
+  void _internal_set_neutral_tokens(uint32_t value);
+  public:
+
+  // optional uint32 watchers = 24;
+  bool has_watchers() const;
+  private:
+  bool _internal_has_watchers() const;
+  public:
+  void clear_watchers();
+  uint32_t watchers() const;
+  void set_watchers(uint32_t value);
+  private:
+  uint32_t _internal_watchers() const;
+  void _internal_set_watchers(uint32_t value);
+  public:
+
+  // optional uint32 lotuses = 25;
+  bool has_lotuses() const;
+  private:
+  bool _internal_has_lotuses() const;
+  public:
+  void clear_lotuses();
+  uint32_t lotuses() const;
+  void set_lotuses(uint32_t value);
+  private:
+  uint32_t _internal_lotuses() const;
+  void _internal_set_lotuses(uint32_t value);
+  public:
+
+  // optional uint32 tormentors = 26;
+  bool has_tormentors() const;
+  private:
+  bool _internal_has_tormentors() const;
+  public:
+  void clear_tormentors();
+  uint32_t tormentors() const;
+  void set_tormentors(uint32_t value);
+  private:
+  uint32_t _internal_tormentors() const;
+  void _internal_set_tormentors(uint32_t value);
+  public:
+
+  // optional uint32 courier_kills = 27;
+  bool has_courier_kills() const;
+  private:
+  bool _internal_has_courier_kills() const;
+  public:
+  void clear_courier_kills();
+  uint32_t courier_kills() const;
+  void set_courier_kills(uint32_t value);
+  private:
+  uint32_t _internal_courier_kills() const;
+  void _internal_set_courier_kills(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgDOTAFantasyPlayerStats)
  private:
   class _Internal;
@@ -24159,6 +24217,12 @@ class CMsgDOTAFantasyPlayerStats final :
     uint32_t runes_grabbed_;
     uint32_t first_blood_;
     float stuns_;
+    uint32_t smokes_;
+    uint32_t neutral_tokens_;
+    uint32_t watchers_;
+    uint32_t lotuses_;
+    uint32_t tormentors_;
+    uint32_t courier_kills_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fcommon_2eproto;
@@ -39424,28 +39488,28 @@ class CMsgMapStatsSnapshot final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kFamangosGainedFieldNumber = 2,
+    kLotusesGainedFieldNumber = 2,
     kWisdomRunesGainedFieldNumber = 3,
     kRoshanKillsDayFieldNumber = 4,
     kRoshanKillsNightFieldNumber = 5,
     kPortalsUsedFieldNumber = 6,
-    kLanternsLitFieldNumber = 7,
-    kMinibossKillsFieldNumber = 8,
+    kWatchersTakenFieldNumber = 7,
+    kTormentorKillsFieldNumber = 8,
     kOutpostsCapturedFieldNumber = 9,
     kShieldRunesGainedFieldNumber = 10,
     kTimestampFieldNumber = 1,
   };
-  // optional uint64 famangos_gained = 2;
-  bool has_famangos_gained() const;
+  // optional uint64 lotuses_gained = 2;
+  bool has_lotuses_gained() const;
   private:
-  bool _internal_has_famangos_gained() const;
+  bool _internal_has_lotuses_gained() const;
   public:
-  void clear_famangos_gained();
-  uint64_t famangos_gained() const;
-  void set_famangos_gained(uint64_t value);
+  void clear_lotuses_gained();
+  uint64_t lotuses_gained() const;
+  void set_lotuses_gained(uint64_t value);
   private:
-  uint64_t _internal_famangos_gained() const;
-  void _internal_set_famangos_gained(uint64_t value);
+  uint64_t _internal_lotuses_gained() const;
+  void _internal_set_lotuses_gained(uint64_t value);
   public:
 
   // optional uint64 wisdom_runes_gained = 3;
@@ -39500,30 +39564,30 @@ class CMsgMapStatsSnapshot final :
   void _internal_set_portals_used(uint64_t value);
   public:
 
-  // optional uint64 lanterns_lit = 7;
-  bool has_lanterns_lit() const;
+  // optional uint64 watchers_taken = 7;
+  bool has_watchers_taken() const;
   private:
-  bool _internal_has_lanterns_lit() const;
+  bool _internal_has_watchers_taken() const;
   public:
-  void clear_lanterns_lit();
-  uint64_t lanterns_lit() const;
-  void set_lanterns_lit(uint64_t value);
+  void clear_watchers_taken();
+  uint64_t watchers_taken() const;
+  void set_watchers_taken(uint64_t value);
   private:
-  uint64_t _internal_lanterns_lit() const;
-  void _internal_set_lanterns_lit(uint64_t value);
+  uint64_t _internal_watchers_taken() const;
+  void _internal_set_watchers_taken(uint64_t value);
   public:
 
-  // optional uint64 miniboss_kills = 8;
-  bool has_miniboss_kills() const;
+  // optional uint64 tormentor_kills = 8;
+  bool has_tormentor_kills() const;
   private:
-  bool _internal_has_miniboss_kills() const;
+  bool _internal_has_tormentor_kills() const;
   public:
-  void clear_miniboss_kills();
-  uint64_t miniboss_kills() const;
-  void set_miniboss_kills(uint64_t value);
+  void clear_tormentor_kills();
+  uint64_t tormentor_kills() const;
+  void set_tormentor_kills(uint64_t value);
   private:
-  uint64_t _internal_miniboss_kills() const;
-  void _internal_set_miniboss_kills(uint64_t value);
+  uint64_t _internal_tormentor_kills() const;
+  void _internal_set_tormentor_kills(uint64_t value);
   public:
 
   // optional uint64 outposts_captured = 9;
@@ -39575,13 +39639,13 @@ class CMsgMapStatsSnapshot final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint64_t famangos_gained_;
+    uint64_t lotuses_gained_;
     uint64_t wisdom_runes_gained_;
     uint64_t roshan_kills_day_;
     uint64_t roshan_kills_night_;
     uint64_t portals_used_;
-    uint64_t lanterns_lit_;
-    uint64_t miniboss_kills_;
+    uint64_t watchers_taken_;
+    uint64_t tormentor_kills_;
     uint64_t outposts_captured_;
     uint64_t shield_runes_gained_;
     uint32_t timestamp_;
@@ -39790,6 +39854,181 @@ class CMsgGlobalMapStats final :
     ::CMsgMapStatsSnapshot* current_;
     ::CMsgMapStatsSnapshot* window_start_;
     ::CMsgMapStatsSnapshot* window_end_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fcommon_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgTrackedStat final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgTrackedStat) */ {
+ public:
+  inline CMsgTrackedStat() : CMsgTrackedStat(nullptr) {}
+  ~CMsgTrackedStat() override;
+  explicit PROTOBUF_CONSTEXPR CMsgTrackedStat(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgTrackedStat(const CMsgTrackedStat& from);
+  CMsgTrackedStat(CMsgTrackedStat&& from) noexcept
+    : CMsgTrackedStat() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgTrackedStat& operator=(const CMsgTrackedStat& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgTrackedStat& operator=(CMsgTrackedStat&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgTrackedStat& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgTrackedStat* internal_default_instance() {
+    return reinterpret_cast<const CMsgTrackedStat*>(
+               &_CMsgTrackedStat_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    152;
+
+  friend void swap(CMsgTrackedStat& a, CMsgTrackedStat& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgTrackedStat* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgTrackedStat* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgTrackedStat* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgTrackedStat>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgTrackedStat& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgTrackedStat& from) {
+    CMsgTrackedStat::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgTrackedStat* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgTrackedStat";
+  }
+  protected:
+  explicit CMsgTrackedStat(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTrackedStatIdFieldNumber = 1,
+    kTrackedStatValueFieldNumber = 2,
+  };
+  // optional uint32 tracked_stat_id = 1;
+  bool has_tracked_stat_id() const;
+  private:
+  bool _internal_has_tracked_stat_id() const;
+  public:
+  void clear_tracked_stat_id();
+  uint32_t tracked_stat_id() const;
+  void set_tracked_stat_id(uint32_t value);
+  private:
+  uint32_t _internal_tracked_stat_id() const;
+  void _internal_set_tracked_stat_id(uint32_t value);
+  public:
+
+  // optional int32 tracked_stat_value = 2;
+  bool has_tracked_stat_value() const;
+  private:
+  bool _internal_has_tracked_stat_value() const;
+  public:
+  void clear_tracked_stat_value();
+  int32_t tracked_stat_value() const;
+  void set_tracked_stat_value(int32_t value);
+  private:
+  int32_t _internal_tracked_stat_value() const;
+  void _internal_set_tracked_stat_value(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgTrackedStat)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t tracked_stat_id_;
+    int32_t tracked_stat_value_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fcommon_2eproto;
@@ -59735,65 +59974,9 @@ inline void CMsgDOTAMatch::set_dire_team_complete(uint32_t value) {
   // @@protoc_insertion_point(field_set:CMsgDOTAMatch.dire_team_complete)
 }
 
-// optional uint32 positive_votes = 29;
-inline bool CMsgDOTAMatch::_internal_has_positive_votes() const {
-  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
-  return value;
-}
-inline bool CMsgDOTAMatch::has_positive_votes() const {
-  return _internal_has_positive_votes();
-}
-inline void CMsgDOTAMatch::clear_positive_votes() {
-  _impl_.positive_votes_ = 0u;
-  _impl_._has_bits_[0] &= ~0x04000000u;
-}
-inline uint32_t CMsgDOTAMatch::_internal_positive_votes() const {
-  return _impl_.positive_votes_;
-}
-inline uint32_t CMsgDOTAMatch::positive_votes() const {
-  // @@protoc_insertion_point(field_get:CMsgDOTAMatch.positive_votes)
-  return _internal_positive_votes();
-}
-inline void CMsgDOTAMatch::_internal_set_positive_votes(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x04000000u;
-  _impl_.positive_votes_ = value;
-}
-inline void CMsgDOTAMatch::set_positive_votes(uint32_t value) {
-  _internal_set_positive_votes(value);
-  // @@protoc_insertion_point(field_set:CMsgDOTAMatch.positive_votes)
-}
-
-// optional uint32 negative_votes = 30;
-inline bool CMsgDOTAMatch::_internal_has_negative_votes() const {
-  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
-  return value;
-}
-inline bool CMsgDOTAMatch::has_negative_votes() const {
-  return _internal_has_negative_votes();
-}
-inline void CMsgDOTAMatch::clear_negative_votes() {
-  _impl_.negative_votes_ = 0u;
-  _impl_._has_bits_[0] &= ~0x08000000u;
-}
-inline uint32_t CMsgDOTAMatch::_internal_negative_votes() const {
-  return _impl_.negative_votes_;
-}
-inline uint32_t CMsgDOTAMatch::negative_votes() const {
-  // @@protoc_insertion_point(field_get:CMsgDOTAMatch.negative_votes)
-  return _internal_negative_votes();
-}
-inline void CMsgDOTAMatch::_internal_set_negative_votes(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x08000000u;
-  _impl_.negative_votes_ = value;
-}
-inline void CMsgDOTAMatch::set_negative_votes(uint32_t value) {
-  _internal_set_negative_votes(value);
-  // @@protoc_insertion_point(field_set:CMsgDOTAMatch.negative_votes)
-}
-
 // optional .DOTA_GameMode game_mode = 31 [default = DOTA_GAMEMODE_NONE];
 inline bool CMsgDOTAMatch::_internal_has_game_mode() const {
-  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
   return value;
 }
 inline bool CMsgDOTAMatch::has_game_mode() const {
@@ -59801,7 +59984,7 @@ inline bool CMsgDOTAMatch::has_game_mode() const {
 }
 inline void CMsgDOTAMatch::clear_game_mode() {
   _impl_.game_mode_ = 0;
-  _impl_._has_bits_[0] &= ~0x10000000u;
+  _impl_._has_bits_[0] &= ~0x04000000u;
 }
 inline ::DOTA_GameMode CMsgDOTAMatch::_internal_game_mode() const {
   return static_cast< ::DOTA_GameMode >(_impl_.game_mode_);
@@ -59812,7 +59995,7 @@ inline ::DOTA_GameMode CMsgDOTAMatch::game_mode() const {
 }
 inline void CMsgDOTAMatch::_internal_set_game_mode(::DOTA_GameMode value) {
   assert(::DOTA_GameMode_IsValid(value));
-  _impl_._has_bits_[0] |= 0x10000000u;
+  _impl_._has_bits_[0] |= 0x04000000u;
   _impl_.game_mode_ = value;
 }
 inline void CMsgDOTAMatch::set_game_mode(::DOTA_GameMode value) {
@@ -59862,7 +60045,7 @@ CMsgDOTAMatch::picks_bans() const {
 
 // optional uint64 match_seq_num = 33;
 inline bool CMsgDOTAMatch::_internal_has_match_seq_num() const {
-  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
   return value;
 }
 inline bool CMsgDOTAMatch::has_match_seq_num() const {
@@ -59870,7 +60053,7 @@ inline bool CMsgDOTAMatch::has_match_seq_num() const {
 }
 inline void CMsgDOTAMatch::clear_match_seq_num() {
   _impl_.match_seq_num_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x40000000u;
+  _impl_._has_bits_[0] &= ~0x10000000u;
 }
 inline uint64_t CMsgDOTAMatch::_internal_match_seq_num() const {
   return _impl_.match_seq_num_;
@@ -59880,7 +60063,7 @@ inline uint64_t CMsgDOTAMatch::match_seq_num() const {
   return _internal_match_seq_num();
 }
 inline void CMsgDOTAMatch::_internal_set_match_seq_num(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x40000000u;
+  _impl_._has_bits_[0] |= 0x10000000u;
   _impl_.match_seq_num_ = value;
 }
 inline void CMsgDOTAMatch::set_match_seq_num(uint64_t value) {
@@ -59890,7 +60073,7 @@ inline void CMsgDOTAMatch::set_match_seq_num(uint64_t value) {
 
 // optional .CMsgDOTAMatch.ReplayState replay_state = 34 [default = REPLAY_AVAILABLE];
 inline bool CMsgDOTAMatch::_internal_has_replay_state() const {
-  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
   return value;
 }
 inline bool CMsgDOTAMatch::has_replay_state() const {
@@ -59898,7 +60081,7 @@ inline bool CMsgDOTAMatch::has_replay_state() const {
 }
 inline void CMsgDOTAMatch::clear_replay_state() {
   _impl_.replay_state_ = 0;
-  _impl_._has_bits_[0] &= ~0x20000000u;
+  _impl_._has_bits_[0] &= ~0x08000000u;
 }
 inline ::CMsgDOTAMatch_ReplayState CMsgDOTAMatch::_internal_replay_state() const {
   return static_cast< ::CMsgDOTAMatch_ReplayState >(_impl_.replay_state_);
@@ -59909,7 +60092,7 @@ inline ::CMsgDOTAMatch_ReplayState CMsgDOTAMatch::replay_state() const {
 }
 inline void CMsgDOTAMatch::_internal_set_replay_state(::CMsgDOTAMatch_ReplayState value) {
   assert(::CMsgDOTAMatch_ReplayState_IsValid(value));
-  _impl_._has_bits_[0] |= 0x20000000u;
+  _impl_._has_bits_[0] |= 0x08000000u;
   _impl_.replay_state_ = value;
 }
 inline void CMsgDOTAMatch::set_replay_state(::CMsgDOTAMatch_ReplayState value) {
@@ -59919,7 +60102,7 @@ inline void CMsgDOTAMatch::set_replay_state(::CMsgDOTAMatch_ReplayState value) {
 
 // optional uint32 radiant_guild_id = 35;
 inline bool CMsgDOTAMatch::_internal_has_radiant_guild_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
   return value;
 }
 inline bool CMsgDOTAMatch::has_radiant_guild_id() const {
@@ -59927,7 +60110,7 @@ inline bool CMsgDOTAMatch::has_radiant_guild_id() const {
 }
 inline void CMsgDOTAMatch::clear_radiant_guild_id() {
   _impl_.radiant_guild_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x80000000u;
+  _impl_._has_bits_[0] &= ~0x20000000u;
 }
 inline uint32_t CMsgDOTAMatch::_internal_radiant_guild_id() const {
   return _impl_.radiant_guild_id_;
@@ -59937,7 +60120,7 @@ inline uint32_t CMsgDOTAMatch::radiant_guild_id() const {
   return _internal_radiant_guild_id();
 }
 inline void CMsgDOTAMatch::_internal_set_radiant_guild_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x80000000u;
+  _impl_._has_bits_[0] |= 0x20000000u;
   _impl_.radiant_guild_id_ = value;
 }
 inline void CMsgDOTAMatch::set_radiant_guild_id(uint32_t value) {
@@ -59947,7 +60130,7 @@ inline void CMsgDOTAMatch::set_radiant_guild_id(uint32_t value) {
 
 // optional uint32 dire_guild_id = 36;
 inline bool CMsgDOTAMatch::_internal_has_dire_guild_id() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
   return value;
 }
 inline bool CMsgDOTAMatch::has_dire_guild_id() const {
@@ -59955,7 +60138,7 @@ inline bool CMsgDOTAMatch::has_dire_guild_id() const {
 }
 inline void CMsgDOTAMatch::clear_dire_guild_id() {
   _impl_.dire_guild_id_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x40000000u;
 }
 inline uint32_t CMsgDOTAMatch::_internal_dire_guild_id() const {
   return _impl_.dire_guild_id_;
@@ -59965,7 +60148,7 @@ inline uint32_t CMsgDOTAMatch::dire_guild_id() const {
   return _internal_dire_guild_id();
 }
 inline void CMsgDOTAMatch::_internal_set_dire_guild_id(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x40000000u;
   _impl_.dire_guild_id_ = value;
 }
 inline void CMsgDOTAMatch::set_dire_guild_id(uint32_t value) {
@@ -60111,7 +60294,7 @@ inline void CMsgDOTAMatch::set_allocated_dire_team_tag(std::string* dire_team_ta
 
 // optional uint32 series_id = 39;
 inline bool CMsgDOTAMatch::_internal_has_series_id() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
   return value;
 }
 inline bool CMsgDOTAMatch::has_series_id() const {
@@ -60119,7 +60302,7 @@ inline bool CMsgDOTAMatch::has_series_id() const {
 }
 inline void CMsgDOTAMatch::clear_series_id() {
   _impl_.series_id_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x80000000u;
 }
 inline uint32_t CMsgDOTAMatch::_internal_series_id() const {
   return _impl_.series_id_;
@@ -60129,7 +60312,7 @@ inline uint32_t CMsgDOTAMatch::series_id() const {
   return _internal_series_id();
 }
 inline void CMsgDOTAMatch::_internal_set_series_id(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x80000000u;
   _impl_.series_id_ = value;
 }
 inline void CMsgDOTAMatch::set_series_id(uint32_t value) {
@@ -60139,7 +60322,7 @@ inline void CMsgDOTAMatch::set_series_id(uint32_t value) {
 
 // optional uint32 series_type = 40;
 inline bool CMsgDOTAMatch::_internal_has_series_type() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
   return value;
 }
 inline bool CMsgDOTAMatch::has_series_type() const {
@@ -60147,7 +60330,7 @@ inline bool CMsgDOTAMatch::has_series_type() const {
 }
 inline void CMsgDOTAMatch::clear_series_type() {
   _impl_.series_type_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000004u;
+  _impl_._has_bits_[1] &= ~0x00000001u;
 }
 inline uint32_t CMsgDOTAMatch::_internal_series_type() const {
   return _impl_.series_type_;
@@ -60157,7 +60340,7 @@ inline uint32_t CMsgDOTAMatch::series_type() const {
   return _internal_series_type();
 }
 inline void CMsgDOTAMatch::_internal_set_series_type(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000004u;
+  _impl_._has_bits_[1] |= 0x00000001u;
   _impl_.series_type_ = value;
 }
 inline void CMsgDOTAMatch::set_series_type(uint32_t value) {
@@ -60207,7 +60390,7 @@ CMsgDOTAMatch::broadcaster_channels() const {
 
 // optional uint32 engine = 44;
 inline bool CMsgDOTAMatch::_internal_has_engine() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
   return value;
 }
 inline bool CMsgDOTAMatch::has_engine() const {
@@ -60215,7 +60398,7 @@ inline bool CMsgDOTAMatch::has_engine() const {
 }
 inline void CMsgDOTAMatch::clear_engine() {
   _impl_.engine_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000008u;
+  _impl_._has_bits_[1] &= ~0x00000002u;
 }
 inline uint32_t CMsgDOTAMatch::_internal_engine() const {
   return _impl_.engine_;
@@ -60225,7 +60408,7 @@ inline uint32_t CMsgDOTAMatch::engine() const {
   return _internal_engine();
 }
 inline void CMsgDOTAMatch::_internal_set_engine(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000008u;
+  _impl_._has_bits_[1] |= 0x00000002u;
   _impl_.engine_ = value;
 }
 inline void CMsgDOTAMatch::set_engine(uint32_t value) {
@@ -60325,7 +60508,7 @@ inline void CMsgDOTAMatch::set_allocated_custom_game_data(::CMsgDOTAMatch_Custom
 
 // optional uint32 match_flags = 46;
 inline bool CMsgDOTAMatch::_internal_has_match_flags() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgDOTAMatch::has_match_flags() const {
@@ -60333,7 +60516,7 @@ inline bool CMsgDOTAMatch::has_match_flags() const {
 }
 inline void CMsgDOTAMatch::clear_match_flags() {
   _impl_.match_flags_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000010u;
+  _impl_._has_bits_[1] &= ~0x00000004u;
 }
 inline uint32_t CMsgDOTAMatch::_internal_match_flags() const {
   return _impl_.match_flags_;
@@ -60343,7 +60526,7 @@ inline uint32_t CMsgDOTAMatch::match_flags() const {
   return _internal_match_flags();
 }
 inline void CMsgDOTAMatch::_internal_set_match_flags(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000010u;
+  _impl_._has_bits_[1] |= 0x00000004u;
   _impl_.match_flags_ = value;
 }
 inline void CMsgDOTAMatch::set_match_flags(uint32_t value) {
@@ -60353,7 +60536,7 @@ inline void CMsgDOTAMatch::set_match_flags(uint32_t value) {
 
 // optional fixed32 private_metadata_key = 47;
 inline bool CMsgDOTAMatch::_internal_has_private_metadata_key() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgDOTAMatch::has_private_metadata_key() const {
@@ -60361,7 +60544,7 @@ inline bool CMsgDOTAMatch::has_private_metadata_key() const {
 }
 inline void CMsgDOTAMatch::clear_private_metadata_key() {
   _impl_.private_metadata_key_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000020u;
+  _impl_._has_bits_[1] &= ~0x00000008u;
 }
 inline uint32_t CMsgDOTAMatch::_internal_private_metadata_key() const {
   return _impl_.private_metadata_key_;
@@ -60371,7 +60554,7 @@ inline uint32_t CMsgDOTAMatch::private_metadata_key() const {
   return _internal_private_metadata_key();
 }
 inline void CMsgDOTAMatch::_internal_set_private_metadata_key(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000020u;
+  _impl_._has_bits_[1] |= 0x00000008u;
   _impl_.private_metadata_key_ = value;
 }
 inline void CMsgDOTAMatch::set_private_metadata_key(uint32_t value) {
@@ -60381,7 +60564,7 @@ inline void CMsgDOTAMatch::set_private_metadata_key(uint32_t value) {
 
 // optional uint32 radiant_team_score = 48;
 inline bool CMsgDOTAMatch::_internal_has_radiant_team_score() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000010u) != 0;
   return value;
 }
 inline bool CMsgDOTAMatch::has_radiant_team_score() const {
@@ -60389,7 +60572,7 @@ inline bool CMsgDOTAMatch::has_radiant_team_score() const {
 }
 inline void CMsgDOTAMatch::clear_radiant_team_score() {
   _impl_.radiant_team_score_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000040u;
+  _impl_._has_bits_[1] &= ~0x00000010u;
 }
 inline uint32_t CMsgDOTAMatch::_internal_radiant_team_score() const {
   return _impl_.radiant_team_score_;
@@ -60399,7 +60582,7 @@ inline uint32_t CMsgDOTAMatch::radiant_team_score() const {
   return _internal_radiant_team_score();
 }
 inline void CMsgDOTAMatch::_internal_set_radiant_team_score(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000040u;
+  _impl_._has_bits_[1] |= 0x00000010u;
   _impl_.radiant_team_score_ = value;
 }
 inline void CMsgDOTAMatch::set_radiant_team_score(uint32_t value) {
@@ -60409,7 +60592,7 @@ inline void CMsgDOTAMatch::set_radiant_team_score(uint32_t value) {
 
 // optional uint32 dire_team_score = 49;
 inline bool CMsgDOTAMatch::_internal_has_dire_team_score() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgDOTAMatch::has_dire_team_score() const {
@@ -60417,7 +60600,7 @@ inline bool CMsgDOTAMatch::has_dire_team_score() const {
 }
 inline void CMsgDOTAMatch::clear_dire_team_score() {
   _impl_.dire_team_score_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000080u;
+  _impl_._has_bits_[1] &= ~0x00000020u;
 }
 inline uint32_t CMsgDOTAMatch::_internal_dire_team_score() const {
   return _impl_.dire_team_score_;
@@ -60427,7 +60610,7 @@ inline uint32_t CMsgDOTAMatch::dire_team_score() const {
   return _internal_dire_team_score();
 }
 inline void CMsgDOTAMatch::_internal_set_dire_team_score(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000080u;
+  _impl_._has_bits_[1] |= 0x00000020u;
   _impl_.dire_team_score_ = value;
 }
 inline void CMsgDOTAMatch::set_dire_team_score(uint32_t value) {
@@ -60437,7 +60620,7 @@ inline void CMsgDOTAMatch::set_dire_team_score(uint32_t value) {
 
 // optional .EMatchOutcome match_outcome = 50 [default = k_EMatchOutcome_Unknown];
 inline bool CMsgDOTAMatch::_internal_has_match_outcome() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgDOTAMatch::has_match_outcome() const {
@@ -60445,7 +60628,7 @@ inline bool CMsgDOTAMatch::has_match_outcome() const {
 }
 inline void CMsgDOTAMatch::clear_match_outcome() {
   _impl_.match_outcome_ = 0;
-  _impl_._has_bits_[1] &= ~0x00000100u;
+  _impl_._has_bits_[1] &= ~0x00000040u;
 }
 inline ::EMatchOutcome CMsgDOTAMatch::_internal_match_outcome() const {
   return static_cast< ::EMatchOutcome >(_impl_.match_outcome_);
@@ -60456,7 +60639,7 @@ inline ::EMatchOutcome CMsgDOTAMatch::match_outcome() const {
 }
 inline void CMsgDOTAMatch::_internal_set_match_outcome(::EMatchOutcome value) {
   assert(::EMatchOutcome_IsValid(value));
-  _impl_._has_bits_[1] |= 0x00000100u;
+  _impl_._has_bits_[1] |= 0x00000040u;
   _impl_.match_outcome_ = value;
 }
 inline void CMsgDOTAMatch::set_match_outcome(::EMatchOutcome value) {
@@ -60466,7 +60649,7 @@ inline void CMsgDOTAMatch::set_match_outcome(::EMatchOutcome value) {
 
 // optional uint32 tournament_id = 51;
 inline bool CMsgDOTAMatch::_internal_has_tournament_id() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000200u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000080u) != 0;
   return value;
 }
 inline bool CMsgDOTAMatch::has_tournament_id() const {
@@ -60474,7 +60657,7 @@ inline bool CMsgDOTAMatch::has_tournament_id() const {
 }
 inline void CMsgDOTAMatch::clear_tournament_id() {
   _impl_.tournament_id_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000200u;
+  _impl_._has_bits_[1] &= ~0x00000080u;
 }
 inline uint32_t CMsgDOTAMatch::_internal_tournament_id() const {
   return _impl_.tournament_id_;
@@ -60484,7 +60667,7 @@ inline uint32_t CMsgDOTAMatch::tournament_id() const {
   return _internal_tournament_id();
 }
 inline void CMsgDOTAMatch::_internal_set_tournament_id(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000200u;
+  _impl_._has_bits_[1] |= 0x00000080u;
   _impl_.tournament_id_ = value;
 }
 inline void CMsgDOTAMatch::set_tournament_id(uint32_t value) {
@@ -60494,7 +60677,7 @@ inline void CMsgDOTAMatch::set_tournament_id(uint32_t value) {
 
 // optional uint32 tournament_round = 52;
 inline bool CMsgDOTAMatch::_internal_has_tournament_round() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000400u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000100u) != 0;
   return value;
 }
 inline bool CMsgDOTAMatch::has_tournament_round() const {
@@ -60502,7 +60685,7 @@ inline bool CMsgDOTAMatch::has_tournament_round() const {
 }
 inline void CMsgDOTAMatch::clear_tournament_round() {
   _impl_.tournament_round_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000400u;
+  _impl_._has_bits_[1] &= ~0x00000100u;
 }
 inline uint32_t CMsgDOTAMatch::_internal_tournament_round() const {
   return _impl_.tournament_round_;
@@ -60512,7 +60695,7 @@ inline uint32_t CMsgDOTAMatch::tournament_round() const {
   return _internal_tournament_round();
 }
 inline void CMsgDOTAMatch::_internal_set_tournament_round(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000400u;
+  _impl_._has_bits_[1] |= 0x00000100u;
   _impl_.tournament_round_ = value;
 }
 inline void CMsgDOTAMatch::set_tournament_round(uint32_t value) {
@@ -60522,7 +60705,7 @@ inline void CMsgDOTAMatch::set_tournament_round(uint32_t value) {
 
 // optional uint32 pre_game_duration = 53;
 inline bool CMsgDOTAMatch::_internal_has_pre_game_duration() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000800u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000200u) != 0;
   return value;
 }
 inline bool CMsgDOTAMatch::has_pre_game_duration() const {
@@ -60530,7 +60713,7 @@ inline bool CMsgDOTAMatch::has_pre_game_duration() const {
 }
 inline void CMsgDOTAMatch::clear_pre_game_duration() {
   _impl_.pre_game_duration_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000800u;
+  _impl_._has_bits_[1] &= ~0x00000200u;
 }
 inline uint32_t CMsgDOTAMatch::_internal_pre_game_duration() const {
   return _impl_.pre_game_duration_;
@@ -60540,7 +60723,7 @@ inline uint32_t CMsgDOTAMatch::pre_game_duration() const {
   return _internal_pre_game_duration();
 }
 inline void CMsgDOTAMatch::_internal_set_pre_game_duration(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000800u;
+  _impl_._has_bits_[1] |= 0x00000200u;
   _impl_.pre_game_duration_ = value;
 }
 inline void CMsgDOTAMatch::set_pre_game_duration(uint32_t value) {
@@ -61282,6 +61465,174 @@ inline void CMsgDOTAFantasyPlayerStats::_internal_set_stuns(float value) {
 inline void CMsgDOTAFantasyPlayerStats::set_stuns(float value) {
   _internal_set_stuns(value);
   // @@protoc_insertion_point(field_set:CMsgDOTAFantasyPlayerStats.stuns)
+}
+
+// optional uint32 smokes = 22;
+inline bool CMsgDOTAFantasyPlayerStats::_internal_has_smokes() const {
+  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
+  return value;
+}
+inline bool CMsgDOTAFantasyPlayerStats::has_smokes() const {
+  return _internal_has_smokes();
+}
+inline void CMsgDOTAFantasyPlayerStats::clear_smokes() {
+  _impl_.smokes_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00100000u;
+}
+inline uint32_t CMsgDOTAFantasyPlayerStats::_internal_smokes() const {
+  return _impl_.smokes_;
+}
+inline uint32_t CMsgDOTAFantasyPlayerStats::smokes() const {
+  // @@protoc_insertion_point(field_get:CMsgDOTAFantasyPlayerStats.smokes)
+  return _internal_smokes();
+}
+inline void CMsgDOTAFantasyPlayerStats::_internal_set_smokes(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00100000u;
+  _impl_.smokes_ = value;
+}
+inline void CMsgDOTAFantasyPlayerStats::set_smokes(uint32_t value) {
+  _internal_set_smokes(value);
+  // @@protoc_insertion_point(field_set:CMsgDOTAFantasyPlayerStats.smokes)
+}
+
+// optional uint32 neutral_tokens = 23;
+inline bool CMsgDOTAFantasyPlayerStats::_internal_has_neutral_tokens() const {
+  bool value = (_impl_._has_bits_[0] & 0x00200000u) != 0;
+  return value;
+}
+inline bool CMsgDOTAFantasyPlayerStats::has_neutral_tokens() const {
+  return _internal_has_neutral_tokens();
+}
+inline void CMsgDOTAFantasyPlayerStats::clear_neutral_tokens() {
+  _impl_.neutral_tokens_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00200000u;
+}
+inline uint32_t CMsgDOTAFantasyPlayerStats::_internal_neutral_tokens() const {
+  return _impl_.neutral_tokens_;
+}
+inline uint32_t CMsgDOTAFantasyPlayerStats::neutral_tokens() const {
+  // @@protoc_insertion_point(field_get:CMsgDOTAFantasyPlayerStats.neutral_tokens)
+  return _internal_neutral_tokens();
+}
+inline void CMsgDOTAFantasyPlayerStats::_internal_set_neutral_tokens(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00200000u;
+  _impl_.neutral_tokens_ = value;
+}
+inline void CMsgDOTAFantasyPlayerStats::set_neutral_tokens(uint32_t value) {
+  _internal_set_neutral_tokens(value);
+  // @@protoc_insertion_point(field_set:CMsgDOTAFantasyPlayerStats.neutral_tokens)
+}
+
+// optional uint32 watchers = 24;
+inline bool CMsgDOTAFantasyPlayerStats::_internal_has_watchers() const {
+  bool value = (_impl_._has_bits_[0] & 0x00400000u) != 0;
+  return value;
+}
+inline bool CMsgDOTAFantasyPlayerStats::has_watchers() const {
+  return _internal_has_watchers();
+}
+inline void CMsgDOTAFantasyPlayerStats::clear_watchers() {
+  _impl_.watchers_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00400000u;
+}
+inline uint32_t CMsgDOTAFantasyPlayerStats::_internal_watchers() const {
+  return _impl_.watchers_;
+}
+inline uint32_t CMsgDOTAFantasyPlayerStats::watchers() const {
+  // @@protoc_insertion_point(field_get:CMsgDOTAFantasyPlayerStats.watchers)
+  return _internal_watchers();
+}
+inline void CMsgDOTAFantasyPlayerStats::_internal_set_watchers(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00400000u;
+  _impl_.watchers_ = value;
+}
+inline void CMsgDOTAFantasyPlayerStats::set_watchers(uint32_t value) {
+  _internal_set_watchers(value);
+  // @@protoc_insertion_point(field_set:CMsgDOTAFantasyPlayerStats.watchers)
+}
+
+// optional uint32 lotuses = 25;
+inline bool CMsgDOTAFantasyPlayerStats::_internal_has_lotuses() const {
+  bool value = (_impl_._has_bits_[0] & 0x00800000u) != 0;
+  return value;
+}
+inline bool CMsgDOTAFantasyPlayerStats::has_lotuses() const {
+  return _internal_has_lotuses();
+}
+inline void CMsgDOTAFantasyPlayerStats::clear_lotuses() {
+  _impl_.lotuses_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00800000u;
+}
+inline uint32_t CMsgDOTAFantasyPlayerStats::_internal_lotuses() const {
+  return _impl_.lotuses_;
+}
+inline uint32_t CMsgDOTAFantasyPlayerStats::lotuses() const {
+  // @@protoc_insertion_point(field_get:CMsgDOTAFantasyPlayerStats.lotuses)
+  return _internal_lotuses();
+}
+inline void CMsgDOTAFantasyPlayerStats::_internal_set_lotuses(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00800000u;
+  _impl_.lotuses_ = value;
+}
+inline void CMsgDOTAFantasyPlayerStats::set_lotuses(uint32_t value) {
+  _internal_set_lotuses(value);
+  // @@protoc_insertion_point(field_set:CMsgDOTAFantasyPlayerStats.lotuses)
+}
+
+// optional uint32 tormentors = 26;
+inline bool CMsgDOTAFantasyPlayerStats::_internal_has_tormentors() const {
+  bool value = (_impl_._has_bits_[0] & 0x01000000u) != 0;
+  return value;
+}
+inline bool CMsgDOTAFantasyPlayerStats::has_tormentors() const {
+  return _internal_has_tormentors();
+}
+inline void CMsgDOTAFantasyPlayerStats::clear_tormentors() {
+  _impl_.tormentors_ = 0u;
+  _impl_._has_bits_[0] &= ~0x01000000u;
+}
+inline uint32_t CMsgDOTAFantasyPlayerStats::_internal_tormentors() const {
+  return _impl_.tormentors_;
+}
+inline uint32_t CMsgDOTAFantasyPlayerStats::tormentors() const {
+  // @@protoc_insertion_point(field_get:CMsgDOTAFantasyPlayerStats.tormentors)
+  return _internal_tormentors();
+}
+inline void CMsgDOTAFantasyPlayerStats::_internal_set_tormentors(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x01000000u;
+  _impl_.tormentors_ = value;
+}
+inline void CMsgDOTAFantasyPlayerStats::set_tormentors(uint32_t value) {
+  _internal_set_tormentors(value);
+  // @@protoc_insertion_point(field_set:CMsgDOTAFantasyPlayerStats.tormentors)
+}
+
+// optional uint32 courier_kills = 27;
+inline bool CMsgDOTAFantasyPlayerStats::_internal_has_courier_kills() const {
+  bool value = (_impl_._has_bits_[0] & 0x02000000u) != 0;
+  return value;
+}
+inline bool CMsgDOTAFantasyPlayerStats::has_courier_kills() const {
+  return _internal_has_courier_kills();
+}
+inline void CMsgDOTAFantasyPlayerStats::clear_courier_kills() {
+  _impl_.courier_kills_ = 0u;
+  _impl_._has_bits_[0] &= ~0x02000000u;
+}
+inline uint32_t CMsgDOTAFantasyPlayerStats::_internal_courier_kills() const {
+  return _impl_.courier_kills_;
+}
+inline uint32_t CMsgDOTAFantasyPlayerStats::courier_kills() const {
+  // @@protoc_insertion_point(field_get:CMsgDOTAFantasyPlayerStats.courier_kills)
+  return _internal_courier_kills();
+}
+inline void CMsgDOTAFantasyPlayerStats::_internal_set_courier_kills(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x02000000u;
+  _impl_.courier_kills_ = value;
+}
+inline void CMsgDOTAFantasyPlayerStats::set_courier_kills(uint32_t value) {
+  _internal_set_courier_kills(value);
+  // @@protoc_insertion_point(field_set:CMsgDOTAFantasyPlayerStats.courier_kills)
 }
 
 // -------------------------------------------------------------------
@@ -73650,32 +74001,32 @@ inline void CMsgMapStatsSnapshot::set_timestamp(uint32_t value) {
   // @@protoc_insertion_point(field_set:CMsgMapStatsSnapshot.timestamp)
 }
 
-// optional uint64 famangos_gained = 2;
-inline bool CMsgMapStatsSnapshot::_internal_has_famangos_gained() const {
+// optional uint64 lotuses_gained = 2;
+inline bool CMsgMapStatsSnapshot::_internal_has_lotuses_gained() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool CMsgMapStatsSnapshot::has_famangos_gained() const {
-  return _internal_has_famangos_gained();
+inline bool CMsgMapStatsSnapshot::has_lotuses_gained() const {
+  return _internal_has_lotuses_gained();
 }
-inline void CMsgMapStatsSnapshot::clear_famangos_gained() {
-  _impl_.famangos_gained_ = uint64_t{0u};
+inline void CMsgMapStatsSnapshot::clear_lotuses_gained() {
+  _impl_.lotuses_gained_ = uint64_t{0u};
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint64_t CMsgMapStatsSnapshot::_internal_famangos_gained() const {
-  return _impl_.famangos_gained_;
+inline uint64_t CMsgMapStatsSnapshot::_internal_lotuses_gained() const {
+  return _impl_.lotuses_gained_;
 }
-inline uint64_t CMsgMapStatsSnapshot::famangos_gained() const {
-  // @@protoc_insertion_point(field_get:CMsgMapStatsSnapshot.famangos_gained)
-  return _internal_famangos_gained();
+inline uint64_t CMsgMapStatsSnapshot::lotuses_gained() const {
+  // @@protoc_insertion_point(field_get:CMsgMapStatsSnapshot.lotuses_gained)
+  return _internal_lotuses_gained();
 }
-inline void CMsgMapStatsSnapshot::_internal_set_famangos_gained(uint64_t value) {
+inline void CMsgMapStatsSnapshot::_internal_set_lotuses_gained(uint64_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.famangos_gained_ = value;
+  _impl_.lotuses_gained_ = value;
 }
-inline void CMsgMapStatsSnapshot::set_famangos_gained(uint64_t value) {
-  _internal_set_famangos_gained(value);
-  // @@protoc_insertion_point(field_set:CMsgMapStatsSnapshot.famangos_gained)
+inline void CMsgMapStatsSnapshot::set_lotuses_gained(uint64_t value) {
+  _internal_set_lotuses_gained(value);
+  // @@protoc_insertion_point(field_set:CMsgMapStatsSnapshot.lotuses_gained)
 }
 
 // optional uint64 wisdom_runes_gained = 3;
@@ -73790,60 +74141,60 @@ inline void CMsgMapStatsSnapshot::set_portals_used(uint64_t value) {
   // @@protoc_insertion_point(field_set:CMsgMapStatsSnapshot.portals_used)
 }
 
-// optional uint64 lanterns_lit = 7;
-inline bool CMsgMapStatsSnapshot::_internal_has_lanterns_lit() const {
+// optional uint64 watchers_taken = 7;
+inline bool CMsgMapStatsSnapshot::_internal_has_watchers_taken() const {
   bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
-inline bool CMsgMapStatsSnapshot::has_lanterns_lit() const {
-  return _internal_has_lanterns_lit();
+inline bool CMsgMapStatsSnapshot::has_watchers_taken() const {
+  return _internal_has_watchers_taken();
 }
-inline void CMsgMapStatsSnapshot::clear_lanterns_lit() {
-  _impl_.lanterns_lit_ = uint64_t{0u};
+inline void CMsgMapStatsSnapshot::clear_watchers_taken() {
+  _impl_.watchers_taken_ = uint64_t{0u};
   _impl_._has_bits_[0] &= ~0x00000020u;
 }
-inline uint64_t CMsgMapStatsSnapshot::_internal_lanterns_lit() const {
-  return _impl_.lanterns_lit_;
+inline uint64_t CMsgMapStatsSnapshot::_internal_watchers_taken() const {
+  return _impl_.watchers_taken_;
 }
-inline uint64_t CMsgMapStatsSnapshot::lanterns_lit() const {
-  // @@protoc_insertion_point(field_get:CMsgMapStatsSnapshot.lanterns_lit)
-  return _internal_lanterns_lit();
+inline uint64_t CMsgMapStatsSnapshot::watchers_taken() const {
+  // @@protoc_insertion_point(field_get:CMsgMapStatsSnapshot.watchers_taken)
+  return _internal_watchers_taken();
 }
-inline void CMsgMapStatsSnapshot::_internal_set_lanterns_lit(uint64_t value) {
+inline void CMsgMapStatsSnapshot::_internal_set_watchers_taken(uint64_t value) {
   _impl_._has_bits_[0] |= 0x00000020u;
-  _impl_.lanterns_lit_ = value;
+  _impl_.watchers_taken_ = value;
 }
-inline void CMsgMapStatsSnapshot::set_lanterns_lit(uint64_t value) {
-  _internal_set_lanterns_lit(value);
-  // @@protoc_insertion_point(field_set:CMsgMapStatsSnapshot.lanterns_lit)
+inline void CMsgMapStatsSnapshot::set_watchers_taken(uint64_t value) {
+  _internal_set_watchers_taken(value);
+  // @@protoc_insertion_point(field_set:CMsgMapStatsSnapshot.watchers_taken)
 }
 
-// optional uint64 miniboss_kills = 8;
-inline bool CMsgMapStatsSnapshot::_internal_has_miniboss_kills() const {
+// optional uint64 tormentor_kills = 8;
+inline bool CMsgMapStatsSnapshot::_internal_has_tormentor_kills() const {
   bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
-inline bool CMsgMapStatsSnapshot::has_miniboss_kills() const {
-  return _internal_has_miniboss_kills();
+inline bool CMsgMapStatsSnapshot::has_tormentor_kills() const {
+  return _internal_has_tormentor_kills();
 }
-inline void CMsgMapStatsSnapshot::clear_miniboss_kills() {
-  _impl_.miniboss_kills_ = uint64_t{0u};
+inline void CMsgMapStatsSnapshot::clear_tormentor_kills() {
+  _impl_.tormentor_kills_ = uint64_t{0u};
   _impl_._has_bits_[0] &= ~0x00000040u;
 }
-inline uint64_t CMsgMapStatsSnapshot::_internal_miniboss_kills() const {
-  return _impl_.miniboss_kills_;
+inline uint64_t CMsgMapStatsSnapshot::_internal_tormentor_kills() const {
+  return _impl_.tormentor_kills_;
 }
-inline uint64_t CMsgMapStatsSnapshot::miniboss_kills() const {
-  // @@protoc_insertion_point(field_get:CMsgMapStatsSnapshot.miniboss_kills)
-  return _internal_miniboss_kills();
+inline uint64_t CMsgMapStatsSnapshot::tormentor_kills() const {
+  // @@protoc_insertion_point(field_get:CMsgMapStatsSnapshot.tormentor_kills)
+  return _internal_tormentor_kills();
 }
-inline void CMsgMapStatsSnapshot::_internal_set_miniboss_kills(uint64_t value) {
+inline void CMsgMapStatsSnapshot::_internal_set_tormentor_kills(uint64_t value) {
   _impl_._has_bits_[0] |= 0x00000040u;
-  _impl_.miniboss_kills_ = value;
+  _impl_.tormentor_kills_ = value;
 }
-inline void CMsgMapStatsSnapshot::set_miniboss_kills(uint64_t value) {
-  _internal_set_miniboss_kills(value);
-  // @@protoc_insertion_point(field_set:CMsgMapStatsSnapshot.miniboss_kills)
+inline void CMsgMapStatsSnapshot::set_tormentor_kills(uint64_t value) {
+  _internal_set_tormentor_kills(value);
+  // @@protoc_insertion_point(field_set:CMsgMapStatsSnapshot.tormentor_kills)
 }
 
 // optional uint64 outposts_captured = 9;
@@ -74176,9 +74527,71 @@ inline void CMsgGlobalMapStats::set_allocated_window_end(::CMsgMapStatsSnapshot*
   // @@protoc_insertion_point(field_set_allocated:CMsgGlobalMapStats.window_end)
 }
 
+// -------------------------------------------------------------------
+
+// CMsgTrackedStat
+
+// optional uint32 tracked_stat_id = 1;
+inline bool CMsgTrackedStat::_internal_has_tracked_stat_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgTrackedStat::has_tracked_stat_id() const {
+  return _internal_has_tracked_stat_id();
+}
+inline void CMsgTrackedStat::clear_tracked_stat_id() {
+  _impl_.tracked_stat_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CMsgTrackedStat::_internal_tracked_stat_id() const {
+  return _impl_.tracked_stat_id_;
+}
+inline uint32_t CMsgTrackedStat::tracked_stat_id() const {
+  // @@protoc_insertion_point(field_get:CMsgTrackedStat.tracked_stat_id)
+  return _internal_tracked_stat_id();
+}
+inline void CMsgTrackedStat::_internal_set_tracked_stat_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.tracked_stat_id_ = value;
+}
+inline void CMsgTrackedStat::set_tracked_stat_id(uint32_t value) {
+  _internal_set_tracked_stat_id(value);
+  // @@protoc_insertion_point(field_set:CMsgTrackedStat.tracked_stat_id)
+}
+
+// optional int32 tracked_stat_value = 2;
+inline bool CMsgTrackedStat::_internal_has_tracked_stat_value() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgTrackedStat::has_tracked_stat_value() const {
+  return _internal_has_tracked_stat_value();
+}
+inline void CMsgTrackedStat::clear_tracked_stat_value() {
+  _impl_.tracked_stat_value_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline int32_t CMsgTrackedStat::_internal_tracked_stat_value() const {
+  return _impl_.tracked_stat_value_;
+}
+inline int32_t CMsgTrackedStat::tracked_stat_value() const {
+  // @@protoc_insertion_point(field_get:CMsgTrackedStat.tracked_stat_value)
+  return _internal_tracked_stat_value();
+}
+inline void CMsgTrackedStat::_internal_set_tracked_stat_value(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.tracked_stat_value_ = value;
+}
+inline void CMsgTrackedStat::set_tracked_stat_value(int32_t value) {
+  _internal_set_tracked_stat_value(value);
+  // @@protoc_insertion_point(field_set:CMsgTrackedStat.tracked_stat_value)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -761,7 +761,6 @@ class CMsgSteamLearnServerInfo final :
     kHmacKeysFieldNumber = 3,
     kEnableDataSubmissionFieldNumber = 1,
     kEnableInferencingFieldNumber = 2,
-    kEnableTestInferencingFieldNumber = 4,
   };
   // optional .CMsgSteamLearnHMACKeys hmac_keys = 3;
   bool has_hmac_keys() const;
@@ -807,19 +806,6 @@ class CMsgSteamLearnServerInfo final :
   void _internal_set_enable_inferencing(bool value);
   public:
 
-  // optional bool enable_test_inferencing = 4;
-  bool has_enable_test_inferencing() const;
-  private:
-  bool _internal_has_enable_test_inferencing() const;
-  public:
-  void clear_enable_test_inferencing();
-  bool enable_test_inferencing() const;
-  void set_enable_test_inferencing(bool value);
-  private:
-  bool _internal_enable_test_inferencing() const;
-  void _internal_set_enable_test_inferencing(bool value);
-  public:
-
   // @@protoc_insertion_point(class_scope:CMsgSteamLearnServerInfo)
  private:
   class _Internal;
@@ -833,7 +819,6 @@ class CMsgSteamLearnServerInfo final :
     ::CMsgSteamLearnHMACKeys* hmac_keys_;
     bool enable_data_submission_;
     bool enable_inferencing_;
-    bool enable_test_inferencing_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_gcsdk_5fgcmessages_2eproto;
@@ -15433,34 +15418,6 @@ inline void CMsgSteamLearnServerInfo::set_allocated_hmac_keys(::CMsgSteamLearnHM
   }
   _impl_.hmac_keys_ = hmac_keys;
   // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearnServerInfo.hmac_keys)
-}
-
-// optional bool enable_test_inferencing = 4;
-inline bool CMsgSteamLearnServerInfo::_internal_has_enable_test_inferencing() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
-  return value;
-}
-inline bool CMsgSteamLearnServerInfo::has_enable_test_inferencing() const {
-  return _internal_has_enable_test_inferencing();
-}
-inline void CMsgSteamLearnServerInfo::clear_enable_test_inferencing() {
-  _impl_.enable_test_inferencing_ = false;
-  _impl_._has_bits_[0] &= ~0x00000008u;
-}
-inline bool CMsgSteamLearnServerInfo::_internal_enable_test_inferencing() const {
-  return _impl_.enable_test_inferencing_;
-}
-inline bool CMsgSteamLearnServerInfo::enable_test_inferencing() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnServerInfo.enable_test_inferencing)
-  return _internal_enable_test_inferencing();
-}
-inline void CMsgSteamLearnServerInfo::_internal_set_enable_test_inferencing(bool value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
-  _impl_.enable_test_inferencing_ = value;
-}
-inline void CMsgSteamLearnServerInfo::set_enable_test_inferencing(bool value) {
-  _internal_set_enable_test_inferencing(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnServerInfo.enable_test_inferencing)
 }
 
 // -------------------------------------------------------------------

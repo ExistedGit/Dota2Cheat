@@ -238,11 +238,13 @@ enum EEvent : int {
   EVENT_ID_MUERTA_RELEASE_SPRING2023 = 40,
   EVENT_ID_TEAM_2023_TOUR1 = 41,
   EVENT_ID_TEAM_2023_TOUR2 = 42,
-  EVENT_ID_TEAM_2023_TOUR3 = 43
+  EVENT_ID_TEAM_2023_TOUR3 = 43,
+  EVENT_ID_INTERNATIONAL_2023 = 45,
+  EVENT_ID_10TH_ANNIVERSARY = 46
 };
 bool EEvent_IsValid(int value);
 constexpr EEvent EEvent_MIN = EVENT_ID_NONE;
-constexpr EEvent EEvent_MAX = EVENT_ID_TEAM_2023_TOUR3;
+constexpr EEvent EEvent_MAX = EVENT_ID_10TH_ANNIVERSARY;
 constexpr int EEvent_ARRAYSIZE = EEvent_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EEvent_descriptor();
@@ -375,6 +377,47 @@ inline bool Fantasy_Roles_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Fantasy_Roles>(
     Fantasy_Roles_descriptor(), name, value);
 }
+enum Fantasy_Scoring : int {
+  FANTASY_SCORING_KILLS = 0,
+  FANTASY_SCORING_DEATHS = 1,
+  FANTASY_SCORING_CS = 2,
+  FANTASY_SCORING_GPM = 3,
+  FANTASY_SCORING_TOWER_KILLS = 4,
+  FANTASY_SCORING_ROSHAN_KILLS = 5,
+  FANTASY_SCORING_TEAMFIGHT_PARTICIPATION = 6,
+  FANTASY_SCORING_WARDS_PLANTED = 7,
+  FANTASY_SCORING_CAMPS_STACKED = 8,
+  FANTASY_SCORING_RUNES_GRABBED = 9,
+  FANTASY_SCORING_FIRST_BLOOD = 10,
+  FANTASY_SCORING_STUNS = 11,
+  FANTASY_SCORING_SMOKES_USED = 12,
+  FANTASY_SCORING_NEUTRAL_TOKENS_FOUND = 13,
+  FANTASY_SCORING_WATCHERS_TAKEN = 14,
+  FANTASY_SCORING_LOTUSES_GAINED = 15,
+  FANTASY_SCORING_TORMENTOR_KILLS = 16,
+  FANTASY_SCORING_COURIER_KILLS = 17,
+  FANTASY_SCORING_TYPES = 18,
+  FANTASY_SCORING_INVALID = 19
+};
+bool Fantasy_Scoring_IsValid(int value);
+constexpr Fantasy_Scoring Fantasy_Scoring_MIN = FANTASY_SCORING_KILLS;
+constexpr Fantasy_Scoring Fantasy_Scoring_MAX = FANTASY_SCORING_INVALID;
+constexpr int Fantasy_Scoring_ARRAYSIZE = Fantasy_Scoring_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Fantasy_Scoring_descriptor();
+template<typename T>
+inline const std::string& Fantasy_Scoring_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, Fantasy_Scoring>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function Fantasy_Scoring_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    Fantasy_Scoring_descriptor(), enum_t_value);
+}
+inline bool Fantasy_Scoring_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Fantasy_Scoring* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Fantasy_Scoring>(
+    Fantasy_Scoring_descriptor(), name, value);
+}
 enum Fantasy_Team_Slots : int {
   FANTASY_SLOT_NONE = 0,
   FANTASY_SLOT_CORE = 1,
@@ -431,6 +474,30 @@ inline bool Fantasy_Selection_Mode_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Fantasy_Selection_Mode* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Fantasy_Selection_Mode>(
     Fantasy_Selection_Mode_descriptor(), name, value);
+}
+enum Fantasy_Gem_Type : int {
+  FANTASY_GEM_TYPE_RUBY = 0,
+  FANTASY_GEM_TYPE_SAPPHIRE = 1,
+  FANTASY_GEM_TYPE_EMERALD = 2
+};
+bool Fantasy_Gem_Type_IsValid(int value);
+constexpr Fantasy_Gem_Type Fantasy_Gem_Type_MIN = FANTASY_GEM_TYPE_RUBY;
+constexpr Fantasy_Gem_Type Fantasy_Gem_Type_MAX = FANTASY_GEM_TYPE_EMERALD;
+constexpr int Fantasy_Gem_Type_ARRAYSIZE = Fantasy_Gem_Type_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Fantasy_Gem_Type_descriptor();
+template<typename T>
+inline const std::string& Fantasy_Gem_Type_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, Fantasy_Gem_Type>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function Fantasy_Gem_Type_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    Fantasy_Gem_Type_descriptor(), enum_t_value);
+}
+inline bool Fantasy_Gem_Type_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Fantasy_Gem_Type* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Fantasy_Gem_Type>(
+    Fantasy_Gem_Type_descriptor(), name, value);
 }
 enum DOTAChatChannelType_t : int {
   DOTAChannelType_Regional = 0,
@@ -501,6 +568,94 @@ inline bool EChatSpecialPrivileges_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EChatSpecialPrivileges* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EChatSpecialPrivileges>(
     EChatSpecialPrivileges_descriptor(), name, value);
+}
+enum DOTACommType_t : int {
+  DOTA_COMM_TYPE_NONE = 0,
+  DOTA_COMM_TYPE_PING = 1,
+  DOTA_COMM_TYPE_CHATWHEEL = 2,
+  DOTA_COMM_TYPE_TIP = 3,
+  DOTA_COMM_TYPE_TEXT = 4,
+  DOTA_COMM_TYPE_VOICE = 5,
+  DOTA_COMM_TYPE_ALLY_ABILITY = 6,
+  DOTA_COMM_TYPE_PAUSE = 7,
+  DOTA_COMM_TYPE_COACHING = 8,
+  DOTA_COMM_TYPE_NOCOOLDOWN = 9,
+  DOTA_COMM_TYPE_RANKEDMATCHMAKE = 10,
+  DOTA_COMM_TYPE_DROPS = 11,
+  DOTA_COMM_TYPE_NEWPLAYER_EXPERT = 12
+};
+bool DOTACommType_t_IsValid(int value);
+constexpr DOTACommType_t DOTACommType_t_MIN = DOTA_COMM_TYPE_NONE;
+constexpr DOTACommType_t DOTACommType_t_MAX = DOTA_COMM_TYPE_NEWPLAYER_EXPERT;
+constexpr int DOTACommType_t_ARRAYSIZE = DOTACommType_t_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DOTACommType_t_descriptor();
+template<typename T>
+inline const std::string& DOTACommType_t_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, DOTACommType_t>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function DOTACommType_t_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    DOTACommType_t_descriptor(), enum_t_value);
+}
+inline bool DOTACommType_t_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, DOTACommType_t* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<DOTACommType_t>(
+    DOTACommType_t_descriptor(), name, value);
+}
+enum DOTACommLevel_t : int {
+  DOTA_COMM_LEVEL_NONE = 0,
+  DOTA_COMM_LEVEL_COOLDOWN = 1,
+  DOTA_COMM_LEVEL_PINGS = 2,
+  DOTA_COMM_LEVEL_CHAT = 3,
+  DOTA_COMM_LEVEL_TIPPING = 4,
+  DOTA_COMM_LEVEL_VOICE = 5,
+  DOTA_COMM_LEVEL_ALLIED_ABILITY = 6
+};
+bool DOTACommLevel_t_IsValid(int value);
+constexpr DOTACommLevel_t DOTACommLevel_t_MIN = DOTA_COMM_LEVEL_NONE;
+constexpr DOTACommLevel_t DOTACommLevel_t_MAX = DOTA_COMM_LEVEL_ALLIED_ABILITY;
+constexpr int DOTACommLevel_t_ARRAYSIZE = DOTACommLevel_t_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DOTACommLevel_t_descriptor();
+template<typename T>
+inline const std::string& DOTACommLevel_t_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, DOTACommLevel_t>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function DOTACommLevel_t_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    DOTACommLevel_t_descriptor(), enum_t_value);
+}
+inline bool DOTACommLevel_t_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, DOTACommLevel_t* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<DOTACommLevel_t>(
+    DOTACommLevel_t_descriptor(), name, value);
+}
+enum DOTABehaviorLevel_t : int {
+  DOTA_BEHAVIOR_LEVEL_NONE = 0,
+  DOTA_BEHAVIOR_LEVEL_RANKED_ALLOWED = 1,
+  DOTA_BEHAVIOR_LEVEL_PAUSING = 2,
+  DOTA_BEHAVIOR_LEVEL_DROPS = 3,
+  DOTA_BEHAVIOR_LEVEL_COACHING = 4
+};
+bool DOTABehaviorLevel_t_IsValid(int value);
+constexpr DOTABehaviorLevel_t DOTABehaviorLevel_t_MIN = DOTA_BEHAVIOR_LEVEL_NONE;
+constexpr DOTABehaviorLevel_t DOTABehaviorLevel_t_MAX = DOTA_BEHAVIOR_LEVEL_COACHING;
+constexpr int DOTABehaviorLevel_t_ARRAYSIZE = DOTABehaviorLevel_t_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DOTABehaviorLevel_t_descriptor();
+template<typename T>
+inline const std::string& DOTABehaviorLevel_t_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, DOTABehaviorLevel_t>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function DOTABehaviorLevel_t_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    DOTABehaviorLevel_t_descriptor(), enum_t_value);
+}
+inline bool DOTABehaviorLevel_t_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, DOTABehaviorLevel_t* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<DOTABehaviorLevel_t>(
+    DOTABehaviorLevel_t_descriptor(), name, value);
 }
 enum EProfileCardSlotType : int {
   k_EProfileCardSlotType_Empty = 0,
@@ -1651,6 +1806,7 @@ class CDOTAClientHardwareSpecs final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kCrcFieldNumber = 7,
     kCpuCyclesPerSecondFieldNumber = 2,
     kTotalPhysicalMemoryFieldNumber = 3,
     kLogicalProcessorsFieldNumber = 1,
@@ -1658,6 +1814,28 @@ class CDOTAClientHardwareSpecs final :
     kPreferNotHostFieldNumber = 6,
     kUploadMeasurementFieldNumber = 5,
   };
+  // repeated uint32 crc = 7;
+  int crc_size() const;
+  private:
+  int _internal_crc_size() const;
+  public:
+  void clear_crc();
+  private:
+  uint32_t _internal_crc(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_crc() const;
+  void _internal_add_crc(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_crc();
+  public:
+  uint32_t crc(int index) const;
+  void set_crc(int index, uint32_t value);
+  void add_crc(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      crc() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_crc();
+
   // optional fixed64 cpu_cycles_per_second = 2;
   bool has_cpu_cycles_per_second() const;
   private:
@@ -1746,6 +1924,7 @@ class CDOTAClientHardwareSpecs final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > crc_;
     uint64_t cpu_cycles_per_second_;
     uint64_t total_physical_memory_;
     uint32_t logical_processors_;
@@ -4342,6 +4521,53 @@ inline void CDOTAClientHardwareSpecs::_internal_set_prefer_not_host(bool value) 
 inline void CDOTAClientHardwareSpecs::set_prefer_not_host(bool value) {
   _internal_set_prefer_not_host(value);
   // @@protoc_insertion_point(field_set:CDOTAClientHardwareSpecs.prefer_not_host)
+}
+
+// repeated uint32 crc = 7;
+inline int CDOTAClientHardwareSpecs::_internal_crc_size() const {
+  return _impl_.crc_.size();
+}
+inline int CDOTAClientHardwareSpecs::crc_size() const {
+  return _internal_crc_size();
+}
+inline void CDOTAClientHardwareSpecs::clear_crc() {
+  _impl_.crc_.Clear();
+}
+inline uint32_t CDOTAClientHardwareSpecs::_internal_crc(int index) const {
+  return _impl_.crc_.Get(index);
+}
+inline uint32_t CDOTAClientHardwareSpecs::crc(int index) const {
+  // @@protoc_insertion_point(field_get:CDOTAClientHardwareSpecs.crc)
+  return _internal_crc(index);
+}
+inline void CDOTAClientHardwareSpecs::set_crc(int index, uint32_t value) {
+  _impl_.crc_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CDOTAClientHardwareSpecs.crc)
+}
+inline void CDOTAClientHardwareSpecs::_internal_add_crc(uint32_t value) {
+  _impl_.crc_.Add(value);
+}
+inline void CDOTAClientHardwareSpecs::add_crc(uint32_t value) {
+  _internal_add_crc(value);
+  // @@protoc_insertion_point(field_add:CDOTAClientHardwareSpecs.crc)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CDOTAClientHardwareSpecs::_internal_crc() const {
+  return _impl_.crc_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CDOTAClientHardwareSpecs::crc() const {
+  // @@protoc_insertion_point(field_list:CDOTAClientHardwareSpecs.crc)
+  return _internal_crc();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CDOTAClientHardwareSpecs::_internal_mutable_crc() {
+  return &_impl_.crc_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CDOTAClientHardwareSpecs::mutable_crc() {
+  // @@protoc_insertion_point(field_mutable_list:CDOTAClientHardwareSpecs.crc)
+  return _internal_mutable_crc();
 }
 
 // -------------------------------------------------------------------
@@ -7368,6 +7594,11 @@ template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::Fantasy_Roles>() {
   return ::Fantasy_Roles_descriptor();
 }
+template <> struct is_proto_enum< ::Fantasy_Scoring> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::Fantasy_Scoring>() {
+  return ::Fantasy_Scoring_descriptor();
+}
 template <> struct is_proto_enum< ::Fantasy_Team_Slots> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::Fantasy_Team_Slots>() {
@@ -7378,6 +7609,11 @@ template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::Fantasy_Selection_Mode>() {
   return ::Fantasy_Selection_Mode_descriptor();
 }
+template <> struct is_proto_enum< ::Fantasy_Gem_Type> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::Fantasy_Gem_Type>() {
+  return ::Fantasy_Gem_Type_descriptor();
+}
 template <> struct is_proto_enum< ::DOTAChatChannelType_t> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::DOTAChatChannelType_t>() {
@@ -7387,6 +7623,21 @@ template <> struct is_proto_enum< ::EChatSpecialPrivileges> : ::std::true_type {
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::EChatSpecialPrivileges>() {
   return ::EChatSpecialPrivileges_descriptor();
+}
+template <> struct is_proto_enum< ::DOTACommType_t> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::DOTACommType_t>() {
+  return ::DOTACommType_t_descriptor();
+}
+template <> struct is_proto_enum< ::DOTACommLevel_t> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::DOTACommLevel_t>() {
+  return ::DOTACommLevel_t_descriptor();
+}
+template <> struct is_proto_enum< ::DOTABehaviorLevel_t> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::DOTABehaviorLevel_t>() {
+  return ::DOTABehaviorLevel_t_descriptor();
 }
 template <> struct is_proto_enum< ::EProfileCardSlotType> : ::std::true_type {};
 template <>

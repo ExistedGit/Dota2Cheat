@@ -206,6 +206,21 @@ struct CMsgDOTAChatMessage_PlayerDraftPickDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgDOTAChatMessage_PlayerDraftPickDefaultTypeInternal _CMsgDOTAChatMessage_PlayerDraftPick_default_instance_;
+PROTOBUF_CONSTEXPR CMsgDOTAChatMessage_ChatWheelMessage::CMsgDOTAChatMessage_ChatWheelMessage(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.emoticon_id_)*/0u
+  , /*decltype(_impl_.message_id_)*/4294967295u} {}
+struct CMsgDOTAChatMessage_ChatWheelMessageDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgDOTAChatMessage_ChatWheelMessageDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgDOTAChatMessage_ChatWheelMessageDefaultTypeInternal() {}
+  union {
+    CMsgDOTAChatMessage_ChatWheelMessage _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgDOTAChatMessage_ChatWheelMessageDefaultTypeInternal _CMsgDOTAChatMessage_ChatWheelMessage_default_instance_;
 PROTOBUF_CONSTEXPR CMsgDOTAChatMessage::CMsgDOTAChatMessage(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -218,6 +233,7 @@ PROTOBUF_CONSTEXPR CMsgDOTAChatMessage::CMsgDOTAChatMessage(
   , /*decltype(_impl_.dice_roll_)*/nullptr
   , /*decltype(_impl_.trivia_answer_)*/nullptr
   , /*decltype(_impl_.player_draft_pick_)*/nullptr
+  , /*decltype(_impl_.chat_wheel_message_)*/nullptr
   , /*decltype(_impl_.channel_id_)*/uint64_t{0u}
   , /*decltype(_impl_.account_id_)*/0u
   , /*decltype(_impl_.timestamp_)*/0u
@@ -467,7 +483,7 @@ struct CMsgDOTAChatRegionsEnabledDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgDOTAChatRegionsEnabledDefaultTypeInternal _CMsgDOTAChatRegionsEnabled_default_instance_;
-static ::_pb::Metadata file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[26];
+static ::_pb::Metadata file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[27];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fchat_2eproto[2];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_dota_5fgcmessages_5fclient_5fchat_2eproto = nullptr;
 
@@ -604,6 +620,16 @@ const uint32_t TableStruct_dota_5fgcmessages_5fclient_5fchat_2eproto::offsets[] 
   PROTOBUF_FIELD_OFFSET(::CMsgDOTAChatMessage_PlayerDraftPick, _impl_.team_),
   1,
   0,
+  PROTOBUF_FIELD_OFFSET(::CMsgDOTAChatMessage_ChatWheelMessage, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDOTAChatMessage_ChatWheelMessage, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgDOTAChatMessage_ChatWheelMessage, _impl_.message_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDOTAChatMessage_ChatWheelMessage, _impl_.emoticon_id_),
+  1,
+  0,
   PROTOBUF_FIELD_OFFSET(::CMsgDOTAChatMessage, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgDOTAChatMessage, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -648,44 +674,46 @@ const uint32_t TableStruct_dota_5fgcmessages_5fclient_5fchat_2eproto::offsets[] 
   PROTOBUF_FIELD_OFFSET(::CMsgDOTAChatMessage, _impl_.favorite_team_quality_),
   PROTOBUF_FIELD_OFFSET(::CMsgDOTAChatMessage, _impl_.suggest_player_draft_pick_),
   PROTOBUF_FIELD_OFFSET(::CMsgDOTAChatMessage, _impl_.player_draft_pick_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDOTAChatMessage, _impl_.chat_wheel_message_),
+  10,
   9,
-  8,
   0,
   1,
-  10,
   11,
-  2,
   12,
+  2,
   13,
   14,
-  20,
   15,
   21,
-  36,
   16,
-  19,
-  5,
-  17,
-  18,
-  24,
-  3,
-  25,
-  26,
   22,
-  29,
-  27,
-  28,
-  4,
-  30,
-  6,
   37,
-  31,
+  17,
+  20,
+  5,
+  18,
+  19,
+  25,
+  3,
+  26,
+  27,
   23,
+  30,
+  28,
+  29,
+  4,
+  31,
+  6,
+  38,
   32,
+  24,
   33,
   34,
   35,
+  36,
   7,
+  8,
   PROTOBUF_FIELD_OFFSET(::CMsgDOTAChatMember, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgDOTAChatMember, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -865,20 +893,21 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 94, 103, -1, sizeof(::CMsgDOTAChatMessage_DiceRoll)},
   { 106, 117, -1, sizeof(::CMsgDOTAChatMessage_TriviaAnswered)},
   { 122, 130, -1, sizeof(::CMsgDOTAChatMessage_PlayerDraftPick)},
-  { 132, 176, -1, sizeof(::CMsgDOTAChatMessage)},
-  { 214, 224, -1, sizeof(::CMsgDOTAChatMember)},
-  { 228, 245, -1, sizeof(::CMsgDOTAJoinChatChannelResponse)},
-  { 256, 267, -1, sizeof(::CMsgDOTAOtherJoinedChatChannel)},
-  { 272, 281, -1, sizeof(::CMsgDOTAOtherLeftChatChannel)},
-  { 284, -1, -1, sizeof(::CMsgDOTARequestChatChannelList)},
-  { 290, 299, -1, sizeof(::CMsgDOTARequestChatChannelListResponse_ChatChannel)},
-  { 302, -1, -1, sizeof(::CMsgDOTARequestChatChannelListResponse)},
-  { 309, 319, -1, sizeof(::CMsgDOTAChatGetUserListResponse_Member)},
-  { 323, 331, -1, sizeof(::CMsgDOTAChatGetUserListResponse)},
-  { 333, 341, -1, sizeof(::CMsgDOTAChatGetMemberCount)},
-  { 343, 352, -1, sizeof(::CMsgDOTAChatGetMemberCountResponse)},
-  { 355, 365, -1, sizeof(::CMsgDOTAChatRegionsEnabled_Region)},
-  { 369, 377, -1, sizeof(::CMsgDOTAChatRegionsEnabled)},
+  { 132, 140, -1, sizeof(::CMsgDOTAChatMessage_ChatWheelMessage)},
+  { 142, 187, -1, sizeof(::CMsgDOTAChatMessage)},
+  { 226, 236, -1, sizeof(::CMsgDOTAChatMember)},
+  { 240, 257, -1, sizeof(::CMsgDOTAJoinChatChannelResponse)},
+  { 268, 279, -1, sizeof(::CMsgDOTAOtherJoinedChatChannel)},
+  { 284, 293, -1, sizeof(::CMsgDOTAOtherLeftChatChannel)},
+  { 296, -1, -1, sizeof(::CMsgDOTARequestChatChannelList)},
+  { 302, 311, -1, sizeof(::CMsgDOTARequestChatChannelListResponse_ChatChannel)},
+  { 314, -1, -1, sizeof(::CMsgDOTARequestChatChannelListResponse)},
+  { 321, 331, -1, sizeof(::CMsgDOTAChatGetUserListResponse_Member)},
+  { 335, 343, -1, sizeof(::CMsgDOTAChatGetUserListResponse)},
+  { 345, 353, -1, sizeof(::CMsgDOTAChatGetMemberCount)},
+  { 355, 364, -1, sizeof(::CMsgDOTAChatGetMemberCountResponse)},
+  { 367, 377, -1, sizeof(::CMsgDOTAChatRegionsEnabled_Region)},
+  { 381, 389, -1, sizeof(::CMsgDOTAChatRegionsEnabled)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -894,6 +923,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CMsgDOTAChatMessage_DiceRoll_default_instance_._instance,
   &::_CMsgDOTAChatMessage_TriviaAnswered_default_instance_._instance,
   &::_CMsgDOTAChatMessage_PlayerDraftPick_default_instance_._instance,
+  &::_CMsgDOTAChatMessage_ChatWheelMessage_default_instance_._instance,
   &::_CMsgDOTAChatMessage_default_instance_._instance,
   &::_CMsgDOTAChatMember_default_instance_._instance,
   &::_CMsgDOTAJoinChatChannelResponse_default_instance_._instance,
@@ -945,7 +975,7 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fclient_5fchat_2eproto[]
   "ublicSpam\022\022\n\nchannel_id\030\001 \001(\004\022\027\n\017channel"
   "_user_id\030\002 \001(\r\"T\n\030CMsgDOTAChatModeratorB"
   "an\022\022\n\nchannel_id\030\001 \001(\004\022\022\n\naccount_id\030\002 \001"
-  "(\r\022\020\n\010duration\030\003 \001(\r\"\221\013\n\023CMsgDOTAChatMes"
+  "(\r\022\020\n\010duration\030\003 \001(\r\"\235\014\n\023CMsgDOTAChatMes"
   "sage\022\022\n\naccount_id\030\001 \001(\r\022\022\n\nchannel_id\030\002"
   " \001(\004\022\024\n\014persona_name\030\003 \001(\t\022\014\n\004text\030\004 \001(\t"
   "\022\021\n\ttimestamp\030\005 \001(\r\022!\n\031suggest_invite_ac"
@@ -974,80 +1004,83 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fclient_5fchat_2eproto[]
   "\025favorite_team_quality\030& \001(\r\022%\n\031suggest_"
   "player_draft_pick\030\' \001(\005:\002-1\022\?\n\021player_dr"
   "aft_pick\030( \001(\0132$.CMsgDOTAChatMessage.Pla"
-  "yerDraftPick\032>\n\010DiceRoll\022\020\n\010roll_min\030\001 \001"
-  "(\005\022\020\n\010roll_max\030\002 \001(\005\022\016\n\006result\030\003 \001(\005\032\231\001\n"
-  "\016TriviaAnswered\022\023\n\013question_id\030\001 \001(\r\022\024\n\014"
-  "answer_index\030\002 \001(\r\022\037\n\027party_questions_co"
-  "rrect\030\003 \001(\r\022\036\n\026party_questions_viewed\030\004 "
-  "\001(\r\022\033\n\023party_trivia_points\030\005 \001(\r\0326\n\017Play"
-  "erDraftPick\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\014\n\004te"
-  "am\030\002 \001(\005\"e\n\022CMsgDOTAChatMember\022\020\n\010steam_"
-  "id\030\001 \001(\006\022\024\n\014persona_name\030\002 \001(\t\022\027\n\017channe"
-  "l_user_id\030\003 \001(\r\022\016\n\006status\030\004 \001(\r\"\312\007\n\037CMsg"
-  "DOTAJoinChatChannelResponse\022\020\n\010response\030"
-  "\001 \001(\r\022\024\n\014channel_name\030\002 \001(\t\022\022\n\nchannel_i"
-  "d\030\003 \001(\006\022\023\n\013max_members\030\004 \001(\r\022$\n\007members\030"
-  "\005 \003(\0132\023.CMsgDOTAChatMember\022F\n\014channel_ty"
-  "pe\030\006 \001(\0162\026.DOTAChatChannelType_t:\030DOTACh"
-  "annelType_Regional\022E\n\006result\030\007 \001(\0162\'.CMs"
-  "gDOTAJoinChatChannelResponse.Result:\014JOI"
-  "N_SUCCESS\022\031\n\021gc_initiated_join\030\010 \001(\010\022\027\n\017"
-  "channel_user_id\030\t \001(\r\022\027\n\017welcome_message"
-  "\030\n \001(\t\022R\n\022special_privileges\030\013 \001(\0162\027.ECh"
-  "atSpecialPrivileges:\035k_EChatSpecialPrivi"
-  "leges_None\"\377\003\n\006Result\022\020\n\014JOIN_SUCCESS\020\000\022"
-  "\030\n\024INVALID_CHANNEL_TYPE\020\001\022\025\n\021ACCOUNT_NOT"
-  "_FOUND\020\002\022\016\n\nACH_FAILED\020\003\022\035\n\031USER_IN_TOO_"
-  "MANY_CHANNELS\020\004\022\027\n\023RATE_LIMIT_EXCEEDED\020\005"
-  "\022\020\n\014CHANNEL_FULL\020\006\022\033\n\027CHANNEL_FULL_OVERF"
-  "LOWED\020\007\022\026\n\022FAILED_TO_ADD_USER\020\010\022\031\n\025CHANN"
-  "EL_TYPE_DISABLED\020\t\022\036\n\032PRIVATE_CHAT_CREAT"
-  "E_FAILED\020\n\022\036\n\032PRIVATE_CHAT_NO_PERMISSION"
-  "\020\013\022#\n\037PRIVATE_CHAT_CREATE_LOCK_FAILED\020\014\022"
-  "\027\n\023PRIVATE_CHAT_KICKED\020\r\022\024\n\020USER_NOT_ALL"
-  "OWED\020\016\022$\n ENSURE_SPECIAL_PRIVILEGES_FAIL"
-  "ED\020\017\022 \n\034NEW_PLAYER_USER_NOT_ELIGIBLE\020\020\022\020"
-  "\n\014SILENT_ERROR\020\021\022\032\n\026NEW_PLAYER_USER_BANN"
-  "ED\020\022\"\205\001\n\036CMsgDOTAOtherJoinedChatChannel\022"
-  "\022\n\nchannel_id\030\001 \001(\006\022\024\n\014persona_name\030\002 \001("
-  "\t\022\020\n\010steam_id\030\003 \001(\006\022\027\n\017channel_user_id\030\004"
-  " \001(\r\022\016\n\006status\030\005 \001(\r\"]\n\034CMsgDOTAOtherLef"
-  "tChatChannel\022\022\n\nchannel_id\030\001 \001(\006\022\020\n\010stea"
-  "m_id\030\002 \001(\006\022\027\n\017channel_user_id\030\003 \001(\r\" \n\036C"
-  "MsgDOTARequestChatChannelList\"\362\001\n&CMsgDO"
-  "TARequestChatChannelListResponse\022E\n\010chan"
-  "nels\030\001 \003(\01323.CMsgDOTARequestChatChannelL"
-  "istResponse.ChatChannel\032\200\001\n\013ChatChannel\022"
-  "\024\n\014channel_name\030\001 \001(\t\022\023\n\013num_members\030\002 \001"
-  "(\r\022F\n\014channel_type\030\003 \001(\0162\026.DOTAChatChann"
-  "elType_t:\030DOTAChannelType_Regional\"\312\001\n\037C"
-  "MsgDOTAChatGetUserListResponse\022\022\n\nchanne"
-  "l_id\030\001 \001(\006\0228\n\007members\030\002 \003(\0132\'.CMsgDOTACh"
-  "atGetUserListResponse.Member\032Y\n\006Member\022\020"
-  "\n\010steam_id\030\001 \001(\006\022\024\n\014persona_name\030\002 \001(\t\022\027"
-  "\n\017channel_user_id\030\003 \001(\r\022\016\n\006status\030\004 \001(\r\""
-  "z\n\032CMsgDOTAChatGetMemberCount\022\024\n\014channel"
-  "_name\030\001 \001(\t\022F\n\014channel_type\030\002 \001(\0162\026.DOTA"
-  "ChatChannelType_t:\030DOTAChannelType_Regio"
-  "nal\"\230\001\n\"CMsgDOTAChatGetMemberCountRespon"
-  "se\022\024\n\014channel_name\030\001 \001(\t\022F\n\014channel_type"
-  "\030\002 \001(\0162\026.DOTAChatChannelType_t:\030DOTAChan"
-  "nelType_Regional\022\024\n\014member_count\030\003 \001(\r\"\331"
-  "\001\n\032CMsgDOTAChatRegionsEnabled\022\032\n\022enable_"
-  "all_regions\030\001 \001(\010\022;\n\017enabled_regions\030\002 \003"
-  "(\0132\".CMsgDOTAChatRegionsEnabled.Region\032b"
-  "\n\006Region\022\024\n\014min_latitude\030\001 \001(\002\022\024\n\014max_la"
-  "titude\030\002 \001(\002\022\025\n\rmin_longitude\030\003 \001(\002\022\025\n\rm"
-  "ax_longitude\030\004 \001(\002"
+  "yerDraftPick\022A\n\022chat_wheel_message\030) \001(\013"
+  "2%.CMsgDOTAChatMessage.ChatWheelMessage\032"
+  ">\n\010DiceRoll\022\020\n\010roll_min\030\001 \001(\005\022\020\n\010roll_ma"
+  "x\030\002 \001(\005\022\016\n\006result\030\003 \001(\005\032\231\001\n\016TriviaAnswer"
+  "ed\022\023\n\013question_id\030\001 \001(\r\022\024\n\014answer_index\030"
+  "\002 \001(\r\022\037\n\027party_questions_correct\030\003 \001(\r\022\036"
+  "\n\026party_questions_viewed\030\004 \001(\r\022\033\n\023party_"
+  "trivia_points\030\005 \001(\r\0326\n\017PlayerDraftPick\022\025"
+  "\n\tplayer_id\030\001 \001(\005:\002-1\022\014\n\004team\030\002 \001(\005\032G\n\020C"
+  "hatWheelMessage\022\036\n\nmessage_id\030\001 \001(\r:\n429"
+  "4967295\022\023\n\013emoticon_id\030\002 \001(\r\"e\n\022CMsgDOTA"
+  "ChatMember\022\020\n\010steam_id\030\001 \001(\006\022\024\n\014persona_"
+  "name\030\002 \001(\t\022\027\n\017channel_user_id\030\003 \001(\r\022\016\n\006s"
+  "tatus\030\004 \001(\r\"\312\007\n\037CMsgDOTAJoinChatChannelR"
+  "esponse\022\020\n\010response\030\001 \001(\r\022\024\n\014channel_nam"
+  "e\030\002 \001(\t\022\022\n\nchannel_id\030\003 \001(\006\022\023\n\013max_membe"
+  "rs\030\004 \001(\r\022$\n\007members\030\005 \003(\0132\023.CMsgDOTAChat"
+  "Member\022F\n\014channel_type\030\006 \001(\0162\026.DOTAChatC"
+  "hannelType_t:\030DOTAChannelType_Regional\022E"
+  "\n\006result\030\007 \001(\0162\'.CMsgDOTAJoinChatChannel"
+  "Response.Result:\014JOIN_SUCCESS\022\031\n\021gc_init"
+  "iated_join\030\010 \001(\010\022\027\n\017channel_user_id\030\t \001("
+  "\r\022\027\n\017welcome_message\030\n \001(\t\022R\n\022special_pr"
+  "ivileges\030\013 \001(\0162\027.EChatSpecialPrivileges:"
+  "\035k_EChatSpecialPrivileges_None\"\377\003\n\006Resul"
+  "t\022\020\n\014JOIN_SUCCESS\020\000\022\030\n\024INVALID_CHANNEL_T"
+  "YPE\020\001\022\025\n\021ACCOUNT_NOT_FOUND\020\002\022\016\n\nACH_FAIL"
+  "ED\020\003\022\035\n\031USER_IN_TOO_MANY_CHANNELS\020\004\022\027\n\023R"
+  "ATE_LIMIT_EXCEEDED\020\005\022\020\n\014CHANNEL_FULL\020\006\022\033"
+  "\n\027CHANNEL_FULL_OVERFLOWED\020\007\022\026\n\022FAILED_TO"
+  "_ADD_USER\020\010\022\031\n\025CHANNEL_TYPE_DISABLED\020\t\022\036"
+  "\n\032PRIVATE_CHAT_CREATE_FAILED\020\n\022\036\n\032PRIVAT"
+  "E_CHAT_NO_PERMISSION\020\013\022#\n\037PRIVATE_CHAT_C"
+  "REATE_LOCK_FAILED\020\014\022\027\n\023PRIVATE_CHAT_KICK"
+  "ED\020\r\022\024\n\020USER_NOT_ALLOWED\020\016\022$\n ENSURE_SPE"
+  "CIAL_PRIVILEGES_FAILED\020\017\022 \n\034NEW_PLAYER_U"
+  "SER_NOT_ELIGIBLE\020\020\022\020\n\014SILENT_ERROR\020\021\022\032\n\026"
+  "NEW_PLAYER_USER_BANNED\020\022\"\205\001\n\036CMsgDOTAOth"
+  "erJoinedChatChannel\022\022\n\nchannel_id\030\001 \001(\006\022"
+  "\024\n\014persona_name\030\002 \001(\t\022\020\n\010steam_id\030\003 \001(\006\022"
+  "\027\n\017channel_user_id\030\004 \001(\r\022\016\n\006status\030\005 \001(\r"
+  "\"]\n\034CMsgDOTAOtherLeftChatChannel\022\022\n\nchan"
+  "nel_id\030\001 \001(\006\022\020\n\010steam_id\030\002 \001(\006\022\027\n\017channe"
+  "l_user_id\030\003 \001(\r\" \n\036CMsgDOTARequestChatCh"
+  "annelList\"\362\001\n&CMsgDOTARequestChatChannel"
+  "ListResponse\022E\n\010channels\030\001 \003(\01323.CMsgDOT"
+  "ARequestChatChannelListResponse.ChatChan"
+  "nel\032\200\001\n\013ChatChannel\022\024\n\014channel_name\030\001 \001("
+  "\t\022\023\n\013num_members\030\002 \001(\r\022F\n\014channel_type\030\003"
+  " \001(\0162\026.DOTAChatChannelType_t:\030DOTAChanne"
+  "lType_Regional\"\312\001\n\037CMsgDOTAChatGetUserLi"
+  "stResponse\022\022\n\nchannel_id\030\001 \001(\006\0228\n\007member"
+  "s\030\002 \003(\0132\'.CMsgDOTAChatGetUserListRespons"
+  "e.Member\032Y\n\006Member\022\020\n\010steam_id\030\001 \001(\006\022\024\n\014"
+  "persona_name\030\002 \001(\t\022\027\n\017channel_user_id\030\003 "
+  "\001(\r\022\016\n\006status\030\004 \001(\r\"z\n\032CMsgDOTAChatGetMe"
+  "mberCount\022\024\n\014channel_name\030\001 \001(\t\022F\n\014chann"
+  "el_type\030\002 \001(\0162\026.DOTAChatChannelType_t:\030D"
+  "OTAChannelType_Regional\"\230\001\n\"CMsgDOTAChat"
+  "GetMemberCountResponse\022\024\n\014channel_name\030\001"
+  " \001(\t\022F\n\014channel_type\030\002 \001(\0162\026.DOTAChatCha"
+  "nnelType_t:\030DOTAChannelType_Regional\022\024\n\014"
+  "member_count\030\003 \001(\r\"\331\001\n\032CMsgDOTAChatRegio"
+  "nsEnabled\022\032\n\022enable_all_regions\030\001 \001(\010\022;\n"
+  "\017enabled_regions\030\002 \003(\0132\".CMsgDOTAChatReg"
+  "ionsEnabled.Region\032b\n\006Region\022\024\n\014min_lati"
+  "tude\030\001 \001(\002\022\024\n\014max_latitude\030\002 \001(\002\022\025\n\rmin_"
+  "longitude\030\003 \001(\002\022\025\n\rmax_longitude\030\004 \001(\002"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_deps[1] = {
   &::descriptor_table_dota_5fshared_5fenums_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto = {
-    false, false, 5098, descriptor_table_protodef_dota_5fgcmessages_5fclient_5fchat_2eproto,
+    false, false, 5238, descriptor_table_protodef_dota_5fgcmessages_5fclient_5fchat_2eproto,
     "dota_gcmessages_client_chat.proto",
-    &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_once, descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_deps, 1, 26,
+    &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_once, descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_deps, 1, 27,
     schemas, file_default_instances, TableStruct_dota_5fgcmessages_5fclient_5fchat_2eproto::offsets,
     file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto, file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fchat_2eproto,
     file_level_service_descriptors_dota_5fgcmessages_5fclient_5fchat_2eproto,
@@ -4326,14 +4359,246 @@ void CMsgDOTAChatMessage_PlayerDraftPick::InternalSwap(CMsgDOTAChatMessage_Playe
 
 // ===================================================================
 
+class CMsgDOTAChatMessage_ChatWheelMessage::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgDOTAChatMessage_ChatWheelMessage>()._impl_._has_bits_);
+  static void set_has_message_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_emoticon_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CMsgDOTAChatMessage_ChatWheelMessage::CMsgDOTAChatMessage_ChatWheelMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgDOTAChatMessage.ChatWheelMessage)
+}
+CMsgDOTAChatMessage_ChatWheelMessage::CMsgDOTAChatMessage_ChatWheelMessage(const CMsgDOTAChatMessage_ChatWheelMessage& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgDOTAChatMessage_ChatWheelMessage* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.emoticon_id_){}
+    , decltype(_impl_.message_id_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.emoticon_id_, &from._impl_.emoticon_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.message_id_) -
+    reinterpret_cast<char*>(&_impl_.emoticon_id_)) + sizeof(_impl_.message_id_));
+  // @@protoc_insertion_point(copy_constructor:CMsgDOTAChatMessage.ChatWheelMessage)
+}
+
+inline void CMsgDOTAChatMessage_ChatWheelMessage::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.emoticon_id_){0u}
+    , decltype(_impl_.message_id_){4294967295u}
+  };
+}
+
+CMsgDOTAChatMessage_ChatWheelMessage::~CMsgDOTAChatMessage_ChatWheelMessage() {
+  // @@protoc_insertion_point(destructor:CMsgDOTAChatMessage.ChatWheelMessage)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgDOTAChatMessage_ChatWheelMessage::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgDOTAChatMessage_ChatWheelMessage::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgDOTAChatMessage_ChatWheelMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgDOTAChatMessage.ChatWheelMessage)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    _impl_.emoticon_id_ = 0u;
+    _impl_.message_id_ = 4294967295u;
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgDOTAChatMessage_ChatWheelMessage::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint32 message_id = 1 [default = 4294967295];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_message_id(&has_bits);
+          _impl_.message_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 emoticon_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_emoticon_id(&has_bits);
+          _impl_.emoticon_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgDOTAChatMessage_ChatWheelMessage::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgDOTAChatMessage.ChatWheelMessage)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 message_id = 1 [default = 4294967295];
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_message_id(), target);
+  }
+
+  // optional uint32 emoticon_id = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_emoticon_id(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgDOTAChatMessage.ChatWheelMessage)
+  return target;
+}
+
+size_t CMsgDOTAChatMessage_ChatWheelMessage::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgDOTAChatMessage.ChatWheelMessage)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional uint32 emoticon_id = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_emoticon_id());
+    }
+
+    // optional uint32 message_id = 1 [default = 4294967295];
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_message_id());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgDOTAChatMessage_ChatWheelMessage::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgDOTAChatMessage_ChatWheelMessage::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgDOTAChatMessage_ChatWheelMessage::GetClassData() const { return &_class_data_; }
+
+
+void CMsgDOTAChatMessage_ChatWheelMessage::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgDOTAChatMessage_ChatWheelMessage*>(&to_msg);
+  auto& from = static_cast<const CMsgDOTAChatMessage_ChatWheelMessage&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgDOTAChatMessage.ChatWheelMessage)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.emoticon_id_ = from._impl_.emoticon_id_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.message_id_ = from._impl_.message_id_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgDOTAChatMessage_ChatWheelMessage::CopyFrom(const CMsgDOTAChatMessage_ChatWheelMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgDOTAChatMessage.ChatWheelMessage)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgDOTAChatMessage_ChatWheelMessage::IsInitialized() const {
+  return true;
+}
+
+void CMsgDOTAChatMessage_ChatWheelMessage::InternalSwap(CMsgDOTAChatMessage_ChatWheelMessage* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  swap(_impl_.emoticon_id_, other->_impl_.emoticon_id_);
+  swap(_impl_.message_id_, other->_impl_.message_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAChatMessage_ChatWheelMessage::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[12]);
+}
+
+// ===================================================================
+
 class CMsgDOTAChatMessage::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgDOTAChatMessage>()._impl_._has_bits_);
   static void set_has_account_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 512u;
+    (*has_bits)[0] |= 1024u;
   }
   static void set_has_channel_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 256u;
+    (*has_bits)[0] |= 512u;
   }
   static void set_has_persona_name(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
@@ -4342,109 +4607,113 @@ class CMsgDOTAChatMessage::_Internal {
     (*has_bits)[0] |= 2u;
   }
   static void set_has_timestamp(HasBits* has_bits) {
-    (*has_bits)[0] |= 1024u;
+    (*has_bits)[0] |= 2048u;
   }
   static void set_has_suggest_invite_account_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2048u;
+    (*has_bits)[0] |= 4096u;
   }
   static void set_has_suggest_invite_name(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
   static void set_has_fantasy_draft_owner_account_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 4096u;
-  }
-  static void set_has_fantasy_draft_player_account_id(HasBits* has_bits) {
     (*has_bits)[0] |= 8192u;
   }
-  static void set_has_event_id(HasBits* has_bits) {
+  static void set_has_fantasy_draft_player_account_id(HasBits* has_bits) {
     (*has_bits)[0] |= 16384u;
   }
-  static void set_has_suggest_invite_to_lobby(HasBits* has_bits) {
-    (*has_bits)[0] |= 1048576u;
-  }
-  static void set_has_event_points(HasBits* has_bits) {
+  static void set_has_event_id(HasBits* has_bits) {
     (*has_bits)[0] |= 32768u;
   }
-  static void set_has_coin_flip(HasBits* has_bits) {
+  static void set_has_suggest_invite_to_lobby(HasBits* has_bits) {
     (*has_bits)[0] |= 2097152u;
   }
-  static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[1] |= 16u;
-  }
-  static void set_has_share_profile_account_id(HasBits* has_bits) {
+  static void set_has_event_points(HasBits* has_bits) {
     (*has_bits)[0] |= 65536u;
   }
+  static void set_has_coin_flip(HasBits* has_bits) {
+    (*has_bits)[0] |= 4194304u;
+  }
+  static void set_has_player_id(HasBits* has_bits) {
+    (*has_bits)[1] |= 32u;
+  }
+  static void set_has_share_profile_account_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 131072u;
+  }
   static void set_has_channel_user_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 524288u;
+    (*has_bits)[0] |= 1048576u;
   }
   static const ::CMsgDOTAChatMessage_DiceRoll& dice_roll(const CMsgDOTAChatMessage* msg);
   static void set_has_dice_roll(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
   }
   static void set_has_share_party_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 131072u;
-  }
-  static void set_has_share_lobby_id(HasBits* has_bits) {
     (*has_bits)[0] |= 262144u;
   }
+  static void set_has_share_lobby_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 524288u;
+  }
   static void set_has_share_lobby_custom_game_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 16777216u;
+    (*has_bits)[0] |= 33554432u;
   }
   static void set_has_share_lobby_passkey(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
   static void set_has_private_chat_channel_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 33554432u;
-  }
-  static void set_has_status(HasBits* has_bits) {
     (*has_bits)[0] |= 67108864u;
   }
-  static void set_has_legacy_battle_cup_victory(HasBits* has_bits) {
-    (*has_bits)[0] |= 4194304u;
-  }
-  static void set_has_battle_cup_streak(HasBits* has_bits) {
-    (*has_bits)[0] |= 536870912u;
-  }
-  static void set_has_badge_level(HasBits* has_bits) {
+  static void set_has_status(HasBits* has_bits) {
     (*has_bits)[0] |= 134217728u;
   }
-  static void set_has_suggest_pick_hero_id(HasBits* has_bits) {
+  static void set_has_legacy_battle_cup_victory(HasBits* has_bits) {
+    (*has_bits)[0] |= 8388608u;
+  }
+  static void set_has_battle_cup_streak(HasBits* has_bits) {
+    (*has_bits)[0] |= 1073741824u;
+  }
+  static void set_has_badge_level(HasBits* has_bits) {
     (*has_bits)[0] |= 268435456u;
+  }
+  static void set_has_suggest_pick_hero_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 536870912u;
   }
   static void set_has_suggest_pick_hero_role(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
   }
   static void set_has_suggest_ban_hero_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1073741824u;
+    (*has_bits)[0] |= 2147483648u;
   }
   static const ::CMsgDOTAChatMessage_TriviaAnswered& trivia_answer(const CMsgDOTAChatMessage* msg);
   static void set_has_trivia_answer(HasBits* has_bits) {
     (*has_bits)[0] |= 64u;
   }
   static void set_has_requested_ability_id(HasBits* has_bits) {
-    (*has_bits)[1] |= 32u;
+    (*has_bits)[1] |= 64u;
   }
   static void set_has_chat_flags(HasBits* has_bits) {
-    (*has_bits)[0] |= 2147483648u;
-  }
-  static void set_has_started_finding_match(HasBits* has_bits) {
-    (*has_bits)[0] |= 8388608u;
-  }
-  static void set_has_ctrl_is_down(HasBits* has_bits) {
     (*has_bits)[1] |= 1u;
   }
-  static void set_has_favorite_team_id(HasBits* has_bits) {
+  static void set_has_started_finding_match(HasBits* has_bits) {
+    (*has_bits)[0] |= 16777216u;
+  }
+  static void set_has_ctrl_is_down(HasBits* has_bits) {
     (*has_bits)[1] |= 2u;
   }
-  static void set_has_favorite_team_quality(HasBits* has_bits) {
+  static void set_has_favorite_team_id(HasBits* has_bits) {
     (*has_bits)[1] |= 4u;
   }
-  static void set_has_suggest_player_draft_pick(HasBits* has_bits) {
+  static void set_has_favorite_team_quality(HasBits* has_bits) {
     (*has_bits)[1] |= 8u;
+  }
+  static void set_has_suggest_player_draft_pick(HasBits* has_bits) {
+    (*has_bits)[1] |= 16u;
   }
   static const ::CMsgDOTAChatMessage_PlayerDraftPick& player_draft_pick(const CMsgDOTAChatMessage* msg);
   static void set_has_player_draft_pick(HasBits* has_bits) {
     (*has_bits)[0] |= 128u;
+  }
+  static const ::CMsgDOTAChatMessage_ChatWheelMessage& chat_wheel_message(const CMsgDOTAChatMessage* msg);
+  static void set_has_chat_wheel_message(HasBits* has_bits) {
+    (*has_bits)[0] |= 256u;
   }
 };
 
@@ -4459,6 +4728,10 @@ CMsgDOTAChatMessage::_Internal::trivia_answer(const CMsgDOTAChatMessage* msg) {
 const ::CMsgDOTAChatMessage_PlayerDraftPick&
 CMsgDOTAChatMessage::_Internal::player_draft_pick(const CMsgDOTAChatMessage* msg) {
   return *msg->_impl_.player_draft_pick_;
+}
+const ::CMsgDOTAChatMessage_ChatWheelMessage&
+CMsgDOTAChatMessage::_Internal::chat_wheel_message(const CMsgDOTAChatMessage* msg) {
+  return *msg->_impl_.chat_wheel_message_;
 }
 CMsgDOTAChatMessage::CMsgDOTAChatMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -4480,6 +4753,7 @@ CMsgDOTAChatMessage::CMsgDOTAChatMessage(const CMsgDOTAChatMessage& from)
     , decltype(_impl_.dice_roll_){nullptr}
     , decltype(_impl_.trivia_answer_){nullptr}
     , decltype(_impl_.player_draft_pick_){nullptr}
+    , decltype(_impl_.chat_wheel_message_){nullptr}
     , decltype(_impl_.channel_id_){}
     , decltype(_impl_.account_id_){}
     , decltype(_impl_.timestamp_){}
@@ -4561,6 +4835,9 @@ CMsgDOTAChatMessage::CMsgDOTAChatMessage(const CMsgDOTAChatMessage& from)
   if (from._internal_has_player_draft_pick()) {
     _this->_impl_.player_draft_pick_ = new ::CMsgDOTAChatMessage_PlayerDraftPick(*from._impl_.player_draft_pick_);
   }
+  if (from._internal_has_chat_wheel_message()) {
+    _this->_impl_.chat_wheel_message_ = new ::CMsgDOTAChatMessage_ChatWheelMessage(*from._impl_.chat_wheel_message_);
+  }
   ::memcpy(&_impl_.channel_id_, &from._impl_.channel_id_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.requested_ability_id_) -
     reinterpret_cast<char*>(&_impl_.channel_id_)) + sizeof(_impl_.requested_ability_id_));
@@ -4582,6 +4859,7 @@ inline void CMsgDOTAChatMessage::SharedCtor(
     , decltype(_impl_.dice_roll_){nullptr}
     , decltype(_impl_.trivia_answer_){nullptr}
     , decltype(_impl_.player_draft_pick_){nullptr}
+    , decltype(_impl_.chat_wheel_message_){nullptr}
     , decltype(_impl_.channel_id_){uint64_t{0u}}
     , decltype(_impl_.account_id_){0u}
     , decltype(_impl_.timestamp_){0u}
@@ -4654,6 +4932,7 @@ inline void CMsgDOTAChatMessage::SharedDtor() {
   if (this != internal_default_instance()) delete _impl_.dice_roll_;
   if (this != internal_default_instance()) delete _impl_.trivia_answer_;
   if (this != internal_default_instance()) delete _impl_.player_draft_pick_;
+  if (this != internal_default_instance()) delete _impl_.chat_wheel_message_;
 }
 
 void CMsgDOTAChatMessage::SetCachedSize(int size) const {
@@ -4696,26 +4975,30 @@ void CMsgDOTAChatMessage::Clear() {
       _impl_.player_draft_pick_->Clear();
     }
   }
-  if (cached_has_bits & 0x0000ff00u) {
+  if (cached_has_bits & 0x00000100u) {
+    GOOGLE_DCHECK(_impl_.chat_wheel_message_ != nullptr);
+    _impl_.chat_wheel_message_->Clear();
+  }
+  if (cached_has_bits & 0x0000fe00u) {
     ::memset(&_impl_.channel_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.event_points_) -
-        reinterpret_cast<char*>(&_impl_.channel_id_)) + sizeof(_impl_.event_points_));
+        reinterpret_cast<char*>(&_impl_.event_id_) -
+        reinterpret_cast<char*>(&_impl_.channel_id_)) + sizeof(_impl_.event_id_));
   }
   if (cached_has_bits & 0x00ff0000u) {
-    ::memset(&_impl_.share_profile_account_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.started_finding_match_) -
-        reinterpret_cast<char*>(&_impl_.share_profile_account_id_)) + sizeof(_impl_.started_finding_match_));
+    ::memset(&_impl_.event_points_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.legacy_battle_cup_victory_) -
+        reinterpret_cast<char*>(&_impl_.event_points_)) + sizeof(_impl_.legacy_battle_cup_victory_));
   }
   if (cached_has_bits & 0xff000000u) {
-    ::memset(&_impl_.share_lobby_custom_game_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.chat_flags_) -
-        reinterpret_cast<char*>(&_impl_.share_lobby_custom_game_id_)) + sizeof(_impl_.chat_flags_));
+    ::memset(&_impl_.started_finding_match_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.suggest_ban_hero_id_) -
+        reinterpret_cast<char*>(&_impl_.started_finding_match_)) + sizeof(_impl_.suggest_ban_hero_id_));
   }
   cached_has_bits = _impl_._has_bits_[1];
-  if (cached_has_bits & 0x0000003fu) {
-    ::memset(&_impl_.ctrl_is_down_, 0, static_cast<size_t>(
+  if (cached_has_bits & 0x0000007fu) {
+    ::memset(&_impl_.chat_flags_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.favorite_team_quality_) -
-        reinterpret_cast<char*>(&_impl_.ctrl_is_down_)) + sizeof(_impl_.favorite_team_quality_));
+        reinterpret_cast<char*>(&_impl_.chat_flags_)) + sizeof(_impl_.favorite_team_quality_));
     _impl_.suggest_player_draft_pick_ = -1;
     _impl_.player_id_ = -1;
     _impl_.requested_ability_id_ = -1;
@@ -5084,6 +5367,14 @@ const char* CMsgDOTAChatMessage::_InternalParse(const char* ptr, ::_pbi::ParseCo
         } else
           goto handle_unusual;
         continue;
+      // optional .CMsgDOTAChatMessage.ChatWheelMessage chat_wheel_message = 41;
+      case 41:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 74)) {
+          ptr = ctx->ParseMessage(_internal_mutable_chat_wheel_message(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -5115,13 +5406,13 @@ uint8_t* CMsgDOTAChatMessage::_InternalSerialize(
 
   cached_has_bits = _impl_._has_bits_[0];
   // optional uint32 account_id = 1;
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_account_id(), target);
   }
 
   // optional uint64 channel_id = 2;
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_channel_id(), target);
   }
@@ -5147,13 +5438,13 @@ uint8_t* CMsgDOTAChatMessage::_InternalSerialize(
   }
 
   // optional uint32 timestamp = 5;
-  if (cached_has_bits & 0x00000400u) {
+  if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_timestamp(), target);
   }
 
   // optional uint32 suggest_invite_account_id = 6;
-  if (cached_has_bits & 0x00000800u) {
+  if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_suggest_invite_account_id(), target);
   }
@@ -5169,57 +5460,57 @@ uint8_t* CMsgDOTAChatMessage::_InternalSerialize(
   }
 
   // optional uint32 fantasy_draft_owner_account_id = 8;
-  if (cached_has_bits & 0x00001000u) {
+  if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(8, this->_internal_fantasy_draft_owner_account_id(), target);
   }
 
   // optional uint32 fantasy_draft_player_account_id = 9;
-  if (cached_has_bits & 0x00002000u) {
+  if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(9, this->_internal_fantasy_draft_player_account_id(), target);
   }
 
   // optional uint32 event_id = 10;
-  if (cached_has_bits & 0x00004000u) {
+  if (cached_has_bits & 0x00008000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(10, this->_internal_event_id(), target);
   }
 
   // optional bool suggest_invite_to_lobby = 11;
-  if (cached_has_bits & 0x00100000u) {
+  if (cached_has_bits & 0x00200000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(11, this->_internal_suggest_invite_to_lobby(), target);
   }
 
   // optional uint32 event_points = 12;
-  if (cached_has_bits & 0x00008000u) {
+  if (cached_has_bits & 0x00010000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(12, this->_internal_event_points(), target);
   }
 
   // optional bool coin_flip = 13;
-  if (cached_has_bits & 0x00200000u) {
+  if (cached_has_bits & 0x00400000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(13, this->_internal_coin_flip(), target);
   }
 
   cached_has_bits = _impl_._has_bits_[1];
   // optional int32 player_id = 14 [default = -1];
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(14, this->_internal_player_id(), target);
   }
 
   cached_has_bits = _impl_._has_bits_[0];
   // optional uint32 share_profile_account_id = 15;
-  if (cached_has_bits & 0x00010000u) {
+  if (cached_has_bits & 0x00020000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(15, this->_internal_share_profile_account_id(), target);
   }
 
   // optional uint32 channel_user_id = 16;
-  if (cached_has_bits & 0x00080000u) {
+  if (cached_has_bits & 0x00100000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(16, this->_internal_channel_user_id(), target);
   }
@@ -5232,19 +5523,19 @@ uint8_t* CMsgDOTAChatMessage::_InternalSerialize(
   }
 
   // optional uint64 share_party_id = 18;
-  if (cached_has_bits & 0x00020000u) {
+  if (cached_has_bits & 0x00040000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(18, this->_internal_share_party_id(), target);
   }
 
   // optional uint64 share_lobby_id = 19;
-  if (cached_has_bits & 0x00040000u) {
+  if (cached_has_bits & 0x00080000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(19, this->_internal_share_lobby_id(), target);
   }
 
   // optional uint64 share_lobby_custom_game_id = 20;
-  if (cached_has_bits & 0x01000000u) {
+  if (cached_has_bits & 0x02000000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(20, this->_internal_share_lobby_custom_game_id(), target);
   }
@@ -5260,31 +5551,31 @@ uint8_t* CMsgDOTAChatMessage::_InternalSerialize(
   }
 
   // optional uint32 private_chat_channel_id = 22;
-  if (cached_has_bits & 0x02000000u) {
+  if (cached_has_bits & 0x04000000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(22, this->_internal_private_chat_channel_id(), target);
   }
 
   // optional uint32 status = 23;
-  if (cached_has_bits & 0x04000000u) {
+  if (cached_has_bits & 0x08000000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(23, this->_internal_status(), target);
   }
 
   // optional bool legacy_battle_cup_victory = 24;
-  if (cached_has_bits & 0x00400000u) {
+  if (cached_has_bits & 0x00800000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(24, this->_internal_legacy_battle_cup_victory(), target);
   }
 
   // optional uint32 badge_level = 25;
-  if (cached_has_bits & 0x08000000u) {
+  if (cached_has_bits & 0x10000000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(25, this->_internal_badge_level(), target);
   }
 
   // optional uint32 suggest_pick_hero_id = 26;
-  if (cached_has_bits & 0x10000000u) {
+  if (cached_has_bits & 0x20000000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(26, this->_internal_suggest_pick_hero_id(), target);
   }
@@ -5300,13 +5591,13 @@ uint8_t* CMsgDOTAChatMessage::_InternalSerialize(
   }
 
   // optional uint32 battle_cup_streak = 29;
-  if (cached_has_bits & 0x20000000u) {
+  if (cached_has_bits & 0x40000000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(29, this->_internal_battle_cup_streak(), target);
   }
 
   // optional uint32 suggest_ban_hero_id = 30;
-  if (cached_has_bits & 0x40000000u) {
+  if (cached_has_bits & 0x80000000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(30, this->_internal_suggest_ban_hero_id(), target);
   }
@@ -5320,45 +5611,45 @@ uint8_t* CMsgDOTAChatMessage::_InternalSerialize(
 
   cached_has_bits = _impl_._has_bits_[1];
   // optional int32 requested_ability_id = 33 [default = -1];
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(33, this->_internal_requested_ability_id(), target);
   }
 
-  cached_has_bits = _impl_._has_bits_[0];
   // optional uint32 chat_flags = 34;
-  if (cached_has_bits & 0x80000000u) {
+  if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(34, this->_internal_chat_flags(), target);
   }
 
+  cached_has_bits = _impl_._has_bits_[0];
   // optional bool started_finding_match = 35;
-  if (cached_has_bits & 0x00800000u) {
+  if (cached_has_bits & 0x01000000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(35, this->_internal_started_finding_match(), target);
   }
 
   cached_has_bits = _impl_._has_bits_[1];
   // optional bool ctrl_is_down = 36;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(36, this->_internal_ctrl_is_down(), target);
   }
 
   // optional uint32 favorite_team_id = 37;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(37, this->_internal_favorite_team_id(), target);
   }
 
   // optional uint32 favorite_team_quality = 38;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(38, this->_internal_favorite_team_quality(), target);
   }
 
   // optional int32 suggest_player_draft_pick = 39 [default = -1];
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(39, this->_internal_suggest_player_draft_pick(), target);
   }
@@ -5369,6 +5660,13 @@ uint8_t* CMsgDOTAChatMessage::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(40, _Internal::player_draft_pick(this),
         _Internal::player_draft_pick(this).GetCachedSize(), target, stream);
+  }
+
+  // optional .CMsgDOTAChatMessage.ChatWheelMessage chat_wheel_message = 41;
+  if (cached_has_bits & 0x00000100u) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(41, _Internal::chat_wheel_message(this),
+        _Internal::chat_wheel_message(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -5447,188 +5745,195 @@ size_t CMsgDOTAChatMessage::ByteSizeLong() const {
 
   }
   if (cached_has_bits & 0x0000ff00u) {
-    // optional uint64 channel_id = 2;
+    // optional .CMsgDOTAChatMessage.ChatWheelMessage chat_wheel_message = 41;
     if (cached_has_bits & 0x00000100u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.chat_wheel_message_);
+    }
+
+    // optional uint64 channel_id = 2;
+    if (cached_has_bits & 0x00000200u) {
       total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_channel_id());
     }
 
     // optional uint32 account_id = 1;
-    if (cached_has_bits & 0x00000200u) {
+    if (cached_has_bits & 0x00000400u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_account_id());
     }
 
     // optional uint32 timestamp = 5;
-    if (cached_has_bits & 0x00000400u) {
+    if (cached_has_bits & 0x00000800u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_timestamp());
     }
 
     // optional uint32 suggest_invite_account_id = 6;
-    if (cached_has_bits & 0x00000800u) {
+    if (cached_has_bits & 0x00001000u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_suggest_invite_account_id());
     }
 
     // optional uint32 fantasy_draft_owner_account_id = 8;
-    if (cached_has_bits & 0x00001000u) {
+    if (cached_has_bits & 0x00002000u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_fantasy_draft_owner_account_id());
     }
 
     // optional uint32 fantasy_draft_player_account_id = 9;
-    if (cached_has_bits & 0x00002000u) {
+    if (cached_has_bits & 0x00004000u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_fantasy_draft_player_account_id());
     }
 
     // optional uint32 event_id = 10;
-    if (cached_has_bits & 0x00004000u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_event_id());
-    }
-
-    // optional uint32 event_points = 12;
     if (cached_has_bits & 0x00008000u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_event_points());
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_event_id());
     }
 
   }
   if (cached_has_bits & 0x00ff0000u) {
-    // optional uint32 share_profile_account_id = 15;
+    // optional uint32 event_points = 12;
     if (cached_has_bits & 0x00010000u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_event_points());
+    }
+
+    // optional uint32 share_profile_account_id = 15;
+    if (cached_has_bits & 0x00020000u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_share_profile_account_id());
     }
 
     // optional uint64 share_party_id = 18;
-    if (cached_has_bits & 0x00020000u) {
+    if (cached_has_bits & 0x00040000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::UInt64Size(
           this->_internal_share_party_id());
     }
 
     // optional uint64 share_lobby_id = 19;
-    if (cached_has_bits & 0x00040000u) {
+    if (cached_has_bits & 0x00080000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::UInt64Size(
           this->_internal_share_lobby_id());
     }
 
     // optional uint32 channel_user_id = 16;
-    if (cached_has_bits & 0x00080000u) {
+    if (cached_has_bits & 0x00100000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::UInt32Size(
           this->_internal_channel_user_id());
     }
 
     // optional bool suggest_invite_to_lobby = 11;
-    if (cached_has_bits & 0x00100000u) {
-      total_size += 1 + 1;
-    }
-
-    // optional bool coin_flip = 13;
     if (cached_has_bits & 0x00200000u) {
       total_size += 1 + 1;
     }
 
-    // optional bool legacy_battle_cup_victory = 24;
+    // optional bool coin_flip = 13;
     if (cached_has_bits & 0x00400000u) {
-      total_size += 2 + 1;
+      total_size += 1 + 1;
     }
 
-    // optional bool started_finding_match = 35;
+    // optional bool legacy_battle_cup_victory = 24;
     if (cached_has_bits & 0x00800000u) {
       total_size += 2 + 1;
     }
 
   }
   if (cached_has_bits & 0xff000000u) {
-    // optional uint64 share_lobby_custom_game_id = 20;
+    // optional bool started_finding_match = 35;
     if (cached_has_bits & 0x01000000u) {
+      total_size += 2 + 1;
+    }
+
+    // optional uint64 share_lobby_custom_game_id = 20;
+    if (cached_has_bits & 0x02000000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::UInt64Size(
           this->_internal_share_lobby_custom_game_id());
     }
 
     // optional uint32 private_chat_channel_id = 22;
-    if (cached_has_bits & 0x02000000u) {
+    if (cached_has_bits & 0x04000000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::UInt32Size(
           this->_internal_private_chat_channel_id());
     }
 
     // optional uint32 status = 23;
-    if (cached_has_bits & 0x04000000u) {
+    if (cached_has_bits & 0x08000000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::UInt32Size(
           this->_internal_status());
     }
 
     // optional uint32 badge_level = 25;
-    if (cached_has_bits & 0x08000000u) {
+    if (cached_has_bits & 0x10000000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::UInt32Size(
           this->_internal_badge_level());
     }
 
     // optional uint32 suggest_pick_hero_id = 26;
-    if (cached_has_bits & 0x10000000u) {
+    if (cached_has_bits & 0x20000000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::UInt32Size(
           this->_internal_suggest_pick_hero_id());
     }
 
     // optional uint32 battle_cup_streak = 29;
-    if (cached_has_bits & 0x20000000u) {
+    if (cached_has_bits & 0x40000000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::UInt32Size(
           this->_internal_battle_cup_streak());
     }
 
     // optional uint32 suggest_ban_hero_id = 30;
-    if (cached_has_bits & 0x40000000u) {
+    if (cached_has_bits & 0x80000000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::UInt32Size(
           this->_internal_suggest_ban_hero_id());
     }
 
+  }
+  cached_has_bits = _impl_._has_bits_[1];
+  if (cached_has_bits & 0x0000007fu) {
     // optional uint32 chat_flags = 34;
-    if (cached_has_bits & 0x80000000u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::UInt32Size(
           this->_internal_chat_flags());
     }
 
-  }
-  cached_has_bits = _impl_._has_bits_[1];
-  if (cached_has_bits & 0x0000003fu) {
     // optional bool ctrl_is_down = 36;
-    if (cached_has_bits & 0x00000001u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += 2 + 1;
     }
 
     // optional uint32 favorite_team_id = 37;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::UInt32Size(
           this->_internal_favorite_team_id());
     }
 
     // optional uint32 favorite_team_quality = 38;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::UInt32Size(
           this->_internal_favorite_team_quality());
     }
 
     // optional int32 suggest_player_draft_pick = 39 [default = -1];
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int32Size(
           this->_internal_suggest_player_draft_pick());
     }
 
     // optional int32 player_id = 14 [default = -1];
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000020u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
     // optional int32 requested_ability_id = 33 [default = -1];
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000040u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int32Size(
           this->_internal_requested_ability_id());
@@ -5685,103 +5990,107 @@ void CMsgDOTAChatMessage::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, co
   }
   if (cached_has_bits & 0x0000ff00u) {
     if (cached_has_bits & 0x00000100u) {
-      _this->_impl_.channel_id_ = from._impl_.channel_id_;
+      _this->_internal_mutable_chat_wheel_message()->::CMsgDOTAChatMessage_ChatWheelMessage::MergeFrom(
+          from._internal_chat_wheel_message());
     }
     if (cached_has_bits & 0x00000200u) {
-      _this->_impl_.account_id_ = from._impl_.account_id_;
+      _this->_impl_.channel_id_ = from._impl_.channel_id_;
     }
     if (cached_has_bits & 0x00000400u) {
-      _this->_impl_.timestamp_ = from._impl_.timestamp_;
+      _this->_impl_.account_id_ = from._impl_.account_id_;
     }
     if (cached_has_bits & 0x00000800u) {
-      _this->_impl_.suggest_invite_account_id_ = from._impl_.suggest_invite_account_id_;
+      _this->_impl_.timestamp_ = from._impl_.timestamp_;
     }
     if (cached_has_bits & 0x00001000u) {
-      _this->_impl_.fantasy_draft_owner_account_id_ = from._impl_.fantasy_draft_owner_account_id_;
+      _this->_impl_.suggest_invite_account_id_ = from._impl_.suggest_invite_account_id_;
     }
     if (cached_has_bits & 0x00002000u) {
-      _this->_impl_.fantasy_draft_player_account_id_ = from._impl_.fantasy_draft_player_account_id_;
+      _this->_impl_.fantasy_draft_owner_account_id_ = from._impl_.fantasy_draft_owner_account_id_;
     }
     if (cached_has_bits & 0x00004000u) {
-      _this->_impl_.event_id_ = from._impl_.event_id_;
+      _this->_impl_.fantasy_draft_player_account_id_ = from._impl_.fantasy_draft_player_account_id_;
     }
     if (cached_has_bits & 0x00008000u) {
-      _this->_impl_.event_points_ = from._impl_.event_points_;
+      _this->_impl_.event_id_ = from._impl_.event_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   if (cached_has_bits & 0x00ff0000u) {
     if (cached_has_bits & 0x00010000u) {
-      _this->_impl_.share_profile_account_id_ = from._impl_.share_profile_account_id_;
+      _this->_impl_.event_points_ = from._impl_.event_points_;
     }
     if (cached_has_bits & 0x00020000u) {
-      _this->_impl_.share_party_id_ = from._impl_.share_party_id_;
+      _this->_impl_.share_profile_account_id_ = from._impl_.share_profile_account_id_;
     }
     if (cached_has_bits & 0x00040000u) {
-      _this->_impl_.share_lobby_id_ = from._impl_.share_lobby_id_;
+      _this->_impl_.share_party_id_ = from._impl_.share_party_id_;
     }
     if (cached_has_bits & 0x00080000u) {
-      _this->_impl_.channel_user_id_ = from._impl_.channel_user_id_;
+      _this->_impl_.share_lobby_id_ = from._impl_.share_lobby_id_;
     }
     if (cached_has_bits & 0x00100000u) {
-      _this->_impl_.suggest_invite_to_lobby_ = from._impl_.suggest_invite_to_lobby_;
+      _this->_impl_.channel_user_id_ = from._impl_.channel_user_id_;
     }
     if (cached_has_bits & 0x00200000u) {
-      _this->_impl_.coin_flip_ = from._impl_.coin_flip_;
+      _this->_impl_.suggest_invite_to_lobby_ = from._impl_.suggest_invite_to_lobby_;
     }
     if (cached_has_bits & 0x00400000u) {
-      _this->_impl_.legacy_battle_cup_victory_ = from._impl_.legacy_battle_cup_victory_;
+      _this->_impl_.coin_flip_ = from._impl_.coin_flip_;
     }
     if (cached_has_bits & 0x00800000u) {
-      _this->_impl_.started_finding_match_ = from._impl_.started_finding_match_;
+      _this->_impl_.legacy_battle_cup_victory_ = from._impl_.legacy_battle_cup_victory_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   if (cached_has_bits & 0xff000000u) {
     if (cached_has_bits & 0x01000000u) {
-      _this->_impl_.share_lobby_custom_game_id_ = from._impl_.share_lobby_custom_game_id_;
+      _this->_impl_.started_finding_match_ = from._impl_.started_finding_match_;
     }
     if (cached_has_bits & 0x02000000u) {
-      _this->_impl_.private_chat_channel_id_ = from._impl_.private_chat_channel_id_;
+      _this->_impl_.share_lobby_custom_game_id_ = from._impl_.share_lobby_custom_game_id_;
     }
     if (cached_has_bits & 0x04000000u) {
-      _this->_impl_.status_ = from._impl_.status_;
+      _this->_impl_.private_chat_channel_id_ = from._impl_.private_chat_channel_id_;
     }
     if (cached_has_bits & 0x08000000u) {
-      _this->_impl_.badge_level_ = from._impl_.badge_level_;
+      _this->_impl_.status_ = from._impl_.status_;
     }
     if (cached_has_bits & 0x10000000u) {
-      _this->_impl_.suggest_pick_hero_id_ = from._impl_.suggest_pick_hero_id_;
+      _this->_impl_.badge_level_ = from._impl_.badge_level_;
     }
     if (cached_has_bits & 0x20000000u) {
-      _this->_impl_.battle_cup_streak_ = from._impl_.battle_cup_streak_;
+      _this->_impl_.suggest_pick_hero_id_ = from._impl_.suggest_pick_hero_id_;
     }
     if (cached_has_bits & 0x40000000u) {
-      _this->_impl_.suggest_ban_hero_id_ = from._impl_.suggest_ban_hero_id_;
+      _this->_impl_.battle_cup_streak_ = from._impl_.battle_cup_streak_;
     }
     if (cached_has_bits & 0x80000000u) {
-      _this->_impl_.chat_flags_ = from._impl_.chat_flags_;
+      _this->_impl_.suggest_ban_hero_id_ = from._impl_.suggest_ban_hero_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   cached_has_bits = from._impl_._has_bits_[1];
-  if (cached_has_bits & 0x0000003fu) {
+  if (cached_has_bits & 0x0000007fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.ctrl_is_down_ = from._impl_.ctrl_is_down_;
+      _this->_impl_.chat_flags_ = from._impl_.chat_flags_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.favorite_team_id_ = from._impl_.favorite_team_id_;
+      _this->_impl_.ctrl_is_down_ = from._impl_.ctrl_is_down_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.favorite_team_quality_ = from._impl_.favorite_team_quality_;
+      _this->_impl_.favorite_team_id_ = from._impl_.favorite_team_id_;
     }
     if (cached_has_bits & 0x00000008u) {
-      _this->_impl_.suggest_player_draft_pick_ = from._impl_.suggest_player_draft_pick_;
+      _this->_impl_.favorite_team_quality_ = from._impl_.favorite_team_quality_;
     }
     if (cached_has_bits & 0x00000010u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
+      _this->_impl_.suggest_player_draft_pick_ = from._impl_.suggest_player_draft_pick_;
     }
     if (cached_has_bits & 0x00000020u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
+    }
+    if (cached_has_bits & 0x00000040u) {
       _this->_impl_.requested_ability_id_ = from._impl_.requested_ability_id_;
     }
     _this->_impl_._has_bits_[1] |= cached_has_bits;
@@ -5841,7 +6150,7 @@ void CMsgDOTAChatMessage::InternalSwap(CMsgDOTAChatMessage* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAChatMessage::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[12]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[13]);
 }
 
 // ===================================================================
@@ -6165,7 +6474,7 @@ void CMsgDOTAChatMember::InternalSwap(CMsgDOTAChatMember* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAChatMember::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[13]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[14]);
 }
 
 // ===================================================================
@@ -6750,7 +7059,7 @@ void CMsgDOTAJoinChatChannelResponse::InternalSwap(CMsgDOTAJoinChatChannelRespon
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAJoinChatChannelResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[14]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[15]);
 }
 
 // ===================================================================
@@ -7102,7 +7411,7 @@ void CMsgDOTAOtherJoinedChatChannel::InternalSwap(CMsgDOTAOtherJoinedChatChannel
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAOtherJoinedChatChannel::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[15]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[16]);
 }
 
 // ===================================================================
@@ -7367,7 +7676,7 @@ void CMsgDOTAOtherLeftChatChannel::InternalSwap(CMsgDOTAOtherLeftChatChannel* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAOtherLeftChatChannel::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[16]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[17]);
 }
 
 // ===================================================================
@@ -7407,7 +7716,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgDOTARequestChatChannelList
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTARequestChatChannelList::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[17]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[18]);
 }
 
 // ===================================================================
@@ -7709,7 +8018,7 @@ void CMsgDOTARequestChatChannelListResponse_ChatChannel::InternalSwap(CMsgDOTARe
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTARequestChatChannelListResponse_ChatChannel::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[18]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[19]);
 }
 
 // ===================================================================
@@ -7894,7 +8203,7 @@ void CMsgDOTARequestChatChannelListResponse::InternalSwap(CMsgDOTARequestChatCha
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTARequestChatChannelListResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[19]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[20]);
 }
 
 // ===================================================================
@@ -8218,7 +8527,7 @@ void CMsgDOTAChatGetUserListResponse_Member::InternalSwap(CMsgDOTAChatGetUserLis
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAChatGetUserListResponse_Member::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[20]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[21]);
 }
 
 // ===================================================================
@@ -8443,7 +8752,7 @@ void CMsgDOTAChatGetUserListResponse::InternalSwap(CMsgDOTAChatGetUserListRespon
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAChatGetUserListResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[21]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[22]);
 }
 
 // ===================================================================
@@ -8706,7 +9015,7 @@ void CMsgDOTAChatGetMemberCount::InternalSwap(CMsgDOTAChatGetMemberCount* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAChatGetMemberCount::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[22]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[23]);
 }
 
 // ===================================================================
@@ -9008,7 +9317,7 @@ void CMsgDOTAChatGetMemberCountResponse::InternalSwap(CMsgDOTAChatGetMemberCount
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAChatGetMemberCountResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[23]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[24]);
 }
 
 // ===================================================================
@@ -9301,7 +9610,7 @@ void CMsgDOTAChatRegionsEnabled_Region::InternalSwap(CMsgDOTAChatRegionsEnabled_
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAChatRegionsEnabled_Region::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[24]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[25]);
 }
 
 // ===================================================================
@@ -9526,7 +9835,7 @@ void CMsgDOTAChatRegionsEnabled::InternalSwap(CMsgDOTAChatRegionsEnabled* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAChatRegionsEnabled::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fchat_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[25]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fchat_2eproto[26]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -9578,6 +9887,10 @@ Arena::CreateMaybeMessage< ::CMsgDOTAChatMessage_TriviaAnswered >(Arena* arena) 
 template<> PROTOBUF_NOINLINE ::CMsgDOTAChatMessage_PlayerDraftPick*
 Arena::CreateMaybeMessage< ::CMsgDOTAChatMessage_PlayerDraftPick >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgDOTAChatMessage_PlayerDraftPick >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgDOTAChatMessage_ChatWheelMessage*
+Arena::CreateMaybeMessage< ::CMsgDOTAChatMessage_ChatWheelMessage >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgDOTAChatMessage_ChatWheelMessage >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CMsgDOTAChatMessage*
 Arena::CreateMaybeMessage< ::CMsgDOTAChatMessage >(Arena* arena) {

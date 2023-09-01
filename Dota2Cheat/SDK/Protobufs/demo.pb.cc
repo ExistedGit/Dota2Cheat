@@ -278,6 +278,24 @@ struct CDemoCustomDataCallbacksDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CDemoCustomDataCallbacksDefaultTypeInternal _CDemoCustomDataCallbacks_default_instance_;
+PROTOBUF_CONSTEXPR CDemoAnimationData::CDemoAnimationData(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.data_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.entity_id_)*/0
+  , /*decltype(_impl_.start_tick_)*/0
+  , /*decltype(_impl_.data_checksum_)*/int64_t{0}
+  , /*decltype(_impl_.end_tick_)*/0} {}
+struct CDemoAnimationDataDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CDemoAnimationDataDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CDemoAnimationDataDefaultTypeInternal() {}
+  union {
+    CDemoAnimationData _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CDemoAnimationDataDefaultTypeInternal _CDemoAnimationData_default_instance_;
 PROTOBUF_CONSTEXPR CDemoStringTables_items_t::CDemoStringTables_items_t(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -362,7 +380,7 @@ struct CDemoSpawnGroupsDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CDemoSpawnGroupsDefaultTypeInternal _CDemoSpawnGroups_default_instance_;
-static ::_pb::Metadata file_level_metadata_demo_2eproto[22];
+static ::_pb::Metadata file_level_metadata_demo_2eproto[23];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_demo_2eproto[1];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_demo_2eproto = nullptr;
 
@@ -569,6 +587,22 @@ const uint32_t TableStruct_demo_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pro
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CDemoCustomDataCallbacks, _impl_.save_id_),
+  PROTOBUF_FIELD_OFFSET(::CDemoAnimationData, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CDemoAnimationData, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CDemoAnimationData, _impl_.entity_id_),
+  PROTOBUF_FIELD_OFFSET(::CDemoAnimationData, _impl_.start_tick_),
+  PROTOBUF_FIELD_OFFSET(::CDemoAnimationData, _impl_.end_tick_),
+  PROTOBUF_FIELD_OFFSET(::CDemoAnimationData, _impl_.data_),
+  PROTOBUF_FIELD_OFFSET(::CDemoAnimationData, _impl_.data_checksum_),
+  1,
+  2,
+  4,
+  0,
+  3,
   PROTOBUF_FIELD_OFFSET(::CDemoStringTables_items_t, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDemoStringTables_items_t, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -641,12 +675,13 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 178, -1, -1, sizeof(::CDemoClassInfo)},
   { 185, 193, -1, sizeof(::CDemoCustomData)},
   { 195, -1, -1, sizeof(::CDemoCustomDataCallbacks)},
-  { 202, 210, -1, sizeof(::CDemoStringTables_items_t)},
-  { 212, 222, -1, sizeof(::CDemoStringTables_table_t)},
-  { 226, -1, -1, sizeof(::CDemoStringTables)},
-  { 233, -1, -1, sizeof(::CDemoStop)},
-  { 239, 247, -1, sizeof(::CDemoUserCmd)},
-  { 249, -1, -1, sizeof(::CDemoSpawnGroups)},
+  { 202, 213, -1, sizeof(::CDemoAnimationData)},
+  { 218, 226, -1, sizeof(::CDemoStringTables_items_t)},
+  { 228, 238, -1, sizeof(::CDemoStringTables_table_t)},
+  { 242, -1, -1, sizeof(::CDemoStringTables)},
+  { 249, -1, -1, sizeof(::CDemoStop)},
+  { 255, 263, -1, sizeof(::CDemoUserCmd)},
+  { 265, -1, -1, sizeof(::CDemoSpawnGroups)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -666,6 +701,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CDemoClassInfo_default_instance_._instance,
   &::_CDemoCustomData_default_instance_._instance,
   &::_CDemoCustomDataCallbacks_default_instance_._instance,
+  &::_CDemoAnimationData_default_instance_._instance,
   &::_CDemoStringTables_items_t_default_instance_._instance,
   &::_CDemoStringTables_table_t_default_instance_._instance,
   &::_CDemoStringTables_default_instance_._instance,
@@ -714,32 +750,35 @@ const char descriptor_table_protodef_demo_2eproto[] PROTOBUF_SECTION_VARIABLE(pr
   "\022\024\n\014network_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001"
   "(\t\"7\n\017CDemoCustomData\022\026\n\016callback_index\030"
   "\001 \001(\005\022\014\n\004data\030\002 \001(\014\"+\n\030CDemoCustomDataCa"
-  "llbacks\022\017\n\007save_id\030\001 \003(\t\"\373\001\n\021CDemoString"
-  "Tables\022*\n\006tables\030\001 \003(\0132\032.CDemoStringTabl"
-  "es.table_t\032$\n\007items_t\022\013\n\003str\030\001 \001(\t\022\014\n\004da"
-  "ta\030\002 \001(\014\032\223\001\n\007table_t\022\022\n\ntable_name\030\001 \001(\t"
-  "\022)\n\005items\030\002 \003(\0132\032.CDemoStringTables.item"
-  "s_t\0224\n\020items_clientside\030\003 \003(\0132\032.CDemoStr"
-  "ingTables.items_t\022\023\n\013table_flags\030\004 \001(\005\"\013"
-  "\n\tCDemoStop\"0\n\014CDemoUserCmd\022\022\n\ncmd_numbe"
-  "r\030\001 \001(\005\022\014\n\004data\030\002 \001(\014\" \n\020CDemoSpawnGroup"
-  "s\022\014\n\004msgs\030\003 \003(\014*\204\003\n\rEDemoCommands\022\026\n\tDEM"
-  "_Error\020\377\377\377\377\377\377\377\377\377\001\022\014\n\010DEM_Stop\020\000\022\022\n\016DEM_F"
-  "ileHeader\020\001\022\020\n\014DEM_FileInfo\020\002\022\020\n\014DEM_Syn"
-  "cTick\020\003\022\022\n\016DEM_SendTables\020\004\022\021\n\rDEM_Class"
-  "Info\020\005\022\024\n\020DEM_StringTables\020\006\022\016\n\nDEM_Pack"
-  "et\020\007\022\024\n\020DEM_SignonPacket\020\010\022\022\n\016DEM_Consol"
-  "eCmd\020\t\022\022\n\016DEM_CustomData\020\n\022\033\n\027DEM_Custom"
-  "DataCallbacks\020\013\022\017\n\013DEM_UserCmd\020\014\022\022\n\016DEM_"
-  "FullPacket\020\r\022\020\n\014DEM_SaveGame\020\016\022\023\n\017DEM_Sp"
-  "awnGroups\020\017\022\013\n\007DEM_Max\020\020\022\024\n\020DEM_IsCompre"
-  "ssed\020@"
+  "llbacks\022\017\n\007save_id\030\001 \003(\t\"r\n\022CDemoAnimati"
+  "onData\022\021\n\tentity_id\030\001 \001(\021\022\022\n\nstart_tick\030"
+  "\002 \001(\005\022\020\n\010end_tick\030\003 \001(\005\022\014\n\004data\030\004 \001(\014\022\025\n"
+  "\rdata_checksum\030\005 \001(\003\"\373\001\n\021CDemoStringTabl"
+  "es\022*\n\006tables\030\001 \003(\0132\032.CDemoStringTables.t"
+  "able_t\032$\n\007items_t\022\013\n\003str\030\001 \001(\t\022\014\n\004data\030\002"
+  " \001(\014\032\223\001\n\007table_t\022\022\n\ntable_name\030\001 \001(\t\022)\n\005"
+  "items\030\002 \003(\0132\032.CDemoStringTables.items_t\022"
+  "4\n\020items_clientside\030\003 \003(\0132\032.CDemoStringT"
+  "ables.items_t\022\023\n\013table_flags\030\004 \001(\005\"\013\n\tCD"
+  "emoStop\"0\n\014CDemoUserCmd\022\022\n\ncmd_number\030\001 "
+  "\001(\005\022\014\n\004data\030\002 \001(\014\" \n\020CDemoSpawnGroups\022\014\n"
+  "\004msgs\030\003 \003(\014*\233\003\n\rEDemoCommands\022\026\n\tDEM_Err"
+  "or\020\377\377\377\377\377\377\377\377\377\001\022\014\n\010DEM_Stop\020\000\022\022\n\016DEM_FileH"
+  "eader\020\001\022\020\n\014DEM_FileInfo\020\002\022\020\n\014DEM_SyncTic"
+  "k\020\003\022\022\n\016DEM_SendTables\020\004\022\021\n\rDEM_ClassInfo"
+  "\020\005\022\024\n\020DEM_StringTables\020\006\022\016\n\nDEM_Packet\020\007"
+  "\022\024\n\020DEM_SignonPacket\020\010\022\022\n\016DEM_ConsoleCmd"
+  "\020\t\022\022\n\016DEM_CustomData\020\n\022\033\n\027DEM_CustomData"
+  "Callbacks\020\013\022\017\n\013DEM_UserCmd\020\014\022\022\n\016DEM_Full"
+  "Packet\020\r\022\020\n\014DEM_SaveGame\020\016\022\023\n\017DEM_SpawnG"
+  "roups\020\017\022\025\n\021DEM_AnimationData\020\020\022\013\n\007DEM_Ma"
+  "x\020\021\022\024\n\020DEM_IsCompressed\020@"
   ;
 static ::_pbi::once_flag descriptor_table_demo_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_demo_2eproto = {
-    false, false, 2326, descriptor_table_protodef_demo_2eproto,
+    false, false, 2465, descriptor_table_protodef_demo_2eproto,
     "demo.proto",
-    &descriptor_table_demo_2eproto_once, nullptr, 0, 22,
+    &descriptor_table_demo_2eproto_once, nullptr, 0, 23,
     schemas, file_default_instances, TableStruct_demo_2eproto::offsets,
     file_level_metadata_demo_2eproto, file_level_enum_descriptors_demo_2eproto,
     file_level_service_descriptors_demo_2eproto,
@@ -774,6 +813,7 @@ bool EDemoCommands_IsValid(int value) {
     case 14:
     case 15:
     case 16:
+    case 17:
     case 64:
       return true;
     default:
@@ -5564,6 +5604,351 @@ void CDemoCustomDataCallbacks::InternalSwap(CDemoCustomDataCallbacks* other) {
 
 // ===================================================================
 
+class CDemoAnimationData::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CDemoAnimationData>()._impl_._has_bits_);
+  static void set_has_entity_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_start_tick(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_end_tick(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_data(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_data_checksum(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+};
+
+CDemoAnimationData::CDemoAnimationData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CDemoAnimationData)
+}
+CDemoAnimationData::CDemoAnimationData(const CDemoAnimationData& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CDemoAnimationData* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.data_){}
+    , decltype(_impl_.entity_id_){}
+    , decltype(_impl_.start_tick_){}
+    , decltype(_impl_.data_checksum_){}
+    , decltype(_impl_.end_tick_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.data_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.data_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_data()) {
+    _this->_impl_.data_.Set(from._internal_data(), 
+      _this->GetArenaForAllocation());
+  }
+  ::memcpy(&_impl_.entity_id_, &from._impl_.entity_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.end_tick_) -
+    reinterpret_cast<char*>(&_impl_.entity_id_)) + sizeof(_impl_.end_tick_));
+  // @@protoc_insertion_point(copy_constructor:CDemoAnimationData)
+}
+
+inline void CDemoAnimationData::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.data_){}
+    , decltype(_impl_.entity_id_){0}
+    , decltype(_impl_.start_tick_){0}
+    , decltype(_impl_.data_checksum_){int64_t{0}}
+    , decltype(_impl_.end_tick_){0}
+  };
+  _impl_.data_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.data_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+CDemoAnimationData::~CDemoAnimationData() {
+  // @@protoc_insertion_point(destructor:CDemoAnimationData)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CDemoAnimationData::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.data_.Destroy();
+}
+
+void CDemoAnimationData::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CDemoAnimationData::Clear() {
+// @@protoc_insertion_point(message_clear_start:CDemoAnimationData)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    _impl_.data_.ClearNonDefaultToEmpty();
+  }
+  if (cached_has_bits & 0x0000001eu) {
+    ::memset(&_impl_.entity_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.end_tick_) -
+        reinterpret_cast<char*>(&_impl_.entity_id_)) + sizeof(_impl_.end_tick_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CDemoAnimationData::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional sint32 entity_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_entity_id(&has_bits);
+          _impl_.entity_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional int32 start_tick = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_start_tick(&has_bits);
+          _impl_.start_tick_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional int32 end_tick = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_end_tick(&has_bits);
+          _impl_.end_tick_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional bytes data = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          auto str = _internal_mutable_data();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional int64 data_checksum = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          _Internal::set_has_data_checksum(&has_bits);
+          _impl_.data_checksum_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CDemoAnimationData::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CDemoAnimationData)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional sint32 entity_id = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteSInt32ToArray(1, this->_internal_entity_id(), target);
+  }
+
+  // optional int32 start_tick = 2;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_start_tick(), target);
+  }
+
+  // optional int32 end_tick = 3;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_end_tick(), target);
+  }
+
+  // optional bytes data = 4;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->WriteBytesMaybeAliased(
+        4, this->_internal_data(), target);
+  }
+
+  // optional int64 data_checksum = 5;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(5, this->_internal_data_checksum(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CDemoAnimationData)
+  return target;
+}
+
+size_t CDemoAnimationData::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CDemoAnimationData)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000001fu) {
+    // optional bytes data = 4;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+          this->_internal_data());
+    }
+
+    // optional sint32 entity_id = 1;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::SInt32SizePlusOne(this->_internal_entity_id());
+    }
+
+    // optional int32 start_tick = 2;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_start_tick());
+    }
+
+    // optional int64 data_checksum = 5;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_data_checksum());
+    }
+
+    // optional int32 end_tick = 3;
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_end_tick());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CDemoAnimationData::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CDemoAnimationData::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CDemoAnimationData::GetClassData() const { return &_class_data_; }
+
+
+void CDemoAnimationData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CDemoAnimationData*>(&to_msg);
+  auto& from = static_cast<const CDemoAnimationData&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CDemoAnimationData)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000001fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_internal_set_data(from._internal_data());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.entity_id_ = from._impl_.entity_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.start_tick_ = from._impl_.start_tick_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.data_checksum_ = from._impl_.data_checksum_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.end_tick_ = from._impl_.end_tick_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CDemoAnimationData::CopyFrom(const CDemoAnimationData& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CDemoAnimationData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CDemoAnimationData::IsInitialized() const {
+  return true;
+}
+
+void CDemoAnimationData::InternalSwap(CDemoAnimationData* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.data_, lhs_arena,
+      &other->_impl_.data_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CDemoAnimationData, _impl_.end_tick_)
+      + sizeof(CDemoAnimationData::_impl_.end_tick_)
+      - PROTOBUF_FIELD_OFFSET(CDemoAnimationData, _impl_.entity_id_)>(
+          reinterpret_cast<char*>(&_impl_.entity_id_),
+          reinterpret_cast<char*>(&other->_impl_.entity_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CDemoAnimationData::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_demo_2eproto_getter, &descriptor_table_demo_2eproto_once,
+      file_level_metadata_demo_2eproto[16]);
+}
+
+// ===================================================================
+
 class CDemoStringTables_items_t::_Internal {
  public:
   using HasBits = decltype(std::declval<CDemoStringTables_items_t>()._impl_._has_bits_);
@@ -5836,7 +6221,7 @@ void CDemoStringTables_items_t::InternalSwap(CDemoStringTables_items_t* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CDemoStringTables_items_t::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_demo_2eproto_getter, &descriptor_table_demo_2eproto_once,
-      file_level_metadata_demo_2eproto[16]);
+      file_level_metadata_demo_2eproto[17]);
 }
 
 // ===================================================================
@@ -6161,7 +6546,7 @@ void CDemoStringTables_table_t::InternalSwap(CDemoStringTables_table_t* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CDemoStringTables_table_t::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_demo_2eproto_getter, &descriptor_table_demo_2eproto_once,
-      file_level_metadata_demo_2eproto[17]);
+      file_level_metadata_demo_2eproto[18]);
 }
 
 // ===================================================================
@@ -6346,7 +6731,7 @@ void CDemoStringTables::InternalSwap(CDemoStringTables* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CDemoStringTables::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_demo_2eproto_getter, &descriptor_table_demo_2eproto_once,
-      file_level_metadata_demo_2eproto[18]);
+      file_level_metadata_demo_2eproto[19]);
 }
 
 // ===================================================================
@@ -6386,7 +6771,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CDemoStop::GetClassData() cons
 ::PROTOBUF_NAMESPACE_ID::Metadata CDemoStop::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_demo_2eproto_getter, &descriptor_table_demo_2eproto_once,
-      file_level_metadata_demo_2eproto[19]);
+      file_level_metadata_demo_2eproto[20]);
 }
 
 // ===================================================================
@@ -6636,7 +7021,7 @@ void CDemoUserCmd::InternalSwap(CDemoUserCmd* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CDemoUserCmd::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_demo_2eproto_getter, &descriptor_table_demo_2eproto_once,
-      file_level_metadata_demo_2eproto[20]);
+      file_level_metadata_demo_2eproto[21]);
 }
 
 // ===================================================================
@@ -6821,7 +7206,7 @@ void CDemoSpawnGroups::InternalSwap(CDemoSpawnGroups* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CDemoSpawnGroups::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_demo_2eproto_getter, &descriptor_table_demo_2eproto_once,
-      file_level_metadata_demo_2eproto[21]);
+      file_level_metadata_demo_2eproto[22]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -6889,6 +7274,10 @@ Arena::CreateMaybeMessage< ::CDemoCustomData >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::CDemoCustomDataCallbacks*
 Arena::CreateMaybeMessage< ::CDemoCustomDataCallbacks >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CDemoCustomDataCallbacks >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CDemoAnimationData*
+Arena::CreateMaybeMessage< ::CDemoAnimationData >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CDemoAnimationData >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CDemoStringTables_items_t*
 Arena::CreateMaybeMessage< ::CDemoStringTables_items_t >(Arena* arena) {

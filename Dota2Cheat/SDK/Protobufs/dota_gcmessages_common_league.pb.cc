@@ -1609,22 +1609,23 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fcommon_5fleague_2eproto
   "\'.CMsgDOTADPCSeasonResults.StandingEntry"
   "\"n\n\037CMsgDOTADPCSeasonSpoilerResults\022\031\n\021t"
   "ime_last_updated\030\001 \001(\r\0220\n\rsaved_results\030"
-  "\002 \001(\0132\031.CMsgDOTADPCSeasonResults*\310\001\n\024ELe"
+  "\002 \001(\0132\031.CMsgDOTADPCSeasonResults*\327\001\n\024ELe"
   "agueNodeGroupType\022\026\n\022INVALID_GROUP_TYPE\020"
   "\000\022\022\n\016ORGANIZATIONAL\020\001\022\017\n\013ROUND_ROBIN\020\002\022\t"
   "\n\005SWISS\020\003\022\022\n\016BRACKET_SINGLE\020\004\022\035\n\031BRACKET"
   "_DOUBLE_SEED_LOSER\020\005\022\035\n\031BRACKET_DOUBLE_A"
-  "LL_WINNER\020\006\022\r\n\tSHOWMATCH\020\007\022\007\n\003GSL\020\010*o\n\017E"
-  "LeagueNodeType\022\025\n\021INVALID_NODE_TYPE\020\000\022\017\n"
-  "\013BEST_OF_ONE\020\001\022\021\n\rBEST_OF_THREE\020\002\022\020\n\014BES"
-  "T_OF_FIVE\020\003\022\017\n\013BEST_OF_TWO\020\004"
+  "LL_WINNER\020\006\022\r\n\tSHOWMATCH\020\007\022\007\n\003GSL\020\010\022\r\n\tP"
+  "LACEMENT\020\t*o\n\017ELeagueNodeType\022\025\n\021INVALID"
+  "_NODE_TYPE\020\000\022\017\n\013BEST_OF_ONE\020\001\022\021\n\rBEST_OF"
+  "_THREE\020\002\022\020\n\014BEST_OF_FIVE\020\003\022\017\n\013BEST_OF_TW"
+  "O\020\004"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5fcommon_5fleague_2eproto_deps[1] = {
   &::descriptor_table_dota_5fshared_5fenums_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_dota_5fgcmessages_5fcommon_5fleague_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fgcmessages_5fcommon_5fleague_2eproto = {
-    false, false, 7188, descriptor_table_protodef_dota_5fgcmessages_5fcommon_5fleague_2eproto,
+    false, false, 7203, descriptor_table_protodef_dota_5fgcmessages_5fcommon_5fleague_2eproto,
     "dota_gcmessages_common_league.proto",
     &descriptor_table_dota_5fgcmessages_5fcommon_5fleague_2eproto_once, descriptor_table_dota_5fgcmessages_5fcommon_5fleague_2eproto_deps, 1, 37,
     schemas, file_default_instances, TableStruct_dota_5fgcmessages_5fcommon_5fleague_2eproto::offsets,
@@ -1652,6 +1653,7 @@ bool ELeagueNodeGroupType_IsValid(int value) {
     case 6:
     case 7:
     case 8:
+    case 9:
       return true;
     default:
       return false;

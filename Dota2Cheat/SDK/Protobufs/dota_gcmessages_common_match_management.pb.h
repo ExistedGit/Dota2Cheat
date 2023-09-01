@@ -433,12 +433,12 @@ enum ELaneSelection : int {
   k_ELaneSelection_SAFELANE = 0,
   k_ELaneSelection_OFFLANE = 1,
   k_ELaneSelection_MIDLANE = 2,
-  k_ELaneSelection_SUPPORT_SOFT = 3,
-  k_ELaneSelection_SUPPORT_HARD = 4
+  k_ELaneSelection_SUPPORT = 3,
+  k_ELaneSelection_HARDSUPPORT = 4
 };
 bool ELaneSelection_IsValid(int value);
 constexpr ELaneSelection ELaneSelection_MIN = k_ELaneSelection_SAFELANE;
-constexpr ELaneSelection ELaneSelection_MAX = k_ELaneSelection_SUPPORT_HARD;
+constexpr ELaneSelection ELaneSelection_MAX = k_ELaneSelection_HARDSUPPORT;
 constexpr int ELaneSelection_ARRAYSIZE = ELaneSelection_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ELaneSelection_descriptor();
@@ -456,19 +456,19 @@ inline bool ELaneSelection_Parse(
     ELaneSelection_descriptor(), name, value);
 }
 enum ELaneSelectionFlags : int {
-  k_ELaneSelectionFlags_None = 0,
   k_ELaneSelectionFlags_SAFELANE = 1,
   k_ELaneSelectionFlags_OFFLANE = 2,
   k_ELaneSelectionFlags_MIDLANE = 4,
-  k_ELaneSelectionFlags_SUPPORT_SOFT = 8,
-  k_ELaneSelectionFlags_SUPPORT_HARD = 16,
-  k_ELaneSelectionFlags_CORE = 7,
-  k_ELaneSelectionFlags_SUPPORT = 24,
-  k_ELaneSelectionFlags_ALL = 31
+  k_ELaneSelectionFlags_SUPPORT = 8,
+  k_ELaneSelectionFlags_HARDSUPPORT = 16,
+  k_ELaneSelectionFlagGroup_None = 0,
+  k_ELaneSelectionFlagGroup_CORE = 7,
+  k_ELaneSelectionFlagGroup_SUPPORT = 24,
+  k_ELaneSelectionFlagGroup_ALL = 31
 };
 bool ELaneSelectionFlags_IsValid(int value);
-constexpr ELaneSelectionFlags ELaneSelectionFlags_MIN = k_ELaneSelectionFlags_None;
-constexpr ELaneSelectionFlags ELaneSelectionFlags_MAX = k_ELaneSelectionFlags_ALL;
+constexpr ELaneSelectionFlags ELaneSelectionFlags_MIN = k_ELaneSelectionFlagGroup_None;
+constexpr ELaneSelectionFlags ELaneSelectionFlags_MAX = k_ELaneSelectionFlagGroup_ALL;
 constexpr int ELaneSelectionFlags_ARRAYSIZE = ELaneSelectionFlags_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ELaneSelectionFlags_descriptor();
@@ -1199,8 +1199,10 @@ class CSODOTAParty final :
     kCustomGameDifficultyMaskFieldNumber = 70,
     kLaneSelectionsEnabledFieldNumber = 69,
     kIsSteamChinaFieldNumber = 71,
+    kRestrictedFromRankedFieldNumber = 74,
     kBotDifficultyMaskFieldNumber = 72,
     kBotScriptIndexMaskFieldNumber = 73,
+    kRestrictedFromRankedAccountIdFieldNumber = 75,
   };
   // repeated fixed64 member_ids = 3;
   int member_ids_size() const;
@@ -1873,6 +1875,19 @@ class CSODOTAParty final :
   void _internal_set_is_steam_china(bool value);
   public:
 
+  // optional bool restricted_from_ranked = 74;
+  bool has_restricted_from_ranked() const;
+  private:
+  bool _internal_has_restricted_from_ranked() const;
+  public:
+  void clear_restricted_from_ranked();
+  bool restricted_from_ranked() const;
+  void set_restricted_from_ranked(bool value);
+  private:
+  bool _internal_restricted_from_ranked() const;
+  void _internal_set_restricted_from_ranked(bool value);
+  public:
+
   // optional uint32 bot_difficulty_mask = 72;
   bool has_bot_difficulty_mask() const;
   private:
@@ -1897,6 +1912,19 @@ class CSODOTAParty final :
   private:
   uint32_t _internal_bot_script_index_mask() const;
   void _internal_set_bot_script_index_mask(uint32_t value);
+  public:
+
+  // optional uint32 restricted_from_ranked_account_id = 75;
+  bool has_restricted_from_ranked_account_id() const;
+  private:
+  bool _internal_has_restricted_from_ranked_account_id() const;
+  public:
+  void clear_restricted_from_ranked_account_id();
+  uint32_t restricted_from_ranked_account_id() const;
+  void set_restricted_from_ranked_account_id(uint32_t value);
+  private:
+  uint32_t _internal_restricted_from_ranked_account_id() const;
+  void _internal_set_restricted_from_ranked_account_id(uint32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:CSODOTAParty)
@@ -1958,8 +1986,10 @@ class CSODOTAParty final :
     uint32_t custom_game_difficulty_mask_;
     bool lane_selections_enabled_;
     bool is_steam_china_;
+    bool restricted_from_ranked_;
     uint32_t bot_difficulty_mask_;
     uint32_t bot_script_index_mask_;
+    uint32_t restricted_from_ranked_account_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fcommon_5fmatch_5fmanagement_2eproto;
@@ -6931,7 +6961,7 @@ inline void CSODOTAParty::set_is_steam_china(bool value) {
 
 // optional uint32 bot_difficulty_mask = 72;
 inline bool CSODOTAParty::_internal_has_bot_difficulty_mask() const {
-  bool value = (_impl_._has_bits_[1] & 0x00002000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00004000u) != 0;
   return value;
 }
 inline bool CSODOTAParty::has_bot_difficulty_mask() const {
@@ -6939,7 +6969,7 @@ inline bool CSODOTAParty::has_bot_difficulty_mask() const {
 }
 inline void CSODOTAParty::clear_bot_difficulty_mask() {
   _impl_.bot_difficulty_mask_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00002000u;
+  _impl_._has_bits_[1] &= ~0x00004000u;
 }
 inline uint32_t CSODOTAParty::_internal_bot_difficulty_mask() const {
   return _impl_.bot_difficulty_mask_;
@@ -6949,7 +6979,7 @@ inline uint32_t CSODOTAParty::bot_difficulty_mask() const {
   return _internal_bot_difficulty_mask();
 }
 inline void CSODOTAParty::_internal_set_bot_difficulty_mask(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00002000u;
+  _impl_._has_bits_[1] |= 0x00004000u;
   _impl_.bot_difficulty_mask_ = value;
 }
 inline void CSODOTAParty::set_bot_difficulty_mask(uint32_t value) {
@@ -6959,7 +6989,7 @@ inline void CSODOTAParty::set_bot_difficulty_mask(uint32_t value) {
 
 // optional uint32 bot_script_index_mask = 73;
 inline bool CSODOTAParty::_internal_has_bot_script_index_mask() const {
-  bool value = (_impl_._has_bits_[1] & 0x00004000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00008000u) != 0;
   return value;
 }
 inline bool CSODOTAParty::has_bot_script_index_mask() const {
@@ -6967,7 +6997,7 @@ inline bool CSODOTAParty::has_bot_script_index_mask() const {
 }
 inline void CSODOTAParty::clear_bot_script_index_mask() {
   _impl_.bot_script_index_mask_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00004000u;
+  _impl_._has_bits_[1] &= ~0x00008000u;
 }
 inline uint32_t CSODOTAParty::_internal_bot_script_index_mask() const {
   return _impl_.bot_script_index_mask_;
@@ -6977,12 +7007,68 @@ inline uint32_t CSODOTAParty::bot_script_index_mask() const {
   return _internal_bot_script_index_mask();
 }
 inline void CSODOTAParty::_internal_set_bot_script_index_mask(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00004000u;
+  _impl_._has_bits_[1] |= 0x00008000u;
   _impl_.bot_script_index_mask_ = value;
 }
 inline void CSODOTAParty::set_bot_script_index_mask(uint32_t value) {
   _internal_set_bot_script_index_mask(value);
   // @@protoc_insertion_point(field_set:CSODOTAParty.bot_script_index_mask)
+}
+
+// optional bool restricted_from_ranked = 74;
+inline bool CSODOTAParty::_internal_has_restricted_from_ranked() const {
+  bool value = (_impl_._has_bits_[1] & 0x00002000u) != 0;
+  return value;
+}
+inline bool CSODOTAParty::has_restricted_from_ranked() const {
+  return _internal_has_restricted_from_ranked();
+}
+inline void CSODOTAParty::clear_restricted_from_ranked() {
+  _impl_.restricted_from_ranked_ = false;
+  _impl_._has_bits_[1] &= ~0x00002000u;
+}
+inline bool CSODOTAParty::_internal_restricted_from_ranked() const {
+  return _impl_.restricted_from_ranked_;
+}
+inline bool CSODOTAParty::restricted_from_ranked() const {
+  // @@protoc_insertion_point(field_get:CSODOTAParty.restricted_from_ranked)
+  return _internal_restricted_from_ranked();
+}
+inline void CSODOTAParty::_internal_set_restricted_from_ranked(bool value) {
+  _impl_._has_bits_[1] |= 0x00002000u;
+  _impl_.restricted_from_ranked_ = value;
+}
+inline void CSODOTAParty::set_restricted_from_ranked(bool value) {
+  _internal_set_restricted_from_ranked(value);
+  // @@protoc_insertion_point(field_set:CSODOTAParty.restricted_from_ranked)
+}
+
+// optional uint32 restricted_from_ranked_account_id = 75;
+inline bool CSODOTAParty::_internal_has_restricted_from_ranked_account_id() const {
+  bool value = (_impl_._has_bits_[1] & 0x00010000u) != 0;
+  return value;
+}
+inline bool CSODOTAParty::has_restricted_from_ranked_account_id() const {
+  return _internal_has_restricted_from_ranked_account_id();
+}
+inline void CSODOTAParty::clear_restricted_from_ranked_account_id() {
+  _impl_.restricted_from_ranked_account_id_ = 0u;
+  _impl_._has_bits_[1] &= ~0x00010000u;
+}
+inline uint32_t CSODOTAParty::_internal_restricted_from_ranked_account_id() const {
+  return _impl_.restricted_from_ranked_account_id_;
+}
+inline uint32_t CSODOTAParty::restricted_from_ranked_account_id() const {
+  // @@protoc_insertion_point(field_get:CSODOTAParty.restricted_from_ranked_account_id)
+  return _internal_restricted_from_ranked_account_id();
+}
+inline void CSODOTAParty::_internal_set_restricted_from_ranked_account_id(uint32_t value) {
+  _impl_._has_bits_[1] |= 0x00010000u;
+  _impl_.restricted_from_ranked_account_id_ = value;
+}
+inline void CSODOTAParty::set_restricted_from_ranked_account_id(uint32_t value) {
+  _internal_set_restricted_from_ranked_account_id(value);
+  // @@protoc_insertion_point(field_set:CSODOTAParty.restricted_from_ranked_account_id)
 }
 
 // -------------------------------------------------------------------

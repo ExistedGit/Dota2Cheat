@@ -344,11 +344,12 @@ enum EStartFindingMatchResult : int {
   k_EStartFindingMatchResult_CoachesNotAllowedInParty = 131,
   k_EStartFindingMatchResult_MatchmakingBusy = 132,
   k_EStartFindingMatchResult_SteamChinaBanned = 133,
-  k_EStartFindingMatchResult_SteamChinaInvalidMixedParty = 134
+  k_EStartFindingMatchResult_SteamChinaInvalidMixedParty = 134,
+  k_EStartFindingMatchResult_RestrictedFromRanked = 135
 };
 bool EStartFindingMatchResult_IsValid(int value);
 constexpr EStartFindingMatchResult EStartFindingMatchResult_MIN = k_EStartFindingMatchResult_Invalid;
-constexpr EStartFindingMatchResult EStartFindingMatchResult_MAX = k_EStartFindingMatchResult_SteamChinaInvalidMixedParty;
+constexpr EStartFindingMatchResult EStartFindingMatchResult_MAX = k_EStartFindingMatchResult_RestrictedFromRanked;
 constexpr int EStartFindingMatchResult_ARRAYSIZE = EStartFindingMatchResult_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EStartFindingMatchResult_descriptor();

@@ -415,7 +415,7 @@ enum CMsgBattleReport_Role : int {
   k_eSafelane = 0,
   k_eMidlane = 1,
   k_eOfflane = 2,
-  k_eSoftSupport = 3,
+  k_eSupport = 3,
   k_eHardSupport = 4
 };
 bool CMsgBattleReport_Role_IsValid(int value);

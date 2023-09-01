@@ -3041,6 +3041,7 @@ class CNETMsg_StringCmd final :
 
   enum : int {
     kCommandFieldNumber = 1,
+    kPredictionSyncFieldNumber = 2,
   };
   // optional string command = 1;
   bool has_command() const;
@@ -3060,6 +3061,19 @@ class CNETMsg_StringCmd final :
   std::string* _internal_mutable_command();
   public:
 
+  // optional uint32 prediction_sync = 2;
+  bool has_prediction_sync() const;
+  private:
+  bool _internal_has_prediction_sync() const;
+  public:
+  void clear_prediction_sync();
+  uint32_t prediction_sync() const;
+  void set_prediction_sync(uint32_t value);
+  private:
+  uint32_t _internal_prediction_sync() const;
+  void _internal_set_prediction_sync(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CNETMsg_StringCmd)
  private:
   class _Internal;
@@ -3071,6 +3085,7 @@ class CNETMsg_StringCmd final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr command_;
+    uint32_t prediction_sync_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_networkbasetypes_2eproto;
@@ -7874,6 +7889,34 @@ inline void CNETMsg_StringCmd::set_allocated_command(std::string* command) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:CNETMsg_StringCmd.command)
+}
+
+// optional uint32 prediction_sync = 2;
+inline bool CNETMsg_StringCmd::_internal_has_prediction_sync() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CNETMsg_StringCmd::has_prediction_sync() const {
+  return _internal_has_prediction_sync();
+}
+inline void CNETMsg_StringCmd::clear_prediction_sync() {
+  _impl_.prediction_sync_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CNETMsg_StringCmd::_internal_prediction_sync() const {
+  return _impl_.prediction_sync_;
+}
+inline uint32_t CNETMsg_StringCmd::prediction_sync() const {
+  // @@protoc_insertion_point(field_get:CNETMsg_StringCmd.prediction_sync)
+  return _internal_prediction_sync();
+}
+inline void CNETMsg_StringCmd::_internal_set_prediction_sync(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.prediction_sync_ = value;
+}
+inline void CNETMsg_StringCmd::set_prediction_sync(uint32_t value) {
+  _internal_set_prediction_sync(value);
+  // @@protoc_insertion_point(field_set:CNETMsg_StringCmd.prediction_sync)
 }
 
 // -------------------------------------------------------------------

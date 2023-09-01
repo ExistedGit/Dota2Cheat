@@ -1130,11 +1130,12 @@ enum DOTA_CHAT_MESSAGE : int {
   CHAT_MESSAGE_PRIVATE_COACH_CONNECTED = 113,
   CHAT_MESSAGE_CANT_PAUSE_TOO_EARLY = 115,
   CHAT_MESSAGE_HERO_KILL_WITH_PENGUIN = 116,
-  CHAT_MESSAGE_MINIBOSS_KILL = 117
+  CHAT_MESSAGE_MINIBOSS_KILL = 117,
+  CHAT_MESSAGE_PLAYER_IN_GAME_BAN_TEXT = 118
 };
 bool DOTA_CHAT_MESSAGE_IsValid(int value);
 constexpr DOTA_CHAT_MESSAGE DOTA_CHAT_MESSAGE_MIN = CHAT_MESSAGE_INVALID;
-constexpr DOTA_CHAT_MESSAGE DOTA_CHAT_MESSAGE_MAX = CHAT_MESSAGE_MINIBOSS_KILL;
+constexpr DOTA_CHAT_MESSAGE DOTA_CHAT_MESSAGE_MAX = CHAT_MESSAGE_PLAYER_IN_GAME_BAN_TEXT;
 constexpr int DOTA_CHAT_MESSAGE_ARRAYSIZE = DOTA_CHAT_MESSAGE_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DOTA_CHAT_MESSAGE_descriptor();
@@ -18137,6 +18138,8 @@ class CDOTAUserMsg_TE_Projectile final :
     kLaunchTickFieldNumber = 12,
     kHandleFieldNumber = 13,
     kAdditionalParticleSystemHandleFieldNumber = 16,
+    kOriginalMoveSpeedFieldNumber = 17,
+    kAbilityFieldNumber = 18,
     kSourceFieldNumber = 1,
     kTargetFieldNumber = 2,
   };
@@ -18319,6 +18322,32 @@ class CDOTAUserMsg_TE_Projectile final :
   void _internal_set_additional_particle_system_handle(int64_t value);
   public:
 
+  // optional int32 original_move_speed = 17;
+  bool has_original_move_speed() const;
+  private:
+  bool _internal_has_original_move_speed() const;
+  public:
+  void clear_original_move_speed();
+  int32_t original_move_speed() const;
+  void set_original_move_speed(int32_t value);
+  private:
+  int32_t _internal_original_move_speed() const;
+  void _internal_set_original_move_speed(int32_t value);
+  public:
+
+  // optional uint32 ability = 18 [default = 16777215];
+  bool has_ability() const;
+  private:
+  bool _internal_has_ability() const;
+  public:
+  void clear_ability();
+  uint32_t ability() const;
+  void set_ability(uint32_t value);
+  private:
+  uint32_t _internal_ability() const;
+  void _internal_set_ability(uint32_t value);
+  public:
+
   // optional uint32 source = 1 [default = 16777215];
   bool has_source() const;
   private:
@@ -18368,6 +18397,8 @@ class CDOTAUserMsg_TE_Projectile final :
     int32_t launch_tick_;
     int32_t handle_;
     int64_t additional_particle_system_handle_;
+    int32_t original_move_speed_;
+    uint32_t ability_;
     uint32_t source_;
     uint32_t target_;
   };
@@ -18515,8 +18546,9 @@ class CDOTAUserMsg_TE_ProjectileLoc final :
     kColorgemcolorFieldNumber = 11,
     kLaunchTickFieldNumber = 12,
     kHandleFieldNumber = 13,
-    kAdditionalParticleSystemHandleFieldNumber = 17,
     kSourceAttachmentFieldNumber = 15,
+    kOriginalMoveSpeedFieldNumber = 18,
+    kAdditionalParticleSystemHandleFieldNumber = 17,
     kTargetFieldNumber = 2,
     kSourceFieldNumber = 14,
   };
@@ -18678,19 +18710,6 @@ class CDOTAUserMsg_TE_ProjectileLoc final :
   void _internal_set_handle(int32_t value);
   public:
 
-  // optional int64 additional_particle_system_handle = 17;
-  bool has_additional_particle_system_handle() const;
-  private:
-  bool _internal_has_additional_particle_system_handle() const;
-  public:
-  void clear_additional_particle_system_handle();
-  int64_t additional_particle_system_handle() const;
-  void set_additional_particle_system_handle(int64_t value);
-  private:
-  int64_t _internal_additional_particle_system_handle() const;
-  void _internal_set_additional_particle_system_handle(int64_t value);
-  public:
-
   // optional int32 source_attachment = 15;
   bool has_source_attachment() const;
   private:
@@ -18702,6 +18721,32 @@ class CDOTAUserMsg_TE_ProjectileLoc final :
   private:
   int32_t _internal_source_attachment() const;
   void _internal_set_source_attachment(int32_t value);
+  public:
+
+  // optional int32 original_move_speed = 18;
+  bool has_original_move_speed() const;
+  private:
+  bool _internal_has_original_move_speed() const;
+  public:
+  void clear_original_move_speed();
+  int32_t original_move_speed() const;
+  void set_original_move_speed(int32_t value);
+  private:
+  int32_t _internal_original_move_speed() const;
+  void _internal_set_original_move_speed(int32_t value);
+  public:
+
+  // optional int64 additional_particle_system_handle = 17;
+  bool has_additional_particle_system_handle() const;
+  private:
+  bool _internal_has_additional_particle_system_handle() const;
+  public:
+  void clear_additional_particle_system_handle();
+  int64_t additional_particle_system_handle() const;
+  void set_additional_particle_system_handle(int64_t value);
+  private:
+  int64_t _internal_additional_particle_system_handle() const;
+  void _internal_set_additional_particle_system_handle(int64_t value);
   public:
 
   // optional uint32 target = 2 [default = 16777215];
@@ -18751,8 +18796,9 @@ class CDOTAUserMsg_TE_ProjectileLoc final :
     uint32_t colorgemcolor_;
     int32_t launch_tick_;
     int32_t handle_;
-    int64_t additional_particle_system_handle_;
     int32_t source_attachment_;
+    int32_t original_move_speed_;
+    int64_t additional_particle_system_handle_;
     uint32_t target_;
     uint32_t source_;
   };
@@ -48829,7 +48875,7 @@ inline void CDOTAUserMsg_CoachHUDPing::set_allocated_hud_ping(::CDOTAMsg_CoachHU
 
 // optional uint32 source = 1 [default = 16777215];
 inline bool CDOTAUserMsg_TE_Projectile::_internal_has_source() const {
-  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_Projectile::has_source() const {
@@ -48837,7 +48883,7 @@ inline bool CDOTAUserMsg_TE_Projectile::has_source() const {
 }
 inline void CDOTAUserMsg_TE_Projectile::clear_source() {
   _impl_.source_ = 16777215u;
-  _impl_._has_bits_[0] &= ~0x00001000u;
+  _impl_._has_bits_[0] &= ~0x00004000u;
 }
 inline uint32_t CDOTAUserMsg_TE_Projectile::_internal_source() const {
   return _impl_.source_;
@@ -48847,7 +48893,7 @@ inline uint32_t CDOTAUserMsg_TE_Projectile::source() const {
   return _internal_source();
 }
 inline void CDOTAUserMsg_TE_Projectile::_internal_set_source(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00001000u;
+  _impl_._has_bits_[0] |= 0x00004000u;
   _impl_.source_ = value;
 }
 inline void CDOTAUserMsg_TE_Projectile::set_source(uint32_t value) {
@@ -48857,7 +48903,7 @@ inline void CDOTAUserMsg_TE_Projectile::set_source(uint32_t value) {
 
 // optional uint32 target = 2 [default = 16777215];
 inline bool CDOTAUserMsg_TE_Projectile::_internal_has_target() const {
-  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_Projectile::has_target() const {
@@ -48865,7 +48911,7 @@ inline bool CDOTAUserMsg_TE_Projectile::has_target() const {
 }
 inline void CDOTAUserMsg_TE_Projectile::clear_target() {
   _impl_.target_ = 16777215u;
-  _impl_._has_bits_[0] &= ~0x00002000u;
+  _impl_._has_bits_[0] &= ~0x00008000u;
 }
 inline uint32_t CDOTAUserMsg_TE_Projectile::_internal_target() const {
   return _impl_.target_;
@@ -48875,7 +48921,7 @@ inline uint32_t CDOTAUserMsg_TE_Projectile::target() const {
   return _internal_target();
 }
 inline void CDOTAUserMsg_TE_Projectile::_internal_set_target(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00002000u;
+  _impl_._has_bits_[0] |= 0x00008000u;
   _impl_.target_ = value;
 }
 inline void CDOTAUserMsg_TE_Projectile::set_target(uint32_t value) {
@@ -49318,6 +49364,62 @@ inline void CDOTAUserMsg_TE_Projectile::set_additional_particle_system_handle(in
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_TE_Projectile.additional_particle_system_handle)
 }
 
+// optional int32 original_move_speed = 17;
+inline bool CDOTAUserMsg_TE_Projectile::_internal_has_original_move_speed() const {
+  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_TE_Projectile::has_original_move_speed() const {
+  return _internal_has_original_move_speed();
+}
+inline void CDOTAUserMsg_TE_Projectile::clear_original_move_speed() {
+  _impl_.original_move_speed_ = 0;
+  _impl_._has_bits_[0] &= ~0x00001000u;
+}
+inline int32_t CDOTAUserMsg_TE_Projectile::_internal_original_move_speed() const {
+  return _impl_.original_move_speed_;
+}
+inline int32_t CDOTAUserMsg_TE_Projectile::original_move_speed() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_TE_Projectile.original_move_speed)
+  return _internal_original_move_speed();
+}
+inline void CDOTAUserMsg_TE_Projectile::_internal_set_original_move_speed(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00001000u;
+  _impl_.original_move_speed_ = value;
+}
+inline void CDOTAUserMsg_TE_Projectile::set_original_move_speed(int32_t value) {
+  _internal_set_original_move_speed(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_TE_Projectile.original_move_speed)
+}
+
+// optional uint32 ability = 18 [default = 16777215];
+inline bool CDOTAUserMsg_TE_Projectile::_internal_has_ability() const {
+  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_TE_Projectile::has_ability() const {
+  return _internal_has_ability();
+}
+inline void CDOTAUserMsg_TE_Projectile::clear_ability() {
+  _impl_.ability_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00002000u;
+}
+inline uint32_t CDOTAUserMsg_TE_Projectile::_internal_ability() const {
+  return _impl_.ability_;
+}
+inline uint32_t CDOTAUserMsg_TE_Projectile::ability() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_TE_Projectile.ability)
+  return _internal_ability();
+}
+inline void CDOTAUserMsg_TE_Projectile::_internal_set_ability(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00002000u;
+  _impl_.ability_ = value;
+}
+inline void CDOTAUserMsg_TE_Projectile::set_ability(uint32_t value) {
+  _internal_set_ability(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_TE_Projectile.ability)
+}
+
 // -------------------------------------------------------------------
 
 // CDOTAUserMsg_TE_ProjectileLoc
@@ -49411,7 +49513,7 @@ inline void CDOTAUserMsg_TE_ProjectileLoc::set_allocated_source_loc(::CMsgVector
 
 // optional uint32 target = 2 [default = 16777215];
 inline bool CDOTAUserMsg_TE_ProjectileLoc::_internal_has_target() const {
-  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_ProjectileLoc::has_target() const {
@@ -49419,7 +49521,7 @@ inline bool CDOTAUserMsg_TE_ProjectileLoc::has_target() const {
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::clear_target() {
   _impl_.target_ = 16777215u;
-  _impl_._has_bits_[0] &= ~0x00001000u;
+  _impl_._has_bits_[0] &= ~0x00002000u;
 }
 inline uint32_t CDOTAUserMsg_TE_ProjectileLoc::_internal_target() const {
   return _impl_.target_;
@@ -49429,7 +49531,7 @@ inline uint32_t CDOTAUserMsg_TE_ProjectileLoc::target() const {
   return _internal_target();
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::_internal_set_target(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00001000u;
+  _impl_._has_bits_[0] |= 0x00002000u;
   _impl_.target_ = value;
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::set_target(uint32_t value) {
@@ -49750,7 +49852,7 @@ inline void CDOTAUserMsg_TE_ProjectileLoc::set_handle(int32_t value) {
 
 // optional uint32 source = 14 [default = 16777215];
 inline bool CDOTAUserMsg_TE_ProjectileLoc::_internal_has_source() const {
-  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_ProjectileLoc::has_source() const {
@@ -49758,7 +49860,7 @@ inline bool CDOTAUserMsg_TE_ProjectileLoc::has_source() const {
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::clear_source() {
   _impl_.source_ = 16777215u;
-  _impl_._has_bits_[0] &= ~0x00002000u;
+  _impl_._has_bits_[0] &= ~0x00004000u;
 }
 inline uint32_t CDOTAUserMsg_TE_ProjectileLoc::_internal_source() const {
   return _impl_.source_;
@@ -49768,7 +49870,7 @@ inline uint32_t CDOTAUserMsg_TE_ProjectileLoc::source() const {
   return _internal_source();
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::_internal_set_source(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00002000u;
+  _impl_._has_bits_[0] |= 0x00004000u;
   _impl_.source_ = value;
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::set_source(uint32_t value) {
@@ -49778,7 +49880,7 @@ inline void CDOTAUserMsg_TE_ProjectileLoc::set_source(uint32_t value) {
 
 // optional int32 source_attachment = 15;
 inline bool CDOTAUserMsg_TE_ProjectileLoc::_internal_has_source_attachment() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_ProjectileLoc::has_source_attachment() const {
@@ -49786,7 +49888,7 @@ inline bool CDOTAUserMsg_TE_ProjectileLoc::has_source_attachment() const {
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::clear_source_attachment() {
   _impl_.source_attachment_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000800u;
+  _impl_._has_bits_[0] &= ~0x00000400u;
 }
 inline int32_t CDOTAUserMsg_TE_ProjectileLoc::_internal_source_attachment() const {
   return _impl_.source_attachment_;
@@ -49796,7 +49898,7 @@ inline int32_t CDOTAUserMsg_TE_ProjectileLoc::source_attachment() const {
   return _internal_source_attachment();
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::_internal_set_source_attachment(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000800u;
+  _impl_._has_bits_[0] |= 0x00000400u;
   _impl_.source_attachment_ = value;
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::set_source_attachment(int32_t value) {
@@ -49846,7 +49948,7 @@ CDOTAUserMsg_TE_ProjectileLoc::particle_cp_data() const {
 
 // optional int64 additional_particle_system_handle = 17;
 inline bool CDOTAUserMsg_TE_ProjectileLoc::_internal_has_additional_particle_system_handle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_TE_ProjectileLoc::has_additional_particle_system_handle() const {
@@ -49854,7 +49956,7 @@ inline bool CDOTAUserMsg_TE_ProjectileLoc::has_additional_particle_system_handle
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::clear_additional_particle_system_handle() {
   _impl_.additional_particle_system_handle_ = int64_t{0};
-  _impl_._has_bits_[0] &= ~0x00000400u;
+  _impl_._has_bits_[0] &= ~0x00001000u;
 }
 inline int64_t CDOTAUserMsg_TE_ProjectileLoc::_internal_additional_particle_system_handle() const {
   return _impl_.additional_particle_system_handle_;
@@ -49864,12 +49966,40 @@ inline int64_t CDOTAUserMsg_TE_ProjectileLoc::additional_particle_system_handle(
   return _internal_additional_particle_system_handle();
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::_internal_set_additional_particle_system_handle(int64_t value) {
-  _impl_._has_bits_[0] |= 0x00000400u;
+  _impl_._has_bits_[0] |= 0x00001000u;
   _impl_.additional_particle_system_handle_ = value;
 }
 inline void CDOTAUserMsg_TE_ProjectileLoc::set_additional_particle_system_handle(int64_t value) {
   _internal_set_additional_particle_system_handle(value);
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_TE_ProjectileLoc.additional_particle_system_handle)
+}
+
+// optional int32 original_move_speed = 18;
+inline bool CDOTAUserMsg_TE_ProjectileLoc::_internal_has_original_move_speed() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_TE_ProjectileLoc::has_original_move_speed() const {
+  return _internal_has_original_move_speed();
+}
+inline void CDOTAUserMsg_TE_ProjectileLoc::clear_original_move_speed() {
+  _impl_.original_move_speed_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000800u;
+}
+inline int32_t CDOTAUserMsg_TE_ProjectileLoc::_internal_original_move_speed() const {
+  return _impl_.original_move_speed_;
+}
+inline int32_t CDOTAUserMsg_TE_ProjectileLoc::original_move_speed() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_TE_ProjectileLoc.original_move_speed)
+  return _internal_original_move_speed();
+}
+inline void CDOTAUserMsg_TE_ProjectileLoc::_internal_set_original_move_speed(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000800u;
+  _impl_.original_move_speed_ = value;
+}
+inline void CDOTAUserMsg_TE_ProjectileLoc::set_original_move_speed(int32_t value) {
+  _internal_set_original_move_speed(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_TE_ProjectileLoc.original_move_speed)
 }
 
 // -------------------------------------------------------------------

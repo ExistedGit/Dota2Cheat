@@ -2258,7 +2258,7 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fclient_5fmatch_5fmanage
   "isabled\030\002 \001(\010\"\035\n\033CMsgGCToClientRequestMM"
   "Info\"T\n\024CMsgClientToGCMMInfo\022\034\n\024lane_sel"
   "ection_flags\030\001 \001(\r\022\036\n\026high_priority_disa"
-  "bled\030\002 \001(\010*\274\020\n\030EStartFindingMatchResult\022"
+  "bled\030\002 \001(\010*\362\020\n\030EStartFindingMatchResult\022"
   "&\n\"k_EStartFindingMatchResult_Invalid\020\000\022"
   "!\n\035k_EStartFindingMatchResult_OK\020\001\022/\n+k_"
   "EStartFindingMatchResult_AlreadySearchin"
@@ -2311,7 +2311,8 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fclient_5fmatch_5fmanage
   "ingBusy\020\204\001\0220\n+k_EStartFindingMatchResult"
   "_SteamChinaBanned\020\205\001\022;\n6k_EStartFindingM"
   "atchResult_SteamChinaInvalidMixedParty\020\206"
-  "\001"
+  "\001\0224\n/k_EStartFindingMatchResult_Restrict"
+  "edFromRanked\020\207\001"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5fclient_5fmatch_5fmanagement_2eproto_deps[5] = {
   &::descriptor_table_base_5fgcmessages_2eproto,
@@ -2322,7 +2323,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5
 };
 static ::_pbi::once_flag descriptor_table_dota_5fgcmessages_5fclient_5fmatch_5fmanagement_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fgcmessages_5fclient_5fmatch_5fmanagement_2eproto = {
-    false, false, 11521, descriptor_table_protodef_dota_5fgcmessages_5fclient_5fmatch_5fmanagement_2eproto,
+    false, false, 11575, descriptor_table_protodef_dota_5fgcmessages_5fclient_5fmatch_5fmanagement_2eproto,
     "dota_gcmessages_client_match_management.proto",
     &descriptor_table_dota_5fgcmessages_5fclient_5fmatch_5fmanagement_2eproto_once, descriptor_table_dota_5fgcmessages_5fclient_5fmatch_5fmanagement_2eproto_deps, 5, 63,
     schemas, file_default_instances, TableStruct_dota_5fgcmessages_5fclient_5fmatch_5fmanagement_2eproto::offsets,
@@ -2379,6 +2380,7 @@ bool EStartFindingMatchResult_IsValid(int value) {
     case 132:
     case 133:
     case 134:
+    case 135:
       return true;
     default:
       return false;

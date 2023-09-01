@@ -5701,6 +5701,8 @@ class CMsgTEPhysicsProp final :
     kOriginFieldNumber = 1,
     kVelocityFieldNumber = 2,
     kAnglesFieldNumber = 3,
+    kDmgposFieldNumber = 11,
+    kDmgdirFieldNumber = 12,
     kSkinFieldNumber = 4,
     kFlagsFieldNumber = 5,
     kEffectsFieldNumber = 6,
@@ -5708,6 +5710,7 @@ class CMsgTEPhysicsProp final :
     kModelindexFieldNumber = 8,
     kUnusedBreakmodelsnottomakeFieldNumber = 9,
     kScaleFieldNumber = 10,
+    kDmgtypeFieldNumber = 13,
   };
   // optional .CMsgVector origin = 1;
   bool has_origin() const;
@@ -5762,6 +5765,42 @@ class CMsgTEPhysicsProp final :
   void unsafe_arena_set_allocated_angles(
       ::CMsgQAngle* angles);
   ::CMsgQAngle* unsafe_arena_release_angles();
+
+  // optional .CMsgVector dmgpos = 11;
+  bool has_dmgpos() const;
+  private:
+  bool _internal_has_dmgpos() const;
+  public:
+  void clear_dmgpos();
+  const ::CMsgVector& dmgpos() const;
+  PROTOBUF_NODISCARD ::CMsgVector* release_dmgpos();
+  ::CMsgVector* mutable_dmgpos();
+  void set_allocated_dmgpos(::CMsgVector* dmgpos);
+  private:
+  const ::CMsgVector& _internal_dmgpos() const;
+  ::CMsgVector* _internal_mutable_dmgpos();
+  public:
+  void unsafe_arena_set_allocated_dmgpos(
+      ::CMsgVector* dmgpos);
+  ::CMsgVector* unsafe_arena_release_dmgpos();
+
+  // optional .CMsgVector dmgdir = 12;
+  bool has_dmgdir() const;
+  private:
+  bool _internal_has_dmgdir() const;
+  public:
+  void clear_dmgdir();
+  const ::CMsgVector& dmgdir() const;
+  PROTOBUF_NODISCARD ::CMsgVector* release_dmgdir();
+  ::CMsgVector* mutable_dmgdir();
+  void set_allocated_dmgdir(::CMsgVector* dmgdir);
+  private:
+  const ::CMsgVector& _internal_dmgdir() const;
+  ::CMsgVector* _internal_mutable_dmgdir();
+  public:
+  void unsafe_arena_set_allocated_dmgdir(
+      ::CMsgVector* dmgdir);
+  ::CMsgVector* unsafe_arena_release_dmgdir();
 
   // optional fixed32 skin = 4;
   bool has_skin() const;
@@ -5854,6 +5893,19 @@ class CMsgTEPhysicsProp final :
   void _internal_set_scale(float value);
   public:
 
+  // optional int32 dmgtype = 13;
+  bool has_dmgtype() const;
+  private:
+  bool _internal_has_dmgtype() const;
+  public:
+  void clear_dmgtype();
+  int32_t dmgtype() const;
+  void set_dmgtype(int32_t value);
+  private:
+  int32_t _internal_dmgtype() const;
+  void _internal_set_dmgtype(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgTEPhysicsProp)
  private:
   class _Internal;
@@ -5867,6 +5919,8 @@ class CMsgTEPhysicsProp final :
     ::CMsgVector* origin_;
     ::CMsgVector* velocity_;
     ::CMsgQAngle* angles_;
+    ::CMsgVector* dmgpos_;
+    ::CMsgVector* dmgdir_;
     uint32_t skin_;
     uint32_t flags_;
     uint32_t effects_;
@@ -5874,6 +5928,7 @@ class CMsgTEPhysicsProp final :
     uint64_t modelindex_;
     uint32_t unused_breakmodelsnottomake_;
     float scale_;
+    int32_t dmgtype_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_te_2eproto;
@@ -13045,7 +13100,7 @@ inline void CMsgTEPhysicsProp::set_allocated_angles(::CMsgQAngle* angles) {
 
 // optional fixed32 skin = 4;
 inline bool CMsgTEPhysicsProp::_internal_has_skin() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgTEPhysicsProp::has_skin() const {
@@ -13053,7 +13108,7 @@ inline bool CMsgTEPhysicsProp::has_skin() const {
 }
 inline void CMsgTEPhysicsProp::clear_skin() {
   _impl_.skin_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline uint32_t CMsgTEPhysicsProp::_internal_skin() const {
   return _impl_.skin_;
@@ -13063,7 +13118,7 @@ inline uint32_t CMsgTEPhysicsProp::skin() const {
   return _internal_skin();
 }
 inline void CMsgTEPhysicsProp::_internal_set_skin(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.skin_ = value;
 }
 inline void CMsgTEPhysicsProp::set_skin(uint32_t value) {
@@ -13073,7 +13128,7 @@ inline void CMsgTEPhysicsProp::set_skin(uint32_t value) {
 
 // optional uint32 flags = 5;
 inline bool CMsgTEPhysicsProp::_internal_has_flags() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgTEPhysicsProp::has_flags() const {
@@ -13081,7 +13136,7 @@ inline bool CMsgTEPhysicsProp::has_flags() const {
 }
 inline void CMsgTEPhysicsProp::clear_flags() {
   _impl_.flags_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline uint32_t CMsgTEPhysicsProp::_internal_flags() const {
   return _impl_.flags_;
@@ -13091,7 +13146,7 @@ inline uint32_t CMsgTEPhysicsProp::flags() const {
   return _internal_flags();
 }
 inline void CMsgTEPhysicsProp::_internal_set_flags(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.flags_ = value;
 }
 inline void CMsgTEPhysicsProp::set_flags(uint32_t value) {
@@ -13101,7 +13156,7 @@ inline void CMsgTEPhysicsProp::set_flags(uint32_t value) {
 
 // optional uint32 effects = 6;
 inline bool CMsgTEPhysicsProp::_internal_has_effects() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CMsgTEPhysicsProp::has_effects() const {
@@ -13109,7 +13164,7 @@ inline bool CMsgTEPhysicsProp::has_effects() const {
 }
 inline void CMsgTEPhysicsProp::clear_effects() {
   _impl_.effects_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
 inline uint32_t CMsgTEPhysicsProp::_internal_effects() const {
   return _impl_.effects_;
@@ -13119,7 +13174,7 @@ inline uint32_t CMsgTEPhysicsProp::effects() const {
   return _internal_effects();
 }
 inline void CMsgTEPhysicsProp::_internal_set_effects(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.effects_ = value;
 }
 inline void CMsgTEPhysicsProp::set_effects(uint32_t value) {
@@ -13129,7 +13184,7 @@ inline void CMsgTEPhysicsProp::set_effects(uint32_t value) {
 
 // optional fixed32 color = 7;
 inline bool CMsgTEPhysicsProp::_internal_has_color() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CMsgTEPhysicsProp::has_color() const {
@@ -13137,7 +13192,7 @@ inline bool CMsgTEPhysicsProp::has_color() const {
 }
 inline void CMsgTEPhysicsProp::clear_color() {
   _impl_.color_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000100u;
 }
 inline uint32_t CMsgTEPhysicsProp::_internal_color() const {
   return _impl_.color_;
@@ -13147,7 +13202,7 @@ inline uint32_t CMsgTEPhysicsProp::color() const {
   return _internal_color();
 }
 inline void CMsgTEPhysicsProp::_internal_set_color(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000100u;
   _impl_.color_ = value;
 }
 inline void CMsgTEPhysicsProp::set_color(uint32_t value) {
@@ -13157,7 +13212,7 @@ inline void CMsgTEPhysicsProp::set_color(uint32_t value) {
 
 // optional fixed64 modelindex = 8;
 inline bool CMsgTEPhysicsProp::_internal_has_modelindex() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CMsgTEPhysicsProp::has_modelindex() const {
@@ -13165,7 +13220,7 @@ inline bool CMsgTEPhysicsProp::has_modelindex() const {
 }
 inline void CMsgTEPhysicsProp::clear_modelindex() {
   _impl_.modelindex_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
 }
 inline uint64_t CMsgTEPhysicsProp::_internal_modelindex() const {
   return _impl_.modelindex_;
@@ -13175,7 +13230,7 @@ inline uint64_t CMsgTEPhysicsProp::modelindex() const {
   return _internal_modelindex();
 }
 inline void CMsgTEPhysicsProp::_internal_set_modelindex(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_._has_bits_[0] |= 0x00000200u;
   _impl_.modelindex_ = value;
 }
 inline void CMsgTEPhysicsProp::set_modelindex(uint64_t value) {
@@ -13185,7 +13240,7 @@ inline void CMsgTEPhysicsProp::set_modelindex(uint64_t value) {
 
 // optional uint32 unused_breakmodelsnottomake = 9;
 inline bool CMsgTEPhysicsProp::_internal_has_unused_breakmodelsnottomake() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool CMsgTEPhysicsProp::has_unused_breakmodelsnottomake() const {
@@ -13193,7 +13248,7 @@ inline bool CMsgTEPhysicsProp::has_unused_breakmodelsnottomake() const {
 }
 inline void CMsgTEPhysicsProp::clear_unused_breakmodelsnottomake() {
   _impl_.unused_breakmodelsnottomake_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000100u;
+  _impl_._has_bits_[0] &= ~0x00000400u;
 }
 inline uint32_t CMsgTEPhysicsProp::_internal_unused_breakmodelsnottomake() const {
   return _impl_.unused_breakmodelsnottomake_;
@@ -13203,7 +13258,7 @@ inline uint32_t CMsgTEPhysicsProp::unused_breakmodelsnottomake() const {
   return _internal_unused_breakmodelsnottomake();
 }
 inline void CMsgTEPhysicsProp::_internal_set_unused_breakmodelsnottomake(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000100u;
+  _impl_._has_bits_[0] |= 0x00000400u;
   _impl_.unused_breakmodelsnottomake_ = value;
 }
 inline void CMsgTEPhysicsProp::set_unused_breakmodelsnottomake(uint32_t value) {
@@ -13213,7 +13268,7 @@ inline void CMsgTEPhysicsProp::set_unused_breakmodelsnottomake(uint32_t value) {
 
 // optional float scale = 10;
 inline bool CMsgTEPhysicsProp::_internal_has_scale() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
   return value;
 }
 inline bool CMsgTEPhysicsProp::has_scale() const {
@@ -13221,7 +13276,7 @@ inline bool CMsgTEPhysicsProp::has_scale() const {
 }
 inline void CMsgTEPhysicsProp::clear_scale() {
   _impl_.scale_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000200u;
+  _impl_._has_bits_[0] &= ~0x00000800u;
 }
 inline float CMsgTEPhysicsProp::_internal_scale() const {
   return _impl_.scale_;
@@ -13231,12 +13286,214 @@ inline float CMsgTEPhysicsProp::scale() const {
   return _internal_scale();
 }
 inline void CMsgTEPhysicsProp::_internal_set_scale(float value) {
-  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_._has_bits_[0] |= 0x00000800u;
   _impl_.scale_ = value;
 }
 inline void CMsgTEPhysicsProp::set_scale(float value) {
   _internal_set_scale(value);
   // @@protoc_insertion_point(field_set:CMsgTEPhysicsProp.scale)
+}
+
+// optional .CMsgVector dmgpos = 11;
+inline bool CMsgTEPhysicsProp::_internal_has_dmgpos() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.dmgpos_ != nullptr);
+  return value;
+}
+inline bool CMsgTEPhysicsProp::has_dmgpos() const {
+  return _internal_has_dmgpos();
+}
+inline const ::CMsgVector& CMsgTEPhysicsProp::_internal_dmgpos() const {
+  const ::CMsgVector* p = _impl_.dmgpos_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgVector&>(
+      ::_CMsgVector_default_instance_);
+}
+inline const ::CMsgVector& CMsgTEPhysicsProp::dmgpos() const {
+  // @@protoc_insertion_point(field_get:CMsgTEPhysicsProp.dmgpos)
+  return _internal_dmgpos();
+}
+inline void CMsgTEPhysicsProp::unsafe_arena_set_allocated_dmgpos(
+    ::CMsgVector* dmgpos) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.dmgpos_);
+  }
+  _impl_.dmgpos_ = dmgpos;
+  if (dmgpos) {
+    _impl_._has_bits_[0] |= 0x00000008u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000008u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgTEPhysicsProp.dmgpos)
+}
+inline ::CMsgVector* CMsgTEPhysicsProp::release_dmgpos() {
+  _impl_._has_bits_[0] &= ~0x00000008u;
+  ::CMsgVector* temp = _impl_.dmgpos_;
+  _impl_.dmgpos_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CMsgVector* CMsgTEPhysicsProp::unsafe_arena_release_dmgpos() {
+  // @@protoc_insertion_point(field_release:CMsgTEPhysicsProp.dmgpos)
+  _impl_._has_bits_[0] &= ~0x00000008u;
+  ::CMsgVector* temp = _impl_.dmgpos_;
+  _impl_.dmgpos_ = nullptr;
+  return temp;
+}
+inline ::CMsgVector* CMsgTEPhysicsProp::_internal_mutable_dmgpos() {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  if (_impl_.dmgpos_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgVector>(GetArenaForAllocation());
+    _impl_.dmgpos_ = p;
+  }
+  return _impl_.dmgpos_;
+}
+inline ::CMsgVector* CMsgTEPhysicsProp::mutable_dmgpos() {
+  ::CMsgVector* _msg = _internal_mutable_dmgpos();
+  // @@protoc_insertion_point(field_mutable:CMsgTEPhysicsProp.dmgpos)
+  return _msg;
+}
+inline void CMsgTEPhysicsProp::set_allocated_dmgpos(::CMsgVector* dmgpos) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.dmgpos_);
+  }
+  if (dmgpos) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(dmgpos));
+    if (message_arena != submessage_arena) {
+      dmgpos = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, dmgpos, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000008u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000008u;
+  }
+  _impl_.dmgpos_ = dmgpos;
+  // @@protoc_insertion_point(field_set_allocated:CMsgTEPhysicsProp.dmgpos)
+}
+
+// optional .CMsgVector dmgdir = 12;
+inline bool CMsgTEPhysicsProp::_internal_has_dmgdir() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.dmgdir_ != nullptr);
+  return value;
+}
+inline bool CMsgTEPhysicsProp::has_dmgdir() const {
+  return _internal_has_dmgdir();
+}
+inline const ::CMsgVector& CMsgTEPhysicsProp::_internal_dmgdir() const {
+  const ::CMsgVector* p = _impl_.dmgdir_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgVector&>(
+      ::_CMsgVector_default_instance_);
+}
+inline const ::CMsgVector& CMsgTEPhysicsProp::dmgdir() const {
+  // @@protoc_insertion_point(field_get:CMsgTEPhysicsProp.dmgdir)
+  return _internal_dmgdir();
+}
+inline void CMsgTEPhysicsProp::unsafe_arena_set_allocated_dmgdir(
+    ::CMsgVector* dmgdir) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.dmgdir_);
+  }
+  _impl_.dmgdir_ = dmgdir;
+  if (dmgdir) {
+    _impl_._has_bits_[0] |= 0x00000010u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000010u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgTEPhysicsProp.dmgdir)
+}
+inline ::CMsgVector* CMsgTEPhysicsProp::release_dmgdir() {
+  _impl_._has_bits_[0] &= ~0x00000010u;
+  ::CMsgVector* temp = _impl_.dmgdir_;
+  _impl_.dmgdir_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CMsgVector* CMsgTEPhysicsProp::unsafe_arena_release_dmgdir() {
+  // @@protoc_insertion_point(field_release:CMsgTEPhysicsProp.dmgdir)
+  _impl_._has_bits_[0] &= ~0x00000010u;
+  ::CMsgVector* temp = _impl_.dmgdir_;
+  _impl_.dmgdir_ = nullptr;
+  return temp;
+}
+inline ::CMsgVector* CMsgTEPhysicsProp::_internal_mutable_dmgdir() {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  if (_impl_.dmgdir_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgVector>(GetArenaForAllocation());
+    _impl_.dmgdir_ = p;
+  }
+  return _impl_.dmgdir_;
+}
+inline ::CMsgVector* CMsgTEPhysicsProp::mutable_dmgdir() {
+  ::CMsgVector* _msg = _internal_mutable_dmgdir();
+  // @@protoc_insertion_point(field_mutable:CMsgTEPhysicsProp.dmgdir)
+  return _msg;
+}
+inline void CMsgTEPhysicsProp::set_allocated_dmgdir(::CMsgVector* dmgdir) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.dmgdir_);
+  }
+  if (dmgdir) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(dmgdir));
+    if (message_arena != submessage_arena) {
+      dmgdir = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, dmgdir, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000010u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000010u;
+  }
+  _impl_.dmgdir_ = dmgdir;
+  // @@protoc_insertion_point(field_set_allocated:CMsgTEPhysicsProp.dmgdir)
+}
+
+// optional int32 dmgtype = 13;
+inline bool CMsgTEPhysicsProp::_internal_has_dmgtype() const {
+  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
+  return value;
+}
+inline bool CMsgTEPhysicsProp::has_dmgtype() const {
+  return _internal_has_dmgtype();
+}
+inline void CMsgTEPhysicsProp::clear_dmgtype() {
+  _impl_.dmgtype_ = 0;
+  _impl_._has_bits_[0] &= ~0x00001000u;
+}
+inline int32_t CMsgTEPhysicsProp::_internal_dmgtype() const {
+  return _impl_.dmgtype_;
+}
+inline int32_t CMsgTEPhysicsProp::dmgtype() const {
+  // @@protoc_insertion_point(field_get:CMsgTEPhysicsProp.dmgtype)
+  return _internal_dmgtype();
+}
+inline void CMsgTEPhysicsProp::_internal_set_dmgtype(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00001000u;
+  _impl_.dmgtype_ = value;
+}
+inline void CMsgTEPhysicsProp::set_dmgtype(int32_t value) {
+  _internal_set_dmgtype(value);
+  // @@protoc_insertion_point(field_set:CMsgTEPhysicsProp.dmgtype)
 }
 
 // -------------------------------------------------------------------

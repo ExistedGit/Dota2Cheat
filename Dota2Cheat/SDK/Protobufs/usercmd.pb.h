@@ -589,7 +589,8 @@ class CBaseUserCmdPB final :
     kMousedxFieldNumber = 11,
     kMousedyFieldNumber = 12,
     kHasbeenpredictedFieldNumber = 13,
-    kFixangleTickFieldNumber = 20,
+    kConsumedServerAngleChangesFieldNumber = 20,
+    kCmdFlagsFieldNumber = 21,
     kPawnEntityHandleFieldNumber = 14,
   };
   // repeated .CSubtickMoveStep subtick_moves = 18;
@@ -807,17 +808,30 @@ class CBaseUserCmdPB final :
   void _internal_set_hasbeenpredicted(bool value);
   public:
 
-  // optional int32 fixangle_tick = 20;
-  bool has_fixangle_tick() const;
+  // optional uint32 consumed_server_angle_changes = 20;
+  bool has_consumed_server_angle_changes() const;
   private:
-  bool _internal_has_fixangle_tick() const;
+  bool _internal_has_consumed_server_angle_changes() const;
   public:
-  void clear_fixangle_tick();
-  int32_t fixangle_tick() const;
-  void set_fixangle_tick(int32_t value);
+  void clear_consumed_server_angle_changes();
+  uint32_t consumed_server_angle_changes() const;
+  void set_consumed_server_angle_changes(uint32_t value);
   private:
-  int32_t _internal_fixangle_tick() const;
-  void _internal_set_fixangle_tick(int32_t value);
+  uint32_t _internal_consumed_server_angle_changes() const;
+  void _internal_set_consumed_server_angle_changes(uint32_t value);
+  public:
+
+  // optional int32 cmd_flags = 21;
+  bool has_cmd_flags() const;
+  private:
+  bool _internal_has_cmd_flags() const;
+  public:
+  void clear_cmd_flags();
+  int32_t cmd_flags() const;
+  void set_cmd_flags(int32_t value);
+  private:
+  int32_t _internal_cmd_flags() const;
+  void _internal_set_cmd_flags(int32_t value);
   public:
 
   // optional uint32 pawn_entity_handle = 14 [default = 16777215];
@@ -858,7 +872,8 @@ class CBaseUserCmdPB final :
     int32_t mousedx_;
     int32_t mousedy_;
     bool hasbeenpredicted_;
-    int32_t fixangle_tick_;
+    uint32_t consumed_server_angle_changes_;
+    int32_t cmd_flags_;
     uint32_t pawn_entity_handle_;
   };
   union { Impl_ _impl_; };
@@ -1703,7 +1718,7 @@ inline void CBaseUserCmdPB::set_hasbeenpredicted(bool value) {
 
 // optional uint32 pawn_entity_handle = 14 [default = 16777215];
 inline bool CBaseUserCmdPB::_internal_has_pawn_entity_handle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00010000u) != 0;
   return value;
 }
 inline bool CBaseUserCmdPB::has_pawn_entity_handle() const {
@@ -1711,7 +1726,7 @@ inline bool CBaseUserCmdPB::has_pawn_entity_handle() const {
 }
 inline void CBaseUserCmdPB::clear_pawn_entity_handle() {
   _impl_.pawn_entity_handle_ = 16777215u;
-  _impl_._has_bits_[0] &= ~0x00008000u;
+  _impl_._has_bits_[0] &= ~0x00010000u;
 }
 inline uint32_t CBaseUserCmdPB::_internal_pawn_entity_handle() const {
   return _impl_.pawn_entity_handle_;
@@ -1721,7 +1736,7 @@ inline uint32_t CBaseUserCmdPB::pawn_entity_handle() const {
   return _internal_pawn_entity_handle();
 }
 inline void CBaseUserCmdPB::_internal_set_pawn_entity_handle(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00008000u;
+  _impl_._has_bits_[0] |= 0x00010000u;
   _impl_.pawn_entity_handle_ = value;
 }
 inline void CBaseUserCmdPB::set_pawn_entity_handle(uint32_t value) {
@@ -1837,32 +1852,60 @@ inline void CBaseUserCmdPB::set_allocated_move_crc(std::string* move_crc) {
   // @@protoc_insertion_point(field_set_allocated:CBaseUserCmdPB.move_crc)
 }
 
-// optional int32 fixangle_tick = 20;
-inline bool CBaseUserCmdPB::_internal_has_fixangle_tick() const {
+// optional uint32 consumed_server_angle_changes = 20;
+inline bool CBaseUserCmdPB::_internal_has_consumed_server_angle_changes() const {
   bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
-inline bool CBaseUserCmdPB::has_fixangle_tick() const {
-  return _internal_has_fixangle_tick();
+inline bool CBaseUserCmdPB::has_consumed_server_angle_changes() const {
+  return _internal_has_consumed_server_angle_changes();
 }
-inline void CBaseUserCmdPB::clear_fixangle_tick() {
-  _impl_.fixangle_tick_ = 0;
+inline void CBaseUserCmdPB::clear_consumed_server_angle_changes() {
+  _impl_.consumed_server_angle_changes_ = 0u;
   _impl_._has_bits_[0] &= ~0x00004000u;
 }
-inline int32_t CBaseUserCmdPB::_internal_fixangle_tick() const {
-  return _impl_.fixangle_tick_;
+inline uint32_t CBaseUserCmdPB::_internal_consumed_server_angle_changes() const {
+  return _impl_.consumed_server_angle_changes_;
 }
-inline int32_t CBaseUserCmdPB::fixangle_tick() const {
-  // @@protoc_insertion_point(field_get:CBaseUserCmdPB.fixangle_tick)
-  return _internal_fixangle_tick();
+inline uint32_t CBaseUserCmdPB::consumed_server_angle_changes() const {
+  // @@protoc_insertion_point(field_get:CBaseUserCmdPB.consumed_server_angle_changes)
+  return _internal_consumed_server_angle_changes();
 }
-inline void CBaseUserCmdPB::_internal_set_fixangle_tick(int32_t value) {
+inline void CBaseUserCmdPB::_internal_set_consumed_server_angle_changes(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00004000u;
-  _impl_.fixangle_tick_ = value;
+  _impl_.consumed_server_angle_changes_ = value;
 }
-inline void CBaseUserCmdPB::set_fixangle_tick(int32_t value) {
-  _internal_set_fixangle_tick(value);
-  // @@protoc_insertion_point(field_set:CBaseUserCmdPB.fixangle_tick)
+inline void CBaseUserCmdPB::set_consumed_server_angle_changes(uint32_t value) {
+  _internal_set_consumed_server_angle_changes(value);
+  // @@protoc_insertion_point(field_set:CBaseUserCmdPB.consumed_server_angle_changes)
+}
+
+// optional int32 cmd_flags = 21;
+inline bool CBaseUserCmdPB::_internal_has_cmd_flags() const {
+  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
+  return value;
+}
+inline bool CBaseUserCmdPB::has_cmd_flags() const {
+  return _internal_has_cmd_flags();
+}
+inline void CBaseUserCmdPB::clear_cmd_flags() {
+  _impl_.cmd_flags_ = 0;
+  _impl_._has_bits_[0] &= ~0x00008000u;
+}
+inline int32_t CBaseUserCmdPB::_internal_cmd_flags() const {
+  return _impl_.cmd_flags_;
+}
+inline int32_t CBaseUserCmdPB::cmd_flags() const {
+  // @@protoc_insertion_point(field_get:CBaseUserCmdPB.cmd_flags)
+  return _internal_cmd_flags();
+}
+inline void CBaseUserCmdPB::_internal_set_cmd_flags(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00008000u;
+  _impl_.cmd_flags_ = value;
+}
+inline void CBaseUserCmdPB::set_cmd_flags(int32_t value) {
+  _internal_set_cmd_flags(value);
+  // @@protoc_insertion_point(field_set:CBaseUserCmdPB.cmd_flags)
 }
 
 // -------------------------------------------------------------------
