@@ -13,8 +13,6 @@
 #include "../../UI/Pages/AutoPickSelectionGrid.h"
 
 void CCheatManager::LoadGameSpecific() {
-	Modules::BarAugmenter.Init();
-
 	// Allows VPK mods
 	if (auto gi = Memory::Scan("74 ? 84 C9 75 ? 83 BF", "client.dll"))
 		Memory::Patch(gi, { 0xEB });
@@ -52,6 +50,8 @@ void CCheatManager::LoadGameSpecific() {
 #if defined(_DEBUG) && !defined(_TESTING)
 	Log(LP_DATA, "ItemSchema: ", Signatures::GetItemSchema());
 #endif
+
+	Modules::BarAugmenter.Init();
 
 	Hooks::InstallHooks();
 
@@ -91,8 +91,7 @@ void CCheatManager::Initialize(HMODULE hModule) {
 	AllocConsole();
 	freopen_s(&consoleStream, "CONOUT$", "w", stdout);
 
-	// Note to everyone: do not remove
-	// this is a historical exclamation by myself when something finally works
+	// don't you dare touch this line
 	Log(LP_NONE, "works!");
 
 	FindCheatFolder();
