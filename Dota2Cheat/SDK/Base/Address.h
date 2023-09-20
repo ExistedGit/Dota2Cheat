@@ -36,7 +36,7 @@ public:
 	}
 
 	template<typename T = Address>
-	T Dereference()const{
+	T Dereference() const {
 		return (T)(*(uintptr_t*)ptr);
 	}
 

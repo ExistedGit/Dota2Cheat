@@ -517,8 +517,189 @@ struct CMsgDOTADPCTeamFavoriteRankingsDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgDOTADPCTeamFavoriteRankingsDefaultTypeInternal _CMsgDOTADPCTeamFavoriteRankings_default_instance_;
-static ::_pb::Metadata file_level_metadata_dota_5fgcmessages_5fclient_5ffantasy_2eproto[31];
-static const ::_pb::EnumDescriptor* file_level_enum_descriptors_dota_5fgcmessages_5fclient_5ffantasy_2eproto[6];
+PROTOBUF_CONSTEXPR CMsgDotaFantasyCraftingUserData_Gem::CMsgDotaFantasyCraftingUserData_Gem(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.type_)*/0
+  , /*decltype(_impl_.slot_)*/0u
+  , /*decltype(_impl_.shape_)*/0u
+  , /*decltype(_impl_.quality_)*/0u
+  , /*decltype(_impl_.stat_)*/0} {}
+struct CMsgDotaFantasyCraftingUserData_GemDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgDotaFantasyCraftingUserData_GemDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgDotaFantasyCraftingUserData_GemDefaultTypeInternal() {}
+  union {
+    CMsgDotaFantasyCraftingUserData_Gem _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgDotaFantasyCraftingUserData_GemDefaultTypeInternal _CMsgDotaFantasyCraftingUserData_Gem_default_instance_;
+PROTOBUF_CONSTEXPR CMsgDotaFantasyCraftingUserData_Tablet::CMsgDotaFantasyCraftingUserData_Tablet(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.gems_)*/{}
+  , /*decltype(_impl_.tablet_id_)*/0u
+  , /*decltype(_impl_.tablet_level_)*/0u
+  , /*decltype(_impl_.fantasy_role_)*/0
+  , /*decltype(_impl_.account_id_)*/0u
+  , /*decltype(_impl_.prefix_)*/0u
+  , /*decltype(_impl_.suffix_)*/0u} {}
+struct CMsgDotaFantasyCraftingUserData_TabletDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgDotaFantasyCraftingUserData_TabletDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgDotaFantasyCraftingUserData_TabletDefaultTypeInternal() {}
+  union {
+    CMsgDotaFantasyCraftingUserData_Tablet _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgDotaFantasyCraftingUserData_TabletDefaultTypeInternal _CMsgDotaFantasyCraftingUserData_Tablet_default_instance_;
+PROTOBUF_CONSTEXPR CMsgDotaFantasyCraftingUserData::CMsgDotaFantasyCraftingUserData(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.tablets_)*/{}
+  , /*decltype(_impl_.available_rolls_)*/{}
+  , /*decltype(_impl_.roll_tokens_)*/0u} {}
+struct CMsgDotaFantasyCraftingUserDataDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgDotaFantasyCraftingUserDataDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgDotaFantasyCraftingUserDataDefaultTypeInternal() {}
+  union {
+    CMsgDotaFantasyCraftingUserData _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgDotaFantasyCraftingUserDataDefaultTypeInternal _CMsgDotaFantasyCraftingUserData_default_instance_;
+PROTOBUF_CONSTEXPR CMsgClientToGCFantasyCraftingGetUserData::CMsgClientToGCFantasyCraftingGetUserData(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.fantasy_league_)*/0u
+  , /*decltype(_impl_.account_id_)*/0u} {}
+struct CMsgClientToGCFantasyCraftingGetUserDataDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgClientToGCFantasyCraftingGetUserDataDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgClientToGCFantasyCraftingGetUserDataDefaultTypeInternal() {}
+  union {
+    CMsgClientToGCFantasyCraftingGetUserData _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCFantasyCraftingGetUserDataDefaultTypeInternal _CMsgClientToGCFantasyCraftingGetUserData_default_instance_;
+PROTOBUF_CONSTEXPR CMsgClientToGCFantasyCraftingGetUserDataResponse::CMsgClientToGCFantasyCraftingGetUserDataResponse(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.user_data_)*/nullptr
+  , /*decltype(_impl_.response_)*/0} {}
+struct CMsgClientToGCFantasyCraftingGetUserDataResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgClientToGCFantasyCraftingGetUserDataResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgClientToGCFantasyCraftingGetUserDataResponseDefaultTypeInternal() {}
+  union {
+    CMsgClientToGCFantasyCraftingGetUserDataResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCFantasyCraftingGetUserDataResponseDefaultTypeInternal _CMsgClientToGCFantasyCraftingGetUserDataResponse_default_instance_;
+PROTOBUF_CONSTEXPR CMsgClientToGCFantasyCraftingPerformOperation::CMsgClientToGCFantasyCraftingPerformOperation(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.fantasy_league_)*/0u
+  , /*decltype(_impl_.tablet_id_)*/0u
+  , /*decltype(_impl_.extra_data_)*/uint64_t{0u}
+  , /*decltype(_impl_.operation_id_)*/0u} {}
+struct CMsgClientToGCFantasyCraftingPerformOperationDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgClientToGCFantasyCraftingPerformOperationDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgClientToGCFantasyCraftingPerformOperationDefaultTypeInternal() {}
+  union {
+    CMsgClientToGCFantasyCraftingPerformOperation _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCFantasyCraftingPerformOperationDefaultTypeInternal _CMsgClientToGCFantasyCraftingPerformOperation_default_instance_;
+PROTOBUF_CONSTEXPR CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice::CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.prefix_choice_)*/0u
+  , /*decltype(_impl_.suffix_choice_)*/0u} {}
+struct CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoiceDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoiceDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoiceDefaultTypeInternal() {}
+  union {
+    CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoiceDefaultTypeInternal _CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice_default_instance_;
+PROTOBUF_CONSTEXPR CMsgClientToGCFantasyCraftingPerformOperationResponse::CMsgClientToGCFantasyCraftingPerformOperationResponse(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.player_choices_)*/{}
+  , /*decltype(_impl_.prefix_choices_)*/{}
+  , /*decltype(_impl_.suffix_choices_)*/{}
+  , /*decltype(_impl_.title_choices_)*/{}
+  , /*decltype(_impl_.response_)*/0
+  , /*decltype(_impl_.operation_id_)*/0u} {}
+struct CMsgClientToGCFantasyCraftingPerformOperationResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgClientToGCFantasyCraftingPerformOperationResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgClientToGCFantasyCraftingPerformOperationResponseDefaultTypeInternal() {}
+  union {
+    CMsgClientToGCFantasyCraftingPerformOperationResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCFantasyCraftingPerformOperationResponseDefaultTypeInternal _CMsgClientToGCFantasyCraftingPerformOperationResponse_default_instance_;
+PROTOBUF_CONSTEXPR CMsgGCToClientFantasyCraftingDataUpdated::CMsgGCToClientFantasyCraftingDataUpdated(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.user_data_)*/nullptr
+  , /*decltype(_impl_.fantasy_league_)*/0u} {}
+struct CMsgGCToClientFantasyCraftingDataUpdatedDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgGCToClientFantasyCraftingDataUpdatedDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgGCToClientFantasyCraftingDataUpdatedDefaultTypeInternal() {}
+  union {
+    CMsgGCToClientFantasyCraftingDataUpdated _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgGCToClientFantasyCraftingDataUpdatedDefaultTypeInternal _CMsgGCToClientFantasyCraftingDataUpdated_default_instance_;
+PROTOBUF_CONSTEXPR CMsgClientToGCFantasyCraftingDevModifyTablet::CMsgClientToGCFantasyCraftingDevModifyTablet(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.fantasy_league_)*/0u
+  , /*decltype(_impl_.reset_tablet_)*/false
+  , /*decltype(_impl_.modify_tokens_)*/0u
+  , /*decltype(_impl_.tablet_level_)*/0u} {}
+struct CMsgClientToGCFantasyCraftingDevModifyTabletDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgClientToGCFantasyCraftingDevModifyTabletDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgClientToGCFantasyCraftingDevModifyTabletDefaultTypeInternal() {}
+  union {
+    CMsgClientToGCFantasyCraftingDevModifyTablet _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCFantasyCraftingDevModifyTabletDefaultTypeInternal _CMsgClientToGCFantasyCraftingDevModifyTablet_default_instance_;
+PROTOBUF_CONSTEXPR CMsgClientToGCFantasyCraftingDevModifyTabletResponse::CMsgClientToGCFantasyCraftingDevModifyTabletResponse(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.response_)*/0} {}
+struct CMsgClientToGCFantasyCraftingDevModifyTabletResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgClientToGCFantasyCraftingDevModifyTabletResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgClientToGCFantasyCraftingDevModifyTabletResponseDefaultTypeInternal() {}
+  union {
+    CMsgClientToGCFantasyCraftingDevModifyTabletResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCFantasyCraftingDevModifyTabletResponseDefaultTypeInternal _CMsgClientToGCFantasyCraftingDevModifyTabletResponse_default_instance_;
+static ::_pb::Metadata file_level_metadata_dota_5fgcmessages_5fclient_5ffantasy_2eproto[42];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_dota_5fgcmessages_5fclient_5ffantasy_2eproto[9];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_dota_5fgcmessages_5fclient_5ffantasy_2eproto = nullptr;
 
 const uint32_t TableStruct_dota_5fgcmessages_5fclient_5ffantasy_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -899,6 +1080,148 @@ const uint32_t TableStruct_dota_5fgcmessages_5fclient_5ffantasy_2eproto::offsets
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CMsgDOTADPCTeamFavoriteRankings, _impl_.teams_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDotaFantasyCraftingUserData_Gem, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDotaFantasyCraftingUserData_Gem, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgDotaFantasyCraftingUserData_Gem, _impl_.type_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDotaFantasyCraftingUserData_Gem, _impl_.slot_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDotaFantasyCraftingUserData_Gem, _impl_.shape_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDotaFantasyCraftingUserData_Gem, _impl_.quality_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDotaFantasyCraftingUserData_Gem, _impl_.stat_),
+  0,
+  1,
+  2,
+  3,
+  4,
+  PROTOBUF_FIELD_OFFSET(::CMsgDotaFantasyCraftingUserData_Tablet, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDotaFantasyCraftingUserData_Tablet, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgDotaFantasyCraftingUserData_Tablet, _impl_.tablet_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDotaFantasyCraftingUserData_Tablet, _impl_.tablet_level_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDotaFantasyCraftingUserData_Tablet, _impl_.fantasy_role_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDotaFantasyCraftingUserData_Tablet, _impl_.account_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDotaFantasyCraftingUserData_Tablet, _impl_.prefix_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDotaFantasyCraftingUserData_Tablet, _impl_.suffix_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDotaFantasyCraftingUserData_Tablet, _impl_.gems_),
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  ~0u,
+  PROTOBUF_FIELD_OFFSET(::CMsgDotaFantasyCraftingUserData, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDotaFantasyCraftingUserData, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgDotaFantasyCraftingUserData, _impl_.tablets_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDotaFantasyCraftingUserData, _impl_.available_rolls_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDotaFantasyCraftingUserData, _impl_.roll_tokens_),
+  ~0u,
+  ~0u,
+  0,
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingGetUserData, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingGetUserData, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingGetUserData, _impl_.fantasy_league_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingGetUserData, _impl_.account_id_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingGetUserDataResponse, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingGetUserDataResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingGetUserDataResponse, _impl_.response_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingGetUserDataResponse, _impl_.user_data_),
+  1,
+  0,
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingPerformOperation, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingPerformOperation, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingPerformOperation, _impl_.fantasy_league_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingPerformOperation, _impl_.tablet_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingPerformOperation, _impl_.operation_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingPerformOperation, _impl_.extra_data_),
+  0,
+  1,
+  3,
+  2,
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice, _impl_.prefix_choice_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice, _impl_.suffix_choice_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingPerformOperationResponse, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingPerformOperationResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingPerformOperationResponse, _impl_.response_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingPerformOperationResponse, _impl_.operation_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingPerformOperationResponse, _impl_.player_choices_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingPerformOperationResponse, _impl_.prefix_choices_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingPerformOperationResponse, _impl_.suffix_choices_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingPerformOperationResponse, _impl_.title_choices_),
+  0,
+  1,
+  ~0u,
+  ~0u,
+  ~0u,
+  ~0u,
+  PROTOBUF_FIELD_OFFSET(::CMsgGCToClientFantasyCraftingDataUpdated, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgGCToClientFantasyCraftingDataUpdated, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgGCToClientFantasyCraftingDataUpdated, _impl_.fantasy_league_),
+  PROTOBUF_FIELD_OFFSET(::CMsgGCToClientFantasyCraftingDataUpdated, _impl_.user_data_),
+  1,
+  0,
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingDevModifyTablet, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingDevModifyTablet, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingDevModifyTablet, _impl_.fantasy_league_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingDevModifyTablet, _impl_.reset_tablet_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingDevModifyTablet, _impl_.modify_tokens_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingDevModifyTablet, _impl_.tablet_level_),
+  0,
+  1,
+  2,
+  3,
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingDevModifyTabletResponse, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingDevModifyTabletResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCFantasyCraftingDevModifyTabletResponse, _impl_.response_),
+  0,
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 9, -1, sizeof(::CMsgDOTAPlayerInfo_Results)},
@@ -932,6 +1255,17 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 351, -1, -1, sizeof(::CMsgDOTADPCSearchResults)},
   { 360, 368, -1, sizeof(::CMsgDOTADPCTeamFavoriteRankings_Team)},
   { 370, -1, -1, sizeof(::CMsgDOTADPCTeamFavoriteRankings)},
+  { 377, 388, -1, sizeof(::CMsgDotaFantasyCraftingUserData_Gem)},
+  { 393, 406, -1, sizeof(::CMsgDotaFantasyCraftingUserData_Tablet)},
+  { 413, 422, -1, sizeof(::CMsgDotaFantasyCraftingUserData)},
+  { 425, 433, -1, sizeof(::CMsgClientToGCFantasyCraftingGetUserData)},
+  { 435, 443, -1, sizeof(::CMsgClientToGCFantasyCraftingGetUserDataResponse)},
+  { 445, 455, -1, sizeof(::CMsgClientToGCFantasyCraftingPerformOperation)},
+  { 459, 467, -1, sizeof(::CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice)},
+  { 469, 481, -1, sizeof(::CMsgClientToGCFantasyCraftingPerformOperationResponse)},
+  { 487, 495, -1, sizeof(::CMsgGCToClientFantasyCraftingDataUpdated)},
+  { 497, 507, -1, sizeof(::CMsgClientToGCFantasyCraftingDevModifyTablet)},
+  { 511, 518, -1, sizeof(::CMsgClientToGCFantasyCraftingDevModifyTabletResponse)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -966,6 +1300,17 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CMsgDOTADPCSearchResults_default_instance_._instance,
   &::_CMsgDOTADPCTeamFavoriteRankings_Team_default_instance_._instance,
   &::_CMsgDOTADPCTeamFavoriteRankings_default_instance_._instance,
+  &::_CMsgDotaFantasyCraftingUserData_Gem_default_instance_._instance,
+  &::_CMsgDotaFantasyCraftingUserData_Tablet_default_instance_._instance,
+  &::_CMsgDotaFantasyCraftingUserData_default_instance_._instance,
+  &::_CMsgClientToGCFantasyCraftingGetUserData_default_instance_._instance,
+  &::_CMsgClientToGCFantasyCraftingGetUserDataResponse_default_instance_._instance,
+  &::_CMsgClientToGCFantasyCraftingPerformOperation_default_instance_._instance,
+  &::_CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice_default_instance_._instance,
+  &::_CMsgClientToGCFantasyCraftingPerformOperationResponse_default_instance_._instance,
+  &::_CMsgGCToClientFantasyCraftingDataUpdated_default_instance_._instance,
+  &::_CMsgClientToGCFantasyCraftingDevModifyTablet_default_instance_._instance,
+  &::_CMsgClientToGCFantasyCraftingDevModifyTabletResponse_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_dota_5fgcmessages_5fclient_5ffantasy_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -1089,84 +1434,138 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fclient_5ffantasy_2eprot
   "\007\"\203\001\n\037CMsgDOTADPCTeamFavoriteRankings\0224\n"
   "\005teams\030\001 \003(\0132%.CMsgDOTADPCTeamFavoriteRa"
   "nkings.Team\032*\n\004Team\022\017\n\007team_id\030\001 \001(\r\022\021\n\t"
-  "favorites\030\002 \001(\r*\243\025\n!DOTA_2013PassportSel"
-  "ectionIndices\022\035\n\031PP13_SEL_ALLSTAR_PLAYER"
-  "_0\020\000\022\035\n\031PP13_SEL_ALLSTAR_PLAYER_1\020\001\022\035\n\031P"
-  "P13_SEL_ALLSTAR_PLAYER_2\020\002\022\035\n\031PP13_SEL_A"
-  "LLSTAR_PLAYER_3\020\003\022\035\n\031PP13_SEL_ALLSTAR_PL"
-  "AYER_4\020\004\022\035\n\031PP13_SEL_ALLSTAR_PLAYER_5\020\005\022"
-  "\035\n\031PP13_SEL_ALLSTAR_PLAYER_6\020\006\022\035\n\031PP13_S"
-  "EL_ALLSTAR_PLAYER_7\020\007\022\035\n\031PP13_SEL_ALLSTA"
-  "R_PLAYER_8\020\010\022\035\n\031PP13_SEL_ALLSTAR_PLAYER_"
-  "9\020\t\022\034\n\030PP13_SEL_QUALPRED_WEST_0\020\n\022\034\n\030PP1"
-  "3_SEL_QUALPRED_WEST_1\020\013\022\034\n\030PP13_SEL_QUAL"
-  "PRED_WEST_2\020\014\022\034\n\030PP13_SEL_QUALPRED_WEST_"
-  "3\020\r\022\034\n\030PP13_SEL_QUALPRED_WEST_4\020\016\022\034\n\030PP1"
-  "3_SEL_QUALPRED_WEST_5\020\017\022\034\n\030PP13_SEL_QUAL"
-  "PRED_WEST_6\020\020\022\034\n\030PP13_SEL_QUALPRED_WEST_"
-  "7\020\021\022\034\n\030PP13_SEL_QUALPRED_WEST_8\020\022\022\034\n\030PP1"
-  "3_SEL_QUALPRED_WEST_9\020\023\022\035\n\031PP13_SEL_QUAL"
-  "PRED_WEST_10\020\024\022\035\n\031PP13_SEL_QUALPRED_WEST"
-  "_11\020\025\022\035\n\031PP13_SEL_QUALPRED_WEST_12\020\026\022\035\n\031"
-  "PP13_SEL_QUALPRED_WEST_13\020\027\022\035\n\031PP13_SEL_"
-  "QUALPRED_WEST_14\020\030\022\034\n\030PP13_SEL_QUALPRED_"
-  "EAST_0\020\031\022\034\n\030PP13_SEL_QUALPRED_EAST_1\020\032\022\034"
-  "\n\030PP13_SEL_QUALPRED_EAST_2\020\033\022\034\n\030PP13_SEL"
-  "_QUALPRED_EAST_3\020\034\022\034\n\030PP13_SEL_QUALPRED_"
-  "EAST_4\020\035\022\034\n\030PP13_SEL_QUALPRED_EAST_5\020\036\022\034"
-  "\n\030PP13_SEL_QUALPRED_EAST_6\020\037\022\034\n\030PP13_SEL"
-  "_QUALPRED_EAST_7\020 \022\034\n\030PP13_SEL_QUALPRED_"
-  "EAST_8\020!\022\034\n\030PP13_SEL_QUALPRED_EAST_9\020\"\022\035"
-  "\n\031PP13_SEL_QUALPRED_EAST_10\020#\022\035\n\031PP13_SE"
-  "L_QUALPRED_EAST_11\020$\022\035\n\031PP13_SEL_QUALPRE"
-  "D_EAST_12\020%\022\035\n\031PP13_SEL_QUALPRED_EAST_13"
-  "\020&\022\035\n\031PP13_SEL_QUALPRED_EAST_14\020\'\022\031\n\025PP1"
-  "3_SEL_TEAMCUP_TEAM\020(\022\033\n\027PP13_SEL_TEAMCUP"
-  "_PLAYER\020)\022\036\n\032PP13_SEL_TEAMCUP_TEAM_LOCK\020"
-  "*\022 \n\034PP13_SEL_TEAMCUP_PLAYER_LOCK\020+\022\030\n\024P"
-  "P13_SEL_EVENTPRED_0\020,\022\030\n\024PP13_SEL_EVENTP"
-  "RED_1\020-\022\030\n\024PP13_SEL_EVENTPRED_2\020.\022\030\n\024PP1"
-  "3_SEL_EVENTPRED_3\020/\022\030\n\024PP13_SEL_EVENTPRE"
-  "D_4\0200\022\030\n\024PP13_SEL_EVENTPRED_5\0201\022\030\n\024PP13_"
-  "SEL_EVENTPRED_6\0202\022\030\n\024PP13_SEL_EVENTPRED_"
-  "7\0203\022\030\n\024PP13_SEL_EVENTPRED_8\0204\022\030\n\024PP13_SE"
-  "L_EVENTPRED_9\0205\022\031\n\025PP13_SEL_EVENTPRED_10"
-  "\0206\022\031\n\025PP13_SEL_EVENTPRED_11\0207\022\031\n\025PP13_SE"
-  "L_EVENTPRED_12\0208\022\031\n\025PP13_SEL_EVENTPRED_1"
-  "3\0209\022\031\n\025PP13_SEL_EVENTPRED_14\020:\022\031\n\025PP13_S"
-  "EL_EVENTPRED_15\020;\022\031\n\025PP13_SEL_EVENTPRED_"
-  "16\020<\022\031\n\025PP13_SEL_EVENTPRED_17\020=\022\031\n\025PP13_"
-  "SEL_EVENTPRED_18\020>\022\031\n\025PP13_SEL_EVENTPRED"
-  "_19\020\?\022\031\n\025PP13_SEL_EVENTPRED_20\020@\022\031\n\025PP13"
-  "_SEL_EVENTPRED_21\020A\022\031\n\025PP13_SEL_EVENTPRE"
-  "D_22\020B\022\031\n\025PP13_SEL_EVENTPRED_23\020C\022\031\n\025PP1"
-  "3_SEL_EVENTPRED_24\020D\022\031\n\025PP13_SEL_EVENTPR"
-  "ED_25\020E\022\031\n\025PP13_SEL_EVENTPRED_26\020F\022\031\n\025PP"
-  "13_SEL_EVENTPRED_27\020G\022\031\n\025PP13_SEL_EVENTP"
-  "RED_28\020H\022\031\n\025PP13_SEL_EVENTPRED_29\020I\022\031\n\025P"
-  "P13_SEL_EVENTPRED_30\020J\022\031\n\025PP13_SEL_EVENT"
-  "PRED_31\020K\022\031\n\025PP13_SEL_EVENTPRED_32\020L\022\031\n\025"
-  "PP13_SEL_EVENTPRED_33\020M\022\031\n\025PP13_SEL_EVEN"
-  "TPRED_34\020N\022\031\n\025PP13_SEL_EVENTPRED_35\020O\022\031\n"
-  "\025PP13_SEL_EVENTPRED_36\020P\022\031\n\025PP13_SEL_EVE"
-  "NTPRED_37\020Q\022\031\n\025PP13_SEL_EVENTPRED_38\020R\022\031"
-  "\n\025PP13_SEL_EVENTPRED_39\020S\022\031\n\025PP13_SEL_EV"
-  "ENTPRED_40\020T\022\031\n\025PP13_SEL_EVENTPRED_41\020U\022"
-  "\031\n\025PP13_SEL_EVENTPRED_42\020V\022\031\n\025PP13_SEL_E"
-  "VENTPRED_43\020W\022\023\n\017PP13_SEL_SOLO_0\020X\022\023\n\017PP"
-  "13_SEL_SOLO_1\020Y\022\023\n\017PP13_SEL_SOLO_2\020Z\022\023\n\017"
-  "PP13_SEL_SOLO_3\020[\022\023\n\017PP13_SEL_SOLO_4\020\\\022\023"
-  "\n\017PP13_SEL_SOLO_5\020]\022\023\n\017PP13_SEL_SOLO_6\020^"
-  "\022\023\n\017PP13_SEL_SOLO_7\020_"
+  "favorites\030\002 \001(\r\"\210\004\n\037CMsgDotaFantasyCraft"
+  "ingUserData\0228\n\007tablets\030\001 \003(\0132\'.CMsgDotaF"
+  "antasyCraftingUserData.Tablet\022\027\n\017availab"
+  "le_rolls\030\002 \003(\r\022\023\n\013roll_tokens\030\003 \001(\r\032\242\001\n\003"
+  "Gem\0226\n\004type\030\001 \001(\0162\021.Fantasy_Gem_Type:\025FA"
+  "NTASY_GEM_TYPE_RUBY\022\014\n\004slot\030\002 \001(\r\022\r\n\005sha"
+  "pe\030\003 \001(\r\022\017\n\007quality\030\004 \001(\r\0225\n\004stat\030\005 \001(\0162"
+  "\020.Fantasy_Scoring:\025FANTASY_SCORING_KILLS"
+  "\032\327\001\n\006Tablet\022\021\n\ttablet_id\030\001 \001(\r\022\024\n\014tablet"
+  "_level\030\002 \001(\r\022<\n\014fantasy_role\030\003 \001(\0162\016.Fan"
+  "tasy_Roles:\026FANTASY_ROLE_UNDEFINED\022\022\n\nac"
+  "count_id\030\004 \001(\r\022\016\n\006prefix\030\005 \001(\r\022\016\n\006suffix"
+  "\030\006 \001(\r\0222\n\004gems\030\007 \003(\0132$.CMsgDotaFantasyCr"
+  "aftingUserData.Gem\"V\n(CMsgClientToGCFant"
+  "asyCraftingGetUserData\022\026\n\016fantasy_league"
+  "\030\001 \001(\r\022\022\n\naccount_id\030\002 \001(\r\"\302\002\n0CMsgClien"
+  "tToGCFantasyCraftingGetUserDataResponse\022"
+  "_\n\010response\030\001 \001(\0162;.CMsgClientToGCFantas"
+  "yCraftingGetUserDataResponse.EResponse:\020"
+  "k_eInternalError\0223\n\tuser_data\030\002 \001(\0132 .CM"
+  "sgDotaFantasyCraftingUserData\"x\n\tERespon"
+  "se\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSuccess\020\001"
+  "\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_e"
+  "Timeout\020\004\022\024\n\020k_eInvalidLeague\020\005\"\204\001\n-CMsg"
+  "ClientToGCFantasyCraftingPerformOperatio"
+  "n\022\026\n\016fantasy_league\030\001 \001(\r\022\021\n\ttablet_id\030\002"
+  " \001(\r\022\024\n\014operation_id\030\003 \001(\r\022\022\n\nextra_data"
+  "\030\004 \001(\004\"\260\004\n5CMsgClientToGCFantasyCrafting"
+  "PerformOperationResponse\022d\n\010response\030\001 \001"
+  "(\0162@.CMsgClientToGCFantasyCraftingPerfor"
+  "mOperationResponse.EResponse:\020k_eInterna"
+  "lError\022\024\n\014operation_id\030\002 \001(\r\022\026\n\016player_c"
+  "hoices\030\003 \003(\r\022\026\n\016prefix_choices\030\004 \003(\r\022\026\n\016"
+  "suffix_choices\030\005 \003(\r\022Y\n\rtitle_choices\030\006 "
+  "\003(\0132B.CMsgClientToGCFantasyCraftingPerfo"
+  "rmOperationResponse.TitleChoice\032;\n\013Title"
+  "Choice\022\025\n\rprefix_choice\030\001 \001(\r\022\025\n\rsuffix_"
+  "choice\030\002 \001(\r\"\232\001\n\tEResponse\022\024\n\020k_eInterna"
+  "lError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002"
+  "\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022\024\n\020k_e"
+  "InvalidLeague\020\005\022\017\n\013k_eNoTokens\020\006\022\017\n\013k_eM"
+  "oreInfo\020\007\"w\n(CMsgGCToClientFantasyCrafti"
+  "ngDataUpdated\022\026\n\016fantasy_league\030\001 \001(\r\0223\n"
+  "\tuser_data\030\002 \001(\0132 .CMsgDotaFantasyCrafti"
+  "ngUserData\"\211\001\n,CMsgClientToGCFantasyCraf"
+  "tingDevModifyTablet\022\026\n\016fantasy_league\030\001 "
+  "\001(\r\022\024\n\014reset_tablet\030\002 \001(\010\022\025\n\rmodify_toke"
+  "ns\030\003 \001(\r\022\024\n\014tablet_level\030\004 \001(\r\"\225\002\n4CMsgC"
+  "lientToGCFantasyCraftingDevModifyTabletR"
+  "esponse\022c\n\010response\030\001 \001(\0162\?.CMsgClientTo"
+  "GCFantasyCraftingDevModifyTabletResponse"
+  ".EResponse:\020k_eInternalError\"x\n\tERespons"
+  "e\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSuccess\020\001\022"
+  "\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eT"
+  "imeout\020\004\022\024\n\020k_eInvalidLeague\020\005*\243\025\n!DOTA_"
+  "2013PassportSelectionIndices\022\035\n\031PP13_SEL"
+  "_ALLSTAR_PLAYER_0\020\000\022\035\n\031PP13_SEL_ALLSTAR_"
+  "PLAYER_1\020\001\022\035\n\031PP13_SEL_ALLSTAR_PLAYER_2\020"
+  "\002\022\035\n\031PP13_SEL_ALLSTAR_PLAYER_3\020\003\022\035\n\031PP13"
+  "_SEL_ALLSTAR_PLAYER_4\020\004\022\035\n\031PP13_SEL_ALLS"
+  "TAR_PLAYER_5\020\005\022\035\n\031PP13_SEL_ALLSTAR_PLAYE"
+  "R_6\020\006\022\035\n\031PP13_SEL_ALLSTAR_PLAYER_7\020\007\022\035\n\031"
+  "PP13_SEL_ALLSTAR_PLAYER_8\020\010\022\035\n\031PP13_SEL_"
+  "ALLSTAR_PLAYER_9\020\t\022\034\n\030PP13_SEL_QUALPRED_"
+  "WEST_0\020\n\022\034\n\030PP13_SEL_QUALPRED_WEST_1\020\013\022\034"
+  "\n\030PP13_SEL_QUALPRED_WEST_2\020\014\022\034\n\030PP13_SEL"
+  "_QUALPRED_WEST_3\020\r\022\034\n\030PP13_SEL_QUALPRED_"
+  "WEST_4\020\016\022\034\n\030PP13_SEL_QUALPRED_WEST_5\020\017\022\034"
+  "\n\030PP13_SEL_QUALPRED_WEST_6\020\020\022\034\n\030PP13_SEL"
+  "_QUALPRED_WEST_7\020\021\022\034\n\030PP13_SEL_QUALPRED_"
+  "WEST_8\020\022\022\034\n\030PP13_SEL_QUALPRED_WEST_9\020\023\022\035"
+  "\n\031PP13_SEL_QUALPRED_WEST_10\020\024\022\035\n\031PP13_SE"
+  "L_QUALPRED_WEST_11\020\025\022\035\n\031PP13_SEL_QUALPRE"
+  "D_WEST_12\020\026\022\035\n\031PP13_SEL_QUALPRED_WEST_13"
+  "\020\027\022\035\n\031PP13_SEL_QUALPRED_WEST_14\020\030\022\034\n\030PP1"
+  "3_SEL_QUALPRED_EAST_0\020\031\022\034\n\030PP13_SEL_QUAL"
+  "PRED_EAST_1\020\032\022\034\n\030PP13_SEL_QUALPRED_EAST_"
+  "2\020\033\022\034\n\030PP13_SEL_QUALPRED_EAST_3\020\034\022\034\n\030PP1"
+  "3_SEL_QUALPRED_EAST_4\020\035\022\034\n\030PP13_SEL_QUAL"
+  "PRED_EAST_5\020\036\022\034\n\030PP13_SEL_QUALPRED_EAST_"
+  "6\020\037\022\034\n\030PP13_SEL_QUALPRED_EAST_7\020 \022\034\n\030PP1"
+  "3_SEL_QUALPRED_EAST_8\020!\022\034\n\030PP13_SEL_QUAL"
+  "PRED_EAST_9\020\"\022\035\n\031PP13_SEL_QUALPRED_EAST_"
+  "10\020#\022\035\n\031PP13_SEL_QUALPRED_EAST_11\020$\022\035\n\031P"
+  "P13_SEL_QUALPRED_EAST_12\020%\022\035\n\031PP13_SEL_Q"
+  "UALPRED_EAST_13\020&\022\035\n\031PP13_SEL_QUALPRED_E"
+  "AST_14\020\'\022\031\n\025PP13_SEL_TEAMCUP_TEAM\020(\022\033\n\027P"
+  "P13_SEL_TEAMCUP_PLAYER\020)\022\036\n\032PP13_SEL_TEA"
+  "MCUP_TEAM_LOCK\020*\022 \n\034PP13_SEL_TEAMCUP_PLA"
+  "YER_LOCK\020+\022\030\n\024PP13_SEL_EVENTPRED_0\020,\022\030\n\024"
+  "PP13_SEL_EVENTPRED_1\020-\022\030\n\024PP13_SEL_EVENT"
+  "PRED_2\020.\022\030\n\024PP13_SEL_EVENTPRED_3\020/\022\030\n\024PP"
+  "13_SEL_EVENTPRED_4\0200\022\030\n\024PP13_SEL_EVENTPR"
+  "ED_5\0201\022\030\n\024PP13_SEL_EVENTPRED_6\0202\022\030\n\024PP13"
+  "_SEL_EVENTPRED_7\0203\022\030\n\024PP13_SEL_EVENTPRED"
+  "_8\0204\022\030\n\024PP13_SEL_EVENTPRED_9\0205\022\031\n\025PP13_S"
+  "EL_EVENTPRED_10\0206\022\031\n\025PP13_SEL_EVENTPRED_"
+  "11\0207\022\031\n\025PP13_SEL_EVENTPRED_12\0208\022\031\n\025PP13_"
+  "SEL_EVENTPRED_13\0209\022\031\n\025PP13_SEL_EVENTPRED"
+  "_14\020:\022\031\n\025PP13_SEL_EVENTPRED_15\020;\022\031\n\025PP13"
+  "_SEL_EVENTPRED_16\020<\022\031\n\025PP13_SEL_EVENTPRE"
+  "D_17\020=\022\031\n\025PP13_SEL_EVENTPRED_18\020>\022\031\n\025PP1"
+  "3_SEL_EVENTPRED_19\020\?\022\031\n\025PP13_SEL_EVENTPR"
+  "ED_20\020@\022\031\n\025PP13_SEL_EVENTPRED_21\020A\022\031\n\025PP"
+  "13_SEL_EVENTPRED_22\020B\022\031\n\025PP13_SEL_EVENTP"
+  "RED_23\020C\022\031\n\025PP13_SEL_EVENTPRED_24\020D\022\031\n\025P"
+  "P13_SEL_EVENTPRED_25\020E\022\031\n\025PP13_SEL_EVENT"
+  "PRED_26\020F\022\031\n\025PP13_SEL_EVENTPRED_27\020G\022\031\n\025"
+  "PP13_SEL_EVENTPRED_28\020H\022\031\n\025PP13_SEL_EVEN"
+  "TPRED_29\020I\022\031\n\025PP13_SEL_EVENTPRED_30\020J\022\031\n"
+  "\025PP13_SEL_EVENTPRED_31\020K\022\031\n\025PP13_SEL_EVE"
+  "NTPRED_32\020L\022\031\n\025PP13_SEL_EVENTPRED_33\020M\022\031"
+  "\n\025PP13_SEL_EVENTPRED_34\020N\022\031\n\025PP13_SEL_EV"
+  "ENTPRED_35\020O\022\031\n\025PP13_SEL_EVENTPRED_36\020P\022"
+  "\031\n\025PP13_SEL_EVENTPRED_37\020Q\022\031\n\025PP13_SEL_E"
+  "VENTPRED_38\020R\022\031\n\025PP13_SEL_EVENTPRED_39\020S"
+  "\022\031\n\025PP13_SEL_EVENTPRED_40\020T\022\031\n\025PP13_SEL_"
+  "EVENTPRED_41\020U\022\031\n\025PP13_SEL_EVENTPRED_42\020"
+  "V\022\031\n\025PP13_SEL_EVENTPRED_43\020W\022\023\n\017PP13_SEL"
+  "_SOLO_0\020X\022\023\n\017PP13_SEL_SOLO_1\020Y\022\023\n\017PP13_S"
+  "EL_SOLO_2\020Z\022\023\n\017PP13_SEL_SOLO_3\020[\022\023\n\017PP13"
+  "_SEL_SOLO_4\020\\\022\023\n\017PP13_SEL_SOLO_5\020]\022\023\n\017PP"
+  "13_SEL_SOLO_6\020^\022\023\n\017PP13_SEL_SOLO_7\020_"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_deps[1] = {
   &::descriptor_table_dota_5fshared_5fenums_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto = {
-    false, false, 7541, descriptor_table_protodef_dota_5fgcmessages_5fclient_5ffantasy_2eproto,
+    false, false, 9716, descriptor_table_protodef_dota_5fgcmessages_5fclient_5ffantasy_2eproto,
     "dota_gcmessages_client_fantasy.proto",
-    &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_once, descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_deps, 1, 31,
+    &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_once, descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_deps, 1, 42,
     schemas, file_default_instances, TableStruct_dota_5fgcmessages_5fclient_5ffantasy_2eproto::offsets,
     file_level_metadata_dota_5fgcmessages_5fclient_5ffantasy_2eproto, file_level_enum_descriptors_dota_5fgcmessages_5fclient_5ffantasy_2eproto,
     file_level_service_descriptors_dota_5fgcmessages_5fclient_5ffantasy_2eproto,
@@ -1316,9 +1715,100 @@ constexpr CMsgDOTADPCSearchResults_ESearchResultsDesired CMsgDOTADPCSearchResult
 constexpr CMsgDOTADPCSearchResults_ESearchResultsDesired CMsgDOTADPCSearchResults::ESearchResultsDesired_MAX;
 constexpr int CMsgDOTADPCSearchResults::ESearchResultsDesired_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DOTA_2013PassportSelectionIndices_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCFantasyCraftingGetUserDataResponse_EResponse_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto);
   return file_level_enum_descriptors_dota_5fgcmessages_5fclient_5ffantasy_2eproto[5];
+}
+bool CMsgClientToGCFantasyCraftingGetUserDataResponse_EResponse_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+constexpr CMsgClientToGCFantasyCraftingGetUserDataResponse_EResponse CMsgClientToGCFantasyCraftingGetUserDataResponse::k_eInternalError;
+constexpr CMsgClientToGCFantasyCraftingGetUserDataResponse_EResponse CMsgClientToGCFantasyCraftingGetUserDataResponse::k_eSuccess;
+constexpr CMsgClientToGCFantasyCraftingGetUserDataResponse_EResponse CMsgClientToGCFantasyCraftingGetUserDataResponse::k_eTooBusy;
+constexpr CMsgClientToGCFantasyCraftingGetUserDataResponse_EResponse CMsgClientToGCFantasyCraftingGetUserDataResponse::k_eDisabled;
+constexpr CMsgClientToGCFantasyCraftingGetUserDataResponse_EResponse CMsgClientToGCFantasyCraftingGetUserDataResponse::k_eTimeout;
+constexpr CMsgClientToGCFantasyCraftingGetUserDataResponse_EResponse CMsgClientToGCFantasyCraftingGetUserDataResponse::k_eInvalidLeague;
+constexpr CMsgClientToGCFantasyCraftingGetUserDataResponse_EResponse CMsgClientToGCFantasyCraftingGetUserDataResponse::EResponse_MIN;
+constexpr CMsgClientToGCFantasyCraftingGetUserDataResponse_EResponse CMsgClientToGCFantasyCraftingGetUserDataResponse::EResponse_MAX;
+constexpr int CMsgClientToGCFantasyCraftingGetUserDataResponse::EResponse_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCFantasyCraftingPerformOperationResponse_EResponse_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto);
+  return file_level_enum_descriptors_dota_5fgcmessages_5fclient_5ffantasy_2eproto[6];
+}
+bool CMsgClientToGCFantasyCraftingPerformOperationResponse_EResponse_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+constexpr CMsgClientToGCFantasyCraftingPerformOperationResponse_EResponse CMsgClientToGCFantasyCraftingPerformOperationResponse::k_eInternalError;
+constexpr CMsgClientToGCFantasyCraftingPerformOperationResponse_EResponse CMsgClientToGCFantasyCraftingPerformOperationResponse::k_eSuccess;
+constexpr CMsgClientToGCFantasyCraftingPerformOperationResponse_EResponse CMsgClientToGCFantasyCraftingPerformOperationResponse::k_eTooBusy;
+constexpr CMsgClientToGCFantasyCraftingPerformOperationResponse_EResponse CMsgClientToGCFantasyCraftingPerformOperationResponse::k_eDisabled;
+constexpr CMsgClientToGCFantasyCraftingPerformOperationResponse_EResponse CMsgClientToGCFantasyCraftingPerformOperationResponse::k_eTimeout;
+constexpr CMsgClientToGCFantasyCraftingPerformOperationResponse_EResponse CMsgClientToGCFantasyCraftingPerformOperationResponse::k_eInvalidLeague;
+constexpr CMsgClientToGCFantasyCraftingPerformOperationResponse_EResponse CMsgClientToGCFantasyCraftingPerformOperationResponse::k_eNoTokens;
+constexpr CMsgClientToGCFantasyCraftingPerformOperationResponse_EResponse CMsgClientToGCFantasyCraftingPerformOperationResponse::k_eMoreInfo;
+constexpr CMsgClientToGCFantasyCraftingPerformOperationResponse_EResponse CMsgClientToGCFantasyCraftingPerformOperationResponse::EResponse_MIN;
+constexpr CMsgClientToGCFantasyCraftingPerformOperationResponse_EResponse CMsgClientToGCFantasyCraftingPerformOperationResponse::EResponse_MAX;
+constexpr int CMsgClientToGCFantasyCraftingPerformOperationResponse::EResponse_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCFantasyCraftingDevModifyTabletResponse_EResponse_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto);
+  return file_level_enum_descriptors_dota_5fgcmessages_5fclient_5ffantasy_2eproto[7];
+}
+bool CMsgClientToGCFantasyCraftingDevModifyTabletResponse_EResponse_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+constexpr CMsgClientToGCFantasyCraftingDevModifyTabletResponse_EResponse CMsgClientToGCFantasyCraftingDevModifyTabletResponse::k_eInternalError;
+constexpr CMsgClientToGCFantasyCraftingDevModifyTabletResponse_EResponse CMsgClientToGCFantasyCraftingDevModifyTabletResponse::k_eSuccess;
+constexpr CMsgClientToGCFantasyCraftingDevModifyTabletResponse_EResponse CMsgClientToGCFantasyCraftingDevModifyTabletResponse::k_eTooBusy;
+constexpr CMsgClientToGCFantasyCraftingDevModifyTabletResponse_EResponse CMsgClientToGCFantasyCraftingDevModifyTabletResponse::k_eDisabled;
+constexpr CMsgClientToGCFantasyCraftingDevModifyTabletResponse_EResponse CMsgClientToGCFantasyCraftingDevModifyTabletResponse::k_eTimeout;
+constexpr CMsgClientToGCFantasyCraftingDevModifyTabletResponse_EResponse CMsgClientToGCFantasyCraftingDevModifyTabletResponse::k_eInvalidLeague;
+constexpr CMsgClientToGCFantasyCraftingDevModifyTabletResponse_EResponse CMsgClientToGCFantasyCraftingDevModifyTabletResponse::EResponse_MIN;
+constexpr CMsgClientToGCFantasyCraftingDevModifyTabletResponse_EResponse CMsgClientToGCFantasyCraftingDevModifyTabletResponse::EResponse_MAX;
+constexpr int CMsgClientToGCFantasyCraftingDevModifyTabletResponse::EResponse_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DOTA_2013PassportSelectionIndices_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto);
+  return file_level_enum_descriptors_dota_5fgcmessages_5fclient_5ffantasy_2eproto[8];
 }
 bool DOTA_2013PassportSelectionIndices_IsValid(int value) {
   switch (value) {
@@ -10297,6 +10787,3135 @@ void CMsgDOTADPCTeamFavoriteRankings::InternalSwap(CMsgDOTADPCTeamFavoriteRankin
       file_level_metadata_dota_5fgcmessages_5fclient_5ffantasy_2eproto[30]);
 }
 
+// ===================================================================
+
+class CMsgDotaFantasyCraftingUserData_Gem::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgDotaFantasyCraftingUserData_Gem>()._impl_._has_bits_);
+  static void set_has_type(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_slot(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_shape(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_quality(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_stat(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+};
+
+CMsgDotaFantasyCraftingUserData_Gem::CMsgDotaFantasyCraftingUserData_Gem(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgDotaFantasyCraftingUserData.Gem)
+}
+CMsgDotaFantasyCraftingUserData_Gem::CMsgDotaFantasyCraftingUserData_Gem(const CMsgDotaFantasyCraftingUserData_Gem& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgDotaFantasyCraftingUserData_Gem* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.type_){}
+    , decltype(_impl_.slot_){}
+    , decltype(_impl_.shape_){}
+    , decltype(_impl_.quality_){}
+    , decltype(_impl_.stat_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.type_, &from._impl_.type_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.stat_) -
+    reinterpret_cast<char*>(&_impl_.type_)) + sizeof(_impl_.stat_));
+  // @@protoc_insertion_point(copy_constructor:CMsgDotaFantasyCraftingUserData.Gem)
+}
+
+inline void CMsgDotaFantasyCraftingUserData_Gem::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.type_){0}
+    , decltype(_impl_.slot_){0u}
+    , decltype(_impl_.shape_){0u}
+    , decltype(_impl_.quality_){0u}
+    , decltype(_impl_.stat_){0}
+  };
+}
+
+CMsgDotaFantasyCraftingUserData_Gem::~CMsgDotaFantasyCraftingUserData_Gem() {
+  // @@protoc_insertion_point(destructor:CMsgDotaFantasyCraftingUserData.Gem)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgDotaFantasyCraftingUserData_Gem::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgDotaFantasyCraftingUserData_Gem::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgDotaFantasyCraftingUserData_Gem::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgDotaFantasyCraftingUserData.Gem)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000001fu) {
+    ::memset(&_impl_.type_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.stat_) -
+        reinterpret_cast<char*>(&_impl_.type_)) + sizeof(_impl_.stat_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgDotaFantasyCraftingUserData_Gem::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional .Fantasy_Gem_Type type = 1 [default = FANTASY_GEM_TYPE_RUBY];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::Fantasy_Gem_Type_IsValid(val))) {
+            _internal_set_type(static_cast<::Fantasy_Gem_Type>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
+          }
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 slot = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_slot(&has_bits);
+          _impl_.slot_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 shape = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_shape(&has_bits);
+          _impl_.shape_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 quality = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _Internal::set_has_quality(&has_bits);
+          _impl_.quality_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional .Fantasy_Scoring stat = 5 [default = FANTASY_SCORING_KILLS];
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::Fantasy_Scoring_IsValid(val))) {
+            _internal_set_stat(static_cast<::Fantasy_Scoring>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(5, val, mutable_unknown_fields());
+          }
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgDotaFantasyCraftingUserData_Gem::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgDotaFantasyCraftingUserData.Gem)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional .Fantasy_Gem_Type type = 1 [default = FANTASY_GEM_TYPE_RUBY];
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_type(), target);
+  }
+
+  // optional uint32 slot = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_slot(), target);
+  }
+
+  // optional uint32 shape = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_shape(), target);
+  }
+
+  // optional uint32 quality = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_quality(), target);
+  }
+
+  // optional .Fantasy_Scoring stat = 5 [default = FANTASY_SCORING_KILLS];
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      5, this->_internal_stat(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgDotaFantasyCraftingUserData.Gem)
+  return target;
+}
+
+size_t CMsgDotaFantasyCraftingUserData_Gem::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgDotaFantasyCraftingUserData.Gem)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000001fu) {
+    // optional .Fantasy_Gem_Type type = 1 [default = FANTASY_GEM_TYPE_RUBY];
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::EnumSize(this->_internal_type());
+    }
+
+    // optional uint32 slot = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_slot());
+    }
+
+    // optional uint32 shape = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_shape());
+    }
+
+    // optional uint32 quality = 4;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_quality());
+    }
+
+    // optional .Fantasy_Scoring stat = 5 [default = FANTASY_SCORING_KILLS];
+    if (cached_has_bits & 0x00000010u) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::EnumSize(this->_internal_stat());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgDotaFantasyCraftingUserData_Gem::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgDotaFantasyCraftingUserData_Gem::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgDotaFantasyCraftingUserData_Gem::GetClassData() const { return &_class_data_; }
+
+
+void CMsgDotaFantasyCraftingUserData_Gem::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgDotaFantasyCraftingUserData_Gem*>(&to_msg);
+  auto& from = static_cast<const CMsgDotaFantasyCraftingUserData_Gem&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgDotaFantasyCraftingUserData.Gem)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000001fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.type_ = from._impl_.type_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.slot_ = from._impl_.slot_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.shape_ = from._impl_.shape_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.quality_ = from._impl_.quality_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.stat_ = from._impl_.stat_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgDotaFantasyCraftingUserData_Gem::CopyFrom(const CMsgDotaFantasyCraftingUserData_Gem& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgDotaFantasyCraftingUserData.Gem)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgDotaFantasyCraftingUserData_Gem::IsInitialized() const {
+  return true;
+}
+
+void CMsgDotaFantasyCraftingUserData_Gem::InternalSwap(CMsgDotaFantasyCraftingUserData_Gem* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgDotaFantasyCraftingUserData_Gem, _impl_.stat_)
+      + sizeof(CMsgDotaFantasyCraftingUserData_Gem::_impl_.stat_)
+      - PROTOBUF_FIELD_OFFSET(CMsgDotaFantasyCraftingUserData_Gem, _impl_.type_)>(
+          reinterpret_cast<char*>(&_impl_.type_),
+          reinterpret_cast<char*>(&other->_impl_.type_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgDotaFantasyCraftingUserData_Gem::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5ffantasy_2eproto[31]);
+}
+
+// ===================================================================
+
+class CMsgDotaFantasyCraftingUserData_Tablet::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgDotaFantasyCraftingUserData_Tablet>()._impl_._has_bits_);
+  static void set_has_tablet_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_tablet_level(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_fantasy_role(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_account_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_prefix(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_suffix(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
+  }
+};
+
+CMsgDotaFantasyCraftingUserData_Tablet::CMsgDotaFantasyCraftingUserData_Tablet(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgDotaFantasyCraftingUserData.Tablet)
+}
+CMsgDotaFantasyCraftingUserData_Tablet::CMsgDotaFantasyCraftingUserData_Tablet(const CMsgDotaFantasyCraftingUserData_Tablet& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgDotaFantasyCraftingUserData_Tablet* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.gems_){from._impl_.gems_}
+    , decltype(_impl_.tablet_id_){}
+    , decltype(_impl_.tablet_level_){}
+    , decltype(_impl_.fantasy_role_){}
+    , decltype(_impl_.account_id_){}
+    , decltype(_impl_.prefix_){}
+    , decltype(_impl_.suffix_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.tablet_id_, &from._impl_.tablet_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.suffix_) -
+    reinterpret_cast<char*>(&_impl_.tablet_id_)) + sizeof(_impl_.suffix_));
+  // @@protoc_insertion_point(copy_constructor:CMsgDotaFantasyCraftingUserData.Tablet)
+}
+
+inline void CMsgDotaFantasyCraftingUserData_Tablet::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.gems_){arena}
+    , decltype(_impl_.tablet_id_){0u}
+    , decltype(_impl_.tablet_level_){0u}
+    , decltype(_impl_.fantasy_role_){0}
+    , decltype(_impl_.account_id_){0u}
+    , decltype(_impl_.prefix_){0u}
+    , decltype(_impl_.suffix_){0u}
+  };
+}
+
+CMsgDotaFantasyCraftingUserData_Tablet::~CMsgDotaFantasyCraftingUserData_Tablet() {
+  // @@protoc_insertion_point(destructor:CMsgDotaFantasyCraftingUserData.Tablet)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgDotaFantasyCraftingUserData_Tablet::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.gems_.~RepeatedPtrField();
+}
+
+void CMsgDotaFantasyCraftingUserData_Tablet::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgDotaFantasyCraftingUserData_Tablet::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgDotaFantasyCraftingUserData.Tablet)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.gems_.Clear();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000003fu) {
+    ::memset(&_impl_.tablet_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.suffix_) -
+        reinterpret_cast<char*>(&_impl_.tablet_id_)) + sizeof(_impl_.suffix_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgDotaFantasyCraftingUserData_Tablet::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint32 tablet_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_tablet_id(&has_bits);
+          _impl_.tablet_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 tablet_level = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_tablet_level(&has_bits);
+          _impl_.tablet_level_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional .Fantasy_Roles fantasy_role = 3 [default = FANTASY_ROLE_UNDEFINED];
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::Fantasy_Roles_IsValid(val))) {
+            _internal_set_fantasy_role(static_cast<::Fantasy_Roles>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(3, val, mutable_unknown_fields());
+          }
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 account_id = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _Internal::set_has_account_id(&has_bits);
+          _impl_.account_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 prefix = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          _Internal::set_has_prefix(&has_bits);
+          _impl_.prefix_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 suffix = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          _Internal::set_has_suffix(&has_bits);
+          _impl_.suffix_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .CMsgDotaFantasyCraftingUserData.Gem gems = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_gems(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgDotaFantasyCraftingUserData_Tablet::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgDotaFantasyCraftingUserData.Tablet)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 tablet_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_tablet_id(), target);
+  }
+
+  // optional uint32 tablet_level = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_tablet_level(), target);
+  }
+
+  // optional .Fantasy_Roles fantasy_role = 3 [default = FANTASY_ROLE_UNDEFINED];
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      3, this->_internal_fantasy_role(), target);
+  }
+
+  // optional uint32 account_id = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_account_id(), target);
+  }
+
+  // optional uint32 prefix = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_prefix(), target);
+  }
+
+  // optional uint32 suffix = 6;
+  if (cached_has_bits & 0x00000020u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_suffix(), target);
+  }
+
+  // repeated .CMsgDotaFantasyCraftingUserData.Gem gems = 7;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_gems_size()); i < n; i++) {
+    const auto& repfield = this->_internal_gems(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(7, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgDotaFantasyCraftingUserData.Tablet)
+  return target;
+}
+
+size_t CMsgDotaFantasyCraftingUserData_Tablet::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgDotaFantasyCraftingUserData.Tablet)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .CMsgDotaFantasyCraftingUserData.Gem gems = 7;
+  total_size += 1UL * this->_internal_gems_size();
+  for (const auto& msg : this->_impl_.gems_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000003fu) {
+    // optional uint32 tablet_id = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_tablet_id());
+    }
+
+    // optional uint32 tablet_level = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_tablet_level());
+    }
+
+    // optional .Fantasy_Roles fantasy_role = 3 [default = FANTASY_ROLE_UNDEFINED];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::EnumSize(this->_internal_fantasy_role());
+    }
+
+    // optional uint32 account_id = 4;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_account_id());
+    }
+
+    // optional uint32 prefix = 5;
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_prefix());
+    }
+
+    // optional uint32 suffix = 6;
+    if (cached_has_bits & 0x00000020u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_suffix());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgDotaFantasyCraftingUserData_Tablet::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgDotaFantasyCraftingUserData_Tablet::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgDotaFantasyCraftingUserData_Tablet::GetClassData() const { return &_class_data_; }
+
+
+void CMsgDotaFantasyCraftingUserData_Tablet::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgDotaFantasyCraftingUserData_Tablet*>(&to_msg);
+  auto& from = static_cast<const CMsgDotaFantasyCraftingUserData_Tablet&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgDotaFantasyCraftingUserData.Tablet)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.gems_.MergeFrom(from._impl_.gems_);
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000003fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.tablet_id_ = from._impl_.tablet_id_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.tablet_level_ = from._impl_.tablet_level_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.fantasy_role_ = from._impl_.fantasy_role_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.account_id_ = from._impl_.account_id_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.prefix_ = from._impl_.prefix_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      _this->_impl_.suffix_ = from._impl_.suffix_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgDotaFantasyCraftingUserData_Tablet::CopyFrom(const CMsgDotaFantasyCraftingUserData_Tablet& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgDotaFantasyCraftingUserData.Tablet)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgDotaFantasyCraftingUserData_Tablet::IsInitialized() const {
+  return true;
+}
+
+void CMsgDotaFantasyCraftingUserData_Tablet::InternalSwap(CMsgDotaFantasyCraftingUserData_Tablet* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.gems_.InternalSwap(&other->_impl_.gems_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgDotaFantasyCraftingUserData_Tablet, _impl_.suffix_)
+      + sizeof(CMsgDotaFantasyCraftingUserData_Tablet::_impl_.suffix_)
+      - PROTOBUF_FIELD_OFFSET(CMsgDotaFantasyCraftingUserData_Tablet, _impl_.tablet_id_)>(
+          reinterpret_cast<char*>(&_impl_.tablet_id_),
+          reinterpret_cast<char*>(&other->_impl_.tablet_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgDotaFantasyCraftingUserData_Tablet::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5ffantasy_2eproto[32]);
+}
+
+// ===================================================================
+
+class CMsgDotaFantasyCraftingUserData::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgDotaFantasyCraftingUserData>()._impl_._has_bits_);
+  static void set_has_roll_tokens(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CMsgDotaFantasyCraftingUserData::CMsgDotaFantasyCraftingUserData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgDotaFantasyCraftingUserData)
+}
+CMsgDotaFantasyCraftingUserData::CMsgDotaFantasyCraftingUserData(const CMsgDotaFantasyCraftingUserData& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgDotaFantasyCraftingUserData* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.tablets_){from._impl_.tablets_}
+    , decltype(_impl_.available_rolls_){from._impl_.available_rolls_}
+    , decltype(_impl_.roll_tokens_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.roll_tokens_ = from._impl_.roll_tokens_;
+  // @@protoc_insertion_point(copy_constructor:CMsgDotaFantasyCraftingUserData)
+}
+
+inline void CMsgDotaFantasyCraftingUserData::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.tablets_){arena}
+    , decltype(_impl_.available_rolls_){arena}
+    , decltype(_impl_.roll_tokens_){0u}
+  };
+}
+
+CMsgDotaFantasyCraftingUserData::~CMsgDotaFantasyCraftingUserData() {
+  // @@protoc_insertion_point(destructor:CMsgDotaFantasyCraftingUserData)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgDotaFantasyCraftingUserData::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.tablets_.~RepeatedPtrField();
+  _impl_.available_rolls_.~RepeatedField();
+}
+
+void CMsgDotaFantasyCraftingUserData::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgDotaFantasyCraftingUserData::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgDotaFantasyCraftingUserData)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.tablets_.Clear();
+  _impl_.available_rolls_.Clear();
+  _impl_.roll_tokens_ = 0u;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgDotaFantasyCraftingUserData::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .CMsgDotaFantasyCraftingUserData.Tablet tablets = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_tablets(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated uint32 available_rolls = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            _internal_add_available_rolls(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<16>(ptr));
+        } else if (static_cast<uint8_t>(tag) == 18) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_available_rolls(), ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 roll_tokens = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_roll_tokens(&has_bits);
+          _impl_.roll_tokens_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgDotaFantasyCraftingUserData::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgDotaFantasyCraftingUserData)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .CMsgDotaFantasyCraftingUserData.Tablet tablets = 1;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_tablets_size()); i < n; i++) {
+    const auto& repfield = this->_internal_tablets(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated uint32 available_rolls = 2;
+  for (int i = 0, n = this->_internal_available_rolls_size(); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_available_rolls(i), target);
+  }
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 roll_tokens = 3;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_roll_tokens(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgDotaFantasyCraftingUserData)
+  return target;
+}
+
+size_t CMsgDotaFantasyCraftingUserData::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgDotaFantasyCraftingUserData)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .CMsgDotaFantasyCraftingUserData.Tablet tablets = 1;
+  total_size += 1UL * this->_internal_tablets_size();
+  for (const auto& msg : this->_impl_.tablets_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated uint32 available_rolls = 2;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      UInt32Size(this->_impl_.available_rolls_);
+    total_size += 1 *
+                  ::_pbi::FromIntSize(this->_internal_available_rolls_size());
+    total_size += data_size;
+  }
+
+  // optional uint32 roll_tokens = 3;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_roll_tokens());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgDotaFantasyCraftingUserData::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgDotaFantasyCraftingUserData::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgDotaFantasyCraftingUserData::GetClassData() const { return &_class_data_; }
+
+
+void CMsgDotaFantasyCraftingUserData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgDotaFantasyCraftingUserData*>(&to_msg);
+  auto& from = static_cast<const CMsgDotaFantasyCraftingUserData&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgDotaFantasyCraftingUserData)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.tablets_.MergeFrom(from._impl_.tablets_);
+  _this->_impl_.available_rolls_.MergeFrom(from._impl_.available_rolls_);
+  if (from._internal_has_roll_tokens()) {
+    _this->_internal_set_roll_tokens(from._internal_roll_tokens());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgDotaFantasyCraftingUserData::CopyFrom(const CMsgDotaFantasyCraftingUserData& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgDotaFantasyCraftingUserData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgDotaFantasyCraftingUserData::IsInitialized() const {
+  return true;
+}
+
+void CMsgDotaFantasyCraftingUserData::InternalSwap(CMsgDotaFantasyCraftingUserData* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.tablets_.InternalSwap(&other->_impl_.tablets_);
+  _impl_.available_rolls_.InternalSwap(&other->_impl_.available_rolls_);
+  swap(_impl_.roll_tokens_, other->_impl_.roll_tokens_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgDotaFantasyCraftingUserData::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5ffantasy_2eproto[33]);
+}
+
+// ===================================================================
+
+class CMsgClientToGCFantasyCraftingGetUserData::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgClientToGCFantasyCraftingGetUserData>()._impl_._has_bits_);
+  static void set_has_fantasy_league(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_account_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CMsgClientToGCFantasyCraftingGetUserData::CMsgClientToGCFantasyCraftingGetUserData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCFantasyCraftingGetUserData)
+}
+CMsgClientToGCFantasyCraftingGetUserData::CMsgClientToGCFantasyCraftingGetUserData(const CMsgClientToGCFantasyCraftingGetUserData& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgClientToGCFantasyCraftingGetUserData* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.fantasy_league_){}
+    , decltype(_impl_.account_id_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.fantasy_league_, &from._impl_.fantasy_league_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.account_id_) -
+    reinterpret_cast<char*>(&_impl_.fantasy_league_)) + sizeof(_impl_.account_id_));
+  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCFantasyCraftingGetUserData)
+}
+
+inline void CMsgClientToGCFantasyCraftingGetUserData::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.fantasy_league_){0u}
+    , decltype(_impl_.account_id_){0u}
+  };
+}
+
+CMsgClientToGCFantasyCraftingGetUserData::~CMsgClientToGCFantasyCraftingGetUserData() {
+  // @@protoc_insertion_point(destructor:CMsgClientToGCFantasyCraftingGetUserData)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgClientToGCFantasyCraftingGetUserData::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgClientToGCFantasyCraftingGetUserData::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgClientToGCFantasyCraftingGetUserData::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientToGCFantasyCraftingGetUserData)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&_impl_.fantasy_league_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.account_id_) -
+        reinterpret_cast<char*>(&_impl_.fantasy_league_)) + sizeof(_impl_.account_id_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgClientToGCFantasyCraftingGetUserData::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint32 fantasy_league = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_fantasy_league(&has_bits);
+          _impl_.fantasy_league_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 account_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_account_id(&has_bits);
+          _impl_.account_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgClientToGCFantasyCraftingGetUserData::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCFantasyCraftingGetUserData)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 fantasy_league = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_fantasy_league(), target);
+  }
+
+  // optional uint32 account_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_account_id(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCFantasyCraftingGetUserData)
+  return target;
+}
+
+size_t CMsgClientToGCFantasyCraftingGetUserData::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCFantasyCraftingGetUserData)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional uint32 fantasy_league = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_fantasy_league());
+    }
+
+    // optional uint32 account_id = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_account_id());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCFantasyCraftingGetUserData::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgClientToGCFantasyCraftingGetUserData::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCFantasyCraftingGetUserData::GetClassData() const { return &_class_data_; }
+
+
+void CMsgClientToGCFantasyCraftingGetUserData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgClientToGCFantasyCraftingGetUserData*>(&to_msg);
+  auto& from = static_cast<const CMsgClientToGCFantasyCraftingGetUserData&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCFantasyCraftingGetUserData)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.fantasy_league_ = from._impl_.fantasy_league_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.account_id_ = from._impl_.account_id_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgClientToGCFantasyCraftingGetUserData::CopyFrom(const CMsgClientToGCFantasyCraftingGetUserData& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCFantasyCraftingGetUserData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgClientToGCFantasyCraftingGetUserData::IsInitialized() const {
+  return true;
+}
+
+void CMsgClientToGCFantasyCraftingGetUserData::InternalSwap(CMsgClientToGCFantasyCraftingGetUserData* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgClientToGCFantasyCraftingGetUserData, _impl_.account_id_)
+      + sizeof(CMsgClientToGCFantasyCraftingGetUserData::_impl_.account_id_)
+      - PROTOBUF_FIELD_OFFSET(CMsgClientToGCFantasyCraftingGetUserData, _impl_.fantasy_league_)>(
+          reinterpret_cast<char*>(&_impl_.fantasy_league_),
+          reinterpret_cast<char*>(&other->_impl_.fantasy_league_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCFantasyCraftingGetUserData::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5ffantasy_2eproto[34]);
+}
+
+// ===================================================================
+
+class CMsgClientToGCFantasyCraftingGetUserDataResponse::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgClientToGCFantasyCraftingGetUserDataResponse>()._impl_._has_bits_);
+  static void set_has_response(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static const ::CMsgDotaFantasyCraftingUserData& user_data(const CMsgClientToGCFantasyCraftingGetUserDataResponse* msg);
+  static void set_has_user_data(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+const ::CMsgDotaFantasyCraftingUserData&
+CMsgClientToGCFantasyCraftingGetUserDataResponse::_Internal::user_data(const CMsgClientToGCFantasyCraftingGetUserDataResponse* msg) {
+  return *msg->_impl_.user_data_;
+}
+CMsgClientToGCFantasyCraftingGetUserDataResponse::CMsgClientToGCFantasyCraftingGetUserDataResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCFantasyCraftingGetUserDataResponse)
+}
+CMsgClientToGCFantasyCraftingGetUserDataResponse::CMsgClientToGCFantasyCraftingGetUserDataResponse(const CMsgClientToGCFantasyCraftingGetUserDataResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgClientToGCFantasyCraftingGetUserDataResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.user_data_){nullptr}
+    , decltype(_impl_.response_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_user_data()) {
+    _this->_impl_.user_data_ = new ::CMsgDotaFantasyCraftingUserData(*from._impl_.user_data_);
+  }
+  _this->_impl_.response_ = from._impl_.response_;
+  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCFantasyCraftingGetUserDataResponse)
+}
+
+inline void CMsgClientToGCFantasyCraftingGetUserDataResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.user_data_){nullptr}
+    , decltype(_impl_.response_){0}
+  };
+}
+
+CMsgClientToGCFantasyCraftingGetUserDataResponse::~CMsgClientToGCFantasyCraftingGetUserDataResponse() {
+  // @@protoc_insertion_point(destructor:CMsgClientToGCFantasyCraftingGetUserDataResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgClientToGCFantasyCraftingGetUserDataResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.user_data_;
+}
+
+void CMsgClientToGCFantasyCraftingGetUserDataResponse::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgClientToGCFantasyCraftingGetUserDataResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientToGCFantasyCraftingGetUserDataResponse)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(_impl_.user_data_ != nullptr);
+    _impl_.user_data_->Clear();
+  }
+  _impl_.response_ = 0;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgClientToGCFantasyCraftingGetUserDataResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional .CMsgClientToGCFantasyCraftingGetUserDataResponse.EResponse response = 1 [default = k_eInternalError];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::CMsgClientToGCFantasyCraftingGetUserDataResponse_EResponse_IsValid(val))) {
+            _internal_set_response(static_cast<::CMsgClientToGCFantasyCraftingGetUserDataResponse_EResponse>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
+          }
+        } else
+          goto handle_unusual;
+        continue;
+      // optional .CMsgDotaFantasyCraftingUserData user_data = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_user_data(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgClientToGCFantasyCraftingGetUserDataResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCFantasyCraftingGetUserDataResponse)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional .CMsgClientToGCFantasyCraftingGetUserDataResponse.EResponse response = 1 [default = k_eInternalError];
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_response(), target);
+  }
+
+  // optional .CMsgDotaFantasyCraftingUserData user_data = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::user_data(this),
+        _Internal::user_data(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCFantasyCraftingGetUserDataResponse)
+  return target;
+}
+
+size_t CMsgClientToGCFantasyCraftingGetUserDataResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCFantasyCraftingGetUserDataResponse)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional .CMsgDotaFantasyCraftingUserData user_data = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.user_data_);
+    }
+
+    // optional .CMsgClientToGCFantasyCraftingGetUserDataResponse.EResponse response = 1 [default = k_eInternalError];
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::EnumSize(this->_internal_response());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCFantasyCraftingGetUserDataResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgClientToGCFantasyCraftingGetUserDataResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCFantasyCraftingGetUserDataResponse::GetClassData() const { return &_class_data_; }
+
+
+void CMsgClientToGCFantasyCraftingGetUserDataResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgClientToGCFantasyCraftingGetUserDataResponse*>(&to_msg);
+  auto& from = static_cast<const CMsgClientToGCFantasyCraftingGetUserDataResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCFantasyCraftingGetUserDataResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_internal_mutable_user_data()->::CMsgDotaFantasyCraftingUserData::MergeFrom(
+          from._internal_user_data());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.response_ = from._impl_.response_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgClientToGCFantasyCraftingGetUserDataResponse::CopyFrom(const CMsgClientToGCFantasyCraftingGetUserDataResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCFantasyCraftingGetUserDataResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgClientToGCFantasyCraftingGetUserDataResponse::IsInitialized() const {
+  return true;
+}
+
+void CMsgClientToGCFantasyCraftingGetUserDataResponse::InternalSwap(CMsgClientToGCFantasyCraftingGetUserDataResponse* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgClientToGCFantasyCraftingGetUserDataResponse, _impl_.response_)
+      + sizeof(CMsgClientToGCFantasyCraftingGetUserDataResponse::_impl_.response_)
+      - PROTOBUF_FIELD_OFFSET(CMsgClientToGCFantasyCraftingGetUserDataResponse, _impl_.user_data_)>(
+          reinterpret_cast<char*>(&_impl_.user_data_),
+          reinterpret_cast<char*>(&other->_impl_.user_data_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCFantasyCraftingGetUserDataResponse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5ffantasy_2eproto[35]);
+}
+
+// ===================================================================
+
+class CMsgClientToGCFantasyCraftingPerformOperation::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgClientToGCFantasyCraftingPerformOperation>()._impl_._has_bits_);
+  static void set_has_fantasy_league(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_tablet_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_operation_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_extra_data(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+};
+
+CMsgClientToGCFantasyCraftingPerformOperation::CMsgClientToGCFantasyCraftingPerformOperation(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCFantasyCraftingPerformOperation)
+}
+CMsgClientToGCFantasyCraftingPerformOperation::CMsgClientToGCFantasyCraftingPerformOperation(const CMsgClientToGCFantasyCraftingPerformOperation& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgClientToGCFantasyCraftingPerformOperation* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.fantasy_league_){}
+    , decltype(_impl_.tablet_id_){}
+    , decltype(_impl_.extra_data_){}
+    , decltype(_impl_.operation_id_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.fantasy_league_, &from._impl_.fantasy_league_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.operation_id_) -
+    reinterpret_cast<char*>(&_impl_.fantasy_league_)) + sizeof(_impl_.operation_id_));
+  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCFantasyCraftingPerformOperation)
+}
+
+inline void CMsgClientToGCFantasyCraftingPerformOperation::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.fantasy_league_){0u}
+    , decltype(_impl_.tablet_id_){0u}
+    , decltype(_impl_.extra_data_){uint64_t{0u}}
+    , decltype(_impl_.operation_id_){0u}
+  };
+}
+
+CMsgClientToGCFantasyCraftingPerformOperation::~CMsgClientToGCFantasyCraftingPerformOperation() {
+  // @@protoc_insertion_point(destructor:CMsgClientToGCFantasyCraftingPerformOperation)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgClientToGCFantasyCraftingPerformOperation::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgClientToGCFantasyCraftingPerformOperation::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgClientToGCFantasyCraftingPerformOperation::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientToGCFantasyCraftingPerformOperation)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    ::memset(&_impl_.fantasy_league_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.operation_id_) -
+        reinterpret_cast<char*>(&_impl_.fantasy_league_)) + sizeof(_impl_.operation_id_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgClientToGCFantasyCraftingPerformOperation::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint32 fantasy_league = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_fantasy_league(&has_bits);
+          _impl_.fantasy_league_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 tablet_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_tablet_id(&has_bits);
+          _impl_.tablet_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 operation_id = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_operation_id(&has_bits);
+          _impl_.operation_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint64 extra_data = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _Internal::set_has_extra_data(&has_bits);
+          _impl_.extra_data_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgClientToGCFantasyCraftingPerformOperation::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCFantasyCraftingPerformOperation)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 fantasy_league = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_fantasy_league(), target);
+  }
+
+  // optional uint32 tablet_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_tablet_id(), target);
+  }
+
+  // optional uint32 operation_id = 3;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_operation_id(), target);
+  }
+
+  // optional uint64 extra_data = 4;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(4, this->_internal_extra_data(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCFantasyCraftingPerformOperation)
+  return target;
+}
+
+size_t CMsgClientToGCFantasyCraftingPerformOperation::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCFantasyCraftingPerformOperation)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    // optional uint32 fantasy_league = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_fantasy_league());
+    }
+
+    // optional uint32 tablet_id = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_tablet_id());
+    }
+
+    // optional uint64 extra_data = 4;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_extra_data());
+    }
+
+    // optional uint32 operation_id = 3;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_operation_id());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCFantasyCraftingPerformOperation::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgClientToGCFantasyCraftingPerformOperation::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCFantasyCraftingPerformOperation::GetClassData() const { return &_class_data_; }
+
+
+void CMsgClientToGCFantasyCraftingPerformOperation::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgClientToGCFantasyCraftingPerformOperation*>(&to_msg);
+  auto& from = static_cast<const CMsgClientToGCFantasyCraftingPerformOperation&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCFantasyCraftingPerformOperation)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.fantasy_league_ = from._impl_.fantasy_league_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.tablet_id_ = from._impl_.tablet_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.extra_data_ = from._impl_.extra_data_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.operation_id_ = from._impl_.operation_id_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgClientToGCFantasyCraftingPerformOperation::CopyFrom(const CMsgClientToGCFantasyCraftingPerformOperation& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCFantasyCraftingPerformOperation)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgClientToGCFantasyCraftingPerformOperation::IsInitialized() const {
+  return true;
+}
+
+void CMsgClientToGCFantasyCraftingPerformOperation::InternalSwap(CMsgClientToGCFantasyCraftingPerformOperation* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgClientToGCFantasyCraftingPerformOperation, _impl_.operation_id_)
+      + sizeof(CMsgClientToGCFantasyCraftingPerformOperation::_impl_.operation_id_)
+      - PROTOBUF_FIELD_OFFSET(CMsgClientToGCFantasyCraftingPerformOperation, _impl_.fantasy_league_)>(
+          reinterpret_cast<char*>(&_impl_.fantasy_league_),
+          reinterpret_cast<char*>(&other->_impl_.fantasy_league_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCFantasyCraftingPerformOperation::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5ffantasy_2eproto[36]);
+}
+
+// ===================================================================
+
+class CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice>()._impl_._has_bits_);
+  static void set_has_prefix_choice(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_suffix_choice(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice::CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCFantasyCraftingPerformOperationResponse.TitleChoice)
+}
+CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice::CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice(const CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.prefix_choice_){}
+    , decltype(_impl_.suffix_choice_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.prefix_choice_, &from._impl_.prefix_choice_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.suffix_choice_) -
+    reinterpret_cast<char*>(&_impl_.prefix_choice_)) + sizeof(_impl_.suffix_choice_));
+  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCFantasyCraftingPerformOperationResponse.TitleChoice)
+}
+
+inline void CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.prefix_choice_){0u}
+    , decltype(_impl_.suffix_choice_){0u}
+  };
+}
+
+CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice::~CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice() {
+  // @@protoc_insertion_point(destructor:CMsgClientToGCFantasyCraftingPerformOperationResponse.TitleChoice)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientToGCFantasyCraftingPerformOperationResponse.TitleChoice)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&_impl_.prefix_choice_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.suffix_choice_) -
+        reinterpret_cast<char*>(&_impl_.prefix_choice_)) + sizeof(_impl_.suffix_choice_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint32 prefix_choice = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_prefix_choice(&has_bits);
+          _impl_.prefix_choice_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 suffix_choice = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_suffix_choice(&has_bits);
+          _impl_.suffix_choice_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCFantasyCraftingPerformOperationResponse.TitleChoice)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 prefix_choice = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_prefix_choice(), target);
+  }
+
+  // optional uint32 suffix_choice = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_suffix_choice(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCFantasyCraftingPerformOperationResponse.TitleChoice)
+  return target;
+}
+
+size_t CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCFantasyCraftingPerformOperationResponse.TitleChoice)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional uint32 prefix_choice = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_prefix_choice());
+    }
+
+    // optional uint32 suffix_choice = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_suffix_choice());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice::GetClassData() const { return &_class_data_; }
+
+
+void CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice*>(&to_msg);
+  auto& from = static_cast<const CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCFantasyCraftingPerformOperationResponse.TitleChoice)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.prefix_choice_ = from._impl_.prefix_choice_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.suffix_choice_ = from._impl_.suffix_choice_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice::CopyFrom(const CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCFantasyCraftingPerformOperationResponse.TitleChoice)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice::IsInitialized() const {
+  return true;
+}
+
+void CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice::InternalSwap(CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice, _impl_.suffix_choice_)
+      + sizeof(CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice::_impl_.suffix_choice_)
+      - PROTOBUF_FIELD_OFFSET(CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice, _impl_.prefix_choice_)>(
+          reinterpret_cast<char*>(&_impl_.prefix_choice_),
+          reinterpret_cast<char*>(&other->_impl_.prefix_choice_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5ffantasy_2eproto[37]);
+}
+
+// ===================================================================
+
+class CMsgClientToGCFantasyCraftingPerformOperationResponse::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgClientToGCFantasyCraftingPerformOperationResponse>()._impl_._has_bits_);
+  static void set_has_response(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_operation_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CMsgClientToGCFantasyCraftingPerformOperationResponse::CMsgClientToGCFantasyCraftingPerformOperationResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCFantasyCraftingPerformOperationResponse)
+}
+CMsgClientToGCFantasyCraftingPerformOperationResponse::CMsgClientToGCFantasyCraftingPerformOperationResponse(const CMsgClientToGCFantasyCraftingPerformOperationResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgClientToGCFantasyCraftingPerformOperationResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.player_choices_){from._impl_.player_choices_}
+    , decltype(_impl_.prefix_choices_){from._impl_.prefix_choices_}
+    , decltype(_impl_.suffix_choices_){from._impl_.suffix_choices_}
+    , decltype(_impl_.title_choices_){from._impl_.title_choices_}
+    , decltype(_impl_.response_){}
+    , decltype(_impl_.operation_id_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.response_, &from._impl_.response_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.operation_id_) -
+    reinterpret_cast<char*>(&_impl_.response_)) + sizeof(_impl_.operation_id_));
+  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCFantasyCraftingPerformOperationResponse)
+}
+
+inline void CMsgClientToGCFantasyCraftingPerformOperationResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.player_choices_){arena}
+    , decltype(_impl_.prefix_choices_){arena}
+    , decltype(_impl_.suffix_choices_){arena}
+    , decltype(_impl_.title_choices_){arena}
+    , decltype(_impl_.response_){0}
+    , decltype(_impl_.operation_id_){0u}
+  };
+}
+
+CMsgClientToGCFantasyCraftingPerformOperationResponse::~CMsgClientToGCFantasyCraftingPerformOperationResponse() {
+  // @@protoc_insertion_point(destructor:CMsgClientToGCFantasyCraftingPerformOperationResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgClientToGCFantasyCraftingPerformOperationResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.player_choices_.~RepeatedField();
+  _impl_.prefix_choices_.~RepeatedField();
+  _impl_.suffix_choices_.~RepeatedField();
+  _impl_.title_choices_.~RepeatedPtrField();
+}
+
+void CMsgClientToGCFantasyCraftingPerformOperationResponse::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgClientToGCFantasyCraftingPerformOperationResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientToGCFantasyCraftingPerformOperationResponse)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.player_choices_.Clear();
+  _impl_.prefix_choices_.Clear();
+  _impl_.suffix_choices_.Clear();
+  _impl_.title_choices_.Clear();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&_impl_.response_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.operation_id_) -
+        reinterpret_cast<char*>(&_impl_.response_)) + sizeof(_impl_.operation_id_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgClientToGCFantasyCraftingPerformOperationResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional .CMsgClientToGCFantasyCraftingPerformOperationResponse.EResponse response = 1 [default = k_eInternalError];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::CMsgClientToGCFantasyCraftingPerformOperationResponse_EResponse_IsValid(val))) {
+            _internal_set_response(static_cast<::CMsgClientToGCFantasyCraftingPerformOperationResponse_EResponse>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
+          }
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 operation_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_operation_id(&has_bits);
+          _impl_.operation_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated uint32 player_choices = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            _internal_add_player_choices(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<24>(ptr));
+        } else if (static_cast<uint8_t>(tag) == 26) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_player_choices(), ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated uint32 prefix_choices = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            _internal_add_prefix_choices(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<32>(ptr));
+        } else if (static_cast<uint8_t>(tag) == 34) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_prefix_choices(), ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated uint32 suffix_choices = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            _internal_add_suffix_choices(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<40>(ptr));
+        } else if (static_cast<uint8_t>(tag) == 42) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_suffix_choices(), ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .CMsgClientToGCFantasyCraftingPerformOperationResponse.TitleChoice title_choices = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_title_choices(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<50>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgClientToGCFantasyCraftingPerformOperationResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCFantasyCraftingPerformOperationResponse)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional .CMsgClientToGCFantasyCraftingPerformOperationResponse.EResponse response = 1 [default = k_eInternalError];
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_response(), target);
+  }
+
+  // optional uint32 operation_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_operation_id(), target);
+  }
+
+  // repeated uint32 player_choices = 3;
+  for (int i = 0, n = this->_internal_player_choices_size(); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_player_choices(i), target);
+  }
+
+  // repeated uint32 prefix_choices = 4;
+  for (int i = 0, n = this->_internal_prefix_choices_size(); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_prefix_choices(i), target);
+  }
+
+  // repeated uint32 suffix_choices = 5;
+  for (int i = 0, n = this->_internal_suffix_choices_size(); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_suffix_choices(i), target);
+  }
+
+  // repeated .CMsgClientToGCFantasyCraftingPerformOperationResponse.TitleChoice title_choices = 6;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_title_choices_size()); i < n; i++) {
+    const auto& repfield = this->_internal_title_choices(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(6, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCFantasyCraftingPerformOperationResponse)
+  return target;
+}
+
+size_t CMsgClientToGCFantasyCraftingPerformOperationResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCFantasyCraftingPerformOperationResponse)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated uint32 player_choices = 3;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      UInt32Size(this->_impl_.player_choices_);
+    total_size += 1 *
+                  ::_pbi::FromIntSize(this->_internal_player_choices_size());
+    total_size += data_size;
+  }
+
+  // repeated uint32 prefix_choices = 4;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      UInt32Size(this->_impl_.prefix_choices_);
+    total_size += 1 *
+                  ::_pbi::FromIntSize(this->_internal_prefix_choices_size());
+    total_size += data_size;
+  }
+
+  // repeated uint32 suffix_choices = 5;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      UInt32Size(this->_impl_.suffix_choices_);
+    total_size += 1 *
+                  ::_pbi::FromIntSize(this->_internal_suffix_choices_size());
+    total_size += data_size;
+  }
+
+  // repeated .CMsgClientToGCFantasyCraftingPerformOperationResponse.TitleChoice title_choices = 6;
+  total_size += 1UL * this->_internal_title_choices_size();
+  for (const auto& msg : this->_impl_.title_choices_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional .CMsgClientToGCFantasyCraftingPerformOperationResponse.EResponse response = 1 [default = k_eInternalError];
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::EnumSize(this->_internal_response());
+    }
+
+    // optional uint32 operation_id = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_operation_id());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCFantasyCraftingPerformOperationResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgClientToGCFantasyCraftingPerformOperationResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCFantasyCraftingPerformOperationResponse::GetClassData() const { return &_class_data_; }
+
+
+void CMsgClientToGCFantasyCraftingPerformOperationResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgClientToGCFantasyCraftingPerformOperationResponse*>(&to_msg);
+  auto& from = static_cast<const CMsgClientToGCFantasyCraftingPerformOperationResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCFantasyCraftingPerformOperationResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.player_choices_.MergeFrom(from._impl_.player_choices_);
+  _this->_impl_.prefix_choices_.MergeFrom(from._impl_.prefix_choices_);
+  _this->_impl_.suffix_choices_.MergeFrom(from._impl_.suffix_choices_);
+  _this->_impl_.title_choices_.MergeFrom(from._impl_.title_choices_);
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.response_ = from._impl_.response_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.operation_id_ = from._impl_.operation_id_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgClientToGCFantasyCraftingPerformOperationResponse::CopyFrom(const CMsgClientToGCFantasyCraftingPerformOperationResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCFantasyCraftingPerformOperationResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgClientToGCFantasyCraftingPerformOperationResponse::IsInitialized() const {
+  return true;
+}
+
+void CMsgClientToGCFantasyCraftingPerformOperationResponse::InternalSwap(CMsgClientToGCFantasyCraftingPerformOperationResponse* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.player_choices_.InternalSwap(&other->_impl_.player_choices_);
+  _impl_.prefix_choices_.InternalSwap(&other->_impl_.prefix_choices_);
+  _impl_.suffix_choices_.InternalSwap(&other->_impl_.suffix_choices_);
+  _impl_.title_choices_.InternalSwap(&other->_impl_.title_choices_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgClientToGCFantasyCraftingPerformOperationResponse, _impl_.operation_id_)
+      + sizeof(CMsgClientToGCFantasyCraftingPerformOperationResponse::_impl_.operation_id_)
+      - PROTOBUF_FIELD_OFFSET(CMsgClientToGCFantasyCraftingPerformOperationResponse, _impl_.response_)>(
+          reinterpret_cast<char*>(&_impl_.response_),
+          reinterpret_cast<char*>(&other->_impl_.response_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCFantasyCraftingPerformOperationResponse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5ffantasy_2eproto[38]);
+}
+
+// ===================================================================
+
+class CMsgGCToClientFantasyCraftingDataUpdated::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgGCToClientFantasyCraftingDataUpdated>()._impl_._has_bits_);
+  static void set_has_fantasy_league(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static const ::CMsgDotaFantasyCraftingUserData& user_data(const CMsgGCToClientFantasyCraftingDataUpdated* msg);
+  static void set_has_user_data(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+const ::CMsgDotaFantasyCraftingUserData&
+CMsgGCToClientFantasyCraftingDataUpdated::_Internal::user_data(const CMsgGCToClientFantasyCraftingDataUpdated* msg) {
+  return *msg->_impl_.user_data_;
+}
+CMsgGCToClientFantasyCraftingDataUpdated::CMsgGCToClientFantasyCraftingDataUpdated(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgGCToClientFantasyCraftingDataUpdated)
+}
+CMsgGCToClientFantasyCraftingDataUpdated::CMsgGCToClientFantasyCraftingDataUpdated(const CMsgGCToClientFantasyCraftingDataUpdated& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgGCToClientFantasyCraftingDataUpdated* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.user_data_){nullptr}
+    , decltype(_impl_.fantasy_league_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_user_data()) {
+    _this->_impl_.user_data_ = new ::CMsgDotaFantasyCraftingUserData(*from._impl_.user_data_);
+  }
+  _this->_impl_.fantasy_league_ = from._impl_.fantasy_league_;
+  // @@protoc_insertion_point(copy_constructor:CMsgGCToClientFantasyCraftingDataUpdated)
+}
+
+inline void CMsgGCToClientFantasyCraftingDataUpdated::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.user_data_){nullptr}
+    , decltype(_impl_.fantasy_league_){0u}
+  };
+}
+
+CMsgGCToClientFantasyCraftingDataUpdated::~CMsgGCToClientFantasyCraftingDataUpdated() {
+  // @@protoc_insertion_point(destructor:CMsgGCToClientFantasyCraftingDataUpdated)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgGCToClientFantasyCraftingDataUpdated::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.user_data_;
+}
+
+void CMsgGCToClientFantasyCraftingDataUpdated::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgGCToClientFantasyCraftingDataUpdated::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgGCToClientFantasyCraftingDataUpdated)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(_impl_.user_data_ != nullptr);
+    _impl_.user_data_->Clear();
+  }
+  _impl_.fantasy_league_ = 0u;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgGCToClientFantasyCraftingDataUpdated::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint32 fantasy_league = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_fantasy_league(&has_bits);
+          _impl_.fantasy_league_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional .CMsgDotaFantasyCraftingUserData user_data = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_user_data(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgGCToClientFantasyCraftingDataUpdated::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgGCToClientFantasyCraftingDataUpdated)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 fantasy_league = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_fantasy_league(), target);
+  }
+
+  // optional .CMsgDotaFantasyCraftingUserData user_data = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::user_data(this),
+        _Internal::user_data(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgGCToClientFantasyCraftingDataUpdated)
+  return target;
+}
+
+size_t CMsgGCToClientFantasyCraftingDataUpdated::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgGCToClientFantasyCraftingDataUpdated)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional .CMsgDotaFantasyCraftingUserData user_data = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.user_data_);
+    }
+
+    // optional uint32 fantasy_league = 1;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_fantasy_league());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgGCToClientFantasyCraftingDataUpdated::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgGCToClientFantasyCraftingDataUpdated::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgGCToClientFantasyCraftingDataUpdated::GetClassData() const { return &_class_data_; }
+
+
+void CMsgGCToClientFantasyCraftingDataUpdated::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgGCToClientFantasyCraftingDataUpdated*>(&to_msg);
+  auto& from = static_cast<const CMsgGCToClientFantasyCraftingDataUpdated&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgGCToClientFantasyCraftingDataUpdated)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_internal_mutable_user_data()->::CMsgDotaFantasyCraftingUserData::MergeFrom(
+          from._internal_user_data());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.fantasy_league_ = from._impl_.fantasy_league_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgGCToClientFantasyCraftingDataUpdated::CopyFrom(const CMsgGCToClientFantasyCraftingDataUpdated& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgGCToClientFantasyCraftingDataUpdated)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgGCToClientFantasyCraftingDataUpdated::IsInitialized() const {
+  return true;
+}
+
+void CMsgGCToClientFantasyCraftingDataUpdated::InternalSwap(CMsgGCToClientFantasyCraftingDataUpdated* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgGCToClientFantasyCraftingDataUpdated, _impl_.fantasy_league_)
+      + sizeof(CMsgGCToClientFantasyCraftingDataUpdated::_impl_.fantasy_league_)
+      - PROTOBUF_FIELD_OFFSET(CMsgGCToClientFantasyCraftingDataUpdated, _impl_.user_data_)>(
+          reinterpret_cast<char*>(&_impl_.user_data_),
+          reinterpret_cast<char*>(&other->_impl_.user_data_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToClientFantasyCraftingDataUpdated::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5ffantasy_2eproto[39]);
+}
+
+// ===================================================================
+
+class CMsgClientToGCFantasyCraftingDevModifyTablet::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgClientToGCFantasyCraftingDevModifyTablet>()._impl_._has_bits_);
+  static void set_has_fantasy_league(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_reset_tablet(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_modify_tokens(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_tablet_level(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+};
+
+CMsgClientToGCFantasyCraftingDevModifyTablet::CMsgClientToGCFantasyCraftingDevModifyTablet(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCFantasyCraftingDevModifyTablet)
+}
+CMsgClientToGCFantasyCraftingDevModifyTablet::CMsgClientToGCFantasyCraftingDevModifyTablet(const CMsgClientToGCFantasyCraftingDevModifyTablet& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgClientToGCFantasyCraftingDevModifyTablet* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.fantasy_league_){}
+    , decltype(_impl_.reset_tablet_){}
+    , decltype(_impl_.modify_tokens_){}
+    , decltype(_impl_.tablet_level_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.fantasy_league_, &from._impl_.fantasy_league_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.tablet_level_) -
+    reinterpret_cast<char*>(&_impl_.fantasy_league_)) + sizeof(_impl_.tablet_level_));
+  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCFantasyCraftingDevModifyTablet)
+}
+
+inline void CMsgClientToGCFantasyCraftingDevModifyTablet::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.fantasy_league_){0u}
+    , decltype(_impl_.reset_tablet_){false}
+    , decltype(_impl_.modify_tokens_){0u}
+    , decltype(_impl_.tablet_level_){0u}
+  };
+}
+
+CMsgClientToGCFantasyCraftingDevModifyTablet::~CMsgClientToGCFantasyCraftingDevModifyTablet() {
+  // @@protoc_insertion_point(destructor:CMsgClientToGCFantasyCraftingDevModifyTablet)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgClientToGCFantasyCraftingDevModifyTablet::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgClientToGCFantasyCraftingDevModifyTablet::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgClientToGCFantasyCraftingDevModifyTablet::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientToGCFantasyCraftingDevModifyTablet)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    ::memset(&_impl_.fantasy_league_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.tablet_level_) -
+        reinterpret_cast<char*>(&_impl_.fantasy_league_)) + sizeof(_impl_.tablet_level_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgClientToGCFantasyCraftingDevModifyTablet::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint32 fantasy_league = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_fantasy_league(&has_bits);
+          _impl_.fantasy_league_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional bool reset_tablet = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_reset_tablet(&has_bits);
+          _impl_.reset_tablet_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 modify_tokens = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_modify_tokens(&has_bits);
+          _impl_.modify_tokens_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 tablet_level = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _Internal::set_has_tablet_level(&has_bits);
+          _impl_.tablet_level_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgClientToGCFantasyCraftingDevModifyTablet::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCFantasyCraftingDevModifyTablet)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 fantasy_league = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_fantasy_league(), target);
+  }
+
+  // optional bool reset_tablet = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_reset_tablet(), target);
+  }
+
+  // optional uint32 modify_tokens = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_modify_tokens(), target);
+  }
+
+  // optional uint32 tablet_level = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_tablet_level(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCFantasyCraftingDevModifyTablet)
+  return target;
+}
+
+size_t CMsgClientToGCFantasyCraftingDevModifyTablet::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCFantasyCraftingDevModifyTablet)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    // optional uint32 fantasy_league = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_fantasy_league());
+    }
+
+    // optional bool reset_tablet = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 1;
+    }
+
+    // optional uint32 modify_tokens = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_modify_tokens());
+    }
+
+    // optional uint32 tablet_level = 4;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_tablet_level());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCFantasyCraftingDevModifyTablet::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgClientToGCFantasyCraftingDevModifyTablet::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCFantasyCraftingDevModifyTablet::GetClassData() const { return &_class_data_; }
+
+
+void CMsgClientToGCFantasyCraftingDevModifyTablet::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgClientToGCFantasyCraftingDevModifyTablet*>(&to_msg);
+  auto& from = static_cast<const CMsgClientToGCFantasyCraftingDevModifyTablet&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCFantasyCraftingDevModifyTablet)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.fantasy_league_ = from._impl_.fantasy_league_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.reset_tablet_ = from._impl_.reset_tablet_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.modify_tokens_ = from._impl_.modify_tokens_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.tablet_level_ = from._impl_.tablet_level_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgClientToGCFantasyCraftingDevModifyTablet::CopyFrom(const CMsgClientToGCFantasyCraftingDevModifyTablet& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCFantasyCraftingDevModifyTablet)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgClientToGCFantasyCraftingDevModifyTablet::IsInitialized() const {
+  return true;
+}
+
+void CMsgClientToGCFantasyCraftingDevModifyTablet::InternalSwap(CMsgClientToGCFantasyCraftingDevModifyTablet* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgClientToGCFantasyCraftingDevModifyTablet, _impl_.tablet_level_)
+      + sizeof(CMsgClientToGCFantasyCraftingDevModifyTablet::_impl_.tablet_level_)
+      - PROTOBUF_FIELD_OFFSET(CMsgClientToGCFantasyCraftingDevModifyTablet, _impl_.fantasy_league_)>(
+          reinterpret_cast<char*>(&_impl_.fantasy_league_),
+          reinterpret_cast<char*>(&other->_impl_.fantasy_league_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCFantasyCraftingDevModifyTablet::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5ffantasy_2eproto[40]);
+}
+
+// ===================================================================
+
+class CMsgClientToGCFantasyCraftingDevModifyTabletResponse::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgClientToGCFantasyCraftingDevModifyTabletResponse>()._impl_._has_bits_);
+  static void set_has_response(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CMsgClientToGCFantasyCraftingDevModifyTabletResponse::CMsgClientToGCFantasyCraftingDevModifyTabletResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCFantasyCraftingDevModifyTabletResponse)
+}
+CMsgClientToGCFantasyCraftingDevModifyTabletResponse::CMsgClientToGCFantasyCraftingDevModifyTabletResponse(const CMsgClientToGCFantasyCraftingDevModifyTabletResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgClientToGCFantasyCraftingDevModifyTabletResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.response_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.response_ = from._impl_.response_;
+  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCFantasyCraftingDevModifyTabletResponse)
+}
+
+inline void CMsgClientToGCFantasyCraftingDevModifyTabletResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.response_){0}
+  };
+}
+
+CMsgClientToGCFantasyCraftingDevModifyTabletResponse::~CMsgClientToGCFantasyCraftingDevModifyTabletResponse() {
+  // @@protoc_insertion_point(destructor:CMsgClientToGCFantasyCraftingDevModifyTabletResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgClientToGCFantasyCraftingDevModifyTabletResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgClientToGCFantasyCraftingDevModifyTabletResponse::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgClientToGCFantasyCraftingDevModifyTabletResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientToGCFantasyCraftingDevModifyTabletResponse)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.response_ = 0;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgClientToGCFantasyCraftingDevModifyTabletResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional .CMsgClientToGCFantasyCraftingDevModifyTabletResponse.EResponse response = 1 [default = k_eInternalError];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::CMsgClientToGCFantasyCraftingDevModifyTabletResponse_EResponse_IsValid(val))) {
+            _internal_set_response(static_cast<::CMsgClientToGCFantasyCraftingDevModifyTabletResponse_EResponse>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
+          }
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgClientToGCFantasyCraftingDevModifyTabletResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCFantasyCraftingDevModifyTabletResponse)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional .CMsgClientToGCFantasyCraftingDevModifyTabletResponse.EResponse response = 1 [default = k_eInternalError];
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_response(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCFantasyCraftingDevModifyTabletResponse)
+  return target;
+}
+
+size_t CMsgClientToGCFantasyCraftingDevModifyTabletResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCFantasyCraftingDevModifyTabletResponse)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional .CMsgClientToGCFantasyCraftingDevModifyTabletResponse.EResponse response = 1 [default = k_eInternalError];
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_response());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCFantasyCraftingDevModifyTabletResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgClientToGCFantasyCraftingDevModifyTabletResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCFantasyCraftingDevModifyTabletResponse::GetClassData() const { return &_class_data_; }
+
+
+void CMsgClientToGCFantasyCraftingDevModifyTabletResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgClientToGCFantasyCraftingDevModifyTabletResponse*>(&to_msg);
+  auto& from = static_cast<const CMsgClientToGCFantasyCraftingDevModifyTabletResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCFantasyCraftingDevModifyTabletResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_response()) {
+    _this->_internal_set_response(from._internal_response());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgClientToGCFantasyCraftingDevModifyTabletResponse::CopyFrom(const CMsgClientToGCFantasyCraftingDevModifyTabletResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCFantasyCraftingDevModifyTabletResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgClientToGCFantasyCraftingDevModifyTabletResponse::IsInitialized() const {
+  return true;
+}
+
+void CMsgClientToGCFantasyCraftingDevModifyTabletResponse::InternalSwap(CMsgClientToGCFantasyCraftingDevModifyTabletResponse* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  swap(_impl_.response_, other->_impl_.response_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCFantasyCraftingDevModifyTabletResponse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5ffantasy_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5ffantasy_2eproto[41]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 PROTOBUF_NAMESPACE_OPEN
 template<> PROTOBUF_NOINLINE ::CMsgDOTAPlayerInfo_Results*
@@ -10422,6 +14041,50 @@ Arena::CreateMaybeMessage< ::CMsgDOTADPCTeamFavoriteRankings_Team >(Arena* arena
 template<> PROTOBUF_NOINLINE ::CMsgDOTADPCTeamFavoriteRankings*
 Arena::CreateMaybeMessage< ::CMsgDOTADPCTeamFavoriteRankings >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgDOTADPCTeamFavoriteRankings >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgDotaFantasyCraftingUserData_Gem*
+Arena::CreateMaybeMessage< ::CMsgDotaFantasyCraftingUserData_Gem >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgDotaFantasyCraftingUserData_Gem >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgDotaFantasyCraftingUserData_Tablet*
+Arena::CreateMaybeMessage< ::CMsgDotaFantasyCraftingUserData_Tablet >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgDotaFantasyCraftingUserData_Tablet >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgDotaFantasyCraftingUserData*
+Arena::CreateMaybeMessage< ::CMsgDotaFantasyCraftingUserData >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgDotaFantasyCraftingUserData >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgClientToGCFantasyCraftingGetUserData*
+Arena::CreateMaybeMessage< ::CMsgClientToGCFantasyCraftingGetUserData >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientToGCFantasyCraftingGetUserData >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgClientToGCFantasyCraftingGetUserDataResponse*
+Arena::CreateMaybeMessage< ::CMsgClientToGCFantasyCraftingGetUserDataResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientToGCFantasyCraftingGetUserDataResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgClientToGCFantasyCraftingPerformOperation*
+Arena::CreateMaybeMessage< ::CMsgClientToGCFantasyCraftingPerformOperation >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientToGCFantasyCraftingPerformOperation >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice*
+Arena::CreateMaybeMessage< ::CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientToGCFantasyCraftingPerformOperationResponse_TitleChoice >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgClientToGCFantasyCraftingPerformOperationResponse*
+Arena::CreateMaybeMessage< ::CMsgClientToGCFantasyCraftingPerformOperationResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientToGCFantasyCraftingPerformOperationResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgGCToClientFantasyCraftingDataUpdated*
+Arena::CreateMaybeMessage< ::CMsgGCToClientFantasyCraftingDataUpdated >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgGCToClientFantasyCraftingDataUpdated >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgClientToGCFantasyCraftingDevModifyTablet*
+Arena::CreateMaybeMessage< ::CMsgClientToGCFantasyCraftingDevModifyTablet >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientToGCFantasyCraftingDevModifyTablet >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgClientToGCFantasyCraftingDevModifyTabletResponse*
+Arena::CreateMaybeMessage< ::CMsgClientToGCFantasyCraftingDevModifyTabletResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientToGCFantasyCraftingDevModifyTabletResponse >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

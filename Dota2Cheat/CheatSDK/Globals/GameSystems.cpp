@@ -51,12 +51,12 @@ void GameSystems::FindGameSystems() {
 		.GetAbsoluteAddress<IGameSystemFactory**>(3);
 
 	// Found by xrefing this global in dylibs
-	// look below the vfunc with xrefs  "ehandle", "%d (s/n %d)", "[-1] -> empty", "m_flPoseParameter", "%s(%s)", "[%d %d] -> %s", "CStrongHandle", "CWeakHandle"
-	PlayerResourcePtr = Address(Interfaces::Client->GetVFunc(102)).Offset(4).GetAbsoluteAddress(3);
+	// look below the vfunc with xrefs "ehandle", "%d (s/n %d)", "[-1] -> empty", "m_flPoseParameter", "%s(%s)", "[%d %d] -> %s", "CStrongHandle", "CWeakHandle"
+	PlayerResourcePtr = Address(Interfaces::Client->GetVFunc(VTableIndexes::Source2Client::VoiceReliable)).Offset(4).GetAbsoluteAddress(3);
 
 	// Also in Source2Client::Init(), right after "g_GameEventManager.Init()":
 	// mov rcx, [XXXXXXXXX]
-	SET_VAR(GameEventManagerPtr, Address(Interfaces::Client->GetVFunc(13).ptr)
+	SET_VAR(GameEventManagerPtr, Address(Interfaces::Client->GetVFunc(VTableIndexes::Source2Client::NotifyDisconnect).ptr)
 		.Offset(0x3E)
 		.GetAbsoluteAddress(3));
 

@@ -5542,7 +5542,7 @@ class CMsgSteamLearn_InferenceMetadata_Response_Range final :
   enum : int {
     kDataElementPathFieldNumber = 1,
     kMinValueFieldNumber = 2,
-    kMaxValuesFieldNumber = 3,
+    kMaxValueFieldNumber = 3,
   };
   // optional string data_element_path = 1;
   bool has_data_element_path() const;
@@ -5562,30 +5562,30 @@ class CMsgSteamLearn_InferenceMetadata_Response_Range final :
   std::string* _internal_mutable_data_element_path();
   public:
 
-  // optional int32 min_value = 2;
+  // optional float min_value = 2;
   bool has_min_value() const;
   private:
   bool _internal_has_min_value() const;
   public:
   void clear_min_value();
-  int32_t min_value() const;
-  void set_min_value(int32_t value);
+  float min_value() const;
+  void set_min_value(float value);
   private:
-  int32_t _internal_min_value() const;
-  void _internal_set_min_value(int32_t value);
+  float _internal_min_value() const;
+  void _internal_set_min_value(float value);
   public:
 
-  // optional int32 max_values = 3;
-  bool has_max_values() const;
+  // optional float max_value = 3;
+  bool has_max_value() const;
   private:
-  bool _internal_has_max_values() const;
+  bool _internal_has_max_value() const;
   public:
-  void clear_max_values();
-  int32_t max_values() const;
-  void set_max_values(int32_t value);
+  void clear_max_value();
+  float max_value() const;
+  void set_max_value(float value);
   private:
-  int32_t _internal_max_values() const;
-  void _internal_set_max_values(int32_t value);
+  float _internal_max_value() const;
+  void _internal_set_max_value(float value);
   public:
 
   // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceMetadata_Response.Range)
@@ -5599,8 +5599,8 @@ class CMsgSteamLearn_InferenceMetadata_Response_Range final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr data_element_path_;
-    int32_t min_value_;
-    int32_t max_values_;
+    float min_value_;
+    float max_value_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
@@ -5757,30 +5757,30 @@ class CMsgSteamLearn_InferenceMetadata_Response_StdDev final :
   std::string* _internal_mutable_data_element_path();
   public:
 
-  // optional int32 mean = 2;
+  // optional float mean = 2;
   bool has_mean() const;
   private:
   bool _internal_has_mean() const;
   public:
   void clear_mean();
-  int32_t mean() const;
-  void set_mean(int32_t value);
+  float mean() const;
+  void set_mean(float value);
   private:
-  int32_t _internal_mean() const;
-  void _internal_set_mean(int32_t value);
+  float _internal_mean() const;
+  void _internal_set_mean(float value);
   public:
 
-  // optional uint32 std_dev = 3;
+  // optional float std_dev = 3;
   bool has_std_dev() const;
   private:
   bool _internal_has_std_dev() const;
   public:
   void clear_std_dev();
-  uint32_t std_dev() const;
-  void set_std_dev(uint32_t value);
+  float std_dev() const;
+  void set_std_dev(float value);
   private:
-  uint32_t _internal_std_dev() const;
-  void _internal_set_std_dev(uint32_t value);
+  float _internal_std_dev() const;
+  void _internal_set_std_dev(float value);
   public:
 
   // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceMetadata_Response.StdDev)
@@ -5794,8 +5794,8 @@ class CMsgSteamLearn_InferenceMetadata_Response_StdDev final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr data_element_path_;
-    int32_t mean_;
-    uint32_t std_dev_;
+    float mean_;
+    float std_dev_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
@@ -6692,7 +6692,9 @@ class CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster final :
     kXFieldNumber = 1,
     kYFieldNumber = 2,
     kRadiusFieldNumber = 3,
-    kRadius80PctFieldNumber = 4,
+    kRadius75PctFieldNumber = 4,
+    kRadius50PctFieldNumber = 5,
+    kRadius25PctFieldNumber = 6,
   };
   // optional float x = 1;
   bool has_x() const;
@@ -6733,17 +6735,43 @@ class CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster final :
   void _internal_set_radius(float value);
   public:
 
-  // optional float radius_80pct = 4;
-  bool has_radius_80pct() const;
+  // optional float radius_75pct = 4;
+  bool has_radius_75pct() const;
   private:
-  bool _internal_has_radius_80pct() const;
+  bool _internal_has_radius_75pct() const;
   public:
-  void clear_radius_80pct();
-  float radius_80pct() const;
-  void set_radius_80pct(float value);
+  void clear_radius_75pct();
+  float radius_75pct() const;
+  void set_radius_75pct(float value);
   private:
-  float _internal_radius_80pct() const;
-  void _internal_set_radius_80pct(float value);
+  float _internal_radius_75pct() const;
+  void _internal_set_radius_75pct(float value);
+  public:
+
+  // optional float radius_50pct = 5;
+  bool has_radius_50pct() const;
+  private:
+  bool _internal_has_radius_50pct() const;
+  public:
+  void clear_radius_50pct();
+  float radius_50pct() const;
+  void set_radius_50pct(float value);
+  private:
+  float _internal_radius_50pct() const;
+  void _internal_set_radius_50pct(float value);
+  public:
+
+  // optional float radius_25pct = 6;
+  bool has_radius_25pct() const;
+  private:
+  bool _internal_has_radius_25pct() const;
+  public:
+  void clear_radius_25pct();
+  float radius_25pct() const;
+  void set_radius_25pct(float value);
+  private:
+  float _internal_radius_25pct() const;
+  void _internal_set_radius_25pct(float value);
   public:
 
   // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster)
@@ -6759,7 +6787,9 @@ class CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster final :
     float x_;
     float y_;
     float radius_;
-    float radius_80pct_;
+    float radius_75pct_;
+    float radius_50pct_;
+    float radius_25pct_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
@@ -12433,7 +12463,7 @@ inline void CMsgSteamLearn_InferenceMetadata_Response_Range::set_allocated_data_
   // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_InferenceMetadata_Response.Range.data_element_path)
 }
 
-// optional int32 min_value = 2;
+// optional float min_value = 2;
 inline bool CMsgSteamLearn_InferenceMetadata_Response_Range::_internal_has_min_value() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -12445,48 +12475,48 @@ inline void CMsgSteamLearn_InferenceMetadata_Response_Range::clear_min_value() {
   _impl_.min_value_ = 0;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline int32_t CMsgSteamLearn_InferenceMetadata_Response_Range::_internal_min_value() const {
+inline float CMsgSteamLearn_InferenceMetadata_Response_Range::_internal_min_value() const {
   return _impl_.min_value_;
 }
-inline int32_t CMsgSteamLearn_InferenceMetadata_Response_Range::min_value() const {
+inline float CMsgSteamLearn_InferenceMetadata_Response_Range::min_value() const {
   // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.Range.min_value)
   return _internal_min_value();
 }
-inline void CMsgSteamLearn_InferenceMetadata_Response_Range::_internal_set_min_value(int32_t value) {
+inline void CMsgSteamLearn_InferenceMetadata_Response_Range::_internal_set_min_value(float value) {
   _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.min_value_ = value;
 }
-inline void CMsgSteamLearn_InferenceMetadata_Response_Range::set_min_value(int32_t value) {
+inline void CMsgSteamLearn_InferenceMetadata_Response_Range::set_min_value(float value) {
   _internal_set_min_value(value);
   // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.Range.min_value)
 }
 
-// optional int32 max_values = 3;
-inline bool CMsgSteamLearn_InferenceMetadata_Response_Range::_internal_has_max_values() const {
+// optional float max_value = 3;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_Range::_internal_has_max_value() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
-inline bool CMsgSteamLearn_InferenceMetadata_Response_Range::has_max_values() const {
-  return _internal_has_max_values();
+inline bool CMsgSteamLearn_InferenceMetadata_Response_Range::has_max_value() const {
+  return _internal_has_max_value();
 }
-inline void CMsgSteamLearn_InferenceMetadata_Response_Range::clear_max_values() {
-  _impl_.max_values_ = 0;
+inline void CMsgSteamLearn_InferenceMetadata_Response_Range::clear_max_value() {
+  _impl_.max_value_ = 0;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline int32_t CMsgSteamLearn_InferenceMetadata_Response_Range::_internal_max_values() const {
-  return _impl_.max_values_;
+inline float CMsgSteamLearn_InferenceMetadata_Response_Range::_internal_max_value() const {
+  return _impl_.max_value_;
 }
-inline int32_t CMsgSteamLearn_InferenceMetadata_Response_Range::max_values() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.Range.max_values)
-  return _internal_max_values();
+inline float CMsgSteamLearn_InferenceMetadata_Response_Range::max_value() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.Range.max_value)
+  return _internal_max_value();
 }
-inline void CMsgSteamLearn_InferenceMetadata_Response_Range::_internal_set_max_values(int32_t value) {
+inline void CMsgSteamLearn_InferenceMetadata_Response_Range::_internal_set_max_value(float value) {
   _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.max_values_ = value;
+  _impl_.max_value_ = value;
 }
-inline void CMsgSteamLearn_InferenceMetadata_Response_Range::set_max_values(int32_t value) {
-  _internal_set_max_values(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.Range.max_values)
+inline void CMsgSteamLearn_InferenceMetadata_Response_Range::set_max_value(float value) {
+  _internal_set_max_value(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.Range.max_value)
 }
 
 // -------------------------------------------------------------------
@@ -12561,7 +12591,7 @@ inline void CMsgSteamLearn_InferenceMetadata_Response_StdDev::set_allocated_data
   // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_InferenceMetadata_Response.StdDev.data_element_path)
 }
 
-// optional int32 mean = 2;
+// optional float mean = 2;
 inline bool CMsgSteamLearn_InferenceMetadata_Response_StdDev::_internal_has_mean() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -12573,23 +12603,23 @@ inline void CMsgSteamLearn_InferenceMetadata_Response_StdDev::clear_mean() {
   _impl_.mean_ = 0;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline int32_t CMsgSteamLearn_InferenceMetadata_Response_StdDev::_internal_mean() const {
+inline float CMsgSteamLearn_InferenceMetadata_Response_StdDev::_internal_mean() const {
   return _impl_.mean_;
 }
-inline int32_t CMsgSteamLearn_InferenceMetadata_Response_StdDev::mean() const {
+inline float CMsgSteamLearn_InferenceMetadata_Response_StdDev::mean() const {
   // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.StdDev.mean)
   return _internal_mean();
 }
-inline void CMsgSteamLearn_InferenceMetadata_Response_StdDev::_internal_set_mean(int32_t value) {
+inline void CMsgSteamLearn_InferenceMetadata_Response_StdDev::_internal_set_mean(float value) {
   _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.mean_ = value;
 }
-inline void CMsgSteamLearn_InferenceMetadata_Response_StdDev::set_mean(int32_t value) {
+inline void CMsgSteamLearn_InferenceMetadata_Response_StdDev::set_mean(float value) {
   _internal_set_mean(value);
   // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.StdDev.mean)
 }
 
-// optional uint32 std_dev = 3;
+// optional float std_dev = 3;
 inline bool CMsgSteamLearn_InferenceMetadata_Response_StdDev::_internal_has_std_dev() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -12598,21 +12628,21 @@ inline bool CMsgSteamLearn_InferenceMetadata_Response_StdDev::has_std_dev() cons
   return _internal_has_std_dev();
 }
 inline void CMsgSteamLearn_InferenceMetadata_Response_StdDev::clear_std_dev() {
-  _impl_.std_dev_ = 0u;
+  _impl_.std_dev_ = 0;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint32_t CMsgSteamLearn_InferenceMetadata_Response_StdDev::_internal_std_dev() const {
+inline float CMsgSteamLearn_InferenceMetadata_Response_StdDev::_internal_std_dev() const {
   return _impl_.std_dev_;
 }
-inline uint32_t CMsgSteamLearn_InferenceMetadata_Response_StdDev::std_dev() const {
+inline float CMsgSteamLearn_InferenceMetadata_Response_StdDev::std_dev() const {
   // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.StdDev.std_dev)
   return _internal_std_dev();
 }
-inline void CMsgSteamLearn_InferenceMetadata_Response_StdDev::_internal_set_std_dev(uint32_t value) {
+inline void CMsgSteamLearn_InferenceMetadata_Response_StdDev::_internal_set_std_dev(float value) {
   _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.std_dev_ = value;
 }
-inline void CMsgSteamLearn_InferenceMetadata_Response_StdDev::set_std_dev(uint32_t value) {
+inline void CMsgSteamLearn_InferenceMetadata_Response_StdDev::set_std_dev(float value) {
   _internal_set_std_dev(value);
   // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.StdDev.std_dev)
 }
@@ -13189,32 +13219,88 @@ inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::set_radius
   // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster.radius)
 }
 
-// optional float radius_80pct = 4;
-inline bool CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_has_radius_80pct() const {
+// optional float radius_75pct = 4;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_has_radius_75pct() const {
   bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
-inline bool CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::has_radius_80pct() const {
-  return _internal_has_radius_80pct();
+inline bool CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::has_radius_75pct() const {
+  return _internal_has_radius_75pct();
 }
-inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::clear_radius_80pct() {
-  _impl_.radius_80pct_ = 0;
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::clear_radius_75pct() {
+  _impl_.radius_75pct_ = 0;
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
-inline float CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_radius_80pct() const {
-  return _impl_.radius_80pct_;
+inline float CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_radius_75pct() const {
+  return _impl_.radius_75pct_;
 }
-inline float CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::radius_80pct() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster.radius_80pct)
-  return _internal_radius_80pct();
+inline float CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::radius_75pct() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster.radius_75pct)
+  return _internal_radius_75pct();
 }
-inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_set_radius_80pct(float value) {
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_set_radius_75pct(float value) {
   _impl_._has_bits_[0] |= 0x00000008u;
-  _impl_.radius_80pct_ = value;
+  _impl_.radius_75pct_ = value;
 }
-inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::set_radius_80pct(float value) {
-  _internal_set_radius_80pct(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster.radius_80pct)
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::set_radius_75pct(float value) {
+  _internal_set_radius_75pct(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster.radius_75pct)
+}
+
+// optional float radius_50pct = 5;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_has_radius_50pct() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::has_radius_50pct() const {
+  return _internal_has_radius_50pct();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::clear_radius_50pct() {
+  _impl_.radius_50pct_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline float CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_radius_50pct() const {
+  return _impl_.radius_50pct_;
+}
+inline float CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::radius_50pct() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster.radius_50pct)
+  return _internal_radius_50pct();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_set_radius_50pct(float value) {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.radius_50pct_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::set_radius_50pct(float value) {
+  _internal_set_radius_50pct(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster.radius_50pct)
+}
+
+// optional float radius_25pct = 6;
+inline bool CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_has_radius_25pct() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::has_radius_25pct() const {
+  return _internal_has_radius_25pct();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::clear_radius_25pct() {
+  _impl_.radius_25pct_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000020u;
+}
+inline float CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_radius_25pct() const {
+  return _impl_.radius_25pct_;
+}
+inline float CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::radius_25pct() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster.radius_25pct)
+  return _internal_radius_25pct();
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::_internal_set_radius_25pct(float value) {
+  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_.radius_25pct_ = value;
+}
+inline void CMsgSteamLearn_InferenceMetadata_Response_KMeans_Cluster::set_radius_25pct(float value) {
+  _internal_set_radius_25pct(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceMetadata_Response.KMeans.Cluster.radius_25pct)
 }
 
 // -------------------------------------------------------------------

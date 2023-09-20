@@ -10,25 +10,29 @@ void CMatchStateManager::EnteredPreGame() {
 												LogF(LP_DATA, "{}: {}", #global, (void*)GameSystems::global);\
 											  }
 
-	DereferenceReallocatingSystem(PlayerResource);
+	if (!GameSystems::PlayerResource)
+		DereferenceReallocatingSystem(PlayerResource);
+
 	if (!GameSystems::PlayerResource)
 		return;
 
 	ctx.localPlayer = Signatures::GetPlayer(-1);
 
-#ifdef _TESTING
-	LogF(LP_INFO, "Player indices:\n\t+1: {}\n\tGetPlayer: {}\n\tPlayerResource: {}",
-		Interfaces::Engine->GetLocalPlayerID() + 1,
-		Signatures::GetPlayer(-1)->GetIndex(),
-		H2IDX(GameSystems::PlayerResource->PlayerIDToHandle(Interfaces::Engine->GetLocalPlayerID()).val));
-#endif
-
 	if (!ctx.localPlayer)
 		return;
 
+//#ifdef _DEBUG
+//	LogF(LP_INFO,
+//		"Player indices:\n\t+1: {}\n\tGetPlayer: {}\n\tPlayerResource: {}",
+//		Interfaces::NetworkClientService->GetIGameClient()->GetLocalPlayerID() + 1,
+//		Signatures::GetPlayer(-1)->GetIndex(),
+//		H2IDX(GameSystems::PlayerResource->PlayerIDToHandle(Interfaces::NetworkClientService->GetIGameClient()->GetLocalPlayerID()))
+//		);
+//#endif
+
 	DereferenceReallocatingSystem(GameEventManager);
 	DereferenceReallocatingSystem(ProjectileManager);
-	DereferenceReallocatingSystem(RenderGameSystem);
+	DereferenceReallocatingSystem(RenderGameSystem); 
 
 	GameSystems::ParticleManager = GameSystems::ParticleManagerSystem->GetParticleManager();
 	LogF(LP_DATA, "ParticleManager: {} / CreateParticle: {}", (void*)GameSystems::ParticleManager, (void*)GameSystems::ParticleManager->GetVFunc(VTableIndexes::CDOTAParticleManager::CreateParticle));
@@ -110,7 +114,7 @@ void CMatchStateManager::CheckForOngoingGame() {
 			if (GameSystems::GameRules->GetGameState() == DOTA_GAMERULES_STATE_PRE_GAME ||
 				GameSystems::GameRules->GetGameState() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) {
 
-				MatchStateManager.EnteredInGame();
+				EnteredInGame();
 				if (ctx.localHero)
 					for (auto& modifier : ctx.localHero->GetModifierManager()->GetModifierList()) {
 						Hooks::CacheIfItemModifier(modifier); // for registering items on reinjection
@@ -153,7 +157,7 @@ void CMatchStateManager::OnStateChanged(DOTA_GameState newState) {
 	case DOTA_GAMERULES_STATE_PRE_GAME:
 	case DOTA_GAMERULES_STATE_GAME_IN_PROGRESS:
 		// if (ctx.gameStage != GameStage::IN_GAME)
-			EnteredInGame();
+		EnteredInGame();
 		break;
 	default:
 		if (ctx.gameStage == GameStage::NONE)

@@ -43,8 +43,7 @@ PROTOBUF_CONSTEXPR CMsgSteamLearnServerInfo::CMsgSteamLearnServerInfo(
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.hmac_keys_)*/nullptr
   , /*decltype(_impl_.enable_data_submission_)*/false
-  , /*decltype(_impl_.enable_inferencing_)*/false
-  , /*decltype(_impl_.enable_test_inferencing_)*/false} {}
+  , /*decltype(_impl_.enable_inferencing_)*/false} {}
 struct CMsgSteamLearnServerInfoDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgSteamLearnServerInfoDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1229,11 +1228,9 @@ const uint32_t TableStruct_gcsdk_5fgcmessages_2eproto::offsets[] PROTOBUF_SECTIO
   PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnServerInfo, _impl_.enable_data_submission_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnServerInfo, _impl_.enable_inferencing_),
   PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnServerInfo, _impl_.hmac_keys_),
-  PROTOBUF_FIELD_OFFSET(::CMsgSteamLearnServerInfo, _impl_.enable_test_inferencing_),
   1,
   2,
   0,
-  3,
   PROTOBUF_FIELD_OFFSET(::CMsgGCAssertJobData, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgGCAssertJobData, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2131,78 +2128,78 @@ const uint32_t TableStruct_gcsdk_5fgcmessages_2eproto::offsets[] PROTOBUF_SECTIO
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 10, -1, sizeof(::CExtraMsgBlock)},
-  { 14, 24, -1, sizeof(::CMsgSteamLearnServerInfo)},
-  { 28, 36, -1, sizeof(::CMsgGCAssertJobData)},
-  { 38, 45, -1, sizeof(::CMsgGCConCommand)},
-  { 46, 54, -1, sizeof(::CMsgSDOAssert_Request)},
-  { 56, 64, -1, sizeof(::CMsgSDOAssert)},
-  { 66, 74, -1, sizeof(::CMsgSOIDOwner)},
-  { 76, 87, -1, sizeof(::CMsgSOSingleObject)},
-  { 92, 100, -1, sizeof(::CMsgSOMultipleObjects_SingleObject)},
-  { 102, 114, -1, sizeof(::CMsgSOMultipleObjects)},
-  { 120, 128, -1, sizeof(::CMsgSOCacheSubscribed_SubscribedType)},
-  { 130, 142, -1, sizeof(::CMsgSOCacheSubscribed)},
-  { 148, 159, -1, sizeof(::CMsgSOCacheSubscribedUpToDate)},
-  { 164, 171, -1, sizeof(::CMsgSOCacheUnsubscribed)},
-  { 172, 183, -1, sizeof(::CMsgSOCacheSubscriptionCheck)},
-  { 188, 195, -1, sizeof(::CMsgSOCacheSubscriptionRefresh)},
-  { 196, 203, -1, sizeof(::CMsgSOCacheVersion)},
-  { 204, 213, -1, sizeof(::CMsgGCMultiplexMessage)},
-  { 216, 223, -1, sizeof(::CMsgGCToGCSubGCStarting)},
-  { 224, 232, -1, sizeof(::CGCToGCMsgMasterAck_Process)},
-  { 234, 244, -1, sizeof(::CGCToGCMsgMasterAck)},
-  { 248, 255, -1, sizeof(::CGCToGCMsgMasterAck_Response)},
-  { 256, 263, -1, sizeof(::CMsgGCToGCUniverseStartup)},
-  { 264, 271, -1, sizeof(::CMsgGCToGCUniverseStartupResponse)},
-  { 272, 280, -1, sizeof(::CGCToGCMsgMasterStartupComplete_GCInfo)},
-  { 282, -1, -1, sizeof(::CGCToGCMsgMasterStartupComplete)},
-  { 289, 298, -1, sizeof(::CGCToGCMsgRouted)},
-  { 301, 309, -1, sizeof(::CGCToGCMsgRoutedReply)},
-  { 311, 320, -1, sizeof(::CMsgGCUpdateSubGCSessionInfo_CMsgUpdate)},
-  { 323, -1, -1, sizeof(::CMsgGCUpdateSubGCSessionInfo)},
-  { 330, 337, -1, sizeof(::CMsgGCRequestSubGCSessionInfo)},
-  { 338, 348, -1, sizeof(::CMsgGCRequestSubGCSessionInfoResponse)},
-  { 352, 362, -1, sizeof(::CMsgSOCacheHaveVersion)},
-  { 366, 395, -1, sizeof(::CMsgClientHello)},
-  { 418, 427, -1, sizeof(::CMsgClientWelcome_Location)},
-  { 430, 453, -1, sizeof(::CMsgClientWelcome)},
-  { 470, 482, -1, sizeof(::CMsgConnectionStatus)},
-  { 488, 496, -1, sizeof(::CMsgGCToGCSOCacheSubscribe_CMsgHaveVersions)},
-  { 498, 509, -1, sizeof(::CMsgGCToGCSOCacheSubscribe)},
-  { 514, 523, -1, sizeof(::CMsgGCToGCSOCacheUnsubscribe)},
-  { 526, -1, -1, sizeof(::CMsgGCClientPing)},
-  { 532, 541, -1, sizeof(::CMsgGCToGCForwardAccountDetails)},
-  { 544, 552, -1, sizeof(::CMsgGCToGCLoadSessionSOCache)},
-  { 554, -1, -1, sizeof(::CMsgGCToGCLoadSessionSOCacheResponse)},
-  { 560, 569, -1, sizeof(::CMsgGCToGCUpdateSessionStats)},
-  { 572, -1, -1, sizeof(::CMsgGCToClientRequestDropped)},
-  { 578, 586, -1, sizeof(::CWorkshop_PopulateItemDescriptions_Request_SingleItemDescription)},
-  { 588, 596, -1, sizeof(::CWorkshop_PopulateItemDescriptions_Request_ItemDescriptionsLanguageBlock)},
-  { 598, 606, -1, sizeof(::CWorkshop_PopulateItemDescriptions_Request)},
-  { 608, 616, -1, sizeof(::CWorkshop_GetContributors_Request)},
-  { 618, -1, -1, sizeof(::CWorkshop_GetContributors_Response)},
-  { 625, 635, -1, sizeof(::CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule)},
-  { 639, 647, -1, sizeof(::CWorkshop_SetItemPaymentRules_Request_WorkshopDirectPaymentRule)},
-  { 649, 658, -1, sizeof(::CWorkshop_SetItemPaymentRules_Request_PartnerItemPaymentRule)},
-  { 661, 674, -1, sizeof(::CWorkshop_SetItemPaymentRules_Request)},
-  { 681, -1, -1, sizeof(::CWorkshop_SetItemPaymentRules_Response)},
-  { 688, 706, -1, sizeof(::CCommunity_ClanAnnouncementInfo)},
-  { 718, 737, -1, sizeof(::CCommunity_GetClanAnnouncements_Request)},
-  { 750, 759, -1, sizeof(::CCommunity_GetClanAnnouncements_Response)},
-  { 762, 772, -1, sizeof(::CBroadcast_PostGameDataFrame_Request)},
-  { 776, 785, -1, sizeof(::CMsgSerializedSOCache_TypeCache)},
-  { 788, 796, -1, sizeof(::CMsgSerializedSOCache_Cache_Version)},
-  { 798, 808, -1, sizeof(::CMsgSerializedSOCache_Cache)},
-  { 812, 821, -1, sizeof(::CMsgSerializedSOCache)},
-  { 824, 832, -1, sizeof(::CMsgGCToClientPollConvarRequest)},
-  { 834, 842, -1, sizeof(::CMsgGCToClientPollConvarResponse)},
-  { 844, 852, -1, sizeof(::CGCMsgCompressedMsgToClient)},
-  { 854, 865, -1, sizeof(::CMsgGCToGCMasterBroadcastMessage)},
-  { 870, 880, -1, sizeof(::CMsgGCToGCMasterSubscribeToCache)},
-  { 884, -1, -1, sizeof(::CMsgGCToGCMasterSubscribeToCacheResponse)},
-  { 890, 897, -1, sizeof(::CMsgGCToGCMasterSubscribeToCacheAsync)},
-  { 898, 908, -1, sizeof(::CMsgGCToGCMasterUnsubscribeFromCache)},
-  { 912, 920, -1, sizeof(::CMsgGCToGCMasterDestroyCache)},
+  { 14, 23, -1, sizeof(::CMsgSteamLearnServerInfo)},
+  { 26, 34, -1, sizeof(::CMsgGCAssertJobData)},
+  { 36, 43, -1, sizeof(::CMsgGCConCommand)},
+  { 44, 52, -1, sizeof(::CMsgSDOAssert_Request)},
+  { 54, 62, -1, sizeof(::CMsgSDOAssert)},
+  { 64, 72, -1, sizeof(::CMsgSOIDOwner)},
+  { 74, 85, -1, sizeof(::CMsgSOSingleObject)},
+  { 90, 98, -1, sizeof(::CMsgSOMultipleObjects_SingleObject)},
+  { 100, 112, -1, sizeof(::CMsgSOMultipleObjects)},
+  { 118, 126, -1, sizeof(::CMsgSOCacheSubscribed_SubscribedType)},
+  { 128, 140, -1, sizeof(::CMsgSOCacheSubscribed)},
+  { 146, 157, -1, sizeof(::CMsgSOCacheSubscribedUpToDate)},
+  { 162, 169, -1, sizeof(::CMsgSOCacheUnsubscribed)},
+  { 170, 181, -1, sizeof(::CMsgSOCacheSubscriptionCheck)},
+  { 186, 193, -1, sizeof(::CMsgSOCacheSubscriptionRefresh)},
+  { 194, 201, -1, sizeof(::CMsgSOCacheVersion)},
+  { 202, 211, -1, sizeof(::CMsgGCMultiplexMessage)},
+  { 214, 221, -1, sizeof(::CMsgGCToGCSubGCStarting)},
+  { 222, 230, -1, sizeof(::CGCToGCMsgMasterAck_Process)},
+  { 232, 242, -1, sizeof(::CGCToGCMsgMasterAck)},
+  { 246, 253, -1, sizeof(::CGCToGCMsgMasterAck_Response)},
+  { 254, 261, -1, sizeof(::CMsgGCToGCUniverseStartup)},
+  { 262, 269, -1, sizeof(::CMsgGCToGCUniverseStartupResponse)},
+  { 270, 278, -1, sizeof(::CGCToGCMsgMasterStartupComplete_GCInfo)},
+  { 280, -1, -1, sizeof(::CGCToGCMsgMasterStartupComplete)},
+  { 287, 296, -1, sizeof(::CGCToGCMsgRouted)},
+  { 299, 307, -1, sizeof(::CGCToGCMsgRoutedReply)},
+  { 309, 318, -1, sizeof(::CMsgGCUpdateSubGCSessionInfo_CMsgUpdate)},
+  { 321, -1, -1, sizeof(::CMsgGCUpdateSubGCSessionInfo)},
+  { 328, 335, -1, sizeof(::CMsgGCRequestSubGCSessionInfo)},
+  { 336, 346, -1, sizeof(::CMsgGCRequestSubGCSessionInfoResponse)},
+  { 350, 360, -1, sizeof(::CMsgSOCacheHaveVersion)},
+  { 364, 393, -1, sizeof(::CMsgClientHello)},
+  { 416, 425, -1, sizeof(::CMsgClientWelcome_Location)},
+  { 428, 451, -1, sizeof(::CMsgClientWelcome)},
+  { 468, 480, -1, sizeof(::CMsgConnectionStatus)},
+  { 486, 494, -1, sizeof(::CMsgGCToGCSOCacheSubscribe_CMsgHaveVersions)},
+  { 496, 507, -1, sizeof(::CMsgGCToGCSOCacheSubscribe)},
+  { 512, 521, -1, sizeof(::CMsgGCToGCSOCacheUnsubscribe)},
+  { 524, -1, -1, sizeof(::CMsgGCClientPing)},
+  { 530, 539, -1, sizeof(::CMsgGCToGCForwardAccountDetails)},
+  { 542, 550, -1, sizeof(::CMsgGCToGCLoadSessionSOCache)},
+  { 552, -1, -1, sizeof(::CMsgGCToGCLoadSessionSOCacheResponse)},
+  { 558, 567, -1, sizeof(::CMsgGCToGCUpdateSessionStats)},
+  { 570, -1, -1, sizeof(::CMsgGCToClientRequestDropped)},
+  { 576, 584, -1, sizeof(::CWorkshop_PopulateItemDescriptions_Request_SingleItemDescription)},
+  { 586, 594, -1, sizeof(::CWorkshop_PopulateItemDescriptions_Request_ItemDescriptionsLanguageBlock)},
+  { 596, 604, -1, sizeof(::CWorkshop_PopulateItemDescriptions_Request)},
+  { 606, 614, -1, sizeof(::CWorkshop_GetContributors_Request)},
+  { 616, -1, -1, sizeof(::CWorkshop_GetContributors_Response)},
+  { 623, 633, -1, sizeof(::CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule)},
+  { 637, 645, -1, sizeof(::CWorkshop_SetItemPaymentRules_Request_WorkshopDirectPaymentRule)},
+  { 647, 656, -1, sizeof(::CWorkshop_SetItemPaymentRules_Request_PartnerItemPaymentRule)},
+  { 659, 672, -1, sizeof(::CWorkshop_SetItemPaymentRules_Request)},
+  { 679, -1, -1, sizeof(::CWorkshop_SetItemPaymentRules_Response)},
+  { 686, 704, -1, sizeof(::CCommunity_ClanAnnouncementInfo)},
+  { 716, 735, -1, sizeof(::CCommunity_GetClanAnnouncements_Request)},
+  { 748, 757, -1, sizeof(::CCommunity_GetClanAnnouncements_Response)},
+  { 760, 770, -1, sizeof(::CBroadcast_PostGameDataFrame_Request)},
+  { 774, 783, -1, sizeof(::CMsgSerializedSOCache_TypeCache)},
+  { 786, 794, -1, sizeof(::CMsgSerializedSOCache_Cache_Version)},
+  { 796, 806, -1, sizeof(::CMsgSerializedSOCache_Cache)},
+  { 810, 819, -1, sizeof(::CMsgSerializedSOCache)},
+  { 822, 830, -1, sizeof(::CMsgGCToClientPollConvarRequest)},
+  { 832, 840, -1, sizeof(::CMsgGCToClientPollConvarResponse)},
+  { 842, 850, -1, sizeof(::CGCMsgCompressedMsgToClient)},
+  { 852, 863, -1, sizeof(::CMsgGCToGCMasterBroadcastMessage)},
+  { 868, 878, -1, sizeof(::CMsgGCToGCMasterSubscribeToCache)},
+  { 882, -1, -1, sizeof(::CMsgGCToGCMasterSubscribeToCacheResponse)},
+  { 888, 895, -1, sizeof(::CMsgGCToGCMasterSubscribeToCacheAsync)},
+  { 896, 906, -1, sizeof(::CMsgGCToGCMasterUnsubscribeFromCache)},
+  { 910, 918, -1, sizeof(::CMsgGCToGCMasterDestroyCache)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -2286,232 +2283,231 @@ const char descriptor_table_protodef_gcsdk_5fgcmessages_2eproto[] PROTOBUF_SECTI
   "proto\032,steammessages_steamlearn.steamwor"
   "kssdk.proto\"\\\n\016CExtraMsgBlock\022\020\n\010msg_typ"
   "e\030\001 \001(\r\022\020\n\010contents\030\002 \001(\014\022\017\n\007msg_key\030\003 \001"
-  "(\004\022\025\n\ris_compressed\030\004 \001(\010\"\243\001\n\030CMsgSteamL"
+  "(\004\022\025\n\ris_compressed\030\004 \001(\010\"\202\001\n\030CMsgSteamL"
   "earnServerInfo\022\036\n\026enable_data_submission"
   "\030\001 \001(\010\022\032\n\022enable_inferencing\030\002 \001(\010\022*\n\thm"
-  "ac_keys\030\003 \001(\0132\027.CMsgSteamLearnHMACKeys\022\037"
-  "\n\027enable_test_inferencing\030\004 \001(\010\"A\n\023CMsgG"
-  "CAssertJobData\022\024\n\014message_type\030\001 \001(\t\022\024\n\014"
-  "message_data\030\002 \001(\014\"#\n\020CMsgGCConCommand\022\017"
-  "\n\007command\030\001 \001(\t\"{\n\rCMsgSDOAssert\022\020\n\010sdo_"
-  "type\030\001 \001(\005\022(\n\010requests\030\002 \003(\0132\026.CMsgSDOAs"
-  "sert.Request\032.\n\007Request\022\013\n\003key\030\001 \003(\004\022\026\n\016"
-  "requesting_job\030\002 \001(\t\")\n\rCMsgSOIDOwner\022\014\n"
-  "\004type\030\001 \001(\r\022\n\n\002id\030\002 \001(\004\"\203\001\n\022CMsgSOSingle"
-  "Object\022\017\n\007type_id\030\002 \001(\005\022\023\n\013object_data\030\003"
-  " \001(\014\022\017\n\007version\030\004 \001(\006\022\"\n\nowner_soid\030\005 \001("
-  "\0132\016.CMsgSOIDOwner\022\022\n\nservice_id\030\006 \001(\r\"\333\002"
-  "\n\025CMsgSOMultipleObjects\022=\n\020objects_modif"
-  "ied\030\002 \003(\0132#.CMsgSOMultipleObjects.Single"
-  "Object\022\017\n\007version\030\003 \001(\006\022:\n\robjects_added"
-  "\030\004 \003(\0132#.CMsgSOMultipleObjects.SingleObj"
-  "ect\022<\n\017objects_removed\030\005 \003(\0132#.CMsgSOMul"
-  "tipleObjects.SingleObject\022\"\n\nowner_soid\030"
-  "\006 \001(\0132\016.CMsgSOIDOwner\022\022\n\nservice_id\030\007 \001("
-  "\r\032@\n\014SingleObject\022\017\n\007type_id\030\001 \001(\005\022\023\n\013ob"
-  "ject_data\030\002 \001(\014:\n\200\246\035\200\002\210\246\035\200\010\"\374\001\n\025CMsgSOCa"
-  "cheSubscribed\0226\n\007objects\030\002 \003(\0132%.CMsgSOC"
-  "acheSubscribed.SubscribedType\022\017\n\007version"
-  "\030\003 \001(\006\022\"\n\nowner_soid\030\004 \001(\0132\016.CMsgSOIDOwn"
-  "er\022\022\n\nservice_id\030\005 \001(\r\022\024\n\014service_list\030\006"
-  " \003(\r\022\024\n\014sync_version\030\007 \001(\006\0326\n\016Subscribed"
-  "Type\022\017\n\007type_id\030\001 \001(\005\022\023\n\013object_data\030\002 \003"
-  "(\014\"\224\001\n\035CMsgSOCacheSubscribedUpToDate\022\017\n\007"
-  "version\030\001 \001(\006\022\"\n\nowner_soid\030\002 \001(\0132\016.CMsg"
-  "SOIDOwner\022\022\n\nservice_id\030\003 \001(\r\022\024\n\014service"
-  "_list\030\004 \003(\r\022\024\n\014sync_version\030\005 \001(\006\"=\n\027CMs"
-  "gSOCacheUnsubscribed\022\"\n\nowner_soid\030\002 \001(\013"
-  "2\016.CMsgSOIDOwner\"\223\001\n\034CMsgSOCacheSubscrip"
-  "tionCheck\022\017\n\007version\030\002 \001(\006\022\"\n\nowner_soid"
-  "\030\003 \001(\0132\016.CMsgSOIDOwner\022\022\n\nservice_id\030\004 \001"
-  "(\r\022\024\n\014service_list\030\005 \003(\r\022\024\n\014sync_version"
-  "\030\006 \001(\006\"D\n\036CMsgSOCacheSubscriptionRefresh"
-  "\022\"\n\nowner_soid\030\002 \001(\0132\016.CMsgSOIDOwner\"%\n\022"
-  "CMsgSOCacheVersion\022\017\n\007version\030\001 \001(\006\"L\n\026C"
-  "MsgGCMultiplexMessage\022\017\n\007msgtype\030\001 \001(\r\022\017"
-  "\n\007payload\030\002 \001(\014\022\020\n\010steamids\030\003 \003(\006\"0\n\027CMs"
-  "gGCToGCSubGCStarting\022\025\n\tdir_index\030\001 \001(\005:"
-  "\002-1\"\303\001\n\023CGCToGCMsgMasterAck\022\025\n\tdir_index"
-  "\030\001 \001(\005:\002-1\022\024\n\014machine_name\030\003 \001(\t\022\024\n\014proc"
-  "ess_name\030\004 \001(\t\022/\n\tdirectory\030\006 \003(\0132\034.CGCT"
-  "oGCMsgMasterAck.Process\0328\n\007Process\022\025\n\tdi"
-  "r_index\030\001 \001(\005:\002-1\022\026\n\016type_instances\030\002 \003("
-  "\r\"2\n\034CGCToGCMsgMasterAck_Response\022\022\n\007ere"
-  "sult\030\001 \001(\005:\0012\"7\n\031CMsgGCToGCUniverseStart"
-  "up\022\032\n\022is_initial_startup\030\001 \001(\010\"4\n!CMsgGC"
-  "ToGCUniverseStartupResponse\022\017\n\007eresult\030\001"
-  " \001(\005\"\222\001\n\037CGCToGCMsgMasterStartupComplete"
-  "\0228\n\007gc_info\030\001 \003(\0132\'.CGCToGCMsgMasterStar"
-  "tupComplete.GCInfo\0325\n\006GCInfo\022\025\n\tdir_inde"
-  "x\030\001 \001(\005:\002-1\022\024\n\014machine_name\030\002 \001(\t\"L\n\020CGC"
-  "ToGCMsgRouted\022\020\n\010msg_type\030\001 \001(\r\022\021\n\tsende"
-  "r_id\030\002 \001(\006\022\023\n\013net_message\030\003 \001(\014\">\n\025CGCTo"
-  "GCMsgRoutedReply\022\020\n\010msg_type\030\001 \001(\r\022\023\n\013ne"
-  "t_message\030\002 \001(\014\"\225\001\n\034CMsgGCUpdateSubGCSes"
-  "sionInfo\0229\n\007updates\030\001 \003(\0132(.CMsgGCUpdate"
-  "SubGCSessionInfo.CMsgUpdate\032:\n\nCMsgUpdat"
-  "e\022\017\n\007steamid\030\001 \001(\006\022\n\n\002ip\030\002 \001(\007\022\017\n\007truste"
-  "d\030\003 \001(\010\"0\n\035CMsgGCRequestSubGCSessionInfo"
-  "\022\017\n\007steamid\030\001 \001(\006\"c\n%CMsgGCRequestSubGCS"
-  "essionInfoResponse\022\n\n\002ip\030\001 \001(\007\022\017\n\007truste"
-  "d\030\002 \001(\010\022\014\n\004port\030\003 \001(\r\022\017\n\007success\030\004 \001(\010\"x"
-  "\n\026CMsgSOCacheHaveVersion\022\034\n\004soid\030\001 \001(\0132\016"
-  ".CMsgSOIDOwner\022\017\n\007version\030\002 \001(\006\022\022\n\nservi"
-  "ce_id\030\003 \001(\r\022\033\n\023cached_file_version\030\004 \001(\r"
-  "\"\377\004\n\017CMsgClientHello\022\017\n\007version\030\001 \001(\r\0226\n"
-  "\025socache_have_versions\030\002 \003(\0132\027.CMsgSOCac"
-  "heHaveVersion\022\033\n\023client_session_need\030\003 \001"
-  "(\r\022:\n\017client_launcher\030\004 \001(\0162\023.PartnerAcc"
-  "ountType:\014PARTNER_NONE\022\022\n\nsecret_key\030\005 \001"
-  "(\t\022\027\n\017client_language\030\006 \001(\r\022-\n\006engine\030\007 "
-  "\001(\0162\016.ESourceEngine:\rk_ESE_Source1\022\033\n\023st"
-  "eamdatagram_login\030\010 \001(\014\022\023\n\013platform_id\030\t"
-  " \001(\r\022\020\n\010game_msg\030\n \001(\014\022\017\n\007os_type\030\013 \001(\005\022"
-  "\025\n\rrender_system\030\014 \001(\r\022\031\n\021render_system_"
-  "req\030\r \001(\r\022\024\n\014screen_width\030\016 \001(\r\022\025\n\rscree"
-  "n_height\030\017 \001(\r\022\026\n\016screen_refresh\030\020 \001(\r\022\024"
-  "\n\014render_width\030\021 \001(\r\022\025\n\rrender_height\030\022 "
-  "\001(\r\022\022\n\nswap_width\030\023 \001(\r\022\023\n\013swap_height\030\024"
-  " \001(\r\022\026\n\016is_steam_china\030\026 \001(\010\022\035\n\025is_steam"
-  "_china_client\030\030 \001(\010\022\025\n\rplatform_name\030\027 \001"
-  "(\t\"\231\005\n\021CMsgClientWelcome\022\017\n\007version\030\001 \001("
-  "\r\022\021\n\tgame_data\030\002 \001(\014\022;\n\033outofdate_subscr"
-  "ibed_caches\030\003 \003(\0132\026.CMsgSOCacheSubscribe"
-  "d\022A\n\032uptodate_subscribed_caches\030\004 \003(\0132\035."
-  "CMsgSOCacheSubscriptionCheck\022-\n\010location"
-  "\030\005 \001(\0132\033.CMsgClientWelcome.Location\022\025\n\rs"
-  "ave_game_key\030\006 \001(\014\022\037\n\027gc_socache_file_ve"
-  "rsion\030\t \001(\r\022\030\n\020txn_country_code\030\n \001(\t\022\022\n"
-  "\ngame_data2\030\013 \001(\014\022$\n\034rtime32_gc_welcome_"
-  "timestamp\030\014 \001(\r\022\020\n\010currency\030\r \001(\r\022\017\n\007bal"
-  "ance\030\016 \001(\r\022\023\n\013balance_url\030\017 \001(\t\022\036\n\026has_a"
-  "ccepted_china_ssa\030\020 \001(\010\022\035\n\025is_banned_ste"
-  "am_china\030\021 \001(\010\0220\n\027additional_welcome_msg"
-  "s\030\022 \001(\0132\017.CExtraMsgBlock\022:\n\027steam_learn_"
-  "server_info\030\024 \001(\0132\031.CMsgSteamLearnServer"
-  "Info\032@\n\010Location\022\020\n\010latitude\030\001 \001(\002\022\021\n\tlo"
-  "ngitude\030\002 \001(\002\022\017\n\007country\030\003 \001(\t\"\345\001\n\024CMsgC"
-  "onnectionStatus\022D\n\006status\030\001 \001(\0162\023.GCConn"
-  "ectionStatus:\037GCConnectionStatus_HAVE_SE"
-  "SSION\022\033\n\023client_session_need\030\002 \001(\r\022\026\n\016qu"
-  "eue_position\030\003 \001(\005\022\022\n\nqueue_size\030\004 \001(\005\022\024"
-  "\n\014wait_seconds\030\005 \001(\005\022(\n estimated_wait_s"
-  "econds_remaining\030\006 \001(\005\"\370\001\n\032CMsgGCToGCSOC"
-  "acheSubscribe\022\022\n\nsubscriber\030\001 \001(\006\022\027\n\017sub"
-  "scribe_to_id\030\002 \001(\006\022\024\n\014sync_version\030\003 \001(\006"
-  "\022C\n\rhave_versions\030\004 \003(\0132,.CMsgGCToGCSOCa"
-  "cheSubscribe.CMsgHaveVersions\022\031\n\021subscri"
-  "be_to_type\030\005 \001(\r\0327\n\020CMsgHaveVersions\022\022\n\n"
-  "service_id\030\001 \001(\r\022\017\n\007version\030\002 \001(\004\"n\n\034CMs"
-  "gGCToGCSOCacheUnsubscribe\022\022\n\nsubscriber\030"
-  "\001 \001(\006\022\033\n\023unsubscribe_from_id\030\002 \001(\006\022\035\n\025un"
-  "subscribe_from_type\030\003 \001(\r\"\022\n\020CMsgGCClien"
-  "tPing\"\212\001\n\037CMsgGCToGCForwardAccountDetail"
-  "s\022\017\n\007steamid\030\001 \001(\006\022A\n\017account_details\030\002 "
-  "\001(\0132(.CGCSystemMsg_GetAccountDetails_Res"
-  "ponse\022\023\n\013age_seconds\030\003 \001(\r\"u\n\034CMsgGCToGC"
-  "LoadSessionSOCache\022\022\n\naccount_id\030\001 \001(\r\022A"
-  "\n\027forward_account_details\030\002 \001(\0132 .CMsgGC"
-  "ToGCForwardAccountDetails\"&\n$CMsgGCToGCL"
-  "oadSessionSOCacheResponse\"f\n\034CMsgGCToGCU"
-  "pdateSessionStats\022\025\n\ruser_sessions\030\001 \001(\r"
-  "\022\027\n\017server_sessions\030\002 \001(\r\022\026\n\016in_logon_su"
-  "rge\030\003 \001(\010\"\036\n\034CMsgGCToClientRequestDroppe"
-  "d\"\355\002\n*CWorkshop_PopulateItemDescriptions"
-  "_Request\022\r\n\005appid\030\001 \001(\r\022\\\n\tlanguages\030\002 \003"
-  "(\0132I.CWorkshop_PopulateItemDescriptions_"
-  "Request.ItemDescriptionsLanguageBlock\032E\n"
-  "\025SingleItemDescription\022\022\n\ngameitemid\030\001 \001"
-  "(\r\022\030\n\020item_description\030\002 \001(\t\032\212\001\n\035ItemDes"
-  "criptionsLanguageBlock\022\020\n\010language\030\001 \001(\t"
-  "\022W\n\014descriptions\030\002 \003(\0132A.CWorkshop_Popul"
-  "ateItemDescriptions_Request.SingleItemDe"
-  "scription\"F\n!CWorkshop_GetContributors_R"
-  "equest\022\r\n\005appid\030\001 \001(\r\022\022\n\ngameitemid\030\002 \001("
-  "\r\":\n\"CWorkshop_GetContributors_Response\022"
-  "\024\n\014contributors\030\001 \003(\006\"\365\005\n%CWorkshop_SetI"
-  "temPaymentRules_Request\022\r\n\005appid\030\001 \001(\r\022\022"
-  "\n\ngameitemid\030\002 \001(\r\022a\n\031associated_worksho"
-  "p_files\030\003 \003(\0132>.CWorkshop_SetItemPayment"
-  "Rules_Request.WorkshopItemPaymentRule\022W\n"
-  "\020partner_accounts\030\004 \003(\0132=.CWorkshop_SetI"
-  "temPaymentRules_Request.PartnerItemPayme"
-  "ntRule\022\025\n\rvalidate_only\030\005 \001(\010\022(\n make_wo"
-  "rkshop_files_subscribable\030\006 \001(\010\022v\n,assoc"
-  "iated_workshop_file_for_direct_payments\030"
-  "\007 \001(\0132@.CWorkshop_SetItemPaymentRules_Re"
-  "quest.WorkshopDirectPaymentRule\032\177\n\027Works"
-  "hopItemPaymentRule\022\030\n\020workshop_file_id\030\001"
-  " \001(\004\022\032\n\022revenue_percentage\030\002 \001(\002\022\030\n\020rule"
-  "_description\030\003 \001(\t\022\024\n\trule_type\030\004 \001(\r:\0011"
-  "\032O\n\031WorkshopDirectPaymentRule\022\030\n\020worksho"
-  "p_file_id\030\001 \001(\004\022\030\n\020rule_description\030\002 \001("
-  "\t\032b\n\026PartnerItemPaymentRule\022\022\n\naccount_i"
-  "d\030\001 \001(\r\022\032\n\022revenue_percentage\030\002 \001(\002\022\030\n\020r"
-  "ule_description\030\003 \001(\t\"C\n&CWorkshop_SetIt"
-  "emPaymentRules_Response\022\031\n\021validation_er"
-  "rors\030\001 \003(\t\"\364\001\n\037CCommunity_ClanAnnounceme"
-  "ntInfo\022\013\n\003gid\030\001 \001(\004\022\016\n\006clanid\030\002 \001(\004\022\020\n\010p"
-  "osterid\030\003 \001(\004\022\020\n\010headline\030\004 \001(\t\022\020\n\010postt"
-  "ime\030\005 \001(\r\022\022\n\nupdatetime\030\006 \001(\r\022\014\n\004body\030\007 "
-  "\001(\t\022\024\n\014commentcount\030\010 \001(\005\022\014\n\004tags\030\t \003(\t\022"
-  "\020\n\010language\030\n \001(\005\022\016\n\006hidden\030\013 \001(\010\022\026\n\016for"
-  "um_topic_id\030\014 \001(\006\"\306\002\n\'CCommunity_GetClan"
-  "Announcements_Request\022\017\n\007steamid\030\001 \001(\004\022\016"
-  "\n\006offset\030\002 \001(\r\022\r\n\005count\030\003 \001(\r\022\020\n\010maxchar"
-  "s\030\004 \001(\r\022\022\n\nstrip_html\030\005 \001(\010\022\025\n\rrequired_"
-  "tags\030\006 \003(\t\022\027\n\017require_no_tags\030\007 \001(\010\022\033\n\023l"
-  "anguage_preference\030\010 \003(\r\022\023\n\013hidden_only\030"
-  "\t \001(\010\022\020\n\010only_gid\030\n \001(\010\022\031\n\021rtime_oldest_"
-  "date\030\013 \001(\r\022\026\n\016include_hidden\030\014 \001(\010\022\036\n\026in"
-  "clude_partner_events\030\r \001(\010\"\211\001\n(CCommunit"
-  "y_GetClanAnnouncements_Response\022\020\n\010maxch"
-  "ars\030\001 \001(\r\022\022\n\nstrip_html\030\002 \001(\010\0227\n\rannounc"
-  "ements\030\003 \003(\0132 .CCommunity_ClanAnnounceme"
-  "ntInfo\"p\n$CBroadcast_PostGameDataFrame_R"
-  "equest\022\r\n\005appid\030\001 \001(\r\022\017\n\007steamid\030\002 \001(\006\022\024"
-  "\n\014broadcast_id\030\003 \001(\006\022\022\n\nframe_data\030\004 \001(\014"
-  "\"\374\002\n\025CMsgSerializedSOCache\022\024\n\014file_versi"
-  "on\030\001 \001(\r\022,\n\006caches\030\002 \003(\0132\034.CMsgSerialize"
-  "dSOCache.Cache\022\037\n\027gc_socache_file_versio"
-  "n\030\003 \001(\r\032>\n\tTypeCache\022\014\n\004type\030\001 \001(\r\022\017\n\007ob"
-  "jects\030\002 \003(\014\022\022\n\nservice_id\030\003 \001(\r\032\275\001\n\005Cach"
-  "e\022\014\n\004type\030\001 \001(\r\022\n\n\002id\030\002 \001(\004\0226\n\010versions\030"
-  "\003 \003(\0132$.CMsgSerializedSOCache.Cache.Vers"
-  "ion\0225\n\013type_caches\030\004 \003(\0132 .CMsgSerialize"
-  "dSOCache.TypeCache\032+\n\007Version\022\017\n\007service"
-  "\030\001 \001(\r\022\017\n\007version\030\002 \001(\004\"G\n\037CMsgGCToClien"
-  "tPollConvarRequest\022\023\n\013convar_name\030\001 \001(\t\022"
-  "\017\n\007poll_id\030\002 \001(\r\"I\n CMsgGCToClientPollCo"
-  "nvarResponse\022\017\n\007poll_id\030\001 \001(\r\022\024\n\014convar_"
-  "value\030\002 \001(\t\"E\n\033CGCMsgCompressedMsgToClie"
-  "nt\022\016\n\006msg_id\030\001 \001(\r\022\026\n\016compressed_msg\030\002 \001"
-  "(\014\"\216\001\n CMsgGCToGCMasterBroadcastMessage\022"
-  "\030\n\020users_per_second\030\001 \001(\r\022\025\n\rsend_to_use"
-  "rs\030\002 \001(\010\022\027\n\017send_to_servers\030\003 \001(\010\022\016\n\006msg"
-  "_id\030\004 \001(\r\022\020\n\010msg_data\030\005 \001(\014\"n\n CMsgGCToG"
-  "CMasterSubscribeToCache\022\021\n\tsoid_type\030\001 \001"
-  "(\r\022\017\n\007soid_id\030\002 \001(\006\022\023\n\013account_ids\030\003 \003(\r"
-  "\022\021\n\tsteam_ids\030\004 \003(\006\"*\n(CMsgGCToGCMasterS"
-  "ubscribeToCacheResponse\"a\n%CMsgGCToGCMas"
-  "terSubscribeToCacheAsync\0228\n\rsubscribe_ms"
-  "g\030\001 \001(\0132!.CMsgGCToGCMasterSubscribeToCac"
-  "he\"r\n$CMsgGCToGCMasterUnsubscribeFromCac"
-  "he\022\021\n\tsoid_type\030\001 \001(\r\022\017\n\007soid_id\030\002 \001(\006\022\023"
-  "\n\013account_ids\030\003 \003(\r\022\021\n\tsteam_ids\030\004 \003(\006\"B"
-  "\n\034CMsgGCToGCMasterDestroyCache\022\021\n\tsoid_t"
-  "ype\030\001 \001(\r\022\017\n\007soid_id\030\002 \001(\006*5\n\rESourceEng"
-  "ine\022\021\n\rk_ESE_Source1\020\000\022\021\n\rk_ESE_Source2\020"
-  "\001*V\n\022PartnerAccountType\022\020\n\014PARTNER_NONE\020"
-  "\000\022\031\n\025PARTNER_PERFECT_WORLD\020\001\022\023\n\017PARTNER_"
-  "INVALID\020\003*\240\002\n\022GCConnectionStatus\022#\n\037GCCo"
-  "nnectionStatus_HAVE_SESSION\020\000\022$\n GCConne"
-  "ctionStatus_GC_GOING_DOWN\020\001\022!\n\035GCConnect"
-  "ionStatus_NO_SESSION\020\002\0220\n,GCConnectionSt"
-  "atus_NO_SESSION_IN_LOGON_QUEUE\020\003\022\037\n\033GCCo"
-  "nnectionStatus_NO_STEAM\020\004\022 \n\034GCConnectio"
-  "nStatus_SUSPENDED\020\005\022\'\n#GCConnectionStatu"
-  "s_STEAM_GOING_DOWN\020\006"
+  "ac_keys\030\003 \001(\0132\027.CMsgSteamLearnHMACKeys\"A"
+  "\n\023CMsgGCAssertJobData\022\024\n\014message_type\030\001 "
+  "\001(\t\022\024\n\014message_data\030\002 \001(\014\"#\n\020CMsgGCConCo"
+  "mmand\022\017\n\007command\030\001 \001(\t\"{\n\rCMsgSDOAssert\022"
+  "\020\n\010sdo_type\030\001 \001(\005\022(\n\010requests\030\002 \003(\0132\026.CM"
+  "sgSDOAssert.Request\032.\n\007Request\022\013\n\003key\030\001 "
+  "\003(\004\022\026\n\016requesting_job\030\002 \001(\t\")\n\rCMsgSOIDO"
+  "wner\022\014\n\004type\030\001 \001(\r\022\n\n\002id\030\002 \001(\004\"\203\001\n\022CMsgS"
+  "OSingleObject\022\017\n\007type_id\030\002 \001(\005\022\023\n\013object"
+  "_data\030\003 \001(\014\022\017\n\007version\030\004 \001(\006\022\"\n\nowner_so"
+  "id\030\005 \001(\0132\016.CMsgSOIDOwner\022\022\n\nservice_id\030\006"
+  " \001(\r\"\333\002\n\025CMsgSOMultipleObjects\022=\n\020object"
+  "s_modified\030\002 \003(\0132#.CMsgSOMultipleObjects"
+  ".SingleObject\022\017\n\007version\030\003 \001(\006\022:\n\robject"
+  "s_added\030\004 \003(\0132#.CMsgSOMultipleObjects.Si"
+  "ngleObject\022<\n\017objects_removed\030\005 \003(\0132#.CM"
+  "sgSOMultipleObjects.SingleObject\022\"\n\nowne"
+  "r_soid\030\006 \001(\0132\016.CMsgSOIDOwner\022\022\n\nservice_"
+  "id\030\007 \001(\r\032@\n\014SingleObject\022\017\n\007type_id\030\001 \001("
+  "\005\022\023\n\013object_data\030\002 \001(\014:\n\200\246\035\200\002\210\246\035\200\010\"\374\001\n\025C"
+  "MsgSOCacheSubscribed\0226\n\007objects\030\002 \003(\0132%."
+  "CMsgSOCacheSubscribed.SubscribedType\022\017\n\007"
+  "version\030\003 \001(\006\022\"\n\nowner_soid\030\004 \001(\0132\016.CMsg"
+  "SOIDOwner\022\022\n\nservice_id\030\005 \001(\r\022\024\n\014service"
+  "_list\030\006 \003(\r\022\024\n\014sync_version\030\007 \001(\006\0326\n\016Sub"
+  "scribedType\022\017\n\007type_id\030\001 \001(\005\022\023\n\013object_d"
+  "ata\030\002 \003(\014\"\224\001\n\035CMsgSOCacheSubscribedUpToD"
+  "ate\022\017\n\007version\030\001 \001(\006\022\"\n\nowner_soid\030\002 \001(\013"
+  "2\016.CMsgSOIDOwner\022\022\n\nservice_id\030\003 \001(\r\022\024\n\014"
+  "service_list\030\004 \003(\r\022\024\n\014sync_version\030\005 \001(\006"
+  "\"=\n\027CMsgSOCacheUnsubscribed\022\"\n\nowner_soi"
+  "d\030\002 \001(\0132\016.CMsgSOIDOwner\"\223\001\n\034CMsgSOCacheS"
+  "ubscriptionCheck\022\017\n\007version\030\002 \001(\006\022\"\n\nown"
+  "er_soid\030\003 \001(\0132\016.CMsgSOIDOwner\022\022\n\nservice"
+  "_id\030\004 \001(\r\022\024\n\014service_list\030\005 \003(\r\022\024\n\014sync_"
+  "version\030\006 \001(\006\"D\n\036CMsgSOCacheSubscription"
+  "Refresh\022\"\n\nowner_soid\030\002 \001(\0132\016.CMsgSOIDOw"
+  "ner\"%\n\022CMsgSOCacheVersion\022\017\n\007version\030\001 \001"
+  "(\006\"L\n\026CMsgGCMultiplexMessage\022\017\n\007msgtype\030"
+  "\001 \001(\r\022\017\n\007payload\030\002 \001(\014\022\020\n\010steamids\030\003 \003(\006"
+  "\"0\n\027CMsgGCToGCSubGCStarting\022\025\n\tdir_index"
+  "\030\001 \001(\005:\002-1\"\303\001\n\023CGCToGCMsgMasterAck\022\025\n\tdi"
+  "r_index\030\001 \001(\005:\002-1\022\024\n\014machine_name\030\003 \001(\t\022"
+  "\024\n\014process_name\030\004 \001(\t\022/\n\tdirectory\030\006 \003(\013"
+  "2\034.CGCToGCMsgMasterAck.Process\0328\n\007Proces"
+  "s\022\025\n\tdir_index\030\001 \001(\005:\002-1\022\026\n\016type_instanc"
+  "es\030\002 \003(\r\"2\n\034CGCToGCMsgMasterAck_Response"
+  "\022\022\n\007eresult\030\001 \001(\005:\0012\"7\n\031CMsgGCToGCUniver"
+  "seStartup\022\032\n\022is_initial_startup\030\001 \001(\010\"4\n"
+  "!CMsgGCToGCUniverseStartupResponse\022\017\n\007er"
+  "esult\030\001 \001(\005\"\222\001\n\037CGCToGCMsgMasterStartupC"
+  "omplete\0228\n\007gc_info\030\001 \003(\0132\'.CGCToGCMsgMas"
+  "terStartupComplete.GCInfo\0325\n\006GCInfo\022\025\n\td"
+  "ir_index\030\001 \001(\005:\002-1\022\024\n\014machine_name\030\002 \001(\t"
+  "\"L\n\020CGCToGCMsgRouted\022\020\n\010msg_type\030\001 \001(\r\022\021"
+  "\n\tsender_id\030\002 \001(\006\022\023\n\013net_message\030\003 \001(\014\">"
+  "\n\025CGCToGCMsgRoutedReply\022\020\n\010msg_type\030\001 \001("
+  "\r\022\023\n\013net_message\030\002 \001(\014\"\225\001\n\034CMsgGCUpdateS"
+  "ubGCSessionInfo\0229\n\007updates\030\001 \003(\0132(.CMsgG"
+  "CUpdateSubGCSessionInfo.CMsgUpdate\032:\n\nCM"
+  "sgUpdate\022\017\n\007steamid\030\001 \001(\006\022\n\n\002ip\030\002 \001(\007\022\017\n"
+  "\007trusted\030\003 \001(\010\"0\n\035CMsgGCRequestSubGCSess"
+  "ionInfo\022\017\n\007steamid\030\001 \001(\006\"c\n%CMsgGCReques"
+  "tSubGCSessionInfoResponse\022\n\n\002ip\030\001 \001(\007\022\017\n"
+  "\007trusted\030\002 \001(\010\022\014\n\004port\030\003 \001(\r\022\017\n\007success\030"
+  "\004 \001(\010\"x\n\026CMsgSOCacheHaveVersion\022\034\n\004soid\030"
+  "\001 \001(\0132\016.CMsgSOIDOwner\022\017\n\007version\030\002 \001(\006\022\022"
+  "\n\nservice_id\030\003 \001(\r\022\033\n\023cached_file_versio"
+  "n\030\004 \001(\r\"\377\004\n\017CMsgClientHello\022\017\n\007version\030\001"
+  " \001(\r\0226\n\025socache_have_versions\030\002 \003(\0132\027.CM"
+  "sgSOCacheHaveVersion\022\033\n\023client_session_n"
+  "eed\030\003 \001(\r\022:\n\017client_launcher\030\004 \001(\0162\023.Par"
+  "tnerAccountType:\014PARTNER_NONE\022\022\n\nsecret_"
+  "key\030\005 \001(\t\022\027\n\017client_language\030\006 \001(\r\022-\n\006en"
+  "gine\030\007 \001(\0162\016.ESourceEngine:\rk_ESE_Source"
+  "1\022\033\n\023steamdatagram_login\030\010 \001(\014\022\023\n\013platfo"
+  "rm_id\030\t \001(\r\022\020\n\010game_msg\030\n \001(\014\022\017\n\007os_type"
+  "\030\013 \001(\005\022\025\n\rrender_system\030\014 \001(\r\022\031\n\021render_"
+  "system_req\030\r \001(\r\022\024\n\014screen_width\030\016 \001(\r\022\025"
+  "\n\rscreen_height\030\017 \001(\r\022\026\n\016screen_refresh\030"
+  "\020 \001(\r\022\024\n\014render_width\030\021 \001(\r\022\025\n\rrender_he"
+  "ight\030\022 \001(\r\022\022\n\nswap_width\030\023 \001(\r\022\023\n\013swap_h"
+  "eight\030\024 \001(\r\022\026\n\016is_steam_china\030\026 \001(\010\022\035\n\025i"
+  "s_steam_china_client\030\030 \001(\010\022\025\n\rplatform_n"
+  "ame\030\027 \001(\t\"\231\005\n\021CMsgClientWelcome\022\017\n\007versi"
+  "on\030\001 \001(\r\022\021\n\tgame_data\030\002 \001(\014\022;\n\033outofdate"
+  "_subscribed_caches\030\003 \003(\0132\026.CMsgSOCacheSu"
+  "bscribed\022A\n\032uptodate_subscribed_caches\030\004"
+  " \003(\0132\035.CMsgSOCacheSubscriptionCheck\022-\n\010l"
+  "ocation\030\005 \001(\0132\033.CMsgClientWelcome.Locati"
+  "on\022\025\n\rsave_game_key\030\006 \001(\014\022\037\n\027gc_socache_"
+  "file_version\030\t \001(\r\022\030\n\020txn_country_code\030\n"
+  " \001(\t\022\022\n\ngame_data2\030\013 \001(\014\022$\n\034rtime32_gc_w"
+  "elcome_timestamp\030\014 \001(\r\022\020\n\010currency\030\r \001(\r"
+  "\022\017\n\007balance\030\016 \001(\r\022\023\n\013balance_url\030\017 \001(\t\022\036"
+  "\n\026has_accepted_china_ssa\030\020 \001(\010\022\035\n\025is_ban"
+  "ned_steam_china\030\021 \001(\010\0220\n\027additional_welc"
+  "ome_msgs\030\022 \001(\0132\017.CExtraMsgBlock\022:\n\027steam"
+  "_learn_server_info\030\024 \001(\0132\031.CMsgSteamLear"
+  "nServerInfo\032@\n\010Location\022\020\n\010latitude\030\001 \001("
+  "\002\022\021\n\tlongitude\030\002 \001(\002\022\017\n\007country\030\003 \001(\t\"\345\001"
+  "\n\024CMsgConnectionStatus\022D\n\006status\030\001 \001(\0162\023"
+  ".GCConnectionStatus:\037GCConnectionStatus_"
+  "HAVE_SESSION\022\033\n\023client_session_need\030\002 \001("
+  "\r\022\026\n\016queue_position\030\003 \001(\005\022\022\n\nqueue_size\030"
+  "\004 \001(\005\022\024\n\014wait_seconds\030\005 \001(\005\022(\n estimated"
+  "_wait_seconds_remaining\030\006 \001(\005\"\370\001\n\032CMsgGC"
+  "ToGCSOCacheSubscribe\022\022\n\nsubscriber\030\001 \001(\006"
+  "\022\027\n\017subscribe_to_id\030\002 \001(\006\022\024\n\014sync_versio"
+  "n\030\003 \001(\006\022C\n\rhave_versions\030\004 \003(\0132,.CMsgGCT"
+  "oGCSOCacheSubscribe.CMsgHaveVersions\022\031\n\021"
+  "subscribe_to_type\030\005 \001(\r\0327\n\020CMsgHaveVersi"
+  "ons\022\022\n\nservice_id\030\001 \001(\r\022\017\n\007version\030\002 \001(\004"
+  "\"n\n\034CMsgGCToGCSOCacheUnsubscribe\022\022\n\nsubs"
+  "criber\030\001 \001(\006\022\033\n\023unsubscribe_from_id\030\002 \001("
+  "\006\022\035\n\025unsubscribe_from_type\030\003 \001(\r\"\022\n\020CMsg"
+  "GCClientPing\"\212\001\n\037CMsgGCToGCForwardAccoun"
+  "tDetails\022\017\n\007steamid\030\001 \001(\006\022A\n\017account_det"
+  "ails\030\002 \001(\0132(.CGCSystemMsg_GetAccountDeta"
+  "ils_Response\022\023\n\013age_seconds\030\003 \001(\r\"u\n\034CMs"
+  "gGCToGCLoadSessionSOCache\022\022\n\naccount_id\030"
+  "\001 \001(\r\022A\n\027forward_account_details\030\002 \001(\0132 "
+  ".CMsgGCToGCForwardAccountDetails\"&\n$CMsg"
+  "GCToGCLoadSessionSOCacheResponse\"f\n\034CMsg"
+  "GCToGCUpdateSessionStats\022\025\n\ruser_session"
+  "s\030\001 \001(\r\022\027\n\017server_sessions\030\002 \001(\r\022\026\n\016in_l"
+  "ogon_surge\030\003 \001(\010\"\036\n\034CMsgGCToClientReques"
+  "tDropped\"\355\002\n*CWorkshop_PopulateItemDescr"
+  "iptions_Request\022\r\n\005appid\030\001 \001(\r\022\\\n\tlangua"
+  "ges\030\002 \003(\0132I.CWorkshop_PopulateItemDescri"
+  "ptions_Request.ItemDescriptionsLanguageB"
+  "lock\032E\n\025SingleItemDescription\022\022\n\ngameite"
+  "mid\030\001 \001(\r\022\030\n\020item_description\030\002 \001(\t\032\212\001\n\035"
+  "ItemDescriptionsLanguageBlock\022\020\n\010languag"
+  "e\030\001 \001(\t\022W\n\014descriptions\030\002 \003(\0132A.CWorksho"
+  "p_PopulateItemDescriptions_Request.Singl"
+  "eItemDescription\"F\n!CWorkshop_GetContrib"
+  "utors_Request\022\r\n\005appid\030\001 \001(\r\022\022\n\ngameitem"
+  "id\030\002 \001(\r\":\n\"CWorkshop_GetContributors_Re"
+  "sponse\022\024\n\014contributors\030\001 \003(\006\"\365\005\n%CWorksh"
+  "op_SetItemPaymentRules_Request\022\r\n\005appid\030"
+  "\001 \001(\r\022\022\n\ngameitemid\030\002 \001(\r\022a\n\031associated_"
+  "workshop_files\030\003 \003(\0132>.CWorkshop_SetItem"
+  "PaymentRules_Request.WorkshopItemPayment"
+  "Rule\022W\n\020partner_accounts\030\004 \003(\0132=.CWorksh"
+  "op_SetItemPaymentRules_Request.PartnerIt"
+  "emPaymentRule\022\025\n\rvalidate_only\030\005 \001(\010\022(\n "
+  "make_workshop_files_subscribable\030\006 \001(\010\022v"
+  "\n,associated_workshop_file_for_direct_pa"
+  "yments\030\007 \001(\0132@.CWorkshop_SetItemPaymentR"
+  "ules_Request.WorkshopDirectPaymentRule\032\177"
+  "\n\027WorkshopItemPaymentRule\022\030\n\020workshop_fi"
+  "le_id\030\001 \001(\004\022\032\n\022revenue_percentage\030\002 \001(\002\022"
+  "\030\n\020rule_description\030\003 \001(\t\022\024\n\trule_type\030\004"
+  " \001(\r:\0011\032O\n\031WorkshopDirectPaymentRule\022\030\n\020"
+  "workshop_file_id\030\001 \001(\004\022\030\n\020rule_descripti"
+  "on\030\002 \001(\t\032b\n\026PartnerItemPaymentRule\022\022\n\nac"
+  "count_id\030\001 \001(\r\022\032\n\022revenue_percentage\030\002 \001"
+  "(\002\022\030\n\020rule_description\030\003 \001(\t\"C\n&CWorksho"
+  "p_SetItemPaymentRules_Response\022\031\n\021valida"
+  "tion_errors\030\001 \003(\t\"\364\001\n\037CCommunity_ClanAnn"
+  "ouncementInfo\022\013\n\003gid\030\001 \001(\004\022\016\n\006clanid\030\002 \001"
+  "(\004\022\020\n\010posterid\030\003 \001(\004\022\020\n\010headline\030\004 \001(\t\022\020"
+  "\n\010posttime\030\005 \001(\r\022\022\n\nupdatetime\030\006 \001(\r\022\014\n\004"
+  "body\030\007 \001(\t\022\024\n\014commentcount\030\010 \001(\005\022\014\n\004tags"
+  "\030\t \003(\t\022\020\n\010language\030\n \001(\005\022\016\n\006hidden\030\013 \001(\010"
+  "\022\026\n\016forum_topic_id\030\014 \001(\006\"\306\002\n\'CCommunity_"
+  "GetClanAnnouncements_Request\022\017\n\007steamid\030"
+  "\001 \001(\004\022\016\n\006offset\030\002 \001(\r\022\r\n\005count\030\003 \001(\r\022\020\n\010"
+  "maxchars\030\004 \001(\r\022\022\n\nstrip_html\030\005 \001(\010\022\025\n\rre"
+  "quired_tags\030\006 \003(\t\022\027\n\017require_no_tags\030\007 \001"
+  "(\010\022\033\n\023language_preference\030\010 \003(\r\022\023\n\013hidde"
+  "n_only\030\t \001(\010\022\020\n\010only_gid\030\n \001(\010\022\031\n\021rtime_"
+  "oldest_date\030\013 \001(\r\022\026\n\016include_hidden\030\014 \001("
+  "\010\022\036\n\026include_partner_events\030\r \001(\010\"\211\001\n(CC"
+  "ommunity_GetClanAnnouncements_Response\022\020"
+  "\n\010maxchars\030\001 \001(\r\022\022\n\nstrip_html\030\002 \001(\010\0227\n\r"
+  "announcements\030\003 \003(\0132 .CCommunity_ClanAnn"
+  "ouncementInfo\"p\n$CBroadcast_PostGameData"
+  "Frame_Request\022\r\n\005appid\030\001 \001(\r\022\017\n\007steamid\030"
+  "\002 \001(\006\022\024\n\014broadcast_id\030\003 \001(\006\022\022\n\nframe_dat"
+  "a\030\004 \001(\014\"\374\002\n\025CMsgSerializedSOCache\022\024\n\014fil"
+  "e_version\030\001 \001(\r\022,\n\006caches\030\002 \003(\0132\034.CMsgSe"
+  "rializedSOCache.Cache\022\037\n\027gc_socache_file"
+  "_version\030\003 \001(\r\032>\n\tTypeCache\022\014\n\004type\030\001 \001("
+  "\r\022\017\n\007objects\030\002 \003(\014\022\022\n\nservice_id\030\003 \001(\r\032\275"
+  "\001\n\005Cache\022\014\n\004type\030\001 \001(\r\022\n\n\002id\030\002 \001(\004\0226\n\010ve"
+  "rsions\030\003 \003(\0132$.CMsgSerializedSOCache.Cac"
+  "he.Version\0225\n\013type_caches\030\004 \003(\0132 .CMsgSe"
+  "rializedSOCache.TypeCache\032+\n\007Version\022\017\n\007"
+  "service\030\001 \001(\r\022\017\n\007version\030\002 \001(\004\"G\n\037CMsgGC"
+  "ToClientPollConvarRequest\022\023\n\013convar_name"
+  "\030\001 \001(\t\022\017\n\007poll_id\030\002 \001(\r\"I\n CMsgGCToClien"
+  "tPollConvarResponse\022\017\n\007poll_id\030\001 \001(\r\022\024\n\014"
+  "convar_value\030\002 \001(\t\"E\n\033CGCMsgCompressedMs"
+  "gToClient\022\016\n\006msg_id\030\001 \001(\r\022\026\n\016compressed_"
+  "msg\030\002 \001(\014\"\216\001\n CMsgGCToGCMasterBroadcastM"
+  "essage\022\030\n\020users_per_second\030\001 \001(\r\022\025\n\rsend"
+  "_to_users\030\002 \001(\010\022\027\n\017send_to_servers\030\003 \001(\010"
+  "\022\016\n\006msg_id\030\004 \001(\r\022\020\n\010msg_data\030\005 \001(\014\"n\n CM"
+  "sgGCToGCMasterSubscribeToCache\022\021\n\tsoid_t"
+  "ype\030\001 \001(\r\022\017\n\007soid_id\030\002 \001(\006\022\023\n\013account_id"
+  "s\030\003 \003(\r\022\021\n\tsteam_ids\030\004 \003(\006\"*\n(CMsgGCToGC"
+  "MasterSubscribeToCacheResponse\"a\n%CMsgGC"
+  "ToGCMasterSubscribeToCacheAsync\0228\n\rsubsc"
+  "ribe_msg\030\001 \001(\0132!.CMsgGCToGCMasterSubscri"
+  "beToCache\"r\n$CMsgGCToGCMasterUnsubscribe"
+  "FromCache\022\021\n\tsoid_type\030\001 \001(\r\022\017\n\007soid_id\030"
+  "\002 \001(\006\022\023\n\013account_ids\030\003 \003(\r\022\021\n\tsteam_ids\030"
+  "\004 \003(\006\"B\n\034CMsgGCToGCMasterDestroyCache\022\021\n"
+  "\tsoid_type\030\001 \001(\r\022\017\n\007soid_id\030\002 \001(\006*5\n\rESo"
+  "urceEngine\022\021\n\rk_ESE_Source1\020\000\022\021\n\rk_ESE_S"
+  "ource2\020\001*V\n\022PartnerAccountType\022\020\n\014PARTNE"
+  "R_NONE\020\000\022\031\n\025PARTNER_PERFECT_WORLD\020\001\022\023\n\017P"
+  "ARTNER_INVALID\020\003*\240\002\n\022GCConnectionStatus\022"
+  "#\n\037GCConnectionStatus_HAVE_SESSION\020\000\022$\n "
+  "GCConnectionStatus_GC_GOING_DOWN\020\001\022!\n\035GC"
+  "ConnectionStatus_NO_SESSION\020\002\0220\n,GCConne"
+  "ctionStatus_NO_SESSION_IN_LOGON_QUEUE\020\003\022"
+  "\037\n\033GCConnectionStatus_NO_STEAM\020\004\022 \n\034GCCo"
+  "nnectionStatus_SUSPENDED\020\005\022\'\n#GCConnecti"
+  "onStatus_STEAM_GOING_DOWN\020\006"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_gcsdk_5fgcmessages_2eproto_deps[2] = {
   &::descriptor_table_steammessages_2eproto,
@@ -2519,7 +2515,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_gcsdk_5fgcmessages_
 };
 static ::_pbi::once_flag descriptor_table_gcsdk_5fgcmessages_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_gcsdk_5fgcmessages_2eproto = {
-    false, false, 9180, descriptor_table_protodef_gcsdk_5fgcmessages_2eproto,
+    false, false, 9147, descriptor_table_protodef_gcsdk_5fgcmessages_2eproto,
     "gcsdk_gcmessages.proto",
     &descriptor_table_gcsdk_5fgcmessages_2eproto_once, descriptor_table_gcsdk_5fgcmessages_2eproto_deps, 2, 73,
     schemas, file_default_instances, TableStruct_gcsdk_5fgcmessages_2eproto::offsets,
@@ -2913,9 +2909,6 @@ class CMsgSteamLearnServerInfo::_Internal {
   static void set_has_hmac_keys(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
-  static void set_has_enable_test_inferencing(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
 };
 
 const ::CMsgSteamLearnHMACKeys&
@@ -2940,16 +2933,15 @@ CMsgSteamLearnServerInfo::CMsgSteamLearnServerInfo(const CMsgSteamLearnServerInf
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.hmac_keys_){nullptr}
     , decltype(_impl_.enable_data_submission_){}
-    , decltype(_impl_.enable_inferencing_){}
-    , decltype(_impl_.enable_test_inferencing_){}};
+    , decltype(_impl_.enable_inferencing_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_hmac_keys()) {
     _this->_impl_.hmac_keys_ = new ::CMsgSteamLearnHMACKeys(*from._impl_.hmac_keys_);
   }
   ::memcpy(&_impl_.enable_data_submission_, &from._impl_.enable_data_submission_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.enable_test_inferencing_) -
-    reinterpret_cast<char*>(&_impl_.enable_data_submission_)) + sizeof(_impl_.enable_test_inferencing_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.enable_inferencing_) -
+    reinterpret_cast<char*>(&_impl_.enable_data_submission_)) + sizeof(_impl_.enable_inferencing_));
   // @@protoc_insertion_point(copy_constructor:CMsgSteamLearnServerInfo)
 }
 
@@ -2963,7 +2955,6 @@ inline void CMsgSteamLearnServerInfo::SharedCtor(
     , decltype(_impl_.hmac_keys_){nullptr}
     , decltype(_impl_.enable_data_submission_){false}
     , decltype(_impl_.enable_inferencing_){false}
-    , decltype(_impl_.enable_test_inferencing_){false}
   };
 }
 
@@ -2997,8 +2988,8 @@ void CMsgSteamLearnServerInfo::Clear() {
     _impl_.hmac_keys_->Clear();
   }
   ::memset(&_impl_.enable_data_submission_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.enable_test_inferencing_) -
-      reinterpret_cast<char*>(&_impl_.enable_data_submission_)) + sizeof(_impl_.enable_test_inferencing_));
+      reinterpret_cast<char*>(&_impl_.enable_inferencing_) -
+      reinterpret_cast<char*>(&_impl_.enable_data_submission_)) + sizeof(_impl_.enable_inferencing_));
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -3032,15 +3023,6 @@ const char* CMsgSteamLearnServerInfo::_InternalParse(const char* ptr, ::_pbi::Pa
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_hmac_keys(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // optional bool enable_test_inferencing = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          _Internal::set_has_enable_test_inferencing(&has_bits);
-          _impl_.enable_test_inferencing_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3095,12 +3077,6 @@ uint8_t* CMsgSteamLearnServerInfo::_InternalSerialize(
         _Internal::hmac_keys(this).GetCachedSize(), target, stream);
   }
 
-  // optional bool enable_test_inferencing = 4;
-  if (cached_has_bits & 0x00000008u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_enable_test_inferencing(), target);
-  }
-
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -3118,7 +3094,7 @@ size_t CMsgSteamLearnServerInfo::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x00000007u) {
     // optional .CMsgSteamLearnHMACKeys hmac_keys = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -3133,11 +3109,6 @@ size_t CMsgSteamLearnServerInfo::ByteSizeLong() const {
 
     // optional bool enable_inferencing = 2;
     if (cached_has_bits & 0x00000004u) {
-      total_size += 1 + 1;
-    }
-
-    // optional bool enable_test_inferencing = 4;
-    if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 1;
     }
 
@@ -3161,7 +3132,7 @@ void CMsgSteamLearnServerInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_ms
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
       _this->_internal_mutable_hmac_keys()->::CMsgSteamLearnHMACKeys::MergeFrom(
           from._internal_hmac_keys());
@@ -3171,9 +3142,6 @@ void CMsgSteamLearnServerInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_ms
     }
     if (cached_has_bits & 0x00000004u) {
       _this->_impl_.enable_inferencing_ = from._impl_.enable_inferencing_;
-    }
-    if (cached_has_bits & 0x00000008u) {
-      _this->_impl_.enable_test_inferencing_ = from._impl_.enable_test_inferencing_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -3196,8 +3164,8 @@ void CMsgSteamLearnServerInfo::InternalSwap(CMsgSteamLearnServerInfo* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgSteamLearnServerInfo, _impl_.enable_test_inferencing_)
-      + sizeof(CMsgSteamLearnServerInfo::_impl_.enable_test_inferencing_)
+      PROTOBUF_FIELD_OFFSET(CMsgSteamLearnServerInfo, _impl_.enable_inferencing_)
+      + sizeof(CMsgSteamLearnServerInfo::_impl_.enable_inferencing_)
       - PROTOBUF_FIELD_OFFSET(CMsgSteamLearnServerInfo, _impl_.hmac_keys_)>(
           reinterpret_cast<char*>(&_impl_.hmac_keys_),
           reinterpret_cast<char*>(&other->_impl_.hmac_keys_));

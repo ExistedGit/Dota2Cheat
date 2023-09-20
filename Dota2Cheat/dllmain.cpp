@@ -152,25 +152,25 @@ uintptr_t WINAPI HackThread(HMODULE hModule) {
 	//	HOOKFUNC(Decode);
 	//}
 
-	auto& nc = Interfaces::FlattenedSerializers->NetworkedClasses();
-	for (auto& c : nc) {
-		if (!c.className || !std::string_view(c.className).starts_with("client.dll"))
-			continue;
-		auto& nv = c.c->s2->NetVars();
-		for (auto& v : nv) {
-			if (strcmp(v->name, "m_iItemDefinitionIndex"))
-				continue;
+	//auto& nc = Interfaces::FlattenedSerializers->NetworkedClasses();
+	//for (auto& c : nc) {
+	//	if (!c.className || !std::string_view(c.className).starts_with("client.dll"))
+	//		continue;
+	//	auto& nv = c.c->s2->NetVars();
+	//	for (auto& v : nv) {
+	//		if (strcmp(v->name, "m_iItemDefinitionIndex"))
+	//			continue;
 
-			auto& Idk = v->callback;
-			if (Idk)
-				HOOKFUNC(Idk);
-			else
-				Idk = hkIdk;
-			break;
-		}
-		if (oIdk)
-			break;
-	}
+	//		auto& Idk = v->callback;
+	//		if (Idk)
+	//			HOOKFUNC(Idk);
+	//		else
+	//			Idk = hkIdk;
+	//		break;
+	//	}
+	//	if (oIdk)
+	//		break;
+	//}
 
 	MatchStateManager.CheckForOngoingGame();
 

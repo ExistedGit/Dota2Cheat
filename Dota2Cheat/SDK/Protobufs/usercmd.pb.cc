@@ -71,7 +71,8 @@ PROTOBUF_CONSTEXPR CBaseUserCmdPB::CBaseUserCmdPB(
   , /*decltype(_impl_.mousedx_)*/0
   , /*decltype(_impl_.mousedy_)*/0
   , /*decltype(_impl_.hasbeenpredicted_)*/false
-  , /*decltype(_impl_.fixangle_tick_)*/0
+  , /*decltype(_impl_.consumed_server_angle_changes_)*/0u
+  , /*decltype(_impl_.cmd_flags_)*/0
   , /*decltype(_impl_.pawn_entity_handle_)*/16777215u} {}
 struct CBaseUserCmdPBDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CBaseUserCmdPBDefaultTypeInternal()
@@ -147,7 +148,8 @@ const uint32_t TableStruct_usercmd_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   PROTOBUF_FIELD_OFFSET(::CBaseUserCmdPB, _impl_.pawn_entity_handle_),
   PROTOBUF_FIELD_OFFSET(::CBaseUserCmdPB, _impl_.subtick_moves_),
   PROTOBUF_FIELD_OFFSET(::CBaseUserCmdPB, _impl_.move_crc_),
-  PROTOBUF_FIELD_OFFSET(::CBaseUserCmdPB, _impl_.fixangle_tick_),
+  PROTOBUF_FIELD_OFFSET(::CBaseUserCmdPB, _impl_.consumed_server_angle_changes_),
+  PROTOBUF_FIELD_OFFSET(::CBaseUserCmdPB, _impl_.cmd_flags_),
   3,
   4,
   1,
@@ -161,10 +163,11 @@ const uint32_t TableStruct_usercmd_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   11,
   12,
   13,
-  15,
+  16,
   ~0u,
   0,
   14,
+  15,
   PROTOBUF_FIELD_OFFSET(::CUserCmdBasePB, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CUserCmdBasePB, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -177,8 +180,8 @@ const uint32_t TableStruct_usercmd_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 9, -1, sizeof(::CInButtonStatePB)},
   { 12, 21, -1, sizeof(::CSubtickMoveStep)},
-  { 24, 47, -1, sizeof(::CBaseUserCmdPB)},
-  { 64, 71, -1, sizeof(::CUserCmdBasePB)},
+  { 24, 48, -1, sizeof(::CBaseUserCmdPB)},
+  { 66, 73, -1, sizeof(::CUserCmdBasePB)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -193,7 +196,7 @@ const char descriptor_table_protodef_usercmd_2eproto[] PROTOBUF_SECTION_VARIABLE
   "T\n\020CInButtonStatePB\022\024\n\014buttonstate1\030\001 \001("
   "\004\022\024\n\014buttonstate2\030\002 \001(\004\022\024\n\014buttonstate3\030"
   "\003 \001(\004\"A\n\020CSubtickMoveStep\022\016\n\006button\030\001 \001("
-  "\004\022\017\n\007pressed\030\002 \001(\010\022\014\n\004when\030\003 \001(\002\"\254\003\n\016CBa"
+  "\004\022\017\n\007pressed\030\002 \001(\010\022\014\n\004when\030\003 \001(\002\"\317\003\n\016CBa"
   "seUserCmdPB\022\026\n\016command_number\030\001 \001(\005\022\022\n\nt"
   "ick_count\030\002 \001(\005\022%\n\nbuttons_pb\030\003 \001(\0132\021.CI"
   "nButtonStatePB\022\037\n\nviewangles\030\004 \001(\0132\013.CMs"
@@ -204,15 +207,16 @@ const char descriptor_table_protodef_usercmd_2eproto[] PROTOBUF_SECTION_VARIABLE
   "hasbeenpredicted\030\r \001(\010\022$\n\022pawn_entity_ha"
   "ndle\030\016 \001(\r:\01016777215\022(\n\rsubtick_moves\030\022 "
   "\003(\0132\021.CSubtickMoveStep\022\020\n\010move_crc\030\023 \001(\014"
-  "\022\025\n\rfixangle_tick\030\024 \001(\005\"/\n\016CUserCmdBaseP"
-  "B\022\035\n\004base\030\001 \001(\0132\017.CBaseUserCmdPB"
+  "\022%\n\035consumed_server_angle_changes\030\024 \001(\r\022"
+  "\021\n\tcmd_flags\030\025 \001(\005\"/\n\016CUserCmdBasePB\022\035\n\004"
+  "base\030\001 \001(\0132\017.CBaseUserCmdPB"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_usercmd_2eproto_deps[1] = {
   &::descriptor_table_networkbasetypes_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_usercmd_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_usercmd_2eproto = {
-    false, false, 672, descriptor_table_protodef_usercmd_2eproto,
+    false, false, 707, descriptor_table_protodef_usercmd_2eproto,
     "usercmd.proto",
     &descriptor_table_usercmd_2eproto_once, descriptor_table_usercmd_2eproto_deps, 1, 4,
     schemas, file_default_instances, TableStruct_usercmd_2eproto::offsets,
@@ -803,13 +807,16 @@ class CBaseUserCmdPB::_Internal {
     (*has_bits)[0] |= 8192u;
   }
   static void set_has_pawn_entity_handle(HasBits* has_bits) {
-    (*has_bits)[0] |= 32768u;
+    (*has_bits)[0] |= 65536u;
   }
   static void set_has_move_crc(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
-  static void set_has_fixangle_tick(HasBits* has_bits) {
+  static void set_has_consumed_server_angle_changes(HasBits* has_bits) {
     (*has_bits)[0] |= 16384u;
+  }
+  static void set_has_cmd_flags(HasBits* has_bits) {
+    (*has_bits)[0] |= 32768u;
   }
 };
 
@@ -852,7 +859,8 @@ CBaseUserCmdPB::CBaseUserCmdPB(const CBaseUserCmdPB& from)
     , decltype(_impl_.mousedx_){}
     , decltype(_impl_.mousedy_){}
     , decltype(_impl_.hasbeenpredicted_){}
-    , decltype(_impl_.fixangle_tick_){}
+    , decltype(_impl_.consumed_server_angle_changes_){}
+    , decltype(_impl_.cmd_flags_){}
     , decltype(_impl_.pawn_entity_handle_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -898,7 +906,8 @@ inline void CBaseUserCmdPB::SharedCtor(
     , decltype(_impl_.mousedx_){0}
     , decltype(_impl_.mousedy_){0}
     , decltype(_impl_.hasbeenpredicted_){false}
-    , decltype(_impl_.fixangle_tick_){0}
+    , decltype(_impl_.consumed_server_angle_changes_){0u}
+    , decltype(_impl_.cmd_flags_){0}
     , decltype(_impl_.pawn_entity_handle_){16777215u}
   };
   _impl_.move_crc_.InitDefault();
@@ -956,10 +965,10 @@ void CBaseUserCmdPB::Clear() {
   }
   if (cached_has_bits & 0x0000ff00u) {
     ::memset(&_impl_.impulse_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.fixangle_tick_) -
-        reinterpret_cast<char*>(&_impl_.impulse_)) + sizeof(_impl_.fixangle_tick_));
-    _impl_.pawn_entity_handle_ = 16777215u;
+        reinterpret_cast<char*>(&_impl_.cmd_flags_) -
+        reinterpret_cast<char*>(&_impl_.impulse_)) + sizeof(_impl_.cmd_flags_));
   }
+  _impl_.pawn_entity_handle_ = 16777215u;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -1117,11 +1126,20 @@ const char* CBaseUserCmdPB::_InternalParse(const char* ptr, ::_pbi::ParseContext
         } else
           goto handle_unusual;
         continue;
-      // optional int32 fixangle_tick = 20;
+      // optional uint32 consumed_server_angle_changes = 20;
       case 20:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 160)) {
-          _Internal::set_has_fixangle_tick(&has_bits);
-          _impl_.fixangle_tick_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _Internal::set_has_consumed_server_angle_changes(&has_bits);
+          _impl_.consumed_server_angle_changes_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional int32 cmd_flags = 21;
+      case 21:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 168)) {
+          _Internal::set_has_cmd_flags(&has_bits);
+          _impl_.cmd_flags_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1238,7 +1256,7 @@ uint8_t* CBaseUserCmdPB::_InternalSerialize(
   }
 
   // optional uint32 pawn_entity_handle = 14 [default = 16777215];
-  if (cached_has_bits & 0x00008000u) {
+  if (cached_has_bits & 0x00010000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(14, this->_internal_pawn_entity_handle(), target);
   }
@@ -1257,10 +1275,16 @@ uint8_t* CBaseUserCmdPB::_InternalSerialize(
         19, this->_internal_move_crc(), target);
   }
 
-  // optional int32 fixangle_tick = 20;
+  // optional uint32 consumed_server_angle_changes = 20;
   if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(20, this->_internal_fixangle_tick(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(20, this->_internal_consumed_server_angle_changes(), target);
+  }
+
+  // optional int32 cmd_flags = 21;
+  if (cached_has_bits & 0x00008000u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(21, this->_internal_cmd_flags(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1366,19 +1390,26 @@ size_t CBaseUserCmdPB::ByteSizeLong() const {
       total_size += 1 + 1;
     }
 
-    // optional int32 fixangle_tick = 20;
+    // optional uint32 consumed_server_angle_changes = 20;
     if (cached_has_bits & 0x00004000u) {
       total_size += 2 +
-        ::_pbi::WireFormatLite::Int32Size(
-          this->_internal_fixangle_tick());
+        ::_pbi::WireFormatLite::UInt32Size(
+          this->_internal_consumed_server_angle_changes());
     }
 
-    // optional uint32 pawn_entity_handle = 14 [default = 16777215];
+    // optional int32 cmd_flags = 21;
     if (cached_has_bits & 0x00008000u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_pawn_entity_handle());
+      total_size += 2 +
+        ::_pbi::WireFormatLite::Int32Size(
+          this->_internal_cmd_flags());
     }
 
   }
+  // optional uint32 pawn_entity_handle = 14 [default = 16777215];
+  if (cached_has_bits & 0x00010000u) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_pawn_entity_handle());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -1448,12 +1479,15 @@ void CBaseUserCmdPB::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
       _this->_impl_.hasbeenpredicted_ = from._impl_.hasbeenpredicted_;
     }
     if (cached_has_bits & 0x00004000u) {
-      _this->_impl_.fixangle_tick_ = from._impl_.fixangle_tick_;
+      _this->_impl_.consumed_server_angle_changes_ = from._impl_.consumed_server_angle_changes_;
     }
     if (cached_has_bits & 0x00008000u) {
-      _this->_impl_.pawn_entity_handle_ = from._impl_.pawn_entity_handle_;
+      _this->_impl_.cmd_flags_ = from._impl_.cmd_flags_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  if (cached_has_bits & 0x00010000u) {
+    _this->_internal_set_pawn_entity_handle(from._internal_pawn_entity_handle());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -1481,8 +1515,8 @@ void CBaseUserCmdPB::InternalSwap(CBaseUserCmdPB* other) {
       &other->_impl_.move_crc_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CBaseUserCmdPB, _impl_.fixangle_tick_)
-      + sizeof(CBaseUserCmdPB::_impl_.fixangle_tick_)
+      PROTOBUF_FIELD_OFFSET(CBaseUserCmdPB, _impl_.cmd_flags_)
+      + sizeof(CBaseUserCmdPB::_impl_.cmd_flags_)
       - PROTOBUF_FIELD_OFFSET(CBaseUserCmdPB, _impl_.buttons_pb_)>(
           reinterpret_cast<char*>(&_impl_.buttons_pb_),
           reinterpret_cast<char*>(&other->_impl_.buttons_pb_));

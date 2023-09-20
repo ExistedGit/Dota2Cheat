@@ -4003,6 +4003,7 @@ class CDOTAMatchMetadata_Team_Player final :
     kGuildIdsFieldNumber = 49,
     kGraphHeroDamageFieldNumber = 50,
     kEquippedEconItemsFieldNumber = 56,
+    kPlayerTrackedStatsFieldNumber = 58,
     kFeaturedGamemodeProgressFieldNumber = 53,
     kPlayerSlotFieldNumber = 3,
     kAvgKillsX16FieldNumber = 7,
@@ -4313,6 +4314,24 @@ class CDOTAMatchMetadata_Team_Player final :
   ::CDOTAMatchMetadata_EconItem* add_equipped_econ_items();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAMatchMetadata_EconItem >&
       equipped_econ_items() const;
+
+  // repeated .CMsgTrackedStat player_tracked_stats = 58;
+  int player_tracked_stats_size() const;
+  private:
+  int _internal_player_tracked_stats_size() const;
+  public:
+  void clear_player_tracked_stats();
+  ::CMsgTrackedStat* mutable_player_tracked_stats(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgTrackedStat >*
+      mutable_player_tracked_stats();
+  private:
+  const ::CMsgTrackedStat& _internal_player_tracked_stats(int index) const;
+  ::CMsgTrackedStat* _internal_add_player_tracked_stats();
+  public:
+  const ::CMsgTrackedStat& player_tracked_stats(int index) const;
+  ::CMsgTrackedStat* add_player_tracked_stats();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgTrackedStat >&
+      player_tracked_stats() const;
 
   // optional .CDOTAMatchMetadata.Team.FeaturedGamemodeProgress featured_gamemode_progress = 53;
   bool has_featured_gamemode_progress() const;
@@ -4837,6 +4856,7 @@ class CDOTAMatchMetadata_Team_Player final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > guild_ids_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > graph_hero_damage_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAMatchMetadata_EconItem > equipped_econ_items_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgTrackedStat > player_tracked_stats_;
     ::CDOTAMatchMetadata_Team_FeaturedGamemodeProgress* featured_gamemode_progress_;
     uint32_t player_slot_;
     uint32_t avg_kills_x16_;
@@ -5028,6 +5048,7 @@ class CDOTAMatchMetadata_Team final :
     kGraphExperienceFieldNumber = 3,
     kGraphGoldEarnedFieldNumber = 4,
     kGraphNetWorthFieldNumber = 5,
+    kTeamTrackedStatsFieldNumber = 11,
     kDotaTeamFieldNumber = 1,
     kCmFirstPickFieldNumber = 6,
     kCmPenaltyFieldNumber = 10,
@@ -5117,6 +5138,24 @@ class CDOTAMatchMetadata_Team final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
       mutable_graph_net_worth();
 
+  // repeated .CMsgTrackedStat team_tracked_stats = 11;
+  int team_tracked_stats_size() const;
+  private:
+  int _internal_team_tracked_stats_size() const;
+  public:
+  void clear_team_tracked_stats();
+  ::CMsgTrackedStat* mutable_team_tracked_stats(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgTrackedStat >*
+      mutable_team_tracked_stats();
+  private:
+  const ::CMsgTrackedStat& _internal_team_tracked_stats(int index) const;
+  ::CMsgTrackedStat* _internal_add_team_tracked_stats();
+  public:
+  const ::CMsgTrackedStat& team_tracked_stats(int index) const;
+  ::CMsgTrackedStat* add_team_tracked_stats();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgTrackedStat >&
+      team_tracked_stats() const;
+
   // optional uint32 dota_team = 1;
   bool has_dota_team() const;
   private:
@@ -5183,6 +5222,7 @@ class CDOTAMatchMetadata_Team final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > graph_experience_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > graph_gold_earned_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > graph_net_worth_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgTrackedStat > team_tracked_stats_;
     uint32_t dota_team_;
     bool cm_first_pick_;
     uint32_t cm_penalty_;
@@ -5981,6 +6021,7 @@ class CDOTAMatchMetadata final :
     kTeamsFieldNumber = 1,
     kGuildChallengeProgressFieldNumber = 10,
     kMatchTipsFieldNumber = 12,
+    kMatchTrackedStatsFieldNumber = 13,
     kEventGameCustomTableFieldNumber = 5,
     kCustomPostGameTableFieldNumber = 11,
     kMatchmakingStatsFieldNumber = 8,
@@ -6042,6 +6083,24 @@ class CDOTAMatchMetadata final :
   ::CDOTAMatchMetadata_Tip* add_match_tips();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAMatchMetadata_Tip >&
       match_tips() const;
+
+  // repeated .CMsgTrackedStat match_tracked_stats = 13;
+  int match_tracked_stats_size() const;
+  private:
+  int _internal_match_tracked_stats_size() const;
+  public:
+  void clear_match_tracked_stats();
+  ::CMsgTrackedStat* mutable_match_tracked_stats(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgTrackedStat >*
+      mutable_match_tracked_stats();
+  private:
+  const ::CMsgTrackedStat& _internal_match_tracked_stats(int index) const;
+  ::CMsgTrackedStat* _internal_add_match_tracked_stats();
+  public:
+  const ::CMsgTrackedStat& match_tracked_stats(int index) const;
+  ::CMsgTrackedStat* add_match_tracked_stats();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgTrackedStat >&
+      match_tracked_stats() const;
 
   // optional bytes event_game_custom_table = 5;
   bool has_event_game_custom_table() const;
@@ -6167,6 +6226,7 @@ class CDOTAMatchMetadata final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAMatchMetadata_Team > teams_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAMatchMetadata_GuildChallengeProgress > guild_challenge_progress_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAMatchMetadata_Tip > match_tips_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgTrackedStat > match_tracked_stats_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr event_game_custom_table_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr custom_post_game_table_;
     ::CMsgMatchMatchmakingStats* matchmaking_stats_;
@@ -13658,6 +13718,43 @@ inline void CDOTAMatchMetadata_Team_Player::set_game_player_id(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAMatchMetadata.Team.Player.game_player_id)
 }
 
+// repeated .CMsgTrackedStat player_tracked_stats = 58;
+inline int CDOTAMatchMetadata_Team_Player::_internal_player_tracked_stats_size() const {
+  return _impl_.player_tracked_stats_.size();
+}
+inline int CDOTAMatchMetadata_Team_Player::player_tracked_stats_size() const {
+  return _internal_player_tracked_stats_size();
+}
+inline ::CMsgTrackedStat* CDOTAMatchMetadata_Team_Player::mutable_player_tracked_stats(int index) {
+  // @@protoc_insertion_point(field_mutable:CDOTAMatchMetadata.Team.Player.player_tracked_stats)
+  return _impl_.player_tracked_stats_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgTrackedStat >*
+CDOTAMatchMetadata_Team_Player::mutable_player_tracked_stats() {
+  // @@protoc_insertion_point(field_mutable_list:CDOTAMatchMetadata.Team.Player.player_tracked_stats)
+  return &_impl_.player_tracked_stats_;
+}
+inline const ::CMsgTrackedStat& CDOTAMatchMetadata_Team_Player::_internal_player_tracked_stats(int index) const {
+  return _impl_.player_tracked_stats_.Get(index);
+}
+inline const ::CMsgTrackedStat& CDOTAMatchMetadata_Team_Player::player_tracked_stats(int index) const {
+  // @@protoc_insertion_point(field_get:CDOTAMatchMetadata.Team.Player.player_tracked_stats)
+  return _internal_player_tracked_stats(index);
+}
+inline ::CMsgTrackedStat* CDOTAMatchMetadata_Team_Player::_internal_add_player_tracked_stats() {
+  return _impl_.player_tracked_stats_.Add();
+}
+inline ::CMsgTrackedStat* CDOTAMatchMetadata_Team_Player::add_player_tracked_stats() {
+  ::CMsgTrackedStat* _add = _internal_add_player_tracked_stats();
+  // @@protoc_insertion_point(field_add:CDOTAMatchMetadata.Team.Player.player_tracked_stats)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgTrackedStat >&
+CDOTAMatchMetadata_Team_Player::player_tracked_stats() const {
+  // @@protoc_insertion_point(field_list:CDOTAMatchMetadata.Team.Player.player_tracked_stats)
+  return _impl_.player_tracked_stats_;
+}
+
 // -------------------------------------------------------------------
 
 // CDOTAMatchMetadata_Team
@@ -13953,6 +14050,43 @@ inline void CDOTAMatchMetadata_Team::_internal_set_cm_penalty(uint32_t value) {
 inline void CDOTAMatchMetadata_Team::set_cm_penalty(uint32_t value) {
   _internal_set_cm_penalty(value);
   // @@protoc_insertion_point(field_set:CDOTAMatchMetadata.Team.cm_penalty)
+}
+
+// repeated .CMsgTrackedStat team_tracked_stats = 11;
+inline int CDOTAMatchMetadata_Team::_internal_team_tracked_stats_size() const {
+  return _impl_.team_tracked_stats_.size();
+}
+inline int CDOTAMatchMetadata_Team::team_tracked_stats_size() const {
+  return _internal_team_tracked_stats_size();
+}
+inline ::CMsgTrackedStat* CDOTAMatchMetadata_Team::mutable_team_tracked_stats(int index) {
+  // @@protoc_insertion_point(field_mutable:CDOTAMatchMetadata.Team.team_tracked_stats)
+  return _impl_.team_tracked_stats_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgTrackedStat >*
+CDOTAMatchMetadata_Team::mutable_team_tracked_stats() {
+  // @@protoc_insertion_point(field_mutable_list:CDOTAMatchMetadata.Team.team_tracked_stats)
+  return &_impl_.team_tracked_stats_;
+}
+inline const ::CMsgTrackedStat& CDOTAMatchMetadata_Team::_internal_team_tracked_stats(int index) const {
+  return _impl_.team_tracked_stats_.Get(index);
+}
+inline const ::CMsgTrackedStat& CDOTAMatchMetadata_Team::team_tracked_stats(int index) const {
+  // @@protoc_insertion_point(field_get:CDOTAMatchMetadata.Team.team_tracked_stats)
+  return _internal_team_tracked_stats(index);
+}
+inline ::CMsgTrackedStat* CDOTAMatchMetadata_Team::_internal_add_team_tracked_stats() {
+  return _impl_.team_tracked_stats_.Add();
+}
+inline ::CMsgTrackedStat* CDOTAMatchMetadata_Team::add_team_tracked_stats() {
+  ::CMsgTrackedStat* _add = _internal_add_team_tracked_stats();
+  // @@protoc_insertion_point(field_add:CDOTAMatchMetadata.Team.team_tracked_stats)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgTrackedStat >&
+CDOTAMatchMetadata_Team::team_tracked_stats() const {
+  // @@protoc_insertion_point(field_list:CDOTAMatchMetadata.Team.team_tracked_stats)
+  return _impl_.team_tracked_stats_;
 }
 
 // -------------------------------------------------------------------
@@ -14889,6 +15023,43 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAMatchMetadata_Tip
 CDOTAMatchMetadata::match_tips() const {
   // @@protoc_insertion_point(field_list:CDOTAMatchMetadata.match_tips)
   return _impl_.match_tips_;
+}
+
+// repeated .CMsgTrackedStat match_tracked_stats = 13;
+inline int CDOTAMatchMetadata::_internal_match_tracked_stats_size() const {
+  return _impl_.match_tracked_stats_.size();
+}
+inline int CDOTAMatchMetadata::match_tracked_stats_size() const {
+  return _internal_match_tracked_stats_size();
+}
+inline ::CMsgTrackedStat* CDOTAMatchMetadata::mutable_match_tracked_stats(int index) {
+  // @@protoc_insertion_point(field_mutable:CDOTAMatchMetadata.match_tracked_stats)
+  return _impl_.match_tracked_stats_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgTrackedStat >*
+CDOTAMatchMetadata::mutable_match_tracked_stats() {
+  // @@protoc_insertion_point(field_mutable_list:CDOTAMatchMetadata.match_tracked_stats)
+  return &_impl_.match_tracked_stats_;
+}
+inline const ::CMsgTrackedStat& CDOTAMatchMetadata::_internal_match_tracked_stats(int index) const {
+  return _impl_.match_tracked_stats_.Get(index);
+}
+inline const ::CMsgTrackedStat& CDOTAMatchMetadata::match_tracked_stats(int index) const {
+  // @@protoc_insertion_point(field_get:CDOTAMatchMetadata.match_tracked_stats)
+  return _internal_match_tracked_stats(index);
+}
+inline ::CMsgTrackedStat* CDOTAMatchMetadata::_internal_add_match_tracked_stats() {
+  return _impl_.match_tracked_stats_.Add();
+}
+inline ::CMsgTrackedStat* CDOTAMatchMetadata::add_match_tracked_stats() {
+  ::CMsgTrackedStat* _add = _internal_add_match_tracked_stats();
+  // @@protoc_insertion_point(field_add:CDOTAMatchMetadata.match_tracked_stats)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgTrackedStat >&
+CDOTAMatchMetadata::match_tracked_stats() const {
+  // @@protoc_insertion_point(field_list:CDOTAMatchMetadata.match_tracked_stats)
+  return _impl_.match_tracked_stats_;
 }
 
 // -------------------------------------------------------------------

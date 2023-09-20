@@ -8,8 +8,9 @@
     "module": "client.dll"
   },
   "SaveSerializedSOCache": {
-    "signature": "4C 8B DC 57 48 81 EC ? ? ? ? 48 8B 05",
-    "module": "client.dll"
+    "signature": "49 89 7B 20 E8",
+    "module": "client.dll",
+    "steps": [[1, -49]]
   },
   "CDOTARichPresence::SetRPStatus": {
     "signature": "4C 89 4C 24 20 55 53 57 41 54",
@@ -29,21 +30,21 @@
     "module": "particles.dll",
     "steps": [
       [0, 1],
-      [1, 25],
+      [1, 20],
       [0, 3]
     ]
   },
   "CNetChan::vftable": {
-    "signature": "40 53 56 57 41 56 48 83 EC ? 45 33 F6 48 8D 71",
+    "signature": "48 8D 05 ?? ?? ?? ?? 48 89 69 20",
     "module": "networksystem.dll",
     "steps": [
-      [1, 21],
       [0, 3]
     ]
   },
   "CDOTA_Buff::~CDOTA_Buff": {
-    "signature": "4C 8B DC 56 41 57",
-    "module": "client.dll"
+    "signature": "E8 ? ? ? ? 40 F6 C6 01 74 1A",
+    "module": "client.dll",
+    "steps": [[0, 1]]
   },
 
   "WorldToScreen": {
@@ -52,7 +53,7 @@
     "steps": [[0, 1]]
   },
   "GetItemSchema": {
-    "signature": "E8 ? ? ? ? 48 89 5D 18",
+    "signature": "E8 ? ? ? ? 8B 55 4C",
     "module": "client.dll",
     "steps": [[0, 1]]
   },
@@ -103,7 +104,7 @@
     "steps": [[0, 1]]
   },
   "CEconItem::DeserializeFromProtobufItem": {
-    "signature": "E8 ? ? ? ? 41 0F B6 46 ? A8 01",
+    "signature": "E8 ? ? ? ? 40 38 BD",
     "module": "client.dll",
     "steps": [[0, 1]]
   },

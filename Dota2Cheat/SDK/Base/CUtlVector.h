@@ -13,8 +13,7 @@ public:
 	T* m_pElements;
 	uint32_t m_Capacity;
 
-	T& operator[](int i)
-	{
+	T& operator[](int i) const {
 		return m_pElements[i];
 	}
 
@@ -43,14 +42,6 @@ public:
 		return m_Size == 0;
 	}
 
-	[[nodiscard]] std::vector<T> AsStdVector() {
-		auto result = std::vector<T>{};
-		result.reserve(m_Size);
-		for (int i = 0; i < m_Size; i++)
-			result.push_back(m_pElements[i]);
-		return result;
-	}
-
 	void pop_back() {
 		m_Size--;
 	}
@@ -77,19 +68,21 @@ public:
 	}
 
 	void adjust_capacity() {
-		if (m_Size > m_Capacity) {
-			if (m_Capacity == 0)
-				m_Capacity = 1;
-			else
-				m_Capacity *= 2;
+		if (m_Size <= m_Capacity)
+			return;
 
-			m_pElements = m_pElements
-				? CMemAlloc::Instance()->ReAlloc(m_pElements, m_Capacity * sizeof(T))
-				: CMemAlloc::Instance()->Alloc<T>(m_Size * sizeof(T));
-		}
+		if (m_Capacity == 0)
+			m_Capacity = 1;
+		else
+			m_Capacity *= 2;
+
+		m_pElements = m_pElements
+			? CMemAlloc::Instance()->ReAlloc(m_pElements, m_Capacity * sizeof(T))
+			: CMemAlloc::Instance()->Alloc<T>(m_Size * sizeof(T));
+
 	}
 
-	int Count() const
+	int size() const
 	{
 		return m_Size;
 	}

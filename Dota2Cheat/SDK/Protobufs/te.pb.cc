@@ -446,13 +446,16 @@ PROTOBUF_CONSTEXPR CMsgTEPhysicsProp::CMsgTEPhysicsProp(
   , /*decltype(_impl_.origin_)*/nullptr
   , /*decltype(_impl_.velocity_)*/nullptr
   , /*decltype(_impl_.angles_)*/nullptr
+  , /*decltype(_impl_.dmgpos_)*/nullptr
+  , /*decltype(_impl_.dmgdir_)*/nullptr
   , /*decltype(_impl_.skin_)*/0u
   , /*decltype(_impl_.flags_)*/0u
   , /*decltype(_impl_.effects_)*/0u
   , /*decltype(_impl_.color_)*/0u
   , /*decltype(_impl_.modelindex_)*/uint64_t{0u}
   , /*decltype(_impl_.unused_breakmodelsnottomake_)*/0u
-  , /*decltype(_impl_.scale_)*/0} {}
+  , /*decltype(_impl_.scale_)*/0
+  , /*decltype(_impl_.dmgtype_)*/0} {}
 struct CMsgTEPhysicsPropDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgTEPhysicsPropDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -925,16 +928,22 @@ const uint32_t TableStruct_te_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(proto
   PROTOBUF_FIELD_OFFSET(::CMsgTEPhysicsProp, _impl_.modelindex_),
   PROTOBUF_FIELD_OFFSET(::CMsgTEPhysicsProp, _impl_.unused_breakmodelsnottomake_),
   PROTOBUF_FIELD_OFFSET(::CMsgTEPhysicsProp, _impl_.scale_),
+  PROTOBUF_FIELD_OFFSET(::CMsgTEPhysicsProp, _impl_.dmgpos_),
+  PROTOBUF_FIELD_OFFSET(::CMsgTEPhysicsProp, _impl_.dmgdir_),
+  PROTOBUF_FIELD_OFFSET(::CMsgTEPhysicsProp, _impl_.dmgtype_),
   0,
   1,
   2,
-  3,
-  4,
   5,
   6,
   7,
   8,
   9,
+  10,
+  11,
+  3,
+  4,
+  12,
   PROTOBUF_FIELD_OFFSET(::CMsgTEPlayerDecal, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgTEPlayerDecal, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1008,11 +1017,11 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 340, 350, -1, sizeof(::CMsgTEDust)},
   { 354, 362, -1, sizeof(::CMsgTELargeFunnel)},
   { 364, 374, -1, sizeof(::CMsgTESparks)},
-  { 378, 394, -1, sizeof(::CMsgTEPhysicsProp)},
-  { 404, 413, -1, sizeof(::CMsgTEPlayerDecal)},
-  { 416, 426, -1, sizeof(::CMsgTEProjectedDecal)},
-  { 430, 438, -1, sizeof(::CMsgTESmoke)},
-  { 440, 449, -1, sizeof(::CMsgTEWorldDecal)},
+  { 378, 397, -1, sizeof(::CMsgTEPhysicsProp)},
+  { 410, 419, -1, sizeof(::CMsgTEPlayerDecal)},
+  { 422, 432, -1, sizeof(::CMsgTEProjectedDecal)},
+  { 436, 444, -1, sizeof(::CMsgTESmoke)},
+  { 446, 455, -1, sizeof(::CMsgTEWorldDecal)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -1125,43 +1134,45 @@ const char descriptor_table_protodef_te_2eproto[] PROTOBUF_SECTION_VARIABLE(prot
   "versed\030\002 \001(\r\"n\n\014CMsgTESparks\022\033\n\006origin\030\001"
   " \001(\0132\013.CMsgVector\022\021\n\tmagnitude\030\002 \001(\r\022\016\n\006"
   "length\030\003 \001(\r\022\036\n\tdirection\030\004 \001(\0132\013.CMsgVe"
-  "ctor\"\361\001\n\021CMsgTEPhysicsProp\022\033\n\006origin\030\001 \001"
+  "ctor\"\274\002\n\021CMsgTEPhysicsProp\022\033\n\006origin\030\001 \001"
   "(\0132\013.CMsgVector\022\035\n\010velocity\030\002 \001(\0132\013.CMsg"
   "Vector\022\033\n\006angles\030\003 \001(\0132\013.CMsgQAngle\022\014\n\004s"
   "kin\030\004 \001(\007\022\r\n\005flags\030\005 \001(\r\022\017\n\007effects\030\006 \001("
   "\r\022\r\n\005color\030\007 \001(\007\022\022\n\nmodelindex\030\010 \001(\006\022#\n\033"
   "unused_breakmodelsnottomake\030\t \001(\r\022\r\n\005sca"
-  "le\030\n \001(\002\"X\n\021CMsgTEPlayerDecal\022\033\n\006origin\030"
-  "\001 \001(\0132\013.CMsgVector\022\022\n\006player\030\002 \001(\005:\002-1\022\022"
-  "\n\006entity\030\003 \001(\005:\002-1\"q\n\024CMsgTEProjectedDec"
-  "al\022\033\n\006origin\030\001 \001(\0132\013.CMsgVector\022\033\n\006angle"
-  "s\030\002 \001(\0132\013.CMsgQAngle\022\r\n\005index\030\003 \001(\r\022\020\n\010d"
-  "istance\030\004 \001(\002\"9\n\013CMsgTESmoke\022\033\n\006origin\030\001"
-  " \001(\0132\013.CMsgVector\022\r\n\005scale\030\002 \001(\002\"[\n\020CMsg"
-  "TEWorldDecal\022\033\n\006origin\030\001 \001(\0132\013.CMsgVecto"
-  "r\022\033\n\006normal\030\002 \001(\0132\013.CMsgVector\022\r\n\005index\030"
-  "\003 \001(\r*\275\004\n\016ETEProtobufIds\022\030\n\023TE_EffectDis"
-  "patchId\020\220\003\022\027\n\022TE_ArmorRicochetId\020\221\003\022\026\n\021T"
-  "E_BeamEntPointId\020\222\003\022\022\n\rTE_BeamEntsId\020\223\003\022"
-  "\024\n\017TE_BeamPointsId\020\224\003\022\022\n\rTE_BeamRingId\020\225"
-  "\003\022\022\n\rTE_BSPDecalId\020\227\003\022\021\n\014TE_BubblesId\020\230\003"
-  "\022\025\n\020TE_BubbleTrailId\020\231\003\022\017\n\nTE_DecalId\020\232\003"
-  "\022\024\n\017TE_WorldDecalId\020\233\003\022\026\n\021TE_EnergySplas"
-  "hId\020\234\003\022\016\n\tTE_FizzId\020\235\003\022\030\n\023TE_ShatterSurf"
-  "aceId\020\236\003\022\024\n\017TE_GlowSpriteId\020\237\003\022\020\n\013TE_Imp"
-  "actId\020\240\003\022\025\n\020TE_MuzzleFlashId\020\241\003\022\025\n\020TE_Bl"
-  "oodStreamId\020\242\003\022\023\n\016TE_ExplosionId\020\243\003\022\016\n\tT"
-  "E_DustId\020\244\003\022\025\n\020TE_LargeFunnelId\020\245\003\022\020\n\013TE"
-  "_SparksId\020\246\003\022\025\n\020TE_PhysicsPropId\020\247\003\022\025\n\020T"
-  "E_PlayerDecalId\020\250\003\022\030\n\023TE_ProjectedDecalI"
-  "d\020\251\003\022\017\n\nTE_SmokeId\020\252\003"
+  "le\030\n \001(\002\022\033\n\006dmgpos\030\013 \001(\0132\013.CMsgVector\022\033\n"
+  "\006dmgdir\030\014 \001(\0132\013.CMsgVector\022\017\n\007dmgtype\030\r "
+  "\001(\005\"X\n\021CMsgTEPlayerDecal\022\033\n\006origin\030\001 \001(\013"
+  "2\013.CMsgVector\022\022\n\006player\030\002 \001(\005:\002-1\022\022\n\006ent"
+  "ity\030\003 \001(\005:\002-1\"q\n\024CMsgTEProjectedDecal\022\033\n"
+  "\006origin\030\001 \001(\0132\013.CMsgVector\022\033\n\006angles\030\002 \001"
+  "(\0132\013.CMsgQAngle\022\r\n\005index\030\003 \001(\r\022\020\n\010distan"
+  "ce\030\004 \001(\002\"9\n\013CMsgTESmoke\022\033\n\006origin\030\001 \001(\0132"
+  "\013.CMsgVector\022\r\n\005scale\030\002 \001(\002\"[\n\020CMsgTEWor"
+  "ldDecal\022\033\n\006origin\030\001 \001(\0132\013.CMsgVector\022\033\n\006"
+  "normal\030\002 \001(\0132\013.CMsgVector\022\r\n\005index\030\003 \001(\r"
+  "*\275\004\n\016ETEProtobufIds\022\030\n\023TE_EffectDispatch"
+  "Id\020\220\003\022\027\n\022TE_ArmorRicochetId\020\221\003\022\026\n\021TE_Bea"
+  "mEntPointId\020\222\003\022\022\n\rTE_BeamEntsId\020\223\003\022\024\n\017TE"
+  "_BeamPointsId\020\224\003\022\022\n\rTE_BeamRingId\020\225\003\022\022\n\r"
+  "TE_BSPDecalId\020\227\003\022\021\n\014TE_BubblesId\020\230\003\022\025\n\020T"
+  "E_BubbleTrailId\020\231\003\022\017\n\nTE_DecalId\020\232\003\022\024\n\017T"
+  "E_WorldDecalId\020\233\003\022\026\n\021TE_EnergySplashId\020\234"
+  "\003\022\016\n\tTE_FizzId\020\235\003\022\030\n\023TE_ShatterSurfaceId"
+  "\020\236\003\022\024\n\017TE_GlowSpriteId\020\237\003\022\020\n\013TE_ImpactId"
+  "\020\240\003\022\025\n\020TE_MuzzleFlashId\020\241\003\022\025\n\020TE_BloodSt"
+  "reamId\020\242\003\022\023\n\016TE_ExplosionId\020\243\003\022\016\n\tTE_Dus"
+  "tId\020\244\003\022\025\n\020TE_LargeFunnelId\020\245\003\022\020\n\013TE_Spar"
+  "ksId\020\246\003\022\025\n\020TE_PhysicsPropId\020\247\003\022\025\n\020TE_Pla"
+  "yerDecalId\020\250\003\022\030\n\023TE_ProjectedDecalId\020\251\003\022"
+  "\017\n\nTE_SmokeId\020\252\003"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_te_2eproto_deps[1] = {
   &::descriptor_table_networkbasetypes_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_te_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_te_2eproto = {
-    false, false, 4301, descriptor_table_protodef_te_2eproto,
+    false, false, 4376, descriptor_table_protodef_te_2eproto,
     "te.proto",
     &descriptor_table_te_2eproto_once, descriptor_table_te_2eproto_deps, 1, 28,
     schemas, file_default_instances, TableStruct_te_2eproto::offsets,
@@ -9686,25 +9697,36 @@ class CMsgTEPhysicsProp::_Internal {
     (*has_bits)[0] |= 4u;
   }
   static void set_has_skin(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-  static void set_has_flags(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
-  }
-  static void set_has_effects(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
   }
-  static void set_has_color(HasBits* has_bits) {
+  static void set_has_flags(HasBits* has_bits) {
     (*has_bits)[0] |= 64u;
   }
-  static void set_has_modelindex(HasBits* has_bits) {
+  static void set_has_effects(HasBits* has_bits) {
     (*has_bits)[0] |= 128u;
   }
-  static void set_has_unused_breakmodelsnottomake(HasBits* has_bits) {
+  static void set_has_color(HasBits* has_bits) {
     (*has_bits)[0] |= 256u;
   }
-  static void set_has_scale(HasBits* has_bits) {
+  static void set_has_modelindex(HasBits* has_bits) {
     (*has_bits)[0] |= 512u;
+  }
+  static void set_has_unused_breakmodelsnottomake(HasBits* has_bits) {
+    (*has_bits)[0] |= 1024u;
+  }
+  static void set_has_scale(HasBits* has_bits) {
+    (*has_bits)[0] |= 2048u;
+  }
+  static const ::CMsgVector& dmgpos(const CMsgTEPhysicsProp* msg);
+  static void set_has_dmgpos(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static const ::CMsgVector& dmgdir(const CMsgTEPhysicsProp* msg);
+  static void set_has_dmgdir(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_dmgtype(HasBits* has_bits) {
+    (*has_bits)[0] |= 4096u;
   }
 };
 
@@ -9720,6 +9742,14 @@ const ::CMsgQAngle&
 CMsgTEPhysicsProp::_Internal::angles(const CMsgTEPhysicsProp* msg) {
   return *msg->_impl_.angles_;
 }
+const ::CMsgVector&
+CMsgTEPhysicsProp::_Internal::dmgpos(const CMsgTEPhysicsProp* msg) {
+  return *msg->_impl_.dmgpos_;
+}
+const ::CMsgVector&
+CMsgTEPhysicsProp::_Internal::dmgdir(const CMsgTEPhysicsProp* msg) {
+  return *msg->_impl_.dmgdir_;
+}
 void CMsgTEPhysicsProp::clear_origin() {
   if (_impl_.origin_ != nullptr) _impl_.origin_->Clear();
   _impl_._has_bits_[0] &= ~0x00000001u;
@@ -9731,6 +9761,14 @@ void CMsgTEPhysicsProp::clear_velocity() {
 void CMsgTEPhysicsProp::clear_angles() {
   if (_impl_.angles_ != nullptr) _impl_.angles_->Clear();
   _impl_._has_bits_[0] &= ~0x00000004u;
+}
+void CMsgTEPhysicsProp::clear_dmgpos() {
+  if (_impl_.dmgpos_ != nullptr) _impl_.dmgpos_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+void CMsgTEPhysicsProp::clear_dmgdir() {
+  if (_impl_.dmgdir_ != nullptr) _impl_.dmgdir_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 CMsgTEPhysicsProp::CMsgTEPhysicsProp(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -9747,13 +9785,16 @@ CMsgTEPhysicsProp::CMsgTEPhysicsProp(const CMsgTEPhysicsProp& from)
     , decltype(_impl_.origin_){nullptr}
     , decltype(_impl_.velocity_){nullptr}
     , decltype(_impl_.angles_){nullptr}
+    , decltype(_impl_.dmgpos_){nullptr}
+    , decltype(_impl_.dmgdir_){nullptr}
     , decltype(_impl_.skin_){}
     , decltype(_impl_.flags_){}
     , decltype(_impl_.effects_){}
     , decltype(_impl_.color_){}
     , decltype(_impl_.modelindex_){}
     , decltype(_impl_.unused_breakmodelsnottomake_){}
-    , decltype(_impl_.scale_){}};
+    , decltype(_impl_.scale_){}
+    , decltype(_impl_.dmgtype_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_origin()) {
@@ -9765,9 +9806,15 @@ CMsgTEPhysicsProp::CMsgTEPhysicsProp(const CMsgTEPhysicsProp& from)
   if (from._internal_has_angles()) {
     _this->_impl_.angles_ = new ::CMsgQAngle(*from._impl_.angles_);
   }
+  if (from._internal_has_dmgpos()) {
+    _this->_impl_.dmgpos_ = new ::CMsgVector(*from._impl_.dmgpos_);
+  }
+  if (from._internal_has_dmgdir()) {
+    _this->_impl_.dmgdir_ = new ::CMsgVector(*from._impl_.dmgdir_);
+  }
   ::memcpy(&_impl_.skin_, &from._impl_.skin_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.scale_) -
-    reinterpret_cast<char*>(&_impl_.skin_)) + sizeof(_impl_.scale_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.dmgtype_) -
+    reinterpret_cast<char*>(&_impl_.skin_)) + sizeof(_impl_.dmgtype_));
   // @@protoc_insertion_point(copy_constructor:CMsgTEPhysicsProp)
 }
 
@@ -9781,6 +9828,8 @@ inline void CMsgTEPhysicsProp::SharedCtor(
     , decltype(_impl_.origin_){nullptr}
     , decltype(_impl_.velocity_){nullptr}
     , decltype(_impl_.angles_){nullptr}
+    , decltype(_impl_.dmgpos_){nullptr}
+    , decltype(_impl_.dmgdir_){nullptr}
     , decltype(_impl_.skin_){0u}
     , decltype(_impl_.flags_){0u}
     , decltype(_impl_.effects_){0u}
@@ -9788,6 +9837,7 @@ inline void CMsgTEPhysicsProp::SharedCtor(
     , decltype(_impl_.modelindex_){uint64_t{0u}}
     , decltype(_impl_.unused_breakmodelsnottomake_){0u}
     , decltype(_impl_.scale_){0}
+    , decltype(_impl_.dmgtype_){0}
   };
 }
 
@@ -9805,6 +9855,8 @@ inline void CMsgTEPhysicsProp::SharedDtor() {
   if (this != internal_default_instance()) delete _impl_.origin_;
   if (this != internal_default_instance()) delete _impl_.velocity_;
   if (this != internal_default_instance()) delete _impl_.angles_;
+  if (this != internal_default_instance()) delete _impl_.dmgpos_;
+  if (this != internal_default_instance()) delete _impl_.dmgdir_;
 }
 
 void CMsgTEPhysicsProp::SetCachedSize(int size) const {
@@ -9818,7 +9870,7 @@ void CMsgTEPhysicsProp::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
       GOOGLE_DCHECK(_impl_.origin_ != nullptr);
       _impl_.origin_->Clear();
@@ -9831,16 +9883,24 @@ void CMsgTEPhysicsProp::Clear() {
       GOOGLE_DCHECK(_impl_.angles_ != nullptr);
       _impl_.angles_->Clear();
     }
+    if (cached_has_bits & 0x00000008u) {
+      GOOGLE_DCHECK(_impl_.dmgpos_ != nullptr);
+      _impl_.dmgpos_->Clear();
+    }
+    if (cached_has_bits & 0x00000010u) {
+      GOOGLE_DCHECK(_impl_.dmgdir_ != nullptr);
+      _impl_.dmgdir_->Clear();
+    }
   }
-  if (cached_has_bits & 0x000000f8u) {
+  if (cached_has_bits & 0x000000e0u) {
     ::memset(&_impl_.skin_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.modelindex_) -
-        reinterpret_cast<char*>(&_impl_.skin_)) + sizeof(_impl_.modelindex_));
+        reinterpret_cast<char*>(&_impl_.effects_) -
+        reinterpret_cast<char*>(&_impl_.skin_)) + sizeof(_impl_.effects_));
   }
-  if (cached_has_bits & 0x00000300u) {
-    ::memset(&_impl_.unused_breakmodelsnottomake_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.scale_) -
-        reinterpret_cast<char*>(&_impl_.unused_breakmodelsnottomake_)) + sizeof(_impl_.scale_));
+  if (cached_has_bits & 0x00001f00u) {
+    ::memset(&_impl_.color_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.dmgtype_) -
+        reinterpret_cast<char*>(&_impl_.color_)) + sizeof(_impl_.dmgtype_));
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -9940,6 +10000,31 @@ const char* CMsgTEPhysicsProp::_InternalParse(const char* ptr, ::_pbi::ParseCont
         } else
           goto handle_unusual;
         continue;
+      // optional .CMsgVector dmgpos = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 90)) {
+          ptr = ctx->ParseMessage(_internal_mutable_dmgpos(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional .CMsgVector dmgdir = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 98)) {
+          ptr = ctx->ParseMessage(_internal_mutable_dmgdir(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional int32 dmgtype = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 104)) {
+          _Internal::set_has_dmgtype(&has_bits);
+          _impl_.dmgtype_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -9993,45 +10078,65 @@ uint8_t* CMsgTEPhysicsProp::_InternalSerialize(
   }
 
   // optional fixed32 skin = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFixed32ToArray(4, this->_internal_skin(), target);
   }
 
   // optional uint32 flags = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_flags(), target);
   }
 
   // optional uint32 effects = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_effects(), target);
   }
 
   // optional fixed32 color = 7;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFixed32ToArray(7, this->_internal_color(), target);
   }
 
   // optional fixed64 modelindex = 8;
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFixed64ToArray(8, this->_internal_modelindex(), target);
   }
 
   // optional uint32 unused_breakmodelsnottomake = 9;
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(9, this->_internal_unused_breakmodelsnottomake(), target);
   }
 
   // optional float scale = 10;
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(10, this->_internal_scale(), target);
+  }
+
+  // optional .CMsgVector dmgpos = 11;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(11, _Internal::dmgpos(this),
+        _Internal::dmgpos(this).GetCachedSize(), target, stream);
+  }
+
+  // optional .CMsgVector dmgdir = 12;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(12, _Internal::dmgdir(this),
+        _Internal::dmgdir(this).GetCachedSize(), target, stream);
+  }
+
+  // optional int32 dmgtype = 13;
+  if (cached_has_bits & 0x00001000u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(13, this->_internal_dmgtype(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -10073,41 +10178,60 @@ size_t CMsgTEPhysicsProp::ByteSizeLong() const {
           *_impl_.angles_);
     }
 
-    // optional fixed32 skin = 4;
+    // optional .CMsgVector dmgpos = 11;
     if (cached_has_bits & 0x00000008u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.dmgpos_);
+    }
+
+    // optional .CMsgVector dmgdir = 12;
+    if (cached_has_bits & 0x00000010u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.dmgdir_);
+    }
+
+    // optional fixed32 skin = 4;
+    if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 4;
     }
 
     // optional uint32 flags = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000040u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_flags());
     }
 
     // optional uint32 effects = 6;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000080u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_effects());
     }
 
+  }
+  if (cached_has_bits & 0x00001f00u) {
     // optional fixed32 color = 7;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000100u) {
       total_size += 1 + 4;
     }
 
     // optional fixed64 modelindex = 8;
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000200u) {
       total_size += 1 + 8;
     }
 
-  }
-  if (cached_has_bits & 0x00000300u) {
     // optional uint32 unused_breakmodelsnottomake = 9;
-    if (cached_has_bits & 0x00000100u) {
+    if (cached_has_bits & 0x00000400u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_unused_breakmodelsnottomake());
     }
 
     // optional float scale = 10;
-    if (cached_has_bits & 0x00000200u) {
+    if (cached_has_bits & 0x00000800u) {
       total_size += 1 + 4;
+    }
+
+    // optional int32 dmgtype = 13;
+    if (cached_has_bits & 0x00001000u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_dmgtype());
     }
 
   }
@@ -10144,28 +10268,39 @@ void CMsgTEPhysicsProp::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, cons
           from._internal_angles());
     }
     if (cached_has_bits & 0x00000008u) {
-      _this->_impl_.skin_ = from._impl_.skin_;
+      _this->_internal_mutable_dmgpos()->::CMsgVector::MergeFrom(
+          from._internal_dmgpos());
     }
     if (cached_has_bits & 0x00000010u) {
-      _this->_impl_.flags_ = from._impl_.flags_;
+      _this->_internal_mutable_dmgdir()->::CMsgVector::MergeFrom(
+          from._internal_dmgdir());
     }
     if (cached_has_bits & 0x00000020u) {
-      _this->_impl_.effects_ = from._impl_.effects_;
+      _this->_impl_.skin_ = from._impl_.skin_;
     }
     if (cached_has_bits & 0x00000040u) {
-      _this->_impl_.color_ = from._impl_.color_;
+      _this->_impl_.flags_ = from._impl_.flags_;
     }
     if (cached_has_bits & 0x00000080u) {
-      _this->_impl_.modelindex_ = from._impl_.modelindex_;
+      _this->_impl_.effects_ = from._impl_.effects_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00000300u) {
+  if (cached_has_bits & 0x00001f00u) {
     if (cached_has_bits & 0x00000100u) {
-      _this->_impl_.unused_breakmodelsnottomake_ = from._impl_.unused_breakmodelsnottomake_;
+      _this->_impl_.color_ = from._impl_.color_;
     }
     if (cached_has_bits & 0x00000200u) {
+      _this->_impl_.modelindex_ = from._impl_.modelindex_;
+    }
+    if (cached_has_bits & 0x00000400u) {
+      _this->_impl_.unused_breakmodelsnottomake_ = from._impl_.unused_breakmodelsnottomake_;
+    }
+    if (cached_has_bits & 0x00000800u) {
       _this->_impl_.scale_ = from._impl_.scale_;
+    }
+    if (cached_has_bits & 0x00001000u) {
+      _this->_impl_.dmgtype_ = from._impl_.dmgtype_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -10188,8 +10323,8 @@ void CMsgTEPhysicsProp::InternalSwap(CMsgTEPhysicsProp* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgTEPhysicsProp, _impl_.scale_)
-      + sizeof(CMsgTEPhysicsProp::_impl_.scale_)
+      PROTOBUF_FIELD_OFFSET(CMsgTEPhysicsProp, _impl_.dmgtype_)
+      + sizeof(CMsgTEPhysicsProp::_impl_.dmgtype_)
       - PROTOBUF_FIELD_OFFSET(CMsgTEPhysicsProp, _impl_.origin_)>(
           reinterpret_cast<char*>(&_impl_.origin_),
           reinterpret_cast<char*>(&other->_impl_.origin_));

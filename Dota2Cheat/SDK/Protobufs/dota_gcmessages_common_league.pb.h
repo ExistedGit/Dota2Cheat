@@ -207,11 +207,12 @@ enum ELeagueNodeGroupType : int {
   BRACKET_DOUBLE_SEED_LOSER = 5,
   BRACKET_DOUBLE_ALL_WINNER = 6,
   SHOWMATCH = 7,
-  GSL = 8
+  GSL = 8,
+  PLACEMENT = 9
 };
 bool ELeagueNodeGroupType_IsValid(int value);
 constexpr ELeagueNodeGroupType ELeagueNodeGroupType_MIN = INVALID_GROUP_TYPE;
-constexpr ELeagueNodeGroupType ELeagueNodeGroupType_MAX = GSL;
+constexpr ELeagueNodeGroupType ELeagueNodeGroupType_MAX = PLACEMENT;
 constexpr int ELeagueNodeGroupType_ARRAYSIZE = ELeagueNodeGroupType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ELeagueNodeGroupType_descriptor();

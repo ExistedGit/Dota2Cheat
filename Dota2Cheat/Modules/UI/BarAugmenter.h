@@ -46,7 +46,21 @@ namespace Modules {
 		//}
 	public:
 		void Init() {
-			ManaBarSwitch = Memory::Scan("74 14 48 8D 15 ? ? ? ? 49 8B CE", "client.dll").Offset(0x1A);
+
+
+//               test    rbx, rbx
+//               jz      short loc_18175C626
+//               lea     rdx, aMedusaManaShie; "medusa_mana_shield"
+//               mov     rcx, rbx
+//               call    sub_1814FCE80
+//               test    rax, rax
+			//	 jnz     short loc_18175C634
+			//	 mov[rsp + 0D10h + var_CA0], 0 <--------- THIS INSTRUCTION
+			//   jmp     short loc_18175C639
+			//	 lea     rbx, [r15 - 0A20h]
+
+			// Then we just dynamically patch the mov to emulate the presence of Medusa's mana shield
+			ManaBarSwitch = Memory::Scan("75 0E C6 44 24", "client.dll").Offset(2 + 5); // sizeof(jnz) + sizeof(mov) + offset size
 			UpdateManabarSwitch();
 		}
 		void Draw() {

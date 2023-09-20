@@ -39,7 +39,9 @@ public:
 		} buf;
 		return CallVFunc<VTableIndexes::CUIEngineSource2::IsValidPanelPointer, IVPBuffer*>(&buf, panel)->unk0 != 0xFFFFFFFF;
 	}
-	FIELD(CUtlVector<void(*)()>, GetListeners, 0xD8);
-	// via xref: "CPanel2D::SetDialogVariable - char *"
+	// Iterated in RunFrame
+	FIELD(CUtlVector<void(*)()>, GetListeners, 0xD0);
+	// decompile xref: "CPanel2D::SetDialogVariable - char *"
+	// above it is a vfunc call by g_pUIEngine
 	VGETTER(CLocalization*, GetLocalization, 19);
 };

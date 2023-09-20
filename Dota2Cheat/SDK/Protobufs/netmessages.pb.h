@@ -254,6 +254,9 @@ extern CSVCMsg_VoiceInitDefaultTypeInternal _CSVCMsg_VoiceInit_default_instance_
 class ProtoFlattenedSerializerField_t;
 struct ProtoFlattenedSerializerField_tDefaultTypeInternal;
 extern ProtoFlattenedSerializerField_tDefaultTypeInternal _ProtoFlattenedSerializerField_t_default_instance_;
+class ProtoFlattenedSerializerField_t_polymorphic_field_t;
+struct ProtoFlattenedSerializerField_t_polymorphic_field_tDefaultTypeInternal;
+extern ProtoFlattenedSerializerField_t_polymorphic_field_tDefaultTypeInternal _ProtoFlattenedSerializerField_t_polymorphic_field_t_default_instance_;
 class ProtoFlattenedSerializer_t;
 struct ProtoFlattenedSerializer_tDefaultTypeInternal;
 extern ProtoFlattenedSerializer_tDefaultTypeInternal _ProtoFlattenedSerializer_t_default_instance_;
@@ -327,6 +330,7 @@ template<> ::CSVCMsg_UserMessage* Arena::CreateMaybeMessage<::CSVCMsg_UserMessag
 template<> ::CSVCMsg_VoiceData* Arena::CreateMaybeMessage<::CSVCMsg_VoiceData>(Arena*);
 template<> ::CSVCMsg_VoiceInit* Arena::CreateMaybeMessage<::CSVCMsg_VoiceInit>(Arena*);
 template<> ::ProtoFlattenedSerializerField_t* Arena::CreateMaybeMessage<::ProtoFlattenedSerializerField_t>(Arena*);
+template<> ::ProtoFlattenedSerializerField_t_polymorphic_field_t* Arena::CreateMaybeMessage<::ProtoFlattenedSerializerField_t_polymorphic_field_t>(Arena*);
 template<> ::ProtoFlattenedSerializer_t* Arena::CreateMaybeMessage<::ProtoFlattenedSerializer_t>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 
@@ -4305,28 +4309,9 @@ class CSVCMsg_ClassInfo_class_t final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kDataTableNameFieldNumber = 2,
     kClassNameFieldNumber = 3,
     kClassIdFieldNumber = 1,
   };
-  // optional string data_table_name = 2;
-  bool has_data_table_name() const;
-  private:
-  bool _internal_has_data_table_name() const;
-  public:
-  void clear_data_table_name();
-  const std::string& data_table_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_data_table_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_data_table_name();
-  PROTOBUF_NODISCARD std::string* release_data_table_name();
-  void set_allocated_data_table_name(std::string* data_table_name);
-  private:
-  const std::string& _internal_data_table_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_data_table_name(const std::string& value);
-  std::string* _internal_mutable_data_table_name();
-  public:
-
   // optional string class_name = 3;
   bool has_class_name() const;
   private:
@@ -4368,7 +4353,6 @@ class CSVCMsg_ClassInfo_class_t final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr data_table_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr class_name_;
     int32_t class_id_;
   };
@@ -10026,6 +10010,7 @@ class CSVCMsg_VoiceData final :
     kProximityFieldNumber = 3,
     kAudibleMaskFieldNumber = 5,
     kTickFieldNumber = 6,
+    kPassthroughFieldNumber = 7,
     kClientFieldNumber = 2,
   };
   // optional .CMsgVoiceAudio audio = 1;
@@ -10098,6 +10083,19 @@ class CSVCMsg_VoiceData final :
   void _internal_set_tick(uint32_t value);
   public:
 
+  // optional int32 passthrough = 7;
+  bool has_passthrough() const;
+  private:
+  bool _internal_has_passthrough() const;
+  public:
+  void clear_passthrough();
+  int32_t passthrough() const;
+  void set_passthrough(int32_t value);
+  private:
+  int32_t _internal_passthrough() const;
+  void _internal_set_passthrough(int32_t value);
+  public:
+
   // optional int32 client = 2 [default = -1];
   bool has_client() const;
   private:
@@ -10126,6 +10124,7 @@ class CSVCMsg_VoiceData final :
     bool proximity_;
     int32_t audible_mask_;
     uint32_t tick_;
+    int32_t passthrough_;
     int32_t client_;
   };
   union { Impl_ _impl_; };
@@ -11961,6 +11960,7 @@ class CSVCMsg_ClearAllStringTables final :
 
   enum : int {
     kMapnameFieldNumber = 1,
+    kCreateTablesSkippedFieldNumber = 3,
   };
   // optional string mapname = 1;
   bool has_mapname() const;
@@ -11980,6 +11980,19 @@ class CSVCMsg_ClearAllStringTables final :
   std::string* _internal_mutable_mapname();
   public:
 
+  // optional bool create_tables_skipped = 3;
+  bool has_create_tables_skipped() const;
+  private:
+  bool _internal_has_create_tables_skipped() const;
+  public:
+  void clear_create_tables_skipped();
+  bool create_tables_skipped() const;
+  void set_create_tables_skipped(bool value);
+  private:
+  bool _internal_create_tables_skipped() const;
+  void _internal_set_create_tables_skipped(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CSVCMsg_ClearAllStringTables)
  private:
   class _Internal;
@@ -11991,6 +12004,182 @@ class CSVCMsg_ClearAllStringTables final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr mapname_;
+    bool create_tables_skipped_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_netmessages_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ProtoFlattenedSerializerField_t_polymorphic_field_t final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ProtoFlattenedSerializerField_t.polymorphic_field_t) */ {
+ public:
+  inline ProtoFlattenedSerializerField_t_polymorphic_field_t() : ProtoFlattenedSerializerField_t_polymorphic_field_t(nullptr) {}
+  ~ProtoFlattenedSerializerField_t_polymorphic_field_t() override;
+  explicit PROTOBUF_CONSTEXPR ProtoFlattenedSerializerField_t_polymorphic_field_t(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ProtoFlattenedSerializerField_t_polymorphic_field_t(const ProtoFlattenedSerializerField_t_polymorphic_field_t& from);
+  ProtoFlattenedSerializerField_t_polymorphic_field_t(ProtoFlattenedSerializerField_t_polymorphic_field_t&& from) noexcept
+    : ProtoFlattenedSerializerField_t_polymorphic_field_t() {
+    *this = ::std::move(from);
+  }
+
+  inline ProtoFlattenedSerializerField_t_polymorphic_field_t& operator=(const ProtoFlattenedSerializerField_t_polymorphic_field_t& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ProtoFlattenedSerializerField_t_polymorphic_field_t& operator=(ProtoFlattenedSerializerField_t_polymorphic_field_t&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ProtoFlattenedSerializerField_t_polymorphic_field_t& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ProtoFlattenedSerializerField_t_polymorphic_field_t* internal_default_instance() {
+    return reinterpret_cast<const ProtoFlattenedSerializerField_t_polymorphic_field_t*>(
+               &_ProtoFlattenedSerializerField_t_polymorphic_field_t_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    56;
+
+  friend void swap(ProtoFlattenedSerializerField_t_polymorphic_field_t& a, ProtoFlattenedSerializerField_t_polymorphic_field_t& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ProtoFlattenedSerializerField_t_polymorphic_field_t* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ProtoFlattenedSerializerField_t_polymorphic_field_t* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ProtoFlattenedSerializerField_t_polymorphic_field_t* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ProtoFlattenedSerializerField_t_polymorphic_field_t>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ProtoFlattenedSerializerField_t_polymorphic_field_t& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ProtoFlattenedSerializerField_t_polymorphic_field_t& from) {
+    ProtoFlattenedSerializerField_t_polymorphic_field_t::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ProtoFlattenedSerializerField_t_polymorphic_field_t* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ProtoFlattenedSerializerField_t.polymorphic_field_t";
+  }
+  protected:
+  explicit ProtoFlattenedSerializerField_t_polymorphic_field_t(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPolymorphicFieldSerializerNameSymFieldNumber = 1,
+    kPolymorphicFieldSerializerVersionFieldNumber = 2,
+  };
+  // optional int32 polymorphic_field_serializer_name_sym = 1;
+  bool has_polymorphic_field_serializer_name_sym() const;
+  private:
+  bool _internal_has_polymorphic_field_serializer_name_sym() const;
+  public:
+  void clear_polymorphic_field_serializer_name_sym();
+  int32_t polymorphic_field_serializer_name_sym() const;
+  void set_polymorphic_field_serializer_name_sym(int32_t value);
+  private:
+  int32_t _internal_polymorphic_field_serializer_name_sym() const;
+  void _internal_set_polymorphic_field_serializer_name_sym(int32_t value);
+  public:
+
+  // optional int32 polymorphic_field_serializer_version = 2;
+  bool has_polymorphic_field_serializer_version() const;
+  private:
+  bool _internal_has_polymorphic_field_serializer_version() const;
+  public:
+  void clear_polymorphic_field_serializer_version();
+  int32_t polymorphic_field_serializer_version() const;
+  void set_polymorphic_field_serializer_version(int32_t value);
+  private:
+  int32_t _internal_polymorphic_field_serializer_version() const;
+  void _internal_set_polymorphic_field_serializer_version(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ProtoFlattenedSerializerField_t.polymorphic_field_t)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    int32_t polymorphic_field_serializer_name_sym_;
+    int32_t polymorphic_field_serializer_version_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_netmessages_2eproto;
@@ -12052,7 +12241,7 @@ class ProtoFlattenedSerializerField_t final :
                &_ProtoFlattenedSerializerField_t_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    56;
+    57;
 
   friend void swap(ProtoFlattenedSerializerField_t& a, ProtoFlattenedSerializerField_t& b) {
     a.Swap(&b);
@@ -12122,9 +12311,12 @@ class ProtoFlattenedSerializerField_t final :
 
   // nested types ----------------------------------------------------
 
+  typedef ProtoFlattenedSerializerField_t_polymorphic_field_t polymorphic_field_t;
+
   // accessors -------------------------------------------------------
 
   enum : int {
+    kPolymorphicTypesFieldNumber = 11,
     kVarTypeSymFieldNumber = 1,
     kVarNameSymFieldNumber = 2,
     kBitCountFieldNumber = 3,
@@ -12136,6 +12328,24 @@ class ProtoFlattenedSerializerField_t final :
     kSendNodeSymFieldNumber = 9,
     kVarEncoderSymFieldNumber = 10,
   };
+  // repeated .ProtoFlattenedSerializerField_t.polymorphic_field_t polymorphic_types = 11;
+  int polymorphic_types_size() const;
+  private:
+  int _internal_polymorphic_types_size() const;
+  public:
+  void clear_polymorphic_types();
+  ::ProtoFlattenedSerializerField_t_polymorphic_field_t* mutable_polymorphic_types(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ProtoFlattenedSerializerField_t_polymorphic_field_t >*
+      mutable_polymorphic_types();
+  private:
+  const ::ProtoFlattenedSerializerField_t_polymorphic_field_t& _internal_polymorphic_types(int index) const;
+  ::ProtoFlattenedSerializerField_t_polymorphic_field_t* _internal_add_polymorphic_types();
+  public:
+  const ::ProtoFlattenedSerializerField_t_polymorphic_field_t& polymorphic_types(int index) const;
+  ::ProtoFlattenedSerializerField_t_polymorphic_field_t* add_polymorphic_types();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ProtoFlattenedSerializerField_t_polymorphic_field_t >&
+      polymorphic_types() const;
+
   // optional int32 var_type_sym = 1;
   bool has_var_type_sym() const;
   private:
@@ -12276,6 +12486,7 @@ class ProtoFlattenedSerializerField_t final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ProtoFlattenedSerializerField_t_polymorphic_field_t > polymorphic_types_;
     int32_t var_type_sym_;
     int32_t var_name_sym_;
     int32_t bit_count_;
@@ -12347,7 +12558,7 @@ class ProtoFlattenedSerializer_t final :
                &_ProtoFlattenedSerializer_t_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    57;
+    58;
 
   friend void swap(ProtoFlattenedSerializer_t& a, ProtoFlattenedSerializer_t& b) {
     a.Swap(&b);
@@ -12546,7 +12757,7 @@ class CSVCMsg_FlattenedSerializer final :
                &_CSVCMsg_FlattenedSerializer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    58;
+    59;
 
   friend void swap(CSVCMsg_FlattenedSerializer& a, CSVCMsg_FlattenedSerializer& b) {
     a.Swap(&b);
@@ -12756,7 +12967,7 @@ class CSVCMsg_StopSound final :
                &_CSVCMsg_StopSound_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    59;
+    60;
 
   friend void swap(CSVCMsg_StopSound& a, CSVCMsg_StopSound& b) {
     a.Swap(&b);
@@ -12916,7 +13127,7 @@ class CBidirMsg_RebroadcastGameEvent final :
                &_CBidirMsg_RebroadcastGameEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    60;
+    61;
 
   friend void swap(CBidirMsg_RebroadcastGameEvent& a, CBidirMsg_RebroadcastGameEvent& b) {
     a.Swap(&b);
@@ -13121,7 +13332,7 @@ class CBidirMsg_RebroadcastSource final :
                &_CBidirMsg_RebroadcastSource_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    61;
+    62;
 
   friend void swap(CBidirMsg_RebroadcastSource& a, CBidirMsg_RebroadcastSource& b) {
     a.Swap(&b);
@@ -13281,7 +13492,7 @@ class CMsgServerNetworkStats_Port final :
                &_CMsgServerNetworkStats_Port_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    62;
+    63;
 
   friend void swap(CMsgServerNetworkStats_Port& a, CMsgServerNetworkStats_Port& b) {
     a.Swap(&b);
@@ -13461,7 +13672,7 @@ class CMsgServerNetworkStats_Player final :
                &_CMsgServerNetworkStats_Player_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    63;
+    64;
 
   friend void swap(CMsgServerNetworkStats_Player& a, CMsgServerNetworkStats_Player& b) {
     a.Swap(&b);
@@ -13701,7 +13912,7 @@ class CMsgServerNetworkStats final :
                &_CMsgServerNetworkStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    64;
+    65;
 
   friend void swap(CMsgServerNetworkStats& a, CMsgServerNetworkStats& b) {
     a.Swap(&b);
@@ -14234,7 +14445,7 @@ class CSVCMsg_HltvReplay final :
                &_CSVCMsg_HltvReplay_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    65;
+    66;
 
   friend void swap(CSVCMsg_HltvReplay& a, CSVCMsg_HltvReplay& b) {
     a.Swap(&b);
@@ -14499,7 +14710,7 @@ class CCLCMsg_HltvReplay final :
                &_CCLCMsg_HltvReplay_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    66;
+    67;
 
   friend void swap(CCLCMsg_HltvReplay& a, CCLCMsg_HltvReplay& b) {
     a.Swap(&b);
@@ -14719,7 +14930,7 @@ class CSVCMsg_Broadcast_Command final :
                &_CSVCMsg_Broadcast_Command_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    67;
+    68;
 
   friend void swap(CSVCMsg_Broadcast_Command& a, CSVCMsg_Broadcast_Command& b) {
     a.Swap(&b);
@@ -14884,7 +15095,7 @@ class CCLCMsg_HltvFixupOperatorTick final :
                &_CCLCMsg_HltvFixupOperatorTick_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    68;
+    69;
 
   friend void swap(CCLCMsg_HltvFixupOperatorTick& a, CCLCMsg_HltvFixupOperatorTick& b) {
     a.Swap(&b);
@@ -15169,7 +15380,7 @@ class CSVCMsg_HltvFixupOperatorStatus final :
                &_CSVCMsg_HltvFixupOperatorStatus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    69;
+    70;
 
   friend void swap(CSVCMsg_HltvFixupOperatorStatus& a, CSVCMsg_HltvFixupOperatorStatus& b) {
     a.Swap(&b);
@@ -17739,7 +17950,7 @@ inline void CSVCMsg_ServerInfo::set_allocated_game_session_manifest(std::string*
 
 // optional int32 class_id = 1;
 inline bool CSVCMsg_ClassInfo_class_t::_internal_has_class_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CSVCMsg_ClassInfo_class_t::has_class_id() const {
@@ -17747,7 +17958,7 @@ inline bool CSVCMsg_ClassInfo_class_t::has_class_id() const {
 }
 inline void CSVCMsg_ClassInfo_class_t::clear_class_id() {
   _impl_.class_id_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int32_t CSVCMsg_ClassInfo_class_t::_internal_class_id() const {
   return _impl_.class_id_;
@@ -17757,7 +17968,7 @@ inline int32_t CSVCMsg_ClassInfo_class_t::class_id() const {
   return _internal_class_id();
 }
 inline void CSVCMsg_ClassInfo_class_t::_internal_set_class_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.class_id_ = value;
 }
 inline void CSVCMsg_ClassInfo_class_t::set_class_id(int32_t value) {
@@ -17765,77 +17976,9 @@ inline void CSVCMsg_ClassInfo_class_t::set_class_id(int32_t value) {
   // @@protoc_insertion_point(field_set:CSVCMsg_ClassInfo.class_t.class_id)
 }
 
-// optional string data_table_name = 2;
-inline bool CSVCMsg_ClassInfo_class_t::_internal_has_data_table_name() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CSVCMsg_ClassInfo_class_t::has_data_table_name() const {
-  return _internal_has_data_table_name();
-}
-inline void CSVCMsg_ClassInfo_class_t::clear_data_table_name() {
-  _impl_.data_table_name_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline const std::string& CSVCMsg_ClassInfo_class_t::data_table_name() const {
-  // @@protoc_insertion_point(field_get:CSVCMsg_ClassInfo.class_t.data_table_name)
-  return _internal_data_table_name();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CSVCMsg_ClassInfo_class_t::set_data_table_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.data_table_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CSVCMsg_ClassInfo.class_t.data_table_name)
-}
-inline std::string* CSVCMsg_ClassInfo_class_t::mutable_data_table_name() {
-  std::string* _s = _internal_mutable_data_table_name();
-  // @@protoc_insertion_point(field_mutable:CSVCMsg_ClassInfo.class_t.data_table_name)
-  return _s;
-}
-inline const std::string& CSVCMsg_ClassInfo_class_t::_internal_data_table_name() const {
-  return _impl_.data_table_name_.Get();
-}
-inline void CSVCMsg_ClassInfo_class_t::_internal_set_data_table_name(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.data_table_name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CSVCMsg_ClassInfo_class_t::_internal_mutable_data_table_name() {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.data_table_name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CSVCMsg_ClassInfo_class_t::release_data_table_name() {
-  // @@protoc_insertion_point(field_release:CSVCMsg_ClassInfo.class_t.data_table_name)
-  if (!_internal_has_data_table_name()) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.data_table_name_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.data_table_name_.IsDefault()) {
-    _impl_.data_table_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void CSVCMsg_ClassInfo_class_t::set_allocated_data_table_name(std::string* data_table_name) {
-  if (data_table_name != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  _impl_.data_table_name_.SetAllocated(data_table_name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.data_table_name_.IsDefault()) {
-    _impl_.data_table_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CSVCMsg_ClassInfo.class_t.data_table_name)
-}
-
 // optional string class_name = 3;
 inline bool CSVCMsg_ClassInfo_class_t::_internal_has_class_name() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CSVCMsg_ClassInfo_class_t::has_class_name() const {
@@ -17843,7 +17986,7 @@ inline bool CSVCMsg_ClassInfo_class_t::has_class_name() const {
 }
 inline void CSVCMsg_ClassInfo_class_t::clear_class_name() {
   _impl_.class_name_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline const std::string& CSVCMsg_ClassInfo_class_t::class_name() const {
   // @@protoc_insertion_point(field_get:CSVCMsg_ClassInfo.class_t.class_name)
@@ -17852,7 +17995,7 @@ inline const std::string& CSVCMsg_ClassInfo_class_t::class_name() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void CSVCMsg_ClassInfo_class_t::set_class_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000002u;
+ _impl_._has_bits_[0] |= 0x00000001u;
  _impl_.class_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:CSVCMsg_ClassInfo.class_t.class_name)
 }
@@ -17865,11 +18008,11 @@ inline const std::string& CSVCMsg_ClassInfo_class_t::_internal_class_name() cons
   return _impl_.class_name_.Get();
 }
 inline void CSVCMsg_ClassInfo_class_t::_internal_set_class_name(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.class_name_.Set(value, GetArenaForAllocation());
 }
 inline std::string* CSVCMsg_ClassInfo_class_t::_internal_mutable_class_name() {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   return _impl_.class_name_.Mutable(GetArenaForAllocation());
 }
 inline std::string* CSVCMsg_ClassInfo_class_t::release_class_name() {
@@ -17877,7 +18020,7 @@ inline std::string* CSVCMsg_ClassInfo_class_t::release_class_name() {
   if (!_internal_has_class_name()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
   auto* p = _impl_.class_name_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.class_name_.IsDefault()) {
@@ -17888,9 +18031,9 @@ inline std::string* CSVCMsg_ClassInfo_class_t::release_class_name() {
 }
 inline void CSVCMsg_ClassInfo_class_t::set_allocated_class_name(std::string* class_name) {
   if (class_name != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000002u;
+    _impl_._has_bits_[0] |= 0x00000001u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
+    _impl_._has_bits_[0] &= ~0x00000001u;
   }
   _impl_.class_name_.SetAllocated(class_name, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -22050,7 +22193,7 @@ inline void CSVCMsg_VoiceData::set_allocated_audio(::CMsgVoiceAudio* audio) {
 
 // optional int32 client = 2 [default = -1];
 inline bool CSVCMsg_VoiceData::_internal_has_client() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CSVCMsg_VoiceData::has_client() const {
@@ -22058,7 +22201,7 @@ inline bool CSVCMsg_VoiceData::has_client() const {
 }
 inline void CSVCMsg_VoiceData::clear_client() {
   _impl_.client_ = -1;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline int32_t CSVCMsg_VoiceData::_internal_client() const {
   return _impl_.client_;
@@ -22068,7 +22211,7 @@ inline int32_t CSVCMsg_VoiceData::client() const {
   return _internal_client();
 }
 inline void CSVCMsg_VoiceData::_internal_set_client(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.client_ = value;
 }
 inline void CSVCMsg_VoiceData::set_client(int32_t value) {
@@ -22186,6 +22329,34 @@ inline void CSVCMsg_VoiceData::_internal_set_tick(uint32_t value) {
 inline void CSVCMsg_VoiceData::set_tick(uint32_t value) {
   _internal_set_tick(value);
   // @@protoc_insertion_point(field_set:CSVCMsg_VoiceData.tick)
+}
+
+// optional int32 passthrough = 7;
+inline bool CSVCMsg_VoiceData::_internal_has_passthrough() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CSVCMsg_VoiceData::has_passthrough() const {
+  return _internal_has_passthrough();
+}
+inline void CSVCMsg_VoiceData::clear_passthrough() {
+  _impl_.passthrough_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000020u;
+}
+inline int32_t CSVCMsg_VoiceData::_internal_passthrough() const {
+  return _impl_.passthrough_;
+}
+inline int32_t CSVCMsg_VoiceData::passthrough() const {
+  // @@protoc_insertion_point(field_get:CSVCMsg_VoiceData.passthrough)
+  return _internal_passthrough();
+}
+inline void CSVCMsg_VoiceData::_internal_set_passthrough(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_.passthrough_ = value;
+}
+inline void CSVCMsg_VoiceData::set_passthrough(int32_t value) {
+  _internal_set_passthrough(value);
+  // @@protoc_insertion_point(field_set:CSVCMsg_VoiceData.passthrough)
 }
 
 // -------------------------------------------------------------------
@@ -23242,6 +23413,94 @@ inline void CSVCMsg_ClearAllStringTables::set_allocated_mapname(std::string* map
   // @@protoc_insertion_point(field_set_allocated:CSVCMsg_ClearAllStringTables.mapname)
 }
 
+// optional bool create_tables_skipped = 3;
+inline bool CSVCMsg_ClearAllStringTables::_internal_has_create_tables_skipped() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CSVCMsg_ClearAllStringTables::has_create_tables_skipped() const {
+  return _internal_has_create_tables_skipped();
+}
+inline void CSVCMsg_ClearAllStringTables::clear_create_tables_skipped() {
+  _impl_.create_tables_skipped_ = false;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline bool CSVCMsg_ClearAllStringTables::_internal_create_tables_skipped() const {
+  return _impl_.create_tables_skipped_;
+}
+inline bool CSVCMsg_ClearAllStringTables::create_tables_skipped() const {
+  // @@protoc_insertion_point(field_get:CSVCMsg_ClearAllStringTables.create_tables_skipped)
+  return _internal_create_tables_skipped();
+}
+inline void CSVCMsg_ClearAllStringTables::_internal_set_create_tables_skipped(bool value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.create_tables_skipped_ = value;
+}
+inline void CSVCMsg_ClearAllStringTables::set_create_tables_skipped(bool value) {
+  _internal_set_create_tables_skipped(value);
+  // @@protoc_insertion_point(field_set:CSVCMsg_ClearAllStringTables.create_tables_skipped)
+}
+
+// -------------------------------------------------------------------
+
+// ProtoFlattenedSerializerField_t_polymorphic_field_t
+
+// optional int32 polymorphic_field_serializer_name_sym = 1;
+inline bool ProtoFlattenedSerializerField_t_polymorphic_field_t::_internal_has_polymorphic_field_serializer_name_sym() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool ProtoFlattenedSerializerField_t_polymorphic_field_t::has_polymorphic_field_serializer_name_sym() const {
+  return _internal_has_polymorphic_field_serializer_name_sym();
+}
+inline void ProtoFlattenedSerializerField_t_polymorphic_field_t::clear_polymorphic_field_serializer_name_sym() {
+  _impl_.polymorphic_field_serializer_name_sym_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline int32_t ProtoFlattenedSerializerField_t_polymorphic_field_t::_internal_polymorphic_field_serializer_name_sym() const {
+  return _impl_.polymorphic_field_serializer_name_sym_;
+}
+inline int32_t ProtoFlattenedSerializerField_t_polymorphic_field_t::polymorphic_field_serializer_name_sym() const {
+  // @@protoc_insertion_point(field_get:ProtoFlattenedSerializerField_t.polymorphic_field_t.polymorphic_field_serializer_name_sym)
+  return _internal_polymorphic_field_serializer_name_sym();
+}
+inline void ProtoFlattenedSerializerField_t_polymorphic_field_t::_internal_set_polymorphic_field_serializer_name_sym(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.polymorphic_field_serializer_name_sym_ = value;
+}
+inline void ProtoFlattenedSerializerField_t_polymorphic_field_t::set_polymorphic_field_serializer_name_sym(int32_t value) {
+  _internal_set_polymorphic_field_serializer_name_sym(value);
+  // @@protoc_insertion_point(field_set:ProtoFlattenedSerializerField_t.polymorphic_field_t.polymorphic_field_serializer_name_sym)
+}
+
+// optional int32 polymorphic_field_serializer_version = 2;
+inline bool ProtoFlattenedSerializerField_t_polymorphic_field_t::_internal_has_polymorphic_field_serializer_version() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool ProtoFlattenedSerializerField_t_polymorphic_field_t::has_polymorphic_field_serializer_version() const {
+  return _internal_has_polymorphic_field_serializer_version();
+}
+inline void ProtoFlattenedSerializerField_t_polymorphic_field_t::clear_polymorphic_field_serializer_version() {
+  _impl_.polymorphic_field_serializer_version_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline int32_t ProtoFlattenedSerializerField_t_polymorphic_field_t::_internal_polymorphic_field_serializer_version() const {
+  return _impl_.polymorphic_field_serializer_version_;
+}
+inline int32_t ProtoFlattenedSerializerField_t_polymorphic_field_t::polymorphic_field_serializer_version() const {
+  // @@protoc_insertion_point(field_get:ProtoFlattenedSerializerField_t.polymorphic_field_t.polymorphic_field_serializer_version)
+  return _internal_polymorphic_field_serializer_version();
+}
+inline void ProtoFlattenedSerializerField_t_polymorphic_field_t::_internal_set_polymorphic_field_serializer_version(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.polymorphic_field_serializer_version_ = value;
+}
+inline void ProtoFlattenedSerializerField_t_polymorphic_field_t::set_polymorphic_field_serializer_version(int32_t value) {
+  _internal_set_polymorphic_field_serializer_version(value);
+  // @@protoc_insertion_point(field_set:ProtoFlattenedSerializerField_t.polymorphic_field_t.polymorphic_field_serializer_version)
+}
+
 // -------------------------------------------------------------------
 
 // ProtoFlattenedSerializerField_t
@@ -23524,6 +23783,46 @@ inline void ProtoFlattenedSerializerField_t::_internal_set_var_encoder_sym(int32
 inline void ProtoFlattenedSerializerField_t::set_var_encoder_sym(int32_t value) {
   _internal_set_var_encoder_sym(value);
   // @@protoc_insertion_point(field_set:ProtoFlattenedSerializerField_t.var_encoder_sym)
+}
+
+// repeated .ProtoFlattenedSerializerField_t.polymorphic_field_t polymorphic_types = 11;
+inline int ProtoFlattenedSerializerField_t::_internal_polymorphic_types_size() const {
+  return _impl_.polymorphic_types_.size();
+}
+inline int ProtoFlattenedSerializerField_t::polymorphic_types_size() const {
+  return _internal_polymorphic_types_size();
+}
+inline void ProtoFlattenedSerializerField_t::clear_polymorphic_types() {
+  _impl_.polymorphic_types_.Clear();
+}
+inline ::ProtoFlattenedSerializerField_t_polymorphic_field_t* ProtoFlattenedSerializerField_t::mutable_polymorphic_types(int index) {
+  // @@protoc_insertion_point(field_mutable:ProtoFlattenedSerializerField_t.polymorphic_types)
+  return _impl_.polymorphic_types_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ProtoFlattenedSerializerField_t_polymorphic_field_t >*
+ProtoFlattenedSerializerField_t::mutable_polymorphic_types() {
+  // @@protoc_insertion_point(field_mutable_list:ProtoFlattenedSerializerField_t.polymorphic_types)
+  return &_impl_.polymorphic_types_;
+}
+inline const ::ProtoFlattenedSerializerField_t_polymorphic_field_t& ProtoFlattenedSerializerField_t::_internal_polymorphic_types(int index) const {
+  return _impl_.polymorphic_types_.Get(index);
+}
+inline const ::ProtoFlattenedSerializerField_t_polymorphic_field_t& ProtoFlattenedSerializerField_t::polymorphic_types(int index) const {
+  // @@protoc_insertion_point(field_get:ProtoFlattenedSerializerField_t.polymorphic_types)
+  return _internal_polymorphic_types(index);
+}
+inline ::ProtoFlattenedSerializerField_t_polymorphic_field_t* ProtoFlattenedSerializerField_t::_internal_add_polymorphic_types() {
+  return _impl_.polymorphic_types_.Add();
+}
+inline ::ProtoFlattenedSerializerField_t_polymorphic_field_t* ProtoFlattenedSerializerField_t::add_polymorphic_types() {
+  ::ProtoFlattenedSerializerField_t_polymorphic_field_t* _add = _internal_add_polymorphic_types();
+  // @@protoc_insertion_point(field_add:ProtoFlattenedSerializerField_t.polymorphic_types)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ProtoFlattenedSerializerField_t_polymorphic_field_t >&
+ProtoFlattenedSerializerField_t::polymorphic_types() const {
+  // @@protoc_insertion_point(field_list:ProtoFlattenedSerializerField_t.polymorphic_types)
+  return _impl_.polymorphic_types_;
 }
 
 // -------------------------------------------------------------------
@@ -26004,6 +26303,8 @@ inline void CSVCMsg_HltvFixupOperatorStatus::set_allocated_override_operator_nam
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

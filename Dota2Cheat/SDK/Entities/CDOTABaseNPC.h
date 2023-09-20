@@ -25,7 +25,7 @@ public:
 			all; // blocks all forms of damage
 	};
 
-	GETTER(BarrierData, GetBarriers, 0x16e4);
+	GETTER(BarrierData, GetBarriers, 0x1734);
 
 	// GETTER(CAssetModifierContainer*, GetAssetModifierContainer, 0xa20);
 
@@ -61,9 +61,9 @@ public:
 		return !GetIdentity()->IsDormant() && GetLifeState() == 0 && !IsWaitingToSpawn();
 	}
 
-	// JS func, uses another vtable at 0xA08
+	// JS func, uses another vtable at offset
 	bool IsRoshan() {
-		return MemberInline<VClass>(0xA08)->CallVFunc<59, bool>();
+		return MemberInline<VClass>(0xA20)->CallVFunc<VTableIndexes::CDOTABaseNPC::IsRoshan, bool>();
 	}
 
 	int GetAttackDamageMin() {

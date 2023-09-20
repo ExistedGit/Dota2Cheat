@@ -1378,6 +1378,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_TE_Projectile::CDOTAUserMsg_TE_Projectile(
   , /*decltype(_impl_.launch_tick_)*/0
   , /*decltype(_impl_.handle_)*/0
   , /*decltype(_impl_.additional_particle_system_handle_)*/int64_t{0}
+  , /*decltype(_impl_.original_move_speed_)*/0
+  , /*decltype(_impl_.ability_)*/16777215u
   , /*decltype(_impl_.source_)*/16777215u
   , /*decltype(_impl_.target_)*/16777215u} {}
 struct CDOTAUserMsg_TE_ProjectileDefaultTypeInternal {
@@ -1404,8 +1406,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_TE_ProjectileLoc::CDOTAUserMsg_TE_ProjectileLoc(
   , /*decltype(_impl_.colorgemcolor_)*/0u
   , /*decltype(_impl_.launch_tick_)*/0
   , /*decltype(_impl_.handle_)*/0
-  , /*decltype(_impl_.additional_particle_system_handle_)*/int64_t{0}
   , /*decltype(_impl_.source_attachment_)*/0
+  , /*decltype(_impl_.original_move_speed_)*/0
+  , /*decltype(_impl_.additional_particle_system_handle_)*/int64_t{0}
   , /*decltype(_impl_.target_)*/16777215u
   , /*decltype(_impl_.source_)*/16777215u} {}
 struct CDOTAUserMsg_TE_ProjectileLocDefaultTypeInternal {
@@ -4054,8 +4057,10 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_Projectile, _impl_.target_loc_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_Projectile, _impl_.particle_cp_data_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_Projectile, _impl_.additional_particle_system_handle_),
-  12,
-  13,
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_Projectile, _impl_.original_move_speed_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_Projectile, _impl_.ability_),
+  14,
+  15,
   1,
   2,
   3,
@@ -4069,6 +4074,8 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   0,
   ~0u,
   11,
+  12,
+  13,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_ProjectileLoc, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_ProjectileLoc, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4090,8 +4097,9 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_ProjectileLoc, _impl_.source_attachment_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_ProjectileLoc, _impl_.particle_cp_data_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_ProjectileLoc, _impl_.additional_particle_system_handle_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_ProjectileLoc, _impl_.original_move_speed_),
   0,
-  12,
+  13,
   3,
   2,
   4,
@@ -4101,10 +4109,11 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   7,
   8,
   9,
-  13,
-  11,
-  ~0u,
+  14,
   10,
+  ~0u,
+  12,
+  11,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_DestroyProjectile, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_DestroyProjectile, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -5444,103 +5453,103 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 1008, 1017, -1, sizeof(::CDOTAUserMsg_CustomMsg)},
   { 1020, 1028, -1, sizeof(::CDOTAUserMsg_CoachHUDPing)},
   { 1030, -1, -1, sizeof(::CDOTAUserMsg_ClientLoadGridNav)},
-  { 1036, 1057, -1, sizeof(::CDOTAUserMsg_TE_Projectile)},
-  { 1072, 1093, -1, sizeof(::CDOTAUserMsg_TE_ProjectileLoc)},
-  { 1108, 1115, -1, sizeof(::CDOTAUserMsg_TE_DestroyProjectile)},
-  { 1116, 1126, -1, sizeof(::CDOTAUserMsg_TE_DotaBloodImpact)},
-  { 1130, 1148, -1, sizeof(::CDOTAUserMsg_AbilityPing)},
-  { 1160, 1173, -1, sizeof(::CDOTAUserMsg_TE_UnitAnimation)},
-  { 1180, 1188, -1, sizeof(::CDOTAUserMsg_TE_UnitAnimationEnd)},
-  { 1190, 1202, -1, sizeof(::CDOTAUserMsg_ShowGenericPopup)},
-  { 1208, 1218, -1, sizeof(::CDOTAUserMsg_VoteStart)},
-  { 1222, -1, -1, sizeof(::CDOTAUserMsg_VoteUpdate)},
-  { 1229, 1236, -1, sizeof(::CDOTAUserMsg_VoteEnd)},
-  { 1237, 1248, -1, sizeof(::CDOTAUserMsg_BoosterStatePlayer)},
-  { 1253, -1, -1, sizeof(::CDOTAUserMsg_BoosterState)},
-  { 1260, -1, -1, sizeof(::CDOTAUserMsg_PlayerMMR)},
-  { 1267, 1276, -1, sizeof(::CDOTAUserMsg_AbilitySteal)},
-  { 1279, 1289, -1, sizeof(::CDOTAUserMsg_StatsHeroLookup)},
-  { 1293, 1301, -1, sizeof(::CDOTAUserMsg_StatsHeroPositionInfo_PositionPair)},
-  { 1303, 1311, -1, sizeof(::CDOTAUserMsg_StatsHeroPositionInfo)},
-  { 1313, 1334, -1, sizeof(::CDOTAUserMsg_StatsHeroMinuteDetails)},
-  { 1349, 1358, -1, sizeof(::CDOTAUserMsg_StatsTeamMinuteDetails_LocationPerformance)},
-  { 1361, 1377, -1, sizeof(::CDOTAUserMsg_StatsTeamMinuteDetails)},
-  { 1387, 1399, -1, sizeof(::CDOTAUserMsg_StatsPlayerKillShare)},
-  { 1405, 1417, -1, sizeof(::CDOTAUserMsg_StatsKillDetails)},
-  { 1423, 1433, -1, sizeof(::CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightTeamDetails)},
-  { 1437, 1447, -1, sizeof(::CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightDetails)},
-  { 1451, -1, -1, sizeof(::CDOTAUserMsg_StatsMatchDetails)},
-  { 1463, 1470, -1, sizeof(::CDOTAUserMsg_MiniTaunt)},
-  { 1471, 1478, -1, sizeof(::CDOTAUserMsg_SpeechBubble)},
-  { 1479, 1489, -1, sizeof(::CDOTAUserMsg_CustomHeaderMessage)},
-  { 1493, 1502, -1, sizeof(::CMsgHeroAbilityStat)},
-  { 1505, 1513, -1, sizeof(::CMsgCombatAnalyzerPlayerStat)},
-  { 1515, 1523, -1, sizeof(::CMsgCombatAnalyzerStats)},
-  { 1525, 1535, -1, sizeof(::CDOTAUserMsg_BeastChat)},
-  { 1539, 1548, -1, sizeof(::CDOTAUserMsg_CustomHudElement_Create)},
-  { 1551, 1560, -1, sizeof(::CDOTAUserMsg_CustomHudElement_Modify)},
-  { 1563, 1570, -1, sizeof(::CDOTAUserMsg_CustomHudElement_Destroy)},
-  { 1571, 1579, -1, sizeof(::CDOTAUserMsg_CompendiumStatePlayer)},
-  { 1581, -1, -1, sizeof(::CDOTAUserMsg_CompendiumState)},
-  { 1588, 1602, -1, sizeof(::CDOTAUserMsg_ProjectionAbility)},
-  { 1610, 1618, -1, sizeof(::CDOTAUserMsg_ProjectionEvent)},
-  { 1620, 1628, -1, sizeof(::CDOTAUserMsg_XPAlert)},
-  { 1630, 1641, -1, sizeof(::CDOTAUserMsg_TalentTreeAlert)},
-  { 1646, -1, -1, sizeof(::CDOTAUserMsg_UpdateQuestProgress)},
-  { 1652, 1666, -1, sizeof(::CDOTAUserMsg_QuestStatus)},
-  { 1674, 1683, -1, sizeof(::CDOTAUserMsg_SuggestHeroPick)},
-  { 1686, 1694, -1, sizeof(::CDOTAUserMsg_SuggestHeroRole)},
-  { 1696, 1708, -1, sizeof(::CDOTAUserMsg_KillcamDamageTaken)},
-  { 1714, 1722, -1, sizeof(::CDOTAUserMsg_SelectPenaltyGold)},
-  { 1724, 1735, -1, sizeof(::CDOTAUserMsg_RollDiceResult)},
-  { 1740, 1749, -1, sizeof(::CDOTAUserMsg_FlipCoinResult)},
-  { 1752, 1759, -1, sizeof(::CDOTAUserMessage_RequestItemSuggestions)},
-  { 1760, 1768, -1, sizeof(::CDOTAUserMessage_TeamCaptainChanged)},
-  { 1770, 1778, -1, sizeof(::CDOTAUserMsg_ChatWheelCooldown)},
-  { 1780, 1791, -1, sizeof(::CDOTAUserMsg_HeroRelicProgress)},
-  { 1796, 1805, -1, sizeof(::CDOTAUserMsg_AbilityDraftRequestAbility)},
-  { 1808, 1819, -1, sizeof(::CDOTAUserMsg_DamageReport)},
-  { 1824, 1836, -1, sizeof(::CDOTAUserMsg_SalutePlayer)},
-  { 1842, 1850, -1, sizeof(::CDOTAUserMsg_TipAlert)},
-  { 1852, 1861, -1, sizeof(::CDOTAUserMsg_ReplaceQueryUnit)},
-  { 1864, 1873, -1, sizeof(::CDOTAUserMsg_ESArcanaCombo)},
-  { 1876, 1885, -1, sizeof(::CDOTAUserMsg_ESArcanaComboSummary)},
-  { 1888, 1898, -1, sizeof(::CDOTAUserMsg_OMArcanaCombo)},
-  { 1902, 1912, -1, sizeof(::CDOTAUserMsg_HighFiveCompleted)},
-  { 1916, 1923, -1, sizeof(::CDOTAUserMsg_HighFiveLeftHanging)},
-  { 1924, 1934, -1, sizeof(::CDOTAUserMsg_ShovelUnearth)},
-  { 1938, 1946, -1, sizeof(::CDOTAUserMsg_AllStarEvent_PlayerScore)},
-  { 1948, 1959, -1, sizeof(::CDOTAUserMsg_AllStarEvent)},
-  { 1964, -1, -1, sizeof(::CDOTAUserMsg_QueuedOrderRemoved)},
-  { 1971, 1984, -1, sizeof(::CDOTAUserMsg_DebugChallenge)},
-  { 1991, 2001, -1, sizeof(::CDOTAUserMsg_FoundNeutralItem)},
-  { 2005, 2013, -1, sizeof(::CDOTAUserMsg_OutpostCaptured)},
-  { 2015, 2023, -1, sizeof(::CDOTAUserMsg_OutpostGrantedXP)},
-  { 2025, 2032, -1, sizeof(::CDOTAUserMsg_MoveCameraToUnit)},
-  { 2033, 2042, -1, sizeof(::CDOTAUserMsg_PauseMinigameData_DataBit)},
-  { 2045, -1, -1, sizeof(::CDOTAUserMsg_PauseMinigameData)},
-  { 2052, 2063, -1, sizeof(::CDOTAUserMsg_VersusScene_PlayerBehavior)},
-  { 2068, 2078, -1, sizeof(::CDOTAUserMsg_QoP_ArcanaSummary)},
-  { 2082, 2090, -1, sizeof(::CDOTAUserMsg_HotPotato_Created)},
-  { 2092, 2099, -1, sizeof(::CDOTAUserMsg_HotPotato_Exploded)},
-  { 2100, 2109, -1, sizeof(::CDOTAUserMsg_WK_Arcana_Progress)},
-  { 2112, 2120, -1, sizeof(::CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress)},
-  { 2122, 2135, -1, sizeof(::CDOTAUserMsg_GuildChallenge_Progress)},
-  { 2142, 2155, -1, sizeof(::CDOTAUserMsg_WRArcanaProgress)},
-  { 2162, 2176, -1, sizeof(::CDOTAUserMsg_WRArcanaSummary)},
-  { 2184, 2194, -1, sizeof(::CDOTAUserMsg_EmptyItemSlotAlert)},
-  { 2198, 2210, -1, sizeof(::CDOTAUserMsg_AghsStatusAlert)},
-  { 2216, -1, -1, sizeof(::CDOTAUserMsg_MutedPlayers)},
-  { 2224, 2245, -1, sizeof(::CDOTAUserMsg_ContextualTip)},
-  { 2260, 2269, -1, sizeof(::CDOTAUserMsg_ChatMessage)},
-  { 2272, 2280, -1, sizeof(::CDOTAUserMsg_RockPaperScissorsStarted)},
-  { 2282, 2292, -1, sizeof(::CDOTAUserMsg_RockPaperScissorsFinished)},
-  { 2296, 2304, -1, sizeof(::CDOTAUserMsg_DuelOpponentKilled)},
-  { 2306, 2314, -1, sizeof(::CDOTAUserMsg_DuelAccepted)},
-  { 2316, 2323, -1, sizeof(::CDOTAUserMsg_DuelRequested)},
-  { 2324, 2335, -1, sizeof(::CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled)},
-  { 2340, 2348, -1, sizeof(::CDOTAUserMsg_PlayerDraftSuggestPick)},
-  { 2350, 2359, -1, sizeof(::CDOTAUserMsg_PlayerDraftPick)},
+  { 1036, 1059, -1, sizeof(::CDOTAUserMsg_TE_Projectile)},
+  { 1076, 1098, -1, sizeof(::CDOTAUserMsg_TE_ProjectileLoc)},
+  { 1114, 1121, -1, sizeof(::CDOTAUserMsg_TE_DestroyProjectile)},
+  { 1122, 1132, -1, sizeof(::CDOTAUserMsg_TE_DotaBloodImpact)},
+  { 1136, 1154, -1, sizeof(::CDOTAUserMsg_AbilityPing)},
+  { 1166, 1179, -1, sizeof(::CDOTAUserMsg_TE_UnitAnimation)},
+  { 1186, 1194, -1, sizeof(::CDOTAUserMsg_TE_UnitAnimationEnd)},
+  { 1196, 1208, -1, sizeof(::CDOTAUserMsg_ShowGenericPopup)},
+  { 1214, 1224, -1, sizeof(::CDOTAUserMsg_VoteStart)},
+  { 1228, -1, -1, sizeof(::CDOTAUserMsg_VoteUpdate)},
+  { 1235, 1242, -1, sizeof(::CDOTAUserMsg_VoteEnd)},
+  { 1243, 1254, -1, sizeof(::CDOTAUserMsg_BoosterStatePlayer)},
+  { 1259, -1, -1, sizeof(::CDOTAUserMsg_BoosterState)},
+  { 1266, -1, -1, sizeof(::CDOTAUserMsg_PlayerMMR)},
+  { 1273, 1282, -1, sizeof(::CDOTAUserMsg_AbilitySteal)},
+  { 1285, 1295, -1, sizeof(::CDOTAUserMsg_StatsHeroLookup)},
+  { 1299, 1307, -1, sizeof(::CDOTAUserMsg_StatsHeroPositionInfo_PositionPair)},
+  { 1309, 1317, -1, sizeof(::CDOTAUserMsg_StatsHeroPositionInfo)},
+  { 1319, 1340, -1, sizeof(::CDOTAUserMsg_StatsHeroMinuteDetails)},
+  { 1355, 1364, -1, sizeof(::CDOTAUserMsg_StatsTeamMinuteDetails_LocationPerformance)},
+  { 1367, 1383, -1, sizeof(::CDOTAUserMsg_StatsTeamMinuteDetails)},
+  { 1393, 1405, -1, sizeof(::CDOTAUserMsg_StatsPlayerKillShare)},
+  { 1411, 1423, -1, sizeof(::CDOTAUserMsg_StatsKillDetails)},
+  { 1429, 1439, -1, sizeof(::CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightTeamDetails)},
+  { 1443, 1453, -1, sizeof(::CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightDetails)},
+  { 1457, -1, -1, sizeof(::CDOTAUserMsg_StatsMatchDetails)},
+  { 1469, 1476, -1, sizeof(::CDOTAUserMsg_MiniTaunt)},
+  { 1477, 1484, -1, sizeof(::CDOTAUserMsg_SpeechBubble)},
+  { 1485, 1495, -1, sizeof(::CDOTAUserMsg_CustomHeaderMessage)},
+  { 1499, 1508, -1, sizeof(::CMsgHeroAbilityStat)},
+  { 1511, 1519, -1, sizeof(::CMsgCombatAnalyzerPlayerStat)},
+  { 1521, 1529, -1, sizeof(::CMsgCombatAnalyzerStats)},
+  { 1531, 1541, -1, sizeof(::CDOTAUserMsg_BeastChat)},
+  { 1545, 1554, -1, sizeof(::CDOTAUserMsg_CustomHudElement_Create)},
+  { 1557, 1566, -1, sizeof(::CDOTAUserMsg_CustomHudElement_Modify)},
+  { 1569, 1576, -1, sizeof(::CDOTAUserMsg_CustomHudElement_Destroy)},
+  { 1577, 1585, -1, sizeof(::CDOTAUserMsg_CompendiumStatePlayer)},
+  { 1587, -1, -1, sizeof(::CDOTAUserMsg_CompendiumState)},
+  { 1594, 1608, -1, sizeof(::CDOTAUserMsg_ProjectionAbility)},
+  { 1616, 1624, -1, sizeof(::CDOTAUserMsg_ProjectionEvent)},
+  { 1626, 1634, -1, sizeof(::CDOTAUserMsg_XPAlert)},
+  { 1636, 1647, -1, sizeof(::CDOTAUserMsg_TalentTreeAlert)},
+  { 1652, -1, -1, sizeof(::CDOTAUserMsg_UpdateQuestProgress)},
+  { 1658, 1672, -1, sizeof(::CDOTAUserMsg_QuestStatus)},
+  { 1680, 1689, -1, sizeof(::CDOTAUserMsg_SuggestHeroPick)},
+  { 1692, 1700, -1, sizeof(::CDOTAUserMsg_SuggestHeroRole)},
+  { 1702, 1714, -1, sizeof(::CDOTAUserMsg_KillcamDamageTaken)},
+  { 1720, 1728, -1, sizeof(::CDOTAUserMsg_SelectPenaltyGold)},
+  { 1730, 1741, -1, sizeof(::CDOTAUserMsg_RollDiceResult)},
+  { 1746, 1755, -1, sizeof(::CDOTAUserMsg_FlipCoinResult)},
+  { 1758, 1765, -1, sizeof(::CDOTAUserMessage_RequestItemSuggestions)},
+  { 1766, 1774, -1, sizeof(::CDOTAUserMessage_TeamCaptainChanged)},
+  { 1776, 1784, -1, sizeof(::CDOTAUserMsg_ChatWheelCooldown)},
+  { 1786, 1797, -1, sizeof(::CDOTAUserMsg_HeroRelicProgress)},
+  { 1802, 1811, -1, sizeof(::CDOTAUserMsg_AbilityDraftRequestAbility)},
+  { 1814, 1825, -1, sizeof(::CDOTAUserMsg_DamageReport)},
+  { 1830, 1842, -1, sizeof(::CDOTAUserMsg_SalutePlayer)},
+  { 1848, 1856, -1, sizeof(::CDOTAUserMsg_TipAlert)},
+  { 1858, 1867, -1, sizeof(::CDOTAUserMsg_ReplaceQueryUnit)},
+  { 1870, 1879, -1, sizeof(::CDOTAUserMsg_ESArcanaCombo)},
+  { 1882, 1891, -1, sizeof(::CDOTAUserMsg_ESArcanaComboSummary)},
+  { 1894, 1904, -1, sizeof(::CDOTAUserMsg_OMArcanaCombo)},
+  { 1908, 1918, -1, sizeof(::CDOTAUserMsg_HighFiveCompleted)},
+  { 1922, 1929, -1, sizeof(::CDOTAUserMsg_HighFiveLeftHanging)},
+  { 1930, 1940, -1, sizeof(::CDOTAUserMsg_ShovelUnearth)},
+  { 1944, 1952, -1, sizeof(::CDOTAUserMsg_AllStarEvent_PlayerScore)},
+  { 1954, 1965, -1, sizeof(::CDOTAUserMsg_AllStarEvent)},
+  { 1970, -1, -1, sizeof(::CDOTAUserMsg_QueuedOrderRemoved)},
+  { 1977, 1990, -1, sizeof(::CDOTAUserMsg_DebugChallenge)},
+  { 1997, 2007, -1, sizeof(::CDOTAUserMsg_FoundNeutralItem)},
+  { 2011, 2019, -1, sizeof(::CDOTAUserMsg_OutpostCaptured)},
+  { 2021, 2029, -1, sizeof(::CDOTAUserMsg_OutpostGrantedXP)},
+  { 2031, 2038, -1, sizeof(::CDOTAUserMsg_MoveCameraToUnit)},
+  { 2039, 2048, -1, sizeof(::CDOTAUserMsg_PauseMinigameData_DataBit)},
+  { 2051, -1, -1, sizeof(::CDOTAUserMsg_PauseMinigameData)},
+  { 2058, 2069, -1, sizeof(::CDOTAUserMsg_VersusScene_PlayerBehavior)},
+  { 2074, 2084, -1, sizeof(::CDOTAUserMsg_QoP_ArcanaSummary)},
+  { 2088, 2096, -1, sizeof(::CDOTAUserMsg_HotPotato_Created)},
+  { 2098, 2105, -1, sizeof(::CDOTAUserMsg_HotPotato_Exploded)},
+  { 2106, 2115, -1, sizeof(::CDOTAUserMsg_WK_Arcana_Progress)},
+  { 2118, 2126, -1, sizeof(::CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress)},
+  { 2128, 2141, -1, sizeof(::CDOTAUserMsg_GuildChallenge_Progress)},
+  { 2148, 2161, -1, sizeof(::CDOTAUserMsg_WRArcanaProgress)},
+  { 2168, 2182, -1, sizeof(::CDOTAUserMsg_WRArcanaSummary)},
+  { 2190, 2200, -1, sizeof(::CDOTAUserMsg_EmptyItemSlotAlert)},
+  { 2204, 2216, -1, sizeof(::CDOTAUserMsg_AghsStatusAlert)},
+  { 2222, -1, -1, sizeof(::CDOTAUserMsg_MutedPlayers)},
+  { 2230, 2251, -1, sizeof(::CDOTAUserMsg_ContextualTip)},
+  { 2266, 2275, -1, sizeof(::CDOTAUserMsg_ChatMessage)},
+  { 2278, 2286, -1, sizeof(::CDOTAUserMsg_RockPaperScissorsStarted)},
+  { 2288, 2298, -1, sizeof(::CDOTAUserMsg_RockPaperScissorsFinished)},
+  { 2302, 2310, -1, sizeof(::CDOTAUserMsg_DuelOpponentKilled)},
+  { 2312, 2320, -1, sizeof(::CDOTAUserMsg_DuelAccepted)},
+  { 2322, 2329, -1, sizeof(::CDOTAUserMsg_DuelRequested)},
+  { 2330, 2341, -1, sizeof(::CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled)},
+  { 2346, 2354, -1, sizeof(::CDOTAUserMsg_PlayerDraftSuggestPick)},
+  { 2356, 2365, -1, sizeof(::CDOTAUserMsg_PlayerDraftPick)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -5967,7 +5976,7 @@ const char descriptor_table_protodef_dota_5fusermessages_2eproto[] PROTOBUF_SECT
   "id\030\002 \001(\005:\002-1\022\r\n\005value\030\003 \001(\005\"\\\n\031CDOTAUser"
   "Msg_CoachHUDPing\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022"
   "(\n\010hud_ping\030\002 \001(\0132\026.CDOTAMsg_CoachHUDPin"
-  "g\" \n\036CDOTAUserMsg_ClientLoadGridNav\"\273\003\n\032"
+  "g\" \n\036CDOTAUserMsg_ClientLoadGridNav\"\363\003\n\032"
   "CDOTAUserMsg_TE_Projectile\022\030\n\006source\030\001 \001"
   "(\r:\01016777215\022\030\n\006target\030\002 \001(\r:\01016777215\022\022"
   "\n\nmove_speed\030\003 \001(\005\022\031\n\021source_attachment\030"
@@ -5979,664 +5988,667 @@ const char descriptor_table_protodef_dota_5fusermessages_2eproto[] PROTOBUF_SECT
   "\013.CMsgVector\022@\n\020particle_cp_data\030\017 \003(\0132&"
   ".CDOTAUserMsg_ProjectileParticleCPData\022)"
   "\n!additional_particle_system_handle\030\020 \001("
-  "\003\"\310\003\n\035CDOTAUserMsg_TE_ProjectileLoc\022\037\n\ns"
-  "ource_loc\030\001 \001(\0132\013.CMsgVector\022\030\n\006target\030\002"
-  " \001(\r:\01016777215\022\022\n\nmove_speed\030\003 \001(\005\022\036\n\026pa"
-  "rticle_system_handle\030\004 \001(\003\022\021\n\tdodgeable\030"
-  "\005 \001(\010\022\021\n\tis_attack\030\006 \001(\010\022\023\n\013expire_time\030"
-  "\t \001(\002\022\037\n\ntarget_loc\030\n \001(\0132\013.CMsgVector\022\025"
-  "\n\rcolorgemcolor\030\013 \001(\007\022\023\n\013launch_tick\030\014 \001"
-  "(\005\022\016\n\006handle\030\r \001(\005\022\030\n\006source\030\016 \001(\r:\0101677"
-  "7215\022\031\n\021source_attachment\030\017 \001(\005\022@\n\020parti"
-  "cle_cp_data\030\020 \003(\0132&.CDOTAUserMsg_Project"
-  "ileParticleCPData\022)\n!additional_particle"
-  "_system_handle\030\021 \001(\003\"3\n!CDOTAUserMsg_TE_"
-  "DestroyProjectile\022\016\n\006handle\030\001 \001(\005\"l\n\037CDO"
-  "TAUserMsg_TE_DotaBloodImpact\022\030\n\006entity\030\001"
-  " \001(\r:\01016777215\022\r\n\005scale\030\002 \001(\002\022\017\n\007xnormal"
-  "\030\003 \001(\002\022\017\n\007ynormal\030\004 \001(\002\"\303\002\n\030CDOTAUserMsg"
-  "_AbilityPing\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\026\n\na"
-  "bility_id\030\002 \001(\005:\002-1\0229\n\004type\030\003 \001(\0162\027.DOTA"
-  "_ABILITY_PING_TYPE:\022ABILITY_PING_READY\022\030"
-  "\n\020cooldown_seconds\030\004 \001(\r\022\r\n\005level\030\005 \001(\r\022"
-  "\017\n\007passive\030\006 \001(\010\022\023\n\013mana_needed\030\007 \001(\r\022\021\n"
-  "\tentity_id\030\010 \001(\r\022\027\n\017primary_charges\030\t \001("
-  "\005\022\031\n\021secondary_charges\030\n \001(\005\022\021\n\tctrl_hel"
-  "d\030\014 \001(\010\022\024\n\014reclaim_time\030\r \001(\002\"\273\001\n\035CDOTAU"
-  "serMsg_TE_UnitAnimation\022\030\n\006entity\030\001 \001(\r:"
-  "\01016777215\022\030\n\020sequence_variant\030\002 \001(\005\022\024\n\014p"
-  "laybackrate\030\003 \001(\002\022\021\n\tcastpoint\030\004 \001(\002\022\014\n\004"
-  "type\030\005 \001(\005\022\020\n\010activity\030\006 \001(\005\022\035\n\025lag_comp"
-  "ensation_time\030\007 \001(\002\"J\n CDOTAUserMsg_TE_U"
-  "nitAnimationEnd\022\030\n\006entity\030\001 \001(\r:\0101677721"
-  "5\022\014\n\004snap\030\002 \001(\010\"\221\001\n\035CDOTAUserMsg_ShowGen"
-  "ericPopup\022\016\n\006header\030\001 \002(\t\022\014\n\004body\030\002 \002(\t\022"
-  "\016\n\006param1\030\003 \001(\t\022\016\n\006param2\030\004 \001(\t\022\023\n\013tint_"
-  "screen\030\005 \001(\010\022\035\n\025show_no_other_dialogs\030\006 "
-  "\001(\010\"`\n\026CDOTAUserMsg_VoteStart\022\r\n\005title\030\001"
-  " \001(\t\022\020\n\010duration\030\002 \001(\002\022\024\n\014choice_count\030\003"
-  " \001(\005\022\017\n\007choices\030\004 \003(\t\"0\n\027CDOTAUserMsg_Vo"
-  "teUpdate\022\025\n\rchoice_counts\030\001 \003(\005\"/\n\024CDOTA"
-  "UserMsg_VoteEnd\022\027\n\017selected_choice\030\001 \001(\005"
-  "\"\220\001\n\037CDOTAUserMsg_BoosterStatePlayer\022\025\n\t"
-  "player_id\030\001 \001(\005:\002-1\022\r\n\005bonus\030\002 \001(\002\022\023\n\013ev"
-  "ent_bonus\030\003 \001(\002\022\025\n\rbonus_item_id\030\004 \001(\r\022\033"
-  "\n\023event_bonus_item_id\030\005 \001(\r\"V\n\031CDOTAUser"
-  "Msg_BoosterState\0229\n\017boosted_players\030\001 \003("
-  "\0132 .CDOTAUserMsg_BoosterStatePlayer\")\n\026C"
-  "DOTAUserMsg_PlayerMMR\022\017\n\003mmr\030\001 \003(\021B\002\020\001\"a"
-  "\n\031CDOTAUserMsg_AbilitySteal\022\025\n\tplayer_id"
-  "\030\001 \001(\005:\002-1\022\026\n\nability_id\030\002 \001(\005:\002-1\022\025\n\rab"
-  "ility_level\030\003 \001(\r\"j\n\034CDOTAUserMsg_StatsH"
-  "eroLookup\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\017\n\007hero"
-  "_id\030\002 \001(\005\022\021\n\thero_name\030\003 \001(\t\022\017\n\007persona\030"
-  "\004 \001(\t\"\372\001\n\"CDOTAUserMsg_StatsHeroPosition"
-  "Info\022\030\n\020average_position\030\001 \001(\002\022J\n\020positi"
-  "on_details\030\002 \003(\01320.CDOTAUserMsg_StatsHer"
-  "oPositionInfo.PositionPair\032n\n\014PositionPa"
-  "ir\022F\n\021position_category\030\001 \001(\0162\027.DOTA_POS"
-  "ITION_CATEGORY:\022DOTA_POSITION_NONE\022\026\n\016po"
-  "sition_count\030\002 \001(\r\"\217\003\n#CDOTAUserMsg_Stat"
-  "sHeroMinuteDetails\022\021\n\tlast_hits\030\001 \001(\r\022\022\n"
-  "\nhero_kills\030\002 \001(\r\022\023\n\013hero_damage\030\003 \001(\r\022\024"
-  "\n\014tower_damage\030\004 \001(\r\022:\n\rposition_info\030\005 "
-  "\001(\0132#.CDOTAUserMsg_StatsHeroPositionInfo"
-  "\022\020\n\010total_xp\030\006 \001(\r\022\021\n\tnet_worth\030\007 \001(\r\022\034\n"
-  "\024harvested_creep_gold\030\010 \001(\r\022\024\n\014claimed_f"
-  "arm\030\t \001(\r\022\024\n\014wards_placed\030\n \001(\r\022\027\n\017runes"
-  "_collected\030\013 \001(\r\022\020\n\010tps_used\030\014 \001(\r\022\022\n\nma"
-  "na_spent\030\r \003(\r\022\027\n\017damage_absorbed\030\016 \003(\r\022"
-  "\023\n\013damage_done\030\017 \003(\r\"\347\003\n#CDOTAUserMsg_St"
-  "atsTeamMinuteDetails\022:\n\014player_stats\030\001 \003"
-  "(\0132$.CDOTAUserMsg_StatsHeroMinuteDetails"
-  "\022\023\n\013tower_kills\030\002 \001(\r\022\025\n\rbarrack_kills\030\003"
-  " \001(\r\022!\n\031available_lane_creep_gold\030\004 \001(\r\022"
-  "\032\n\022balance_kill_value\030\005 \001(\r\022\033\n\023balance_t"
-  "ower_value\030\006 \001(\r\022\036\n\026balance_barracks_val"
-  "ue\030\007 \001(\r\022\032\n\022balance_gold_value\030\010 \001(\r\022\030\n\020"
-  "balance_xp_value\030\t \001(\r\022R\n\020lane_performan"
-  "ce\030\n \003(\01328.CDOTAUserMsg_StatsTeamMinuteD"
-  "etails.LocationPerformance\032R\n\023LocationPe"
-  "rformance\022\031\n\021location_category\030\001 \001(\r\022\021\n\t"
-  "stat_type\030\002 \001(\r\022\r\n\005value\030\003 \001(\r\"\260\001\n!CDOTA"
-  "UserMsg_StatsPlayerKillShare\022\025\n\tplayer_i"
-  "d\030\001 \001(\005:\002-1\022\032\n\022kill_share_percent\030\002 \001(\002\022"
-  "\024\n\014player_loc_x\030\003 \001(\002\022\024\n\014player_loc_y\030\004 "
-  "\001(\002\022\026\n\016health_percent\030\005 \001(\002\022\024\n\014mana_perc"
-  "ent\030\006 \001(\002\"\314\001\n\035CDOTAUserMsg_StatsKillDeta"
-  "ils\022\025\n\tvictim_id\030\001 \001(\005:\002-1\0227\n\013kill_share"
-  "s\030\002 \003(\0132\".CDOTAUserMsg_StatsPlayerKillSh"
-  "are\022\026\n\016damage_to_kill\030\003 \001(\r\022\030\n\020effective"
-  "_health\030\004 \001(\r\022\022\n\ndeath_time\030\005 \001(\002\022\025\n\tkil"
-  "ler_id\030\006 \001(\005:\002-1\"\213\006\n\036CDOTAUserMsg_StatsM"
-  "atchDetails\0222\n\013hero_lookup\030\001 \003(\0132\035.CDOTA"
-  "UserMsg_StatsHeroLookup\022;\n\rradiant_stats"
-  "\030\002 \003(\0132$.CDOTAUserMsg_StatsTeamMinuteDet"
-  "ails\0228\n\ndire_stats\030\003 \003(\0132$.CDOTAUserMsg_"
-  "StatsTeamMinuteDetails\0225\n\rradiant_kills\030"
-  "\004 \003(\0132\036.CDOTAUserMsg_StatsKillDetails\0222\n"
-  "\ndire_kills\030\005 \003(\0132\036.CDOTAUserMsg_StatsKi"
-  "llDetails\022U\n\rfight_details\030\006 \003(\0132>.CDOTA"
-  "UserMsg_StatsMatchDetails.CDOTAUserMsg_S"
-  "tatsFightDetails\032p\n\"CDOTAUserMsg_StatsFi"
-  "ghtTeamDetails\022\024\n\014participants\030\001 \003(\005\022\016\n\006"
-  "deaths\030\002 \003(\005\022\022\n\ngold_delta\030\003 \001(\r\022\020\n\010xp_d"
-  "elta\030\004 \001(\r\032\211\002\n\036CDOTAUserMsg_StatsFightDe"
-  "tails\022\022\n\nstart_time\030\001 \001(\002\022\020\n\010end_time\030\002 "
-  "\001(\002\022a\n\025radiant_fight_details\030\003 \001(\0132B.CDO"
-  "TAUserMsg_StatsMatchDetails.CDOTAUserMsg"
-  "_StatsFightTeamDetails\022^\n\022dire_fight_det"
-  "ails\030\004 \001(\0132B.CDOTAUserMsg_StatsMatchDeta"
-  "ils.CDOTAUserMsg_StatsFightTeamDetails\"8"
-  "\n\026CDOTAUserMsg_MiniTaunt\022\036\n\022taunting_pla"
-  "yer_id\030\001 \001(\005:\002-1\"0\n\031CDOTAUserMsg_SpeechB"
-  "ubble\022\023\n\013destroy_all\030\001 \001(\010\"k\n CDOTAUserM"
-  "sg_CustomHeaderMessage\022\025\n\tplayer_id\030\001 \001("
-  "\005:\002-1\022\020\n\010duration\030\002 \001(\002\022\017\n\007message\030\003 \001(\t"
-  "\022\r\n\005value\030\004 \001(\005\"v\n\023CMsgHeroAbilityStat\0227"
-  "\n\tstat_type\030\001 \001(\0162\016.EHeroStatType:\024k_EHe"
-  "roStatType_None\022\021\n\tint_value\030\002 \001(\005\022\023\n\013fl"
-  "oat_value\030\003 \001(\002\"d\n\034CMsgCombatAnalyzerPla"
-  "yerStat\022\022\n\naccount_id\030\001 \001(\r\0220\n\022hero_abil"
-  "ity_stats\030\002 \003(\0132\024.CMsgHeroAbilityStat\"`\n"
-  "\027CMsgCombatAnalyzerStats\022\020\n\010match_id\030\001 \001"
-  "(\004\0223\n\014player_stats\030\002 \003(\0132\035.CMsgCombatAna"
-  "lyzerPlayerStat\"W\n\026CDOTAUserMsg_BeastCha"
-  "t\022\014\n\004team\030\001 \001(\r\022\016\n\006format\030\002 \001(\t\022\017\n\007messa"
-  "ge\030\003 \001(\t\022\016\n\006target\030\004 \001(\t\"a\n$CDOTAUserMsg"
-  "_CustomHudElement_Create\022\022\n\nelement_id\030\001"
-  " \001(\t\022\027\n\017layout_filename\030\002 \001(\t\022\014\n\004data\030\003 "
-  "\001(\014\"`\n$CDOTAUserMsg_CustomHudElement_Mod"
-  "ify\022\022\n\nelement_id\030\001 \001(\t\022\026\n\016modify_visibl"
-  "e\030\002 \001(\010\022\014\n\004data\030\003 \001(\014\";\n%CDOTAUserMsg_Cu"
-  "stomHudElement_Destroy\022\022\n\nelement_id\030\001 \001"
-  "(\t\"J\n\"CDOTAUserMsg_CompendiumStatePlayer"
-  "\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\r\n\005level\030\002 \001(\r\"_"
-  "\n\034CDOTAUserMsg_CompendiumState\022\?\n\022compen"
-  "dium_players\030\001 \003(\0132#.CDOTAUserMsg_Compen"
-  "diumStatePlayer\"\350\001\n\036CDOTAUserMsg_Project"
-  "ionAbility\022\026\n\nability_id\030\001 \001(\005:\002-1\022\034\n\020ca"
-  "ster_ent_index\030\002 \001(\005:\002-1\022\023\n\013caster_team\030"
-  "\003 \001(\005\022\023\n\013channel_end\030\004 \001(\010\022\033\n\006origin\030\005 \001"
-  "(\0132\013.CMsgVector\022\031\n\021track_caster_only\030\006 \001"
-  "(\010\022\020\n\010end_time\030\007 \001(\002\022\034\n\020victim_ent_index"
-  "\030\010 \001(\005:\002-1\"a\n\034CDOTAUserMsg_ProjectionEve"
-  "nt\0223\n\010event_id\030\001 \001(\0162\021.EProjectionEvent:"
-  "\016ePE_FirstBlood\022\014\n\004team\030\002 \001(\r\"J\n\024CDOTAUs"
-  "erMsg_XPAlert\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\033\n\017"
-  "target_entindex\030\002 \001(\005:\002-1\"\211\001\n\034CDOTAUserM"
-  "sg_TalentTreeAlert\022\025\n\tplayer_id\030\001 \001(\005:\002-"
-  "1\022\033\n\017target_entindex\030\002 \001(\005:\002-1\022\026\n\nabilit"
-  "y_id\030\003 \001(\005:\002-1\022\014\n\004slot\030\004 \001(\005\022\017\n\007learned\030"
-  "\005 \001(\010\"\"\n CDOTAUserMsg_UpdateQuestProgres"
-  "s\"\274\001\n\030CDOTAUserMsg_QuestStatus\022\025\n\tplayer"
-  "_id\030\001 \002(\005:\002-1\022\020\n\010quest_id\030\002 \001(\r\022\024\n\014chall"
-  "enge_id\030\003 \001(\r\022\020\n\010progress\030\004 \001(\r\022\014\n\004goal\030"
-  "\005 \001(\r\022\r\n\005query\030\006 \001(\r\022\025\n\rfail_gametime\030\007 "
-  "\001(\002\022\033\n\017item_ability_id\030\010 \001(\005:\002-1\"S\n\034CDOT"
-  "AUserMsg_SuggestHeroPick\022\025\n\tplayer_id\030\001 "
-  "\002(\005:\002-1\022\017\n\007hero_id\030\002 \001(\r\022\013\n\003ban\030\003 \001(\010\"H\n"
-  "\034CDOTAUserMsg_SuggestHeroRole\022\025\n\tplayer_"
-  "id\030\001 \002(\005:\002-1\022\021\n\thero_role\030\002 \001(\t\"\247\001\n\037CDOT"
-  "AUserMsg_KillcamDamageTaken\022\025\n\tplayer_id"
-  "\030\001 \002(\005:\002-1\022\024\n\014damage_taken\030\002 \001(\r\022\021\n\titem"
-  "_type\030\003 \001(\r\022\033\n\017item_ability_id\030\004 \001(\005:\002-1"
-  "\022\021\n\thero_name\030\005 \001(\t\022\024\n\014damage_color\030\006 \001("
-  "\t\"E\n\036CDOTAUserMsg_SelectPenaltyGold\022\025\n\tp"
-  "layer_id\030\001 \002(\005:\002-1\022\014\n\004cost\030\002 \001(\021\"~\n\033CDOT"
-  "AUserMsg_RollDiceResult\022\025\n\tplayer_id\030\001 \001"
-  "(\005:\002-1\022\024\n\014channel_type\030\002 \001(\r\022\020\n\010roll_min"
-  "\030\003 \001(\r\022\020\n\010roll_max\030\004 \001(\r\022\016\n\006result\030\005 \001(\r"
-  "\"Z\n\033CDOTAUserMsg_FlipCoinResult\022\025\n\tplaye"
-  "r_id\030\001 \001(\005:\002-1\022\024\n\014channel_type\030\002 \001(\r\022\016\n\006"
-  "result\030\003 \001(\010\"@\n\'CDOTAUserMessage_Request"
-  "ItemSuggestions\022\025\n\tplayer_id\030\001 \001(\005:\002-1\"R"
-  "\n#CDOTAUserMessage_TeamCaptainChanged\022\014\n"
-  "\004team\030\001 \001(\r\022\035\n\021captain_player_id\030\002 \001(\005:\002"
-  "-1\"\\\n\036CDOTAUserMsg_ChatWheelCooldown\022\036\n\n"
-  "message_id\030\001 \001(\r:\n4294967295\022\032\n\022cooldown"
-  "_remaining\030\002 \001(\002\"\214\001\n\036CDOTAUserMsg_HeroRe"
-  "licProgress\022\027\n\017hero_relic_type\030\001 \001(\r\022\r\n\005"
-  "value\030\002 \001(\r\022\031\n\007ehandle\030\003 \001(\r:\01016777215\022\020"
-  "\n\010event_id\030\004 \001(\r\022\025\n\rvalue_display\030\005 \001(\002\""
-  "x\n\'CDOTAUserMsg_AbilityDraftRequestAbili"
-  "ty\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022 \n\024requested_a"
-  "bility_id\030\002 \001(\005:\002-1\022\024\n\014ctrl_is_down\030\003 \001("
-  "\010\"\214\001\n\031CDOTAUserMsg_DamageReport\022\025\n\tplaye"
-  "r_id\030\001 \001(\005:\002-1\022\026\n\016target_hero_id\030\002 \001(\r\022\026"
-  "\n\016source_hero_id\030\003 \001(\r\022\025\n\rdamage_amount\030"
-  "\004 \001(\005\022\021\n\tbroadcast\030\005 \001(\010\"\260\001\n\031CDOTAUserMs"
-  "g_SalutePlayer\022\034\n\020source_player_id\030\001 \001(\005"
-  ":\002-1\022\034\n\020target_player_id\030\002 \001(\005:\002-1\022\022\n\nti"
-  "p_amount\030\003 \001(\r\022\020\n\010event_id\030\004 \001(\r\022\030\n\020cust"
-  "om_tip_style\030\005 \001(\t\022\027\n\017num_recent_tips\030\006 "
-  "\001(\r\"@\n\025CDOTAUserMsg_TipAlert\022\025\n\tplayer_i"
-  "d\030\001 \001(\005:\002-1\022\020\n\010tip_text\030\002 \001(\t\"p\n\035CDOTAUs"
-  "erMsg_ReplaceQueryUnit\022\025\n\tplayer_id\030\001 \002("
-  "\005:\002-1\022\033\n\017source_entindex\030\002 \001(\005:\002-1\022\033\n\017ta"
-  "rget_entindex\030\003 \001(\005:\002-1\"b\n\032CDOTAUserMsg_"
-  "ESArcanaCombo\022\031\n\007ehandle\030\001 \001(\r:\01016777215"
-  "\022\023\n\013combo_count\030\002 \001(\r\022\024\n\014arcana_level\030\003 "
-  "\001(\r\"j\n!CDOTAUserMsg_ESArcanaComboSummary"
-  "\022\031\n\007ehandle\030\001 \001(\r:\01016777215\022\023\n\013combo_cou"
-  "nt\030\002 \001(\r\022\025\n\rdamage_amount\030\003 \001(\r\"\201\001\n\032CDOT"
-  "AUserMsg_OMArcanaCombo\022\031\n\007ehandle\030\001 \001(\r:"
-  "\01016777215\022\030\n\020multicast_amount\030\002 \001(\r\022\024\n\014a"
-  "rcana_level\030\003 \001(\r\022\030\n\020multicast_chance\030\004 "
-  "\001(\r\"\213\001\n\036CDOTAUserMsg_HighFiveCompleted\022\027"
-  "\n\013player_id_1\030\001 \001(\005:\002-1\022\027\n\013player_id_2\030\002"
-  " \001(\005:\002-1\022\031\n\021special_high_five\030\003 \001(\010\022\034\n\020s"
-  "pecial_entindex\030\004 \001(\005:\002-1\"9\n CDOTAUserMs"
-  "g_HighFiveLeftHanging\022\025\n\tplayer_id\030\001 \001(\005"
-  ":\002-1\"j\n\032CDOTAUserMsg_ShovelUnearth\022\025\n\tpl"
-  "ayer_id\030\001 \001(\005:\002-1\022\020\n\010all_chat\030\002 \001(\010\022\021\n\tl"
-  "ocstring\030\003 \001(\t\022\020\n\010quantity\030\004 \001(\r\"\374\001\n\031CDO"
-  "TAUserMsg_AllStarEvent\022\034\n\020source_player_"
-  "id\030\001 \001(\005:\002-1\022\034\n\020target_player_id\030\002 \001(\005:\002"
-  "-1\022\024\n\014point_amount\030\003 \001(\r\022\020\n\010event_id\030\004 \001"
-  "(\r\022=\n\rplayer_scores\030\005 \003(\0132&.CDOTAUserMsg"
-  "_AllStarEvent.PlayerScore\032<\n\013PlayerScore"
-  "\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\026\n\016score_sans_kd"
-  "a\030\002 \001(\r\">\n\037CDOTAUserMsg_QueuedOrderRemov"
-  "ed\022\033\n\023unit_order_sequence\030\001 \003(\r\"\306\001\n\033CDOT"
-  "AUserMsg_DebugChallenge\022\026\n\016challenge_typ"
-  "e\030\001 \002(\r\022\032\n\022challenge_query_id\030\002 \002(\r\022\020\n\010e"
-  "vent_id\030\003 \002(\r\022\023\n\013instance_id\030\004 \001(\r\022\027\n\017ch"
-  "allenge_var_0\030\005 \001(\r\022\027\n\017challenge_var_1\030\006"
-  " \001(\r\022\032\n\022challenge_max_rank\030\007 \001(\r\"\177\n\035CDOT"
-  "AUserMsg_FoundNeutralItem\022\025\n\tplayer_id\030\001"
-  " \001(\005:\002-1\022\033\n\017item_ability_id\030\002 \001(\005:\002-1\022\021\n"
-  "\titem_tier\030\003 \001(\r\022\027\n\017tier_item_count\030\004 \001("
-  "\r\"M\n\034CDOTAUserMsg_OutpostCaptured\022\034\n\020out"
-  "post_entindex\030\001 \001(\005:\002-1\022\017\n\007team_id\030\002 \001(\r"
-  "\"C\n\035CDOTAUserMsg_OutpostGrantedXP\022\017\n\007tea"
-  "m_id\030\001 \001(\r\022\021\n\txp_amount\030\002 \001(\r\"\?\n\035CDOTAUs"
-  "erMsg_MoveCameraToUnit\022\036\n\014unit_ehandle\030\001"
-  " \001(\r:\01016777215\"\230\001\n\036CDOTAUserMsg_PauseMin"
-  "igameData\022:\n\tdata_bits\030\001 \003(\0132\'.CDOTAUser"
-  "Msg_PauseMinigameData.DataBit\032:\n\007DataBit"
-  "\022\r\n\005index\030\001 \001(\r\022\014\n\004data\030\002 \001(\005\022\022\n\ndata_ex"
-  "tra\030\003 \001(\003\"\245\002\n\'CDOTAUserMsg_VersusScene_P"
-  "layerBehavior\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022S\n\010"
-  "behavior\030\002 \001(\0162\037.EDOTAVersusScenePlayerB"
-  "ehavior: VS_PLAYER_BEHAVIOR_PLAY_ACTIVIT"
-  "Y\0220\n\rplay_activity\030\003 \001(\0132\031.VersusScene_P"
-  "layActivity\022*\n\nchat_wheel\030\004 \001(\0132\026.Versus"
-  "Scene_ChatWheel\0220\n\rplayback_rate\030\005 \001(\0132\031"
-  ".VersusScene_PlaybackRate\"~\n\036CDOTAUserMs"
-  "g_QoP_ArcanaSummary\022\031\n\007ehandle\030\001 \001(\r:\01016"
-  "777215\022\024\n\014arcana_level\030\002 \001(\r\022\023\n\013players_"
-  "hit\030\003 \001(\r\022\026\n\016players_killed\030\004 \001(\r\"R\n\036CDO"
-  "TAUserMsg_HotPotato_Created\022\027\n\013player_id"
-  "_1\030\001 \001(\005:\002-1\022\027\n\013player_id_2\030\002 \001(\005:\002-1\"8\n"
-  "\037CDOTAUserMsg_HotPotato_Exploded\022\025\n\tplay"
-  "er_id\030\001 \001(\005:\002-1\"c\n\037CDOTAUserMsg_WK_Arcan"
-  "a_Progress\022\031\n\007ehandle\030\001 \001(\r:\01016777215\022\024\n"
-  "\014arcana_level\030\002 \001(\r\022\017\n\007hero_id\030\003 \001(\r\"\216\004\n"
-  "$CDOTAUserMsg_GuildChallenge_Progress\022M\n"
-  "\017player_progress\030\001 \003(\01324.CDOTAUserMsg_Gu"
-  "ildChallenge_Progress.PlayerProgress\022\020\n\010"
-  "guild_id\030\002 \001(\r\022\035\n\025challenge_instance_id\030"
-  "\003 \001(\r\022\033\n\023challenge_parameter\030\004 \001(\r\022f\n\016ch"
-  "allenge_type\030\005 \001(\01624.CDOTAUserMsg_GuildC"
-  "hallenge_Progress.EChallengeType:\030k_ECha"
-  "llengeType_Invalid\022#\n\033challenge_progress"
-  "_at_start\030\007 \001(\r\022\020\n\010complete\030\010 \001(\010\0329\n\016Pla"
-  "yerProgress\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\020\n\010pr"
-  "ogress\030\006 \001(\r\"o\n\016EChallengeType\022\034\n\030k_ECha"
-  "llengeType_Invalid\020\000\022 \n\034k_EChallengeType"
-  "_Cooperative\020\001\022\035\n\031k_EChallengeType_Contr"
-  "act\020\002\"\311\001\n\035CDOTAUserMsg_WRArcanaProgress\022"
-  "\031\n\007ehandle\030\001 \001(\r:\01016777215\022 \n\016target_eha"
-  "ndle\030\002 \001(\r:\01016777215\022\025\n\rarrows_landed\030\003 "
-  "\001(\r\022\024\n\014damage_dealt\030\004 \001(\r\022\021\n\ttarget_hp\030\005"
-  " \001(\r\022\025\n\rtarget_max_hp\030\006 \001(\r\022\024\n\014arcana_le"
-  "vel\030\007 \001(\r\"\331\001\n\034CDOTAUserMsg_WRArcanaSumma"
-  "ry\022\031\n\007ehandle\030\001 \001(\r:\01016777215\022 \n\016target_"
-  "ehandle\030\002 \001(\r:\01016777215\022\025\n\rarrows_landed"
-  "\030\003 \001(\r\022\024\n\014damage_dealt\030\004 \001(\r\022\021\n\ttarget_h"
-  "p\030\005 \001(\r\022\025\n\rtarget_max_hp\030\006 \001(\r\022\024\n\014arcana"
-  "_level\030\007 \001(\r\022\017\n\007success\030\010 \001(\010\"\213\001\n\037CDOTAU"
-  "serMsg_EmptyItemSlotAlert\022\034\n\020source_play"
-  "er_id\030\001 \001(\005:\002-1\022\034\n\020target_player_id\030\002 \001("
-  "\005:\002-1\022\022\n\nslot_index\030\003 \001(\005\022\030\n\020cooldown_se"
-  "conds\030\004 \001(\005\"\263\001\n\034CDOTAUserMsg_AghsStatusA"
-  "lert\022\034\n\020source_player_id\030\001 \001(\005:\002-1\022\034\n\020ta"
-  "rget_player_id\030\002 \001(\005:\002-1\022\033\n\017target_entin"
-  "dex\030\003 \001(\005:\002-1\022\022\n\nalert_type\030\004 \001(\r\022\023\n\013has"
-  "_scepter\030\005 \001(\010\022\021\n\thas_shard\030\006 \001(\010\"Z\n\031CDO"
-  "TAUserMsg_MutedPlayers\022\035\n\025text_muted_pla"
-  "yer_ids\030\001 \003(\005\022\036\n\026voice_muted_player_ids\030"
-  "\002 \003(\005\"\376\002\n\032CDOTAUserMsg_ContextualTip\022\016\n\006"
-  "tip_id\030\001 \001(\005\022\034\n\024referenced_abilities\030\002 \003"
-  "(\t\022\030\n\020referenced_units\030\003 \003(\t\022\030\n\020panorama"
-  "_classes\030\004 \003(\t\022\030\n\020force_annotation\030\005 \001(\010"
-  "\022\017\n\007variant\030\006 \001(\005\022\021\n\tint_param\030\007 \001(\005\022\022\n\n"
-  "int_param2\030\010 \001(\005\022\023\n\013float_param\030\t \001(\002\022\024\n"
-  "\014float_param2\030\n \001(\002\022\024\n\014string_param\030\013 \001("
-  "\t\022\025\n\rstring_param2\030\014 \001(\t\022\031\n\021tip_text_ove"
-  "rride\030\r \001(\t\022\037\n\027tip_annotation_override\030\016"
-  " \001(\t\022\030\n\020panorama_snippet\030\017 \001(\t\"d\n\030CDOTAU"
-  "serMsg_ChatMessage\022\034\n\020source_player_id\030\001"
-  " \001(\005:\002-1\022\024\n\014channel_type\030\002 \001(\r\022\024\n\014messag"
-  "e_text\030\003 \001(\t\"c\n%CDOTAUserMsg_RockPaperSc"
-  "issorsStarted\022\034\n\020player_id_source\030\001 \001(\005:"
-  "\002-1\022\034\n\020player_id_target\030\002 \001(\005:\002-1\"\214\001\n&CD"
-  "OTAUserMsg_RockPaperScissorsFinished\022\027\n\013"
-  "player_id_1\030\001 \001(\005:\002-1\022\027\n\013player_id_2\030\002 \001"
-  "(\005:\002-1\022\027\n\017player_1_choice\030\003 \001(\005\022\027\n\017playe"
-  "r_2_choice\030\004 \001(\005\"T\n\037CDOTAUserMsg_DuelOpp"
-  "onentKilled\022\030\n\020player_id_winner\030\001 \001(\005\022\027\n"
-  "\017player_id_loser\030\002 \001(\005\"E\n\031CDOTAUserMsg_D"
-  "uelAccepted\022\023\n\013player_id_1\030\001 \001(\005\022\023\n\013play"
-  "er_id_2\030\002 \001(\005\"=\n\032CDOTAUserMsg_DuelReques"
-  "ted\022\037\n\023player_id_requestor\030\001 \001(\005:\002-1\"\252\001\n"
-  "4CDOTAUserMsg_MuertaReleaseEvent_Assigne"
-  "dTargetKilled\022\034\n\020player_id_killer\030\001 \002(\005:"
-  "\002-1\022\034\n\020player_id_target\030\002 \002(\005:\002-1\022\016\n\006poi"
-  "nts\030\003 \002(\005\022\024\n\014points_total\030\004 \002(\005\022\020\n\010last_"
-  "hit\030\005 \002(\010\"^\n#CDOTAUserMsg_PlayerDraftSug"
-  "gestPick\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022 \n\024sugge"
-  "stion_player_id\030\002 \001(\005:\002-1\"i\n\034CDOTAUserMs"
-  "g_PlayerDraftPick\022\035\n\021player_id_captain\030\001"
-  " \001(\005:\002-1\022\034\n\020player_id_target\030\002 \001(\005:\002-1\022\014"
-  "\n\004team\030\003 \001(\005*\244%\n\021EDotaUserMessages\022\037\n\032DO"
-  "TA_UM_AddUnitToSelection\020\320\003\022\030\n\023DOTA_UM_A"
-  "IDebugLine\020\321\003\022\026\n\021DOTA_UM_ChatEvent\020\322\003\022 \n"
-  "\033DOTA_UM_CombatHeroPositions\020\323\003\022\032\n\025DOTA_"
-  "UM_CombatLogData\020\324\003\022\036\n\031DOTA_UM_CombatLog"
-  "BulkData\020\326\003\022#\n\036DOTA_UM_CreateLinearProje"
-  "ctile\020\327\003\022$\n\037DOTA_UM_DestroyLinearProject"
-  "ile\020\330\003\022%\n DOTA_UM_DodgeTrackingProjectil"
-  "es\020\331\003\022\035\n\030DOTA_UM_GlobalLightColor\020\332\003\022!\n\034"
-  "DOTA_UM_GlobalLightDirection\020\333\003\022\033\n\026DOTA_"
-  "UM_InvalidCommand\020\334\003\022\031\n\024DOTA_UM_Location"
-  "Ping\020\335\003\022\024\n\017DOTA_UM_MapLine\020\336\003\022\034\n\027DOTA_UM"
-  "_MiniKillCamInfo\020\337\003\022\036\n\031DOTA_UM_MinimapDe"
-  "bugPoint\020\340\003\022\031\n\024DOTA_UM_MinimapEvent\020\341\003\022\035"
-  "\n\030DOTA_UM_NevermoreRequiem\020\342\003\022\032\n\025DOTA_UM"
-  "_OverheadEvent\020\343\003\022\037\n\032DOTA_UM_SetNextAuto"
-  "buyItem\020\344\003\022\033\n\026DOTA_UM_SharedCooldown\020\345\003\022"
-  "!\n\034DOTA_UM_SpectatorPlayerClick\020\346\003\022\034\n\027DO"
-  "TA_UM_TutorialTipInfo\020\347\003\022\026\n\021DOTA_UM_Unit"
-  "Event\020\350\003\022\034\n\027DOTA_UM_ParticleManager\020\351\003\022\024"
-  "\n\017DOTA_UM_BotChat\020\352\003\022\025\n\020DOTA_UM_HudError"
-  "\020\353\003\022\032\n\025DOTA_UM_ItemPurchased\020\354\003\022\021\n\014DOTA_"
-  "UM_Ping\020\355\003\022\026\n\021DOTA_UM_ItemFound\020\356\003\022\"\n\035DO"
-  "TA_UM_CharacterSpeakConcept\020\357\003\022\027\n\022DOTA_U"
-  "M_SwapVerify\020\360\003\022\026\n\021DOTA_UM_WorldLine\020\361\003\022"
-  "\033\n\026DOTA_UM_TournamentDrop\020\362\003\022\026\n\021DOTA_UM_"
-  "ItemAlert\020\363\003\022\033\n\026DOTA_UM_HalloweenDrops\020\364"
-  "\003\022\026\n\021DOTA_UM_ChatWheel\020\365\003\022\035\n\030DOTA_UM_Rec"
-  "eivedXmasGift\020\366\003\022 \n\033DOTA_UM_UpdateShared"
-  "Content\020\367\003\022\037\n\032DOTA_UM_TutorialRequestExp"
-  "\020\370\003\022 \n\033DOTA_UM_TutorialPingMinimap\020\371\003\022\"\n"
-  "\035DOTA_UM_GamerulesStateChanged\020\372\003\022\027\n\022DOT"
-  "A_UM_ShowSurvey\020\373\003\022\031\n\024DOTA_UM_TutorialFa"
-  "de\020\374\003\022\035\n\030DOTA_UM_AddQuestLogEntry\020\375\003\022\032\n\025"
-  "DOTA_UM_SendStatPopup\020\376\003\022\033\n\026DOTA_UM_Tuto"
-  "rialFinish\020\377\003\022\034\n\027DOTA_UM_SendRoshanPopup"
-  "\020\200\004\022\037\n\032DOTA_UM_SendGenericToolTip\020\201\004\022\032\n\025"
-  "DOTA_UM_SendFinalGold\020\202\004\022\026\n\021DOTA_UM_Cust"
-  "omMsg\020\203\004\022\031\n\024DOTA_UM_CoachHUDPing\020\204\004\022\036\n\031D"
-  "OTA_UM_ClientLoadGridNav\020\205\004\022\032\n\025DOTA_UM_T"
-  "E_Projectile\020\206\004\022\035\n\030DOTA_UM_TE_Projectile"
-  "Loc\020\207\004\022\037\n\032DOTA_UM_TE_DotaBloodImpact\020\210\004\022"
-  "\035\n\030DOTA_UM_TE_UnitAnimation\020\211\004\022 \n\033DOTA_U"
-  "M_TE_UnitAnimationEnd\020\212\004\022\030\n\023DOTA_UM_Abil"
-  "ityPing\020\213\004\022\035\n\030DOTA_UM_ShowGenericPopup\020\214"
-  "\004\022\026\n\021DOTA_UM_VoteStart\020\215\004\022\027\n\022DOTA_UM_Vot"
-  "eUpdate\020\216\004\022\024\n\017DOTA_UM_VoteEnd\020\217\004\022\031\n\024DOTA"
-  "_UM_BoosterState\020\220\004\022\036\n\031DOTA_UM_WillPurch"
-  "aseAlert\020\221\004\022$\n\037DOTA_UM_TutorialMinimapPo"
-  "sition\020\222\004\022\026\n\021DOTA_UM_PlayerMMR\020\223\004\022\031\n\024DOT"
-  "A_UM_AbilitySteal\020\224\004\022\037\n\032DOTA_UM_CourierK"
-  "illedAlert\020\225\004\022\033\n\026DOTA_UM_EnemyItemAlert\020"
-  "\226\004\022\036\n\031DOTA_UM_StatsMatchDetails\020\227\004\022\026\n\021DO"
-  "TA_UM_MiniTaunt\020\230\004\022\036\n\031DOTA_UM_BuyBackSta"
-  "teAlert\020\231\004\022\031\n\024DOTA_UM_SpeechBubble\020\232\004\022 \n"
-  "\033DOTA_UM_CustomHeaderMessage\020\233\004\022\032\n\025DOTA_"
-  "UM_QuickBuyAlert\020\234\004\022\035\n\030DOTA_UM_StatsHero"
-  "Details\020\235\004\022\035\n\030DOTA_UM_PredictionResult\020\236"
-  "\004\022\032\n\025DOTA_UM_ModifierAlert\020\237\004\022\030\n\023DOTA_UM"
-  "_HPManaAlert\020\240\004\022\027\n\022DOTA_UM_GlyphAlert\020\241\004"
-  "\022\026\n\021DOTA_UM_BeastChat\020\242\004\022&\n!DOTA_UM_Spec"
-  "tatorPlayerUnitOrders\020\243\004\022$\n\037DOTA_UM_Cust"
-  "omHudElement_Create\020\244\004\022$\n\037DOTA_UM_Custom"
-  "HudElement_Modify\020\245\004\022%\n DOTA_UM_CustomHu"
-  "dElement_Destroy\020\246\004\022\034\n\027DOTA_UM_Compendiu"
-  "mState\020\247\004\022\036\n\031DOTA_UM_ProjectionAbility\020\250"
-  "\004\022\034\n\027DOTA_UM_ProjectionEvent\020\251\004\022\036\n\031DOTA_"
-  "UM_CombatLogDataHLTV\020\252\004\022\024\n\017DOTA_UM_XPAle"
-  "rt\020\253\004\022 \n\033DOTA_UM_UpdateQuestProgress\020\254\004\022"
-  "\032\n\025DOTA_UM_MatchMetadata\020\255\004\022\031\n\024DOTA_UM_M"
-  "atchDetails\020\256\004\022\030\n\023DOTA_UM_QuestStatus\020\257\004"
-  "\022\034\n\027DOTA_UM_SuggestHeroPick\020\260\004\022\034\n\027DOTA_U"
-  "M_SuggestHeroRole\020\261\004\022\037\n\032DOTA_UM_KillcamD"
-  "amageTaken\020\262\004\022\036\n\031DOTA_UM_SelectPenaltyGo"
-  "ld\020\263\004\022\033\n\026DOTA_UM_RollDiceResult\020\264\004\022\033\n\026DO"
-  "TA_UM_FlipCoinResult\020\265\004\022#\n\036DOTA_UM_Reque"
-  "stItemSuggestions\020\266\004\022\037\n\032DOTA_UM_TeamCapt"
-  "ainChanged\020\267\004\022%\n DOTA_UM_SendRoshanSpect"
-  "atorPhase\020\270\004\022\036\n\031DOTA_UM_ChatWheelCooldow"
-  "n\020\271\004\022!\n\034DOTA_UM_DismissAllStatPopups\020\272\004\022"
-  "!\n\034DOTA_UM_TE_DestroyProjectile\020\273\004\022\036\n\031DO"
-  "TA_UM_HeroRelicProgress\020\274\004\022\'\n\"DOTA_UM_Ab"
-  "ilityDraftRequestAbility\020\275\004\022\025\n\020DOTA_UM_I"
-  "temSold\020\276\004\022\031\n\024DOTA_UM_DamageReport\020\277\004\022\031\n"
-  "\024DOTA_UM_SalutePlayer\020\300\004\022\025\n\020DOTA_UM_TipA"
-  "lert\020\301\004\022\035\n\030DOTA_UM_ReplaceQueryUnit\020\302\004\022\037"
-  "\n\032DOTA_UM_EmptyTeleportAlert\020\303\004\022#\n\036DOTA_"
-  "UM_MarsArenaOfBloodAttack\020\304\004\022\032\n\025DOTA_UM_"
-  "ESArcanaCombo\020\305\004\022!\n\034DOTA_UM_ESArcanaComb"
-  "oSummary\020\306\004\022 \n\033DOTA_UM_HighFiveLeftHangi"
-  "ng\020\307\004\022\036\n\031DOTA_UM_HighFiveCompleted\020\310\004\022\032\n"
-  "\025DOTA_UM_ShovelUnearth\020\311\004\022\035\n\030DOTA_EM_Inv"
-  "okerSpellCast\020\312\004\022\027\n\022DOTA_UM_RadarAlert\020\313"
-  "\004\022\031\n\024DOTA_UM_AllStarEvent\020\314\004\022\034\n\027DOTA_UM_"
-  "TalentTreeAlert\020\315\004\022\037\n\032DOTA_UM_QueuedOrde"
-  "rRemoved\020\316\004\022\033\n\026DOTA_UM_DebugChallenge\020\317\004"
-  "\022\032\n\025DOTA_UM_OMArcanaCombo\020\320\004\022\035\n\030DOTA_UM_"
-  "FoundNeutralItem\020\321\004\022\034\n\027DOTA_UM_OutpostCa"
-  "ptured\020\322\004\022\035\n\030DOTA_UM_OutpostGrantedXP\020\323\004"
-  "\022\035\n\030DOTA_UM_MoveCameraToUnit\020\324\004\022\036\n\031DOTA_"
-  "UM_PauseMinigameData\020\325\004\022\'\n\"DOTA_UM_Versu"
-  "sScene_PlayerBehavior\020\326\004\022\036\n\031DOTA_UM_QoP_"
-  "ArcanaSummary\020\330\004\022\036\n\031DOTA_UM_HotPotato_Cr"
-  "eated\020\331\004\022\037\n\032DOTA_UM_HotPotato_Exploded\020\332"
-  "\004\022\037\n\032DOTA_UM_WK_Arcana_Progress\020\333\004\022$\n\037DO"
-  "TA_UM_GuildChallenge_Progress\020\334\004\022\035\n\030DOTA"
-  "_UM_WRArcanaProgress\020\335\004\022\034\n\027DOTA_UM_WRArc"
-  "anaSummary\020\336\004\022\037\n\032DOTA_UM_EmptyItemSlotAl"
-  "ert\020\337\004\022\034\n\027DOTA_UM_AghsStatusAlert\020\340\004\022\035\n\030"
-  "DOTA_UM_PingConfirmation\020\341\004\022\031\n\024DOTA_UM_M"
-  "utedPlayers\020\342\004\022\032\n\025DOTA_UM_ContextualTip\020"
-  "\343\004\022\030\n\023DOTA_UM_ChatMessage\020\344\004\022\035\n\030DOTA_UM_"
-  "NeutralCampAlert\020\345\004\022%\n DOTA_UM_RockPaper"
-  "ScissorsStarted\020\346\004\022&\n!DOTA_UM_RockPaperS"
-  "cissorsFinished\020\347\004\022\037\n\032DOTA_UM_DuelOppone"
-  "ntKilled\020\350\004\022\031\n\024DOTA_UM_DuelAccepted\020\351\004\022\032"
-  "\n\025DOTA_UM_DuelRequested\020\352\004\0224\n/DOTA_UM_Mu"
-  "ertaReleaseEvent_AssignedTargetKilled\020\353\004"
-  "\022#\n\036DOTA_UM_PlayerDraftSuggestPick\020\354\004\022\034\n"
-  "\027DOTA_UM_PlayerDraftPick\020\355\004*\331\036\n\021DOTA_CHA"
-  "T_MESSAGE\022!\n\024CHAT_MESSAGE_INVALID\020\377\377\377\377\377\377"
-  "\377\377\377\001\022\032\n\026CHAT_MESSAGE_HERO_KILL\020\000\022\032\n\026CHAT"
-  "_MESSAGE_HERO_DENY\020\001\022\036\n\032CHAT_MESSAGE_BAR"
-  "RACKS_KILL\020\002\022\033\n\027CHAT_MESSAGE_TOWER_KILL\020"
-  "\003\022\033\n\027CHAT_MESSAGE_TOWER_DENY\020\004\022\033\n\027CHAT_M"
-  "ESSAGE_FIRSTBLOOD\020\005\022\034\n\030CHAT_MESSAGE_STRE"
-  "AK_KILL\020\006\022\030\n\024CHAT_MESSAGE_BUYBACK\020\007\022\026\n\022C"
-  "HAT_MESSAGE_AEGIS\020\010\022\034\n\030CHAT_MESSAGE_ROSH"
-  "AN_KILL\020\t\022\035\n\031CHAT_MESSAGE_COURIER_LOST\020\n"
-  "\022\"\n\036CHAT_MESSAGE_COURIER_RESPAWNED\020\013\022\033\n\027"
-  "CHAT_MESSAGE_GLYPH_USED\020\014\022\036\n\032CHAT_MESSAG"
-  "E_ITEM_PURCHASE\020\r\022\030\n\024CHAT_MESSAGE_CONNEC"
-  "T\020\016\022\033\n\027CHAT_MESSAGE_DISCONNECT\020\017\022.\n*CHAT"
-  "_MESSAGE_DISCONNECT_WAIT_FOR_RECONNECT\020\020"
-  "\022*\n&CHAT_MESSAGE_DISCONNECT_TIME_REMAINI"
-  "NG\020\021\0221\n-CHAT_MESSAGE_DISCONNECT_TIME_REM"
-  "AINING_PLURAL\020\022\022\032\n\026CHAT_MESSAGE_RECONNEC"
-  "T\020\023\022\034\n\030CHAT_MESSAGE_PLAYER_LEFT\020\024\022\036\n\032CHA"
-  "T_MESSAGE_SAFE_TO_LEAVE\020\025\022\034\n\030CHAT_MESSAG"
-  "E_RUNE_PICKUP\020\026\022\034\n\030CHAT_MESSAGE_RUNE_BOT"
-  "TLE\020\027\022\032\n\026CHAT_MESSAGE_RUNE_DENY\020r\022\031\n\025CHA"
-  "T_MESSAGE_INTHEBAG\020\030\022\033\n\027CHAT_MESSAGE_SEC"
-  "RETSHOP\020\031\022#\n\037CHAT_MESSAGE_ITEM_AUTOPURCH"
-  "ASED\020\032\022\037\n\033CHAT_MESSAGE_ITEMS_COMBINED\020\033\022"
-  "\035\n\031CHAT_MESSAGE_SUPER_CREEPS\020\034\022%\n!CHAT_M"
-  "ESSAGE_CANT_USE_ACTION_ITEM\020\035\022\032\n\026CHAT_ME"
-  "SSAGE_CANTPAUSE\020\037\022\035\n\031CHAT_MESSAGE_NOPAUS"
-  "ESLEFT\020 \022\035\n\031CHAT_MESSAGE_CANTPAUSEYET\020!\022"
-  "\027\n\023CHAT_MESSAGE_PAUSED\020\"\022\"\n\036CHAT_MESSAGE"
-  "_UNPAUSE_COUNTDOWN\020#\022\031\n\025CHAT_MESSAGE_UNP"
-  "AUSED\020$\022\036\n\032CHAT_MESSAGE_AUTO_UNPAUSED\020%\022"
-  "\032\n\026CHAT_MESSAGE_YOUPAUSED\020&\022 \n\034CHAT_MESS"
-  "AGE_CANTUNPAUSETEAM\020\'\022\"\n\036CHAT_MESSAGE_VO"
-  "ICE_TEXT_BANNED\020)\022.\n*CHAT_MESSAGE_SPECTA"
-  "TORS_WATCHING_THIS_GAME\020*\022 \n\034CHAT_MESSAG"
-  "E_REPORT_REMINDER\020+\022\032\n\026CHAT_MESSAGE_ECON"
-  "_ITEM\020,\022\026\n\022CHAT_MESSAGE_TAUNT\020-\022\027\n\023CHAT_"
-  "MESSAGE_RANDOM\020.\022\030\n\024CHAT_MESSAGE_RD_TURN"
-  "\020/\022 \n\034CHAT_MESSAGE_DROP_RATE_BONUS\0201\022!\n\035"
-  "CHAT_MESSAGE_NO_BATTLE_POINTS\0202\022\035\n\031CHAT_"
-  "MESSAGE_DENIED_AEGIS\0203\022\036\n\032CHAT_MESSAGE_I"
-  "NFORMATIONAL\0204\022\035\n\031CHAT_MESSAGE_AEGIS_STO"
-  "LEN\0205\022\035\n\031CHAT_MESSAGE_ROSHAN_CANDY\0206\022\034\n\030"
-  "CHAT_MESSAGE_ITEM_GIFTED\0207\022\'\n#CHAT_MESSA"
-  "GE_HERO_KILL_WITH_GREEVIL\0208\022(\n$CHAT_MESS"
-  "AGE_HOLDOUT_TOWER_DESTROYED\0209\022\'\n#CHAT_ME"
-  "SSAGE_HOLDOUT_WALL_DESTROYED\020:\022&\n\"CHAT_M"
-  "ESSAGE_HOLDOUT_WALL_FINISHED\020;\022)\n%CHAT_M"
-  "ESSAGE_PLAYER_LEFT_LIMITED_HERO\020>\0221\n-CHA"
-  "T_MESSAGE_ABANDON_LIMITED_HERO_EXPLANATI"
-  "ON\020\?\022(\n$CHAT_MESSAGE_DISCONNECT_LIMITED_"
-  "HERO\020@\0223\n/CHAT_MESSAGE_LOW_PRIORITY_COMP"
-  "LETED_EXPLANATION\020A\022,\n(CHAT_MESSAGE_RECR"
-  "UITMENT_DROP_RATE_BONUS\020B\0221\n-CHAT_MESSAG"
-  "E_FROSTIVUS_SHINING_BOOSTER_ACTIVE\020C\022 \n\034"
-  "CHAT_MESSAGE_PLAYER_LEFT_AFK\020I\0222\n.CHAT_M"
-  "ESSAGE_PLAYER_LEFT_DISCONNECTED_TOO_LONG"
-  "\020J\022!\n\035CHAT_MESSAGE_PLAYER_ABANDONED\020K\022%\n"
-  "!CHAT_MESSAGE_PLAYER_ABANDONED_AFK\020L\0227\n3"
-  "CHAT_MESSAGE_PLAYER_ABANDONED_DISCONNECT"
-  "ED_TOO_LONG\020M\022#\n\037CHAT_MESSAGE_WILL_NOT_B"
-  "E_SCORED\020N\022*\n&CHAT_MESSAGE_WILL_NOT_BE_S"
-  "CORED_RANKED\020O\022+\n\'CHAT_MESSAGE_WILL_NOT_"
-  "BE_SCORED_NETWORK\020P\0222\n.CHAT_MESSAGE_WILL"
-  "_NOT_BE_SCORED_NETWORK_RANKED\020Q\022)\n%CHAT_"
-  "MESSAGE_CAN_QUIT_WITHOUT_ABANDON\020R\022:\n6CH"
-  "AT_MESSAGE_RANKED_GAME_STILL_SCORED_LEAV"
-  "ERS_GET_LOSS\020S\0228\n4CHAT_MESSAGE_ABANDON_R"
-  "ANKED_BEFORE_FIRST_BLOOD_PARTY\020T\022!\n\035CHAT"
-  "_MESSAGE_COMPENDIUM_LEVEL\020U\022*\n&CHAT_MESS"
-  "AGE_VICTORY_PREDICTION_STREAK\020V\022\"\n\036CHAT_"
-  "MESSAGE_ASSASSIN_ANNOUNCE\020W\022!\n\035CHAT_MESS"
-  "AGE_ASSASSIN_SUCCESS\020X\022 \n\034CHAT_MESSAGE_A"
-  "SSASSIN_DENIED\020Y\0227\n3CHAT_MESSAGE_VICTORY"
-  "_PREDICTION_SINGLE_USER_CONFIRM\020Z\022\034\n\030CHA"
-  "T_MESSAGE_EFFIGY_KILL\020[\022+\n\'CHAT_MESSAGE_"
-  "VOICE_TEXT_BANNED_OVERFLOW\020\\\022\"\n\036CHAT_MES"
-  "SAGE_YEAR_BEAST_KILLED\020]\022 \n\034CHAT_MESSAGE"
-  "_PAUSE_COUNTDOWN\020^\022\036\n\032CHAT_MESSAGE_COINS"
-  "_WAGERED\020_\022#\n\037CHAT_MESSAGE_HERO_NOMINATE"
-  "D_BAN\020`\022\034\n\030CHAT_MESSAGE_HERO_BANNED\020a\022\037\n"
-  "\033CHAT_MESSAGE_HERO_BAN_COUNT\020b\022\036\n\032CHAT_M"
-  "ESSAGE_RIVER_PAINTED\020c\022\032\n\026CHAT_MESSAGE_S"
-  "CAN_USED\020d\022\036\n\032CHAT_MESSAGE_SHRINE_KILLED"
-  "\020e\022\"\n\036CHAT_MESSAGE_WAGER_TOKEN_SPENT\020f\022\033"
-  "\n\027CHAT_MESSAGE_RANK_WAGER\020g\022$\n CHAT_MESS"
-  "AGE_NEW_PLAYER_REMINDER\020h\022%\n!CHAT_MESSAG"
-  "E_OBSERVER_WARD_KILLED\020i\022#\n\037CHAT_MESSAGE"
-  "_SENTRY_WARD_KILLED\020j\022-\n)CHAT_MESSAGE_IT"
-  "EM_PLACED_IN_NEUTRAL_STASH\020k\022$\n CHAT_MES"
-  "SAGE_HERO_CHOICE_INVALID\020l\022\027\n\023CHAT_MESSA"
-  "GE_BOUNTY\020m\022$\n CHAT_MESSAGE_ABILITY_DRAF"
-  "T_START\020n\022!\n\035CHAT_MESSAGE_HERO_FOUND_CAN"
-  "DY\020o\022\'\n#CHAT_MESSAGE_ABILITY_DRAFT_RANDO"
-  "MED\020p\022(\n$CHAT_MESSAGE_PRIVATE_COACH_CONN"
-  "ECTED\020q\022%\n!CHAT_MESSAGE_CANT_PAUSE_TOO_E"
-  "ARLY\020s\022\'\n#CHAT_MESSAGE_HERO_KILL_WITH_PE"
-  "NGUIN\020t\022\036\n\032CHAT_MESSAGE_MINIBOSS_KILL\020u*"
-  "\262\001\n\035DOTA_NO_BATTLE_POINTS_REASONS\022%\n!NO_"
-  "BATTLE_POINTS_WRONG_LOBBY_TYPE\020\001\022\"\n\036NO_B"
-  "ATTLE_POINTS_PRACTICE_BOTS\020\002\022#\n\037NO_BATTL"
-  "E_POINTS_CHEATS_ENABLED\020\003\022!\n\035NO_BATTLE_P"
-  "OINTS_LOW_PRIORITY\020\004*\317\001\n\027DOTA_CHAT_INFOR"
-  "MATIONAL\022!\n\035INFO_COOP_BATTLE_POINTS_RULE"
-  "S\020\001\022#\n\037INFO_FROSTIVUS_ABANDON_REMINDER\020\002"
-  "\022\030\n\024INFO_RANKED_REMINDER\020\003\022+\n\'INFO_COOP_"
-  "LOW_PRIORITY_PASSIVE_REMINDER\020\004\022%\n!INFO_"
-  "CUSTOM_GAME_PENALTY_REMINDER\020\005*\340\003\n\026DOTA_"
-  "ABILITY_PING_TYPE\022\026\n\022ABILITY_PING_READY\020"
-  "\001\022\025\n\021ABILITY_PING_MANA\020\002\022\031\n\025ABILITY_PING"
-  "_COOLDOWN\020\003\022\026\n\022ABILITY_PING_ENEMY\020\004\022\032\n\026A"
-  "BILITY_PING_UNLEARNED\020\005\022\033\n\027ABILITY_PING_"
-  "INBACKPACK\020\006\022\030\n\024ABILITY_PING_INSTASH\020\007\022\032"
-  "\n\026ABILITY_PING_ONCOURIER\020\010\022\025\n\021ABILITY_PI"
-  "NG_ALLY\020\t\022\034\n\030ABILITY_PING_LEARN_READY\020\n\022"
-  "\033\n\027ABILITY_PING_WILL_LEARN\020\013\022\035\n\031ABILITY_"
-  "PING_FUTURE_LEARN\020\014\022\036\n\032ABILITY_PING_NEUT"
-  "RAL_OFFER\020\r\022 \n\034ABILITY_PING_NEUTRAL_REQU"
-  "EST\020\016\022\036\n\032ABILITY_PING_NEUTRAL_EQUIP\020\017\022\"\n"
-  "\036ABILITY_PING_INCOURIERBACKPACK\020\020*\214\002\n\027DO"
-  "TA_REPLAY_STATE_EVENT\022&\n\"DOTA_REPLAY_STA"
-  "TE_EVENT_GAME_START\020\001\022)\n%DOTA_REPLAY_STA"
-  "TE_EVENT_STARTING_HORN\020\002\022\'\n#DOTA_REPLAY_"
-  "STATE_EVENT_FIRST_BLOOD\020\003\022$\n DOTA_REPLAY"
-  "_STATE_EVENT_SHOWCASE\020\004\022%\n!DOTA_REPLAY_S"
-  "TATE_EVENT_POST_GAME\020\005\022(\n$DOTA_REPLAY_ST"
-  "ATE_EVENT_WAIT_FOR_MAP\020\006*\345\001\n\023EDotaEntity"
-  "Messages\022\024\n\020DOTA_UNIT_SPEECH\020\000\022\031\n\025DOTA_U"
-  "NIT_SPEECH_MUTE\020\001\022\031\n\025DOTA_UNIT_ADD_GESTU"
-  "RE\020\002\022\034\n\030DOTA_UNIT_REMOVE_GESTURE\020\003\022!\n\035DO"
-  "TA_UNIT_REMOVE_ALL_GESTURES\020\004\022\032\n\026DOTA_UN"
-  "IT_FADE_GESTURE\020\006\022%\n!DOTA_UNIT_SPEECH_CL"
-  "IENTSIDE_RULES\020\007*\215\006\n\023DOTA_OVERHEAD_ALERT"
-  "\022\027\n\023OVERHEAD_ALERT_GOLD\020\000\022\027\n\023OVERHEAD_AL"
-  "ERT_DENY\020\001\022\033\n\027OVERHEAD_ALERT_CRITICAL\020\002\022"
-  "\025\n\021OVERHEAD_ALERT_XP\020\003\022%\n!OVERHEAD_ALERT"
-  "_BONUS_SPELL_DAMAGE\020\004\022\027\n\023OVERHEAD_ALERT_"
-  "MISS\020\005\022\031\n\025OVERHEAD_ALERT_DAMAGE\020\006\022\030\n\024OVE"
-  "RHEAD_ALERT_EVADE\020\007\022\030\n\024OVERHEAD_ALERT_BL"
-  "OCK\020\010\022&\n\"OVERHEAD_ALERT_BONUS_POISON_DAM"
-  "AGE\020\t\022\027\n\023OVERHEAD_ALERT_HEAL\020\n\022\033\n\027OVERHE"
-  "AD_ALERT_MANA_ADD\020\013\022\034\n\030OVERHEAD_ALERT_MA"
-  "NA_LOSS\020\014\022!\n\035OVERHEAD_ALERT_LAST_HIT_EAR"
-  "LY\020\r\022!\n\035OVERHEAD_ALERT_LAST_HIT_CLOSE\020\016\022"
-  " \n\034OVERHEAD_ALERT_LAST_HIT_MISS\020\017\022 \n\034OVE"
-  "RHEAD_ALERT_MAGICAL_BLOCK\020\020\022\"\n\036OVERHEAD_"
-  "ALERT_INCOMING_DAMAGE\020\021\022\"\n\036OVERHEAD_ALER"
-  "T_OUTGOING_DAMAGE\020\022\022!\n\035OVERHEAD_ALERT_DI"
-  "SABLE_RESIST\020\023\022\030\n\024OVERHEAD_ALERT_DEATH\020\024"
-  "\022\032\n\026OVERHEAD_ALERT_BLOCKED\020\025\022 \n\034OVERHEAD"
-  "_ALERT_ITEM_RECEIVED\020\026\022\030\n\024OVERHEAD_ALERT"
-  "_SHARD\020\027\022\036\n\032OVERHEAD_ALERT_DEADLY_BLOW\020\030"
-  "*k\n\021DOTA_ROSHAN_PHASE\022\027\n\023k_SRSP_ROSHAN_A"
-  "LIVE\020\000\022\034\n\030k_SRSP_ROSHAN_BASE_TIMER\020\001\022\037\n\033"
-  "k_SRSP_ROSHAN_VISIBLE_TIMER\020\002*\201\004\n\026DOTA_P"
-  "OSITION_CATEGORY\022\026\n\022DOTA_POSITION_NONE\020\000"
-  "\022\035\n\031DOTA_POSITION_BOTTOM_LANE\020\001\022\032\n\026DOTA_"
-  "POSITION_MID_LANE\020\002\022\032\n\026DOTA_POSITION_TOP"
-  "_LANE\020\003\022 \n\034DOTA_POSITION_RADIANT_JUNGLE\020"
-  "\004\022\035\n\031DOTA_POSITION_DIRE_JUNGLE\020\005\022\"\n\036DOTA"
-  "_POSITION_RADIANT_ANCIENTS\020\006\022\037\n\033DOTA_POS"
-  "ITION_DIRE_ANCIENTS\020\007\022%\n!DOTA_POSITION_R"
-  "ADIANT_SECRET_SHOP\020\010\022\"\n\036DOTA_POSITION_DI"
-  "RE_SECRET_SHOP\020\t\022\027\n\023DOTA_POSITION_RIVER\020"
-  "\n\022\034\n\030DOTA_POSITION_ROSHAN_PIT\020\013\022\036\n\032DOTA_"
-  "POSITION_RADIANT_BASE\020\014\022\033\n\027DOTA_POSITION"
-  "_DIRE_BASE\020\r\022\032\n\026DOTA_POSITION_FOUNTAIN\020\016"
-  "\022\027\n\023DOTA_POSITION_OTHER\020\017*\346\001\n\030DOTA_ABILI"
-  "TY_TARGET_TYPE\022\034\n\030DOTA_ABILITY_TARGET_NO"
-  "NE\020\000\022\034\n\030DOTA_ABILITY_TARGET_SELF\020\001\022!\n\035DO"
-  "TA_ABILITY_TARGET_ALLY_HERO\020\002\022\"\n\036DOTA_AB"
-  "ILITY_TARGET_ALLY_CREEP\020\003\022\"\n\036DOTA_ABILIT"
-  "Y_TARGET_ENEMY_HERO\020\004\022#\n\037DOTA_ABILITY_TA"
-  "RGET_ENEMY_CREEP\020\005*\230\010\n\rEHeroStatType\022\030\n\024"
-  "k_EHeroStatType_None\020\000\022#\n\036k_EHeroStatTyp"
-  "e_AxeTotalDamage\020\320\017\022\'\n\"k_EHeroStatType_B"
-  "attleHungerDamage\020\321\017\022\'\n\"k_EHeroStatType_"
-  "CounterHelixDamage\020\322\017\022\'\n\"k_EHeroStatType"
-  "_CullingBladeDamage\020\323\017\022,\n\'k_EHeroStatTyp"
-  "e_BerserkersCallCastCount\020\324\017\0223\n.k_EHeroS"
-  "tatType_BerserkersCallHeroesHitAverage\020\325"
-  "\017\0220\n+k_EHeroStatType_BerserkersCallOther"
-  "UnitsHit\020\326\017\0223\n.k_EHeroStatType_Berserker"
-  "sCallHeroAttacksTaken\020\327\017\0224\n/k_EHeroStatT"
-  "ype_BerserkersCallOtherAttacksTaken\020\330\017\022*"
-  "\n%k_EHeroStatType_BattleHungerCastCount\020"
-  "\331\017\0222\n-k_EHeroStatType_BattleHungerPotent"
-  "ialDuration\020\332\017\0220\n+k_EHeroStatType_Battle"
-  "HungerAverageDuration\020\333\017\022*\n%k_EHeroStatT"
-  "ype_CounterHelixProcCount\020\334\017\022.\n)k_EHeroS"
-  "tatType_CounterHelixHeroProcCount\020\335\017\0221\n,"
-  "k_EHeroStatType_CounterHelixHeroesHitAve"
-  "rage\020\336\017\0223\n.k_EHeroStatType_CounterHelixO"
-  "therUnitsHitCount\020\337\017\022*\n%k_EHeroStatType_"
-  "CullingBladeCastCount\020\340\017\022*\n%k_EHeroStatT"
-  "ype_CullingBladeKillCount\020\341\017\0224\n/k_EHeroS"
-  "tatType_CullingBladeAverageHealthCulled\020"
-  "\342\017\0227\n2k_EHeroStatType_CullingBladeAverag"
-  "eDamageAvailable\020\343\017\0220\n+k_EHeroStatType_C"
-  "ullingBladeHeroBuffAverage\020\344\017*\344\004\n\027EPlaye"
-  "rVoiceListenState\022\016\n\nkPVLS_None\020\000\022\032\n\026kPV"
-  "LS_DeniedChatBanned\020\001\022\027\n\023kPVLS_DeniedPar"
-  "tner\020\002\022&\n\"kPVLS_DeniedHLTVTalkerNotSpect"
-  "ator\020\003\022$\n kPVLS_DeniedHLTVNoTalkerPlayer"
-  "ID\020\004\022(\n$kPVLS_DeniedHLTVTalkerNotBroadca"
-  "ster\020\005\022\035\n\031kPVLS_DeniedTeamSpectator\020\006\022\027\n"
-  "\023kPVLS_DeniedStudent\020\010\022\034\n\030kPVLS_DeniedPr"
-  "ivateCoach\020\t\022\020\n\014kPVLS_Denied\020@\022&\n\"kPVLS_"
-  "AllowHLTVTalkerIsBroadcaster\020A\022\034\n\030kPVLS_"
-  "AllowCoBroadcaster\020B\022\026\n\022kPVLS_AllowAllCh"
-  "at\020C\022\035\n\031kPVLS_AllowStudentToCoach\020D\022\034\n\030k"
-  "PVLS_AllowFellowStudent\020E\022\034\n\030kPVLS_Allow"
-  "TalkerIsCoach\020F\022\034\n\030kPVLS_AllowCoachHearT"
-  "eam\020G\022\027\n\023kPVLS_AllowSameTeam\020H\022\027\n\023kPVLS_"
-  "AllowShowcase\020I\022\033\n\027kPVLS_AllowPrivateCoa"
-  "ch\020J*B\n\020EProjectionEvent\022\022\n\016ePE_FirstBlo"
-  "od\020\000\022\032\n\026ePE_Killstreak_godlike\020\001"
+  "\003\022\033\n\023original_move_speed\030\021 \001(\005\022\031\n\007abilit"
+  "y\030\022 \001(\r:\01016777215\"\345\003\n\035CDOTAUserMsg_TE_Pr"
+  "ojectileLoc\022\037\n\nsource_loc\030\001 \001(\0132\013.CMsgVe"
+  "ctor\022\030\n\006target\030\002 \001(\r:\01016777215\022\022\n\nmove_s"
+  "peed\030\003 \001(\005\022\036\n\026particle_system_handle\030\004 \001"
+  "(\003\022\021\n\tdodgeable\030\005 \001(\010\022\021\n\tis_attack\030\006 \001(\010"
+  "\022\023\n\013expire_time\030\t \001(\002\022\037\n\ntarget_loc\030\n \001("
+  "\0132\013.CMsgVector\022\025\n\rcolorgemcolor\030\013 \001(\007\022\023\n"
+  "\013launch_tick\030\014 \001(\005\022\016\n\006handle\030\r \001(\005\022\030\n\006so"
+  "urce\030\016 \001(\r:\01016777215\022\031\n\021source_attachmen"
+  "t\030\017 \001(\005\022@\n\020particle_cp_data\030\020 \003(\0132&.CDOT"
+  "AUserMsg_ProjectileParticleCPData\022)\n!add"
+  "itional_particle_system_handle\030\021 \001(\003\022\033\n\023"
+  "original_move_speed\030\022 \001(\005\"3\n!CDOTAUserMs"
+  "g_TE_DestroyProjectile\022\016\n\006handle\030\001 \001(\005\"l"
+  "\n\037CDOTAUserMsg_TE_DotaBloodImpact\022\030\n\006ent"
+  "ity\030\001 \001(\r:\01016777215\022\r\n\005scale\030\002 \001(\002\022\017\n\007xn"
+  "ormal\030\003 \001(\002\022\017\n\007ynormal\030\004 \001(\002\"\303\002\n\030CDOTAUs"
+  "erMsg_AbilityPing\022\025\n\tplayer_id\030\001 \001(\005:\002-1"
+  "\022\026\n\nability_id\030\002 \001(\005:\002-1\0229\n\004type\030\003 \001(\0162\027"
+  ".DOTA_ABILITY_PING_TYPE:\022ABILITY_PING_RE"
+  "ADY\022\030\n\020cooldown_seconds\030\004 \001(\r\022\r\n\005level\030\005"
+  " \001(\r\022\017\n\007passive\030\006 \001(\010\022\023\n\013mana_needed\030\007 \001"
+  "(\r\022\021\n\tentity_id\030\010 \001(\r\022\027\n\017primary_charges"
+  "\030\t \001(\005\022\031\n\021secondary_charges\030\n \001(\005\022\021\n\tctr"
+  "l_held\030\014 \001(\010\022\024\n\014reclaim_time\030\r \001(\002\"\273\001\n\035C"
+  "DOTAUserMsg_TE_UnitAnimation\022\030\n\006entity\030\001"
+  " \001(\r:\01016777215\022\030\n\020sequence_variant\030\002 \001(\005"
+  "\022\024\n\014playbackrate\030\003 \001(\002\022\021\n\tcastpoint\030\004 \001("
+  "\002\022\014\n\004type\030\005 \001(\005\022\020\n\010activity\030\006 \001(\005\022\035\n\025lag"
+  "_compensation_time\030\007 \001(\002\"J\n CDOTAUserMsg"
+  "_TE_UnitAnimationEnd\022\030\n\006entity\030\001 \001(\r:\01016"
+  "777215\022\014\n\004snap\030\002 \001(\010\"\221\001\n\035CDOTAUserMsg_Sh"
+  "owGenericPopup\022\016\n\006header\030\001 \002(\t\022\014\n\004body\030\002"
+  " \002(\t\022\016\n\006param1\030\003 \001(\t\022\016\n\006param2\030\004 \001(\t\022\023\n\013"
+  "tint_screen\030\005 \001(\010\022\035\n\025show_no_other_dialo"
+  "gs\030\006 \001(\010\"`\n\026CDOTAUserMsg_VoteStart\022\r\n\005ti"
+  "tle\030\001 \001(\t\022\020\n\010duration\030\002 \001(\002\022\024\n\014choice_co"
+  "unt\030\003 \001(\005\022\017\n\007choices\030\004 \003(\t\"0\n\027CDOTAUserM"
+  "sg_VoteUpdate\022\025\n\rchoice_counts\030\001 \003(\005\"/\n\024"
+  "CDOTAUserMsg_VoteEnd\022\027\n\017selected_choice\030"
+  "\001 \001(\005\"\220\001\n\037CDOTAUserMsg_BoosterStatePlaye"
+  "r\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\r\n\005bonus\030\002 \001(\002\022"
+  "\023\n\013event_bonus\030\003 \001(\002\022\025\n\rbonus_item_id\030\004 "
+  "\001(\r\022\033\n\023event_bonus_item_id\030\005 \001(\r\"V\n\031CDOT"
+  "AUserMsg_BoosterState\0229\n\017boosted_players"
+  "\030\001 \003(\0132 .CDOTAUserMsg_BoosterStatePlayer"
+  "\")\n\026CDOTAUserMsg_PlayerMMR\022\017\n\003mmr\030\001 \003(\021B"
+  "\002\020\001\"a\n\031CDOTAUserMsg_AbilitySteal\022\025\n\tplay"
+  "er_id\030\001 \001(\005:\002-1\022\026\n\nability_id\030\002 \001(\005:\002-1\022"
+  "\025\n\rability_level\030\003 \001(\r\"j\n\034CDOTAUserMsg_S"
+  "tatsHeroLookup\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\017\n"
+  "\007hero_id\030\002 \001(\005\022\021\n\thero_name\030\003 \001(\t\022\017\n\007per"
+  "sona\030\004 \001(\t\"\372\001\n\"CDOTAUserMsg_StatsHeroPos"
+  "itionInfo\022\030\n\020average_position\030\001 \001(\002\022J\n\020p"
+  "osition_details\030\002 \003(\01320.CDOTAUserMsg_Sta"
+  "tsHeroPositionInfo.PositionPair\032n\n\014Posit"
+  "ionPair\022F\n\021position_category\030\001 \001(\0162\027.DOT"
+  "A_POSITION_CATEGORY:\022DOTA_POSITION_NONE\022"
+  "\026\n\016position_count\030\002 \001(\r\"\217\003\n#CDOTAUserMsg"
+  "_StatsHeroMinuteDetails\022\021\n\tlast_hits\030\001 \001"
+  "(\r\022\022\n\nhero_kills\030\002 \001(\r\022\023\n\013hero_damage\030\003 "
+  "\001(\r\022\024\n\014tower_damage\030\004 \001(\r\022:\n\rposition_in"
+  "fo\030\005 \001(\0132#.CDOTAUserMsg_StatsHeroPositio"
+  "nInfo\022\020\n\010total_xp\030\006 \001(\r\022\021\n\tnet_worth\030\007 \001"
+  "(\r\022\034\n\024harvested_creep_gold\030\010 \001(\r\022\024\n\014clai"
+  "med_farm\030\t \001(\r\022\024\n\014wards_placed\030\n \001(\r\022\027\n\017"
+  "runes_collected\030\013 \001(\r\022\020\n\010tps_used\030\014 \001(\r\022"
+  "\022\n\nmana_spent\030\r \003(\r\022\027\n\017damage_absorbed\030\016"
+  " \003(\r\022\023\n\013damage_done\030\017 \003(\r\"\347\003\n#CDOTAUserM"
+  "sg_StatsTeamMinuteDetails\022:\n\014player_stat"
+  "s\030\001 \003(\0132$.CDOTAUserMsg_StatsHeroMinuteDe"
+  "tails\022\023\n\013tower_kills\030\002 \001(\r\022\025\n\rbarrack_ki"
+  "lls\030\003 \001(\r\022!\n\031available_lane_creep_gold\030\004"
+  " \001(\r\022\032\n\022balance_kill_value\030\005 \001(\r\022\033\n\023bala"
+  "nce_tower_value\030\006 \001(\r\022\036\n\026balance_barrack"
+  "s_value\030\007 \001(\r\022\032\n\022balance_gold_value\030\010 \001("
+  "\r\022\030\n\020balance_xp_value\030\t \001(\r\022R\n\020lane_perf"
+  "ormance\030\n \003(\01328.CDOTAUserMsg_StatsTeamMi"
+  "nuteDetails.LocationPerformance\032R\n\023Locat"
+  "ionPerformance\022\031\n\021location_category\030\001 \001("
+  "\r\022\021\n\tstat_type\030\002 \001(\r\022\r\n\005value\030\003 \001(\r\"\260\001\n!"
+  "CDOTAUserMsg_StatsPlayerKillShare\022\025\n\tpla"
+  "yer_id\030\001 \001(\005:\002-1\022\032\n\022kill_share_percent\030\002"
+  " \001(\002\022\024\n\014player_loc_x\030\003 \001(\002\022\024\n\014player_loc"
+  "_y\030\004 \001(\002\022\026\n\016health_percent\030\005 \001(\002\022\024\n\014mana"
+  "_percent\030\006 \001(\002\"\314\001\n\035CDOTAUserMsg_StatsKil"
+  "lDetails\022\025\n\tvictim_id\030\001 \001(\005:\002-1\0227\n\013kill_"
+  "shares\030\002 \003(\0132\".CDOTAUserMsg_StatsPlayerK"
+  "illShare\022\026\n\016damage_to_kill\030\003 \001(\r\022\030\n\020effe"
+  "ctive_health\030\004 \001(\r\022\022\n\ndeath_time\030\005 \001(\002\022\025"
+  "\n\tkiller_id\030\006 \001(\005:\002-1\"\213\006\n\036CDOTAUserMsg_S"
+  "tatsMatchDetails\0222\n\013hero_lookup\030\001 \003(\0132\035."
+  "CDOTAUserMsg_StatsHeroLookup\022;\n\rradiant_"
+  "stats\030\002 \003(\0132$.CDOTAUserMsg_StatsTeamMinu"
+  "teDetails\0228\n\ndire_stats\030\003 \003(\0132$.CDOTAUse"
+  "rMsg_StatsTeamMinuteDetails\0225\n\rradiant_k"
+  "ills\030\004 \003(\0132\036.CDOTAUserMsg_StatsKillDetai"
+  "ls\0222\n\ndire_kills\030\005 \003(\0132\036.CDOTAUserMsg_St"
+  "atsKillDetails\022U\n\rfight_details\030\006 \003(\0132>."
+  "CDOTAUserMsg_StatsMatchDetails.CDOTAUser"
+  "Msg_StatsFightDetails\032p\n\"CDOTAUserMsg_St"
+  "atsFightTeamDetails\022\024\n\014participants\030\001 \003("
+  "\005\022\016\n\006deaths\030\002 \003(\005\022\022\n\ngold_delta\030\003 \001(\r\022\020\n"
+  "\010xp_delta\030\004 \001(\r\032\211\002\n\036CDOTAUserMsg_StatsFi"
+  "ghtDetails\022\022\n\nstart_time\030\001 \001(\002\022\020\n\010end_ti"
+  "me\030\002 \001(\002\022a\n\025radiant_fight_details\030\003 \001(\0132"
+  "B.CDOTAUserMsg_StatsMatchDetails.CDOTAUs"
+  "erMsg_StatsFightTeamDetails\022^\n\022dire_figh"
+  "t_details\030\004 \001(\0132B.CDOTAUserMsg_StatsMatc"
+  "hDetails.CDOTAUserMsg_StatsFightTeamDeta"
+  "ils\"8\n\026CDOTAUserMsg_MiniTaunt\022\036\n\022tauntin"
+  "g_player_id\030\001 \001(\005:\002-1\"0\n\031CDOTAUserMsg_Sp"
+  "eechBubble\022\023\n\013destroy_all\030\001 \001(\010\"k\n CDOTA"
+  "UserMsg_CustomHeaderMessage\022\025\n\tplayer_id"
+  "\030\001 \001(\005:\002-1\022\020\n\010duration\030\002 \001(\002\022\017\n\007message\030"
+  "\003 \001(\t\022\r\n\005value\030\004 \001(\005\"v\n\023CMsgHeroAbilityS"
+  "tat\0227\n\tstat_type\030\001 \001(\0162\016.EHeroStatType:\024"
+  "k_EHeroStatType_None\022\021\n\tint_value\030\002 \001(\005\022"
+  "\023\n\013float_value\030\003 \001(\002\"d\n\034CMsgCombatAnalyz"
+  "erPlayerStat\022\022\n\naccount_id\030\001 \001(\r\0220\n\022hero"
+  "_ability_stats\030\002 \003(\0132\024.CMsgHeroAbilitySt"
+  "at\"`\n\027CMsgCombatAnalyzerStats\022\020\n\010match_i"
+  "d\030\001 \001(\004\0223\n\014player_stats\030\002 \003(\0132\035.CMsgComb"
+  "atAnalyzerPlayerStat\"W\n\026CDOTAUserMsg_Bea"
+  "stChat\022\014\n\004team\030\001 \001(\r\022\016\n\006format\030\002 \001(\t\022\017\n\007"
+  "message\030\003 \001(\t\022\016\n\006target\030\004 \001(\t\"a\n$CDOTAUs"
+  "erMsg_CustomHudElement_Create\022\022\n\nelement"
+  "_id\030\001 \001(\t\022\027\n\017layout_filename\030\002 \001(\t\022\014\n\004da"
+  "ta\030\003 \001(\014\"`\n$CDOTAUserMsg_CustomHudElemen"
+  "t_Modify\022\022\n\nelement_id\030\001 \001(\t\022\026\n\016modify_v"
+  "isible\030\002 \001(\010\022\014\n\004data\030\003 \001(\014\";\n%CDOTAUserM"
+  "sg_CustomHudElement_Destroy\022\022\n\nelement_i"
+  "d\030\001 \001(\t\"J\n\"CDOTAUserMsg_CompendiumStateP"
+  "layer\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\r\n\005level\030\002 "
+  "\001(\r\"_\n\034CDOTAUserMsg_CompendiumState\022\?\n\022c"
+  "ompendium_players\030\001 \003(\0132#.CDOTAUserMsg_C"
+  "ompendiumStatePlayer\"\350\001\n\036CDOTAUserMsg_Pr"
+  "ojectionAbility\022\026\n\nability_id\030\001 \001(\005:\002-1\022"
+  "\034\n\020caster_ent_index\030\002 \001(\005:\002-1\022\023\n\013caster_"
+  "team\030\003 \001(\005\022\023\n\013channel_end\030\004 \001(\010\022\033\n\006origi"
+  "n\030\005 \001(\0132\013.CMsgVector\022\031\n\021track_caster_onl"
+  "y\030\006 \001(\010\022\020\n\010end_time\030\007 \001(\002\022\034\n\020victim_ent_"
+  "index\030\010 \001(\005:\002-1\"a\n\034CDOTAUserMsg_Projecti"
+  "onEvent\0223\n\010event_id\030\001 \001(\0162\021.EProjectionE"
+  "vent:\016ePE_FirstBlood\022\014\n\004team\030\002 \001(\r\"J\n\024CD"
+  "OTAUserMsg_XPAlert\022\025\n\tplayer_id\030\001 \001(\005:\002-"
+  "1\022\033\n\017target_entindex\030\002 \001(\005:\002-1\"\211\001\n\034CDOTA"
+  "UserMsg_TalentTreeAlert\022\025\n\tplayer_id\030\001 \001"
+  "(\005:\002-1\022\033\n\017target_entindex\030\002 \001(\005:\002-1\022\026\n\na"
+  "bility_id\030\003 \001(\005:\002-1\022\014\n\004slot\030\004 \001(\005\022\017\n\007lea"
+  "rned\030\005 \001(\010\"\"\n CDOTAUserMsg_UpdateQuestPr"
+  "ogress\"\274\001\n\030CDOTAUserMsg_QuestStatus\022\025\n\tp"
+  "layer_id\030\001 \002(\005:\002-1\022\020\n\010quest_id\030\002 \001(\r\022\024\n\014"
+  "challenge_id\030\003 \001(\r\022\020\n\010progress\030\004 \001(\r\022\014\n\004"
+  "goal\030\005 \001(\r\022\r\n\005query\030\006 \001(\r\022\025\n\rfail_gameti"
+  "me\030\007 \001(\002\022\033\n\017item_ability_id\030\010 \001(\005:\002-1\"S\n"
+  "\034CDOTAUserMsg_SuggestHeroPick\022\025\n\tplayer_"
+  "id\030\001 \002(\005:\002-1\022\017\n\007hero_id\030\002 \001(\r\022\013\n\003ban\030\003 \001"
+  "(\010\"H\n\034CDOTAUserMsg_SuggestHeroRole\022\025\n\tpl"
+  "ayer_id\030\001 \002(\005:\002-1\022\021\n\thero_role\030\002 \001(\t\"\247\001\n"
+  "\037CDOTAUserMsg_KillcamDamageTaken\022\025\n\tplay"
+  "er_id\030\001 \002(\005:\002-1\022\024\n\014damage_taken\030\002 \001(\r\022\021\n"
+  "\titem_type\030\003 \001(\r\022\033\n\017item_ability_id\030\004 \001("
+  "\005:\002-1\022\021\n\thero_name\030\005 \001(\t\022\024\n\014damage_color"
+  "\030\006 \001(\t\"E\n\036CDOTAUserMsg_SelectPenaltyGold"
+  "\022\025\n\tplayer_id\030\001 \002(\005:\002-1\022\014\n\004cost\030\002 \001(\021\"~\n"
+  "\033CDOTAUserMsg_RollDiceResult\022\025\n\tplayer_i"
+  "d\030\001 \001(\005:\002-1\022\024\n\014channel_type\030\002 \001(\r\022\020\n\010rol"
+  "l_min\030\003 \001(\r\022\020\n\010roll_max\030\004 \001(\r\022\016\n\006result\030"
+  "\005 \001(\r\"Z\n\033CDOTAUserMsg_FlipCoinResult\022\025\n\t"
+  "player_id\030\001 \001(\005:\002-1\022\024\n\014channel_type\030\002 \001("
+  "\r\022\016\n\006result\030\003 \001(\010\"@\n\'CDOTAUserMessage_Re"
+  "questItemSuggestions\022\025\n\tplayer_id\030\001 \001(\005:"
+  "\002-1\"R\n#CDOTAUserMessage_TeamCaptainChang"
+  "ed\022\014\n\004team\030\001 \001(\r\022\035\n\021captain_player_id\030\002 "
+  "\001(\005:\002-1\"\\\n\036CDOTAUserMsg_ChatWheelCooldow"
+  "n\022\036\n\nmessage_id\030\001 \001(\r:\n4294967295\022\032\n\022coo"
+  "ldown_remaining\030\002 \001(\002\"\214\001\n\036CDOTAUserMsg_H"
+  "eroRelicProgress\022\027\n\017hero_relic_type\030\001 \001("
+  "\r\022\r\n\005value\030\002 \001(\r\022\031\n\007ehandle\030\003 \001(\r:\01016777"
+  "215\022\020\n\010event_id\030\004 \001(\r\022\025\n\rvalue_display\030\005"
+  " \001(\002\"x\n\'CDOTAUserMsg_AbilityDraftRequest"
+  "Ability\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022 \n\024reques"
+  "ted_ability_id\030\002 \001(\005:\002-1\022\024\n\014ctrl_is_down"
+  "\030\003 \001(\010\"\214\001\n\031CDOTAUserMsg_DamageReport\022\025\n\t"
+  "player_id\030\001 \001(\005:\002-1\022\026\n\016target_hero_id\030\002 "
+  "\001(\r\022\026\n\016source_hero_id\030\003 \001(\r\022\025\n\rdamage_am"
+  "ount\030\004 \001(\005\022\021\n\tbroadcast\030\005 \001(\010\"\260\001\n\031CDOTAU"
+  "serMsg_SalutePlayer\022\034\n\020source_player_id\030"
+  "\001 \001(\005:\002-1\022\034\n\020target_player_id\030\002 \001(\005:\002-1\022"
+  "\022\n\ntip_amount\030\003 \001(\r\022\020\n\010event_id\030\004 \001(\r\022\030\n"
+  "\020custom_tip_style\030\005 \001(\t\022\027\n\017num_recent_ti"
+  "ps\030\006 \001(\r\"@\n\025CDOTAUserMsg_TipAlert\022\025\n\tpla"
+  "yer_id\030\001 \001(\005:\002-1\022\020\n\010tip_text\030\002 \001(\t\"p\n\035CD"
+  "OTAUserMsg_ReplaceQueryUnit\022\025\n\tplayer_id"
+  "\030\001 \002(\005:\002-1\022\033\n\017source_entindex\030\002 \001(\005:\002-1\022"
+  "\033\n\017target_entindex\030\003 \001(\005:\002-1\"b\n\032CDOTAUse"
+  "rMsg_ESArcanaCombo\022\031\n\007ehandle\030\001 \001(\r:\010167"
+  "77215\022\023\n\013combo_count\030\002 \001(\r\022\024\n\014arcana_lev"
+  "el\030\003 \001(\r\"j\n!CDOTAUserMsg_ESArcanaComboSu"
+  "mmary\022\031\n\007ehandle\030\001 \001(\r:\01016777215\022\023\n\013comb"
+  "o_count\030\002 \001(\r\022\025\n\rdamage_amount\030\003 \001(\r\"\201\001\n"
+  "\032CDOTAUserMsg_OMArcanaCombo\022\031\n\007ehandle\030\001"
+  " \001(\r:\01016777215\022\030\n\020multicast_amount\030\002 \001(\r"
+  "\022\024\n\014arcana_level\030\003 \001(\r\022\030\n\020multicast_chan"
+  "ce\030\004 \001(\r\"\213\001\n\036CDOTAUserMsg_HighFiveComple"
+  "ted\022\027\n\013player_id_1\030\001 \001(\005:\002-1\022\027\n\013player_i"
+  "d_2\030\002 \001(\005:\002-1\022\031\n\021special_high_five\030\003 \001(\010"
+  "\022\034\n\020special_entindex\030\004 \001(\005:\002-1\"9\n CDOTAU"
+  "serMsg_HighFiveLeftHanging\022\025\n\tplayer_id\030"
+  "\001 \001(\005:\002-1\"j\n\032CDOTAUserMsg_ShovelUnearth\022"
+  "\025\n\tplayer_id\030\001 \001(\005:\002-1\022\020\n\010all_chat\030\002 \001(\010"
+  "\022\021\n\tlocstring\030\003 \001(\t\022\020\n\010quantity\030\004 \001(\r\"\374\001"
+  "\n\031CDOTAUserMsg_AllStarEvent\022\034\n\020source_pl"
+  "ayer_id\030\001 \001(\005:\002-1\022\034\n\020target_player_id\030\002 "
+  "\001(\005:\002-1\022\024\n\014point_amount\030\003 \001(\r\022\020\n\010event_i"
+  "d\030\004 \001(\r\022=\n\rplayer_scores\030\005 \003(\0132&.CDOTAUs"
+  "erMsg_AllStarEvent.PlayerScore\032<\n\013Player"
+  "Score\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\026\n\016score_sa"
+  "ns_kda\030\002 \001(\r\">\n\037CDOTAUserMsg_QueuedOrder"
+  "Removed\022\033\n\023unit_order_sequence\030\001 \003(\r\"\306\001\n"
+  "\033CDOTAUserMsg_DebugChallenge\022\026\n\016challeng"
+  "e_type\030\001 \002(\r\022\032\n\022challenge_query_id\030\002 \002(\r"
+  "\022\020\n\010event_id\030\003 \002(\r\022\023\n\013instance_id\030\004 \001(\r\022"
+  "\027\n\017challenge_var_0\030\005 \001(\r\022\027\n\017challenge_va"
+  "r_1\030\006 \001(\r\022\032\n\022challenge_max_rank\030\007 \001(\r\"\177\n"
+  "\035CDOTAUserMsg_FoundNeutralItem\022\025\n\tplayer"
+  "_id\030\001 \001(\005:\002-1\022\033\n\017item_ability_id\030\002 \001(\005:\002"
+  "-1\022\021\n\titem_tier\030\003 \001(\r\022\027\n\017tier_item_count"
+  "\030\004 \001(\r\"M\n\034CDOTAUserMsg_OutpostCaptured\022\034"
+  "\n\020outpost_entindex\030\001 \001(\005:\002-1\022\017\n\007team_id\030"
+  "\002 \001(\r\"C\n\035CDOTAUserMsg_OutpostGrantedXP\022\017"
+  "\n\007team_id\030\001 \001(\r\022\021\n\txp_amount\030\002 \001(\r\"\?\n\035CD"
+  "OTAUserMsg_MoveCameraToUnit\022\036\n\014unit_ehan"
+  "dle\030\001 \001(\r:\01016777215\"\230\001\n\036CDOTAUserMsg_Pau"
+  "seMinigameData\022:\n\tdata_bits\030\001 \003(\0132\'.CDOT"
+  "AUserMsg_PauseMinigameData.DataBit\032:\n\007Da"
+  "taBit\022\r\n\005index\030\001 \001(\r\022\014\n\004data\030\002 \001(\005\022\022\n\nda"
+  "ta_extra\030\003 \001(\003\"\245\002\n\'CDOTAUserMsg_VersusSc"
+  "ene_PlayerBehavior\022\025\n\tplayer_id\030\001 \001(\005:\002-"
+  "1\022S\n\010behavior\030\002 \001(\0162\037.EDOTAVersusScenePl"
+  "ayerBehavior: VS_PLAYER_BEHAVIOR_PLAY_AC"
+  "TIVITY\0220\n\rplay_activity\030\003 \001(\0132\031.VersusSc"
+  "ene_PlayActivity\022*\n\nchat_wheel\030\004 \001(\0132\026.V"
+  "ersusScene_ChatWheel\0220\n\rplayback_rate\030\005 "
+  "\001(\0132\031.VersusScene_PlaybackRate\"~\n\036CDOTAU"
+  "serMsg_QoP_ArcanaSummary\022\031\n\007ehandle\030\001 \001("
+  "\r:\01016777215\022\024\n\014arcana_level\030\002 \001(\r\022\023\n\013pla"
+  "yers_hit\030\003 \001(\r\022\026\n\016players_killed\030\004 \001(\r\"R"
+  "\n\036CDOTAUserMsg_HotPotato_Created\022\027\n\013play"
+  "er_id_1\030\001 \001(\005:\002-1\022\027\n\013player_id_2\030\002 \001(\005:\002"
+  "-1\"8\n\037CDOTAUserMsg_HotPotato_Exploded\022\025\n"
+  "\tplayer_id\030\001 \001(\005:\002-1\"c\n\037CDOTAUserMsg_WK_"
+  "Arcana_Progress\022\031\n\007ehandle\030\001 \001(\r:\010167772"
+  "15\022\024\n\014arcana_level\030\002 \001(\r\022\017\n\007hero_id\030\003 \001("
+  "\r\"\216\004\n$CDOTAUserMsg_GuildChallenge_Progre"
+  "ss\022M\n\017player_progress\030\001 \003(\01324.CDOTAUserM"
+  "sg_GuildChallenge_Progress.PlayerProgres"
+  "s\022\020\n\010guild_id\030\002 \001(\r\022\035\n\025challenge_instanc"
+  "e_id\030\003 \001(\r\022\033\n\023challenge_parameter\030\004 \001(\r\022"
+  "f\n\016challenge_type\030\005 \001(\01624.CDOTAUserMsg_G"
+  "uildChallenge_Progress.EChallengeType:\030k"
+  "_EChallengeType_Invalid\022#\n\033challenge_pro"
+  "gress_at_start\030\007 \001(\r\022\020\n\010complete\030\010 \001(\010\0329"
+  "\n\016PlayerProgress\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022"
+  "\020\n\010progress\030\006 \001(\r\"o\n\016EChallengeType\022\034\n\030k"
+  "_EChallengeType_Invalid\020\000\022 \n\034k_EChalleng"
+  "eType_Cooperative\020\001\022\035\n\031k_EChallengeType_"
+  "Contract\020\002\"\311\001\n\035CDOTAUserMsg_WRArcanaProg"
+  "ress\022\031\n\007ehandle\030\001 \001(\r:\01016777215\022 \n\016targe"
+  "t_ehandle\030\002 \001(\r:\01016777215\022\025\n\rarrows_land"
+  "ed\030\003 \001(\r\022\024\n\014damage_dealt\030\004 \001(\r\022\021\n\ttarget"
+  "_hp\030\005 \001(\r\022\025\n\rtarget_max_hp\030\006 \001(\r\022\024\n\014arca"
+  "na_level\030\007 \001(\r\"\331\001\n\034CDOTAUserMsg_WRArcana"
+  "Summary\022\031\n\007ehandle\030\001 \001(\r:\01016777215\022 \n\016ta"
+  "rget_ehandle\030\002 \001(\r:\01016777215\022\025\n\rarrows_l"
+  "anded\030\003 \001(\r\022\024\n\014damage_dealt\030\004 \001(\r\022\021\n\ttar"
+  "get_hp\030\005 \001(\r\022\025\n\rtarget_max_hp\030\006 \001(\r\022\024\n\014a"
+  "rcana_level\030\007 \001(\r\022\017\n\007success\030\010 \001(\010\"\213\001\n\037C"
+  "DOTAUserMsg_EmptyItemSlotAlert\022\034\n\020source"
+  "_player_id\030\001 \001(\005:\002-1\022\034\n\020target_player_id"
+  "\030\002 \001(\005:\002-1\022\022\n\nslot_index\030\003 \001(\005\022\030\n\020cooldo"
+  "wn_seconds\030\004 \001(\005\"\263\001\n\034CDOTAUserMsg_AghsSt"
+  "atusAlert\022\034\n\020source_player_id\030\001 \001(\005:\002-1\022"
+  "\034\n\020target_player_id\030\002 \001(\005:\002-1\022\033\n\017target_"
+  "entindex\030\003 \001(\005:\002-1\022\022\n\nalert_type\030\004 \001(\r\022\023"
+  "\n\013has_scepter\030\005 \001(\010\022\021\n\thas_shard\030\006 \001(\010\"Z"
+  "\n\031CDOTAUserMsg_MutedPlayers\022\035\n\025text_mute"
+  "d_player_ids\030\001 \003(\005\022\036\n\026voice_muted_player"
+  "_ids\030\002 \003(\005\"\376\002\n\032CDOTAUserMsg_ContextualTi"
+  "p\022\016\n\006tip_id\030\001 \001(\005\022\034\n\024referenced_abilitie"
+  "s\030\002 \003(\t\022\030\n\020referenced_units\030\003 \003(\t\022\030\n\020pan"
+  "orama_classes\030\004 \003(\t\022\030\n\020force_annotation\030"
+  "\005 \001(\010\022\017\n\007variant\030\006 \001(\005\022\021\n\tint_param\030\007 \001("
+  "\005\022\022\n\nint_param2\030\010 \001(\005\022\023\n\013float_param\030\t \001"
+  "(\002\022\024\n\014float_param2\030\n \001(\002\022\024\n\014string_param"
+  "\030\013 \001(\t\022\025\n\rstring_param2\030\014 \001(\t\022\031\n\021tip_tex"
+  "t_override\030\r \001(\t\022\037\n\027tip_annotation_overr"
+  "ide\030\016 \001(\t\022\030\n\020panorama_snippet\030\017 \001(\t\"d\n\030C"
+  "DOTAUserMsg_ChatMessage\022\034\n\020source_player"
+  "_id\030\001 \001(\005:\002-1\022\024\n\014channel_type\030\002 \001(\r\022\024\n\014m"
+  "essage_text\030\003 \001(\t\"c\n%CDOTAUserMsg_RockPa"
+  "perScissorsStarted\022\034\n\020player_id_source\030\001"
+  " \001(\005:\002-1\022\034\n\020player_id_target\030\002 \001(\005:\002-1\"\214"
+  "\001\n&CDOTAUserMsg_RockPaperScissorsFinishe"
+  "d\022\027\n\013player_id_1\030\001 \001(\005:\002-1\022\027\n\013player_id_"
+  "2\030\002 \001(\005:\002-1\022\027\n\017player_1_choice\030\003 \001(\005\022\027\n\017"
+  "player_2_choice\030\004 \001(\005\"T\n\037CDOTAUserMsg_Du"
+  "elOpponentKilled\022\030\n\020player_id_winner\030\001 \001"
+  "(\005\022\027\n\017player_id_loser\030\002 \001(\005\"E\n\031CDOTAUser"
+  "Msg_DuelAccepted\022\023\n\013player_id_1\030\001 \001(\005\022\023\n"
+  "\013player_id_2\030\002 \001(\005\"=\n\032CDOTAUserMsg_DuelR"
+  "equested\022\037\n\023player_id_requestor\030\001 \001(\005:\002-"
+  "1\"\252\001\n4CDOTAUserMsg_MuertaReleaseEvent_As"
+  "signedTargetKilled\022\034\n\020player_id_killer\030\001"
+  " \002(\005:\002-1\022\034\n\020player_id_target\030\002 \002(\005:\002-1\022\016"
+  "\n\006points\030\003 \002(\005\022\024\n\014points_total\030\004 \002(\005\022\020\n\010"
+  "last_hit\030\005 \002(\010\"^\n#CDOTAUserMsg_PlayerDra"
+  "ftSuggestPick\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022 \n\024"
+  "suggestion_player_id\030\002 \001(\005:\002-1\"i\n\034CDOTAU"
+  "serMsg_PlayerDraftPick\022\035\n\021player_id_capt"
+  "ain\030\001 \001(\005:\002-1\022\034\n\020player_id_target\030\002 \001(\005:"
+  "\002-1\022\014\n\004team\030\003 \001(\005*\244%\n\021EDotaUserMessages\022"
+  "\037\n\032DOTA_UM_AddUnitToSelection\020\320\003\022\030\n\023DOTA"
+  "_UM_AIDebugLine\020\321\003\022\026\n\021DOTA_UM_ChatEvent\020"
+  "\322\003\022 \n\033DOTA_UM_CombatHeroPositions\020\323\003\022\032\n\025"
+  "DOTA_UM_CombatLogData\020\324\003\022\036\n\031DOTA_UM_Comb"
+  "atLogBulkData\020\326\003\022#\n\036DOTA_UM_CreateLinear"
+  "Projectile\020\327\003\022$\n\037DOTA_UM_DestroyLinearPr"
+  "ojectile\020\330\003\022%\n DOTA_UM_DodgeTrackingProj"
+  "ectiles\020\331\003\022\035\n\030DOTA_UM_GlobalLightColor\020\332"
+  "\003\022!\n\034DOTA_UM_GlobalLightDirection\020\333\003\022\033\n\026"
+  "DOTA_UM_InvalidCommand\020\334\003\022\031\n\024DOTA_UM_Loc"
+  "ationPing\020\335\003\022\024\n\017DOTA_UM_MapLine\020\336\003\022\034\n\027DO"
+  "TA_UM_MiniKillCamInfo\020\337\003\022\036\n\031DOTA_UM_Mini"
+  "mapDebugPoint\020\340\003\022\031\n\024DOTA_UM_MinimapEvent"
+  "\020\341\003\022\035\n\030DOTA_UM_NevermoreRequiem\020\342\003\022\032\n\025DO"
+  "TA_UM_OverheadEvent\020\343\003\022\037\n\032DOTA_UM_SetNex"
+  "tAutobuyItem\020\344\003\022\033\n\026DOTA_UM_SharedCooldow"
+  "n\020\345\003\022!\n\034DOTA_UM_SpectatorPlayerClick\020\346\003\022"
+  "\034\n\027DOTA_UM_TutorialTipInfo\020\347\003\022\026\n\021DOTA_UM"
+  "_UnitEvent\020\350\003\022\034\n\027DOTA_UM_ParticleManager"
+  "\020\351\003\022\024\n\017DOTA_UM_BotChat\020\352\003\022\025\n\020DOTA_UM_Hud"
+  "Error\020\353\003\022\032\n\025DOTA_UM_ItemPurchased\020\354\003\022\021\n\014"
+  "DOTA_UM_Ping\020\355\003\022\026\n\021DOTA_UM_ItemFound\020\356\003\022"
+  "\"\n\035DOTA_UM_CharacterSpeakConcept\020\357\003\022\027\n\022D"
+  "OTA_UM_SwapVerify\020\360\003\022\026\n\021DOTA_UM_WorldLin"
+  "e\020\361\003\022\033\n\026DOTA_UM_TournamentDrop\020\362\003\022\026\n\021DOT"
+  "A_UM_ItemAlert\020\363\003\022\033\n\026DOTA_UM_HalloweenDr"
+  "ops\020\364\003\022\026\n\021DOTA_UM_ChatWheel\020\365\003\022\035\n\030DOTA_U"
+  "M_ReceivedXmasGift\020\366\003\022 \n\033DOTA_UM_UpdateS"
+  "haredContent\020\367\003\022\037\n\032DOTA_UM_TutorialReque"
+  "stExp\020\370\003\022 \n\033DOTA_UM_TutorialPingMinimap\020"
+  "\371\003\022\"\n\035DOTA_UM_GamerulesStateChanged\020\372\003\022\027"
+  "\n\022DOTA_UM_ShowSurvey\020\373\003\022\031\n\024DOTA_UM_Tutor"
+  "ialFade\020\374\003\022\035\n\030DOTA_UM_AddQuestLogEntry\020\375"
+  "\003\022\032\n\025DOTA_UM_SendStatPopup\020\376\003\022\033\n\026DOTA_UM"
+  "_TutorialFinish\020\377\003\022\034\n\027DOTA_UM_SendRoshan"
+  "Popup\020\200\004\022\037\n\032DOTA_UM_SendGenericToolTip\020\201"
+  "\004\022\032\n\025DOTA_UM_SendFinalGold\020\202\004\022\026\n\021DOTA_UM"
+  "_CustomMsg\020\203\004\022\031\n\024DOTA_UM_CoachHUDPing\020\204\004"
+  "\022\036\n\031DOTA_UM_ClientLoadGridNav\020\205\004\022\032\n\025DOTA"
+  "_UM_TE_Projectile\020\206\004\022\035\n\030DOTA_UM_TE_Proje"
+  "ctileLoc\020\207\004\022\037\n\032DOTA_UM_TE_DotaBloodImpac"
+  "t\020\210\004\022\035\n\030DOTA_UM_TE_UnitAnimation\020\211\004\022 \n\033D"
+  "OTA_UM_TE_UnitAnimationEnd\020\212\004\022\030\n\023DOTA_UM"
+  "_AbilityPing\020\213\004\022\035\n\030DOTA_UM_ShowGenericPo"
+  "pup\020\214\004\022\026\n\021DOTA_UM_VoteStart\020\215\004\022\027\n\022DOTA_U"
+  "M_VoteUpdate\020\216\004\022\024\n\017DOTA_UM_VoteEnd\020\217\004\022\031\n"
+  "\024DOTA_UM_BoosterState\020\220\004\022\036\n\031DOTA_UM_Will"
+  "PurchaseAlert\020\221\004\022$\n\037DOTA_UM_TutorialMini"
+  "mapPosition\020\222\004\022\026\n\021DOTA_UM_PlayerMMR\020\223\004\022\031"
+  "\n\024DOTA_UM_AbilitySteal\020\224\004\022\037\n\032DOTA_UM_Cou"
+  "rierKilledAlert\020\225\004\022\033\n\026DOTA_UM_EnemyItemA"
+  "lert\020\226\004\022\036\n\031DOTA_UM_StatsMatchDetails\020\227\004\022"
+  "\026\n\021DOTA_UM_MiniTaunt\020\230\004\022\036\n\031DOTA_UM_BuyBa"
+  "ckStateAlert\020\231\004\022\031\n\024DOTA_UM_SpeechBubble\020"
+  "\232\004\022 \n\033DOTA_UM_CustomHeaderMessage\020\233\004\022\032\n\025"
+  "DOTA_UM_QuickBuyAlert\020\234\004\022\035\n\030DOTA_UM_Stat"
+  "sHeroDetails\020\235\004\022\035\n\030DOTA_UM_PredictionRes"
+  "ult\020\236\004\022\032\n\025DOTA_UM_ModifierAlert\020\237\004\022\030\n\023DO"
+  "TA_UM_HPManaAlert\020\240\004\022\027\n\022DOTA_UM_GlyphAle"
+  "rt\020\241\004\022\026\n\021DOTA_UM_BeastChat\020\242\004\022&\n!DOTA_UM"
+  "_SpectatorPlayerUnitOrders\020\243\004\022$\n\037DOTA_UM"
+  "_CustomHudElement_Create\020\244\004\022$\n\037DOTA_UM_C"
+  "ustomHudElement_Modify\020\245\004\022%\n DOTA_UM_Cus"
+  "tomHudElement_Destroy\020\246\004\022\034\n\027DOTA_UM_Comp"
+  "endiumState\020\247\004\022\036\n\031DOTA_UM_ProjectionAbil"
+  "ity\020\250\004\022\034\n\027DOTA_UM_ProjectionEvent\020\251\004\022\036\n\031"
+  "DOTA_UM_CombatLogDataHLTV\020\252\004\022\024\n\017DOTA_UM_"
+  "XPAlert\020\253\004\022 \n\033DOTA_UM_UpdateQuestProgres"
+  "s\020\254\004\022\032\n\025DOTA_UM_MatchMetadata\020\255\004\022\031\n\024DOTA"
+  "_UM_MatchDetails\020\256\004\022\030\n\023DOTA_UM_QuestStat"
+  "us\020\257\004\022\034\n\027DOTA_UM_SuggestHeroPick\020\260\004\022\034\n\027D"
+  "OTA_UM_SuggestHeroRole\020\261\004\022\037\n\032DOTA_UM_Kil"
+  "lcamDamageTaken\020\262\004\022\036\n\031DOTA_UM_SelectPena"
+  "ltyGold\020\263\004\022\033\n\026DOTA_UM_RollDiceResult\020\264\004\022"
+  "\033\n\026DOTA_UM_FlipCoinResult\020\265\004\022#\n\036DOTA_UM_"
+  "RequestItemSuggestions\020\266\004\022\037\n\032DOTA_UM_Tea"
+  "mCaptainChanged\020\267\004\022%\n DOTA_UM_SendRoshan"
+  "SpectatorPhase\020\270\004\022\036\n\031DOTA_UM_ChatWheelCo"
+  "oldown\020\271\004\022!\n\034DOTA_UM_DismissAllStatPopup"
+  "s\020\272\004\022!\n\034DOTA_UM_TE_DestroyProjectile\020\273\004\022"
+  "\036\n\031DOTA_UM_HeroRelicProgress\020\274\004\022\'\n\"DOTA_"
+  "UM_AbilityDraftRequestAbility\020\275\004\022\025\n\020DOTA"
+  "_UM_ItemSold\020\276\004\022\031\n\024DOTA_UM_DamageReport\020"
+  "\277\004\022\031\n\024DOTA_UM_SalutePlayer\020\300\004\022\025\n\020DOTA_UM"
+  "_TipAlert\020\301\004\022\035\n\030DOTA_UM_ReplaceQueryUnit"
+  "\020\302\004\022\037\n\032DOTA_UM_EmptyTeleportAlert\020\303\004\022#\n\036"
+  "DOTA_UM_MarsArenaOfBloodAttack\020\304\004\022\032\n\025DOT"
+  "A_UM_ESArcanaCombo\020\305\004\022!\n\034DOTA_UM_ESArcan"
+  "aComboSummary\020\306\004\022 \n\033DOTA_UM_HighFiveLeft"
+  "Hanging\020\307\004\022\036\n\031DOTA_UM_HighFiveCompleted\020"
+  "\310\004\022\032\n\025DOTA_UM_ShovelUnearth\020\311\004\022\035\n\030DOTA_E"
+  "M_InvokerSpellCast\020\312\004\022\027\n\022DOTA_UM_RadarAl"
+  "ert\020\313\004\022\031\n\024DOTA_UM_AllStarEvent\020\314\004\022\034\n\027DOT"
+  "A_UM_TalentTreeAlert\020\315\004\022\037\n\032DOTA_UM_Queue"
+  "dOrderRemoved\020\316\004\022\033\n\026DOTA_UM_DebugChallen"
+  "ge\020\317\004\022\032\n\025DOTA_UM_OMArcanaCombo\020\320\004\022\035\n\030DOT"
+  "A_UM_FoundNeutralItem\020\321\004\022\034\n\027DOTA_UM_Outp"
+  "ostCaptured\020\322\004\022\035\n\030DOTA_UM_OutpostGranted"
+  "XP\020\323\004\022\035\n\030DOTA_UM_MoveCameraToUnit\020\324\004\022\036\n\031"
+  "DOTA_UM_PauseMinigameData\020\325\004\022\'\n\"DOTA_UM_"
+  "VersusScene_PlayerBehavior\020\326\004\022\036\n\031DOTA_UM"
+  "_QoP_ArcanaSummary\020\330\004\022\036\n\031DOTA_UM_HotPota"
+  "to_Created\020\331\004\022\037\n\032DOTA_UM_HotPotato_Explo"
+  "ded\020\332\004\022\037\n\032DOTA_UM_WK_Arcana_Progress\020\333\004\022"
+  "$\n\037DOTA_UM_GuildChallenge_Progress\020\334\004\022\035\n"
+  "\030DOTA_UM_WRArcanaProgress\020\335\004\022\034\n\027DOTA_UM_"
+  "WRArcanaSummary\020\336\004\022\037\n\032DOTA_UM_EmptyItemS"
+  "lotAlert\020\337\004\022\034\n\027DOTA_UM_AghsStatusAlert\020\340"
+  "\004\022\035\n\030DOTA_UM_PingConfirmation\020\341\004\022\031\n\024DOTA"
+  "_UM_MutedPlayers\020\342\004\022\032\n\025DOTA_UM_Contextua"
+  "lTip\020\343\004\022\030\n\023DOTA_UM_ChatMessage\020\344\004\022\035\n\030DOT"
+  "A_UM_NeutralCampAlert\020\345\004\022%\n DOTA_UM_Rock"
+  "PaperScissorsStarted\020\346\004\022&\n!DOTA_UM_RockP"
+  "aperScissorsFinished\020\347\004\022\037\n\032DOTA_UM_DuelO"
+  "pponentKilled\020\350\004\022\031\n\024DOTA_UM_DuelAccepted"
+  "\020\351\004\022\032\n\025DOTA_UM_DuelRequested\020\352\004\0224\n/DOTA_"
+  "UM_MuertaReleaseEvent_AssignedTargetKill"
+  "ed\020\353\004\022#\n\036DOTA_UM_PlayerDraftSuggestPick\020"
+  "\354\004\022\034\n\027DOTA_UM_PlayerDraftPick\020\355\004*\203\037\n\021DOT"
+  "A_CHAT_MESSAGE\022!\n\024CHAT_MESSAGE_INVALID\020\377"
+  "\377\377\377\377\377\377\377\377\001\022\032\n\026CHAT_MESSAGE_HERO_KILL\020\000\022\032\n"
+  "\026CHAT_MESSAGE_HERO_DENY\020\001\022\036\n\032CHAT_MESSAG"
+  "E_BARRACKS_KILL\020\002\022\033\n\027CHAT_MESSAGE_TOWER_"
+  "KILL\020\003\022\033\n\027CHAT_MESSAGE_TOWER_DENY\020\004\022\033\n\027C"
+  "HAT_MESSAGE_FIRSTBLOOD\020\005\022\034\n\030CHAT_MESSAGE"
+  "_STREAK_KILL\020\006\022\030\n\024CHAT_MESSAGE_BUYBACK\020\007"
+  "\022\026\n\022CHAT_MESSAGE_AEGIS\020\010\022\034\n\030CHAT_MESSAGE"
+  "_ROSHAN_KILL\020\t\022\035\n\031CHAT_MESSAGE_COURIER_L"
+  "OST\020\n\022\"\n\036CHAT_MESSAGE_COURIER_RESPAWNED\020"
+  "\013\022\033\n\027CHAT_MESSAGE_GLYPH_USED\020\014\022\036\n\032CHAT_M"
+  "ESSAGE_ITEM_PURCHASE\020\r\022\030\n\024CHAT_MESSAGE_C"
+  "ONNECT\020\016\022\033\n\027CHAT_MESSAGE_DISCONNECT\020\017\022.\n"
+  "*CHAT_MESSAGE_DISCONNECT_WAIT_FOR_RECONN"
+  "ECT\020\020\022*\n&CHAT_MESSAGE_DISCONNECT_TIME_RE"
+  "MAINING\020\021\0221\n-CHAT_MESSAGE_DISCONNECT_TIM"
+  "E_REMAINING_PLURAL\020\022\022\032\n\026CHAT_MESSAGE_REC"
+  "ONNECT\020\023\022\034\n\030CHAT_MESSAGE_PLAYER_LEFT\020\024\022\036"
+  "\n\032CHAT_MESSAGE_SAFE_TO_LEAVE\020\025\022\034\n\030CHAT_M"
+  "ESSAGE_RUNE_PICKUP\020\026\022\034\n\030CHAT_MESSAGE_RUN"
+  "E_BOTTLE\020\027\022\032\n\026CHAT_MESSAGE_RUNE_DENY\020r\022\031"
+  "\n\025CHAT_MESSAGE_INTHEBAG\020\030\022\033\n\027CHAT_MESSAG"
+  "E_SECRETSHOP\020\031\022#\n\037CHAT_MESSAGE_ITEM_AUTO"
+  "PURCHASED\020\032\022\037\n\033CHAT_MESSAGE_ITEMS_COMBIN"
+  "ED\020\033\022\035\n\031CHAT_MESSAGE_SUPER_CREEPS\020\034\022%\n!C"
+  "HAT_MESSAGE_CANT_USE_ACTION_ITEM\020\035\022\032\n\026CH"
+  "AT_MESSAGE_CANTPAUSE\020\037\022\035\n\031CHAT_MESSAGE_N"
+  "OPAUSESLEFT\020 \022\035\n\031CHAT_MESSAGE_CANTPAUSEY"
+  "ET\020!\022\027\n\023CHAT_MESSAGE_PAUSED\020\"\022\"\n\036CHAT_ME"
+  "SSAGE_UNPAUSE_COUNTDOWN\020#\022\031\n\025CHAT_MESSAG"
+  "E_UNPAUSED\020$\022\036\n\032CHAT_MESSAGE_AUTO_UNPAUS"
+  "ED\020%\022\032\n\026CHAT_MESSAGE_YOUPAUSED\020&\022 \n\034CHAT"
+  "_MESSAGE_CANTUNPAUSETEAM\020\'\022\"\n\036CHAT_MESSA"
+  "GE_VOICE_TEXT_BANNED\020)\022.\n*CHAT_MESSAGE_S"
+  "PECTATORS_WATCHING_THIS_GAME\020*\022 \n\034CHAT_M"
+  "ESSAGE_REPORT_REMINDER\020+\022\032\n\026CHAT_MESSAGE"
+  "_ECON_ITEM\020,\022\026\n\022CHAT_MESSAGE_TAUNT\020-\022\027\n\023"
+  "CHAT_MESSAGE_RANDOM\020.\022\030\n\024CHAT_MESSAGE_RD"
+  "_TURN\020/\022 \n\034CHAT_MESSAGE_DROP_RATE_BONUS\020"
+  "1\022!\n\035CHAT_MESSAGE_NO_BATTLE_POINTS\0202\022\035\n\031"
+  "CHAT_MESSAGE_DENIED_AEGIS\0203\022\036\n\032CHAT_MESS"
+  "AGE_INFORMATIONAL\0204\022\035\n\031CHAT_MESSAGE_AEGI"
+  "S_STOLEN\0205\022\035\n\031CHAT_MESSAGE_ROSHAN_CANDY\020"
+  "6\022\034\n\030CHAT_MESSAGE_ITEM_GIFTED\0207\022\'\n#CHAT_"
+  "MESSAGE_HERO_KILL_WITH_GREEVIL\0208\022(\n$CHAT"
+  "_MESSAGE_HOLDOUT_TOWER_DESTROYED\0209\022\'\n#CH"
+  "AT_MESSAGE_HOLDOUT_WALL_DESTROYED\020:\022&\n\"C"
+  "HAT_MESSAGE_HOLDOUT_WALL_FINISHED\020;\022)\n%C"
+  "HAT_MESSAGE_PLAYER_LEFT_LIMITED_HERO\020>\0221"
+  "\n-CHAT_MESSAGE_ABANDON_LIMITED_HERO_EXPL"
+  "ANATION\020\?\022(\n$CHAT_MESSAGE_DISCONNECT_LIM"
+  "ITED_HERO\020@\0223\n/CHAT_MESSAGE_LOW_PRIORITY"
+  "_COMPLETED_EXPLANATION\020A\022,\n(CHAT_MESSAGE"
+  "_RECRUITMENT_DROP_RATE_BONUS\020B\0221\n-CHAT_M"
+  "ESSAGE_FROSTIVUS_SHINING_BOOSTER_ACTIVE\020"
+  "C\022 \n\034CHAT_MESSAGE_PLAYER_LEFT_AFK\020I\0222\n.C"
+  "HAT_MESSAGE_PLAYER_LEFT_DISCONNECTED_TOO"
+  "_LONG\020J\022!\n\035CHAT_MESSAGE_PLAYER_ABANDONED"
+  "\020K\022%\n!CHAT_MESSAGE_PLAYER_ABANDONED_AFK\020"
+  "L\0227\n3CHAT_MESSAGE_PLAYER_ABANDONED_DISCO"
+  "NNECTED_TOO_LONG\020M\022#\n\037CHAT_MESSAGE_WILL_"
+  "NOT_BE_SCORED\020N\022*\n&CHAT_MESSAGE_WILL_NOT"
+  "_BE_SCORED_RANKED\020O\022+\n\'CHAT_MESSAGE_WILL"
+  "_NOT_BE_SCORED_NETWORK\020P\0222\n.CHAT_MESSAGE"
+  "_WILL_NOT_BE_SCORED_NETWORK_RANKED\020Q\022)\n%"
+  "CHAT_MESSAGE_CAN_QUIT_WITHOUT_ABANDON\020R\022"
+  ":\n6CHAT_MESSAGE_RANKED_GAME_STILL_SCORED"
+  "_LEAVERS_GET_LOSS\020S\0228\n4CHAT_MESSAGE_ABAN"
+  "DON_RANKED_BEFORE_FIRST_BLOOD_PARTY\020T\022!\n"
+  "\035CHAT_MESSAGE_COMPENDIUM_LEVEL\020U\022*\n&CHAT"
+  "_MESSAGE_VICTORY_PREDICTION_STREAK\020V\022\"\n\036"
+  "CHAT_MESSAGE_ASSASSIN_ANNOUNCE\020W\022!\n\035CHAT"
+  "_MESSAGE_ASSASSIN_SUCCESS\020X\022 \n\034CHAT_MESS"
+  "AGE_ASSASSIN_DENIED\020Y\0227\n3CHAT_MESSAGE_VI"
+  "CTORY_PREDICTION_SINGLE_USER_CONFIRM\020Z\022\034"
+  "\n\030CHAT_MESSAGE_EFFIGY_KILL\020[\022+\n\'CHAT_MES"
+  "SAGE_VOICE_TEXT_BANNED_OVERFLOW\020\\\022\"\n\036CHA"
+  "T_MESSAGE_YEAR_BEAST_KILLED\020]\022 \n\034CHAT_ME"
+  "SSAGE_PAUSE_COUNTDOWN\020^\022\036\n\032CHAT_MESSAGE_"
+  "COINS_WAGERED\020_\022#\n\037CHAT_MESSAGE_HERO_NOM"
+  "INATED_BAN\020`\022\034\n\030CHAT_MESSAGE_HERO_BANNED"
+  "\020a\022\037\n\033CHAT_MESSAGE_HERO_BAN_COUNT\020b\022\036\n\032C"
+  "HAT_MESSAGE_RIVER_PAINTED\020c\022\032\n\026CHAT_MESS"
+  "AGE_SCAN_USED\020d\022\036\n\032CHAT_MESSAGE_SHRINE_K"
+  "ILLED\020e\022\"\n\036CHAT_MESSAGE_WAGER_TOKEN_SPEN"
+  "T\020f\022\033\n\027CHAT_MESSAGE_RANK_WAGER\020g\022$\n CHAT"
+  "_MESSAGE_NEW_PLAYER_REMINDER\020h\022%\n!CHAT_M"
+  "ESSAGE_OBSERVER_WARD_KILLED\020i\022#\n\037CHAT_ME"
+  "SSAGE_SENTRY_WARD_KILLED\020j\022-\n)CHAT_MESSA"
+  "GE_ITEM_PLACED_IN_NEUTRAL_STASH\020k\022$\n CHA"
+  "T_MESSAGE_HERO_CHOICE_INVALID\020l\022\027\n\023CHAT_"
+  "MESSAGE_BOUNTY\020m\022$\n CHAT_MESSAGE_ABILITY"
+  "_DRAFT_START\020n\022!\n\035CHAT_MESSAGE_HERO_FOUN"
+  "D_CANDY\020o\022\'\n#CHAT_MESSAGE_ABILITY_DRAFT_"
+  "RANDOMED\020p\022(\n$CHAT_MESSAGE_PRIVATE_COACH"
+  "_CONNECTED\020q\022%\n!CHAT_MESSAGE_CANT_PAUSE_"
+  "TOO_EARLY\020s\022\'\n#CHAT_MESSAGE_HERO_KILL_WI"
+  "TH_PENGUIN\020t\022\036\n\032CHAT_MESSAGE_MINIBOSS_KI"
+  "LL\020u\022(\n$CHAT_MESSAGE_PLAYER_IN_GAME_BAN_"
+  "TEXT\020v*\262\001\n\035DOTA_NO_BATTLE_POINTS_REASONS"
+  "\022%\n!NO_BATTLE_POINTS_WRONG_LOBBY_TYPE\020\001\022"
+  "\"\n\036NO_BATTLE_POINTS_PRACTICE_BOTS\020\002\022#\n\037N"
+  "O_BATTLE_POINTS_CHEATS_ENABLED\020\003\022!\n\035NO_B"
+  "ATTLE_POINTS_LOW_PRIORITY\020\004*\317\001\n\027DOTA_CHA"
+  "T_INFORMATIONAL\022!\n\035INFO_COOP_BATTLE_POIN"
+  "TS_RULES\020\001\022#\n\037INFO_FROSTIVUS_ABANDON_REM"
+  "INDER\020\002\022\030\n\024INFO_RANKED_REMINDER\020\003\022+\n\'INF"
+  "O_COOP_LOW_PRIORITY_PASSIVE_REMINDER\020\004\022%"
+  "\n!INFO_CUSTOM_GAME_PENALTY_REMINDER\020\005*\340\003"
+  "\n\026DOTA_ABILITY_PING_TYPE\022\026\n\022ABILITY_PING"
+  "_READY\020\001\022\025\n\021ABILITY_PING_MANA\020\002\022\031\n\025ABILI"
+  "TY_PING_COOLDOWN\020\003\022\026\n\022ABILITY_PING_ENEMY"
+  "\020\004\022\032\n\026ABILITY_PING_UNLEARNED\020\005\022\033\n\027ABILIT"
+  "Y_PING_INBACKPACK\020\006\022\030\n\024ABILITY_PING_INST"
+  "ASH\020\007\022\032\n\026ABILITY_PING_ONCOURIER\020\010\022\025\n\021ABI"
+  "LITY_PING_ALLY\020\t\022\034\n\030ABILITY_PING_LEARN_R"
+  "EADY\020\n\022\033\n\027ABILITY_PING_WILL_LEARN\020\013\022\035\n\031A"
+  "BILITY_PING_FUTURE_LEARN\020\014\022\036\n\032ABILITY_PI"
+  "NG_NEUTRAL_OFFER\020\r\022 \n\034ABILITY_PING_NEUTR"
+  "AL_REQUEST\020\016\022\036\n\032ABILITY_PING_NEUTRAL_EQU"
+  "IP\020\017\022\"\n\036ABILITY_PING_INCOURIERBACKPACK\020\020"
+  "*\214\002\n\027DOTA_REPLAY_STATE_EVENT\022&\n\"DOTA_REP"
+  "LAY_STATE_EVENT_GAME_START\020\001\022)\n%DOTA_REP"
+  "LAY_STATE_EVENT_STARTING_HORN\020\002\022\'\n#DOTA_"
+  "REPLAY_STATE_EVENT_FIRST_BLOOD\020\003\022$\n DOTA"
+  "_REPLAY_STATE_EVENT_SHOWCASE\020\004\022%\n!DOTA_R"
+  "EPLAY_STATE_EVENT_POST_GAME\020\005\022(\n$DOTA_RE"
+  "PLAY_STATE_EVENT_WAIT_FOR_MAP\020\006*\345\001\n\023EDot"
+  "aEntityMessages\022\024\n\020DOTA_UNIT_SPEECH\020\000\022\031\n"
+  "\025DOTA_UNIT_SPEECH_MUTE\020\001\022\031\n\025DOTA_UNIT_AD"
+  "D_GESTURE\020\002\022\034\n\030DOTA_UNIT_REMOVE_GESTURE\020"
+  "\003\022!\n\035DOTA_UNIT_REMOVE_ALL_GESTURES\020\004\022\032\n\026"
+  "DOTA_UNIT_FADE_GESTURE\020\006\022%\n!DOTA_UNIT_SP"
+  "EECH_CLIENTSIDE_RULES\020\007*\215\006\n\023DOTA_OVERHEA"
+  "D_ALERT\022\027\n\023OVERHEAD_ALERT_GOLD\020\000\022\027\n\023OVER"
+  "HEAD_ALERT_DENY\020\001\022\033\n\027OVERHEAD_ALERT_CRIT"
+  "ICAL\020\002\022\025\n\021OVERHEAD_ALERT_XP\020\003\022%\n!OVERHEA"
+  "D_ALERT_BONUS_SPELL_DAMAGE\020\004\022\027\n\023OVERHEAD"
+  "_ALERT_MISS\020\005\022\031\n\025OVERHEAD_ALERT_DAMAGE\020\006"
+  "\022\030\n\024OVERHEAD_ALERT_EVADE\020\007\022\030\n\024OVERHEAD_A"
+  "LERT_BLOCK\020\010\022&\n\"OVERHEAD_ALERT_BONUS_POI"
+  "SON_DAMAGE\020\t\022\027\n\023OVERHEAD_ALERT_HEAL\020\n\022\033\n"
+  "\027OVERHEAD_ALERT_MANA_ADD\020\013\022\034\n\030OVERHEAD_A"
+  "LERT_MANA_LOSS\020\014\022!\n\035OVERHEAD_ALERT_LAST_"
+  "HIT_EARLY\020\r\022!\n\035OVERHEAD_ALERT_LAST_HIT_C"
+  "LOSE\020\016\022 \n\034OVERHEAD_ALERT_LAST_HIT_MISS\020\017"
+  "\022 \n\034OVERHEAD_ALERT_MAGICAL_BLOCK\020\020\022\"\n\036OV"
+  "ERHEAD_ALERT_INCOMING_DAMAGE\020\021\022\"\n\036OVERHE"
+  "AD_ALERT_OUTGOING_DAMAGE\020\022\022!\n\035OVERHEAD_A"
+  "LERT_DISABLE_RESIST\020\023\022\030\n\024OVERHEAD_ALERT_"
+  "DEATH\020\024\022\032\n\026OVERHEAD_ALERT_BLOCKED\020\025\022 \n\034O"
+  "VERHEAD_ALERT_ITEM_RECEIVED\020\026\022\030\n\024OVERHEA"
+  "D_ALERT_SHARD\020\027\022\036\n\032OVERHEAD_ALERT_DEADLY"
+  "_BLOW\020\030*k\n\021DOTA_ROSHAN_PHASE\022\027\n\023k_SRSP_R"
+  "OSHAN_ALIVE\020\000\022\034\n\030k_SRSP_ROSHAN_BASE_TIME"
+  "R\020\001\022\037\n\033k_SRSP_ROSHAN_VISIBLE_TIMER\020\002*\201\004\n"
+  "\026DOTA_POSITION_CATEGORY\022\026\n\022DOTA_POSITION"
+  "_NONE\020\000\022\035\n\031DOTA_POSITION_BOTTOM_LANE\020\001\022\032"
+  "\n\026DOTA_POSITION_MID_LANE\020\002\022\032\n\026DOTA_POSIT"
+  "ION_TOP_LANE\020\003\022 \n\034DOTA_POSITION_RADIANT_"
+  "JUNGLE\020\004\022\035\n\031DOTA_POSITION_DIRE_JUNGLE\020\005\022"
+  "\"\n\036DOTA_POSITION_RADIANT_ANCIENTS\020\006\022\037\n\033D"
+  "OTA_POSITION_DIRE_ANCIENTS\020\007\022%\n!DOTA_POS"
+  "ITION_RADIANT_SECRET_SHOP\020\010\022\"\n\036DOTA_POSI"
+  "TION_DIRE_SECRET_SHOP\020\t\022\027\n\023DOTA_POSITION"
+  "_RIVER\020\n\022\034\n\030DOTA_POSITION_ROSHAN_PIT\020\013\022\036"
+  "\n\032DOTA_POSITION_RADIANT_BASE\020\014\022\033\n\027DOTA_P"
+  "OSITION_DIRE_BASE\020\r\022\032\n\026DOTA_POSITION_FOU"
+  "NTAIN\020\016\022\027\n\023DOTA_POSITION_OTHER\020\017*\346\001\n\030DOT"
+  "A_ABILITY_TARGET_TYPE\022\034\n\030DOTA_ABILITY_TA"
+  "RGET_NONE\020\000\022\034\n\030DOTA_ABILITY_TARGET_SELF\020"
+  "\001\022!\n\035DOTA_ABILITY_TARGET_ALLY_HERO\020\002\022\"\n\036"
+  "DOTA_ABILITY_TARGET_ALLY_CREEP\020\003\022\"\n\036DOTA"
+  "_ABILITY_TARGET_ENEMY_HERO\020\004\022#\n\037DOTA_ABI"
+  "LITY_TARGET_ENEMY_CREEP\020\005*\230\010\n\rEHeroStatT"
+  "ype\022\030\n\024k_EHeroStatType_None\020\000\022#\n\036k_EHero"
+  "StatType_AxeTotalDamage\020\320\017\022\'\n\"k_EHeroSta"
+  "tType_BattleHungerDamage\020\321\017\022\'\n\"k_EHeroSt"
+  "atType_CounterHelixDamage\020\322\017\022\'\n\"k_EHeroS"
+  "tatType_CullingBladeDamage\020\323\017\022,\n\'k_EHero"
+  "StatType_BerserkersCallCastCount\020\324\017\0223\n.k"
+  "_EHeroStatType_BerserkersCallHeroesHitAv"
+  "erage\020\325\017\0220\n+k_EHeroStatType_BerserkersCa"
+  "llOtherUnitsHit\020\326\017\0223\n.k_EHeroStatType_Be"
+  "rserkersCallHeroAttacksTaken\020\327\017\0224\n/k_EHe"
+  "roStatType_BerserkersCallOtherAttacksTak"
+  "en\020\330\017\022*\n%k_EHeroStatType_BattleHungerCas"
+  "tCount\020\331\017\0222\n-k_EHeroStatType_BattleHunge"
+  "rPotentialDuration\020\332\017\0220\n+k_EHeroStatType"
+  "_BattleHungerAverageDuration\020\333\017\022*\n%k_EHe"
+  "roStatType_CounterHelixProcCount\020\334\017\022.\n)k"
+  "_EHeroStatType_CounterHelixHeroProcCount"
+  "\020\335\017\0221\n,k_EHeroStatType_CounterHelixHeroe"
+  "sHitAverage\020\336\017\0223\n.k_EHeroStatType_Counte"
+  "rHelixOtherUnitsHitCount\020\337\017\022*\n%k_EHeroSt"
+  "atType_CullingBladeCastCount\020\340\017\022*\n%k_EHe"
+  "roStatType_CullingBladeKillCount\020\341\017\0224\n/k"
+  "_EHeroStatType_CullingBladeAverageHealth"
+  "Culled\020\342\017\0227\n2k_EHeroStatType_CullingBlad"
+  "eAverageDamageAvailable\020\343\017\0220\n+k_EHeroSta"
+  "tType_CullingBladeHeroBuffAverage\020\344\017*\344\004\n"
+  "\027EPlayerVoiceListenState\022\016\n\nkPVLS_None\020\000"
+  "\022\032\n\026kPVLS_DeniedChatBanned\020\001\022\027\n\023kPVLS_De"
+  "niedPartner\020\002\022&\n\"kPVLS_DeniedHLTVTalkerN"
+  "otSpectator\020\003\022$\n kPVLS_DeniedHLTVNoTalke"
+  "rPlayerID\020\004\022(\n$kPVLS_DeniedHLTVTalkerNot"
+  "Broadcaster\020\005\022\035\n\031kPVLS_DeniedTeamSpectat"
+  "or\020\006\022\027\n\023kPVLS_DeniedStudent\020\010\022\034\n\030kPVLS_D"
+  "eniedPrivateCoach\020\t\022\020\n\014kPVLS_Denied\020@\022&\n"
+  "\"kPVLS_AllowHLTVTalkerIsBroadcaster\020A\022\034\n"
+  "\030kPVLS_AllowCoBroadcaster\020B\022\026\n\022kPVLS_All"
+  "owAllChat\020C\022\035\n\031kPVLS_AllowStudentToCoach"
+  "\020D\022\034\n\030kPVLS_AllowFellowStudent\020E\022\034\n\030kPVL"
+  "S_AllowTalkerIsCoach\020F\022\034\n\030kPVLS_AllowCoa"
+  "chHearTeam\020G\022\027\n\023kPVLS_AllowSameTeam\020H\022\027\n"
+  "\023kPVLS_AllowShowcase\020I\022\033\n\027kPVLS_AllowPri"
+  "vateCoach\020J*B\n\020EProjectionEvent\022\022\n\016ePE_F"
+  "irstBlood\020\000\022\032\n\026ePE_Killstreak_godlike\020\001"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fusermessages_2eproto_deps[3] = {
   &::descriptor_table_dota_5fcommonmessages_2eproto,
@@ -6645,7 +6657,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fusermessages
 };
 static ::_pbi::once_flag descriptor_table_dota_5fusermessages_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fusermessages_2eproto = {
-    false, false, 36392, descriptor_table_protodef_dota_5fusermessages_2eproto,
+    false, false, 36519, descriptor_table_protodef_dota_5fusermessages_2eproto,
     "dota_usermessages.proto",
     &descriptor_table_dota_5fusermessages_2eproto_once, descriptor_table_dota_5fusermessages_2eproto_deps, 3, 180,
     schemas, file_default_instances, TableStruct_dota_5fusermessages_2eproto::offsets,
@@ -7010,6 +7022,7 @@ bool DOTA_CHAT_MESSAGE_IsValid(int value) {
     case 115:
     case 116:
     case 117:
+    case 118:
       return true;
     default:
       return false;
@@ -30437,10 +30450,10 @@ class CDOTAUserMsg_TE_Projectile::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_TE_Projectile>()._impl_._has_bits_);
   static void set_has_source(HasBits* has_bits) {
-    (*has_bits)[0] |= 4096u;
+    (*has_bits)[0] |= 16384u;
   }
   static void set_has_target(HasBits* has_bits) {
-    (*has_bits)[0] |= 8192u;
+    (*has_bits)[0] |= 32768u;
   }
   static void set_has_move_speed(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
@@ -30479,6 +30492,12 @@ class CDOTAUserMsg_TE_Projectile::_Internal {
   static void set_has_additional_particle_system_handle(HasBits* has_bits) {
     (*has_bits)[0] |= 2048u;
   }
+  static void set_has_original_move_speed(HasBits* has_bits) {
+    (*has_bits)[0] |= 4096u;
+  }
+  static void set_has_ability(HasBits* has_bits) {
+    (*has_bits)[0] |= 8192u;
+  }
 };
 
 const ::CMsgVector&
@@ -30514,6 +30533,8 @@ CDOTAUserMsg_TE_Projectile::CDOTAUserMsg_TE_Projectile(const CDOTAUserMsg_TE_Pro
     , decltype(_impl_.launch_tick_){}
     , decltype(_impl_.handle_){}
     , decltype(_impl_.additional_particle_system_handle_){}
+    , decltype(_impl_.original_move_speed_){}
+    , decltype(_impl_.ability_){}
     , decltype(_impl_.source_){}
     , decltype(_impl_.target_){}};
 
@@ -30547,6 +30568,8 @@ inline void CDOTAUserMsg_TE_Projectile::SharedCtor(
     , decltype(_impl_.launch_tick_){0}
     , decltype(_impl_.handle_){0}
     , decltype(_impl_.additional_particle_system_handle_){int64_t{0}}
+    , decltype(_impl_.original_move_speed_){0}
+    , decltype(_impl_.ability_){16777215u}
     , decltype(_impl_.source_){16777215u}
     , decltype(_impl_.target_){16777215u}
   };
@@ -30588,10 +30611,11 @@ void CDOTAUserMsg_TE_Projectile::Clear() {
         reinterpret_cast<char*>(&_impl_.maximpacttime_) -
         reinterpret_cast<char*>(&_impl_.move_speed_)) + sizeof(_impl_.maximpacttime_));
   }
-  if (cached_has_bits & 0x00003f00u) {
+  if (cached_has_bits & 0x0000ff00u) {
     ::memset(&_impl_.colorgemcolor_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.additional_particle_system_handle_) -
-        reinterpret_cast<char*>(&_impl_.colorgemcolor_)) + sizeof(_impl_.additional_particle_system_handle_));
+        reinterpret_cast<char*>(&_impl_.original_move_speed_) -
+        reinterpret_cast<char*>(&_impl_.colorgemcolor_)) + sizeof(_impl_.original_move_speed_));
+    _impl_.ability_ = 16777215u;
     _impl_.source_ = 16777215u;
     _impl_.target_ = 16777215u;
   }
@@ -30744,6 +30768,24 @@ const char* CDOTAUserMsg_TE_Projectile::_InternalParse(const char* ptr, ::_pbi::
         } else
           goto handle_unusual;
         continue;
+      // optional int32 original_move_speed = 17;
+      case 17:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 136)) {
+          _Internal::set_has_original_move_speed(&has_bits);
+          _impl_.original_move_speed_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 ability = 18 [default = 16777215];
+      case 18:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 144)) {
+          _Internal::set_has_ability(&has_bits);
+          _impl_.ability_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -30776,13 +30818,13 @@ uint8_t* CDOTAUserMsg_TE_Projectile::_InternalSerialize(
 
   cached_has_bits = _impl_._has_bits_[0];
   // optional uint32 source = 1 [default = 16777215];
-  if (cached_has_bits & 0x00001000u) {
+  if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_source(), target);
   }
 
   // optional uint32 target = 2 [default = 16777215];
-  if (cached_has_bits & 0x00002000u) {
+  if (cached_has_bits & 0x00008000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_target(), target);
   }
@@ -30868,6 +30910,18 @@ uint8_t* CDOTAUserMsg_TE_Projectile::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(16, this->_internal_additional_particle_system_handle(), target);
   }
 
+  // optional int32 original_move_speed = 17;
+  if (cached_has_bits & 0x00001000u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(17, this->_internal_original_move_speed(), target);
+  }
+
+  // optional uint32 ability = 18 [default = 16777215];
+  if (cached_has_bits & 0x00002000u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(18, this->_internal_ability(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -30936,7 +30990,7 @@ size_t CDOTAUserMsg_TE_Projectile::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x00003f00u) {
+  if (cached_has_bits & 0x0000ff00u) {
     // optional fixed32 colorgemcolor = 11;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 + 4;
@@ -30959,13 +31013,27 @@ size_t CDOTAUserMsg_TE_Projectile::ByteSizeLong() const {
           this->_internal_additional_particle_system_handle());
     }
 
-    // optional uint32 source = 1 [default = 16777215];
+    // optional int32 original_move_speed = 17;
     if (cached_has_bits & 0x00001000u) {
+      total_size += 2 +
+        ::_pbi::WireFormatLite::Int32Size(
+          this->_internal_original_move_speed());
+    }
+
+    // optional uint32 ability = 18 [default = 16777215];
+    if (cached_has_bits & 0x00002000u) {
+      total_size += 2 +
+        ::_pbi::WireFormatLite::UInt32Size(
+          this->_internal_ability());
+    }
+
+    // optional uint32 source = 1 [default = 16777215];
+    if (cached_has_bits & 0x00004000u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_source());
     }
 
     // optional uint32 target = 2 [default = 16777215];
-    if (cached_has_bits & 0x00002000u) {
+    if (cached_has_bits & 0x00008000u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_target());
     }
 
@@ -31018,7 +31086,7 @@ void CDOTAUserMsg_TE_Projectile::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00003f00u) {
+  if (cached_has_bits & 0x0000ff00u) {
     if (cached_has_bits & 0x00000100u) {
       _this->_impl_.colorgemcolor_ = from._impl_.colorgemcolor_;
     }
@@ -31032,9 +31100,15 @@ void CDOTAUserMsg_TE_Projectile::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_
       _this->_impl_.additional_particle_system_handle_ = from._impl_.additional_particle_system_handle_;
     }
     if (cached_has_bits & 0x00001000u) {
-      _this->_impl_.source_ = from._impl_.source_;
+      _this->_impl_.original_move_speed_ = from._impl_.original_move_speed_;
     }
     if (cached_has_bits & 0x00002000u) {
+      _this->_impl_.ability_ = from._impl_.ability_;
+    }
+    if (cached_has_bits & 0x00004000u) {
+      _this->_impl_.source_ = from._impl_.source_;
+    }
+    if (cached_has_bits & 0x00008000u) {
       _this->_impl_.target_ = from._impl_.target_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -31059,11 +31133,12 @@ void CDOTAUserMsg_TE_Projectile::InternalSwap(CDOTAUserMsg_TE_Projectile* other)
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.particle_cp_data_.InternalSwap(&other->_impl_.particle_cp_data_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_TE_Projectile, _impl_.additional_particle_system_handle_)
-      + sizeof(CDOTAUserMsg_TE_Projectile::_impl_.additional_particle_system_handle_)
+      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_TE_Projectile, _impl_.original_move_speed_)
+      + sizeof(CDOTAUserMsg_TE_Projectile::_impl_.original_move_speed_)
       - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_TE_Projectile, _impl_.target_loc_)>(
           reinterpret_cast<char*>(&_impl_.target_loc_),
           reinterpret_cast<char*>(&other->_impl_.target_loc_));
+  swap(_impl_.ability_, other->_impl_.ability_);
   swap(_impl_.source_, other->_impl_.source_);
   swap(_impl_.target_, other->_impl_.target_);
 }
@@ -31084,7 +31159,7 @@ class CDOTAUserMsg_TE_ProjectileLoc::_Internal {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_target(HasBits* has_bits) {
-    (*has_bits)[0] |= 4096u;
+    (*has_bits)[0] |= 8192u;
   }
   static void set_has_move_speed(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
@@ -31115,13 +31190,16 @@ class CDOTAUserMsg_TE_ProjectileLoc::_Internal {
     (*has_bits)[0] |= 512u;
   }
   static void set_has_source(HasBits* has_bits) {
-    (*has_bits)[0] |= 8192u;
+    (*has_bits)[0] |= 16384u;
   }
   static void set_has_source_attachment(HasBits* has_bits) {
-    (*has_bits)[0] |= 2048u;
+    (*has_bits)[0] |= 1024u;
   }
   static void set_has_additional_particle_system_handle(HasBits* has_bits) {
-    (*has_bits)[0] |= 1024u;
+    (*has_bits)[0] |= 4096u;
+  }
+  static void set_has_original_move_speed(HasBits* has_bits) {
+    (*has_bits)[0] |= 2048u;
   }
 };
 
@@ -31164,8 +31242,9 @@ CDOTAUserMsg_TE_ProjectileLoc::CDOTAUserMsg_TE_ProjectileLoc(const CDOTAUserMsg_
     , decltype(_impl_.colorgemcolor_){}
     , decltype(_impl_.launch_tick_){}
     , decltype(_impl_.handle_){}
-    , decltype(_impl_.additional_particle_system_handle_){}
     , decltype(_impl_.source_attachment_){}
+    , decltype(_impl_.original_move_speed_){}
+    , decltype(_impl_.additional_particle_system_handle_){}
     , decltype(_impl_.target_){}
     , decltype(_impl_.source_){}};
 
@@ -31200,8 +31279,9 @@ inline void CDOTAUserMsg_TE_ProjectileLoc::SharedCtor(
     , decltype(_impl_.colorgemcolor_){0u}
     , decltype(_impl_.launch_tick_){0}
     , decltype(_impl_.handle_){0}
-    , decltype(_impl_.additional_particle_system_handle_){int64_t{0}}
     , decltype(_impl_.source_attachment_){0}
+    , decltype(_impl_.original_move_speed_){0}
+    , decltype(_impl_.additional_particle_system_handle_){int64_t{0}}
     , decltype(_impl_.target_){16777215u}
     , decltype(_impl_.source_){16777215u}
   };
@@ -31250,10 +31330,10 @@ void CDOTAUserMsg_TE_ProjectileLoc::Clear() {
         reinterpret_cast<char*>(&_impl_.colorgemcolor_) -
         reinterpret_cast<char*>(&_impl_.particle_system_handle_)) + sizeof(_impl_.colorgemcolor_));
   }
-  if (cached_has_bits & 0x00003f00u) {
+  if (cached_has_bits & 0x00007f00u) {
     ::memset(&_impl_.launch_tick_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.source_attachment_) -
-        reinterpret_cast<char*>(&_impl_.launch_tick_)) + sizeof(_impl_.source_attachment_));
+        reinterpret_cast<char*>(&_impl_.additional_particle_system_handle_) -
+        reinterpret_cast<char*>(&_impl_.launch_tick_)) + sizeof(_impl_.additional_particle_system_handle_));
     _impl_.target_ = 16777215u;
     _impl_.source_ = 16777215u;
   }
@@ -31405,6 +31485,15 @@ const char* CDOTAUserMsg_TE_ProjectileLoc::_InternalParse(const char* ptr, ::_pb
         } else
           goto handle_unusual;
         continue;
+      // optional int32 original_move_speed = 18;
+      case 18:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 144)) {
+          _Internal::set_has_original_move_speed(&has_bits);
+          _impl_.original_move_speed_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -31444,7 +31533,7 @@ uint8_t* CDOTAUserMsg_TE_ProjectileLoc::_InternalSerialize(
   }
 
   // optional uint32 target = 2 [default = 16777215];
-  if (cached_has_bits & 0x00001000u) {
+  if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_target(), target);
   }
@@ -31505,13 +31594,13 @@ uint8_t* CDOTAUserMsg_TE_ProjectileLoc::_InternalSerialize(
   }
 
   // optional uint32 source = 14 [default = 16777215];
-  if (cached_has_bits & 0x00002000u) {
+  if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(14, this->_internal_source(), target);
   }
 
   // optional int32 source_attachment = 15;
-  if (cached_has_bits & 0x00000800u) {
+  if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(15, this->_internal_source_attachment(), target);
   }
@@ -31525,9 +31614,15 @@ uint8_t* CDOTAUserMsg_TE_ProjectileLoc::_InternalSerialize(
   }
 
   // optional int64 additional_particle_system_handle = 17;
-  if (cached_has_bits & 0x00000400u) {
+  if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(17, this->_internal_additional_particle_system_handle(), target);
+  }
+
+  // optional int32 original_move_speed = 18;
+  if (cached_has_bits & 0x00000800u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(18, this->_internal_original_move_speed(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -31600,7 +31695,7 @@ size_t CDOTAUserMsg_TE_ProjectileLoc::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x00003f00u) {
+  if (cached_has_bits & 0x00007f00u) {
     // optional int32 launch_tick = 12;
     if (cached_has_bits & 0x00000100u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_launch_tick());
@@ -31611,25 +31706,32 @@ size_t CDOTAUserMsg_TE_ProjectileLoc::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_handle());
     }
 
-    // optional int64 additional_particle_system_handle = 17;
+    // optional int32 source_attachment = 15;
     if (cached_has_bits & 0x00000400u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_source_attachment());
+    }
+
+    // optional int32 original_move_speed = 18;
+    if (cached_has_bits & 0x00000800u) {
+      total_size += 2 +
+        ::_pbi::WireFormatLite::Int32Size(
+          this->_internal_original_move_speed());
+    }
+
+    // optional int64 additional_particle_system_handle = 17;
+    if (cached_has_bits & 0x00001000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int64Size(
           this->_internal_additional_particle_system_handle());
     }
 
-    // optional int32 source_attachment = 15;
-    if (cached_has_bits & 0x00000800u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_source_attachment());
-    }
-
     // optional uint32 target = 2 [default = 16777215];
-    if (cached_has_bits & 0x00001000u) {
+    if (cached_has_bits & 0x00002000u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_target());
     }
 
     // optional uint32 source = 14 [default = 16777215];
-    if (cached_has_bits & 0x00002000u) {
+    if (cached_has_bits & 0x00004000u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_source());
     }
 
@@ -31683,7 +31785,7 @@ void CDOTAUserMsg_TE_ProjectileLoc::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& 
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00003f00u) {
+  if (cached_has_bits & 0x00007f00u) {
     if (cached_has_bits & 0x00000100u) {
       _this->_impl_.launch_tick_ = from._impl_.launch_tick_;
     }
@@ -31691,15 +31793,18 @@ void CDOTAUserMsg_TE_ProjectileLoc::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& 
       _this->_impl_.handle_ = from._impl_.handle_;
     }
     if (cached_has_bits & 0x00000400u) {
-      _this->_impl_.additional_particle_system_handle_ = from._impl_.additional_particle_system_handle_;
-    }
-    if (cached_has_bits & 0x00000800u) {
       _this->_impl_.source_attachment_ = from._impl_.source_attachment_;
     }
+    if (cached_has_bits & 0x00000800u) {
+      _this->_impl_.original_move_speed_ = from._impl_.original_move_speed_;
+    }
     if (cached_has_bits & 0x00001000u) {
-      _this->_impl_.target_ = from._impl_.target_;
+      _this->_impl_.additional_particle_system_handle_ = from._impl_.additional_particle_system_handle_;
     }
     if (cached_has_bits & 0x00002000u) {
+      _this->_impl_.target_ = from._impl_.target_;
+    }
+    if (cached_has_bits & 0x00004000u) {
       _this->_impl_.source_ = from._impl_.source_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -31724,8 +31829,8 @@ void CDOTAUserMsg_TE_ProjectileLoc::InternalSwap(CDOTAUserMsg_TE_ProjectileLoc* 
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.particle_cp_data_.InternalSwap(&other->_impl_.particle_cp_data_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_TE_ProjectileLoc, _impl_.source_attachment_)
-      + sizeof(CDOTAUserMsg_TE_ProjectileLoc::_impl_.source_attachment_)
+      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_TE_ProjectileLoc, _impl_.additional_particle_system_handle_)
+      + sizeof(CDOTAUserMsg_TE_ProjectileLoc::_impl_.additional_particle_system_handle_)
       - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_TE_ProjectileLoc, _impl_.source_loc_)>(
           reinterpret_cast<char*>(&_impl_.source_loc_),
           reinterpret_cast<char*>(&other->_impl_.source_loc_));

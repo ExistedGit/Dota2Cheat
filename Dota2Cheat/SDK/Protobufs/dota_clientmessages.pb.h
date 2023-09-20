@@ -48,6 +48,9 @@ struct TableStruct_dota_5fclientmessages_2eproto {
   static const uint32_t offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_dota_5fclientmessages_2eproto;
+class CDOTAClientMsg_AbilityAlert;
+struct CDOTAClientMsg_AbilityAlertDefaultTypeInternal;
+extern CDOTAClientMsg_AbilityAlertDefaultTypeInternal _CDOTAClientMsg_AbilityAlert_default_instance_;
 class CDOTAClientMsg_AbilityDraftRequestAbility;
 struct CDOTAClientMsg_AbilityDraftRequestAbilityDefaultTypeInternal;
 extern CDOTAClientMsg_AbilityDraftRequestAbilityDefaultTypeInternal _CDOTAClientMsg_AbilityDraftRequestAbility_default_instance_;
@@ -316,6 +319,7 @@ class CDOTAClientMsg_XPAlert;
 struct CDOTAClientMsg_XPAlertDefaultTypeInternal;
 extern CDOTAClientMsg_XPAlertDefaultTypeInternal _CDOTAClientMsg_XPAlert_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
+template<> ::CDOTAClientMsg_AbilityAlert* Arena::CreateMaybeMessage<::CDOTAClientMsg_AbilityAlert>(Arena*);
 template<> ::CDOTAClientMsg_AbilityDraftRequestAbility* Arena::CreateMaybeMessage<::CDOTAClientMsg_AbilityDraftRequestAbility>(Arena*);
 template<> ::CDOTAClientMsg_AddCommunicationsBlockMarker* Arena::CreateMaybeMessage<::CDOTAClientMsg_AddCommunicationsBlockMarker>(Arena*);
 template<> ::CDOTAClientMsg_AddCommunicationsReportMarker* Arena::CreateMaybeMessage<::CDOTAClientMsg_AddCommunicationsReportMarker>(Arena*);
@@ -552,11 +556,14 @@ enum EDotaClientMessages : int {
   DOTA_CM_PlayerDraftPick = 800,
   DOTA_CM_PlayerDraftSuggest = 801,
   DOTA_CM_PlayerDraftPreferRole = 802,
-  DOTA_CM_PlayerDraftPreferTeam = 803
+  DOTA_CM_PlayerDraftPreferTeam = 803,
+  DOTA_CM_ChatWheelAlert = 804,
+  DOTA_CM_AbilityAlert = 805,
+  DOTA_CM_AllyAbilityAlert = 806
 };
 bool EDotaClientMessages_IsValid(int value);
 constexpr EDotaClientMessages EDotaClientMessages_MIN = DOTA_CM_MapLine;
-constexpr EDotaClientMessages EDotaClientMessages_MAX = DOTA_CM_PlayerDraftPreferTeam;
+constexpr EDotaClientMessages EDotaClientMessages_MAX = DOTA_CM_AllyAbilityAlert;
 constexpr int EDotaClientMessages_ARRAYSIZE = EDotaClientMessages_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EDotaClientMessages_descriptor();
@@ -16316,6 +16323,181 @@ class CDOTAClientMsg_PlayerDraftPreferTeam final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fclientmessages_2eproto;
 };
+// -------------------------------------------------------------------
+
+class CDOTAClientMsg_AbilityAlert final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CDOTAClientMsg_AbilityAlert) */ {
+ public:
+  inline CDOTAClientMsg_AbilityAlert() : CDOTAClientMsg_AbilityAlert(nullptr) {}
+  ~CDOTAClientMsg_AbilityAlert() override;
+  explicit PROTOBUF_CONSTEXPR CDOTAClientMsg_AbilityAlert(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CDOTAClientMsg_AbilityAlert(const CDOTAClientMsg_AbilityAlert& from);
+  CDOTAClientMsg_AbilityAlert(CDOTAClientMsg_AbilityAlert&& from) noexcept
+    : CDOTAClientMsg_AbilityAlert() {
+    *this = ::std::move(from);
+  }
+
+  inline CDOTAClientMsg_AbilityAlert& operator=(const CDOTAClientMsg_AbilityAlert& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CDOTAClientMsg_AbilityAlert& operator=(CDOTAClientMsg_AbilityAlert&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CDOTAClientMsg_AbilityAlert& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CDOTAClientMsg_AbilityAlert* internal_default_instance() {
+    return reinterpret_cast<const CDOTAClientMsg_AbilityAlert*>(
+               &_CDOTAClientMsg_AbilityAlert_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    89;
+
+  friend void swap(CDOTAClientMsg_AbilityAlert& a, CDOTAClientMsg_AbilityAlert& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CDOTAClientMsg_AbilityAlert* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CDOTAClientMsg_AbilityAlert* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CDOTAClientMsg_AbilityAlert* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CDOTAClientMsg_AbilityAlert>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CDOTAClientMsg_AbilityAlert& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CDOTAClientMsg_AbilityAlert& from) {
+    CDOTAClientMsg_AbilityAlert::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CDOTAClientMsg_AbilityAlert* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CDOTAClientMsg_AbilityAlert";
+  }
+  protected:
+  explicit CDOTAClientMsg_AbilityAlert(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCtrlHeldFieldNumber = 2,
+    kAbilityEntindexFieldNumber = 1,
+  };
+  // optional bool ctrl_held = 2;
+  bool has_ctrl_held() const;
+  private:
+  bool _internal_has_ctrl_held() const;
+  public:
+  void clear_ctrl_held();
+  bool ctrl_held() const;
+  void set_ctrl_held(bool value);
+  private:
+  bool _internal_ctrl_held() const;
+  void _internal_set_ctrl_held(bool value);
+  public:
+
+  // optional uint32 ability_entindex = 1 [default = 16777215];
+  bool has_ability_entindex() const;
+  private:
+  bool _internal_has_ability_entindex() const;
+  public:
+  void clear_ability_entindex();
+  uint32_t ability_entindex() const;
+  void set_ability_entindex(uint32_t value);
+  private:
+  uint32_t _internal_ability_entindex() const;
+  void _internal_set_ability_entindex(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CDOTAClientMsg_AbilityAlert)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    bool ctrl_held_;
+    uint32_t ability_entindex_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fclientmessages_2eproto;
+};
 // ===================================================================
 
 
@@ -22697,9 +22879,71 @@ inline void CDOTAClientMsg_PlayerDraftPreferTeam::set_team(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAClientMsg_PlayerDraftPreferTeam.team)
 }
 
+// -------------------------------------------------------------------
+
+// CDOTAClientMsg_AbilityAlert
+
+// optional uint32 ability_entindex = 1 [default = 16777215];
+inline bool CDOTAClientMsg_AbilityAlert::_internal_has_ability_entindex() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CDOTAClientMsg_AbilityAlert::has_ability_entindex() const {
+  return _internal_has_ability_entindex();
+}
+inline void CDOTAClientMsg_AbilityAlert::clear_ability_entindex() {
+  _impl_.ability_entindex_ = 16777215u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CDOTAClientMsg_AbilityAlert::_internal_ability_entindex() const {
+  return _impl_.ability_entindex_;
+}
+inline uint32_t CDOTAClientMsg_AbilityAlert::ability_entindex() const {
+  // @@protoc_insertion_point(field_get:CDOTAClientMsg_AbilityAlert.ability_entindex)
+  return _internal_ability_entindex();
+}
+inline void CDOTAClientMsg_AbilityAlert::_internal_set_ability_entindex(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.ability_entindex_ = value;
+}
+inline void CDOTAClientMsg_AbilityAlert::set_ability_entindex(uint32_t value) {
+  _internal_set_ability_entindex(value);
+  // @@protoc_insertion_point(field_set:CDOTAClientMsg_AbilityAlert.ability_entindex)
+}
+
+// optional bool ctrl_held = 2;
+inline bool CDOTAClientMsg_AbilityAlert::_internal_has_ctrl_held() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CDOTAClientMsg_AbilityAlert::has_ctrl_held() const {
+  return _internal_has_ctrl_held();
+}
+inline void CDOTAClientMsg_AbilityAlert::clear_ctrl_held() {
+  _impl_.ctrl_held_ = false;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline bool CDOTAClientMsg_AbilityAlert::_internal_ctrl_held() const {
+  return _impl_.ctrl_held_;
+}
+inline bool CDOTAClientMsg_AbilityAlert::ctrl_held() const {
+  // @@protoc_insertion_point(field_get:CDOTAClientMsg_AbilityAlert.ctrl_held)
+  return _internal_ctrl_held();
+}
+inline void CDOTAClientMsg_AbilityAlert::_internal_set_ctrl_held(bool value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.ctrl_held_ = value;
+}
+inline void CDOTAClientMsg_AbilityAlert::set_ctrl_held(bool value) {
+  _internal_set_ctrl_held(value);
+  // @@protoc_insertion_point(field_set:CDOTAClientMsg_AbilityAlert.ctrl_held)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

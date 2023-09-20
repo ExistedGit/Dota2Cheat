@@ -1190,33 +1190,33 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fclient_5fbattle_5frepor
   "CMsgBattleReport_HighlightCategory\022#\n\023k_"
   "eHighlightGeneral\020\000\032\n\302>\007General\022\035\n\020k_eHi"
   "ghlightHero\020\001\032\007\302>\004Hero\022\035\n\020k_eHighlightRo"
-  "le\020\002\032\007\302>\004Role*\334\001\n\025CMsgBattleReport_Role\022"
+  "le\020\002\032\007\302>\004Role*\323\001\n\025CMsgBattleReport_Role\022"
   " \n\016k_eUnknownRole\020\377\377\377\377\377\377\377\377\377\001\032\003\320>\001\022\035\n\013k_e"
   "Safelane\020\000\032\014\302>\tSafe Lane\022\033\n\nk_eMidlane\020\001"
   "\032\013\302>\010Mid Lane\022\033\n\nk_eOfflane\020\002\032\013\302>\010Off La"
-  "ne\022#\n\016k_eSoftSupport\020\003\032\017\302>\014Soft Support\022"
-  "#\n\016k_eHardSupport\020\004\032\017\302>\014Hard Support*\206\002\n"
-  "\037CMsgBattleReport_CompareContext\022*\n\030k_eC"
-  "ompareContextInvalid\020\377\377\377\377\377\377\377\377\377\001\032\003\320>\001\022&\n\020"
-  "k_eAbsoluteValue\020\000\032\020\302>\rOverall Value\0222\n\027"
-  "k_ePlayersOfSimilarRank\020\001\032\025\302>\022Vs Rank Po"
-  "pulation\022$\n\rk_eAllPlayers\020\002\032\021\302>\016Vs All P"
-  "layers\0225\n\031k_ePlayersPersonalHistory\020\003\032\026\302"
-  ">\023Vs Personal History*\373\001\n\036CMsgBattleRepo"
-  "rt_HighlightTier\022-\n\023k_eHighlightTierLow\020"
-  "\377\377\377\377\377\377\377\377\377\001\032\013\302>\010Tier Low\022\035\n\024k_eHighlightT"
-  "ierNone\020\000\032\003\320>\001\022 \n\021k_eHighlightTier1\020\001\032\t\302"
-  ">\006Tier 1\022 \n\021k_eHighlightTier2\020\002\032\t\302>\006Tier"
-  " 2\022 \n\021k_eHighlightTier3\020\003\032\t\302>\006Tier 3\022%\n\026"
-  "k_eHighlightTierCustom\020\004\032\t\302>\006Custom*\213\001\n "
-  "CMsgBattleReport_HighlightRarity\022!\n\022k_eH"
-  "ighlightCommon\020\000\032\t\302>\006Common\022%\n\024k_eHighli"
-  "ghtUncommon\020\001\032\013\302>\010Uncommon\022\035\n\020k_eHighlig"
-  "htRare\020\002\032\007\302>\004Rare*4\n\031CMsgBattleReport_EO"
-  "utcome\022\n\n\006k_eWin\020\000\022\013\n\007k_eLoss\020\001*u\n\035CMsgB"
-  "attleReport_ELaneOutcome\022\"\n\025k_eUnknownLa"
-  "neOutcome\020\377\377\377\377\377\377\377\377\377\001\022\016\n\nk_eWonLane\020\000\022\017\n\013"
-  "k_eLostLane\020\001\022\017\n\013k_eEvenLane\020\002"
+  "ne\022\032\n\nk_eSupport\020\003\032\n\302>\007Support\022#\n\016k_eHar"
+  "dSupport\020\004\032\017\302>\014Hard Support*\206\002\n\037CMsgBatt"
+  "leReport_CompareContext\022*\n\030k_eCompareCon"
+  "textInvalid\020\377\377\377\377\377\377\377\377\377\001\032\003\320>\001\022&\n\020k_eAbsolu"
+  "teValue\020\000\032\020\302>\rOverall Value\0222\n\027k_ePlayer"
+  "sOfSimilarRank\020\001\032\025\302>\022Vs Rank Population\022"
+  "$\n\rk_eAllPlayers\020\002\032\021\302>\016Vs All Players\0225\n"
+  "\031k_ePlayersPersonalHistory\020\003\032\026\302>\023Vs Pers"
+  "onal History*\373\001\n\036CMsgBattleReport_Highli"
+  "ghtTier\022-\n\023k_eHighlightTierLow\020\377\377\377\377\377\377\377\377\377"
+  "\001\032\013\302>\010Tier Low\022\035\n\024k_eHighlightTierNone\020\000"
+  "\032\003\320>\001\022 \n\021k_eHighlightTier1\020\001\032\t\302>\006Tier 1\022"
+  " \n\021k_eHighlightTier2\020\002\032\t\302>\006Tier 2\022 \n\021k_e"
+  "HighlightTier3\020\003\032\t\302>\006Tier 3\022%\n\026k_eHighli"
+  "ghtTierCustom\020\004\032\t\302>\006Custom*\213\001\n CMsgBattl"
+  "eReport_HighlightRarity\022!\n\022k_eHighlightC"
+  "ommon\020\000\032\t\302>\006Common\022%\n\024k_eHighlightUncomm"
+  "on\020\001\032\013\302>\010Uncommon\022\035\n\020k_eHighlightRare\020\002\032"
+  "\007\302>\004Rare*4\n\031CMsgBattleReport_EOutcome\022\n\n"
+  "\006k_eWin\020\000\022\013\n\007k_eLoss\020\001*u\n\035CMsgBattleRepo"
+  "rt_ELaneOutcome\022\"\n\025k_eUnknownLaneOutcome"
+  "\020\377\377\377\377\377\377\377\377\377\001\022\016\n\nk_eWonLane\020\000\022\017\n\013k_eLostLa"
+  "ne\020\001\022\017\n\013k_eEvenLane\020\002"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5fclient_5fbattle_5freport_2eproto_deps[9] = {
   &::descriptor_table_base_5fgcmessages_2eproto,
@@ -1231,7 +1231,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5
 };
 static ::_pbi::once_flag descriptor_table_dota_5fgcmessages_5fclient_5fbattle_5freport_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fgcmessages_5fclient_5fbattle_5freport_2eproto = {
-    false, false, 11990, descriptor_table_protodef_dota_5fgcmessages_5fclient_5fbattle_5freport_2eproto,
+    false, false, 11981, descriptor_table_protodef_dota_5fgcmessages_5fclient_5fbattle_5freport_2eproto,
     "dota_gcmessages_client_battle_report.proto",
     &descriptor_table_dota_5fgcmessages_5fclient_5fbattle_5freport_2eproto_once, descriptor_table_dota_5fgcmessages_5fclient_5fbattle_5freport_2eproto_deps, 9, 23,
     schemas, file_default_instances, TableStruct_dota_5fgcmessages_5fclient_5fbattle_5freport_2eproto::offsets,

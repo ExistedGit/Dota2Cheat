@@ -288,11 +288,12 @@ enum CMsgSteamDatagramConnectionStatsClientToRouter_Flags : int {
   CMsgSteamDatagramConnectionStatsClientToRouter_Flags_ACK_REQUEST_RELAY = 1,
   CMsgSteamDatagramConnectionStatsClientToRouter_Flags_ACK_REQUEST_E2E = 2,
   CMsgSteamDatagramConnectionStatsClientToRouter_Flags_ACK_REQUEST_IMMEDIATE = 4,
-  CMsgSteamDatagramConnectionStatsClientToRouter_Flags_NOT_PRIMARY_SESSION = 8
+  CMsgSteamDatagramConnectionStatsClientToRouter_Flags_NOT_PRIMARY_SESSION = 8,
+  CMsgSteamDatagramConnectionStatsClientToRouter_Flags_CLIENT_RELAY_OVERRIDE = 32
 };
 bool CMsgSteamDatagramConnectionStatsClientToRouter_Flags_IsValid(int value);
 constexpr CMsgSteamDatagramConnectionStatsClientToRouter_Flags CMsgSteamDatagramConnectionStatsClientToRouter_Flags_Flags_MIN = CMsgSteamDatagramConnectionStatsClientToRouter_Flags_ACK_REQUEST_RELAY;
-constexpr CMsgSteamDatagramConnectionStatsClientToRouter_Flags CMsgSteamDatagramConnectionStatsClientToRouter_Flags_Flags_MAX = CMsgSteamDatagramConnectionStatsClientToRouter_Flags_NOT_PRIMARY_SESSION;
+constexpr CMsgSteamDatagramConnectionStatsClientToRouter_Flags CMsgSteamDatagramConnectionStatsClientToRouter_Flags_Flags_MAX = CMsgSteamDatagramConnectionStatsClientToRouter_Flags_CLIENT_RELAY_OVERRIDE;
 constexpr int CMsgSteamDatagramConnectionStatsClientToRouter_Flags_Flags_ARRAYSIZE = CMsgSteamDatagramConnectionStatsClientToRouter_Flags_Flags_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgSteamDatagramConnectionStatsClientToRouter_Flags_descriptor();
@@ -386,11 +387,12 @@ enum CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags : int {
   CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags_ACK_REQUEST_E2E = 2,
   CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags_ACK_REQUEST_IMMEDIATE = 4,
   CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags_NOT_PRIMARY_SESSION = 8,
-  CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags_NOT_PRIMARY_TRANSPORT_E2E = 16
+  CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags_NOT_PRIMARY_TRANSPORT_E2E = 16,
+  CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags_CLIENT_RELAY_OVERRIDE = 32
 };
 bool CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags_IsValid(int value);
 constexpr CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags_Flags_MIN = CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags_ACK_REQUEST_RELAY;
-constexpr CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags_Flags_MAX = CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags_NOT_PRIMARY_TRANSPORT_E2E;
+constexpr CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags_Flags_MAX = CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags_CLIENT_RELAY_OVERRIDE;
 constexpr int CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags_Flags_ARRAYSIZE = CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags_Flags_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags_descriptor();
@@ -1506,6 +1508,7 @@ class CMsgSteamDatagramRouterPingReply final :
     kAltAddressesFieldNumber = 13,
     kLatencyDatacenterIdsP2PFieldNumber = 14,
     kLatencyPingMsP2PFieldNumber = 15,
+    kDummyPadFieldNumber = 99,
     kClientTimestampFieldNumber = 1,
     kYourPublicIpFieldNumber = 4,
     kChallengeFieldNumber = 6,
@@ -1639,6 +1642,24 @@ class CMsgSteamDatagramRouterPingReply final :
       latency_ping_ms_p2p() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
       mutable_latency_ping_ms_p2p();
+
+  // optional bytes dummy_pad = 99;
+  bool has_dummy_pad() const;
+  private:
+  bool _internal_has_dummy_pad() const;
+  public:
+  void clear_dummy_pad();
+  const std::string& dummy_pad() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_dummy_pad(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_dummy_pad();
+  PROTOBUF_NODISCARD std::string* release_dummy_pad();
+  void set_allocated_dummy_pad(std::string* dummy_pad);
+  private:
+  const std::string& _internal_dummy_pad() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_dummy_pad(const std::string& value);
+  std::string* _internal_mutable_dummy_pad();
+  public:
 
   // optional fixed32 client_timestamp = 1;
   bool has_client_timestamp() const;
@@ -1775,6 +1796,7 @@ class CMsgSteamDatagramRouterPingReply final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > latency_datacenter_ids_p2p_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > latency_ping_ms_p2p_;
     mutable std::atomic<int> _latency_ping_ms_p2p_cached_byte_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr dummy_pad_;
     uint32_t client_timestamp_;
     uint32_t your_public_ip_;
     uint64_t challenge_;
@@ -4171,7 +4193,7 @@ class CMsgSteamDatagramClientPingSampleReply final :
     kPopsFieldNumber = 2,
     kLegacyDataCentersFieldNumber = 3,
     kConnectionIdFieldNumber = 1,
-    kOverrideActiveFieldNumber = 4,
+    kRelayOverrideActiveFieldNumber = 5,
   };
   // repeated .CMsgSteamDatagramClientPingSampleReply.POP pops = 2;
   int pops_size() const;
@@ -4222,17 +4244,17 @@ class CMsgSteamDatagramClientPingSampleReply final :
   void _internal_set_connection_id(uint32_t value);
   public:
 
-  // optional bool override_active = 4;
-  bool has_override_active() const;
+  // optional bool relay_override_active = 5;
+  bool has_relay_override_active() const;
   private:
-  bool _internal_has_override_active() const;
+  bool _internal_has_relay_override_active() const;
   public:
-  void clear_override_active();
-  bool override_active() const;
-  void set_override_active(bool value);
+  void clear_relay_override_active();
+  bool relay_override_active() const;
+  void set_relay_override_active(bool value);
   private:
-  bool _internal_override_active() const;
-  void _internal_set_override_active(bool value);
+  bool _internal_relay_override_active() const;
+  void _internal_set_relay_override_active(bool value);
   public:
 
   // @@protoc_insertion_point(class_scope:CMsgSteamDatagramClientPingSampleReply)
@@ -4248,7 +4270,7 @@ class CMsgSteamDatagramClientPingSampleReply final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamDatagramClientPingSampleReply_POP > pops_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamDatagramClientPingSampleReply_LegacyDataCenter > legacy_data_centers_;
     uint32_t connection_id_;
-    bool override_active_;
+    bool relay_override_active_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_steamdatagram_5fmessages_5fsdr_2eproto;
@@ -6096,6 +6118,7 @@ class CMsgSteamDatagramConnectionClosed final :
     kRoutingSecretFieldNumber = 14,
     kNotPrimarySessionFieldNumber = 16,
     kNotPrimaryTransportFieldNumber = 19,
+    kRelayOverrideActiveFieldNumber = 22,
   };
   // optional string debug = 5;
   bool has_debug() const;
@@ -6379,6 +6402,19 @@ class CMsgSteamDatagramConnectionClosed final :
   void _internal_set_not_primary_transport(bool value);
   public:
 
+  // optional bool relay_override_active = 22;
+  bool has_relay_override_active() const;
+  private:
+  bool _internal_has_relay_override_active() const;
+  public:
+  void clear_relay_override_active();
+  bool relay_override_active() const;
+  void set_relay_override_active(bool value);
+  private:
+  bool _internal_relay_override_active() const;
+  void _internal_set_relay_override_active(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgSteamDatagramConnectionClosed)
  private:
   class _Internal;
@@ -6408,6 +6444,7 @@ class CMsgSteamDatagramConnectionClosed final :
     uint64_t routing_secret_;
     bool not_primary_session_;
     bool not_primary_transport_;
+    bool relay_override_active_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_steamdatagram_5fmessages_5fsdr_2eproto;
@@ -6551,11 +6588,12 @@ class CMsgSteamDatagramNoConnection final :
     kToConnectionIdFieldNumber = 5,
     kFromConnectionIdFieldNumber = 6,
     kToRelaySessionIdFieldNumber = 9,
+    kRoutingSecretFieldNumber = 11,
     kFromRelaySessionIdFieldNumber = 10,
     kEndToEndFieldNumber = 4,
     kNotPrimarySessionFieldNumber = 12,
     kNotPrimaryTransportFieldNumber = 15,
-    kRoutingSecretFieldNumber = 11,
+    kRelayOverrideActiveFieldNumber = 17,
     kDummyPadFieldNumber = 1023,
   };
   // optional string from_identity_string = 7;
@@ -6695,6 +6733,19 @@ class CMsgSteamDatagramNoConnection final :
   void _internal_set_to_relay_session_id(uint32_t value);
   public:
 
+  // optional fixed64 routing_secret = 11;
+  bool has_routing_secret() const;
+  private:
+  bool _internal_has_routing_secret() const;
+  public:
+  void clear_routing_secret();
+  uint64_t routing_secret() const;
+  void set_routing_secret(uint64_t value);
+  private:
+  uint64_t _internal_routing_secret() const;
+  void _internal_set_routing_secret(uint64_t value);
+  public:
+
   // optional fixed32 from_relay_session_id = 10;
   bool has_from_relay_session_id() const;
   private:
@@ -6747,17 +6798,17 @@ class CMsgSteamDatagramNoConnection final :
   void _internal_set_not_primary_transport(bool value);
   public:
 
-  // optional fixed64 routing_secret = 11;
-  bool has_routing_secret() const;
+  // optional bool relay_override_active = 17;
+  bool has_relay_override_active() const;
   private:
-  bool _internal_has_routing_secret() const;
+  bool _internal_has_relay_override_active() const;
   public:
-  void clear_routing_secret();
-  uint64_t routing_secret() const;
-  void set_routing_secret(uint64_t value);
+  void clear_relay_override_active();
+  bool relay_override_active() const;
+  void set_relay_override_active(bool value);
   private:
-  uint64_t _internal_routing_secret() const;
-  void _internal_set_routing_secret(uint64_t value);
+  bool _internal_relay_override_active() const;
+  void _internal_set_relay_override_active(bool value);
   public:
 
   // optional fixed32 dummy_pad = 1023;
@@ -6792,11 +6843,12 @@ class CMsgSteamDatagramNoConnection final :
     uint32_t to_connection_id_;
     uint32_t from_connection_id_;
     uint32_t to_relay_session_id_;
+    uint64_t routing_secret_;
     uint32_t from_relay_session_id_;
     bool end_to_end_;
     bool not_primary_session_;
     bool not_primary_transport_;
-    uint64_t routing_secret_;
+    bool relay_override_active_;
     uint32_t dummy_pad_;
   };
   union { Impl_ _impl_; };
@@ -7518,6 +7570,8 @@ class CMsgSteamDatagramConnectionStatsClientToRouter final :
     CMsgSteamDatagramConnectionStatsClientToRouter_Flags_ACK_REQUEST_IMMEDIATE;
   static constexpr Flags NOT_PRIMARY_SESSION =
     CMsgSteamDatagramConnectionStatsClientToRouter_Flags_NOT_PRIMARY_SESSION;
+  static constexpr Flags CLIENT_RELAY_OVERRIDE =
+    CMsgSteamDatagramConnectionStatsClientToRouter_Flags_CLIENT_RELAY_OVERRIDE;
   static inline bool Flags_IsValid(int value) {
     return CMsgSteamDatagramConnectionStatsClientToRouter_Flags_IsValid(value);
   }
@@ -9939,6 +9993,8 @@ class CMsgSteamDatagramConnectionStatsP2PClientToRouter final :
     CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags_NOT_PRIMARY_SESSION;
   static constexpr Flags NOT_PRIMARY_TRANSPORT_E2E =
     CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags_NOT_PRIMARY_TRANSPORT_E2E;
+  static constexpr Flags CLIENT_RELAY_OVERRIDE =
+    CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags_CLIENT_RELAY_OVERRIDE;
   static inline bool Flags_IsValid(int value) {
     return CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags_IsValid(value);
   }
@@ -12591,7 +12647,7 @@ inline void CMsgSteamDatagramRouterPingReply_AltAddress::set_allocated_id(std::s
 
 // optional fixed32 client_timestamp = 1;
 inline bool CMsgSteamDatagramRouterPingReply::_internal_has_client_timestamp() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramRouterPingReply::has_client_timestamp() const {
@@ -12599,7 +12655,7 @@ inline bool CMsgSteamDatagramRouterPingReply::has_client_timestamp() const {
 }
 inline void CMsgSteamDatagramRouterPingReply::clear_client_timestamp() {
   _impl_.client_timestamp_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CMsgSteamDatagramRouterPingReply::_internal_client_timestamp() const {
   return _impl_.client_timestamp_;
@@ -12609,7 +12665,7 @@ inline uint32_t CMsgSteamDatagramRouterPingReply::client_timestamp() const {
   return _internal_client_timestamp();
 }
 inline void CMsgSteamDatagramRouterPingReply::_internal_set_client_timestamp(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.client_timestamp_ = value;
 }
 inline void CMsgSteamDatagramRouterPingReply::set_client_timestamp(uint32_t value) {
@@ -12807,7 +12863,7 @@ CMsgSteamDatagramRouterPingReply::mutable_latency_ping_ms_p2p() {
 
 // optional fixed32 your_public_ip = 4;
 inline bool CMsgSteamDatagramRouterPingReply::_internal_has_your_public_ip() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramRouterPingReply::has_your_public_ip() const {
@@ -12815,7 +12871,7 @@ inline bool CMsgSteamDatagramRouterPingReply::has_your_public_ip() const {
 }
 inline void CMsgSteamDatagramRouterPingReply::clear_your_public_ip() {
   _impl_.your_public_ip_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CMsgSteamDatagramRouterPingReply::_internal_your_public_ip() const {
   return _impl_.your_public_ip_;
@@ -12825,7 +12881,7 @@ inline uint32_t CMsgSteamDatagramRouterPingReply::your_public_ip() const {
   return _internal_your_public_ip();
 }
 inline void CMsgSteamDatagramRouterPingReply::_internal_set_your_public_ip(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.your_public_ip_ = value;
 }
 inline void CMsgSteamDatagramRouterPingReply::set_your_public_ip(uint32_t value) {
@@ -12835,7 +12891,7 @@ inline void CMsgSteamDatagramRouterPingReply::set_your_public_ip(uint32_t value)
 
 // optional fixed32 your_public_port = 11;
 inline bool CMsgSteamDatagramRouterPingReply::_internal_has_your_public_port() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramRouterPingReply::has_your_public_port() const {
@@ -12843,7 +12899,7 @@ inline bool CMsgSteamDatagramRouterPingReply::has_your_public_port() const {
 }
 inline void CMsgSteamDatagramRouterPingReply::clear_your_public_port() {
   _impl_.your_public_port_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x00000100u;
 }
 inline uint32_t CMsgSteamDatagramRouterPingReply::_internal_your_public_port() const {
   return _impl_.your_public_port_;
@@ -12853,7 +12909,7 @@ inline uint32_t CMsgSteamDatagramRouterPingReply::your_public_port() const {
   return _internal_your_public_port();
 }
 inline void CMsgSteamDatagramRouterPingReply::_internal_set_your_public_port(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_._has_bits_[0] |= 0x00000100u;
   _impl_.your_public_port_ = value;
 }
 inline void CMsgSteamDatagramRouterPingReply::set_your_public_port(uint32_t value) {
@@ -12863,7 +12919,7 @@ inline void CMsgSteamDatagramRouterPingReply::set_your_public_port(uint32_t valu
 
 // optional fixed32 server_time = 5;
 inline bool CMsgSteamDatagramRouterPingReply::_internal_has_server_time() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramRouterPingReply::has_server_time() const {
@@ -12871,7 +12927,7 @@ inline bool CMsgSteamDatagramRouterPingReply::has_server_time() const {
 }
 inline void CMsgSteamDatagramRouterPingReply::clear_server_time() {
   _impl_.server_time_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline uint32_t CMsgSteamDatagramRouterPingReply::_internal_server_time() const {
   return _impl_.server_time_;
@@ -12881,7 +12937,7 @@ inline uint32_t CMsgSteamDatagramRouterPingReply::server_time() const {
   return _internal_server_time();
 }
 inline void CMsgSteamDatagramRouterPingReply::_internal_set_server_time(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.server_time_ = value;
 }
 inline void CMsgSteamDatagramRouterPingReply::set_server_time(uint32_t value) {
@@ -12891,7 +12947,7 @@ inline void CMsgSteamDatagramRouterPingReply::set_server_time(uint32_t value) {
 
 // optional fixed64 challenge = 6;
 inline bool CMsgSteamDatagramRouterPingReply::_internal_has_challenge() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramRouterPingReply::has_challenge() const {
@@ -12899,7 +12955,7 @@ inline bool CMsgSteamDatagramRouterPingReply::has_challenge() const {
 }
 inline void CMsgSteamDatagramRouterPingReply::clear_challenge() {
   _impl_.challenge_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint64_t CMsgSteamDatagramRouterPingReply::_internal_challenge() const {
   return _impl_.challenge_;
@@ -12909,7 +12965,7 @@ inline uint64_t CMsgSteamDatagramRouterPingReply::challenge() const {
   return _internal_challenge();
 }
 inline void CMsgSteamDatagramRouterPingReply::_internal_set_challenge(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.challenge_ = value;
 }
 inline void CMsgSteamDatagramRouterPingReply::set_challenge(uint64_t value) {
@@ -12919,7 +12975,7 @@ inline void CMsgSteamDatagramRouterPingReply::set_challenge(uint64_t value) {
 
 // optional uint32 seconds_until_shutdown = 7;
 inline bool CMsgSteamDatagramRouterPingReply::_internal_has_seconds_until_shutdown() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramRouterPingReply::has_seconds_until_shutdown() const {
@@ -12927,7 +12983,7 @@ inline bool CMsgSteamDatagramRouterPingReply::has_seconds_until_shutdown() const
 }
 inline void CMsgSteamDatagramRouterPingReply::clear_seconds_until_shutdown() {
   _impl_.seconds_until_shutdown_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline uint32_t CMsgSteamDatagramRouterPingReply::_internal_seconds_until_shutdown() const {
   return _impl_.seconds_until_shutdown_;
@@ -12937,7 +12993,7 @@ inline uint32_t CMsgSteamDatagramRouterPingReply::seconds_until_shutdown() const
   return _internal_seconds_until_shutdown();
 }
 inline void CMsgSteamDatagramRouterPingReply::_internal_set_seconds_until_shutdown(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.seconds_until_shutdown_ = value;
 }
 inline void CMsgSteamDatagramRouterPingReply::set_seconds_until_shutdown(uint32_t value) {
@@ -12947,7 +13003,7 @@ inline void CMsgSteamDatagramRouterPingReply::set_seconds_until_shutdown(uint32_
 
 // optional fixed32 client_cookie = 8;
 inline bool CMsgSteamDatagramRouterPingReply::_internal_has_client_cookie() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramRouterPingReply::has_client_cookie() const {
@@ -12955,7 +13011,7 @@ inline bool CMsgSteamDatagramRouterPingReply::has_client_cookie() const {
 }
 inline void CMsgSteamDatagramRouterPingReply::clear_client_cookie() {
   _impl_.client_cookie_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline uint32_t CMsgSteamDatagramRouterPingReply::_internal_client_cookie() const {
   return _impl_.client_cookie_;
@@ -12965,7 +13021,7 @@ inline uint32_t CMsgSteamDatagramRouterPingReply::client_cookie() const {
   return _internal_client_cookie();
 }
 inline void CMsgSteamDatagramRouterPingReply::_internal_set_client_cookie(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.client_cookie_ = value;
 }
 inline void CMsgSteamDatagramRouterPingReply::set_client_cookie(uint32_t value) {
@@ -12975,7 +13031,7 @@ inline void CMsgSteamDatagramRouterPingReply::set_client_cookie(uint32_t value) 
 
 // optional uint32 scoring_penalty_relay_cluster = 9;
 inline bool CMsgSteamDatagramRouterPingReply::_internal_has_scoring_penalty_relay_cluster() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramRouterPingReply::has_scoring_penalty_relay_cluster() const {
@@ -12983,7 +13039,7 @@ inline bool CMsgSteamDatagramRouterPingReply::has_scoring_penalty_relay_cluster(
 }
 inline void CMsgSteamDatagramRouterPingReply::clear_scoring_penalty_relay_cluster() {
   _impl_.scoring_penalty_relay_cluster_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
 inline uint32_t CMsgSteamDatagramRouterPingReply::_internal_scoring_penalty_relay_cluster() const {
   return _impl_.scoring_penalty_relay_cluster_;
@@ -12993,7 +13049,7 @@ inline uint32_t CMsgSteamDatagramRouterPingReply::scoring_penalty_relay_cluster(
   return _internal_scoring_penalty_relay_cluster();
 }
 inline void CMsgSteamDatagramRouterPingReply::_internal_set_scoring_penalty_relay_cluster(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.scoring_penalty_relay_cluster_ = value;
 }
 inline void CMsgSteamDatagramRouterPingReply::set_scoring_penalty_relay_cluster(uint32_t value) {
@@ -13003,7 +13059,7 @@ inline void CMsgSteamDatagramRouterPingReply::set_scoring_penalty_relay_cluster(
 
 // optional uint32 flags = 12;
 inline bool CMsgSteamDatagramRouterPingReply::_internal_has_flags() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramRouterPingReply::has_flags() const {
@@ -13011,7 +13067,7 @@ inline bool CMsgSteamDatagramRouterPingReply::has_flags() const {
 }
 inline void CMsgSteamDatagramRouterPingReply::clear_flags() {
   _impl_.flags_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000100u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
 }
 inline uint32_t CMsgSteamDatagramRouterPingReply::_internal_flags() const {
   return _impl_.flags_;
@@ -13021,7 +13077,7 @@ inline uint32_t CMsgSteamDatagramRouterPingReply::flags() const {
   return _internal_flags();
 }
 inline void CMsgSteamDatagramRouterPingReply::_internal_set_flags(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000100u;
+  _impl_._has_bits_[0] |= 0x00000200u;
   _impl_.flags_ = value;
 }
 inline void CMsgSteamDatagramRouterPingReply::set_flags(uint32_t value) {
@@ -13107,6 +13163,74 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamDatagramRoute
 CMsgSteamDatagramRouterPingReply::alt_addresses() const {
   // @@protoc_insertion_point(field_list:CMsgSteamDatagramRouterPingReply.alt_addresses)
   return _impl_.alt_addresses_;
+}
+
+// optional bytes dummy_pad = 99;
+inline bool CMsgSteamDatagramRouterPingReply::_internal_has_dummy_pad() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgSteamDatagramRouterPingReply::has_dummy_pad() const {
+  return _internal_has_dummy_pad();
+}
+inline void CMsgSteamDatagramRouterPingReply::clear_dummy_pad() {
+  _impl_.dummy_pad_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CMsgSteamDatagramRouterPingReply::dummy_pad() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamDatagramRouterPingReply.dummy_pad)
+  return _internal_dummy_pad();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CMsgSteamDatagramRouterPingReply::set_dummy_pad(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.dummy_pad_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CMsgSteamDatagramRouterPingReply.dummy_pad)
+}
+inline std::string* CMsgSteamDatagramRouterPingReply::mutable_dummy_pad() {
+  std::string* _s = _internal_mutable_dummy_pad();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamDatagramRouterPingReply.dummy_pad)
+  return _s;
+}
+inline const std::string& CMsgSteamDatagramRouterPingReply::_internal_dummy_pad() const {
+  return _impl_.dummy_pad_.Get();
+}
+inline void CMsgSteamDatagramRouterPingReply::_internal_set_dummy_pad(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.dummy_pad_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CMsgSteamDatagramRouterPingReply::_internal_mutable_dummy_pad() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.dummy_pad_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CMsgSteamDatagramRouterPingReply::release_dummy_pad() {
+  // @@protoc_insertion_point(field_release:CMsgSteamDatagramRouterPingReply.dummy_pad)
+  if (!_internal_has_dummy_pad()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.dummy_pad_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.dummy_pad_.IsDefault()) {
+    _impl_.dummy_pad_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void CMsgSteamDatagramRouterPingReply::set_allocated_dummy_pad(std::string* dummy_pad) {
+  if (dummy_pad != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.dummy_pad_.SetAllocated(dummy_pad, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.dummy_pad_.IsDefault()) {
+    _impl_.dummy_pad_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamDatagramRouterPingReply.dummy_pad)
 }
 
 // -------------------------------------------------------------------
@@ -15254,32 +15378,32 @@ inline void CMsgSteamDatagramClientPingSampleReply::set_connection_id(uint32_t v
   // @@protoc_insertion_point(field_set:CMsgSteamDatagramClientPingSampleReply.connection_id)
 }
 
-// optional bool override_active = 4;
-inline bool CMsgSteamDatagramClientPingSampleReply::_internal_has_override_active() const {
+// optional bool relay_override_active = 5;
+inline bool CMsgSteamDatagramClientPingSampleReply::_internal_has_relay_override_active() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
-inline bool CMsgSteamDatagramClientPingSampleReply::has_override_active() const {
-  return _internal_has_override_active();
+inline bool CMsgSteamDatagramClientPingSampleReply::has_relay_override_active() const {
+  return _internal_has_relay_override_active();
 }
-inline void CMsgSteamDatagramClientPingSampleReply::clear_override_active() {
-  _impl_.override_active_ = false;
+inline void CMsgSteamDatagramClientPingSampleReply::clear_relay_override_active() {
+  _impl_.relay_override_active_ = false;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline bool CMsgSteamDatagramClientPingSampleReply::_internal_override_active() const {
-  return _impl_.override_active_;
+inline bool CMsgSteamDatagramClientPingSampleReply::_internal_relay_override_active() const {
+  return _impl_.relay_override_active_;
 }
-inline bool CMsgSteamDatagramClientPingSampleReply::override_active() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamDatagramClientPingSampleReply.override_active)
-  return _internal_override_active();
+inline bool CMsgSteamDatagramClientPingSampleReply::relay_override_active() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamDatagramClientPingSampleReply.relay_override_active)
+  return _internal_relay_override_active();
 }
-inline void CMsgSteamDatagramClientPingSampleReply::_internal_set_override_active(bool value) {
+inline void CMsgSteamDatagramClientPingSampleReply::_internal_set_relay_override_active(bool value) {
   _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.override_active_ = value;
+  _impl_.relay_override_active_ = value;
 }
-inline void CMsgSteamDatagramClientPingSampleReply::set_override_active(bool value) {
-  _internal_set_override_active(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamDatagramClientPingSampleReply.override_active)
+inline void CMsgSteamDatagramClientPingSampleReply::set_relay_override_active(bool value) {
+  _internal_set_relay_override_active(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamDatagramClientPingSampleReply.relay_override_active)
 }
 
 // repeated .CMsgSteamDatagramClientPingSampleReply.POP pops = 2;
@@ -18035,6 +18159,34 @@ inline void CMsgSteamDatagramConnectionClosed::set_not_primary_transport(bool va
   // @@protoc_insertion_point(field_set:CMsgSteamDatagramConnectionClosed.not_primary_transport)
 }
 
+// optional bool relay_override_active = 22;
+inline bool CMsgSteamDatagramConnectionClosed::_internal_has_relay_override_active() const {
+  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
+  return value;
+}
+inline bool CMsgSteamDatagramConnectionClosed::has_relay_override_active() const {
+  return _internal_has_relay_override_active();
+}
+inline void CMsgSteamDatagramConnectionClosed::clear_relay_override_active() {
+  _impl_.relay_override_active_ = false;
+  _impl_._has_bits_[0] &= ~0x00080000u;
+}
+inline bool CMsgSteamDatagramConnectionClosed::_internal_relay_override_active() const {
+  return _impl_.relay_override_active_;
+}
+inline bool CMsgSteamDatagramConnectionClosed::relay_override_active() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamDatagramConnectionClosed.relay_override_active)
+  return _internal_relay_override_active();
+}
+inline void CMsgSteamDatagramConnectionClosed::_internal_set_relay_override_active(bool value) {
+  _impl_._has_bits_[0] |= 0x00080000u;
+  _impl_.relay_override_active_ = value;
+}
+inline void CMsgSteamDatagramConnectionClosed::set_relay_override_active(bool value) {
+  _internal_set_relay_override_active(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamDatagramConnectionClosed.relay_override_active)
+}
+
 // optional .CMsgSteamDatagramConnectionQuality quality_relay = 17;
 inline bool CMsgSteamDatagramConnectionClosed::_internal_has_quality_relay() const {
   bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
@@ -18417,7 +18569,7 @@ inline void CMsgSteamDatagramNoConnection::set_to_relay_session_id(uint32_t valu
 
 // optional fixed32 from_relay_session_id = 10;
 inline bool CMsgSteamDatagramNoConnection::_internal_has_from_relay_session_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramNoConnection::has_from_relay_session_id() const {
@@ -18425,7 +18577,7 @@ inline bool CMsgSteamDatagramNoConnection::has_from_relay_session_id() const {
 }
 inline void CMsgSteamDatagramNoConnection::clear_from_relay_session_id() {
   _impl_.from_relay_session_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000200u;
+  _impl_._has_bits_[0] &= ~0x00000400u;
 }
 inline uint32_t CMsgSteamDatagramNoConnection::_internal_from_relay_session_id() const {
   return _impl_.from_relay_session_id_;
@@ -18435,7 +18587,7 @@ inline uint32_t CMsgSteamDatagramNoConnection::from_relay_session_id() const {
   return _internal_from_relay_session_id();
 }
 inline void CMsgSteamDatagramNoConnection::_internal_set_from_relay_session_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_._has_bits_[0] |= 0x00000400u;
   _impl_.from_relay_session_id_ = value;
 }
 inline void CMsgSteamDatagramNoConnection::set_from_relay_session_id(uint32_t value) {
@@ -18541,7 +18693,7 @@ inline void CMsgSteamDatagramNoConnection::set_legacy_from_steam_id(uint64_t val
 
 // optional bool end_to_end = 4;
 inline bool CMsgSteamDatagramNoConnection::_internal_has_end_to_end() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramNoConnection::has_end_to_end() const {
@@ -18549,7 +18701,7 @@ inline bool CMsgSteamDatagramNoConnection::has_end_to_end() const {
 }
 inline void CMsgSteamDatagramNoConnection::clear_end_to_end() {
   _impl_.end_to_end_ = false;
-  _impl_._has_bits_[0] &= ~0x00000400u;
+  _impl_._has_bits_[0] &= ~0x00000800u;
 }
 inline bool CMsgSteamDatagramNoConnection::_internal_end_to_end() const {
   return _impl_.end_to_end_;
@@ -18559,7 +18711,7 @@ inline bool CMsgSteamDatagramNoConnection::end_to_end() const {
   return _internal_end_to_end();
 }
 inline void CMsgSteamDatagramNoConnection::_internal_set_end_to_end(bool value) {
-  _impl_._has_bits_[0] |= 0x00000400u;
+  _impl_._has_bits_[0] |= 0x00000800u;
   _impl_.end_to_end_ = value;
 }
 inline void CMsgSteamDatagramNoConnection::set_end_to_end(bool value) {
@@ -18569,7 +18721,7 @@ inline void CMsgSteamDatagramNoConnection::set_end_to_end(bool value) {
 
 // optional bool not_primary_session = 12;
 inline bool CMsgSteamDatagramNoConnection::_internal_has_not_primary_session() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramNoConnection::has_not_primary_session() const {
@@ -18577,7 +18729,7 @@ inline bool CMsgSteamDatagramNoConnection::has_not_primary_session() const {
 }
 inline void CMsgSteamDatagramNoConnection::clear_not_primary_session() {
   _impl_.not_primary_session_ = false;
-  _impl_._has_bits_[0] &= ~0x00000800u;
+  _impl_._has_bits_[0] &= ~0x00001000u;
 }
 inline bool CMsgSteamDatagramNoConnection::_internal_not_primary_session() const {
   return _impl_.not_primary_session_;
@@ -18587,7 +18739,7 @@ inline bool CMsgSteamDatagramNoConnection::not_primary_session() const {
   return _internal_not_primary_session();
 }
 inline void CMsgSteamDatagramNoConnection::_internal_set_not_primary_session(bool value) {
-  _impl_._has_bits_[0] |= 0x00000800u;
+  _impl_._has_bits_[0] |= 0x00001000u;
   _impl_.not_primary_session_ = value;
 }
 inline void CMsgSteamDatagramNoConnection::set_not_primary_session(bool value) {
@@ -18597,7 +18749,7 @@ inline void CMsgSteamDatagramNoConnection::set_not_primary_session(bool value) {
 
 // optional bool not_primary_transport = 15;
 inline bool CMsgSteamDatagramNoConnection::_internal_has_not_primary_transport() const {
-  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramNoConnection::has_not_primary_transport() const {
@@ -18605,7 +18757,7 @@ inline bool CMsgSteamDatagramNoConnection::has_not_primary_transport() const {
 }
 inline void CMsgSteamDatagramNoConnection::clear_not_primary_transport() {
   _impl_.not_primary_transport_ = false;
-  _impl_._has_bits_[0] &= ~0x00001000u;
+  _impl_._has_bits_[0] &= ~0x00002000u;
 }
 inline bool CMsgSteamDatagramNoConnection::_internal_not_primary_transport() const {
   return _impl_.not_primary_transport_;
@@ -18615,12 +18767,40 @@ inline bool CMsgSteamDatagramNoConnection::not_primary_transport() const {
   return _internal_not_primary_transport();
 }
 inline void CMsgSteamDatagramNoConnection::_internal_set_not_primary_transport(bool value) {
-  _impl_._has_bits_[0] |= 0x00001000u;
+  _impl_._has_bits_[0] |= 0x00002000u;
   _impl_.not_primary_transport_ = value;
 }
 inline void CMsgSteamDatagramNoConnection::set_not_primary_transport(bool value) {
   _internal_set_not_primary_transport(value);
   // @@protoc_insertion_point(field_set:CMsgSteamDatagramNoConnection.not_primary_transport)
+}
+
+// optional bool relay_override_active = 17;
+inline bool CMsgSteamDatagramNoConnection::_internal_has_relay_override_active() const {
+  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
+  return value;
+}
+inline bool CMsgSteamDatagramNoConnection::has_relay_override_active() const {
+  return _internal_has_relay_override_active();
+}
+inline void CMsgSteamDatagramNoConnection::clear_relay_override_active() {
+  _impl_.relay_override_active_ = false;
+  _impl_._has_bits_[0] &= ~0x00004000u;
+}
+inline bool CMsgSteamDatagramNoConnection::_internal_relay_override_active() const {
+  return _impl_.relay_override_active_;
+}
+inline bool CMsgSteamDatagramNoConnection::relay_override_active() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamDatagramNoConnection.relay_override_active)
+  return _internal_relay_override_active();
+}
+inline void CMsgSteamDatagramNoConnection::_internal_set_relay_override_active(bool value) {
+  _impl_._has_bits_[0] |= 0x00004000u;
+  _impl_.relay_override_active_ = value;
+}
+inline void CMsgSteamDatagramNoConnection::set_relay_override_active(bool value) {
+  _internal_set_relay_override_active(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamDatagramNoConnection.relay_override_active)
 }
 
 // optional .CMsgSteamDatagramConnectionQuality quality_relay = 13;
@@ -18889,7 +19069,7 @@ inline void CMsgSteamDatagramNoConnection::set_allocated_p2p_routing_summary(::C
 
 // optional fixed64 routing_secret = 11;
 inline bool CMsgSteamDatagramNoConnection::_internal_has_routing_secret() const {
-  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramNoConnection::has_routing_secret() const {
@@ -18897,7 +19077,7 @@ inline bool CMsgSteamDatagramNoConnection::has_routing_secret() const {
 }
 inline void CMsgSteamDatagramNoConnection::clear_routing_secret() {
   _impl_.routing_secret_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00002000u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
 }
 inline uint64_t CMsgSteamDatagramNoConnection::_internal_routing_secret() const {
   return _impl_.routing_secret_;
@@ -18907,7 +19087,7 @@ inline uint64_t CMsgSteamDatagramNoConnection::routing_secret() const {
   return _internal_routing_secret();
 }
 inline void CMsgSteamDatagramNoConnection::_internal_set_routing_secret(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00002000u;
+  _impl_._has_bits_[0] |= 0x00000200u;
   _impl_.routing_secret_ = value;
 }
 inline void CMsgSteamDatagramNoConnection::set_routing_secret(uint64_t value) {
@@ -18917,7 +19097,7 @@ inline void CMsgSteamDatagramNoConnection::set_routing_secret(uint64_t value) {
 
 // optional fixed32 dummy_pad = 1023;
 inline bool CMsgSteamDatagramNoConnection::_internal_has_dummy_pad() const {
-  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramNoConnection::has_dummy_pad() const {
@@ -18925,7 +19105,7 @@ inline bool CMsgSteamDatagramNoConnection::has_dummy_pad() const {
 }
 inline void CMsgSteamDatagramNoConnection::clear_dummy_pad() {
   _impl_.dummy_pad_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00004000u;
+  _impl_._has_bits_[0] &= ~0x00008000u;
 }
 inline uint32_t CMsgSteamDatagramNoConnection::_internal_dummy_pad() const {
   return _impl_.dummy_pad_;
@@ -18935,7 +19115,7 @@ inline uint32_t CMsgSteamDatagramNoConnection::dummy_pad() const {
   return _internal_dummy_pad();
 }
 inline void CMsgSteamDatagramNoConnection::_internal_set_dummy_pad(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00004000u;
+  _impl_._has_bits_[0] |= 0x00008000u;
   _impl_.dummy_pad_ = value;
 }
 inline void CMsgSteamDatagramNoConnection::set_dummy_pad(uint32_t value) {
