@@ -79,7 +79,6 @@ void Signatures::FindSignatures() {
 	//SET_VAR(BIsEmoticonUnlocked, Memory::Scan("E8 ? ? ? ? 84 C0 0F 84 ? ? ? ? 48 8B 45 08", "client.dll").GetAbsoluteAddress(1, 5));
 
 #if defined(_DEBUG) && !defined(_TESTING)
-	SET_VAR(CDOTAItemSchema::GetItemDefByIndex, Memory::Scan("E8 ? ? ? ? 8B 4E 64", "client.dll").GetAbsoluteAddress(1));
-	SET_VAR(CDOTAItemSchema::GetItemDefArrIdx, Address(CDOTAItemSchema::GetItemDefByIndex).Offset(0x16).GetAbsoluteAddress(1));
+	SET_VAR(CDOTAItemSchema::GetItemDefByIndex, Memory::Scan("E8 ? ? ? ? 83 FE 05", "client.dll").GetAbsoluteAddress(1));
 #endif
 }

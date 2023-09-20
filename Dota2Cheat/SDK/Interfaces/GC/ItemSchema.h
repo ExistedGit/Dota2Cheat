@@ -47,17 +47,6 @@ struct ItemDefNode {
 class CDOTAItemSchema : public VClass {
 public:
 	inline static CDOTAItemDefinition* (*GetItemDefByIndex)(VClass* itemSchema, uint32_t index) = nullptr;
-	inline static int(*GetItemDefArrIdx)(int* arr, uint32_t* unDefIndex) = nullptr;
 
 	GETTER(ItemDefNode*, GetItemDefinitions, 0x50);
-	// Rebuilt from GetItemDefByIndex
-	CDOTAItemDefinition** GetItemDefByIndexRef(uint32_t unDefIndex) {
-		auto index = GetItemDefArrIdx(MemberInline<int>(0x20), &unDefIndex);
-		if (index < 0 || index >= Member<int>(0x68))
-			return nullptr;
-		auto itemDefs = GetItemDefinitions();
-		return itemDefs[index].unk1 < -1
-			? nullptr
-			: &itemDefs[index].itemDef;
-	}
 };

@@ -30,11 +30,11 @@ void Hooks::InstallHooks() {
 		// CDOTA_Buff destructor
 		// vtable ptr at 0xd
 		auto OnRemoveModifier = SignatureDB::FindSignature("CDOTA_Buff::~CDOTA_Buff");
-		uintptr_t** vtable = OnRemoveModifier.Offset(0xd).GetAbsoluteAddress(3);
+		uintptr_t** vtable = OnRemoveModifier.Offset(0x1C).GetAbsoluteAddress(3);
 		uintptr_t* OnAddModifier = vtable[VTableIndexes::CDOTA_Buff::OnAddModifier];
 		HOOKFUNC(OnAddModifier);
 		HOOKFUNC(OnRemoveModifier);
-		CDOTAParticleManager::DestroyParticleFunc = OnRemoveModifier.Offset(0x75).GetAbsoluteAddress(1);
+		CDOTAParticleManager::DestroyParticleFunc = OnRemoveModifier.Offset(0x5E).GetAbsoluteAddress(1);
 	}
 	{
 		// xref: "CParticleCollection::~CParticleCollection [%p]\n"
@@ -44,7 +44,7 @@ void Hooks::InstallHooks() {
 	}
 #ifndef _TESTING
 	{
-		void* RunScript = Interfaces::UIEngine->GetVFunc(88).ptr;
+		void* RunScript = Interfaces::UIEngine->GetVFunc(VTableIndexes::CUIEngineSource2::RunScript).ptr;
 		HOOKFUNC(RunScript);
 	}
 #endif

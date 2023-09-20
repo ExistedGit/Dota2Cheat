@@ -87,10 +87,13 @@ public:
 	}
 
 	// IDA:
-	// xref "cl_showents" -> lea rax, [XXXXXXXX] above
-	// decompile it, there is a cycle using a variable initialized with the first call(to sub_18XXXXXX)
-	// that function will have this function
+	// xref "cl_showents" -> lea rax, sub_XXXXXXXX above
+	// decompile it, there is a cycle using a variable initialized with the first function call
+	// that function will have the offset
+	// sig: "E8 ? ? ? ? 33 DB 44 8B E3"
 	GETTER(int, GetHighestEntityIndex, 0x1510);
+	// Iterated in OnAddEntity/OnRemoveEntity
+	// sig to jmp to opcode: "EB 1B 48 85 F6"
 	FIELD(CUtlVector<IEntityListener*>, GetListeners, 0x1548);
 };
 
