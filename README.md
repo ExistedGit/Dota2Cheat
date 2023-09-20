@@ -1,4 +1,8 @@
-# Dota2Cheat
+# Dota2Cheat: 
+
+This cheat was last updated for 7.34
+
+You can probably update it if you really want
 
 ![v4 image](https://github.com/ExistedGit/Dota2Cheat/assets/66470490/88dbfa94-0ba3-4d53-b355-8cb18de98d71)
 
