@@ -148,6 +148,7 @@
     <ClCompile Include="SDK\Panorama\CUIPanel.cpp" />
     <ClCompile Include="CheatSDK\Data\EntityList.cpp" />
     <ClCompile Include="DebugFunctions.cpp" />
+    <ClCompile Include="SDK\GameSystems\CGameEventManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\UI\UIOverhaul.h" />

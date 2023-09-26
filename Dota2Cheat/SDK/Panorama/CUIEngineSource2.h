@@ -22,7 +22,7 @@ class CUIEngineSource2 : public VClass {
 public:
 	template<uint32_t size>
 	auto GetPanelList() {
-		return std::span{ Member<PanelListNode*>(0xf8), size };
+		return std::span{ Member<PanelListNode*>(0xf0), size };
 	}
 
 	GETTER(CUIRenderDeviceSource2*, GetRenderDevice, 0xBA8);

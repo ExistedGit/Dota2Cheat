@@ -10,8 +10,8 @@ public:
 	void FireGameEvent(CGameEvent* ev) override {
 		if (!ctx.localPlayer)
 			return;
-		static auto hash = GetHash("playerid");
-		int playerid = ev->GetInt(&hash, -2);
+
+		int playerid = ev->GetInt("playerid", -2);
 		if (playerid != ctx.localPlayer->GetPlayerID())
 			return;
 

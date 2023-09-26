@@ -13,7 +13,7 @@ void GameSystems::InitMinimapRenderer() {
 	while (!Panorama::DotaHud->FindChildWithIdTraverse("minimap")) {};
 	auto minimap = Panorama::DotaHud->FindChildWithIdTraverse("minimap");
 
-	SET_VAR(MinimapRenderer, minimap->GetPanel2D()->Member<CDOTAPanoramaMinimapRenderer*>(0x20));
+	SET_VAR(MinimapRenderer, minimap->GetPanel2D()->Member<CDOTAPanoramaMinimapRenderer*>(0x28));
 }
 template<typename T>
 T* GameSystems::FindStaticGameSystem(const char* name) {

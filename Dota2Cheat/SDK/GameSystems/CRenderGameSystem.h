@@ -8,7 +8,7 @@
 class CRenderGameSystem : VClass {
 public:
 	auto WorldToProjectionMatrix() {
-		return CallVFunc<51, float*>(0); // last vfunc
+		return CallVFunc<53, float*>(0); // last vfunc
 	}
 
 	// Basically some complex math involving the WorldToProjection matrix

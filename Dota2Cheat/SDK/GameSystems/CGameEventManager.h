@@ -9,6 +9,20 @@
 
 class CGameEvent
 {
+	struct EventFieldToken {
+		uint32_t hash;
+		const char* field;
+
+		// reconstructed from various inlined algorithms around field names("new_state", "playerid" etc)
+		// Valve did some compile-time tomfoolery and analyzing this took more than it should have
+		uint32_t HashToken(const char* token);
+
+
+		EventFieldToken(const char* name) : field(name) {
+			hash = HashToken(name);
+		}
+	};
+
 public:
 	virtual void DESTROY() = 0;
 
@@ -19,12 +33,12 @@ public:
 	virtual bool IsLocal(void) = 0;
 	virtual bool IsEmpty(uint32_t token) = 0;
 
-	virtual bool GetBool(uint32_t* token, bool defaultValue = false) = 0;
-	virtual int GetInt(uint32_t* token, int defaultValue = 0) = 0;
-	virtual uint64_t GetUint64(uint32_t* token, uint64_t DefaultValue = 0) = 0;
-	virtual float GetFloat(uint32_t* token, float defaultValue = 0.0f) = 0;
-	virtual const char* GetString(uint32_t* token, char const* defaultValue = nullptr) = 0;
-	virtual const void* GetPtr(uint32_t* token) = 0;
+	virtual bool GetBool(const EventFieldToken& token, bool defaultValue = false) = 0;
+	virtual int GetInt(const EventFieldToken& token, int defaultValue = 0) = 0;
+	virtual uint64_t GetUint64(const EventFieldToken& token, uint64_t DefaultValue = 0) = 0;
+	virtual float GetFloat(const EventFieldToken& token, float defaultValue = 0.0f) = 0;
+	virtual const char* GetString(const EventFieldToken& token, char const* defaultValue = nullptr) = 0;
+	virtual const void* GetPtr(const EventFieldToken& token) = 0;
 
 private:
 	virtual void unk0() = 0;
@@ -37,12 +51,12 @@ private:
 	virtual void unk7() = 0;
 
 public:
-	virtual void SetBool(uint32_t* token, bool value) = 0;
-	virtual void SetInt(uint32_t* token, int value) = 0;
-	virtual void SetUint64(uint32_t* token, uint64_t value) = 0;
-	virtual void SetFloat(uint32_t* token, float value) = 0;
-	virtual void SetString(uint32_t* token, char const* value) = 0;
-	virtual void SetPtr(uint32_t* token, void const* value) = 0;
+	virtual void SetBool(const EventFieldToken& token, bool value) = 0;
+	virtual void SetInt(const EventFieldToken& token, int value) = 0;
+	virtual void SetUint64(const EventFieldToken& token, uint64_t value) = 0;
+	virtual void SetFloat(const EventFieldToken& token, float value) = 0;
+	virtual void SetString(const EventFieldToken& token, char const* value) = 0;
+	virtual void SetPtr(const EventFieldToken& token, void const* value) = 0;
 
 	// Last vfunc, easier to rebuild than put up another 5 of unk()
 	void* GetDataKeys() {
@@ -53,24 +67,6 @@ public:
 class IGameEventListener2
 {
 public:
-	// rebuilt from a func in CGameEvent::GetInt callstack, you can use any other getter
-	// sig for      ^^: "48 89 74 24 ? 57 48 81 EC ? ? ? ? 48 8B 02 48 8B F1 48 8B CA 48 8B FA FF 50 10 3B 46 2C"
-	auto GetHash(const char* cstr) {
-		auto v7 = 826366252;
-		auto v8 = 2i64;
-		constexpr auto base = 1540483477;
-		do
-		{
-			auto v9 = base * *(uint32_t*)cstr;
-			cstr += 4;
-			v7 = (base * (v9 ^ HIBYTE(v9))) ^ (base * v7);
-			--v8;
-		} while (v8);
-		auto v10 = base
-			* ((base * (v7 ^ (*(cstr + 1) << 8) ^ *cstr)) ^ ((base * (v7 ^ (*(cstr + 1) << 8) ^ (unsigned int)*cstr)) >> 13));
-		return v10 ^ (v10 >> 15);
-	}
-
 	virtual void DESTROY()
 	{
 	};

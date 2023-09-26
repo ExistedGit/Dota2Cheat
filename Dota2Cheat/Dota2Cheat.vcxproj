@@ -334,6 +334,7 @@
     <ClCompile Include="include\imgui\imgui_draw.cpp" />
     <ClCompile Include="include\imgui\imgui_tables.cpp" />
     <ClCompile Include="include\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="SDK\GameSystems\CGameEventManager.cpp" />
     <ClCompile Include="SDK\GameSystems\CGlobalVars.cpp" />
     <ClCompile Include="SDK\GameSystems\CRenderGameSystem.cpp" />
     <ClCompile Include="SDK\GameSystems\C_DOTAGameRules.cpp" />

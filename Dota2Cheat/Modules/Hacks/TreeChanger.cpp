@@ -4,7 +4,8 @@ void Modules::M_TreeChanger::SetTreeModel(CBaseEntity* tree, const TreeModelInfo
 	static Function setMdl = nullptr;
 
 	if (!setMdl.ptr)
-		setMdl = Address(tree->GetVFunc(7).ptr).Offset(0x1c0).GetAbsoluteAddress(1);
+		// models/props_foliage/draft_tree001.vmdl goes into its RDX
+		setMdl = Address(tree->GetVFunc(7).ptr).Offset(0x1b9).GetAbsoluteAddress(1);
 
 	setMdl(tree, mdl.modelName);
 	if (tree->ModelScale() != mdl.scale) {
