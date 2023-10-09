@@ -96,6 +96,8 @@ long Hooks::hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags)
 #ifdef _DEBUG
 	// Pages::AutoPickHeroGrid::Draw();
 #endif // _DEBUG
+	ImGui::GetForegroundDrawList()->AddRectFilled({ 0, 0 }, { 100, 100 }, ImColor{ 255,0,0 });
+
 	ImGui::PushFont(DrawData.Fonts["MSTrebuchet"][24]);
 	if (
 		Interfaces::GameUI->GetUIState() == DOTA_GAME_UI_DOTA_INGAME

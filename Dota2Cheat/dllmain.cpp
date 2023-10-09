@@ -11,30 +11,30 @@
 #include "UI/Pages/MainMenu.h"
 #include "UI/Pages/AutoPickSelectionGrid.h"
 
-//static void* oSpawn{};
-//void* hkSpawn(CDOTABaseNPC* hero) {
-//	decltype(&hkSpawn) OSpawn = (decltype(&hkSpawn))oSpawn;
-//	if (!DoChanging || !EntityList.IsHero(hero))
-//		return OSpawn(hero);
-//
-//
-//	auto& w = hero->Field<CUtlVector<CHandle<CEconWearable>>>(Netvars::C_BaseCombatCharacter::m_hMyWearables);
-//	Log(LP_NONE, "WEARABLES:");
-//	for (int i = 0; i < w.m_Size; i++) {
-//		LogF(LP_NONE, "{} | {}", i, (void*)w[i].Entity());
-//	}
-//
-//	static Function init = Memory::Scan("E8 ? ? ? ? 8B C6 3B F3", "client.dll").GetAbsoluteAddress(1);
-//	static auto ei = Modules::SkinChanger.CreateItem(18033);
-//	auto item = hero->Wearables()[2]->GetAttributeManager()->GetItem();
-//	init(item, ei, 0xff);
-//
-//	auto ret = OSpawn(hero);
-//
-//	return ret;
-//}
-static void* oOnDataChanged{};
 static void* oSpawn{};
+void* hkSpawn(CDOTABaseNPC* hero) {
+	decltype(&hkSpawn) OSpawn = (decltype(&hkSpawn))oSpawn;
+	if (!DoChanging || !EntityList.IsHero(hero))
+		return OSpawn(hero);
+
+
+	auto& w = hero->Field<CUtlVector<CHandle<CEconWearable>>>(Netvars::C_BaseCombatCharacter::m_hMyWearables);
+	Log(LP_NONE, "WEARABLES:");
+	for (int i = 0; i < w.m_Size; i++) {
+		LogF(LP_NONE, "{} | {}", i, (void*)w[i].Entity());
+	}
+
+	static Function init = Memory::Scan("E8 ? ? ? ? 8B C6 3B F3", "client.dll").GetAbsoluteAddress(1);
+	static auto ei = Modules::SkinChanger.CreateItem(18033);
+	auto item = hero->Wearables()[2]->GetAttributeManager()->GetItem();
+	init(item, ei, 0xff);
+
+	auto ret = OSpawn(hero);
+
+	return ret;
+}
+static void* oOnDataChanged{};
+
 void* hkOnDataChanged(CDOTABaseNPC* hero, bool idk) {
 	decltype(&hkOnDataChanged) OOnDataChanged = (decltype(&hkOnDataChanged))oOnDataChanged;
 	if (idk != 0 || !EntityList.IsHero(hero))
@@ -45,7 +45,7 @@ void* hkOnDataChanged(CDOTABaseNPC* hero, bool idk) {
 
 	static Function init = Memory::Scan("E8 ? ? ? ? 8B C6 3B F3", "client.dll").GetAbsoluteAddress(1);
 	static auto ei = Modules::SkinChanger.CreateItem(9235);
-	CEconWearable* wearable = hero->Wearables()[0];
+	CEconWearable* wearable = hero->Wearables()[1];
 	auto item = wearable->GetAttributeManager()->GetItem();
 
 	LogF(LP_NONE, "W0 Model: {}", (wearable->GetModelName() ? wearable->GetModelName() : "N/A"));
@@ -186,8 +186,7 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 )
 {
 	if (ul_reason_for_call == DLL_PROCESS_ATTACH)
-		if (HANDLE thread = CreateThread(0, 0, (LPTHREAD_START_ROUTINE)HackThread, hModule, 0, 0); thread)
-			CloseHandle(thread);
+		std::thread(&HackThread, hModule).detach();
 
 	return TRUE;
 }

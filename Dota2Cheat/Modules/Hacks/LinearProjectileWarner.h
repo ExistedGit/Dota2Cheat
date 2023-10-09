@@ -19,7 +19,7 @@
 namespace Modules {
 	// Shows linear projectile trajectories with a red line
 	// Also shows potential trajectories for aiming heroes like Hoodwink
-	inline class M_LinearProjectileWarner : public IRunFrameListener, public INetChanListener {
+	inline class M_LinearProjectileWarner : public IFrameListener, public INetChanListener {
 	public:
 
 		struct LinearProjectile {

@@ -4,7 +4,7 @@
 #include "../MListeners.h"
 namespace Modules {
 	// River paint is controlled by a hidden ConVar
-	inline class M_RiverPaint : public IRunFrameListener {
+	inline class M_RiverPaint : public IFrameListener {
 	public:
 		void OnFrame() override {
 			static auto cvar = CCVar::CVars["dota_river_type"];

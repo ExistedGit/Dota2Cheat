@@ -9,11 +9,15 @@ namespace Modules {
 		bool needsRestore = false;
 
 	public:
+		void RestoreTreeModels();
+		void UpdateTreeModels();
+
 		struct TreeModelInfo {
 			const char* modelName;
 			float scale;
 		};
-		struct SavedModelInfo : public TreeModelInfo{
+
+		struct SavedModelInfo : public TreeModelInfo {
 			uint64_t meshGroupMask;
 		};
 
@@ -21,18 +25,18 @@ namespace Modules {
 
 		TreeModelInfo queuedModel;
 
-		void QueueModelUpdate(TreeModelInfo mdlInfo) {
+		void QueueModelUpdate(const TreeModelInfo& mdlInfo) {
 			queuedModel = mdlInfo;
 			needsUpdate = true;
 		}
 		void QueueModelRestore() {
 			needsRestore = true;
 		}
+
 		void Reset() {
 			originalTrees.clear();
 		}
+
 		void SetTreeModel(CBaseEntity* tree, const TreeModelInfo& mdl);
-		void RestoreTreeModels();
-		void UpdateTreeModels();
 	} TreeChanger{};
 }

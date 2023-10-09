@@ -4,7 +4,7 @@
 #include "../MListeners.h"
 
 namespace Modules {
-	inline class M_ParticleGarbageCollector : public IRunFrameListener {
+	inline class M_ParticleGarbageCollector : public IFrameListener {
 		private:
 			struct ParticleGCInfo {
 				float assignTime;

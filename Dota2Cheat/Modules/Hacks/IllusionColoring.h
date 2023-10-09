@@ -5,7 +5,7 @@
 
 namespace Modules {
 
-	inline class M_IllusionESP : public IEntityListListener, public IRunFrameListener {
+	inline class M_IllusionESP : public IEntityListListener, public IFrameListener {
 		std::set<CDOTABaseNPC_Hero*> IllusionCandidates;
 		std::set<CDOTABaseNPC_Hero*> LancerIllusions; // Separately colored
 

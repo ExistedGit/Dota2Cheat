@@ -6,7 +6,7 @@
 #include "../Utility/ParticleGC.h"
 
 namespace Modules {
-	inline class M_TargetedSpellHighlighter : public IRunFrameListener { 
+	inline class M_TargetedSpellHighlighter : public IFrameListener { 
 	private:
 		struct ParticleCreationInfo {
 			std::map<int, Vector> controlPoints{};

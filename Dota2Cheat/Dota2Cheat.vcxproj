@@ -271,6 +271,7 @@
     <ClCompile Include="CheatSDK\Systems\CheatManager.cpp" />
     <ClCompile Include="CheatSDK\Systems\TextureManager.cpp" />
     <ClCompile Include="DebugFunctions.cpp" />
+    <ClCompile Include="Hooks\FrameStageNotify.cpp" />
     <ClCompile Include="Hooks\Present.cpp" />
     <ClCompile Include="Hooks\SteamGC.cpp" />
     <ClCompile Include="include\imgui\imgui_impl_dx11.cpp" />
@@ -286,7 +287,6 @@
     <ClCompile Include="Hooks\ModifierEvents.cpp" />
     <ClCompile Include="Hooks\NetChannel.cpp" />
     <ClCompile Include="Hooks\PrepareUnitOrders.cpp" />
-    <ClCompile Include="Hooks\RunFrame.cpp" />
     <ClCompile Include="ImGuiSDK\Elements.cpp" />
     <ClCompile Include="include\cityhash\city.cc" />
     <ClCompile Include="include\imgui\imgui_stdlib.cpp" />
@@ -568,6 +568,7 @@
     <ClInclude Include="CheatSDK\KeyHandler.h" />
     <ClInclude Include="CheatSDK\Data\UIData.h" />
     <ClInclude Include="CheatSDK\Systems\TextureManager.h" />
+    <ClInclude Include="Hooks\FrameStageNotify.h" />
     <ClInclude Include="Hooks\Present.h" />
     <ClInclude Include="Hooks\SteamGC.h" />
     <ClInclude Include="include\imgui\imgui_impl_dx11.h" />
@@ -648,7 +649,6 @@
     <ClInclude Include="Hooks\AcceptEvents.h" />
     <ClInclude Include="ImGuiSDK\Elements.h" />
     <ClInclude Include="include\imgui\imgui_stdlib.h" />
-    <ClInclude Include="include\json.hpp" />
     <ClInclude Include="Modules\UI\AbilityESP.h" />
     <ClInclude Include="Modules\Hacks\AegisSnatcher.h" />
     <ClInclude Include="Modules\Hacks\ClaimTutorialRewards.h" />
@@ -771,7 +771,6 @@
     <ClInclude Include="SDK\Protobufs\uifontfile_format.pb.h" />
     <ClInclude Include="SDK\Protobufs\usercmd.pb.h" />
     <ClInclude Include="SDK\Protobufs\valveextensions.pb.h" />
-    <ClInclude Include="CheatSDK\MapThreadSafe.h" />
     <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h" />
     <ClInclude Include="Utils\Drawing.h" />
     <ClInclude Include="CheatSDK\Globals\Context.h" />
@@ -787,7 +786,6 @@
     <ClInclude Include="SDK\Interfaces\Network\INetChannel.h" />
     <ClInclude Include="SDK\Netvars.h" />
     <ClInclude Include="Hooks\PrepareUnitOrders.h" />
-    <ClInclude Include="Hooks\RunFrame.h" />
     <ClInclude Include="Modules\Hacks\IllusionColoring.h" />
     <ClInclude Include="Hooks\ParticleRendering.h" />
     <ClInclude Include="SDK\Panorama\CUIRenderDeviceSource2.h" />

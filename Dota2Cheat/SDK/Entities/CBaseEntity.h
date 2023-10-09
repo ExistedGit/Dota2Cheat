@@ -15,13 +15,16 @@
 class CDOTAPlayerController;
 
 struct CSchemaClassBinding {
-	CSchemaClassBinding* parent;
-	const char* binaryName; // ex: C_World
-	const char* className; // ex: client
-	void* classInfoOldSynthesized;
-	void* classInfoN;
-	void* thisModuleBindingPointer;
-	void* pSchemaType;
+	const char
+		* binaryName, // ex: C_DOTA_Unit_Hero_Nevermore
+		* serverName; // ex: CDOTA_Unit_Hero_Nevermore
+
+	void* parent;
+	const char* fullName; // ex: client.dll!C_DOTA_Unit_Hero_Nevermore
+	void* idk;
+
+	int listIndex;
+	PAD(4 + 8 * 2);
 };
 
 class CBaseEntity : public VClass {
@@ -41,8 +44,9 @@ public:
 	};
 
 	CSchemaClassBinding* SchemaBinding() {
-		return CallVFunc<0, CSchemaClassBinding*>();
+		return CallVFunc<0x118 / 8, CSchemaClassBinding*>();
 	};
+
 	inline static void(__fastcall* OnColorChanged)(void*) = {};
 
 	GETTER(CEntityIdentity*, GetIdentity, Netvars::CEntityInstance::m_pEntity);
@@ -88,7 +92,7 @@ public:
 
 	Vector GetPos() {
 		return Member<VClass*>(Netvars::C_BaseEntity::m_pGameSceneNode)
-			->Member<Vector>(Netvars::CGameSceneNode::m_vecAbsOrigin); 
+			->Member<Vector>(Netvars::CGameSceneNode::m_vecAbsOrigin);
 	}
 
 	// In degrees from 180 to -180(on 0 it looks right)

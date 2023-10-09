@@ -10,7 +10,7 @@ using namespace Panorama;
 namespace Modules {
 	// Augments Dota's own UI built on Panorama
 	// We only use Panorama's functions to obtain data on where and what to draw with ImGui
-	inline class UIOverhaul : public MultiThreadModule, public IRunFrameListener {
+	inline class UIOverhaul : public MultiThreadModule, public IFrameListener {
 		// The slope is 2-way
 		static constexpr ImVec2 topBarImgSize{ 66 - 4, 36 };
 		static constexpr int topBarImgSlope = 4;

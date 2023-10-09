@@ -53,7 +53,7 @@ namespace VTableIndexes {
 	}
 	namespace Source2Client {
 		// 8 funcs above xrefs "reason_code", "client_disconnect"
-		Index VoiceReliable = 104;
+		Index VoiceReliable = 105;
 		// xrefs: "userid", "steamid", "player_info"
 		Index NotifyDisconnect = 14;
 	}

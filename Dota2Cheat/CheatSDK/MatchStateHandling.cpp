@@ -96,8 +96,6 @@ void CMatchStateManager::LeftMatch() {
 	ctx.localPlayer = nullptr;
 	ctx.localHero = nullptr;
 
-	texManager.QueueTextureUnload();
-
 	Log(LP_INFO, "GAME STAGE: NONE");
 }
 

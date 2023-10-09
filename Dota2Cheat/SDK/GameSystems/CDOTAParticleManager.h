@@ -62,6 +62,8 @@ private:
 	};
 };
 
+static_assert(sizeof(CreateParticleInfo) == 0x40);
+
 class CParticleCollection : public VClass {
 public:
 	VGETTER(bool, GetRenderingEnabled, VTableIndexes::CParticleCollection::SetRenderingEnabled - 1);
@@ -110,7 +112,7 @@ public:
 		GETTER(uint32_t, GetHandle, 0x2C);
 	};
 	static inline void(__fastcall* DestroyParticleFunc)(void* thisptr, ENT_HANDLE handle, bool unk);
-	
+
 	GETTER(CUtlVector<ParticleContainer*>, GetParticles, 0x80);
 	FIELD(uint32_t, GetHandle, 0xb8);
 

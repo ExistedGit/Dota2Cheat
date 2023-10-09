@@ -2012,9 +2012,8 @@ public:
 	}
 
 	struct CallbackData {
-	private:
-		uintptr_t unk0;
-	public:
+		uint32_t unk0;
+		uint32_t unk3;
 		const char* m_szCallbackName;
 	private:
 		uintptr_t unk1;
@@ -2024,8 +2023,17 @@ public:
 	private:
 		uintptr_t unk2[2];
 	};
+
 	auto GetNetvarCallbacks() {
 		return **(std::array<CallbackData, 256>**)((uintptr_t)this + 0x4C0);
+	}
+
+	Function FindCallback(std::string_view name) {
+		for (auto& cb : GetNetvarCallbacks())
+			if (cb.unk0 != 0x80000000 && cb.m_szCallbackName == name)
+				return cb.m_CallbackFn;
+		
+		return nullptr;
 	}
 
 	char _pad[0x1A0 - sizeof( void* )];

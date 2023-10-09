@@ -1,7 +1,6 @@
 #pragma once
 #include "../../pch.h"
 #include "../Globals/include.h"
-#include "../MapThreadSafe.h"
 #include <functional>
 #include <mutex>
 #include <consthash/cityhash32.hxx>
@@ -23,7 +22,7 @@ enum class EntityType {
 };
 
 struct EntityWrapper {
-	CBaseEntity* ent;
+	CBaseEntity* ent{};
 	EntityType type = EntityType::Undefined;
 	CreepType creepType = CreepType::NotCreep;
 
@@ -48,7 +47,7 @@ struct IEntityListListener {
 };
 
 inline class CEntityList : public IEntityListener {
-	qwemap<uint32_t, EntityWrapper> Entities;
+	std::map<uint32_t, EntityWrapper> Entities;
 
 	std::vector<IEntityListListener*> Listeners;
 
@@ -72,13 +71,12 @@ public:
 	void AddListener(IEntityListListener& l) {
 		Listeners.push_back(&l);
 	}
+
 	template<size_t lSize>
 	void AddListeners(IEntityListListener* const (&_listeners)[lSize]) {
 		for (auto l : _listeners)
 			Listeners.push_back(l);
 	}
-
-
 
 	template<typename ...Args>
 	bool ContainsTypes(std::function<bool(const EntityWrapper&)> predicate, Args&&... _types) {

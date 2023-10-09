@@ -4,6 +4,7 @@
 
 void Hooks::InstallHooks() {
 	HOOKFUNC_SIGNATURES(PrepareUnitOrders);
+
 #if defined(_DEBUG) && !defined(_TESTING)
 	{
 		auto SendMsg = VMT(Interfaces::SteamGC).GetVM(0);
@@ -18,6 +19,7 @@ void Hooks::InstallHooks() {
 		HookFunc(RetrieveMessage, &Hooks::hkRetrieveMessage, &Hooks::oRetrieveMessage, "ISteamGameCoordinator::RetrieveMessage");
 	}
 #endif
+
 	{
 		// NetChan constructor
 		// vtable ptr at 0x15
@@ -44,14 +46,17 @@ void Hooks::InstallHooks() {
 	}
 #ifndef _TESTING
 	{
-		void* RunScript = Interfaces::UIEngine->GetVFunc(VTableIndexes::CUIEngineSource2::RunScript).ptr;
+
+
+		void* FrameStageNotify = Interfaces::Client->GetVFunc(31);
+		void* RunScript = Interfaces::UIEngine->GetVFunc(VTableIndexes::CUIEngineSource2::RunScript);
+
 		HOOKFUNC(RunScript);
+		HOOKFUNC(FrameStageNotify);
 	}
 #endif
 	{
 		Interfaces::EntitySystem->GetListeners().push_back(&EntityList);
-
-		Interfaces::UIEngine->GetListeners().push_back(Hooks::hkRunFrame);
 	}
 	HookDirectX();
 }

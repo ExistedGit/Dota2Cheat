@@ -1,11 +1,8 @@
 #include "TreeChanger.h"
 
 void Modules::M_TreeChanger::SetTreeModel(CBaseEntity* tree, const TreeModelInfo& mdl) {
-	static Function setMdl = nullptr;
-
-	if (!setMdl.ptr)
-		// models/props_foliage/draft_tree001.vmdl goes into its RDX
-		setMdl = Address(tree->GetVFunc(7).ptr).Offset(0x1b9).GetAbsoluteAddress(1);
+	// "models/props_foliage/draft_tree001.vmdl" goes into its RDX
+	static Function setMdl = Address(tree->GetVFunc(7)).Offset(0x1b9).GetAbsoluteAddress(1);
 
 	setMdl(tree, mdl.modelName);
 	if (tree->ModelScale() != mdl.scale) {
@@ -16,14 +13,8 @@ void Modules::M_TreeChanger::SetTreeModel(CBaseEntity* tree, const TreeModelInfo
 
 void Modules::M_TreeChanger::RestoreTreeModels() {
 
-	static void(*skeletonMeshGroupMaskChanged)(CBaseEntity::CModelState * mdl, CBaseEntity * owner, uint64_t * mask) = nullptr;
-
-	if (!skeletonMeshGroupMaskChanged)
-		for (const auto& data : Interfaces::NetworkMessages->GetNetvarCallbacks())
-			if (IsValidReadPtr(data.m_szCallbackName) && std::string_view(data.m_szCallbackName) == "skeletonMeshGroupMaskChanged") {
-				skeletonMeshGroupMaskChanged = (decltype(skeletonMeshGroupMaskChanged))data.m_CallbackFn;
-				break;
-			}
+	static void(*skeletonMeshGroupMaskChanged)(CBaseEntity::CModelState* mdl, CBaseEntity* owner, uint64_t* mask)
+		= Interfaces::NetworkMessages->FindCallback("skeletonMeshGroupMaskChanged");
 
 	auto trees = GameSystems::BinaryObjectSystem->GetTrees();
 
@@ -40,12 +31,10 @@ void Modules::M_TreeChanger::RestoreTreeModels() {
 }
 
 void Modules::M_TreeChanger::UpdateTreeModels() {
-	if (!needsUpdate && !needsRestore)
-		return;
-
 	if (needsUpdate) {
 		auto trees = GameSystems::BinaryObjectSystem->GetTrees();
 		bool shouldSaveOriginalTrees = originalTrees.empty();
+		// GG branch should be additionally colored via m_clrRender
 		bool isGGBranch = !strcmp(queuedModel.modelName, "models/props_tree/ti7/ggbranch.vmdl");
 		for (auto tree : trees) {
 			if (!tree)
@@ -65,6 +54,5 @@ void Modules::M_TreeChanger::UpdateTreeModels() {
 	else if (needsRestore)
 		RestoreTreeModels();
 
-	needsUpdate = false;
-	needsRestore = false;
+	needsUpdate = needsRestore = false;
 }

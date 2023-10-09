@@ -10,7 +10,7 @@ namespace Config {
 }
 
 namespace Modules {
-	inline class M_AutoPing  : public IRunFrameListener {
+	inline class M_AutoPing  : public IFrameListener {
 		float lastGameTime = 0;
 	public:
 		void OnFrame() override;

@@ -52,7 +52,7 @@ public:
 		panel->RemoveClass("Hidden");
 		SetDialogVariable("error_msg", text);
 		panel->AddClass("PopOutEffect");
-		double flTime = Memory::GetExport("tier0.dll", "Plat_FloatTime").Call<float>();
-		m_flTotalTime = static_cast<float>(flTime) + m_flErrorDurationTime;
+		float flTime = Memory::GetExport("tier0.dll", "Plat_FloatTime").Call<float>();
+		m_flTotalTime = flTime + m_flErrorDurationTime;
 	}
 };

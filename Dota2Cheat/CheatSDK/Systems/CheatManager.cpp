@@ -2,14 +2,15 @@
 
 #include <fstream>
 
-#include "../../Modules/Utility/CVarSpoofer.h"
-
 #include "../Config.h"
 #include "TextureManager.h"
 #include "EventManager.h"
 
 #include "../Hooking.h"
 #include "../../Modules/UI/BarAugmenter.h"
+#include "../../Modules/Hacks/IllusionColoring.h"
+#include "../../Modules/Utility/CVarSpoofer.h"
+#include "../../Modules/Utility/CVarSpoofer.h"
 #include "../../UI/Pages/AutoPickSelectionGrid.h"
 
 void CCheatManager::LoadGameSpecific() {
@@ -40,6 +41,7 @@ void CCheatManager::LoadGameSpecific() {
 		"cl_weather",
 		"dota_hud_chat_enable_all_emoticons"
 	);
+
 	Interfaces::CVar->CVars["dota_hud_chat_enable_all_emoticons"].m_pVar->value.boolean = Config::Changer::UnlockEmoticons;
 
 	SignatureDB::LoadSignaturesFromFile(cheatFolderPath + "\\signatures.json");
@@ -59,15 +61,7 @@ void CCheatManager::LoadGameSpecific() {
 
 	EntityList.AddListener(Modules::IllusionESP);
 
-	// It's supposed to be a CUtlSymbolTable, but we don't yet have the technology...
-	for (const auto& data : Interfaces::NetworkMessages->GetNetvarCallbacks())
-		if (IsValidReadPtr(data.m_szCallbackName) && std::string_view(data.m_szCallbackName) == "OnColorChanged") {
-			CBaseEntity::OnColorChanged = data.m_CallbackFn;
-			LogF(LP_DATA, "{}::{}: {}", data.m_szClassName, data.m_szCallbackName, (void*)data.m_CallbackFn);
-		}
-		else if (IsValidReadPtr(data.m_szCallbackName) && std::string_view(data.m_szCallbackName) == "OnWearablesChanged") {
-			LogF(LP_DATA, "{}::{}: {}", data.m_szClassName, data.m_szCallbackName, (void*)data.m_CallbackFn);
-		}
+	CBaseEntity::OnColorChanged = Interfaces::NetworkMessages->FindCallback("OnColorChanged");
 }
 
 void CCheatManager::LoadFiles() {

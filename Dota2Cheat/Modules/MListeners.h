@@ -1,7 +1,7 @@
 #pragma once
 #include "../pch.h"
 
-struct IRunFrameListener {
+struct IFrameListener {
 	virtual void OnFrame() = 0;
 };
 struct INetChanListener {

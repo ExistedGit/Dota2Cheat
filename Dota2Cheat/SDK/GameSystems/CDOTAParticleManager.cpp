@@ -1,7 +1,6 @@
 #include "CDOTAParticleManager.h"
 
 ParticleWrapper CDOTAParticleManager::CreateParticle(const char* name, ParticleAttachment_t attachType, CBaseEntity* ent) {
-	static_assert(sizeof(CreateParticleInfo) == 0x40);
 	CreateParticleInfo info{};
 	info.m_szParticleName = name;
 	info.m_particleAttachment = attachType;

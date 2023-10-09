@@ -4,7 +4,7 @@
 
 #include "../Hooks/PrepareUnitOrders.h"
 #include "../Hooks/AcceptEvents.h"
-#include "../Hooks/RunFrame.h"
+#include "../Hooks/FrameStageNotify.h"
 #include "../Hooks/NetChannel.h"
 #include "../Hooks/GameCoordinator.h"
 #include "../Hooks/ParticleRendering.h"
@@ -20,6 +20,5 @@ namespace Hooks {
 	// Removes any custom, non-MinHook hooks
 	inline void RemoveHooks() {
 		Interfaces::EntitySystem->GetListeners().remove_by_value(&EntityList);
-		Interfaces::UIEngine->GetListeners().remove_by_value(hkRunFrame);
 	}
 }

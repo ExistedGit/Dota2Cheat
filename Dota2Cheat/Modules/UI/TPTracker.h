@@ -6,7 +6,7 @@
 #include "../MListeners.h"
 
 namespace Modules {
-	inline class M_TPTracker : MultiThreadModule, public IRunFrameListener, public INetChanListener {
+	inline class M_TPTracker : MultiThreadModule, public IFrameListener, public INetChanListener {
 		struct TPData {
 			Vector pos{ 0,0,0 };
 			uint32_t msgIdx = 0;

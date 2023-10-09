@@ -2,7 +2,7 @@
 #include <cstdint>
 #include <optional>
 
-// Wrapper for working with memory addresses
+// Wrapper for a memory address
 class Address {
 public:
 	uintptr_t ptr;

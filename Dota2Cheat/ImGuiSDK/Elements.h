@@ -29,6 +29,7 @@ namespace CheatGui {
 		return value_changed;
 	}
 
+	// Create an ImGui button that mimics Dota's button sounds
 	FORCEINLINE bool Button(const char* label, const ImVec2& size_arg = ImVec2(0, 0)) {
 		const bool clicked = ImGui::Button(label, size_arg);
 		if (clicked)

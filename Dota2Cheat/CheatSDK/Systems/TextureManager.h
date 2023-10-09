@@ -42,20 +42,6 @@ public:
 		return result;
 	}
 
-	void QueueTextureUnload()
-	{
-		requiresUnload = true;
-	}
-
-	//void ExecuteUnloadCycle() {
-	//	if (!requiresUnload)
-	//		return;
-
-	//	for (auto& [_, tex] : namedTex)
-	//		glDeleteTextures(1, (const GLuint*)&tex);
-	//	namedTex.clear();
-	//}
-
 	void QueueForLoading(const std::string& filename, const std::string& texName) {
 		if (!namedTex.count(texName))
 			loadingQueue[filename] = &namedTex[texName];

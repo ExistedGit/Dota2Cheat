@@ -11,9 +11,10 @@ public:
 	Function(uintptr_t ptr) : ptr((void*)ptr) {}
 	Function(void* ptr) : ptr(ptr) {}
 
-	operator void* ()
+	template<typename T>
+	operator T* ()
 	{
-		return ptr;
+		return (T*)ptr;
 	}
 
 	template<typename ...T>

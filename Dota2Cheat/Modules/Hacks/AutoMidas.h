@@ -6,7 +6,7 @@ namespace Modules {
 inline 
 	// Automatically uses Hand of Midas on non-ancient creeps
 	// Compares XP bounty for them to the config setting
-	class M_AutoMidas : public IRunFrameListener{
+	class M_AutoMidas : public IFrameListener{
 	public:
 		const float usePeriod = 0.6f;
 		float lastTime = 0;

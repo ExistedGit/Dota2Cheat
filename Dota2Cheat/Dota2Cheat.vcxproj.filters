@@ -6,7 +6,6 @@
     <ClCompile Include="Hooks\ModifierEvents.cpp" />
     <ClCompile Include="Hooks\NetChannel.cpp" />
     <ClCompile Include="Hooks\PrepareUnitOrders.cpp" />
-    <ClCompile Include="Hooks\RunFrame.cpp" />
     <ClCompile Include="ImGuiSDK\Elements.cpp" />
     <ClCompile Include="include\imgui\imgui_stdlib.cpp" />
     <ClCompile Include="CheatSDK\MatchStateHandling.cpp" />
@@ -149,6 +148,7 @@
     <ClCompile Include="CheatSDK\Data\EntityList.cpp" />
     <ClCompile Include="DebugFunctions.cpp" />
     <ClCompile Include="SDK\GameSystems\CGameEventManager.cpp" />
+    <ClCompile Include="Hooks\FrameStageNotify.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\UI\UIOverhaul.h" />
@@ -158,7 +158,6 @@
     <ClInclude Include="Hooks\AcceptEvents.h" />
     <ClInclude Include="ImGuiSDK\Elements.h" />
     <ClInclude Include="include\imgui\imgui_stdlib.h" />
-    <ClInclude Include="include\json.hpp" />
     <ClInclude Include="Modules\UI\AbilityESP.h" />
     <ClInclude Include="Modules\Hacks\AegisSnatcher.h" />
     <ClInclude Include="Modules\Hacks\ClaimTutorialRewards.h" />
@@ -228,7 +227,6 @@
     <ClInclude Include="SDK\Interfaces\Network\INetChannel.h" />
     <ClInclude Include="SDK\Netvars.h" />
     <ClInclude Include="Hooks\PrepareUnitOrders.h" />
-    <ClInclude Include="Hooks\RunFrame.h" />
     <ClInclude Include="Modules\Hacks\IllusionColoring.h" />
     <ClInclude Include="Hooks\ParticleRendering.h" />
     <ClInclude Include="SDK\Panorama\CUIRenderDeviceSource2.h" />
@@ -320,7 +318,6 @@
     <ClInclude Include="SDK\Protobufs\uifontfile_format.pb.h" />
     <ClInclude Include="SDK\Protobufs\usercmd.pb.h" />
     <ClInclude Include="SDK\Protobufs\valveextensions.pb.h" />
-    <ClInclude Include="CheatSDK\MapThreadSafe.h" />
     <ClInclude Include="CheatSDK\Utils.h" />
     <ClInclude Include="CheatSDK\include.h" />
     <ClInclude Include="Modules\UI\Indicators\SpeedIndicator.h" />
@@ -382,5 +379,6 @@
     <ClInclude Include="SDK\Base\KeyValues.h" />
     <ClInclude Include="SDK\Interfaces\CFlattenedSerializers.h" />
     <ClInclude Include="SDK\GameSystems\CDOTAInventoryManager.h" />
+    <ClInclude Include="Hooks\FrameStageNotify.h" />
   </ItemGroup>
 </Project>

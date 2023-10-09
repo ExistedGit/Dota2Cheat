@@ -56,7 +56,7 @@ void GameSystems::FindGameSystems() {
 
 	// Also in Source2Client::Init(), right after "g_GameEventManager.Init()":
 	// mov rcx, [XXXXXXXXX]
-	SET_VAR(GameEventManagerPtr, Address(Interfaces::Client->GetVFunc(VTableIndexes::Source2Client::NotifyDisconnect).ptr)
+	SET_VAR(GameEventManagerPtr, Address(Interfaces::Client->GetVFunc(VTableIndexes::Source2Client::NotifyDisconnect))
 		.Offset(0x3E)
 		.GetAbsoluteAddress(3));
 
