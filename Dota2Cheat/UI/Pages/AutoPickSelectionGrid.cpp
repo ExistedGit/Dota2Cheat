@@ -4,7 +4,8 @@
 void Pages::AutoPickHeroGrid::InitList() {
 	auto npc_heroes = KeyValues::MakeKV("Shit");
 	npc_heroes->LoadFromFile("scripts/npc/npc_heroes.txt");
-	for (auto node = npc_heroes->GetFirstSubKey(); node; node = node->GetNextKey()) {
+
+	for(auto node : *npc_heroes) {
 		if (!node->GetFirstSubKey()) // not considering non-hero nodes
 			continue;
 

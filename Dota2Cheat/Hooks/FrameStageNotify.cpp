@@ -98,6 +98,17 @@ void InGameLogic() {
 void Hooks::hkFrameStageNotify(void* thisptr, int stage) {
 	((decltype(&hkFrameStageNotify))oFrameStageNotify)(thisptr, stage);
 
+	DotaPlusUnlocker.UpdateDotaPlusStatus();
+
+	if (SkinChanger.ItemsCreated) {
+		SkinChanger.ItemsCreated = false;
+
+		for (auto& item : SkinChanger.itemsToCreate)
+			SkinChanger.AddItem(item);
+
+		SkinChanger.itemsToCreate.clear();
+	}
+
 	// Frame stages are cycled in this order:
 	// 0 4 5 6 7 1 3 9 3 3 3
 	// Meaning the 9th is end of frame and we can do our tricks
@@ -111,16 +122,6 @@ void Hooks::hkFrameStageNotify(void* thisptr, int stage) {
 	HeroData[hero].HealthbarW2S = WorldToScreen(hero->GetHealthBarPos());
 		});
 
-	DotaPlusUnlocker.UpdateDotaPlusStatus();
-
-	if (SkinChanger.ItemsCreated) {
-		SkinChanger.ItemsCreated = false;
-
-		for (auto& item : SkinChanger.itemsToCreate)
-			SkinChanger.AddItem(item);
-
-		SkinChanger.itemsToCreate.clear();
-	}
 
 	if (Interfaces::Engine->IsInGame() &&
 		ctx.localHero &&

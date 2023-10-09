@@ -6,9 +6,9 @@ void Modules::DotaPlusUnlocker::UpdateDotaPlusStatus() {
 	if (!updateQueued)
 		return;
 
-	auto inventory = Interfaces::GCClient->GetSOListeners()[1];
+	static auto inventory = Interfaces::GCClient->GetSOListeners()[1];
+	static auto objCache = inventory->GetSOCache();
 
-	auto objCache = inventory->GetSOCache();
 	for (auto& typeCache : objCache->GetTypeCacheList()) {
 		if (typeCache->GetEconTypeID() != EEconTypeID::k_CDOTAGameAccountPlus)
 			continue;

@@ -20,7 +20,7 @@ struct KeyValues {
 		TYPE_NUMTYPES,
 	};
 
-	types_t GetDataType(const char* key = nullptr) {
+	types_t GetDataType(const char* key = nullptr) const {
 		auto func = Memory::GetExport("tier0.dll", "?GetDataType@KeyValues@@QEBA?AW4types_t@CKeyValues_Data@@PEBD@Z");
 		return func.Call<types_t>(this, key);
 	}
@@ -31,22 +31,55 @@ struct KeyValues {
 		ctor(kv, name);
 		return kv;
 	}
+
 	bool LoadFromFile(const char* path);
-	KeyValues* GetFirstSubKey() {
+
+	KeyValues* GetFirstSubKey() const {
 		auto func = Memory::GetExport("tier0.dll", "?GetFirstSubKey@KeyValues@@QEBAPEAV1@XZ");
 		return func.Call<KeyValues*>(this);
 	}
-	KeyValues* GetNextKey() {
+
+	KeyValues* GetNextKey() const {
 		auto func = Memory::GetExport("tier0.dll", "?GetNextKey@KeyValues@@QEBAPEAV1@XZ");
 		return func.Call<KeyValues*>(this);
 	}
+
 	const char* GetName() {
 		auto func = Memory::GetExport("tier0.dll", "?GetName@KeyValues@@QEBAPEBDXZ");
 		return func.Call<const char*>(this);
 	}
+
 	void Destroy() {
 		auto func = Memory::GetExport("tier0.dll", "??1KeyValues@@QEAA@XZ");
 		func(this);
+	}
+
+	struct KVIterator {
+		KeyValues* node;
+
+		KVIterator(KeyValues* node) : node(node) {}
+
+		bool operator!=(const KVIterator& other) {
+			return other.node != node;
+		}
+
+		KeyValues* operator*() const {
+			return node;
+		}
+
+		KVIterator operator++() {
+			node = node->GetNextKey();
+			return *this;
+		}
+	};
+
+
+	KVIterator begin() const {
+		return GetFirstSubKey();
+	}
+
+	KVIterator end() const {
+		return nullptr;
 	}
 };
 

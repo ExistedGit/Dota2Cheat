@@ -95,6 +95,11 @@ void Modules::M_TPTracker::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::
 			iconName = "icon_" + prefixLessName;
 
 		auto icon = texManager.GetNamedTexture(iconName);
+		if (!icon)
+		{
+			auto iconPath = d2c.cheatFolderPath + "\\assets\\heroicons\\" + ent->GetUnitName() + "_png.png";
+			texManager.LoadTextureNamed(iconPath.c_str(), &icon, iconName);
+		}
 
 		switch (CityHash32(std::string_view(particleName))) {
 		case "particles/items2_fx/teleport_start.vpcf"_city32: {

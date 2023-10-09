@@ -62,7 +62,7 @@ namespace Modules {
 
 			// Then we just dynamically patch the mov to emulate the presence of Medusa's mana shield
 
-			ManaBarSwitch = Memory::Scan("C6 44 24 70 00 EB 0C", "client.dll").Offset(4);
+			ManaBarSwitch = Memory::Scan("75 0E C6 44 24", "client.dll").Offset(4 + 2);
 			UpdateManabarSwitch();
 		}
 		void Draw() {
