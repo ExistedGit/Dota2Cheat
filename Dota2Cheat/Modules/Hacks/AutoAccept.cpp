@@ -28,10 +28,15 @@
 void Modules::M_AutoAccept::RunAcceptTimer() {
 	std::this_thread::sleep_for(std::chrono::seconds(Config::AutoAccept::Delay));
 	// All that rebuilt from CDOTAGCClientSystem::SendReadyUpMessageForCurrentLobby(), see signatures.json
+	auto key = Interfaces::GCClient->GetReadyUpKey();
+
 	CMsgReadyUp msg;
-	msg.set_ready_up_key(Interfaces::GCClient->GetReadyUpKey());
+	msg.set_ready_up_key(key);
+	Log(LP_INFO, "Accepting match...");
 	msg.set_state(DOTALobbyReadyState_ACCEPTED);
+
 	Interfaces::SteamGC->SendMsg(msg, k_EMsgGCReadyUp);
+
 	acceptingMatch = false;
 }
 
@@ -40,7 +45,6 @@ void Modules::M_AutoAccept::AcceptMatch() {
 		acceptingMatch)
 		return;
 	acceptingMatch = true;
-	Log(LP_INFO, "Trying to accept match");
 	//if (Config::M_AutoAccept::SendTelegramNotifications && Config::API::TelegramID != 0)
 	//	std::thread(&AutoAccept::SendTGNotification, this).detach();
 

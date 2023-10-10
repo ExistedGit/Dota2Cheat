@@ -40,4 +40,8 @@ public:
 		return (T)(*(uintptr_t*)ptr);
 	}
 
+	Address operator*() {
+		return *(uintptr_t*)ptr;
+	}
+
 };

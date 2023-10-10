@@ -7,8 +7,8 @@ else \
 	LogF(LP_ERROR, "{}: {}", #var, (void*)var);
 
 void Signatures::FindSignatures() {
-	CMsg = Memory::GetExport<decltype(CMsg)>("tier0.dll", "Msg");
-	CMsgColor = Memory::GetExport<decltype(CMsgColor)>("tier0.dll", "?ConColorMsg@@YAXAEBVColor@@PEBDZZ");
+	CMsg = Memory::GetExport("tier0.dll", "Msg");
+	CMsgColor = Memory::GetExport("tier0.dll", "?ConColorMsg@@YAXAEBVColor@@PEBDZZ");
 
 	SignatureDB::ParseSignatures(NamedSignatures);
 

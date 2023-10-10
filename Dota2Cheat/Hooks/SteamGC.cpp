@@ -20,6 +20,13 @@ EGCResults Hooks::hkSendMessage(ISteamGameCoordinator* thisptr, uint32_t unMsgTy
 	//	}
 	//}
 	//else
+	if (msgId == 7070) {
+		CMsgReadyUp msg;
+		if (!msg.ParsePartialFromArray(data, size))
+			return oSendMessage(thisptr, unMsgType, pubData, cubData);
+
+		Log(LP_INFO, msg.ready_up_key());
+	}
 	if (msgId == k_EMsgClientToGCEquipItems) {
 		CMsgClientToGCEquipItems msg;
 		if(!msg.ParsePartialFromArray(data, size))

@@ -56,7 +56,7 @@ public:
 class CGCClient : public VClass {
 public:
 	GETTER(CUtlVector<ISharedObjectListener*>, GetSOListeners, 0x270);
-	IGETTER(CDOTAGCClientLobbyManager, GetLobbyManager, 0x6d0);
+	IGETTER(CDOTAGCClientLobbyManager, GetLobbyManager, 0x6c8);
 
 	void DispatchSOUpdated(SOID_t soid, void* sharedObj, ESOCacheEvent ev) {
 		auto listeners = GetSOListeners();

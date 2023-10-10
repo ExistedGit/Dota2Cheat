@@ -19,7 +19,7 @@ public:
 
 	template<typename ...T>
 	void* __fastcall operator()(T... t) {
-		return (void*)((uintptr_t(__fastcall*)(T...))ptr)(t...);
+		return ((void* (__fastcall*)(T...))ptr)(t...);
 	}
 	// Used to specify the return type(e. g. in case of a floating-point value)
 	template<typename V, typename ...T>

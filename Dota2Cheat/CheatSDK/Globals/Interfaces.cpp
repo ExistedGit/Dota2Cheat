@@ -44,9 +44,8 @@ void Interfaces::FindInterfaces() {
 	InitInterface(&FlattenedSerializers, "networksystem.dll", "FlattenedSerializers");
 
 	EntitySystem =
-		Address(Interfaces::Client->GetVFunc(25))
-		.GetAbsoluteAddress(3, 7)
-		.Dereference<CGameEntitySystem*>();
+		*Address(Interfaces::Client->GetVFunc(25))
+		.GetAbsoluteAddress(3, 7);
 	UIEngine = Panorama->Member<CUIEngineSource2*>(0x28);
 
 	LogF(LP_DATA, "UIEngine: {}", (void*)UIEngine);

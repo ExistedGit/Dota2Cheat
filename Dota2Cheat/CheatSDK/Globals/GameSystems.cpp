@@ -48,7 +48,7 @@ void GameSystems::FindGameSystems() {
 	GameSystemFactory = *Memory::Scan("E8 ? ? ? ? 84 C0 74 D3 48 8D 0D", "client.dll")
 		.GetAbsoluteAddress(1)
 		.Offset(0xE)
-		.GetAbsoluteAddress<IGameSystemFactory**>(3);
+		.GetAbsoluteAddress(3);
 
 	// Found by xrefing this global in dylibs
 	// look below the vfunc with xrefs "ehandle", "%d (s/n %d)", "[-1] -> empty", "m_flPoseParameter", "%s(%s)", "[%d %d] -> %s", "CStrongHandle", "CWeakHandle"
