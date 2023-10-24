@@ -1,7 +1,7 @@
 #include "AutoHeal.h"
 
 void Modules::M_AutoHeal::UseWand(CDOTABaseNPC* hero) {
-	if (!Config::AutoHeal::WandHPTreshold)
+	if (!Config::AutoHeal::Enabled)
 		return;
 
 	if ((float)hero->GetHealth() / hero->GetMaxHealth() > Config::AutoHeal::WandHPTreshold / 100.0f)
@@ -22,7 +22,7 @@ void Modules::M_AutoHeal::UseWand(CDOTABaseNPC* hero) {
 }
 
 void Modules::M_AutoHeal::UseFaerieFire(CDOTABaseNPC* hero) {
-	if (!Config::AutoHeal::WandHPTreshold)
+	if (!Config::AutoHeal::Enabled)
 		return;
 
 	if ((float)hero->GetHealth() / hero->GetMaxHealth() > Config::AutoHeal::FaerieFireHPTreshold / 100.0f)
