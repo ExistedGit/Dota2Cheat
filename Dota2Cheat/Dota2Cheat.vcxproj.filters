@@ -123,7 +123,6 @@
     <ClCompile Include="Modules\UI\Indicators\KillIndicator.cpp" />
     <ClCompile Include="Modules\UI\Indicators\SpeedIndicator.cpp" />
     <ClCompile Include="CheatSDK\Utils.cpp" />
-    <ClCompile Include="include\cityhash\city.cc" />
     <ClCompile Include="Modules\UI\BlinkRevealer.cpp" />
     <ClCompile Include="Modules\UI\ParticleMaphack.cpp" />
     <ClCompile Include="Modules\UI\BarAugmenter.cpp" />

@@ -33,6 +33,7 @@ void CCheatManager::LoadGameSpecific() {
 #endif
 
 	// Log(LP_WARNING, "dota_camera_distance: ", (void*)Interfaces::CVar->CVars["dota_camera_distance"].m_pVar);
+#ifndef _DEBUG
 	Modules::CVarSpoofer.SpoofVars(
 		"dota_camera_distance",
 		"r_farz",
@@ -41,6 +42,7 @@ void CCheatManager::LoadGameSpecific() {
 		"cl_weather",
 		"dota_hud_chat_enable_all_emoticons"
 	);
+#endif
 
 	Interfaces::CVar->CVars["dota_hud_chat_enable_all_emoticons"].m_pVar->value.boolean = Config::Changer::UnlockEmoticons;
 
@@ -123,5 +125,5 @@ void CCheatManager::Unload() {
 
 	if (consoleStream) fclose(consoleStream);
 	FreeConsole();
-	FreeLibraryAndExitThread(hModule, 0);
+	FreeLibrary(hModule);
 }
