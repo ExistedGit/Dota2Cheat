@@ -1,8 +1,7 @@
 #include "GameSystems.h"
 #include "Interfaces.h"
 #include "Panorama.h"
-#include <consthash/cityhash32.hxx>
-#include <cityhash/city.h>
+
 #define SET_VAR(var, data) var = (decltype(var))(data); \
 if(var) \
 	LogF(LP_DATA, "{}: {}", #var, (void*)var); \

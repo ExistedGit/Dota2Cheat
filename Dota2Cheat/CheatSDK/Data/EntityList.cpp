@@ -22,12 +22,12 @@ void CEntityList::OnEntityCreated(CBaseEntity* ent) {
 	else if (className.find("Creep") != -1)
 		entType = Creep;
 
-	if (entType == Undefined)
-		switch (CityHash32(className)) {
-		case "C_DOTA_Item_Physical"_city32: entType = PhysicalItem; break;
-		case "C_DOTA_Item_Rune"_city32: entType = Rune; break;
-		}
+	if (entType == Undefined) {
+		if (className == "C_DOTA_Item_Rune") entType = Rune;
+		else if (className == "C_DOTA_Item_Physical") entType = PhysicalItem;
+	}
 
+	// Entity could not be classified
 	if (entType == Undefined)
 		return;
 

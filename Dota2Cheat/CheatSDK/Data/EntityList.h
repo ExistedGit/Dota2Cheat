@@ -3,8 +3,6 @@
 #include "../Globals/include.h"
 #include <functional>
 #include <mutex>
-#include <consthash/cityhash32.hxx>
-#include <cityhash/city.h>
 
 enum class CreepType {
 	NotCreep,

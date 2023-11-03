@@ -1,6 +1,4 @@
 #include "ParticleMaphack.h"
-#include <cityhash/city.h>
-#include <consthash/cityhash32.hxx>
 
 void Modules::M_ParticleMaphack::DrawScreenAppearances() {
 	static constexpr ImVec2 iconSize{ 32, 32 };
@@ -103,15 +101,19 @@ void Modules::M_ParticleMaphack::OnReceivedMsg(NetMessageHandle_t* msgHandle, go
 			|| !EntityList.IsHero(npc))
 			return;
 
-		const auto particleName = Interfaces::ResourceSystem->GetResourceName(pmMsg->create_particle().particle_name_index());
-		if (!particleName)
+		std::string_view particleName;
+		{
+			const auto szParticleName = Interfaces::ResourceSystem->GetResourceName(pmMsg->create_particle().particle_name_index());
+			if (!szParticleName)
+				break;
+
+			particleName = szParticleName;
+		}
+
+		if (particleName == "particles/items2_fx/teleport_start.vpcf" ||
+			particleName == "particles/items2_fx/teleport_end.vpcf")
 			break;
 
-		switch (CityHash32(std::string_view(particleName))) {
-		case "particles/items2_fx/teleport_start.vpcf"_city32:
-		case "particles/items2_fx/teleport_end.vpcf"_city32:
-			return;
-		};
 		TransformQueue[pmMsg->index()] = npc;
 		break;
 	}

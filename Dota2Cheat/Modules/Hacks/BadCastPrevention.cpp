@@ -24,7 +24,6 @@ bool Modules::BadCastPrevention::IsBadCast(dotaunitorder_t orderType, UINT32 tar
 	if (!Config::BadCastPrevention)
 		return false;
 
-
 	auto ability = Interfaces::EntitySystem->GetEntity<CDOTABaseAbility>(abilityIdx);
 
 	if (!ability->GetIdentity()->GetName())
@@ -37,20 +36,17 @@ bool Modules::BadCastPrevention::IsBadCast(dotaunitorder_t orderType, UINT32 tar
 
 	if (TestStringFilters(abilityName, pointAbilityNames))
 		return !AreEnemyHeroesInArea(*pos, ability->GetAOERadius());
-	switch (CityHash32(abilityName)) {
 
-	case "magnataur_reverse_polarity"_city32:
-		// don't ask why RP's radius is stored as cast range.
-		// I don't know
+	// don't ask why RP's radius is stored as cast range.
+	// I don't know
+	if (abilityName == "magnataur_reverse_polarity" ||
+		abilityName == "tinker_heat_seeking_missile")
 		return !AreEnemyHeroesInArea(issuer->GetPos(), ability->GetCastRange());
-	case "tinker_heat_seeking_missile"_city32:
-		return !AreEnemyHeroesInArea(issuer->GetPos(), ability->GetCastRange());
-	case "earthshaker_echo_slam"_city32:
+	else if (abilityName == "earthshaker_echo_slam")
 		return !AreEnemyHeroesInArea(issuer->GetPos(), ability->GetLevelSpecialValueFor("echo_slam_echo_search_range"));
-	case "ember_spirit_sleight_of_fist"_city32:
+	else if (abilityName == "ember_spirit_sleight_of_fist")
 		// it's also frequently used on creeps
 		return !AreEnemyUnitsInArea(*pos, ability->GetAOERadius());
-	}
 
 	return false;
 }

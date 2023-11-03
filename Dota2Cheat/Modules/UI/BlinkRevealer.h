@@ -5,9 +5,6 @@
 #include "MultiThreadModule.h"
 #include "../MListeners.h"
 
-#include "consthash/cityhash32.hxx"
-#include "cityhash/city.h"
-
 namespace Modules {
 	// Shows the exact point of QoP's and Antimage's blinks
 	inline class M_BlinkRevealer : public MultiThreadModule, public IFrameListener, public INetChanListener{

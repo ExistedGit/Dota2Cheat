@@ -2,8 +2,6 @@
 #include "../../pch.h"
 #include "../../CheatSDK/include.h"
 #include <functional>
-#include "cityhash/city.h"
-#include "consthash/cityhash32.hxx"
 
 namespace Modules {
 	inline

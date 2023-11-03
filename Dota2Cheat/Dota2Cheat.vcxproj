@@ -187,7 +187,6 @@
     <ClCompile Include="Hooks\NetChannel.cpp" />
     <ClCompile Include="Hooks\PrepareUnitOrders.cpp" />
     <ClCompile Include="ImGuiSDK\Elements.cpp" />
-    <ClCompile Include="include\cityhash\city.cc" />
     <ClCompile Include="include\imgui\imgui_stdlib.cpp" />
     <ClCompile Include="CheatSDK\MatchStateHandling.cpp" />
     <ClCompile Include="Modules\Hacks\AegisSnatcher.cpp" />

@@ -1,6 +1,4 @@
 #include "TPTracker.h"
-#include <consthash/cityhash32.hxx>
-#include <cityhash/city.h>
 
 // Mostly calculating fade duration
 
@@ -63,7 +61,7 @@ void Modules::M_TPTracker::DrawMapTeleports() {
 				endXY2,
 				{ 0,0 },
 				{ 1,1 },
-				ImColor { 255, 255, 255, data.isFading ? 255 : 128 }
+				ImColor{ 255, 255, 255, data.isFading ? 255 : 128 }
 			);
 		}
 	}
@@ -83,9 +81,13 @@ void Modules::M_TPTracker::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::
 		if (!particle.has_particle_name_index())
 			break;
 
-		const auto particleName = Interfaces::ResourceSystem->GetResourceName(particle.particle_name_index());
-		if (!particleName)
-			break;
+		std::string_view particleName;
+		{
+			auto szParticleName = Interfaces::ResourceSystem->GetResourceName(particle.particle_name_index());
+			if (!szParticleName)
+				break;
+			particleName = szParticleName;
+		}
 
 		auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(NH2IDX(particle.entity_handle_for_modifiers()));
 		if (!ent || !ent->GetUnitName())
@@ -101,29 +103,26 @@ void Modules::M_TPTracker::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::
 			texManager.LoadTextureNamed(iconPath.c_str(), &icon, iconName);
 		}
 
-		switch (CityHash32(std::string_view(particleName))) {
-		case "particles/items2_fx/teleport_start.vpcf"_city32: {
-			auto& tpData = teleports[ent];
-			tpData.fadeCounter = tpData.fadeDuration = tpData.isFading = 0;
-			tpData.color = ImColor{ 220,220,220 };
-			tpData.start = TPData{
-						.msgIdx = msgIndex
-			};
-			tpData.icon = icon;
-			break;
-		}
-		case "particles/items2_fx/teleport_end.vpcf"_city32: {
-			auto& tpData = teleports[ent];
-			tpData.fadeCounter = tpData.fadeDuration = tpData.isFading = 0;
-			tpData.color = ImColor{ 220,220,220 };
-			tpData.end = TPData{
-			.msgIdx = msgIndex
-			};
-			tpData.icon = icon;
-			break;
-		}
-		}
+		TPData* tpPointToSet{};
+		auto& tpData = teleports[ent];
 
+		if (particleName == "particles/items2_fx/teleport_start.vpcf")
+			tpPointToSet = &tpData.start;
+		else if (particleName == "particles/items2_fx/teleport_end.vpcf")
+			tpPointToSet = &tpData.end;
+
+		if (!tpPointToSet) // the particle relates to neither point
+			break;
+
+		tpData.fadeCounter =
+			tpData.fadeDuration =
+			tpData.isFading = 0;
+		tpData.color = ImColor{ 220,220,220 };
+		*tpPointToSet = TPData{
+		.msgIdx = msgIndex
+		};
+		tpData.icon = icon;
+		break;
 	}
 	case GAME_PARTICLE_MANAGER_EVENT_UPDATE_TRANSFORM:
 	{
