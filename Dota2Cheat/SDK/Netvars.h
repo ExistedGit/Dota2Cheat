@@ -1095,6 +1095,6 @@ namespace Netvars {
 		constexpr uint32_t m_flThinkTimeAccumulator = 0x9c; // float32
 		constexpr uint32_t m_iParticles = 0xa0; // CUtlVector< CDOTA_BuffParticle >
 		constexpr uint32_t m_hAuraUnits = 0xb8; // CUtlVector< CHandle< CBaseEntity > >
-		constexpr uint32_t m_hScriptScope = 0x12b0; // HSCRIPT
+		constexpr uint32_t m_hScriptScope = 0x12c0; // HSCRIPT
 	}
 }

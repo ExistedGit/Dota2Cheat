@@ -37,7 +37,7 @@ namespace VTableIndexes {
 	}
 	namespace CDOTABaseAbility {
 		// JS
-		Index GetEffectiveCastRange = 262;
+		Index GetEffectiveCastRange = 261;
 	}
 	namespace CDOTA_Buff {
 		Index OnAddModifier = 42;

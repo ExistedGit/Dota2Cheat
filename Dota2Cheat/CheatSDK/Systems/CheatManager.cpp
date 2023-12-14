@@ -15,8 +15,9 @@
 
 void CCheatManager::LoadGameSpecific() {
 	// Allows VPK mods
-	if (auto gi = Memory::Scan("74 ? 84 C9 75 ? 83 BF", "client.dll"))
-		Memory::Patch(gi, { 0xEB });
+	// IDK what became of that piece of code
+	//if (auto gi = Memory::Scan("74 ? 84 C9 75 ? 83 BF", "client.dll"))
+	//	Memory::Patch(gi, { 0xEB });
 
 	// Disables gameoverlayrenderer64's WINAPI hook checks
 	if (auto enableVACHooks = Memory::Scan("75 04 84 DB", "gameoverlayrenderer64.dll"))

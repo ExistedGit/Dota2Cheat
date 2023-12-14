@@ -110,8 +110,7 @@ public:
 		MEMORY_BASIC_INFORMATION mbi;
 		VirtualQuery(addr, &mbi, sizeof(mbi));
 
-		// VirtualProtect is hooked by none other that Valve's gameoverlayrenderer64.dll
-		// Syscalling is our option
+		// VirtualProtect is monitored by gameoverlayrenderer64.dll so we'll use this
 		static auto NtProtectVirtualMemory = Memory::GetExport("ntdll.dll", "NtProtectVirtualMemory");
 		NtProtectVirtualMemory(GetCurrentProcess(), &mbi.BaseAddress, (unsigned long*)&mbi.RegionSize, PAGE_EXECUTE_READWRITE, &mbi.Protect);
 		memcpy(addr, replacement, replSize);
@@ -124,7 +123,12 @@ public:
 	}
 
 	static Address Scan(const std::string& signature, const std::string& moduleName) {
-		return PatternScanInModule(moduleName.c_str(), ParseCombo(signature).c_str());
+		auto res = PatternScanInModule(moduleName.c_str(), ParseCombo(signature).c_str());
+
+		if (!res)
+			LogF(LP_ERROR, "{}: {} | BROKEN SIGNATURE", moduleName, signature);
+
+		return res;
 	}
 
 	template<typename T>

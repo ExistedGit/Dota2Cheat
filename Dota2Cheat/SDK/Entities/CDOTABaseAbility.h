@@ -190,7 +190,7 @@ public:
 	GETTER(float, GetChargeRestoreCooldown, Netvars::C_DOTABaseAbility::m_fAbilityChargeRestoreTimeRemaining);
 	GETTER(int, GetManaCost, Netvars::C_DOTABaseAbility::m_iManaCost);
 	GETTER(bool, IsInAbilityPhase, Netvars::C_DOTABaseAbility::m_bInAbilityPhase);
-	GETTER(DOTAAbilityDefinition_t*, GetDefinition, 0x528);
+	GETTER(DOTAAbilityDefinition_t*, GetDefinition, 0x538);
 
 	int GetMaxLevel() {
 		return GetDefinition()->m_iMaxLevel;

@@ -7,12 +7,12 @@ void Modules::M_IllusionESP::AddIllusionModifier(CDOTABaseNPC_Hero* hero, const 
 		hero
 	);
 
-	static Function GetModifierFactoryDictionary = Memory::Scan("E8 ? ? ? ? 48 85 C0 8B C5", "client.dll")
+	// ModifierFactoryDictionary
+	static auto dict = Memory::Scan("48 83 EC 20 E8 ? ? ? ? 8B 0D", "client.dll")
+		.Offset(4)
 		.GetAbsoluteAddress(1)
-		.Offset(0x18)
-		.GetAbsoluteAddress(1);
-
-	static auto dict = GetModifierFactoryDictionary.Call<VClass*>();
+		.Offset(0x27)
+		.GetAbsoluteAddress<VClass*>(3);
 
 	// Creates the modifier and puts our particle into its m_iParticles
 	auto modifier = dict->CallVFunc<1, CDOTAModifier*>(modifierName);
