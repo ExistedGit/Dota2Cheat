@@ -206,6 +206,9 @@ extern CUserMessage_DllStatusDefaultTypeInternal _CUserMessage_DllStatus_default
 class CUserMessage_DllStatus_CVDiagnostic;
 struct CUserMessage_DllStatus_CVDiagnosticDefaultTypeInternal;
 extern CUserMessage_DllStatus_CVDiagnosticDefaultTypeInternal _CUserMessage_DllStatus_CVDiagnostic_default_instance_;
+class CUserMessage_ExtraUserData;
+struct CUserMessage_ExtraUserDataDefaultTypeInternal;
+extern CUserMessage_ExtraUserDataDefaultTypeInternal _CUserMessage_ExtraUserData_default_instance_;
 class CUserMessage_Inventory_Response;
 struct CUserMessage_Inventory_ResponseDefaultTypeInternal;
 extern CUserMessage_Inventory_ResponseDefaultTypeInternal _CUserMessage_Inventory_Response_default_instance_;
@@ -380,6 +383,7 @@ template<> ::CUserMessage_Diagnostic_Response* Arena::CreateMaybeMessage<::CUser
 template<> ::CUserMessage_Diagnostic_Response_Diagnostic* Arena::CreateMaybeMessage<::CUserMessage_Diagnostic_Response_Diagnostic>(Arena*);
 template<> ::CUserMessage_DllStatus* Arena::CreateMaybeMessage<::CUserMessage_DllStatus>(Arena*);
 template<> ::CUserMessage_DllStatus_CVDiagnostic* Arena::CreateMaybeMessage<::CUserMessage_DllStatus_CVDiagnostic>(Arena*);
+template<> ::CUserMessage_ExtraUserData* Arena::CreateMaybeMessage<::CUserMessage_ExtraUserData>(Arena*);
 template<> ::CUserMessage_Inventory_Response* Arena::CreateMaybeMessage<::CUserMessage_Inventory_Response>(Arena*);
 template<> ::CUserMessage_Inventory_Response_InventoryDetail* Arena::CreateMaybeMessage<::CUserMessage_Inventory_Response_InventoryDetail>(Arena*);
 template<> ::CUserMessage_UtilMsg_Response* Arena::CreateMaybeMessage<::CUserMessage_UtilMsg_Response>(Arena*);
@@ -470,6 +474,7 @@ enum EBaseUserMessages : int {
   UM_InventoryResponse = 161,
   UM_RequestDiagnostic = 162,
   UM_DiagnosticResponse = 163,
+  UM_ExtraUserData = 164,
   UM_MAX_BASE = 200
 };
 bool EBaseUserMessages_IsValid(int value);
@@ -18870,6 +18875,8 @@ class CUserMessageRequestDiagnostic_Diagnostic final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kNameFieldNumber = 10,
+    kAliasFieldNumber = 11,
     kOffsetFieldNumber = 2,
     kIndexFieldNumber = 1,
     kParamFieldNumber = 3,
@@ -18877,7 +18884,45 @@ class CUserMessageRequestDiagnostic_Diagnostic final :
     kTypeFieldNumber = 5,
     kBaseFieldNumber = 6,
     kRangeFieldNumber = 7,
+    kExtentFieldNumber = 8,
+    kDetailFieldNumber = 9,
   };
+  // optional string name = 10;
+  bool has_name() const;
+  private:
+  bool _internal_has_name() const;
+  public:
+  void clear_name();
+  const std::string& name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_name();
+  PROTOBUF_NODISCARD std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // optional string alias = 11;
+  bool has_alias() const;
+  private:
+  bool _internal_has_alias() const;
+  public:
+  void clear_alias();
+  const std::string& alias() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_alias(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_alias();
+  PROTOBUF_NODISCARD std::string* release_alias();
+  void set_allocated_alias(std::string* alias);
+  private:
+  const std::string& _internal_alias() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_alias(const std::string& value);
+  std::string* _internal_mutable_alias();
+  public:
+
   // optional int64 offset = 2;
   bool has_offset() const;
   private:
@@ -18969,6 +19014,32 @@ class CUserMessageRequestDiagnostic_Diagnostic final :
   void _internal_set_range(int64_t value);
   public:
 
+  // optional int64 extent = 8;
+  bool has_extent() const;
+  private:
+  bool _internal_has_extent() const;
+  public:
+  void clear_extent();
+  int64_t extent() const;
+  void set_extent(int64_t value);
+  private:
+  int64_t _internal_extent() const;
+  void _internal_set_extent(int64_t value);
+  public:
+
+  // optional int64 detail = 9;
+  bool has_detail() const;
+  private:
+  bool _internal_has_detail() const;
+  public:
+  void clear_detail();
+  int64_t detail() const;
+  void set_detail(int64_t value);
+  private:
+  int64_t _internal_detail() const;
+  void _internal_set_detail(int64_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CUserMessageRequestDiagnostic.Diagnostic)
  private:
   class _Internal;
@@ -18979,6 +19050,8 @@ class CUserMessageRequestDiagnostic_Diagnostic final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr alias_;
     int64_t offset_;
     int32_t index_;
     int32_t param_;
@@ -18986,6 +19059,8 @@ class CUserMessageRequestDiagnostic_Diagnostic final :
     int32_t type_;
     int64_t base_;
     int64_t range_;
+    int64_t extent_;
+    int64_t detail_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_usermessages_2eproto;
@@ -19295,28 +19370,22 @@ class CUserMessage_Diagnostic_Response_Diagnostic final :
     kTypeFieldNumber = 8,
     kRangeFieldNumber = 7,
   };
-  // repeated bytes detail = 5;
-  int detail_size() const;
+  // optional bytes detail = 5;
+  bool has_detail() const;
   private:
-  int _internal_detail_size() const;
+  bool _internal_has_detail() const;
   public:
   void clear_detail();
-  const std::string& detail(int index) const;
-  std::string* mutable_detail(int index);
-  void set_detail(int index, const std::string& value);
-  void set_detail(int index, std::string&& value);
-  void set_detail(int index, const char* value);
-  void set_detail(int index, const void* value, size_t size);
-  std::string* add_detail();
-  void add_detail(const std::string& value);
-  void add_detail(std::string&& value);
-  void add_detail(const char* value);
-  void add_detail(const void* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& detail() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_detail();
+  const std::string& detail() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_detail(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_detail();
+  PROTOBUF_NODISCARD std::string* release_detail();
+  void set_allocated_detail(std::string* detail);
   private:
-  const std::string& _internal_detail(int index) const;
-  std::string* _internal_add_detail();
+  const std::string& _internal_detail() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_detail(const std::string& value);
+  std::string* _internal_mutable_detail();
   public:
 
   // optional int64 offset = 2;
@@ -19420,7 +19489,7 @@ class CUserMessage_Diagnostic_Response_Diagnostic final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> detail_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr detail_;
     int64_t offset_;
     int32_t index_;
     int32_t param_;
@@ -19625,6 +19694,248 @@ class CUserMessage_Diagnostic_Response final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CUserMessage_Diagnostic_Response_Diagnostic > diagnostics_;
     int32_t build_version_;
     int32_t instance_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_usermessages_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CUserMessage_ExtraUserData final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CUserMessage_ExtraUserData) */ {
+ public:
+  inline CUserMessage_ExtraUserData() : CUserMessage_ExtraUserData(nullptr) {}
+  ~CUserMessage_ExtraUserData() override;
+  explicit PROTOBUF_CONSTEXPR CUserMessage_ExtraUserData(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CUserMessage_ExtraUserData(const CUserMessage_ExtraUserData& from);
+  CUserMessage_ExtraUserData(CUserMessage_ExtraUserData&& from) noexcept
+    : CUserMessage_ExtraUserData() {
+    *this = ::std::move(from);
+  }
+
+  inline CUserMessage_ExtraUserData& operator=(const CUserMessage_ExtraUserData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CUserMessage_ExtraUserData& operator=(CUserMessage_ExtraUserData&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CUserMessage_ExtraUserData& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CUserMessage_ExtraUserData* internal_default_instance() {
+    return reinterpret_cast<const CUserMessage_ExtraUserData*>(
+               &_CUserMessage_ExtraUserData_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    93;
+
+  friend void swap(CUserMessage_ExtraUserData& a, CUserMessage_ExtraUserData& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CUserMessage_ExtraUserData* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CUserMessage_ExtraUserData* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CUserMessage_ExtraUserData* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CUserMessage_ExtraUserData>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CUserMessage_ExtraUserData& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CUserMessage_ExtraUserData& from) {
+    CUserMessage_ExtraUserData::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CUserMessage_ExtraUserData* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CUserMessage_ExtraUserData";
+  }
+  protected:
+  explicit CUserMessage_ExtraUserData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kDetail1FieldNumber = 4,
+    kDetail2FieldNumber = 5,
+    kValue1FieldNumber = 2,
+    kValue2FieldNumber = 3,
+    kItemFieldNumber = 1,
+  };
+  // repeated bytes detail1 = 4;
+  int detail1_size() const;
+  private:
+  int _internal_detail1_size() const;
+  public:
+  void clear_detail1();
+  const std::string& detail1(int index) const;
+  std::string* mutable_detail1(int index);
+  void set_detail1(int index, const std::string& value);
+  void set_detail1(int index, std::string&& value);
+  void set_detail1(int index, const char* value);
+  void set_detail1(int index, const void* value, size_t size);
+  std::string* add_detail1();
+  void add_detail1(const std::string& value);
+  void add_detail1(std::string&& value);
+  void add_detail1(const char* value);
+  void add_detail1(const void* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& detail1() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_detail1();
+  private:
+  const std::string& _internal_detail1(int index) const;
+  std::string* _internal_add_detail1();
+  public:
+
+  // repeated bytes detail2 = 5;
+  int detail2_size() const;
+  private:
+  int _internal_detail2_size() const;
+  public:
+  void clear_detail2();
+  const std::string& detail2(int index) const;
+  std::string* mutable_detail2(int index);
+  void set_detail2(int index, const std::string& value);
+  void set_detail2(int index, std::string&& value);
+  void set_detail2(int index, const char* value);
+  void set_detail2(int index, const void* value, size_t size);
+  std::string* add_detail2();
+  void add_detail2(const std::string& value);
+  void add_detail2(std::string&& value);
+  void add_detail2(const char* value);
+  void add_detail2(const void* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& detail2() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_detail2();
+  private:
+  const std::string& _internal_detail2(int index) const;
+  std::string* _internal_add_detail2();
+  public:
+
+  // optional int64 value1 = 2;
+  bool has_value1() const;
+  private:
+  bool _internal_has_value1() const;
+  public:
+  void clear_value1();
+  int64_t value1() const;
+  void set_value1(int64_t value);
+  private:
+  int64_t _internal_value1() const;
+  void _internal_set_value1(int64_t value);
+  public:
+
+  // optional int64 value2 = 3;
+  bool has_value2() const;
+  private:
+  bool _internal_has_value2() const;
+  public:
+  void clear_value2();
+  int64_t value2() const;
+  void set_value2(int64_t value);
+  private:
+  int64_t _internal_value2() const;
+  void _internal_set_value2(int64_t value);
+  public:
+
+  // optional int32 item = 1;
+  bool has_item() const;
+  private:
+  bool _internal_has_item() const;
+  public:
+  void clear_item();
+  int32_t item() const;
+  void set_item(int32_t value);
+  private:
+  int32_t _internal_item() const;
+  void _internal_set_item(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CUserMessage_ExtraUserData)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> detail1_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> detail2_;
+    int64_t value1_;
+    int64_t value2_;
+    int32_t item_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_usermessages_2eproto;
@@ -33606,7 +33917,7 @@ inline void CUserMessage_Inventory_Response::set_instance(int32_t value) {
 
 // optional int32 index = 1;
 inline bool CUserMessageRequestDiagnostic_Diagnostic::_internal_has_index() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CUserMessageRequestDiagnostic_Diagnostic::has_index() const {
@@ -33614,7 +33925,7 @@ inline bool CUserMessageRequestDiagnostic_Diagnostic::has_index() const {
 }
 inline void CUserMessageRequestDiagnostic_Diagnostic::clear_index() {
   _impl_.index_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CUserMessageRequestDiagnostic_Diagnostic::_internal_index() const {
   return _impl_.index_;
@@ -33624,7 +33935,7 @@ inline int32_t CUserMessageRequestDiagnostic_Diagnostic::index() const {
   return _internal_index();
 }
 inline void CUserMessageRequestDiagnostic_Diagnostic::_internal_set_index(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.index_ = value;
 }
 inline void CUserMessageRequestDiagnostic_Diagnostic::set_index(int32_t value) {
@@ -33634,7 +33945,7 @@ inline void CUserMessageRequestDiagnostic_Diagnostic::set_index(int32_t value) {
 
 // optional int64 offset = 2;
 inline bool CUserMessageRequestDiagnostic_Diagnostic::_internal_has_offset() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CUserMessageRequestDiagnostic_Diagnostic::has_offset() const {
@@ -33642,7 +33953,7 @@ inline bool CUserMessageRequestDiagnostic_Diagnostic::has_offset() const {
 }
 inline void CUserMessageRequestDiagnostic_Diagnostic::clear_offset() {
   _impl_.offset_ = int64_t{0};
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int64_t CUserMessageRequestDiagnostic_Diagnostic::_internal_offset() const {
   return _impl_.offset_;
@@ -33652,7 +33963,7 @@ inline int64_t CUserMessageRequestDiagnostic_Diagnostic::offset() const {
   return _internal_offset();
 }
 inline void CUserMessageRequestDiagnostic_Diagnostic::_internal_set_offset(int64_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.offset_ = value;
 }
 inline void CUserMessageRequestDiagnostic_Diagnostic::set_offset(int64_t value) {
@@ -33662,7 +33973,7 @@ inline void CUserMessageRequestDiagnostic_Diagnostic::set_offset(int64_t value) 
 
 // optional int32 param = 3;
 inline bool CUserMessageRequestDiagnostic_Diagnostic::_internal_has_param() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CUserMessageRequestDiagnostic_Diagnostic::has_param() const {
@@ -33670,7 +33981,7 @@ inline bool CUserMessageRequestDiagnostic_Diagnostic::has_param() const {
 }
 inline void CUserMessageRequestDiagnostic_Diagnostic::clear_param() {
   _impl_.param_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CUserMessageRequestDiagnostic_Diagnostic::_internal_param() const {
   return _impl_.param_;
@@ -33680,7 +33991,7 @@ inline int32_t CUserMessageRequestDiagnostic_Diagnostic::param() const {
   return _internal_param();
 }
 inline void CUserMessageRequestDiagnostic_Diagnostic::_internal_set_param(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.param_ = value;
 }
 inline void CUserMessageRequestDiagnostic_Diagnostic::set_param(int32_t value) {
@@ -33690,7 +34001,7 @@ inline void CUserMessageRequestDiagnostic_Diagnostic::set_param(int32_t value) {
 
 // optional int32 length = 4;
 inline bool CUserMessageRequestDiagnostic_Diagnostic::_internal_has_length() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CUserMessageRequestDiagnostic_Diagnostic::has_length() const {
@@ -33698,7 +34009,7 @@ inline bool CUserMessageRequestDiagnostic_Diagnostic::has_length() const {
 }
 inline void CUserMessageRequestDiagnostic_Diagnostic::clear_length() {
   _impl_.length_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline int32_t CUserMessageRequestDiagnostic_Diagnostic::_internal_length() const {
   return _impl_.length_;
@@ -33708,7 +34019,7 @@ inline int32_t CUserMessageRequestDiagnostic_Diagnostic::length() const {
   return _internal_length();
 }
 inline void CUserMessageRequestDiagnostic_Diagnostic::_internal_set_length(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.length_ = value;
 }
 inline void CUserMessageRequestDiagnostic_Diagnostic::set_length(int32_t value) {
@@ -33718,7 +34029,7 @@ inline void CUserMessageRequestDiagnostic_Diagnostic::set_length(int32_t value) 
 
 // optional int32 type = 5;
 inline bool CUserMessageRequestDiagnostic_Diagnostic::_internal_has_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CUserMessageRequestDiagnostic_Diagnostic::has_type() const {
@@ -33726,7 +34037,7 @@ inline bool CUserMessageRequestDiagnostic_Diagnostic::has_type() const {
 }
 inline void CUserMessageRequestDiagnostic_Diagnostic::clear_type() {
   _impl_.type_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline int32_t CUserMessageRequestDiagnostic_Diagnostic::_internal_type() const {
   return _impl_.type_;
@@ -33736,7 +34047,7 @@ inline int32_t CUserMessageRequestDiagnostic_Diagnostic::type() const {
   return _internal_type();
 }
 inline void CUserMessageRequestDiagnostic_Diagnostic::_internal_set_type(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.type_ = value;
 }
 inline void CUserMessageRequestDiagnostic_Diagnostic::set_type(int32_t value) {
@@ -33746,7 +34057,7 @@ inline void CUserMessageRequestDiagnostic_Diagnostic::set_type(int32_t value) {
 
 // optional int64 base = 6;
 inline bool CUserMessageRequestDiagnostic_Diagnostic::_internal_has_base() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CUserMessageRequestDiagnostic_Diagnostic::has_base() const {
@@ -33754,7 +34065,7 @@ inline bool CUserMessageRequestDiagnostic_Diagnostic::has_base() const {
 }
 inline void CUserMessageRequestDiagnostic_Diagnostic::clear_base() {
   _impl_.base_ = int64_t{0};
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
 inline int64_t CUserMessageRequestDiagnostic_Diagnostic::_internal_base() const {
   return _impl_.base_;
@@ -33764,7 +34075,7 @@ inline int64_t CUserMessageRequestDiagnostic_Diagnostic::base() const {
   return _internal_base();
 }
 inline void CUserMessageRequestDiagnostic_Diagnostic::_internal_set_base(int64_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.base_ = value;
 }
 inline void CUserMessageRequestDiagnostic_Diagnostic::set_base(int64_t value) {
@@ -33774,7 +34085,7 @@ inline void CUserMessageRequestDiagnostic_Diagnostic::set_base(int64_t value) {
 
 // optional int64 range = 7;
 inline bool CUserMessageRequestDiagnostic_Diagnostic::_internal_has_range() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CUserMessageRequestDiagnostic_Diagnostic::has_range() const {
@@ -33782,7 +34093,7 @@ inline bool CUserMessageRequestDiagnostic_Diagnostic::has_range() const {
 }
 inline void CUserMessageRequestDiagnostic_Diagnostic::clear_range() {
   _impl_.range_ = int64_t{0};
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000100u;
 }
 inline int64_t CUserMessageRequestDiagnostic_Diagnostic::_internal_range() const {
   return _impl_.range_;
@@ -33792,12 +34103,204 @@ inline int64_t CUserMessageRequestDiagnostic_Diagnostic::range() const {
   return _internal_range();
 }
 inline void CUserMessageRequestDiagnostic_Diagnostic::_internal_set_range(int64_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000100u;
   _impl_.range_ = value;
 }
 inline void CUserMessageRequestDiagnostic_Diagnostic::set_range(int64_t value) {
   _internal_set_range(value);
   // @@protoc_insertion_point(field_set:CUserMessageRequestDiagnostic.Diagnostic.range)
+}
+
+// optional int64 extent = 8;
+inline bool CUserMessageRequestDiagnostic_Diagnostic::_internal_has_extent() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
+  return value;
+}
+inline bool CUserMessageRequestDiagnostic_Diagnostic::has_extent() const {
+  return _internal_has_extent();
+}
+inline void CUserMessageRequestDiagnostic_Diagnostic::clear_extent() {
+  _impl_.extent_ = int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000200u;
+}
+inline int64_t CUserMessageRequestDiagnostic_Diagnostic::_internal_extent() const {
+  return _impl_.extent_;
+}
+inline int64_t CUserMessageRequestDiagnostic_Diagnostic::extent() const {
+  // @@protoc_insertion_point(field_get:CUserMessageRequestDiagnostic.Diagnostic.extent)
+  return _internal_extent();
+}
+inline void CUserMessageRequestDiagnostic_Diagnostic::_internal_set_extent(int64_t value) {
+  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_.extent_ = value;
+}
+inline void CUserMessageRequestDiagnostic_Diagnostic::set_extent(int64_t value) {
+  _internal_set_extent(value);
+  // @@protoc_insertion_point(field_set:CUserMessageRequestDiagnostic.Diagnostic.extent)
+}
+
+// optional int64 detail = 9;
+inline bool CUserMessageRequestDiagnostic_Diagnostic::_internal_has_detail() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
+  return value;
+}
+inline bool CUserMessageRequestDiagnostic_Diagnostic::has_detail() const {
+  return _internal_has_detail();
+}
+inline void CUserMessageRequestDiagnostic_Diagnostic::clear_detail() {
+  _impl_.detail_ = int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000400u;
+}
+inline int64_t CUserMessageRequestDiagnostic_Diagnostic::_internal_detail() const {
+  return _impl_.detail_;
+}
+inline int64_t CUserMessageRequestDiagnostic_Diagnostic::detail() const {
+  // @@protoc_insertion_point(field_get:CUserMessageRequestDiagnostic.Diagnostic.detail)
+  return _internal_detail();
+}
+inline void CUserMessageRequestDiagnostic_Diagnostic::_internal_set_detail(int64_t value) {
+  _impl_._has_bits_[0] |= 0x00000400u;
+  _impl_.detail_ = value;
+}
+inline void CUserMessageRequestDiagnostic_Diagnostic::set_detail(int64_t value) {
+  _internal_set_detail(value);
+  // @@protoc_insertion_point(field_set:CUserMessageRequestDiagnostic.Diagnostic.detail)
+}
+
+// optional string name = 10;
+inline bool CUserMessageRequestDiagnostic_Diagnostic::_internal_has_name() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CUserMessageRequestDiagnostic_Diagnostic::has_name() const {
+  return _internal_has_name();
+}
+inline void CUserMessageRequestDiagnostic_Diagnostic::clear_name() {
+  _impl_.name_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CUserMessageRequestDiagnostic_Diagnostic::name() const {
+  // @@protoc_insertion_point(field_get:CUserMessageRequestDiagnostic.Diagnostic.name)
+  return _internal_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CUserMessageRequestDiagnostic_Diagnostic::set_name(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CUserMessageRequestDiagnostic.Diagnostic.name)
+}
+inline std::string* CUserMessageRequestDiagnostic_Diagnostic::mutable_name() {
+  std::string* _s = _internal_mutable_name();
+  // @@protoc_insertion_point(field_mutable:CUserMessageRequestDiagnostic.Diagnostic.name)
+  return _s;
+}
+inline const std::string& CUserMessageRequestDiagnostic_Diagnostic::_internal_name() const {
+  return _impl_.name_.Get();
+}
+inline void CUserMessageRequestDiagnostic_Diagnostic::_internal_set_name(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CUserMessageRequestDiagnostic_Diagnostic::_internal_mutable_name() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CUserMessageRequestDiagnostic_Diagnostic::release_name() {
+  // @@protoc_insertion_point(field_release:CUserMessageRequestDiagnostic.Diagnostic.name)
+  if (!_internal_has_name()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.name_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.name_.IsDefault()) {
+    _impl_.name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void CUserMessageRequestDiagnostic_Diagnostic::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.name_.IsDefault()) {
+    _impl_.name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:CUserMessageRequestDiagnostic.Diagnostic.name)
+}
+
+// optional string alias = 11;
+inline bool CUserMessageRequestDiagnostic_Diagnostic::_internal_has_alias() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CUserMessageRequestDiagnostic_Diagnostic::has_alias() const {
+  return _internal_has_alias();
+}
+inline void CUserMessageRequestDiagnostic_Diagnostic::clear_alias() {
+  _impl_.alias_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline const std::string& CUserMessageRequestDiagnostic_Diagnostic::alias() const {
+  // @@protoc_insertion_point(field_get:CUserMessageRequestDiagnostic.Diagnostic.alias)
+  return _internal_alias();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CUserMessageRequestDiagnostic_Diagnostic::set_alias(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000002u;
+ _impl_.alias_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CUserMessageRequestDiagnostic.Diagnostic.alias)
+}
+inline std::string* CUserMessageRequestDiagnostic_Diagnostic::mutable_alias() {
+  std::string* _s = _internal_mutable_alias();
+  // @@protoc_insertion_point(field_mutable:CUserMessageRequestDiagnostic.Diagnostic.alias)
+  return _s;
+}
+inline const std::string& CUserMessageRequestDiagnostic_Diagnostic::_internal_alias() const {
+  return _impl_.alias_.Get();
+}
+inline void CUserMessageRequestDiagnostic_Diagnostic::_internal_set_alias(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.alias_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CUserMessageRequestDiagnostic_Diagnostic::_internal_mutable_alias() {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  return _impl_.alias_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CUserMessageRequestDiagnostic_Diagnostic::release_alias() {
+  // @@protoc_insertion_point(field_release:CUserMessageRequestDiagnostic.Diagnostic.alias)
+  if (!_internal_has_alias()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  auto* p = _impl_.alias_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.alias_.IsDefault()) {
+    _impl_.alias_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void CUserMessageRequestDiagnostic_Diagnostic::set_allocated_alias(std::string* alias) {
+  if (alias != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  _impl_.alias_.SetAllocated(alias, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.alias_.IsDefault()) {
+    _impl_.alias_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:CUserMessageRequestDiagnostic.Diagnostic.alias)
 }
 
 // -------------------------------------------------------------------
@@ -33850,7 +34353,7 @@ CUserMessageRequestDiagnostic::diagnostics() const {
 
 // optional int32 index = 1;
 inline bool CUserMessage_Diagnostic_Response_Diagnostic::_internal_has_index() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CUserMessage_Diagnostic_Response_Diagnostic::has_index() const {
@@ -33858,7 +34361,7 @@ inline bool CUserMessage_Diagnostic_Response_Diagnostic::has_index() const {
 }
 inline void CUserMessage_Diagnostic_Response_Diagnostic::clear_index() {
   _impl_.index_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline int32_t CUserMessage_Diagnostic_Response_Diagnostic::_internal_index() const {
   return _impl_.index_;
@@ -33868,7 +34371,7 @@ inline int32_t CUserMessage_Diagnostic_Response_Diagnostic::index() const {
   return _internal_index();
 }
 inline void CUserMessage_Diagnostic_Response_Diagnostic::_internal_set_index(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.index_ = value;
 }
 inline void CUserMessage_Diagnostic_Response_Diagnostic::set_index(int32_t value) {
@@ -33878,7 +34381,7 @@ inline void CUserMessage_Diagnostic_Response_Diagnostic::set_index(int32_t value
 
 // optional int64 offset = 2;
 inline bool CUserMessage_Diagnostic_Response_Diagnostic::_internal_has_offset() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CUserMessage_Diagnostic_Response_Diagnostic::has_offset() const {
@@ -33886,7 +34389,7 @@ inline bool CUserMessage_Diagnostic_Response_Diagnostic::has_offset() const {
 }
 inline void CUserMessage_Diagnostic_Response_Diagnostic::clear_offset() {
   _impl_.offset_ = int64_t{0};
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline int64_t CUserMessage_Diagnostic_Response_Diagnostic::_internal_offset() const {
   return _impl_.offset_;
@@ -33896,7 +34399,7 @@ inline int64_t CUserMessage_Diagnostic_Response_Diagnostic::offset() const {
   return _internal_offset();
 }
 inline void CUserMessage_Diagnostic_Response_Diagnostic::_internal_set_offset(int64_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.offset_ = value;
 }
 inline void CUserMessage_Diagnostic_Response_Diagnostic::set_offset(int64_t value) {
@@ -33906,7 +34409,7 @@ inline void CUserMessage_Diagnostic_Response_Diagnostic::set_offset(int64_t valu
 
 // optional int32 param = 3;
 inline bool CUserMessage_Diagnostic_Response_Diagnostic::_internal_has_param() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CUserMessage_Diagnostic_Response_Diagnostic::has_param() const {
@@ -33914,7 +34417,7 @@ inline bool CUserMessage_Diagnostic_Response_Diagnostic::has_param() const {
 }
 inline void CUserMessage_Diagnostic_Response_Diagnostic::clear_param() {
   _impl_.param_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CUserMessage_Diagnostic_Response_Diagnostic::_internal_param() const {
   return _impl_.param_;
@@ -33924,7 +34427,7 @@ inline int32_t CUserMessage_Diagnostic_Response_Diagnostic::param() const {
   return _internal_param();
 }
 inline void CUserMessage_Diagnostic_Response_Diagnostic::_internal_set_param(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.param_ = value;
 }
 inline void CUserMessage_Diagnostic_Response_Diagnostic::set_param(int32_t value) {
@@ -33934,7 +34437,7 @@ inline void CUserMessage_Diagnostic_Response_Diagnostic::set_param(int32_t value
 
 // optional int32 length = 4;
 inline bool CUserMessage_Diagnostic_Response_Diagnostic::_internal_has_length() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CUserMessage_Diagnostic_Response_Diagnostic::has_length() const {
@@ -33942,7 +34445,7 @@ inline bool CUserMessage_Diagnostic_Response_Diagnostic::has_length() const {
 }
 inline void CUserMessage_Diagnostic_Response_Diagnostic::clear_length() {
   _impl_.length_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline int32_t CUserMessage_Diagnostic_Response_Diagnostic::_internal_length() const {
   return _impl_.length_;
@@ -33952,7 +34455,7 @@ inline int32_t CUserMessage_Diagnostic_Response_Diagnostic::length() const {
   return _internal_length();
 }
 inline void CUserMessage_Diagnostic_Response_Diagnostic::_internal_set_length(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.length_ = value;
 }
 inline void CUserMessage_Diagnostic_Response_Diagnostic::set_length(int32_t value) {
@@ -33960,84 +34463,77 @@ inline void CUserMessage_Diagnostic_Response_Diagnostic::set_length(int32_t valu
   // @@protoc_insertion_point(field_set:CUserMessage_Diagnostic_Response.Diagnostic.length)
 }
 
-// repeated bytes detail = 5;
-inline int CUserMessage_Diagnostic_Response_Diagnostic::_internal_detail_size() const {
-  return _impl_.detail_.size();
+// optional bytes detail = 5;
+inline bool CUserMessage_Diagnostic_Response_Diagnostic::_internal_has_detail() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
 }
-inline int CUserMessage_Diagnostic_Response_Diagnostic::detail_size() const {
-  return _internal_detail_size();
+inline bool CUserMessage_Diagnostic_Response_Diagnostic::has_detail() const {
+  return _internal_has_detail();
 }
 inline void CUserMessage_Diagnostic_Response_Diagnostic::clear_detail() {
-  _impl_.detail_.Clear();
+  _impl_.detail_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline std::string* CUserMessage_Diagnostic_Response_Diagnostic::add_detail() {
-  std::string* _s = _internal_add_detail();
-  // @@protoc_insertion_point(field_add_mutable:CUserMessage_Diagnostic_Response.Diagnostic.detail)
+inline const std::string& CUserMessage_Diagnostic_Response_Diagnostic::detail() const {
+  // @@protoc_insertion_point(field_get:CUserMessage_Diagnostic_Response.Diagnostic.detail)
+  return _internal_detail();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CUserMessage_Diagnostic_Response_Diagnostic::set_detail(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.detail_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CUserMessage_Diagnostic_Response.Diagnostic.detail)
+}
+inline std::string* CUserMessage_Diagnostic_Response_Diagnostic::mutable_detail() {
+  std::string* _s = _internal_mutable_detail();
+  // @@protoc_insertion_point(field_mutable:CUserMessage_Diagnostic_Response.Diagnostic.detail)
   return _s;
 }
-inline const std::string& CUserMessage_Diagnostic_Response_Diagnostic::_internal_detail(int index) const {
-  return _impl_.detail_.Get(index);
+inline const std::string& CUserMessage_Diagnostic_Response_Diagnostic::_internal_detail() const {
+  return _impl_.detail_.Get();
 }
-inline const std::string& CUserMessage_Diagnostic_Response_Diagnostic::detail(int index) const {
-  // @@protoc_insertion_point(field_get:CUserMessage_Diagnostic_Response.Diagnostic.detail)
-  return _internal_detail(index);
+inline void CUserMessage_Diagnostic_Response_Diagnostic::_internal_set_detail(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.detail_.Set(value, GetArenaForAllocation());
 }
-inline std::string* CUserMessage_Diagnostic_Response_Diagnostic::mutable_detail(int index) {
-  // @@protoc_insertion_point(field_mutable:CUserMessage_Diagnostic_Response.Diagnostic.detail)
-  return _impl_.detail_.Mutable(index);
+inline std::string* CUserMessage_Diagnostic_Response_Diagnostic::_internal_mutable_detail() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.detail_.Mutable(GetArenaForAllocation());
 }
-inline void CUserMessage_Diagnostic_Response_Diagnostic::set_detail(int index, const std::string& value) {
-  _impl_.detail_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set:CUserMessage_Diagnostic_Response.Diagnostic.detail)
+inline std::string* CUserMessage_Diagnostic_Response_Diagnostic::release_detail() {
+  // @@protoc_insertion_point(field_release:CUserMessage_Diagnostic_Response.Diagnostic.detail)
+  if (!_internal_has_detail()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.detail_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.detail_.IsDefault()) {
+    _impl_.detail_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
 }
-inline void CUserMessage_Diagnostic_Response_Diagnostic::set_detail(int index, std::string&& value) {
-  _impl_.detail_.Mutable(index)->assign(std::move(value));
-  // @@protoc_insertion_point(field_set:CUserMessage_Diagnostic_Response.Diagnostic.detail)
-}
-inline void CUserMessage_Diagnostic_Response_Diagnostic::set_detail(int index, const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  _impl_.detail_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:CUserMessage_Diagnostic_Response.Diagnostic.detail)
-}
-inline void CUserMessage_Diagnostic_Response_Diagnostic::set_detail(int index, const void* value, size_t size) {
-  _impl_.detail_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:CUserMessage_Diagnostic_Response.Diagnostic.detail)
-}
-inline std::string* CUserMessage_Diagnostic_Response_Diagnostic::_internal_add_detail() {
-  return _impl_.detail_.Add();
-}
-inline void CUserMessage_Diagnostic_Response_Diagnostic::add_detail(const std::string& value) {
-  _impl_.detail_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:CUserMessage_Diagnostic_Response.Diagnostic.detail)
-}
-inline void CUserMessage_Diagnostic_Response_Diagnostic::add_detail(std::string&& value) {
-  _impl_.detail_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:CUserMessage_Diagnostic_Response.Diagnostic.detail)
-}
-inline void CUserMessage_Diagnostic_Response_Diagnostic::add_detail(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  _impl_.detail_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:CUserMessage_Diagnostic_Response.Diagnostic.detail)
-}
-inline void CUserMessage_Diagnostic_Response_Diagnostic::add_detail(const void* value, size_t size) {
-  _impl_.detail_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:CUserMessage_Diagnostic_Response.Diagnostic.detail)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
-CUserMessage_Diagnostic_Response_Diagnostic::detail() const {
-  // @@protoc_insertion_point(field_list:CUserMessage_Diagnostic_Response.Diagnostic.detail)
-  return _impl_.detail_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
-CUserMessage_Diagnostic_Response_Diagnostic::mutable_detail() {
-  // @@protoc_insertion_point(field_mutable_list:CUserMessage_Diagnostic_Response.Diagnostic.detail)
-  return &_impl_.detail_;
+inline void CUserMessage_Diagnostic_Response_Diagnostic::set_allocated_detail(std::string* detail) {
+  if (detail != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.detail_.SetAllocated(detail, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.detail_.IsDefault()) {
+    _impl_.detail_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:CUserMessage_Diagnostic_Response.Diagnostic.detail)
 }
 
 // optional int64 base = 6;
 inline bool CUserMessage_Diagnostic_Response_Diagnostic::_internal_has_base() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CUserMessage_Diagnostic_Response_Diagnostic::has_base() const {
@@ -34045,7 +34541,7 @@ inline bool CUserMessage_Diagnostic_Response_Diagnostic::has_base() const {
 }
 inline void CUserMessage_Diagnostic_Response_Diagnostic::clear_base() {
   _impl_.base_ = int64_t{0};
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int64_t CUserMessage_Diagnostic_Response_Diagnostic::_internal_base() const {
   return _impl_.base_;
@@ -34055,7 +34551,7 @@ inline int64_t CUserMessage_Diagnostic_Response_Diagnostic::base() const {
   return _internal_base();
 }
 inline void CUserMessage_Diagnostic_Response_Diagnostic::_internal_set_base(int64_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.base_ = value;
 }
 inline void CUserMessage_Diagnostic_Response_Diagnostic::set_base(int64_t value) {
@@ -34065,7 +34561,7 @@ inline void CUserMessage_Diagnostic_Response_Diagnostic::set_base(int64_t value)
 
 // optional int64 range = 7;
 inline bool CUserMessage_Diagnostic_Response_Diagnostic::_internal_has_range() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CUserMessage_Diagnostic_Response_Diagnostic::has_range() const {
@@ -34073,7 +34569,7 @@ inline bool CUserMessage_Diagnostic_Response_Diagnostic::has_range() const {
 }
 inline void CUserMessage_Diagnostic_Response_Diagnostic::clear_range() {
   _impl_.range_ = int64_t{0};
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
 inline int64_t CUserMessage_Diagnostic_Response_Diagnostic::_internal_range() const {
   return _impl_.range_;
@@ -34083,7 +34579,7 @@ inline int64_t CUserMessage_Diagnostic_Response_Diagnostic::range() const {
   return _internal_range();
 }
 inline void CUserMessage_Diagnostic_Response_Diagnostic::_internal_set_range(int64_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.range_ = value;
 }
 inline void CUserMessage_Diagnostic_Response_Diagnostic::set_range(int64_t value) {
@@ -34093,7 +34589,7 @@ inline void CUserMessage_Diagnostic_Response_Diagnostic::set_range(int64_t value
 
 // optional int32 type = 8;
 inline bool CUserMessage_Diagnostic_Response_Diagnostic::_internal_has_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CUserMessage_Diagnostic_Response_Diagnostic::has_type() const {
@@ -34101,7 +34597,7 @@ inline bool CUserMessage_Diagnostic_Response_Diagnostic::has_type() const {
 }
 inline void CUserMessage_Diagnostic_Response_Diagnostic::clear_type() {
   _impl_.type_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline int32_t CUserMessage_Diagnostic_Response_Diagnostic::_internal_type() const {
   return _impl_.type_;
@@ -34111,7 +34607,7 @@ inline int32_t CUserMessage_Diagnostic_Response_Diagnostic::type() const {
   return _internal_type();
 }
 inline void CUserMessage_Diagnostic_Response_Diagnostic::_internal_set_type(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.type_ = value;
 }
 inline void CUserMessage_Diagnostic_Response_Diagnostic::set_type(int32_t value) {
@@ -34219,9 +34715,249 @@ inline void CUserMessage_Diagnostic_Response::set_instance(int32_t value) {
   // @@protoc_insertion_point(field_set:CUserMessage_Diagnostic_Response.instance)
 }
 
+// -------------------------------------------------------------------
+
+// CUserMessage_ExtraUserData
+
+// optional int32 item = 1;
+inline bool CUserMessage_ExtraUserData::_internal_has_item() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CUserMessage_ExtraUserData::has_item() const {
+  return _internal_has_item();
+}
+inline void CUserMessage_ExtraUserData::clear_item() {
+  _impl_.item_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline int32_t CUserMessage_ExtraUserData::_internal_item() const {
+  return _impl_.item_;
+}
+inline int32_t CUserMessage_ExtraUserData::item() const {
+  // @@protoc_insertion_point(field_get:CUserMessage_ExtraUserData.item)
+  return _internal_item();
+}
+inline void CUserMessage_ExtraUserData::_internal_set_item(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.item_ = value;
+}
+inline void CUserMessage_ExtraUserData::set_item(int32_t value) {
+  _internal_set_item(value);
+  // @@protoc_insertion_point(field_set:CUserMessage_ExtraUserData.item)
+}
+
+// optional int64 value1 = 2;
+inline bool CUserMessage_ExtraUserData::_internal_has_value1() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CUserMessage_ExtraUserData::has_value1() const {
+  return _internal_has_value1();
+}
+inline void CUserMessage_ExtraUserData::clear_value1() {
+  _impl_.value1_ = int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline int64_t CUserMessage_ExtraUserData::_internal_value1() const {
+  return _impl_.value1_;
+}
+inline int64_t CUserMessage_ExtraUserData::value1() const {
+  // @@protoc_insertion_point(field_get:CUserMessage_ExtraUserData.value1)
+  return _internal_value1();
+}
+inline void CUserMessage_ExtraUserData::_internal_set_value1(int64_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.value1_ = value;
+}
+inline void CUserMessage_ExtraUserData::set_value1(int64_t value) {
+  _internal_set_value1(value);
+  // @@protoc_insertion_point(field_set:CUserMessage_ExtraUserData.value1)
+}
+
+// optional int64 value2 = 3;
+inline bool CUserMessage_ExtraUserData::_internal_has_value2() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CUserMessage_ExtraUserData::has_value2() const {
+  return _internal_has_value2();
+}
+inline void CUserMessage_ExtraUserData::clear_value2() {
+  _impl_.value2_ = int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline int64_t CUserMessage_ExtraUserData::_internal_value2() const {
+  return _impl_.value2_;
+}
+inline int64_t CUserMessage_ExtraUserData::value2() const {
+  // @@protoc_insertion_point(field_get:CUserMessage_ExtraUserData.value2)
+  return _internal_value2();
+}
+inline void CUserMessage_ExtraUserData::_internal_set_value2(int64_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.value2_ = value;
+}
+inline void CUserMessage_ExtraUserData::set_value2(int64_t value) {
+  _internal_set_value2(value);
+  // @@protoc_insertion_point(field_set:CUserMessage_ExtraUserData.value2)
+}
+
+// repeated bytes detail1 = 4;
+inline int CUserMessage_ExtraUserData::_internal_detail1_size() const {
+  return _impl_.detail1_.size();
+}
+inline int CUserMessage_ExtraUserData::detail1_size() const {
+  return _internal_detail1_size();
+}
+inline void CUserMessage_ExtraUserData::clear_detail1() {
+  _impl_.detail1_.Clear();
+}
+inline std::string* CUserMessage_ExtraUserData::add_detail1() {
+  std::string* _s = _internal_add_detail1();
+  // @@protoc_insertion_point(field_add_mutable:CUserMessage_ExtraUserData.detail1)
+  return _s;
+}
+inline const std::string& CUserMessage_ExtraUserData::_internal_detail1(int index) const {
+  return _impl_.detail1_.Get(index);
+}
+inline const std::string& CUserMessage_ExtraUserData::detail1(int index) const {
+  // @@protoc_insertion_point(field_get:CUserMessage_ExtraUserData.detail1)
+  return _internal_detail1(index);
+}
+inline std::string* CUserMessage_ExtraUserData::mutable_detail1(int index) {
+  // @@protoc_insertion_point(field_mutable:CUserMessage_ExtraUserData.detail1)
+  return _impl_.detail1_.Mutable(index);
+}
+inline void CUserMessage_ExtraUserData::set_detail1(int index, const std::string& value) {
+  _impl_.detail1_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:CUserMessage_ExtraUserData.detail1)
+}
+inline void CUserMessage_ExtraUserData::set_detail1(int index, std::string&& value) {
+  _impl_.detail1_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:CUserMessage_ExtraUserData.detail1)
+}
+inline void CUserMessage_ExtraUserData::set_detail1(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.detail1_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:CUserMessage_ExtraUserData.detail1)
+}
+inline void CUserMessage_ExtraUserData::set_detail1(int index, const void* value, size_t size) {
+  _impl_.detail1_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:CUserMessage_ExtraUserData.detail1)
+}
+inline std::string* CUserMessage_ExtraUserData::_internal_add_detail1() {
+  return _impl_.detail1_.Add();
+}
+inline void CUserMessage_ExtraUserData::add_detail1(const std::string& value) {
+  _impl_.detail1_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:CUserMessage_ExtraUserData.detail1)
+}
+inline void CUserMessage_ExtraUserData::add_detail1(std::string&& value) {
+  _impl_.detail1_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:CUserMessage_ExtraUserData.detail1)
+}
+inline void CUserMessage_ExtraUserData::add_detail1(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.detail1_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:CUserMessage_ExtraUserData.detail1)
+}
+inline void CUserMessage_ExtraUserData::add_detail1(const void* value, size_t size) {
+  _impl_.detail1_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:CUserMessage_ExtraUserData.detail1)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+CUserMessage_ExtraUserData::detail1() const {
+  // @@protoc_insertion_point(field_list:CUserMessage_ExtraUserData.detail1)
+  return _impl_.detail1_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+CUserMessage_ExtraUserData::mutable_detail1() {
+  // @@protoc_insertion_point(field_mutable_list:CUserMessage_ExtraUserData.detail1)
+  return &_impl_.detail1_;
+}
+
+// repeated bytes detail2 = 5;
+inline int CUserMessage_ExtraUserData::_internal_detail2_size() const {
+  return _impl_.detail2_.size();
+}
+inline int CUserMessage_ExtraUserData::detail2_size() const {
+  return _internal_detail2_size();
+}
+inline void CUserMessage_ExtraUserData::clear_detail2() {
+  _impl_.detail2_.Clear();
+}
+inline std::string* CUserMessage_ExtraUserData::add_detail2() {
+  std::string* _s = _internal_add_detail2();
+  // @@protoc_insertion_point(field_add_mutable:CUserMessage_ExtraUserData.detail2)
+  return _s;
+}
+inline const std::string& CUserMessage_ExtraUserData::_internal_detail2(int index) const {
+  return _impl_.detail2_.Get(index);
+}
+inline const std::string& CUserMessage_ExtraUserData::detail2(int index) const {
+  // @@protoc_insertion_point(field_get:CUserMessage_ExtraUserData.detail2)
+  return _internal_detail2(index);
+}
+inline std::string* CUserMessage_ExtraUserData::mutable_detail2(int index) {
+  // @@protoc_insertion_point(field_mutable:CUserMessage_ExtraUserData.detail2)
+  return _impl_.detail2_.Mutable(index);
+}
+inline void CUserMessage_ExtraUserData::set_detail2(int index, const std::string& value) {
+  _impl_.detail2_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:CUserMessage_ExtraUserData.detail2)
+}
+inline void CUserMessage_ExtraUserData::set_detail2(int index, std::string&& value) {
+  _impl_.detail2_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:CUserMessage_ExtraUserData.detail2)
+}
+inline void CUserMessage_ExtraUserData::set_detail2(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.detail2_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:CUserMessage_ExtraUserData.detail2)
+}
+inline void CUserMessage_ExtraUserData::set_detail2(int index, const void* value, size_t size) {
+  _impl_.detail2_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:CUserMessage_ExtraUserData.detail2)
+}
+inline std::string* CUserMessage_ExtraUserData::_internal_add_detail2() {
+  return _impl_.detail2_.Add();
+}
+inline void CUserMessage_ExtraUserData::add_detail2(const std::string& value) {
+  _impl_.detail2_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:CUserMessage_ExtraUserData.detail2)
+}
+inline void CUserMessage_ExtraUserData::add_detail2(std::string&& value) {
+  _impl_.detail2_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:CUserMessage_ExtraUserData.detail2)
+}
+inline void CUserMessage_ExtraUserData::add_detail2(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.detail2_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:CUserMessage_ExtraUserData.detail2)
+}
+inline void CUserMessage_ExtraUserData::add_detail2(const void* value, size_t size) {
+  _impl_.detail2_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:CUserMessage_ExtraUserData.detail2)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+CUserMessage_ExtraUserData::detail2() const {
+  // @@protoc_insertion_point(field_list:CUserMessage_ExtraUserData.detail2)
+  return _impl_.detail2_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+CUserMessage_ExtraUserData::mutable_detail2() {
+  // @@protoc_insertion_point(field_mutable_list:CUserMessage_ExtraUserData.detail2)
+  return &_impl_.detail2_;
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

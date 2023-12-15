@@ -35,6 +35,7 @@
 #include "steammessages.pb.h"
 #include "econ_shared_enums.pb.h"
 #include "gcsdk_gcmessages.pb.h"
+#include "base_gcmessages.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_econ_5fgcmessages_2eproto
@@ -4480,6 +4481,7 @@ class CMsgRequestCrateItemsResponse final :
   enum : int {
     kItemDefsFieldNumber = 2,
     kPeekItemDefsFieldNumber = 3,
+    kPeekItemsFieldNumber = 4,
     kResponseFieldNumber = 1,
   };
   // repeated uint32 item_defs = 2;
@@ -4526,6 +4528,24 @@ class CMsgRequestCrateItemsResponse final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
       mutable_peek_item_defs();
 
+  // repeated .CSOEconItem peek_items = 4;
+  int peek_items_size() const;
+  private:
+  int _internal_peek_items_size() const;
+  public:
+  void clear_peek_items();
+  ::CSOEconItem* mutable_peek_items(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSOEconItem >*
+      mutable_peek_items();
+  private:
+  const ::CSOEconItem& _internal_peek_items(int index) const;
+  ::CSOEconItem* _internal_add_peek_items();
+  public:
+  const ::CSOEconItem& peek_items(int index) const;
+  ::CSOEconItem* add_peek_items();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSOEconItem >&
+      peek_items() const;
+
   // optional uint32 response = 1;
   bool has_response() const;
   private:
@@ -4551,6 +4571,7 @@ class CMsgRequestCrateItemsResponse final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > item_defs_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > peek_item_defs_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSOEconItem > peek_items_;
     uint32_t response_;
   };
   union { Impl_ _impl_; };
@@ -6560,6 +6581,7 @@ class CMsgGCToGCGrantAccountRolledItems_Item final :
     kIgnoreLimitFieldNumber = 3,
     kOriginFieldNumber = 4,
     kInventoryTokenFieldNumber = 7,
+    kQualityFieldNumber = 8,
   };
   // repeated string loot_lists = 2;
   int loot_lists_size() const;
@@ -6673,6 +6695,19 @@ class CMsgGCToGCGrantAccountRolledItems_Item final :
   void _internal_set_inventory_token(uint32_t value);
   public:
 
+  // optional uint32 quality = 8;
+  bool has_quality() const;
+  private:
+  bool _internal_has_quality() const;
+  public:
+  void clear_quality();
+  uint32_t quality() const;
+  void set_quality(uint32_t value);
+  private:
+  uint32_t _internal_quality() const;
+  void _internal_set_quality(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgGCToGCGrantAccountRolledItems.Item)
  private:
   class _Internal;
@@ -6690,6 +6725,7 @@ class CMsgGCToGCGrantAccountRolledItems_Item final :
     bool ignore_limit_;
     uint32_t origin_;
     uint32_t inventory_token_;
+    uint32_t quality_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_econ_5fgcmessages_2eproto;
@@ -10077,33 +10113,85 @@ class CMsgGCAddGiftItem final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kItemIdFieldNumber = 2,
-    kAccountIdFieldNumber = 1,
+    kGiftMessageFieldNumber = 4,
+    kWrappedItemFieldNumber = 3,
+    kGifterAccountIdFieldNumber = 1,
+    kReceiverAccountIdFieldNumber = 2,
+    kIsWalletCashTrustedFieldNumber = 5,
   };
-  // optional uint64 item_id = 2;
-  bool has_item_id() const;
+  // optional string gift_message = 4;
+  bool has_gift_message() const;
   private:
-  bool _internal_has_item_id() const;
+  bool _internal_has_gift_message() const;
   public:
-  void clear_item_id();
-  uint64_t item_id() const;
-  void set_item_id(uint64_t value);
+  void clear_gift_message();
+  const std::string& gift_message() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_gift_message(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_gift_message();
+  PROTOBUF_NODISCARD std::string* release_gift_message();
+  void set_allocated_gift_message(std::string* gift_message);
   private:
-  uint64_t _internal_item_id() const;
-  void _internal_set_item_id(uint64_t value);
+  const std::string& _internal_gift_message() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_gift_message(const std::string& value);
+  std::string* _internal_mutable_gift_message();
   public:
 
-  // optional uint32 account_id = 1;
-  bool has_account_id() const;
+  // optional .CSOEconItem wrapped_item = 3;
+  bool has_wrapped_item() const;
   private:
-  bool _internal_has_account_id() const;
+  bool _internal_has_wrapped_item() const;
   public:
-  void clear_account_id();
-  uint32_t account_id() const;
-  void set_account_id(uint32_t value);
+  void clear_wrapped_item();
+  const ::CSOEconItem& wrapped_item() const;
+  PROTOBUF_NODISCARD ::CSOEconItem* release_wrapped_item();
+  ::CSOEconItem* mutable_wrapped_item();
+  void set_allocated_wrapped_item(::CSOEconItem* wrapped_item);
   private:
-  uint32_t _internal_account_id() const;
-  void _internal_set_account_id(uint32_t value);
+  const ::CSOEconItem& _internal_wrapped_item() const;
+  ::CSOEconItem* _internal_mutable_wrapped_item();
+  public:
+  void unsafe_arena_set_allocated_wrapped_item(
+      ::CSOEconItem* wrapped_item);
+  ::CSOEconItem* unsafe_arena_release_wrapped_item();
+
+  // optional uint32 gifter_account_id = 1;
+  bool has_gifter_account_id() const;
+  private:
+  bool _internal_has_gifter_account_id() const;
+  public:
+  void clear_gifter_account_id();
+  uint32_t gifter_account_id() const;
+  void set_gifter_account_id(uint32_t value);
+  private:
+  uint32_t _internal_gifter_account_id() const;
+  void _internal_set_gifter_account_id(uint32_t value);
+  public:
+
+  // optional uint32 receiver_account_id = 2;
+  bool has_receiver_account_id() const;
+  private:
+  bool _internal_has_receiver_account_id() const;
+  public:
+  void clear_receiver_account_id();
+  uint32_t receiver_account_id() const;
+  void set_receiver_account_id(uint32_t value);
+  private:
+  uint32_t _internal_receiver_account_id() const;
+  void _internal_set_receiver_account_id(uint32_t value);
+  public:
+
+  // optional bool is_wallet_cash_trusted = 5;
+  bool has_is_wallet_cash_trusted() const;
+  private:
+  bool _internal_has_is_wallet_cash_trusted() const;
+  public:
+  void clear_is_wallet_cash_trusted();
+  bool is_wallet_cash_trusted() const;
+  void set_is_wallet_cash_trusted(bool value);
+  private:
+  bool _internal_is_wallet_cash_trusted() const;
+  void _internal_set_is_wallet_cash_trusted(bool value);
   public:
 
   // @@protoc_insertion_point(class_scope:CMsgGCAddGiftItem)
@@ -10116,8 +10204,11 @@ class CMsgGCAddGiftItem final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint64_t item_id_;
-    uint32_t account_id_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr gift_message_;
+    ::CSOEconItem* wrapped_item_;
+    uint32_t gifter_account_id_;
+    uint32_t receiver_account_id_;
+    bool is_wallet_cash_trusted_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_econ_5fgcmessages_2eproto;
@@ -27117,6 +27208,43 @@ CMsgRequestCrateItemsResponse::mutable_peek_item_defs() {
   return _internal_mutable_peek_item_defs();
 }
 
+// repeated .CSOEconItem peek_items = 4;
+inline int CMsgRequestCrateItemsResponse::_internal_peek_items_size() const {
+  return _impl_.peek_items_.size();
+}
+inline int CMsgRequestCrateItemsResponse::peek_items_size() const {
+  return _internal_peek_items_size();
+}
+inline ::CSOEconItem* CMsgRequestCrateItemsResponse::mutable_peek_items(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgRequestCrateItemsResponse.peek_items)
+  return _impl_.peek_items_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSOEconItem >*
+CMsgRequestCrateItemsResponse::mutable_peek_items() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgRequestCrateItemsResponse.peek_items)
+  return &_impl_.peek_items_;
+}
+inline const ::CSOEconItem& CMsgRequestCrateItemsResponse::_internal_peek_items(int index) const {
+  return _impl_.peek_items_.Get(index);
+}
+inline const ::CSOEconItem& CMsgRequestCrateItemsResponse::peek_items(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgRequestCrateItemsResponse.peek_items)
+  return _internal_peek_items(index);
+}
+inline ::CSOEconItem* CMsgRequestCrateItemsResponse::_internal_add_peek_items() {
+  return _impl_.peek_items_.Add();
+}
+inline ::CSOEconItem* CMsgRequestCrateItemsResponse::add_peek_items() {
+  ::CSOEconItem* _add = _internal_add_peek_items();
+  // @@protoc_insertion_point(field_add:CMsgRequestCrateItemsResponse.peek_items)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSOEconItem >&
+CMsgRequestCrateItemsResponse::peek_items() const {
+  // @@protoc_insertion_point(field_list:CMsgRequestCrateItemsResponse.peek_items)
+  return _impl_.peek_items_;
+}
+
 // -------------------------------------------------------------------
 
 // CMsgRequestCrateEscalationLevel
@@ -28473,6 +28601,34 @@ inline void CMsgGCToGCGrantAccountRolledItems_Item::_internal_set_inventory_toke
 inline void CMsgGCToGCGrantAccountRolledItems_Item::set_inventory_token(uint32_t value) {
   _internal_set_inventory_token(value);
   // @@protoc_insertion_point(field_set:CMsgGCToGCGrantAccountRolledItems.Item.inventory_token)
+}
+
+// optional uint32 quality = 8;
+inline bool CMsgGCToGCGrantAccountRolledItems_Item::_internal_has_quality() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CMsgGCToGCGrantAccountRolledItems_Item::has_quality() const {
+  return _internal_has_quality();
+}
+inline void CMsgGCToGCGrantAccountRolledItems_Item::clear_quality() {
+  _impl_.quality_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline uint32_t CMsgGCToGCGrantAccountRolledItems_Item::_internal_quality() const {
+  return _impl_.quality_;
+}
+inline uint32_t CMsgGCToGCGrantAccountRolledItems_Item::quality() const {
+  // @@protoc_insertion_point(field_get:CMsgGCToGCGrantAccountRolledItems.Item.quality)
+  return _internal_quality();
+}
+inline void CMsgGCToGCGrantAccountRolledItems_Item::_internal_set_quality(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.quality_ = value;
+}
+inline void CMsgGCToGCGrantAccountRolledItems_Item::set_quality(uint32_t value) {
+  _internal_set_quality(value);
+  // @@protoc_insertion_point(field_set:CMsgGCToGCGrantAccountRolledItems.Item.quality)
 }
 
 // -------------------------------------------------------------------
@@ -30223,60 +30379,243 @@ inline void CMsgGCGetAccountSubscriptionItemResponse::set_def_index(uint32_t val
 
 // CMsgGCAddGiftItem
 
-// optional uint32 account_id = 1;
-inline bool CMsgGCAddGiftItem::_internal_has_account_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+// optional uint32 gifter_account_id = 1;
+inline bool CMsgGCAddGiftItem::_internal_has_gifter_account_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
-inline bool CMsgGCAddGiftItem::has_account_id() const {
-  return _internal_has_account_id();
+inline bool CMsgGCAddGiftItem::has_gifter_account_id() const {
+  return _internal_has_gifter_account_id();
 }
-inline void CMsgGCAddGiftItem::clear_account_id() {
-  _impl_.account_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+inline void CMsgGCAddGiftItem::clear_gifter_account_id() {
+  _impl_.gifter_account_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint32_t CMsgGCAddGiftItem::_internal_account_id() const {
-  return _impl_.account_id_;
+inline uint32_t CMsgGCAddGiftItem::_internal_gifter_account_id() const {
+  return _impl_.gifter_account_id_;
 }
-inline uint32_t CMsgGCAddGiftItem::account_id() const {
-  // @@protoc_insertion_point(field_get:CMsgGCAddGiftItem.account_id)
-  return _internal_account_id();
+inline uint32_t CMsgGCAddGiftItem::gifter_account_id() const {
+  // @@protoc_insertion_point(field_get:CMsgGCAddGiftItem.gifter_account_id)
+  return _internal_gifter_account_id();
 }
-inline void CMsgGCAddGiftItem::_internal_set_account_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.account_id_ = value;
+inline void CMsgGCAddGiftItem::_internal_set_gifter_account_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.gifter_account_id_ = value;
 }
-inline void CMsgGCAddGiftItem::set_account_id(uint32_t value) {
-  _internal_set_account_id(value);
-  // @@protoc_insertion_point(field_set:CMsgGCAddGiftItem.account_id)
+inline void CMsgGCAddGiftItem::set_gifter_account_id(uint32_t value) {
+  _internal_set_gifter_account_id(value);
+  // @@protoc_insertion_point(field_set:CMsgGCAddGiftItem.gifter_account_id)
 }
 
-// optional uint64 item_id = 2;
-inline bool CMsgGCAddGiftItem::_internal_has_item_id() const {
+// optional uint32 receiver_account_id = 2;
+inline bool CMsgGCAddGiftItem::_internal_has_receiver_account_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMsgGCAddGiftItem::has_receiver_account_id() const {
+  return _internal_has_receiver_account_id();
+}
+inline void CMsgGCAddGiftItem::clear_receiver_account_id() {
+  _impl_.receiver_account_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline uint32_t CMsgGCAddGiftItem::_internal_receiver_account_id() const {
+  return _impl_.receiver_account_id_;
+}
+inline uint32_t CMsgGCAddGiftItem::receiver_account_id() const {
+  // @@protoc_insertion_point(field_get:CMsgGCAddGiftItem.receiver_account_id)
+  return _internal_receiver_account_id();
+}
+inline void CMsgGCAddGiftItem::_internal_set_receiver_account_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.receiver_account_id_ = value;
+}
+inline void CMsgGCAddGiftItem::set_receiver_account_id(uint32_t value) {
+  _internal_set_receiver_account_id(value);
+  // @@protoc_insertion_point(field_set:CMsgGCAddGiftItem.receiver_account_id)
+}
+
+// optional .CSOEconItem wrapped_item = 3;
+inline bool CMsgGCAddGiftItem::_internal_has_wrapped_item() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.wrapped_item_ != nullptr);
+  return value;
+}
+inline bool CMsgGCAddGiftItem::has_wrapped_item() const {
+  return _internal_has_wrapped_item();
+}
+inline const ::CSOEconItem& CMsgGCAddGiftItem::_internal_wrapped_item() const {
+  const ::CSOEconItem* p = _impl_.wrapped_item_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CSOEconItem&>(
+      ::_CSOEconItem_default_instance_);
+}
+inline const ::CSOEconItem& CMsgGCAddGiftItem::wrapped_item() const {
+  // @@protoc_insertion_point(field_get:CMsgGCAddGiftItem.wrapped_item)
+  return _internal_wrapped_item();
+}
+inline void CMsgGCAddGiftItem::unsafe_arena_set_allocated_wrapped_item(
+    ::CSOEconItem* wrapped_item) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.wrapped_item_);
+  }
+  _impl_.wrapped_item_ = wrapped_item;
+  if (wrapped_item) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgGCAddGiftItem.wrapped_item)
+}
+inline ::CSOEconItem* CMsgGCAddGiftItem::release_wrapped_item() {
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  ::CSOEconItem* temp = _impl_.wrapped_item_;
+  _impl_.wrapped_item_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CSOEconItem* CMsgGCAddGiftItem::unsafe_arena_release_wrapped_item() {
+  // @@protoc_insertion_point(field_release:CMsgGCAddGiftItem.wrapped_item)
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  ::CSOEconItem* temp = _impl_.wrapped_item_;
+  _impl_.wrapped_item_ = nullptr;
+  return temp;
+}
+inline ::CSOEconItem* CMsgGCAddGiftItem::_internal_mutable_wrapped_item() {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  if (_impl_.wrapped_item_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CSOEconItem>(GetArenaForAllocation());
+    _impl_.wrapped_item_ = p;
+  }
+  return _impl_.wrapped_item_;
+}
+inline ::CSOEconItem* CMsgGCAddGiftItem::mutable_wrapped_item() {
+  ::CSOEconItem* _msg = _internal_mutable_wrapped_item();
+  // @@protoc_insertion_point(field_mutable:CMsgGCAddGiftItem.wrapped_item)
+  return _msg;
+}
+inline void CMsgGCAddGiftItem::set_allocated_wrapped_item(::CSOEconItem* wrapped_item) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.wrapped_item_);
+  }
+  if (wrapped_item) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(wrapped_item));
+    if (message_arena != submessage_arena) {
+      wrapped_item = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, wrapped_item, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  _impl_.wrapped_item_ = wrapped_item;
+  // @@protoc_insertion_point(field_set_allocated:CMsgGCAddGiftItem.wrapped_item)
+}
+
+// optional string gift_message = 4;
+inline bool CMsgGCAddGiftItem::_internal_has_gift_message() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool CMsgGCAddGiftItem::has_item_id() const {
-  return _internal_has_item_id();
+inline bool CMsgGCAddGiftItem::has_gift_message() const {
+  return _internal_has_gift_message();
 }
-inline void CMsgGCAddGiftItem::clear_item_id() {
-  _impl_.item_id_ = uint64_t{0u};
+inline void CMsgGCAddGiftItem::clear_gift_message() {
+  _impl_.gift_message_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint64_t CMsgGCAddGiftItem::_internal_item_id() const {
-  return _impl_.item_id_;
+inline const std::string& CMsgGCAddGiftItem::gift_message() const {
+  // @@protoc_insertion_point(field_get:CMsgGCAddGiftItem.gift_message)
+  return _internal_gift_message();
 }
-inline uint64_t CMsgGCAddGiftItem::item_id() const {
-  // @@protoc_insertion_point(field_get:CMsgGCAddGiftItem.item_id)
-  return _internal_item_id();
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CMsgGCAddGiftItem::set_gift_message(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.gift_message_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CMsgGCAddGiftItem.gift_message)
 }
-inline void CMsgGCAddGiftItem::_internal_set_item_id(uint64_t value) {
+inline std::string* CMsgGCAddGiftItem::mutable_gift_message() {
+  std::string* _s = _internal_mutable_gift_message();
+  // @@protoc_insertion_point(field_mutable:CMsgGCAddGiftItem.gift_message)
+  return _s;
+}
+inline const std::string& CMsgGCAddGiftItem::_internal_gift_message() const {
+  return _impl_.gift_message_.Get();
+}
+inline void CMsgGCAddGiftItem::_internal_set_gift_message(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.item_id_ = value;
+  _impl_.gift_message_.Set(value, GetArenaForAllocation());
 }
-inline void CMsgGCAddGiftItem::set_item_id(uint64_t value) {
-  _internal_set_item_id(value);
-  // @@protoc_insertion_point(field_set:CMsgGCAddGiftItem.item_id)
+inline std::string* CMsgGCAddGiftItem::_internal_mutable_gift_message() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.gift_message_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CMsgGCAddGiftItem::release_gift_message() {
+  // @@protoc_insertion_point(field_release:CMsgGCAddGiftItem.gift_message)
+  if (!_internal_has_gift_message()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.gift_message_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.gift_message_.IsDefault()) {
+    _impl_.gift_message_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void CMsgGCAddGiftItem::set_allocated_gift_message(std::string* gift_message) {
+  if (gift_message != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.gift_message_.SetAllocated(gift_message, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.gift_message_.IsDefault()) {
+    _impl_.gift_message_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:CMsgGCAddGiftItem.gift_message)
+}
+
+// optional bool is_wallet_cash_trusted = 5;
+inline bool CMsgGCAddGiftItem::_internal_has_is_wallet_cash_trusted() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CMsgGCAddGiftItem::has_is_wallet_cash_trusted() const {
+  return _internal_has_is_wallet_cash_trusted();
+}
+inline void CMsgGCAddGiftItem::clear_is_wallet_cash_trusted() {
+  _impl_.is_wallet_cash_trusted_ = false;
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline bool CMsgGCAddGiftItem::_internal_is_wallet_cash_trusted() const {
+  return _impl_.is_wallet_cash_trusted_;
+}
+inline bool CMsgGCAddGiftItem::is_wallet_cash_trusted() const {
+  // @@protoc_insertion_point(field_get:CMsgGCAddGiftItem.is_wallet_cash_trusted)
+  return _internal_is_wallet_cash_trusted();
+}
+inline void CMsgGCAddGiftItem::_internal_set_is_wallet_cash_trusted(bool value) {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.is_wallet_cash_trusted_ = value;
+}
+inline void CMsgGCAddGiftItem::set_is_wallet_cash_trusted(bool value) {
+  _internal_set_is_wallet_cash_trusted(value);
+  // @@protoc_insertion_point(field_set:CMsgGCAddGiftItem.is_wallet_cash_trusted)
 }
 
 // -------------------------------------------------------------------

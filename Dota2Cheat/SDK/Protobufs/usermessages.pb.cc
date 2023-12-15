@@ -1473,13 +1473,17 @@ PROTOBUF_CONSTEXPR CUserMessageRequestDiagnostic_Diagnostic::CUserMessageRequest
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.alias_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.offset_)*/int64_t{0}
   , /*decltype(_impl_.index_)*/0
   , /*decltype(_impl_.param_)*/0
   , /*decltype(_impl_.length_)*/0
   , /*decltype(_impl_.type_)*/0
   , /*decltype(_impl_.base_)*/int64_t{0}
-  , /*decltype(_impl_.range_)*/int64_t{0}} {}
+  , /*decltype(_impl_.range_)*/int64_t{0}
+  , /*decltype(_impl_.extent_)*/int64_t{0}
+  , /*decltype(_impl_.detail_)*/int64_t{0}} {}
 struct CUserMessageRequestDiagnostic_DiagnosticDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CUserMessageRequestDiagnostic_DiagnosticDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1506,7 +1510,7 @@ PROTOBUF_CONSTEXPR CUserMessage_Diagnostic_Response_Diagnostic::CUserMessage_Dia
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.detail_)*/{}
+  , /*decltype(_impl_.detail_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.offset_)*/int64_t{0}
   , /*decltype(_impl_.index_)*/0
   , /*decltype(_impl_.param_)*/0
@@ -1539,7 +1543,25 @@ struct CUserMessage_Diagnostic_ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CUserMessage_Diagnostic_ResponseDefaultTypeInternal _CUserMessage_Diagnostic_Response_default_instance_;
-static ::_pb::Metadata file_level_metadata_usermessages_2eproto[93];
+PROTOBUF_CONSTEXPR CUserMessage_ExtraUserData::CUserMessage_ExtraUserData(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.detail1_)*/{}
+  , /*decltype(_impl_.detail2_)*/{}
+  , /*decltype(_impl_.value1_)*/int64_t{0}
+  , /*decltype(_impl_.value2_)*/int64_t{0}
+  , /*decltype(_impl_.item_)*/0} {}
+struct CUserMessage_ExtraUserDataDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CUserMessage_ExtraUserDataDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CUserMessage_ExtraUserDataDefaultTypeInternal() {}
+  union {
+    CUserMessage_ExtraUserData _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CUserMessage_ExtraUserDataDefaultTypeInternal _CUserMessage_ExtraUserData_default_instance_;
+static ::_pb::Metadata file_level_metadata_usermessages_2eproto[94];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_usermessages_2eproto[5];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_usermessages_2eproto = nullptr;
 
@@ -2687,13 +2709,21 @@ const uint32_t TableStruct_usermessages_2eproto::offsets[] PROTOBUF_SECTION_VARI
   PROTOBUF_FIELD_OFFSET(::CUserMessageRequestDiagnostic_Diagnostic, _impl_.type_),
   PROTOBUF_FIELD_OFFSET(::CUserMessageRequestDiagnostic_Diagnostic, _impl_.base_),
   PROTOBUF_FIELD_OFFSET(::CUserMessageRequestDiagnostic_Diagnostic, _impl_.range_),
-  1,
-  0,
-  2,
+  PROTOBUF_FIELD_OFFSET(::CUserMessageRequestDiagnostic_Diagnostic, _impl_.extent_),
+  PROTOBUF_FIELD_OFFSET(::CUserMessageRequestDiagnostic_Diagnostic, _impl_.detail_),
+  PROTOBUF_FIELD_OFFSET(::CUserMessageRequestDiagnostic_Diagnostic, _impl_.name_),
+  PROTOBUF_FIELD_OFFSET(::CUserMessageRequestDiagnostic_Diagnostic, _impl_.alias_),
   3,
+  2,
   4,
   5,
   6,
+  7,
+  8,
+  9,
+  10,
+  0,
+  1,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CUserMessageRequestDiagnostic, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2715,14 +2745,14 @@ const uint32_t TableStruct_usermessages_2eproto::offsets[] PROTOBUF_SECTION_VARI
   PROTOBUF_FIELD_OFFSET(::CUserMessage_Diagnostic_Response_Diagnostic, _impl_.base_),
   PROTOBUF_FIELD_OFFSET(::CUserMessage_Diagnostic_Response_Diagnostic, _impl_.range_),
   PROTOBUF_FIELD_OFFSET(::CUserMessage_Diagnostic_Response_Diagnostic, _impl_.type_),
-  1,
-  0,
   2,
-  4,
-  ~0u,
+  1,
   3,
-  6,
   5,
+  0,
+  4,
+  7,
+  6,
   PROTOBUF_FIELD_OFFSET(::CUserMessage_Diagnostic_Response, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CUserMessage_Diagnostic_Response, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2735,6 +2765,22 @@ const uint32_t TableStruct_usermessages_2eproto::offsets[] PROTOBUF_SECTION_VARI
   ~0u,
   0,
   1,
+  PROTOBUF_FIELD_OFFSET(::CUserMessage_ExtraUserData, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CUserMessage_ExtraUserData, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CUserMessage_ExtraUserData, _impl_.item_),
+  PROTOBUF_FIELD_OFFSET(::CUserMessage_ExtraUserData, _impl_.value1_),
+  PROTOBUF_FIELD_OFFSET(::CUserMessage_ExtraUserData, _impl_.value2_),
+  PROTOBUF_FIELD_OFFSET(::CUserMessage_ExtraUserData, _impl_.detail1_),
+  PROTOBUF_FIELD_OFFSET(::CUserMessage_ExtraUserData, _impl_.detail2_),
+  2,
+  0,
+  1,
+  ~0u,
+  ~0u,
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 7, -1, sizeof(::CUserMessageAchievementEvent)},
@@ -2826,10 +2872,11 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 1062, 1071, -1, sizeof(::CUserMessageRequestInventory)},
   { 1074, 1090, -1, sizeof(::CUserMessage_Inventory_Response_InventoryDetail)},
   { 1100, 1118, -1, sizeof(::CUserMessage_Inventory_Response)},
-  { 1130, 1143, -1, sizeof(::CUserMessageRequestDiagnostic_Diagnostic)},
-  { 1150, -1, -1, sizeof(::CUserMessageRequestDiagnostic)},
-  { 1157, 1171, -1, sizeof(::CUserMessage_Diagnostic_Response_Diagnostic)},
-  { 1179, 1188, -1, sizeof(::CUserMessage_Diagnostic_Response)},
+  { 1130, 1147, -1, sizeof(::CUserMessageRequestDiagnostic_Diagnostic)},
+  { 1158, -1, -1, sizeof(::CUserMessageRequestDiagnostic)},
+  { 1165, 1179, -1, sizeof(::CUserMessage_Diagnostic_Response_Diagnostic)},
+  { 1187, 1196, -1, sizeof(::CUserMessage_Diagnostic_Response)},
+  { 1199, 1210, -1, sizeof(::CUserMessage_ExtraUserData)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -2926,6 +2973,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CUserMessageRequestDiagnostic_default_instance_._instance,
   &::_CUserMessage_Diagnostic_Response_Diagnostic_default_instance_._instance,
   &::_CUserMessage_Diagnostic_Response_default_instance_._instance,
+  &::_CUserMessage_ExtraUserData_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_usermessages_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -3217,104 +3265,108 @@ const char descriptor_table_protodef_usermessages_2eproto[] PROTOBUF_SECTION_VAR
   "y\030\002 \001(\003\022\016\n\006offset\030\003 \001(\003\022\r\n\005first\030\004 \001(\003\022\014"
   "\n\004base\030\005 \001(\003\022\014\n\004name\030\006 \001(\t\022\021\n\tbase_name\030"
   "\007 \001(\t\022\023\n\013base_detail\030\010 \001(\005\022\021\n\tbase_time\030"
-  "\t \001(\005\022\021\n\tbase_hash\030\n \001(\005\"\326\001\n\035CUserMessag"
+  "\t \001(\005\022\021\n\tbase_hash\030\n \001(\005\"\224\002\n\035CUserMessag"
   "eRequestDiagnostic\022>\n\013diagnostics\030\001 \003(\0132"
   ").CUserMessageRequestDiagnostic.Diagnost"
-  "ic\032u\n\nDiagnostic\022\r\n\005index\030\001 \001(\005\022\016\n\006offse"
-  "t\030\002 \001(\003\022\r\n\005param\030\003 \001(\005\022\016\n\006length\030\004 \001(\005\022\014"
-  "\n\004type\030\005 \001(\005\022\014\n\004base\030\006 \001(\003\022\r\n\005range\030\007 \001("
-  "\003\"\226\002\n CUserMessage_Diagnostic_Response\022A"
-  "\n\013diagnostics\030\001 \003(\0132,.CUserMessage_Diagn"
-  "ostic_Response.Diagnostic\022\025\n\rbuild_versi"
-  "on\030\002 \001(\005\022\020\n\010instance\030\003 \001(\005\032\205\001\n\nDiagnosti"
-  "c\022\r\n\005index\030\001 \001(\005\022\016\n\006offset\030\002 \001(\003\022\r\n\005para"
-  "m\030\003 \001(\005\022\016\n\006length\030\004 \001(\005\022\016\n\006detail\030\005 \003(\014\022"
-  "\014\n\004base\030\006 \001(\003\022\r\n\005range\030\007 \001(\003\022\014\n\004type\030\010 \001"
-  "(\005*\304\010\n\021EBaseUserMessages\022\027\n\023UM_Achieveme"
-  "ntEvent\020e\022\023\n\017UM_CloseCaption\020f\022\031\n\025UM_Clo"
-  "seCaptionDirect\020g\022\027\n\023UM_CurrentTimescale"
-  "\020h\022\027\n\023UM_DesiredTimescale\020i\022\013\n\007UM_Fade\020j"
-  "\022\020\n\014UM_GameTitle\020k\022\r\n\tUM_HudMsg\020n\022\016\n\nUM_"
-  "HudText\020o\022\022\n\016UM_ColoredText\020q\022\023\n\017UM_Requ"
-  "estState\020r\022\017\n\013UM_ResetHUD\020s\022\r\n\tUM_Rumble"
-  "\020t\022\016\n\nUM_SayText\020u\022\017\n\013UM_SayText2\020v\022\025\n\021U"
-  "M_SayTextChannel\020w\022\014\n\010UM_Shake\020x\022\017\n\013UM_S"
-  "hakeDir\020y\022\016\n\nUM_TextMsg\020|\022\021\n\rUM_ScreenTi"
-  "lt\020}\022\021\n\014UM_VoiceMask\020\200\001\022\021\n\014UM_SendAudio\020"
-  "\202\001\022\022\n\rUM_ItemPickup\020\203\001\022\022\n\rUM_AmmoDenied\020"
-  "\204\001\022\020\n\013UM_ShowMenu\020\206\001\022\022\n\rUM_CreditsMsg\020\207\001"
-  "\022\037\n\032UM_CloseCaptionPlaceholder\020\216\001\022\030\n\023UM_"
-  "CameraTransition\020\217\001\022\026\n\021UM_AudioParameter"
-  "\020\220\001\022\027\n\022UM_ParticleManager\020\221\001\022\020\n\013UM_HudEr"
-  "ror\020\222\001\022\027\n\022UM_CustomGameEvent\020\224\001\022\027\n\022UM_An"
-  "imGraphUpdate\020\225\001\022\033\n\026UM_HapticsManagerPul"
-  "se\020\226\001\022\034\n\027UM_HapticsManagerEffect\020\227\001\022\031\n\024U"
-  "M_CommandQueueState\020\230\001\022\030\n\023UM_UpdateCssCl"
-  "asses\020\231\001\022\027\n\022UM_ServerFrameTime\020\232\001\022\034\n\027UM_"
-  "LagCompensationError\020\233\001\022\030\n\023UM_RequestDll"
-  "Status\020\234\001\022\031\n\024UM_RequestUtilAction\020\235\001\022\032\n\025"
-  "UM_UtilActionResponse\020\236\001\022\031\n\024UM_DllStatus"
-  "Response\020\237\001\022\030\n\023UM_RequestInventory\020\240\001\022\031\n"
-  "\024UM_InventoryResponse\020\241\001\022\031\n\024UM_RequestDi"
-  "agnostic\020\242\001\022\032\n\025UM_DiagnosticResponse\020\243\001\022"
-  "\020\n\013UM_MAX_BASE\020\310\001*\224\001\n\023EBaseEntityMessage"
-  "s\022\022\n\rEM_PlayJingle\020\210\001\022\025\n\020EM_ScreenOverla"
-  "y\020\211\001\022\027\n\022EM_RemoveAllDecals\020\212\001\022\026\n\021EM_Prop"
-  "agateForce\020\213\001\022\017\n\nEM_DoSpark\020\214\001\022\020\n\013EM_Fix"
-  "Angle\020\215\001*o\n\teRollType\022\026\n\tROLL_NONE\020\377\377\377\377\377"
-  "\377\377\377\377\001\022\016\n\nROLL_STATS\020\000\022\020\n\014ROLL_CREDITS\020\001\022"
-  "\027\n\023ROLL_LATE_JOIN_LOGO\020\002\022\017\n\013ROLL_OUTTRO\020"
-  "\003*\360\013\n\020PARTICLE_MESSAGE\022&\n\"GAME_PARTICLE_"
-  "MANAGER_EVENT_CREATE\020\000\022&\n\"GAME_PARTICLE_"
-  "MANAGER_EVENT_UPDATE\020\001\022.\n*GAME_PARTICLE_"
-  "MANAGER_EVENT_UPDATE_FORWARD\020\002\0222\n.GAME_P"
-  "ARTICLE_MANAGER_EVENT_UPDATE_ORIENTATION"
-  "\020\003\022/\n+GAME_PARTICLE_MANAGER_EVENT_UPDATE"
-  "_FALLBACK\020\004\022*\n&GAME_PARTICLE_MANAGER_EVE"
-  "NT_UPDATE_ENT\020\005\022-\n)GAME_PARTICLE_MANAGER"
-  "_EVENT_UPDATE_OFFSET\020\006\022\'\n#GAME_PARTICLE_"
-  "MANAGER_EVENT_DESTROY\020\007\0221\n-GAME_PARTICLE"
-  "_MANAGER_EVENT_DESTROY_INVOLVING\020\010\022\'\n#GA"
-  "ME_PARTICLE_MANAGER_EVENT_RELEASE\020\t\022\'\n#G"
-  "AME_PARTICLE_MANAGER_EVENT_LATENCY\020\n\022+\n\'"
-  "GAME_PARTICLE_MANAGER_EVENT_SHOULD_DRAW\020"
-  "\013\022&\n\"GAME_PARTICLE_MANAGER_EVENT_FROZEN\020"
-  "\014\022\?\n;GAME_PARTICLE_MANAGER_EVENT_CHANGE_"
-  "CONTROL_POINT_ATTACHMENT\020\r\0226\n2GAME_PARTI"
-  "CLE_MANAGER_EVENT_UPDATE_ENTITY_POSITION"
-  "\020\016\0222\n.GAME_PARTICLE_MANAGER_EVENT_SET_FO"
-  "W_PROPERTIES\020\017\022(\n$GAME_PARTICLE_MANAGER_"
-  "EVENT_SET_TEXT\020\020\0224\n0GAME_PARTICLE_MANAGE"
-  "R_EVENT_SET_SHOULD_CHECK_FOW\020\021\0227\n3GAME_P"
-  "ARTICLE_MANAGER_EVENT_SET_CONTROL_POINT_"
-  "MODEL\020\022\022:\n6GAME_PARTICLE_MANAGER_EVENT_S"
-  "ET_CONTROL_POINT_SNAPSHOT\020\023\0225\n1GAME_PART"
-  "ICLE_MANAGER_EVENT_SET_TEXTURE_ATTRIBUTE"
-  "\020\024\022=\n9GAME_PARTICLE_MANAGER_EVENT_SET_SC"
-  "ENE_OBJECT_GENERIC_FLAG\020\025\022\?\n;GAME_PARTIC"
-  "LE_MANAGER_EVENT_SET_SCENE_OBJECT_TINT_A"
-  "ND_DESAT\020\026\022-\n)GAME_PARTICLE_MANAGER_EVEN"
-  "T_DESTROY_NAMED\020\027\022,\n(GAME_PARTICLE_MANAG"
-  "ER_EVENT_SKIP_TO_TIME\020\030\022*\n&GAME_PARTICLE"
-  "_MANAGER_EVENT_CAN_FREEZE\020\031\0227\n3GAME_PART"
-  "ICLE_MANAGER_EVENT_SET_NAMED_VALUE_CONTE"
-  "XT\020\032\0220\n,GAME_PARTICLE_MANAGER_EVENT_UPDA"
-  "TE_TRANSFORM\020\033\022:\n6GAME_PARTICLE_MANAGER_"
-  "EVENT_FREEZE_TRANSITION_OVERRIDE\020\034\0220\n,GA"
-  "ME_PARTICLE_MANAGER_EVENT_FREEZE_INVOLVI"
-  "NG\020\035*t\n\020EHapticPulseType\022\036\n\032VR_HAND_HAPT"
-  "IC_PULSE_LIGHT\020\000\022\037\n\033VR_HAND_HAPTIC_PULSE"
-  "_MEDIUM\020\001\022\037\n\033VR_HAND_HAPTIC_PULSE_STRONG"
-  "\020\002"
+  "ic\032\262\001\n\nDiagnostic\022\r\n\005index\030\001 \001(\005\022\016\n\006offs"
+  "et\030\002 \001(\003\022\r\n\005param\030\003 \001(\005\022\016\n\006length\030\004 \001(\005\022"
+  "\014\n\004type\030\005 \001(\005\022\014\n\004base\030\006 \001(\003\022\r\n\005range\030\007 \001"
+  "(\003\022\016\n\006extent\030\010 \001(\003\022\016\n\006detail\030\t \001(\003\022\014\n\004na"
+  "me\030\n \001(\t\022\r\n\005alias\030\013 \001(\t\"\226\002\n CUserMessage"
+  "_Diagnostic_Response\022A\n\013diagnostics\030\001 \003("
+  "\0132,.CUserMessage_Diagnostic_Response.Dia"
+  "gnostic\022\025\n\rbuild_version\030\002 \001(\005\022\020\n\010instan"
+  "ce\030\003 \001(\005\032\205\001\n\nDiagnostic\022\r\n\005index\030\001 \001(\005\022\016"
+  "\n\006offset\030\002 \001(\003\022\r\n\005param\030\003 \001(\005\022\016\n\006length\030"
+  "\004 \001(\005\022\016\n\006detail\030\005 \001(\014\022\014\n\004base\030\006 \001(\003\022\r\n\005r"
+  "ange\030\007 \001(\003\022\014\n\004type\030\010 \001(\005\"l\n\032CUserMessage"
+  "_ExtraUserData\022\014\n\004item\030\001 \001(\005\022\016\n\006value1\030\002"
+  " \001(\003\022\016\n\006value2\030\003 \001(\003\022\017\n\007detail1\030\004 \003(\014\022\017\n"
+  "\007detail2\030\005 \003(\014*\333\010\n\021EBaseUserMessages\022\027\n\023"
+  "UM_AchievementEvent\020e\022\023\n\017UM_CloseCaption"
+  "\020f\022\031\n\025UM_CloseCaptionDirect\020g\022\027\n\023UM_Curr"
+  "entTimescale\020h\022\027\n\023UM_DesiredTimescale\020i\022"
+  "\013\n\007UM_Fade\020j\022\020\n\014UM_GameTitle\020k\022\r\n\tUM_Hud"
+  "Msg\020n\022\016\n\nUM_HudText\020o\022\022\n\016UM_ColoredText\020"
+  "q\022\023\n\017UM_RequestState\020r\022\017\n\013UM_ResetHUD\020s\022"
+  "\r\n\tUM_Rumble\020t\022\016\n\nUM_SayText\020u\022\017\n\013UM_Say"
+  "Text2\020v\022\025\n\021UM_SayTextChannel\020w\022\014\n\010UM_Sha"
+  "ke\020x\022\017\n\013UM_ShakeDir\020y\022\016\n\nUM_TextMsg\020|\022\021\n"
+  "\rUM_ScreenTilt\020}\022\021\n\014UM_VoiceMask\020\200\001\022\021\n\014U"
+  "M_SendAudio\020\202\001\022\022\n\rUM_ItemPickup\020\203\001\022\022\n\rUM"
+  "_AmmoDenied\020\204\001\022\020\n\013UM_ShowMenu\020\206\001\022\022\n\rUM_C"
+  "reditsMsg\020\207\001\022\037\n\032UM_CloseCaptionPlacehold"
+  "er\020\216\001\022\030\n\023UM_CameraTransition\020\217\001\022\026\n\021UM_Au"
+  "dioParameter\020\220\001\022\027\n\022UM_ParticleManager\020\221\001"
+  "\022\020\n\013UM_HudError\020\222\001\022\027\n\022UM_CustomGameEvent"
+  "\020\224\001\022\027\n\022UM_AnimGraphUpdate\020\225\001\022\033\n\026UM_Hapti"
+  "csManagerPulse\020\226\001\022\034\n\027UM_HapticsManagerEf"
+  "fect\020\227\001\022\031\n\024UM_CommandQueueState\020\230\001\022\030\n\023UM"
+  "_UpdateCssClasses\020\231\001\022\027\n\022UM_ServerFrameTi"
+  "me\020\232\001\022\034\n\027UM_LagCompensationError\020\233\001\022\030\n\023U"
+  "M_RequestDllStatus\020\234\001\022\031\n\024UM_RequestUtilA"
+  "ction\020\235\001\022\032\n\025UM_UtilActionResponse\020\236\001\022\031\n\024"
+  "UM_DllStatusResponse\020\237\001\022\030\n\023UM_RequestInv"
+  "entory\020\240\001\022\031\n\024UM_InventoryResponse\020\241\001\022\031\n\024"
+  "UM_RequestDiagnostic\020\242\001\022\032\n\025UM_Diagnostic"
+  "Response\020\243\001\022\025\n\020UM_ExtraUserData\020\244\001\022\020\n\013UM"
+  "_MAX_BASE\020\310\001*\224\001\n\023EBaseEntityMessages\022\022\n\r"
+  "EM_PlayJingle\020\210\001\022\025\n\020EM_ScreenOverlay\020\211\001\022"
+  "\027\n\022EM_RemoveAllDecals\020\212\001\022\026\n\021EM_Propagate"
+  "Force\020\213\001\022\017\n\nEM_DoSpark\020\214\001\022\020\n\013EM_FixAngle"
+  "\020\215\001*o\n\teRollType\022\026\n\tROLL_NONE\020\377\377\377\377\377\377\377\377\377\001"
+  "\022\016\n\nROLL_STATS\020\000\022\020\n\014ROLL_CREDITS\020\001\022\027\n\023RO"
+  "LL_LATE_JOIN_LOGO\020\002\022\017\n\013ROLL_OUTTRO\020\003*\360\013\n"
+  "\020PARTICLE_MESSAGE\022&\n\"GAME_PARTICLE_MANAG"
+  "ER_EVENT_CREATE\020\000\022&\n\"GAME_PARTICLE_MANAG"
+  "ER_EVENT_UPDATE\020\001\022.\n*GAME_PARTICLE_MANAG"
+  "ER_EVENT_UPDATE_FORWARD\020\002\0222\n.GAME_PARTIC"
+  "LE_MANAGER_EVENT_UPDATE_ORIENTATION\020\003\022/\n"
+  "+GAME_PARTICLE_MANAGER_EVENT_UPDATE_FALL"
+  "BACK\020\004\022*\n&GAME_PARTICLE_MANAGER_EVENT_UP"
+  "DATE_ENT\020\005\022-\n)GAME_PARTICLE_MANAGER_EVEN"
+  "T_UPDATE_OFFSET\020\006\022\'\n#GAME_PARTICLE_MANAG"
+  "ER_EVENT_DESTROY\020\007\0221\n-GAME_PARTICLE_MANA"
+  "GER_EVENT_DESTROY_INVOLVING\020\010\022\'\n#GAME_PA"
+  "RTICLE_MANAGER_EVENT_RELEASE\020\t\022\'\n#GAME_P"
+  "ARTICLE_MANAGER_EVENT_LATENCY\020\n\022+\n\'GAME_"
+  "PARTICLE_MANAGER_EVENT_SHOULD_DRAW\020\013\022&\n\""
+  "GAME_PARTICLE_MANAGER_EVENT_FROZEN\020\014\022\?\n;"
+  "GAME_PARTICLE_MANAGER_EVENT_CHANGE_CONTR"
+  "OL_POINT_ATTACHMENT\020\r\0226\n2GAME_PARTICLE_M"
+  "ANAGER_EVENT_UPDATE_ENTITY_POSITION\020\016\0222\n"
+  ".GAME_PARTICLE_MANAGER_EVENT_SET_FOW_PRO"
+  "PERTIES\020\017\022(\n$GAME_PARTICLE_MANAGER_EVENT"
+  "_SET_TEXT\020\020\0224\n0GAME_PARTICLE_MANAGER_EVE"
+  "NT_SET_SHOULD_CHECK_FOW\020\021\0227\n3GAME_PARTIC"
+  "LE_MANAGER_EVENT_SET_CONTROL_POINT_MODEL"
+  "\020\022\022:\n6GAME_PARTICLE_MANAGER_EVENT_SET_CO"
+  "NTROL_POINT_SNAPSHOT\020\023\0225\n1GAME_PARTICLE_"
+  "MANAGER_EVENT_SET_TEXTURE_ATTRIBUTE\020\024\022=\n"
+  "9GAME_PARTICLE_MANAGER_EVENT_SET_SCENE_O"
+  "BJECT_GENERIC_FLAG\020\025\022\?\n;GAME_PARTICLE_MA"
+  "NAGER_EVENT_SET_SCENE_OBJECT_TINT_AND_DE"
+  "SAT\020\026\022-\n)GAME_PARTICLE_MANAGER_EVENT_DES"
+  "TROY_NAMED\020\027\022,\n(GAME_PARTICLE_MANAGER_EV"
+  "ENT_SKIP_TO_TIME\020\030\022*\n&GAME_PARTICLE_MANA"
+  "GER_EVENT_CAN_FREEZE\020\031\0227\n3GAME_PARTICLE_"
+  "MANAGER_EVENT_SET_NAMED_VALUE_CONTEXT\020\032\022"
+  "0\n,GAME_PARTICLE_MANAGER_EVENT_UPDATE_TR"
+  "ANSFORM\020\033\022:\n6GAME_PARTICLE_MANAGER_EVENT"
+  "_FREEZE_TRANSITION_OVERRIDE\020\034\0220\n,GAME_PA"
+  "RTICLE_MANAGER_EVENT_FREEZE_INVOLVING\020\035*"
+  "t\n\020EHapticPulseType\022\036\n\032VR_HAND_HAPTIC_PU"
+  "LSE_LIGHT\020\000\022\037\n\033VR_HAND_HAPTIC_PULSE_MEDI"
+  "UM\020\001\022\037\n\033VR_HAND_HAPTIC_PULSE_STRONG\020\002"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_usermessages_2eproto_deps[1] = {
   &::descriptor_table_networkbasetypes_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_usermessages_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_usermessages_2eproto = {
-    false, false, 15042, descriptor_table_protodef_usermessages_2eproto,
+    false, false, 15237, descriptor_table_protodef_usermessages_2eproto,
     "usermessages.proto",
-    &descriptor_table_usermessages_2eproto_once, descriptor_table_usermessages_2eproto_deps, 1, 93,
+    &descriptor_table_usermessages_2eproto_once, descriptor_table_usermessages_2eproto_deps, 1, 94,
     schemas, file_default_instances, TableStruct_usermessages_2eproto::offsets,
     file_level_metadata_usermessages_2eproto, file_level_enum_descriptors_usermessages_2eproto,
     file_level_service_descriptors_usermessages_2eproto,
@@ -3378,6 +3430,7 @@ bool EBaseUserMessages_IsValid(int value) {
     case 161:
     case 162:
     case 163:
+    case 164:
     case 200:
       return true;
     default:
@@ -29135,25 +29188,37 @@ class CUserMessageRequestDiagnostic_Diagnostic::_Internal {
  public:
   using HasBits = decltype(std::declval<CUserMessageRequestDiagnostic_Diagnostic>()._impl_._has_bits_);
   static void set_has_index(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_offset(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_param(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_length(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
-  static void set_has_type(HasBits* has_bits) {
+  static void set_has_offset(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_param(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
   }
-  static void set_has_base(HasBits* has_bits) {
+  static void set_has_length(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
   }
-  static void set_has_range(HasBits* has_bits) {
+  static void set_has_type(HasBits* has_bits) {
     (*has_bits)[0] |= 64u;
+  }
+  static void set_has_base(HasBits* has_bits) {
+    (*has_bits)[0] |= 128u;
+  }
+  static void set_has_range(HasBits* has_bits) {
+    (*has_bits)[0] |= 256u;
+  }
+  static void set_has_extent(HasBits* has_bits) {
+    (*has_bits)[0] |= 512u;
+  }
+  static void set_has_detail(HasBits* has_bits) {
+    (*has_bits)[0] |= 1024u;
+  }
+  static void set_has_name(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_alias(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
   }
 };
 
@@ -29169,18 +29234,38 @@ CUserMessageRequestDiagnostic_Diagnostic::CUserMessageRequestDiagnostic_Diagnost
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.name_){}
+    , decltype(_impl_.alias_){}
     , decltype(_impl_.offset_){}
     , decltype(_impl_.index_){}
     , decltype(_impl_.param_){}
     , decltype(_impl_.length_){}
     , decltype(_impl_.type_){}
     , decltype(_impl_.base_){}
-    , decltype(_impl_.range_){}};
+    , decltype(_impl_.range_){}
+    , decltype(_impl_.extent_){}
+    , decltype(_impl_.detail_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_name()) {
+    _this->_impl_.name_.Set(from._internal_name(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.alias_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.alias_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_alias()) {
+    _this->_impl_.alias_.Set(from._internal_alias(), 
+      _this->GetArenaForAllocation());
+  }
   ::memcpy(&_impl_.offset_, &from._impl_.offset_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.range_) -
-    reinterpret_cast<char*>(&_impl_.offset_)) + sizeof(_impl_.range_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.detail_) -
+    reinterpret_cast<char*>(&_impl_.offset_)) + sizeof(_impl_.detail_));
   // @@protoc_insertion_point(copy_constructor:CUserMessageRequestDiagnostic.Diagnostic)
 }
 
@@ -29191,6 +29276,8 @@ inline void CUserMessageRequestDiagnostic_Diagnostic::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.name_){}
+    , decltype(_impl_.alias_){}
     , decltype(_impl_.offset_){int64_t{0}}
     , decltype(_impl_.index_){0}
     , decltype(_impl_.param_){0}
@@ -29198,7 +29285,17 @@ inline void CUserMessageRequestDiagnostic_Diagnostic::SharedCtor(
     , decltype(_impl_.type_){0}
     , decltype(_impl_.base_){int64_t{0}}
     , decltype(_impl_.range_){int64_t{0}}
+    , decltype(_impl_.extent_){int64_t{0}}
+    , decltype(_impl_.detail_){int64_t{0}}
   };
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.alias_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.alias_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 CUserMessageRequestDiagnostic_Diagnostic::~CUserMessageRequestDiagnostic_Diagnostic() {
@@ -29212,6 +29309,8 @@ CUserMessageRequestDiagnostic_Diagnostic::~CUserMessageRequestDiagnostic_Diagnos
 
 inline void CUserMessageRequestDiagnostic_Diagnostic::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.name_.Destroy();
+  _impl_.alias_.Destroy();
 }
 
 void CUserMessageRequestDiagnostic_Diagnostic::SetCachedSize(int size) const {
@@ -29225,10 +29324,23 @@ void CUserMessageRequestDiagnostic_Diagnostic::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _impl_.name_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _impl_.alias_.ClearNonDefaultToEmpty();
+    }
+  }
+  if (cached_has_bits & 0x000000fcu) {
     ::memset(&_impl_.offset_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.range_) -
-        reinterpret_cast<char*>(&_impl_.offset_)) + sizeof(_impl_.range_));
+        reinterpret_cast<char*>(&_impl_.base_) -
+        reinterpret_cast<char*>(&_impl_.offset_)) + sizeof(_impl_.base_));
+  }
+  if (cached_has_bits & 0x00000700u) {
+    ::memset(&_impl_.range_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.detail_) -
+        reinterpret_cast<char*>(&_impl_.range_)) + sizeof(_impl_.detail_));
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -29304,6 +29416,48 @@ const char* CUserMessageRequestDiagnostic_Diagnostic::_InternalParse(const char*
         } else
           goto handle_unusual;
         continue;
+      // optional int64 extent = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
+          _Internal::set_has_extent(&has_bits);
+          _impl_.extent_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional int64 detail = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 72)) {
+          _Internal::set_has_detail(&has_bits);
+          _impl_.detail_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional string name = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
+          auto str = _internal_mutable_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          #ifndef NDEBUG
+          ::_pbi::VerifyUTF8(str, "CUserMessageRequestDiagnostic.Diagnostic.name");
+          #endif  // !NDEBUG
+        } else
+          goto handle_unusual;
+        continue;
+      // optional string alias = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 90)) {
+          auto str = _internal_mutable_alias();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          #ifndef NDEBUG
+          ::_pbi::VerifyUTF8(str, "CUserMessageRequestDiagnostic.Diagnostic.alias");
+          #endif  // !NDEBUG
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -29336,45 +29490,77 @@ uint8_t* CUserMessageRequestDiagnostic_Diagnostic::_InternalSerialize(
 
   cached_has_bits = _impl_._has_bits_[0];
   // optional int32 index = 1;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_index(), target);
   }
 
   // optional int64 offset = 2;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_offset(), target);
   }
 
   // optional int32 param = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_param(), target);
   }
 
   // optional int32 length = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_length(), target);
   }
 
   // optional int32 type = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(5, this->_internal_type(), target);
   }
 
   // optional int64 base = 6;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(6, this->_internal_base(), target);
   }
 
   // optional int64 range = 7;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(7, this->_internal_range(), target);
+  }
+
+  // optional int64 extent = 8;
+  if (cached_has_bits & 0x00000200u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(8, this->_internal_extent(), target);
+  }
+
+  // optional int64 detail = 9;
+  if (cached_has_bits & 0x00000400u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(9, this->_internal_detail(), target);
+  }
+
+  // optional string name = 10;
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CUserMessageRequestDiagnostic.Diagnostic.name");
+    target = stream->WriteStringMaybeAliased(
+        10, this->_internal_name(), target);
+  }
+
+  // optional string alias = 11;
+  if (cached_has_bits & 0x00000002u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_alias().data(), static_cast<int>(this->_internal_alias().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CUserMessageRequestDiagnostic.Diagnostic.alias");
+    target = stream->WriteStringMaybeAliased(
+        11, this->_internal_alias(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -29394,40 +29580,66 @@ size_t CUserMessageRequestDiagnostic_Diagnostic::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
-    // optional int64 offset = 2;
+  if (cached_has_bits & 0x000000ffu) {
+    // optional string name = 10;
     if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_name());
+    }
+
+    // optional string alias = 11;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_alias());
+    }
+
+    // optional int64 offset = 2;
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_offset());
     }
 
     // optional int32 index = 1;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_index());
     }
 
     // optional int32 param = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_param());
     }
 
     // optional int32 length = 4;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000020u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_length());
     }
 
     // optional int32 type = 5;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000040u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_type());
     }
 
     // optional int64 base = 6;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000080u) {
       total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_base());
     }
 
+  }
+  if (cached_has_bits & 0x00000700u) {
     // optional int64 range = 7;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000100u) {
       total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_range());
+    }
+
+    // optional int64 extent = 8;
+    if (cached_has_bits & 0x00000200u) {
+      total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_extent());
+    }
+
+    // optional int64 detail = 9;
+    if (cached_has_bits & 0x00000400u) {
+      total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_detail());
     }
 
   }
@@ -29450,27 +29662,42 @@ void CUserMessageRequestDiagnostic_Diagnostic::MergeImpl(::PROTOBUF_NAMESPACE_ID
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
+  if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.offset_ = from._impl_.offset_;
+      _this->_internal_set_name(from._internal_name());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.index_ = from._impl_.index_;
+      _this->_internal_set_alias(from._internal_alias());
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.param_ = from._impl_.param_;
+      _this->_impl_.offset_ = from._impl_.offset_;
     }
     if (cached_has_bits & 0x00000008u) {
-      _this->_impl_.length_ = from._impl_.length_;
+      _this->_impl_.index_ = from._impl_.index_;
     }
     if (cached_has_bits & 0x00000010u) {
-      _this->_impl_.type_ = from._impl_.type_;
+      _this->_impl_.param_ = from._impl_.param_;
     }
     if (cached_has_bits & 0x00000020u) {
-      _this->_impl_.base_ = from._impl_.base_;
+      _this->_impl_.length_ = from._impl_.length_;
     }
     if (cached_has_bits & 0x00000040u) {
+      _this->_impl_.type_ = from._impl_.type_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      _this->_impl_.base_ = from._impl_.base_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  if (cached_has_bits & 0x00000700u) {
+    if (cached_has_bits & 0x00000100u) {
       _this->_impl_.range_ = from._impl_.range_;
+    }
+    if (cached_has_bits & 0x00000200u) {
+      _this->_impl_.extent_ = from._impl_.extent_;
+    }
+    if (cached_has_bits & 0x00000400u) {
+      _this->_impl_.detail_ = from._impl_.detail_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -29490,11 +29717,21 @@ bool CUserMessageRequestDiagnostic_Diagnostic::IsInitialized() const {
 
 void CUserMessageRequestDiagnostic_Diagnostic::InternalSwap(CUserMessageRequestDiagnostic_Diagnostic* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.name_, lhs_arena,
+      &other->_impl_.name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.alias_, lhs_arena,
+      &other->_impl_.alias_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CUserMessageRequestDiagnostic_Diagnostic, _impl_.range_)
-      + sizeof(CUserMessageRequestDiagnostic_Diagnostic::_impl_.range_)
+      PROTOBUF_FIELD_OFFSET(CUserMessageRequestDiagnostic_Diagnostic, _impl_.detail_)
+      + sizeof(CUserMessageRequestDiagnostic_Diagnostic::_impl_.detail_)
       - PROTOBUF_FIELD_OFFSET(CUserMessageRequestDiagnostic_Diagnostic, _impl_.offset_)>(
           reinterpret_cast<char*>(&_impl_.offset_),
           reinterpret_cast<char*>(&other->_impl_.offset_));
@@ -29697,25 +29934,28 @@ class CUserMessage_Diagnostic_Response_Diagnostic::_Internal {
  public:
   using HasBits = decltype(std::declval<CUserMessage_Diagnostic_Response_Diagnostic>()._impl_._has_bits_);
   static void set_has_index(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_offset(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_param(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
-  static void set_has_length(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+  static void set_has_offset(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
   }
-  static void set_has_base(HasBits* has_bits) {
+  static void set_has_param(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
+  static void set_has_length(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
+  }
+  static void set_has_detail(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_base(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
   static void set_has_range(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
+    (*has_bits)[0] |= 128u;
   }
   static void set_has_type(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 64u;
   }
 };
 
@@ -29731,7 +29971,7 @@ CUserMessage_Diagnostic_Response_Diagnostic::CUserMessage_Diagnostic_Response_Di
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.detail_){from._impl_.detail_}
+    , decltype(_impl_.detail_){}
     , decltype(_impl_.offset_){}
     , decltype(_impl_.index_){}
     , decltype(_impl_.param_){}
@@ -29741,6 +29981,14 @@ CUserMessage_Diagnostic_Response_Diagnostic::CUserMessage_Diagnostic_Response_Di
     , decltype(_impl_.range_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.detail_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.detail_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_detail()) {
+    _this->_impl_.detail_.Set(from._internal_detail(), 
+      _this->GetArenaForAllocation());
+  }
   ::memcpy(&_impl_.offset_, &from._impl_.offset_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.range_) -
     reinterpret_cast<char*>(&_impl_.offset_)) + sizeof(_impl_.range_));
@@ -29754,7 +30002,7 @@ inline void CUserMessage_Diagnostic_Response_Diagnostic::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.detail_){arena}
+    , decltype(_impl_.detail_){}
     , decltype(_impl_.offset_){int64_t{0}}
     , decltype(_impl_.index_){0}
     , decltype(_impl_.param_){0}
@@ -29763,6 +30011,10 @@ inline void CUserMessage_Diagnostic_Response_Diagnostic::SharedCtor(
     , decltype(_impl_.type_){0}
     , decltype(_impl_.range_){int64_t{0}}
   };
+  _impl_.detail_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.detail_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 CUserMessage_Diagnostic_Response_Diagnostic::~CUserMessage_Diagnostic_Response_Diagnostic() {
@@ -29776,7 +30028,7 @@ CUserMessage_Diagnostic_Response_Diagnostic::~CUserMessage_Diagnostic_Response_D
 
 inline void CUserMessage_Diagnostic_Response_Diagnostic::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.detail_.~RepeatedPtrField();
+  _impl_.detail_.Destroy();
 }
 
 void CUserMessage_Diagnostic_Response_Diagnostic::SetCachedSize(int size) const {
@@ -29789,9 +30041,11 @@ void CUserMessage_Diagnostic_Response_Diagnostic::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.detail_.Clear();
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
+  if (cached_has_bits & 0x00000001u) {
+    _impl_.detail_.ClearNonDefaultToEmpty();
+  }
+  if (cached_has_bits & 0x000000feu) {
     ::memset(&_impl_.offset_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.range_) -
         reinterpret_cast<char*>(&_impl_.offset_)) + sizeof(_impl_.range_));
@@ -29843,17 +30097,12 @@ const char* CUserMessage_Diagnostic_Response_Diagnostic::_InternalParse(const ch
         } else
           goto handle_unusual;
         continue;
-      // repeated bytes detail = 5;
+      // optional bytes detail = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            auto str = _internal_add_detail();
-            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
+          auto str = _internal_mutable_detail();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -29916,49 +30165,49 @@ uint8_t* CUserMessage_Diagnostic_Response_Diagnostic::_InternalSerialize(
 
   cached_has_bits = _impl_._has_bits_[0];
   // optional int32 index = 1;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_index(), target);
   }
 
   // optional int64 offset = 2;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_offset(), target);
   }
 
   // optional int32 param = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_param(), target);
   }
 
   // optional int32 length = 4;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_length(), target);
   }
 
-  // repeated bytes detail = 5;
-  for (int i = 0, n = this->_internal_detail_size(); i < n; i++) {
-    const auto& s = this->_internal_detail(i);
-    target = stream->WriteBytes(5, s, target);
+  // optional bytes detail = 5;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->WriteBytesMaybeAliased(
+        5, this->_internal_detail(), target);
   }
 
   // optional int64 base = 6;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(6, this->_internal_base(), target);
   }
 
   // optional int64 range = 7;
-  if (cached_has_bits & 0x00000040u) {
+  if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(7, this->_internal_range(), target);
   }
 
   // optional int32 type = 8;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(8, this->_internal_type(), target);
   }
@@ -29979,48 +30228,47 @@ size_t CUserMessage_Diagnostic_Response_Diagnostic::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated bytes detail = 5;
-  total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.detail_.size());
-  for (int i = 0, n = _impl_.detail_.size(); i < n; i++) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-      _impl_.detail_.Get(i));
-  }
-
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
-    // optional int64 offset = 2;
+  if (cached_has_bits & 0x000000ffu) {
+    // optional bytes detail = 5;
     if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+          this->_internal_detail());
+    }
+
+    // optional int64 offset = 2;
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_offset());
     }
 
     // optional int32 index = 1;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_index());
     }
 
     // optional int32 param = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000008u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_param());
     }
 
     // optional int64 base = 6;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000010u) {
       total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_base());
     }
 
     // optional int32 length = 4;
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000020u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_length());
     }
 
     // optional int32 type = 8;
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000040u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_type());
     }
 
     // optional int64 range = 7;
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000080u) {
       total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_range());
     }
 
@@ -30043,28 +30291,30 @@ void CUserMessage_Diagnostic_Response_Diagnostic::MergeImpl(::PROTOBUF_NAMESPACE
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.detail_.MergeFrom(from._impl_.detail_);
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
+  if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.offset_ = from._impl_.offset_;
+      _this->_internal_set_detail(from._internal_detail());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.index_ = from._impl_.index_;
+      _this->_impl_.offset_ = from._impl_.offset_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.param_ = from._impl_.param_;
+      _this->_impl_.index_ = from._impl_.index_;
     }
     if (cached_has_bits & 0x00000008u) {
-      _this->_impl_.base_ = from._impl_.base_;
+      _this->_impl_.param_ = from._impl_.param_;
     }
     if (cached_has_bits & 0x00000010u) {
-      _this->_impl_.length_ = from._impl_.length_;
+      _this->_impl_.base_ = from._impl_.base_;
     }
     if (cached_has_bits & 0x00000020u) {
-      _this->_impl_.type_ = from._impl_.type_;
+      _this->_impl_.length_ = from._impl_.length_;
     }
     if (cached_has_bits & 0x00000040u) {
+      _this->_impl_.type_ = from._impl_.type_;
+    }
+    if (cached_has_bits & 0x00000080u) {
       _this->_impl_.range_ = from._impl_.range_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -30085,9 +30335,14 @@ bool CUserMessage_Diagnostic_Response_Diagnostic::IsInitialized() const {
 
 void CUserMessage_Diagnostic_Response_Diagnostic::InternalSwap(CUserMessage_Diagnostic_Response_Diagnostic* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  _impl_.detail_.InternalSwap(&other->_impl_.detail_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.detail_, lhs_arena,
+      &other->_impl_.detail_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CUserMessage_Diagnostic_Response_Diagnostic, _impl_.range_)
       + sizeof(CUserMessage_Diagnostic_Response_Diagnostic::_impl_.range_)
@@ -30371,6 +30626,339 @@ void CUserMessage_Diagnostic_Response::InternalSwap(CUserMessage_Diagnostic_Resp
   return ::_pbi::AssignDescriptors(
       &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
       file_level_metadata_usermessages_2eproto[92]);
+}
+
+// ===================================================================
+
+class CUserMessage_ExtraUserData::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CUserMessage_ExtraUserData>()._impl_._has_bits_);
+  static void set_has_item(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_value1(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_value2(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CUserMessage_ExtraUserData::CUserMessage_ExtraUserData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CUserMessage_ExtraUserData)
+}
+CUserMessage_ExtraUserData::CUserMessage_ExtraUserData(const CUserMessage_ExtraUserData& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CUserMessage_ExtraUserData* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.detail1_){from._impl_.detail1_}
+    , decltype(_impl_.detail2_){from._impl_.detail2_}
+    , decltype(_impl_.value1_){}
+    , decltype(_impl_.value2_){}
+    , decltype(_impl_.item_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.value1_, &from._impl_.value1_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.item_) -
+    reinterpret_cast<char*>(&_impl_.value1_)) + sizeof(_impl_.item_));
+  // @@protoc_insertion_point(copy_constructor:CUserMessage_ExtraUserData)
+}
+
+inline void CUserMessage_ExtraUserData::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.detail1_){arena}
+    , decltype(_impl_.detail2_){arena}
+    , decltype(_impl_.value1_){int64_t{0}}
+    , decltype(_impl_.value2_){int64_t{0}}
+    , decltype(_impl_.item_){0}
+  };
+}
+
+CUserMessage_ExtraUserData::~CUserMessage_ExtraUserData() {
+  // @@protoc_insertion_point(destructor:CUserMessage_ExtraUserData)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CUserMessage_ExtraUserData::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.detail1_.~RepeatedPtrField();
+  _impl_.detail2_.~RepeatedPtrField();
+}
+
+void CUserMessage_ExtraUserData::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CUserMessage_ExtraUserData::Clear() {
+// @@protoc_insertion_point(message_clear_start:CUserMessage_ExtraUserData)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.detail1_.Clear();
+  _impl_.detail2_.Clear();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    ::memset(&_impl_.value1_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.item_) -
+        reinterpret_cast<char*>(&_impl_.value1_)) + sizeof(_impl_.item_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CUserMessage_ExtraUserData::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional int32 item = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_item(&has_bits);
+          _impl_.item_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional int64 value1 = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_value1(&has_bits);
+          _impl_.value1_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional int64 value2 = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_value2(&has_bits);
+          _impl_.value2_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated bytes detail1 = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_detail1();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated bytes detail2 = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_detail2();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CUserMessage_ExtraUserData::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CUserMessage_ExtraUserData)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional int32 item = 1;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_item(), target);
+  }
+
+  // optional int64 value1 = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_value1(), target);
+  }
+
+  // optional int64 value2 = 3;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(3, this->_internal_value2(), target);
+  }
+
+  // repeated bytes detail1 = 4;
+  for (int i = 0, n = this->_internal_detail1_size(); i < n; i++) {
+    const auto& s = this->_internal_detail1(i);
+    target = stream->WriteBytes(4, s, target);
+  }
+
+  // repeated bytes detail2 = 5;
+  for (int i = 0, n = this->_internal_detail2_size(); i < n; i++) {
+    const auto& s = this->_internal_detail2(i);
+    target = stream->WriteBytes(5, s, target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CUserMessage_ExtraUserData)
+  return target;
+}
+
+size_t CUserMessage_ExtraUserData::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CUserMessage_ExtraUserData)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated bytes detail1 = 4;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.detail1_.size());
+  for (int i = 0, n = _impl_.detail1_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+      _impl_.detail1_.Get(i));
+  }
+
+  // repeated bytes detail2 = 5;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.detail2_.size());
+  for (int i = 0, n = _impl_.detail2_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+      _impl_.detail2_.Get(i));
+  }
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional int64 value1 = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_value1());
+    }
+
+    // optional int64 value2 = 3;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_value2());
+    }
+
+    // optional int32 item = 1;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_item());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CUserMessage_ExtraUserData::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CUserMessage_ExtraUserData::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CUserMessage_ExtraUserData::GetClassData() const { return &_class_data_; }
+
+
+void CUserMessage_ExtraUserData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CUserMessage_ExtraUserData*>(&to_msg);
+  auto& from = static_cast<const CUserMessage_ExtraUserData&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CUserMessage_ExtraUserData)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.detail1_.MergeFrom(from._impl_.detail1_);
+  _this->_impl_.detail2_.MergeFrom(from._impl_.detail2_);
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.value1_ = from._impl_.value1_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.value2_ = from._impl_.value2_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.item_ = from._impl_.item_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CUserMessage_ExtraUserData::CopyFrom(const CUserMessage_ExtraUserData& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CUserMessage_ExtraUserData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CUserMessage_ExtraUserData::IsInitialized() const {
+  return true;
+}
+
+void CUserMessage_ExtraUserData::InternalSwap(CUserMessage_ExtraUserData* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.detail1_.InternalSwap(&other->_impl_.detail1_);
+  _impl_.detail2_.InternalSwap(&other->_impl_.detail2_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CUserMessage_ExtraUserData, _impl_.item_)
+      + sizeof(CUserMessage_ExtraUserData::_impl_.item_)
+      - PROTOBUF_FIELD_OFFSET(CUserMessage_ExtraUserData, _impl_.value1_)>(
+          reinterpret_cast<char*>(&_impl_.value1_),
+          reinterpret_cast<char*>(&other->_impl_.value1_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CUserMessage_ExtraUserData::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_usermessages_2eproto_getter, &descriptor_table_usermessages_2eproto_once,
+      file_level_metadata_usermessages_2eproto[93]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -30746,6 +31334,10 @@ Arena::CreateMaybeMessage< ::CUserMessage_Diagnostic_Response_Diagnostic >(Arena
 template<> PROTOBUF_NOINLINE ::CUserMessage_Diagnostic_Response*
 Arena::CreateMaybeMessage< ::CUserMessage_Diagnostic_Response >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CUserMessage_Diagnostic_Response >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CUserMessage_ExtraUserData*
+Arena::CreateMaybeMessage< ::CUserMessage_ExtraUserData >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CUserMessage_ExtraUserData >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

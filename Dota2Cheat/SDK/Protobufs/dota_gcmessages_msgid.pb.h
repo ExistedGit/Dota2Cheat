@@ -634,7 +634,6 @@ enum EDOTAGCMsg : int {
   k_EMsgClientToGCRequestContestVotesResponse = 8348,
   k_EMsgClientToGCMVPVoteTimeout = 8349,
   k_EMsgClientToGCMVPVoteTimeoutResponse = 8350,
-  k_EMsgDetailedGameStats = 8353,
   k_EMsgMatchMatchmakingStats = 8360,
   k_EMsgClientToGCSubmitPlayerMatchSurvey = 8361,
   k_EMsgClientToGCSubmitPlayerMatchSurveyResponse = 8362,
@@ -883,8 +882,8 @@ enum EDOTAGCMsg : int {
   k_EMsgClientToGCShowcaseGetUserDataResponse = 8887,
   k_EMsgClientToGCShowcaseSetUserData = 8888,
   k_EMsgClientToGCShowcaseSetUserDataResponse = 8889,
-  k_EMsgClientToGCFantasyCraftingGetUserData = 8890,
-  k_EMsgClientToGCFantasyCraftingGetUserDataResponse = 8891,
+  k_EMsgClientToGCFantasyCraftingGetData = 8890,
+  k_EMsgClientToGCFantasyCraftingGetDataResponse = 8891,
   k_EMsgClientToGCFantasyCraftingPerformOperation = 8892,
   k_EMsgClientToGCFantasyCraftingPerformOperationResponse = 8893,
   k_EMsgGCToClientFantasyCraftingGetDataUpdated = 8894,
@@ -903,11 +902,43 @@ enum EDOTAGCMsg : int {
   k_EMsgClientToGCBingoGetStatsData = 8907,
   k_EMsgClientToGCBingoGetStatsDataResponse = 8908,
   k_EMsgGCToClientBingoUserDataUpdated = 8909,
-  k_EMsgGCToClientRoadToTIQuestDataUpdated = 8910
+  k_EMsgGCToClientRoadToTIQuestDataUpdated = 8910,
+  k_EMsgClientToGCRoadToTIUseItem = 8911,
+  k_EMsgClientToGCRoadToTIUseItemResponse = 8912,
+  k_EMsgClientToGCShowcaseSubmitReport = 8913,
+  k_EMsgClientToGCShowcaseSubmitReportResponse = 8914,
+  k_EMsgClientToGCShowcaseAdminGetReportsRollupList = 8915,
+  k_EMsgClientToGCShowcaseAdminGetReportsRollupListResponse = 8916,
+  k_EMsgClientToGCShowcaseAdminGetReportsRollup = 8917,
+  k_EMsgClientToGCShowcaseAdminGetReportsRollupResponse = 8918,
+  k_EMsgClientToGCShowcaseAdminGetUserDetails = 8919,
+  k_EMsgClientToGCShowcaseAdminGetUserDetailsResponse = 8920,
+  k_EMsgClientToGCShowcaseAdminConvict = 8921,
+  k_EMsgClientToGCShowcaseAdminConvictResponse = 8922,
+  k_EMsgClientToGCShowcaseAdminExonerate = 8923,
+  k_EMsgClientToGCShowcaseAdminExonerateResponse = 8924,
+  k_EMsgClientToGCShowcaseAdminReset = 8925,
+  k_EMsgClientToGCShowcaseAdminResetResponse = 8926,
+  k_EMsgClientToGCShowcaseAdminLockAccount = 8927,
+  k_EMsgClientToGCShowcaseAdminLockAccountResponse = 8928,
+  k_EMsgClientToGCFantasyCraftingSelectPlayer = 8929,
+  k_EMsgClientToGCFantasyCraftingSelectPlayerResponse = 8930,
+  k_EMsgClientToGCFantasyCraftingGenerateTablets = 8931,
+  k_EMsgClientToGCFantasyCraftingGenerateTabletsResponse = 8932,
+  k_EMsgClientToGcFantasyCraftingUpgradeTablets = 8933,
+  k_EMsgClientToGcFantasyCraftingUpgradeTabletsResponse = 8934,
+  k_EMsgClientToGCFantasyCraftingRerollOptions = 8936,
+  k_EMsgClientToGCFantasyCraftingRerollOptionsResponse = 8937,
+  k_EMsgClientToGCRoadToTIDevForceQuest = 8935,
+  k_EMsgLobbyRoadToTIMatchQuestData = 8939,
+  k_EMsgClientToGCShowcaseModerationGetQueue = 8940,
+  k_EMsgClientToGCShowcaseModerationGetQueueResponse = 8941,
+  k_EMsgClientToGCShowcaseModerationApplyModeration = 8942,
+  k_EMsgClientToGCShowcaseModerationApplyModerationResponse = 8943
 };
 bool EDOTAGCMsg_IsValid(int value);
 constexpr EDOTAGCMsg EDOTAGCMsg_MIN = k_EMsgGCDOTABase;
-constexpr EDOTAGCMsg EDOTAGCMsg_MAX = k_EMsgGCToClientRoadToTIQuestDataUpdated;
+constexpr EDOTAGCMsg EDOTAGCMsg_MAX = k_EMsgClientToGCShowcaseModerationApplyModerationResponse;
 constexpr int EDOTAGCMsg_ARRAYSIZE = EDOTAGCMsg_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EDOTAGCMsg_descriptor();

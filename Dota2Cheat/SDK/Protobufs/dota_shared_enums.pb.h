@@ -240,11 +240,12 @@ enum EEvent : int {
   EVENT_ID_TEAM_2023_TOUR2 = 42,
   EVENT_ID_TEAM_2023_TOUR3 = 43,
   EVENT_ID_INTERNATIONAL_2023 = 45,
-  EVENT_ID_10TH_ANNIVERSARY = 46
+  EVENT_ID_10TH_ANNIVERSARY = 46,
+  EVENT_ID_FROSTIVUS_2023 = 48
 };
 bool EEvent_IsValid(int value);
 constexpr EEvent EEvent_MIN = EVENT_ID_NONE;
-constexpr EEvent EEvent_MAX = EVENT_ID_10TH_ANNIVERSARY;
+constexpr EEvent EEvent_MAX = EVENT_ID_FROSTIVUS_2023;
 constexpr int EEvent_ARRAYSIZE = EEvent_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EEvent_descriptor();
@@ -575,18 +576,20 @@ enum DOTACommType_t : int {
   DOTA_COMM_TYPE_CHATWHEEL = 2,
   DOTA_COMM_TYPE_TIP = 3,
   DOTA_COMM_TYPE_TEXT = 4,
-  DOTA_COMM_TYPE_VOICE = 5,
-  DOTA_COMM_TYPE_ALLY_ABILITY = 6,
-  DOTA_COMM_TYPE_PAUSE = 7,
-  DOTA_COMM_TYPE_COACHING = 8,
-  DOTA_COMM_TYPE_NOCOOLDOWN = 9,
-  DOTA_COMM_TYPE_RANKEDMATCHMAKE = 10,
-  DOTA_COMM_TYPE_DROPS = 11,
-  DOTA_COMM_TYPE_NEWPLAYER_EXPERT = 12
+  DOTA_COMM_TYPE_SHOWCASE = 5,
+  DOTA_COMM_TYPE_VOICE = 6,
+  DOTA_COMM_TYPE_ALLY_ABILITY = 7,
+  DOTA_COMM_TYPE_PAUSE = 8,
+  DOTA_COMM_TYPE_COACHING = 9,
+  DOTA_COMM_TYPE_NOCOOLDOWN = 10,
+  DOTA_COMM_TYPE_RANKEDMATCHMAKE = 11,
+  DOTA_COMM_TYPE_DROPS = 12,
+  DOTA_COMM_TYPE_NEWPLAYER_EXPERT = 13,
+  DOTA_COMM_TYPE_COACHED = 14
 };
 bool DOTACommType_t_IsValid(int value);
 constexpr DOTACommType_t DOTACommType_t_MIN = DOTA_COMM_TYPE_NONE;
-constexpr DOTACommType_t DOTACommType_t_MAX = DOTA_COMM_TYPE_NEWPLAYER_EXPERT;
+constexpr DOTACommType_t DOTACommType_t_MAX = DOTA_COMM_TYPE_COACHED;
 constexpr int DOTACommType_t_ARRAYSIZE = DOTACommType_t_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DOTACommType_t_descriptor();
@@ -1195,6 +1198,7 @@ inline bool ELaneType_Parse(
     ELaneType_descriptor(), name, value);
 }
 enum EBadgeType : int {
+  k_EBadgeType_Invalid = 0,
   k_EBadgeType_TI7_Midweek = 1,
   k_EBadgeType_TI7_Finals = 2,
   k_EBadgeType_TI7_AllEvent = 3,
@@ -1206,11 +1210,16 @@ enum EBadgeType : int {
   k_EBadgeType_TI11_PlayoffsDay2 = 9,
   k_EBadgeType_TI11_PlayoffsDay3 = 10,
   k_EBadgeType_TI11_PlayoffsDay4 = 11,
-  k_EBadgeType_TI11_FinalsWeekend = 12
+  k_EBadgeType_TI11_FinalsWeekend = 12,
+  k_EBadgeType_TI12_PlayoffsDay1 = 13,
+  k_EBadgeType_TI12_PlayoffsDay2 = 14,
+  k_EBadgeType_TI12_PlayoffsDay3 = 15,
+  k_EBadgeType_TI12_FinalsWeekend = 16,
+  k_EBadgeType_TI12_Special = 17
 };
 bool EBadgeType_IsValid(int value);
-constexpr EBadgeType EBadgeType_MIN = k_EBadgeType_TI7_Midweek;
-constexpr EBadgeType EBadgeType_MAX = k_EBadgeType_TI11_FinalsWeekend;
+constexpr EBadgeType EBadgeType_MIN = k_EBadgeType_Invalid;
+constexpr EBadgeType EBadgeType_MAX = k_EBadgeType_TI12_Special;
 constexpr int EBadgeType_ARRAYSIZE = EBadgeType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EBadgeType_descriptor();

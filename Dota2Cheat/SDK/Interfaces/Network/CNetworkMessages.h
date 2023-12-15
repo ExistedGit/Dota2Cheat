@@ -1791,7 +1791,7 @@ inline std::string EDOTAGCMsg2String( EDOTAGCMsg msg )
         CASE_STD_STRING(k_EMsgClientToGCRequestContestVotesResponse);
         CASE_STD_STRING(k_EMsgClientToGCMVPVoteTimeout);
         CASE_STD_STRING(k_EMsgClientToGCMVPVoteTimeoutResponse);
-        CASE_STD_STRING(k_EMsgDetailedGameStats);
+        //CASE_STD_STRING(k_EMsgDetailedGameStats);
         CASE_STD_STRING(k_EMsgMatchMatchmakingStats);
         CASE_STD_STRING(k_EMsgClientToGCSubmitPlayerMatchSurvey);
         CASE_STD_STRING(k_EMsgClientToGCSubmitPlayerMatchSurveyResponse);
