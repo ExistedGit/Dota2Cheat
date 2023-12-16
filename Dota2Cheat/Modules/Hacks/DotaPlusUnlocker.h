@@ -32,7 +32,7 @@ namespace Modules {
 
 		void MaxHeroTiers() {
 			for (int i = 1; i <= 124; i++) {
-				if(!heroXPCache.contains(i))
+				//if(!heroXPCache.contains(i))
 			}
 		}
 
