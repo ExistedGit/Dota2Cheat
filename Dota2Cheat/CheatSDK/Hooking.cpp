@@ -32,7 +32,7 @@ void Hooks::InstallHooks() {
 		// CDOTA_Buff destructor
 		// vtable ptr at 0xd
 		auto OnRemoveModifier = SignatureDB::FindSignature("CDOTA_Buff::~CDOTA_Buff");
-		uintptr_t** vtable = OnRemoveModifier.Offset(0x1C).GetAbsoluteAddress(3);
+		uintptr_t** vtable = OnRemoveModifier.Offset(0xD).GetAbsoluteAddress(3);
 		uintptr_t* OnAddModifier = vtable[VTableIndexes::CDOTA_Buff::OnAddModifier];
 		HOOKFUNC(OnAddModifier);
 		HOOKFUNC(OnRemoveModifier);
