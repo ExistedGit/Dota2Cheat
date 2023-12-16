@@ -142,7 +142,10 @@ namespace Config {
 		inline int WeatherListIdx;
 		inline int TreeModelIdx;
 		inline int RiverListIdx;
+
 		inline bool UnlockDotaPlus;
+		inline bool MaxHeroTiers;
+
 		inline bool UnlockEmoticons;
 	}
 

@@ -3,14 +3,41 @@
 #include "../../CheatSDK/Config.h"
 
 namespace Modules {
-	inline class DotaPlusUnlocker {
-		bool updateQueued = true; // will update when injected
+	inline class M_DotaPlusManager {
+		// will update when injected
+		bool updateSubscription = true;
+		bool updateTiers = false; 
+
+		std::map<int, int> heroXPCache;
 	public:
 		// rebuilt from xref: "Failed to find CDOTAGameAccountPlus"
 		void UpdateDotaPlusStatus();
+		void UpdateHeroTiers() {
+			if (!updateTiers)
+				return;
 
-		void QueueUpdate() {
-			updateQueued = true;
+			if (Config::Changer::MaxHeroTiers)
+				MaxHeroTiers();
+			else
+				RestoreHeroTiers();
+			
 		}
-	} DotaPlusUnlocker;
+		void QueueUpdate() {
+			updateSubscription = true;
+		}
+
+		// Set D+ hero tier XP
+		// dota2 wiki has values for tiers
+		void SetHeroXP(int heroId, int xp);
+
+		void MaxHeroTiers() {
+			for (int i = 1; i <= 124; i++) {
+				if(!heroXPCache.contains(i))
+			}
+		}
+
+		void RestoreHeroTiers() {
+
+		}
+	} DotaPlusManager;
 }

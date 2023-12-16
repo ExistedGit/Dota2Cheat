@@ -96,7 +96,7 @@ void Pages::MainMenu::Draw() {
 		//	GameSystems::RichPresence->SetRPStatus(rpStatusBuf.c_str());
 
 		if (ImGui::Checkbox("Unlock Dota Plus", &Config::Changer::UnlockDotaPlus)) {
-			Modules::DotaPlusUnlocker.QueueUpdate();
+			Modules::DotaPlusManager.QueueUpdate();
 		};
 		if (ImGui::Checkbox("Unlock emoticons", &Config::Changer::UnlockEmoticons)) {
 			static auto dota_hud_chat_enable_all_emoticons = Interfaces::CVar->CVars["dota_hud_chat_enable_all_emoticons"].m_pVar;

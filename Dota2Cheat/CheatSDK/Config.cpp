@@ -156,6 +156,7 @@ void Config::ConfigManager::SetupVars() {
 	CFG_VAR(Changer::RiverListIdx, 0);
 	CFG_VAR(Changer::WeatherListIdx, 0);
 	CFG_VAR(Changer::UnlockDotaPlus, true);
+	CFG_VAR(Changer::MaxHeroTiers, true);
 	CFG_VAR(Changer::TreeModelIdx, 0);
 	CFG_VAR(Changer::UnlockEmoticons, true);
 

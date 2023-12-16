@@ -98,7 +98,7 @@ void InGameLogic() {
 void Hooks::hkFrameStageNotify(void* thisptr, int stage) {
 	((decltype(&hkFrameStageNotify))oFrameStageNotify)(thisptr, stage);
 
-	DotaPlusUnlocker.UpdateDotaPlusStatus();
+	DotaPlusManager.UpdateDotaPlusStatus();
 
 	if (SkinChanger.ItemsCreated) {
 		SkinChanger.ItemsCreated = false;
