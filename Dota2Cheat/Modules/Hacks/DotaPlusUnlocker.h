@@ -1,6 +1,5 @@
 #pragma once
-#include "../../pch.h"
-#include "../../CheatSDK/Config.h"
+#include <map>
 
 namespace Modules {
 	inline class M_DotaPlusManager {
@@ -13,14 +12,14 @@ namespace Modules {
 		// rebuilt from xref: "Failed to find CDOTAGameAccountPlus"
 		void UpdateDotaPlusStatus();
 		void UpdateHeroTiers() {
-			if (!updateTiers)
-				return;
+			//if (!updateTiers)
+			//	return;
 
-			if (Config::Changer::MaxHeroTiers)
-				MaxHeroTiers();
-			else
-				RestoreHeroTiers();
-			
+			//if (Config::Changer::MaxHeroTiers)
+			//	MaxHeroTiers();
+			//else
+			//	RestoreHeroTiers();
+			//
 		}
 		void QueueUpdate() {
 			updateSubscription = true;

@@ -58,6 +58,7 @@ void Hooks::InstallHooks() {
 	{
 		Interfaces::EntitySystem->GetListeners().push_back(&EntityList);
 	}
-	HookDirectX();
+
+	HookDX11Old();
 }
 

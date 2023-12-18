@@ -1,4 +1,6 @@
 #include "DotaPlusUnlocker.h"
+#include "../../CheatSDK/Config.h"
+#include "../../pch.h"
 
 // rebuilt from xref: "Failed to find CDOTAGameAccountPlus"
 
@@ -46,13 +48,13 @@ void Modules::M_DotaPlusManager::SetHeroXP(int heroId, int xp) {
 	auto i = *(DWORD*)(data + 0x38);
 
 	struct DataElem {
-		uint32_t indexBigger, indexSmaller;
-		PAD(8);
+		uint32_t indexBigger = -1, indexSmaller = -1;
+		uint32_t idk, one = 1;
 		uint32_t heroId;
 		uint32_t xp;
 	};
 
-	static_assert(sizeof(DataElem) == 24);
+	static_assert(sizeof(DataElem) == 0x18);
 
 	auto arr = *(DataElem**)(data + 0x28);
 	DataElem* heroData = nullptr;
@@ -80,6 +82,5 @@ void Modules::M_DotaPlusManager::SetHeroXP(int heroId, int xp) {
 	if (!heroData)
 		return;
 
-	//auto& heroXp = *(unsigned int*)(*(uintptr_t*)(data + 0x28) + 24i64 * i + 0x14);
 	heroData->xp = xp;
 }

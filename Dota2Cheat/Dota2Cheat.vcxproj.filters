@@ -148,6 +148,7 @@
     <ClCompile Include="DebugFunctions.cpp" />
     <ClCompile Include="SDK\GameSystems\CGameEventManager.cpp" />
     <ClCompile Include="Hooks\FrameStageNotify.cpp" />
+    <ClCompile Include="UI\LoadingMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\UI\UIOverhaul.h" />
@@ -379,5 +380,6 @@
     <ClInclude Include="SDK\Interfaces\CFlattenedSerializers.h" />
     <ClInclude Include="SDK\GameSystems\CDOTAInventoryManager.h" />
     <ClInclude Include="Hooks\FrameStageNotify.h" />
+    <ClInclude Include="UI\LoadingMenu.h" />
   </ItemGroup>
 </Project>

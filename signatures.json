@@ -18,12 +18,8 @@
   },
 
   "IDXGISwapChain::Present": {
-    "signature": "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 48 8B 01 48 8B F2",
-    "module": "gameoverlayrenderer64.dll",
-    "steps": [
-      [1, 158],
-      [0, 3]
-    ]
+    "signature": "48 89 6C 24 ? 48 89 74 24 ? 41 56 48 83 EC 20 41 8B E8",
+    "module": "gameoverlayrenderer64.dll"
   },
   "CParticleCollection::~CParticleCollection": {
     "signature": "E8 ? ? ? ? 40 F6 C7 01 74 34",

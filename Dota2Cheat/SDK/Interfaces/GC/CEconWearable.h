@@ -13,5 +13,5 @@ struct CAttributeContainer : public VClass {
 };
 class CEconWearable : public CBaseEntity {
 public:
-	IGETTER(CAttributeContainer, GetAttributeManager, 0x960);
+	IGETTER(CAttributeContainer, GetAttributeManager, 0x978);
 };

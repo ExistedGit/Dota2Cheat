@@ -31,11 +31,13 @@ void Modules::M_TreeChanger::RestoreTreeModels() {
 }
 
 void Modules::M_TreeChanger::UpdateTreeModels() {
+	using namespace std::literals::string_view_literals;
+
 	if (needsUpdate) {
 		auto trees = GameSystems::BinaryObjectSystem->GetTrees();
 		bool shouldSaveOriginalTrees = originalTrees.empty();
 		// GG branch should be additionally colored via m_clrRender
-		bool isGGBranch = !strcmp(queuedModel.modelName, "models/props_tree/ti7/ggbranch.vmdl");
+		bool isGGBranch = queuedModel.modelName== "models/props_tree/ti7/ggbranch.vmdl"sv;
 		for (auto tree : trees) {
 			if (!tree)
 				continue;

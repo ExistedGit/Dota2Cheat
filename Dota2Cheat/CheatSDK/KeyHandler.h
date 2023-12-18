@@ -1,6 +1,7 @@
 #pragma once
 #include <Windows.h>
 #include "Data/DrawData.h"
+#include "Data/UIData.h"
 #include "Config.h"
 #include "Systems/CheatManager.h"
 
@@ -10,6 +11,10 @@ public:
 		switch (wParam) {
 		case VK_INSERT: {
 			DrawData.ShowMenu = !DrawData.ShowMenu;
+
+			if (UIData::uiState == CheatUIState::LaunchMenu)
+				UIData::uiState = CheatUIState::Active;
+
 			if (!DrawData.ShowMenu)
 				d2c.SaveConfig();
 			break;

@@ -18,7 +18,7 @@ void* hkSpawn(CDOTABaseNPC* hero) {
 		return OSpawn(hero);
 
 
-	auto& w = hero->Field<CUtlVector<CHandle<CEconWearable>>>(Netvars::C_BaseCombatCharacter::m_hMyWearables);
+	auto& w = hero->Wearables();
 	Log(LP_NONE, "WEARABLES:");
 	for (int i = 0; i < w.m_Size; i++) {
 		LogF(LP_NONE, "{} | {}", i, (void*)w[i].Entity());
@@ -31,6 +31,33 @@ void* hkSpawn(CDOTABaseNPC* hero) {
 
 	auto ret = OSpawn(hero);
 
+	return ret;
+}
+static void* oUpdateClientWearables{};
+void* hkUpdateClientWearables(CDOTABaseNPC* hero) {
+	decltype(&hkUpdateClientWearables) OUpdateClientWearables = (decltype(&hkUpdateClientWearables))oUpdateClientWearables;
+
+	if (!DoChanging || !EntityList.IsHero(hero))
+		return OUpdateClientWearables(hero);
+
+	auto& w = hero->Wearables();
+	Log(LP_NONE, "WEARABLES:");
+
+	for (auto& handle : hero->OldWearables()) {
+		handle.val = 0;
+	}
+
+	for (int i = 0; i < w.m_Size; i++) {
+		LogF(LP_NONE, "{} | {}", i, (void*)w[i].Entity());
+	}
+
+	static Function init = Memory::Scan("E8 ? ? ? ? 8B C6 3B F3", "client.dll").GetAbsoluteAddress(1);
+	static auto ei = Modules::SkinChanger.CreateItem(6996);
+	auto item = w[2]->GetAttributeManager()->GetItem();
+	init(item, ei, 0xff);
+
+
+	auto ret = OUpdateClientWearables(hero);
 	return ret;
 }
 static void* oOnDataChanged{};
@@ -115,23 +142,52 @@ bool hkDecode(CFlattenedSerializer* thisptr, shit* s, void* idk, void* idk2) {
 	return ((decltype(&hkDecode))(oDecode))(thisptr, s, idk, idk2);
 }
 void* oIdk{};
-void* hkIdk(void* u1, void* u2, void* u3, void* u4, void* u5) {
-	return oIdk ? ((decltype(&hkIdk))(oIdk))(u1, u2, u3, u4, u5) : nullptr;
+//void* hkIdk(void* u1, void* u2, void* u3, void* u4, void* u5) {
+//	return oIdk ? ((decltype(&hkIdk))(oIdk))(u1, u2, u3, u4, u5) : nullptr;
+//}
+void* (*oInvokeChangeCallbacks)(VClass* queue, int idk, float idk2) {};
+void* hkInvokeChangeCallbacks(VClass* queue, int idk, float idk2) {
+
+	//if (idk == 1) {
+	auto k = *queue->Member<VClass**>(0x10);
+	auto s = k->Member<const char*>(8);
+	if (s) {
+		std::string_view str = s;
+		if (str == "OnWearablesChanged")
+			Log(LP_INFO, "OWC Called!");
+	}
+	//}
+	//auto& w = hero->Field<CUtlVector<CHandle<CEconWearable>>>(Netvars::C_BaseCombatCharacter::m_hMyWearables);
+
+	//static Function init = Memory::Scan("E8 ? ? ? ? 8B C6 3B F3", "client.dll").GetAbsoluteAddress(1);
+	//static auto ei = Modules::SkinChanger.CreateItem(18033);
+	//auto item = hero->Wearables()[2]->GetAttributeManager()->GetItem();
+	//init(item, ei, 0xff);
+
+	return oInvokeChangeCallbacks(queue, idk, idk2);
 }
 
-uintptr_t WINAPI HackThread(HMODULE hModule) {
+void HackThread(HMODULE hModule) {
 	// Initialize MinHook.
 	if (MH_Initialize() != MH_OK)
 		FreeLibraryAndExitThread(hModule, 0);
-
-	Modules::SkinChanger.DeleteSOCacheFiles();
 	
+	Modules::SkinChanger.DeleteSOCacheFiles();
+
 	Log(LP_INFO, "Initializing cheat...");
 	d2c.Initialize(hModule);
 
 	//{
-	//	auto Spawn = Memory::Scan("48 89 5C 24 ? 48 89 54 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 ? 48 81 EC ? ? ? ? 48 83 3D", "client.dll");
+	//	auto Spawn = Memory::Scan("48 89 5C 24 ? 48 89 54 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 45 33 ED 4C 8B F1", "client.dll");
 	//	HOOKFUNC(Spawn);
+	//}
+	//{
+	//	auto InvokeChangeCallbacks = Memory::Scan("89 54 24 10 55 53 56 57 41 55", "networksystem.dll");
+	//	HOOKFUNC(InvokeChangeCallbacks);
+	//}
+	//{
+	//	auto UpdateClientWearables = Memory::Scan("E8 ? ? ? ? 48 8B 0D ? ? ? ? 48 8B 01 FF 90 ? ? ? ? 84 C0 74 40", "client.dll").GetAbsoluteAddress(1);
+	//	HOOKFUNC(UpdateClientWearables);
 	//}
 	//{
 	//	auto Ctor = Memory::Scan("40 53 48 83 EC 20 48 8B D9 E8 ? ? ? ? 48 8D 05 ? ? ? ? 48 89 03 48 8D 05 ? ? ? ? 48 89 83 ? ? ? ? 48 8D 05 ? ? ? ? 48 89 83 ? ? ? ? 48 8D 05 ? ? ? ? 48 89 83 ? ? ? ? 33 C0 C7 83", "client.dll");

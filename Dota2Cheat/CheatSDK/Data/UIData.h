@@ -1,6 +1,12 @@
 #pragma once
 #include "../Modules/Hacks/TreeChanger.h"
 
+
+enum class CheatUIState {
+	LaunchMenu,
+	Active
+};
+
 namespace UIData {
 	inline Modules::M_TreeChanger::TreeModelInfo TreeModelList[] = {
 	{ "models/props_tree/newbloom_tree.vmdl", 1.0f },
@@ -18,5 +24,5 @@ namespace UIData {
 		"Frostivus",
 		"GG Branch",
 	};
-
+	inline CheatUIState uiState = CheatUIState::LaunchMenu;
 }

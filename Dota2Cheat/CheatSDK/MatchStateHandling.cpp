@@ -59,6 +59,10 @@ void CMatchStateManager::EnteredInGame() {
 	Panorama::FindPanels();
 	Modules::UIOverhaul.QueueUpdateNetworthPanel();
 
+	//for (auto& data : GameSystems::PlayerResource->GetVecPlayerTeamData()) {
+	//	data.SelectedHeroBadgeXP() = 72050;
+	//}
+
 	GameSystems::InitMinimapRenderer();
 	// Modules::UIOverhaul.Init();
 	if (Config::Changer::TreeModelIdx != 0)
