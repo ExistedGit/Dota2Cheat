@@ -118,9 +118,12 @@ long Hooks::hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags)
 
 	ImGui::PushFont(defaultFont);
 
+#ifndef _DEBUG
 	if (UIData::uiState == CheatUIState::LaunchMenu)
 		Menus::loadMenu.DrawLaunchDialogue();
-	else if (DrawData.ShowMenu)
+	else
+#endif
+	if (DrawData.ShowMenu)
 		Pages::MainMenu::Draw();
 
 	ImGui::PopFont();
