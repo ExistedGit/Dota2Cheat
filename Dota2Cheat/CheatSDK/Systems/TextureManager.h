@@ -20,14 +20,15 @@ inline class TextureManager {
 	std::unordered_map<std::string, ID3D11ShaderResourceView*> namedTex;
 	std::map<std::string, ID3D11ShaderResourceView**> loadingQueue;
 	bool requiresUnload = false;
-	void InitDX11Texture(int image_width,
-		int image_height,
-		unsigned char* image_data,
-		ID3D11ShaderResourceView** out_srv);
 public:
 	ID3D11ShaderResourceView* GetNamedTexture(const std::string& name) {
 		return namedTex[name];
 	}
+
+	void InitDX11Texture(int image_width,
+		int image_height,
+		unsigned char* image_data,
+		ID3D11ShaderResourceView** out_srv);
 
 	template<size_t size>
 	bool LoadTextureFromMemory(unsigned char const (&data)[size], ID3D11ShaderResourceView** tex) {

@@ -18,6 +18,9 @@
 #include "../../SDK/Entities/CDOTABaseAbility.h"
 #include "../../SDK/Entities/CDOTABaseNPC.h"
 
+
+#include "../../SDK/Panorama/CUIEngineSource2.h"
+
 class CDOTAPlayerController;
 class CDOTAModifier;
 
@@ -37,9 +40,6 @@ namespace Signatures {
 	typedef bool (*DispatchPacketFn)(void*, IMsgNetPacket*);
 
 	inline CDOTAPlayerController* (*GetPlayer)(int idx);
-
-	//typedef bool (*LoadUITextureFn)(void* thisptr, void** texturePtr, const char* textureName);
-	//inline LoadUITextureFn LoadUITexture{};
 
 	inline PrepareUnitOrdersFn PrepareUnitOrders{};
 

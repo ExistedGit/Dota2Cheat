@@ -34,8 +34,6 @@ void TextureManager::InitDX11Texture(int image_width, int image_height, unsigned
 	srvDesc.Texture2D.MostDetailedMip = 0;
 	DrawData.Dx.pDevice->CreateShaderResourceView(pTexture, &srvDesc, out_srv);
 	pTexture->Release();
-
-	stbi_image_free(image_data);
 }
 
 bool TextureManager::LoadTextureFromMemory(unsigned char* data, size_t size, ID3D11ShaderResourceView** tex) {
@@ -46,6 +44,7 @@ bool TextureManager::LoadTextureFromMemory(unsigned char* data, size_t size, ID3
 		return false;
 
 	InitDX11Texture(image_width, image_height, image_data, tex);
+	stbi_image_free(image_data);
 	return true;
 }
 
@@ -59,6 +58,7 @@ bool TextureManager::LoadTextureFromFile(std::string_view filename, ID3D11Shader
 		return false;
 
 	InitDX11Texture(image_width, image_height, image_data, tex);
+	stbi_image_free(image_data);
 	return true;
 }
 

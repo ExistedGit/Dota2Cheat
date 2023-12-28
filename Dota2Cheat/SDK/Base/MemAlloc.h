@@ -40,11 +40,11 @@ struct CMemAlloc : public VClass {
 
 	template<typename T = void>
 	T* ReAlloc(const T* p, size_t size) {
-		return CallVFunc<3, T*>(p, size);
+		return CallVFunc<2, T*>(p, size);
 	}
 
 	void Free(const void* p) {
-		return CallVFunc<5, void>(p);
+		return CallVFunc<3, void>(p);
 	}
 
 	size_t GetSize(const void* p) {

@@ -7,7 +7,12 @@
 #include "../CheatSDK/KeyHandler.h"
 #include "../UI/Pages/MainMenu.h"
 
-inline std::map<std::string, int> writes;
+inline std::mutex writeMutex;
+struct NetvarWriteData {
+	int writeCount = 0;
+	int lastVal{};
+};
+inline std::map<std::string, NetvarWriteData> writes;
 
 // DirectX11's SwapChain::Present, used to render things
 // Its hooking is different from the "classical" method of creating a dummy window

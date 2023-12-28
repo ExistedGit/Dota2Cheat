@@ -167,8 +167,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CheatSDK\Data\EntityList.cpp" />
+    <ClCompile Include="CheatSDK\GameEventListeners\dota_player_update_assigned_hero.cpp" />
     <ClCompile Include="CheatSDK\Systems\CheatManager.cpp" />
     <ClCompile Include="CheatSDK\Systems\TextureManager.cpp" />
+    <ClCompile Include="CheatSDK\VTexDecoders\DXT5Decoder.cpp" />
+    <ClCompile Include="CheatSDK\VTexDecoders\VTexParser.cpp" />
     <ClCompile Include="DebugFunctions.cpp" />
     <ClCompile Include="Hooks\FrameStageNotify.cpp" />
     <ClCompile Include="Hooks\Present.cpp" />
@@ -458,12 +461,14 @@
     <ClCompile Include="Utils\Drawing.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CheatSDK\GameEventListeners\event_func.h" />
     <ClInclude Include="CheatSDK\Globals\include.h" />
     <ClInclude Include="CheatSDK\Globals\Panorama.h" />
     <ClInclude Include="CheatSDK\Systems\CheatManager.h" />
     <ClInclude Include="CheatSDK\KeyHandler.h" />
     <ClInclude Include="CheatSDK\Data\UIData.h" />
     <ClInclude Include="CheatSDK\Systems\TextureManager.h" />
+    <ClInclude Include="CheatSDK\VTexDecoders\vtex.h" />
     <ClInclude Include="Hooks\FrameStageNotify.h" />
     <ClInclude Include="Hooks\Present.h" />
     <ClInclude Include="Hooks\SteamGC.h" />
@@ -613,6 +618,8 @@
     <ClInclude Include="SDK\Panorama\CSource2UITexture.h" />
     <ClInclude Include="SDK\Panorama\CUIEngineSource2.h" />
     <ClInclude Include="SDK\Panorama\CUIPanel.h" />
+    <ClInclude Include="CheatSDK\VTexDecoders\DXT5Decoder.h" />
+    <ClInclude Include="CheatSDK\VTexDecoders\VTexParser.h" />
     <ClInclude Include="SDK\Protobufs\base_gcmessages.pb.h" />
     <ClInclude Include="SDK\Protobufs\clientmessages.pb.h" />
     <ClInclude Include="SDK\Protobufs\connectionless_netmessages.pb.h" />

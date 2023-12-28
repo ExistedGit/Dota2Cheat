@@ -33,7 +33,6 @@ void CCheatManager::LoadGameSpecific() {
 	Interfaces::CVar->UnlockHiddenConVars();
 #endif
 
-	// Log(LP_WARNING, "dota_camera_distance: ", (void*)Interfaces::CVar->CVars["dota_camera_distance"].m_pVar);
 #ifndef _DEBUG
 	Modules::CVarSpoofer.SpoofVars(
 		"dota_camera_distance",
@@ -91,12 +90,14 @@ void CCheatManager::Initialize(HMODULE hModule) {
 	// don't you dare touch this line
 	Log(LP_NONE, "works!");
 
+	LogI( "Initializing...");
 	FindCheatFolder();
 
 	Config::cfg.SetupVars();
 	LoadGameSpecific();
 
 	LoadFiles();
+	LogI( "Initialization complete!");
 }
 
 void CCheatManager::SaveConfig() {

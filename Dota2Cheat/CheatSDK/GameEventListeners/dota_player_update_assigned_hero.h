@@ -7,14 +7,5 @@
 
 class dota_player_update_assigned_hero_l : public IGameEventListener2 {
 public:
-	void FireGameEvent(CGameEvent* ev) override {
-		if (!ctx.localPlayer)
-			return;
-
-		int playerid = ev->GetInt("playerid", -2);
-		if (playerid != ctx.localPlayer->GetPlayerID())
-			return;
-
-		MatchStateManager.OnUpdatedAssignedHero();
-	}
+	void FireGameEvent(CGameEvent* ev) override;
 };

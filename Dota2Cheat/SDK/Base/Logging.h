@@ -3,9 +3,9 @@
 #include <string>
 #include <string_view>
 #include <format>
+#include <mutex>
 
 inline std::mutex mLogging;
-inline HANDLE hStdOut = nullptr;
 
 enum class ConColor {
 	Black,
@@ -27,8 +27,7 @@ enum class ConColor {
 };
 
 inline void SetConsoleColor(ConColor text = ConColor::White, ConColor background = ConColor::Black) {
-	if (!hStdOut)
-		hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	static HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hStdOut, (WORD)(((WORD)background << 4) | (WORD)text));
 };
 
@@ -68,6 +67,18 @@ void Log(LogPrefix prefixType, Args&&... args) {
 #endif
 	std::lock_guard<std::mutex> lk(mLogging);
 	std::string prefix = GetLogPrefix(prefixType);
+	((std::cout << prefix) << ... << args) << '\n';
+	SetConsoleColor();
+}
+
+template<typename ...Args>
+void LogI(Args&&... args) {
+#ifndef _DEBUG
+	if (prefixType != LP_ERROR && prefixType != LP_WARNING)
+		return;
+#endif
+	std::lock_guard<std::mutex> lk(mLogging);
+	std::string prefix = GetLogPrefix(LP_INFO);
 	((std::cout << prefix) << ... << args) << '\n';
 	SetConsoleColor();
 }

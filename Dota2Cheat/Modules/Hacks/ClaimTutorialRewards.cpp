@@ -10,6 +10,9 @@ void Modules::M_ClaimTutorialRewards::ClaimEventAction(uint32_t event_id, uint32
 
 void Modules::M_ClaimTutorialRewards::ExecuteGCRequests() {
 	std::vector<ClaimEventData> msgToSend;
+	// 101 - 104
+	for (int i = 201; i <= 204; i++)
+		msgToSend.push_back({ 26, i });
 	// 201 - 204
 	for (int i = 201; i <= 204; i++)
 		msgToSend.push_back({ 26, i });
@@ -17,6 +20,7 @@ void Modules::M_ClaimTutorialRewards::ExecuteGCRequests() {
 	// 40001-40051 and 40111-40141 in increments of 10
 	for (int i = 40001; i <= 40051; i += 10)
 		msgToSend.push_back({ 19, i });
+
 	for (int i = 40111; i <= 40141; i += 10)
 		msgToSend.push_back({ 19, i });
 

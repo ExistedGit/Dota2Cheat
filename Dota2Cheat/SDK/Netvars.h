@@ -140,6 +140,20 @@ namespace Netvars {
 		constexpr uint32_t m_bSimulationTimeChanged = 0x522; // bool
 		constexpr uint32_t m_sUniqueHammerID = 0x530; // CUtlString
 	}
+	namespace C_EconEntity {
+		constexpr uint32_t m_AttributeManager = 0x978; // CAttributeContainer
+		constexpr uint32_t m_bClientside = 0xaa0; // bool
+		constexpr uint32_t m_nDisableMode = 0xaa4; // EconEntityParticleDisableMode_t
+		constexpr uint32_t m_bParticleSystemsCreated = 0xaa8; // bool
+		constexpr uint32_t m_bForceDestroyAttachedParticlesImmediately = 0xaa9; // bool
+		constexpr uint32_t m_vecAttachedParticles = 0xab0; // CUtlVector< C_EconEntity::AttachedParticleInfo_t >
+		constexpr uint32_t m_hViewmodelAttachment = 0xac8; // CHandle< CBaseAnimatingActivity >
+		constexpr uint32_t m_iOldTeam = 0xacc; // int32
+		constexpr uint32_t m_bAttachmentDirty = 0xad0; // bool
+		constexpr uint32_t m_iOldStyle = 0xad1; // style_index_t
+		constexpr uint32_t m_hOldProvidee = 0xad4; // CHandle< C_BaseEntity >
+		constexpr uint32_t m_vecAttachedModels = 0xad8; // CUtlVector< C_EconEntity::AttachedModelData_t >
+	}
 	namespace C_DOTA_Item {
 		constexpr uint32_t m_bCombinable = 0x5b0; // bool
 		constexpr uint32_t m_bPermanent = 0x5b1; // bool
@@ -1057,6 +1071,41 @@ namespace Netvars {
 	}
 	namespace C_DOTAGamerulesProxy {
 		constexpr uint32_t m_pGameRules = 0x538; // C_DOTAGamerules*
+	}
+	namespace C_DOTAWearableItem {
+		constexpr uint32_t m_bOwnerModelChanged = 0xaf8; // bool
+		constexpr uint32_t m_bIsGeneratingEconItem = 0xaf9; // bool
+		constexpr uint32_t m_bIsItemVisibleOnGeneratedEntity = 0xafa; // bool
+		constexpr uint32_t m_bHideWearableButDrawAdditionalWearables = 0xafb; // bool
+		constexpr uint32_t m_hAdditionalWearable = 0xafc; // CHandle< CBaseAnimatingActivity >
+		constexpr uint32_t m_hDrawWearable = 0xb00; // CHandle< C_DOTAWearableItem >
+		constexpr uint32_t m_bHiddenByCombiner = 0xb04; // bool
+		constexpr uint32_t m_bHiddenByEquipmentSlot = 0xb05; // bool
+		constexpr uint32_t m_bIsPortrait = 0xb06; // bool
+		constexpr uint32_t m_fZDelta = 0xb08; // float32
+		constexpr uint32_t m_combinerMaterialOverrideList = 0xb10; // CUtlVector< CStrongHandleCopyable< InfoForResourceTypeIMaterial2 > >
+		constexpr uint32_t m_bCombinerMaterialOverrideListChanged = 0xb30; // bool
+		constexpr uint32_t m_bRubickFollower = 0xb31; // bool
+		constexpr uint32_t m_bHasPlayerModel = 0xb32; // bool
+	}
+	namespace C_EconItemView {
+		constexpr uint32_t m_iItemDefinitionIndex = 0x8; // item_definition_index_t
+		constexpr uint32_t m_iEntityQuality = 0xc; // int32
+		constexpr uint32_t m_iEntityLevel = 0x10; // uint32
+		constexpr uint32_t m_iItemID = 0x18; // itemid_t
+		constexpr uint32_t m_iAccountID = 0x20; // uint32
+		constexpr uint32_t m_iInventoryPosition = 0x24; // uint32
+		constexpr uint32_t m_bInitialized = 0x30; // bool
+		constexpr uint32_t m_nOverrideStyle = 0x31; // style_index_t
+		constexpr uint32_t m_bIsStoreItem = 0x32; // bool
+		constexpr uint32_t m_bIsTradeItem = 0x33; // bool
+		constexpr uint32_t m_bHasComputedAttachedParticles = 0x34; // bool
+		constexpr uint32_t m_bHasAttachedParticles = 0x35; // bool
+		constexpr uint32_t m_iEntityQuantity = 0x38; // int32
+		constexpr uint32_t m_unClientFlags = 0x3c; // uint8
+		constexpr uint32_t m_unOverrideOrigin = 0x40; // eEconItemOrigin
+		constexpr uint32_t m_pszGrayedOutReason = 0x50; // char*
+		constexpr uint32_t m_AttributeList = 0x58; // CAttributeList
 	}
 	namespace C_DOTA_Item_Physical {
 		constexpr uint32_t m_hItem = 0x7e0; // CHandle< C_DOTA_Item >
