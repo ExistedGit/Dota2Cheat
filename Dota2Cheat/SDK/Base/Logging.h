@@ -61,10 +61,10 @@ inline std::string GetLogPrefix(LogPrefix prefixType) {
 
 template<typename ...Args>
 void Log(LogPrefix prefixType, Args&&... args) {
-#ifndef _DEBUG
-	if (prefixType != LP_ERROR && prefixType != LP_WARNING)
-		return;
-#endif
+//#ifndef _DEBUG
+//	if (prefixType != LP_ERROR && prefixType != LP_WARNING)
+//		return;
+//#endif
 	std::lock_guard<std::mutex> lk(mLogging);
 	std::string prefix = GetLogPrefix(prefixType);
 	((std::cout << prefix) << ... << args) << '\n';
@@ -73,10 +73,9 @@ void Log(LogPrefix prefixType, Args&&... args) {
 
 template<typename ...Args>
 void LogI(Args&&... args) {
-#ifndef _DEBUG
-	if (prefixType != LP_ERROR && prefixType != LP_WARNING)
-		return;
-#endif
+//#ifndef _DEBUG
+//	return;
+//#endif
 	std::lock_guard<std::mutex> lk(mLogging);
 	std::string prefix = GetLogPrefix(LP_INFO);
 	((std::cout << prefix) << ... << args) << '\n';
@@ -86,10 +85,10 @@ void LogI(Args&&... args) {
 // Formatted log
 template<typename ...Args>
 void LogF(LogPrefix prefixType, const char* fmtString, Args&&... args) {
-#ifndef _DEBUG
-	if (prefixType != LP_ERROR && prefixType != LP_WARNING)
-		return;
-#endif
+//#ifndef _DEBUG
+//	if (prefixType != LP_ERROR && prefixType != LP_WARNING)
+//		return;
+//#endif
 	std::lock_guard<std::mutex> lk(mLogging);
 	std::string prefix = GetLogPrefix(prefixType);
 	std::cout << prefix << std::vformat(fmtString, std::make_format_args(std::forward<Args>(args)...)) << '\n';

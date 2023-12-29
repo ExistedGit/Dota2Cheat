@@ -74,11 +74,11 @@ WARNING! Legit features ahead, no scripts that play the game for you!
 ## Building
 You need to install the protobuf library for it to work. Install [vcpkg](https://vcpkg.io/en/getting-started.html). Navigate to the folder with vcpkg.exe. Open the console in the folder and enter the following command:
 
-`.\vcpkg.exe install protobuf:x64-windows-static-md`
+`.\vcpkg.exe install protobuf:x64-windows-static`
 
 This will install the heavier static version of the library. 
 
-Once the process completes, go to `installed/x64-windows-static-md`. Copy libprotobuf.lib and libprotobuf-lite.lib files from /lib to Dota2Cheat/lib. You can also copy the libs with a `d` suffix from debug/lib if you want to compile it in Debug
+Once the process completes, go to `installed/x64-windows-static`. Copy libprotobuf.lib and libprotobuf-lite.lib files from /lib to Dota2Cheat/lib. You can also copy the libs with a `d` suffix from debug/lib if you want to compile it in Debug
 
 You also need to install the [June 2010 DirectX SDK](https://www.microsoft.com/en-us/download/details.aspx?id=6812)
 
@@ -87,7 +87,7 @@ Open the project in Visual Studio and build Dota2Cheat as **Release x64**
 ## Injecting
 This cheat can be safely reinjected at any point of the game
 
-Build & run D2CUpdater to move/update all relevant resources to their destination in %User%\Documents\Dota2Cheat, then use any injector to do the job.
+Build & run D2CUpdater to move/update all relevant resources to their destination in C:\Users\%user%\Documents\Dota2Cheat, then use any injector to do the job.
 
 **Use at own risk** (also consider not using non-legit features that you can get reported/flagged for)
 
