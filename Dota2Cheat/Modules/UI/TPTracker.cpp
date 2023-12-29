@@ -93,15 +93,7 @@ void Modules::M_TPTracker::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::
 		if (!ent || !ent->GetUnitName())
 			break;
 
-		std::string prefixLessName = std::string(ent->GetUnitName()).substr(14),
-			iconName = "icon_" + prefixLessName;
-
-		auto icon = texManager.GetNamedTexture(iconName);
-		if (!icon)
-		{
-			auto iconPath = d2c.cheatFolderPath + "\\assets\\heroicons\\" + ent->GetUnitName() + "_png.png";
-			texManager.LoadTextureNamed(iconPath.c_str(), &icon, iconName);
-		}
+		auto icon = assets.heroIcons.Load(ent->GetUnitName());
 
 		TPData* tpPointToSet{};
 		auto& tpData = teleports[ent];

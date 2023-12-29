@@ -13,14 +13,9 @@ void Modules::M_BlinkRevealer::Draw() {
 		if (!hero->GetIdentity()->IsDormant())
 			continue;
 		auto DrawList = ImGui::GetForegroundDrawList();
-		auto iconName = data.qop ? "queenofpain_blink" : "antimage_blink";
 
-		auto icon = texManager.GetNamedTexture(iconName);
-		if (!icon)
-		{
-			auto iconPath = d2c.cheatFolderPath + "\\assets\\spellicons\\" + iconName + "_png.png";
-			texManager.LoadTextureNamed(iconPath.c_str(), &icon, iconName);
-		}
+		auto icon = assets.spellIcons.Load(data.qop ? "queenofpain_blink" : "antimage_blink");
+
 		auto fade = int(data.fadeCounter / data.fadeTime * 255);
 		auto drawPos = WorldToScreen(data.pos);
 		DrawList->AddCircle(

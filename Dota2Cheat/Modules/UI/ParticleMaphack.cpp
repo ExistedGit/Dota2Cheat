@@ -164,7 +164,5 @@ void Modules::M_ParticleMaphack::GetHeroIcon(CDOTABaseNPC* npc, ImTextureID& ico
 	if (!EntityList.IsHero(npc))
 		return;
 
-	std::string iconName = "icon_";
-	iconName += std::string_view(npc->GetIdentity()->GetName()).substr(14);
-	icon = texManager.GetNamedTexture(iconName);
+	icon = assets.heroIcons.Load(npc->GetIdentity()->GetName());
 }

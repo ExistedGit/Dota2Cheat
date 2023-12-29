@@ -2,9 +2,12 @@
 #include "../../pch.h"
 #include <streambuf>
 #include <istream>
+#include <string_view>
 #include "vtex.h"
 #include <stb_image.h>
 #include "DXT5Decoder.h"
+
+// Code ported from https://github.com/ValveResourceFormat/ValveResourceFormat
 
 struct memstream {
 	char* data{};
@@ -41,5 +44,5 @@ public:
 		unsigned char* data;
 	};
 
-	static ImageData Load(const char* filename);
+	static ImageData Load(std::string_view filename);
 };

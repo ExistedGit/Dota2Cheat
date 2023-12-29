@@ -1,15 +1,10 @@
-# Dota2Cheat: 
-
-Last updated for 7.34c and adjacent patches
-
-Full functionality not guaranteed.
+# Dota2Cheat 7.35b: now with VPK decoding! 
 
 ![v4 image](https://github.com/ExistedGit/Dota2Cheat/assets/66470490/88dbfa94-0ba3-4d53-b355-8cb18de98d71)
 
-There weren't many open-source Dota cheats. And so I decided to fix that.
-Written in C++20 with love
+There weren't many open-source Dota cheats. And so I decided to fix that. Written in C++20 with love.
 
-Some SDK bits were fully or partionally taken from [McDota](https://github.com/LWSS/McDota) by LWSS, which D2C was inspired by.
+Some SDK bits were fully or partionally taken from [McDota](https://github.com/LWSS/McDota) by LWSS, which D2C is inspired by.
 
 Using [ImGui](https://github.com/ocornut/imgui) with DirectX 11 for the interface
 
@@ -18,8 +13,6 @@ also using [Minhook](https://github.com/TsudaKageyu/minhook) for them trampoline
 also using Google's [Protocol Buffers](https://github.com/protocolbuffers/protobuf) for net message handling
 
 Cheers to their wonderful creators!
-
-`assets` folder contents are property of Valve Corporation
 
 # Features
 To open the cheat menu, press Insert
@@ -78,8 +71,6 @@ WARNING! Legit features ahead, no scripts that play the game for you!
 * Work in progress:
   * Roshan timer
 
-As of late I'm largely disinterested in developing D2C, in part due to "skinchanger depression", as I'd call it.
-
 ## Building
 You need to install the protobuf library for it to work. Install [vcpkg](https://vcpkg.io/en/getting-started.html). Navigate to the folder with vcpkg.exe. Open the console in the folder and enter the following command:
 
@@ -96,9 +87,9 @@ Open the project in Visual Studio and build Dota2Cheat as **Release x64**
 ## Injecting
 This cheat can be safely reinjected at any point of the game
 
-Build & run D2CInstaller to move all relevant resources to their destination in %User%\Documents\Dota2Cheat, then use any injector to do the job.
+Build & run D2CUpdater to move/update all relevant resources to their destination in %User%\Documents\Dota2Cheat, then use any injector to do the job.
 
-**Use at own risk, absolutely not UD** (also consider not using non-legit features that you can get reported/flagged for)
+**Use at own risk** (also consider not using non-legit features that you can get reported/flagged for)
 
 ## Troubleshooting
 

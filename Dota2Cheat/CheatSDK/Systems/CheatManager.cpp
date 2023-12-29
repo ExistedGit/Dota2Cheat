@@ -73,12 +73,6 @@ void CCheatManager::LoadFiles() {
 
 		Log(LP_INFO, "Loaded config from ", cheatFolderPath, "\\config\\base.json\n");
 	}
-
-	for (auto& file : std::filesystem::directory_iterator(cheatFolderPath + "\\assets\\misc")) {
-		auto path = file.path();
-		auto fileName = path.filename().string();
-		texManager.QueueForLoading(path.string(), fileName.substr(0, fileName.size() - 4));
-	}
 }
 
 void CCheatManager::Initialize(HMODULE hModule) {

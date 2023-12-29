@@ -6,11 +6,14 @@ class DXT5Decoder {
 public:
 	using byte = unsigned char;
 
-	unsigned char* input;
-	int w, h;
+	unsigned char* input{};
+	int w{}, h{},
+		blockWidth{}, blockHeight{};
+	int outSize = 0;
 
-	DXT5Decoder(unsigned char* data, int width, int height) : input(data), w(width), h(height) {
-
+	DXT5Decoder(unsigned char* data, int width, int height, int blockWidth, int blockHeight) : input(data), w(width), h(height),
+		blockWidth(blockWidth), blockHeight(blockHeight) {
+		outSize = w * h * 4;
 	}
 
 	static byte ClampColor(int a)
@@ -34,9 +37,9 @@ public:
 	}
 
 
-	static void DecompressBlockDXT1(int x, int y, int width, uint8_t blockStorage[8], byte* pixels, int stride);
+	void DecompressBlockDXT1(int x, int y, int width, uint8_t blockStorage[8], byte* pixels, int stride);
 
-	static void Decompress8BitBlock(int bx, int w, int offset, uint64_t block, byte* pixels, int stride);
+	void Decompress8BitBlock(int bx, int w, int offset, uint64_t block, byte* pixels, int stride);
 
 	void Decode(byte* out);
 };

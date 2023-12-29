@@ -464,6 +464,7 @@
     <ClInclude Include="CheatSDK\GameEventListeners\event_func.h" />
     <ClInclude Include="CheatSDK\Globals\include.h" />
     <ClInclude Include="CheatSDK\Globals\Panorama.h" />
+    <ClInclude Include="CheatSDK\Systems\AssetManager.h" />
     <ClInclude Include="CheatSDK\Systems\CheatManager.h" />
     <ClInclude Include="CheatSDK\KeyHandler.h" />
     <ClInclude Include="CheatSDK\Data\UIData.h" />

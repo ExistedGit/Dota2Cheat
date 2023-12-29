@@ -12,12 +12,12 @@ void Modules::M_AbilityESP::SubscribeHeroes() {
 
 	EntityList.ForEach<CDOTABaseNPC_Hero>([this](auto hero) {
 		if (!CanDraw(hero))
-		return;
+			return;
 
-	if (!EnemyAbilities.count(hero))
-		EnemyAbilities[hero].resize(6);
-	if (!EnemyItems.count(hero))
-		EnemyItems[hero] = {};
+		if (!EnemyAbilities.count(hero))
+			EnemyAbilities[hero].resize(6);
+		if (!EnemyItems.count(hero))
+			EnemyItems[hero] = {};
 
 		});
 }
@@ -45,7 +45,7 @@ void Modules::M_AbilityESP::UpdateHeroData() {
 
 		if (EnemyItems.count(hero))
 			UpdateItems(hero);
-	};
+		};
 
 	EntityList.ForEach<CDOTABaseNPC_Hero>(updateHeroData);
 	Initialized = true;
@@ -90,8 +90,9 @@ void Modules::M_AbilityESP::DrawAbilities() {
 			if (!data.ability)
 				continue;
 
-			if (!data.icon)
-				data.icon = texManager.GetNamedTexture(data.ability->GetIdentity()->GetName());
+			if (!data.icon) {
+				data.icon = assets.spellIcons.Load(data.ability->GetIdentity()->GetName());
+			}
 
 			// Top-Left, Bottom-Right and Center points of ability icon
 			ImVec2 imgXY1, imgXY2, imgCenter;
@@ -138,7 +139,7 @@ void Modules::M_AbilityESP::DrawAbilities() {
 					: ent->GetChargeRestoreCooldown();
 
 				return 0.0f;
-			};
+				};
 			auto cooldown = getCooldown(data.ability);
 			// If the icon must be darker
 			bool darkOverlay =
@@ -227,17 +228,13 @@ void Modules::M_AbilityESP::LoadItemTexIfNeeded(AbilityData& data) {
 	if (data.icon)
 		return;
 
-	if (!IsValidReadPtr(data.ability)
-		|| !IsValidReadPtr(data.ability->GetIdentity())
-		|| !data.ability->GetIdentity()->GetName())
+	if (!data.ability->GetIdentity()->GetName())
 		return;
 
 	std::string itemName = data.ability->GetIdentity()->GetName();
-	data.icon = texManager.GetNamedTexture(itemName.substr(5));
 
 	if (!data.icon) {
-		auto iconPath = d2c.cheatFolderPath + "\\assets\\items\\" + itemName.substr(5) + "_png.png";
-		texManager.LoadTextureNamed(iconPath.c_str(), &data.icon, itemName.substr(5));
+		data.icon = assets.items.Load(itemName.substr(5));
 	}
 
 }
@@ -573,12 +570,13 @@ void Modules::M_AbilityESP::UpdateAbilities(CDOTABaseNPC_Hero* hero) {
 
 		auto abilityName = ability->GetIdentity()->GetName();
 		if (!abilityName)
-			return;
-		auto iconPath = d2c.cheatFolderPath + "\\assets\\spellicons\\" + abilityName + "_png.png";
-		auto& data = heroAbilities[validAbilities] = AbilityData{
-			.ability = ability
+			continue;
+
+		heroAbilities[validAbilities] = AbilityData{
+			.ability = ability,
+			.icon = assets.spellIcons.Load(abilityName)
 		};
-		texManager.QueueForLoading(iconPath, abilityName);
+
 		++validAbilities;
 	}
 
@@ -600,12 +598,8 @@ void Modules::M_AbilityESP::UpdateItems(CDOTABaseNPC_Hero* hero) {
 		if (!item->GetIdentity()->GetName())
 			continue;
 
-		// Image name doesn't use the "item_" prefix
-		std::string itemName = item->GetIdentity()->GetName();
-		auto iconPath = d2c.cheatFolderPath + "\\assets\\items\\" + itemName.substr(5) + "_png.png";
 		EnemyItems[hero][i] = AbilityData{
 			.ability = item
 		};
-		texManager.QueueForLoading(iconPath, itemName.substr(5));
 	}
 }

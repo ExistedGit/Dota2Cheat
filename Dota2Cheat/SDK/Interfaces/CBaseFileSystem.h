@@ -21,12 +21,16 @@ public:
 		return CallVFunc<78>(filePath, options, flags, pathId);
 	}
 	
-	char* Read(char* buffer, int size, CFileHandle handle) {
-		return CallVFunc<79, char*>(buffer, size, handle);
+	char* Read(char* buffer, int size, int capacity, CFileHandle handle) {
+		return CallVFunc<79, char*>(buffer, size, capacity, handle);
 	}
 
 	uint32_t Size(CFileHandle handle) {
 		return CallVFunc<18, uint32_t>(handle);
+	}
+
+	uint32_t Close(CFileHandle handle) {
+		return CallVFunc<14, uint32_t>(handle);
 	}
 
 	// Reads a line from a CFileHandle to a buffer. Returns the buffer if successful

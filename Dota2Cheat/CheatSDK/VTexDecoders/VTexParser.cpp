@@ -1,73 +1,94 @@
 #include "VTexParser.h"
 
-VTexParser::ImageData VTexParser::Load(const char* filename) {
+VTexParser::ImageData VTexParser::Load(std::string_view filename) {
 	static auto mem = CMemAlloc::Instance();
 	static auto fs = Interfaces::FileSystem;
-	auto file = fs->OpenFile(filename, "rb");
+	auto file = fs->OpenFile(filename.data(), "rb");
 	auto fileSize = fs->Size(file);
 
 	auto buffer = mem->Alloc<char>(fileSize);
 
-	Interfaces::FileSystem->CallVFunc<79, char*>(buffer, fileSize, fileSize, file);
+	fs->Read(buffer, fileSize, fileSize, file);
+	fs->Close(file);
+
 	char* blockPos = nullptr;
 
-	char* header = nullptr;
+	int hdrPos = 0;
 	for (int i = 0; i < fileSize; i++) {
 		if (*(uint32_t*)(buffer + i) == *(uint32_t*)"DATA") {
-			header = buffer + *(uint32_t*)(buffer + i + 4) + i + 4;
+			hdrPos = *(uint32_t*)(buffer + i + 4) + i + 4;
 			break;
 		}
 	}
 
+	memstream s(buffer);
+	s.pos = hdrPos;
 
-	memstream s(header);
-	VTexHeader h;
-	s >> h;
+	VTexHeader hdr;
+	s >> hdr;
 
-	if (h.extra_data_count > 0)
+	auto ActualWidth = hdr.width,
+		ActualHeight = hdr.height;
+
+	int extraDataSize = 0;
+	if (hdr.extra_data_count > 0)
 	{
-		s.seekg(h.extra_data_offset - 8); // 8 is 2 uint32s we just read
+		s.seekg(hdr.extra_data_offset - 8); // 8 is 2 uint32s we just read
 
-		for (auto i = 0; i < h.extra_data_count; i++)
+		for (auto i = 0; i < hdr.extra_data_count; i++)
 		{
 			VTexExtraData type{};
 			auto offset = 0, size = 0;
 			s >> type >> offset >> size;
 			offset -= 8;
 
+			extraDataSize += size;
 
 			auto prevOffset = s.pos;
 
 			s.pos += offset;
-			auto shit = new char[size];
-			s.read(shit, size);
+
+			if (type == VTexExtraData::METADATA)
+			{
+				s.pos += 2;
+				uint16_t nw, nh;
+				s >> nw >> nh;
+				if (nw > 0 && nh > 0 && ActualWidth >= nw && ActualHeight >= nh)
+				{
+					ActualWidth = nw;
+					ActualHeight = nh;
+				}
+			}
+
+			s.pos = prevOffset;
 		}
 	}
+	s.pos += extraDataSize;
 
-	auto d = s.pos + s.data;
-	auto dataSize = fileSize - s.pos - (header - buffer);
+	auto inputData = s.pos + s.data;
+	auto dataSize = fileSize - s.pos;
 
 	ImageData ret;
-	ret.w = h.width;
-	ret.h = h.height;
+	ret.w = ActualWidth;
+	ret.h = ActualHeight;
 
 	using enum VTexFormat;
-	switch (h.format) {
+	switch (hdr.format) {
 	case RGBA8:
 	case BGRA8:
 	{
-		if (h.format == VTexFormat::BGRA8)
+		if (hdr.format == VTexFormat::BGRA8)
 			for (int i = 0; i < dataSize; i += 4) {
-				std::swap(d[i], d[i + 2]);
+				std::swap(inputData[i], inputData[i + 2]);
 			}
 
 		ret.data = mem->Alloc<uint8_t>(dataSize);
-		memcpy(ret.data, d, dataSize);
+		memcpy(ret.data, inputData, dataSize);
 		break;
 	}
 	case PNG_RGBA8: {
 		int x, y, comp;
-		auto png = stbi_load_from_memory((stbi_uc*)d, dataSize, &x, &y, &comp, 4);
+		auto png = stbi_load_from_memory((stbi_uc*)inputData, dataSize, &x, &y, &comp, 4);
 
 		ret.data = mem->Alloc<uint8_t>(x * y * comp);
 		memcpy(ret.data, png, x * y * comp);
@@ -76,10 +97,12 @@ VTexParser::ImageData VTexParser::Load(const char* filename) {
 	}
 	case DXT5:
 	{
-		auto out = mem->Alloc<unsigned char>(h.width * h.height * 4);
-		DXT5Decoder((uint8_t*)d, h.width, h.height).Decode(out);
+		auto outSize = ActualWidth * ActualHeight * 4;
+		auto out = mem->Alloc<unsigned char>(outSize);
+
+		DXT5Decoder((uint8_t*)inputData, ActualWidth, ActualHeight, hdr.width, hdr.height).Decode(out);
 		// BGRA shenanigans... again?
-		for (int i = 0; i < h.width * h.height * 4; i += 4) {
+		for (int i = 0; i < outSize; i += 4) {
 			std::swap(out[i], out[i + 2]);
 		}
 		ret.data = out;

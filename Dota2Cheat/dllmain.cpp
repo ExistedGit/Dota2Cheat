@@ -63,11 +63,11 @@ void HackThread(HMODULE hModule) {
 	//	auto Decode = Memory::Scan("E8 ? ? ? ? 44 0F B6 BD ? ? ? ? 44 22 F8 44 88 BD ? ? ? ? E9", "networksystem.dll").GetAbsoluteAddress(1);
 	//	HOOKFUNC(Decode);
 	//}
-	{
-		auto OnDemoHero = Memory::Scan("48 89 4C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 81 EC ? ? ? ? 48 8D 6C 24 ? 48 8B 05 ? ? ? ? ",
-			"client.dll");
-		HOOKFUNC(OnDemoHero);
-	}
+	//{
+	//	auto OnDemoHero = Memory::Scan("48 89 4C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 81 EC ? ? ? ? 48 8D 6C 24 ? 48 8B 05 ? ? ? ? ",
+	//		"client.dll");
+	//	HOOKFUNC(OnDemoHero);
+	//}
 
 	MatchStateManager.CheckForOngoingGame();
 

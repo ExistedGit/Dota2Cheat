@@ -65,7 +65,7 @@ void DXT5Decoder::DecompressBlockDXT1(int x, int y, int width, uint8_t blockStor
 
 			auto pixelIndex = ((y + j) * stride) + ((x + i) * 4);
 
-			if (x + i < width /*&& pixels.Length > pixelIndex + 3*/)
+			if (x + i < width && outSize > pixelIndex + 3)
 			{
 				pixels[pixelIndex] = finalB;
 				pixels[pixelIndex + 1] = finalG;
@@ -91,7 +91,7 @@ void DXT5Decoder::Decompress8BitBlock(int bx, int w, int offset, uint64_t block,
 			uint32_t index = (byte)(code & 0x07);
 			code >>= 3;
 
-			if (bx + x >= w /*|| pixels.Length <= dataIndex*/)
+			if (bx + x >= w || outSize <= dataIndex)
 				continue;
 
 			if (index == 0)
@@ -121,10 +121,11 @@ void DXT5Decoder::Decode(byte* out)
 	bool yCoCg = true;
 
 	auto offset = 0;
-	auto blockCountX = (w + 3) / 4;
-	auto blockCountY = (h + 3) / 4;
+	auto blockCountX = (blockWidth + 3) / 4;
+	auto blockCountY = (blockHeight + 3) / 4;
 	auto imageWidth = w;
-	auto rowBytes = h * 4;
+	auto rowBytes = w * 4;
+
 	auto data = out;
 
 	for (auto j = 0; j < blockCountY; j++)
@@ -144,7 +145,7 @@ void DXT5Decoder::Decode(byte* out)
 				for (auto x = 0; x < 4; x++)
 				{
 					auto dataIndex = ofs + (x * 4) + (y * rowBytes);
-					if ((i * 4) + x >= imageWidth /*|| data.Length < dataIndex + 3*/)
+					if ((i * 4) + x >= imageWidth || outSize < dataIndex + 3)
 					{
 						break;
 					}
