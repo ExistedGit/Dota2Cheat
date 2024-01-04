@@ -19,7 +19,7 @@ void Hooks::hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* m
 	{
 		for (auto l : Listeners)
 			l->OnReceivedMsg(messageHandle, msg);
-		//Modules::AttackAnimTracker.ProcessAttackAnimMessage(messageHandle, msg);
+		Modules::AttackAnimTracker.ProcessAttackAnimMessage(messageHandle, msg);
 	}
 	return ((decltype(&hkPostReceivedNetMessage))oPostReceivedNetMessage)(thisptr, messageHandle, msg, type, bits);
 }

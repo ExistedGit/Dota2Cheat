@@ -94,7 +94,17 @@ public:
 	FIELD(CUtlVector<CHandle<CEconWearable>>, OldWearables, Netvars::C_DOTA_BaseNPC::m_hOldWearables);
 
 	[[nodiscard]]
-	std::vector<CDOTABaseAbility*> GetAbilities();
+	std::vector<CDOTABaseAbility*> GetAbilities() {
+		std::vector<CDOTABaseAbility*> result{};
+		auto hAbilities = MemberInline<CHandle<CDOTABaseAbility>>(Netvars::C_DOTA_BaseNPC::m_hAbilities);
+		for (int j = 0; j < 35; j++) {
+			auto handle = hAbilities[j];
+			
+			if (handle)
+				result.push_back(handle);
+		}
+		return result;
+	}
 
 	CDOTABaseAbility* GetAbility(int index)
 	{

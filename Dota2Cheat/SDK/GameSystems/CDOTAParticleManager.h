@@ -64,8 +64,49 @@ private:
 
 static_assert(sizeof(CreateParticleInfo) == 0x40);
 
+
+class CParticleCollectionRendererVecInput : public VClass {
+public:
+	FIELD(Color, LiteralColor, Netvars::CParticleVecInput::m_LiteralColor);
+};
+
+enum ParticleColorBlendType_t {
+	PARTICLE_COLOR_BLEND_MULTIPLY = 0,
+	PARTICLE_COLOR_BLEND_MULTIPLY2X = 1,
+	PARTICLE_COLOR_BLEND_DIVIDE = 2,
+	PARTICLE_COLOR_BLEND_ADD = 3,
+	PARTICLE_COLOR_BLEND_SUBTRACT = 4,
+	PARTICLE_COLOR_BLEND_MOD2X = 5,
+	PARTICLE_COLOR_BLEND_SCREEN = 6,
+	PARTICLE_COLOR_BLEND_MAX = 7,
+	PARTICLE_COLOR_BLEND_MIN = 8,
+	PARTICLE_COLOR_BLEND_REPLACE = 9,
+	PARTICLE_COLOR_BLEND_AVERAGE = 10,
+	PARTICLE_COLOR_BLEND_NEGATE = 11,
+	PARTICLE_COLOR_BLEND_LUMINANCE = 12,
+};
+
+
+class C_OP_RenderSprites : public VClass {
+public:
+	IGETTER(CParticleCollectionRendererVecInput, GetVecColorScale, Netvars::CBaseRendererSource2::m_vecColorScale);
+	FIELD(ParticleColorBlendType_t, BlendType, Netvars::CBaseRendererSource2::m_nColorBlendType);
+};
+
+class CParticleSystemDefinition : public VClass {
+public:
+	GETTER(CUtlVector<C_OP_RenderSprites*>, GetRenderers, Netvars::CParticleSystemDefinition::m_Renderers);
+};
+
+
 class CParticleCollection : public VClass {
 public:
+	struct ParticleDef {
+		CParticleSystemDefinition* pDef;
+		const char* szResource;
+	};
+
+	FIELD(ParticleDef*, Definition, 0x18);
 	VGETTER(bool, GetRenderingEnabled, VTableIndexes::CParticleCollection::SetRenderingEnabled - 1);
 	void SetRenderingEnabled(bool value) {
 		CallVFunc<VTableIndexes::CParticleCollection::SetRenderingEnabled>(value);

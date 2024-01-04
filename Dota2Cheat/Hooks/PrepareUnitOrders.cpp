@@ -49,4 +49,6 @@ bool Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t o
 
 	if (giveOrder)
 		return oPrepareUnitOrders(player, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
+
+	return false;
 }

@@ -1,8 +1,12 @@
 #include "MainMenu.h"
-#include "../../Modules/UI/AbilityESP.h"
+//#include "../../Modules/UI/AbilityESP.h"
 #include "../../Modules/Hacks/SkinChanger.h"
 #include "../../Modules/UI/UIOverhaul.h"
 #include "../../Modules/Hacks/DotaPlusUnlocker.h"
+//#include "../../CheatSDK/Systems/Localization.h"
+
+// Localize string via token
+#define L(str) locale.Get(u8##str)
 
 void Pages::MainMenu::Draw() {
 	ImGui::Begin("Main", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
@@ -48,24 +52,43 @@ void Pages::MainMenu::Draw() {
 	ImGui::End();
 #endif // _DEBUG
 
+
 	if (ctx.gameStage == GameStage::IN_GAME)
 		if (CheatGui::Button("Circle drawing"))
 			circleMenuVisible = !circleMenuVisible;
+	{
+		static int localeIdx = 0;
+		static std::vector<std::string> localeNames;
+		static std::vector<std::string> locales;
 
-	if (ImGui::TreeNode("AutoAccept")) {
-		ImGui::Checkbox("Enabled", &Config::AutoAccept::Enabled);
-		if (Config::AutoAccept::Enabled) {
-			ImGui::SliderInt("Delay", &Config::AutoAccept::Delay, 0, 6);
-			//ImGui::Checkbox("Send telegram notifications", &Config::AutoAccept::SendTelegramNotifications);
-			//if (Config::AutoAccept::SendTelegramNotifications) {
-			//	ImGui::InputUInt64("Telegram ID", &Config::API::TelegramID);
-			//	ImGui::SameLine(); HelpMarker("First, start the bot at t.me/dotacheatnotifybot\nThen get your ID at t.me/getmyid_bot");
-			//}
+
+		if (locales.size() == 0) {
+			for (const auto& [k, v] : locale.schema.items()) {
+				localeNames.push_back(std::string(v));
+				locales.push_back(std::string(k));
+			}
+
+			for (int i = 0; i < locales.size(); i++) {
+				if (locales[i] == Config::Locale)
+					localeIdx = i;
+			}
 		}
+
+		if (CheatGui::Combo("Language", &localeIdx, localeNames)) {
+			locale.Init(locales[localeIdx]);
+			Config::Locale = locales[localeIdx];
+		};
+	}
+	if (ImGui::TreeNode("AutoAccept")) {
+		ImGui::Checkbox(locale.Get(u8"General.Enable"), &Config::AutoAccept::Enabled);
+		if (Config::AutoAccept::Enabled)
+			ImGui::SliderInt(locale.Get(u8"AutoAccept.Delay"), &Config::AutoAccept::Delay, 0, 6);
+		
 		ImGui::TreePop();
 	}
+
 	if (ImGui::TreeNode("Bars")) {
-		ImGui::Checkbox("Manabars", &Config::Bars::ManaBars);
+		ImGui::Checkbox(L("Manabars"), &Config::Bars::ManaBars);
 		ImGui::Checkbox("HP amount on healthbar", &Config::Bars::HPNumbers);
 		ImGui::TreePop();
 	}
@@ -231,8 +254,8 @@ void Pages::MainMenu::Draw() {
 	ImGui::SameLine(); HelpMarker("Shows a dot on creeps when you can last hit/deny them");
 
 	ImGui::Checkbox("Perfect Blink", &Config::PerfectBlink);
-	ImGui::Checkbox("Prevent bad casts", &Config::BadCastPrevention);
-	ImGui::SameLine(); HelpMarker("Detects if there are enemy heroes within range of some AOE skills to prevent bad casts. e.g, Chronosphere, Black hole, Reverse polarity, etc.");
+	ImGui::Checkbox(locale.Get(u8"BadCastPrevention.Enable"), &Config::BadCastPrevention);
+	ImGui::SameLine(); HelpMarker(locale.Get(u8"BadCastPrevention.Desc"));
 
 	ImGui::Checkbox("Redirect illusion casts", &Config::CastRedirection);
 	ImGui::SameLine(); HelpMarker("You cast something on an illusion - it aims for the real hero(if they're in range, of course)");

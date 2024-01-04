@@ -16,6 +16,7 @@ void Config::ConfigManager::SaveConfig(std::ofstream& stream) {
 		case FLOAT: entry = *(float*)var.val; break;
 		case INT: entry = *(int*)var.val; break;
 		case UINT_64: entry = *(uint64_t*)var.val; break;
+		case STRING: entry = *(std::string*)var.val; break;
 		case VECTOR2D: {
 			Vector2D& vec = *(Vector2D*)var.val;
 			entry["x"] = vec.x;
@@ -50,6 +51,7 @@ void Config::ConfigManager::LoadConfig(std::ifstream& stream) {
 		case FLOAT: *(float*)var.val = entry; break;
 		case INT: *(int*)var.val = entry; break;
 		case UINT_64: *(uint64_t*)var.val = entry; break;
+		case STRING: *(std::string*)var.val = entry; break;
 		case VECTOR2D: {
 			Vector2D& vec = *(Vector2D*)var.val;
 			vec.x = entry["x"];
@@ -130,6 +132,7 @@ void Config::ConfigManager::SetupVars() {
 	CFG_VAR(UIOverhaul::NetworthPanel, true);
 
 	CFG_VAR(ModifierRevealer::LinkenSphere, true);
+	CFG_VAR(ModifierRevealer::MirrorShield, true);
 	CFG_VAR(ModifierRevealer::TargetedSpells, true);
 	CFG_VAR(ModifierRevealer::TrueSight, true);
 
@@ -171,4 +174,7 @@ void Config::ConfigManager::SetupVars() {
 
 	CFG_VAR(AutoMidas::Enabled, false);
 	CFG_VAR(AutoMidas::XPTreshold, 60);
+
+	using namespace std::string_literals;
+	CFG_VAR(Locale, "en_US"s);
 }

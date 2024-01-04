@@ -73,6 +73,7 @@ void CCheatManager::LoadFiles() {
 
 		Log(LP_INFO, "Loaded config from ", cheatFolderPath, "\\config\\base.json\n");
 	}
+	locale.Init(Config::Locale);
 }
 
 void CCheatManager::Initialize(HMODULE hModule) {

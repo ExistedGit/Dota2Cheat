@@ -390,4 +390,7 @@
     <ClInclude Include="CheatSDK\VTexDecoders\vtex.h" />
     <ClInclude Include="CheatSDK\Systems\AssetManager.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
+  </ItemGroup>
 </Project>

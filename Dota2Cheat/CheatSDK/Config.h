@@ -12,7 +12,8 @@ namespace Config {
 			UINT_64,
 			FLOAT,
 			VECTOR2D,
-			VECTOR3D
+			VECTOR3D,
+			STRING
 		};
 		struct ConfigVar {
 			void* val;
@@ -40,6 +41,7 @@ namespace Config {
 			CFGVAR_INFER(Vector, ConfigVarType::VECTOR3D);
 			CFGVAR_INFER(Vector2D, ConfigVarType::VECTOR2D);
 			CFGVAR_INFER(uint64_t, ConfigVarType::UINT_64);
+			CFGVAR_INFER(std::string, ConfigVarType::STRING);
 		}
 
 #undef CFGVAR_INFER
@@ -136,6 +138,7 @@ namespace Config {
 		inline bool TargetedSpells;
 		inline bool TrueSight;
 		inline bool LinkenSphere;
+		inline bool MirrorShield;
 	}
 
 	namespace Changer {
@@ -179,6 +182,8 @@ namespace Config {
 		inline bool Enabled;
 		inline Vector Color;
 	}
+
+	inline std::string Locale;
 
 	inline int CircleRadius;
 	inline Vector CircleRGB;

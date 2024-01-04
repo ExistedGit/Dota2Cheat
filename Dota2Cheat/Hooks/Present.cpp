@@ -95,7 +95,11 @@ long Hooks::hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags)
 	}
 
 	auto& io = ImGui::GetIO();
-	static auto defaultFont = io.Fonts->AddFontDefault();
+	//ImFontConfig defCfg{};
+	//defCfg.GlyphRanges = io.Fonts->GetGlyphRangesCyrillic();
+	//static auto defaultFont = io.Fonts->AddFontDefault(&defCfg);
+	//static auto defaultFont = io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\segoeui.ttf", 18.0f, nullptr, io.Fonts->GetGlyphRangesCyrillic());
+	static auto defaultFont = io.Fonts->AddFontFromMemoryTTF((void*)Fonts::Roboto, IM_ARRAYSIZE(Fonts::Roboto), 18.0f, nullptr, io.Fonts->GetGlyphRangesCyrillic());
 
 	ImGui_ImplDX11_NewFrame();
 	ImGui_ImplWin32_NewFrame();

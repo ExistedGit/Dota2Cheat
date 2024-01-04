@@ -1,0 +1,8 @@
+root = true
+
+[*.json]
+charset = utf-8
+
+[*.cpp, *.h]
+indent_style = tab
+indent_size = 4

@@ -689,6 +689,24 @@ namespace Netvars {
 		constexpr uint32_t m_materialGroup = 0x394; // CUtlStringToken
 		constexpr uint32_t m_nHitboxSet = 0x398; // uint8
 	}
+	namespace CParticleFunction {
+		constexpr uint32_t m_flOpStrength = 0x8; // CParticleCollectionFloatInput
+		constexpr uint32_t m_nOpEndCapState = 0x160; // ParticleEndcapMode_t
+		constexpr uint32_t m_flOpStartFadeInTime = 0x164; // float32
+		constexpr uint32_t m_flOpEndFadeInTime = 0x168; // float32
+		constexpr uint32_t m_flOpStartFadeOutTime = 0x16c; // float32
+		constexpr uint32_t m_flOpEndFadeOutTime = 0x170; // float32
+		constexpr uint32_t m_flOpFadeOscillatePeriod = 0x174; // float32
+		constexpr uint32_t m_bNormalizeToStopTime = 0x178; // bool
+		constexpr uint32_t m_flOpTimeOffsetMin = 0x17c; // float32
+		constexpr uint32_t m_flOpTimeOffsetMax = 0x180; // float32
+		constexpr uint32_t m_nOpTimeOffsetSeed = 0x184; // int32
+		constexpr uint32_t m_nOpTimeScaleSeed = 0x188; // int32
+		constexpr uint32_t m_flOpTimeScaleMin = 0x18c; // float32
+		constexpr uint32_t m_flOpTimeScaleMax = 0x190; // float32
+		constexpr uint32_t m_bDisableOperator = 0x196; // bool
+		constexpr uint32_t m_Notes = 0x198; // CUtlString
+	}
 	namespace CGameSceneNode {
 		constexpr uint32_t m_bDirtyHierarchy = 0x0; // bitfield:1
 		constexpr uint32_t m_nodeToWorld = 0x10; // CTransform
@@ -1072,6 +1090,98 @@ namespace Netvars {
 	namespace C_DOTAGamerulesProxy {
 		constexpr uint32_t m_pGameRules = 0x538; // C_DOTAGamerules*
 	}
+	namespace CBaseRendererSource2 {
+		constexpr uint32_t m_flRadiusScale = 0x200; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_flAlphaScale = 0x358; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_flRollScale = 0x4b0; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_nAlpha2Field = 0x608; // ParticleAttributeIndex_t
+		constexpr uint32_t m_vecColorScale = 0x610; // CParticleCollectionRendererVecInput
+		constexpr uint32_t m_nColorBlendType = 0xc68; // ParticleColorBlendType_t
+		constexpr uint32_t m_nShaderType = 0xc6c; // SpriteCardShaderType_t
+		constexpr uint32_t m_strShaderOverride = 0xc70; // CUtlString
+		constexpr uint32_t m_flCenterXOffset = 0xc78; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_flCenterYOffset = 0xdd0; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_flBumpStrength = 0xf28; // float32
+		constexpr uint32_t m_nCropTextureOverride = 0xf2c; // ParticleSequenceCropOverride_t
+		constexpr uint32_t m_vecTexturesInput = 0xf30; // CUtlVector< TextureGroup_t >
+		constexpr uint32_t m_flAnimationRate = 0xf48; // float32
+		constexpr uint32_t m_nAnimationType = 0xf4c; // AnimationType_t
+		constexpr uint32_t m_bAnimateInFPS = 0xf50; // bool
+		constexpr uint32_t m_flSelfIllumAmount = 0xf58; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_flDiffuseAmount = 0x10b0; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_nLightingControlPoint = 0x1208; // int32
+		constexpr uint32_t m_nSelfIllumPerParticle = 0x120c; // ParticleAttributeIndex_t
+		constexpr uint32_t m_nOutputBlendMode = 0x1210; // ParticleOutputBlendMode_t
+		constexpr uint32_t m_bGammaCorrectVertexColors = 0x1214; // bool
+		constexpr uint32_t m_bSaturateColorPreAlphaBlend = 0x1215; // bool
+		constexpr uint32_t m_flAddSelfAmount = 0x1218; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_flDesaturation = 0x1370; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_flOverbrightFactor = 0x14c8; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_nHSVShiftControlPoint = 0x1620; // int32
+		constexpr uint32_t m_nFogType = 0x1624; // ParticleFogType_t
+		constexpr uint32_t m_flFogAmount = 0x1628; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_bTintByFOW = 0x1780; // bool
+		constexpr uint32_t m_bTintByGlobalLight = 0x1781; // bool
+		constexpr uint32_t m_nPerParticleAlphaReference = 0x1784; // SpriteCardPerParticleScale_t
+		constexpr uint32_t m_nPerParticleAlphaRefWindow = 0x1788; // SpriteCardPerParticleScale_t
+		constexpr uint32_t m_nAlphaReferenceType = 0x178c; // ParticleAlphaReferenceType_t
+		constexpr uint32_t m_flAlphaReferenceSoftness = 0x1790; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_flSourceAlphaValueToMapToZero = 0x18e8; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_flSourceAlphaValueToMapToOne = 0x1a40; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_bRefract = 0x1b98; // bool
+		constexpr uint32_t m_bRefractSolid = 0x1b99; // bool
+		constexpr uint32_t m_flRefractAmount = 0x1ba0; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_nRefractBlurRadius = 0x1cf8; // int32
+		constexpr uint32_t m_nRefractBlurType = 0x1cfc; // BlurFilterType_t
+		constexpr uint32_t m_bOnlyRenderInEffectsBloomPass = 0x1d00; // bool
+		constexpr uint32_t m_bOnlyRenderInEffectsWaterPass = 0x1d01; // bool
+		constexpr uint32_t m_bUseMixedResolutionRendering = 0x1d02; // bool
+		constexpr uint32_t m_bOnlyRenderInEffecsGameOverlay = 0x1d03; // bool
+		constexpr uint32_t m_stencilTestID = 0x1d04; // char[128]
+		constexpr uint32_t m_bStencilTestExclude = 0x1d84; // bool
+		constexpr uint32_t m_stencilWriteID = 0x1d85; // char[128]
+		constexpr uint32_t m_bWriteStencilOnDepthPass = 0x1e05; // bool
+		constexpr uint32_t m_bWriteStencilOnDepthFail = 0x1e06; // bool
+		constexpr uint32_t m_bReverseZBuffering = 0x1e07; // bool
+		constexpr uint32_t m_bDisableZBuffering = 0x1e08; // bool
+		constexpr uint32_t m_nFeatheringMode = 0x1e0c; // ParticleDepthFeatheringMode_t
+		constexpr uint32_t m_flFeatheringMinDist = 0x1e10; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_flFeatheringMaxDist = 0x1f68; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_flFeatheringFilter = 0x20c0; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_flDepthBias = 0x2218; // float32
+		constexpr uint32_t m_nSortMethod = 0x221c; // ParticleSortingChoiceList_t
+		constexpr uint32_t m_bBlendFramesSeq0 = 0x2220; // bool
+		constexpr uint32_t m_bMaxLuminanceBlendingSequence0 = 0x2221; // bool
+	}
+	namespace C_OP_RenderSprites {
+		constexpr uint32_t m_nSequenceOverride = 0x2470; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_nOrientationType = 0x25c8; // ParticleOrientationChoiceList_t
+		constexpr uint32_t m_nOrientationControlPoint = 0x25cc; // int32
+		constexpr uint32_t m_bUseYawWithNormalAligned = 0x25d0; // bool
+		constexpr uint32_t m_flMinSize = 0x25d8; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_flMaxSize = 0x2730; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_flAlphaAdjustWithSizeAdjust = 0x2888; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_flStartFadeSize = 0x29e0; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_flEndFadeSize = 0x2b38; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_flStartFadeDot = 0x2c90; // float32
+		constexpr uint32_t m_flEndFadeDot = 0x2c94; // float32
+		constexpr uint32_t m_bDistanceAlpha = 0x2c98; // bool
+		constexpr uint32_t m_bSoftEdges = 0x2c99; // bool
+		constexpr uint32_t m_flEdgeSoftnessStart = 0x2c9c; // float32
+		constexpr uint32_t m_flEdgeSoftnessEnd = 0x2ca0; // float32
+		constexpr uint32_t m_bOutline = 0x2ca4; // bool
+		constexpr uint32_t m_OutlineColor = 0x2ca5; // Color
+		constexpr uint32_t m_nOutlineAlpha = 0x2cac; // int32
+		constexpr uint32_t m_flOutlineStart0 = 0x2cb0; // float32
+		constexpr uint32_t m_flOutlineStart1 = 0x2cb4; // float32
+		constexpr uint32_t m_flOutlineEnd0 = 0x2cb8; // float32
+		constexpr uint32_t m_flOutlineEnd1 = 0x2cbc; // float32
+		constexpr uint32_t m_nLightingMode = 0x2cc0; // ParticleLightingQuality_t
+		constexpr uint32_t m_flLightingTessellation = 0x2cc8; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_flLightingDirectionality = 0x2e20; // CParticleCollectionRendererFloatInput
+		constexpr uint32_t m_bParticleShadows = 0x2f78; // bool
+		constexpr uint32_t m_flShadowDensity = 0x2f7c; // float32
+	}
 	namespace C_DOTAWearableItem {
 		constexpr uint32_t m_bOwnerModelChanged = 0xaf8; // bool
 		constexpr uint32_t m_bIsGeneratingEconItem = 0xaf9; // bool
@@ -1147,5 +1257,123 @@ namespace Netvars {
 		constexpr uint32_t m_iParticles = 0xa0; // CUtlVector< CDOTA_BuffParticle >
 		constexpr uint32_t m_hAuraUnits = 0xb8; // CUtlVector< CHandle< CBaseEntity > >
 		constexpr uint32_t m_hScriptScope = 0x1330; // HSCRIPT
+	}
+	namespace CParticleFunctionRenderer {
+		constexpr uint32_t VisibilityInputs = 0x1b8; // CParticleVisibilityInputs
+		constexpr uint32_t m_bCannotBeRefracted = 0x1fc; // bool
+		constexpr uint32_t m_bSkipRenderingOnMobile = 0x1fd; // bool
+	}
+	namespace CNewParticleEffect {
+		constexpr uint32_t m_bDontRemove = 0x0; // bitfield:1
+		constexpr uint32_t m_pNext = 0x10; // CNewParticleEffect*
+		constexpr uint32_t m_pPrev = 0x18; // CNewParticleEffect*
+		constexpr uint32_t m_pParticles = 0x20; // IParticleCollection*
+		constexpr uint32_t m_pDebugName = 0x28; // char*
+		constexpr uint32_t m_vSortOrigin = 0x40; // Vector
+		constexpr uint32_t m_flScale = 0x4c; // float32
+		constexpr uint32_t m_hOwner = 0x50; // PARTICLE_EHANDLE__*
+		constexpr uint32_t m_pOwningParticleProperty = 0x58; // CParticleProperty*
+		constexpr uint32_t m_flFreezeTransitionStart = 0x70; // float32
+		constexpr uint32_t m_flFreezeTransitionDuration = 0x74; // float32
+		constexpr uint32_t m_flFreezeTransitionOverride = 0x78; // float32
+		constexpr uint32_t m_bFreezeTransitionActive = 0x7c; // bool
+		constexpr uint32_t m_bFreezeTargetState = 0x7d; // bool
+		constexpr uint32_t m_bCanFreeze = 0x7e; // bool
+		constexpr uint32_t m_LastMin = 0x80; // Vector
+		constexpr uint32_t m_LastMax = 0x8c; // Vector
+		constexpr uint32_t m_nSplitScreenUser = 0x98; // CSplitScreenSlot
+		constexpr uint32_t m_vecAggregationCenter = 0x9c; // Vector
+		constexpr uint32_t m_RefCount = 0xc0; // int32
+	}
+	namespace CParticleSystemDefinition {
+		constexpr uint32_t m_nBehaviorVersion = 0x8; // int32
+		constexpr uint32_t m_PreEmissionOperators = 0x10; // CUtlVector< CParticleFunctionPreEmission* >
+		constexpr uint32_t m_Emitters = 0x28; // CUtlVector< CParticleFunctionEmitter* >
+		constexpr uint32_t m_Initializers = 0x40; // CUtlVector< CParticleFunctionInitializer* >
+		constexpr uint32_t m_Operators = 0x58; // CUtlVector< CParticleFunctionOperator* >
+		constexpr uint32_t m_ForceGenerators = 0x70; // CUtlVector< CParticleFunctionForce* >
+		constexpr uint32_t m_Constraints = 0x88; // CUtlVector< CParticleFunctionConstraint* >
+		constexpr uint32_t m_Renderers = 0xa0; // CUtlVector< CParticleFunctionRenderer* >
+		constexpr uint32_t m_Children = 0xb8; // CUtlVector< ParticleChildrenInfo_t >
+		constexpr uint32_t m_nFirstMultipleOverride_BackwardCompat = 0x178; // int32
+		constexpr uint32_t m_nInitialParticles = 0x210; // int32
+		constexpr uint32_t m_nMaxParticles = 0x214; // int32
+		constexpr uint32_t m_nGroupID = 0x218; // int32
+		constexpr uint32_t m_BoundingBoxMin = 0x21c; // Vector
+		constexpr uint32_t m_BoundingBoxMax = 0x228; // Vector
+		constexpr uint32_t m_flDepthSortBias = 0x234; // float32
+		constexpr uint32_t m_nSortOverridePositionCP = 0x238; // int32
+		constexpr uint32_t m_bInfiniteBounds = 0x23c; // bool
+		constexpr uint32_t m_bEnableNamedValues = 0x23d; // bool
+		constexpr uint32_t m_NamedValueDomain = 0x240; // CUtlString
+		constexpr uint32_t m_NamedValueLocals = 0x248; // CUtlVector< ParticleNamedValueSource_t* >
+		constexpr uint32_t m_ConstantColor = 0x260; // Color
+		constexpr uint32_t m_ConstantNormal = 0x264; // Vector
+		constexpr uint32_t m_flConstantRadius = 0x270; // float32
+		constexpr uint32_t m_flConstantRotation = 0x274; // float32
+		constexpr uint32_t m_flConstantRotationSpeed = 0x278; // float32
+		constexpr uint32_t m_flConstantLifespan = 0x27c; // float32
+		constexpr uint32_t m_nConstantSequenceNumber = 0x280; // int32
+		constexpr uint32_t m_nConstantSequenceNumber1 = 0x284; // int32
+		constexpr uint32_t m_nSnapshotControlPoint = 0x288; // int32
+		constexpr uint32_t m_hSnapshot = 0x290; // CStrongHandle< InfoForResourceTypeIParticleSnapshot >
+		constexpr uint32_t m_pszCullReplacementName = 0x298; // CStrongHandle< InfoForResourceTypeIParticleSystemDefinition >
+		constexpr uint32_t m_flCullRadius = 0x2a0; // float32
+		constexpr uint32_t m_flCullFillCost = 0x2a4; // float32
+		constexpr uint32_t m_nCullControlPoint = 0x2a8; // int32
+		constexpr uint32_t m_hFallback = 0x2b0; // CStrongHandle< InfoForResourceTypeIParticleSystemDefinition >
+		constexpr uint32_t m_nFallbackMaxCount = 0x2b8; // int32
+		constexpr uint32_t m_hLowViolenceDef = 0x2c0; // CStrongHandle< InfoForResourceTypeIParticleSystemDefinition >
+		constexpr uint32_t m_hReferenceReplacement = 0x2c8; // CStrongHandle< InfoForResourceTypeIParticleSystemDefinition >
+		constexpr uint32_t m_flPreSimulationTime = 0x2d0; // float32
+		constexpr uint32_t m_flStopSimulationAfterTime = 0x2d4; // float32
+		constexpr uint32_t m_flMaximumTimeStep = 0x2d8; // float32
+		constexpr uint32_t m_flMaximumSimTime = 0x2dc; // float32
+		constexpr uint32_t m_flMinimumSimTime = 0x2e0; // float32
+		constexpr uint32_t m_flMinimumTimeStep = 0x2e4; // float32
+		constexpr uint32_t m_nMinimumFrames = 0x2e8; // int32
+		constexpr uint32_t m_nMinCPULevel = 0x2ec; // int32
+		constexpr uint32_t m_nMinGPULevel = 0x2f0; // int32
+		constexpr uint32_t m_flNoDrawTimeToGoToSleep = 0x2f4; // float32
+		constexpr uint32_t m_flMaxDrawDistance = 0x2f8; // float32
+		constexpr uint32_t m_flStartFadeDistance = 0x2fc; // float32
+		constexpr uint32_t m_flMaxCreationDistance = 0x300; // float32
+		constexpr uint32_t m_nAggregationMinAvailableParticles = 0x304; // int32
+		constexpr uint32_t m_flAggregateRadius = 0x308; // float32
+		constexpr uint32_t m_bShouldBatch = 0x30c; // bool
+		constexpr uint32_t m_bShouldHitboxesFallbackToRenderBounds = 0x30d; // bool
+		constexpr uint32_t m_bShouldHitboxesFallbackToSnapshot = 0x30e; // bool
+		constexpr uint32_t m_nViewModelEffect = 0x310; // InheritableBoolType_t
+		constexpr uint32_t m_bScreenSpaceEffect = 0x314; // bool
+		constexpr uint32_t m_pszTargetLayerID = 0x318; // CUtlSymbolLarge
+		constexpr uint32_t m_nSkipRenderControlPoint = 0x320; // int32
+		constexpr uint32_t m_nAllowRenderControlPoint = 0x324; // int32
+		constexpr uint32_t m_bShouldSort = 0x328; // bool
+		constexpr uint32_t m_controlPointConfigurations = 0x370; // CUtlVector< ParticleControlPointConfiguration_t >
+	}
+	namespace CParticleVecInput {
+		constexpr uint32_t m_nType = 0x10; // ParticleVecType_t
+		constexpr uint32_t m_vLiteralValue = 0x14; // Vector
+		constexpr uint32_t m_LiteralColor = 0x20; // Color
+		constexpr uint32_t m_NamedValue = 0x28; // CParticleNamedValueRef
+		constexpr uint32_t m_bFollowNamedValue = 0x68; // bool
+		constexpr uint32_t m_nVectorAttribute = 0x6c; // ParticleAttributeIndex_t
+		constexpr uint32_t m_vVectorAttributeScale = 0x70; // Vector
+		constexpr uint32_t m_nControlPoint = 0x7c; // int32
+		constexpr uint32_t m_nDeltaControlPoint = 0x80; // int32
+		constexpr uint32_t m_vCPValueScale = 0x84; // Vector
+		constexpr uint32_t m_vCPRelativePosition = 0x90; // Vector
+		constexpr uint32_t m_vCPRelativeDir = 0x9c; // Vector
+		constexpr uint32_t m_FloatComponentX = 0xa8; // CParticleFloatInput
+		constexpr uint32_t m_FloatComponentY = 0x200; // CParticleFloatInput
+		constexpr uint32_t m_FloatComponentZ = 0x358; // CParticleFloatInput
+		constexpr uint32_t m_FloatInterp = 0x4b0; // CParticleFloatInput
+		constexpr uint32_t m_flInterpInput0 = 0x608; // float32
+		constexpr uint32_t m_flInterpInput1 = 0x60c; // float32
+		constexpr uint32_t m_vInterpOutput0 = 0x610; // Vector
+		constexpr uint32_t m_vInterpOutput1 = 0x61c; // Vector
+		constexpr uint32_t m_Gradient = 0x628; // CColorGradient
+		constexpr uint32_t m_vRandomMin = 0x640; // Vector
+		constexpr uint32_t m_vRandomMax = 0x64c; // Vector
 	}
 }
