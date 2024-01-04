@@ -57,7 +57,7 @@ namespace Hooks {
 		if (FAILED(D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_HARDWARE, NULL, NULL, &featureLevel, 1
 			, D3D11_SDK_VERSION, &swapChainDesc, &pSwapChain, &pDevice, NULL, &pContext)))
 		{
-			MessageBox(hWnd, "Failed to create directX device and swapchain!", "uBoos?", MB_ICONERROR);
+			MessageBox(hWnd, "Failed to create DirectX device and swapchain!", "Dota2Cheat", MB_ICONERROR);
 			return false;
 		}
 

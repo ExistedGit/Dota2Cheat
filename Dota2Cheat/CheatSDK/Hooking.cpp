@@ -36,7 +36,7 @@ void Hooks::InstallHooks() {
 		uintptr_t* OnAddModifier = vtable[VTableIndexes::CDOTA_Buff::OnAddModifier];
 		HOOKFUNC(OnAddModifier);
 		HOOKFUNC(OnRemoveModifier);
-		CDOTAParticleManager::DestroyParticleFunc = OnRemoveModifier.Offset(0x5E).GetAbsoluteAddress(1);
+		CDOTAParticleManager::DestroyParticleFunc = OnRemoveModifier.Offset(0x72).GetAbsoluteAddress(1);
 	}
 	{
 		// xref: "CParticleCollection::~CParticleCollection [%p]\n"

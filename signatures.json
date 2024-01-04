@@ -90,7 +90,7 @@
   },
 
   "CDOTAParticleManager::DestroyParticle": {
-    "signature": "E8 ? ? ? ? 48 83 C3 1C",
+    "signature": "E8 ? ? ? ? 41 C7 85",
     "module": "client.dll",
     "steps": [[0, 1]]
   },
