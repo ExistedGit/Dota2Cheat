@@ -177,8 +177,8 @@ public:
 	static inline GetLevelSpecialValueForFn GetLevelSpecialValueForFunc{};
 
 	template<typename T = float>
-	T GetLevelSpecialValueFor(const char* value, int level = -1) {
-		return (T)GetLevelSpecialValueForFunc(this, value, level, nullptr, 0, nullptr);
+	T GetLevelSpecialValueFor(std::string_view value, int level = -1) {
+		return (T)GetLevelSpecialValueForFunc(this, value.data(), level, nullptr, 0, nullptr);
 	}
 
 	GETTER(bool, IsToggled, Netvars::C_DOTABaseAbility::m_bToggleState); // For things like Pudge's Rot or Armlet

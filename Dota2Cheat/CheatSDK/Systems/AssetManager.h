@@ -10,12 +10,12 @@ public:
 
 	struct VTexDir {
 		std::string dir;
-		std::map<std::string, ID3D11ShaderResourceView*> items;
+		std::map<std::string, ID3D11ShaderResourceView*> cache;
 
-		VTexDir(std::string dir) :dir(dir) {}
+		VTexDir(std::string_view dir) :dir(dir) {}
 
 		ID3D11ShaderResourceView* Load(std::string file, std::string postfix = "png") {
-			auto& ret = items[file];
+			auto& ret = cache[file];
 
 			if (!ret) {
 				auto data = VTexParser::Load(prefix + dir + "/" + file + "_" + postfix + ".vtex_c");

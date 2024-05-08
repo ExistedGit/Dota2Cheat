@@ -10,8 +10,6 @@
 inline struct CDrawData {
 	bool Initialized = false;
 
-	// some people love to play with their Dota HUD flipped
-	bool IsHUDFlipped = false;
 	std::map<std::string, std::map<int, ImFont*>> Fonts;
 	bool ShowMenu = false;
 

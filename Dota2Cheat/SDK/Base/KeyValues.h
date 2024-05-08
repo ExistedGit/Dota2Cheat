@@ -21,13 +21,13 @@ struct KeyValues {
 	};
 
 	types_t GetDataType(const char* key = nullptr) const {
-		auto func = Memory::GetExport("tier0.dll", "?GetDataType@KeyValues@@QEBA?AW4types_t@CKeyValues_Data@@PEBD@Z");
+		static auto func = Memory::GetExport("tier0.dll", "?GetDataType@KeyValues@@QEBA?AW4types_t@CKeyValues_Data@@PEBD@Z");
 		return func.Call<types_t>(this, key);
 	}
 
 	static KeyValues* MakeKV(const char* name) {
 		auto kv = CMemAlloc::Instance()->Alloc<KeyValues>(0x14);
-		auto ctor = Memory::GetExport("tier0.dll", "??0KeyValues@@QEAA@PEBD@Z");
+		static auto ctor = Memory::GetExport("tier0.dll", "??0KeyValues@@QEAA@PEBD@Z");
 		ctor(kv, name);
 		return kv;
 	}
@@ -35,31 +35,31 @@ struct KeyValues {
 	bool LoadFromFile(const char* path);
 
 	KeyValues* GetFirstSubKey() const {
-		auto func = Memory::GetExport("tier0.dll", "?GetFirstSubKey@KeyValues@@QEBAPEAV1@XZ");
+		static auto func = Memory::GetExport("tier0.dll", "?GetFirstSubKey@KeyValues@@QEBAPEAV1@XZ");
 		return func.Call<KeyValues*>(this);
 	}
 
 	KeyValues* GetNextKey() const {
-		auto func = Memory::GetExport("tier0.dll", "?GetNextKey@KeyValues@@QEBAPEAV1@XZ");
+		static auto func = Memory::GetExport("tier0.dll", "?GetNextKey@KeyValues@@QEBAPEAV1@XZ");
 		return func.Call<KeyValues*>(this);
 	}
 
 	const char* GetName() {
-		auto func = Memory::GetExport("tier0.dll", "?GetName@KeyValues@@QEBAPEBDXZ");
+		static auto func = Memory::GetExport("tier0.dll", "?GetName@KeyValues@@QEBAPEBDXZ");
 		return func.Call<const char*>(this);
 	}
 
 	void Destroy() {
-		auto func = Memory::GetExport("tier0.dll", "??1KeyValues@@QEAA@XZ");
+		static auto func = Memory::GetExport("tier0.dll", "??1KeyValues@@QEAA@XZ");
 		func(this);
 	}
 
-	struct KVIterator {
+	struct Iterator {
 		KeyValues* node;
 
-		KVIterator(KeyValues* node) : node(node) {}
+		Iterator(KeyValues* node) : node(node) {}
 
-		bool operator!=(const KVIterator& other) {
+		bool operator!=(const Iterator& other) {
 			return other.node != node;
 		}
 
@@ -67,19 +67,19 @@ struct KeyValues {
 			return node;
 		}
 
-		KVIterator operator++() {
+		Iterator operator++() {
 			node = node->GetNextKey();
 			return *this;
 		}
 	};
 
 
-	KVIterator begin() const {
-		return GetFirstSubKey();
-	}
-
-	KVIterator end() const {
-		return nullptr;
-	}
 };
+KeyValues::Iterator begin(KeyValues* kv) {
+	return kv->GetFirstSubKey();
+}
+
+KeyValues::Iterator end(KeyValues*) {
+	return nullptr;
+}
 

@@ -21,6 +21,7 @@ public:
 #define EVENT_SUB(name) auto name = CMemAlloc::Instance()->AllocInit<name ## _l>(); \
 (*GameSystems::GameEventManagerPtr)->AddListener(name, #name); \
 Listeners.insert(name);
+
 #define LOG_EVENT(name) auto name##_logger = CMemAlloc::Instance()->AllocInit<event_func>(); \
 name##_logger->SetFunc([](CGameEvent* ev) { LogF(LP_INFO, "[EVENT] {}", #name); }); \
 (*GameSystems::GameEventManagerPtr)->AddListener(name##_logger, #name); \

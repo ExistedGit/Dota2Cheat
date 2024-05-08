@@ -20,11 +20,11 @@ inline uint32_t CountVMs(void* Interface)
 class VMT
 {
 public:
-	uintptr_t* vmt;
+	void** vmt;
 
 	explicit VMT(auto* obj)
 	{
-		vmt = *(uintptr_t**)obj;
+		vmt = *(void***)obj;
 	}
 
 	// Get virtual method
@@ -32,5 +32,9 @@ public:
 	T GetVM(size_t methodIndex)
 	{
 		return (T)vmt[methodIndex];
+	}
+
+	void* operator[](int i) {
+		return vmt[i];
 	}
 };

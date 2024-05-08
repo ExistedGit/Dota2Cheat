@@ -77,20 +77,19 @@ public:
 		const static std::string delimiter = ".";
 		auto nameCopy = name;
 		json* entryPtr = nullptr;
-		{
+		
+		size_t pos = 0;
+		std::string token;
+		while ((pos = nameCopy.find(delimiter)) != std::string::npos) {
+			token = nameCopy.substr(0, pos);
+			if (!entryPtr)
+				entryPtr = &data[token];
+			else
+				entryPtr = &((*entryPtr)[token]);
 
-			size_t pos = 0;
-			std::string token;
-			while ((pos = nameCopy.find(delimiter)) != std::string::npos) {
-				token = nameCopy.substr(0, pos);
-				if (!entryPtr)
-					entryPtr = &data[token];
-				else
-					entryPtr = &((*entryPtr)[token]);
-
-				nameCopy.erase(0, pos + delimiter.length());
-			}
+			nameCopy.erase(0, pos + delimiter.length());
 		}
+		
 		if (!entryPtr)
 			entryPtr = &data[name];
 		else

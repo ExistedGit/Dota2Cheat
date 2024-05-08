@@ -2,10 +2,10 @@
 #include "../../CheatSDK/Systems/TextureManager.h"
 
 void Pages::AutoPickHeroGrid::InitList() {
-	auto npc_heroes = KeyValues::MakeKV("Shit");
+	auto npc_heroes = KeyValues::MakeKV("npc_heroes");
 	npc_heroes->LoadFromFile("scripts/npc/npc_heroes.txt");
 
-	for(auto node : *npc_heroes) {
+	for(auto node : npc_heroes) {
 		if (!node->GetFirstSubKey()) // not considering non-hero nodes
 			continue;
 

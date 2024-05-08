@@ -1,7 +1,7 @@
 #include "BadCastPrevention.h"
 #include "../../CheatSDK/Config.h"
 
-bool Modules::BadCastPrevention::AreEnemyUnitsInArea(const Vector& center, int radius) {
+bool Modules::BadCastPrevention::M_BadCastPrevention::AreEnemyUnitsInArea(const Vector& center, int radius) {
 	const auto condition = [this, center, radius](const auto& ent) ->bool {
 		return !ent->IsSameTeam(ctx.localHero)
 			&& IsWithinRadius(center, ent->GetPos(), radius)
@@ -10,7 +10,7 @@ bool Modules::BadCastPrevention::AreEnemyUnitsInArea(const Vector& center, int r
 	return EntityList.ContainsTypes(condition, EntityType::Hero, EntityType::Creep);
 }
 
-bool Modules::BadCastPrevention::AreEnemyHeroesInArea(const Vector& center, int radius) {
+bool Modules::BadCastPrevention::M_BadCastPrevention::AreEnemyHeroesInArea(const Vector& center, int radius) {
 	const auto condition = [this, center, radius](const auto& ent) ->bool {
 		return !ent->IsSameTeam(ctx.localHero)
 			&& IsWithinRadius(center, ent->GetPos(), radius)
@@ -20,7 +20,7 @@ bool Modules::BadCastPrevention::AreEnemyHeroesInArea(const Vector& center, int 
 }
 
 // Checks whether the ability is cast at an area without enemy heroes/units
-bool Modules::BadCastPrevention::IsBadCast(dotaunitorder_t orderType, UINT32 targetIdx, Vector* pos, UINT32 abilityIdx, CBaseEntity* issuer) {
+bool Modules::BadCastPrevention::M_BadCastPrevention::IsBadCast(dotaunitorder_t orderType, UINT32 targetIdx, Vector* pos, UINT32 abilityIdx, CBaseEntity* issuer) {
 	if (!Config::BadCastPrevention)
 		return false;
 
@@ -29,12 +29,12 @@ bool Modules::BadCastPrevention::IsBadCast(dotaunitorder_t orderType, UINT32 tar
 	if (!ability->GetIdentity()->GetName())
 		return false;
 
-	std::string abilityName = Interfaces::EntitySystem->GetIdentity(abilityIdx)->GetName();
+	std::string abilityName = ability->GetIdentity()->GetName();
 	if (orderType == DOTA_UNIT_ORDER_CAST_TARGET &&
-		EntCastBehaviors.contains(abilityName))
-		return !EntCastBehaviors.at(abilityName)(ability, (CDOTABaseNPC*)issuer, Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(targetIdx));
+		castHandlers.contains(abilityName))
+		return !castHandlers.at(abilityName)(ability, (CDOTABaseNPC*)issuer, Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(targetIdx));
 
-	if (TestStringFilters(abilityName, pointAbilityNames))
+	if(pointAbilityNames.contains(abilityName))
 		return !AreEnemyHeroesInArea(*pos, ability->GetAOERadius());
 
 	// don't ask why RP's radius is stored as cast range.

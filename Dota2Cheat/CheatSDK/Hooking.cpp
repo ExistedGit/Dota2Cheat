@@ -7,16 +7,16 @@ void Hooks::InstallHooks() {
 
 #if defined(_DEBUG) && !defined(_TESTING)
 	{
-		auto SendMsg = VMT(Interfaces::SteamGC).GetVM(0);
+		auto SendMsg = VMT(Interfaces::SteamGC)[0];
+		auto RetrieveMessage = VMT(Interfaces::SteamGC)[2];
 		HookFunc(SendMsg, &Hooks::hkSendMessage, &Hooks::oSendMessage, "ISteamGameCoordinator::SendMessage");
+		HookFunc(RetrieveMessage, &Hooks::hkRetrieveMessage, &Hooks::oRetrieveMessage, "ISteamGameCoordinator::RetrieveMessage");
 	}
 	HOOKFUNC_SIGNATURES(SaveSerializedSOCache);
 #endif // _DEBUG
 
 #ifdef _TESTING
 	{
-		auto RetrieveMessage = VMT(Interfaces::SteamGC).GetVM(2);
-		HookFunc(RetrieveMessage, &Hooks::hkRetrieveMessage, &Hooks::oRetrieveMessage, "ISteamGameCoordinator::RetrieveMessage");
 	}
 #endif
 
@@ -44,17 +44,18 @@ void Hooks::InstallHooks() {
 		auto SetRenderingEnabled = vtable[VTableIndexes::CParticleCollection::SetRenderingEnabled];
 		HOOKFUNC(SetRenderingEnabled);
 	}
-#ifndef _TESTING
 	{
 
 
 		void* FrameStageNotify = Interfaces::Client->GetVFunc(31);
-		void* RunScript = Interfaces::UIEngine->GetVFunc(VTableIndexes::CUIEngineSource2::RunScript);
-
-		HOOKFUNC(RunScript);
 		HOOKFUNC(FrameStageNotify);
-	}
+
+#ifndef _TESTING
+		void* RunScript = Interfaces::UIEngine->GetVFunc(VTableIndexes::CUIEngineSource2::RunScript);
+		HOOKFUNC(RunScript);
 #endif
+
+	}
 	{
 		Interfaces::EntitySystem->GetListeners().push_back(&EntityList);
 	}

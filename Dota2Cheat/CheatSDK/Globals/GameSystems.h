@@ -36,6 +36,7 @@ namespace GameSystems {
 	inline CDOTA_MinimapObjectManager* MinimapObjManager{};
 	inline CGameParticleManagerSystem* ParticleManagerSystem{};
 	inline CDOTAParticleManager* ParticleManager{};
+
 	// Ones that have a pointer to them that must be dereferenced when the game starts
 	// so we need to store both the system and the ptr to it
 #define REALLOCATING_SYSTEM(type, name) inline type* name {}; \
@@ -48,10 +49,7 @@ namespace GameSystems {
 
 #undef REALLOCATING_SYSTEM
 
-	template<typename T>
-	T* FindStaticGameSystem(const char* name);
-	template<typename T>
-	T** FindReallocatingGameSystemPtr(const char* name);
+	Address FindGameSystem(const char* name);
 
 	void FindGameSystems();
 }

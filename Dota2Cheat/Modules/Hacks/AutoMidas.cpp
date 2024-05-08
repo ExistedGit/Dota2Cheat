@@ -15,7 +15,7 @@ void Modules::M_AutoMidas::OnFrame() {
 
 	const auto canMidas = [this, midas](auto& wrap) -> bool {
 		auto creep = wrap.As<CDOTABaseNPC>();
-		// If the creep is visible, not one of ours, is alive, is within Midas's radius and its name matches one of the filters
+		// If the creep is visible, not one of ours, is alive, is within Midas's radius
 		if (creep->IsSameTeam(ctx.localHero))
 			return false;
 

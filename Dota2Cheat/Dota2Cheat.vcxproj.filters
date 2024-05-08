@@ -146,7 +146,6 @@
     <ClCompile Include="SDK\Panorama\CUIPanel.cpp" />
     <ClCompile Include="CheatSDK\Data\EntityList.cpp" />
     <ClCompile Include="DebugFunctions.cpp" />
-    <ClCompile Include="SDK\GameSystems\CGameEventManager.cpp" />
     <ClCompile Include="Hooks\FrameStageNotify.cpp" />
     <ClCompile Include="UI\LoadingMenu.cpp" />
     <ClCompile Include="CheatSDK\GameEventListeners\dota_player_update_assigned_hero.cpp" />
@@ -389,6 +388,7 @@
     <ClInclude Include="CheatSDK\VTexDecoders\VTexParser.h" />
     <ClInclude Include="CheatSDK\VTexDecoders\vtex.h" />
     <ClInclude Include="CheatSDK\Systems\AssetManager.h" />
+    <ClInclude Include="SDK\Base\MurmurHash2.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

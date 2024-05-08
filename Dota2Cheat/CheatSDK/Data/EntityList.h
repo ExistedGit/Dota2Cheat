@@ -44,6 +44,7 @@ struct IEntityListListener {
 	virtual void OnEntityRemoved(const EntityWrapper& ent) {};
 };
 
+// TODO: split entity lists into fields like with VTexDirs
 inline class CEntityList : public IEntityListener {
 	std::map<uint32_t, EntityWrapper> Entities;
 
