@@ -6,7 +6,7 @@ namespace Hooks {
 	inline void* oSaveSerializedSOCache{};
 	inline void* hkSaveSerializedSOCache(void* thisptr) {
 		auto result = ((decltype(&hkSaveSerializedSOCache))oSaveSerializedSOCache)(thisptr);
-		Modules::SkinChanger.DeleteSOCacheFiles();
+		//Modules::SkinChanger.DeleteSOCacheFiles();
 		d2c.SaveConfig();
 		//{
 		//	std::ofstream fout(d2c.cheatFolderPath + "\\config\\inventory.json");

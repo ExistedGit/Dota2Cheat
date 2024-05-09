@@ -4,7 +4,6 @@
 #include "CDOTAUnitInventory.h"
 #include "CDOTAModifierManager.h"
 #include "../Enums.h"
-#include "../Base/StringUtils.h"
 #include "../Interfaces/GC/CEconWearable.h"
 
 class CDOTABaseNPC : public CBaseEntity {
@@ -19,10 +18,10 @@ public:
 		float
 			maxPhys,
 			maxMagic,
-			maxAll, 
+			maxAll,
 			phys,  // blocks physical damage
 			magic, // blocks magical damage
-			all; // blocks all forms of damage
+			all;   // blocks all forms of damage
 	};
 
 	GETTER(BarrierData, GetBarriers, 0x1734);
@@ -31,13 +30,6 @@ public:
 
 	IGETTER(CDOTAModifierManager, GetModifierManager, Netvars::C_DOTA_BaseNPC::m_ModifierManager);
 
-	CDOTAModifier* GetModifier(std::string_view name) {
-		for (auto& modifier : GetModifierManager()->GetModifierList())
-			if (modifier->GetName() == name)
-				return modifier;
-
-		return nullptr;
-	}
 	bool HasModifier(std::string_view name) {
 		return GetModifier(name) != nullptr;
 	}
@@ -57,16 +49,16 @@ public:
 	// Is not dormant
 	// Is alive
 	// Is not waiting to spawn
-	bool IsTargetable() {
+	bool IsTargetable() const {
 		return !GetIdentity()->IsDormant() && GetLifeState() == 0 && !IsWaitingToSpawn();
 	}
 
 	// JS func, uses another vtable at offset
-	bool IsRoshan() {
+	bool IsRoshan() const {
 		return MemberInline<VClass>(0xA20)->CallVFunc<VTableIndexes::CDOTABaseNPC::IsRoshan, bool>();
 	}
 
-	int GetAttackDamageMin() {
+	int GetAttackDamageMin() const {
 		return Member<int>(Netvars::C_DOTA_BaseNPC::m_iDamageMin)
 			+ Member<int>(Netvars::C_DOTA_BaseNPC::m_iDamageBonus);
 	}
@@ -99,7 +91,7 @@ public:
 		auto hAbilities = MemberInline<CHandle<CDOTABaseAbility>>(Netvars::C_DOTA_BaseNPC::m_hAbilities);
 		for (int j = 0; j < 35; j++) {
 			auto handle = hAbilities[j];
-			
+
 			if (handle)
 				result.push_back(handle);
 		}
@@ -113,20 +105,27 @@ public:
 
 		return MemberInline<CHandle<CDOTABaseAbility>>(Netvars::C_DOTA_BaseNPC::m_hAbilities)[index];
 	}
-	CDOTABaseAbility* GetAbility(const std::string_view& name)
+
+	CDOTABaseAbility* GetAbility(std::string_view name)
 	{
 		auto abilities = GetAbilities();
-		for (auto& ability : abilities)
-			if (name == ability->GetIdentity()->GetName())
-				return ability;
-		return nullptr;
+		auto ability = std::find_if(abilities.begin(), abilities.end(),
+			[name](auto item) {
+				return item && item->GetIdentity()->GetName() && item->GetIdentity()->GetName() == name;
+			}
+		);
+		return ability != abilities.end() ? *ability : nullptr;
 	}
 
-	Vector GetHealthBarPos() {
-		auto pos = GetPos();
-		pos.z += Member<int>(Netvars::C_DOTA_BaseNPC::m_iHealthBarOffset);
-		return pos;
-	};
+	CDOTAModifier* GetModifier(std::string_view name) {
+		auto arr = GetModifierManager()->GetModifierList();
+		auto res = std::find_if(arr.begin(), arr.end(),
+			[name](auto x) {
+				return x->GetName() == name;
+			}
+		);
+		return res != arr.end() ? *res : nullptr;
+	}
 
 	CDOTAItem* FindItemBySubstring(const char* str) {
 		for (const auto& item : GetItems())
@@ -139,22 +138,22 @@ public:
 
 		return nullptr;
 	}
-	CDOTAItem* FindItem(const char* str) {
-		for (const auto& item : GetItems())
-			if (
-				item
-				&& item->GetIdentity()->GetName()
-				&& !strcmp(item->GetIdentity()->GetName(), str)
-				)
-				return item;
 
-		return nullptr;
+	CDOTAItem* FindItem(std::string_view name) {
+		auto items = GetItems();
+		auto item = std::find_if(items.begin(), items.end(),
+			[name](auto item) {
+				return item && item->GetIdentity()->GetName() && item->GetIdentity()->GetName() == name;
+			}
+		);
+		return item != items.end() ? **item : nullptr;
 	}
 
 	IGETTER(CDOTAUnitInventory, GetInventory, Netvars::C_DOTA_BaseNPC::m_Inventory);
 
-	[[nodiscard]]
-	std::vector<CDOTAItem*> GetItems();
+	std::span<CHandle<CDOTAItem>, 19> GetItems() {
+		return GetInventory()->GetItems();
+	}
 
 	bool HasState(ModifierState state) {
 		auto unitState = Member<int64>(Netvars::C_DOTA_BaseNPC::m_nUnitState64);
@@ -186,4 +185,9 @@ public:
 			&& !ability->IsInAbilityPhase();
 	}
 
+	Vector GetHealthBarPos() {
+		auto pos = GetPos();
+		pos.z += Member<int>(Netvars::C_DOTA_BaseNPC::m_iHealthBarOffset);
+		return pos;
+	};
 };

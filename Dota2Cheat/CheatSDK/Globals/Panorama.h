@@ -21,6 +21,6 @@ namespace Panorama {
 			break;
 		}
 
-		ErrorMessages = (CDOTA_Hud_ErrorMsg*)DotaHud->FindChildWithIdTraverse("ErrorMessages")->GetPanel2D();
+		ErrorMessages = (CDOTA_Hud_ErrorMsg*)DotaHud->FindChildByIdTraverse("ErrorMessages")->GetPanel2D();
 	}
 }

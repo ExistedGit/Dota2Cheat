@@ -7,28 +7,33 @@ struct CHandle {
 	constexpr static uint32_t INVALID_HANDLE = 0XFFFFFFFF;
 
 	uint32_t val = INVALID_HANDLE;
-	operator uint32_t() {
+	operator uint32_t() const {
 		return val;
 	}
-	uint32_t Index() {
+	uint32_t Index() const {
 		return val & 0x7fff;
 	}
-	T* Entity() {
+	T* Entity() const {
 		return Interfaces::EntitySystem->GetEntity<T>(Index());
 	}
-	operator T* () {
+
+	operator T* () const {
 		return Entity();
 	}
 
-	T* operator->() {
+	T* operator->() const {
 		return Entity();
 	}
 
-	bool IsValid() {
+	T* operator*() const {
+		return Entity();
+	}
+
+	bool IsValid() const {
 		return val != INVALID_HANDLE;
 	}
 
-	bool operator==(const CHandle<T> other) {
+	bool operator==(const CHandle<T> other) const {
 		return other.val == val;
 	}
 

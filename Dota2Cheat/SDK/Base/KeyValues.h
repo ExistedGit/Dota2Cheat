@@ -73,7 +73,9 @@ struct KeyValues {
 		}
 	};
 
-
+	void SetString(std::string_view key, std::string_view val) {
+		static auto func = Memory::GetExport("tier0.dll", "?SetString@KeyValues@@QEAAXPEBD0@Z");
+	}
 };
 KeyValues::Iterator begin(KeyValues* kv) {
 	return kv->GetFirstSubKey();

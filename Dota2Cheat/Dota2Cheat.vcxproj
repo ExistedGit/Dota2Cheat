@@ -573,7 +573,6 @@
     <ClInclude Include="SDK\Base\Function.h" />
     <ClInclude Include="SDK\Base\Memory.h" />
     <ClInclude Include="SDK\Base\NormalClass.h" />
-    <ClInclude Include="SDK\Base\StringUtils.h" />
     <ClInclude Include="SDK\Base\VClass.h" />
     <ClInclude Include="Modules\Hacks\CastRedirection.h" />
     <ClInclude Include="SDK\Base\Vector.h" />

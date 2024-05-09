@@ -82,7 +82,7 @@ class Memory {
 	}
 
 	struct InterfaceInfo {
-		void*(*Create)();
+		void* (*Create)();
 		const char* m_szName;
 		InterfaceInfo* m_pNext;
 	};
@@ -93,11 +93,11 @@ public:
 
 	static void RevertPatches() {
 		static auto NtProtectVirtualMemory = Memory::GetExport("ntdll.dll", "NtProtectVirtualMemory");
-		for (auto& [ pAddr, sequence] : patches) {
+		for (auto& [pAddr, sequence] : patches) {
 			Address addr = pAddr;
 			MEMORY_BASIC_INFORMATION mbi;
 			VirtualQuery(addr, &mbi, sizeof(mbi));
-			
+
 			NtProtectVirtualMemory(GetCurrentProcess(), &mbi.BaseAddress, (unsigned long*)&mbi.RegionSize, PAGE_EXECUTE_READWRITE, &mbi.Protect);
 			memcpy(addr, sequence.data(), sequence.size());
 			NtProtectVirtualMemory(GetCurrentProcess(), &mbi.BaseAddress, (unsigned long*)&mbi.RegionSize, mbi.Protect, &mbi.Protect);
@@ -139,18 +139,20 @@ public:
 		memcpy((void*)dst, (const void*)src, size);
 	}
 
+	// In these methods we traverse the interface list ourselves
+
 	template<typename T = void>
-	static T* GetInterface(const char* dllName, const char* interfaceName) {
-		auto CreateInterface = GetExport(dllName, "CreateInterface");
+	static T* GetInterface(std::string_view dllName, std::string_view interfaceName) {
+		static auto CreateInterface = GetExport(dllName, "CreateInterface");
 		return (T*)CreateInterface(interfaceName, nullptr);
 	}
 
 	template<typename T = void>
-	static T* GetInterfaceBySubstr(const char* dllName, const char* substr) {
-		auto pInterface = *Memory::GetExport<Address>(dllName, "CreateInterface").GetAbsoluteAddress<InterfaceInfo**>(3);
+	static T* GetInterfaceBySubstr(std::string_view dllName, std::string_view substr) {
+		auto pInterface = *GetExport<Address>(dllName, "CreateInterface").GetAbsoluteAddress<InterfaceInfo**>(3);
 
 		while (pInterface) {
-			if (strstr(pInterface->m_szName, substr))
+			if (std::string_view(pInterface->m_szName).find(substr) != std::string_view::npos)
 				return (T*)pInterface->Create();
 
 			pInterface = pInterface->m_pNext;
@@ -161,13 +163,13 @@ public:
 
 	template<typename T = Function>
 	// Returns an exported function, if it's available
-	static T GetExport(const char* dllName, const char* exportName) {
-		return T(GetProcAddress(GetModuleHandleA(dllName), exportName));
+	static T GetExport(std::string_view dllName, std::string_view exportName) {
+		return T(GetProcAddress(GetModuleHandleA(dllName.data()), exportName.data()));
 	}
 
 	// Returns a module's base address, for use with RVA
-	static Address GetModule(const char* dllName) {
-		return (void*)GetModuleHandleA(dllName);
+	static Address GetModule(std::string_view  dllName) {
+		return (void*)GetModuleHandleA(dllName.data());
 	}
 };
 

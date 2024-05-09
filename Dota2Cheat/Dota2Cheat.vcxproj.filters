@@ -27,7 +27,6 @@
     <ClCompile Include="Modules\Hacks\PerfectBlink.cpp" />
     <ClCompile Include="Modules\Hacks\SkinChanger.cpp" />
     <ClCompile Include="Modules\Hacks\TargetedSpellHighlighter.cpp" />
-    <ClCompile Include="Modules\UI\AbilityESP.cpp" />
     <ClCompile Include="Modules\UI\TPTracker.cpp" />
     <ClCompile Include="Modules\UI\UIOverhaul.cpp" />
     <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp" />
@@ -151,16 +150,15 @@
     <ClCompile Include="CheatSDK\GameEventListeners\dota_player_update_assigned_hero.cpp" />
     <ClCompile Include="CheatSDK\VTexDecoders\DXT5Decoder.cpp" />
     <ClCompile Include="CheatSDK\VTexDecoders\VTexParser.cpp" />
+    <ClCompile Include="Modules\UI\AbilityESP.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\UI\UIOverhaul.h" />
     <ClInclude Include="SDK\GameSystems\CDOTA_PanoramaMinimapRenderer.h" />
     <ClInclude Include="SDK\Interfaces\CGameUI.h" />
     <ClInclude Include="Hooks\Misc.h" />
-    <ClInclude Include="Hooks\AcceptEvents.h" />
     <ClInclude Include="ImGuiSDK\Elements.h" />
     <ClInclude Include="include\imgui\imgui_stdlib.h" />
-    <ClInclude Include="Modules\UI\AbilityESP.h" />
     <ClInclude Include="Modules\Hacks\AegisSnatcher.h" />
     <ClInclude Include="Modules\Hacks\ClaimTutorialRewards.h" />
     <ClInclude Include="Modules\Hacks\DotaPlusUnlocker.h" />
@@ -182,7 +180,6 @@
     <ClInclude Include="SDK\Base\Function.h" />
     <ClInclude Include="SDK\Base\Memory.h" />
     <ClInclude Include="SDK\Base\NormalClass.h" />
-    <ClInclude Include="SDK\Base\StringUtils.h" />
     <ClInclude Include="SDK\Base\VClass.h" />
     <ClInclude Include="Modules\Hacks\CastRedirection.h" />
     <ClInclude Include="SDK\Base\Vector.h" />
@@ -389,6 +386,8 @@
     <ClInclude Include="CheatSDK\VTexDecoders\vtex.h" />
     <ClInclude Include="CheatSDK\Systems\AssetManager.h" />
     <ClInclude Include="SDK\Base\MurmurHash2.h" />
+    <ClInclude Include="Hooks\AcceptEvents.h" />
+    <ClInclude Include="Modules\UI\AbilityESP.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

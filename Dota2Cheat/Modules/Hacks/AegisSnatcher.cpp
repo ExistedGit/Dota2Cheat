@@ -20,15 +20,10 @@ void Modules::AegisSnatcher::OnFrame() {
 			return;
 	}
 
-	bool hasEmptySlot = false;
-	auto items = ctx.localHero->GetInventory()->GetItems();
-	for (int i = 0; i < 6; ++i)
-		if (!HVALID(items[i])) {
-			hasEmptySlot = true;
-			break;
-		}
+	auto items = ctx.localHero->GetItems();
 
-	if (!hasEmptySlot)
+	// If there are no empty slots
+	if (std::find_if(items.begin(), items.end(), [](auto x) { return !x.IsValid(); }) == items.end())
 		return;
 
 	if (!IsWithinRadius(aegis->GetPos(), ctx.localHero->GetPos(), 130))

@@ -1,7 +1,7 @@
 #include "UIOverhaul.h"
 
 CUIPanel* Modules::UIOverhaul::GetTopBarImgForHero(CDOTABaseNPC_Hero* hero) {
-	auto topbarImages = Panorama::DotaHud->FindChildrenWithIdTraverse("HeroImage");
+	auto topbarImages = Panorama::DotaHud->FindChildrenByIdTraverse("HeroImage");
 	for (auto& panel : topbarImages) {
 		if (!panel->GetId() || strcmp(panel->GetId(), "HeroImage") != 0)
 			continue;
@@ -41,7 +41,7 @@ void Modules::UIOverhaul::UpdateNetworthPanel() {
 	if (!NWPanelStateQueued)
 		return;
 
-	if (auto panel = Panorama::DotaHud->FindChildWithIdTraverse("SpectatorGoldDisplay"))
+	if (auto panel = Panorama::DotaHud->FindChildByIdTraverse("SpectatorGoldDisplay"))
 		panel->SetActive(Config::UIOverhaul::NetworthPanel);
 
 	NWPanelStateQueued = false;
