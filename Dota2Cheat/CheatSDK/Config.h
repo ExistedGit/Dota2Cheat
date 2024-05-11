@@ -50,6 +50,7 @@ namespace Config {
 		void LoadConfig(std::ifstream& stream);
 		void SaveEquippedItems(std::ofstream& stream);;
 		void LoadEquippedItems(std::ifstream& stream);;
+
 		nlohmann::json* GetJsonEntryFromCfgVar(nlohmann::json& data, const std::string& name) {
 			using json = nlohmann::json;
 			const static std::string delimiter = "::";

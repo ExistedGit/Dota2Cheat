@@ -40,7 +40,7 @@ void Hooks::InstallHooks() {
 	}
 	{
 		// xref: "CParticleCollection::~CParticleCollection [%p]\n"
-		uintptr_t** vtable = SignatureDB::FindSignature("CParticleCollection::~CParticleCollection");
+		uintptr_t** vtable = SignatureDB::FindSignature("CParticleCollection::CParticleCollection");
 		auto SetRenderingEnabled = vtable[VTableIndexes::CParticleCollection::SetRenderingEnabled];
 		HOOKFUNC(SetRenderingEnabled);
 	}

@@ -47,6 +47,7 @@ void CCheatManager::LoadGameSpecific() {
 	Interfaces::CVar->CVars["dota_hud_chat_enable_all_emoticons"].m_pVar->value.boolean = Config::Changer::UnlockEmoticons;
 
 	SignatureDB::LoadSignaturesFromFile(cheatFolderPath + "\\signatures.json");
+	// VTableIndexes::Load(cheatFolderPath + "\\vmt.json");
 
 	Signatures::FindSignatures();
 	GameSystems::FindGameSystems();

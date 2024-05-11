@@ -9,10 +9,10 @@
 // Utility class for working with memory
 class Memory {
 	// Boyer-Moore-Horspool with wildcards implementation
-	static std::array<size_t, 256> FillShiftTable(const char* pattern, const uint8_t wildcard) {
+	static std::array<size_t, 256> FillShiftTable(std::string_view pattern, const uint8_t wildcard) {
 		std::array<size_t, 256> bad_char_skip = {};
 		size_t idx = 0;
-		const size_t last = strlen(pattern) - 1;
+		const size_t last = pattern.size() - 1;
 
 		// Get last wildcard position
 		for (idx = last; idx > 0 && (uint8_t)pattern[idx] != wildcard; --idx);
@@ -28,7 +28,7 @@ class Memory {
 		return bad_char_skip;
 	}
 
-	static std::string ParseCombo(const std::string& combo)
+	static std::string ParseCombo(std::string_view combo)
 	{
 		const size_t patternLen = (combo.size() + 1) / 3;
 		std::string pattern;
@@ -46,26 +46,25 @@ class Memory {
 			}
 			else
 			{
-				char byte = (char)strtol(&combo[i], 0, 16);
-				pattern += byte;
+				pattern += (char)strtol(&combo[i], 0, 16);
 				i += 2;
 			}
 		}
 		return pattern;
 	}
 
-	static void* PatternScanInModule(const char* module, const char* pattern)
+	static void* PatternScanInModule(std::string_view module, std::string_view pattern)
 	{
-		const auto begin = (uintptr_t)GetModuleHandleA(module);
+		const auto begin = (uintptr_t)GetModuleHandleA(module.data());
 
 		const auto pDosHeader = PIMAGE_DOS_HEADER(begin);
 		const auto pNTHeaders = PIMAGE_NT_HEADERS((uint8_t*)(begin + pDosHeader->e_lfanew));
 		const auto dwSizeOfImage = pNTHeaders->OptionalHeader.SizeOfImage;
 
 		uint8_t* scanPos = (uint8_t*)begin;
-		const uint8_t* scanEnd = (uint8_t*)(begin + dwSizeOfImage - strlen(pattern));
+		const uint8_t* scanEnd = (uint8_t*)(begin + dwSizeOfImage - pattern.size());
 
-		const size_t last = strlen(pattern) - 1;
+		const size_t last = pattern.size() - 1;
 		const auto bad_char_skip = FillShiftTable(pattern, 0xCC);
 
 		// Search
@@ -122,8 +121,8 @@ public:
 			patches[addr] = data;
 	}
 
-	static Address Scan(const std::string& signature, const std::string& moduleName) {
-		auto res = PatternScanInModule(moduleName.c_str(), ParseCombo(signature).c_str());
+	static Address Scan(std::string_view signature, std::string_view moduleName) {
+		auto res = PatternScanInModule(moduleName, ParseCombo(signature));
 
 		if (!res)
 			LogF(LP_ERROR, "{}: {} | BROKEN SIGNATURE", moduleName, signature);
@@ -168,7 +167,7 @@ public:
 	}
 
 	// Returns a module's base address, for use with RVA
-	static Address GetModule(std::string_view  dllName) {
+	static Address GetModule(std::string_view dllName) {
 		return (void*)GetModuleHandleA(dllName.data());
 	}
 };

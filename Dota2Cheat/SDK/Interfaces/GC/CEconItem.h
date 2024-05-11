@@ -12,7 +12,7 @@ class CEconItem : public VClass {
 	void* vmt2;
 public:
 	auto GetItemDef() {
-		return MemberInline<VClass>(0x8)->CallVFunc<0x58/8, CDOTAItemDefinition*>();
+		return MemberInline<VClass>(8)->CallVFunc<11, CDOTAItemDefinition*>();
 	}
 
 	inline static void (*DeserializeFromProtobufItemFunc)(CEconItem*, CSOEconItem*);
