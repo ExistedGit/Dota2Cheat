@@ -75,13 +75,14 @@ struct KeyValues {
 
 	void SetString(std::string_view key, std::string_view val) {
 		static auto func = Memory::GetExport("tier0.dll", "?SetString@KeyValues@@QEAAXPEBD0@Z");
+		func(this, key.data(), val.data());
 	}
 };
-KeyValues::Iterator begin(KeyValues* kv) {
+inline KeyValues::Iterator begin(KeyValues* kv) {
 	return kv->GetFirstSubKey();
 }
 
-KeyValues::Iterator end(KeyValues*) {
+inline KeyValues::Iterator end(KeyValues*) {
 	return nullptr;
 }
 

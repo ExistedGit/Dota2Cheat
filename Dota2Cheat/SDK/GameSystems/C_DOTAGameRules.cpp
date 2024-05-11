@@ -5,10 +5,10 @@
 float CDOTAGameRules::GetGameTime() {
 	auto gpGlobals = CGlobalVars::GetInstance();
 	float tickToSeconds = gpGlobals->Member<float>(68);
-	auto totalPausedTicks = Member<uint32_t>(Netvars::C_DOTAGamerules::m_nTotalPausedTicks);
+	auto totalPausedTicks = Member<uint32_t>(Netvars::C_GameRules::m_nTotalPausedTicks);
 
 	if (IsGamePaused())
-		return (Member<int>(Netvars::C_DOTAGamerules::m_nPauseStartTick) - totalPausedTicks) * tickToSeconds;
+		return (Member<int>(Netvars::C_GameRules::m_nPauseStartTick) - totalPausedTicks) * tickToSeconds;
 	return gpGlobals->Member<float>(44) - totalPausedTicks * tickToSeconds;
 }
 

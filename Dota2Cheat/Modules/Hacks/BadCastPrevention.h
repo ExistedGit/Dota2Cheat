@@ -4,10 +4,10 @@
 #include <functional>
 
 namespace Modules {
-	namespace BadCastPrevention {
+	namespace BCP {
 		using CastHandler = std::function<bool(CDOTABaseAbility* spell, CDOTABaseNPC* caster, CDOTABaseNPC* target)>;
 		namespace CastHandlers {
-			bool GSSoulChain(CDOTABaseAbility* spell, CDOTABaseNPC* caster, CDOTABaseNPC* target) {
+			inline bool GSSoulChain(CDOTABaseAbility* spell, CDOTABaseNPC* caster, CDOTABaseNPC* target) {
 				const static auto latchRadius = spell->GetLevelSpecialValueFor("chain_latch_radius");
 				return EntityList.ContainsTypes([target](const auto& wrap) {
 					auto hero = wrap.As<CDOTABaseNPC>();
@@ -39,5 +39,5 @@ namespace Modules {
 			bool IsBadCast(dotaunitorder_t orderType, UINT32 targetIndex, Vector* position, UINT32 abilityIndex, CBaseEntity* issuer);
 		};
 	}
-	inline BadCastPrevention::M_BadCastPrevention BadCastPrevention{};
+	inline BCP::M_BadCastPrevention BadCastPrevention{};
 }

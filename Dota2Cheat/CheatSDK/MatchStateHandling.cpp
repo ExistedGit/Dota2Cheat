@@ -21,18 +21,18 @@ void CMatchStateManager::EnteredPreGame() {
 	if (!ctx.localPlayer)
 		return;
 
-//#ifdef _DEBUG
-//	LogF(LP_INFO,
-//		"Player indices:\n\t+1: {}\n\tGetPlayer: {}\n\tPlayerResource: {}",
-//		Interfaces::NetworkClientService->GetIGameClient()->GetLocalPlayerID() + 1,
-//		Signatures::GetPlayer(-1)->GetIndex(),
-//		H2IDX(GameSystems::PlayerResource->PlayerIDToHandle(Interfaces::NetworkClientService->GetIGameClient()->GetLocalPlayerID()))
-//		);
-//#endif
+	//#ifdef _DEBUG
+	//	LogF(LP_INFO,
+	//		"Player indices:\n\t+1: {}\n\tGetPlayer: {}\n\tPlayerResource: {}",
+	//		Interfaces::NetworkClientService->GetIGameClient()->GetLocalPlayerID() + 1,
+	//		Signatures::GetPlayer(-1)->GetIndex(),
+	//		H2IDX(GameSystems::PlayerResource->PlayerIDToHandle(Interfaces::NetworkClientService->GetIGameClient()->GetLocalPlayerID()))
+	//		);
+	//#endif
 
 	DereferenceReallocatingSystem(GameEventManager);
 	DereferenceReallocatingSystem(ProjectileManager);
-	DereferenceReallocatingSystem(RenderGameSystem); 
+	DereferenceReallocatingSystem(RenderGameSystem);
 
 	GameSystems::ParticleManager = GameSystems::ParticleManagerSystem->GetParticleManager();
 	LogF(LP_DATA, "ParticleManager: {} / CreateParticle: {}", (void*)GameSystems::ParticleManager, (void*)GameSystems::ParticleManager->GetVFunc(VTableIndexes::CDOTAParticleManager::CreateParticle));
@@ -66,7 +66,7 @@ void CMatchStateManager::EnteredInGame() {
 	GameSystems::InitMinimapRenderer();
 	// Modules::UIOverhaul.Init();
 	if (Config::Changer::TreeModelIdx != 0)
-		Modules::TreeChanger.QueueModelUpdate(UIData::TreeModelList[Config::Changer::TreeModelIdx - 1]);
+		Modules::TreeChanger.QueueModelUpdate(Config::Changer::TreeModelIdx - 1);
 
 	ctx.gameStage = GameStage::IN_GAME;
 }
@@ -92,7 +92,8 @@ void CMatchStateManager::LeftMatch() {
 	GameSystems::ProjectileManager = nullptr;
 	GameSystems::MinimapRenderer = nullptr;
 	GameSystems::GameEventManager = nullptr;
-	ClearHeroData();
+
+	HeroData.clear();
 
 	Panorama::DotaHud = nullptr;
 	Panorama::ErrorMessages = nullptr;
@@ -104,32 +105,30 @@ void CMatchStateManager::LeftMatch() {
 }
 
 void CMatchStateManager::CheckForOngoingGame() {
-	if (Interfaces::Engine->IsInGame()) {
-		MatchStateManager.CacheAllEntities();
+	if (!Interfaces::Engine->IsInGame())
+		return;
+	MatchStateManager.CacheAllEntities();
 
-		if (GameSystems::GameRules) {
-			MatchStateManager.EnteredPreGame();
+	if (!GameSystems::GameRules)
+		return;
 
-			if (ctx.localPlayer)
-				MatchStateManager.OnUpdatedAssignedHero();
+	MatchStateManager.EnteredPreGame();
 
-			if (GameSystems::GameRules->GetGameState() == DOTA_GAMERULES_STATE_PRE_GAME ||
-				GameSystems::GameRules->GetGameState() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) {
+	if (ctx.localPlayer)
+		MatchStateManager.OnUpdatedAssignedHero();
 
-				EnteredInGame();
-				if (ctx.localHero)
-					for (auto& modifier : ctx.localHero->GetModifierManager()->GetModifierList()) {
-						Hooks::CacheIfItemModifier(modifier); // for registering items on reinjection
-						Hooks::CacheModifier(modifier);
-					}
+	if (GameSystems::GameRules->GetGameState() == DOTA_GAMERULES_STATE_PRE_GAME ||
+		GameSystems::GameRules->GetGameState() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) {
+
+		EnteredInGame();
+		if (ctx.localHero)
+			for (auto& modifier : ctx.localHero->GetModifierManager()->GetModifierList()) {
+				Hooks::CacheIfItemModifier(modifier); // for registering items on reinjection
+				Hooks::CacheModifier(modifier);
 			}
-		}
 	}
 }
 
-
-// D2C's entity system is based on collections
-// Without such caching it doesn't retain the entity lists upon reinjection
 
 void CMatchStateManager::CacheAllEntities() {
 	for (int i = 0; i <= Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {

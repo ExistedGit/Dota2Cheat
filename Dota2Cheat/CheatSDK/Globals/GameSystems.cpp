@@ -21,7 +21,7 @@ Address GameSystems::FindGameSystem(const char* name) {
 		if (pFactory->m_szName && !strcmp(pFactory->m_szName, name))
 			return pFactory->GetGameSystem();
 
-		pFactory = pFactory->m_pNextFactory;
+		pFactory = pFactory->m_pNext;
 	}
 
 	return nullptr;
@@ -31,18 +31,15 @@ void GameSystems::FindGameSystems() {
 	Log(LP_INFO, "GAME SYSTEM POINTERS:");
 
 	// xrefs: "CLoopModeGame::InitAllSystems()" "CBaseTempEntity::StaticInitTempEnts()"
-	GameSystemFactory = *Memory::Scan("E8 ? ? ? ? 84 C0 74 D3 48 8D 0D", "client.dll")
-		.GetAbsoluteAddress(1)
-		.Offset(0xE)
-		.GetAbsoluteAddress(3);
+	GameSystemFactory = *SignatureDB::FindSignature("g_pGameSystemFactory");
 
 	// Found by xrefing this global in dylibs
 	// look below the vfunc with xrefs "ehandle", "%d (s/n %d)", "[-1] -> empty", "m_flPoseParameter", "%s(%s)", "[%d %d] -> %s", "CStrongHandle", "CWeakHandle"
-	PlayerResourcePtr = Address(Interfaces::Client->GetVFunc(VTableIndexes::Source2Client::VoiceReliable)).Offset(4).GetAbsoluteAddress(3);
+	PlayerResourcePtr = Address(Interfaces::Client->GetVFunc(VTableIndexes::CSource2Client::VoiceReliable)).Offset(4).GetAbsoluteAddress(3);
 
-	// Also in Source2Client::Init(), right after "g_GameEventManager.Init()":
+	// Also in CSource2Client::Init(), right after "g_GameEventManager.Init()":
 	// mov rcx, [XXXXXXXXX]
-	SET_VAR(GameEventManagerPtr, Address(Interfaces::Client->GetVFunc(VTableIndexes::Source2Client::NotifyDisconnect))
+	SET_VAR(GameEventManagerPtr, Address(Interfaces::Client->GetVFunc(VTableIndexes::CSource2Client::NotifyDisconnect))
 		.Offset(0x3E)
 		.GetAbsoluteAddress(3));
 

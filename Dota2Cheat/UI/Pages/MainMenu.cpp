@@ -83,7 +83,7 @@ void Pages::MainMenu::Draw() {
 		ImGui::Checkbox(locale.Get(u8"General.Enable"), &Config::AutoAccept::Enabled);
 		if (Config::AutoAccept::Enabled)
 			ImGui::SliderInt(locale.Get(u8"AutoAccept.Delay"), &Config::AutoAccept::Delay, 0, 6);
-		
+
 		ImGui::TreePop();
 	}
 
@@ -130,7 +130,7 @@ void Pages::MainMenu::Draw() {
 		if (ImGui::Combo("Tree Models", &Config::Changer::TreeModelIdx, UIData::TreeNameList, IM_ARRAYSIZE(UIData::TreeNameList))
 			&& ctx.gameStage == GameStage::IN_GAME) {
 			if (Config::Changer::TreeModelIdx != 0)
-				Modules::TreeChanger.QueueModelUpdate(UIData::TreeModelList[Config::Changer::TreeModelIdx - 1]);
+				Modules::TreeChanger.QueueModelUpdate(Config::Changer::TreeModelIdx - 1);
 			else
 				Modules::TreeChanger.QueueModelRestore();
 		}

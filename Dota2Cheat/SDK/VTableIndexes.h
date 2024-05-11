@@ -1,6 +1,7 @@
 #pragma once
 
 #define Index constexpr uint32_t
+
 namespace VTableIndexes {
 	namespace CEngineClient {
 		// after GetMaxClients(which returns 64/0x40)
@@ -14,7 +15,7 @@ namespace VTableIndexes {
 		Index SetControlPoint = 16;
 		// xref: "Error in child list of particle system %s [%p]"
 		// easy to see
-		Index SetRenderingEnabled = 93;
+		Index SetRenderingEnabled = 94;
 	}
 	namespace CDOTAParticleManager {
 		// JS xref "CreateParticle" to lea RCX
@@ -29,10 +30,10 @@ namespace VTableIndexes {
 		Index OnWearablesChanged = 263;
 
 		// JS functions
-		Index IsRoshan = 60;
-		Index GetIdealSpeed = 238;
-		Index GetAttackRange = 283;
-		Index GetPhysicalArmorValue = 286;
+		Index IsRoshan = 61;
+		Index GetIdealSpeed = 241;
+		Index GetAttackRange = 286;
+		Index GetPhysicalArmorValue = 289;
 		Index GetMagicalArmorValue = GetPhysicalArmorValue + 1;
 	}
 	namespace CDOTABaseAbility {
@@ -51,9 +52,12 @@ namespace VTableIndexes {
 		// xref: "CUIEngine::RunScript (compile+run)"
 		Index RunScript = 81;
 	}
-	namespace Source2Client {
+	namespace CSource2Client {
+		// look into the function behind "cl_showents" to find the EntitySystem qword
+		// then look at VMs around the broken index in search of a small sub which does mov XXX, g_pEntitySystem
+		Index GetNetworkFieldChangeCallbackQueue = 27;
 		// 8 funcs above xrefs "reason_code", "client_disconnect"
-		Index VoiceReliable = 105;
+		Index VoiceReliable = 112;
 		// xrefs: "userid", "steamid", "player_info"
 		Index NotifyDisconnect = 14;
 	}

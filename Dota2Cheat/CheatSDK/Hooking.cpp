@@ -24,7 +24,7 @@ void Hooks::InstallHooks() {
 		// NetChan constructor
 		// vtable ptr at 0x15
 		uintptr_t** vtable = SignatureDB::FindSignature("CNetChan::vftable");
-		uintptr_t* PostReceivedNetMessage = vtable[86], * SendNetMessage = vtable[69]; // bytehooking through vtables, how's that, Elon Musk?
+		uintptr_t* PostReceivedNetMessage = vtable[71], * SendNetMessage = vtable[34]; // bytehooking through vtables, how's that, Elon Musk?
 		HOOKFUNC(PostReceivedNetMessage);
 		// HOOKFUNC(SendNetMessage);
 	}
@@ -56,9 +56,8 @@ void Hooks::InstallHooks() {
 #endif
 
 	}
-	{
-		Interfaces::EntitySystem->GetListeners().push_back(&EntityList);
-	}
+	
+	Interfaces::EntitySystem->GetListeners().push_back(&EntityList);
 
 	HookDX11Old();
 }

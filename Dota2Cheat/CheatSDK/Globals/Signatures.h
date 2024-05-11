@@ -1,25 +1,24 @@
 #pragma once
 #include "SignatureDB.h"
 
-#include "../../SDK/Base/Logging.h"
-#include "../../SDK/Enums.h"
-#include "../../SDK/Protobufs/dota_commonmessages.pb.h"
+#include <Base/Logging.h>
+#include <Enums.h>
+#include <Protobufs/dota_commonmessages.pb.h>
 
-#include "../../SDK/GameSystems/CDOTAParticleManager.h"
-#include "../../SDK/GameSystems/C_DOTAGameRules.h"
-#include "../../SDK/GameSystems/CDOTARichPresence.h"
+#include <GameSystems/CDOTAParticleManager.h>
+#include <GameSystems/C_DOTAGameRules.h>
+#include <GameSystems/CDOTARichPresence.h>
 
-#include "../../SDK/Interfaces/GC/CGCClient.h"
-#include "../../SDK/Interfaces/GC/ItemSchema.h"
-#include "../../SDK/Interfaces/GC/CEconItem.h"
+#include <Interfaces/GC/CGCClient.h>
+#include <Interfaces/GC/ItemSchema.h>
+#include <Interfaces/GC/CEconItem.h>
 
-#include "../../SDK/Interfaces/Network/CNetworkMessages.h"
+#include <Interfaces/Network/CNetworkMessages.h>
 
-#include "../../SDK/Entities/CDOTABaseAbility.h"
-#include "../../SDK/Entities/CDOTABaseNPC.h"
+#include <Entities/CDOTABaseAbility.h>
+#include <Entities/CDOTABaseNPC.h>
 
-
-#include "../../SDK/Panorama/CUIEngineSource2.h"
+#include <Panorama/CUIEngineSource2.h>
 
 class CDOTAPlayerController;
 class CDOTAModifier;
@@ -46,6 +45,8 @@ namespace Signatures {
 	inline DispatchPacketFn DispatchPacket{};
 	inline BAsyncSendProtoFn BAsyncSendProto{};
 
+#define SIGMAP_ENTRY(var) {#var, (void**)&var}
+	
 	static inline std::map<std::string, void**> NamedSignatures{
 		SIGMAP_ENTRY(PrepareUnitOrders),
 
@@ -65,6 +66,8 @@ namespace Signatures {
 		// {"CDOTARichPresence::SetRPStatus", (void**)&CDOTARichPresence::SetRPStatusFunc},
 		{"CDOTABaseAbility::GetLevelSpecialValueFor", (void**)&CDOTABaseAbility::GetLevelSpecialValueForFunc},
 	};
+
+#undef SIGMAP_ENTRY;
 
 	void FindSignatures();
 }

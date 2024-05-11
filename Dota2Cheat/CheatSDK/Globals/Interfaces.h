@@ -1,27 +1,27 @@
 #pragma once
 
-#include "../../SDK/Interfaces/CGameEntitySystem.h"
-#include "../../SDK/Interfaces/IEngineClient.h"
-#include "../../SDK/Interfaces/CInputService.h"
-#include "../../SDK/Interfaces/CBaseFileSystem.h"
-#include "../../SDK/Interfaces/Network/CNetworkMessages.h"
-#include "../../SDK/Interfaces/Network/CNetworkGameClient.h"
-#include "../../SDK/Interfaces/Network/INetworkClientService.h"
-#include "../../SDK/Interfaces/GC/CGCClient.h"
-#include "../../SDK/Interfaces/CVarSystem.h"
-#include "../../SDK/Interfaces/CFlattenedSerializers.h"
-#include "../../SDK/Interfaces/CResourceSystem.h"
-#include "../../SDK/Interfaces/CSoundOpSystem.h"
-#include "../../SDK/Interfaces/ISteamClient.h"
-#include "../../SDK/Interfaces/ISteamGameCoordinator.h"
-#include "../../SDK/Interfaces/CGameUI.h"
+#include <Interfaces/CGameEntitySystem.h>
+#include <Interfaces/IEngineClient.h>
+#include <Interfaces/CInputService.h>
+#include <Interfaces/CBaseFileSystem.h>
+#include <Interfaces/Network/CNetworkMessages.h>
+#include <Interfaces/Network/CNetworkGameClient.h>
+#include <Interfaces/Network/INetworkClientService.h>
+#include <Interfaces/GC/CGCClient.h>
+#include <Interfaces/CVarSystem.h>
+#include <Interfaces/CFlattenedSerializers.h>
+#include <Interfaces/CResourceSystem.h>
+#include <Interfaces/CSoundOpSystem.h>
+#include <Interfaces/ISteamClient.h>
+#include <Interfaces/ISteamGameCoordinator.h>
+#include <Interfaces/CGameUI.h>
 
-#include "../../SDK/Panorama/CUIEngineSource2.h"
+#include <Panorama/CUIEngineSource2.h>
 
-#include "../../SDK/Base/Memory.h"
-#include "../../SDK/Base/Address.h"
-#include "../../SDK/Base/VMT.h"
-#include "../../SDK/Base/Logging.h"
+#include <Base/Memory.h>
+#include <Base/Address.h>
+#include <Base/VMT.h>
+#include <Base/Logging.h>
 
 #include <format>
 

@@ -10,6 +10,7 @@
 #include "../Modules/UI/Indicators/KillIndicator.h"
 #include "../Modules/Hacks/AutoPick.h"
 #include "../Modules/Hacks/AutoPing.h"
+#include "../Modules/Hacks/TreeChanger.h"
 
 // A dota cheat's perception of reality relies on the game's stage,
 // as obviously we cannot do in-game things while we're still picking heroes

@@ -42,7 +42,7 @@ void LogInvAndAbilities(CDOTABaseNPC* npc) {
 	for (const auto& item : npc->GetItems()) {
 		if (item->GetIdentity()->GetName())
 			std::cout << '\t' << item->GetIdentity()->GetName() << " " << item->GetIndex()
-			<< ' ' << item
+			<< ' ' << *item
 			<< '\n';
 	}
 }

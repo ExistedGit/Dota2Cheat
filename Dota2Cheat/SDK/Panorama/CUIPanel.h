@@ -7,7 +7,7 @@
 class CPanel2D;
 
 class CUIPanel : public VClass {
-	void _FindChildrenWithIdTraverse(const std::string_view& id, std::vector<CUIPanel*>& result) {
+	void _FindChildrenWithIdTraverse(std::string_view id, std::vector<CUIPanel*>& result) {
 		auto children = GetChildren();
 		for (auto& panel : children) {
 			if (panel->GetId() && panel->GetId() == id)
@@ -31,7 +31,7 @@ public:
 	GETTER(CUtlVector<uint16_t>, GetClasses, 0x160);
 	// Returns a list of all child elements with the specified ID at any level of nesting
 	[[nodiscard]]
-	std::vector<CUIPanel*> FindChildrenByIdTraverse(const std::string_view& id) {
+	std::vector<CUIPanel*> FindChildrenByIdTraverse(std::string_view id) {
 		std::vector<CUIPanel*> result;
 		_FindChildrenWithIdTraverse(id, result);
 		return result;
@@ -45,7 +45,7 @@ public:
 		return result;
 	}
 
-	CUIPanel* FindChildByIdTraverse(const std::string_view& id) {
+	CUIPanel* FindChildByIdTraverse(std::string_view id) {
 		auto children = GetChildren();
 		for (auto& panel : children) {
 			if (panel->GetId() && panel->GetId() == id)

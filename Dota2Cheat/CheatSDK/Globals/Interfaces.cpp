@@ -39,13 +39,14 @@ void Interfaces::FindInterfaces() {
 	InitInterface(&SoundOpSystem, "soundsystem.dll", "SoundOpSystem");
 	InitInterface(&InputService, "engine2.dll", "InputService", 64);
 	InitInterface(&NetworkClientService, "engine2.dll", "NetworkClientService");
-	// InitInterface(&NetworkSystem, "networksystem.dll", "NetworkSystem", 62);
 	InitInterface(&NetworkMessages, "networksystem.dll", "NetworkMessages", 36);
 	InitInterface(&FlattenedSerializers, "networksystem.dll", "FlattenedSerializers");
+	// InitInterface(&NetworkSystem, "networksystem.dll", "NetworkSystem", 62);
 
 	EntitySystem =
-		*Address(Interfaces::Client->GetVFunc(25))
+		*Address(Interfaces::Client->GetVFunc(VTableIndexes::CSource2Client::GetNetworkFieldChangeCallbackQueue))
 		.GetAbsoluteAddress(3, 7);
+
 	UIEngine = Panorama->Member<CUIEngineSource2*>(0x28);
 
 	LogF(LP_DATA, "UIEngine: {}", (void*)UIEngine);

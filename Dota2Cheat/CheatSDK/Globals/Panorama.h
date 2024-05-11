@@ -1,6 +1,7 @@
 #pragma once
-#include "../../SDK/Panorama/CPanel2D.h"
-#include "../../SDK/Panorama/CUIPanel.h"
+#include "Panorama/CPanel2D.h"
+#include "Panorama/CUIPanel.h"
+
 #include "Interfaces.h"
 
 namespace Panorama {
@@ -9,17 +10,13 @@ namespace Panorama {
 
 	inline void FindPanels() {
 		// Panorama's HUD root
-		for (auto& node : Interfaces::UIEngine->GetPanelList<4096>()) {
-			auto uiPanel = node.uiPanel;
-			if (!uiPanel->GetId())
-				continue;
-			std::string_view id = uiPanel->GetId();
-			if (id != "DotaHud")
-				continue;
-
-			DotaHud = (CDOTA_Hud*)uiPanel;
-			break;
-		}
+		auto panels = Interfaces::UIEngine->GetPanelList<4096>();
+		DotaHud = (CDOTA_Hud*)std::find_if(
+			panels.begin(), panels.end(), 
+			[](const auto& node) { 
+				return node.uiPanel->GetId() && std::string_view(node.uiPanel->GetId()) == "DotaHud"; 
+			})
+			->uiPanel;
 
 		ErrorMessages = (CDOTA_Hud_ErrorMsg*)DotaHud->FindChildByIdTraverse("ErrorMessages")->GetPanel2D();
 	}

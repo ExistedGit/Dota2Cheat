@@ -1,7 +1,7 @@
 #pragma once
 #include <set>
-#include "../../SDK/Entities/CDOTAPlayerController.h"
-#include "../../SDK/Entities/CDOTABaseNPCHero.h"
+#include <Entities/CDOTAPlayerController.h>
+#include <Entities/CDOTABaseNPCHero.h>
 
 // Context of an ongoing Dota game
 

@@ -55,7 +55,7 @@ public:
 
 	// JS func, uses another vtable at offset
 	bool IsRoshan() const {
-		return MemberInline<VClass>(0xA20)->CallVFunc<VTableIndexes::CDOTABaseNPC::IsRoshan, bool>();
+		return MemberInline<VClass>(0xA10)->CallVFunc<VTableIndexes::CDOTABaseNPC::IsRoshan, bool>();
 	}
 
 	int GetAttackDamageMin() const {

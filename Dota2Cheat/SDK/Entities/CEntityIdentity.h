@@ -19,11 +19,8 @@ public:
 		DWORD m_nFlags;
 	};
 private:
-	char pad[4];
-	void* unkptr4;
-	void* unkptr5;
-	void* unkptr6;
-	void* unkptr8;
+	PAD(4);
+	PAD(4 * 8);
 public:
 	CEntityIdentity* m_pPrev;
 	CEntityIdentity* m_pNext;

@@ -35,11 +35,6 @@ void Modules::M_AbilityESP::UpdateHeroData() {
 
 	SubscribeHeroes();
 	const auto updateHeroData = [this](CDOTABaseNPC_Hero* hero) {
-		DrawableHeroes[hero] =
-			IsValidReadPtr(hero) &&
-			IsValidReadPtr(hero->GetIdentity()) &&
-			!hero->GetIdentity()->IsDormant();
-
 		if (EnemyAbilities.count(hero))
 			UpdateAbilities(hero);
 
@@ -52,12 +47,12 @@ void Modules::M_AbilityESP::UpdateHeroData() {
 }
 
 bool Modules::M_AbilityESP::CanDraw(CDOTABaseNPC_Hero* hero) {
-	bool ret = hero
-		&& DrawableHeroes[hero]
+	bool ret = 
+		!hero->GetIdentity()->IsDormant()
 		&& !hero->IsIllusion()
 		&& hero != ctx.localHero
 		&& hero->GetLifeState() == 0
-		&& IsEntityOnScreen(hero);
+		&& IsPointOnScreen(HeroData[hero].W2S);
 	if (!Config::AbilityESP::ShowAllies)
 		// I wish they made &&= an operator
 		ret = ret && !hero->IsSameTeam(ctx.localHero);

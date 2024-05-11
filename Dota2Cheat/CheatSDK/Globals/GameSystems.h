@@ -1,23 +1,23 @@
 #pragma once
 #include "SignatureDB.h"
 
-#include "../../SDK/Base/Memory.h"
+#include "Base/Memory.h"
 
-#include "../../SDK/GameSystems/C_DOTAGameRules.h"
-#include "../../SDK/GameSystems/C_DOTA_PlayerResource.h"
-#include "../../SDK/GameSystems/CDOTAParticleManager.h"
-#include "../../SDK/GameSystems/C_DOTA_ProjectileManager.h"
-#include "../../SDK/GameSystems/CGameEventManager.h"
-#include "../../SDK/GameSystems/CDOTARichPresence.h"
-#include "../../SDK/GameSystems/CDOTA_BinaryObjectSystem.h"
-#include "../../SDK/GameSystems/CDOTA_MinimapObjectManager.h"
-#include "../../SDK/GameSystems/CGameParticleManagerSystem.h"
-#include "../../SDK/GameSystems/CDOTA_PanoramaMinimapRenderer.h"
-#include "../../SDK/GameSystems/CRenderGameSystem.h"
+#include "GameSystems/C_DOTAGameRules.h"
+#include "GameSystems/C_DOTA_PlayerResource.h"
+#include "GameSystems/CDOTAParticleManager.h"
+#include "GameSystems/C_DOTA_ProjectileManager.h"
+#include "GameSystems/CGameEventManager.h"
+#include "GameSystems/CDOTARichPresence.h"
+#include "GameSystems/CDOTA_BinaryObjectSystem.h"
+#include "GameSystems/CDOTA_MinimapObjectManager.h"
+#include "GameSystems/CGameParticleManagerSystem.h"
+#include "GameSystems/CDOTA_PanoramaMinimapRenderer.h"
+#include "GameSystems/CRenderGameSystem.h"
 
 namespace GameSystems {
 	struct IGameSystemFactory : public VClass {
-		IGameSystemFactory* m_pNextFactory;
+		IGameSystemFactory* m_pNext;
 		const char* m_szName;
 		void** GameSystem;
 

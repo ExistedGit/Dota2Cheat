@@ -5,7 +5,7 @@ bool ImGui::ToggleButton(const char* label, bool* v, const ImVec2& size_arg)
 	ImGuiWindow* window = ImGui::GetCurrentWindow();
 	if (window->SkipItems)
 		return false;
-
+	
 	int flags = 0;
 	ImGuiContext& g = *GImGui;
 	const ImGuiStyle& style = g.Style;

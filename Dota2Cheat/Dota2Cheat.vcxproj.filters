@@ -151,6 +151,8 @@
     <ClCompile Include="CheatSDK\VTexDecoders\DXT5Decoder.cpp" />
     <ClCompile Include="CheatSDK\VTexDecoders\VTexParser.cpp" />
     <ClCompile Include="Modules\UI\AbilityESP.cpp" />
+    <ClCompile Include="CheatSDK\Globals\VMTDB.cpp" />
+    <ClCompile Include="CheatSDK\Globals\SignatureDB.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\UI\UIOverhaul.h" />
@@ -388,6 +390,7 @@
     <ClInclude Include="SDK\Base\MurmurHash2.h" />
     <ClInclude Include="Hooks\AcceptEvents.h" />
     <ClInclude Include="Modules\UI\AbilityESP.h" />
+    <ClInclude Include="CheatSDK\Globals\VMTDB.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

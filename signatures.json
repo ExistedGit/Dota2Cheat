@@ -8,32 +8,19 @@
     "module": "client.dll"
   },
   "SaveSerializedSOCache": {
-    "signature": "49 89 7B 20 E8",
-    "module": "client.dll",
-    "steps": [[1, -49]]
+    "signature": "40 53 48 81 EC ? ? ? ? 48 8B D9 48 8D 0D",
+    "module": "client.dll"
   },
   "CDOTARichPresence::SetRPStatus": {
     "signature": "4C 89 4C 24 20 55 53 57 41 54",
     "module": "client.dll"
   },
-
-  "IDXGISwapChain::Present": {
-    "signature": "48 89 6C 24 ? 48 89 74 24 ? 41 56 48 83 EC 20 41 8B E8",
-    "module": "gameoverlayrenderer64.dll"
-  },
-  "CParticleCollection::~CParticleCollection": {
-    "signature": "E8 ? ? ? ? 40 F6 C7 01 74 34",
-    "module": "particles.dll",
+  "g_pGameSystemFactory": {
+    "signature": "E8 ? ? ? ? 84 C0 74 D3 48 8D 0D",
+    "module": "client.dll",
     "steps": [
       [0, 1],
-      [1, 20],
-      [0, 3]
-    ]
-  },
-  "CNetChan::vftable": {
-    "signature": "48 8D 05 ?? ?? ?? ?? 48 89 69 20",
-    "module": "networksystem.dll",
-    "steps": [
+      [1, 8],
       [0, 3]
     ]
   },
@@ -143,6 +130,28 @@
     "module": "client.dll",
     "steps": [
       [1, 6],
+      [0, 3]
+    ]
+  },
+
+  "IDXGISwapChain::Present": {
+    "signature": "48 89 6C 24 ? 48 89 74 24 ? 41 56 48 83 EC 20 41 8B E8",
+    "module": "gameoverlayrenderer64.dll"
+  },
+  "CParticleCollection::~CParticleCollection": {
+    "signature": "E8 ? ? ? ? 40 F6 C7 01 74 34",
+    "module": "particles.dll",
+    "steps": [
+      [0, 1],
+      [1, 20],
+      [0, 3]
+    ]
+  },
+  "CNetChan::vftable": {
+    "signature": "4C 89 69 18",
+    "module": "networksystem.dll",
+    "steps": [
+      [1, 4],
       [0, 3]
     ]
   }

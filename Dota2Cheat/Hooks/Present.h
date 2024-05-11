@@ -7,17 +7,6 @@
 #include "../CheatSDK/KeyHandler.h"
 #include "../UI/Pages/MainMenu.h"
 
-inline std::mutex writeMutex;
-struct NetvarWriteData {
-	int writeCount = 0;
-	int lastVal{};
-};
-inline std::map<std::string, NetvarWriteData> writes;
-
-// DirectX11's SwapChain::Present, used to render things
-// Its hooking is different from the "classical" method of creating a dummy window
-// We just hook the overlay's hook!
-
 extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 namespace Hooks {
