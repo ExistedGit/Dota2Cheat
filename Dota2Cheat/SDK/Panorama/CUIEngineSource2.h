@@ -37,7 +37,9 @@ public:
 		struct  IVPBuffer {
 			uint32_t unk0, unk1;
 		} buf;
-		return CallVFunc<VTableIndexes::CUIEngineSource2::IsValidPanelPointer, IVPBuffer*>(&buf, panel)->unk0 != 0xFFFFFFFF;
+		return 
+			GetVFunc(VTableIndexes::CUIEngineSource2::IsValidPanelPointer)
+			.Call<IVPBuffer*>(&buf, panel)->unk0 != 0xFFFFFFFF;
 	}
 	// Iterated in RunFrame
 	FIELD(CUtlVector<void(*)()>, GetListeners, 0xD0);

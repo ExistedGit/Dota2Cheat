@@ -15,11 +15,11 @@ void GameSystems::InitMinimapRenderer() {
 	SET_VAR(MinimapRenderer, minimap->GetPanel2D()->Member<CDOTAPanoramaMinimapRenderer*>(0x28));
 }
 
-Address GameSystems::FindGameSystem(const char* name) {
+Address GameSystems::FindGameSystem(std::string_view name) {
 	auto pFactory = GameSystemFactory;
 	while (pFactory) {
-		if (pFactory->m_szName && !strcmp(pFactory->m_szName, name))
-			return pFactory->GetGameSystem();
+		if (pFactory->m_szName && pFactory->m_szName == name)
+			return pFactory->GameSystem;
 
 		pFactory = pFactory->m_pNext;
 	}
@@ -43,12 +43,12 @@ void GameSystems::FindGameSystems() {
 		.Offset(0x3E)
 		.GetAbsoluteAddress(3));
 
-	SET_VAR(RichPresence, FindGameSystem("CDOTARichPresence"));
-	SET_VAR(GCClientSystem, FindGameSystem("CDOTAGCClientSystem"));
-	SET_VAR(MinimapObjManager, FindGameSystem("CDOTA_MinimapObjectManager"));
-	SET_VAR(BinaryObjectSystem, FindGameSystem("CDOTA_BinaryObjectSystem"));
-	SET_VAR(InventoryManager, FindGameSystem("CDOTAInventoryManager"));
-	SET_VAR(ParticleManagerSystem, FindGameSystem("CGameParticleManagerSystem"));
+	SET_VAR(RichPresence, *FindGameSystem("CDOTARichPresence"));
+	SET_VAR(GCClientSystem, *FindGameSystem("CDOTAGCClientSystem"));
+	SET_VAR(MinimapObjManager, *FindGameSystem("CDOTA_MinimapObjectManager"));
+	SET_VAR(BinaryObjectSystem, *FindGameSystem("CDOTA_BinaryObjectSystem"));
+	SET_VAR(InventoryManager, *FindGameSystem("CDOTAInventoryManager"));
+	SET_VAR(ParticleManagerSystem, *FindGameSystem("CGameParticleManagerSystem"));
 
 	ProjectileManagerPtr = FindGameSystem("C_DOTA_ProjectileManager");
 	RenderGameSystemPtr = FindGameSystem("RenderGameSystem");

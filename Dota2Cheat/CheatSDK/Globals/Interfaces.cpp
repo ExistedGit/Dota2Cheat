@@ -1,10 +1,11 @@
 #include "Interfaces.h"
 #include <tuple>
 
-void InitInterface(auto** var, const char* dllName, const char* interfaceName, std::optional<int> vmCount = std::nullopt) {
-	auto instance = *(void**)var = Memory::GetInterfaceBySubstr(dllName, interfaceName);
+template<typename T>
+void InitInterface(T** var, std::string_view dllName, std::string_view interfaceName, std::optional<int> vmCount = std::nullopt) {
+	T* instance = *var = Memory::GetInterfaceBySubstr<T>(dllName, interfaceName);
 	if (!instance)
-		return LogF(LP_ERROR, "{}: {}", interfaceName, instance);
+		return LogF(LP_ERROR, "{}: {}", interfaceName, (void*)instance);
 
 	int countedVMs = CountVMs(instance);
 
@@ -16,7 +17,7 @@ void InitInterface(auto** var, const char* dllName, const char* interfaceName, s
 		prefix = LP_WARNING;
 	}
 
-	LogF(prefix, "{}: {}{}", interfaceName, instance, vmInfo);
+	LogF(prefix, "{}: {}{}", interfaceName, (void*)instance, vmInfo);
 }
 
 void Interfaces::FindInterfaces() {

@@ -205,7 +205,7 @@ public:
 
 	// JS Func
 	int GetEffectiveCastRange() {
-		return CallVFunc<VTableIndexes::CDOTABaseAbility::GetEffectiveCastRange, int>(nullptr, nullptr, nullptr);
+		return GetVFunc(VTableIndexes::CDOTABaseAbility::GetEffectiveCastRange).Call<int>(nullptr, nullptr, nullptr);
 	}
 
 };

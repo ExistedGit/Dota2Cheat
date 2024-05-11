@@ -67,7 +67,7 @@ namespace Signatures {
 		{"CDOTABaseAbility::GetLevelSpecialValueFor", (void**)&CDOTABaseAbility::GetLevelSpecialValueForFunc},
 	};
 
-#undef SIGMAP_ENTRY;
+#undef SIGMAP_ENTRY
 
 	void FindSignatures();
 }

@@ -1,66 +1,100 @@
 #pragma once
 
-#define Index constexpr uint32_t
-
 namespace VTableIndexes {
+#define Index inline uint32_t
+	namespace CBaseEntity {
+		Index GetSchemaBinding{};
+	}
 	namespace CEngineClient {
 		// after GetMaxClients(which returns 64/0x40)
 		// either bruteforce or compare which vfunc of xmmword_XXXXXXXX the function called last time and compare with new data
-		Index IsInGame = 31;
+		Index IsInGame{};
 	}
 	namespace CParticleCollection {
 		// xref: "modifier_item_ward_true_sight", appears twice in the same func
 		// decompile -> under "particles/ui_mouseactions/range_display.vpcf" will be a sub_XXXXXXX call with 3 args
 		// that is CNewParticleEffect::SetControlPoint, which gets the CParticleCollection at 0x20 and calls the vfunc at index 16
-		Index SetControlPoint = 16;
+		Index SetControlPoint{};
 		// xref: "Error in child list of particle system %s [%p]"
 		// easy to see
-		Index SetRenderingEnabled = 94;
+		Index SetRenderingEnabled{};
 	}
 	namespace CDOTAParticleManager {
 		// JS xref "CreateParticle" to lea RCX
 		// Second call is GetParticleManager
 		// Third calls a virtual function of RAX, the index is there
-		Index CreateParticle = 9;
+		Index CreateParticle{};
 	}
 	namespace CDOTABaseNPC {
 		// the name is an xref, decompile what you found
 		// the function that gets placed into a variable accepts int64 a1 and calls its vfunc
 		// the natural assumption would be that a1 is C_DOTA_BaseNPC*
-		Index OnWearablesChanged = 263;
+		Index OnWearablesChanged{};
 
 		// JS functions
-		Index IsRoshan = 61;
-		Index GetIdealSpeed = 241;
-		Index GetAttackRange = 286;
-		Index GetPhysicalArmorValue = 289;
-		Index GetMagicalArmorValue = GetPhysicalArmorValue + 1;
+		Index IsRoshan{};
+		Index GetIdealSpeed{};
+		Index GetAttackRange{};
+		Index GetPhysicalArmorValue{};
+		Index GetMagicalArmorValue{};
 	}
 	namespace CDOTABaseAbility {
 		// JS
-		Index GetEffectiveCastRange = 261;
+		Index GetEffectiveCastRange{};
 	}
 	namespace CDOTA_Buff {
-		Index OnAddModifier = 42;
+		Index OnAddModifier{};
 	}
 	namespace CUIEngineSource2 {
 		// xref: "CUIEngine::RunFrame"
-		Index RunFrame = 6;
+		Index RunFrame{};
 		// 7th above vfunc with "CUIEngine::RegisterEventHandler"
 		// look for the one that matches the dylib version
-		Index IsValidPanelPointer = 33;
+		Index IsValidPanelPointer{};
 		// xref: "CUIEngine::RunScript (compile+run)"
-		Index RunScript = 81;
+		Index RunScript{};
 	}
 	namespace CSource2Client {
 		// look into the function behind "cl_showents" to find the EntitySystem qword
 		// then look at VMs around the broken index in search of a small sub which does mov XXX, g_pEntitySystem
-		Index GetNetworkFieldChangeCallbackQueue = 27;
+		Index GetNetworkFieldChangeCallbackQueue{};
 		// 8 funcs above xrefs "reason_code", "client_disconnect"
-		Index VoiceReliable = 112;
+		Index VoiceReliable{};
 		// xrefs: "userid", "steamid", "player_info"
-		Index NotifyDisconnect = 14;
+		Index NotifyDisconnect{};
 	}
-}
 
+#define TABLE_ENTRY(x) { #x, &x },
+	inline std::map<std::string, uint32_t*> vmTables = {
+		TABLE_ENTRY(CBaseEntity::GetSchemaBinding)
+
+		TABLE_ENTRY(CSource2Client::VoiceReliable)
+		TABLE_ENTRY(CSource2Client::GetNetworkFieldChangeCallbackQueue)
+		TABLE_ENTRY(CSource2Client::NotifyDisconnect)
+
+		TABLE_ENTRY(CUIEngineSource2::RunFrame)
+		TABLE_ENTRY(CUIEngineSource2::IsValidPanelPointer)
+		TABLE_ENTRY(CUIEngineSource2::RunScript)
+
+		TABLE_ENTRY(CDOTA_Buff::OnAddModifier)
+
+		TABLE_ENTRY(CDOTABaseNPC::GetAttackRange)
+		TABLE_ENTRY(CDOTABaseNPC::GetIdealSpeed)
+		TABLE_ENTRY(CDOTABaseNPC::GetPhysicalArmorValue)
+		TABLE_ENTRY(CDOTABaseNPC::GetMagicalArmorValue)
+		TABLE_ENTRY(CDOTABaseNPC::IsRoshan)
+		TABLE_ENTRY(CDOTABaseNPC::OnWearablesChanged)
+
+		TABLE_ENTRY(CDOTABaseAbility::GetEffectiveCastRange)
+
+		TABLE_ENTRY(CDOTAParticleManager::CreateParticle)
+
+		TABLE_ENTRY(CEngineClient::IsInGame)
+
+		TABLE_ENTRY(CParticleCollection::SetControlPoint)
+		TABLE_ENTRY(CParticleCollection::SetRenderingEnabled)
+	};
+
+#undef TABLE_ENTRY
 #undef Index
+}

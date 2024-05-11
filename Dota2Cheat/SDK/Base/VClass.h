@@ -27,13 +27,13 @@ public:
 		return (T*)((uintptr_t)this + offset);
 	}
 
-	Function GetVFunc(ptrdiff_t index) const
+	Method GetVFunc(ptrdiff_t index) const
 	{
-		return Function((*(uintptr_t**)this)[index]);
+		return Method((void*)this, (*(uintptr_t**)this)[index]);
 	}
 
 	template<uint32_t index, typename RET = void*, typename ...T>
 	RET CallVFunc(T... t) {
-		return GetVFunc(index).Call<RET>(this, t...);
+		return GetVFunc(index).Call<RET>(t...);
 	}
 };

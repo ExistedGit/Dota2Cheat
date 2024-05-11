@@ -49,7 +49,7 @@ namespace GameSystems {
 
 #undef REALLOCATING_SYSTEM
 
-	Address FindGameSystem(const char* name);
+	Address FindGameSystem(std::string_view name);
 
 	void FindGameSystems();
 }

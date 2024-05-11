@@ -2025,7 +2025,7 @@ public:
 	};
 
 	auto GetNetvarCallbacks() {
-		return **(std::array<CallbackData, 256>**)((uintptr_t)this + 0x4C0);
+		return **(std::array<CallbackData, 256>**)((uintptr_t)this + 0x4B8);
 	}
 
 	Function FindCallback(std::string_view name) {

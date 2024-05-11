@@ -12,12 +12,19 @@
 #include "../../Modules/Utility/CVarSpoofer.h"
 #include "../../Modules/Utility/CVarSpoofer.h"
 #include "../../UI/Pages/AutoPickSelectionGrid.h"
+#include "../Globals/VMTDB.h"
 
 void CCheatManager::LoadGameSpecific() {
 	// Allows VPK mods
 	// IDK what became of that piece of code
 	//if (auto gi = Memory::Scan("74 ? 84 C9 75 ? 83 BF", "client.dll"))
 	//	Memory::Patch(gi, { 0xEB });
+
+	VMDB::LoadFromFile(cheatFolderPath + "\\vmt.json");
+	VMDB::ParseMap(VTableIndexes::vmTables);
+
+	SignatureDB::LoadSignaturesFromFile(cheatFolderPath + "\\signatures.json");
+	Signatures::FindSignatures();
 
 	// Disables gameoverlayrenderer64's WINAPI hook checks
 	if (auto enableVACHooks = Memory::Scan("75 04 84 DB", "gameoverlayrenderer64.dll"))
@@ -46,10 +53,7 @@ void CCheatManager::LoadGameSpecific() {
 
 	Interfaces::CVar->CVars["dota_hud_chat_enable_all_emoticons"].m_pVar->value.boolean = Config::Changer::UnlockEmoticons;
 
-	SignatureDB::LoadSignaturesFromFile(cheatFolderPath + "\\signatures.json");
-	// VTableIndexes::Load(cheatFolderPath + "\\vmt.json");
 
-	Signatures::FindSignatures();
 	GameSystems::FindGameSystems();
 
 #if defined(_DEBUG) && !defined(_TESTING)

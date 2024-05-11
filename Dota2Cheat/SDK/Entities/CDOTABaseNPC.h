@@ -35,11 +35,11 @@ public:
 	}
 
 	float GetPhysicalArmorValue() {
-		return CallVFunc<VTableIndexes::CDOTABaseNPC::GetPhysicalArmorValue, float>(0ull);
+		return GetVFunc(VTableIndexes::CDOTABaseNPC::GetPhysicalArmorValue).Call<float>(0ull);
 	}
 
 	float GetMagicalArmorValue() {
-		return CallVFunc<VTableIndexes::CDOTABaseNPC::GetMagicalArmorValue, float>(0ull, 0ull);
+		return GetVFunc(VTableIndexes::CDOTABaseNPC::GetMagicalArmorValue).Call<float>(0ull, 0ull);
 	}
 
 	VGETTER(float, GetIdealSpeed, VTableIndexes::CDOTABaseNPC::GetIdealSpeed);
@@ -55,7 +55,7 @@ public:
 
 	// JS func, uses another vtable at offset
 	bool IsRoshan() const {
-		return MemberInline<VClass>(0xA10)->CallVFunc<VTableIndexes::CDOTABaseNPC::IsRoshan, bool>();
+		return MemberInline<VClass>(0xA10)->GetVFunc(VTableIndexes::CDOTABaseNPC::IsRoshan).Call<bool>();
 	}
 
 	int GetAttackDamageMin() const {
@@ -64,7 +64,7 @@ public:
 	}
 
 	float GetAttackRange() {
-		return CallVFunc<VTableIndexes::CDOTABaseNPC::GetAttackRange, float>(0, 1);
+		return GetVFunc(VTableIndexes::CDOTABaseNPC::GetAttackRange).Call<float>(0, 1);
 	};
 
 	GETTER(bool, IsWaitingToSpawn, Netvars::C_DOTA_BaseNPC::m_bIsWaitingToSpawn);
