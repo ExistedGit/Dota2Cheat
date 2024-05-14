@@ -2,7 +2,7 @@
 
 #include "../Base/VClass.h"
 #include "../Base/Definitions.h"
-#include "../VTableIndexes.h"
+#include "../VMI.h"
 #include <span>
 #include <string_view>
 #include "CUIPanel.h"
@@ -22,7 +22,7 @@ class CUIEngineSource2 : public VClass {
 public:
 	template<uint32_t size>
 	auto GetPanelList() {
-		return std::span{ Member<PanelListNode*>(0xf0), size };
+		return std::span{ Member<PanelListNode*>(0x130), size };
 	}
 
 	GETTER(CUIRenderDeviceSource2*, GetRenderDevice, 0xBA8);
@@ -38,7 +38,7 @@ public:
 			uint32_t unk0, unk1;
 		} buf;
 		return 
-			GetVFunc(VTableIndexes::CUIEngineSource2::IsValidPanelPointer)
+			GetVFunc(VMI::CUIEngineSource2::IsValidPanelPointer)
 			.Call<IVPBuffer*>(&buf, panel)->unk0 != 0xFFFFFFFF;
 	}
 	// Iterated in RunFrame

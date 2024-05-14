@@ -49,7 +49,29 @@ namespace GameSystems {
 
 #undef REALLOCATING_SYSTEM
 
-	Address FindGameSystem(std::string_view name);
+	inline Address FindStaticGameSystem(std::string_view name) {
+		auto pFactory = GameSystemFactory;
+		while (pFactory) {
+			if (pFactory->m_szName && pFactory->m_szName == name)
+				return pFactory->GetGameSystem();
+
+			pFactory = pFactory->m_pNext;
+		}
+
+		return nullptr;
+	}
+
+	inline Address FindReallocatingGameSystem(std::string_view name) {
+		auto pFactory = GameSystemFactory;
+		while (pFactory) {
+			if (pFactory->m_szName && pFactory->m_szName == name)
+				return pFactory->GameSystem;
+
+			pFactory = pFactory->m_pNext;
+		}
+
+		return nullptr;
+	}
 
 	void FindGameSystems();
 }

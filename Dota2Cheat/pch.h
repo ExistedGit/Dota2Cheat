@@ -39,4 +39,7 @@
 #include "SDK/include.h"
 #include "CheatSDK/Bytes/Fonts.h"
 
+using namespace std::string_view_literals;
+using namespace std::string_literals;
+
 #endif // !PCH_H

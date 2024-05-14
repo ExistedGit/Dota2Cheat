@@ -253,7 +253,6 @@
     <ClInclude Include="Modules\Hacks\ShakerAttackAnimFix.h" />
     <ClInclude Include="Modules\Hacks\TargetedSpellHighlighter.h" />
     <ClInclude Include="Modules\Hacks\EnemySpellHighlight.h" />
-    <ClInclude Include="SDK\VTableIndexes.h" />
     <ClInclude Include="SDK\Interfaces\CVarSystem.h" />
     <ClInclude Include="SDK\Base\CUtlVector.h" />
     <ClInclude Include="SDK\Enums.h" />
@@ -391,6 +390,7 @@
     <ClInclude Include="Hooks\AcceptEvents.h" />
     <ClInclude Include="Modules\UI\AbilityESP.h" />
     <ClInclude Include="CheatSDK\Globals\VMTDB.h" />
+    <ClInclude Include="SDK\VMI.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

@@ -20,8 +20,8 @@ void Modules::M_LastHitMarker::Draw() {
 	const auto DrawForCreep = [this, hasQBlade, attackRange](const auto& wrapper) {
 
 		auto creep = wrapper.As<CDOTABaseNPC>();
-		if (!IsValidReadPtr(creep)
-			|| !IsValidReadPtr(creep->GetIdentity())
+		if (!creep
+			|| !creep->GetIdentity()
 			|| !creep->IsTargetable())
 			return;
 

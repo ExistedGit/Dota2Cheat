@@ -44,7 +44,7 @@ public:
 	};
 
 	CSchemaClassBinding* SchemaBinding() {
-		return GetVFunc(VTableIndexes::CBaseEntity::GetSchemaBinding).Call<CSchemaClassBinding*>();
+		return GetVFunc(VMI::CBaseEntity::GetSchemaBinding).Call<CSchemaClassBinding*>();
 	};
 
 	inline static void(__fastcall* OnColorChanged)(void*) = {};

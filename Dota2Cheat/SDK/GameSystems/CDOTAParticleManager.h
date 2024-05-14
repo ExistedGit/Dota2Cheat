@@ -6,7 +6,7 @@
 #include "../Interfaces/Network/CNetworkMessages.h"
 
 #include "../Base/Vector.h"
-#include "../VTableIndexes.h"
+#include "../VMI.h"
 
 class CBaseEntity;
 
@@ -107,9 +107,9 @@ public:
 	};
 
 	FIELD(ParticleDef*, Definition, 0x18);
-	VGETTER(bool, GetRenderingEnabled, VTableIndexes::CParticleCollection::SetRenderingEnabled - 1);
+	VGETTER(bool, GetRenderingEnabled, VMI::CParticleCollection::SetRenderingEnabled - 1);
 	void SetRenderingEnabled(bool value) {
-		GetVFunc(VTableIndexes::CParticleCollection::SetRenderingEnabled)(value);
+		GetVFunc(VMI::CParticleCollection::SetRenderingEnabled)(value);
 	}
 };
 
@@ -118,7 +118,7 @@ struct CNewParticleEffect : public VClass {
 
 	CNewParticleEffect* SetControlPoint(int idx, const Vector& pos) {
 		auto coll = GetParticleCollection();
-		coll->GetVFunc(VTableIndexes::CParticleCollection::SetControlPoint)(idx, &pos);
+		coll->GetVFunc(VMI::CParticleCollection::SetControlPoint)(idx, &pos);
 		return this;
 	}
 };

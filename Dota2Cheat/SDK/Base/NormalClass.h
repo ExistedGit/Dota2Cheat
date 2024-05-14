@@ -6,15 +6,11 @@ class NormalClass {
 public:
 	template<typename T>
 	T& Field(ptrdiff_t offset) const {
-		if (!IsValidReadPtr((uintptr_t)this + offset))
-			throw "VClass::Field access violation";
 		return *(T*)((uintptr_t)this + offset);
 	}
 
 	template<typename T>
-	T Member(ptrdiff_t offset/*, T defaultValue = T{}*/) const {
-		if (!IsValidReadPtr((uintptr_t)this + offset))
-			return T{};
+	T Member(ptrdiff_t offset) const {
 		return *(T*)((uintptr_t)this + offset);
 	}
 

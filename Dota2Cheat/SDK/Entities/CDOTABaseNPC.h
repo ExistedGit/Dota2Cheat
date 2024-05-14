@@ -9,11 +9,11 @@
 class CDOTABaseNPC : public CBaseEntity {
 public:
 	inline static float(*GetAttackSpeed)(CDOTABaseNPC* npc) = nullptr;
+	
 	// Reversed via xref "CDOTA_Hud_HealthMana::Update"
 	// in the beginning after the repeated section with xrefs the hero is acquired
 	// trace the variable in the call with "max_physical_barrier" to the assignment of a value where an offset to hero is used
 	// that offset ultimately leads to such a structure
-	// sig to opcode: "F3 45 0F 10 AE"
 	struct BarrierData {
 		float
 			maxPhys,
@@ -24,7 +24,7 @@ public:
 			all;   // blocks all forms of damage
 	};
 
-	GETTER(BarrierData, GetBarriers, 0x1734);
+	GETTER(BarrierData, GetBarriers, 0x1748);
 
 	// GETTER(CAssetModifierContainer*, GetAssetModifierContainer, 0xa20);
 
@@ -35,15 +35,15 @@ public:
 	}
 
 	float GetPhysicalArmorValue() {
-		return GetVFunc(VTableIndexes::CDOTABaseNPC::GetPhysicalArmorValue).Call<float>(0ull);
+		return GetVFunc(VMI::CDOTABaseNPC::GetPhysicalArmorValue).Call<float>(0ull);
 	}
 
 	float GetMagicalArmorValue() {
-		return GetVFunc(VTableIndexes::CDOTABaseNPC::GetMagicalArmorValue).Call<float>(0ull, 0ull);
+		return GetVFunc(VMI::CDOTABaseNPC::GetMagicalArmorValue).Call<float>(0ull, 0ull);
 	}
 
-	VGETTER(float, GetIdealSpeed, VTableIndexes::CDOTABaseNPC::GetIdealSpeed);
-	VGETTER(void, OnWearablesChanged, VTableIndexes::CDOTABaseNPC::OnWearablesChanged);
+	VGETTER(float, GetIdealSpeed, VMI::CDOTABaseNPC::GetIdealSpeed);
+	VGETTER(void, OnWearablesChanged, VMI::CDOTABaseNPC::OnWearablesChanged);
 
 	// Wrapper function combining the following conditions: 
 	// Is not dormant
@@ -55,7 +55,7 @@ public:
 
 	// JS func, uses another vtable at offset
 	bool IsRoshan() const {
-		return MemberInline<VClass>(0xA10)->GetVFunc(VTableIndexes::CDOTABaseNPC::IsRoshan).Call<bool>();
+		return MemberInline<VClass>(0xA10)->GetVFunc(VMI::CDOTABaseNPC::IsRoshan).Call<bool>();
 	}
 
 	int GetAttackDamageMin() const {
@@ -64,7 +64,7 @@ public:
 	}
 
 	float GetAttackRange() {
-		return GetVFunc(VTableIndexes::CDOTABaseNPC::GetAttackRange).Call<float>(0, 1);
+		return GetVFunc(VMI::CDOTABaseNPC::GetAttackRange).Call<float>(0, 1);
 	};
 
 	GETTER(bool, IsWaitingToSpawn, Netvars::C_DOTA_BaseNPC::m_bIsWaitingToSpawn);

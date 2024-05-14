@@ -33,7 +33,7 @@ void Hooks::InstallHooks() {
 		// vtable ptr at 0xd
 		auto OnRemoveModifier = SignatureDB::FindSignature("CDOTA_Buff::~CDOTA_Buff");
 		uintptr_t** vtable = OnRemoveModifier.Offset(0xD).GetAbsoluteAddress(3);
-		uintptr_t* OnAddModifier = vtable[VTableIndexes::CDOTA_Buff::OnAddModifier];
+		uintptr_t* OnAddModifier = vtable[VMI::CDOTA_Buff::OnAddModifier];
 		HOOKFUNC(OnAddModifier);
 		HOOKFUNC(OnRemoveModifier);
 		CDOTAParticleManager::DestroyParticleFunc = OnRemoveModifier.Offset(0x72).GetAbsoluteAddress(1);
@@ -41,17 +41,15 @@ void Hooks::InstallHooks() {
 	{
 		// xref: "CParticleCollection::~CParticleCollection [%p]\n"
 		uintptr_t** vtable = SignatureDB::FindSignature("CParticleCollection::CParticleCollection");
-		auto SetRenderingEnabled = vtable[VTableIndexes::CParticleCollection::SetRenderingEnabled];
+		auto SetRenderingEnabled = vtable[VMI::CParticleCollection::SetRenderingEnabled];
 		HOOKFUNC(SetRenderingEnabled);
 	}
 	{
-
-
-		void* FrameStageNotify = Interfaces::Client->GetVFunc(31);
+		void* FrameStageNotify = Interfaces::Client->GetVFunc(VMI::CSource2Client::FrameStageNotify);
 		HOOKFUNC(FrameStageNotify);
 
 #ifndef _TESTING
-		void* RunScript = Interfaces::UIEngine->GetVFunc(VTableIndexes::CUIEngineSource2::RunScript);
+		void* RunScript = Interfaces::UIEngine->GetVFunc(VMI::CUIEngineSource2::RunScript);
 		HOOKFUNC(RunScript);
 #endif
 

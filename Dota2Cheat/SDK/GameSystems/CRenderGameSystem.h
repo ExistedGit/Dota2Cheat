@@ -4,13 +4,13 @@
 #include "../Base/Vector.h"
 
 // Reversed by Morphling
-// Used as substitute of WorldToScreen
-class CRenderGameSystem : VClass {
+class CRenderGameSystem : public VClass {
 public:
 	auto WorldToProjectionMatrix() {
-		return CallVFunc<53, float*>(0); // last vfunc
+		return GetVFunc(VMI::CRenderGameSystem::WorldToProjectionMatrix).Call<float*>(0);
 	}
 
-	// Basically some complex math involving the WorldToProjection matrix
+	// Used as substitute of WorldToScreen
+	// Basically some complex math involving the world-to-projection matrix
 	bool GetVectorInScreenSpace(const Vector& point, Vector2D& screen);
 };

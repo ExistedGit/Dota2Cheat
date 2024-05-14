@@ -51,29 +51,29 @@ void Pages::MainMenu::Draw() {
 	if (ctx.gameStage == GameStage::IN_GAME)
 		if (CheatGui::Button("Circle drawing"))
 			circleMenuVisible = !circleMenuVisible;
-	{
-		static int localeIdx = 0;
-		static std::vector<std::string> localeNames;
-		static std::vector<std::string> locales;
+	//{
+	//	static int localeIdx = 0;
+	//	static std::vector<std::string> localeNames;
+	//	static std::vector<std::string> locales;
 
 
-		if (locales.size() == 0) {
-			for (const auto& [k, v] : locale.schema.items()) {
-				localeNames.push_back(std::string(v));
-				locales.push_back(std::string(k));
-			}
+	//	if (locales.size() == 0) {
+	//		for (const auto& [k, v] : locale.schema.items()) {
+	//			localeNames.push_back(std::string(v));
+	//			locales.push_back(std::string(k));
+	//		}
 
-			for (int i = 0; i < locales.size(); i++) {
-				if (locales[i] == Config::Locale)
-					localeIdx = i;
-			}
-		}
+	//		for (int i = 0; i < locales.size(); i++) {
+	//			if (locales[i] == Config::Locale)
+	//				localeIdx = i;
+	//		}
+	//	}
 
-		if (CheatGui::Combo("Language", &localeIdx, localeNames)) {
-			locale.Init(locales[localeIdx]);
-			Config::Locale = locales[localeIdx];
-		};
-	}
+	//	if (CheatGui::Combo("Language", &localeIdx, localeNames)) {
+	//		locale.Init(locales[localeIdx]);
+	//		Config::Locale = locales[localeIdx];
+	//	};
+	//}
 	if (ImGui::TreeNode("AutoAccept")) {
 		ImGui::Checkbox("Enable", &Config::AutoAccept::Enabled);
 		if (Config::AutoAccept::Enabled)

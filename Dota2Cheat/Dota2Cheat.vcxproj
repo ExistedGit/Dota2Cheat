@@ -718,7 +718,7 @@
     <ClInclude Include="Modules\Hacks\ShakerAttackAnimFix.h" />
     <ClInclude Include="Modules\Hacks\TargetedSpellHighlighter.h" />
     <ClInclude Include="Modules\Hacks\EnemySpellHighlight.h" />
-    <ClInclude Include="SDK\VTableIndexes.h" />
+    <ClInclude Include="SDK\VMI.h" />
     <ClInclude Include="SDK\Interfaces\CVarSystem.h" />
     <ClInclude Include="SDK\Base\CUtlVector.h" />
     <ClInclude Include="SDK\Enums.h" />

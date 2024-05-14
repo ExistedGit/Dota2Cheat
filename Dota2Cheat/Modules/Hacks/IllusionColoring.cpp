@@ -1,30 +1,27 @@
 #include "IllusionColoring.h"
+#include "../../SDK/Protobufs/dota_modifiers.pb.h"
 
 void Modules::M_IllusionESP::AddIllusionModifier(CDOTABaseNPC_Hero* hero, const char* modifierName, const char* particle) {
-	auto p = GameSystems::ParticleManager->CreateParticle(
-		particle,
-		PATTACH_ABSORIGIN_FOLLOW,
-		hero
-	);
+	//auto p = GameSystems::ParticleManager->CreateParticle(
+	//	particle,
+	//	PATTACH_ABSORIGIN_FOLLOW,
+	//	hero
+	//);
 
-	// ModifierFactoryDictionary
-	static auto dict = Memory::Scan("48 83 EC 20 E8 ? ? ? ? 8B 0D", "client.dll")
-		.Offset(4)
-		.GetAbsoluteAddress(1)
-		.Offset(0x27)
-		.GetAbsoluteAddress<VClass*>(3);
+	// C_DOTA_BaseNPC::ClientAddNewModifier
+	// xref: "dota_portrait_unit_modifiers_changed" and go up the xref ladder
+	using fC_DOTA_BaseNPC__ClientAddNewModifier = void(*)(CDOTABaseNPC* thisptr, CBaseEntity* caster, CDOTABaseAbility* ability, const char* name, KeyValues* kv, int unk, CDOTAModifierBuffTableEntry* entry);
+	static fC_DOTA_BaseNPC__ClientAddNewModifier C_DOTA_BaseNPC__ClientAddNewModifier = Memory::Scan("E8 ? ? ? ? 48 85 C0 74 06 8B 4D EC", "client.dll").GetAbsoluteAddress(1);
+	static auto buffKV = KeyValues::MakeKV("illusion_kv");
+	
+	buffKV->SetString("BaseClass", modifierName);
+	
+	CDOTAModifierBuffTableEntry entry;
+	entry.set_serial_num(0);
+	entry.set_parent(hero->GetIndex());
+	entry.set_index(300000000);
 
-	// Creates the modifier and puts our particle into its m_iParticles
-	auto modifier = dict->CallVFunc<1, CDOTAModifier*>(modifierName);
-
-	modifier->Field<const char*>(Netvars::CDOTA_Buff::m_name) = modifierName;
-	modifier->Field<void*>(0x30) = hero->GetModifierManager();
-	modifier->Particles().push_back({
-		.particleHandle = p.handle,
-		.entIdx = hero->GetIndex()
-		});
-
-	hero->GetModifierManager()->GetModifierList().push_back(modifier);
+	C_DOTA_BaseNPC__ClientAddNewModifier(hero, nullptr, nullptr, modifierName, buffKV, 0, &entry);
 }
 
 void Modules::M_IllusionESP::ColorIllusion(CDOTABaseNPC_Hero* hero) {

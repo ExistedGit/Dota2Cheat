@@ -30,7 +30,7 @@ inline void ShowHUDError(std::string_view caption, std::string_view sound) {
 inline ImVec2 WorldToScreen(const Vector& pos) {
 	Vector2D xy{};
 
-	if (IsValidReadPtr(*GameSystems::RenderGameSystemPtr))
+	if (*GameSystems::RenderGameSystemPtr)
 		(*GameSystems::RenderGameSystemPtr)->GetVectorInScreenSpace(pos, xy);
 
 	return ImVecFromVec2D(xy);

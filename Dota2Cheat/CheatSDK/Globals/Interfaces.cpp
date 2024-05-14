@@ -45,7 +45,7 @@ void Interfaces::FindInterfaces() {
 	// InitInterface(&NetworkSystem, "networksystem.dll", "NetworkSystem", 62);
 
 	EntitySystem =
-		*Address(Interfaces::Client->GetVFunc(VTableIndexes::CSource2Client::GetNetworkFieldChangeCallbackQueue))
+		*Address(Interfaces::Client->GetVFunc(VMI::CSource2Client::GetNetworkFieldChangeCallbackQueue))
 		.GetAbsoluteAddress(3, 7);
 
 	UIEngine = Panorama->Member<CUIEngineSource2*>(0x28);

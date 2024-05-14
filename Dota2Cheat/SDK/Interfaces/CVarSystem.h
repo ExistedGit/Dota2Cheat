@@ -64,7 +64,7 @@ struct CVar {
 	CVarValue value{};
 	CVarValue defaultValue{};
 
-	// Sets string value to a stringified integer
+	// Set string value to a stringified integer
 	void SetStrVal(int val) {
 		_itoa(val, value.str, 10);
 	}
@@ -121,8 +121,8 @@ public:
 			if (!list[i].var)
 				continue;
 
-			list[i].var->flags &= ~FCVAR_HIDDEN;
-			list[i].var->flags &= ~FCVAR_DEVELOPMENTONLY;
+			list[i].var->flags ^= FCVAR_HIDDEN;
+			list[i].var->flags ^= FCVAR_DEVELOPMENTONLY;
 		}
 	}
 
@@ -139,5 +139,9 @@ public:
 			id.impl = static_cast<uint64_t>(i);
 			CVars[var->name] = id;
 		}
+	}
+
+	CVar* FindConVar(uint32_t id) {
+		return GetVFunc(37).Call<CVar*>(id);
 	}
 };

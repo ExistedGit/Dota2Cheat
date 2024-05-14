@@ -1,24 +1,23 @@
 #include "TrueSightESP.h"
 
 void Modules::M_TrueSightESP::OnModifierRemoved(CDOTAModifier* modifier) {
-	if (!TrackedModifiers.count(modifier))
+	if (!TrackedModifiers.contains(modifier))
 		return;
 	GameSystems::ParticleManager->DestroyParticle(TrackedModifiers[modifier]);
 	TrackedModifiers.erase(modifier);
 }
 
 void Modules::M_TrueSightESP::OnModifierAdded(CDOTAModifier* modifier) {
-	if (!Config::ModifierRevealer::TrueSight)
+	if (!ctx.localHero || !Config::ModifierRevealer::TrueSight)
 		return;
 
 	auto owner = modifier->GetOwner();
-	if (!owner->IsSameTeam(ctx.localHero)
-		||
+	if (!owner->IsSameTeam(ctx.localHero) ||
 		!EntityList.IsEntityOfType(owner, EntityType::Hero) &&
-		!strstr(owner->SchemaBinding()->binaryName, "Observer_Ward")) // yes, you can tell if a ward is under a sentry 
+		owner->SchemaBinding()->binaryName != "Observer_Ward"sv) // yes, you can tell if a ward is under a sentry
 		return;
 
-	if (strcmp(modifier->GetName(), "modifier_truesight") != 0)
+	if (modifier->GetName() != "modifier_truesight"sv)
 		return;
 
 	TrackedModifiers[modifier] = GameSystems::ParticleManager->CreateParticle(

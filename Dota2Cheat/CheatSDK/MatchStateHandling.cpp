@@ -35,7 +35,7 @@ void CMatchStateManager::EnteredPreGame() {
 	DereferenceReallocatingSystem(RenderGameSystem);
 
 	GameSystems::ParticleManager = GameSystems::ParticleManagerSystem->GetParticleManager();
-	LogF(LP_DATA, "ParticleManager: {} / CreateParticle: {}", (void*)GameSystems::ParticleManager, (void*)GameSystems::ParticleManager->GetVFunc(VTableIndexes::CDOTAParticleManager::CreateParticle));
+	LogF(LP_DATA, "ParticleManager: {} / CreateParticle: {}", (void*)GameSystems::ParticleManager, (void*)GameSystems::ParticleManager->GetVFunc(VMI::CDOTAParticleManager::CreateParticle));
 
 	ctx.gameStage = GameStage::PRE_GAME;
 

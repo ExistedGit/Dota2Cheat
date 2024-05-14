@@ -21,7 +21,7 @@ void CCheatManager::LoadGameSpecific() {
 	//	Memory::Patch(gi, { 0xEB });
 
 	VMDB::LoadFromFile(cheatFolderPath + "\\vmt.json");
-	VMDB::ParseMap(VTableIndexes::vmTables);
+	VMDB::ParseMap(VMI::vmTables);
 
 	SignatureDB::LoadSignaturesFromFile(cheatFolderPath + "\\signatures.json");
 	Signatures::FindSignatures();
@@ -39,17 +39,15 @@ void CCheatManager::LoadGameSpecific() {
 #ifdef _DEBUG
 	Interfaces::CVar->UnlockHiddenConVars();
 #endif
-
-#ifndef _DEBUG
-	Modules::CVarSpoofer.SpoofVars(
-		"dota_camera_distance",
-		"r_farz",
-		"fog_enable",
-		"dota_river_type",
-		"cl_weather",
-		"dota_hud_chat_enable_all_emoticons"
-	);
-#endif
+	//Modules::CVarSpoofer.SpoofVar("r_farz");
+	//Modules::CVarSpoofer.SpoofVars(
+	//	"dota_camera_distance",
+	//	"r_farz",
+	//	"fog_enable",
+	//	"dota_river_type",
+	//	"cl_weather",
+	//	"dota_hud_chat_enable_all_emoticons"
+	//);
 
 	Interfaces::CVar->CVars["dota_hud_chat_enable_all_emoticons"].m_pVar->value.boolean = Config::Changer::UnlockEmoticons;
 
@@ -90,14 +88,14 @@ void CCheatManager::Initialize(HMODULE hModule) {
 	// don't you dare touch this line
 	Log(LP_NONE, "works!");
 
-	LogI( "Initializing...");
+	LogI("Initializing...");
 	FindCheatFolder();
 
 	Config::cfg.SetupVars();
 	LoadGameSpecific();
 
 	LoadFiles();
-	LogI( "Initialization complete!");
+	LogI("Initialization complete!");
 }
 
 void CCheatManager::SaveConfig() {

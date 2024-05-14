@@ -47,7 +47,7 @@ void Modules::M_AbilityESP::UpdateHeroData() {
 }
 
 bool Modules::M_AbilityESP::CanDraw(CDOTABaseNPC_Hero* hero) {
-	bool ret = 
+	bool ret =
 		!hero->GetIdentity()->IsDormant()
 		&& !hero->IsIllusion()
 		&& hero != ctx.localHero
@@ -220,18 +220,15 @@ void Modules::M_AbilityESP::DrawAbilities() {
 }
 
 void Modules::M_AbilityESP::LoadItemTexIfNeeded(AbilityData& data) {
-	if (data.icon)
+	if (
+		data.icon ||
+		!data.ability->GetIdentity()->GetName() ||
+		!data.icon
+		)
 		return;
 
-	if (!data.ability->GetIdentity()->GetName())
-		return;
-
-	std::string itemName = data.ability->GetIdentity()->GetName();
-
-	if (!data.icon) {
-		data.icon = assets.items.Load(itemName.substr(5));
-	}
-
+	std::string itemName = data.ability->GetIdentity()->GetName() + 5;
+	data.icon = assets.items.Load(itemName);
 }
 
 // Draws the same block sequence like for abilities + two circles for TP and neutral slot on the right and left respectively
@@ -581,7 +578,7 @@ void Modules::M_AbilityESP::UpdateItems(CDOTABaseNPC_Hero* hero) {
 	auto heroItems = hero->GetInventory()->GetItems();
 	for (int i = 0; i < heroItems.size(); ++i) {
 		auto& entry = EnemyItems[hero];
-		auto item = Interfaces::EntitySystem->GetEntity<CDOTAItem>(H2IDX(heroItems[i]));
+		auto item = *heroItems[i];
 		if (!item) {
 			entry.erase(i);
 			continue;

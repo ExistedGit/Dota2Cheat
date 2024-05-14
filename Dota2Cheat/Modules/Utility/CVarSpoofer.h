@@ -34,8 +34,6 @@ namespace Modules {
 				* name, * desc;
 			uint64_t flags;
 			CVarInitInfo info;
-			CVarID2* extendedId;
-			void* id;
 		};
 
 		static_assert(sizeof(CVarInitInfo) == 0x48);
@@ -46,8 +44,8 @@ namespace Modules {
 		};
 
 		std::map<CVar*, SpoofedCVarData> spoofedVars;
-		void SpoofVar(const char* varName);
 	public:
+		void SpoofVar(const char* varName);
 		template<typename ...Args>
 		void SpoofVars(Args&&... varNamePack) {
 			const char* varNames[sizeof...(varNamePack)] = { std::forward<Args>(varNamePack)... };
