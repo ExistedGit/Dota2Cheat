@@ -22,7 +22,7 @@ public:
 
 	template<typename T = Address>
 	T GetAbsoluteAddress(ptrdiff_t addrOffset, std::optional<uint32_t> opcodeSize = std::nullopt) const {
-		return T(ptr + *(int*)(ptr + addrOffset) + opcodeSize.value_or(addrOffset + sizeof(uint32_t)));
+		return T(ptr + *(ptrdiff_t*)(ptr + addrOffset) + opcodeSize.value_or(addrOffset + sizeof(uint32_t)));
 	}
 
 	template<typename T>

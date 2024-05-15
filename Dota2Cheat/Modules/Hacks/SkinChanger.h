@@ -1,7 +1,7 @@
 #pragma once
 #include "../../pch.h"
 #include "../../CheatSDK/include.h"
-#include <json.hpp>
+#include <nlohmann/json.hpp>
 
 // I mean, I tried
 // maybe someone else figures it out.

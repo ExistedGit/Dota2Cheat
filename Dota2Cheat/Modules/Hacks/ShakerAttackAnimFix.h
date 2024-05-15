@@ -18,7 +18,7 @@ inline
 
 		void SubscribeEntity(CDOTABaseNPC* hero) {
 			if (auto unitName = hero->GetUnitName()) {
-				if (!strcmp(unitName, "npc_dota_hero_earthshaker"))
+				if (unitName == "npc_dota_hero_earthshaker"sv)
 					shaker = hero;
 				else
 					Reset();
@@ -26,7 +26,7 @@ inline
 		}
 
 		void OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) override {
-			if (msgHandle->messageID != 521 || !shaker)
+			if (msgHandle->messageID != DOTA_UM_TE_UnitAnimation || !shaker)
 				return;
 
 			auto animMsg = reinterpret_cast<CDOTAUserMsg_TE_UnitAnimation*>(msg);

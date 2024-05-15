@@ -1,7 +1,7 @@
 #pragma once
 #include "../SDK/Base/Vector.h"
 #include <fstream>
-#include <json.hpp>
+#include <nlohmann/json.hpp>
 
 namespace Config {
 	class ConfigManager {

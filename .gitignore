@@ -10,11 +10,7 @@
 *.userosscache
 *.sln.docstates
 
-README.md
-libprotobuf.lib
-libprotobufd.lib
-libprotobuf-lite.lib
-libprotobuf-lited.lib
+vcpkg_installed/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
