@@ -1,6 +1,6 @@
 #pragma once
 #include "../pch.h"
-#include "../SDK/Protobufs/dota_gcmessages_client_match_management.pb.h"
+#include <dota_gcmessages_client_match_management.pb.h>
 
 namespace Hooks {
 	using SendMessageFn = EGCResults(*)(ISteamGameCoordinator*, uint32_t, const void*, uint32_t);

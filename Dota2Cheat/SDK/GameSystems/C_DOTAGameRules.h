@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Protobufs/dota_shared_enums.pb.h"
+#include <dota_shared_enums.pb.h>
 #include "../Base/VClass.h"
 #include "../Base/Definitions.h"
 #include "../Base/CUtlVector.h"

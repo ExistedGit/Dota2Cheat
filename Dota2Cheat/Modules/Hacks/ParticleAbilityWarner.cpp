@@ -1,5 +1,5 @@
 #include "ParticleAbilityWarner.h"
-#include "../../SDK/Protobufs/usermessages.pb.h"
+#include <usermessages.pb.h>
 
 
 // Draws a dashed red line from begin to end

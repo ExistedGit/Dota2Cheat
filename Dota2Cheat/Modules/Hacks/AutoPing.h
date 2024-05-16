@@ -1,5 +1,5 @@
 #pragma once
-#include "../../SDK/Protobufs/dota_clientmessages.pb.h"
+#include <dota_clientmessages.pb.h>
 #include "../../Hooks/NetChannel.h"
 #include "../MListeners.h"
 

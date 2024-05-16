@@ -1,5 +1,5 @@
 #include "IllusionColoring.h"
-#include "../../SDK/Protobufs/dota_modifiers.pb.h"
+#include <dota_modifiers.pb.h>
 
 void Modules::M_IllusionESP::AddIllusionModifier(CDOTABaseNPC_Hero* hero, const char* modifierName, const char* particle) {
 	//auto p = GameSystems::ParticleManager->CreateParticle(

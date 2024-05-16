@@ -1,7 +1,7 @@
 #pragma once
 
 #include "INetChannel.h"
-#include "../../Protobufs/networkbasetypes.pb.h"
+#include <networkbasetypes.pb.h>
 
 struct CGlobalVars;
 

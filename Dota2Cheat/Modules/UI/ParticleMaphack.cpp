@@ -1,4 +1,5 @@
 #include "ParticleMaphack.h"
+#include <usermessages.pb.h>
 
 void Modules::M_ParticleMaphack::DrawScreenAppearances() {
 	static constexpr ImVec2 iconSize{ 32, 32 };

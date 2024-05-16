@@ -10,8 +10,8 @@
 
 #include <google/protobuf/message.h>
 #include <google/protobuf/io/coded_stream.h>
-#include "../../Protobufs/dota_gcmessages_msgid.pb.h"
-#include "../../Protobufs/econ_gcmessages.pb.h"
+#include <dota_gcmessages_msgid.pb.h>
+#include <econ_gcmessages.pb.h>
 
 
 #define CASE_STRING( x ) case static_cast<int>( x ) : return #x

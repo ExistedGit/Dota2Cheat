@@ -3,7 +3,7 @@
 #include "../../Base/CUtlVector.h"
 #include "../../Base/Definitions.h"
 #include <google/protobuf/message.h>
-#include "../../Protobufs/dota_gcmessages_msgid.pb.h"
+#include <dota_gcmessages_msgid.pb.h>
 #include "../../Enums.h"
 #include "ISharedObjectListener.h"
 #include "CDOTAGCLobbyManager.h"

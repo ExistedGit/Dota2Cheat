@@ -11,7 +11,7 @@
 
 #include "UI/Pages/MainMenu.h"
 #include "UI/Pages/AutoPickSelectionGrid.h"
-#include "SDK/Protobufs/dota_usercmd.pb.h"
+#include <dota_usercmd.pb.h>
 
 enum PseudoRandom {
 	DOTA_PSEUDO_RANDOM_NONE = 0,

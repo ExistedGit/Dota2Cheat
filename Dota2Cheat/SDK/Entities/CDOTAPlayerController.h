@@ -1,7 +1,7 @@
 #pragma once
 #include "../Base/CUtlVector.h"
 #include "../Enums.h"
-#include "../Protobufs/dota_commonmessages.pb.h"
+#include <dota_commonmessages.pb.h>
 
 #include "CDOTABaseNPCHero.h"
 

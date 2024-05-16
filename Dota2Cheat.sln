@@ -4,28 +4,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dota2Cheat", "Dota2Cheat\Dota2Cheat.vcxproj", "{31159CB4-C0B0-4E13-9AFE-F3088805C3A6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{40690CF2-6CBA-4A0A-9723-DFFE6FDBBE5C} = {40690CF2-6CBA-4A0A-9723-DFFE6FDBBE5C}
+	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "D2CUpdater", "D2CUpdater\Dota2Loader.vcxproj", "{ABF71969-1BD2-41E0-88B2-343FD0655F47}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dota2Proto", "Dota2Proto\Dota2Proto.vcxproj", "{40690CF2-6CBA-4A0A-9723-DFFE6FDBBE5C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
 		Release|x64 = Release|x64
-		Testing|x64 = Testing|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{31159CB4-C0B0-4E13-9AFE-F3088805C3A6}.Debug|x64.ActiveCfg = Debug|x64
 		{31159CB4-C0B0-4E13-9AFE-F3088805C3A6}.Debug|x64.Build.0 = Debug|x64
 		{31159CB4-C0B0-4E13-9AFE-F3088805C3A6}.Release|x64.ActiveCfg = Release|x64
 		{31159CB4-C0B0-4E13-9AFE-F3088805C3A6}.Release|x64.Build.0 = Release|x64
-		{31159CB4-C0B0-4E13-9AFE-F3088805C3A6}.Testing|x64.ActiveCfg = Testing|x64
-		{31159CB4-C0B0-4E13-9AFE-F3088805C3A6}.Testing|x64.Build.0 = Testing|x64
-		{ABF71969-1BD2-41E0-88B2-343FD0655F47}.Debug|x64.ActiveCfg = Debug|x64
-		{ABF71969-1BD2-41E0-88B2-343FD0655F47}.Debug|x64.Build.0 = Debug|x64
-		{ABF71969-1BD2-41E0-88B2-343FD0655F47}.Release|x64.ActiveCfg = Release|x64
-		{ABF71969-1BD2-41E0-88B2-343FD0655F47}.Release|x64.Build.0 = Release|x64
-		{ABF71969-1BD2-41E0-88B2-343FD0655F47}.Testing|x64.ActiveCfg = Debug|x64
-		{ABF71969-1BD2-41E0-88B2-343FD0655F47}.Testing|x64.Build.0 = Debug|x64
+		{40690CF2-6CBA-4A0A-9723-DFFE6FDBBE5C}.Debug|x64.ActiveCfg = Debug|x64
+		{40690CF2-6CBA-4A0A-9723-DFFE6FDBBE5C}.Debug|x64.Build.0 = Debug|x64
+		{40690CF2-6CBA-4A0A-9723-DFFE6FDBBE5C}.Release|x64.ActiveCfg = Release|x64
+		{40690CF2-6CBA-4A0A-9723-DFFE6FDBBE5C}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

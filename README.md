@@ -62,18 +62,18 @@ WARNING! Legit features ahead, no scripts that play the game for you!
   - BadCastPrevention™(prevents bad BHs and RPs and chronospheres)
 
 - Changer:
-  - Weather changing(Ash, Spring etc)
+  - Weather changing
   - River painting
   - Unlocks emoticons
   - Dota Plus Unlocker
   - TreeChanger™
   - Allows playing with VPK mods
-- Work in progress:
-  - Roshan timer
 
 ## Building
 
-If you don't have it, [install vcpkg](https://learn.microsoft.com/en-us/vcpkg/get_started/get-started-msbuild).
+You can build this project using Visual Studio 2022.
+
+If you don't have it, [set up vcpkg for Visual Studio](https://learn.microsoft.com/en-us/vcpkg/get_started/get-started-msbuild?pivots=shell-cmd#1---set-up-vcpkg).
 
 You will also need to install the [June 2010 DirectX SDK](https://www.microsoft.com/en-us/download/details.aspx?id=6812)
 
@@ -83,7 +83,7 @@ Open the project in Visual Studio and build Dota2Cheat as **Release x64**. It'll
 
 This cheat can be safely reinjected at any point of the game
 
-Build & run D2CUpdater to move/update all relevant resources to their destination in C:\Users\%user%\Documents\Dota2Cheat, then use any injector to do the job.
+If using D2C for the first time or updating from an older version — run `setup_data.bat` to copy D2C's resources to your Documents folder.
 
 **Use at own risk** (also consider not using non-legit features that you can get reported/flagged for)
 
@@ -106,5 +106,3 @@ Upon an exception, examine the file and lines it happened on. In the Call Stack 
 Check out the repo's Wiki, I add useful pieces of information about dota-specific cheat things there
 
 Also has a guide on how to update it
-
-AND I also consider translating my YouGame tutorials to a human language for the sake of preservation

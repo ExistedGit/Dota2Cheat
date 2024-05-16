@@ -1,5 +1,5 @@
 #pragma once
-#include "../Protobufs/dota_shared_enums.pb.h"
+#include <dota_shared_enums.pb.h>
 
 
 #include "../Base/VClass.h"

@@ -62,7 +62,7 @@
     <OutDir>$(SolutionDir)Build\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Testing|x64'">
-    <OutDir>$(SolutionDir)Build\Debug</OutDir>
+    <OutDir>$(SolutionDir)Build\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)Build\$(Configuration)\</OutDir>
@@ -75,12 +75,18 @@
   </PropertyGroup>
   <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <VcpkgUseStatic>true</VcpkgUseStatic>
+    <VcpkgUseMD>false</VcpkgUseMD>
+    <VcpkgInstalledDir>$(SolutionDir)vcpkg_installed</VcpkgInstalledDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Testing|x64'" Label="Vcpkg">
     <VcpkgUseStatic>true</VcpkgUseStatic>
+    <VcpkgUseMD>false</VcpkgUseMD>
+    <VcpkgInstalledDir>$(SolutionDir)vcpkg_installed</VcpkgInstalledDir>
   </PropertyGroup>
   <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <VcpkgUseStatic>true</VcpkgUseStatic>
+    <VcpkgUseMD>false</VcpkgUseMD>
+    <VcpkgInstalledDir>$(SolutionDir)vcpkg_installed</VcpkgInstalledDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -93,7 +99,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(ProjectDir)include;$(ProjectDir)SDK;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(ProjectDir)include;$(SolutionDir)Dota2Proto\src;$(ProjectDir)SDK;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <ExceptionHandling>false</ExceptionHandling>
       <AdditionalOptions>/bigobj /FI"pch.h"</AdditionalOptions>
@@ -105,7 +111,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>libMinHook.x64.lib;d3d11.lib;libprotobufd.lib;libprotobuf-lited.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libMinHook.x64.lib;d3d11.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib;$(ProjectDir)lib\;</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>MSVCRT.LIB; %(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
@@ -121,7 +127,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(ProjectDir)include;$(ProjectDir)SDK;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(ProjectDir)include;$(SolutionDir)Dota2Proto\src;$(ProjectDir)SDK;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <ExceptionHandling>false</ExceptionHandling>
       <AdditionalOptions>/bigobj /FI"pch.h"</AdditionalOptions>
@@ -150,7 +156,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(ProjectDir)include;$(ProjectDir)SDK;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(ProjectDir)include;$(SolutionDir)Dota2Proto\src;$(ProjectDir)SDK;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalOptions>/bigobj /FI"pch.h"</AdditionalOptions>
@@ -253,213 +259,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="SDK\Panorama\CUIPanel.cpp" />
-    <ClCompile Include="SDK\Protobufs\base_gcmessages.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\clientmessages.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\connectionless_netmessages.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\c_peer2peer_netmessages.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\demo.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_broadcastmessages.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_clientmessages.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_client_enums.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_commonmessages.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_battle_report.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_candy_shop.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_chat.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_coaching.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_fantasy.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_guild.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_guild_events.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_match_management.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_team.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_tournament.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_gcmessages_client_watch.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_gcmessages_common.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_gcmessages_common_bot_script.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_gcmessages_common_league.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_gcmessages_common_lobby.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_gcmessages_common_match_management.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_gcmessages_msgid.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_gcmessages_server.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_gcmessages_webapi.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_hud_types.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_match_metadata.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_messages_mlbot.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_modifiers.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_scenariomessages.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_shared_enums.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_usercmd.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\dota_usermessages.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\econ_gcmessages.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\econ_shared_enums.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\engine_gcmessages.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\enums_clientserver.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\gameevents.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\gametoolevents.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\gcsdk_gcmessages.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\gcsystemmsgs.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\netmessages.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\networkbasetypes.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\networksystem_protomessages.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\network_connection.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\steamdatagram_messages_auth.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\steamdatagram_messages_sdr.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\steammessages.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\steammessages_cloud.steamworkssdk.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\steammessages_gamenetworkingui.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\steammessages_helprequest.steamworkssdk.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\steammessages_int.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\steammessages_oauth.steamworkssdk.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\steammessages_player.steamworkssdk.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\steammessages_publishedfile.steamworkssdk.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\steammessages_steamlearn.steamworkssdk.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\steammessages_unified_base.steamworkssdk.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\steamnetworkingsockets_messages.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\steamnetworkingsockets_messages_certs.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\steamnetworkingsockets_messages_udp.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\te.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\uifontfile_format.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\usercmd.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\usermessages.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
-    <ClCompile Include="SDK\Protobufs\valveextensions.pb.cc">
-      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4244;4267</DisableSpecificWarnings>
-    </ClCompile>
     <ClCompile Include="UI\LoadingMenu.cpp" />
     <ClCompile Include="UI\Pages\AutoPickSelectionGrid.cpp" />
     <ClCompile Include="UI\Pages\MainMenu.cpp" />
@@ -627,60 +426,6 @@
     <ClInclude Include="SDK\Panorama\CUIPanel.h" />
     <ClInclude Include="CheatSDK\VTexDecoders\DXT5Decoder.h" />
     <ClInclude Include="CheatSDK\VTexDecoders\VTexParser.h" />
-    <ClInclude Include="SDK\Protobufs\base_gcmessages.pb.h" />
-    <ClInclude Include="SDK\Protobufs\clientmessages.pb.h" />
-    <ClInclude Include="SDK\Protobufs\connectionless_netmessages.pb.h" />
-    <ClInclude Include="SDK\Protobufs\c_peer2peer_netmessages.pb.h" />
-    <ClInclude Include="SDK\Protobufs\demo.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_broadcastmessages.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_client_enums.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_battle_report.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_candy_shop.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_chat.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_coaching.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_fantasy.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_guild.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_guild_events.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_match_management.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_team.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_tournament.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_gcmessages_client_watch.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_gcmessages_common.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_gcmessages_common_bot_script.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_gcmessages_common_league.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_gcmessages_common_lobby.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_gcmessages_common_match_management.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_gcmessages_server.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_gcmessages_webapi.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_hud_types.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_match_metadata.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_messages_mlbot.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_modifiers.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_scenariomessages.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_usercmd.pb.h" />
-    <ClInclude Include="SDK\Protobufs\engine_gcmessages.pb.h" />
-    <ClInclude Include="SDK\Protobufs\enums_clientserver.pb.h" />
-    <ClInclude Include="SDK\Protobufs\gameevents.pb.h" />
-    <ClInclude Include="SDK\Protobufs\gametoolevents.pb.h" />
-    <ClInclude Include="SDK\Protobufs\gcsystemmsgs.pb.h" />
-    <ClInclude Include="SDK\Protobufs\networksystem_protomessages.pb.h" />
-    <ClInclude Include="SDK\Protobufs\steamdatagram_messages_auth.pb.h" />
-    <ClInclude Include="SDK\Protobufs\steamdatagram_messages_sdr.pb.h" />
-    <ClInclude Include="SDK\Protobufs\steammessages_cloud.steamworkssdk.pb.h" />
-    <ClInclude Include="SDK\Protobufs\steammessages_gamenetworkingui.pb.h" />
-    <ClInclude Include="SDK\Protobufs\steammessages_helprequest.steamworkssdk.pb.h" />
-    <ClInclude Include="SDK\Protobufs\steammessages_int.pb.h" />
-    <ClInclude Include="SDK\Protobufs\steammessages_oauth.steamworkssdk.pb.h" />
-    <ClInclude Include="SDK\Protobufs\steammessages_player.steamworkssdk.pb.h" />
-    <ClInclude Include="SDK\Protobufs\steammessages_publishedfile.steamworkssdk.pb.h" />
-    <ClInclude Include="SDK\Protobufs\steamnetworkingsockets_messages.pb.h" />
-    <ClInclude Include="SDK\Protobufs\steamnetworkingsockets_messages_certs.pb.h" />
-    <ClInclude Include="SDK\Protobufs\steamnetworkingsockets_messages_udp.pb.h" />
-    <ClInclude Include="SDK\Protobufs\te.pb.h" />
-    <ClInclude Include="SDK\Protobufs\uifontfile_format.pb.h" />
-    <ClInclude Include="SDK\Protobufs\usercmd.pb.h" />
-    <ClInclude Include="SDK\Protobufs\valveextensions.pb.h" />
     <ClInclude Include="UI\LoadingMenu.h" />
     <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h" />
     <ClInclude Include="Utils\Drawing.h" />
@@ -703,21 +448,6 @@
     <ClInclude Include="Modules\Hacks\ParticleAbilityWarner.h" />
     <ClInclude Include="Modules\Utility\ParticleGC.h" />
     <ClInclude Include="Modules\Hacks\PerfectBlink.h" />
-    <ClInclude Include="SDK\Protobufs\dota_clientmessages.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_commonmessages.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_gcmessages_msgid.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_shared_enums.pb.h" />
-    <ClInclude Include="SDK\Protobufs\dota_usermessages.pb.h" />
-    <ClInclude Include="SDK\Protobufs\econ_gcmessages.pb.h" />
-    <ClInclude Include="SDK\Protobufs\econ_shared_enums.pb.h" />
-    <ClInclude Include="SDK\Protobufs\gcsdk_gcmessages.pb.h" />
-    <ClInclude Include="SDK\Protobufs\netmessages.pb.h" />
-    <ClInclude Include="SDK\Protobufs\networkbasetypes.pb.h" />
-    <ClInclude Include="SDK\Protobufs\network_connection.pb.h" />
-    <ClInclude Include="SDK\Protobufs\steammessages.pb.h" />
-    <ClInclude Include="SDK\Protobufs\steammessages_steamlearn.steamworkssdk.pb.h" />
-    <ClInclude Include="SDK\Protobufs\steammessages_unified_base.steamworkssdk.pb.h" />
-    <ClInclude Include="SDK\Protobufs\usermessages.pb.h" />
     <ClInclude Include="Modules\Hacks\RiverPaint.h" />
     <ClInclude Include="Modules\Hacks\ShakerAttackAnimFix.h" />
     <ClInclude Include="Modules\Hacks\TargetedSpellHighlighter.h" />
@@ -738,6 +468,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dota2Proto\Dota2Proto.vcxproj">
+      <Project>{40690cf2-6cba-4a0a-9723-dffe6fdbbe5c}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

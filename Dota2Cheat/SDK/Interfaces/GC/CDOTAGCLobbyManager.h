@@ -1,6 +1,6 @@
 #pragma once
 #include "ISharedObjectListener.h"
-#include "../../Protobufs/dota_gcmessages_common_lobby.pb.h"
+#include <dota_gcmessages_common_lobby.pb.h>
 
 // Reversed in cooperation with Morphling
 

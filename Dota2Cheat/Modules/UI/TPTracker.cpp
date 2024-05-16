@@ -1,4 +1,5 @@
 #include "TPTracker.h"
+#include <usermessages.pb.h>
 
 // Mostly calculating fade duration
 

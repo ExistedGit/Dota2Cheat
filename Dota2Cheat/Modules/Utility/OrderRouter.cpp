@@ -1,4 +1,5 @@
 #include "OrderRouter.h"
+#include <dota_clientmessages.pb.h>
 
 bool Modules::M_OrderRouter::RouteOrder(NetMessageHandle_t* messageHandle, google::protobuf::Message* msg) {
 	if (messageHandle->messageID != 350)

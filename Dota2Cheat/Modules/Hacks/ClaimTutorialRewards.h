@@ -1,7 +1,7 @@
 #pragma once
 #include "../../pch.h"
 #include "../../CheatSDK/include.h"
-#include "../../SDK/Protobufs/dota_gcmessages_client.pb.h"
+#include <dota_gcmessages_client.pb.h>
 
 namespace Modules {
 	// Logic generously contributed by [DATA EXPUNGED]

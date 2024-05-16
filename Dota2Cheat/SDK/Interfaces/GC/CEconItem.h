@@ -3,7 +3,7 @@
 #include "../../Base/CUtlVector.h"
 #include "../../Base/Definitions.h"
 #include "ItemSchema.h"
-#include "../../Protobufs/base_gcmessages.pb.h"
+#include <base_gcmessages.pb.h>
 
 typedef uint8_t	style_index_t;
 typedef uint16_t item_definition_index_t;

@@ -1,4 +1,5 @@
 #include "AttackAnimTracker.h"
+#include <dota_usermessages.pb.h>
 
 bool Utility::AttackAnimTracker::WillUnitAttack(CDOTABaseNPC* unit, CDOTABaseNPC* target, float timeDelta) {
 	if (!animations.count(unit))

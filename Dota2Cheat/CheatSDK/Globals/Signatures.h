@@ -3,7 +3,7 @@
 
 #include <Base/Logging.h>
 #include <Enums.h>
-#include <Protobufs/dota_commonmessages.pb.h>
+#include <dota_commonmessages.pb.h>
 
 #include <GameSystems/CDOTAParticleManager.h>
 #include <GameSystems/C_DOTAGameRules.h>

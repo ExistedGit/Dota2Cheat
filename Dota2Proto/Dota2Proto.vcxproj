@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\base_gcmessages.pb.cc" />
+    <ClCompile Include="src\clientmessages.pb.cc" />
+    <ClCompile Include="src\connectionless_netmessages.pb.cc" />
+    <ClCompile Include="src\c_peer2peer_netmessages.pb.cc" />
+    <ClCompile Include="src\demo.pb.cc" />
+    <ClCompile Include="src\dota_broadcastmessages.pb.cc" />
+    <ClCompile Include="src\dota_clientmessages.pb.cc" />
+    <ClCompile Include="src\dota_client_enums.pb.cc" />
+    <ClCompile Include="src\dota_commonmessages.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_client.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_client_battle_report.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_client_bingo.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_client_candy_shop.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_client_chat.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_client_coaching.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_client_fantasy.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_client_guild.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_client_guild_events.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_client_match_management.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_client_showcase.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_client_team.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_client_tournament.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_client_watch.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_common.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_common_bot_script.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_common_league.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_common_lobby.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_common_match_management.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_msgid.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_server.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_webapi.pb.cc" />
+    <ClCompile Include="src\dota_hud_types.pb.cc" />
+    <ClCompile Include="src\dota_match_metadata.pb.cc" />
+    <ClCompile Include="src\dota_messages_mlbot.pb.cc" />
+    <ClCompile Include="src\dota_modifiers.pb.cc" />
+    <ClCompile Include="src\dota_scenariomessages.pb.cc" />
+    <ClCompile Include="src\dota_shared_enums.pb.cc" />
+    <ClCompile Include="src\dota_usercmd.pb.cc" />
+    <ClCompile Include="src\dota_usermessages.pb.cc" />
+    <ClCompile Include="src\econ_gcmessages.pb.cc" />
+    <ClCompile Include="src\econ_shared_enums.pb.cc" />
+    <ClCompile Include="src\engine_gcmessages.pb.cc" />
+    <ClCompile Include="src\enums_clientserver.pb.cc" />
+    <ClCompile Include="src\gameevents.pb.cc" />
+    <ClCompile Include="src\gametoolevents.pb.cc" />
+    <ClCompile Include="src\gcsdk_gcmessages.pb.cc" />
+    <ClCompile Include="src\gcsystemmsgs.pb.cc" />
+    <ClCompile Include="src\netmessages.pb.cc" />
+    <ClCompile Include="src\networkbasetypes.pb.cc" />
+    <ClCompile Include="src\networksystem_protomessages.pb.cc" />
+    <ClCompile Include="src\network_connection.pb.cc" />
+    <ClCompile Include="src\steamdatagram_messages_auth.pb.cc" />
+    <ClCompile Include="src\steamdatagram_messages_sdr.pb.cc" />
+    <ClCompile Include="src\steammessages.pb.cc" />
+    <ClCompile Include="src\steammessages_clientserver_login.pb.cc" />
+    <ClCompile Include="src\steammessages_cloud.steamworkssdk.pb.cc" />
+    <ClCompile Include="src\steammessages_gamenetworkingui.pb.cc" />
+    <ClCompile Include="src\steammessages_helprequest.steamworkssdk.pb.cc" />
+    <ClCompile Include="src\steammessages_int.pb.cc" />
+    <ClCompile Include="src\steammessages_oauth.steamworkssdk.pb.cc" />
+    <ClCompile Include="src\steammessages_player.steamworkssdk.pb.cc" />
+    <ClCompile Include="src\steammessages_publishedfile.steamworkssdk.pb.cc" />
+    <ClCompile Include="src\steammessages_steamlearn.steamworkssdk.pb.cc" />
+    <ClCompile Include="src\steammessages_unified_base.steamworkssdk.pb.cc" />
+    <ClCompile Include="src\steamnetworkingsockets_messages.pb.cc" />
+    <ClCompile Include="src\steamnetworkingsockets_messages_certs.pb.cc" />
+    <ClCompile Include="src\steamnetworkingsockets_messages_udp.pb.cc" />
+    <ClCompile Include="src\te.pb.cc" />
+    <ClCompile Include="src\uifontfile_format.pb.cc" />
+    <ClCompile Include="src\usercmd.pb.cc" />
+    <ClCompile Include="src\usermessages.pb.cc" />
+    <ClCompile Include="src\valveextensions.pb.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\base_gcmessages.pb.h" />
+    <ClInclude Include="src\clientmessages.pb.h" />
+    <ClInclude Include="src\connectionless_netmessages.pb.h" />
+    <ClInclude Include="src\c_peer2peer_netmessages.pb.h" />
+    <ClInclude Include="src\demo.pb.h" />
+    <ClInclude Include="src\dota_broadcastmessages.pb.h" />
+    <ClInclude Include="src\dota_clientmessages.pb.h" />
+    <ClInclude Include="src\dota_client_enums.pb.h" />
+    <ClInclude Include="src\dota_commonmessages.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_client.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_client_battle_report.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_client_bingo.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_client_candy_shop.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_client_chat.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_client_coaching.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_client_fantasy.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_client_guild.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_client_guild_events.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_client_match_management.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_client_showcase.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_client_team.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_client_tournament.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_client_watch.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_common.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_common_bot_script.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_common_league.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_common_lobby.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_common_match_management.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_msgid.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_server.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_webapi.pb.h" />
+    <ClInclude Include="src\dota_hud_types.pb.h" />
+    <ClInclude Include="src\dota_match_metadata.pb.h" />
+    <ClInclude Include="src\dota_messages_mlbot.pb.h" />
+    <ClInclude Include="src\dota_modifiers.pb.h" />
+    <ClInclude Include="src\dota_scenariomessages.pb.h" />
+    <ClInclude Include="src\dota_shared_enums.pb.h" />
+    <ClInclude Include="src\dota_usercmd.pb.h" />
+    <ClInclude Include="src\dota_usermessages.pb.h" />
+    <ClInclude Include="src\econ_gcmessages.pb.h" />
+    <ClInclude Include="src\econ_shared_enums.pb.h" />
+    <ClInclude Include="src\engine_gcmessages.pb.h" />
+    <ClInclude Include="src\enums_clientserver.pb.h" />
+    <ClInclude Include="src\gameevents.pb.h" />
+    <ClInclude Include="src\gametoolevents.pb.h" />
+    <ClInclude Include="src\gcsdk_gcmessages.pb.h" />
+    <ClInclude Include="src\gcsystemmsgs.pb.h" />
+    <ClInclude Include="src\netmessages.pb.h" />
+    <ClInclude Include="src\networkbasetypes.pb.h" />
+    <ClInclude Include="src\networksystem_protomessages.pb.h" />
+    <ClInclude Include="src\network_connection.pb.h" />
+    <ClInclude Include="src\steamdatagram_messages_auth.pb.h" />
+    <ClInclude Include="src\steamdatagram_messages_sdr.pb.h" />
+    <ClInclude Include="src\steammessages.pb.h" />
+    <ClInclude Include="src\steammessages_clientserver_login.pb.h" />
+    <ClInclude Include="src\steammessages_cloud.steamworkssdk.pb.h" />
+    <ClInclude Include="src\steammessages_gamenetworkingui.pb.h" />
+    <ClInclude Include="src\steammessages_helprequest.steamworkssdk.pb.h" />
+    <ClInclude Include="src\steammessages_int.pb.h" />
+    <ClInclude Include="src\steammessages_oauth.steamworkssdk.pb.h" />
+    <ClInclude Include="src\steammessages_player.steamworkssdk.pb.h" />
+    <ClInclude Include="src\steammessages_publishedfile.steamworkssdk.pb.h" />
+    <ClInclude Include="src\steammessages_steamlearn.steamworkssdk.pb.h" />
+    <ClInclude Include="src\steammessages_unified_base.steamworkssdk.pb.h" />
+    <ClInclude Include="src\steamnetworkingsockets_messages.pb.h" />
+    <ClInclude Include="src\steamnetworkingsockets_messages_certs.pb.h" />
+    <ClInclude Include="src\steamnetworkingsockets_messages_udp.pb.h" />
+    <ClInclude Include="src\te.pb.h" />
+    <ClInclude Include="src\uifontfile_format.pb.h" />
+    <ClInclude Include="src\usercmd.pb.h" />
+    <ClInclude Include="src\usermessages.pb.h" />
+    <ClInclude Include="src\valveextensions.pb.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{40690cf2-6cba-4a0a-9723-dffe6fdbbe5c}</ProjectGuid>
+    <RootNamespace>Dota2Proto</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)Build\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)Build\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgEnableManifest>true</VcpkgEnableManifest>
+    <VcpkgManifestInstall>true</VcpkgManifestInstall>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+    <VcpkgUseMD>false</VcpkgUseMD>
+    <VcpkgInstalledDir>$(SolutionDir)vcpkg_installed</VcpkgInstalledDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+    <VcpkgUseMD>false</VcpkgUseMD>
+    <VcpkgInstalledDir>$(SolutionDir)vcpkg_installed</VcpkgInstalledDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DisableSpecificWarnings>4244; 4267; 4005</DisableSpecificWarnings>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DisableSpecificWarnings>4244; 4267; 4005</DisableSpecificWarnings>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
