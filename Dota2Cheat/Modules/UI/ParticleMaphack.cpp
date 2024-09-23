@@ -4,8 +4,8 @@
 void Modules::M_ParticleMaphack::DrawScreenAppearances() {
 	static constexpr ImVec2 iconSize{ 32, 32 };
 	for (auto& [hero, data] : Appearances) {
-		if (!IsValidReadPtr(hero)
-			|| !IsValidReadPtr(hero->GetIdentity())
+		if (!hero
+			|| !hero->GetIdentity()
 			|| !hero->GetIdentity()->IsDormant())
 			continue;
 
@@ -32,8 +32,8 @@ void Modules::M_ParticleMaphack::DrawMapAppearances()
 	static constexpr ImVec2 iconSize{ 24, 24 };
 	auto DrawList = ImGui::GetForegroundDrawList();
 	for (auto& [hero, data] : Appearances) {
-		if (!IsValidReadPtr(hero)
-			|| !IsValidReadPtr(hero->GetIdentity())
+		if (!hero
+			|| hero->GetIdentity()
 			|| !hero->GetIdentity()->IsDormant())
 			continue;
 
@@ -56,6 +56,19 @@ void Modules::M_ParticleMaphack::DrawMapAppearances()
 			DrawList->AddCircleFilled(data.mapPos, 4, ImColor{ 0XFF, 0XCC, 0, fade });
 
 	}
+}
+
+void Modules::M_ParticleMaphack::RegisterAppearance(CDOTABaseNPC* npc, const Vector& pos) {
+	ImTextureID icon =
+		EntityList.IsHero(npc) ?
+		assets.heroIcons.Load(npc->GetIdentity()->GetName()) :
+		nullptr;
+
+	auto& mapData = Appearances[npc];
+	mapData.worldPos = pos;
+	mapData.mapPos = WorldToMap(pos);
+	mapData.fadeCounter = mapData.fadeTime = Config::ParticleMapHack::FadeDuration;
+	mapData.icon = icon;
 }
 
 void Modules::M_ParticleMaphack::Draw() {
@@ -93,10 +106,11 @@ void Modules::M_ParticleMaphack::OnReceivedMsg(NetMessageHandle_t* msgHandle, go
 	case GAME_PARTICLE_MANAGER_EVENT_CREATE: {
 		if (pmMsg->create_particle().has_entity_handle_for_modifiers())
 			break;
-		auto npc = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(NH2IDX(pmMsg->create_particle().entity_handle_for_modifiers()));
-		if (!IsValidReadPtr(npc)
+		auto npc = EntityList.Get<CDOTABaseNPC_Hero>(NH2IDX(pmMsg->create_particle().entity_handle_for_modifiers()));
+	
+		if (!npc
 			|| npc->IsSameTeam(ctx.localHero)
-			|| !IsValidReadPtr(npc->GetIdentity())
+			|| !npc->GetIdentity()
 			|| !npc->GetIdentity()->IsDormant()
 			|| npc->GetLifeState() != 0
 			|| !EntityList.IsHero(npc))
@@ -145,11 +159,11 @@ void Modules::M_ParticleMaphack::OnReceivedMsg(NetMessageHandle_t* msgHandle, go
 			if (TransformQueue.contains(pmMsg->index()))
 				npc = TransformQueue[pmMsg->index()];
 			else
-				npc = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(NH2IDX(pmMsg->update_particle_ent().entity_handle()));
+				npc = EntityList.Get<CDOTABaseNPC>(NH2IDX(pmMsg->update_particle_ent().entity_handle()));
 
-			if (!IsValidReadPtr(npc)
+			if (!npc
 				|| npc->IsSameTeam(ctx.localHero)
-				|| !IsValidReadPtr(npc->GetIdentity())
+				|| !npc->GetIdentity()
 				|| !npc->GetIdentity()->IsDormant()
 				|| npc->GetLifeState() != 0)
 				return;
@@ -161,9 +175,3 @@ void Modules::M_ParticleMaphack::OnReceivedMsg(NetMessageHandle_t* msgHandle, go
 	};
 }
 
-void Modules::M_ParticleMaphack::GetHeroIcon(CDOTABaseNPC* npc, ImTextureID& icon) {
-	if (!EntityList.IsHero(npc))
-		return;
-
-	icon = assets.heroIcons.Load(npc->GetIdentity()->GetName());
-}

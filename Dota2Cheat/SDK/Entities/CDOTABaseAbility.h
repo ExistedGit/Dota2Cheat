@@ -173,11 +173,11 @@ public:
 
 class CDOTABaseAbility : public CBaseEntity {
 public:
-	using GetLevelSpecialValueForFn = float(__fastcall*)(void* thisptr, const char* value, int level, void* unk1, bool noOverride, bool* result);
+	using GetLevelSpecialValueForFn = float(__fastcall*)(const void* thisptr, const char* value, int level, void* unk1, bool noOverride, bool* result);
 	static inline GetLevelSpecialValueForFn GetLevelSpecialValueForFunc{};
 
 	template<typename T = float>
-	T GetLevelSpecialValueFor(std::string_view value, int level = -1) {
+	T GetLevelSpecialValueFor(std::string_view value, int level = -1) const {
 		return (T)GetLevelSpecialValueForFunc(this, value.data(), level, nullptr, 0, nullptr);
 	}
 
@@ -204,8 +204,8 @@ public:
 #undef SPECVAL_GETTER
 
 	// JS Func
-	int GetEffectiveCastRange() {
-		return GetVFunc(VMI::CDOTABaseAbility::GetEffectiveCastRange).Call<int>(nullptr, nullptr, nullptr);
+	int GetEffectiveCastRange() const {
+		return GetVFunc(VMI::CDOTABaseAbility::GetEffectiveCastRange).Call<int>(nullptr, nullptr);
 	}
 
 };

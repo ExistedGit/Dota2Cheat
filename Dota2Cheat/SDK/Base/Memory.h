@@ -125,7 +125,7 @@ public:
 		auto res = PatternScanInModule(moduleName, ParseCombo(signature));
 
 		if (!res)
-			LogF(LP_ERROR, "{}: {} | BROKEN SIGNATURE", moduleName, signature);
+			LogFE("{}: {} | BROKEN SIGNATURE", moduleName, signature);
 
 		return res;
 	}

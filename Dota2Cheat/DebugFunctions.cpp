@@ -15,9 +15,9 @@ void LogEntities() {
 }
 
 void LogModifiers(CDOTABaseNPC* npc) {
-	Log(LP_NONE, "modifiers:");
+	Log("modifiers:");
 	for (const auto& modifier : npc->GetModifierManager()->GetModifierList())
-		LogF(LP_NONE, "\t{} | {} | {}", (void*)modifier, (void*)modifier->GetAbility(), modifier->GetName());
+		LogF("\t{} | {} | {}", (void*)modifier, (void*)modifier->GetAbility(), modifier->GetName());
 }
 
 void LogInvAndAbilities(CDOTABaseNPC* npc) {

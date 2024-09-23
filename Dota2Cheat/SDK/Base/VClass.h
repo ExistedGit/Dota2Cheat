@@ -4,8 +4,8 @@
 #include "Memory.h"
 
 class VClass {
-public:
 	virtual void dummy_fn() = 0; // so that classes have a vtable
+public:
 
 	template<typename T>
 	T& Field(ptrdiff_t offset) const {
@@ -28,8 +28,8 @@ public:
 		return Method((void*)this, (*(uintptr_t**)this)[index]);
 	}
 
-	template<uint32_t index, typename V = void*, typename ...T>
-	V CallVFunc(T... t) {
-		return GetVFunc(index).Call<V>(t...);
+	template<uint32_t index, typename R = void*, typename ...Args>
+	R CallVFunc(Args&&... t) {
+		return GetVFunc(index).Call<R>(std::forward<Args>(t)...);
 	}
 };

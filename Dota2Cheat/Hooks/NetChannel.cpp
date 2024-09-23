@@ -1,6 +1,6 @@
 #include "NetChannel.h"
 
-void Hooks::hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits) {
+void Hooks::hkPostReceivedNetMessage(void* queue, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits) {
 	using namespace Modules;
 	static INetChanListener* Listeners[] {
 		&ShakerAttackAnimFix,
@@ -19,9 +19,10 @@ void Hooks::hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* m
 	{
 		for (auto l : Listeners)
 			l->OnReceivedMsg(messageHandle, msg);
-		Modules::AttackAnimTracker.ProcessAttackAnimMessage(messageHandle, msg);
+
+		AttackAnimTracker.ProcessAttackAnimMessage(messageHandle, msg);
 	}
-	return ((decltype(&hkPostReceivedNetMessage))oPostReceivedNetMessage)(thisptr, messageHandle, msg, type, bits);
+	return ORIGCALL(PostReceivedNetMessage)(queue, messageHandle, msg, type, bits);
 }
 
 bool Hooks::hkSendNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, NetChannelBufType_t type) {
@@ -31,5 +32,5 @@ bool Hooks::hkSendNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHa
 
 	//Modules::OrderRouter.RouteOrder(messageHandle, msg);
 		
-	return ((decltype(&hkSendNetMessage))oSendNetMessage)(thisptr, messageHandle, msg, type);
+	return ORIGCALL(SendNetMessage)(thisptr, messageHandle, msg, type);
 }

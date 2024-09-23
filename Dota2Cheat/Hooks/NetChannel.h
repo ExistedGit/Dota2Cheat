@@ -15,10 +15,8 @@
 #include "../Modules/Utility/OrderRouter.h"
 
 namespace Hooks {
-	inline INetChannel* NetChan{};
-
 	inline void* oPostReceivedNetMessage{};
-	void hkPostReceivedNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits);
+	void hkPostReceivedNetMessage(void* queue, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, void const* type, int bits);
 
 	inline void* oSendNetMessage{};
 	bool hkSendNetMessage(INetChannel* thisptr, NetMessageHandle_t* messageHandle, google::protobuf::Message* msg, NetChannelBufType_t type);

@@ -23,7 +23,7 @@ public:
 Listeners.insert(name);
 
 #define LOG_EVENT(name) auto name##_logger = CMemAlloc::Instance()->AllocInit<event_func>(); \
-name##_logger->SetFunc([](CGameEvent* ev) { LogF(LP_INFO, "[EVENT] {}", #name); }); \
+name##_logger->SetFunc([](CGameEvent* ev) { LogFI("[EVENT] {}", #name); }); \
 (*GameSystems::GameEventManagerPtr)->AddListener(name##_logger, #name); \
 Listeners.insert(name##_logger);
 
@@ -32,10 +32,11 @@ Listeners.insert(name##_logger);
 		EVENT_SUB(map_shutdown);
 		EVENT_SUB(dota_game_state_change);
 
-		LOG_EVENT(npc_spawned);
+		//LOG_EVENT(npc_spawned);
 		LOG_EVENT(dota_on_hero_finish_spawn);
 		LOG_EVENT(dota_player_update_hero_selection);
 		LOG_EVENT(dota_player_update_assigned_hero);
+		LOG_EVENT(dota_player_spawned);
 	}
 
 #undef EVENT_SUB

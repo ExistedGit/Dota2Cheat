@@ -46,7 +46,7 @@ namespace Signatures {
 	inline BAsyncSendProtoFn BAsyncSendProto{};
 
 #define SIGMAP_ENTRY(var) {#var, (void**)&var}
-	
+
 	static inline std::map<std::string, void**> NamedSignatures{
 		SIGMAP_ENTRY(PrepareUnitOrders),
 
@@ -55,7 +55,7 @@ namespace Signatures {
 		//SIGMAP_ENTRY(BAsyncSendProto),
 		SIGMAP_ENTRY(GetItemSchema),
 		SIGMAP_ENTRY(CreateEconItem),
-		SIGMAP_ENTRY(SaveSerializedSOCache),
+		//SIGMAP_ENTRY(SaveSerializedSOCache),
 		{"CEconItem::DeserializeFromProtobufItem", (void**)&CEconItem::DeserializeFromProtobufItemFunc},
 		{"CEconItem::EnsureCustomDataExists", (void**)&CEconItem::EnsureCustomDataExistsFunc},
 #endif

@@ -14,7 +14,7 @@ void Modules::M_AutoBuyTome::Init() {
 		if (info.iTeamNumber == ctx.localHero->GetTeam() &&
 			info.nItemAbilityID == 0x101) { // tome's id is 257
 			tomeStockInfo = &info;
-			Log(LP_INFO, "Found Tome of Knowledge stock info");
+			LogI("Found Tome of Knowledge stock info");
 			break;
 		}
 	}

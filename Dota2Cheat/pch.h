@@ -21,20 +21,18 @@
 #include <windows.h>
 
 #include <TlHelp32.h>
-
 #include <iostream>
-
 #include <string>
 #include <map>
 #include <vector>
 #include <set>
-
 #include <stdio.h>
 #include <fstream>
 #include <sstream>
-
 #include <format>
 #include <algorithm>
+
+#include <nlohmann/json.hpp>
 
 #include "SDK/include.h"
 #include "CheatSDK/Bytes/Fonts.h"

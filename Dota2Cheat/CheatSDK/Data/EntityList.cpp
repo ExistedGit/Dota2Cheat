@@ -15,7 +15,7 @@ void CEntityList::OnEntityCreated(CBaseEntity* ent) {
 
 	if (className.starts_with("C_DOTA_Unit_Hero")
 		|| className.starts_with("CDOTA_Unit_Hero")) {
-		LogF(LP_NONE, "Hero: {}", (void*)ent);
+		LogF("Hero: {}", (void*)ent);
 		entType = Hero;
 	}
 	else if (className.find("Creep") != -1)

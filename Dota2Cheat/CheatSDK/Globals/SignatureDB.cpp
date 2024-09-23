@@ -39,9 +39,14 @@ void SignatureDB::ParseSignatures(const std::map<std::string, void**>& signature
 	bool brokenSig = false;
 	for (auto& [sigName, sigVar] : signatureMap) {
 		*sigVar = FindSignature(sigName);
-		LogF(*sigVar ? LP_DATA : LP_ERROR, "{}: {}", sigName, *sigVar);
-		if (!(*sigVar))
+
+		if (*sigVar) {
+			LogFD("{}: {}", sigName, *sigVar);
+		}
+		else {
 			brokenSig = true;
+			LogFE("! {}: {}", sigName, "NOT FOUND!");
+		}
 	}
 
 	if (brokenSig)
@@ -50,7 +55,7 @@ void SignatureDB::ParseSignatures(const std::map<std::string, void**>& signature
 
 void SignatureDB::LoadSignaturesFromFile(const std::string& url) {
 	if (std::ifstream fin(url); fin.is_open()) {
-		LogF(LP_INFO, "Loading signatures from {}\n", url);
+		LogFI("Loading signatures from {}\n", url);
 		Data = nlohmann::json::parse(fin);
 		fin.close();
 	}

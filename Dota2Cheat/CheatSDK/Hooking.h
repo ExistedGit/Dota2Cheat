@@ -1,6 +1,5 @@
 #pragma once
 #include "../pch.h"
-#include "EventListeners.h"
 
 #include "../Hooks/PrepareUnitOrders.h"
 #include "../Hooks/AcceptEvents.h"

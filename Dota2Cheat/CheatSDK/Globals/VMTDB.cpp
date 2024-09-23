@@ -32,7 +32,7 @@ void VMDB::ParseMap(const std::map<std::string, uint32_t*>& m) {
 	for (auto& [name, val] : m) {
 		auto& entry = *GetNestedJsonEntry(name);
 		if (entry.is_null()) {
-			LogF(LP_ERROR, "VM index '{}' not found in JSON data!", name);
+			LogFE("VM index '{}' not found in JSON data!", name);
 			continue;
 		}
 
@@ -42,7 +42,7 @@ void VMDB::ParseMap(const std::map<std::string, uint32_t*>& m) {
 
 void VMDB::LoadFromFile(const std::string& url) {
 	if (std::ifstream fin(url); fin.is_open()) {
-		LogF(LP_INFO, "Loading VM indices from {}\n", url);
+		LogFI("Loading VM indices from {}\n", url);
 		Data = nlohmann::json::parse(fin);
 		fin.close();
 	}

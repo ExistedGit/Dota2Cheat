@@ -12,7 +12,7 @@ void Hooks::InstallHooks() {
 		HookFunc(SendMsg, &Hooks::hkSendMessage, &Hooks::oSendMessage, "ISteamGameCoordinator::SendMessage");
 		HookFunc(RetrieveMessage, &Hooks::hkRetrieveMessage, &Hooks::oRetrieveMessage, "ISteamGameCoordinator::RetrieveMessage");
 	}
-	HOOKFUNC_SIGNATURES(SaveSerializedSOCache);
+	//HOOKFUNC_SIGNATURES(SaveSerializedSOCache);
 #endif // _DEBUG
 
 #ifdef _TESTING
@@ -24,7 +24,9 @@ void Hooks::InstallHooks() {
 		// NetChan constructor
 		// vtable ptr at 0x15
 		uintptr_t** vtable = SignatureDB::FindSignature("CNetChan::vftable");
-		uintptr_t* PostReceivedNetMessage = vtable[71], * SendNetMessage = vtable[34]; // bytehooking through vtables, how's that, Elon Musk?
+		// They inlined the call to PostReceived so we have to make do with this 
+		uintptr_t* PostReceivedNetMessage = SignatureDB::FindSignature("CTSQueuePush"); // vtable[VMI::CNetChan::PostReceivedNetMessage],
+		//* SendNetMessage = vtable[VMI::CNetChan::SendNetMessage];
 		HOOKFUNC(PostReceivedNetMessage);
 		// HOOKFUNC(SendNetMessage);
 	}
@@ -54,7 +56,7 @@ void Hooks::InstallHooks() {
 #endif
 
 	}
-	
+
 	Interfaces::EntitySystem->GetListeners().push_back(&EntityList);
 
 	HookDX11Old();

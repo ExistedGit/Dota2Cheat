@@ -126,7 +126,7 @@ void Hooks::hkFrameStageNotify(void* thisptr, int stage) {
 		});
 
 
-	if (Interfaces::Engine->IsInGame() &&
+	if (Interfaces::NetworkClientService->GetIGameClient()->IsInGame() &&
 		ctx.localHero &&
 		ctx.gameStage == GameStage::IN_GAME)
 		InGameLogic();

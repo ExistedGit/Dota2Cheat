@@ -49,7 +49,7 @@ public:
 		fin.close();
 
 		if (!schema.contains(locale)) {
-			LogF(LP_ERROR, "Unknown locale {}, defaulting to en_US!", locale);
+			LogFE("Unknown locale {}, defaulting to en_US!", locale);
 
 			locale = "en_US";
 		}

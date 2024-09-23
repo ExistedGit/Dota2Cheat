@@ -4,9 +4,9 @@
 
 #define SET_VAR(var, data) var = (decltype(var))(data); \
 if(var) \
-	LogF(LP_DATA, "{}: {}", #var, (void*)var); \
+	LogFD("{}: {}", #var, (void*)var); \
 else \
-	LogF(LP_ERROR, "{}: {}", #var, (void*)var);
+	LogFE("{}: {}", #var, (void*)var);
 
 void GameSystems::InitMinimapRenderer() {
 	while (!Panorama::DotaHud->FindChildByIdTraverse("minimap")) {};
@@ -16,7 +16,7 @@ void GameSystems::InitMinimapRenderer() {
 }
 
 void GameSystems::FindGameSystems() {
-	Log(LP_INFO, "GAME SYSTEM POINTERS:");
+	LogI("GAME SYSTEM POINTERS:");
 
 	// xrefs: "CLoopModeGame::InitAllSystems()" "CBaseTempEntity::StaticInitTempEnts()"
 	GameSystemFactory = *SignatureDB::FindSignature("g_pGameSystemFactory");

@@ -7,5 +7,5 @@
 class INetworkClientService : VClass
 {
 public:
-	GETTER(CNetworkGameClient*, GetIGameClient, 0xb8);
+	GETTER(CNetworkGameClient*, GetIGameClient, 0xA8);
 };

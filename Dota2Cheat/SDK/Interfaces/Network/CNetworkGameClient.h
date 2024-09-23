@@ -199,6 +199,8 @@ public:
 
 	// 2 funcs below xrefs: "CL:  Loading groups %d\n", "%s:  Entity Group loaded\n"
 	uint32_t GetLocalPlayerID(int splitscreenSlot = 0) {
-		return *(uint32_t*)((uintptr_t)this + 24 * (splitscreenSlot * 10));
+		uint32_t res = 0;
+		((VClass*)this)->GetVFunc(32)(&res, splitscreenSlot);
+		return res;
 	}
 };

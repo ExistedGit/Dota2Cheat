@@ -46,7 +46,7 @@ void Hooks::hkOnAddModifier(CDOTAModifier* modifier, int unk) {
 		Modules::LinearProjectileWarner.OnModifierAdded(modifier);
 	}
 
-	((decltype(&hkOnAddModifier))oOnAddModifier)(modifier, unk);
+	ORIGCALL(OnAddModifier)(modifier, unk);
 }
 
 void Hooks::hkOnRemoveModifier(CDOTAModifier* modifier) {
@@ -72,5 +72,5 @@ void Hooks::hkOnRemoveModifier(CDOTAModifier* modifier) {
 		Modules::LinearProjectileWarner.OnModifierRemoved(modifier);
 		Modules::TrueSightESP.OnModifierRemoved(modifier);
 	}
-	((decltype(&hkOnRemoveModifier))oOnRemoveModifier)(modifier);
+	ORIGCALL(OnRemoveModifier)(modifier);
 }

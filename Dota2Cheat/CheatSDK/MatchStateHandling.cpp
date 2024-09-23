@@ -1,13 +1,9 @@
 #include "MatchStateHandling.h"
 
 void CMatchStateManager::EnteredPreGame() {
-
-	//	Modules::AutoPick.autoBanHero = "sniper";
-	//	Modules::AutoPick.autoPickHero = "arc_warden";
-
 #define DereferenceReallocatingSystem(global) if(!GameSystems::##global) { \
 												GameSystems::##global = *GameSystems::## global ##Ptr;\
-												LogF(LP_DATA, "{}: {}", #global, (void*)GameSystems::global);\
+												LogFD("{}: {}", #global, (void*)GameSystems::global);\
 											  }
 
 	if (!GameSystems::PlayerResource)
@@ -17,40 +13,36 @@ void CMatchStateManager::EnteredPreGame() {
 		return;
 
 	ctx.localPlayer = Signatures::GetPlayer(-1);
-
+	
 	if (!ctx.localPlayer)
 		return;
 
-	//#ifdef _DEBUG
-	//	LogF(LP_INFO,
-	//		"Player indices:\n\t+1: {}\n\tGetPlayer: {}\n\tPlayerResource: {}",
-	//		Interfaces::NetworkClientService->GetIGameClient()->GetLocalPlayerID() + 1,
-	//		Signatures::GetPlayer(-1)->GetIndex(),
-	//		H2IDX(GameSystems::PlayerResource->PlayerIDToHandle(Interfaces::NetworkClientService->GetIGameClient()->GetLocalPlayerID()))
-	//		);
-	//#endif
+	#ifdef _DEBUG
+		LogFI("Player indices:\n\t+1: {}\n\tGetPlayer: {}\n\tPlayerResource: {}",
+			Interfaces::NetworkClientService->GetIGameClient()->GetLocalPlayerID() + 1,
+			Signatures::GetPlayer(-1)->GetIndex(),
+			H2IDX(GameSystems::PlayerResource->PlayerIDToHandle(Interfaces::NetworkClientService->GetIGameClient()->GetLocalPlayerID()))
+			);
+	#endif
 
 	DereferenceReallocatingSystem(GameEventManager);
 	DereferenceReallocatingSystem(ProjectileManager);
 	DereferenceReallocatingSystem(RenderGameSystem);
 
 	GameSystems::ParticleManager = GameSystems::ParticleManagerSystem->GetParticleManager();
-	LogF(LP_DATA, "ParticleManager: {} / CreateParticle: {}", (void*)GameSystems::ParticleManager, (void*)GameSystems::ParticleManager->GetVFunc(VMI::CDOTAParticleManager::CreateParticle));
+	LogFD("ParticleManager: {} / CreateParticle: {}", (void*)GameSystems::ParticleManager, (void*)GameSystems::ParticleManager->GetVFunc(VMI::CDOTAParticleManager::CreateParticle));
 
 	ctx.gameStage = GameStage::PRE_GAME;
 
-	Log(LP_INFO, "GAME STAGE: PRE-GAME");
+	LogI("GAME STAGE: PRE-GAME");
 }
 
 void CMatchStateManager::EnteredInGame() {
 	//if (GameSystems::GameRules->GetGameMode() == DOTA_GAMEMODE_CUSTOM)
 	//	return;
 
-	//Config::AutoPingTarget = ctx.localHero;
-	//FillPlayerList();
-
-	Log(LP_INFO, "GAME STAGE: INGAME");
-	LogF(LP_DATA, "Local Player: {}\n\tSTEAM ID: {}", (void*)ctx.localPlayer, ctx.localPlayer->GetSteamID());
+	LogI("GAME STAGE: INGAME");
+	LogFD("Local Player: {}\n\tSTEAM ID: {}", (void*)ctx.localPlayer, ctx.localPlayer->GetSteamID());
 
 	// Interfaces::CVar->CVars["sv_cheats"].m_pVar->value.boolean = true;
 	Interfaces::CVar->CVars["r_farz"].m_pVar->value.flt = 10000.0f;
@@ -64,7 +56,6 @@ void CMatchStateManager::EnteredInGame() {
 	//}
 
 	GameSystems::InitMinimapRenderer();
-	// Modules::UIOverhaul.Init();
 	if (Config::Changer::TreeModelIdx != 0)
 		Modules::TreeChanger.QueueModelUpdate(Config::Changer::TreeModelIdx - 1);
 
@@ -101,12 +92,13 @@ void CMatchStateManager::LeftMatch() {
 	ctx.localPlayer = nullptr;
 	ctx.localHero = nullptr;
 
-	Log(LP_INFO, "GAME STAGE: NONE");
+	LogI("GAME STAGE: NONE");
 }
 
 void CMatchStateManager::CheckForOngoingGame() {
-	if (!Interfaces::Engine->IsInGame())
+	if (!Interfaces::NetworkClientService->GetIGameClient()->IsInGame())
 		return;
+
 	MatchStateManager.CacheAllEntities();
 
 	if (!GameSystems::GameRules)
@@ -146,7 +138,7 @@ void CMatchStateManager::OnUpdatedAssignedHero() {
 
 	ctx.localHero = assignedHero;
 
-	LogF(LP_INFO, "Changed hero: \n\tEntity: {}\n\tName: {}", (void*)assignedHero, assignedHero->GetUnitName());
+	LogFI("Changed hero: \n\tEntity: {}\n\tName: {}", (void*)assignedHero, assignedHero->GetUnitName());
 
 	Modules::AbilityESP.SubscribeHeroes();
 	Modules::KillIndicator.Init();

@@ -539,9 +539,12 @@ void Modules::M_AbilityESP::UpdateAbilities(CDOTABaseNPC_Hero* hero) {
 		return;
 
 	int validAbilities = 0;
-	for (int i = 0; validAbilities != 6; ++i) {
+	for (int i = 0; i < abilityList.size() && validAbilities != 6; ++i) {
 		auto ability = abilityList[i];
 		auto& heroAbilities = EnemyAbilities[hero];
+
+		if (!heroAbilities[validAbilities].ability)
+			continue;
 
 		//weird worldent thing
 		if (heroAbilities[validAbilities].ability->GetIndex() == 0)

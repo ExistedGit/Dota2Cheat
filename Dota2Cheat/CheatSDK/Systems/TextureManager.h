@@ -50,7 +50,7 @@ public:
 
 	void ExecuteLoadCycle() {
 		for (auto& [path, tex] : loadingQueue) {
-			// LogF(LP_INFO, "Loading image: {}", path);
+			// LogFI("Loading image: {}", path);
 			LoadTextureFromFile(path.c_str(), tex);
 		}
 

@@ -32,7 +32,7 @@ void Modules::M_AutoAccept::RunAcceptTimer() {
 
 	CMsgReadyUp msg;
 	msg.set_ready_up_key(key);
-	Log(LP_INFO, "Accepting match...");
+	LogI("Accepting match...");
 	msg.set_state(DOTALobbyReadyState_ACCEPTED);
 
 	Interfaces::SteamGC->SendMsg(msg, k_EMsgGCReadyUp);

@@ -16,16 +16,16 @@ struct Function {
 		return (T*)ptr;
 	}
 
-	template<typename ...T>
-	void* __fastcall operator()(T... t) {
-		return ((void* (__fastcall*)(T...))ptr)(t...);
-	}
-	// Used to specify the return type(e. g. in case of a floating-point value)
-	template<typename V, typename ...T>
-	V __fastcall Call(T... t) {
-		return ((V(__fastcall*)(T...))ptr)(t...);
+	template<typename ...Args>
+	void* __fastcall operator()(Args&&... t) {
+		return ((void* (__fastcall*)(Args...))ptr)(std::forward<Args>(t)...);
 	}
 
+	// Used to specify the return type(e. g. in case of a floating-point value)
+	template<typename R, typename ...Args>
+	R __fastcall Call(Args&&... t) {
+		return ((R(__fastcall*)(Args...))ptr)(std::forward<Args>(t)...);
+	}
 };
 
 // A function with a bound "this" parameter.
@@ -34,7 +34,6 @@ public:
 	void* ptr;
 	void* thisptr;
 
-	Method() : ptr(nullptr) {}
 	Method(void* thisptr, uintptr_t ptr) : ptr((void*)ptr), thisptr(thisptr) {}
 	Method(void* thisptr, void* ptr) : ptr(ptr), thisptr(thisptr) {}
 
@@ -44,14 +43,14 @@ public:
 		return (T*)ptr;
 	}
 
-	template<typename ...T>
-	void* __fastcall operator()(T... t) {
-		return ((void* (__fastcall*)(void*, T...))ptr)(thisptr, t...);
+	template<typename ...Args>
+	void* __fastcall operator()(Args&&... t) {
+		return ((void* (__fastcall*)(void*, Args...))ptr)(thisptr, std::forward<Args>(t)...);
 	}
 
 	// Used to specify the return type(e. g. in case of a floating-point value)
-	template<typename V, typename ...T>
-	V __fastcall Call(T... t) {
-		return ((V(__fastcall*)(void*, T...))ptr)(thisptr, t...);
+	template<typename R, typename ...Args>
+	R __fastcall Call(Args&&... t) {
+		return ((R(__fastcall*)(void*, Args...))ptr)(thisptr, std::forward<Args>(t)...);
 	}
 };

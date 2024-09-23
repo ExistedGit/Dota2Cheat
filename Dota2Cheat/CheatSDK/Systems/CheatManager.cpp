@@ -55,7 +55,7 @@ void CCheatManager::LoadGameSpecific() {
 	GameSystems::FindGameSystems();
 
 #if defined(_DEBUG) && !defined(_TESTING)
-	Log(LP_DATA, "ItemSchema: ", Signatures::GetItemSchema());
+	LogD("ItemSchema: ", Signatures::GetItemSchema());
 #endif
 
 	Modules::BarAugmenter.Init();
@@ -74,7 +74,7 @@ void CCheatManager::LoadFiles() {
 		Config::cfg.LoadConfig(fin);
 		fin.close();
 
-		Log(LP_INFO, "Loaded config from ", cheatFolderPath, "\\config\\base.json\n");
+		LogI("Loaded config from ", cheatFolderPath, "\\config\\base.json\n");
 	}
 	locale.Init(Config::Locale);
 }

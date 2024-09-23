@@ -5,25 +5,24 @@ template<typename T>
 void InitInterface(T** var, std::string_view dllName, std::string_view interfaceName, std::optional<int> vmCount = std::nullopt) {
 	T* instance = *var = Memory::GetInterfaceBySubstr<T>(dllName, interfaceName);
 	if (!instance)
-		return LogF(LP_ERROR, "{}: {}", interfaceName, (void*)instance);
+		return LogFE("{}: {}", interfaceName, (void*)instance);
 
 	int countedVMs = CountVMs(instance);
 
-	LogPrefix prefix = LP_DATA;
 	std::string vmInfo = " | VMs: " + std::to_string(countedVMs);
 
 	if (vmCount.has_value() && countedVMs != vmCount) {
 		vmInfo = std::format(" | VM count mismatch! Current: {}, Expected: {}", countedVMs, *vmCount);
-		prefix = LP_WARNING;
+		return LogFW("{}: {}{}", interfaceName, (void*)instance, vmInfo);
 	}
 
-	LogF(prefix, "{}: {}{}", interfaceName, (void*)instance, vmInfo);
+	LogFD("{}: {}{}", interfaceName, (void*)instance, vmInfo);
 }
 
 void Interfaces::FindInterfaces() {
 	Log(LP_NONE, "");
 
-	Log(LP_INFO, "[INTERFACES]");
+	LogI("[INTERFACES]");
 	InitInterface(&Engine, "engine2.dll", "Source2EngineToClient0", 177);
 	InitInterface(&Client, "client.dll", "Source2Client0");
 	InitInterface(&CVar, "tier0.dll", "VEngineCvar", 42);
@@ -50,8 +49,8 @@ void Interfaces::FindInterfaces() {
 
 	UIEngine = Panorama->Member<CUIEngineSource2*>(0x28);
 
-	LogF(LP_DATA, "UIEngine: {}", (void*)UIEngine);
-	LogF(LP_DATA, "EntitySystem: {}", (void*)EntitySystem);
+	LogFD("UIEngine: {}", (void*)UIEngine);
+	LogFD("EntitySystem: {}", (void*)EntitySystem);
 
 	SteamGC = SteamClient->GetISteamGenericInterface(
 		Memory::GetExport("steam_api64.dll", "GetHSteamPipe")(),

@@ -25,7 +25,7 @@ EGCResults Hooks::hkSendMessage(ISteamGameCoordinator* thisptr, uint32_t unMsgTy
 		if (!msg.ParsePartialFromArray(data, size))
 			return oSendMessage(thisptr, unMsgType, pubData, cubData);
 
-		Log(LP_INFO, msg.ready_up_key());
+		LogI(msg.ready_up_key());
 	}
 	if (msgId == k_EMsgClientToGCEquipItems) {
 		CMsgClientToGCEquipItems msg;
@@ -53,7 +53,7 @@ EGCResults Hooks::hkSendMessage(ISteamGameCoordinator* thisptr, uint32_t unMsgTy
 
 				auto itemDef = CDOTAItemSchema::GetItemDefByIndex(itemSchema, item->m_unDefIndex);
 
-				LogF(LP_INFO, "Equipping {}. Class: {}; Slot: {} | ItemDef: {}",
+				LogFI("Equipping {}. Class: {}; Slot: {} | ItemDef: {}",
 					(void*)item,
 					equip.new_class(),
 					equip.new_slot(),
@@ -64,7 +64,7 @@ EGCResults Hooks::hkSendMessage(ISteamGameCoordinator* thisptr, uint32_t unMsgTy
 				return k_EGCResultOK;
 			}
 			else {
-				LogF(LP_INFO, "Equipping {}. Class: {}; Slot: {}",
+				LogFI("Equipping {}. Class: {}; Slot: {}",
 					(void*)item,
 					equip.new_class(),
 					equip.new_slot()
@@ -77,7 +77,7 @@ EGCResults Hooks::hkSendMessage(ISteamGameCoordinator* thisptr, uint32_t unMsgTy
 }
 
 EGCResults Hooks::hkRetrieveMessage(ISteamGameCoordinator* thisptr, uint32_t* punMsgType, void* pubDest, uint32_t cubDest, uint32_t* pcubMsgSize) {
-	const auto ret = (decltype(&hkRetrieveMessage)(oRetrieveMessage))(thisptr, punMsgType, pubDest, cubDest, pcubMsgSize);
+	const auto ret = ORIGCALL(RetrieveMessage)(thisptr, punMsgType, pubDest, cubDest, pcubMsgSize);
 
 	const auto msg_id = (EDOTAGCMsg)(*punMsgType & 0x7FFFFFFF);
 	auto body_data = (void*)(((std::uintptr_t)pubDest) + 8);

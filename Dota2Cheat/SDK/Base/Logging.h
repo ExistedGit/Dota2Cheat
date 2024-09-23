@@ -40,7 +40,7 @@ enum LogPrefix {
 	LP_DATA
 };
 
-inline std::string GetLogPrefix(LogPrefix prefixType) {
+inline const char* GetLogPrefix(LogPrefix prefixType) {
 	switch (prefixType)
 	{
 	case LP_WARNING:
@@ -59,38 +59,34 @@ inline std::string GetLogPrefix(LogPrefix prefixType) {
 	return "";
 }
 
-template<typename ...Args>
-void Log(LogPrefix prefixType, Args&&... args) {
-//#ifndef _DEBUG
-//	if (prefixType != LP_ERROR && prefixType != LP_WARNING)
-//		return;
-//#endif
+template<LogPrefix prefixType = LogPrefix::LP_NONE, typename ...Args>
+void Log(Args&&... args) {
 	std::lock_guard<std::mutex> lk(mLogging);
-	std::string prefix = GetLogPrefix(prefixType);
-	((std::cout << prefix) << ... << args) << '\n';
+	((std::cout << GetLogPrefix(prefixType)) << ... << std::forward<Args>(args)) << '\n';
 	SetConsoleColor();
 }
 
-template<typename ...Args>
-void LogI(Args&&... args) {
-//#ifndef _DEBUG
-//	return;
-//#endif
+// Formatted logging
+template<LogPrefix prefixType = LogPrefix::LP_NONE, typename ...Args>
+void LogF(std::string_view fmtString, Args&&... args) {
 	std::lock_guard<std::mutex> lk(mLogging);
-	std::string prefix = GetLogPrefix(LP_INFO);
-	((std::cout << prefix) << ... << args) << '\n';
+	std::cout << GetLogPrefix(prefixType) << std::vformat(fmtString, std::make_format_args(std::forward<Args>(args)...)) << '\n';
 	SetConsoleColor();
 }
 
-// Formatted log
-template<typename ...Args>
-void LogF(LogPrefix prefixType, const char* fmtString, Args&&... args) {
-//#ifndef _DEBUG
-//	if (prefixType != LP_ERROR && prefixType != LP_WARNING)
-//		return;
-//#endif
-	std::lock_guard<std::mutex> lk(mLogging);
-	std::string prefix = GetLogPrefix(prefixType);
-	std::cout << prefix << std::vformat(fmtString, std::make_format_args(std::forward<Args>(args)...)) << '\n';
-	SetConsoleColor();
-}
+
+#define ADHOC_LOG(name, type) template<typename... Args> void name(Args&&... args) { Log<type>(std::forward<Args>(args)...); };
+#define ADHOC_LOGF(name, type) template<typename... Args> void name(std::string_view fmtString, Args&&... args) { LogF<type>(fmtString, std::forward<Args>(args)...); };
+
+ADHOC_LOG(LogI, LP_INFO);
+ADHOC_LOG(LogE, LP_ERROR);
+ADHOC_LOG(LogD, LP_DATA);
+ADHOC_LOG(LogW, LP_WARNING);
+
+ADHOC_LOGF(LogFI, LP_INFO);
+ADHOC_LOGF(LogFE, LP_ERROR);
+ADHOC_LOGF(LogFD, LP_DATA);
+ADHOC_LOGF(LogFW, LP_WARNING);
+
+#undef ADHOC_LOG
+#undef ADHOC_LOGF

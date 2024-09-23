@@ -17,17 +17,17 @@
 #include "../CheatSDK/VTexDecoders/VTexParser.h"
 
 LRESULT WINAPI Hooks::WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
-	static std::once_flag inputFix;
+	//static std::once_flag inputFix;
 
 	KeyHandler.OnWindowMessage(uMsg, wParam);
 
 	if (DrawData.ShowMenu) {
 		ImGui_ImplWin32_WndProcHandler(hWnd, uMsg, wParam, lParam);
 
-		std::call_once(inputFix,
-			CallWindowProcA,
-			DrawData.Dx.oWndProc, hWnd, uMsg, wParam, lParam
-		);
+		//std::call_once(inputFix,
+		//	CallWindowProcA,
+		//	DrawData.Dx.oWndProc, hWnd, uMsg, wParam, lParam
+		//);
 		return 1;
 	}
 
@@ -42,7 +42,7 @@ void InitImGui() {
 	ImGui_ImplWin32_Init(DrawData.Dx.Window);
 	ImGui_ImplDX11_Init(DrawData.Dx.pDevice, DrawData.Dx.pContext);
 
-	Log(LP_INFO, "Loading fonts...");
+	LogI("Loading fonts...");
 
 	// ImGui takes ownership of the loaded memory by default
 	// Of course, we don't want to try to delete a constant array and get a SEGFAULT
@@ -95,10 +95,6 @@ long Hooks::hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags)
 	}
 
 	auto& io = ImGui::GetIO();
-	//ImFontConfig defCfg{};
-	//defCfg.GlyphRanges = io.Fonts->GetGlyphRangesCyrillic();
-	//static auto defaultFont = io.Fonts->AddFontDefault(&defCfg);
-	//static auto defaultFont = io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\segoeui.ttf", 18.0f, nullptr, io.Fonts->GetGlyphRangesCyrillic());
 	static auto defaultFont = io.Fonts->AddFontFromMemoryTTF((void*)Fonts::Roboto, IM_ARRAYSIZE(Fonts::Roboto), 18.0f, nullptr, io.Fonts->GetGlyphRangesCyrillic());
 
 	ImGui_ImplDX11_NewFrame();

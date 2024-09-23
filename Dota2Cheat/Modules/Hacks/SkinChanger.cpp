@@ -77,7 +77,7 @@ bool Modules::SkinChanger::AddItem(uint32_t unDefIndex) {
 	proto.set_origin(kEconItemOrigin_Earned);
 	item->DeserializeFromProtobufItem(&proto);
 
-	LogF(LP_INFO, "Created item with ID {}", proto.id());
+	LogFI("Created item with ID {}", proto.id());
 
 	// UnlockAllStyles(item);
 

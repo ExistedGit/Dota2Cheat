@@ -48,7 +48,7 @@ struct IEntityListListener {
 inline class CEntityList : public IEntityListener {
 	std::map<uint32_t, EntityWrapper> Entities;
 
-	std::vector<IEntityListListener*> Listeners;
+	inline static std::vector<IEntityListListener*> Listeners;
 
 	void DispatchEntityAdded(const EntityWrapper& ent) {
 		for (auto l : Listeners)
@@ -60,19 +60,23 @@ inline class CEntityList : public IEntityListener {
 			l->OnEntityRemoved(ent);
 	}
 
-public:
 	std::mutex mEntities;
+public:
+	template<typename T = CBaseEntity>
+	T* Get(uint32_t id) {
+		return Entities[id];
+	}
 
 	void OnEntityCreated(CBaseEntity* ent) override;
 
 	void OnEntityDeleted(CBaseEntity* ent) override;
 
-	void AddListener(IEntityListListener& l) {
+	static void AddListener(IEntityListListener& l) {
 		Listeners.push_back(&l);
 	}
 
 	template<size_t lSize>
-	void AddListeners(IEntityListListener* const (&_listeners)[lSize]) {
+	static void AddListeners(IEntityListListener* const (&_listeners)[lSize]) {
 		for (auto l : _listeners)
 			Listeners.push_back(l);
 	}

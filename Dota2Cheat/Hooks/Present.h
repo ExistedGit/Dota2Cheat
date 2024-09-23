@@ -17,11 +17,6 @@ namespace Hooks {
 
 	long hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags);
 
-	inline bool HookDirectX() {
-		// xref: "Hooking vtable for swap chain\n"
-		auto Present = SignatureDB::FindSignature("IDXGISwapChain::Present");
-		return HOOKFUNC(Present);
-	}
 
 	inline bool HookDX11Old() {
 		HWND hWnd = GetForegroundWindow();
@@ -54,11 +49,17 @@ namespace Hooks {
 		auto Present = (*(void***)pSwapChain)[8];
 		auto res = HOOKFUNC(Present);
 
-
 		pDevice->Release();
 		pContext->Release();
 		pSwapChain->Release();
 
 		return res;
+	}
+	inline bool HookDirectX() {
+		HookDX11Old();
+
+		// xref: "Hooking vtable for swap chain\n"
+		//auto Present = SignatureDB::FindSignature("IDXGISwapChain::Present");
+		//return HOOKFUNC(Present);
 	}
 }

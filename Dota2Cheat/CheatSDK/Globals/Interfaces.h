@@ -27,7 +27,7 @@
 
 namespace Interfaces {
 	inline CCVar* CVar{};
-	inline CEngineClient* Engine{}; // CEngineClient
+	inline CEngineClient* Engine{};
 	inline CResourceSystem* ResourceSystem{};
 	inline VClass* Panorama{};
 	inline CUIEngineSource2* UIEngine{};

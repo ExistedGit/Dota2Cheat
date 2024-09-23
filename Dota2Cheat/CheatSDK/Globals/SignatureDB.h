@@ -13,5 +13,5 @@ public:
 	// Use a map of signature names to variable pointers to perform a sigscan
 	static void ParseSignatures(const std::map <std::string, void**>& signatureMap);
 
-	static void LoadSignaturesFromFile(const std::string& url);;
+	static void LoadSignaturesFromFile(const std::string& url);
 };
